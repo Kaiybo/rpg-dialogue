@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Mind the ladder, the third rung is a liar. Come up, come up." },
+    { id = "g_hello", text = "Mind the ladder; the third rung is a liar. Come up, come up, and don't touch the charts." },
     { id = "g_knife", when = { questActive = TODO_QUEST("The Knife Revealed") }, text = "Ginro sent you with something, I see, and I can guess what he said about my debts." },
     { id = "g_grain", when = { questActive = TODO_QUEST("Morrowgrain to Feathermoon Stronghold") }, text = "More morrowgrain? Set it down gently. I want to know what it is before it knows what I am." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and nobody's cursed you in the meantime. I'd have noticed." },
@@ -79,7 +79,7 @@ P:NPC {
       big = true,
       lines = { { id = "pm_default", text = "I could, but I've learned to ask first, because people don't always like what their belongings remember. Some say a secret kept is a secret owed; others think the truth should always come out. Which are you?" } },
       choices = {
-        { text = "The truth should always come out.", next = "BACK", reply = "Then I will tell you what I see, and I will trust you to carry it gently, because the truth is heavier than it looks.", fx = { align = { order = 1 } } },
+        { text = "The truth should always come out, Quintis.", next = "BACK", reply = "Then I will tell you what I see, and I will trust you to carry it gently, because the truth is heavier than it looks.", fx = { align = { order = 1 } } },
         { text = "Some secrets are nobody's business.", next = "BACK", reply = "A wise answer, and one the moon would approve of, so I will keep my hands in my sleeves and leave your things their silence.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -162,7 +162,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Any word from the mainland? No? Then come in anyway." },
+    { id = "g_hello", text = "Any word from the mainland? No? Come in anyway; the kettle's on." },
     { id = "g_boat", when = { questActive = TODO_QUEST("The Missing Courier") }, text = "The boat, {name}. Find the boat, and we'll know where to start." },
     { id = "g_gnolls", when = { questActive = TODO_QUEST("The Woodpaw Gnolls") }, text = "The Woodpaw camps. Tear them apart if you have to; I'm done being polite." },
     { id = "g_done", when = { questDone = TODO_QUEST("Thalanaar Delivery") }, text = "The parcel reached Falfindel. Raschal would have wanted that more than anything." },
@@ -261,7 +261,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's the dispatch office, friend." } },
+    knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's all the dispatch office is, friend, and lately it's mostly the last one." } },
     background = { { id = "tp_bg", text = "One of the general's expedition, keeper of the stronghold's dispatches.", next = "stronghold" } },
     sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, so the General keeps a clerk on the island, and the clerk is me." } },
     _none = { { id = "tp_none", text = "Nothing in the dispatches about that, I'm afraid." } },

@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = { { id = "tb_default", text = "Both sides, the middle, and the bleachers, kid. The way I see it, loyalty's just a discount you give somebody for nothin', and I don't do discounts." } },
       choices = {
-        { text = "A man should stand by his side.", next = "BACK", reply = "Stand by it all you like, kid, and I'll be standin' right next to you with a repair bill when your side's car blows up.", fx = { align = { honor = 1 } } },
+        { text = "A man should stand by his own side.", next = "BACK", reply = "Stand by it all you like, kid, and I'll be standin' right next to you with a repair bill when your side's car blows up.", fx = { align = { honor = 1 } } },
         { text = "Smart. Take everybody's money.", next = "BACK", reply = "Now you're talkin' like a real professional, kid, and if you ever want to open a stall next to mine, I'll only charge you half the rent.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -117,7 +117,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Who's broke, who's cheatin', and what everybody on these flats would pay to know about everybody else." } },
     steamwheedle = { { id = "tp_steam", text = "Good people, the Cartel, and I mean that in a strictly invoiced way." } },
-    mirage_raceway = { { id = "tp_race", text = "Two teams, one track, and one goblin in the middle with a cash box. Guess who always wins." } },
+    mirage_raceway = { { id = "tp_race", text = "Two teams, one track, and one goblin in the middle with a cash box, sweetheart. Guess who goes home rich every single race, crash or no crash." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, but give me a day and I'll sell you a rumor about it." } },
   },
 }
@@ -181,7 +181,7 @@ P:NPC {
       lines = { { id = "ts_default", text = "Cliffwatcher Longhorn wants patrols, and the braves want to burn the nests. I want my crates back and a quiet night, and I'm not particular about how." } },
       choices = {
         { text = "Burn the nests. Drive them off for good.", next = "BACK", reply = "Burn them, and the smoke will reach the Pinnacle by morning, but I'll admit I wouldn't weep for a single nest.", fx = { align = { light = -1 } } },
-        { text = "Patrol and guard. No need to burn anything.", next = "BACK", reply = "That's the sensible way, and I'll tell Longhorn you said so, though the braves won't thank you for it.", fx = { align = { light = 1 } } },
+        { text = "Patrol and guard. There's no need to burn anything.", next = "BACK", reply = "That's the sensible way, and I'll tell Longhorn you said so, though the braves won't thank you for it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -272,7 +272,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Turhaw, butcher of Freewind, and the only orc on this rock who cooks. The tauren eat well enough, but they boil everything, and a man needs something with char on it now and then." },
       },
-      again = { { id = "h_again", text = "Hungry for more? Talk, then." } },
+      again = { { id = "h_again", text = "Hungry for more? Talk, then, while I cut." } },
       choices = {
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What about the kodo?", next = "kodo" },

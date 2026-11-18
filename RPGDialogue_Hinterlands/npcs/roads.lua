@@ -38,7 +38,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Rin'ji was just walkin' through their woods, mon, walkin' very quietly and lookin' at nothin' in particular. Maybe Rin'ji was lookin' at their arrows a bit, but that be no reason to cage a troll." } },
       choices = {
-        { text = "Then they had no right to cage you. You're free.", next = "BACK", reply = "Ya, dat be what Rin'ji keep sayin', mon! Finally somebody listen.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then they had no right to cage you.", next = "BACK", reply = "Ya, dat be what Rin'ji keep sayin', mon! Finally somebody listen.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A spy in someone's woods earns a cage.", next = "BACK", reply = "A spy, mon? Rin'ji be just walkin', very quiet. But a cage be a cage, and Rin'ji still want out.", fx = { align = { honor = -1 } } },
         { text = "Something else, Rin'ji.", next = "BACK" },
       },
@@ -181,7 +181,7 @@ P:NPC {
       lines = {
         { id = "tr_default", text = "You shouldn't, not all the way. But I be the one in the cage, and you be the one with the key, so who be needin' trust more, eh?" },
       },
-      choices = { { text = "Fair point. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Fair point. Let's talk about something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     troll = {
       lines = { { id = "tr2_default", text = "Then the spirits sent the right cousin, mon. Mind the archers on the lodge roof; they be watchin' the trail, not the trees." } },

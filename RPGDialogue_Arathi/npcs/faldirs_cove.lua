@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ahoy, matey. Mind the rigging, and mind the water even more." },
+    { id = "g_default", text = "Ahoy, matey! Mind the rigging, and mind the water more, because the naga have been coming up out of it at low tide." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the cove! The tide's still low and the naga are still angry, so welcome aboard." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and we're still stuck in this blasted cove. If you've come with a high tide in your pocket, I'll buy it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've the look of someone who could sail a ship through a naga war, and I'd hire you for it, too." },
@@ -51,7 +51,7 @@ P:NPC {
           text = "Horde, eh? The Blackwater Raiders sail for Booty Bay and gold, not for kings or warchiefs, so you're as welcome here as anyone who pulls an oar." },
       },
       again = {
-        { id = "h_again", text = "What else, matey? Make it quick; the tide waits for no captain." },
+        { id = "h_again", text = "What else, matey? Make it quick; the naga come up with the tide, and the tide's turning." },
         { id = "h_again2", text = "Speak up. The waves are loud and my ears are older than they look." },
       },
       choices = {
@@ -89,8 +89,8 @@ P:NPC {
         { id = "wn_default", text = "Whatever's in that temple, I'd guess, and they don't care to share it. They'll keep coming at this cove until we're gone or they are, so we'd best be ready for them." },
       },
       choices = {
-        { text = "Then we hold the cove and hold it hard.", next = "BACK", reply = "Hard it is, matey, and I'll want every blade I can find on the beach. The naga won't take a cove from a crew that's dug in.", fx = { align = { honor = 1 } } },
-        { text = "Grab what gold you can and slip out at night.", next = "BACK", reply = "Ha! You've the soul of a buccaneer, and I like it. But the Baron would hang me for leaving half a wreck behind.", fx = { align = { honor = -1 } } },
+        { text = "Then we hold the cove and hold it hard.", next = "BACK", reply = "Hard it is, matey, and I'll want every blade I can find on the beach. Dig in behind the wreck timbers and let the scaly devils come to us.", fx = { align = { honor = 1 } } },
+        { text = "Grab what gold you can and slip out after dark.", next = "BACK", reply = "Ha! You've the soul of a buccaneer, and I like it. But the Baron would hang me from my own yardarm for leaving half a wreck behind.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
           text = "Mine, and I know it. I hurried the others in because the Professor's machine was whistling, and I wanted the gold before the tide turned, so now I'll carry Steelgut's crew on my conscience." },
       },
       choices = {
-        { text = "Own it, Captain. Seahorn will respect that.", next = "BACK", reply = "Own it, aye, and I've owned worse. Seahorn respects a captain who doesn't hide behind his crew.", fx = { align = { light = 1 } } },
-        { text = "Blame the gnome's machine. It's half true.", next = "BACK", reply = "Half true and all convenient, which is the best kind of excuse. Don't tell the Professor I agreed with you.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Own it, Captain. Seahorn will respect you for it.", next = "BACK", reply = "Own it, aye, and I've owned worse. Seahorn respects a captain who doesn't hide behind his crew.", fx = { align = { light = 1 } } },
+        { text = "Blame the gnome's machine. That's half true, anyway.", next = "BACK", reply = "Half true and all convenient, which is the best kind of excuse. Don't tell the Professor I agreed with you.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -199,7 +199,7 @@ P:NPC {
         { id = "op_default", text = "Put them ashore at Jaguero Isle with a barrel of water and a rowboat with one oar. Seahorn said I was soft, and Baron Revilgaz of Booty Bay said I'd wasted good ransom, and I still say the sea had enough bodies that day." },
       },
       choices = {
-        { text = "Mercy suits a captain. You did right.", next = "BACK", reply = "That's what I told myself, rowing back alone. Nice to hear it from someone who isn't me.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You showed mercy, Captain, and you did right.", next = "BACK", reply = "That's what I told myself, rowing back alone. Nice to hear it from someone who isn't me.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Baron's right. Ransom them or sink them.", next = "BACK", reply = "The Baron's always right, if you ask the Baron. I'll stand by my one oar, thank you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -219,8 +219,8 @@ P:NPC {
         { id = "os_default", text = "Every copper, if the Professor's machine finds anything worth finding. I'll pay them out of my own two shares if I have to, though you'll not tell my crew I said that, or they'll want theirs doubled." },
       },
       choices = {
-        { text = "The code's the code. Pay them in full.", next = "BACK", reply = "That's the spirit, and the code keeps a crew loyal longer than gold ever will. Every copper it is.", fx = { align = { order = 1 } } },
-        { text = "Codes are for fair weather. Look after your own crew first.", next = "BACK", reply = "My own crew is the code, matey, and they'd know if I bent it. I'll pay, and grumble while I do.", fx = { align = { order = -1 } } },
+        { text = "The code's the code. Pay them in full, Captain.", next = "BACK", reply = "That's the spirit! I'll count it out on the beach where the whole crew can watch, every copper of it.", fx = { align = { order = 1 } } },
+        { text = "Codes are for fair weather. Look after your own first.", next = "BACK", reply = "My own crew is the code, matey, and they'd know if I bent it. I'll pay, and grumble while I do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -242,7 +242,7 @@ P:NPC {
         { id = "osd_alliance", when = { faction = "Alliance" }, text = "Menethil's merchants hire us more than they'd like to admit, matey, and Stromgarde's lot at Refuge Pointe would hire us if they had the coin. The Horde at Hammerfall pay too, so I keep my mouth shut in both camps." },
       },
       choices = {
-        { text = "Selling to both sides is just good sense.", next = "BACK", reply = "Glad you see it, matey. Sense and silver keep this cove afloat.", fx = { align = { honor = -1 } } },
+        { text = "Selling to both sides? That's just good sense.", next = "BACK", reply = "Glad you see it, matey. Horde silver spends the same as Alliance silver in Booty Bay, and nobody there asks which pocket it came from.", fx = { align = { honor = -1 } } },
         { text = "A man who sells to both sides is trusted by neither.", next = "BACK", reply = "Trusted by neither, paid by both, and alive to complain about it. I'll take that bargain every time.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -253,7 +253,7 @@ P:NPC {
       },
       choices = {
         { text = "Then you owe him more than gold.", next = "BACK", fx = { trait = { stern = 1 } } },
-        { text = "Ha! Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ha! Let's talk about something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     ob_temper = {
@@ -352,7 +352,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The fire's dyin', an' so's my patience." },
-        { id = "h_again2", text = "Go on, then. Ask." },
+        { id = "h_again2", text = "Go on, then, ask. I've nowhere tae be." },
       },
       choices = {
         { text = "Tell me about the Maiden's Folly.", next = "ship" },
@@ -381,7 +381,7 @@ P:NPC {
       },
       choices = {
         { text = "They'll be avenged, Captain. I swear it.", next = "BACK", reply = "Avenged, ye say? Bless ye, but the sea took 'em, an' I cannae put a blade in the sea. I'll take the thought, though.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Mourn them. Vengeance won't bring them back.", next = "BACK", reply = "Aye, I'll mourn 'em, every one, an' I'll no' be done mournin' for a long while yet.", fx = { align = { light = 1 } } },
+        { text = "Mourn them, Captain. Vengeance won't bring them back.", next = "BACK", reply = "Aye, I'll mourn 'em, every one, an' I'll no' be done mournin' for a long while yet.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -471,7 +471,7 @@ P:NPC {
         { id = "scs_default", text = "Even then. A fleet where every captain does as he likes is just a lot o' boats that happen tae be near each other, an' the Bloodsail would eat it alive. I'd follow that signal again, an' I hate that I would." },
       },
       choices = {
-        { text = "The code's what makes a fleet. You were right to follow.", next = "BACK", reply = "Aye, it is, an' I'd follow it again, even wi' the sea comin' over the rail. That's what a captain does.", fx = { align = { order = 1 } } },
+        { text = "The code's what makes a fleet. You were right to follow it.", next = "BACK", reply = "Aye, it is, an' I'd follow it again, even wi' the sea comin' over the rail. That's what a captain does.", fx = { align = { order = 1 } } },
         { text = "A code that drowns good sailors is a bad code.", next = "BACK", reply = "Maybe so, an' I've wondered it myself on the long nights. But I'll no' be the captain who broke it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -516,8 +516,8 @@ P:NPC {
         { id = "saf_dwarf", when = { race = "Dwarf" }, text = "Ye'll know the pull o' the mountain as well as I do. Seahorn would give me another deck, an' Dun Morogh would give me a forge, an' I cannae tell which is the coward's choice, so tell me, as one dwarf tae another." },
       },
       choices = {
-        { text = "Ask Seahorn for a new ship. The fleet needs you.", next = "BACK", reply = "The fleet, aye, an' maybe ye're right. My boys would want me back at sea, I think.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Go home. You owe the sea nothing more.", next = "BACK", reply = "Home, is it? Ironforge would welcome me, an' the forge would keep me warm. I'll think on it, an' thank ye.", fx = { align = { honor = -1 } } },
+        { text = "Ask Seahorn for a new ship. The fleet still needs you.", next = "BACK", reply = "The fleet, aye, an' maybe ye're right. My boys would want me back at sea, I think.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Go home, Captain. You owe the sea nothing more.", next = "BACK", reply = "Home, is it? Ironforge would welcome me, an' the forge would keep me warm. I'll think on it, an' thank ye.", fx = { align = { honor = -1 } } },
         { text = "What did you see in the water, Captain?", next = "sg_saw_ask" },
       },
     },

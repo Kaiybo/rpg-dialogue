@@ -61,8 +61,8 @@ P:NPC {
         { id = "to_default", text = "We were both taken, my captain and I, and caged in the caves by Archmage Allistarj of the Shadowsworn. He worked on me for a long time, and my strength of will faltered where my captain's didn't, and so I became the thing you killed." },
       },
       choices = {
-        { text = "It wasn't weakness. No one should endure that.", next = "torture_shame", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "He held. You didn't. That's the truth of it.", next = "torture_shame", fx = { align = { light = -1 } } },
+        { text = "It wasn't weakness. No one should have to endure that.", next = "torture_shame", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "He held, and you didn't. That's the truth of it.", next = "torture_shame", fx = { align = { light = -1 } } },
         { text = "What was it like?", next = "torture_shame" },
       },
     },
@@ -87,7 +87,7 @@ P:NPC {
         { id = "rt_default", text = "Three underlings: Grol of the Dreadmaul, Lady Sevine, and Allistarj, who you'll want most of all after hearing my story. They're the triad of power that protects him, and you must break it before you can touch him." },
       },
       choices = {
-        { text = "Allistarj first, then. For you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Allistarj first, then. For you, Kirith.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,7 +172,7 @@ P:NPC {
       },
       choices = {
         { text = "The dead deserve rest, not more duty.", next = "BACK", reply = "Rest will come, healer, and I'll welcome it when it does. But not while Razelikh still breathes and my brothers stay bound.", fx = { align = { order = -1 } } },
-        { text = "A soldier's duty doesn't end. I understand.", next = "BACK", reply = "You understand, then, and that is a comfort to an old soldier. Thank you, healer.", fx = { align = { order = 1 } } },
+        { text = "A soldier's duty doesn't end. I understand.", next = "BACK", reply = "You understand, then, and that is a comfort to an old soldier. Most of the living who pass this stone only want to know where the treasure is.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

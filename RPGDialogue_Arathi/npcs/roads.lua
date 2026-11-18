@@ -29,9 +29,9 @@ P:NPC {
         { id = "opn_forsaken_q", text = "I've watched that farm for weeks, and they bury nobody, they eat nothing, and they work through the night on things they won't let the wind near. Kinelory says some of them were Lordaeron farmers once, and maybe they were. You've seen more of them than I have; tell me what you think." },
       },
       choices = {
-        { text = "Walking corpses with a plague. Burn the lot.", next = "opn_forsaken_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "hate" } } },
-        { text = "They were people once. Some still are.", next = "opn_forsaken_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
-        { text = "Watch them, like you're doing. That's enough for now.", next = "opn_forsaken_r_watch", fx = { trait = { careful = 1 }, opinion = { forsaken = "watch" } } },
+        { text = "They're walking corpses carrying a plague. Burn the lot.", next = "opn_forsaken_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "hate" } } },
+        { text = "They were people once, Quae. Some of them still are.", next = "opn_forsaken_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
+        { text = "Watch them, the way you're doing. That's enough for now.", next = "opn_forsaken_r_watch", fx = { trait = { careful = 1 }, opinion = { forsaken = "watch" } } },
         { text = "I knew some of them, living. I can't hate them.", next = "opn_forsaken_r_pity", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { forsaken = "pity" } } },
         { text = "Their plague is the problem, not them.", next = "opn_forsaken_r_dangerous", fx = { opinion = { new_plague = "dangerous" } } },
         { text = "Let's just get those papers.", next = "BACK" },
@@ -39,7 +39,7 @@ P:NPC {
     },
     opn_forsaken_r = {
       lines = {
-        { id = "opn_forsaken_r_default", text = "Agreed. Talk later, papers now." },
+        { id = "opn_forsaken_r_default", text = "Agreed. We'll talk later; papers first." },
       },
       choices = {
         { text = "Something else, Quae.", next = "BACK" },
@@ -111,7 +111,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "Farming, they say, though nothing I'd eat grows in that soil anymore. Kinelory swears they're bringing their plague into the highlands one barrel at a time." } },
       choices = {
         { text = "Not every Forsaken brews plague. Learn the truth first.", next = "BACK", reply = "You sound like Phin, and he'd agree with you. I'll keep watching until I'm sure.", fx = { align = { light = 1 } } },
-        { text = "Burn the farm. Plague isn't worth the risk.", next = "BACK", reply = "Tempting, and Kinelory would light the first torch. But if we're wrong, we've started a war for nothing.", fx = { align = { light = -1 } } },
+        { text = "Burn the farm. No plague is worth the risk.", next = "BACK", reply = "Tempting, and Kinelory would light the first torch. But if we're wrong, we've started a war for nothing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,7 +120,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "I fear it more than I let Kinelory see, because everyone knows what the plague did to Lordaeron, and nothing I've watched at that farm looks like farming. If it does come, it won't stop at the Highlands, and I don't think Southshore is ready." } },
       choices = {
         { text = "The Light will stand against it. We'll stop it here.", next = "BACK", reply = "I hope so. I'll pray for it too, quietly, where Kinelory can't see me do it.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then strike first and leave nothing. Mercy can wait.", next = "BACK", reply = "That's what my heart says, every night up here. My head keeps telling it to wait.", fx = { align = { light = -1 } } },
+        { text = "Then strike first and leave nothing standing. Mercy can wait.", next = "BACK", reply = "That's what my heart says, every night up here. My head keeps telling it to wait.", fx = { align = { light = -1 } } },
         { text = "Something else, Quae.", next = "BACK" },
       },
     },
@@ -128,7 +128,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Nothing loud, not yet, because if Phin's right, there's plague being moved through that farm, and if we charge in, they'll only move it somewhere we can't see. Help Kinelory take the courier's papers first, and once we know what the Forsaken are planning, you can be as loud and shiny as you like." } },
       choices = {
-        { text = "Patience first, then. We'll learn what they're planning.", next = "BACK", reply = "Patience it is, and thank you. Kinelory will hate it, but she'll thank you later.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patience first, then. Let's learn what they're planning.", next = "BACK", reply = "Patience it is, and thank you. Kinelory will hate it, but she'll thank you later.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If there's plague down there, I'll burn it out now.", next = "BACK", reply = "Then you'll spread it across the Highlands if you're wrong about the wind. Wait a little, please.", fx = { align = { order = -1 } } },
         { text = "Something else, Quae.", next = "BACK" },
       },
@@ -137,8 +137,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met a demon that knew how to be boring." } },
       choices = {
-        { text = "Boring it is. I'll keep the demon back.", next = "BACK", reply = "Thank you. Boring keeps us alive, and alive is how I like us.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let them notice. My demon could clear that farm.", next = "BACK", reply = "It could, and it might bring every Forsaken in Arathi down on our heads. Please, not yet.", fx = { align = { order = -1 } } },
+        { text = "Boring it is. I'll keep the demon back.", next = "BACK", reply = "Thank you. Boring keeps us alive, and I've grown very fond of boring since I came up this ridge.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them notice. My demon could clear that farm alone.", next = "BACK", reply = "It could, and it might bring every Forsaken in Arathi down on our heads. Please, not yet.", fx = { align = { order = -1 } } },
         { text = "Something else, Quae.", next = "BACK" },
       },
     },
@@ -175,7 +175,7 @@ P:NPC {
         { text = "What would you have a paladin do about Go'Shek Farm, Quae?", next = "xapala", when = { class = "PALADIN" } },
         { text = "A demon would make a good scout down at Go'Shek, Quae.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should I listen for at Go'Shek Farm, Quae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Stay low, then. Farewell.", next = "END" },
+        { text = "Stay low, then, and farewell.", next = "END" },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and watch at the same time, mostly." },
@@ -186,8 +186,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Moving papers and crates, and the crates smell of the apothecaries' work, so Phin wants the names on those papers. I watch who comes and goes, but someone who could get inside the farm would learn more in a night than I have in a month." } },
       choices = {
-        { text = "If the Forsaken brew plague, they must be stopped.", next = "BACK", reply = "They must, and they will be, if we learn enough before they move. That's why we're watching.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Whatever they brew could be turned to our use.", next = "BACK", reply = "Turned to our use? I'd sooner see it burned, and so would Phin. Don't let him hear you say that.", fx = { align = { light = -1 } } },
+        { text = "If the Forsaken brew plague, they have to be stopped.", next = "BACK", reply = "They must, and they will be, if we learn enough before they move. That's why we're watching.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever they're brewing could be turned to our use.", next = "BACK", reply = "Turned to our use? I'd sooner see it burned, and so would Phin. Don't let him hear you say that.", fx = { align = { light = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Apothecary shorthand, I think, full of measures and words I don't know, and a few lines that look like a recipe. A mage might see a pattern in it, and Phin would be very glad of anyone who could tell him what the Forsaken are brewing." } },
       choices = {
-        { text = "If it's plague, it must be stopped at once.", next = "BACK", reply = "That's what I'm afraid of, and why I want the papers read properly before we do anything.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Their recipes could be useful to us.", next = "BACK", reply = "Useful? I've seen what plague does, and I'd rather not see what we'd do with it. Let's burn it.", fx = { align = { light = -1 } } },
+        { text = "If it's plague, it has to be stopped at once.", next = "BACK", reply = "That's what I'm afraid of, and why I want the papers read properly before we do anything.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their recipes could be useful to us, you know.", next = "BACK", reply = "Useful? I've seen what plague does, and I'd rather not see what we'd do with it. Let's burn it.", fx = { align = { light = -1 } } },
         { text = "Something else, Quae.", next = "BACK" },
       },
     },
@@ -212,7 +212,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you make of the Forsaken, Quae?", next = "opn_forsaken" },
-        { text = "Stealing their papers is better than a fight.", next = "BACK", reply = "It is, and it's safer for Kinelory. Thank you for seeing it that way.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Stealing their papers beats a fight.", next = "BACK", reply = "It is, and it's safer for Kinelory. Thank you for seeing it that way.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "We should face the courier openly and take them.", next = "BACK", reply = "Openly? Kinelory would love that, and I'd spend the whole time terrified. Let's try it quietly first.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -276,7 +276,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Terribly, yes, because if those papers say what Phin thinks they say, the Forsaken are planning something for Hillsbrad that none of us will like. I'd feel braver if the earth itself were on our side, and I suppose with you here, it rather is." } },
       choices = {
         { text = "We'll stop them. Hillsbrad's people won't suffer this.", next = "BACK", reply = "Thank you. I'll feel braver with you beside me, and I'll need to.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Whatever they plan, it's Hillsbrad's problem, not mine.", next = "BACK", reply = "Hillsbrad's my problem, then, and I'll carry it whether you help or not. I'd rather you helped.", fx = { align = { light = -1 } } },
+        { text = "Whatever they're planning is Hillsbrad's problem, not mine.", next = "BACK", reply = "Hillsbrad's my problem, then, and I'll carry it whether you help or not. I'd rather you helped.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -284,7 +284,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd thought to ambush him, but if you could follow him without his noticing, perhaps we could learn where he goes, which would be cleverer. Oh, I do wish I were braver about it all." } },
       choices = {
-        { text = "Ambush him. Take the papers and be done.", next = "BACK", reply = "That's the quicker way, and the one I was going to take. Let's do it before I lose my nerve.", fx = { align = { honor = -1 } } },
+        { text = "Ambush him, take the papers, and be done with it.", next = "BACK", reply = "That's the quicker way, and the one I was going to take. Let's do it before I lose my nerve.", fx = { align = { honor = -1 } } },
         { text = "Confront him openly. No ambush, no tricks.", next = "BACK", reply = "Openly? I'd shake the whole time, but you're right that it's honest. Walk with me, then.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -296,8 +296,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you? I'll still be the one walking up to him, but if I know you and {pet} are watching from the trees, I might stop shaking long enough to grab the papers." },
       },
       choices = {
-        { text = "I'll stay close and keep you safe. That's a promise.", next = "BACK", reply = "Then I'll walk up to him a little taller. Thank you, truly.", fx = { align = { honor = 1 } } },
-        { text = "I'll cover you, but if it goes wrong, I'm leaving.", next = "BACK", reply = "That's fair, and honest, which is more than most give. I'll try not to make you leave.", fx = { align = { honor = -1 } } },
+        { text = "I'll stay close and keep you safe. I promise.", next = "BACK", reply = "Then I'll walk up to him a little taller. Thank you, truly.", fx = { align = { honor = 1 } } },
+        { text = "I'll cover you, but if it goes wrong, I'm leaving.", next = "BACK", reply = "That's fair, and honest, which is more than most people bother with. I'll try very hard not to give you a reason.", fx = { align = { honor = -1 } } },
         { text = "Something else, Kinelory.", next = "BACK" },
       },
     },
@@ -306,7 +306,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Because somebody has to, and Phin trusted me with this, and if I let fear decide for me then I'd never do anything at all. I've been scared since the day we got here, so scared I couldn't eat the first week, and I've found I can be scared and still keep walking." } },
       choices = {
         { text = "That's true courage. The Light walks with you.", next = "BACK", reply = "Thank you. I'll take any company the Light offers, and yours too.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fear is telling you something. Let someone else take him.", next = "BACK", reply = "It is, and it's been telling me since I woke up. I'm going anyway.", fx = { align = { light = -1 } } },
+        { text = "Your fear is telling you something. Let someone else take him.", next = "BACK", reply = "It is, and it's been telling me since I woke up. I'm going anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -323,8 +323,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "He was one of the Kirin Tor's students, before he left, and he still reads everything twice and argues with it once. He says the courier's papers might be written in a cipher the Forsaken apothecaries use, and if they are, I'll need someone cleverer than me to read them, which isn't a long search." } },
       choices = {
-        { text = "Bring me the papers. We'll read them together.", next = "BACK", reply = "He'll like that. Two readers and one argument, and Phin will be very happy.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Ciphers are dull. I'd rather burn the courier.", next = "BACK", reply = "Phin would never forgive you, and neither would I. We need what's in those papers.", fx = { align = { honor = -1 } } },
+        { text = "Bring me the papers and we'll read them together.", next = "BACK", reply = "He'll like that. Two readers and one argument, and Phin will be very happy.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ciphers are dull. I'd rather just burn the courier.", next = "BACK", reply = "Phin would never forgive you, and neither would I. We need what's in those papers.", fx = { align = { honor = -1 } } },
         { text = "Something else, Kinelory.", next = "BACK" },
       },
     },
@@ -366,7 +366,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd like it more than I can say, though I'll still go if you don't, because Phin needs those papers and Quae can't leave her post. Stay close behind me, and if I start shaking, just pretend you didn't see." } },
       choices = {
-        { text = "No shame in shaking. You're braver than you think.", next = "BACK", reply = "Thank you. I'm not sure that's true, but I'll pretend it is until it's over.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "There's no shame in shaking. You're braver than you think.", next = "BACK", reply = "Thank you. I'm not sure that's true, but I'll pretend it is until it's over.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Shaking gets people killed. Steady yourself.", next = "BACK", reply = "You're right, and I'm trying. My legs just haven't heard the news.", fx = { align = { light = -1 } } },
         { text = "Something else, Kinelory.", next = "BACK" },
       },
@@ -385,8 +385,8 @@ P:NPC {
         { id = "wh_default", text = "Because Quae has the better eyes and I have the faster legs, and someone has to. If those papers reach the farm, Phin's whole worry comes true, and Hillsbrad's farms pay for it." },
       },
       choices = {
-        { text = "Fear doesn't stop you. That's real courage.", next = "BACK", reply = "Thank you. I've never thought of myself as brave, and I'd like to start.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Courage is fine. Just don't get me killed.", next = "BACK", reply = "I'll do my best not to. I'd rather we both came home.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Fear doesn't stop you, and that's real courage.", next = "BACK", reply = "Thank you. I've never thought of myself as brave, and I'd like to start.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Courage is fine. Just don't get me killed.", next = "BACK", reply = "I'll do my best not to. I'd like us both to walk back up this ridge, and I'd like to be the one telling Quae about it.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     plan = {
@@ -399,7 +399,7 @@ P:NPC {
       lines = {
         { id = "pa_default", text = "Then back to Quae, who reads them, and then a very long sleep for me. Phin can decide what Southshore does with them; I only want them out of Forsaken hands." },
       },
-      choices = { { text = "Simple enough. Something else.", next = "BACK" } },
+      choices = { { text = "Simple enough. Something else, then.", next = "BACK" } },
     },
     quae = {
       lines = {
@@ -466,7 +466,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Then the land is full of candle thieves with very poor manners. I came to Drywhisker to study the minerals of the gorge, and I've learned more about kobold teeth than I ever wished to." } },
       choices = {
-        { text = "Drive them out and the gorge will be safe for study.", next = "BACK", reply = "Splendid, and the minerals will finally get the attention they deserve.", fx = { align = { order = 1 } } },
+        { text = "Drive them out, and the gorge will be safe for study.", next = "BACK", reply = "Splendid, and the minerals will finally get the attention they deserve.", fx = { align = { order = 1 } } },
         { text = "Leave the kobolds their tunnels and study somewhere else.", next = "BACK", reply = "Elsewhere? I've three weeks of measurements here, but I suppose the kobolds have more.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -475,7 +475,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Individually, no, but they come in such numbers and with such conviction, and they've a way of shouting about candles that unsettles a man of learning. I'd be grateful for an escort to the coast, and grateful again if you didn't smite anything that merely looked at me unkindly." } },
       choices = {
-        { text = "I'll see you safely out, and smite only what attacks.", next = "BACK", reply = "Very proper, and very much appreciated. I'll stay behind you at a calculated distance.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll see you out safely, and smite only what attacks.", next = "BACK", reply = "Very proper, and very much appreciated. I'll stay behind you at a calculated distance.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Anything that waves a pick at us gets smitten.", next = "BACK", reply = "That's most of them, by my count, so smite away, and I'll take notes.", fx = { align = { light = -1 } } },
         { text = "Something else, Professor.", next = "BACK" },
       },
@@ -485,7 +485,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "My research notes, which they couldn't possibly read, and a brass astrolabe, which they couldn't possibly use. I suspect they took them simply because I seemed to want them back, which is a very kobold sort of reasoning, and rather hurtful." } },
       choices = {
         { text = "I'll fetch back what's yours, Professor.", next = "BACK", reply = "Thank you! The astrolabe is irreplaceable, and the notes even more so.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Brass astrolabe, you say? I could find a buyer.", next = "BACK", reply = "A buyer? It's an heirloom! I'll want it back, if you please, unsold.", fx = { align = { honor = -1 } } },
+        { text = "A brass astrolabe, you say? I could find a buyer.", next = "BACK", reply = "A buyer? It's an heirloom! I'll want it back, if you please, unsold.", fx = { align = { honor = -1 } } },
         { text = "Something else, Professor.", next = "BACK" },
       },
     },
@@ -494,7 +494,7 @@ P:NPC {
       lines = { { id = "xpriest_default", text = "Absolutely, and for my notes, which would have been the greater loss to scholarship, if not to me personally. The kobolds kept me awake every night chanting about wax, and I'll confess I said a prayer or two, though I've never been sure who listens to a gnome in a gorge." } },
       choices = {
         { text = "Someone always listens, Professor. Take heart.", next = "BACK", reply = "Thank you. I'll take heart, and I'll take my notes, if they're still in one piece.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Nobody listens. Your own wits got you through.", next = "BACK", reply = "My wits, yes, and a good deal of running. I'll take the credit, then.", fx = { align = { light = -1 } } },
+        { text = "Nobody listened. Your own wits got you through.", next = "BACK", reply = "My wits, yes, and a good deal of running. I'll take the credit, then.", fx = { align = { light = -1 } } },
         { text = "Something else, Professor.", next = "BACK" },
       },
     },
@@ -520,7 +520,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. So far you've been helpful and haven't tried to eat me, and by my calculations that already puts you ahead of the kobolds." } },
       choices = {
-        { text = "Fair judgement, Professor. I'll keep the demon civil.", next = "BACK", reply = "Thank you. Civil demons make for much better footnotes than uncivil ones.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's a fair judgement, Professor. I'll keep the demon civil.", next = "BACK", reply = "Thank you. Civil demons make for much better footnotes than uncivil ones.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The books were right about some of us, Professor.", next = "BACK", reply = "How refreshingly honest! I'll add a footnote to the books, then, with your permission.", fx = { align = { light = -1 } } },
         { text = "Something else, Professor.", next = "BACK" },
       },

@@ -78,7 +78,7 @@ P:NPC {
           text = "More than I can say sober, friend, which is why I'm never sober. My bird's still up at the Peak, an' I hear she won't take another rider, an' that's the worst o' it." },
       },
       choices = {
-        { text = "Put down the bottle. The sky will wait.", next = "BACK", reply = "The sky's waited long enough, an' so has the bottle. Maybe one day I'll put it down, but no' today.", fx = { align = { order = 1 } } },
+        { text = "Put down the bottle. The sky will wait for you.", next = "BACK", reply = "The sky's waited long enough, an' so has the bottle. Maybe one day I'll put it down, but no' today.", fx = { align = { order = 1 } } },
         { text = "Then brew. Every dwarf needs a calling.", next = "BACK", reply = "Aye, that's what I tell meself every mornin', an' the still agrees. It's no' flyin', but it's somethin'.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -91,7 +91,7 @@ P:NPC {
           text = "It wasnae a pretty scene, an' I'll no' tell it dry. Bring me what I need for a Kalimdor Kocktail, an' I'll tell ye all about it." },
       },
       choices = {
-        { text = "You fell off? Then what?", next = "swamp_fell", when = { questDone = TODO_QUEST("Rhapsody's Kalimdor Kocktail") } },
+        { text = "You fell off? What happened then?", next = "swamp_fell", when = { questDone = TODO_QUEST("Rhapsody's Kalimdor Kocktail") } },
         { text = "What goes into a Kalimdor Kocktail?", next = "brews" },
         { text = "Something else.", next = "BACK" },
       },
@@ -243,7 +243,7 @@ P:NPC {
         { id = "ok_default", text = "Vigorously, and at length, and in several dialects. The orcs burned our forests in the Second War, and I have not forgotten it, but neither am I obliged to refuse their gold until the end of time." },
       },
       choices = {
-        { text = "Old wars shouldn't stop new trade.", next = "BACK", reply = "They shouldn't, perhaps, and yet they do. Trade with orcs, and I'll trade with you, but I'll count the trees first.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Old wars shouldn't stop new trade.", next = "BACK", reply = "They shouldn't, perhaps, and yet they do. The trolls burned my grandfather's orchard outside Silvermoon, and I find I still count the trees when one of them asks my prices.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Some debts can't be paid in gold.", next = "BACK", reply = "No, they cannot, and I'm glad you understand. The forests of Quel'Thalas remember, and so do I.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -256,7 +256,7 @@ P:NPC {
       },
       choices = {
         { text = "It's dishonest, and you know it.", next = "BACK", reply = "Dishonest? I prefer to call it presentation, and the customers prefer it too. Shall I wrap something for you?", fx = { align = { honor = 1 } } },
-        { text = "Clever. The buyer's happy, the seller's rich.", next = "BACK", reply = "Precisely, and everyone goes home smiling. You'd do well in commerce, my friend.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Clever. The buyer's happy and the seller's rich.", next = "BACK", reply = "Precisely, and everyone goes home smiling. Half the wine in Lordaeron was never what the label said, and nobody ever complained of it.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -288,7 +288,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know drink and I know people, and the two are seldom far apart. Ask, and I shall endeavour to enlighten." } },
     background = { { id = "tp_bg", text = "A high elf of no particular allegiance, which my family considers a scandal and I consider a liberation." } },
-    advice = { { id = "tp_ad", text = "Never jostle the ripple. In life, as in wine, patience is everything." } },
+    advice = { { id = "tp_ad", text = "Never jostle the ripple, my friend. It sulks for a week if you do, and so do I." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran was a city of real scholarship once, and I'm told it's being rebuilt. I'd return, if the Kirin Tor would have me, and if the honey trade weren't so lucrative." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are fine mages, but they've no head for commerce. I've often thought I'd teach them a thing or two, if they'd only listen." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins buy my bottles by the crate, and they sell them for triple. I admire their business sense, though I'd not say so in polite company." } },

@@ -37,7 +37,7 @@ P:NPC {
         { id = "oph_q", text = "The Horde's tauren sit at Camp Mojache across the Twin Colossals, and they fight the same ogres we do. My Sentinels ask me whether we should leave them be. What would you say?" },
       },
       choices = {
-        { text = "Leave them be. Fight the naga, not the tauren.", next = "op_horde_r1", fx = { align = { light = 1 }, opinion = { horde = "tolerate" } } },
+        { text = "Leave the tauren be. Fight the naga instead.", next = "op_horde_r1", fx = { align = { light = 1 }, opinion = { horde = "tolerate" } } },
         { text = "Drive them out. Feralas is kaldorei land.", next = "op_horde_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "war" } } },
         { text = "The Horde has kept its word at Theramore. Let them keep it here.", next = "op_horde_r3", fx = { opinion = { peace = "peace" } }, when = { faction = "Alliance" } },
         { text = "Mojache means you no harm, Moonspear. You have my word.", next = "op_horde_r4", fx = { affinity = 1, opinion = { horde = "kin" } }, when = { faction = "Horde" } },
@@ -153,19 +153,19 @@ P:NPC {
     },
     veteran = {
       lines = { { id = "ve_default", text = "Watch their sirens, because a naga warrior will hold you while the siren behind him does the killing. And never fight them waist-deep in the water, however good the footing looks." } },
-      choices = { { text = "Good advice. Thank you.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Good advice. Thank you, Commander.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "A soldier of Darnassus, General Feathermoon's second, and Vestia's husband. In that order on duty, and the other order off it." } },
-    advice = { { id = "tp_ad", text = "Assume your enemy will come for what's yours, and act before they do. Hope is not a defense." } },
+    advice = { { id = "tp_ad", text = "Assume your enemy will come for what's yours, and act before they do. I have buried Sentinels who were hoping the naga would stay in the sea." } },
     sentinels = { { id = "tp_sent", text = "The finest soldiers on Kalimdor, and the General is the finest of them. I'll argue the point with anyone." } },
     tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande sent the general to hold Feralas, and the general sent me to hold the naga. Everyone in this chain knows what is expected of them." } },
     elune = { { id = "tp_elune", text = "Elune keeps my wife safe in those ruins, and my arrows keep the naga busy elsewhere. I trust both, but I sharpen the arrows myself." } },
     highborne = { { id = "tp_highborne", text = "The Highborne built the ruins my wife studies, and the naga are what the Highborne became under the sea. I find that a poor advertisement for their wisdom." } },
     dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas was the Highborne's last great city, and now we call it Dire Maul because the ogres moved in. My wife grieves the name more than the city." } },
-    queen_azshara = { { id = "tp_queen_azshara", text = "The naga call Azshara their queen still, after ten thousand years at the bottom of the sea. Some loyalties should be allowed to drown." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The naga call Azshara their queen still, after ten thousand years at the bottom of the sea. I knew Highborne who would have bowed to her too, and I was glad when the water closed over them." } },
     _none = { { id = "tp_none", text = "I've no time for that. Ask Shyria at the inn; she hears everything and has the time to repeat it." } },
   },
 }
@@ -203,7 +203,7 @@ P:NPC {
         { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have weighed this longer than I have. I would hear what you think of the arcane, now that you've seen what it did to the highborne." },
       },
       choices = {
-        { text = "It's a tool. In careful hands it does great good.", next = "op_arcane_r1", fx = { align = { order = 1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "It's a tool, Vestia. In careful hands it does great good.", next = "op_arcane_r1", fx = { align = { order = 1 }, opinion = { arcane_magic = "useful" } } },
         { text = "It's a disease, as you said. Every mage is a risk.", next = "op_arcane_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { arcane_magic = "dangerous" } } },
         { text = "It burned the Well of Eternity. Your people were right to forbid it.", next = "op_arcane_r3", fx = { affinity = 2, opinion = { arcane_magic = "wrong" } }, when = { race = "NightElf" } },
         { text = "It's power, and power is worth the risk.", next = "op_arcane_r4", fx = { affinity = -2, trait = { ambitious = 1 }, opinion = { arcane_magic = "power" } } },
@@ -269,7 +269,7 @@ P:NPC {
     relic = {
       lines = { { id = "r_default", text = "It's strange, very strange, and it's giving me a headache. It doesn't match the ruins it came from, and it isn't naga work, and I'm afraid it's something altogether more alien than either." } },
       choices = {
-        { text = "Alien? How so?", next = "relic_alien" },
+        { text = "Alien? What do you mean?", next = "relic_alien" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -319,7 +319,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A priestess, a scholar and Latro's wife. I've been asked which matters most, and I've never managed an answer." } },
-    advice = { { id = "tp_ad", text = "Write things down. Memory is a kind priestess but a poor scholar." } },
+    advice = { { id = "tp_ad", text = "Write things down, {class}. I trusted my memory for centuries before I learned that it keeps what it likes, not what happened." } },
     highborne = { { id = "tp_hb", text = "The Highborne were brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
     elune = { { id = "tp_elune", text = "I am a priestess of Elune before I am a scholar, though Latro says the order runs the other way. He is usually right about me, which is very annoying." } },
     dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would sit through a century of ogre grunting to read a single shelf of it." } },

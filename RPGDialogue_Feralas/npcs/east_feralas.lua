@@ -49,7 +49,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask?" },
-        { id = "h_again2", text = "Speak. The road can wait a little." },
+        { id = "h_again2", text = "Speak, then. The road can wait a little while." },
       },
       choices = {
         { text = "Who were Heralath and Lonebrow?", next = "lonebrow" },
@@ -93,7 +93,7 @@ P:NPC {
       },
     },
     post_lonely = {
-      lines = { { id = "pl_default", text = "It is, sometimes. But the couriers bring gossip, and the hippogryphs bring the couriers, and once in a long while somebody like you walks in with a story. That's enough company for an old sentry." } },
+      lines = { { id = "pl_default", text = "It is, sometimes. But the couriers bring gossip, the hippogryphs bring the couriers, and once in a long while somebody like you walks in with a story, so an old sentry has company enough." } },
       choices = {
         { text = "I'll come back with more stories.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -190,7 +190,7 @@ P:NPC {
       lines = { { id = "cw_default", text = "Power, Kindal thinks, or spite against the forest that won't bow to them. I don't care why anymore. Some of my sisters say we should try to reason with their elders; I say an arrow is the only reason they'll hear." } },
       choices = {
         { text = "Then let arrows do the talking.", next = "BACK", reply = "Then you and I agree, and Kindal can keep his patience while we keep our bows strung.", fx = { align = { light = -1 } } },
-        { text = "Try to reason first. Not all of them choose this.", next = "BACK", reply = "Kindal would like you, and perhaps he is right, but I have seen the cages, and I have run out of reasons to talk.", fx = { align = { light = 1 } } },
+        { text = "Try reasoning first. Not all of them choose this.", next = "BACK", reply = "Kindal would like you, and perhaps he is right, but I have seen the cages, and I have run out of reasons to talk.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

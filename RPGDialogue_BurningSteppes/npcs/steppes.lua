@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Against me, quite useless, but against my enemies in this land, perhaps not. The Flight has use for a strong arm that does what it is told and asks for payment afterwards, if it lives to ask." } },
       choices = {
-        { text = "I'm no dragon's sword. I'll fight my own battles.", next = "BACK", reply = "Your own battles, against my enemies, in my Steppes. You will find, warrior, that those are very often the same thing.", fx = { align = { honor = 1 } } },
+        { text = "I'm no dragon's sword. I fight my own battles.", next = "BACK", reply = "Your own battles, against my enemies, in my Steppes. You will find, warrior, that those are very often the same thing.", fx = { align = { honor = 1 } } },
         { text = "Point me at your enemies. Payment afterwards suits me fine.", next = "BACK", reply = "How refreshingly simple you are, little one. Kill the Dark Irons who trouble the Flight's ground, and we shall see whether you live to collect.", fx = { align = { honor = -1 } } },
         { text = "I will speak of something else.", next = "BACK" },
       },
@@ -84,7 +84,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Bold, and foolish, which in mortals is the same thing. A dragon's hoard is a lifetime of tribute and a thief's is a week of luck, and when we meet over the same treasure, only one of us walks away." } },
       choices = {
-        { text = "Then I'll rob smaller prey. No shame in that.", next = "BACK", reply = "Smaller prey is the wisest choice a thief ever made. You may yet keep your fingers.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll rob smaller prey. There's no shame in that.", next = "BACK", reply = "Smaller prey is the wisest choice a thief ever made. The last one who came for the Flight's hoard is still on the slope below the Spire, or most of him is.", fx = { align = { honor = -1 } } },
         { text = "I'd face you openly, dragon, not as a thief.", next = "BACK", reply = "Openly? Then you are bolder than the thieves and twice as foolish. I shall remember your face, and I shall enjoy remembering it.", fx = { align = { honor = 1 } } },
         { text = "On to other things.", next = "BACK" },
       },
@@ -93,7 +93,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That they are dreamers who mistake sleep for wisdom, while the true heirs of this world wake and act. Your Circle bows to them, I know, and bowing is the only thing mortals do well, so perhaps you will be useful after all." } },
       choices = {
-        { text = "The green dragons guard the Dream well. I'll not hear them mocked.", next = "BACK", reply = "Loyal to your sleeping masters, then, how touching. They will not wake to thank you for it, druid.", fx = { align = { order = 1 } } },
+        { text = "The green dragons guard the Dream well. I won't hear them mocked.", next = "BACK", reply = "Loyal to your sleeping masters, then, how touching. They will not wake to thank you for it, druid.", fx = { align = { order = 1 } } },
         { text = "Perhaps they sleep too much. I'll keep my own counsel, Cyrus.", next = "BACK", reply = "Your own counsel, yes, which is a better master than a sleeper. Perhaps you are not as foolish as the rest of your Circle.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -186,7 +186,7 @@ P:NPC {
     devour = {
       lines = { { id = "d_default", text = "Because a dead mortal fetches me nothing, and a living one might fetch me a hoard. Do not mistake my patience for affection, little one." } },
       choices = {
-        { text = "Charming. Moving on.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Charming. Let's move on.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "I'm not afraid of you.", next = "BACK", fx = { trait = { brave = 1 }, affinity = -1 } },
       },
     },
@@ -197,7 +197,7 @@ P:NPC {
     light = {
       lines = { { id = "l_default", text = "Then the Light is a fool, and so are you, which is at least consistent. Walk carefully, little one; the dark is very large, and it has been patient for a very long time." } },
       choices = {
-        { text = "So has the Light.", next = "BACK", reply = "And still it has not won, priest, which tells you something about its patience. Go on, then, and keep your little candle lit.", fx = { align = { light = 2 }, affinity = -1 } },
+        { text = "So has the Light, dragon.", next = "BACK", reply = "And still it has not won, priest, which tells you something about its patience. Go on, then, and keep your little candle lit.", fx = { align = { light = 2 }, affinity = -1 } },
         { text = "You might be right. The dark does seem to keep winning.", next = "BACK", reply = "It does, and you are wiser for noticing. Remember that when the candle in your hand starts to gutter.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -217,12 +217,12 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am of the Flight, and that is all the history a mortal needs.", next = "who" } },
-    advice = { { id = "tp_ad", text = "Never wake a sleeping dragon, mortal. And never assume that it was sleeping." } },
+    advice = { { id = "tp_ad", text = "Never wake a sleeping dragon, mortal, and never assume that it was sleeping. I heard you coming up the road an hour ago." } },
     black_dragonflight = { { id = "tp_dragons", text = "We were masters of this world before it had a name, and we will be masters of it after.", next = "who" } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire belongs to the Flight, mortal, and the orcs and dwarves who squabble beneath it are guests who have forgotten their manners. They will be reminded." } },
     onyxia = { { id = "tp_onyxia", text = "The Lady in Dustwallow is of the Flight, and she is far beyond your concern, mortal. Speak her name again and I may decide you're food." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons and their fire lord dwell beneath the mountain, and the Flight tolerates them for now. Their time will come." } },
     second_war = { { id = "tp_second_war", text = "The Flight fought beside the orcs in your Second War, mortal, and the orcs were fools to think it was an alliance. We used them, as we use everyone." } },
-    _none = { { id = "tp_none", text = "You bore me with your questions. Go and ask a goblin." } },
+    _none = { { id = "tp_none", text = "You bore me with your questions. Go and ask a goblin; they enjoy the sound of their own voices nearly as much as you do." } },
   },
 }

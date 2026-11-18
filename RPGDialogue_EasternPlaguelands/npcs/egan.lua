@@ -112,7 +112,7 @@ P:NPC {
     engineer = {
       lines = { { id = "en_default", text = "Ha! Careful, careful, that's the soul-coil, and it doesn't like strangers. Now tell me, does that look like it's going to hold to you, because it's been looking at me funny all week." } },
       choices = {
-        { text = "It'll hold. Tighten the second bolt.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It'll hold. Now tighten the second bolt.", next = "BACK", fx = { affinity = 2 } },
         { text = "It's going to explode, Egan.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -151,7 +151,7 @@ P:NPC {
     augustus_free = {
       lines = { { id = "af_default", text = "Maybe, and maybe it'd just drop him dead in the street, and he didn't ask me to. So I bought a spool of wire from him instead and left him to his shop, and I still don't know if that was kindness or cowardice." } },
       choices = {
-        { text = "It was kindness. He gets to choose.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "It was a kindness, Egan. He gets to choose.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -71,7 +71,7 @@ P:NPC {
       big = true,
       lines = { { id = "vh_default", text = "I tell dem stories, loud an' rude, about deir grandmothers. Dey get so angry dey forget to sharpen de knife, an' every day I be alive be one more day for my mate to find me." } },
       choices = {
-        { text = "Mocking your captors? That's brave, elder.", next = "BACK", reply = "Brave, or too old to be scared anymore, mon. Either way, de knife stay dull, an' I stay breathin'.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Mocking your captors? That's brave, Elder.", next = "BACK", reply = "Brave, or too old to be scared anymore, mon. Either way, de knife stay dull, an' I stay breathin'.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Clever. I'd have lied to them, promised them anything.", next = "BACK", reply = "Promise dem anything, an' dey keep you longer to get it. No, mon, rude stories be de better way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -123,8 +123,8 @@ P:NPC {
       big = true,
       lines = { { id = "mb_default", text = "Dat be her way. Me, I just want to go home an' eat somethin' dat ain't Vilebranch gruel, but she won't rest until dis hill pay, an' maybe she be right." } },
       choices = {
-        { text = "She's right. The Vilebranch must pay.", next = "BACK", reply = "She be right, mon, an' she always be right, dat be de trouble. I'll get her de Vilebranch, if I must.", fx = { align = { light = -1 } } },
-        { text = "Go home and rest. Vengeance can wait.", next = "BACK", reply = "Ya, dat be what I want too, mon. Tell de Primal dat, an' see what she do to you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "She's right. The Vilebranch have to pay.", next = "BACK", reply = "She be right, mon, an' she always be right, dat be de trouble. I'll get her de Vilebranch, if I must.", fx = { align = { light = -1 } } },
+        { text = "Go home and rest, Elder. Vengeance can wait.", next = "BACK", reply = "Ya, dat be what I want too, mon. Tell de Primal dat, an' see what she do to you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,7 +142,7 @@ P:NPC {
       lines = { { id = "xw_default", text = "Dey fly over our village an' dey throw stones at our boats, an' we throw spears at deir birds. But de Wildhammer never put a Revantusk on an altar, which be more dan I can say for my own cousins." } },
       choices = {
         { text = "Maybe there's room for peace with the Wildhammer.", next = "BACK", reply = "Room, maybe, mon, but de dwarves got to make some too. I'll throw one less spear, if dey throw one less stone.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Old enemies stay enemies. That's the way of it.", next = "BACK", reply = "Ya, dat be de way, mon, an' it been de way since before de Horde. Old spears for old enemies.", fx = { align = { order = 1 } } },
+        { text = "Old enemies stay enemies. That's just how it is.", next = "BACK", reply = "Ya, dat be de way, mon, and it been de way since before de Horde. Me grandfather threw spears at Wildhammer, an' his grandfather too, an' I don't see de dwarves tryin' to change it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Arrows, mon, sharp ones an' rough ones an' quivers to put dem in. What you be needin'?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, an' your quiver be lookin' thin! Come, come, Renn'az fix dat." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? Good. Arrows be de only ting dat always run out." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more? Good. Arrows be de only ting dat always run out, mostly when de Vilebranch come callin'." },
   },
 
   notice = {
@@ -238,7 +238,7 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Peace with de dwarves? De Primal would laugh, an' den she would hit me. But I sell more arrows in war, so maybe I should not be de one to ask." } },
       choices = {
-        { text = "Peace would save Revantusk lives. It's worth trying.", next = "BACK", reply = "Worth tryin', maybe, but de Primal hit harder dan you think. I'll keep me arrows, just in case.", fx = { align = { light = 1 } } },
+        { text = "Peace would save Revantusk lives. It's worth a try.", next = "BACK", reply = "Worth tryin', maybe, but de Primal hit harder dan you think. I'll keep me arrows, just in case.", fx = { align = { light = 1 } } },
         { text = "The dwarves are enemies. Keep shooting.", next = "BACK", reply = "Ya, keep shootin', mon, an' keep buyin' from Renn'az. Dat be good for everybody but de dwarves.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -38,8 +38,8 @@ P:NPC {
         { id = "opn_elements_q", text = "The question is better turned around, so I will turn it. Your shaman call the spirits of earth and fire friends and ask them politely for favours, and the warlocks before them called them tools. What do you believe they are?" },
       },
       choices = {
-        { text = "Spirits to be respected and asked, never commanded.", next = "opn_elements_r_respect", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
-        { text = "Power. Whoever's strong enough should take it.", next = "opn_elements_r_power", fx = { affinity = 2, align = { light = -1 }, opinion = { the_elements = "power" } } },
+        { text = "Spirits to be respected and asked. Never commanded.", next = "opn_elements_r_respect", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "Power, plain and simple. Whoever's strong enough should take it.", next = "opn_elements_r_power", fx = { affinity = 2, align = { light = -1 }, opinion = { the_elements = "power" } } },
         { text = "Dangerous things best left alone.", next = "opn_elements_r_dangerous", fx = { trait = { careful = 1 }, opinion = { the_elements = "dangerous" } } },
         { text = "I speak with them every day. They aren't yours to chain.", next = "opn_elements_r_respect", when = { class = "SHAMAN" }, fx = { affinity = -2, opinion = { the_elements = "respect", twilights_hammer = "enemy" } } },
         { text = "I don't think about it much.", next = "BACK" },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "lw_default", text = "Because she is greater than they are, and the lesser always chain the greater when they can. When she is free, she will confront her captors, and they will regret their wardship of her." },
       },
       choices = {
-        { text = "Some prisons exist for good reason, Zaruk.", next = "BACK", reply = "For the lesser, perhaps, who fear what they can't measure. I would not expect you to understand yet; few do.", fx = { align = { order = 1 } } },
-        { text = "No power should stay chained. Free her.", next = "BACK", reply = "You see it, then. When the chains break, she will remember who wished her free, and I will tell her your name.", fx = { align = { order = -1 } } },
+        { text = "Some prisons exist for a good reason, Zaruk.", next = "BACK", reply = "For the lesser, perhaps, who fear what they can't measure. I would not expect you to understand yet; few do.", fx = { align = { order = 1 } } },
+        { text = "No power should stay chained. Set her free.", next = "BACK", reply = "You see it, then. When the chains break, she will remember who wished her free, and I will tell her your name.", fx = { align = { order = -1 } } },
         { text = "And what happens to us when she's free?", next = "lady_after" },
       },
     },
@@ -151,7 +151,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd rather fight the end than kneel to it.", next = "BACK", reply = "Fight it, then, and see how long a blade lasts against the ending of the world. I will pray for you, in my way.", fx = { align = { light = 1 }, opinion = { twilights_hammer = "defy" } } },
-        { text = "There's sense in choosing the winning side.", next = "BACK", reply = "There is, and you are wiser than most who wear the Horde's colours. Kneel early, and you will be standing when the others are dust.", fx = { align = { light = -1 }, learn = { "twilights_hammer" }, opinion = { twilights_hammer = "sympathize" } } },
+        { text = "There's sense in choosing the winning side early.", next = "BACK", reply = "There is, and you are wiser than most who wear the Horde's colours. Kneel early, and you will be standing when the others are dust.", fx = { align = { light = -1 }, learn = { "twilights_hammer" }, opinion = { twilights_hammer = "sympathize" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,8 +179,8 @@ P:NPC {
           text = "He suspects, I think, and his wife Korin Fel suspects more. But Hammerfall needs every blade it has, and so they let me be, and I let them be, and the Lady waits." },
       },
       choices = {
-        { text = "I should tell him.", next = "BACK", reply = "Tell him, and he will laugh, because he does not believe in anything he cannot strike with an axe. Go, if you must.", fx = { align = { honor = 1 } } },
-        { text = "Your prayers are your own business.", next = "BACK", reply = "They are, and I am glad you see it. Drum Fel's war is his, and mine is older.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Drum Fel should hear about this.", next = "BACK", reply = "Tell him, and he will laugh, because he does not believe in anything he cannot strike with an axe. Go, if you must.", fx = { align = { honor = 1 } } },
+        { text = "Your prayers are your own business, Zaruk.", next = "BACK", reply = "They are, and I am glad you see it. Drum Fel's war is his, and mine is older.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -192,7 +192,7 @@ P:NPC {
       choices = {
         { text = "What do you think the elements are, Zaruk?", next = "opn_elements" },
         { text = "The spirits are right. Leave it buried.", next = "BACK", reply = "Buried, she will only grow angrier, and the spirits know it. They are frightened, and frightened things say foolish things.", fx = { align = { order = 1 } } },
-        { text = "Perhaps the spirits fear what they can't control.", next = "BACK", reply = "You understand them better than they understand themselves. The spirits are small, and what sleeps below is not.", fx = { align = { order = -1 } } },
+        { text = "Maybe the spirits fear what they can't control.", next = "BACK", reply = "You understand them better than they understand themselves. They whisper and huddle like old women at a well, and what sleeps below has never once been afraid of them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -201,7 +201,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I listen to the stones and to the camp, and both say more than they mean to. Ask." } },
     background = { { id = "tp_bg", text = "I fought for the old Horde, and when it fell I found a truer master. That is all you need to know." } },
-    advice = { { id = "tp_ad", text = "Listen to what lies beneath, {class}. The surface is always the last to know." } },
+    advice = { { id = "tp_ad", text = "Listen to what lies beneath, {class}. The stones under Hammerfall have been trying to tell you something since the day you arrived." } },
     twilights_hammer = { { id = "tp_th", text = "The Twilight's Hammer is an order now, not a clan, and we see what is coming.", next = "hammer" } },
     forsaken = { { id = "tp_forsaken", text = "The dead who walk in Tarren Mill serve their own queen, and they do not understand the greater cause. The Lady will show them, in time." } },
     thrall = { { id = "tp_thrall", text = "The Warchief of the Horde is a small chief in a small world, and the Lady sees far beyond him. I serve the Horde here, for now, because it serves her." } },

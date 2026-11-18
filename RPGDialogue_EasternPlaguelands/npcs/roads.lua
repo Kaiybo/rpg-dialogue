@@ -32,7 +32,7 @@ P:NPC {
       lines = { { id = "xcl_strat_default", text = "Then the city whose dead marched on Darrowshire is quieter tonight, and I'd like to think Joseph felt it, wherever he is. The Scourge that came at us that day had walked out of the north, and Stratholme was the heart of it, so this is as close as I'll ever get to an answer." } },
       choices = {
         { text = "Joseph's courage was never wasted, and this proves it.", next = "BACK", reply = "It never was, and I'll tell him so, if I ever get the chance. Thank you, {class}.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "No victory brings anyone back, Carlin. Don't pretend it does.", next = "BACK", reply = "No, it doesn't, and I know it. But I'll take a quieter night, all the same.", fx = { align = { light = -1 } } },
+        { text = "No victory brings anyone back, Carlin. Don't pretend it does.", next = "BACK", reply = "No, it doesn't, and I know it. But I'll take a quieter night all the same, and maybe a whole one.", fx = { align = { light = -1 } } },
         { text = "Did Joseph ever speak of Stratholme?", next = "xcl_strat2" },
       },
     },
@@ -55,7 +55,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd like to think so, after what the Scourge made of Darrowshire. If the Light can find you after death, then perhaps it can find him too, and I'd sleep better believing that than believing he's lost for good." } },
       choices = {
-        { text = "It found me. It can find him too.", next = "BACK", reply = "Then I'll believe it too, and sleep a little better tonight. Thank you.", fx = { align = { light = 1 } } },
+        { text = "It found me. It can find him too.", next = "BACK", reply = "Then I'll believe it too, and sleep a little better tonight. Joseph always said I worried for the both of us.", fx = { align = { light = 1 } } },
         { text = "The Light doesn't always come back. Don't count on it.", next = "BACK", reply = "I know, and I've tried not to. But I'd rather hope than not, {class}.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -76,7 +76,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch how {pet} carries its ears near the old road, {class}. If it goes still and stares north, don't wait to see what it's staring at." },
       },
       choices = {
-        { text = "It wasn't your fault, Carlin. Nobody listens to dogs.", next = "BACK", reply = "Nobody did, and that's the worst of it. Thank you, all the same.", fx = { align = { light = 1 } } },
+        { text = "It wasn't your fault, Carlin. Nobody listens to dogs.", next = "BACK", reply = "Nobody did, and that's the worst of it. Those hounds howled themselves hoarse in the barn while we told each other it was nothing. Thank you, all the same.", fx = { align = { light = 1 } } },
         { text = "Someone should have listened. Darrowshire paid for that.", next = "BACK", reply = "It did, and I've paid my share every night since. Listen to your beast, {class}.", fx = { align = { light = -1 } } },
         { text = "Something else, Carlin.", next = "BACK" },
       },
@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "He was never one of them, but he honoured them to the end, and he stood his ground at Darrowshire when the order could send him no help. I've heard men say the Silver Hand failed Lordaeron, but its spirit didn't fail at Darrowshire, because Joseph was there." } },
       choices = {
-        { text = "Then his honour is the order's honour still.", next = "BACK", reply = "I like to think so. He'd have been proud to hear it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then his honour is still the order's honour.", next = "BACK", reply = "I like to think so. He'd have been proud to hear it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "One brave man can't redeem an order that failed.", next = "BACK", reply = "Perhaps not, but he redeemed himself, and that's enough for me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -102,7 +102,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "I hope so, though I'm not sure I'd want to eat it. Joseph used to say the soil there was the best in the east, and it's hard to think of it full of ghosts and bones instead of barley." } },
       choices = {
-        { text = "Lay its dead to rest, and it will grow again.", next = "BACK", reply = "I hope so. I'd like to see barley there again, before I'm old.", fx = { align = { light = 1 } } },
+        { text = "Lay its dead to rest, and it will grow again.", next = "BACK", reply = "I hope so. I'd like to see barley in those fields again before I'm old, the way it grew when Joseph and I were boys.", fx = { align = { light = 1 } } },
         { text = "Burn it to the ground and start over.", next = "BACK", reply = "Burn it? I couldn't watch, but I'd not stop you if it came to that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -111,7 +111,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "He was a fair man, Joseph, and he'd judge you by what you did, not what you were. He used to say the orcs in the internment camps deserved a better peace than we gave them, and I never understood him until I saw the Dawn take your people and mine under one banner." } },
       choices = {
-        { text = "Joseph sounds a wise man. I'd have been glad to know him.", next = "BACK", reply = "He was, and you'd have liked him, I think. He'd have liked you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Joseph sounds a wise man. I'd have liked knowing him.", next = "BACK", reply = "He was, and you'd have liked him, I think. He'd have liked you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Peace with the Horde is a soldier's daydream.", next = "BACK", reply = "Maybe it is, but Joseph dreamed it all the same. I'll not mock him for it.", fx = { align = { honor = -1 } } },
         { text = "Something else, Carlin.", next = "BACK" },
       },
@@ -120,7 +120,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They came behind the Scourge, raising our dead as fast as we fell, so that every man Joseph lost came back to fight against him. I still see their robes when I close my eyes, so if you've any honest work for the Dawn, I'd be glad to see dark magic turned the other way for once." } },
       choices = {
-        { text = "I'll turn my power on the Cult, Carlin. I promise.", next = "BACK", reply = "Thank you. I'll hold you to that, and so will Joseph.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll turn my power on the Cult, Carlin. I promise.", next = "BACK", reply = "Thank you. I'll hold you to that, and so would Joseph, if he were here to.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. The Cult just used it better.", next = "BACK", reply = "They used it to raise my brother against his own men. I'd want you to use it better.", fx = { align = { light = -1 } } },
         { text = "Something else, Carlin.", next = "BACK" },
       },
@@ -190,7 +190,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Partly, for I wanted to stand with people who'd fight back the way he did. I'm no mage and no paladin either, but the Dawn doesn't care, so long as you're still standing when the Scourge comes." } },
       choices = {
-        { text = "Standing is enough. You honor them by fighting.", next = "BACK", reply = "Thank you. That's what keeps me standing.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Standing is enough. You honour them by fighting.", next = "BACK", reply = "Thank you. Some days that's all that keeps me on my feet.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Better to live quietly and let the dead rest.", next = "BACK", reply = "Perhaps I should, but I couldn't live quietly while he's out there. Not yet.", fx = { align = { honor = -1 } } },
         { text = "Something else, Carlin.", next = "BACK" },
       },
@@ -399,7 +399,7 @@ P:NPC {
       lines = {
         { id = "pl_default", text = "The ones who walk funny and smell bad. They come through the town at night, and I hide under the floor where they can't see me, and I'm very, very quiet." },
       },
-      choices = { { text = "Keep hiding. You're very brave.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+      choices = { { text = "Keep hiding, Pamela. You're very brave.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     family = {
       lines = {
@@ -495,7 +495,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "Turns 'em, same as folk, an' the plaguehounds are what's left when it's done. I've seen beasts out by the Plaguewood wi' their hides hangin' off an' still walkin', an' ye'd rather I didnae describe it further." } },
       choices = {
         { text = "If there's a cure for them, it's worth the hunt.", next = "BACK", reply = "Mebbe so, an' if ye find one, I'll be first in line tae brew it.", fx = { align = { light = 1 } } },
-        { text = "Kill every turned beast and burn what's left.", next = "BACK", reply = "Aye, that's the safe road, an' I'll no' argue. Burn 'em well.", fx = { align = { light = -1 } } },
+        { text = "Kill every turned beast and burn what's left.", next = "BACK", reply = "Aye, that's the safe road, an' I'll no' argue. Burn 'em well, an' stand upwind while ye do it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -504,7 +504,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Every day, an' twice on a bad one, but I've no time tae wonder long. The Dawn's soldiers need somethin' tae keep the plague off their boots, an' if I have tae boil a ghoul's toes tae make it, then I'll boil 'em an' say sorry tae the toes after." } },
       choices = {
         { text = "Necessity forgives much, Smokey. Keep brewing.", next = "BACK", reply = "It does, an' the soldiers' feet forgive it too. Back tae the pot.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "There must be a cleaner way, Smokey. Find it.", next = "BACK", reply = "I've tried, believe me, an' I'm still lookin'. Until then, the toes it is.", fx = { align = { order = 1 } } },
+        { text = "There must be a cleaner way, Smokey. Find it.", next = "BACK", reply = "I've tried, believe me, an' I'm still lookin'. Until then, it's the toes, an' I'm sorry for it.", fx = { align = { order = 1 } } },
         { text = "Something else, Smokey.", next = "BACK" },
       },
     },
@@ -564,7 +564,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Ye don't want me tae answer that wi' yer dinner still in ye. Let's say the Dawn's salves need certain parts the Scourge no longer use, an' a nimble pair o' hands gets 'em clean, which saves me boilin' twice." } },
       choices = {
         { text = "The dead don't need them. Fair harvest.", next = "BACK", reply = "Aye, they don't, an' the soldiers do. Ye've got the right idea.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "It's grim work. I'd rather leave the dead whole.", next = "BACK", reply = "It is, an' I'll no' argue. But grim work keeps the soldiers walkin'.", fx = { align = { light = 1 } } },
+        { text = "It's grim work. I'd rather leave the dead whole.", next = "BACK", reply = "It is, an' I'll no' argue. But grim work keeps the soldiers walkin', an' a soldier wi' no feet is no soldier at all.", fx = { align = { light = 1 } } },
         { text = "Let's talk of something less grim.", next = "BACK" },
       },
     },
@@ -572,7 +572,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Never, an' I'll thank ye no tae suggest it where the paladins can hear. Scourge bits are foul enough, but they're honest foul, an' fel's the kind o' foul that comes wi' a price ye cannae see on the label." } },
       choices = {
-        { text = "Wise. Fel always costs more than it looks.", next = "BACK", reply = "It does, every time. I'll stick tae honest foul, thank ye.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wise. Fel always costs more than it looks.", next = "BACK", reply = "It does, every time. I'll stick tae honest rot, thank ye.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel would make your brews twice as strong.", next = "BACK", reply = "Twice as strong an' ten times as dangerous. No, thank ye, an' keep yer voice down.", fx = { align = { light = -1 } } },
         { text = "Something else, Smokey.", next = "BACK" },
       },
@@ -613,7 +613,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_bench", text = "Oh, hello! Careful of the vial, it's only mostly stable." },
+    { id = "g_bench", text = "Oh, hello! Careful of that vial, it's only mostly stable, by which I mean about sixty percent." },
   },
 
   notice = {
@@ -806,7 +806,7 @@ P:NPC {
   topics = {
     scholomance = { { id = "tp_scholomance", text = "Scholomance is a dreadful place with dreadful architecture, all crooked hallways and nasty little rooms! I'd knock the whole thing down and start over, given half a chance." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's students run Scholomance now, and they've made a terrible mess of it. I'd love to see his notes, purely for scientific purposes, you understand." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge is a very big problem, and I've built a very big contraption to deal with it. It doesn't work yet, but it's very big." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a very big problem, and I've built a very big contraption to deal with it. It doesn't work yet, but it's very big, and it's only exploded twice." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the finest city in the world, and we lost it to troggs and our own clever mistakes. I'd rather fight the Scourge than think about it." } },
     _none = { { id = "tp_none", text = "Hmm, no, but if you find out, write it down for me, with measurements if you can!" } },
   },

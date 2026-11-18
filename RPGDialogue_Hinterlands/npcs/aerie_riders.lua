@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = { { id = "hp_default", text = "Peace wi' folk who'd put ye on an altar? The Thane's tried talkin' once or twice, an' each time we buried the messenger." } },
       choices = {
-        { text = "Then there's only the hammer. Finish them.", next = "BACK", reply = "Aye, the hammer, an' I'll swing it gladly. The Vilebranch have had their chances, an' they spent 'em on altars.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then there's only the hammer left. Finish them.", next = "BACK", reply = "Aye, the hammer, an' I'll swing it gladly. The Vilebranch have had their chances, an' they spent 'em on altars.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Not all trolls are Vilebranch. Don't damn them all.", next = "BACK", reply = "No' all, aye, an' the Revantusk are proof o' that, even if it galls me. I'll keep my hammer for the Vilebranch.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -88,7 +88,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born at the Peak, flyin' since I was tall enough tae reach a saddle. Not much more tae tell." } },
+    background = { { id = "tp_bg", text = "Born at the Peak, an' flyin' since I was tall enough tae reach a saddle. There's no' much more tae tell, unless ye want tae hear about the crashes." } },
     _none = { { id = "tp_none", text = "Don't know, don't care. Ask Fraggar, our shaman; he knows everythin' the spirits whisper." } },
   },
 }
@@ -161,7 +161,7 @@ P:NPC {
       big = true,
       lines = { { id = "qu_default", text = "Never, an' when they seem tae, that's when I watch harder. Some o' the young riders think I worry too much, an' I think they'll learn." } },
       choices = {
-        { text = "Better too careful than dead.", next = "BACK", reply = "That's my thinkin' exactly, an' it's kept me breathin' this long. The young ones'll learn.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Better too careful than dead.", next = "BACK", reply = "That's my thinkin' exactly, an' it's kept me breathin' through eleven years o' Vilebranch arrows. The young ones'll learn, if I have tae sit on 'em.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some risk keeps you sharp. Let them learn.", next = "BACK", reply = "They'll learn, aye, the hard way, if they live through the lesson. I'd rather they learned from me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -322,7 +322,7 @@ P:NPC {
       big = true,
       lines = { { id = "gr_default", text = "Every one, by name an' by temper! Some o' the young riders think a gryphon's just a mount, an' I tell them a gryphon's a friend who lets ye sit on it." } },
       choices = {
-        { text = "A gryphon's a friend. The riders should remember that.", next = "BACK", reply = "Aye, that's it exactly! Ye've a gryphon's heart, I can tell.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A gryphon's a friend. The riders should remember that.", next = "BACK", reply = "Aye, that's it exactly! Ye've a gryphon's heart, I can tell. Old Skyfang would've liked ye; he liked everyone who scratched behind his ears.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Gryphons are trained war mounts. Discipline matters more.", next = "BACK", reply = "Discipline matters, aye, but so does a kind word, an' I've seen which one keeps a rider alive. Ye'll learn.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

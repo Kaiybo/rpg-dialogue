@@ -223,7 +223,7 @@ P:NPC {
       big = true,
       lines = { { id = "hy_default", text = "I've read your histories, which few of my peers ever bothered to do, and I find the Horde no more alarming than Lordaeron's own nobility. Tell me plainly, though: do you trust us?" } },
       choices = {
-        { text = "I trust anyone who bleeds against the Scourge.", next = "BACK", reply = "A fair answer, and the Dawn's own creed. Welcome, then.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I trust anyone who bleeds against the Scourge.", next = "BACK", reply = "A fair answer, and the Dawn's own creed. Welcome, then; Tyrosus will be glad of you.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "No. I'll use the Dawn while it serves my people.", next = "BACK", reply = "Honest, at least, and that's worth something. Serve your people, and we'll serve the living with you.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -263,6 +263,6 @@ P:NPC {
     holy_light = { { id = "tp_holy_light", text = "The Light is a mystery I've spent my life studying, and I'm no closer to understanding it. I distrust anyone who claims they are." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's nobility mostly fled or died, and I'm one of the few who stayed. I'd rather be useful than safe." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme holds secrets I'd dearly love to study, and Scourge I'd dearly love to avoid. The Dawn will take it eventually, and I'll be there with my notebook." } },
-    _none = { { id = "tp_none", text = "I've read widely, but not about that. Try the quartermaster; she hears what the soldiers say." } },
+    _none = { { id = "tp_none", text = "I've read widely, but not about that. Try the quartermaster; she hears what the soldiers say, and soldiers say a great deal." } },
   },
 }
