@@ -62,7 +62,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Probably that they've been through a war, a defeat and a great deal of rain, and that nobody's thanked them for any of it. I'm no shaman, but I've stood here long enough to feel that much." } },
+      lines = { { id = "xhsham_default", text = "Probably that they've been through a war, a defeat and more rain than any land deserves, and that nobody's thanked them for any of it. I'm no shaman, but I've stood here long enough to feel that much." } },
       choices = {
         { text = "Then I'll thank them, Dar. Old stones deserve it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Stones don't need thanks. They need repairing.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -377,7 +377,7 @@ P:NPC {
     },
     wet = {
       lines = {
-        { id = "we_default", text = "Badly. The moss grows in their harness overnight, their wings never dry, and every one of them coughs in the mornings. I rub them down with hot cloths, and they bite me for it, and we're both happier after." },
+        { id = "we_default", text = "Badly. The moss grows in their harness overnight, their wings never dry, and they all cough in the mornings. I rub them down with hot cloths, and they bite me for it, and we're both happier after." },
       },
       choices = {
         { text = "That's devotion.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -455,8 +455,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'd rather have something that hates me honestly." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'd rather have something that hates me honestly. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but I'll grant it looks happier than any demon I've ever bound." },
+        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but it does look happier than any demon I've ever bound." },
       },
       choices = {
         { text = "I'd take a loyal beast over any bound demon.", next = "BACK", fx = { align = { light = 1 } } },
@@ -476,7 +476,7 @@ P:NPC {
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You'd like to know, wouldn't you, warlock? Their god answered them, which is more than most demons will do for you, and look where it left them: under the swamp." },
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You'd like to know, wouldn't you, warlock? Their god answered them, and most demons won't even do that much, and look where it left them: under the swamp." },
         { id = "xhcast_default", text = "Closer than Fel'zerul would like to admit. The Atal'ai bargained with a god the way we bargain with demons, and they lost, which is the only lesson any of us needs, if anyone would listen." },
       },
       choices = {
@@ -562,7 +562,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "wh_default", text = "Because the Dark Portal is just south of here, and the warlocks who come to study it need what I sell. Every one of them wants to stand where the old Horde opened the way, as if the stones would teach them something." },
+        { id = "wh_default", text = "Because the Dark Portal is just south of here, and the warlocks who come to study it need what I sell. They all want to stand where the old Horde opened the way, as if the stones would teach them something." },
       },
       choices = {
         { text = "Do the stones teach them anything?", next = "why_stones" },

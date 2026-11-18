@@ -38,7 +38,7 @@ P:NPC {
   nodes = {
     op_jaina = {
       lines = {
-        { id = "op_jaina_a", text = "She keeps faith with peace, which isn't always the same thing. Jaina Proudmoore writes that Thrall's orcs want only to be left alone in Durotar, and half the House of Nobles calls her a fool for believing it. You've seen more of the world than they have, so what do you make of it?" },
+        { id = "op_jaina_a", text = "She keeps faith with peace, which isn't always the same thing. Jaina Proudmoore writes that Thrall's orcs want only to be left alone in Durotar, and the loudest voices in the House of Nobles call her a fool for believing it. You've seen more of the world than they have, so what do you make of it?" },
       },
       choices = {
         { text = "Lady Proudmoore is right. Peace with Thrall is worth the risk.", next = "op_jaina_1", fx = { opinion = { jaina = "trust", peace = "for" }, align = { light = 1 } } },
@@ -198,7 +198,7 @@ P:NPC {
         { id = "h_cl_onyxia", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") },
           text = "The dragon's head hangs over the city gate where every merchant has to pass beneath it, and I gave the order myself. I want Stormwind to remember how near she came, and how close I let her." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Alliance. The Archbishop's people have been good to this city in a hard year, and I'm glad of every one I see in these halls." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! It's been too long since I stood with the Silver Hand in the field rather than beside this throne, so forgive me if I look at your armour a little enviously." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! It's been too long since I stood with the Silver Hand in the field rather than beside this throne, and I'll confess I look at your armour a little enviously." },
         { id = "h_default", text = "Bolvar Fordragon. I keep the kingdom for King Anduin until his father comes home, or until he's grown. Whichever the Light allows first." },
         { id = "h_new", when = { maxLevel = 15 },
           text = "You're young for this hall, and that's good, because the young still believe the kingdom's worth defending. Don't lose that in Westfall." },
@@ -221,7 +221,7 @@ P:NPC {
         { id = "h_guard", when = { origin = "human_city_guard" },
           text = "I know that walk; the Watch teaches it to every recruit who's ever carried a lantern down the Trade District. You traded the halberd for the road, I hear, and the road could use you more than the Watch can." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "Shaw tells me you're one of his, or near enough. I don't ask him how his people do their work, and I'd rather not have to ask you." },
+          text = "Shaw tells me you're one of his, or near enough. I don't ask him how his people do their work, and I trust I'll never need to ask you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Church tells me what's kept under the Slaughtered Lamb, and the Church is not pleased, nor am I. You stand in my hall openly, though, so I'll hear you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The kingdom's roads run longer than its soldiers can walk, and I'm grateful for anyone who knows the wilds past Elwynn." },
@@ -323,7 +323,7 @@ P:NPC {
       },
     },
     prestor = {
-      lines = { { id = "pr_default", text = "Her counsel has kept this city steady through a hard few years, and she's sharper than half the court together. Some find her cold; I find her useful, and a regent needs useful more than warm." } },
+      lines = { { id = "pr_default", text = "Her counsel has kept this city steady through a hard few years, and there's no sharper mind on the council. Some find her cold; I find her useful, and a regent needs useful more than warm." } },
       choices = {
         { text = "Useful to whom?", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -382,7 +382,7 @@ P:NPC {
       },
     },
     ironforge_cost = {
-      lines = { { id = "ic_default", text = "Dwarven blood at Grim Batol and on Lordaeron's fields, and a great deal of dwarven stonework under this very city. I'd thank Magni in person if the regency let me leave the Keep for a week." } },
+      lines = { { id = "ic_default", text = "Dwarven blood at Grim Batol and on Lordaeron's fields, and dwarven masons' marks on the footings of this very Keep. I'd thank Magni in person if the regency let me leave the Keep for a week." } },
       choices = { { text = "I'll tell him so.", next = "BACK", fx = { affinity = 1 } } },
     },
     gnomeregan = {
@@ -413,7 +413,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     highorder = {
-      lines = { { id = "ho_default", text = "Then learn us honestly, the empty throne included. The Kirin Tor vouched for your High Order, and in this court that still carries weight, though I'll admit I know less about your people than I'd like." } },
+      lines = { { id = "ho_default", text = "Then learn us as we are, the empty throne included. The Kirin Tor vouched for your High Order, and in this court that still carries weight, though I'll admit I know less about your people than I'd like." } },
       choices = {
         { text = "What would you like to know?", next = "highorder_ask" },
         { text = "Something else, Highlord.", next = "BACK" },
@@ -467,7 +467,7 @@ P:NPC {
       { id = "tp_silver_hand2", when = { class = "PALADIN" }, text = "You carry the Light as we did in the Silver Hand, and the order lives as long as people like you do. Remember that Uther's oath was to serve the people, not the crown, and I'll ask nothing more of you." },
     },
     holy_light = { { id = "tp_holy_light", text = "The Light has carried me through two wars and a regency I never wanted, and I trust it more than I trust any council. Pray for this kingdom, if you would, because I have run short of other options." } },
-    magni = { { id = "tp_magni", text = "Magni Bronzebeard is the staunchest ally this kingdom has, and he's never once asked what we can pay. Ironforge stood with us in the Second War, and it stands with us now, which is more than I can say for some." } },
+    magni = { { id = "tp_magni", text = "Magni Bronzebeard is the staunchest ally this kingdom has, and he's never once asked what we can pay. Ironforge stood with us in the Second War, and it stands with us now, when Gilneas has walled itself off and Stromgarde has gone its own way." } },
     onyxia = { { id = "tp_onyxia", text = "Theramore's soldiers write of a black dragon in Dustwallow Marsh, and Jaina has asked for help. I've sent letters, and I'll send soldiers when I can spare them, which is a phrase I'm sick of writing." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade has fallen to its own prisoners, and the city guard holds the doors and nothing else. I've had requests to storm it, and I've had requests to leave it be, and I'm told by people I trust that the second is wiser." } },
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of the heroes of the Second War, and I pass them every morning on my way to council. I remind myself what they gave, and I try to be worthy of standing in their shadow." } },

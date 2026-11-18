@@ -309,7 +309,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Vorsha the Lasher") },
           text = "The naga keep a brazier on the strand, and when it's lit, Vorsha comes. Guard my back while I get to it, then we fight her together, and if I fall, finish her and tell the runner at Zoram'gar." },
         { id = "h_done", when = { questDone = TODO_QUEST("Vorsha the Lasher") },
-          text = "I've been dreaming of that fight for years, and it was better than the dream. I don't know what I'll do now, honestly, so maybe I'll find another hydra." },
+          text = "I've been dreaming of that fight for years, and it was better than the dream. I don't know what I'll do now, so maybe I'll go find another hydra." },
       },
       again = {
         { id = "h_again", text = "What else? Ask fast, I'm itching to go." },
@@ -377,7 +377,7 @@ P:NPC {
     { id = "n_war", cat = "class", when = { class = "WARRIOR" },
       text = "Good arms on you. You could carry a crate of axes without dropping it, which is more than my last runner managed." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren. Your people look at our lumber camp like we're cutting off our own fingers, and I'd rather not argue it today." },
+      text = "A tauren. Your people look at our lumber camp like we're cutting off our own fingers, and I've no stomach to argue it today." },
   },
 
   start = "hello",
@@ -415,7 +415,7 @@ P:NPC {
       },
     },
     elves_stance = {
-      lines = { { id = "es_default", text = "The Warsong want to burn half the forest to smoke them out, and Mastok says that would bring every Sentinel in Kalimdor down on us. I just want my wagons to arrive." } },
+      lines = { { id = "es_default", text = "The Warsong want to burn a good stretch of the forest to smoke them out, and Mastok says that would bring every Sentinel in Kalimdor down on us. I just want my wagons to arrive." } },
       choices = {
         { text = "Burn them out. Fear keeps the wagons safe.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Mastok is right. Cut what we need, no more.", next = "BACK", fx = { align = { light = 1 } } },

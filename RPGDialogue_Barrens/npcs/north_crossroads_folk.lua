@@ -60,7 +60,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because someone always wants it, and I'd rather sell it to a fool here than have him buy worse in Ratchet. I warn them, and they buy it anyway, and the Barrens sorts out the rest." } },
+      lines = { { id = "w_default", text = "Because someone always wants it, and better a fool buys it from me than buys worse in Ratchet. I warn them, and they buy it anyway, and the Barrens sorts out the rest." } },
       choices = {
         { text = "Fools make their own choices.", next = "BACK" },
         { text = "I'll take a look at your stock.", next = "BUSINESS" },
@@ -91,7 +91,7 @@ P:NPC {
   },
   notice = {
     { id = "n_skin", cat = "craft", when = { profession = { "Skinning", "Leatherworking" } },
-      text = "You work hides yourself, I can tell by the stains. Feel the stitching on these, and tell me honestly if you've done better." },
+      text = "You work hides yourself, I can tell by the stains. Feel the stitching on these, and tell me true, tanner to tanner, if you've done better." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Mulgore leather fits a tauren better than anything the orcs make. I've a few pieces cut for our shoulders, if you want them." },
   },
@@ -118,7 +118,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces, and please don't call them skins, because a skin is what a beast wears and leather is what a tanner earns. Zhevra hide is tough and thin, which is why the hunters here chase them, and why the zhevra kick so hard when they're caught; the Earth Mother made them proud." } },
+      lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces, and please don't call them skins, because a skin is what a beast wears and leather is what a tanner earns. Zhevra hide is tough and thin, so the hunters here chase them, and why the zhevra kick so hard when they're caught; the Earth Mother made them proud." } },
       choices = {
         { text = "You look like you've hunted them yourself.", next = "hunt" },
         { text = "Something else.", next = "BACK" },
@@ -159,7 +159,7 @@ P:NPC {
       },
     },
     bk_duty = {
-      lines = { { id = "bkd_default", text = "Then your boots and your heart agree, which is rarer than you'd think. Walk carefully, and remember that the land you keep safe was here long before the roads were." } },
+      lines = { { id = "bkd_default", text = "Then your boots and your heart walk the same trail, and that is a good thing to see. Walk carefully, and remember that the land you keep safe was here long before the roads were." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bk_gold = {
@@ -230,7 +230,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Wrahk, and yes, I sell thread, dye and bolts of cloth here, of all places. The Crossroads gets more tailors passing through than you'd think, because everyone's clothes come apart on the road." },
+        { id = "h_default", key = true, text = "Wrahk, and yes, I sell thread, dye and bolts of cloth here, of all places. The Crossroads gets plenty of tailors passing through, because everyone's clothes come apart on the road." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before the wind picks up." },
@@ -304,7 +304,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     he_quil = {
-      lines = { { id = "hq_default", text = "Off a quilboar, and you've worn it into a cloth shop, which explains the smell and half the dust. Stand a little further from the silk, please." } },
+      lines = { { id = "hq_default", text = "Off a quilboar, and you've worn it into a cloth shop, which explains the smell and most of the dust. Stand a little further from the silk, please." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     good_thread = {
@@ -397,7 +397,7 @@ P:NPC {
       },
     },
     starter = {
-      lines = { { id = "st_default", text = "The mother, little one, a crock of sourdough I carried down from Bloodhoof Village, and every loaf in the Crossroads starts with a spoonful of her. She's older than half the grunts in this garrison, and better behaved than most of them." } },
+      lines = { { id = "st_default", text = "The mother, little one, a crock of sourdough I carried down from Bloodhoof Village, and every loaf in the Crossroads starts with a spoonful of her. She's older than many of the grunts in this garrison, and better behaved too." } },
       choices = {
         { text = "You talk about it like it's alive.", next = "starter_alive" },
         { text = "Something else.", next = "BACK" },
@@ -410,7 +410,7 @@ P:NPC {
     fuss = {
       lines = { { id = "fu_default", text = "Of course I do, somebody has to, and the soldiers here think a strip of dried kodo and a swallow of grog counts as supper. Now look at me, little one, and tell me when you last sat down to a proper meal." } },
       choices = {
-        { text = "This morning, honestly. I eat well.", next = "fu_well", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "This morning, truthfully, and I eat well.", next = "fu_well", fx = { affinity = 1, trait = { honest = 1 } } },
         { text = "I can't remember, to tell the truth.", next = "fu_forgot", fx = { affinity = 2 } },
         { text = "Meat and grog is a proper meal.", next = "fu_grog", fx = { trait = { stubborn = 1 } } },
       },
@@ -564,7 +564,7 @@ P:NPC {
       },
     },
     sergra = {
-      lines = { { id = "s_default", text = "Best commander this outpost could have, and the only one who'd have kept it standing through the first Kolkar summer. Half the grunts grumble that a woman commands them, and the other half have the sense to shut up and follow her." } },
+      lines = { { id = "s_default", text = "Best commander this outpost could have, and the only one who'd have kept it standing through the first Kolkar summer. Some of the grunts grumble that a woman commands them, and the ones with sense shut up and follow her." } },
       choices = {
         { text = "Did anyone else want her post?", next = "kargal" },
         { text = "Something else.", next = "BACK" },
@@ -609,7 +609,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hg_walk = {
-      lines = { { id = "hw_default", text = "Desperate, me? I'll be here when the Crossroads is dust and you're bones, but I'll grant you that walking away is the one move I can't answer, so somebody's taught you something." } },
+      lines = { { id = "hw_default", text = "Desperate, me? I'll be here when the Crossroads is dust and you're bones, but walking away is the one move I can't answer, so somebody's taught you something." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lizzarik = {
@@ -704,7 +704,7 @@ P:NPC {
       },
     },
     road = {
-      lines = { { id = "r_default", text = "Sure it is, which is why my prices are so reasonable for what you're gettin'. Every raider on the road is a cost line, and every cost line gets passed along with a smile, on my mother's ledger." } },
+      lines = { { id = "r_default", text = "Sure it is, and that's exactly why my prices are a bargain for what you're gettin'. Every raider on the road is a cost line, and every cost line gets passed along with a smile, on my mother's ledger." } },
       choices = {
         { text = "So where's safe, then?", next = "road_ask" },
         { text = "Then I'll see what you've got.", next = "BUSINESS" },

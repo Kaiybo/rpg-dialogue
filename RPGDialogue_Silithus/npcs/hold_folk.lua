@@ -88,7 +88,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Oh, perfect, put your hands on my forehead and do the glowy thing, buddy, because I'm dying, honestly I am, and Beetix won't believe me, and the glowy thing doesn't cost reagents." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! You know poisons, don't you? Tell me honestly, buddy, how long have I got, because my cousin keeps sayin' I'll be fine and she's a terrible liar, which is a real handicap for a goblin." },
+          text = "A rogue! You know poisons, don't you? Give it to me straight, buddy, how long have I got, because my cousin keeps sayin' I'll be fine and she's a terrible liar, which is a real handicap for a goblin." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you magic this venom out of me? No? Then what good is all that study, I ask you, when a goblin can't even get a decent cure at a decent price?" },
         { id = "h_default", key = true, text = "Noggle Ficklespragg, and yes, I'm related to Beetix, and no, I don't want to talk about it, buddy. I got stung by somethin' nasty out in the desert, and now I'm stuck here until somebody brings me the makings of a cure, and every day on this bench is a day I'm not earning." },
@@ -379,7 +379,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Eyes in the hives, and knives in the bug-queens' guards, so my warriors can push in. The Alliance has its own soldiers here, and I'd rather the Horde's name was on the victory than theirs." } },
+      lines = { { id = "xrogue_default", text = "Eyes in the hives, and knives in the bug-queens' guards, so my warriors can push in. The Alliance has its own soldiers here, and I want the Horde's name on the victory, not theirs." } },
       choices = {
         { text = "I'll fight for the Horde's honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I fight for myself, Krug.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
@@ -501,7 +501,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Twilight's Hammer calls to things it cannot control, and I'd rather not see what happens when a demon hears the call. You keep a firm hand on your creature, and I'll keep a firm hand on my men, and we'll get on well enough." } },
+      lines = { { id = "xlock_default", text = "Because the Twilight's Hammer calls to things it cannot control, and I don't care to find out what happens when a demon hears the call. You keep a firm hand on your creature, and I'll keep a firm hand on my men, and we'll get on well enough." } },
       choices = {
         { text = "A firm hand it is. My demon answers to me alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the cult call it. I'll see what answers.", next = "BACK", fx = { align = { order = -1 } } },
@@ -627,7 +627,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Uneasy, honestly. Krug Skullsplit and I keep our distance, and so do our soldiers, but so far there's been no blood spilled between us." } },
+      lines = { { id = "b2_1_l", text = "Uneasy, and that's the kindest word for it. Krug Skullsplit and I keep our distance, and so do our soldiers, but so far there's been no blood spilled between us." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {

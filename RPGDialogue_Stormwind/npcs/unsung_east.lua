@@ -104,7 +104,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because armour is a promise that the wearer will stand where others can't, and a promise is a righteous thing. The paladins understand that better than anyone, which is why I keep my best pieces for them." } },
+      lines = { { id = "xapala_default", text = "Because armour is a promise that the wearer will stand where others can't, and a promise is a righteous thing. The paladins understand that better than anyone, and so my best pieces go to them." } },
       choices = {
         { text = "A paladin's armour is a vow made in steel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It's only steel, Agustus. The vow is in the wearer.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -192,7 +192,7 @@ P:NPC {
   },
   notice = {
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" }, place = "before",
-      text = "One of the Cathedral's own. I've dressed half the novices who ever knelt in that nave, so let me see if I can't find you something better than the Church's wool." },
+      text = "One of the Cathedral's own. I've dressed more novices than ever knelt in that nave at once, so let me see if I can't find you something better than the Church's wool." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Your robe is torn nearly to ribbons. Whatever you faced, I'm glad you came back from it." },
   },
@@ -247,7 +247,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "All the time, and I always sell the priest a robe and Agustus sells the warrior a breastplate, and then they go off together to Westfall. Mind you, it's usually the priest who comes back to buy a new robe first." } },
+      lines = { { id = "xwarcl_default", text = "All the time, and I always sell the priest a robe and Agustus sells the warrior a breastplate, and then they go off together to Westfall. Funny thing, though, it's usually the priest who comes back to buy a new robe first." } },
       choices = {
         { text = "Then I'll make sure my priest comes back in one piece.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The priest can look after themselves. That's their job.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -261,7 +261,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} shedding on my robes? Oh, never mind, the priests won't notice, and if they do, I'll tell them it's a blessing." },
       },
       choices = {
-        { text = "A good cloak is all I need, honestly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good plain cloak is all I need.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If it's not armour, I don't want it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -579,7 +579,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Of course it would, as long as you remember which button is which! The real secret is that a warrior and a gadget both work best when someone smarter is planning the fight, which is why Lilliam does all the planning." } },
+      lines = { { id = "xwarcl_default", text = "Of course it would, as long as you remember which button is which! The real secret is that a warrior and a gadget both work best when someone smarter is planning the fight, and that's why Lilliam does all the planning." } },
       choices = {
         { text = "I'll leave the clever plans to Lilliam, then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll plan my own fights, thank you very much.", next = "BACK", fx = { align = { order = -1 } } },

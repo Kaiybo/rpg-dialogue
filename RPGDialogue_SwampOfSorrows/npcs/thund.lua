@@ -65,7 +65,7 @@ P:NPC {
           text = "You wear the Alliance's colours, but my captain called you a friend, and that's enough for a dead tauren. Stand easy." },
       },
       again = {
-        { id = "h_again", text = "Ask, friend. I've all the time the dead have, and that's a great deal." },
+        { id = "h_again", text = "Ask, friend. I've all the time the dead have, which is to say all of it." },
         { id = "h_again2", text = "What else would you know? Speak gently; the captain is listening." },
       },
       choices = {

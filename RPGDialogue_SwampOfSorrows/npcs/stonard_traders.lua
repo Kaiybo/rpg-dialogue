@@ -157,7 +157,7 @@ P:NPC {
 
     damp = {
       lines = {
-        { id = "da_default", text = "Wax, oilcloth, and a great deal of swearing. Powders clump and candles weep, and a crate that sits a day on the ground draws water up like a sponge, so everything I own lives on shelves and nothing I own touches the floor." },
+        { id = "da_default", text = "Wax, oilcloth, and more swearing than a grunt at drill. Powders clump and candles weep, and a crate that sits a day on the ground draws water up like a sponge, so everything I own lives on shelves and nothing I own touches the floor." },
       },
       choices = {
         { text = "Has the damp ever ruined a whole shipment?", next = "damp_lost" },
@@ -196,7 +196,7 @@ P:NPC {
 
     customers = {
       lines = {
-        { id = "cu_default", text = "Shamans buying ankhs, mages buying powder, Rogvar's students buying vials by the crate and breaking half of them, and once a warlock who wanted something I don't sell and won't name. The swamp brings more spellcasters than you'd think, all of them on their way to the temple or the Portal." },
+        { id = "cu_default", text = "Shamans buying ankhs, mages buying powder, Rogvar's students buying vials by the crate and breaking half of them, and once a warlock who wanted something I don't sell and won't name. The swamp draws spellcasters like flies, all of them on their way to the temple or the Portal." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

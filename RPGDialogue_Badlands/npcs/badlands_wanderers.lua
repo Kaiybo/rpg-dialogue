@@ -232,7 +232,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "My name is Garek, and I'm here on an errand for Krasus of the Kirin Tor, to put an end to a trouble in Lethlor Ravine. More than that I can't tell you, except that it matters a great deal more than this camp suggests." },
+          text = "My name is Garek, and I'm here on an errand for Krasus of the Kirin Tor, to put an end to a trouble in Lethlor Ravine. More than that I can't tell you, except that it matters far more than a few tents in the dust suggest." },
         { id = "h_sign", tags = { "news" }, when = { questActive = TODO_QUEST("Tremors of the Earth") },
           text = "A band of ogres stole the Sign of the Earth, and they drift from camp to camp across the Badlands. They've been seen near Camp Boff; begin there, and bring it back to me intact if you can." },
         { id = "h_sign_done", when = { questDone = TODO_QUEST("Tremors of the Earth") },

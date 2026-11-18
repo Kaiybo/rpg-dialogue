@@ -95,7 +95,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every one of them is staying right here, where the earth can't reach it and the interest can. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
+      lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every last copper is staying right here, where the earth can't reach it and the interest can. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
       choices = {
         { text = "Walls and Bruisers. That's how you keep what's yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The desert eats every vault eventually, banker.", next = "BACK", fx = { align = { order = -1 } } },
@@ -104,7 +104,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Tried, three times, and the Bruisers caught every one of them before they reached the second lock, and billed them for the Bruisers' time. The fourth one is the one I worry about, because the fourth one will have learned from the first three." } },
+      lines = { { id = "xrogue_default", text = "Tried, three times, and the Bruisers caught all three before they reached the second lock, and billed them for the Bruisers' time. The fourth one is the one I worry about, because the fourth one will have learned from the first three." } },
       choices = {
         { text = "Your vault is safe. Rogues know better than to try.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No lock is perfect, banker. Remember that.", next = "BACK", fx = { align = { order = -1 } } },
@@ -181,10 +181,10 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "I'll ask you to keep both hands on the counter, friend. I'm sure you're an honest customer, but I'm surer still that my vault has seen your sort before." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage. Do you know how much it costs to keep a vault safe from someone who can walk through a wall, or turn a guard into a sheep? I do, and it's a great deal." },
+          text = "A mage. Do you know how much it costs to keep a vault safe from someone who can walk through a wall, or turn a guard into a sheep? I do, pal: three extra wards, two extra Bruisers and a sheep clause in the insurance." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the vault. The Cartel doesn't tithe, I'm afraid, but you're welcome to pray over your deposit, and the Bruisers will watch you do it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest. You'll forgive me if I don't ask you to bless the vault, because the last holy man through here asked how much the Cartel set aside for the poor, and I had no good answer for him." },
+          text = "A priest. I won't be askin' you to bless the vault, because the last holy man through here asked how much the Cartel set aside for the poor, and I had no good answer for him." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Kindly keep your weapon sheathed in the bank, friend, since the Bruisers count a drawn blade as a withdrawal from your good standing, with penalties." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -479,7 +479,7 @@ P:NPC {
     },
     bulkrek = {
       lines = {
-        { id = "bk_default", text = "We share a well and a wall, and we nod in the mornings. The Bruisers make sure that's all we do, though truth be told, he keeps his beasts better than half the gryphon masters I trained with." },
+        { id = "bk_default", text = "We share a well and a wall, and we nod in the mornings. The Bruisers make sure that's all we do, though truth be told, he keeps his beasts better than most of the gryphon masters I trained with in Ironforge." },
         { id = "bk_dwarf", when = { race = "Dwarf" }, text = "Aye, I know what Ironforge would say about it, and Ironforge isn't here sweating with me. He keeps his beasts well, and that's the measure I use." },
       },
       choices = {
@@ -582,7 +582,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They accept a beast that stands still and does not stare, which is more than most hunters manage. The dwarf's gryphons across the yard have learned it too, and so we keep the peace, birds and beasts and two flight masters both." },
+        { id = "xhuntcl_default", text = "They accept a beast that stands still and does not stare, and few hunters can teach their own beasts that much. The dwarf's gryphons across the yard have learned it too, and so we keep the peace, birds and beasts and two flight masters both." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has good manners, I see. It knows not to look a wind rider in the eye, and that is a lesson some orcs never learn." },
       },
       choices = {
@@ -637,7 +637,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "More than you'd think, because a portal costs reagents and a wind rider costs a few coins and a strong stomach. The beasts don't care for the smell of the arcane, though, so I'll ask you to keep your hands still while you're on one." } },
+      lines = { { id = "xmage_default", text = "Often, because a portal costs reagents and a wind rider costs a few coins and a strong stomach. The beasts don't care for the smell of the arcane, though, so I'll ask you to keep your hands still while you're on one." } },
       choices = {
         { text = "I'll ride quietly. Your beasts deserve that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If the beast doesn't like it, it can get used to it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -749,7 +749,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Red meat, rare, carved thick, and nothing green on the plate to insult it! I've fed Bruisers, caravan guards and a dwarf who lifted my table over his head to say thank you, and every one of them fought better for it." } },
+      lines = { { id = "xwarcl_default", text = "Red meat, rare, carved thick, and nothing green on the plate to insult it! I've fed Bruisers, caravan guards and a dwarf who lifted my table over his head to say thank you, and they all fought better for it." } },
       choices = {
         { text = "A full belly and a steady head win more fights than rage.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Hunger keeps a warrior's edge. I'll feast after the fight.", next = "BACK", fx = { align = { order = -1 } } },
@@ -797,7 +797,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then it has better taste than half my customers, which I'll grant it. But it can admire from over there, because I've seen what imps do with fire, and I'd rather my kitchen didn't end up as one of its jokes." } },
+      lines = { { id = "xlock_default", text = "Then it has better taste than my regulars, I'll give it that. But it can admire from over there, because I've seen what imps do with fire, and my kitchen isn't going to be the punchline." } },
       choices = {
         { text = "My servant goes where I please.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll keep the imp out of your soup.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -864,7 +864,7 @@ P:NPC {
           text = "A hunter! Ah, a fellow professional of the meat trade, buddy, and don't let anybody tell you otherwise." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Don't tell me you're one of those who won't eat meat, because I'll take it personally, and I've a cleaver right here." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now you look like someone who appreciates a proper meal, because nobody swings a hammer that size on a stomach full of conjured bread." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Hands off the cleaver, friend, because I'll know if it's moved, and I'll know who moved it, and I'm faster with it than you'd think." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Hands off the cleaver, friend, because I'll know if it's moved, and I'll know who moved it, and I'm faster with it than I look." },
       },
       again = {
         { id = "h_again", text = "What else, pal? Talk fast, the grill's on and the grill's eating coal I paid for." },
@@ -1027,7 +1027,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every one for a mile, and the hyenas have learned to keep clear of the dune out back. The druids at the gate grumble about it, but a scared hyena is a living hyena, which is more than I can say for one that wanders into town." } },
+      lines = { { id = "xdruid_default", text = "Every one for a mile, and the hyenas have learned to keep clear of the dune out back. The druids at the gate grumble about it, but a scared hyena is a living hyena, and one that wanders into town ends up as Dirge's special." } },
       choices = {
         { text = "Better scared than dead. That's a kindness, of sorts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Just shoot the hyenas. Fewer pests that way.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1066,7 +1066,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, pal, and lightning's the only thing in Tanaris louder than my rifles, which I take as a professional challenge." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You heal 'em and I shoot 'em, and between us we've got the whole business of Zul'Farrak sewn up, if you'd like to talk partnership." },
         { id = "h_default", key = true,
-          text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, priced to move, and every one of them tested on that dune out back." },
+          text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, priced to move, and every barrel tested on that dune out back." },
         { id = "h_bruisers", when = { metBefore = true },
           text = "The Bruisers came round again about my testing, so I'm aiming further left now and I've paid the fine, again. The dune didn't complain, but the goat behind it did." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -1104,7 +1104,7 @@ P:NPC {
       },
     },
     peace = {
-      lines = { { id = "p_default", text = "The Bruisers ban shooting people inside the walls, pal, not selling the means to shoot them outside. That's a distinction worth a great deal of money, and I live in it." } },
+      lines = { { id = "p_default", text = "The Bruisers ban shooting people inside the walls, pal, not selling the means to shoot them outside. That's a distinction worth a small fortune, and I live in it." } },
       choices = {
         { text = "A neat loophole. Good for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Seems the Bruisers should close it.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -1132,7 +1132,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Clean the barrel after the sandstorm, pal, not before the next one." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's Bruisers won't let me fire a gun in town, pal, so I fire them into a dune outside. That dune's going to be famous one day." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak don't use guns, pal, which is a shame, because I'd sell them a lot of them. They throw axes, and that's a much worse business model." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay lets you fire a gun indoors, pal, which is why I left after the second fire. Gadgetzan's got rules, but at least the buildings are made of stone." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay lets you fire a gun indoors, pal, so I left after the second fire. Gadgetzan's got rules, but at least the buildings are made of stone." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's where I blew up my first workshop, pal, and Gazlowe still sends me the bill every year. I've told him I'll pay when I'm rich." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, but if it needs shooting, I know a goblin, and he's got a sale on." } },
   },
@@ -1257,7 +1257,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the Sandfury trolls have a way of tempering steel that no smith in Ironforge or Gadgetzan can match, and they keep it in stoppered flasks. I've spent years trying to work out what's in it, and the only way to learn is to get it in my hands." } },
       choices = {
-        { text = "I'll bring it honestly, and only from those who attack us.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take it fairly, and only from those who attack us.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take it from whoever has it. Trolls won't miss it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1284,7 +1284,7 @@ P:NPC {
       lines = {
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "You've been to the bottom of Zul'Farrak, I hear, and Ukorz Sandscalp won't be guarding anything again. If the Sandfury smiths scatter now, their temper may scatter with them, and I'm not sure whether to thank you or mourn it." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have known Forsaken whose prayers set my teeth on edge, and trolls whose loa want blood, so forgive me if I wait to hear which kind you are." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have known Forsaken whose prayers set my teeth on edge, and trolls whose loa want blood, so I'll wait to hear which kind you are." },
         { id = "h_default", key = true,
           text = "Trenton Lighthammer, smith. I work here by the south gate because it's nearest the road to Zul'Farrak, and the trolls of that city have something I need for my craft." },
         { id = "h_before", when = { minLevel = 42, questBefore = TODO_QUEST("Troll Temper") },
@@ -1294,7 +1294,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Troll Temper"), days = 3 } },
           text = "The temper's already in the quench, and the steel took it better than I hoped. Whatever the Sandfury are, they know metal, and it galls me to say it." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage at my anvil. My people know what arcane hunger can do to a land, friend, because the sea covers what it did to ours, so forgive me if I watch your hands." },
+          text = "A mage at my anvil. My people know what arcane hunger can do to a land, friend, because the sea covers what it did to ours, so I'll be watching your hands." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "There's fel on you, and I don't need my eyes to see it. I'll mend your gear, because steel doesn't care who carries it, but I'll do it with my back to the wall." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -1352,7 +1352,7 @@ P:NPC {
       },
     },
     zf = {
-      lines = { { id = "z_default", text = "A walled city of the Sandfury trolls to the west, old and sunbaked and full of them. Gadgetzan trades with half the world, but nobody trades with Zul'Farrak, and the Bruisers watch that road closely." } },
+      lines = { { id = "z_default", text = "A walled city of the Sandfury trolls to the west, old and sunbaked and full of them. Gadgetzan trades with anyone who has coin, but nobody trades with Zul'Farrak, and the Bruisers watch that road closely." } },
       choices = {
         { text = "What do the Sandfury want?", next = "zf_want" },
         { text = "Something else.", next = "BACK" },

@@ -230,7 +230,7 @@ P:NPC {
     burning_blade = { { id = "tp_blade", text = "That's Orgnil's business, and he's good at it. I give him whatever he asks for." } },
     thrall = { { id = "tp_thrall", fx = { learn = { "internment" } }, text = "The Warchief freed me from the camps with his own hands, and I've followed him ever since. Razor Hill is his, and I'll hold it for him the way he held the line for us." } },
     second_war = { { id = "tp_second_war", text = "I was a grunt in the Second War and a prisoner after it. I learned more about holding ground in the camps than I ever did on a battlefield." } },
-    darkspear = { { id = "tp_darkspear", text = "The trolls of Sen'jin are good fighters and better neighbours, and they never ask me for anything they wouldn't give back. I'd trust a Darkspear at my side before half the orcs in this town." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls of Sen'jin are good fighters and better neighbours, and they never ask me for anything they wouldn't give back. I'd trust a Darkspear at my side before many of the orcs in this town." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar have been pushing in from the west, and Lar Prowltusk watches them for me. If they come over the ridge in force, Razor Hill will meet them, and they won't like the meeting." } },
     theramore = { { id = "tp_theramore", text = "The humans' fortress is across the water to the south, and Lady Proudmoore keeps her soldiers on her side of it. That's the kind of peace I can respect, as long as it lasts." } },
     forsaken = {
@@ -254,7 +254,7 @@ P:NPC {
 
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "A warlock in Razor Hill. I'll be honest with you, because I'm honest with everyone I might have to kill: every Burning Blade cultist I ever buried started out telling me they could control it." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I've watched you a long while now, warlock, and you've given me nothing to hunt. That's rarer than you'd think, and I'll say so to anyone who asks." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I've watched you a long while now, warlock, and you've given me nothing to hunt. Few of your kind manage that, and I'll say so to anyone who asks." },
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow. Our people drank demon blood once; I won't let the Blade pour it for us again." },
     { id = "g_bb_resolved", when = { thread = { id = "burning_blade", state = "resolved" } }, text = "Word came down from Orgrimmar that the Warchief has heard the Blade's whole road from you, valley to Cleft. Good, then; I'll keep watching the hills, and he can keep watching the smiles." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons, or any blood on your blade?" },
@@ -334,7 +334,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You can track anything that walks, and the imps they summon leave scorched earth wherever they stop. Follow the burn marks north toward Skull Rock and you'll find their summoners, and the summoners are the ones I want." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} back when the summoners start to chant. I've seen a beast go mad from fel magic, and I'd rather not have to put a good one down." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} back when the summoners start to chant. I've seen a beast go mad from fel magic, and I've no wish to put a good one down." },
       },
       choices = {
         { text = "Fel magic is filth. I'll keep my beast well clear.", next = "BACK", fx = { align = { light = 1 } } },
@@ -345,7 +345,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "More use than you'd think, because the Blade's warlocks hide behind wards and summoned imps, and fire burns through both. Go to Skull Rock and do your work, and if you find any of their scrolls, bring them to me unburned." },
+        { id = "xmage_default", text = "Plenty of use, because the Blade's warlocks hide behind wards and summoned imps, and fire burns through both. Go to Skull Rock and do your work, and if you find any of their scrolls, bring them to me unburned." },
       },
       choices = {
         { text = "Unburned scrolls it is. You'll have every one.", next = "BACK", fx = { align = { order = 1 } } },
@@ -389,11 +389,11 @@ P:NPC {
         { id = "h_storms", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Storms") },
           text = "The cultists talk of storms, and not the kind that bring rain. Find out what they mean." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good! The Burning Blade foul everything they touch, and you'll smell their fel stink around Skull Rock long before you see them." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Every warlock in the Burning Blade had shamans for grandfathers, and they traded the elements for fel fire, so forgive me if I watch your hands for a while." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Every warlock in the Burning Blade had shamans for grandfathers, and they traded the elements for fel fire, so I'll be watching your hands for a while." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Hmph, a mage. At least your fire comes from the arcane and not the Legion, which already makes you cleaner than the cultists I hunt." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Burning Blade run when they see an axe coming, which is the one thing about them I like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Burning Blade keep imps and worse at their heels, and someone who can track a beast can track those too." },
-        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Every one of them you put down is one less traitor whispering to the Legion." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Each one you put down is one less traitor whispering to the Legion." },
       },
       choices = {
         { text = "You keep one hand on your blade around me, Soulscar.", next = "prej_orgnil", when = { prejudiced = true } },
@@ -412,7 +412,7 @@ P:NPC {
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
       again = {
-        { id = "h_again", text = "What else? Speak low; the Blade have ears in more places than you'd think." },
+        { id = "h_again", text = "What else? Speak low; the Blade have ears even in Razor Hill." },
       },
     },
     warlock = {
@@ -491,7 +491,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "More than you'd think, mostly scorpid stings and quilboar cuts they're too proud to mention. I keep a corner by the fire for the worst of them, so if you see someone shaking in it, they're yours and not mine." } },
+      lines = { { id = "xhpriest_default", text = "Plenty, mostly scorpid stings and quilboar cuts they're too proud to mention. I keep a corner by the fire for the worst of them, so if you see someone shaking in it, they're yours and not mine." } },
       choices = {
         { text = "Then the corner by the fire is mine to keep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They should ask for help. I won't chase them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -533,7 +533,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "More than you'd think, since Razor Hill is the first roof between the Valley and Orgrimmar. Most are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
+        { id = "xlock_default", text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar. Most are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
       },
       choices = {
         { text = "Fair rules. My imp sleeps outside.", next = "BACK", fx = { align = { order = 1 } } },
@@ -618,7 +618,7 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I pour drinks for grunts; I don't keep track of things. Ask Gar'Thok, he likes knowing everything." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief stayed at my inn once, before he had a city, and he paid. That's more than most of his grunts can say." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief stayed at my inn once, before he had a city, and he paid. His grunts still owe me for last winter." } },
     darkspear = { { id = "tp_darkspear", text = "The trolls drink as hard as orcs and pay for it slower, but they're never mean drunks. I'll take a troll at the bar over a Kolkar at the gate any day." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar want Durotar, and I'm not sure why, since it's nothing but rock and scorpids. Maybe they want the beds." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins down in Ratchet sell my ale for twice what I charge, I hear. Good for them, as long as they keep buying." } },
@@ -693,7 +693,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll walk the road, and learn it properly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather be warm than wise, honestly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd sooner be warm than wise.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

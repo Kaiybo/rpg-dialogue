@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Missing Diplomat"), days = 5 } },
           text = "One of my own soldiers, mixed up in this. I'll be going through every name on the roster myself, {name}, and I won't be gentle about it." },
         { id = "h_alliance", when = { race = "Human" },
-          text = "From Stormwind? We get fewer of you than you'd think. Theramore was built by Lordaeron's survivors and Kul Tirans, and we've had to learn to trust Stormwind's people one at a time." },
+          text = "From Stormwind? We don't see many of you. Theramore was built by Lordaeron's survivors and Kul Tirans, and we've had to learn to trust Stormwind's people one at a time." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be brief." },
@@ -59,7 +59,7 @@ P:NPC {
 
     hendel = {
       lines = {
-        { id = "he_default", text = "Steady, quiet, never late to his watch, which is more than I can say for most. He asked for Sentry Point himself, and I thought it was because he liked the quiet." },
+        { id = "he_default", text = "Steady, quiet, never late to his watch, and that's a rare thing in this garrison. He asked for Sentry Point himself, and I thought it was because he liked the quiet." },
         { id = "he_done", when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "I thought I knew him. He asked for Sentry Point himself, and now I know why he wanted a tower where nobody would be watching him." },
       },
       choices = {

@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Somethin' had a go at ye, raptors by the look of it. They hunt in packs, so learn that, if ye learn nothin' else." },
     { id = "n_druid_cat", cat = "class", when = { class = "DRUID", form = { "cat" } },
-      text = "Easy there. I've a rifle and a lifetime of habit, and you look a great deal like what I came here to hunt." },
+      text = "Easy there. I've a rifle and a lifetime of habit, and you look rather a lot like what I came here to hunt." },
   },
 
   start = "hello",
@@ -185,7 +185,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde in my camp. Pray all ye like, so long as ye do it quiet, for the game hears everythin'." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll hunt beside near anybody, but no beside a demon, so keep yer wee beastie well away from my trophies." },
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "A druid! Splendid. You'll appreciate the beasts here more than most, though I daresay we appreciate them rather differently." },
+          text = "A druid! Splendid. You'll appreciate the beasts here better than any man in my camp, though I daresay we appreciate them rather differently." },
         { id = "h_default", key = true,
           text = "Hemet Nesingwary. I came tae Stranglethorn for the huntin', an' I'm stayin' for the huntin': raptors, panthers, tigers, an' the great cat himself. There's nothin' else worth the trip." },
         { id = "h_welcome", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Welcome to the Jungle") }, { questActive = TODO_QUEST("Hunting in Stranglethorn") }, { questActive = TODO_QUEST("Hemet Nesingwary") } } },
@@ -365,7 +365,7 @@ P:NPC {
       lines = {
         { id = "xdr_default", text = "Kin, is it? Then I'll not ask you to skin one, and you'll not ask me to stop. Sin'Dall is a beast, druid, and a fine one, and I'll honor him the way a hunter honors anything: by taking him fairly, face to face." },
         { id = "xdr_elf", when = { race = "NightElf" },
-          text = "Your people say that of every cat in the world, I've heard, and you'll forgive me if I don't believe Sin'Dall is a druid in disguise. I take a beast fairly and face to face, and that's all the honor I know." },
+          text = "Your people say that of every cat in the world, I've heard, but I can't bring myself to believe Sin'Dall is a druid in disguise. I take a beast fairly and face to face, and that's all the honor I know." },
       },
       choices = {
         { text = "A fair hunt is still a death. Spare the old ones.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
@@ -761,7 +761,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because my father taught me tigers, and Sin'Dall is the greatest tiger in this jungle, so taking him is the only way I'll ever know I learned the lesson properly. I don't hate the beast, mind you, and I think I'll miss him when he's gone." } },
+      lines = { { id = "xapriest_default", text = "Because my father taught me tigers, and Sin'Dall is the greatest tiger in this jungle, so taking him is the only way I'll ever know I learned the lesson properly. I don't hate the beast, though, and I think I'll miss him when he's gone." } },
       choices = {
         { text = "Then let him live. Some lessons are better left unfinished.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Take him, then. Your father would want the lesson finished.", next = "BACK", fx = { align = { light = -1 } } },
@@ -933,7 +933,7 @@ P:NPC {
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "A rogue, and honest about it, at least, which is more than I can say for my former colleagues in the House of Nobles." },
+      text = "A rogue, and honest about it at least, which would make you the most trustworthy soul in the House of Nobles." },
   },
 
   start = "hello",
@@ -960,7 +960,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did. Your {pet} would make a better lord than half the House of Nobles, and I say that with the deepest respect for your beast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did. Your {pet} would make a better lord than most of the House of Nobles, and I say that with the deepest respect for your beast." },
       },
       choices = {
         { text = "Honest danger beats false friends. You chose well.", next = "BACK", fx = { align = { honor = 1 } } },

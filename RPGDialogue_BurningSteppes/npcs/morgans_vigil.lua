@@ -34,7 +34,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, and you've got that look your people get when anyone says 'Dark Iron' too near you. Good; you'll be useful." },
     { id = "n_deputy", cat = "deputy", place = "before", when = { questDone = TODO_QUEST("The True Masters") },
-      text = "So you're Bolvar's deputy. I asked the Keep for a regiment, and I'll grant you've done more than most regiments I've known." },
+      text = "So you're Bolvar's deputy. I asked the Keep for a regiment, and you've done more than some regiments I've marched with." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "You carry that blade like someone who's used it on more than training dummies. Good; this ridge has had enough of people who haven't." },
   },
@@ -67,7 +67,7 @@ P:NPC {
     },
     op_reg_prestor = {
       lines = {
-        { id = "oprp_default", text = "You're not the first to say it, and you won't be the last, and every one of them ends up posted somewhere very far from Stormwind. Keep it out of your reports and keep your eyes open." },
+        { id = "oprp_default", text = "You're not the first to say it, and you won't be the last, and they all end up posted somewhere very far from Stormwind. Keep it out of your reports and keep your eyes open." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -274,7 +274,7 @@ P:NPC {
       },
     },
     stormwind_proof = {
-      lines = { { id = "sp_default", text = "Plenty have said that, and I've buried most of them, so forgive me if I don't cheer. Come back with something in your hands and I'll cheer as loud as you like." } },
+      lines = { { id = "sp_default", text = "Plenty have said that, and I've buried most of them, so I'll hold my cheering for now. Come back with something in your hands and I'll cheer as loud as you like." } },
       choices = { { text = "I'll hold you to that.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     stormwind_court = {
@@ -412,7 +412,7 @@ P:NPC {
       lines = {
         { id = "xro_default", text = "Unseen is what Windsor was, until he wasn't. I won't order anyone into that mountain alone, but if you go, come back with something I can write down, and come back." },
         { id = "xro_hunter", when = { class = "HUNTER" },
-          text = "Your beast might get further than my scouts did, I'll grant you, and it won't talk if they catch it. I won't order anyone into that mountain alone, but if you go, come back with something I can write down." },
+          text = "Your beast might get further than my scouts did, and it won't talk if they catch it. I won't order anyone into that mountain alone, but if you go, come back with something I can write down." },
       },
       choices = {
         { text = "Orders or not, I'm going.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -480,7 +480,7 @@ P:NPC {
     { id = "n_form", cat = "form", when = { form = { "bear", "cat", "travel", "moonkin" } },
       text = "Cenarius's gifts, here of all places. Keep that shape near the ridge and the worgs will think twice before they come close." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
-      text = "Your companion is calm in this heat, which is more than I can say for the Blackrock's worgs. Treat it well; out here it may be the only one who watches your back." },
+      text = "Your companion is calm in this heat, while the Blackrock's worgs snap at their own handlers. Treat it well; out here it may be the only one who watches your back." },
   },
 
   start = "hello",
@@ -575,7 +575,7 @@ P:NPC {
           text = "{companion} is of my people, and far from the forests, as I am. It is strange to meet a kaldorei among the ash, but I am glad of it, for the humans here do not understand why I flinch when the mountain breathes fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of our Sentinels, rogue, though I suspect your teachers were less particular about whom you watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, among the Alliance. That doesn't sit easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned long ago what the arcane can draw down on a world, so forgive me if I watch your hands while we talk." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned long ago what the arcane can draw down on a world, so I'll be watching your hands while we talk." },
         { id = "h_default", key = true,
           text = "I am Helendis Riverhorn, sent from Darnassus to learn what is happening in these mountains. Life in the Steppes is all conflict, and I have spent a long while working out who profits from it." },
         { id = "h_menace", when = { questActive = TODO_QUEST("Dragonkin Menace") },
@@ -986,10 +986,10 @@ P:NPC {
       choices = { { text = "That's clever, sir.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
     orders_terror = {
-      lines = { { id = "ot_default", text = "Gruesome is a weapon like any other, soldier, and ogres frighten more easily than you'd think from looking at them. One head on one stick saves a hundred arrows, and Winky agrees, for once." } },
+      lines = { { id = "ot_default", text = "Gruesome is a weapon like any other, soldier, and for all their size, ogres spook like cattle. One head on one stick saves a hundred arrows, and Winky agrees, for once." } },
       choices = {
         { text = "Not my problem, then.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather fight them honestly.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "I'd rather face them in a fair fight.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
 
@@ -1085,7 +1085,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage! Oh, please be careful near the mountain; five of mine went in, and every one of them came back with their hair burned off, or worse." },
+      text = "A mage! Oh, please be careful near the mountain; five of mine went in, and the lucky ones only came back with their hair burned off." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! How wonderful, and how worrying; we're very small, you know, and everything in these mountains is very, very hot." },
     { id = "n_burnt", cat = "kit", when = { durability = { max = 0.25 } },
@@ -1203,7 +1203,7 @@ P:NPC {
     },
     mountain_name = {
       lines = {
-        { id = "mn_default", text = "Please don't, not up here. If even half the stories are true, he's the Firelord, and the Dark Irons called him up out of the earth and he's never gone back down." },
+        { id = "mn_default", text = "Please don't, not up here. If even a few of the stories are true, he's the Firelord, and the Dark Irons called him up out of the earth and he's never gone back down." },
         { id = "mn_done", when = { questDone = TODO_QUEST("Incendius!") },
           text = "After what Incendius said as he died, I don't think it's only a story any more, and I hope someone somewhere is braver than I am." },
       },
@@ -1259,15 +1259,15 @@ P:NPC {
     background = { { id = "tp_bg", text = "A gnome of Gnomeregan who now measures volcanoes for a living. I don't recommend the career; I've lost both eyebrows twice.", next = "why" } },
     advice = { { id = "tp_ad", text = "Carry water, then carry more water, roughly twice what any sensible formula suggests, and if anything made of fire starts talking to you, don't answer it." } },
     blackrock_depths = { { id = "tp_depths", text = "The Dark Iron city, built into the mountain's heart. My expedition was meant to go in, but the fire elementals had other ideas.", next = "mountain" } },
-    dark_iron = { { id = "tp_darkiron", text = "They serve the fire, or the fire owns them, and I'm honestly not sure which is worse." } },
+    dark_iron = { { id = "tp_darkiron", text = "They serve the fire, or the fire owns them, and I've lain awake wondering which is worse." } },
     gnomeregan = {
       { id = "tp_gnomeregan", text = "Gnomeregan was home, and I lost my eyebrows there long before I lost them here. I'd like to see it again, but not until it's safe." },
       { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "You'll remember it too, then, the halls and the lights. Do you dream about it? I do, nearly every night." },
     },
     dalaran = { { id = "tp_dalaran", text = "The mages in my expedition trained in Dalaran, before it fell. They talk about it all the time, and I try not to listen." } },
-    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons make the ground shake when they fly, and I've measured it. It's terrifying, and fascinating, and I'd rather not measure it again." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons make the ground shake when they fly, and I've measured it. It's terrifying, and fascinating, and I hope never to measure it again." } },
     thaurissan = { { id = "tp_thaurissan", text = "The ruins of Thaurissan are full of old magic, and my mages are studying it very carefully. I'm studying it from a long way off." } },
-    _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, I'm afraid. Helendis might; he knows a great deal and is very patient about it." } },
+    _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, I'm afraid. Helendis might; he's read half the library in Stormwind and is very patient about it." } },
   },
 }
 
@@ -1328,7 +1328,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Only when they come up, and they come up more often than you'd think, since the plague left so many fine things with no one to claim them. The Count pays well for a Silver Hand tabard, and I tell myself it's better in a museum than in a ghoul's hands." } },
+      lines = { { id = "xapala_default", text = "Only when they come up, and they come up often, since the plague left so many fine things with no one to claim them. The Count pays well for a Silver Hand tabard, and I tell myself it's better in a museum than in a ghoul's hands." } },
       choices = {
         { text = "Those relics belong to the order, not to a count.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Better a museum than a ghoul's hands. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1569,7 +1569,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than I'll count aloud, an' each one had a name an' a temper o' its own. I bury 'em up on the ridge facin' Ironforge, an' I'll tell ye honestly that I say a prayer over every one, though I'd thump any soldier who laughed." } },
+      lines = { { id = "xapriest_default", text = "More than I'll count aloud, an' each one had a name an' a temper o' its own. I bury 'em up on the ridge facin' Ironforge, an' I'll tell ye plain that I say a prayer over every one, though I'd thump any soldier who laughed." } },
       choices = {
         { text = "No one should laugh. A faithful creature deserves a prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "It's a war. Mourn later, Borgus, and keep them flying.", next = "BACK", fx = { align = { light = -1 } } },

@@ -164,7 +164,7 @@ P:NPC {
       },
     },
     g_si7 = {
-      lines = { { id = "gsi_default", text = "If SI:7 had eyes in Booty Bay, you'd never know it, and neither would I, which is just how they'd want it. Mind you, there's a fellow who's been drinking cider in here for a month and has never once got drunk, and I've decided not to wonder why." } },
+      lines = { { id = "gsi_default", text = "If SI:7 had eyes in Booty Bay, you'd never know it, and neither would I, which is just how they'd want it. That said, there's a fellow who's been drinking cider in here for a month and has never once got drunk, and I've decided not to wonder why." } },
       choices = {
         { text = "The crown's watchers keep us safe. Good for them.", next = "BACK", fx = { align = { order = 1 }, learn = { "si7" } } },
         { text = "Spies are spies, whoever happens to pay them.", next = "BACK", fx = { align = { order = -1 }, learn = { "si7" } } },
@@ -339,7 +339,7 @@ P:NPC {
     },
 
     k_nelf = {
-      lines = { { id = "kn_default", text = "The Watchers are good, I'll grant you, but they move like the forest, and the Bay isn't a forest. In here you want to sound like a drunk sailor rather than like nothing at all, because silence in a busy tavern is the loudest thing in it." } },
+      lines = { { id = "kn_default", text = "The Watchers are good, no question, but they move like the forest, and the Bay isn't a forest. In here you want to sound like a drunk sailor rather than like nothing at all, because silence in a busy tavern is the loudest thing in it." } },
       choices = {
         { text = "Silence served my people for ten thousand years.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then I'll learn to stagger like a sailor.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -376,9 +376,9 @@ P:NPC {
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpriest_default", text = "More often than you'd think, usually the night before a job and never the morning after. I tell them to go and see a priest, and now one's come to see me, so you can tell me whether the Light keeps a separate ledger for rogues." } },
+      lines = { { id = "xpriest_default", text = "Every week or so, usually the night before a job and never the morning after. I tell them to go and see a priest, and now one's come to see me, so you can tell me whether the Light keeps a separate ledger for rogues." } },
       choices = {
-        { text = "The Light forgives anyone who asks honestly.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The Light forgives anyone who asks in earnest.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "The Light doesn't trouble itself with tavern sins.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -447,11 +447,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "Stormwind docks, then a Blackwater ship, then this corner, and I've no plans to change the order.", next = "origin" } },
     advice = { { id = "tp_ad", text = "Find the exits, sit with your back to a wall, and never count your coin where anyone can watch you do it." } },
     defias = { { id = "tp_defias", text = "Red bandanas in pockets, asking who buys Stormwind silver. Kebok answers them, and I don't." } },
-    si7 = { { id = "tp_si7", text = "If they're here, they're better than I am, and I'd rather not find out by accident." } },
+    si7 = { { id = "tp_si7", text = "If they're here, they're better than I am, and I don't want to find out by bumping into one in the dark." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've a man in this tavern every night, and I nod to him like an old friend." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is the only port where Stormwind's spies and the Horde's spies can drink at the same bar without anybody pretending otherwise. It makes my work simpler, and much more expensive." } },
     varian = { { id = "tp_varian", text = "The king went to a peace talk and never arrived, and the people who should be asking questions are very busy not asking them. I find that more interesting than the disappearance itself." } },
-    prestor = { { id = "tp_prestor", text = "Lady Prestor appeared at court with a pedigree nobody can quite trace, and now half the nobles in Stormwind answer to her smile. I'd love to know where she came from, and so would a few of my old friends." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor appeared at court with a pedigree nobody can quite trace, and now the House of Nobles answers to her smile. I'd love to know where she came from, and so would a few of my old friends." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is an honest soldier in a nest of courtiers, and that makes him either very brave or very blind. I haven't decided which." } },
     ravenholdt = {
       { id = "tp_ravenholdt", text = "Ravenholdt is a manor in the hills of Alterac that doesn't exist, and if you ever find it, they'll have found you first. I've never been invited, and I prefer it that way." },
@@ -593,7 +593,7 @@ P:NPC {
       },
     },
     crew_human = {
-      lines = { { id = "ch_default", text = "Coin makes strange company, and Desolace makes it stranger still. He'd walked out of some Alliance outpost with a grudge and a frying pan, and as far as I'm concerned he was more of an orc than half the grunts in Orgrimmar." } },
+      lines = { { id = "ch_default", text = "Coin makes strange company, and Desolace makes it stranger still. He'd walked out of some Alliance outpost with a grudge and a frying pan, and as far as I'm concerned he was more of an orc than many a grunt drilling in the Valley of Honor." } },
       choices = {
         { text = "So the crew was never about Horde or Alliance.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -665,7 +665,7 @@ P:NPC {
       },
     },
     raids_dead = {
-      lines = { { id = "rd2_default", text = "Fewer than you'd think, because a dead guard brings soldiers and a robbed one only brings complaints. I won't tell you nobody bled, though, and some nights I go over it in my head, and other nights I just drink faster." } },
+      lines = { { id = "rd2_default", text = "Fewer than the bounty posters claim, because a dead guard brings soldiers and a robbed one only brings complaints. I won't tell you nobody bled, though, and some nights I go over it in my head, and other nights I just drink faster." } },
       choices = {
         { text = "Then make it right, Tokal, whatever that takes.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Raiders bleed folk. That's the work you chose.", next = "BACK", fx = { align = { light = -1 } } },
@@ -841,9 +841,9 @@ P:NPC {
     },
     xsham = {
       big = true,
-      lines = { { id = "xsham_default", text = "The ancestors and I aren't on speaking terms, shaman, and I'd rather they didn't see where I've been. If you talk to them tonight, leave my name out of it, since they've enough to be disappointed about already." } },
+      lines = { { id = "xsham_default", text = "The ancestors and I aren't on speaking terms, shaman, and they don't need to see where I've been. If you talk to them tonight, leave my name out of it, since they've enough to be disappointed about already." } },
       choices = {
-        { text = "The ancestors forgive more than you'd think.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The ancestors forgive more than you fear.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Then walk your own road without them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -859,7 +859,7 @@ P:NPC {
     },
     xpala = {
       big = true,
-      lines = { { id = "xpala_default", text = "The Light can do as it likes, paladin, but I'd rather be forgiven by the people we robbed, and they're not offering. If you want to help, find whoever hired us, because I'd forgive a great deal for that." } },
+      lines = { { id = "xpala_default", text = "The Light can do as it likes, paladin, but it's the people we robbed whose pardon I'd want, and they're not offering. If you want to help, find whoever hired us, because that would square a good part of my debt." } },
       choices = {
         { text = "Forgiveness starts with you making amends.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Forgiveness is cheap. Settling scores isn't.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1014,7 +1014,7 @@ P:NPC {
       },
     },
     paladin_no = {
-      lines = { { id = "pn_default", text = "Nice try, friend, but Krazek offered me ten gold for that answer last week, and I turned him down too. You'll have to be a great deal more charming than a goblin with a purse." } },
+      lines = { { id = "pn_default", text = "Nice try, friend, but Krazek offered me ten gold for that answer last week, and I turned him down too. You'll have to be far more charming than a goblin with a purse." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -1042,7 +1042,7 @@ P:NPC {
       },
     },
     moon_prayer = {
-      lines = { { id = "mp_default", text = "It's short, which is why the sailors put up with it: Elune, keep the watch while I sleep, and wake me if I'm needed. I've said it every night for longer than Booty Bay has had a pier, and so far she's never once needed to wake me." } },
+      lines = { { id = "mp_default", text = "It's short enough that the sailors put up with it: Elune, keep the watch while I sleep, and wake me if I'm needed. I've said it every night for longer than Booty Bay has had a pier, and so far she's never once needed to wake me." } },
       choices = {
         { text = "I'll say it tonight.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1050,7 +1050,7 @@ P:NPC {
     },
 
     hammer = {
-      lines = { { id = "hm_default", text = "The salt air eats an edge in a week, and a hammer doesn't care how dull it gets, which suits me, since I'm terrible at sharpening anything. As for the plate, a lady in Booty Bay ought to have a little mystery, and it hides a great deal of it." } },
+      lines = { { id = "hm_default", text = "The salt air eats an edge in a week, and a hammer doesn't care how dull it gets, which suits me, since I'm terrible at sharpening anything. As for the plate, a lady in Booty Bay ought to have a little mystery, and plate hides it wonderfully." } },
       choices = {
         { text = "Why not a glaive, like the Sentinels?", next = "sentinels" },
         { text = "Plate that fits a night elf can't be easy to find.", next = "hammer_dwarf" },
@@ -1177,7 +1177,7 @@ P:NPC {
       },
     },
     t_humans = {
-      lines = { { id = "th_default", text = "Busy, brave and in a terrible hurry, as if every one of them knows exactly how few years they've got. I like Stormwind's bakers and Ironforge's smiths, and I've learned never to tell a human a building looks new when it's two hundred years old." } },
+      lines = { { id = "th_default", text = "Busy, brave and in a terrible hurry, as if each of them can count exactly how few years they've got. I like Stormwind's bakers and Ironforge's smiths, and I've learned never to tell a human a building looks new when it's two hundred years old." } },
       choices = {
         { text = "Humans build to last. That's their wisdom.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "They rush everything. Your patience is the better way.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1227,7 +1227,7 @@ P:NPC {
     },
     k_druid = {
       lines = {
-        { id = "kdr_default", text = "I know some of its druids, and I've slept in Moonglade's grass on a night I needed to, which is more than most travelers can say. The druids taught my people to be patient with the world, and I've tried to keep the lesson, even here, where nothing is patient at all." },
+        { id = "kdr_default", text = "I know some of its druids, and I've slept in Moonglade's grass on a night I needed to, under a moon I've known for a thousand years. The druids taught my people to be patient with the world, and I've tried to keep the lesson, even here, where nothing is patient at all." },
         { id = "kdr_tauren", when = { race = "Tauren" }, text = "I know some of its druids, and you're proof the Circle is wiser than the war in Ashenvale. I've slept in Moonglade's grass on a night I needed to, and I'd guess you have too." },
       },
       choices = {
@@ -1287,7 +1287,7 @@ P:NPC {
       },
     },
     illari = {
-      lines = { { id = "ilr_default", text = "Duskfeather isn't a name I know, and I'd remember it, since there are fewer of us this far from Kalimdor than you'd think. But not everyone of my people who leaves Ashenvale leaves for good reasons, and that's a hard thing for me to say aloud." } },
+      lines = { { id = "ilr_default", text = "Duskfeather isn't a name I know, and I'd remember it, since I could count the kaldorei this far from Kalimdor on my two hands. But not everyone of my people who leaves Ashenvale leaves for good reasons, and that's a hard thing for me to say aloud." } },
       choices = {
         { text = "If she sold out her crew, she must answer for it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Tokal's no saint either. Let them settle it.", next = "BACK", fx = { align = { honor = -1 } } },

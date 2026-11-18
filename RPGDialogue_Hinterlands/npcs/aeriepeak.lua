@@ -24,7 +24,7 @@ P:NPC {
     { id = "g_away_long", when = { away = 60 }, text = "Well, look what the wind blew back tae the Keep after {away} away! Sit doon an' tell me every fight ye've had, for I'll wager there were plenty." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've come on a fair bit since we last spoke, I can see it in yer shoulders. The Witherbark'll see it too, an' I'd like tae be there watchin'." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear ye put a proper fright intae someone at the Peak. That's grand for trolls, but go easy on my own lads." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Half the Peak's been sayin' good things about ye, an' a Wildhammer doesnae praise lightly. Come in, then, for ye've earned yer welcome." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "The riders have been sayin' good things about ye in the hall, an' a Wildhammer doesnae praise lightly. Come in, then, for ye've earned yer welcome." },
   },
 
   notice = {
@@ -351,7 +351,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "Every rider in Aerie Peak reports tae me, an' half o' them exaggerate, so I've learned a great deal! Ask away." },
+      { id = "tp_knows", text = "Every rider in Aerie Peak reports tae me, an' most o' them stretch a story by a troll or two, so I've learned tae hear the truth under the boastin'! Ask away." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
         text = "Ask me anythin' ye like! Ye've earned the riders' respect, an' that means ye've earned mine." },
     },
@@ -469,7 +469,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Aye, more than most, for the Vilebranch priests work blood magic on their altars, an' I've heard it said their curses slide off the Light like rain off a slate roof. But I'll no' send ye up there on a bird tae play the hero, for Sharpbeak's the one that matters, an' a dead paladin cannae carry a gryphon chick home." } },
+      lines = { { id = "xapala_default", text = "Aye, it might, for the Vilebranch priests work blood magic on their altars, an' I've heard it said their curses slide off the Light like rain off a slate roof. But I'll no' send ye up there on a bird tae play the hero, for Sharpbeak's the one that matters, an' a dead paladin cannae carry a gryphon chick home." } },
       choices = {
         { text = "The chick first, then. Glory can wait, Talonaxe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll smash their altars first. The chick can wait.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -724,7 +724,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Maybe, if neither one tries tae own the other. The Light mends what's broken in a body an' the spirits mend what's broken in the land, an' the Vilebranch have broken a great deal o' both up at their altars." } },
+      lines = { { id = "xapriest_default", text = "Maybe, if neither one tries tae own the other. The Light mends what's broken in a body an' the spirits mend what's broken in the land, an' the Vilebranch have bled both dry up at their altars." } },
       choices = {
         { text = "Each to its own work. Neither should rule the other.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "The Light answers to no spirit. It stands above them all.", next = "BACK", fx = { align = { order = 1 } } },
@@ -947,7 +947,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the owls are gettin' bolder an' the wolves hungrier, an' that somethin' big's been crashin' about near the Overlook Cliffs. Half the riders think it's a troll an' half think it's a beast, an' nobody's been brave enough tae land an' settle it." },
+        { id = "xhuntcl_default", text = "That the owls are gettin' bolder an' the wolves hungrier, an' that somethin' big's been crashin' about near the Overlook Cliffs. The riders cannae agree if it's troll or beast, an' nobody's been brave enough tae land an' settle it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? It can have the scraps from the kitchen, for the gryphons won't share an' the cat's too fat already." },
       },
       choices = {
@@ -1021,7 +1021,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Everythin', an' I keep it tae myself, which is why the riders still drink here. Every flight comes back wi' a tale o' Jintha'Alor or the elves at Quel'Danil, an' a canny listener could learn the whole Hinterlands from that stool." } },
+      lines = { { id = "xrogue_default", text = "Everythin', an' I keep it tae myself, so the riders keep drinkin' here. Every flight comes back wi' a tale o' Jintha'Alor or the elves at Quel'Danil, an' a canny listener could learn the whole Hinterlands from that stool." } },
       choices = {
         { text = "What's said at your bar stays there. Good.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Secrets like that are worth selling, innkeeper.", next = "BACK", fx = { align = { honor = -1 } } },

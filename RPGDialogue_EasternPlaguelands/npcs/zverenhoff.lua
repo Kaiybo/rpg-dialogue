@@ -118,7 +118,7 @@ P:NPC {
 
     stones = {
       lines = { { id = "st_default", text = "The insignia of the Scourge's ranks, carried by their soldiers from the lowliest minion to the corruptors who lead them. Bring us enough, and the Dawn will give you a valor token for them." },
-        { id = "st_rep", when = { reputation = { faction = "Argent Dawn", min = "revered" } }, text = "You know very well what they are, having brought us more than most. Each one is a Scourge soldier the Plaguelands won't see again." } },
+        { id = "st_rep", when = { reputation = { faction = "Argent Dawn", min = "revered" } }, text = "You know very well what they are, having brought us a sackful yourself. Each one is a Scourge soldier the Plaguelands won't see again." } },
       choices = {
         { text = "What are the tokens good for?", next = "stones_token" },
         { text = "Something else, Duke.", next = "BACK", fx = { learn = { "argent_dawn" } } },
@@ -132,7 +132,7 @@ P:NPC {
       },
     },
     stones_use = {
-      lines = { { id = "su_default", text = "Study them, purify them, and make very sure nobody carries them home as a keepsake. They're the Scourge's hand on its soldiers, and I'd rather that hand were empty." } },
+      lines = { { id = "su_default", text = "Study them, purify them, and make very sure nobody carries them home as a keepsake. They're the Scourge's hand on its soldiers, and I want that hand empty." } },
       choices = {
         { text = "I'll keep bringing them.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -221,7 +221,7 @@ P:NPC {
     },
     horde_you = {
       big = true,
-      lines = { { id = "hy_default", text = "I've read your histories, which is more than most of my peers can say, and I find the Horde no more alarming than Lordaeron's own nobility. Tell me honestly, though: do you trust us?" } },
+      lines = { { id = "hy_default", text = "I've read your histories, which few of my peers ever bothered to do, and I find the Horde no more alarming than Lordaeron's own nobility. Tell me plainly, though: do you trust us?" } },
       choices = {
         { text = "I trust anyone who bleeds against the Scourge.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "No. I'll use the Dawn while it serves my people.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
@@ -230,7 +230,7 @@ P:NPC {
     },
 
     runes = {
-      lines = { { id = "ru_default", text = "A great deal, though not comfortably. The Cult writes its necromancy the way clerks write ledgers, neat and joyless, and that frightens me more than any ranting would." } },
+      lines = { { id = "ru_default", text = "Rather too much, and not comfortably. The Cult writes its necromancy the way clerks write ledgers, neat and joyless, and that frightens me more than any ranting would." } },
       choices = {
         { text = "Why does neatness frighten you?", next = "runes_neat" },
         { text = "Something else.", next = "BACK" },
@@ -263,6 +263,6 @@ P:NPC {
     holy_light = { { id = "tp_holy_light", text = "The Light is a mystery I've spent my life studying, and I'm no closer to understanding it. I distrust anyone who claims they are." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's nobility mostly fled or died, and I'm one of the few who stayed. I'd rather be useful than safe." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme holds secrets I'd dearly love to study, and Scourge I'd dearly love to avoid. The Dawn will take it eventually, and I'll be there with my notebook." } },
-    _none = { { id = "tp_none", text = "I've read a great deal, but not about that. Try the quartermaster; she hears what the soldiers say." } },
+    _none = { { id = "tp_none", text = "I've read widely, but not about that. Try the quartermaster; she hears what the soldiers say." } },
   },
 }

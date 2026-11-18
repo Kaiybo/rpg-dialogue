@@ -205,7 +205,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Researching the Corruption") },
           text = "The satyr and naga both haunt Blackfathom Deeps on the Ashenvale coast, which is a long road and a dark one. Bring me eight brain stems, and keep them out of the sun if you can." },
         { id = "h_done", when = { questDone = TODO_QUEST("Researching the Corruption") },
-          text = "The stems you brought have told me a great deal, and none of it comforting. The change begins in the mind long before it reaches the body, and the ones it happens to rarely notice." },
+          text = "The stems you brought have told me much, and none of it comforting. The change begins in the mind long before it reaches the body, and the ones it happens to rarely notice." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "A warlock comes to the one elf in Auberdine who studies what fel magic does to a people. Either you're very brave or you haven't understood my work yet." },
         { id = "h_human", when = { race = "Human" },
@@ -250,7 +250,7 @@ P:NPC {
       },
     },
     fear_cousins = {
-      lines = { { id = "fc_default", text = "I don't know it, which is why I study and don't simply preach. But Azshara's court was full of clever, proud people who were certain they knew their own limits, and look at the sea where they used to live." } },
+      lines = { { id = "fc_default", text = "I don't know it, and that is why I study rather than simply preach. But Azshara's court was full of clever, proud people who were certain they knew their own limits, and look at the sea where they used to live." } },
       choices = {
         { text = "Then warn them, before it's too late.", next = "BACK", fx = { align = { light = 1 }, learn = { "highborne" } } },
         { text = "They made their choice. Let them pay for it.", next = "BACK", fx = { align = { light = -1 }, learn = { "highborne" } } },
@@ -538,7 +538,7 @@ P:NPC {
       },
     },
     ore = {
-      lines = { { id = "or_default", text = "Copper and tin in the hills along the road, and the odd seam of silver if ye're lucky and nobody's looking. The trouble is getting to it, because half the veins here have a tree growing out of them, and the elves get funny when ye take a pick near a tree." } },
+      lines = { { id = "or_default", text = "Copper and tin in the hills along the road, and the odd seam of silver if ye're lucky and nobody's looking. The trouble is getting to it, because every other vein here has a tree growing out of it, and the elves get funny when ye take a pick near a tree." } },
       choices = {
         { text = "Then I'll mine around the trees.", next = "ore_trees" },
         { text = "Something else.", next = "BACK" },

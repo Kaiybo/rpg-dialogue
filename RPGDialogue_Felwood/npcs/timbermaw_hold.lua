@@ -297,7 +297,7 @@ P:NPC {
         { id = "h_wtotem", tags = { "news" }, when = { questRecent = { TODO_QUEST("Winterfall Ritual Totem"), days = 3 } },
           text = "The Winterfall totem is worse than the Deadwood ones, and newer, and I can see where the carver's hand shook. Whatever drove them to it, they didn't carve it gladly." },
         { id = "h_friend", when = { reputation = { faction = "Timbermaw Hold", min = "honored" } },
-          text = "You've done a great deal for the hold, {class}, and so I'll speak to you as I'd speak to one of our own. Ask what you like about the totems; I'll tell you what I know and say so when I'm guessing." },
+          text = "You've done much for the hold, {class}, and so I'll speak to you as I'd speak to one of our own. Ask what you like about the totems; I'll tell you what I know and say so when I'm guessing." },
       },
       again = {
         { id = "h_again", text = "What else do you seek?" },
@@ -400,7 +400,7 @@ P:NPC {
     xsham = {
       big = true,
       lines = {
-        { id = "xs_default", text = "I can, and so can you, I'd wager, like a cold draught from a door that ought to be shut. Hold one too long and it starts to feel like your own idea to keep holding it, which is why I wear gloves." },
+        { id = "xs_default", text = "I can, and so can you, I'd wager, like a cold draught from a door that ought to be shut. Hold one too long and it starts to feel like your own idea to keep holding it, so I wear gloves." },
       },
       choices = {
         { text = "Then the Timbermaw should cleanse them as tradition demands.", next = "BACK", fx = { align = { order = 1 } } },

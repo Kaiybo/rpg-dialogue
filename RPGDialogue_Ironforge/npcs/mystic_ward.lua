@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_human_priest", cat = "light", when = { class = "PRIEST", race = "Human" },
       text = "A priest o' the Cathedral, up the mountain. Laurena trains her people well, an' I can always tell, for they stand as if someone's about tae ask them a hard question." },
     { id = "n_dwarf_priest", cat = "light", when = { class = "PRIEST", race = "Dwarf" },
-      text = "One o' ours! I remember when the Hall had six priests an' a great deal o' empty floor, so ye'll forgive me if I'm pleased tae see ye." },
+      text = "One o' ours! I remember when the Hall had six priests an' acres o' empty floor, so I'm right pleased tae see ye." },
     { id = "n_gnome_priest", cat = "race", when = { class = "PRIEST", race = "Gnome" },
       text = "A gnome in vestments! Gnomeregan never kept priests, an' for years we were the only Light yer people had, so I'll admit I'm a wee bit proud o' ye." },
     { id = "n_shadow", cat = "light", when = { form = "shadow" },
@@ -484,7 +484,7 @@ P:NPC {
       lines = {
         { id = "xpa_default", text = "That ye cannae strike a man and heal him in the same breath an' mean both, so pick which one he needs before ye swing. Brandur teaches ye the hammer, an' I'd like ye tae leave this Hall knowin' when tae put it down." },
         { id = "xpa_dwarf", when = { race = "Dwarf" },
-          text = "That a dwarf's temper an' a paladin's zeal make a fine fire an' a poor judge. Half the paladins in this Hall have the broken noses tae prove it, an' I'd spare ye yours if I can." },
+          text = "That a dwarf's temper an' a paladin's zeal make a fine fire an' a poor judge. Plenty o' paladins in this Hall have the broken noses tae prove it, an' I'd spare ye yours if I can." },
       },
       choices = {
         { text = "Judgment is part of the oath, High Priest.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -533,7 +533,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "A priest hears a great deal on his laps o' the Hall, an' keeps most of it. Here's what I can share wi' a clear conscience." },
+      { id = "tp_knows", text = "A priest hears all sorts on his laps o' the Hall, an' keeps most of it. Here's what I can share wi' a clear conscience." },
     },
     background = { { id = "tp_bg", text = "I've served in this Hall since it had more empty floor than priests, an' now I'm High Priest, which mostly means I'm the one who gets asked." } },
     advice = { { id = "tp_ad", text = "Heal the one in front o' ye first, an' worry about the rest o' the world afterwards. The world'll still be there.", next = "work" } },
@@ -833,7 +833,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Remind ye tae sleep, for a start, an' tae eat somethin' that wasnae conjured, for I've seen mages waste away while their minds run on ahead. The Light doesnae care much for spells, but it cares a great deal for the one castin' them." },
+        { id = "xmage_default", text = "Remind ye tae sleep, for a start, an' tae eat somethin' that wasnae conjured, for I've seen mages waste away while their minds run on ahead. The Light doesnae care much for spells, but it cares dearly for the one castin' them." },
       },
       choices = {
         { text = "You're kind, Toldren. I'll rest.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1027,7 +1027,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "I think ye'd be tempted, for a stack o' sealed letters tempts most folk, an' a rogue more than most. I keep them safe because the priests who send them trust me, an' trust is the one thing in this Hall I cannae replace." },
+        { id = "xrogue_default", text = "I think ye'd be tempted, for a stack o' sealed letters tempts most folk, an' a rogue sooner than anyone. I keep them safe because the priests who send them trust me, an' trust is the one thing in this Hall I cannae replace." },
       },
       choices = {
         { text = "Your letters are safe from me.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1038,7 +1038,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! There's a letter or two for the Silver Hand in my pile, I'll wager, though I'd no' know who tae send them tae now Lordaeron's gone." },
-        { id = "h_default", text = "Braenna Flintcrag. I train priests here an' keep the Hall's messages, for half the temples in the Alliance seem tae send their letters through me." },
+        { id = "h_default", text = "Braenna Flintcrag. I train priests here an' keep the Hall's messages, for every temple from Stormwind tae Theramore seems tae send its letters through me." },
         { id = "h_returning", tags = { "news" }, when = { questActive = TODO_QUEST("Returning Home") },
           text = "Ye're still here? A priestess o' yer temple came lookin' for ye, an' she said tae go home tae the Temple o' the Moon as soon as ye could. Priestess Alathea's waitin'." },
         { id = "h_ne_priest", when = { race = "NightElf", class = "PRIEST" },
@@ -1302,7 +1302,7 @@ P:NPC {
       lines = {
         { id = "hn_default", text = "Narm held them off so Muiredon could run, an' that's the kind o' friend he is. Whether he's still holdin' is a question I ask the Light every mornin', an' Muiredon asks it every hour." },
         { id = "hn_done", when = { questDone = TODO_QUEST("The Symbol of Life") },
-          text = "Narm's alive, thanks tae a young paladin wi' the Symbol, an' grumblin' about the cold. I'd ha' given a great deal tae hear that grumble, an' now I hear it for free." },
+          text = "Narm's alive, thanks tae a young paladin wi' the Symbol, an' grumblin' about the cold. I'd ha' given my last candle tae hear that grumble, an' now I hear it for free." },
       },
       choices = {
         { text = "Then someone should go now.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -1423,7 +1423,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Aye, an' they left my friend Narm in far worse trouble, which is why I'm laughin' so hard at nothin'. If ye know a herb for worry, I'd take a whole sack o' it." } },
+      lines = { { id = "xdruid_default", text = "Aye, an' they left my friend Narm in far worse trouble, an' that's why I'm laughin' so hard at nothin'. If ye know a herb for worry, I'd take a whole sack o' it." } },
       choices = {
         { text = "Then let's find Narm. Worry wants doing, not herbs.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Heal first. Rushing back will only get you killed.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1473,7 +1473,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That they fight dirty an' they fight hard, an' they'll no' give ya the courtesy o' a fair fight. I went at them the honest way, all hammer an' oath, an' look where it got me, flat on my back wi' a priest sewin' my side." } },
       choices = {
-        { text = "I'll still fight them honestly. That's what makes us different.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll still fight them fairly, because that's what makes us different.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then I'll fight them their way. Honour can wait.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Muiredon.", next = "BACK" },
       },
@@ -1505,7 +1505,7 @@ P:NPC {
           text = "A rogue, is it? I could have used yer light feet south o' Helm's Bed Lake, an' so could Narm." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! I've seen what yer fire does tae Dark Irons, an' I'll admit I took some pleasure in it." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll forgive me if I don't stand, for the priest says if I move again she'll sew my mouth shut as well." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I'd stand, but the priest says if I move again she'll sew my mouth shut as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have sharp eyes, an' I could have used a pair when I went spyin' south o' Helm's Bed Lake." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' have any leaves that'd stop these stitches itchin', would ye? I'm askin' for a friend, an' the friend is me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Dinnae mind me, I'm only half-stitched, but if yer servant could keep its claws away from the bandages I'd be grateful." },
@@ -1776,7 +1776,7 @@ P:NPC {
     },
     tabetha = {
       lines = {
-        { id = "ta_default", text = "A mage who lives alone in the middle of Dustwallow Marsh, by choice, which tells you most of what you need to know. Rumor says she's quarrelling with a sand troll in Zul'Farrak, and Tabetha doesn't lose quarrels." },
+        { id = "ta_default", text = "A mage who lives alone in the middle of Dustwallow Marsh, by choice, among the crocolisks and the black dragons. Rumor says she's quarrelling with a sand troll in Zul'Farrak, and Tabetha doesn't lose quarrels." },
       },
       choices = {
         { text = "I'll go and see her.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -1794,7 +1794,7 @@ P:NPC {
     },
     hall_mind = {
       lines = {
-        { id = "hm_default", text = "Less than you'd think! They heal our burns and we keep their lamps lit with a cantrip, which is the sort of tidy exchange we'd have built a machine for back in Gnomeregan, and my brother Dink says it's the most sensible arrangement in Ironforge." },
+        { id = "hm_default", text = "Not at all! They heal our burns and we keep their lamps lit with a cantrip, which is the sort of tidy exchange we'd have built a machine for back in Gnomeregan, and my brother Dink says it's the most sensible arrangement in Ironforge." },
       },
       choices = {
         { text = "Faith and study belong under one roof.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -1803,7 +1803,7 @@ P:NPC {
     },
     study = {
       lines = {
-        { id = "st_default", text = "Frost, fire or the arcane itself, and everyone tells you to pick one, but I say learn all three until one of them likes you back. Fire likes nearly everyone, which is why I recommend sand." },
+        { id = "st_default", text = "Frost, fire or the arcane itself, and everyone tells you to pick one, but I say learn all three until one of them likes you back. Fire likes nearly everyone, so I keep a bucket of sand by every student." },
         { id = "st_last", when = { origin = "gnome_last_student" },
           text = "Oh, you're the one with the satchel from the old lecture halls! I'd study whatever's in that satchel first, because some of those notes are older than the Kirin Tor's copies, and I'd very much like to borrow them." },
       },
@@ -1815,7 +1815,7 @@ P:NPC {
     },
     study_arcane = {
       lines = {
-        { id = "sa_default", text = "Everything, and a headache with it! The arcane is magic with nothing added, so it's the hardest to learn and the easiest to get wrong, which is why Dalaran loves it and Ironforge keeps it at arm's length." },
+        { id = "sa_default", text = "Everything, and a headache with it! The arcane is magic with nothing added, so it's the hardest to learn and the easiest to get wrong, so Dalaran adores it and Ironforge keeps it at arm's length." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -1849,7 +1849,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear everything twice in this Hall, once from the mages and once from the priests, and they never agree. Here's my half." } },
     background = { { id = "tp_bg", text = "I'm a mage trainer, and a gnome, and I taught arcane theory in Gnomeregan before the troggs gave us all an early recess. I've got a brother called Dink who trains mages too, so yes, we've heard all the jokes." } },
     advice = { { id = "tp_ad", text = "Befriend a mage! And if you are one, befriend a priest, because somebody has to put out the fires." } },
-    dalaran = { { id = "tp_dalaran", text = "Dalaran's the greatest city of mages in the world, and they're rebuilding it, and I'd love to go back. Mind you, they'd want to know where I got some of my tricks, and I'd rather they didn't." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's the greatest city of mages in the world, and they're rebuilding it, and I'd love to go back. Then again, they'd want to know where I picked up some of my tricks, and I've no intention of telling them." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are stuffy, slow and terribly clever, and they'll tell you so if you sit still long enough. I made a friend of one once, and he still won't lend me his books." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor before he turned to necromancy, and they don't like to talk about it. I'd not like to talk about it either, if I'd been the one who let him in." } },
     _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, because not knowing things gives me a sort of itch, like an unsolved equation." } },
@@ -1959,7 +1959,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I doubt you've come to study portal magic, but I'll admit your kind understand discipline, which is more than I can say for most mages." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I doubt you've come to study portal magic, but I'll admit your kind understand discipline, and most of my apprentices couldn't sit still through a single candle's burning." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I very much doubt you've the mental acuity for portals, but I'll admit you've the discipline, which is half the battle." },
         { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another to within a hand's width, which is the most difficult thing in this Hall, and I include praying in that." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 40 },
@@ -2043,12 +2043,12 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal, most of it beyond you. Here is the part that isn't." } },
+    knows = { { id = "tp_knows", text = "I know a vast amount, most of it beyond you. Here is the part that isn't." } },
     background = { { id = "tp_bg", text = "I teach portal magic in the Hall of Mysteries. Before that I studied portal magic in Gnomeregan, and before that I wanted to study it, so you see the pattern." } },
     advice = { { id = "tp_ad", text = "Check where you're going before you go there. You'd be astonished how many people don't." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's portals are the finest ever woven, and I'd wager you wouldn't understand a single strand of them. The Kirin Tor are rebuilding, slowly, which is the proper speed for anything worth doing." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the only body of mages worth the name, and I've met most of them. They'd find you underqualified, I'm sure, but don't let that stop you trying." } },
-    theramore = { { id = "tp_theramore", text = "Lady Jaina's portal work is elegant, I'll grant you, though she cuts corners I wouldn't. Theramore's a fine city for a young mage, if you don't mind the swamp." } },
+    theramore = { { id = "tp_theramore", text = "Lady Jaina's portal work is elegant, I'll admit, though she cuts corners I wouldn't. Theramore's a fine city for a young mage, if you don't mind the swamp." } },
     _none = { { id = "tp_none", text = "That isn't a portal, so it isn't my concern." } },
   },
 }

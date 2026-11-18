@@ -149,7 +149,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "The future, mostly, and draconic, and where I left my book. Two of those are reliable." } },
     background = { { id = "tp_bg", text = "Engineer, crash survivor, soothsayer. In that order, and the middle one was the important bit.", next = "sooth" } },
-    advice = { { id = "tp_ad", text = "Never lend your goggles to a best friend forever. Forever is shorter than you'd think." } },
+    advice = { { id = "tp_ad", text = "Never lend your goggles to a best friend forever. Forever lasts about as long as the goggles do." } },
     steamwheedle = { { id = "tp_steam", text = "The goblins rent me this spot and don't ask what I do in it, which is the best arrangement I've ever had." } },
     _none = { { id = "tp_none", text = "<Narain touches his forehead.> Nothing. The spirits are on their lunch break." } },
   },

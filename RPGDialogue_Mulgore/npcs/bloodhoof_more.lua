@@ -106,7 +106,7 @@ P:NPC {
       },
     },
     pa_melor = {
-      lines = { { id = "pam_default", text = "Patient, and stern, and he speaks well of me, which tells you he is generous too. He has hunted for years and years, but he still remembers what it is to be young and hungry for the path." } },
+      lines = { { id = "pam_default", text = "Patient, and stern, and he speaks well of me, so he must be generous too. He has hunted for years and years, but he still remembers what it is to be young and hungry for the path." } },
       choices = { { text = "Thank you, Skorn.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -419,7 +419,7 @@ P:NPC {
     },
 
     kodo = {
-      lines = { { id = "ko_default", text = "They are old, and strong, and they never forget a path once walked, which is why the tauren could wander so long and always find their way. When the centaur hunted us across the plains, the kodo carried our children." } },
+      lines = { { id = "ko_default", text = "They are old, and strong, and they never forget a path once walked, and so the tauren could wander so long and always find their way. When the centaur hunted us across the plains, the kodo carried our children." } },
       choices = {
         { text = "What happens when a kodo dies?", next = "ko_die" },
         { text = "Something else.", next = "BACK" },
@@ -472,7 +472,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Seikwa, and I keep the beasts of hunters while they travel without them. Every one of them gets fed, brushed and spoken to, whether its hunter comes back in a day or a season." },
+          text = "I am Seikwa, and I keep the beasts of hunters while they travel without them. Each beast gets fed, brushed and spoken to, whether its hunter comes back in a day or a season." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter, with a friend at heel. Do you need me to keep someone for you, or are you only visiting the others?" },
         { id = "h_druid", when = { class = "DRUID" },
@@ -508,7 +508,7 @@ P:NPC {
     },
 
     favorite = {
-      lines = { { id = "fa_default", text = "I shouldn't say, because they can hear me. But the old plainstrider never bites, never complains and always eats his supper, which is more than I can say for most of the braves." } },
+      lines = { { id = "fa_default", text = "I shouldn't say, because they can hear me. But the old plainstrider never bites, never complains and always eats his supper, and the young braves can't claim any of the three." } },
       choices = {
         { text = "Your secret is safe.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

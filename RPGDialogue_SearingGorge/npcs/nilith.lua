@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "The ghost in the cage tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
     { id = "g_default", text = "Mind Raze; he's harmless unless I say otherwise, and I rarely say otherwise to people who are useful." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. Good, I prefer my helpers that way." },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun a great deal in that time. Someone always comes to take it, so I'm glad you're back." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun whole sheets of silk in that time. Someone always comes to take it, so I'm glad you're back." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word is you've annoyed someone in the Gorge. That's fine, so long as it wasn't one of my spiders." },
   },
 
@@ -55,7 +55,7 @@ P:NPC {
         { text = "Tell me about Raze.", next = "raze" },
         { text = "Why live here, so near Blackrock Mountain?", next = "camp" },
         { text = "How do you weave shadow silk?", next = "xtailor", when = { profession = "Tailoring" } },
-        { text = "Binding an infernal takes more than most warlocks have.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Few warlocks have the nerve to bind an infernal.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your silk.", next = "END" },
       },
     },

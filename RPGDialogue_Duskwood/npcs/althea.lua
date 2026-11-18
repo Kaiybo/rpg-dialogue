@@ -41,7 +41,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "I trust what I can see, and your trade is built on not being seen. Half the knives in Duskwood belong to bandits who'd sell a Night Watch patrol to the worgen for a pair of boots, and they learned the same tricks you did." } },
+      lines = { { id = "prej_default", text = "I trust what I can see, and your trade is built on not being seen. Most of the knives in Duskwood belong to bandits who'd sell a Night Watch patrol to the worgen for a pair of boots, and they learned the same tricks you did." } },
       choices = {
         { text = "Shadows hide me from worgen too. That makes me useful to you.", next = "prej_a", fx = { align = { honor = -1 } } },
         { text = "Then I'll walk openly while I'm in Darkshire.", next = "prej_b", fx = { align = { honor = 1 } } },
@@ -63,7 +63,7 @@ P:NPC {
     },
     op_dead = {
       lines = {
-        { id = "op_dead_a", text = "Now you've found the argument that splits this town down the middle. Half the council wants every body burned before it's cold, and the other half says we're Darkshire, not the Scourge, and we bury our own with the proper words. You've seen what walks out of Raven Hill, so you tell me which half is right." },
+        { id = "op_dead_a", text = "Now you've found the argument that splits this town down the middle. Some on the council want every body burned before it's cold, while the rest say we're Darkshire, not the Scourge, and we bury our own with the proper words. You've seen what walks out of Raven Hill, so you tell me who's right." },
       },
       choices = {
         { text = "Burn them. A pyre is kinder than waking up in Fel's army.", next = "op_dead_1", fx = { opinion = { duskwood_dead = "burn", necromancy = "fight_hard" }, align = { light = -1 }, trait = { practical = 1 }, affinity = 1 } },
@@ -78,7 +78,7 @@ P:NPC {
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_2 = {
-      lines = { { id = "op_dead_r2", text = "That's the other half's answer, and I can't say it's wrong, only that it's harder on my watchers. Go and say it at Raven Hill, then, and see if the graves agree." } },
+      lines = { { id = "op_dead_r2", text = "That's what the burying side says, and I can't say it's wrong, only that it's harder on my watchers. Go and say it at Raven Hill, then, and see if the graves agree." } },
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_3 = {
@@ -231,7 +231,7 @@ P:NPC {
       },
     },
     live = {
-      lines = { { id = "l_default", text = "Badly, and together, and with a great deal of lamp oil." } },
+      lines = { { id = "l_default", text = "Badly, and together, and with more lamp oil than the council ever budgeted for." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     woods_dead = {
@@ -406,7 +406,7 @@ P:NPC {
     watchers_names = {
       big = true,
       lines = {
-        { id = "wn_default", text = "Nine since the thaw, and I can tell you every one of them and where they fell, because I'm the one who knocks on the door afterwards. I don't let the council do it; they make speeches." },
+        { id = "wn_default", text = "Nine since the thaw, and I can name each one and where they fell, because I'm the one who knocks on the door afterwards. I don't let the council do it; they make speeches." },
         { id = "wn_after", text = "I keep the roster with the dead names still on it, crossed through but not scratched out. Ello thinks it's morbid, and maybe it is, but I'll not have anyone in this town forget they stood a watch." },
         { id = "wn_priest", when = { class = "PRIEST" }, text = "If you're staying the night, there are two mothers on the Raven Hill road who'd take a priest at the door better than they took me. I'd count it a kindness." },
       },
@@ -418,7 +418,7 @@ P:NPC {
     watchers_roster = {
       lines = {
         { id = "wr_default", text = "Enough that I don't talk about it with strangers on the road. Ask me how to keep the rest alive instead; that's the question I can use." },
-        { id = "wr_default2", text = "The roster's my business, and the Watch's. You'll forgive me if I keep the count to myself." },
+        { id = "wr_default2", text = "The roster's my business, and the Watch's. The count stays with me." },
       },
       choices = {
         { text = "Fair, Commander.", next = "BACK" },
@@ -503,7 +503,7 @@ P:NPC {
     embalmer = { { id = "tp_embalmer", text = "That was a children's story until it walked down my road, and I've doubled the lamps on the Raven Hill side since." } },
     _none = { { id = "tp_none", text = "That's not a Watch matter, and if it ever becomes one, it'll find me." } },
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill's cemetery has more walking dead than buried ones now, and I can't spare the Watch to hold it. I send adventurers, and I count them when they come back." } },
-    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass and go wherever they like, and my watchers have yet to catch one. Somebody sends them, and I'd give a great deal to know who." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass and go wherever they like, and my watchers have yet to catch one. Somebody sends them, and I mean to learn who before the year's out." } },
     scourge = { { id = "tp_scourge", text = "The dead in Duskwood aren't the Scourge's, as far as anyone can tell; they're our own, and somebody is raising them here. I'd almost sooner it were the Scourge, because then Stormwind might send an army." } },
     varian = { { id = "tp_varian", text = "Lord Ello writes to the Crown every week asking for soldiers, and the answer is always that the army is stretched. With the king gone, I doubt anybody in the Keep is reading those letters at all." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord is a good soldier, and I believe he'd help us if he could. I also believe somebody between him and Darkshire is making sure he can't." } },

@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." } },
       choices = {
-        { text = "I'll use your parts for engineering, Gearcutter. Honestly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll use your parts for engineering, Gearcutter, on my word.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "What I do in the dark is my own business.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'll warn you that none of my parts are rated for fel energy, and I won't take them back if they melt." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want blasting powder, I imagine; everybody does, sooner or later." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and every one of them's been tested twice, like everything else here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and each scope's been tested twice, like everything else here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose you'll be buying blasting powder, but you're welcome to look, as long as you don't shed on the flux." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Please don't cast anything near the blasting powder, because it has a temper, and so do I when my stock goes up in smoke." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wondered whether a lightning totem would charge a battery. Purely theoretically, of course. I wouldn't sell it without testing it twice." },
@@ -155,7 +155,7 @@ P:NPC {
 
     need = {
       lines = {
-        { id = "ne_default", text = "A blacksmith hammer, an arclight spanner, a steady hand and a great deal of copper. Springspindle will teach you the rest next door, though he'll talk about wheels a great deal longer than you'd like." },
+        { id = "ne_default", text = "A blacksmith hammer, an arclight spanner, a steady hand and a sack of copper bars. Springspindle will teach you the rest next door, though he'll talk about wheels until your ears ring." },
       },
       choices = {
         { text = "What's wrong with wheels?", next = "need_wheels" },
@@ -225,7 +225,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think the earth has put up with gnomes for a very long time and complained remarkably little. If I abolish the wheel, it'll be rolled over less, so I like to imagine it's on my side. You might ask it for me, though, in case it's grown fond of carts." } },
       choices = {
-        { text = "I'll ask it honestly and tell you whatever it says.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll ask it plainly and tell you whatever it says.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Oh, it adores carts. You'd best give up now.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -280,7 +280,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every day, which is why I test them on myself first, and why I've lost a great deal of hair. A good engineer worries about the people at the other end of the invention, and a great one does something about it." } },
+      lines = { { id = "xapriest_default", text = "Every day, so I test them on myself first, and I've lost roughly forty percent of my hair to it. A good engineer worries about the people at the other end of the invention, and a great one does something about it." } },
       choices = {
         { text = "Then you're a good engineer. You think about who's standing nearby.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Inventors who worry too much never invent anything great.", next = "BACK", fx = { align = { light = -1 } } },
@@ -318,7 +318,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'd ask you not to summon anything near my prototypes, for the last one caught fire on its own and I don't need help." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Imagine a battlefield without wheels, with no carts and no chariots, only my marvellous replacement, which I'll describe if you've a minute." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and they've taught me a great deal." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and their knees have taught me more than any textbook." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, do your people use the wheel? Because I'm about to make it obsolete, and I'd hate for you to have invested heavily." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll appreciate this, then, because rogues move quietly and wheels squeak, and that's only the first of a hundred reasons the wheel is doomed!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do the elements have an opinion on wheels? Because if the earth objects to being rolled over, I'd like that in writing." },
@@ -502,7 +502,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because half my potions need it and the other half are mixed drinks, which is why I keep them on very separate shelves! Your servant can sit by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
+        { id = "xlock_default", text = "Because some of my potions need it and the rest are mixed drinks, so I keep them on very separate shelves! Your servant can sit by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
       },
       choices = {
         { text = "I'll keep it by the door.", next = "BACK", fx = { align = { order = 1 } } },

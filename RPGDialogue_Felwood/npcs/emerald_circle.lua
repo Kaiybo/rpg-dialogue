@@ -58,7 +58,7 @@ P:NPC {
     },
 
     winterfall = {
-      lines = { { id = "wf_default", text = "They drink, and the drink makes them mad. It's a firewater they brew in their camps in Winterspring, and it smells of something that has never grown in any forest I know, which is why Donova Snowden has been sending me every scrap she can find." } },
+      lines = { { id = "wf_default", text = "They drink, and the drink makes them mad. It's a firewater they brew in their camps in Winterspring, and it smells of something that has never grown in any forest I know, so Donova Snowden has been sending me every scrap she can find." } },
       choices = {
         { text = "Who's Donova Snowden?", next = "wf_donova" },
         { text = "Something is making them brew it?", next = "wf_who" },

@@ -135,7 +135,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Bad enough that farmers lock their doors in daylight and the Magistrate has a stack of reports taller than he is. They're Alterac's old nobility playing at bandits, and they think the hills still belong to them, which is why they hate us so." } },
+      lines = { { id = "xrogue_default", text = "Bad enough that farmers lock their doors in daylight and the Magistrate has a stack of reports taller than he is. They're Alterac's old nobility playing at bandits, and they think the hills still belong to them, so every Southshore farm looks to them like a stolen field." } },
       choices = {
         { text = "I'll root them out of the hills for good.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hard to blame them. Alterac was theirs once.", next = "BACK", fx = { align = { order = -1 } } },
@@ -183,7 +183,7 @@ P:NPC {
           text = "Another one out of the north, then. Southshore was taking in people with nothing long before you got here, and you're welcome." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night's when the horses go missing, so I keep a lantern lit by the stables, not that the dead need the light." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and I'd rather have that on my side than on theirs, so welcome to Southshore." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and that's worth more to me on my side of the river than on theirs, so welcome to Southshore." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Southshore. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like your little friend, so keep it on a short leash." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the trampled ashes are full of boot prints about your size. Southshore owes you for that, and I won't forget it." },
@@ -413,7 +413,7 @@ P:NPC {
     xwarrior = {
       big = true,
       lines = {
-        { id = "xwa_default", text = "It does, and it's had nobody but me to do it since the war, and I'm a headman, not a sergeant. Half of them are fishermen who hold a spear like an oar, and the other half are Stormwind's grandchildren who think a spear is a story." },
+        { id = "xwa_default", text = "It does, and it's had nobody but me to do it since the war, and I'm a headman, not a sergeant. I've fishermen who hold a spear like an oar, and Stormwind's grandchildren who think a spear is a story." },
       },
       choices = {
         { text = "Then they'll learn the way soldiers learn: by rote.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { southshore = 1 } } },
@@ -631,7 +631,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I've worked out names, mostly old Alterac houses like the Perenoldes, and a few places in the hills I can't find on any map. The rest is either very clever code or very bad spelling, and after three weeks I honestly can't tell which." } },
+      lines = { { id = "xmage_default", text = "I've worked out names, mostly old Alterac houses like the Perenoldes, and a few places in the hills I can't find on any map. The rest is either very clever code or very bad spelling, and after three weeks I can't tell which." } },
       choices = {
         { text = "Let me help you crack it properly. The law deserves the truth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Burn the letters and burn their camps. Simpler that way.", next = "BACK", fx = { align = { order = -1 } } },
@@ -812,7 +812,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Read everything twice, especially whatever's been slipped under your door." } },
     defias = { { id = "tp_defias", text = "That's a Stormwind problem, and I've a Syndicate problem; some days I'd gladly trade." } },
     seven_kingdoms = { { id = "tp_seven", text = "Alterac was a kingdom once. Now it's a list of names I keep in a locked drawer." } },
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken are at war with us, and they're at war with the Scourge, and I'm still not sure which of those they mean more. I've written a great deal of paper on the question, and none of it has helped." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are at war with us, and they're at war with the Scourge, and I'm still not sure which of those they mean more. I've filled two ledgers on the question, and neither has helped." } },
     alterac = { { id = "tp_alterac", text = "Half my docket is Syndicate, and the Syndicate are all Alterac's old nobility, and they still think they can't be hanged. I'd like to prove them wrong, once the paperwork's done." } },
     ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt doesn't exist, officially, and I've been told so by people who should know. Unofficially, I lock my door at night." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon wrote to me once, to thank Southshore for taking Stormwind's refugees. I've framed it, though I'd not tell him so." } },
@@ -933,7 +933,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "That's a generous view from someone who isn't nibbled on the ankles every morning. Still, they were here first, I'll grant you, and they've never once filed a complaint with the Magistrate." } },
+      lines = { { id = "dq_default", text = "That's a generous view from someone who isn't nibbled on the ankles every morning. Still, they were here first, I suppose, and they've never once filed a complaint with the Magistrate." } },
       choices = {
         { text = "The town comes first. Drive them up the coast.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Leave their spawning grounds be, Lieutenant.", next = "BACK", fx = { align = { order = -1 } } },
@@ -987,7 +987,7 @@ P:NPC {
           text = "Torn Fin murlocs, down the Western Strand. Kill a few for me, then a few more for Redpath. Then we'll both have something to talk about." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Another evening in Southshore, and the gulls have gone to bed. I envy the gulls." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You crept up on me, and I was watching for murlocs, so either you're very good or I'm very tired, and I'd honestly accept either answer." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You crept up on me, and I was watching for murlocs, so either you're very good or I'm very tired, and I'd accept either answer." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can't you just freeze the whole bay for a night? I've asked, and everyone says no, but I feel the question deserves a proper hearing." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Don't suppose you could bless the murlocs into leaving? I've tried everything else, short of actually going out there myself." },
@@ -1159,7 +1159,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Stormwind City Guard, temporarily posted elsewhere. Very temporarily, I'm told.", next = "guard" } },
     advice = { { id = "tp_ad", text = "Never volunteer, because that's how I ended up here." } },
-    scourge = { { id = "tp_scourge", text = "I'd rather fight the Scourge than murlocs, honestly, since at least the dead don't smell of fish. I've told the Marshal so, and he's told me to be careful what I wish for." } },
+    scourge = { { id = "tp_scourge", text = "I'd rather fight the Scourge than murlocs, since at least the dead don't smell of fish. I've told the Marshal so, and he's told me to be careful what I wish for." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill are pushing into our farms one field at a time, and I'm stuck down here fighting fish. I'd swap my post for theirs in a heartbeat." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best rum in the world, they say, and the worst pirates. I'd go, if I could get the Marshal to give me a month off." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I've stopped learning things about Southshore, since it only encourages the place." } },
@@ -1240,7 +1240,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every day, an' every night, which is why I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." } },
+      lines = { { id = "xlock_default", text = "Every day, an' every night, so I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." } },
       choices = {
         { text = "Uther was right. Even a warlock can serve the Light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith is a crutch. Power is what saves people.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1435,7 +1435,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'd like to, if you'll sit still for it, because history has a habit of forgetting the first of anything. The old kingdom's scribes wrote down every orc shaman's curse in the Second War and never once asked what the elements thought of it, and I'd rather not make the same mistake." } },
+      lines = { { id = "xdsham_default", text = "I'd like to, if you'll sit still for it, because history has a habit of forgetting the first of anything. The old kingdom's scribes wrote down every orc shaman's curse in the Second War and never once asked what the elements thought of it, and I don't mean to make the same mistake." } },
       choices = {
         { text = "Write it plainly. Truth should be kept for those who come after.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some things shouldn't be written down. Let the spirits keep them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1463,7 +1463,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "A surprising amount, since the old Alterac nobles loved their hunts more than their kingdom and wrote down every stag like a battle won. I found a hunting ledger last month that listed more kills than the treasury listed coins, which tells you something about how Alterac was run." },
+        { id = "xhuntcl_default", text = "A surprising amount, since the old Alterac nobles loved their hunts more than their kingdom and wrote down every stag like a battle won. I found a hunting ledger last month that listed more kills than the treasury listed coins, and that's Alterac's whole history in one book." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} trained not to chew paper? I ask because the last hunter's dog ate the third chapter of a treatise on Strom's founding, and I still dream about it." },
       },
       choices = {
@@ -1558,7 +1558,7 @@ P:NPC {
     ogres = {
       lines = { { id = "o_default", text = "Burned some, sat on others, and used a history of the Alterac succession to prop up a table. The table's never stood steadier, and the history deserved it." } },
       choices = {
-        { text = "These books seem to matter a great deal to you.", next = "why_books" },
+        { text = "These books seem to matter a lot to you.", next = "why_books" },
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -1586,7 +1586,7 @@ P:NPC {
     },
     ciphers = {
       lines = {
-        { id = "ci_default", text = "The plain ones, yes, but not the clever ones; those go to Prospector Stormpike in Ironforge. I've been sending him a great deal of business lately." },
+        { id = "ci_default", text = "The plain ones, yes, but not the clever ones; those go to Prospector Stormpike in Ironforge. He's had three crates from me since spring." },
       },
       choices = {
         { text = "Is he any good?", next = "stormpike" },
@@ -1630,7 +1630,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I've catalogued a great deal of what this valley used to know. Ask about any of it, and I'll tell you what survived the ogres." },
+      { id = "tp_knows", text = "I've catalogued most of what this valley used to know. Ask about any of it, and I'll tell you what survived the ogres." },
     },
     alterac = { { id = "tp_alterac", text = "A whole library, lost under ogres. I could weep, and I have.", next = "why_books" } },
     background = { { id = "tp_bg", text = "I gather what Alterac left behind, for Milton and the Royal Library. Before that I read, and I still do.", next = "grilek" } },
@@ -1742,7 +1742,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, since Southshore's close enough to the Syndicate's hills that some folk come down to sell what they've found. I don't ask questions, and they don't make trouble, and the lieutenant's too busy with murlocs to notice either way." } },
+      lines = { { id = "xrogue_default", text = "A fair bit, since Southshore's close enough to the Syndicate's hills that some folk come down to sell what they've found. I don't ask questions, and they don't make trouble, and the lieutenant's too busy with murlocs to notice either way." } },
       choices = {
         { text = "Not asking questions is a fine policy. I'll follow it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You should report them. The Magistrate needs to know.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1784,7 +1784,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, and you're welcome, because half my customers have someone they lost up north. If one of them asks you to sit a while, I'd count it a kindness." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin under my roof! Bilger will either be thrilled or hide in the cellar, and I honestly couldn't tell you which." },
+          text = "A paladin under my roof! Bilger will either be thrilled or hide in the cellar, and I couldn't tell you which." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and dripping on my floor like everyone else. Hang that mail by the fire, will you, because rust and rain are the two things Southshore has more of than fish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you've brought in more mud than the rain did. Wipe your boots, and tell me what's out in the hills, because nobody else will." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Most night elves who come through just want a room and a quiet corner, and you look like you'd sooner sleep under a tree." },

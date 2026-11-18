@@ -274,7 +274,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not these, for the sickness has gone into their bones and their minds both. All a hunter can give them now is a quick end, and I'd rather it came from one who knows how to give it gently." },
+        { id = "xhuntcl_default", text = "Not these, for the sickness has gone into their bones and their minds both. All a hunter can give them now is a quick end, and it should come from one who knows how to give it gently." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is healthy, and I thank Cenarius for every clean beast I still see. Keep it away from the Writhing Haunt, {class}, for the sick ones will call to it, and it may answer." },
       },
       choices = {
@@ -506,7 +506,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every one of them, for they were farmers and millers who'd only borrowed their armour for the day. They stood with Joseph in the square so the rest of us could run, and I've wondered every night since whether Pamela ran fast enough." } },
+      lines = { { id = "xwarcl_default", text = "All of them, for they were farmers and millers who'd only borrowed their armour for the day. They stood with Joseph in the square so the rest of us could run, and I've wondered every night since whether Pamela ran fast enough." } },
       choices = {
         { text = "They gave their lives well, Marlene, and the Light keeps them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Borrowed armour and good hearts weren't enough. They never are.", next = "BACK", fx = { align = { light = -1 } } },
@@ -617,7 +617,7 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gn_default", text = "She's a little gnome who wanders the ruins of Andorhal as if the dead weren't there at all, and she seems to know a great deal about the old days. I don't know who she is, only that she's kind, and she once left me a jar of honey on the step." },
+        { id = "gn_default", text = "She's a little gnome who wanders the ruins of Andorhal as if the dead weren't there at all, and she seems to remember the old days better than I do. I don't know who she is, only that she's kind, and she once left me a jar of honey on the step." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -688,7 +688,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Strong enough that I'm sitting here bleeding instead of reporting from inside. They keep watchmen on the walls day and night and a hall full of knights besides, and every one of them believes the Light personally signed his orders." } },
+      lines = { { id = "xwarcl_default", text = "Strong enough that I'm sitting here bleeding instead of reporting from inside. They keep watchmen on the walls day and night and a hall full of knights besides, and each one believes the Light personally signed his orders." } },
       choices = {
         { text = "Then they need fighting fairly, in the open, steel on steel.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Strong walls have a weak gate somewhere. I'll find it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -866,7 +866,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge is the obvious enemy here, but I've learned that the Crusade can be just as deadly to a scout. At least the Scourge doesn't torture you first." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme is crawling with Crusaders and Scourge both, and they hate each other almost as much as they hate everyone else. I'd love to see them finish each other off." } },
     si7 = { { id = "tp_si7", text = "Who said anything about SI:7? I'm a scout, plain and simple, and I report to whoever's paying, which is Stormwind, generally." } },
-    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar runs the kingdom for the young king, and he does it well enough. He keeps his scouts paid, which is more than I can say for some lords." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar runs the kingdom for the young king, and he does it well enough. He keeps his scouts paid, and not every lord in Stormwind can say so." } },
     _none = { { id = "tp_none", text = "That's above my pay, I'm afraid, and most things are." } },
   },
 }
@@ -898,7 +898,7 @@ P:NPC {
   nodes = {
     xcl_scholo = {
       big = true,
-      lines = { { id = "xcl_scholo_default", text = "Then the house is only a house again, or as near as it can be with so much wrong in its walls. Lucien and I were made to bow to the students as they came and went, which I minded more than you'd think, considering everything else they did to us." } },
+      lines = { { id = "xcl_scholo_default", text = "Then the house is only a house again, or as near as it can be with so much wrong in its walls. Lucien and I were made to bow to the students as they came and went, and somehow that galled me most, considering everything else they did to us." } },
       choices = {
         { text = "You and Lucien deserve your rest, as much as anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The house got what it bargained for. The Barovs built it on bargains.", next = "BACK", fx = { align = { light = -1 } } },
@@ -906,7 +906,7 @@ P:NPC {
       },
     },
     xcl_scholo2 = {
-      lines = { { id = "xcl_scholo2_default", text = "Not quite yet, though it's closer, and I can feel it the way you feel morning before it comes. There's still a great deal of the house left to put right, and I was always the last to bed in it, so I suppose I'll be the last to leave." } },
+      lines = { { id = "xcl_scholo2_default", text = "Not quite yet, though it's closer, and I can feel it the way you feel morning before it comes. There's still much of the house left to put right, and I was always the last to bed in it, so I suppose I'll be the last to leave." } },
       choices = {
         { text = "Then I'll see what else needs putting right.", next = "BACK" },
       },
@@ -932,7 +932,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Every autumn the master rode out with the hounds and half the household, and Lucien and I had a feast waiting when they returned. The hounds are still in the kennels, after a fashion, and I would not go near them if I were you." },
+        { id = "xhuntcl_default", text = "Every autumn the master rode out with the hounds and most of the household, and Lucien and I had a feast waiting when they returned. The hounds are still in the kennels, after a fashion, and I would not go near them if I were you." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its hackles up, {class}, and it's quite right to. Animals feel this island, and they never did like the master's guests." },
       },
       choices = {
@@ -1002,7 +1002,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "There were servants' stairs once, as there are in any great house, but I couldn't tell you what the necromancers have done with them since. The front gate is guarded, but at least you know what's waiting there, which is more than I can say for the rest of the house." } },
+      lines = { { id = "xrogue_default", text = "There were servants' stairs once, as there are in any great house, but I couldn't tell you what the necromancers have done with them since. The front gate is guarded, but at least you know what's waiting there, and I can't promise that of anywhere else in the house." } },
       choices = {
         { text = "I'll take the front gate. Better to see what's coming.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll find another way in. There always is one.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1047,7 +1047,7 @@ P:NPC {
     },
     jandice = {
       lines = {
-        { id = "ja_default", text = "Jandice is still in the keep, among them, and Alexi and Weldon went their separate ways, one dead and one fled. I served that family all my life, and I'd rather not say what I think of how its children turned out." },
+        { id = "ja_default", text = "Jandice is still in the keep, among them, and Alexi and Weldon went their separate ways, one dead and one fled. I served that family all my life, and I'll keep what I think of how its children turned out to myself." },
       },
       choices = {
         { text = "You can tell me, Eva. They can't punish you now.", tag = "Persuade", next = "jandice_truth",

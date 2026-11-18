@@ -222,7 +222,7 @@ P:NPC {
     },
     xorig_brave = {
       lines = {
-        { id = "xbr_default", text = "I remember. You struck when I gave the word and stopped when I gave it again, and the stopping is the harder half. My father asks us to strike only when we must, so tell me honestly: did we strike enough?" },
+        { id = "xbr_default", text = "I remember. You struck when I gave the word and stopped when I gave it again, and the stopping is the harder half. My father asks us to strike only when we must, so tell me plainly, as one hunter to another: did we strike enough?" },
       },
       choices = {
         { text = "We did. Every goblin we spared was our choice, not theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -294,7 +294,7 @@ P:NPC {
       },
     },
     venture_cairne = {
-      lines = { { id = "vc_default", text = "He says the land was not for sale, and that the goblins are learning it slowly. He also says a chieftain's son should come to him with an answer and not a question, which is why I'm asking you." } },
+      lines = { { id = "vc_default", text = "He says the land was not for sale, and that the goblins are learning it slowly. He also says a chieftain's son should come to him with an answer and not a question, and so I am asking you." } },
       choices = { { text = "Then I'll give you an answer.", next = "venture_word" } },
     },
     venture_hold = {
@@ -372,11 +372,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The plains bring news to Bloodhoof from every road, and I try to hear all of it. Ask me about these, and I'll tell you what I know." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit with me, friend; you've earned the long answers, and the village can spare me a while." },
-      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, as I'd answer anyone who asks honestly, and I hope you are asking honestly." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, as I'd answer anyone who asks in good faith, and I hope that is how you ask." },
     },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
-    cairne = { { id = "tp_cairne", text = "My father carried our people out of the wandering and onto these plains, and he did it without ever once raising his voice to us. I try to walk the village the way he walks the bluff, and I have a great deal left to learn." } },
+    cairne = { { id = "tp_cairne", text = "My father carried our people out of the wandering and onto these plains, and he did it without ever once raising his voice to us. I try to walk the village the way he walks the bluff, and I have many seasons of learning still ahead of me." } },
     thrall = { { id = "tp_thrall", text = "Thrall came to my father's aid when the centaur were hounding us across the Barrens, and he asked nothing in return. The tauren repay that kind of debt with a long memory, and we joined his Horde gladly." } },
     forsaken = {
       { id = "tp_forsaken", text = "My father and Hamuul spoke for the Forsaken when they asked to join the Horde, because Hamuul believes their curse might be lifted. I hope he is right, though I find their apothecaries hard to like." },
@@ -473,7 +473,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They sensed it before you crested the hill, and every one of them has gone quiet and watchful. Fel magic is a wound, not a power, and I fear the spirits will never forgive what walks beside you." },
+        { id = "xwarlock_default", text = "They sensed it before you crested the hill, and all of them have gone quiet and watchful. Fel magic is a wound, not a power, and I fear the spirits will never forgive what walks beside you." },
       },
       choices = {
         { text = "Then I'll keep it far from the village, elder.", next = "BACK", fx = { align = { light = 1 } } },
@@ -574,7 +574,7 @@ P:NPC {
 
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "Ah, one of the Forsaken. Forgive an old herder if he stands upwind of you; my people believe the dead should rest in the Earth Mother's arms, and seeing you walk about troubles the part of me that was taught it." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "It's good to see you, friend, and I mean it more than I did the first time. Whatever you are, you've the manners of the living, and that's more than I can say for some of the living." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "It's good to see you, friend, and I mean it more than I did the first time. Whatever you are, you've the manners of the living, and better ones than the Venture Company men who trample our wheat." },
     { id = "g_plains", text = "Watch the sky over Mulgore for a while, the way the hawks do. You'll see what I mean about the swoops." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the sky over Mulgore has changed its mind a dozen times since. My knees could have told you it would." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round to your way of thinking. That's a rarer thing among tauren than you'd guess, because we're stubborn as old kodo." },
@@ -635,7 +635,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Then between us we'd see everything, and that's more than most of Bloodhoof manages. The Palemane gnolls creep in from the west at dusk, so if you have quiet feet and sharp eyes, watch the western road and tell the braves what you see." },
+        { id = "xrogue_default", text = "Then between us we'd see the whole plain, from the lake to the western ridge. The Palemane gnolls creep in from the west at dusk, so if you have quiet feet and sharp eyes, watch the western road and tell the braves what you see." },
       },
       choices = {
         { text = "Better they never see me. Then they can't fight back.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -646,7 +646,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "You could, and the young hunters would never forgive you for stealing their practice. Swoops are a nuisance, not a war, and I'd rather the youngsters learned to drop them with an arrow than watched a stranger freeze them out of the sky." },
+        { id = "xmage_default", text = "You could, and the young hunters would never forgive you for stealing their practice. Swoops are a nuisance, not a war, and the youngsters must learn to drop them with an arrow, not watch a stranger freeze them out of the sky." },
       },
       choices = {
         { text = "Then the young hunters can have them, and the bruised thumbs.", next = "BACK", fx = { align = { order = 1 } } },
@@ -980,7 +980,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "I've asked myself that, because I'd take help from almost anywhere now. But the wells are alive in a way your magic doesn't understand, and I'd rather see them healed slowly by the Earth Mother than quickly by something that doesn't know what it's healing." },
+        { id = "xmage_default", text = "I've asked myself that, because I'd take help from almost anywhere now. But the wells are alive in a way your magic doesn't understand, and I would see them healed slowly by the Earth Mother before I'd see them healed quickly by something that doesn't know what it's healing." },
       },
       choices = {
         { text = "Then I'll leave the healing to the Earth Mother.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1345,7 +1345,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my table! Sit near the fire, since your kind always seem to be listening to it, and I'll bring you a bowl of stew." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I can hear your stomach from here. Sit down, friend, and let me feed you before you go off and fight something." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have game to share, I hope, because my pot's always open to a fresh plainstrider." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit and eat, because I've never met a healer yet who remembers to feed themselves, and stew mends more than you'd think." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit and eat, because I've never met a healer yet who remembers to feed themselves, and stew mends what the Light forgets." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, by the grass seed on your boots. Sit down, because the druids who come down from Elder Rise always forget to eat, and I take that personally." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my inn! Sit, and I'll bring you stew, because spellwork burns through a body like a fire through grass." },
       },
@@ -1370,7 +1370,7 @@ P:NPC {
     },
     xorig_orphan = {
       lines = {
-        { id = "xorp_default", text = "I remember you wouldn't eat for two days, and on the third you ate three bowls and fell asleep against my kettle. Half the village claimed you after that, though I always thought the kettle had the best claim. Do you ever go back to the Barrens, to where it happened?" },
+        { id = "xorp_default", text = "I remember you wouldn't eat for two days, and on the third you ate three bowls and fell asleep against my kettle. The whole village claimed you after that, though I always thought the kettle had the best claim. Do you ever go back to the Barrens, to where it happened?" },
       },
       choices = {
         { text = "Sometimes. The Razormane still owe me a debt.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -1429,7 +1429,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "We wandered a long time and met many peoples, and every one of them prayed to something. Yours just happens to shine. I'd rather hear how it answers you than argue about whether it should." } },
+      lines = { { id = "xfpala_default", text = "We wandered a long time and met many peoples, and all of them prayed to something, and yours just happens to shine. I'd sooner hear how it answers you than argue about whether it should." } },
       choices = {
         { text = "It answers when I serve the living. Gladly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "It answers. That's all I need to know.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1457,7 +1457,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Then you're missing the best part of camping, friend, which is the fire and whoever wanders up to it. I've met more good friends at a campfire than I've lost to bandits, and I'd rather take that wager than sleep cold and alone in the dark." },
+        { id = "xrogue_default", text = "Then you're missing the best part of camping, friend, which is the fire and whoever wanders up to it. I've met more good friends at a campfire than I've lost to bandits, and that wager beats sleeping cold and alone in the dark." },
       },
       choices = {
         { text = "Perhaps you're right. I'll light a fire tonight.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1509,7 +1509,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the campfire is good luck, the old wanderers used to say, because the fire burns brighter beside one of you. Sit down, and we'll test the saying." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit by my fire a while, because I've met warriors on every road I've ever walked, and they always have the best stories." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at my campfire! I've shared fires with orcs, trolls and once a very lost goblin, but never a priest, so sit and tell me who you pray to." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I once shared a fire with one of Hamuul's students out past the Red Rocks, and she spent half the night as a bear because she said the ground felt warmer that way." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I once shared a fire with one of Hamuul's students out past the Red Rocks, and she spent most of the night as a bear because she said the ground felt warmer that way." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, at my campfire? Sit down, then, but tell your demon it eats last." },
       },
       choices = {

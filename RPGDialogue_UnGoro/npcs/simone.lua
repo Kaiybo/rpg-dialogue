@@ -76,7 +76,7 @@ P:NPC {
     },
     why_stance = {
       big = true,
-      lines = { { id = "ws_default", text = "Admire it? I simply notice it, darling, and so do you, or you wouldn't carry a weapon. Tell me honestly, which do you think the world is, a garden to tend or a feast to enjoy?" } },
+      lines = { { id = "ws_default", text = "Admire it? I simply notice it, darling, and so do you, or you wouldn't carry a weapon. Be candid with me: which do you think the world is, a garden to tend or a feast to enjoy?" } },
       choices = {
         { text = "A garden. Strength is for guarding those who have none.", next = "why_answer", fx = { align = { light = 1 } } },
         { text = "A feast. The strong eat, and the weak learn.", next = "why_answer", fx = { align = { light = -1 } } },

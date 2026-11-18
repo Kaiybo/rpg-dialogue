@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_op_defias_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "You're the soft-hearted one who'd send thieves home with a warning. Well, we let one go last week, on your account, and we'll see what comes of it." },
     { id = "g_line", text = "Fall in or move along." },
     { id = "g_paws", when = { questActive = TODO_QUEST("Patrolling Westfall") }, text = "Paws, is it? Count them out on the table, and if it isn't eight, back out you go." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Patrolling Westfall") }, text = "You patrol like you mean it, and that's rarer than you'd think." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Patrolling Westfall") }, text = "You patrol like you mean it, and on this hill that's rarer than rain." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the gnolls didn't take a holiday while you were away. Fall in, then." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened up since you were counting paws for me. I'd put you at the front of the line now, and I don't say that to many." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "Word on the hill is you've been throwing your weight around. Save it for the Defias, because my farmers have been bullied enough." },
@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     op_prisoners = {
       lines = {
-        { id = "op_prisoners_a", text = "Then it's the worst day of the week. Half my men want him hanged off the tower as a lesson, and the other half grew up with his father, and Gryan says the Stockade and nothing more. You've caught a few yourself by now, so what would you do with him?" },
+        { id = "op_prisoners_a", text = "Then it's the worst day of the week. Some of my men want him hanged off the tower as a lesson, the rest grew up with his father, and Gryan says the Stockade and nothing more. You've caught a few yourself by now, so what would you do with him?" },
       },
       choices = {
         { text = "Hang him. A thief's a thief, whoever his father was.", next = "op_prisoners_1", fx = { opinion = { defias = "hardline" }, align = { light = -1 }, affinity = 1, trait = { stern = 1 } } },
@@ -58,7 +58,7 @@ P:NPC {
       choices = { { text = "Something else, Captain.", next = "BACK" } },
     },
     op_prisoners_4 = {
-      lines = { { id = "op_prisoners_r4", text = "I'll blame the nobles all day, friend, and twice on market day. But it's my barn the boy burned, not theirs, so forgive me if I want him somewhere I can see him." } },
+      lines = { { id = "op_prisoners_r4", text = "I'll blame the nobles all day, friend, and twice on market day. But it's my barn the boy burned, not theirs, so I want him somewhere I can see him." } },
       choices = { { text = "Something else, Captain.", next = "BACK" } },
     },
     xdsham = {
@@ -114,7 +114,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "We've no gaol out here, so we take their blades and their boots and send them off down the coast road. Half of them come back in new boots, which tells you somebody's supplying them, and I'd dearly like to know who." } },
+      lines = { { id = "xapala_default", text = "We've no gaol out here, so we take their blades and their boots and send them off down the coast road. A good many come back in new boots, so somebody's supplying them, and I'd dearly like to know who." } },
       choices = {
         { text = "Send them to Stormwind for trial. The law has to mean something.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Turning them loose is foolish. Better to end it here.", next = "BACK", fx = { align = { order = -1 } } },
@@ -293,7 +293,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never turn your back on long grass, because gnolls crawl. And keep your blade where you can reach it sitting down." } },
     riverpaw = { { id = "tp_gnolls", text = "They're south, down by the river. Get them before they get to the farms." } },
     defias = { { id = "tp_defias", text = "They're thieves with a cause, and that makes them worse, not better." } },
-    people_militia = { { id = "tp_militia", text = "Every one of them volunteered. None of them should have had to." } },
+    people_militia = { { id = "tp_militia", text = "They all volunteered, and not one of them should have had to." } },
     westfall = { { id = "tp_westfall", text = "It's my homeland. The ones who stayed in it deserve someone who stayed with them."} },
     _none = { { id = "tp_none", text = "That's not my patrol and not my concern. Ask Gryan." } },
   },

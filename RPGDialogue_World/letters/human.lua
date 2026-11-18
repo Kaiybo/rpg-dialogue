@@ -16,7 +16,7 @@ P:Letter {
   id = "origin_human_westfall_farmhand_2", stranger = true, delay = 2400,
   when = { origin = "human_westfall_farmhand", cleared = "The Deadmines" },
   from = "Hester Furlbrow", subject = "The red bandana came down",
-  body = "{name},\n\nWord came up the road from Sentinel Hill that VanCleef is dead in his own ship, and the men at the militia fire said your name more than once while they said it. I went out to the fence and took that scarecrow down myself, bandana and all, and put it in the stove.\n\nIt doesn't put the farm back the way it was, and I know some of those masked boys were lads we used to hire at harvest. I keep thinking about that, and I expect you do too.\n\nBut the Hill slept last night, and so did I, which is more than I can say for any night these three years. Come home and see it when you've a mind to, even if home is mostly weeds just now.\n\nHester",
+  body = "{name},\n\nWord came up the road from Sentinel Hill that VanCleef is dead in his own ship, and the men at the militia fire said your name more than once while they said it. I went out to the fence and took that scarecrow down myself, bandana and all, and put it in the stove.\n\nIt doesn't put the farm back the way it was, and I know some of those masked boys were lads we used to hire at harvest. I keep thinking about that, and I expect you do too.\n\nBut the Hill slept last night, and so did I, and that's the first full night's sleep I've had in three years. Come home and see it when you've a mind to, even if home is mostly weeds just now.\n\nHester",
 }
 
 ---------------------------------------------------------------------------
@@ -101,7 +101,7 @@ P:Letter {
   id = "origin_human_stonemason_child_2", stranger = true, delay = 2400,
   when = { origin = "human_stonemason_child", cleared = "The Deadmines" },
   from = "Tobias Wren", subject = "VanCleef",
-  body = "{name},\n\nSo it was you. They're saying it in the guild hall and half the men won't look at me, and the other half keep buying me ale.\n\nI worked beside Edwin VanCleef on the Cathedral, before any of it. He was a fine mason and a fair foreman, and he was right about the money, and he was wrong about everything he did once he knew he was right. I don't know how to be glad and sorry in the same breath, so I've been doing both separately, on alternate days.\n\nYour mother says you did what had to be done and I'm to tell you she's proud. I'm proud too, for what it's worth from a man who only ever stood in the middle and shouted.\n\nYour father",
+  body = "{name},\n\nSo it was you. They're saying it in the guild hall and the older masons won't look at me, and the apprentices keep buying me ale.\n\nI worked beside Edwin VanCleef on the Cathedral, before any of it. He was a fine mason and a fair foreman, and he was right about the money, and he was wrong about everything he did once he knew he was right. I don't know how to be glad and sorry in the same breath, so I've been doing both separately, on alternate days.\n\nYour mother says you did what had to be done and I'm to tell you she's proud. I'm proud too, for what it's worth from a man who only ever stood in the middle and shouted.\n\nYour father",
 }
 
 ---------------------------------------------------------------------------
@@ -152,7 +152,7 @@ P:Letter {
   id = "origin_human_canal_pickpocket_2", stranger = true, delay = 2400,
   when = { origin = "human_canal_pickpocket", cleared = "The Deadmines" },
   from = "Pip Gallow", subject = "Never thought I'd say it",
-  body = "Oi, {name},\n\nYou went and did VanCleef in, and now the whole of Old Town is in a muddle. Half of them say you've ruined trade, because the Brotherhood paid good coin for a quiet word in the right ear, and the other half say good riddance, because the Brotherhood never paid anybody back.\n\nI'm in the second half, as it goes. They came round to Nell's last winter wanting a cut of a business she doesn't even have, and she's been sleeping with a cleaver since.\n\nSo here's me, writing to say well done to a {class} who used to lift buttons off coats for a dare. Never thought I'd say it. Don't let it go to your head, and keep one hand on your purse.\n\nPip",
+  body = "Oi, {name},\n\nYou went and did VanCleef in, and now the whole of Old Town is in a muddle. The fences say you've ruined trade, because the Brotherhood paid good coin for a quiet word in the right ear, and everybody else says good riddance, because the Brotherhood never paid anybody back.\n\nI'm with everybody else, as it goes. They came round to Nell's last winter wanting a cut of a business she doesn't even have, and she's been sleeping with a cleaver since.\n\nSo here's me, writing to say well done to a {class} who used to lift buttons off coats for a dare. Never thought I'd say it. Don't let it go to your head, and keep one hand on your purse.\n\nPip",
 }
 
 ---------------------------------------------------------------------------

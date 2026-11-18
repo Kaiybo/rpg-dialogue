@@ -58,7 +58,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Ask while I'm cutting, I can do both." },
         { id = "h_again2", text = "Go on. You've the look of someone with another question in them." },
-        { id = "h_again_dead", when = { race = "Scourge" }, text = "Still here? Ask, then, and I'll answer honestly, even to you." },
+        { id = "h_again_dead", when = { race = "Scourge" }, text = "Still here? Ask, then, and I'll answer you straight, even you." },
       },
       choices = {
         { text = "Where does your meat come from?", next = "trade" },

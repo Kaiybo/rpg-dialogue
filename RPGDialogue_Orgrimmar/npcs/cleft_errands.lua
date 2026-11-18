@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Walk with me a moment, would you? I think better on my feet, and this ramp is the only stretch of the Cleft nobody sells anything on." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and walking the same circle I walk. People will think we're plotting something." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Alliance Relations") }, text = "Keldran speaks well of you, which he doesn't do often. Mind you, he doesn't speak often at all." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Alliance Relations") }, text = "Keldran speaks well of you, and he barely speaks at all, so I'd listen when he does." },
   },
 
   notice = {
@@ -323,7 +323,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I carried a blade for the Hand at the Dark Portal, and I've been carrying it since. Some of us never put it down." } },
     advice = { { id = "tp_ad", text = "Never let anyone see the knife until it's in them, and never tell anyone who gave you the order." } },
-    _none = { { id = "tp_none", text = "The Hand knows a great deal, recruit, but it doesn't share for free, and it doesn't share that." } },
+    _none = { { id = "tp_none", text = "The Hand knows plenty, recruit, but it doesn't share for free, and it doesn't share that." } },
   },
 }
 
@@ -349,7 +349,7 @@ P:NPC {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You walk like the Hand teach you, or like you teach yourself, and either way me like it. Keep that up, mon." },
     { id = "n_purse", cat = "purse", when = { class = "WARRIOR" },
-      text = "Your purse be hangin' loose on the outside of your belt, warrior, and half the Drag already see it. Me not sayin' anything, me just sayin'." },
+      text = "Your purse be hangin' loose on the outside of your belt, warrior, and every cutpurse from here to the bank already see it. Me not sayin' anything, me just sayin'." },
   },
 
   start = "hello",

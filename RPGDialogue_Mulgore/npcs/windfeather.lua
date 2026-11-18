@@ -112,7 +112,7 @@ P:NPC {
       },
     },
     cost = {
-      lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and every one of them was paid for with someone's life." } },
+      lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and each was paid for with someone's life." } },
       choices = {
         { text = "What do you think should be done about the quilboar?", next = "op_quilboar" },
         { text = "Then the land is yours by right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

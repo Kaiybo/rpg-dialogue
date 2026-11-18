@@ -60,7 +60,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Because the Badlands ask nothing of me except that I survive them, and Ironforge asked a great deal more. You of all people should understand wanting a place that doesn't care who you were." } },
+      lines = { { id = "dq_default", text = "Because the Badlands ask nothing of me except that I survive them, and Ironforge asked for my name, my clan and my whole life. You of all people should understand wanting a place that doesn't care who you were." } },
       choices = {
         { text = "A dwarf belongs with his own kin, Martek.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I understand. Some of us need the wild.", next = "BACK", fx = { align = { order = -1 } } },
@@ -251,7 +251,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Counting this morning, pal? Enough to keep the skies clear over my camp and the books in the black, and not one of 'em has ever filed a complaint, which is more than I can say for my customers." } },
+      lines = { { id = "dq_default", text = "Counting this morning, pal? Enough to keep the skies clear over my camp and the books in the black, and not one of 'em has ever filed a complaint or haggled over the bill, so they're my favourite clients." } },
       choices = {
         { text = "Ease up, or there won't be any buzzards left.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Cook the lot. They're only carrion birds.", next = "BACK", fx = { align = { light = -1 } } },
@@ -287,7 +287,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Why not, pal? A blessing's free, the wings are cheap and the customer walks away happy, which is the whole business model right there. Besides, half the folks who eat my cookin' out here could use a little divine help with their stomachs, and I'm not liable for that part." } },
+      lines = { { id = "xapriest_default", text = "Why not, pal? A blessing's free, the wings are cheap and the customer walks away happy, which is the whole business model right there. Besides, plenty of the folks who eat my cookin' out here could use a little divine help with their stomachs, and I'm not liable for that part." } },
       choices = {
         { text = "The Light isn't a sales gimmick, Rigglefuzz.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Bless away. A hungry traveler won't mind either way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -298,7 +298,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I'd sell to anybody with coin, pal, but a knight eatin' my wings by the road is advertising I couldn't buy for a hundred gold. Folks see shining plate at my fire and figure the food must be safe, and mostly it is, mostly." } },
       choices = {
-        { text = "Cook them properly, and I'll vouch for them honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Cook them properly, and I'll vouch for them truthfully.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fine, I'll tell everyone they're delicious, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

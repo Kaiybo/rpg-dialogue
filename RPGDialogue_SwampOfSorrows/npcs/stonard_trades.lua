@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your {pet} has swamp mud between its toes, and that mud breeds rot if you leave it, so let me see that paw before you go anywhere." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter, and your beast looks well kept, which is more than I can say for most who come through that gate." },
+      text = "A hunter, and your beast looks well kept, and most who come through that gate can't say as much for their wolves." },
   },
 
   start = "hello",
@@ -281,7 +281,7 @@ P:NPC {
     },
 
     ledger = {
-      lines = { { id = "le_default", text = "I don't name names, but I'll say that a certain cook buys more salt than any orc could eat and pays for it in stew. And a certain smith pays on time to the day, which is why I sell him the good flux." } },
+      lines = { { id = "le_default", text = "I don't name names, but I'll say that a certain cook buys more salt than any orc could eat and pays for it in stew. And a certain smith pays on time to the day, so he gets the good flux." } },
       choices = {
         { text = "Thultash pays in stew?", next = "ledger_stew" },
         { text = "Something else.", next = "BACK" },
@@ -364,7 +364,7 @@ P:NPC {
     },
 
     swamp = {
-      lines = { { id = "sw_default", text = "Because the coal's always damp, so it smokes instead of burning, and the iron rusts between the forge and the quench. I spend half my day keeping things dry and the other half fixing what got wet anyway." } },
+      lines = { { id = "sw_default", text = "Because the coal's always damp, so it smokes instead of burning, and the iron rusts between the forge and the quench. I spend my mornings keeping things dry and my evenings fixing what got wet anyway." } },
       choices = {
         { text = "Why not move the forge somewhere drier?", next = "swamp_move" },
         { text = "Something else.", next = "BACK" },

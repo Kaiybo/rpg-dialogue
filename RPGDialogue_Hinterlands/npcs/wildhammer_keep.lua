@@ -200,7 +200,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Salt, thread, dye an' the odd hide. If ye're makin' somethin', I've got what ye need." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more salt? Ye must be skinnin' half the Hinterlands." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more salt? Ye must be skinnin' every beast between here an' the Overlook Cliffs." },
   },
 
   notice = {

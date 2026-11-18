@@ -31,7 +31,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Good. You are thinking, which is more than most do, and Timbermaw remember those who think." } },
+      lines = { { id = "op_r1_default", text = "Good. You are thinking before you swing, and Timbermaw remember those who think." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -600,7 +600,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Niby is almighty. That is all you need to know, and frankly more than you deserve." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The Legion? Never heard of it, mortal, and Niby certainly doesn't take orders from it. Niby takes orders from no one, which is why Niby lives in a ruin." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion? Never heard of it, mortal, and Niby certainly doesn't take orders from it. Niby takes orders from no one, and that is how Niby came to live in a ruin." } },
     timbermaw = { { id = "tp_timbermaw", text = "The furbolgs throw things at Niby, which is very disrespectful to the Almighty. Niby will remember it when Niby rules the world, which should be any day now." } },
     satyrs = { { id = "tp_satyrs", text = "Satyrs are dreadful company, mortal, all hooves and no manners. Niby has standards, even in Felwood." } },
     elune = { { id = "tp_elune", text = "The elves' moon goddess! Niby has never met her, but Niby is sure she's heard of Niby. Everyone has, or will, very shortly." } },

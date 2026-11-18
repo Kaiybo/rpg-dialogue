@@ -309,7 +309,7 @@ P:NPC {
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town, but it's not mine, and Powderfuse Port is. Every plank, every nail, every bucket of tar, all mine, pal." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the big port, sure, but it's crowded, and it's expensive, and it's run by a committee. Here, you deal with me, and I'm reasonable." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture Company would love to get its hands on Powderfuse Port, and it never will. I'll burn the place to the waterline before I let those clowns have it." } },
-    ratchet = { { id = "tp_ratchet", text = "Ratchet's a nice little port on the Barrens coast, and it does a fair trade. Not as fair as mine, mind you." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a nice little port on the Barrens coast, and it does a fair trade. Not as fair as mine, pal, but fair." } },
     thrall = { { id = "tp_thrall", text = "The Horde pays in gold like anybody else, and I'm happy to take it. The Brotherhood too, pal, gold is gold." } },
     _none = { { id = "tp_none", text = "Is it for sale? If it isn't, kid, I haven't got an opinion, and if it is, it's probably mine." } },
   },
@@ -378,7 +378,7 @@ P:NPC {
     },
     gossip = {
       lines = {
-        { id = "gs_default", text = "Plenty, honey! Most of it's Argo's, so half of it's sea monsters, but sit a while, have a bowl, and the other half comes round eventually." },
+        { id = "gs_default", text = "Plenty, honey! Most of it's Argo's, so most of it's sea monsters, but sit a while, have a bowl, and the true bits come round eventually." },
         -- Opinion pass: what the port has heard the player say.
         { id = "gs_o_cartel_cut", once = true, when = { gossip = { topic = "steamwheedle", stance = "distrust" } },
           text = "Well, explorer, the whole port's heard you told Melbin to cut the Cartel loose! He's been strutting about all week, and the Cartel's man has been writing things down in a very small book." },
@@ -1262,7 +1262,7 @@ P:NPC {
       choices = { { text = "Noted.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     xshaman = {
-      lines = { { id = "xsh_default", text = "Not happy? *hic* Well, neither's the monster, and neither am I, so that's all of us, matey. You tell those spirits that Argo Brinewhistle tips a drop overboard every night, which is more than most sailors do, and at these prices that's generous." } },
+      lines = { { id = "xsh_default", text = "Not happy? *hic* Well, neither's the monster, and neither am I, so that's all of us, matey. You tell those spirits that Argo Brinewhistle tips a drop overboard every night, and you won't find another sailor in port who does, and at these prices that's generous." } },
       choices = {
         { text = "They'd like you sober.", next = "sober" },
         { text = "I'll tell them.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },

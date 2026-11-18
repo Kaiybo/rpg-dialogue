@@ -161,7 +161,7 @@ P:NPC {
     },
     wardens = {
       lines = {
-        { id = "w_default", text = "Only when someone tries a sword out in the square, which happens more often than you'd think. The wardens are very good at stopping a fight before it starts, and very bad at believing me when I say I didn't sell it to them sharpened." },
+        { id = "w_default", text = "Only when someone tries a sword out in the square, which happens oftener than the Keeper would like. The wardens are very good at stopping a fight before it starts, and very bad at believing me when I say I didn't sell it to them sharpened." },
       },
       choices = {
         { text = "I'll keep mine sheathed, then.", next = "BACK", fx = { affinity = 1 } },
@@ -319,7 +319,7 @@ P:NPC {
     red = {
       big = true,
       lines = {
-        { id = "r_default", text = "He wore it anyway, all through his trials, and passed every one, and now half the young druids want red. I don't know whether I've done the Circle a great service or a great wrong, but I've sold a lot of red dye." },
+        { id = "r_default", text = "He wore it anyway, all through his trials, and passed each one, and now the young druids all want red. I don't know whether I've done the Circle a great service or a great wrong, but I've sold a lot of red dye." },
       },
       choices = {
         { text = "Good for him. The young should find their own colours.", next = "BACK", fx = { align = { order = -1 } } },

@@ -96,7 +96,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Patience, seasons of it, culling the Winterfall and the Frostmaul giants and hunting meat for the cubs until the sabers know your scent. Some riders tire of it and leave, and I let them go, because a saber that is rushed will throw you into the first snowdrift it finds." } },
       choices = {
-        { text = "Earned slowly is earned honestly. I'll do the work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Earned slowly is earned well. I'll do the work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "There must be a quicker way to win a saber over.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -190,7 +190,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I raise frostsabers, and I have done for longer than most humans live." } },
     elune = { { id = "tp_elune", text = "Elune blesses the frostsabers of Winterspring, and they're the finest mounts the Kaldorei know. A rider who earns one earns her blessing too." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess rides a frostsaber of her own, and every rider in Kalimdor wants one like it. I tell them it takes seasons of work, and I mean seasons." } },
-    sentinels = { { id = "tp_sentinels", text = "The Sentinels ride the cats of Ashenvale and Darnassus, but the best of them ride mine. I'm proud of every one of them." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels ride the cats of Ashenvale and Darnassus, but the best of them ride mine. I raised each one from a blind kit, and I'm proud of them all." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw leave my cats alone, and I leave their tunnels alone. It's a fair arrangement, and it's lasted many years." } },
     _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling, and frostsabers keep their secrets well." } },
   },
@@ -243,7 +243,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Timbermaw welcome deeds, not words, and a warrior's deeds are easy to count. Bring Salfa the beads the Winterfall wear, and every bead will tell the elders that you have stood against the madness for us." } },
       choices = {
-        { text = "I'll fight the Winterfall and earn the Timbermaw's trust honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight the Winterfall and earn the Timbermaw's trust fairly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll take the beads however I can. Deeds are deeds.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Salfa.", next = "BACK" },
       },
@@ -505,7 +505,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. That doesn't sit easily with a priestess of Elune, but the hills are dangerous, and I'd rather walk to the altars beside you than alone." },
+          text = "A warlock. That doesn't sit easily with a priestess of Elune, but the hills are dangerous, and two walk to the altars more safely than one." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, here in the hills! I've heard that your Light and Elune's grace are not so far apart, and I'd be glad of a shield and a steady heart when I go to the altars." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -588,7 +588,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a priestess of the Temple of the Moon, though I've spent more time in the snow than in the temple lately." } },
-    elune = { { id = "tp_elune", text = "Elune's light still shines on the old altars of Winterspring, if you know how to wake them. I mean to light every one of them, whatever waits around them." } },
+    elune = { { id = "tp_elune", text = "Elune's light still shines on the old altars of Winterspring, if you know how to wake them. I mean to light them all, whatever waits around them." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisterhood serves Elune in Darnassus and in every corner of Kalimdor. I'm one of them, though I've wandered further than most." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess sent me north to see what remains of the old shrines. I'd like to bring her good news." } },
     highborne = { { id = "tp_highborne", text = "The Highborne built the altars I'm lighting, before they fell to their pride. I try not to think about that too much." } },
@@ -735,7 +735,7 @@ P:NPC {
     },
     magic2 = {
       lines = {
-        { id = "magic2_default", text = "They do, and they are rarely wise about it, which is why we watch. Some of my kin would take it from mortals entirely, and some say you must be allowed to learn from your own mistakes." },
+        { id = "magic2_default", text = "They do, and they are rarely wise about it, so we watch. Some of my kin would take it from mortals entirely, and some say you must be allowed to learn from your own mistakes." },
       },
       choices = {
         { text = "Mortals must learn on their own, mistakes and all.", next = "BACK", fx = { align = { order = -1 }, trait = { independent = 1 } } },
@@ -814,7 +814,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "With a promise of power, as they snare everyone, and I walked to it gladly because I thought I was the hunter. The satyrs in these hills were all taken the same way, and every one of them still believes, somewhere, that he made a good bargain." },
+        { id = "xhuntcl_default", text = "With a promise of power, as they snare everyone, and I walked to it gladly because I thought I was the hunter. The satyrs in these hills were all taken the same way, and each of them still believes, somewhere under the horns, that he made a good bargain." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks at me as though it smells something rotten, and it is right to. Beasts know what we are long before mortals do." },
       },
       choices = {
@@ -827,7 +827,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Less than Felwood, but it reached. Demons still keep to Darkwhisper Gorge in the south of this valley, and the snow around it is never quite clean. I could tell you the spirits fled, shaman, but I think they simply turned their backs, which is what anyone sensible does with a satyr." } },
       choices = {
-        { text = "Spirits forgive more than you'd think, if you make amends.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spirits can forgive, if you make amends.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "You chose your bargain. Your debts are your own.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -996,7 +996,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "A little, I'll admit, like eating a snowball with gristle in it, but the customers love it because it's local. Mind you, local in Winterspring means something that tried to freeze you first, so I charge extra for the danger." },
+        { id = "xhuntcl_default", text = "A little, I'll admit, like eating a snowball with gristle in it, but the customers love it because it's local. Local in Winterspring means something that tried to freeze you first, so I charge extra for the danger." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hungry? Don't answer that, chum, I can see it is, and I can see it looking at my soup pot like an old friend who owes it money." },
       },
       choices = {
@@ -1043,7 +1043,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than you'd think, half frozen and wearing the wrong boots, and I feed them first and ask for coin after, which my cousin says is no way to run a business. But nobody's buying soup if they're dead, are they, so I call it planning ahead." } },
+      lines = { { id = "xapriest_default", text = "A steady trickle, half frozen and wearing the wrong boots, and I feed them first and ask for coin after, which my cousin says is no way to run a business. But nobody's buying soup if they're dead, are they, so I call it planning ahead." } },
       choices = {
         { text = "That's kindness, Himmik, whatever you like to call it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Smart planning. Charity's just an investment that pays later.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1061,7 +1061,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Everyone who walks through that door, friend, Horde or Alliance or druid or dwarf. Winterspring doesn't care what you are, it'll freeze you all the same, and I'd rather fill a stranger's bowl than find them stiff in the snow the next morning." } },
+      lines = { { id = "xdruid_default", text = "Everyone who walks through that door, friend, Horde or Alliance or druid or dwarf. Winterspring doesn't care what you are, it'll freeze you all the same, and a full bowl costs me less than digging a stranger out of the snow the next morning." } },
       choices = {
         { text = "That's a kindness, Himmik. Everlook's lucky to have you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Kind, but costly. Charge them proper, or you'll go broke.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1071,7 +1071,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Sit down, sit down, chum, because nobody marches through Winterspring in a full suit of plate without wanting a hot bowl of soup, and mine's practically blessed already, which is why it costs a little extra." },
+          text = "A paladin! Sit down, sit down, chum, because nobody marches through Winterspring in a full suit of plate without wanting a hot bowl of soup, and mine's practically blessed already, so it costs a little extra." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You'll want a double helping, I can tell, because nobody empties a bowl faster than someone who's been swinging an axe at furbolgs all day." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -1080,19 +1080,19 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You look like you've been crouching in a snowbank all day, so let me get you a bowl of something hot before your fingers freeze to your daggers." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You want soup? Good, because your little friend looks hungry too, though I'm not sure what imps eat and I'd rather not find out." },
+          text = "A warlock! You want soup? Good, because your little friend looks hungry too, though I'm not sure what imps eat and I'm not keen to learn." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you warm a pot with a spell, chum? Everyone asks, and I keep forgetting to ask a mage myself, and think what I'd save on firewood." },
         { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is, chum. Everything I sell has to come over the pass or through the tunnels, so believe me, at these prices I'm practically robbing myself." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! You'll want somethin' that sticks to the ribs, chum, and I've got a stew that'll hold up a mine shaft, and costs less than the timber." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say a little grace over the soup, would you, chum? Business has been slow, and I'll take any blessing I can get on the pot, especially the kind that brings in customers." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow has earned a hot bowl, and mine's practically a miracle itself." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll want something hearty too, I'd say, because turning into a bear in this weather must take a lot out of you." },
         { id = "h_winterfall_resolved", when = { thread = { id = "winterfall_firewater", state = "resolved" } },
           text = "The dwarf at the springs came through here sayin' the Winterfall are patients and not bandits, chum, and I said fine, cure 'em, and I'll sell 'em soup. A sober furbolg's a customer, see, and a drunk one's a liability." },
         { id = "h_winterfall_soured", when = { thread = { id = "winterfall_firewater", state = "soured" } },
-          text = "Everlook's hired bruisers for the road, chum, and guess who's feedin' 'em at cost? It's safer for my carts, I'll grant you, but I've done the sums and a bruiser eats twice what he saves me." },
+          text = "Everlook's hired bruisers for the road, chum, and guess who's feedin' 'em at cost? It's safer for my carts, sure, but I've done the sums and a bruiser eats twice what he saves me." },
       },
       again = {
         { id = "h_again1", text = "What else, chum? The soup's getting cold, and cold soup don't sell." },

@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     opn_forsaken = {
       lines = {
-        { id = "opn_forsaken_q", text = "Honestly? I've watched that farm for weeks, and they bury nobody, they eat nothing, and they work through the night on things they won't let the wind near. Kinelory says some of them were Lordaeron farmers once, and maybe they were. You've seen more of them than I have; tell me what you think." },
+        { id = "opn_forsaken_q", text = "I've watched that farm for weeks, and they bury nobody, they eat nothing, and they work through the night on things they won't let the wind near. Kinelory says some of them were Lordaeron farmers once, and maybe they were. You've seen more of them than I have; tell me what you think." },
       },
       choices = {
         { text = "Walking corpses with a plague. Burn the lot.", next = "opn_forsaken_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "hate" } } },
@@ -98,7 +98,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Wagons, and the crates on them, and who signs for them when they arrive. The orcs are farming nothing I'd eat, and the wagons come from the west, from the Forsaken lands, which is why Phin sent us up here." },
+        { id = "xhuntcl_default", text = "Wagons, and the crates on them, and who signs for them when they arrive. The orcs are farming nothing I'd eat, and the wagons come from the west, out of the Forsaken lands; that's what brought Phin's eye up here." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} still, please, because the orcs keep wolves down there, and a wolf can smell a beast on the ridge as easily as you can see it." },
       },
       choices = {
@@ -184,7 +184,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Moving papers and crates, and the crates smell of the apothecaries' work, which is why Phin wants to know who signs those papers. I watch who comes and goes, but someone who could get inside the farm would learn more in a night than I have in a month." } },
+      lines = { { id = "xrogue_default", text = "Moving papers and crates, and the crates smell of the apothecaries' work, so Phin wants the names on those papers. I watch who comes and goes, but someone who could get inside the farm would learn more in a night than I have in a month." } },
       choices = {
         { text = "If the Forsaken brew plague, they must be stopped.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Whatever they brew could be turned to our use.", next = "BACK", fx = { align = { light = -1 } } },
@@ -321,7 +321,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "He was one of the Kirin Tor's students, before he left, and he still reads everything twice and argues with it once. He says the courier's papers might be written in a cipher the Forsaken apothecaries use, and if they are, I'll need someone cleverer than me to read them, which is most people, honestly." } },
+      lines = { { id = "xmage_default", text = "He was one of the Kirin Tor's students, before he left, and he still reads everything twice and argues with it once. He says the courier's papers might be written in a cipher the Forsaken apothecaries use, and if they are, I'll need someone cleverer than me to read them, which isn't a long search." } },
       choices = {
         { text = "Bring me the papers. We'll read them together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Ciphers are dull. I'd rather burn the courier.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -332,13 +332,13 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, and a dwarven one, that's, well, that's wonderful, {class}, and if you could ask the wind to slow that Forsaken courier down, I'd be terribly grateful." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, that's, well, that's a comfort, because if I'm going after that Forsaken courier I'd rather someone said a prayer over me first, just in case it goes the way Quae thinks it will." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, thank the Light, because I've been working up my courage to go after that courier for days, and it would be a great deal easier with someone in plate walking beside me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, thank the Light, because I've been working up my courage to go after that courier for days, and I'd find it all much easier with someone in plate walking beside me." },
         { id = "h_default", key = true,
           text = "Kinelory, at your service, if you'll have a nervous one. There's a Forsaken courier who carries papers to Go'Shek Farm, and I mean to take them off him before he gets there." },
         { id = "h_strike", tags = { "news" }, when = { questActive = TODO_QUEST("Kinelory Strikes") },
           text = "Ready, are you? Stay close and keep his guards off me, and I'll do the rest, as long as my hands stop shaking first." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock! Oh dear, please don't take that the wrong way, {class}, it's only that the courier is Forsaken, and I'd rather not be surrounded by spooky things." },
+          text = "A warlock! Oh dear, please don't take that the wrong way, {class}, it's only that the courier is Forsaken, and one spooky thing at a time is about all my nerves can manage." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, you're quiet, {class}, quieter than me by a mile, and I've been practising all week so the courier won't hear me coming." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Oh, a hunter, that's, well, that's very good, because you can shoot the courier's guards from a distance, and then I won't have to see them coming." },
@@ -518,7 +518,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. I'll take you as I find you, which so far is helpful and not trying to eat me, which is more than I can say for the kobolds." } },
+      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. So far you've been helpful and haven't tried to eat me, and by my calculations that already puts you ahead of the kobolds." } },
       choices = {
         { text = "Fair judgement, Professor. I'll keep the demon civil.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The books were right about some of us, Professor.", next = "BACK", fx = { align = { light = -1 } } },
@@ -595,7 +595,7 @@ P:NPC {
 
   topics = {
     gnomeregan = { { id = "tp_gnomeregan", text = "I studied in Gnomeregan before the troggs came, and I lost all my notes in the evacuation. Now I've lost them again, to kobolds, which is somehow worse." } },
-    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are clever, I'll grant you, but they've no head for engineering. I'd show them a thing or two, if they'd only let me in." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are clever enough with a spellbook, but hand them a sprocket and they'll try to enchant it. I'd show them a thing or two, if they'd only let me in." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins build things that explode, and they think that's the point. I build things that explode only when I want them to, and that's science." } },
     _none = { { id = "tp_none", text = "Fascinating question, and I haven't the faintest idea, which I shall note as a gap in the data." } },
   },

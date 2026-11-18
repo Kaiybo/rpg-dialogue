@@ -178,7 +178,7 @@ P:NPC {
           text = "A priest o' the Light. We had no priests in the mountain, {class}, only the Firelord's sorcerers, so ye'll forgive the lads if they stare." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Ye'd have been a prize catch for Thaurissan's men, {class}, an' ye're a fine example for my lads o' what a dwarf can serve besides fire." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Our forefathers called the Firelord up out o' the deep places tae win a war, so ye'll forgive me if I watch what ye call up in my camp." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Our forefathers called the Firelord up out o' the deep places tae win a war, so I'll be watchin' what ye call up in my camp." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, an' ye'll be eyein' our forges for the enchantments in 'em. We learned that work under the Firelord's eye, an' we keep it for ourselves now." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! We Dark Irons didnae have much use for trees down in the depths, ye understand, but I'll confess the lads have grown fond o' that scrubby bush by the gate." },
@@ -595,7 +595,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Arcane leaves a smell like a storm that hasnae broken yet, an' ye're wearin' it like perfume. I've a nose for trouble, an' yer kind are trouble that usually means well, which is the worst sort." } },
       choices = {
-        { text = "Meaning well counts for a great deal, Captain.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Meaning well still counts for something, Captain.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Good intentions are worth nothing. Results are.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
@@ -819,7 +819,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "In blood, as my father paid, and in fear, so that they remember who came for them. You're a warrior, so you understand that some debts are only settled with steel, and I'd rather not say more of it than that." } },
+      lines = { { id = "xwarcl_default", text = "In blood, as my father paid, and in fear, so that they remember who came for them. You're a warrior, so you understand that some debts are only settled with steel, and that is all I will say of it." } },
       choices = {
         { text = "Vengeance won't bring your father back, Kalaran.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then we'll settle the debt in blood together.", next = "BACK", fx = { align = { light = -1 } } },
@@ -967,7 +967,7 @@ P:NPC {
       },
     },
     torch = {
-      lines = { { id = "t_default", text = "With a torch that will make them burn, as he burned. Bring me the pieces and you'll see, and you'll see a great deal, at the end." } },
+      lines = { { id = "t_default", text = "With a torch that will make them burn, as he burned. Bring me the pieces and you'll see, and you'll see him burn again, at the end." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lolo = {
@@ -996,7 +996,7 @@ P:NPC {
       lines = {
         { id = "xpa_default", text = "Then call it justice, if the word helps you sleep, and I'll call it what it is. Either way the Dark Iron who killed my father walks this gorge, and either way someone ought to stop him." },
         { id = "xpa_scourge", when = { race = "Scourge" },
-          text = "A dead man with the Light in him, lecturing me on vengeance. Your own people hunt the Scourge for revenge, so forgive me if your sermon rings a little hollow." },
+          text = "A dead man with the Light in him, lecturing me on vengeance. Your own people hunt the Scourge for revenge, so your sermon rings a little hollow in my ears." },
       },
       choices = {
         { text = "Justice has rules. Vengeance doesn't.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },

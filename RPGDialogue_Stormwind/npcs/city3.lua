@@ -199,7 +199,7 @@ P:NPC {
     },
     rebuilt_queen = {
       big = true,
-      lines = { { id = "rq_default", text = "Their riot killed a queen. Tiffin went into the street to calm them and someone threw a stone. Forgive me if their wages move me less than they move you." } },
+      lines = { { id = "rq_default", text = "Their riot killed a queen. Tiffin went into the street to calm them and someone threw a stone. Their wages do not move me as they seem to move you." } },
       choices = {
         { text = "That was one hand, not a whole guild.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, opinion = { defias = "masons_wronged" } } },
         { text = "I didn't know.", next = "BACK", fx = { affinity = 1 } },
@@ -250,7 +250,7 @@ P:NPC {
     varian = { { id = "tp_varian", text = "We all pray for King Varian's return, of course, and I pray as fervently as anyone. Still, the kingdom must be governed in the meantime, and someone must make the difficult decisions." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's troubles are the city guard's affair, not the House of Nobles'. I'd advise anyone thinking of interfering to let the guards handle it, for their own safety." } },
     knows = {
-      { id = "tp_knows", text = "A lord of the House hears a great deal, and repeats very little to strangers. Still, I might indulge you on one or two of these." },
+      { id = "tp_knows", text = "A lord of the House hears all manner of things, and repeats very little to strangers. Still, I might indulge you on one or two of these." },
     },
     background = { { id = "tp_bg", text = "A senior member of the House of Nobles, with a library to think in. The rest is not the business of adventurers." } },
     advice = { { id = "tp_ad", text = "Never say yes on the first asking. People value what they have to wait for. Even refusals." } },
@@ -515,7 +515,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Elmore says I'm not good enough to hear it yet. Maybe your spirits could tell me when I've finally got it right." } },
       choices = {
-        { text = "Keep working honestly, Furen. The fire knows a patient hand.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep working fair and true, Furen. The fire knows a patient hand.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Elmore's too hard on you. Trust your own work.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -542,7 +542,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every one I've sold it tae has come back alive, which is more than I can say for the ones who wanted tae stay light. Elmore says it's no' proper work, but Elmore never had a knife come at him in an alley." } },
+      lines = { { id = "xrogue_default", text = "Every one I've sold it tae has come back alive, an' I've seen the ones who wanted tae stay light carried out o' Old Town on a door. Elmore says it's no' proper work, but Elmore never had a knife come at him in an alley." } },
       choices = {
         { text = "Elmore's right that proper work is done the proper way.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Tradition be hanged. If it keeps you alive, wear it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -594,7 +594,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a set o' plate I'd like a look at, because I can tell ye've been hit, an' I can tell ye didnae fall over." },
         { id = "h_default", text = "Furen Longbeard. Shields an' armour. I learned from Grimand Elmore, an' I'm still learning, which he tells me daily." },
         { id = "h_elmore", when = { heardLine = "elmore.h_default" },
-          text = "Ye've met the master, then. Did he say anything about me? No? That means he's pleased, because when he's not pleased, he says a great deal." },
+          text = "Ye've met the master, then. Did he say anything about me? No? That means he's pleased, because when he's not pleased, he'll talk yer ear off till supper." },
         { id = "h_shield", when = { class = { "WARRIOR", "PALADIN" } },
           text = "Ye'll want a shield ye can trust, no' a pretty one, because pretty shields get folk killed." },
         { id = "h_stormpike", tags = { "news" }, when = { questActive = TODO_QUEST("Stormpike's Order") },
@@ -713,7 +713,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Too few guards and too many Defias, and they all knew each other from Westfall, so they'd planned it long before the first cell door opened. I asked the House of Nobles for twelve more men in the spring, and they sent me a letter about the cost of lamp oil." } },
       choices = {
-        { text = "Write it all down honestly, Warden. The Captain should know.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Write it all down truthfully, Warden. The Captain should know.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Bury the report, Warden. What the Captain doesn't know can't hurt you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The prisoners who survived will pay for it, I'd guess.", next = "xcl_stocks2" },
       },
@@ -727,7 +727,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'd rather not say, and I'd rather you didn't ask. The Defias are noisy prisoners, and the walls hold, mostly. That's all you need to know." } },
+      lines = { { id = "xdsham_default", text = "I'll not say, and I'll thank you not to ask again. The Defias are noisy prisoners and the walls hold, mostly, and that's all you need to know." } },
       choices = {
         { text = "Then the walls should be made to hold properly, Warden.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The Defias have reasons for their anger. Hear them out.", next = "BACK", fx = { align = { order = -1 } } },
@@ -737,7 +737,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "With great difficulty and a great deal of the Quarter's money, which they never give me without three letters and a complaint. There are wards on the deep cells, cut by a Dalaran man years ago, and I've not the faintest idea how they work, which keeps me awake at night." },
+        { id = "xmage_default", text = "With great difficulty and the Mage Quarter's money, which they never give me without three letters and a complaint. There are wards on the deep cells, cut by a Dalaran man years ago, and I've not the faintest idea how they work, which keeps me awake at night." },
       },
       choices = {
         { text = "Then I'll leave your wards alone, Warden.", next = "BACK", fx = { align = { order = 1 } } },
@@ -765,7 +765,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Short of good men, which is worse, because half the guards I've got would sell a cell key for a pint. The prisoners know it, and the Defias inside talk to the Defias outside more than I'd like." } },
+      lines = { { id = "xwarcl_default", text = "Short of good men, which is worse, because there are guards on my roster who'd sell a cell key for a pint. The prisoners know it, and the Defias inside talk to the Defias outside more than I'd like." } },
       choices = {
         { text = "Then you need honest guards. I'd serve if asked.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Pay them better and they'll stop selling keys.", next = "BACK", fx = { align = { order = -1 } } },
@@ -813,7 +813,7 @@ P:NPC {
         { id = "h_quiet", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Stockade Riots"), days = 3 } },
           text = "Thredd's dead and the cells are filling back up, quietly. I'm sleeping again, badly, but again." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Half my guards could use a priest, and the other half need a better excuse than the one they gave the Captain." },
+          text = "My guards could use a priest, the lot of them, and the ones who fled the riot need a better excuse than the one they gave the Captain." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, thank the Light, it's you. You're the one person in this city I'm actually glad to see coming down those stairs." },
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
@@ -893,7 +893,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     priest = {
-      lines = { { id = "p_default", text = "Minister to them? Half would steal your vestments and the other half would confess to crimes they didn't do, for the company." } },
+      lines = { { id = "p_default", text = "Minister to them? Some would steal your vestments and the rest would confess to crimes they didn't do, for the company." } },
       choices = {
         { text = "Is there anyone who'd want a prayer?", next = "priest_mac" },
         { text = "Something else.", next = "BACK" },
@@ -943,10 +943,10 @@ P:NPC {
 
   topics = {
     the_stockade = {
-      { id = "tp_the_stockade", text = "The Stockade holds the worst of Stormwind, and right now it holds them very poorly. The prisoners took the place in a riot, and I'd rather not talk about it, so please don't." },
+      { id = "tp_the_stockade", text = "The Stockade holds the worst of Stormwind, and right now it holds them very poorly. The prisoners took the place in a riot, and it still turns my stomach, so please don't ask." },
       { id = "tp_the_stockade2", when = { questDone = TODO_QUEST("The Stockade Riots") }, text = "You went in after the ringleaders and came out again, which is more than my own guards managed. I'll be writing your name in a letter to the Keep, and I've not done that for anyone in years." },
     },
-    deadmines = { { id = "tp_deadmines", text = "Half the Defias I've got locked up seem to know the way to Moonbrook's mines better than their own names. I've asked, and they just smile, and that's worse than any answer." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias I've got locked up seem to know the way to Moonbrook's mines better than their own names. I've asked, and they just smile, and that's worse than any answer." } },
     syndicate = { { id = "tp_syndicate", text = "We've had a Syndicate man or two in the Stockade, all very polite and very well-dressed. They never stay long, and I've stopped asking who pays their way out." } },
     si7 = { { id = "tp_si7", text = "SI:7 visits the Stockade now and then, and they never tell me who they've come to see. I let them in, because I'd rather not know, and I suspect that's the arrangement." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord sends his regards and no more guards, and the regards don't hold a cell door. I'd like him to come and see for himself, though I'd prefer he didn't see it as it is." } },
@@ -955,7 +955,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Warden of the Stockade. Before that, a man who thought being warden would be quiet. I've not had a dry pair of boots since." } },
     advice = { { id = "tp_ad", text = "Check the papers, then check the person, and then check the papers again. I didn't, once." } },
-    defias = { { id = "tp_defias", text = "Half my cells are full of them, and the other half of their friends. They organise better in prison than the guards do outside it." } },
+    defias = { { id = "tp_defias", text = "My cells are full of them, and the rest are full of their friends. They organise better in prison than the guards do outside it." } },
     _none = { { id = "tp_none", text = "That's not a Stockade matter, thank the Light." } },
   },
 }

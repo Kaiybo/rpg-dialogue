@@ -389,7 +389,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "The scorpids, without question! They go weeks without water and never complain, which is more than I can say for anyone in Gadgetzan, and if I could build a machine half as clever, I'd retire tomorrow." } },
+      lines = { { id = "dq_default", text = "The scorpids, without question! They go weeks without water and never complain once, while everyone in Gadgetzan complains hourly, and if I could build a machine half as clever, I'd retire tomorrow." } },
       choices = {
         { text = "Some marvels should be admired, not copied.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Copy it, then. The scorpids won't miss the idea.", next = "BACK", fx = { align = { light = -1 } } },
@@ -534,7 +534,7 @@ P:NPC {
   key = "jabbey", id = TODO_NPC("Jabbey"), name = "Jabbey",
   bible = "bibles/tanaris.md", role = "vendor", tier = "service",
   impression = {
-    first = "Jabbey sells odds and ends from a stall in Gadgetzan, and every one of them, he swears, is a bargain.",
+    first = "Jabbey sells odds and ends from a stall in Gadgetzan, and each trinket, he swears, is a bargain.",
     third = "{name} met Jabbey, a vendor in Gadgetzan.",
   },
   greetings = {
@@ -716,7 +716,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Everything under the plate is cloth, friend, and everything under the cloth is you, slowly roasting. Half the Bruisers wear my linings under their mail now, on a Cartel contract, and not one of them has fainted on duty since." } },
+      lines = { { id = "xwarcl_default", text = "Everything under the plate is cloth, friend, and everything under the cloth is you, slowly roasting. Most of the Bruisers wear my linings under their mail now, on a Cartel contract, and not one of them has fainted on duty since." } },
       choices = {
         { text = "Discipline means caring for your kit, even the parts nobody sees.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Comfort makes soldiers soft. I'll sweat and fight anyway.", next = "BACK", fx = { align = { order = -1 } } },
@@ -726,7 +726,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hides, now and then, though I'm a tailor and not a leatherworker, so mostly I get hunters asking me to mend what their own beasts chewed, at the chewed-sleeve rate. Every one of them swears the beast is house-trained, and every sleeve tells me otherwise." },
+        { id = "xhuntcl_default", text = "Hides, now and then, though I'm a tailor and not a leatherworker, so mostly I get hunters asking me to mend what their own beasts chewed, at the chewed-sleeve rate. They all swear the beast is house-trained, and every sleeve tells me otherwise." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from my bolts, please, dearie, because I've lost a whole roll of silk to a curious nose before, twelve gold of it, and I don't sell it by the chewed yard." },
       },
       choices = {
@@ -737,7 +737,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "It matters to the people you're praying over, dearie, because nobody wants to be blessed by someone who looks like a sandstorm's leftovers. A clean robe tells folk you've come to help, and in Gadgetzan that's half the battle won." } },
+      lines = { { id = "xhcast_default", text = "It matters to the people you're praying over, dearie, because nobody wants to be blessed by someone who looks like a sandstorm's leftovers. A clean robe tells folk you've come to help, and in Gadgetzan folk decide whether to trust you by your hem." } },
       choices = {
         { text = "A priest should look the part. People take comfort in it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The faithful won't care about my hem. Only the work matters.", next = "BACK", fx = { align = { order = -1 } } },
@@ -782,7 +782,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I've asked three druids that question and got three different answers, and none of them made sense to a tailor. My theory is the robe goes somewhere nice and waits for you, which is more than I can say for most of my customers." } },
+      lines = { { id = "xdruid_default", text = "I've asked three druids that question and got three different answers, and none of them made sense to a tailor. My theory is the robe goes somewhere nice and waits for you, folded and pressed, I hope, dearie." } },
       choices = {
         { text = "Study it, Vizzklick. Magic clothing could make you rich.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some mysteries are sacred. A tailor shouldn't pry.", next = "BACK", fx = { align = { order = 1 } } },
@@ -817,12 +817,12 @@ P:NPC {
           text = "Felcloth, is that? No, don't tell me where it came from, dearie, because I've heard the stories about the satyrs, and I'd sooner not know." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and in robes that have seen more sand than soap, dearie. Whether you pray to the Light or to something gloomier, I can at least make you look the part." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest, in robes cut for cool stone halls! Your order makes a fine garment, I'll grant you, but its tailors never met a sandstorm, and it shows on every hem you're wearing." },
+          text = "A priest, in robes cut for cool stone halls! Your order makes a fine garment, dearie, but its tailors never met a sandstorm, and it shows on every hem you're wearing." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and wearing a padded gambeson under all that in Tanaris, by the look of the sweat! I could line that armor with something that breathes, pal, and you'd stop cooking inside it for a very reasonable fee." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I can always tell, dearie, because you're the only folk who walk in with fur on your sleeves that isn't part of the design, and I charge to take it off." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You wear fur half the time and robes the other half, so I'm guessing you're hard on clothes, and I can help with that." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You spend your days switching between fur and robes, so I'm guessing you're hard on clothes, and I can help with that." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, dearie, and baking inside all that plate! Let me line it with something cool, or at least something that doesn't chafe, because I can see you walking stiff from here." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, dearie, in leathers that creak in this heat! Let me show you some dark cloth that doesn't make a sound, because you'll hear your own sleeves before you hear the guards." },
       },

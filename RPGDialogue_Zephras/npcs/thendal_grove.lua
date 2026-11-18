@@ -103,7 +103,7 @@ P:NPC {
     },
     rorian = {
       lines = {
-        { id = "r_default", text = "Quiet, mostly, and a great deal of watching. He says a Windwatcher who can't sit still for a day will never notice anything worth noticing, and he's usually right, though I'd never tell him so." },
+        { id = "r_default", text = "Quiet, mostly, and long hours of watching. He says a Windwatcher who can't sit still for a day will never notice anything worth noticing, and he's usually right, though I'd never tell him so." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
@@ -403,7 +403,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "A hungry beast is more dangerous than an angry one. Remember that, wherever you go." } },
     the_elements = { { id = "tp_the_elements", text = "When the winds were with us, the beasts were calmer, I'm certain of it. The ursera came to the elder tree out of hunger, and I think the island is hungry too." } },
     elune = { { id = "tp_elune", text = "I've started speaking to the moon at night, after the ursera. I don't know whether I believe, but I need to speak to someone who won't tell me it was necessary." } },
-    highborne = { { id = "tp_highborne", text = "The Highborne were said to command beasts with a word. I'd give a great deal for a word that would have turned that ursera aside." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were said to command beasts with a word. I'd have traded my bow for a word that would have turned that ursera aside." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask Aetheen; she reads the grove's winds better than anyone on the Council." } },
   },
 }
@@ -433,7 +433,7 @@ P:NPC {
 
   notice = {
     { id = "n_mine", cat = "craft", when = { profession = "Mining" },
-      text = "A miner! Then you'll know how to get a stone out of the ground without cracking it, which is more than half the young ones I send out." },
+      text = "A miner! Then you'll know how to get a stone out of the ground without cracking it, and half the young ones I send out still can't." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "You're a student of the High Order, aren't you? Don't drain the stones to practice your spells, please; Dorii's apprentices tried that once." },
   },
@@ -446,7 +446,7 @@ P:NPC {
         { id = "h_active", when = { questActive = TODO_QUEST("Harvesting Windstones") },
           text = "The raw windstones are blue crystals, scattered all around the grove, and each one holds a few clusters. Bring me as many as you can, and mind you don't crack them." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Harvesting Windstones"), days = 2 } },
-          text = "Thank you very much for these. As elves we all have a deep bond with magic, and these stones grow more precious the more the anchor pylons fade. Windstones aren't the only thing worth harvesting, though, which is why I gave you that manual." },
+          text = "Thank you very much for these. As elves we all have a deep bond with magic, and these stones grow more precious the more the anchor pylons fade. Windstones aren't the only thing worth harvesting, though, and that's what the manual is for." },
         { id = "h_outsider", when = { ["not"] = { race = "Skyborne" } },
           text = "You're from the mainland? Then perhaps you have stones like these where you come from. I'd dearly like to know." },
       },
@@ -537,6 +537,6 @@ P:NPC {
     the_elements = { { id = "tp_the_elements", text = "The windstones are what the winds left behind, and I count every one, because nobody's seen a new one form since the spirits went quiet. As far as anyone can tell, that is." } },
     highborne = { { id = "tp_highborne", text = "The High Order's apprentices drain a windstone a week practicing Highborne spells, and I've told the elders so. They don't count, so I count for them." } },
     elune = { { id = "tp_elune", text = "The moon doesn't make windstones, so I've no professional interest in her. Personally, I think she's lovely." } },
-    _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid, and I've collected a great deal. Ask Rorian." } },
+    _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid, and my shelves are full of the things I do collect. Ask Rorian." } },
   },
 }

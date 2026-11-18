@@ -25,7 +25,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren, good, your people listen to the land better than mine. Has anyone in Thunder Bluff felt the earth shiver down south lately?" },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid of the Cenarion Circle, maybe? Your Circle's people in Silithus see more of these creatures than anyone, and I'd give a great deal to read their notes." },
+      text = "A druid of the Cenarion Circle, maybe? Your Circle's people in Silithus see more of these creatures than anyone, and I'd trade my whole shelf of Tanaris rubbings to read their notes." },
   },
 
   start = "hello",
@@ -75,7 +75,7 @@ P:NPC {
       },
     },
     reports2 = {
-      lines = { { id = "r2_default", text = "Scholars write to whoever will read, friend, and I read everything. A goblin's report is half invoices, mind, but the other half is usually right." } },
+      lines = { { id = "r2_default", text = "Scholars write to whoever will read, friend, and I read everything. A goblin's report is mostly invoices, but whatever's left between the bills is usually right." } },
       choices = { { text = "Something else, Zil.", next = "BACK" } },
     },
     council = {
@@ -92,7 +92,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     circle = {
-      lines = { { id = "ci_default", text = "Then you know more than most of Orgrimmar does, and I'd beg you to write it down for me. If the Circle and the Horde's scholars kept the same notes, we might find out what's under that desert before it finds us." } },
+      lines = { { id = "ci_default", text = "Then you've seen more of Silithus than anyone in Orgrimmar, and I'd beg you to write it down for me. If the Circle and the Horde's scholars kept the same notes, we might find out what's under that desert before it finds us." } },
       choices = { { text = "Something else, Zil.", next = "BACK" } },
     },
   },

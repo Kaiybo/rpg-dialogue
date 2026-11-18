@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "westfall", "stone" },
   impression = {
-    first = "Baros Alexston has drawn half the streets of Stormwind and grew up on a Westfall farm, and both facts seem to weigh on him. He keeps his plans close and his past closer.",
+    first = "Baros Alexston has drawn the plans for street after street of rebuilt Stormwind and grew up on a Westfall farm, and both facts seem to weigh on him. He keeps his plans close and his past closer.",
     third = "{name} met Baros Alexston, Stormwind's City Architect, a careful man of Westfall birth.",
   },
 
@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_westfall", cat = "westfall", when = { visited = "Sentinel Hill" },
       text = "You've Westfall dust on your boots; I'd know it anywhere, because I grew up in it on the Alexston farm. Is the old house still standing?" },
     { id = "n_dwarf", cat = "stone", when = { race = "Dwarf" },
-      text = "A dwarf! Tell me honestly, are the Cathedral's flying buttresses too much? Every dwarf I ask says too much." },
+      text = "A dwarf! Tell me as a stoneworker, are the Cathedral's flying buttresses too much? Every dwarf I ask says too much." },
   },
 
   start = "hello",
@@ -92,7 +92,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Edwin did, and every mason who walked out with him, which is why the Defias come and go under this city as they please. I gave SI:7 copies of the old plans, though I suspect Shaw had them before I did." } },
+      lines = { { id = "xrogue_default", text = "Edwin did, and every mason who walked out with him, and they took the plans in their heads, so the Defias come and go under this city as they please. I gave SI:7 copies of the old plans, though I suspect Shaw had them before I did." } },
       choices = {
         { text = "Then the plans should be locked away, and the drains watched.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Every city needs back doors. Leave some of them open.", next = "BACK", fx = { align = { order = -1 } } },
@@ -110,7 +110,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The gates, always, because every wall I've drawn means nothing if the gate gives. The old city fell from the inside, mind you, which is why I check every street I lay out for where a mob could gather." } },
+      lines = { { id = "xwarcl_default", text = "The gates, always, because every wall I've drawn means nothing if the gate gives. The old city fell from the inside, though, so I check every street I lay out for where a mob could gather." } },
       choices = {
         { text = "A gate is only as good as the soldier standing in it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stone does the work. Soldiers just fill the gaps.", next = "BACK", fx = { align = { order = -1 } } },
@@ -153,8 +153,8 @@ P:NPC {
           text = "You have Lady Prestor's ear, I hear, and I'd ask you to be careful with it. When the court is pleased with someone, the rest of us in this office usually find out what it costs." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "Word is that Lady Prestor found you tiresome. Don't repeat this, but you're in good company: the court said the same of every mason who asked to be paid." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The masons raised the Cathedral before the House refused to pay them, so you'll forgive me if I look at it differently than you do." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand speaks a great deal of justice, so I'd be curious to hear what you think is owed to the men who rebuilt this city." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The masons raised the Cathedral before the House refused to pay them, so I can't look at it the way you do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand speaks often of justice, so I'd be curious to hear what you think is owed to the men who rebuilt this city." },
         { id = "h_default", text = "Baros Alexston, City Architect. Every street you walked to get here, someone drew first, and usually it was me." },
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("The Unsent Letter") },
           text = "That's Edwin's hand; I'd know it in the dark. We drew half this city together, once, and he never sent it. Of course he never sent it." },
@@ -181,8 +181,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, good. Your Quarter's drains are giving me headaches, because something in them keeps eating the mortar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I draw walls, but someone has to stand on them, and the drawings never mention how cold it gets up there." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Tell me honestly whether the statues look right from the road." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, so forgive me if I wonder what someone who shapes living things makes of them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Do the statues look right from the road, or did I set them too far back?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, and I can't help wondering what someone who shapes living things makes of them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to stone, they tell me. I've spent my life telling stone where to go, and it has never once answered back." },
       },

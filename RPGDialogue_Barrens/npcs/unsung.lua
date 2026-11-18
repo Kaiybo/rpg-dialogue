@@ -90,7 +90,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because teleporting only takes you to the big cities, and my wind riders go wherever the Horde has a roost. Besides, I've never seen a mage enjoy the view over the Barrens on the way, and that's half the reason to fly." },
+        { id = "xmage_default", text = "Because teleporting only takes you to the big cities, and my wind riders go wherever the Horde has a roost. Besides, I've never seen a mage enjoy the view over the Barrens on the way, and the view is the best reason to fly." },
       },
       choices = {
         { text = "Fair point. A wind rider's flight it is.", next = "BACK", fx = { align = { order = 1 } } },
@@ -252,7 +252,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Water, same as everyone, because nobody sneaks far across the Barrens with a dry throat. I've had rogues come in boasting about the Kolkar camps they crept through, and every one of them came back with cracked lips and bought two skins." },
+        { id = "xrogue_default", text = "Water, same as everyone, because nobody sneaks far across the Barrens with a dry throat. I've had rogues come in boasting about the Kolkar camps they crept through, and they all came back with cracked lips and bought two skins." },
       },
       choices = {
         { text = "I'll pay for my water like anyone else.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -533,7 +533,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the Kolkar throw spears and the harpies stay up in the air. A gun or a bow won't win you the fight, but it'll start one on your terms, and that's half the battle in the Barrens." } },
+      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the Kolkar throw spears and the harpies stay up in the air. A gun or a bow won't win you the fight, but it'll start one on your terms, and in the Barrens, that's how you live through it." } },
       choices = {
         { text = "I'll carry a gun, and use it wisely.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Guns are for cowards. I'll charge them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -635,7 +635,7 @@ P:NPC {
     },
     which = {
       lines = {
-        { id = "w_default", text = "A bow is quiet and never jams, and you can make arrows from anything. A gun is loud and hits hard, and the noise scares off half the beasts before you even hit them." },
+        { id = "w_default", text = "A bow is quiet and never jams, and you can make arrows from anything. A gun is loud and hits hard, and the noise scatters the zhevra before you even hit them." },
         { id = "w_tauren", when = { race = "Tauren" }, text = "Your people like guns, I've noticed, and a tauren with a big rifle is a frightening sight. But a bow is quiet and never jams, so think about it." },
       },
       choices = {
@@ -656,7 +656,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "I couldn't tell you, grunt, so ask Thork or Sergra; they run this place." } },
     centaur = { { id = "tp_centaur", text = "Centaur are fast, but an arrow is faster, and a bullet's faster still. That's why I sell both, and I'll tell you which to buy." } },
-    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, which is why I sell bandages next door." } },
+    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, so I sell bandages next door." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins make good guns and charge like they're made of gold. Mine are plainer, and they shoot where you point them." } },
     second_war = { { id = "tp_second_war", text = "The old Horde didn't trust guns, and we lost to dwarves who did. I learned that lesson on a battlefield, and I've been selling it ever since." } },
   },
@@ -782,8 +782,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders have been uneasy since the dwarves came south with their digging, and perhaps you can feel what they feel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, at Taurajo's roost. My wind riders have been uneasy since the dwarves started digging at Bael Modan, and I think you'll feel that same unease if you go near it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The dwarves at Bael Modan carry guns, and a warrior is the first thing they'll shoot at, so I hope you're as tough as you look." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders see a great deal from the sky, and they tell me the lions of the southern Barrens are hungrier than usual." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My wind riders are calm around you, which is more than I can say for most strangers who come to Taurajo." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders see the whole plain from the sky, and they tell me the lions of the southern Barrens are hungrier than usual." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My wind riders are calm around you, and they lay back their ears at most strangers who come to Taurajo." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at Taurajo. The wind riders don't mind your magic, though they snort at the smell of the burning." },
       },
       choices = {
@@ -947,7 +947,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Ratchet's goblins'll sell you anything, but they won't fight for you, so I'm glad to see somebody who will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The crocolisks along the coast near Ratchet grow fat on the goblins' fish scraps, if you're after a fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because the goblins charge for everything here, and I'd bet they'd charge for praying too if they could work out how." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Ratchet. You'll fit right in, since half the goblins here are thieves with ledgers." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Ratchet. You'll fit right in, since the goblins here are mostly thieves with ledgers." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could probably teleport home cheaper than my wind riders fly, though the goblins would find a way to charge you for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders won't like your demon, so put it away before you come near my perch." },
       },
@@ -1064,7 +1064,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "More than you'd think, honey, because a mage's robe gets singed at the hem every week and somebody has to mend it. The silly ones always want purple, which I keep in stock just for them, and I never tell them it's the same dye the pirates use on their sashes." },
+        { id = "xmage_default", text = "Oh, plenty, honey, because a mage's robe gets singed at the hem every week and somebody has to mend it. The silly ones always want purple, which I keep in stock just for them, and I never tell them it's the same dye the pirates use on their sashes." },
       },
       choices = {
         { text = "Purple is the only proper color for a mage.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1183,7 +1183,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Pal, out in the Barrens everybody needs a weapon, and a priest more than most, because the centaur aim for whoever's doing the healing. A good mace in your hand means you're still around to cast the next spell, and that's worth a few silver." } },
+      lines = { { id = "xhpriest_default", text = "Pal, out in the Barrens everybody needs a weapon, and a priest especially, because the centaur aim for whoever's doing the healing. A good mace in your hand means you're still around to cast the next spell, and that's worth a few silver." } },
       choices = {
         { text = "My faith protects me better than any goblin steel.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Fair point. Show me what will crack a centaur's skull.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1223,7 +1223,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Short, sharp and quiet is my favorite kind of customer, pal! I've got daggers from Booty Bay and a few from places I don't mention, and every one of them is balanced well enough to throw, though I'd rather you didn't test that in the shop." },
+        { id = "xrogue_default", text = "Short, sharp and quiet is my favorite kind of customer, pal! I've got daggers from Booty Bay and a few from places I don't mention, and every blade's balanced well enough to throw, though testing that in the shop goes on your bill." },
       },
       choices = {
         { text = "Daggers in the back end fights early. Good.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1311,7 +1311,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know, friend, but for the right price, I can find out. Just kidding, ask Gazlowe, he charges less for gossip than I do." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got a blacksmith on every corner and a pirate who wants their wares on every other, so the prices down there are criminal, pal. Mine are only a little criminal, and that's a bargain." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's where the real money is, kid, because every scrapper there needs a blade and every blade gets broken. I ship a crate a month, and I'd ship two if they'd stop dying with my merchandise." } },
-    venture_company = { { id = "tp_venture_company", text = "Venture Company boys buy axes by the hundred and never ask for a discount, which tells you they ain't payin' with their own money. I sell to 'em anyway, because business is business." } },
+    venture_company = { { id = "tp_venture_company", text = "Venture Company boys buy axes by the hundred and never ask for a discount, so you know they ain't payin' with their own money. I sell to 'em anyway, because business is business." } },
     centaur = { { id = "tp_centaur", text = "Kolkar spears break, and when they break the riders want something better, and I'd sell to 'em if they'd stop stabbing my customers. That's the trouble with centaur, all market and no manners." } },
   },
 }

@@ -17,7 +17,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Looking for a gryphon out of this swamp? I can't blame you; even the birds won't land in the mud if they can help it." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and dry, which is more than I can say for my birds." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and dry, while my poor birds haven't been dry since spring." },
   },
 
   notice = {
@@ -523,7 +523,7 @@ P:NPC {
 
     business = {
       lines = {
-        { id = "bu_default", text = "Slow, with the Dragonmaw on the roads and the Dark Irons on the Thandol Span, but people still need bread. Lordaeron fell, and the Third Fleet lies drowned in the bay, and we're still here selling, which tells you something about Menethil folk." },
+        { id = "bu_default", text = "Slow, with the Dragonmaw on the roads and the Dark Irons on the Thandol Span, but people still need bread. Lordaeron fell, and the Third Fleet lies drowned in the bay, and we're still here selling, because Menethil folk are as stubborn as the barnacles on the pier." },
       },
       choices = {
         { text = "That's a stubborn sort of courage.", next = "BACK", fx = { align = { order = 1 }, affinity = 1, learn = { "dragonmaw" } } },

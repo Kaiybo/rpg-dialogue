@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, faction = "Alliance" },
       text = "Now there's a soldier's frame! The Guard could use a hundred like ye, an' I'd take the lot." },
     { id = "n_exalted", cat = "reputation", when = { reputation = { faction = "Stormpike Guard", min = "exalted" } },
-      text = "A legend o' the Guard, standin' at my post! Ye'll forgive me if I salute, for I don't do it often." },
+      text = "A legend o' the Guard, standin' at my post! I'll salute ye for that, an' I don't do it often." },
   },
 
   start = "hello",

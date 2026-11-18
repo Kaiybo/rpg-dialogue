@@ -65,7 +65,7 @@ P:NPC {
       },
     },
     ashenvale = {
-      lines = { { id = "a_default", text = "Because the Horde needs timber to build, and Ashenvale has more trees than the Barrens has dust. The night elves call every one of them sacred, and they'd rather we froze in Durotar than cut a single branch." } },
+      lines = { { id = "a_default", text = "Because the Horde needs timber to build, and Ashenvale has more trees than the Barrens has dust. The night elves call every trunk sacred, and they'd rather we froze in Durotar than cut a single branch." } },
       choices = {
         { text = "Maybe they have reason to guard their forest.", next = "reason" },
         { text = "Then we take what we need.", next = "take" },
@@ -129,7 +129,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     leads = {
-      lines = { { id = "ld_default", text = "The Warchief leads all of us, and the Warsong answer to him first. Out here the captains at Splintertree and the rampart keep the clan's fire lit, and we argue less than you'd think." } },
+      lines = { { id = "ld_default", text = "The Warchief leads all of us, and the Warsong answer to him first. Out here the captains at Splintertree and the rampart keep the clan's fire lit, and we argue less than the Alliance would like." } },
       choices = { { text = "Then you keep it well. Something else.", next = "BACK", fx = { affinity = 1, learn = { "warsong" } } } },
     },
     elves = {

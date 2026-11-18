@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_marks", cat = "markings", when = { race = "NightElf", class = "DRUID" },
       text = "Your markings are fading at the edges. A druid's face should say what it means, so let me freshen them." },
     { id = "n_weather", cat = "weathered", when = { minLevel = 40 },
-      text = "You've been somewhere with a great deal of wind and very little water, by the look of your hair. Sit down at once." },
+      text = "You've been somewhere with endless wind and very little water, by the look of your hair. Sit down at once." },
   },
 
   start = "hello",

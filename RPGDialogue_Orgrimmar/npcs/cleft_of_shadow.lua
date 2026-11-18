@@ -217,7 +217,7 @@ P:NPC {
     },
     student = {
       big = true,
-      lines = { { id = "st_default", text = "Honesty, which is rarer down here than talent. So I'll ask you what I ask every one of them: why would anyone want a power that can eat them alive?" } },
+      lines = { { id = "st_default", text = "Honesty, which is rarer down here than talent. So I'll ask you what I ask every pupil who comes down these steps: why would anyone want a power that can eat them alive?" } },
       choices = {
         { text = "To protect the Horde, whatever it costs me.", next = "st_protect", fx = { trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "Because I want it, and I'm not ashamed of that.", next = "st_want", fx = { affinity = 1, trait = { honest = 1 }, align = { honor = -1 } } },
@@ -334,7 +334,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     names = {
-      lines = { { id = "na_default", text = "Every one of them, and every one gave me a false name first. There was an imp down here last spring who called himself the Duke of Ashes, and he stole my good quill and ate it in front of me, very slowly." } },
+      lines = { { id = "na_default", text = "All of them, and each one gave me a false name first. There was an imp down here last spring who called himself the Duke of Ashes, and he stole my good quill and ate it in front of me, very slowly." } },
       choices = {
         { text = "Why bother remembering their names?", next = "names_why" },
         { text = "Something else.", next = "BACK" },
@@ -376,7 +376,7 @@ P:NPC {
       },
     },
     pa_joke = {
-      lines = { { id = "pj_default", text = "Ha! That's more than most of them ever get. Say it every day, and mean the second part." } },
+      lines = { { id = "pj_default", text = "Ha! That's kinder than anything the warlocks say to theirs. Say it every day, and mean the second part." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pa_listen = {
@@ -462,7 +462,7 @@ P:NPC {
       },
     },
     teacher = {
-      lines = { { id = "te_default", text = "A Darkspear witch doctor taught me which mushrooms kill and which ones only make you wish you were dead. The rest I learned the hard way, which is why I've got a cough that won't go away." } },
+      lines = { { id = "te_default", text = "A Darkspear witch doctor taught me which mushrooms kill and which ones only make you wish you were dead. The rest I learned by breathing the wrong smoke, and I've had this cough ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     labels = {
@@ -578,7 +578,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     worst = {
-      lines = { { id = "wo_default", text = "The warlocks, every one of them, asking for things I don't sell and wouldn't sell if I could. I tell them I sell powders, not souls, and they look at me like I'm the strange one." } },
+      lines = { { id = "wo_default", text = "The warlocks, always the warlocks, asking for things I don't sell and wouldn't sell if I could. I tell them I sell powders, not souls, and they look at me like I'm the strange one." } },
       choices = {
         { text = "I'd guess you'd sell them if you could.", next = "souls" },
         { text = "Something else.", next = "BACK" },
@@ -617,7 +617,7 @@ P:NPC {
       },
     },
     cp_honest = {
-      lines = { { id = "ch_default", text = "Ha! Somebody honest at last, and I'll take that over a compliment any day. My manners stay where they are, mind you, because they keep the warlocks from lingering." } },
+      lines = { { id = "ch_default", text = "Ha! Somebody honest at last, and I'll take that over a compliment any day. My manners stay where they are, though, because they keep the warlocks from lingering." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cp_blunt = {
@@ -633,7 +633,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rogue_promise = {
-      lines = { { id = "rp_default", text = "Everybody promises, and then I find my flash powder in some Shenthul pupil's pocket. Keep your promise, and we'll get along fine, which is more than I can say for most of your lot." } },
+      lines = { { id = "rp_default", text = "Everybody promises, and then I find my flash powder in some Shenthul pupil's pocket. Keep yours, and you'll be the first customer this month who did." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

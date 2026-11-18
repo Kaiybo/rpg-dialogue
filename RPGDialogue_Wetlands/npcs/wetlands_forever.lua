@@ -236,7 +236,7 @@ P:NPC {
     },
     team_lead = {
       lines = {
-        { id = "tl_default", text = "Some Loch Modan crew, all beards and brass instruments, and they argued so much I never worked out who was in charge. I think that was half the trouble, if I'm honest." },
+        { id = "tl_default", text = "Some Loch Modan crew, all beards and brass instruments, and they argued so much I never worked out who was in charge. I think that was most of the trouble." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -289,7 +289,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Menethil born, plant-mad from a boy, and married to the best alchemist on the harbour. That's me, and that's more than enough." } },
     advice = { { id = "tp_ad", text = "If a dig crew tells you about giant grasses, buy them a drink and stay home." } },
-    _none = { { id = "tp_none", text = "No idea, and I'd rather think about getting out of here." } },
+    _none = { { id = "tp_none", text = "No idea, and right now I'm thinking about getting out of here." } },
   },
 }
 
@@ -307,7 +307,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind your voice. The marsh carries it further than you'd think." },
+    { id = "g_default", text = "Mind your voice, because the marsh carries it all the way to the Dragonmaw." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Quietly, this time." },
     { id = "g_rumors", when = { questReady = TODO_QUEST("Dragonmaw Rumors") }, text = "These are the courageous few? Mind your voices, and come down off the skyline." },
     { id = "g_maw", when = { questActive = TODO_QUEST("Open the Maw") }, text = "We're here to get the important job done. If you can help, prove it." },
@@ -318,7 +318,7 @@ P:NPC {
     { id = "n_forsaken", cat = "forsaken", when = { race = "Scourge" },
       text = "One of ours. Good; you won't need to stop and eat, and you won't flinch at what's in the Dragonmaw's tents." },
     { id = "n_orc", cat = "orc", when = { race = "Orc" },
-      text = "An orc, come to watch orcs. You'll forgive me if I watch you too, at least until I know which kind you are." },
+      text = "An orc, come to watch orcs. I'll watch you too, then, at least until I know which kind you are." },
     { id = "n_noise", cat = "noise", when = { class = { "WARRIOR", "PALADIN" } },
       text = "Do you clank like that everywhere you go, or only when I'm trying to stay hidden?" },
   },
@@ -364,7 +364,7 @@ P:NPC {
     },
     dragonmaw_bind = {
       lines = {
-        { id = "db_default", text = "The rumours say they're preparing some display of it, which is why I'm lying in wet grass instead of standing in a dry crypt. Whether it's truth or bluster, the Deathstalkers can't act on half-formed whispers." },
+        { id = "db_default", text = "The rumours say they're preparing some display of it, hence my lying in wet grass instead of standing in a dry crypt. Whether it's truth or bluster, the Deathstalkers can't act on half-formed whispers." },
       },
       choices = {
         { text = "Then let's turn whispers into facts.", next = "BUSINESS" },
@@ -374,7 +374,7 @@ P:NPC {
 
     why = {
       lines = {
-        { id = "wh_default", text = "Because anything that can leash a dragon can leash a great deal else, and the Dark Lady prefers to know about such things before anyone else does. What she does with it is her concern, not yours and not mine." },
+        { id = "wh_default", text = "Because anything that can leash a dragon can leash a kingdom, and the Dark Lady prefers to know about such things before anyone else does. What she does with it is her concern, not yours and not mine." },
       },
       choices = {
         { text = "The Horde should share what we learn.", next = "why_share" },
@@ -394,7 +394,7 @@ P:NPC {
 
     rend = {
       lines = {
-        { id = "re_default", text = "Rend Blackhand, who sits in Blackrock Spire calling himself Warchief of a Horde that doesn't want him. The Dragonmaw seem to think a gift from this dig will win his favour, which tells you how far they've fallen.",
+        { id = "re_default", text = "Rend Blackhand, who sits in Blackrock Spire calling himself Warchief of a Horde that doesn't want him. The Dragonmaw seem to think a gift from this dig will win his favour, a fair measure of how far they've fallen.",
           fx = { learn = { "blackrock_spire" } } },
       },
       choices = {

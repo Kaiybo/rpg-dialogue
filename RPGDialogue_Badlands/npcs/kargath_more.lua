@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You move quietly, I'll give you that, but you were downwind of me the whole way in. A scout notices." },
     { id = "n_young", cat = "level", when = { maxLevel = 34 },
-      text = "You're green for this country. The heat alone kills half the young ones who come out here thinking only the dwarves are dangerous." },
+      text = "You're green for this country. The heat alone kills plenty of the young ones who come out here thinking only the dwarves are dangerous." },
   },
 
   start = "hello",
@@ -193,7 +193,7 @@ P:NPC {
 
     helgrum = {
       lines = {
-        { id = "he_default", text = "Does he? He calls himself the Swift, which tells you everything about him, because the fast ones always think getting there first is the same as getting it right. Still, he's the only orc in Stonard who reads what I send him." },
+        { id = "he_default", text = "Does he? He calls himself the Swift, and he lives up to the name, because the fast ones always think getting there first is the same as getting it right. Still, he's the only orc in Stonard who reads what I send him." },
       },
       choices = {
         { text = "You two sound like old rivals.", next = "helgrum_rival" },
@@ -209,7 +209,7 @@ P:NPC {
     },
     helgrum_lost = {
       lines = {
-        { id = "hl_default", text = "I know it, and I know the runner's name, and that's all I'll say about it. The road between here and Stonard eats outrunners, which is why I'm handing my reports to strangers like you." },
+        { id = "hl_default", text = "I know it, and I know the runner's name, and that's all I'll say about it. The road between here and Stonard eats outrunners, so now my reports go with strangers like you." },
       },
       choices = {
         { text = "Then I'll get the next one through.", next = "BACK", fx = { affinity = 2, standing = { kargath = 1 } } },
@@ -321,7 +321,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Because what grows here be tough, and tough plants make strong potions, mon. I take only what I need, mostly, but the Expeditionary Force be needing a great deal." } },
+      lines = { { id = "dq_default", text = "Because what grows here be tough, and tough plants make strong potions, mon. I take only what I need, mostly, but de Expeditionary Force, dey drink potions like water." } },
       choices = {
         { text = "The Force's needs come first. Gather what it takes.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Take only what the land can spare.", next = "BACK", fx = { align = { order = -1 } } },
@@ -474,7 +474,7 @@ P:NPC {
     },
     necklace_power = {
       lines = {
-        { id = "np_default", text = "The journal of a dead paladin talks about it, and the gems and a little power source that made it shine. Whole again, it be worth a great deal, and Jarkal don't need to know more than that." },
+        { id = "np_default", text = "The journal of a dead paladin talks about it, and the gems and a little power source that made it shine. Whole again, it be worth a pile of gold, and Jarkal don't need to know more than that." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -575,7 +575,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every day, back and forth to the Gorge and Hammerfall, and every one of them climbs off complaining about his legs. A wind rider doesn't care how fierce you are, only how heavy, and it'll let you know the moment you're too much." } },
+      lines = { { id = "xwarcl_default", text = "Every day, back and forth to the Gorge and Hammerfall, and every grunt climbs off complaining about his legs. A wind rider doesn't care how fierce you are, only how heavy, and it'll let you know the moment you're too much." } },
       choices = {
         { text = "Then I'll respect the rider and keep my kit light.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A rider that can't carry a warrior isn't much of a mount.", next = "BACK", fx = { align = { order = -1 } } },
@@ -617,7 +617,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Now that's the first good idea anyone's had in Kargath all summer. Mind you, the last mage who tried it got sneezed on by a rider with ice in its nose, so aim for the shade and not the beast." } },
+      lines = { { id = "xmage_default", text = "Now that's the first good idea anyone's had in Kargath all summer. Then again, the last mage who tried it got sneezed on by a rider with ice in its nose, so aim for the shade and not the beast." } },
       choices = {
         { text = "I'll cool the shade, then. Your riders deserve it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Wind riders can bear the heat. Toughen them up.", next = "BACK", fx = { align = { light = -1 } } },
@@ -792,7 +792,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Less than you'd think, because a thief in Kargath has nowhere to run but the Badlands, and the Badlands are worse than me. The last grunt who tried it came back on his own after two days and paid double, just for a drink." } },
+      lines = { { id = "xrogue_default", text = "Hardly ever, because a thief in Kargath has nowhere to run but the Badlands, and the Badlands are worse than me. The last grunt who tried it came back on his own after two days and paid double, just for a drink." } },
       choices = {
         { text = "Stealing water out here is a coward's crime.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A thief who survives the Badlands earned that water.", next = "BACK", fx = { align = { honor = -1 } } },

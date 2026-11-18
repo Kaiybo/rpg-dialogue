@@ -22,7 +22,7 @@ P:NPC {
   nodes = {
     xpt_grezz = {
       big = true,
-      lines = { { id = "xpt_grezz_default", text = "One of you holds the line and the other breaks it, and you take turns, because nobody can do either all day. The best pair I ever trained were a brother and sister from the Frostwolf clan, and they never once argued over glory, which is why they're both still alive." } },
+      lines = { { id = "xpt_grezz_default", text = "One of you holds the line and the other breaks it, and you take turns, because nobody can do either all day. The best pair I ever trained were a brother and sister from the Frostwolf clan, and they never once argued over glory, and both of them are still alive." } },
       choices = {
         { text = "Glory can be shared. We fight as one shield.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The stronger warrior leads, and glory goes to whoever earns it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -126,7 +126,7 @@ P:NPC {
           text = "{alt} still comes back to my yard now and then, and I'd put that {altclass} against most of the Warchief's guard. You'll need a good many more bruises before I say the same about you." },
         { id = "h_pt_pair", tags = { "news" }, when = { class = "WARRIOR", party = { sameClass = true } },
           text = "Two warriors in one company, and both still standing. Most bands I've seen with two of you end up arguing over who goes through the door first, so settle that now, before it gets one of you killed." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in the Valley of Honor. The last knight of the Silver Hand I saw was guarding a camp, recruit, so you'll forgive me if I hit you twice as hard." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in the Valley of Honor. The last knight of the Silver Hand I saw was guarding a camp, recruit, so don't complain when I hit you twice as hard." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in the Valley of Honor! Good, because my warriors bleed faster than they learn, and I'm tired of carrying them to the Valley of Spirits." },
         { id = "h_default", key = true, text = "I'm Grezz Ragefist, and I train the Warchief's warriors. The Valley of Honor is named for what we earn here, so don't waste my time with anything less." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Another warrior come for lessons? Good, because the Horde can never have enough strong arms." },
@@ -161,7 +161,7 @@ P:NPC {
       },
     },
     valley = {
-      lines = { { id = "v_default", text = "Ormak teaches the hunters across the way, and the smiths work the forges behind us. Every one of them answers to the Warchief, and every one of them thinks his trade matters most." } },
+      lines = { { id = "v_default", text = "Ormak teaches the hunters across the way, and the smiths work the forges behind us. They all answer to the Warchief, and each of them thinks his trade matters most." } },
       choices = { { text = "And which matters most?", next = "valley_best" } },
     },
     valley_best = {
@@ -202,7 +202,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "I'd trust anyone with steady hands and a calm voice, and most priests have both. The beasts can tell who means them well, which is more than I can say for most of the hunters I train." } },
+      lines = { { id = "xhpriest_default", text = "I'd trust anyone with steady hands and a calm voice, and most priests have both. The beasts can tell who means them well, and they know it long before my new hunters do." } },
       choices = {
         { text = "A wounded beast deserves the same care as any grunt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I heal the Horde first, Ormak, and beasts after.", next = "BACK", fx = { align = { light = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "We both want it to go on feeding us, which is more than most of this city thinks about. But I take the beast and you become it, so I suspect you feel every kill a little more than I do." } },
+      lines = { { id = "xdruid_default", text = "We both want it to go on feeding us, and few in this city ever spare it a thought. But I take the beast and you become it, so I suspect you feel every kill a little more than I do." } },
       choices = {
         { text = "A clean kill honours the beast. I won't take a sloppy one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Prey is prey. I don't spare it a thought once it's down.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -282,7 +282,7 @@ P:NPC {
       },
     },
     xorig_raptor = {
-      lines = { { id = "xrp_default", text = "Good, that's how a raptor ought to be. The Darkspear raise them from the egg and they never forget the first hand that fed them, which is more than I can say for most wolves. Has she ever bitten you?" } },
+      lines = { { id = "xrp_default", text = "Good, that's how a raptor ought to be. The Darkspear raise them from the egg and they never forget the first hand that fed them, and a wolf would bite that same hand the first lean winter. Has she ever bitten you?" } },
       choices = {
         { text = "Once, as a hatchling. Never since.", next = "BACK", fx = { affinity = 1 } },
         { text = "Every morning, but only gently.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -494,7 +494,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The spirits speak to me, and something else speaks to you, and I would very much like to hear what it says." },
         { id = "h_default", key = true, text = "I am Kardris Dreamseeker, and I guide the shaman of the Horde. The Valley of Wisdom is where the orcs came to remember what they were before the demons." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "Welcome, shaman. Tell me, have the elements spoken to you clearly since we last met?" },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren, welcome to the Valley of Wisdom. Your people kept faith with the Earth Mother while mine forgot the spirits entirely, and we have learned a great deal at your elders' fires." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren, welcome to the Valley of Wisdom. Your people kept faith with the Earth Mother while mine forgot the spirits entirely, and we have learned much at your elders' fires." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in the Valley of Wisdom. Good, because the elements respect a strong spirit as much as a wise one, and you may have more of the first than you think." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast who walks with you. The spirits of the wild are close to the elements, and I can feel them gathered around you both." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in the Valley of Wisdom. The spirits see you, even when nobody else does." },

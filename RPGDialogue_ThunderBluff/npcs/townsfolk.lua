@@ -157,7 +157,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     safe = {
-      lines = { { id = "s_default", text = "There's only the lifts up from Mulgore and the bridges between the rises, and the braves watch every one of them. A thief would need wings, and the wind riders would see him first." } },
+      lines = { { id = "s_default", text = "There's only the lifts up from Mulgore and the bridges between the rises, and the braves watch them all. A thief would need wings, and the wind riders would see him first." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhsham = {
@@ -236,7 +236,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "With patience, raw meat and a great deal of respect, because a wind rider remembers every kindness and every slight. They're proud creatures, and a hunter would understand them better than most, so you're welcome to come up the tower and meet them." },
+        { id = "xhuntcl_default", text = "With patience, raw meat and deep respect, because a wind rider remembers every kindness and every slight. They're proud creatures, and a hunter would understand them better than most, so you're welcome to come up the tower and meet them." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the wind riders, I see. They're not fond of it either, but they've never once quarrelled with a hunter's beast." },
       },
       choices = {
@@ -292,7 +292,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The wind will carry you anywhere, and it doesn't care what you pray to." },
         { id = "h_default", key = true, text = "I am Tal, and I keep the wind riders of Thunder Bluff. They will carry you to the Crossroads, Camp Taurajo, Sun Rock Retreat, or anywhere else the Horde keeps a roost you've visited." },
         { id = "h_skyborne", when = { race = "Skyborne" }, text = "One of the Windshapers. Your people know the sky better than mine, I think, but the wind riders will still carry you, if you'll let them do the flying." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then you'll enjoy the flight more than most, because the wind riders say your kind talk to the air the whole way." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then you'll enjoy the flight, because the wind riders say your kind talk to the air the whole way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders will carry you wherever the Horde needs you, but hold on tight, because they don't slow down for armour." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders are beasts too, and they always know when a hunter is near; they lift their heads and watch." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the top of the tower. The wind up here hears a great many prayers from nervous riders, so you'll be in good company." },
@@ -427,7 +427,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "They do, in their way, which is the way of the hand that slips between the herd and the wolf. I'll grant you that a dagger in the dark has saved more than one camp, though I'd still rather the wolf saw us coming and chose to leave." },
+        { id = "xrogue_default", text = "They do, in their way, which is the way of the hand that slips between the herd and the wolf. a dagger in the dark has saved more than one camp, it's true, though I still prefer the wolf to see us coming and choose to leave." },
       },
       choices = {
         { text = "Better the wolf sees us and runs. Agreed.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -592,7 +592,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "A wand fires true, I'll grant you, but it's only a stick with somebody else's magic in it. A bow needs a string and a strong arm, and I'll wager on a strong arm over borrowed magic any day." },
+        { id = "xmage_default", text = "A wand fires true, yes, but it's only a stick with somebody else's magic in it. A bow needs a string and a strong arm, and I'll wager on a strong arm over borrowed magic any day." },
       },
       choices = {
         { text = "Perhaps. There's something to be said for simple tools.", next = "BACK", fx = { align = { order = 1 } } },
@@ -666,7 +666,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     guns = {
-      lines = { { id = "g_default", text = "Because some hunters want them, and I'd rather they bought a good gun from me than a bad one from a goblin. I don't make them; I trade for them, and I check every one." } },
+      lines = { { id = "g_default", text = "Because some hunters want them, and better they buy a good gun from me than a bad one from a goblin. I don't make them; I trade for them, and I check every one." } },
       choices = {
         { text = "A bow is more honourable.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Whatever works is the right weapon.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -686,7 +686,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "I don't know, friend. Ask Holt; he's tracked more of the plains than I have, and knows more about most things." } },
     centaur = { { id = "tp_centaur", text = "The centaur make bows from the Barrens' thornwood, and they are poor bows. My family's bows are better, and they last longer." } },
-    quilboar = { { id = "tp_quilboar", text = "The quilboar make no bows at all, which is why they lose. A hunter needs a good bow, and I make the best." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar make no bows at all, and that is part of why they lose. A hunter needs a good bow, and I make the best." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the wood, and I thank her for every bow I make. A bow made without thanks will always miss." } },
   },
 }
@@ -748,7 +748,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than most hunters think, because you read the water as you read the grass and you wait where the prey wants to be. The difference is that a fish won't charge you, which makes fishing a gentler hunt, though no less honest." },
+        { id = "xhuntcl_default", text = "More than hunters expect, because you read the water as you read the grass and you wait where the prey wants to be. The difference is that a fish won't charge you, which makes fishing a gentler hunt, though no less honest." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it would like a fish. Most beasts do, and the lakes of Mulgore have plenty to share." },
       },
       choices = {
@@ -907,7 +907,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Every winter, dear, when the fevers go round the lower rises. A good broth does half the work of any healer, and I'll argue that with a shaman or a priest alike. Bring me a sick one and I'll feed them, and you can do the other half." } },
+      lines = { { id = "xhpriest_default", text = "Every winter, dear, when the fevers go round the lower rises. A good broth does as much as any healer, and I'll argue that with a shaman or a priest alike, so bring me a sick one and we'll each do our share." } },
       choices = {
         { text = "Then we'll share the work, Aska. Broth and prayer together.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Broth doesn't close wounds, Aska. Leave the healing to me.", next = "BACK", fx = { align = { light = -1 } } },
@@ -949,7 +949,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Then a rogue is a fool, and I've met many who prove it. A cold camp keeps you hidden, I'll grant you, but a little dried meat stewed at dawn before you move on will keep you alive longer than any shadow." },
+        { id = "xrogue_default", text = "Then a rogue is a fool, and I've met many who prove it. A cold camp keeps you hidden, true, but a little dried meat stewed at dawn before you move on will keep you alive longer than any shadow." },
       },
       choices = {
         { text = "Fair point. I'll take your advice.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1031,7 +1031,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Shamans thank the fire before they start cooking, and I've never seen one burn a stew, so there might be something to it. Most of you forget to eat after a long trial, though, which is why I keep a pot ready." } },
+      lines = { { id = "xhsham_default", text = "Shamans thank the fire before they start cooking, and I've never seen one burn a stew, so there might be something to it. Most of you forget to eat after a long trial, though, so I keep a pot ready." } },
       choices = {
         { text = "Thanking the fire is good manners, and the old way besides.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A fire is a tool. It doesn't need thanking.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1076,7 +1076,7 @@ P:NPC {
   nodes = {
     op_forsaken = {
       lines = {
-        { id = "opf_q", text = "I watch them, and I worry, and I'm told I worry too loudly. You've met more of them on the road than I have, so what do you honestly think of the Forsaken?" },
+        { id = "opf_q", text = "I watch them, and I worry, and I'm told I worry too loudly. You've met more of them on the road than I have, so what do you truly make of the Forsaken?" },
       },
       choices = {
         { text = "They're Horde, the same as you and I. That's enough for me.", next = "op_forsaken_r1", fx = { align = { order = 1 }, opinion = { forsaken = "trust" } } },
@@ -1148,7 +1148,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The good ones do, and I'm grateful, because they know where the earthroot grows and where the mageroyal hides. A hunter who brings me herbs is helping heal the tribe, and I'd thank the Earth Mother for every one of them." },
+        { id = "xhuntcl_default", text = "The good ones do, and I'm grateful, because they know where the earthroot grows and where the mageroyal hides. A hunter who brings me herbs is helping heal the tribe, and I thank the Earth Mother for each of them." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} might sniff out a few herbs for us, if you trained it. Some beasts have a nose for them, you know." },
       },
       choices = {
@@ -1345,7 +1345,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Then you're still gathering the Earth Mother's gifts, and I'd ask you to thank her for them whatever you mean to do with them. Some of the plants on the plains are poison in the wrong hands, and I'd rather they stayed in the right ones." },
+        { id = "xrogue_default", text = "Then you're still gathering the Earth Mother's gifts, and I'd ask you to thank her for them whatever you mean to do with them. Some of the plants on the plains are poison in the wrong hands, and I pray they stay in the right ones." },
       },
       choices = {
         { text = "I'll thank her, and use them wisely.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1488,7 +1488,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Under their mail, always, because mail against bare skin is a misery no warrior forgets. The braves who guard the bluffs wear a quilted jerkin beneath their armour, and every one of them was cut from a hide some hunter brought me." } },
+      lines = { { id = "xwarcl_default", text = "Under their mail, always, because mail against bare skin is a misery no warrior forgets. The braves who guard the bluffs wear a quilted jerkin beneath their armour, and each was cut from a hide some hunter brought me." } },
       choices = {
         { text = "I'll honour the beasts that clothe me.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Leather is leather. I don't think about beasts.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1521,7 +1521,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Too heavy for you, perhaps, but not for the hunters and druids who trust it with their lives. Cloth is pretty, I'll grant you, though I've never seen a robe turn a raptor's claw." },
+        { id = "xmage_default", text = "Too heavy for you, perhaps, but not for the hunters and druids who trust it with their lives. Cloth is pretty, I know, though I've never seen a robe turn a raptor's claw." },
       },
       choices = {
         { text = "Fair. Each to their own armour.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1557,7 +1557,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll understand better than most that every hide I work once held a spirit, and that spirit deserves respect." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leather armour won't stop an axe the way mail will, but a good leather jerkin under it will stop the chafing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can smell the hides in your pack from here. Let me see them, and I'll tell you which ones you've ruined." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bench. Mind the hides, friend; they're drying, and I'd rather your robes stayed clean." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bench. Mind the hides, friend; they're still drying, and they'll leave marks on those robes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear and the cat yourself before long, so I hope you'll think kindly of the beasts when you see what I do with their hides." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! You'll wear cloth, so you won't need my hides, but sit and talk while I work." },
       },

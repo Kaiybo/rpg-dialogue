@@ -93,7 +93,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Against the Scourge first, because your Light does more to them than any blade of ours, and against Arugal's worgen second. Dalaran's mages would find you curious, and I'd rather they didn't find you at all, so keep clear of their camp unless I send you." } },
+      lines = { { id = "xfpala_default", text = "Against the Scourge first, because your Light does more to them than any blade of ours, and against Arugal's worgen second. Dalaran's mages would find you curious, and a curious mage is a nuisance I don't need, so keep clear of their camp unless I send you." } },
       choices = {
         { text = "As you command, High Executor. The Scourge first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll go where I'm needed most, wherever that leads.", next = "BACK", fx = { align = { order = -1 } } },
@@ -124,7 +124,7 @@ P:NPC {
           text = "Some of my best went into Shadowfang Keep, Arugal's keep, and haven't come out. Go in after them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because Silverpine has more enemies than I have soldiers, and lightning is cheaper than a deathstalker." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my Sepulcher. The Warchief's people keep surprising me, and I'm not easily surprised." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my deathstalkers come back in pieces, and I'd rather they came back in one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my deathstalkers come back in pieces, and the apothecaries charge me for the thread." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Moonrage", min = 40 } }, text = "The Moonrage packs are fewer than they were, and my deathstalkers can walk the north road again without looking over their shoulders every step. You've done the Sepulcher real service." },
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Horde" },
           text = "Arugal is dead, and the howling from the keep has gone ragged and leaderless overnight. I sent two deathstalkers into those walls before you ever came to the Sepulcher, and I'm told you went in after them." },
@@ -368,7 +368,7 @@ P:NPC {
     xhhunt = {
       big = true,
       lines = {
-        { id = "xhhunt_default", text = "Could you? The Moonrage worgen interest me a great deal, and so do the spiders near Fenris Isle. Bring me what I ask for intact, and I'll think better of hunters forever." },
+        { id = "xhhunt_default", text = "Could you? The Moonrage worgen interest me professionally, and so do the spiders near Fenris Isle. Bring me what I ask for intact, and I'll think better of hunters forever." },
         { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash while you gather, would you? A Moonrage sample is no use to me with tooth marks in it, and I've seen what a hungry beast does to a spider from Fenris Isle." },
       },
       choices = {
@@ -449,7 +449,7 @@ P:NPC {
   greetings = {
     { id = "g_mage", text = "You may address me as Archmage, if you like. The Kirin Tor stopped doing so when I died, which I thought rude of them." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. You're the only one here who listens." },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and nobody here has listened to a word I've said in all that time. Do sit down, I've a great deal saved up." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and nobody here has listened to a word I've said in all that time. Do sit down; I've been saving it all up for someone who still has ears." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round to your view not long ago. I could have used that talent when I warned Dalaran, because they certainly never listened to me." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone here spoke well of you, which in the Sepulcher is practically a public honour. I'm pleased to hear it, and I'm not easily pleased." },
   },
@@ -532,7 +532,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = { "blame", "hate" } } }, text = "You've no love for the Kirin Tor, from what I hear, and I can't honestly say you're wrong. Sit, and I'll tell you what they did right, so you've the whole account." },
+        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = { "blame", "hate" } } }, text = "You've no love for the Kirin Tor, from what I hear, and I can't say you're wrong. Sit, and I'll tell you what they did right, so you've the whole account." },
         { id = "h_default", key = true,
           text = "Dalar Dawnweaver. I was an archmage of the Kirin Tor until the Scourge took Dalaran and me with it, and I warned them, but nobody listened." },
         { id = "h_prove", when = { questActive = TODO_QUEST("Prove Your Worth") },
@@ -598,7 +598,7 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "Steel holds a line, I'll grant you, but it can't see through Arugal's illusions or burn a worgen pack at fifty paces. We need both of us, warrior, and that's the uncomfortable truth." } },
+      lines = { { id = "xhwar_default", text = "Steel holds a line, and I've seen it hold at the Sepulcher gate, but it can't see through Arugal's illusions or burn a worgen pack at fifty paces. We need both of us, warrior, and that's the uncomfortable truth." } },
       choices = {
         { text = "Then we'll fight together, spell and steel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I've never needed a mage to win a fight.", next = "BACK", fx = { align = { order = -1 } } },
@@ -635,7 +635,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Never, which is why Dalaran's wards were the finest in the world and also why they were always being tested. I'd have you look at Ambermill for me, since a thief who gets close to their wards would tell me more than my scrying ever has." },
+        { id = "xrogue_default", text = "Never, and that's how Dalaran's wards came to be the finest in the world, and also why they were always being tested. I'd have you look at Ambermill for me, since a thief who gets close to their wards would tell me more than my scrying ever has." },
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "In life you'd have been just the sort I warned the Kirin Tor about, a cutpurse lurking in the Violet Citadel's shadow. Now you're the only sort I'd trust to do the job they never let me do." },
       },
       choices = {
@@ -795,7 +795,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xmage_default", text = "They could, and I'd like to know how far you can see, since my watchers tell me the Dalaran mages at Ambermill are scrying in our direction. A mage who can feel the edge of a scrying spell would be worth a dozen spies at a window." },
-        { id = "xmage_scourge", when = { race = "Scourge" }, text = "I know a few who studied in Dalaran and now study for us, and every one of them still flinches when the Violet Citadel is mentioned. You'll learn I don't judge loyalty by where it began." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "I know a few who studied in Dalaran and now study for us, and not one has stopped flinching when the Violet Citadel is mentioned. You'll learn I don't judge loyalty by where it began." },
       },
       choices = {
         { text = "I'll serve the Dark Lady's watchers gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -806,7 +806,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They make fine noise, which isn't the same thing, though I admit an imp in a chimney sees a great deal. Bring me what it overhears in Pyrewood, and I'll decide whether it was worth the scorch marks." },
+        { id = "xwarlock_default", text = "They make fine noise, which isn't the same thing, though I admit an imp in a chimney hears what a deathstalker at the window misses. Bring me what it overhears in Pyrewood, and I'll decide whether it was worth the scorch marks." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I watched the Cult's people in the old days, and they all thought their demons and their dead made them invisible. They were wrong, so you'll forgive me if I watch you just as closely." },
       },
       choices = {
@@ -819,7 +819,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "My watchers bring me a great deal, and some of it I'm even permitted to share. These, for instance, if you ask nicely." },
+      { id = "tp_knows", text = "My watchers bring me more than the High Executor ever hears, and some of it I'm even permitted to share. These, for instance, if you ask nicely." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've been discreet, and I reward discretion, so I'll tell you rather more than I tell most." },
     },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken have eyes in every corner of Lordaeron, and most of those eyes report to me. I trade in what they bring back, and business is very good." } },
@@ -998,7 +998,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Everyone in a crypt is worth watching, friend, since half of them are deathstalkers and the other half are spiders. The deathstalkers drink on the left-hand slabs and the spiders keep to the right, and I'd keep to the middle if I were you." },
+        { id = "xrogue_default", text = "Everyone in a crypt is worth watching, friend, and down here it's deathstalkers and spiders, in about equal measure. The deathstalkers drink on the left-hand slabs and the spiders keep to the right, and I'd keep to the middle if I were you." },
         { id = "xrogue_troll", when = { race = "Troll" }, text = "A troll among my slabs, and a quiet one at that. The left-hand side is driest, though the deathstalkers drink there and they'll watch you from it, so I'd keep to the middle if I were you." },
       },
       choices = {

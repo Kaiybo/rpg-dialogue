@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Report, or move along. The keep's no place for loiterin', an' the roof leaks on loiterers first." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece. That's more than most o' my reports manage." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece, unlike most o' the reports that come down that road." },
     { id = "g_algaz", when = { questActive = TODO_QUEST("The Algaz Gauntlet") }, text = "Come through Algaz, did ye? Then sit, an' tell me what ye saw, all of it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' back in one piece. Sit, an' tell me what ye saw on the roads, all of it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a deal tougher since last ye reported tae me. I'd send ye through Algaz alone now, an' I wouldnae say that lightly." },
@@ -120,7 +120,7 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xwl_default", text = "Do ye now? Then ye know what they did wi' it in the last war, an' ye'll forgive me if I don't care tae hear how ye learned it. Take yer knowledge north an' turn it on them, an' I'll judge ye by where the bodies fall." },
+        { id = "xwl_default", text = "Do ye now? Then ye know what they did wi' it in the last war, an' I've nae wish tae hear how ye learned it. Take yer knowledge north an' turn it on them, an' I'll judge ye by where the bodies fall." },
       },
       choices = {
         { text = "I'll use it to end theirs, nothing more.", next = "BACK", fx = { align = { light = 1 } } },
@@ -322,7 +322,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Raptors, or Mosshide gnolls, or worse, for the letters stopped an' nobody's come back down the road. Merrin's a tough one, but she's a digger, no' a fighter, an' I'd feel a great deal better if someone with an axe went lookin'." } },
+      lines = { { id = "xwarcl_default", text = "Raptors, or Mosshide gnolls, or worse, for the letters stopped an' nobody's come back down the road. Merrin's a tough one, but she's a digger, no' a fighter, an' I'd sleep easier if someone with an axe went lookin'." } },
       choices = {
         { text = "I'll find her, Tarrel. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll go, but the dig pays my way, not you.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -587,9 +587,9 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Tell him I'm well, and that the rain here hasn't stopped since he left, and that he still owes me a cookpot. Tell him to write, too, because if he's alive he's lazy, and I'd rather he was lazy." } },
+      lines = { { id = "xdruid_default", text = "Tell him I'm well, and that the rain here hasn't stopped since he left, and that he still owes me a cookpot. Tell him to write, too, because if he's alive he's lazy, and lazy I can forgive." } },
       choices = {
-        { text = "I'll carry your words faithfully, every one of them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll carry your words faithfully, word for word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll mention it if I pass that way. No promises.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -803,7 +803,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That the trees are taller than Stormwind's cathedral and the moon shines brighter on the far side of the sea, and that every one of them could make a new life there. Half of that's true, and I'd thank you not to tell them which half." } },
+      lines = { { id = "xdruid_default", text = "That the trees are taller than Stormwind's cathedral and the moon shines brighter on the far side of the sea, and that any of them could make a new life there. Half of that's true, and I'd thank you not to tell them which half." } },
       choices = {
         { text = "Tell them the truth. They deserve to know where they're sailing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Every sailor stretches a tale. Let them dream a little.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -818,7 +818,7 @@ P:NPC {
           text = "Red Jack Flint, at your service. It's my job to tell eager souls about Kalimdor, the land of opportunity across the sea, and oh, to be on the sea again myself, with the wind in my face." },
         { id = "h_done", when = { questDone = TODO_QUEST("Fiora Longears") },
           text = "Fiora says you made it across and that you'll do well. Mr. Flint never misjudges a character, she told you, and she's right, I don't." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Kalimdor's crying out for warriors, friend, for there are centaur and quilboar and worse across the sea, and every one of them wants testing." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Kalimdor's crying out for warriors, friend, for there are centaur and quilboar and worse across the sea, and all of it wants testing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have I told you about the beasts of Kalimdor, friend? Nightsabers, striders and birds as tall as a man, or so the sailors say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Kalimdor! Now here's someone who can tell these landlubbers I'm not exaggerating about the forests over there." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's someone Kalimdor's never seen the like of, for the night elves will either run from you or fill you with arrows, and both would make a fine story." },
@@ -904,7 +904,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not a thing, friend, but have I told you about Kalimdor?" } },
     theramore = { { id = "tp_theramore", text = "Theramore is the Alliance's foothold in Kalimdor, built by Lady Jaina's people after the war at Hyjal. Take the boat and see it, friend; it's worth the seasickness." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I lost my first ship and won my second, both at cards. A sailor should see it once, and leave before the dice come out." } },
-    nordrassil = { { id = "tp_nordrassil", text = "The night elves had a tree at Hyjal so tall it touched the clouds, and they broke a demon army at its roots. I've only heard it told by sailors, but every one of them told it the same way." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The night elves had a tree at Hyjal so tall it touched the clouds, and they broke a demon army at its roots. I've only heard it told by sailors, but they all told it the same way, drunk or sober." } },
     jaina = { { id = "tp_jaina", text = "Lady Jaina led the survivors of Lordaeron across the sea to Kalimdor and built a city out of a swamp. That's the kind of captain I'd sail for." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's a goblin port on the Barrens coast that sells to anybody, Horde or Alliance, with a smile and a bill. I've docked there twice and kept a hand on my purse both times." } },
   },
@@ -1183,7 +1183,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "Conjured bread fills you, I'll grant you, but it's no better than a meal you dreamt. A fresh cod out of Menethil Bay on a hot pan is a thing you remember, and you'd know it if you'd ever tasted one." },
+        { id = "xma_default", text = "Conjured bread fills you, aye, but it's no better than a meal you dreamt. A fresh cod out of Menethil Bay on a hot pan is a thing you remember, and you'd know it if you'd ever tasted one." },
       },
       choices = {
         { text = "There's worth in the old ways. Teach me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1658,7 +1658,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Horses, breeding and hooves; I know them like my own family. What do you want?" } },
     background = { { id = "tp_bg", text = "I breed horses, and I've spent my life at it, and I don't regret a day." } },
-    advice = { { id = "tp_ad", text = "Check your horse's hooves every night in the Wetlands. Mud rots them faster than you'd think." } },
+    advice = { { id = "tp_ad", text = "Check your horse's hooves every night in the Wetlands, because the mud will rot them inside a week." } },
     _none = { { id = "tp_none", text = "Not a horse question, so not my question." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire bought two of my ponies for their children's rides, and I hear they're the most spoiled ponies in the kingdom now. Good for them." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer think horses are slow and gryphons are better, and they're right about the speed. But you can't stable a gryphon in a shed." } },

@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "Not all of them, only the ones who come up the road with empty hands and hungry looks, which is most of them since the Defias burned out half the farms. I lost two wagons of timber in a month, and the tracks went west." } },
+      lines = { { id = "prej_default", text = "Not all of them, only the ones who come up the road with empty hands and hungry looks, which is most of them since the Defias burned out the Brackwell place and the farms along the west road. I lost two wagons of timber in a month, and the tracks went west." } },
       choices = {
         { text = "Westfall folk were starved off their land. Blame the crown, not us.", next = "prej_a", fx = { align = { order = -1 } } },
         { text = "The Defias are thieves, and Westfall should hang them itself.", next = "prej_b", fx = { align = { order = 1 } } },
@@ -160,7 +160,7 @@ P:NPC {
       choices = {
         { text = "You think Westfall folk are all thieves, Supervisor.", next = "prej", when = { prejudiced = true } },
         { text = "Where's the deputy?", next = "rainer", when = { heardLine = "raelen.h_rainer" } },
-        { text = "That's a great deal of lumber.", next = "order" },
+        { text = "That's a lot of lumber.", next = "order" },
         { text = "Something seems to be chasing your workers off.", next = "animals" },
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },
         { text = "Your lads look done in. Let me tend them.", next = "priest", when = { class = "PRIEST" } },
@@ -214,7 +214,7 @@ P:NPC {
     },
     order_hire = {
       lines = {
-        { id = "oh_default", text = "With whom? The army's taken half the strong backs in Elwynn abroad, and the other half want to be adventurers, no offence meant." },
+        { id = "oh_default", text = "With whom? The army's taken Elwynn's strong backs abroad, and the ones left want to be adventurers, no offence meant." },
       },
       choices = {
         { text = "None taken.", next = "BACK", fx = { affinity = 1 } },

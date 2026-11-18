@@ -159,7 +159,7 @@ P:NPC {
         { id = "xh_default", text = "Bless you, then, and start with the cots by the fire, for those are the ones the fern got. Don't let them tell you they're fine, because soldiers always say they're fine." },
       },
       choices = {
-        { text = "I'll see to every one of them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I'll see to all of them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "hate" } }, text = "Fel'zerul says you told him you don't trust anyone who deals with demons, him included. He wasn't offended, which tells you something about Fel'zerul." },
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "hate" } }, text = "Fel'zerul says you told him you don't trust anyone who deals with demons, him included. He wasn't offended, and that should make you wonder about Fel'zerul." },
     { id = "g_op_horde", when = { opinion = { topic = "horde", stance = "distrust" } }, text = "There's talk you think the tauren pay for the orcs' wars. Thrall's Grasp was mostly tauren, so I can't tell you you're wrong, and I wish I could." },
     { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps, but the Horde has never been short of the brave." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
@@ -55,7 +55,7 @@ P:NPC {
     },
     op_peace_war = {
       lines = {
-        { id = "oppw_default", text = "I'll write that down as one vote for war, which makes it about even tonight. Stonard was built for a war, so it'll be ready if one comes, and I'd rather it didn't." },
+        { id = "oppw_default", text = "I'll write that down as one vote for war, which makes it about even tonight. Stonard was built for a war, so it'll be ready if one comes, but I hope it never does." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -100,7 +100,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Murlocs in the reeds, crocolisks in the shallows and worse near the Pool of Tears, and none of it shows itself until it has you by the leg. I've lost more scouts to this swamp than to any enemy, and I'd send a warrior with every one of them if I had enough." } },
+      lines = { { id = "xwarcl_default", text = "Murlocs in the reeds, crocolisks in the shallows and worse near the Pool of Tears, and none of it shows itself until it has you by the leg. I've lost more scouts to this swamp than to any enemy, and I'd send a warrior with each scout if I had enough." } },
       choices = {
         { text = "Send me out with them. I'll keep them alive.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Scouts who can't handle the swamp shouldn't be scouts.", next = "BACK", fx = { align = { light = -1 } } },
@@ -219,7 +219,7 @@ P:NPC {
     },
     scout_maps = {
       lines = {
-        { id = "sm_default", text = "Less than I'd like. My wayfinders and cartographers go out with fresh parchment, and they come back with half of it soaked and the other half covered in crocolisk teeth." },
+        { id = "sm_default", text = "Less than I'd like. My wayfinders and cartographers go out with fresh parchment, and they come back with it soaked through or full of crocolisk teeth." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -527,7 +527,7 @@ P:NPC {
         { id = "h_temple", when = { questActive = TODO_QUEST("The Temple of Atal'Hakkar") },
           text = "Into the temple, then, and bring enough friends, and then bring more than that." },
         { id = "h_fetishes", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Temple of Atal'Hakkar"), days = 3 } },
-          text = "Twenty fetishes, and every one of them hums like a hornet in a jar. They'll go to Orgrimmar under guard, and I'll sleep better once they're gone." },
+          text = "Twenty fetishes, and each one hums like a hornet in a jar. They'll go to Orgrimmar under guard, and I'll sleep better once they're gone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Steel will not help much against what lies in that temple, but I would rather have you here than not." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Then you may feel what I feel at the Pool of Tears, something under the water dreaming a dream that is not its own." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The Light, in a Forsaken body. Strange times bring strange servants, and the temple beneath the Pool of Tears stirs stranger every night." },
@@ -645,7 +645,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhhunt_default", text = "The crocolisks make poor friends and worse pets, but the swamp's panthers and jaguars are another story. I've seen hunters tame things here that would make a Stonard grunt run." },
-        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows its master, which is more than I can say for the things in that temple. Keep it close in the swamp, though, because the panthers here would take it for a rival." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows its master, unlike the mad things in that temple. Keep it close in the swamp, though, because the panthers here would take it for a rival." },
       },
       choices = {
         { text = "I'll tame what respects me, and leave the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -785,7 +785,7 @@ P:NPC {
         { id = "h_report_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Helgrum"), days = 3 } },
           text = "Neeka's report says the Alliance has troubles of its own up north, and some of their enemies are ours too. Funny, the things you learn when a letter finally arrives." },
         { id = "h_fast", when = { metBefore = true }, text = "I ran to the edge of the swamp and back this morning, before breakfast, and don't ask me why, because I wasn't thinking. I'm the swift one, remember." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll never be fast in all that armor, but I'll grant you'd be a lot harder to knock down than me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll never be fast in all that armor, but you'd be a lot harder to knock down than me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who glows! Wait till I tell Neeka, she'll say I'm making it up, because I do make things up, but not this time." },
       },
       again = {
@@ -879,7 +879,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief's name on Thrall's Grasp meant something to all of us, and I'm sorry it ended the way it did. I run faster now because of them." } },
     sunken_temple = { { id = "tp_sunken_temple", text = "I've run past the Sunken Temple on the lake road a hundred times, and every time I hear the trolls chanting. I run faster there, I won't lie." } },
     dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal's down south past the Blasted Lands, and I've run messages to the edge of it. I don't go any closer than I have to." } },
-    uldaman = { { id = "tp_uldaman", text = "Neeka tells me there's something old under the Badlands at Uldaman, and she wants to see it. I'd rather run, honestly." } },
+    uldaman = { { id = "tp_uldaman", text = "Neeka tells me there's something old under the Badlands at Uldaman, and she wants to see it. Me, I'd sooner run the other way." } },
     _none = { { id = "tp_none", text = "Don't know, but ask Neeka when she's back, because she knows things." } },
   },
 }
@@ -925,7 +925,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll hunt them carefully and honor what they took from you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll hunt every one of them down, any way I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt them all down, any way I can.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

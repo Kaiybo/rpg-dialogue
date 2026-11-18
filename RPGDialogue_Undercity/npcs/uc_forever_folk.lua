@@ -53,7 +53,7 @@ P:NPC {
     },
 
     finds = {
-      lines = { { id = "fi_default", text = "Buttons, mostly, and coins, and teeth, more teeth than you'd think. Last week it was a wedding ring with two names cut inside it, and I sat with it most of the night wondering whose they were." } },
+      lines = { { id = "fi_default", text = "Buttons, mostly, and coins, and teeth, a surprising number of teeth. Last week it was a wedding ring with two names cut inside it, and I sat with it most of the night wondering whose they were." } },
       choices = {
         { text = "What will you do with the ring?", next = "ring" },
         { text = "Do you sell what you find?", next = "sell" },
@@ -62,7 +62,7 @@ P:NPC {
     },
     ring = {
       big = true,
-      lines = { { id = "ri_default", text = "I could hang it on a post in the Trade Quarter and see who comes for it, or I could keep it, because whoever lost it may not remember they were married. Half the city doesn't, you know." } },
+      lines = { { id = "ri_default", text = "I could hang it on a post in the Trade Quarter and see who comes for it, or I could keep it, because whoever lost it may not remember they were married. A good many in this city don't, you know." } },
       choices = {
         { text = "Hang it up. Somebody might be looking for it.", next = "ring_after", fx = { align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Keep it. The canal gave it to you.", next = "ring_after", fx = { align = { order = -1 } } },
@@ -374,7 +374,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     carolyn = {
-      lines = { { id = "ca_default", text = "Ward was a common enough name in Lordaeron, and I've never asked her and she's never asked me. If she's family, she's the sort that keeps a knife in her sleeve, and I'd rather not find out at supper." } },
+      lines = { { id = "ca_default", text = "Ward was a common enough name in Lordaeron, and I've never asked her and she's never asked me. If she's family, she's the sort that keeps a knife in her sleeve, and supper is a poor place to find that out." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -550,7 +550,7 @@ P:NPC {
     },
 
     faith = {
-      lines = { { id = "fa_default", text = "She's fond of the sound of her own voice, and I happen to be standing near it. Still, she's the only one in this quarter who argues honestly, and that's rarer than you'd think among the dead." } },
+      lines = { { id = "fa_default", text = "She's fond of the sound of her own voice, and I happen to be standing near it. Still, she's the only one in this quarter who argues in good faith, and that's a rare habit among the dead." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -608,7 +608,7 @@ P:NPC {
 
     papers = {
       big = true,
-      lines = { { id = "pa_default", text = "Ink, mostly, and wax, and none of my business. The last runner who got curious isn't a runner any more, and I'd rather not find out what he is instead." } },
+      lines = { { id = "pa_default", text = "Ink, mostly, and wax, and none of my business. The last runner who got curious isn't a runner any more, and I've no wish to learn what he is instead." } },
       choices = {
         { text = "Secrets keep this city alive. You're right to keep them.", next = "papers_after", fx = { align = { honor = -1 } } },
         { text = "The people have a right to know what's being done.", next = "papers_after", fx = { align = { honor = 1 } } },

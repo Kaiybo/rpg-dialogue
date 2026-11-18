@@ -100,7 +100,7 @@ P:Letter {
   id = "origin_dwarf_military_ward_2", from = "Shieldmaster Ulgrim Steelbrow", stranger = true, delay = 2400,
   when = { origin = "dwarf_military_ward", minLevel = 30 },
   subject = "The recruits ask after you",
-  body = "{name},\n\nYour name comes up at drill more than you'd credit. When a recruit drops a shield, I tell him there's a {g:lad|lass} out in the wide world who never dropped one once, and it shames him into picking it up again.\n\nI've had word of you from Menethil, from the Wetlands road and from a gnome in Tinker Town who wouldn't stop talking. Every one of them says the same thing, that you stand your ground when it'd be easier to run.\n\nThat's all I ever tried to teach, and it's a rare thing to see it take. I'm getting old for the line, but I'll go back to it a little straighter for knowing you're out there.\n\nShieldmaster Ulgrim Steelbrow",
+  body = "{name},\n\nYour name comes up at drill more than you'd credit. When a recruit drops a shield, I tell him there's a {g:lad|lass} out in the wide world who never dropped one once, and it shames him into picking it up again.\n\nI've had word of you from Menethil, from the Wetlands road and from a gnome in Tinker Town who wouldn't stop talking. They all say the same thing, that you stand your ground when it'd be easier to run.\n\nThat's all I ever tried to teach, and it's a rare thing to see it take. I'm getting old for the line, but I'll go back to it a little straighter for knowing you're out there.\n\nShieldmaster Ulgrim Steelbrow",
 }
 
 ---------------------------------------------------------------------------
@@ -117,7 +117,7 @@ P:Letter {
   id = "origin_dwarf_silver_hand_2", from = "Brother Hallvard Oathstone", stranger = true, delay = 2400,
   when = { origin = "dwarf_silver_hand", cleared = "Scarlet Monastery" },
   subject = "The Scarlet halls",
-  body = "{name},\n\nWe heard in the Mystic Ward that you went into the Scarlet Monastery in Tirisfal and walked out of it again, which is more than most who knock on those doors can say.\n\nI'll not ask what you saw there. I know the kind of men who pray in that place, and I know they once took the same oath we did, before grief and fear twisted it into something cruel. It must be a strange thing for a paladin to raise a hammer against people who call on the same Light.\n\nCome and sit with us when you're home, and we'll say the vows together, all three lines of them. The oath is lighter when it's carried by more than one.\n\nYour brother in the Light,\nHallvard Oathstone",
+  body = "{name},\n\nWe heard in the Mystic Ward that you went into the Scarlet Monastery in Tirisfal and walked out of it again, an' there's no' many who knock on those doors who manage that.\n\nI'll not ask what you saw there. I know the kind of men who pray in that place, and I know they once took the same oath we did, before grief and fear twisted it into something cruel. It must be a strange thing for a paladin to raise a hammer against people who call on the same Light.\n\nCome and sit with us when you're home, and we'll say the vows together, all three lines of them. The oath is lighter when it's carried by more than one.\n\nYour brother in the Light,\nHallvard Oathstone",
 }
 
 ---------------------------------------------------------------------------
@@ -151,7 +151,7 @@ P:Letter {
   id = "origin_dwarf_loch_smuggler_2", from = "Wick Tallowmane", stranger = true, delay = 2400,
   when = { origin = "dwarf_loch_smuggler", cleared = "The Stockade" },
   subject = "Heard you broke into prison",
-  body = "{name},\n\nI've heard some strange things in my day, but never a smuggler breaking into a prison on purpose. The word on the Menethil docks is that you went into the Stormwind Stockade when the prisoners rose up and put the riot down yourself.\n\nI laughed so hard I spilled a good stout on the tax man's boots, and he didn't even notice, which tells you how that day went.\n\nI'll say this much and then never again. You were always too decent for this trade, and you knew it, which is why you were bad at it. Keep on the right side of the bars, {name}, and forget about the six silver. Consider it a gift from an old crook to a better one.\n\nWick",
+  body = "{name},\n\nI've heard some strange things in my day, but never a smuggler breaking into a prison on purpose. The word on the Menethil docks is that you went into the Stormwind Stockade when the prisoners rose up and put the riot down yourself.\n\nI laughed so hard I spilled a good stout on the tax man's boots, and he didn't even notice, which tells you how that day went.\n\nI'll say this much and then never again. You were always too decent for this trade, and you knew it, and that's what made you bad at it. Keep on the right side of the bars, {name}, and forget about the six silver. Consider it a gift from an old crook to a better one.\n\nWick",
 }
 
 ---------------------------------------------------------------------------

@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_engineer", cat = "craft", when = { profession = "Engineering" },
-      text = "An engineer! Come and look at this coupling, then, and tell me honestly whether it's genius or whether it's about to take my eyebrows off." },
+      text = "An engineer! Come and look at this coupling, then, and tell me straight whether it's genius or whether it's about to take my eyebrows off." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, all this way from the mountain! Sit, sit, it's been an age since I heard a proper accent that wasn't my own." },
   },
@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("The Restless Souls") },
           text = "I draw my strength from hating the Scourge, every last bone of it. But I'm no zealot, because the ones the Crusade would burn for being dead are the very ones I mean to save." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Restless Souls"), days = 3 } },
-          text = "Did you see my mother in there? Did you free her? No, don't answer, you couldn't know, but thank you for every one of them all the same." },
+          text = "Did you see my mother in there? Did you free her? No, don't answer, you couldn't know, but thank you for each soul you freed all the same." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "You're risen, but you're your own, I can see that. You're exactly the sort I'm fighting for, so don't look at me like I'm going to point the blaster at you." },
         { id = "h_paladin", when = { class = "PALADIN", faction = "Alliance" },
@@ -118,7 +118,7 @@ P:NPC {
     },
 
     streets = {
-      lines = { { id = "st_default", text = "Half of it belongs to the Scarlets, who've barricaded themselves in like it'll save them, and the other half belongs to the Baron and his dead. The ghosts wander between the two, and nobody on either side looks at them twice." } },
+      lines = { { id = "st_default", text = "The Scarlets hold the gates and the market, barricaded in like it'll save them, and the Baron and his dead hold everything past the slaughterhouse. The ghosts wander between the two, and nobody on either side looks at them twice." } },
       choices = {
         { text = "Who is this Baron?", next = "streets_baron" },
         { text = "Something else.", next = "BACK" },
@@ -181,7 +181,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A dwarf with a toolkit and a grudge, and a mother somewhere in Stratholme. That's my story, and I'd rather be working than telling it." } },
+    background = { { id = "tp_bg", text = "A dwarf with a toolkit and a grudge, and a mother somewhere in Stratholme. That's my story, and I'd sooner have a spanner in my hand than tell it twice." } },
     advice = { { id = "tp_ad", text = "Hate'll get you started, but it won't keep you going. Find the other thing, and hold on to it." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They'd burn every ghost in Stratholme if they could reach them, and call it mercy. It isn't." } },
     scourge = { { id = "tp_scourge", text = "I hate the Scourge with all my heart, lad, and I'll tell ye plainly, it's hard work keepin' that hate from eatin' me alive. I build my contraptions to free the ghosts they trapped, and that's a kinder way to spend it." } },

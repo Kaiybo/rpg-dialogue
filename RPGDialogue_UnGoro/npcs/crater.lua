@@ -11,7 +11,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Hold up there. Let me see if you're injured before you come any closer." },
-    { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. That's more than I can say for my brother's tent, which a stegodon sat on last night." },
+    { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. My brother's tent can't say the same, since a stegodon sat on it last night." },
   },
   start = "hello",
   nodes = {
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You came up my path without me hearing a single step, and that's a rare thing in this crater. I could use feet like yours on patrol, because the raptors hear everything else." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there burn quicker than you'd think." },
+          text = "A spellcaster at my campfire, so Williden will want you near his crystals by sundown. Just don't set anything alight, because the ferns down there go up like oil-soaked rags." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, all the way down in the crater. I won't ask why, because frankly the Refuge needs a healer more than it needs answers." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, down here? Good, because my scholars keep coming back from the crater bitten, stung and poisoned all at once, and Williden's bandages only go so far." },
@@ -171,7 +171,7 @@ P:NPC {
   topics = {
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's our lifeline, for water and powder and bandages, and the goblins know it, so they charge accordingly. My brother pays without blinking, and I blink for both of us." } },
     silithid = { { id = "tp_silithid", text = "The bugs from Silithus have started crawling up out of the crater's southern edge, and I don't like it one bit. They didn't used to come this far north." } },
-    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League would kill for half the bones we've dug up, and some of them have tried, in a manner of speaking. My brother keeps the best ones for himself." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League would kill for the bones we've dug up, and some of them have tried, in a manner of speaking. My brother keeps the best ones for himself." } },
     booty_bay = { { id = "tp_booty_bay", text = "I bought my first rifle in Booty Bay, from a goblin who swore it'd never misfire. It misfired twice the first week, and I've kept it twenty years anyway." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't think the crater does either." } },
   },
@@ -383,7 +383,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because a bloodpetal feels the ground through its roots, and a nervous body shakes it far more than a steady one! A warrior who keeps still in his boots is as safe as a stone, which is why I always ask the steady ones to hold the basket." } },
+      lines = { { id = "xwarcl_default", text = "Because a bloodpetal feels the ground through its roots, and a nervous body shakes it far more than a steady one! A warrior who keeps still in his boots is as safe as a stone, so I always ask the steady ones to hold the basket." } },
       choices = {
         { text = "Steadiness is a warrior's best armour. I won't flinch.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If a plant lashes at me, I'll cut it to the roots.", next = "BACK", fx = { align = { order = -1 } } },
@@ -393,7 +393,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some of them hunt everything, and the bloodpetals are very good at it! They lie quiet under the ferns until something warm walks by, which is why the raptors here step so carefully, and why you ought to as well." },
+        { id = "xhuntcl_default", text = "Some of them hunt everything, and the bloodpetals are very good at it! They lie quiet under the ferns until something warm walks by, and so the raptors here step very carefully, and you ought to as well." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} away from the red blooms, please, because the lashers have a taste for fur, and I'd hate to have to write it up as a scientific observation." },
       },
       choices = {
@@ -476,7 +476,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Carnivorous plants, and very clever ones, which is why I love them. They lure insects and small creatures, and sometimes larger creatures, too, if they're hungry enough." } },
+      lines = { { id = "b1_1_l", text = "Carnivorous plants, and very clever ones, and I adore them for it! They lure insects and small creatures, and sometimes larger creatures, too, if they're hungry enough." } },
       choices = { { text = "What makes them worth studying?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
@@ -585,7 +585,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The springs, honestly, buddy: I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
+      lines = { { id = "xhsham_default", text = "The springs, buddy, plain and simple: I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
       choices = {
         { text = "The crater was warning you. You should have turned back.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You followed your curiosity. That's no crime.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -761,7 +761,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Sell's an ugly word, friend, when I'd be offering a premium bathing experience with spiritual benefits. The springs really do ease a sore back, mind you, so if your Light wants to take a bit of the credit, I'm happy to share it, for a percentage." } },
+      lines = { { id = "xapriest_default", text = "Sell's an ugly word, friend, when I'd be offering a premium bathing experience with spiritual benefits. The springs really do ease a sore back, so if your Light wants to take a bit of the credit, I'm happy to share it, for a percentage." } },
       choices = {
         { text = "Blessings aren't for sale. Find another way to get rich.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If folk feel better, a little exaggeration does no harm.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },

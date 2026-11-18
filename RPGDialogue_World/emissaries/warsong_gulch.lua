@@ -25,9 +25,9 @@ P:NPC {
 
   notice = {
     { id = "n_rank", cat = "pvp", when = { pvpRank = 6 },
-      text = "You wear an officer's rank in the Alliance's service, I see. Those titles are paid for in blood, and I'd rather that blood was spent at the Gulch than anywhere else." },
+      text = "You wear an officer's rank in the Alliance's service, I see. Those titles are paid for in blood, and if blood must be spent, let it be spent at the Gulch, where the forest gains by it." },
     { id = "n_kills", cat = "soldier", when = { honorKills = { min = 250 } },
-      text = "You've the bearing of someone who has faced the Horde many times and walked away, which is more than most recruits who come to me can say. The Gulch could use that steadiness." },
+      text = "You've the bearing of someone who has faced the Horde many times and walked away, and few of the recruits who come to me can claim the same. The Gulch could use that steadiness." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" }, place = "before",
       text = "One of our own, and a long way from the boughs of Teldrassil! Ashenvale is your forest too, sister or brother, and it is bleeding." },
   },
@@ -131,7 +131,7 @@ P:NPC {
       },
     },
     mill_grom = {
-      lines = { { id = "mg_default", text = "It counts for a great deal, and we know it, for Mannoroth fell in our forest too. But a debt paid in one coin doesn't cancel a debt owed in another, and Cenarius is still dead, and the trees are still coming down." } },
+      lines = { { id = "mg_default", text = "It counts for much, and we know it, for Mannoroth fell in our forest too. But a debt paid in one coin doesn't cancel a debt owed in another, and Cenarius is still dead, and the trees are still coming down." } },
       choices = {
         { text = "Then the fight goes on. I understand.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Hard words, Sentinel, but honest ones.", next = "BACK", fx = { affinity = 1 } },
@@ -190,7 +190,7 @@ P:NPC {
     city = {
       lines = {
         { id = "ct_default", text = "It's a strange post for a Sentinel, standing among walls when I'd rather be in the branches above the Hold. But Ashenvale can't win this alone, so here I am, asking strangers to care about a forest most of them have never seen." },
-        { id = "ct_if", when = { zone = "Ironforge" }, text = "Honestly, I find it hard to breathe in here, with the forges going day and night and no sky at all. The dwarves are kind enough, though, and one of them brought me a potted fern last week, which I've kept alive by the Great Forge's light." },
+        { id = "ct_if", when = { zone = "Ironforge" }, text = "I confess I find it hard to breathe in here, with the forges going day and night and no sky at all. The dwarves are kind enough, though, and one of them brought me a potted fern last week, which I've kept alive by the Great Forge's light." },
         { id = "ct_sw", when = { zone = "Stormwind City" }, text = "The humans stare at me as if I were a tall purple ghost, but they listen when I speak, which is more than I expected. Their children ask whether Ashenvale has wolves in it, and I tell them yes, and that some of the wolves have riders." },
         { id = "ct_dn", when = { zone = "Darnassus" }, text = "Here I'm among my own, which should be easier, and it isn't. Too many of our people think the war in Ashenvale is a matter for the Sentinels alone, and they'd rather tend Teldrassil's groves than look south across the water." },
       },
@@ -524,7 +524,7 @@ P:NPC {
   },
 
   topics = {
-    ashenvale = { { id = "tp_ash", text = "More trees than a whole clan could cut in a lifetime, and the night elves guard every one of them as if it were their own child." } },
+    ashenvale = { { id = "tp_ash", text = "More trees than a whole clan could cut in a lifetime, and the night elves guard each trunk as if it were their own child." } },
     _none = { { id = "tp_none", text = "I'm a soldier of the Warsong, not a scholar. Ask me about the Gulch, and you'll get a straight answer." } },
   },
 }

@@ -157,7 +157,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal about magic and somewhat less about people, which suits me. Ask." } },
+    knows = { { id = "tp_knows", text = "I know a library's worth about magic and somewhat less about people, which suits me. Ask." } },
     background = { { id = "tp_bg", text = "A magus of the Undercity, sent to Tarren Mill to study. I study, among other things." } },
     advice = { { id = "tp_ad", text = "Never trust a wizard's door that's left unlocked. It's either a trap or a joke, and both are at your expense." } },
     alterac = { { id = "tp_alterac", text = "Ogres in the ruins, Syndicate in the hills and wizards in the crater. Alterac has always been a crowded place to die." } },
@@ -206,7 +206,7 @@ P:NPC {
         { id = "h_bracers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bracers of Binding"), days = 3 } },
           text = "You found them. I trust the elementals you took these bracers from were amenable? That was a joke, I think; death has quite robbed me of my timing." },
         { id = "h_mage", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage! You'll forgive me if I treat you as a reference book. The Magus certainly will." },
+          text = "A mage! Don't mind me if I treat you as a reference book. The Magus certainly will." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, in the Mill? I'd keep moving, if I were you, and I'd keep moving quickly." },
       },

@@ -17,7 +17,7 @@ P:Pool {
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
       text = "The tauren vouches for the peace in this camp, so it holds for you too. Give me no reason to end it." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
-      text = "Highborne blood, walking back into Highborne ruins. Forgive me if I watch you more closely than the others." },
+      text = "Highborne blood, walking back into Highborne ruins. I will be watching you more closely than the others." },
   },
   lines = {
     { id = "l_default", text = "This coast was Zin-Azshari once, before the Well's destruction drowned it. We guard what's left so that nothing worse than the Highborne's ghosts walks out of it." },

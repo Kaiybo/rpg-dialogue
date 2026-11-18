@@ -648,7 +648,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Aye, if ye oil it right an' cut it soft, which is why my leathers cost a wee bit more. I make it for scouts an' hunters, but I've no' asked any o' them what they get up to in the dark." } },
+      lines = { { id = "xrogue_default", text = "Aye, if ye oil it right an' cut it soft, so my leathers cost a wee bit more. I make it for scouts an' hunters, but I've no' asked any o' them what they get up to in the dark." } },
       choices = {
         { text = "I'll use it to scout the Frostmane, nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Better you don't ask, Durnan. It's healthier that way.", next = "BACK", fx = { align = { honor = -1 } } },

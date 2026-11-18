@@ -154,7 +154,7 @@ P:NPC {
   topics = {
     wildhammer = { { id = "tp_wildhammer", text = "I learned to ride from a Wildhammer at Aerie Peak, and they ride without saddles because they think the birds deserve the honour. I use a saddle, because I'm not mad, but I understand the feeling." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "From the air you can see the smoke rising from that mountain north of the Steppes, day and night, like a forge that never cools. I keep my gryphons well away from it, because they can smell the orcs." } },
-    black_dragonflight = { { id = "tp_black_dragonflight", text = "My gryphons won't fly near the Burning Steppes, and a Wildhammer told me why: black dragons nest up there. I've seen something big moving over the mountain at dusk, and I'd rather not see it again." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "My gryphons won't fly near the Burning Steppes, and a Wildhammer told me why: black dragons nest up there. I've seen something big moving over the mountain at dusk, and I've no wish to see it twice." } },
     onyxia = { { id = "tp_onyxia", text = "Gryphon riders who fly south to Theramore tell me there's a black dragon in the marshes there, and they give her lair a wide berth. I'd do the same, and I've never even seen her." } },
     dark_portal = { { id = "tp_dark_portal", text = "I flew a message to Nethergarde once, and you can see the Dark Portal from the keep's walls. It's broken and dead, they say, but the birds didn't like it, and neither did I." } },
     background = { { id = "tp_bg", text = "I learned to handle gryphons in Ironforge and came south when Lakeshire needed someone who could." } },
@@ -225,7 +225,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hundreds a week, and half of them stuck in trees, because the gnolls duck better than you'd think. A hunter who shoots clean and picks up after himself is worth twice as much to me as one who doesn't." },
+        { id = "xhuntcl_default", text = "Hundreds a week, and half of them stuck in trees, because gnolls duck like hens at a fox. A hunter who shoots clean and picks up after himself is worth twice as much to me as one who doesn't." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is chewing my fletching, {class}, and those are goose feathers, so get it away before it costs you." },
       },
       choices = {
@@ -270,7 +270,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want arrows, but if you'd bless the batch going up to the watch, I'll not say no." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll not want arrows either, but you'll want the watch to have them, so bless my fingers while you're here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll forgive the feathers on the floor, since every goose in Redridge has given something to the war." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll not be wanting arrows, I expect, unless it's to throw them, and I'd rather you didn't." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll not be wanting arrows, I expect, unless it's to throw them, and I'll ask you not to." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I could use a little warmth to dry the glue on my fletchings, if you've a spare spark and a steady hand." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your demon's eyeing my feathers, I think, so I'll ask you to keep it on your side of the counter." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I make arrows as fast as I can, and it's still not enough for the gnolls. Your lightning would help." },
@@ -311,7 +311,7 @@ P:NPC {
       },
     },
     b = {
-      lines = { { id = "b_default", text = "Deputy Feldon's men, then Corporal Keeshan's lot when they're back from the hills. Keeshan pays on time, which is more than I can say for some." } },
+      lines = { { id = "b_default", text = "Deputy Feldon's men, then Corporal Keeshan's lot when they're back from the hills. Keeshan pays on time, and Feldon pays when he remembers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -368,7 +368,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Blowing open a lock, usually, which is why I ask. If it's for the gnolls' camps, I'll sell you a pouch and wish you luck, but if it's for anybody's strongbox in Lakeshire, I'll know whose shop it came from, and so will the Magistrate." } },
+      lines = { { id = "xrogue_default", text = "Blowing open a lock, usually, so I always ask. If it's for the gnolls' camps, I'll sell you a pouch and wish you luck, but if it's for anybody's strongbox in Lakeshire, I'll know whose shop it came from, and so will the Magistrate." } },
       choices = {
         { text = "It's for the gnolls, Henry. Nothing else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "What I do with it is my own affair.", next = "BACK", fx = { align = { order = -1 } } },
@@ -458,7 +458,7 @@ P:NPC {
       },
     },
     a = {
-      lines = { { id = "a_default", text = "Over the mountains from Ironforge, by way of Stormwind, by way of a lot of wagons that never quite arrive on time. Dwarven powder is worth the wait, mind you." } },
+      lines = { { id = "a_default", text = "Over the mountains from Ironforge, by way of Stormwind, by way of a lot of wagons that never quite arrive on time. Dwarven powder's worth every day of the wait, though." } },
       choices = {
         { text = "You could surely make your own.", next = "a2" },
         { text = "Something else.", next = "BACK" },
@@ -480,9 +480,9 @@ P:NPC {
   topics = {
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the finest powder in the world, and they'll not sell a grain of it to anyone with a beard of another colour. I make do with Ironforge powder, which is still a deal better than anything human-made." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes make guns that do three things at once and sometimes all of them on purpose. Since their city fell, I can't get their parts at all, and I miss them every time a trigger sticks." } },
-    magni = { { id = "tp_magni", text = "King Magni's riflemen are the finest marksmen on the continent, and every one of them would tell you so. I'd sell them shot, but they bring their own and scoff at mine." } },
+    magni = { { id = "tp_magni", text = "King Magni's riflemen are the finest marksmen on the continent, and they'll tell you so themselves, at length. I'd sell them shot, but they bring their own and scoff at mine." } },
     thandol_span = { { id = "tp_thandol_span", text = "If the Dark Irons have knocked a hole in the Thandol Span, then my powder from Ironforge has to come the long way round. That's money and days, and the watch needs shot now." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "A goblin from Gadgetzan sold me a rifle once that fired backwards half the time and forwards the other half. I keep it behind the counter as a warning to the curious." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "A goblin from Gadgetzan sold me a rifle once that fired backwards about as often as forwards. I keep it behind the counter as a warning to the curious." } },
     background = { { id = "tp_bg", text = "I learned the trade from a dwarf in Stormwind's Dwarven District, and I still owe him for the lessons." } },
     _none = { { id = "tp_none", text = "I'm afraid that's not a thing you can load or fire, so I wouldn't know." } },
   },

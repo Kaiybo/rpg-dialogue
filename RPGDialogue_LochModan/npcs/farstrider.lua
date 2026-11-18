@@ -380,7 +380,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a great deal, naturally, about hunting and about my own exploits. Ask, and I'll decide which to tell you." } },
+    knows = { { id = "tp_knows", text = "I know everything worth knowing, naturally, about hunting and about my own exploits. Ask, and I'll decide which to tell you." } },
     background = { { id = "tp_bg", text = "I came to the lodge to make my name, and I've very nearly made it. Daryl the Bold, remember that." } },
     advice = { { id = "tp_ad", text = "Never hunt in a cave alone. That's just good sense, and it has nothing to do with anything." } },
     _none = { { id = "tp_none", text = "That's beneath my notice, I'm afraid. Try Marek, for he notices everything and never lets you forget it." } },

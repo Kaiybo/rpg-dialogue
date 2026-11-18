@@ -102,7 +102,7 @@ P:NPC {
     },
     crab_surprise = {
       lines = {
-        { id = "cs_default", text = "It's got more crab in it than you'd think, every single time." },
+        { id = "cs_default", text = "It's got crab in it. Somehow it's always got crab in it, whatever I put in the pot." },
       },
       choices = {
         { text = "That is a surprise.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },

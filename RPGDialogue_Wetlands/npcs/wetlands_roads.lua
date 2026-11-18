@@ -420,7 +420,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Ormer Ironbraid guards Whelgar's Excavation from the raptors, and he holds a grudge against every one of them.",
+    first = "Ormer Ironbraid guards Whelgar's Excavation from the raptors, and he holds a grudge against each raptor personally.",
     third = "{name} met Ormer Ironbraid at Whelgar's Excavation, a dwarf with a score to settle against the local raptors.",
   },
 
@@ -450,7 +450,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "In threes an' fours, circlin' till one o' them finds a gap, an' then the rest pile in after it. Stand yer ground an' keep yer shield up, an' they'll lose interest before ye do, which is more than I can say for my diggers." } },
+      lines = { { id = "xwarcl_default", text = "In threes an' fours, circlin' till one o' them finds a gap, an' then the rest pile in after it. Stand yer ground an' keep yer shield up, an' they'll lose interest before ye do, though my diggers always lose their nerve first." } },
       choices = {
         { text = "I'll hold the gap so none get through.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll charge the pack before they finish circling.", next = "BACK", fx = { align = { order = -1 } } },
@@ -523,7 +523,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin'." },
       },
       choices = {
-        { text = "You seem to hate the raptors more than most.", next = "raptors" },
+        { text = "You seem to have a special hatred for the raptors.", next = "raptors" },
         { text = "What's Whelgar digging for?", next = "dig" },
         { text = "There must be a trick to fighting them.", next = "fight" },
         { text = "Raptors are fine prey. I'll hunt them.", next = "hunter", when = { class = "HUNTER" } },
@@ -566,7 +566,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hunter = {
-      lines = { { id = "hu_default", text = "Then ye're welcome here, hunter, more than most. Bring me the claws of the biggest and I'll drink to yer name." } },
+      lines = { { id = "hu_default", text = "Then ye're doubly welcome here, hunter. Bring me the claws of the biggest and I'll drink to yer name." } },
       choices = { { text = "Consider it done.", next = "BACK", fx = { affinity = 2 } } },
     },
   },

@@ -121,7 +121,7 @@ P:NPC {
           text = "The beasts that killed my Kron roam the hills nearby. Bring me back his amulet, so that I have something of him to bury." },
         { id = "h_done", when = { questDone = TODO_QUEST("Lost But Not Forgotten") },
           text = "His amulet hangs by my door now, and I touch it every morning. You did a kindness for an old woman, and I have not forgotten it." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "You're a druid, then. Kron used to say the tauren could speak with beasts, and I laughed at him, but I'd give a great deal now to know whether it's true." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "You're a druid, then. Kron used to say the tauren could speak with beasts, and I laughed at him, but now I'd give anything to know whether it's true." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You speak with the spirits, shaman. Then tell me true, do the dead walk among them, and would my Kron still know his mother's voice?" },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like Kron did, all quiet steps and quick eyes. He'd have liked you, I think." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I can smell the fel on you, warlock. I remember that smell from before the camps, when our warlocks still walked among us." },
@@ -333,7 +333,7 @@ P:NPC {
           text = "Down into Skull Rock with you, then, and bring me back what the cultists carry. Proof is what Orgrimmar wants, and proof is what I'll send them." },
         { id = "h_neeru", when = { questActive = TODO_QUEST("Margoz") },
           text = "So Orgrimmar sent you to old Margoz. Good, because I've been waiting for someone with more sword than sense." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The Burning Blade down in Skull Rock spit on everything your kind keeps, so I expect you'll enjoy this work more than most." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The Burning Blade down in Skull Rock spit on everything your kind keeps, so I expect you'll enjoy this work." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll smell the fel on the wind from Skull Rock before you're halfway down the path, and I'm told your kind feel it in the ground as well." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could get closer to Skull Rock than I ever could, and count the cultists without being counted yourself." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A spellcaster, out here? I thought Un'Thuwa kept all of his students in Sen'jin, reading." },
@@ -377,7 +377,7 @@ P:NPC {
       },
     },
     watch = {
-      lines = { { id = "w_default", text = "A hut makes a poor fortress, but it makes a fine blind. They think I'm an old hermit, and old hermits see a great deal." } },
+      lines = { { id = "w_default", text = "A hut makes a poor fortress, but it makes a fine blind. They think I'm an old hermit, and old hermits see everything." } },
       choices = { { text = "Clever.", next = "BACK" } },
     },
     orders = {
@@ -406,7 +406,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     po_hang = {
-      lines = { { id = "poh_default", text = "That's the sort of thing I like to hear on a long night. Mind you, Zureetha down in the Valley might argue it with you, and she's earned the right." } },
+      lines = { { id = "poh_default", text = "That's the sort of thing I like to hear on a long night. Zureetha down in the Valley might argue it with you, though, and she's earned the right." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     po_lock = {
@@ -440,7 +440,7 @@ P:NPC {
     third = "{name} met Swart, the shaman trainer at Razor Hill.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome, mon. The wind be dry today, and it blew you in with half the Barrens on your boots." },
+    { id = "g_hi", text = "Welcome, mon. The wind be dry today, and it blew you in with de Barrens' red dust all over your boots." },
   },
   start = "hello",
   nodes = {
@@ -633,7 +633,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Better than you'd think, if the rogue remembers who's taking the hits. I'll hold their eyes while you go round the back, but I'll expect you there when I need you, not halfway to Orgrimmar with the loot." },
+        { id = "xrogue_default", text = "Well enough, if the rogue remembers who's taking the hits. I'll hold their eyes while you go round the back, but I'll expect you there when I need you, not halfway to Orgrimmar with the loot." },
       },
       choices = {
         { text = "I'll be there when you need me. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -712,7 +712,7 @@ P:NPC {
       again = { { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." } },
     },
     scars = {
-      lines = { { id = "s_default", text = "The Second War, mostly, and a few from the camps' guards when I was too stubborn to sit down. Every one of them taught me something, which is more than I can say for most teachers." } },
+      lines = { { id = "s_default", text = "The Second War, mostly, and a few from the camps' guards when I was too stubborn to sit down. Each scar taught me something, and I learned more from them than from any trainer." } },
       choices = { { text = "Which one taught you most?", next = "scars_best" } },
     },
     scars_best = {

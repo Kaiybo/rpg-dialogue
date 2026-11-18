@@ -62,7 +62,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_forsaken_default", text = "We fight it without any hope of going home, which makes us patient, and we know its tricks because we were its tricks. Your friend will tell you that every ghoul at these gates was somebody's neighbour once, and that is why we never miss." } },
       choices = {
-        { text = "Burn every one of them, whoever they used to be.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Burn them all, whoever they used to be.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "They were people once. They deserve a mercy before the blade.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -112,8 +112,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the plague doesn't stay in the cauldrons. The wolves carry it out to the farms and the bats carry it over the hills, and every one of them is a map of where the Scourge has been, if anyone bothers to read it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash past the Bulwark, {class}. A beast that eats one wrong carcass out there will turn on you before the night's out, and I'd rather not have to put down the pair of you." },
+        { id = "xhuntcl_default", text = "That the plague doesn't stay in the cauldrons. The wolves carry it out to the farms and the bats carry it over the hills, and each sick beast is a map of where the Scourge has been, if anyone bothers to read it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash past the Bulwark, {class}. A beast that eats one wrong carcass out there will turn on you before the night's out, and I've no wish to put down the pair of you." },
       },
       choices = {
         { text = "I'll read their trails and report every one to you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -209,7 +209,7 @@ P:NPC {
     },
     honor = {
       lines = {
-        { id = "ho_default", text = "Honor, yes, I remember it well enough. I had plenty of it when I was alive and losing, and I've since found I like winning a great deal better." },
+        { id = "ho_default", text = "Honor, yes, I remember it well enough. I had plenty of it when I was alive and losing, and I've since found I much prefer winning." },
       },
       choices = {
         { text = "Winning suits you, then. I'll not argue.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -314,7 +314,7 @@ P:NPC {
     plague_cauldrons = { { id = "tp_cauldrons", text = "The cauldrons are the Lich King's breath on the land, and Vandis and Dithers mean to sour it." } },
     scourge = {
       { id = "tp_scourge", text = "The Scourge sits east of this wall in numbers no one has bothered to count, because the count would only frighten the living. We hold the Bulwark against it every night, and we'll hold it tomorrow." },
-      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what's out there, because you marched with it. Every one of them we put down is one less voice you'll hear in your sleep, if you slept." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what's out there, because you marched with it. Each one we put down is one less voice you'll hear in your sleep, if you slept." },
     },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are the only people in Lordaeron who can stand on this line without flinching, because we've already died once and found it overrated. The Dark Lady knows it, and so does every orc who's served here." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sends me soldiers and supplies, and she leaves me to hold the line as I see fit. The court in the Undercity can play its games, and I'll keep the Scourge out of their drawing rooms." } },
@@ -343,7 +343,7 @@ P:NPC {
   greetings = {
     { id = "g_dry", text = "Speak, I'm listening, though I'm also counting your fingers, out of habit." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the farms, are you? I hope you've brought me something foul." },
-    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You preached the Light in some chapel out here once, didn't you? Half the farms past this wall heard sermons like yours before they turned, and I'd find that funny if I still found anything funny." },
+    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You preached the Light in some chapel out here once, didn't you? The farms past this wall heard sermons like yours every Sunday before they turned, and I'd find that funny if I still found anything funny." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away} and still came back with all your fingers, which I've counted. Speak." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you frightened someone at the Bulwark. How refreshing, since most of us here are long past being frightened by anything." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone here was taken in by your tongue, I'm told. I'd admire it more if I weren't listening so carefully now." },
@@ -453,7 +453,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I would rather you fetched them at all, which is more than most volunteers manage. The cauldron guardians watch the front of each pot, so a careful thief who comes in from behind and fills a vial will save the Bulwark a great deal of burying." } },
+      lines = { { id = "xrogue_default", text = "I would rather you fetched them at all; most volunteers come back with excuses. The cauldron guardians watch the front of each pot, so a careful thief who comes in from behind and fills a vial will spare the Bulwark a long week of burying." } },
       choices = {
         { text = "No glory in sneaking, but it works.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather cut the guardians down in the open.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -490,7 +490,7 @@ P:NPC {
     },
     faith = {
       lines = {
-        { id = "fa_default", text = "Perhaps it might, and perhaps the cauldrons will empty themselves out of shame. I've a great deal of work to do in the meantime, and I'd rather not wait on either of them." },
+        { id = "fa_default", text = "Perhaps it might, and perhaps the cauldrons will empty themselves out of shame. I've work to do in the meantime, and I don't intend to wait on either of them." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -609,7 +609,7 @@ P:NPC {
     },
     xcl_scholo = {
       big = true,
-      lines = { { id = "xcl_scholo_default", text = "Splendid, splendid, and do tell Arbington if you're ever on the Alliance side of the road, because he'll faint and I'd like to hear about it. The Society sent me out here to break the cauldrons, but between you and me, half the recipes in those cauldrons were first written down in Gandling's classrooms." } },
+      lines = { { id = "xcl_scholo_default", text = "Splendid, splendid, and do tell Arbington if you're ever on the Alliance side of the road, because he'll faint and I'd like to hear about it. The Society sent me out here to break the cauldrons, but between you and me, a good many of the recipes in those cauldrons were first written down in Gandling's classrooms." } },
       choices = {
         { text = "Then the Society should seize his notes before the Cult does.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Burn his recipes. Nobody should brew those again.", next = "BACK", fx = { align = { light = 1 } } },
@@ -672,7 +672,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more than most priests do for their patients." } },
+      lines = { { id = "xhpriest_default", text = "Once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more attention than any priest ever paid it." } },
       choices = {
         { text = "Let me try anyway. Mending is worth the attempt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep your notes, Apothecary. Shadow's no friend to bone.", next = "BACK", fx = { align = { light = -1 } } },
@@ -713,7 +713,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter, how lovely! Don't let anything of yours near the samples, {class}, for the last pet that licked a vial in here barked for three days and then barked backwards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Do you know your herbs? Some of what I need grows only here now, and it's grown very strange in the poisoned soil." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Do mind the shelves, {class}, for half these bottles will kill you and the other half are merely rude, and I've stopped labelling which is which." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Do mind the shelves, {class}, for some of these bottles will kill you and the rest are merely rude, and I've stopped labelling which is which." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Splendid, my knee could use a word with whatever you pray to, {class}, though I suspect it would only complain about the weather." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've always wanted to ask one of you, {class}, whether the plague counts as an element, because I'd have a great many questions for it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! How splendid, because I've a counter agent for the cauldrons that I've never tried on anyone holy, and you look like you'd survive almost anything, having already survived the worst." },
@@ -743,7 +743,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Of course not, of course not, though you'd make a fine one. The counter agent spoils if it warms, you see, and the Society would sooner lose an apothecary than a batch, which tells you everything you need to know about the Society." } },
+      lines = { { id = "xmage_default", text = "Of course not, of course not, though you'd make a fine one. The counter agent spoils if it warms, you see, and the Society would sooner lose an apothecary than a batch, and that's the Society in a sentence." } },
       choices = {
         { text = "The work matters more than any one of us.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your Society treats you poorly, and you shouldn't stand for it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -949,12 +949,12 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock, and of the Horde, which makes you a far better class of guest than my brother. Did you know, {class}, that the Scholomance teaches the shadow arts to anyone with ambition and a strong stomach?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage. My family once paid a Kirin Tor tutor more than most villages earn in a year, {class}, and I learned nothing from him but how to look interested." },
+          text = "A mage. My family once paid a Kirin Tor tutor more than a village earns in a year, {class}, and I learned nothing from him but how to look interested." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. My brother sleeps with a sword under his blanket, {class}, as though steel ever saved a Barov from anything, and I'd enjoy watching someone use one properly for once." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. My father kept hounds at Caer Darrow and rode them round the lake every autumn, {class}, and I've never forgiven the plague for the smell it left there instead." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My family's lands were the finest in Lordaeron once, and now they grow nothing but bones, so you'll forgive me if I don't ask for your advice on gardening." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My family's lands were the finest in Lordaeron once, and now they grow nothing but bones, so I'll not be asking your advice on gardening." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've come to save my soul, {class}, I'm afraid my father sold it before I was old enough to object, and Kel'Thuzad never gave receipts." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I hear your kind claim the land belongs to nobody, {class}, which is a charming idea, and one I'd ask you to keep well away from my deeds." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. My family knew the Silver Hand well, as we knew everyone worth knowing, and I can assure you they'd have found you very hard to explain at dinner." },
@@ -1024,7 +1024,7 @@ P:NPC {
     },
     pay = {
       lines = {
-        { id = "p_default", text = "Gold, and a great deal of it, more than you've ever seen in one place, I'd wager. I would know, having seen your boots." },
+        { id = "p_default", text = "Gold, and heaps of it, more than you've ever seen in one place, I'd wager. I would know, having seen your boots." },
       },
       choices = {
         { text = "Deal.", next = "BACK", fx = { affinity = 1 } },
@@ -1180,7 +1180,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_addistrust", tags = { "news" }, when = { gossip = { topic = "argent_dawn", stance = "distrust" } }, text = "The High Executor tells me you think the Dawn wants watching. Watch, then; we have nothing here we'd mind you seeing." },
+        { id = "o_addistrust", tags = { "news" }, when = { gossip = { topic = "argent_dawn", stance = "distrust" } }, text = "The High Executor tells me you think the Dawn wants watching. Watch, then; we have nothing here we'd hide from you." },
         { id = "h_default", key = true,
           text = "Argent Officer Garush, orc, Horde-born, and a soldier of the Argent Dawn, where every race faces one enemy. I fought for the Horde all my life, and now I fight for everybody." },
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },

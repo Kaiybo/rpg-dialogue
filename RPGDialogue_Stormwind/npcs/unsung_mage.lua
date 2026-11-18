@@ -156,7 +156,7 @@ P:NPC {
       },
     },
     fight2 = {
-      lines = { { id = "f2_default", text = "So I tell myself each morning, and some mornings I even believe it. Tell me honestly, would you stay, in my place?" } },
+      lines = { { id = "f2_default", text = "So I tell myself each morning, and some mornings I even believe it. Tell me truthfully, would you stay, in my place?" } },
       choices = {
         { text = "Yes. A post is a post, and someone must hold it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "No. I'd go where I was needed most.", next = "BACK", fx = { align = { order = -1 } } },
@@ -174,8 +174,8 @@ P:NPC {
   },
   topics = {
     elune = { { id = "tp_elune", text = "Elune guides my hands when I brew, though the humans don't understand why I work by moonlight. I don't explain, because they'd only want to watch." } },
-    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is my home, and I'd rather be there, or anywhere outside these walls. Still, duty keeps me here, and I share what I know with those who'd learn it." } },
-    sentinels = { { id = "tp_sentinels", text = "The Sentinels fight for our people in Ashenvale, and I'd rather be with them than in this little shop. I brew potions for them when I can, and I send them by the next ship." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is my home, and my heart is there, or anywhere outside these walls. Still, duty keeps me here, and I share what I know with those who'd learn it." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels fight for our people in Ashenvale, and I would sooner stand among them than behind this little counter. I brew potions for them when I can, and I send them by the next ship." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The herbs that grow where the Emerald Dream touches our world are the finest in any alchemy, and I've never been able to find them. The druids say they're there, and I believe them." } },
     background = { { id = "tp_bg", text = "I crossed the sea when our peoples made their alliance, and I have taught here ever since. My people seldom count the days, but I count every one of mine." } },
     _none = { { id = "tp_none", text = "That I cannot tell you, and I will not pretend otherwise, as the younger races sometimes do. Ask me about herbs and flasks instead." } },
@@ -348,7 +348,7 @@ P:NPC {
     teldrassil = { { id = "tp_teldrassil", text = "Every herb on my table was grown on Teldrassil and carried here by hand, as a sign of friendship between our peoples. I hope you'll treat them as a gift, even if you've paid for them." } },
     elune = { { id = "tp_elune", text = "Elune watches over every plant that grows under the moon, and I bless each one before I sell it. The humans think I'm being polite, and I let them think so." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind sent us here to show the humans our goodwill, and I carry her blessing with every herb I sell. She is our high priestess and our leader, and she has been both for longer than your kingdom has stood." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Elwynn soon after I arrived, and I had never heard so many humans laugh at once. I have seen a great deal in a very long life, and that still surprised me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Elwynn soon after I arrived, and I had never heard so many humans laugh at once. I have seen much in a very long life, and that still surprised me." } },
     background = { { id = "tp_bg", text = "I crossed from Kalimdor with the first of our people to come to Stormwind, and I have kept this corner of the shop since." } },
     _none = { { id = "tp_none", text = "I do not know, and my people learned long ago that a careless guess can do more harm than silence." } },
   },
@@ -405,7 +405,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than you'd think, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." } },
+      lines = { { id = "xlock_default", text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." } },
       choices = {
         { text = "Then I'll sew for protection, not for anything darker.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The purpose is mine, Georgio. The stitch is enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -503,7 +503,7 @@ P:NPC {
       },
     },
     shop = {
-      lines = { { id = "s_default", text = "Duncan Cullen owns it and sells the finished armour, Alexandra keeps the cloth and thread, and young Lawrence Schneider teaches the beginners, which spares me a great deal of suffering." } },
+      lines = { { id = "s_default", text = "Duncan Cullen owns it and sells the finished armour, Alexandra keeps the cloth and thread, and young Lawrence Schneider teaches the beginners, which spares me hours of watching crooked hems." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     good = {
@@ -513,7 +513,7 @@ P:NPC {
   },
   topics = {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's costumes are the only tailoring in the world that rivals mine, and I say that with all the modesty I possess. I've studied every stitch, and I've found three mistakes, which I shall not name." } },
-    gilneas = { { id = "tp_gilneas", text = "The tailors of Gilneas cut the finest coats in the Seven Kingdoms, and they've hidden every one of them behind that wall. I've tried to copy their collars, and I've failed, which I don't say often." } },
+    gilneas = { { id = "tp_gilneas", text = "The tailors of Gilneas cut the finest coats in the Seven Kingdoms, and they've hidden the lot of them behind that wall. I've tried to copy their collars, and I've failed, which I don't say often." } },
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran wore robes of the finest silk, and I tailored a few of them before the plague. I'd like to again, when they open their gates, and I'd like them to notice the hems." } },
     background = { { id = "tp_bg", text = "I've cut cloth in Stormwind since the city was rebuilt, and I'll cut it until my eyes give out." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, darling, and I don't intend to find out." } },
@@ -630,7 +630,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want white thread, I expect, because everything the Cathedral wears seems to show every stain." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want strong thread for that tabard, because its hem has been through a war or two." },
-        { id = "h_default", text = "Alexandra Bolero. Georgio teaches, I supply, and between us we keep half the tailors in Stormwind from tying their seams with string." },
+        { id = "h_default", text = "Alexandra Bolero. Georgio teaches, I supply, and between us we keep Stormwind's tailors from tying their seams with string." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll want mageweave, of course, because they all do once they've heard the name. It isn't magic, you know; it's just very good thread." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -669,11 +669,11 @@ P:NPC {
       },
     },
     lucan = {
-      lines = { { id = "l_default", text = "The finest enchanter in Stormwind, who keeps a shop by the canals with Jessara Cordell. Half the enchanted thread and trinkets in the Mage Quarter pass through his hands before they reach ours." } },
+      lines = { { id = "l_default", text = "The finest enchanter in Stormwind, who keeps a shop by the canals with Jessara Cordell. Most of the enchanted thread and trinkets in the Mage Quarter pass through his hands before they reach ours." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     georgio = {
-      lines = { { id = "ge_default", text = "Loud, and he thinks every customer is a disaster waiting for his scissors. But he's never once cut a pattern wrong, and I'll forgive a great deal for that." } },
+      lines = { { id = "ge_default", text = "Loud, and he thinks every customer is a disaster waiting for his scissors. But he's never once cut a pattern wrong, and I'll forgive a man a lot of shouting for that." } },
       choices = {
         { text = "Skill excuses a lot.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Skill doesn't excuse rudeness.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -902,7 +902,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "A well-made wand is silent until you call on it, while a cheap one hums all the time because the enchantment's leaking out through the grain. Half the wands sold on the canal stalls would empty themselves in a month, and the sellers know it." } },
+      lines = { { id = "xmage_default", text = "A well-made wand is silent until you call on it, while a cheap one hums all the time because the enchantment's leaking out through the grain. Most of the wands sold on the canal stalls would empty themselves in a month, and the sellers know it." } },
       choices = {
         { text = "Someone should warn buyers about those stalls.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Buyers should know better. That's the market.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -961,13 +961,13 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now, a wand will work for you, and I've a few that hum with something holy, if you'd care to listen." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'm sorry, friend, but you'd do more with a hammer than with any wand of mine, and I'd be a poor merchant to say otherwise." },
-        { id = "h_default", text = "Ardwyn Cailen. Allan sells the staves and I sell the wands, and I'll tell you honestly that since Dalaran fell, a wand made by a real enchanter is hard to find anywhere in the world." },
+        { id = "h_default", text = "Ardwyn Cailen. Allan sells the staves and I sell the wands, and I'll tell you plainly that since Dalaran fell, a wand made by a real enchanter is hard to find anywhere in the world." },
         { id = "h_warrior", when = { class = { "WARRIOR", "ROGUE" } }, text = "I'm sorry, friend, but a wand will do nothing in your hands except look pretty. Allan might have a staff for you, though, if you fancy one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Then you'll appreciate a wand made properly, with a true core, and you'll know a cheap one by the way it hums." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, so you'll want a wand that can bear a shadow without cracking, and I'll admit I've only a few that can." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a wand stall. You'll not need any of these, but I'll tell you honestly that a warrior who can recognise a good wand is a warrior who can spot a dangerous mage." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a wand stall. You'll not need any of these, but a warrior who can recognise a good wand is a warrior who can spot a dangerous mage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Wands aren't much use to you, I'd think, though I've known a hunter or two who carried one as a curiosity." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll want a staff of good wood rather than a wand, but every wand here has a core of the finest timber I could find, so don't scorn them yet." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My wands have tempers, you know, like your elements. Do yours sulk?" },
@@ -1080,7 +1080,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things that matter a great deal to a summoning circle. Anything stronger you'll have to find in the cellar under the Lamb, and I'd rather not know the price." } },
+      lines = { { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a summoning circle breaks at the wrong moment. Anything stronger you'll have to find in the cellar under the Lamb, and I've never asked the price." } },
       choices = {
         { text = "Dull and safe suits me. Keep it that way.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll find something stronger. Dull doesn't get results.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1130,12 +1130,12 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Speak softly, please, for some of these trinkets were made by people who didn't like the Church very much." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope you won't take offence, but the trinkets on the left shelf don't like your kind, and they've started to rattle." },
-        { id = "h_default", text = "Charys Yserian. I sell reagents and arcane trinkets, the small and curious leftovers of a great deal of magic, made by the crafters and mages here in Stormwind." },
+        { id = "h_default", text = "Charys Yserian. I sell reagents and arcane trinkets, the small and curious leftovers of other people's spells, made by the crafters and mages here in Stormwind." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, so you'll want reagents and the kind of trinkets your masters swear they never use. I keep both, and I keep quiet about who buys which." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. I keep a few things at the back for your people, though nothing that would trouble the Watch, and I'd rather keep it that way." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among the reagents. These are leftovers of a great deal of magic, and most of them won't help you, though a few might surprise you." },
+          text = "A warlock. I keep a few things at the back for your people, though nothing that would trouble the Watch, and I mean to keep it that way." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among the reagents. These are the crumbs of other people's spellwork, and most of them won't help you, though a few might surprise you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you see more of the world's raw magic than I do, out in the wild where the reagents first come from." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my little shop. Some of these trinkets came from your side of the sea, and they've been restless since you walked in." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walked in so quietly the chimes didn't stir. Please don't do that again; the trinkets don't like surprises." },
@@ -1182,7 +1182,7 @@ P:NPC {
     },
   },
   topics = {
-    dalaran = { { id = "tp_dalaran", text = "Half the curios on my shelves came out of Dalaran before the plague, and I'll not see their like again until the city opens its gates. Each one has a story, and I'll tell it to you if you're quiet." } },
+    dalaran = { { id = "tp_dalaran", text = "Most of the curios on my shelves came out of Dalaran before the plague, and I'll not see their like again until the city opens its gates. Each one has a story, and I'll tell it to you if you're quiet." } },
     scourge = { { id = "tp_scourge", text = "A refugee brought me a little silver bell from Lordaeron, and it rings by itself on cold nights. I've never sold it, and I never will, because I think it's waiting for someone." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "I have a little troll idol from Zul'Farrak, brought back by an explorer who wouldn't say how he got it. It's very ugly, and very old, and I keep it facing the wall." } },
     background = { { id = "tp_bg", text = "I've kept this little shop for years, among things older and stranger than me. I find it restful, most days." } },
@@ -1232,7 +1232,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I could, and I'd rather not, because the last fellow who borrowed a priest's robe got as far as the Cathedral steps before a novice asked him to lead the evening prayer. The Watch still laughs about it." } },
+      lines = { { id = "xrogue_default", text = "I could, but I won't, because the last fellow who borrowed a priest's robe got as far as the Cathedral steps before a novice asked him to lead the evening prayer. The Watch still laughs about it." } },
       choices = {
         { text = "Wearing a priest's robe falsely is wrong, Wynne.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A good disguise is worth a little blasphemy.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1340,7 +1340,7 @@ P:NPC {
       },
     },
     buyers = {
-      lines = { { id = "b_default", text = "Priests, more than you'd think, because the Cathedral sends its novices out into the world in robes that weren't made for mud. After that it's mages, who buy two of everything and ruin one." } },
+      lines = { { id = "b_default", text = "Priests, mostly, because the Cathedral sends its novices out into the world in robes that weren't made for mud. After that it's mages, who buy two of everything and ruin one." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Come closer, so old Vornal can see what the tide wash in today. Closer, mon, my eyes be older than the rest of me." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, I know that shape. You be the one who keep comin' back, which be more than most of the young ones manage." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, I know that shape. You be the one who keep comin' back, and most of de young ones don't bother." },
     { id = "g_solvent", when = { questActive = TODO_QUEST("A Solvent Spirit") }, text = "The makrura eyes, mon, and the crawler mucus. They be on the beaches, not in my hut, so why you be standin' here?" },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and Vornal thought maybe the crawlers got you. Good, good, they did not." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word come along the shore that you tell a lie and get caught at it. A bad liar be worse than a liar, mon, so either stop or practise." },

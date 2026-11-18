@@ -107,7 +107,7 @@ P:NPC {
       },
     },
     kolkar_op = {
-      lines = { { id = "ko_default", text = "Half the grunts at the Crossroads say so after a few drinks, and the other half say we've enough enemies already. I've fought centaur longer than most of them have been alive, so I'd like to hear it from you: what would you do?" } },
+      lines = { { id = "ko_default", text = "Some of the grunts at the Crossroads say so after a few drinks, and the rest say we've enough enemies already. I've fought centaur longer than most of them have been alive, so I'd like to hear it from you: what would you do?" } },
       choices = {
         { text = "Carry the war to Desolace and finish them.", next = "ko_war", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "war" } } },
         { text = "Hold the oases. Desolace isn't worth the blood.", next = "ko_hold", fx = { align = { light = 1 }, opinion = { centaur = "contain" } } },
@@ -152,7 +152,7 @@ P:NPC {
     },
     stragglers = {
       big = true,
-      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice, whatever Lanti'gah says about sparing them." } },
+      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I've no wish to meet him twice, whatever Lanti'gah says about sparing them." } },
       choices = {
         { text = "Let them run. Fear will hold the road better than graves.", next = "st_let",
           fx = { thread = { id = "kolkar_war", state = "resolved" }, affinity = -1, align = { light = 1 } },

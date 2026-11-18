@@ -147,7 +147,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Faster, sure, until it melts the engine and sends the driver into orbit! Racing's about engineering, friend, and I'd rather lose fair than win with a fireball in the fuel tank, mostly." } },
+      lines = { { id = "xmage_default", text = "Faster, sure, until it melts the engine and sends the driver into orbit! Racing's about engineering, friend, and losing fair beats winning with a fireball in the fuel tank, mostly." } },
       choices = {
         { text = "Engineering's the true test. Keep it pure.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every edge you can get.", next = "BACK", fx = { align = { order = -1 } } },
@@ -476,7 +476,7 @@ P:NPC {
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "The goblins spent a whole morning complaining about you, which is a morning they didn't spend on their car. Thank you kindly; that's worth a lap at least." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Please don't lean on anything, because half of what's in this tent is more fragile than it looks and the other half is about to explode." },
+          text = "A warrior! Please don't lean on anything, because everything in this tent is either more fragile than it looks or about to explode, and some of it's both." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Wonderful, because I'm told you lot are rather good at getting close to dangerous things, and the flats are full of them." },
         { id = "h_default", key = true,
@@ -825,7 +825,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "A dwarf who found the flats more profitable than the mountain. That's all the story ye need." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' at a racetrack ye didnae pour yerself. Trust me on that one." } },
     mirage_raceway = { { id = "tp_raceway", text = "Two crews, one track, an' a crowd that'll bet on anything. Paradise." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best bookies in Kalimdor, and I know every one of them by name. I'd tell you which ones to trust, but then I'd have to charge you." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best bookies in Kalimdor, and I know them all by name. I'd tell you which ones to trust, but then I'd have to charge you." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel likes a sure thing, and so do I. That's why I bet on both teams, and I always come out ahead." } },
     magni = { { id = "tp_magni", text = "King Magni is a fine dwarf, and he runs a fine city. I left it because the bets were too small." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city, and now they've got nothing to do but race. I bet on them sometimes, when the odds are good." } },

@@ -83,7 +83,7 @@ P:NPC {
     },
     opn_jaina_r_respect = {
       lines = {
-        { id = "opn_jaina_r_respect", text = "Ye'd know better than an old soldier. I only know her ships pay their dues an' her captains don't lie about cargo, an' that's more than I can say for Booty Bay." },
+        { id = "opn_jaina_r_respect", text = "Ye'd know better than an old soldier. I only know her ships pay their dues an' her captains don't lie about cargo, an' ye cannae say the same for Booty Bay." },
       },
       choices = {
         { text = "Something else, Captain.", next = "BACK" },
@@ -515,7 +515,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only in my dreams, and only when I've run short of mead, which is why I don't run short. My old shipmates walk the wrecks out there, cursed and bound, and if you've a trick that can talk to the dead, I'd beg you not to use it on them." } },
+      lines = { { id = "xlock_default", text = "Only in my dreams, and only when I've run short of mead, so I make very sure I never run short. My old shipmates walk the wrecks out there, cursed and bound, and if you've a trick that can talk to the dead, I'd beg you not to use it on them." } },
       choices = {
         { text = "I'd never trouble your shipmates. Let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead know things. I'd ask them, if I could.", next = "BACK", fx = { align = { light = -1 } } },
@@ -819,7 +819,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crocolisks on the shore, raptors on the road, an' the murlocs, though I'll no' call a murloc a beast in front o' one. The raptors are the worst, for they've cut the road east, an' the folk who need my prayers cannae reach me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll bless yer {pet} while I'm at it, for it'll need the Light's favour more than most in this swamp." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll bless yer {pet} while I'm at it, for every beast in this swamp needs the Light's favour, an' yers is nae exception." },
       },
       choices = {
         { text = "Every raptor I bring down opens the road a little.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1053,7 +1053,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I hear a great deal from the dyin' an' the drownin', more than I'd like. Ask me about any o' this, an' be quick, for the tide's comin' in." },
+      { id = "tp_knows", text = "The dyin' an' the drownin' tell me things, more than I'd like. Ask me about any o' this, an' be quick, for the tide's comin' in." },
     },
     third_fleet = { { id = "tp_fleet", text = "Out o' Lordaeron, an' burned off this coast. I've buried more of it than I'd like.", next = "wrecks" } },
     grim_batol = { { id = "tp_grim_batol", text = "A dark place, by all accounts, an' I've never been nor wanted to." } },
@@ -1124,7 +1124,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Barely, from what the lads tell me, for the raptors hunt the Algaz road an' the Dark Irons hold the Thandol Span. A hunter could get through where a column couldnae, an' I'd give a great deal tae hear how Longbraid's holdin'." },
+        { id = "xhuntcl_default", text = "Barely, from what the lads tell me, for the raptors hunt the Algaz road an' the Dark Irons hold the Thandol Span. A hunter could get through where a column couldnae, an' I'm desperate tae hear how Longbraid's holdin'." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} could make that trip quicker than any of us, I'd wager, for it's got four good legs an' none o' them axed." },
       },
       choices = {
@@ -1187,7 +1187,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit an' tell me where ye've been, for I've been lyin' here so long I've forgot what a fight smells like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye've been out on the roads, then, so tell me what ye've seen o' the north." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The healer's tried every poultice she owns on my back, so if ye've some green trick she hasnae, I'll lie still for it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Dark Irons that took Dun Modr had fire-callers wi' them, so forgive me if I watch yer hands." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Dark Irons that took Dun Modr had fire-callers wi' them, so I'll be watchin' yer hands." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I was at Dun Modr when the Dark Irons came, an' I saw the ground split under us, so I'd sooner ye stood back a step, if it's all the same tae ye." },
       },
       again = {
@@ -1334,7 +1334,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "In a heartbeat, if I thought the marsh could be reasoned with. Half the crates I lose go to rot and half to raptors, and I've no answer for either. If your spirits can keep the damp out of the grain, I'll pay a shaman more than I pay my guards, and that'd make my guards very cross." } },
+      lines = { { id = "xdsham_default", text = "In a heartbeat, if I thought the marsh could be reasoned with. The crates I lose go to rot or to raptors, and I've no answer for either. If your spirits can keep the damp out of the grain, I'll pay a shaman more than I pay my guards, and that'd make my guards very cross." } },
       choices = {
         { text = "The spirits aren't for hire, Karl. I'll help for nothing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Pay me well, and I'll keep the damp out.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1410,7 +1410,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "The garrison, when the Captain can spare them, which isn't often with the Dragonmaw in Algaz. Most days it's me, a lantern and a lot of shouting, and the shouting does more good than you'd think." } },
+      lines = { { id = "xapala_default", text = "The garrison, when the Captain can spare them, which isn't often with the Dragonmaw in Algaz. Most days it's me, a lantern and a lot of shouting, and the shouting keeps the murlocs off better than the lantern does." } },
       choices = {
         { text = "The Alliance's supply lines must hold. I'll help guard them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the merchants guard their own crates, Karl.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1419,7 +1419,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ships come in with sick men aboard more often than you'd think, so I'm glad to see one of you on the docks." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ships come in with sick men aboard more often than the harbourmaster likes to admit, so I'm glad to see one of you on the docks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Murlocs and marsh don't care about holy hammers, but my dockhands might, so stand where they can see you." },
         { id = "h_default", text = "Karl Boran, merchant marine. I keep cargo moving through this harbour, which is harder than it sounds with half the marsh trying to eat it." },
         { id = "h_crabs", when = { questActive = TODO_QUEST("Claws from the Deep") },
@@ -1434,9 +1434,9 @@ P:NPC {
           text = "Last boat's in, so I count the crates by lantern, and then I count them again, because the lantern lies." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Ye'll know the raptors o' the Wetlands better than most, I'd think, an' I'd ask ye what ye make o' them." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Good, for half the crates I lose go to murlocs and the other half to the marsh, and you can only fight one of those." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Good, for I lose crates to the murlocs and to the marsh both, and you can only fight one of those." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've crates of shot going out to Ironforge, and I'm told the dwarven hunters can't get enough of it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stand off the crates, if you don't mind; I had a load of Ironforge powder go up once, and I'd rather not learn what your sort does to it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stand off the crates, if you don't mind; I had a load of Ironforge powder go up once, and I've no wish to find out what your sort does to it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in Menethil! You wouldn't be able to keep the marsh from eating my cargo, would you? I'd pay for the service." },
       },
       again = {
@@ -1546,7 +1546,7 @@ P:NPC {
     theramore = { { id = "tp_theramore", text = "Most of my cargo goes to Theramore these days: grain, nails, lamp oil and powder. Lady Jaina's building a city on a marsh, and marshes eat supplies." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay pays the best rates on the seas, but the harbourmaster takes a cut and so do the sharks. I'd sail there more if the Bloodsails didn't." } },
     lordaeron = { { id = "tp_lordaeron", text = "Before the plague, half the cargo out of this harbour went north to Lordaeron. Now nothing goes north, and the boats that tried it never came back." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "The goblin cartel insures half the ships in these waters, and they charge for it as if the sea were their own property. I pay, because the sea does as it likes." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The goblin cartel insures most of the ships in these waters, and they charge for it as if the sea were their own property. I pay, because the sea does as it likes." } },
   },
 }
 
@@ -2037,7 +2037,7 @@ P:NPC {
     grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's the finest ruin in Khaz Modan an' the one no archaeologist will touch. The Wildhammer left it, the Dark Irons cursed it an' the Dragonmaw fouled it, so there's three layers an' no' one o' them safe." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real secrets are, down in the Badlands, an' Ironband's lot are dyin' tae get in. If I weren't stranded here, I'd be there wi' them." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer have the oldest songs o' any dwarves, an' half the League's theories started as a Wildhammer drinkin' song. They're no' wrong as often as ye'd think." } },
-    magni = { { id = "tp_magni", text = "King Magni funds the League out o' his own coffers, an' he reads every report we send. That's more than most kings would do for a pack o' diggers." } },
+    magni = { { id = "tp_magni", text = "King Magni funds the League out o' his own coffers, an' he reads every report we send. There's no' many kings who'd bother for a pack o' diggers." } },
   },
 }
 
@@ -2105,7 +2105,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because I've seen what comes out of it, and I'd rather keep both my legs, thank you. You hunters are welcome to the shore; I'll stay behind this bar and keep an eye on the door." },
+        { id = "xhuntcl_default", text = "Because I've seen what comes out of it, and I'm fond of both my legs, thank you. You hunters are welcome to the shore; I'll stay behind this bar and keep an eye on the door." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours keeps watching the door too, I see, so perhaps we've more in common than I thought." },
       },
       choices = {
@@ -2116,7 +2116,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Nothing they'd say twice, and nothing I'd repeat, which is why they keep saying it. You'd make a better confessor than me, though, because I only listen, and I never forgive anyone." } },
+      lines = { { id = "xapriest_default", text = "Nothing they'd say twice, and nothing I'd repeat, so they feel safe saying it again. You'd make a better confessor than me, though, because I only listen, and I never forgive anyone." } },
       choices = {
         { text = "Everyone deserves a chance at forgiveness, Mikhail.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Listening is more useful than forgiving, in your trade.", next = "BACK", fx = { align = { light = -1 } } },
@@ -2143,7 +2143,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. People tell me things across this bar that they ought to be telling you, and I'd rather they didn't." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. People tell me things across this bar that they ought to be telling you, and I wish they'd take it up the hill to the chapel." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You're very loud to look at, friend, so sit where you won't frighten off my customers." },
         { id = "h_default", text = "The name's Mikhail. I used to work in Stormwind, and now I keep a bar I don't sell from, in a town where nothing happens. I like it that way, mostly." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
@@ -2267,7 +2267,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Sit where you can see the door. Hold a full mug, even if you never drink it. Nobody watches a man with a full mug." } },
     defias = { { id = "tp_defias", text = "That's Stormwind's trouble, and I left it there, though it keeps sending letters." } },
     _none = { { id = "tp_none", text = "Couldn't say. Wouldn't, either." } },
-    si7 = { { id = "tp_si7", text = "SI:7? I've heard the name, same as everyone. I keep bar now, and a barman hears a great deal but repeats very little." } },
+    si7 = { { id = "tp_si7", text = "SI:7? I've heard the name, same as everyone. I keep bar now, and a barman hears everything and repeats nothing." } },
     varian = { { id = "tp_varian", text = "I served in Stormwind a long time, and I'll only say that kings don't go missing by accident. Pour yourself another and forget I said it." } },
     prestor = { { id = "tp_prestor", text = "Lady Prestor came to court after I'd left it, which I've come to think was good timing on my part. People who knew the court before her speak of it differently from those who didn't." } },
     the_stockade = { { id = "tp_the_stockade", text = "I've seen the inside of the Stockade, from the side of the door with the keys. That's all I'll say about it." } },

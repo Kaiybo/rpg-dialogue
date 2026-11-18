@@ -191,7 +191,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger = {
-      lines = { { id = "dg_default", text = "Very, which is why I don't teach fools. Too much arcane and you start wanting more and more, and then one day you be hungry for nothing else, and that be the end of you." } },
+      lines = { { id = "dg_default", text = "Very, mon, so I don't teach fools. Too much arcane and you start wanting more and more, and then one day you be hungry for nothing else, and that be the end of you." } },
       choices = {
         { text = "You sound like you've seen that happen.", next = "danger_seen" },
         { text = "Then why teach it at all?", next = "teach_why" },
@@ -400,7 +400,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "If you're bleeding, sit down, and if you're not, stand over there and wait your turn." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. That's more than I can say for most of the grunts." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. The grunts I patch up are rarely so lucky twice." },
     { id = "g_tally", text = "Don't lean on that wall, because those chalk marks are every grunt I've patched this season and I'm not counting them twice." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior, so you'll be back on my bench before long. I'll keep the linen ready for you." },
   },
@@ -476,7 +476,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     peeve = {
-      lines = { { id = "pe_default", text = "A grunt who takes off a perfectly good bandage to show his friends the wound, and then comes back to me surprised when it goes bad. Tell me honestly, have you ever done that?" } },
+      lines = { { id = "pe_default", text = "A grunt who takes off a perfectly good bandage to show his friends the wound, and then comes back to me surprised when it goes bad. Be truthful now, have you ever done that?" } },
       choices = {
         { text = "Never. I leave them on until they're done.", next = "pv_good", fx = { affinity = 1, trait = { patient = 1 } } },
         { text = "Once or twice. Scars impress people.", next = "pv_show", fx = { affinity = -1, trait = { proud = 1 } } },
@@ -614,7 +614,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ap_no = {
-      lines = { { id = "an_default", text = "Maybe it doesn't, mon, but you hear yourself, and that be half the point. A picker who never says it pulls up everything and then wonders why the hills be bare." } },
+      lines = { { id = "an_default", text = "Maybe it doesn't, mon, but you hear yourself, and dat be the point of it. A picker who never says it pulls up everything and then wonders why the hills be bare." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

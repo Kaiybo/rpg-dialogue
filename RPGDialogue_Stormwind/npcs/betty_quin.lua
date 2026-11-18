@@ -267,7 +267,7 @@ P:NPC {
     },
     jar_stance = {
       lines = {
-        { id = "js_default", text = "I've thought about both, honestly, at night, when the jar makes its little noise. For now it lives on the top shelf with a cloth over it, like a parrot." },
+        { id = "js_default", text = "I've thought about both, late at night, when the jar makes its little noise. For now it lives on the top shelf with a cloth over it, like a parrot." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -304,7 +304,7 @@ P:NPC {
 
     quarter = {
       lines = {
-        { id = "q_default", text = "Busier than ever. Since Dalaran shut its gates to rebuild, everybody who needs magic in Stormwind comes here instead, and the Sanctum can't keep up. Half the shops on this canal sell what Lucan makes." },
+        { id = "q_default", text = "Busier than ever. Since Dalaran shut its gates to rebuild, everybody who needs magic in Stormwind comes here instead, and the Sanctum can't keep up. You'll find Lucan's work on every other shelf along this canal." },
       },
       choices = {
         { text = "Is that good for the city?", next = "quarter_good" },

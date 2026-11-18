@@ -48,7 +48,7 @@ P:Letter {
 P:Letter {
   id = "rand_secret_admirer", from = "A friend", stranger = true, random = true, when = { minLevel = 20 },
   subject = "Unsigned",
-  body = "{name},\n\nYou won't know me, and I'd rather it stayed that way, but I saw you once from across a crowded square and I've thought about it more than is sensible. You were helping someone who couldn't pay you, and you didn't make a show of it.\n\nThat's all. I don't want anything. I only thought someone ought to tell you that it was noticed.\n\nA friend",
+  body = "{name},\n\nYou won't know me, and it's better that way, but I saw you once from across a crowded square and I've thought about it more than is sensible. You were helping someone who couldn't pay you, and you didn't make a show of it.\n\nThat's all. I don't want anything. I only thought someone ought to tell you that it was noticed.\n\nA friend",
 }
 
 P:Letter {
@@ -87,7 +87,7 @@ P:Letter {
 P:Letter {
   id = "junk_chain", from = "Unknown", stranger = true, random = true, junk = true,
   subject = "Do not break the chain",
-  body = "This letter has been around Azeroth nine times. It was started by a dwarf in Thelsamar who copied it out and sent it to ten friends, and a week later he found a mithril vein in his cellar.\n\nA troll in Grom'gol threw it away and was eaten by a raptor that same afternoon, though in fairness that happens a great deal in Grom'gol.\n\nCopy this letter ten times and send it to ten friends within three days. Do not break the chain.",
+  body = "This letter has been around Azeroth nine times. It was started by a dwarf in Thelsamar who copied it out and sent it to ten friends, and a week later he found a mithril vein in his cellar.\n\nA troll in Grom'gol threw it away and was eaten by a raptor that same afternoon, though in fairness that happens most afternoons in Grom'gol.\n\nCopy this letter ten times and send it to ten friends within three days. Do not break the chain.",
 }
 
 P:Letter {

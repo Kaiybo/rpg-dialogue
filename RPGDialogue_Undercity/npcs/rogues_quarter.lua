@@ -110,7 +110,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gregory Charles. I train rogues for the Dark Lady's service, and before the plague I kept a nobleman of Lordaeron alive, which was the harder task by far." },
-        { id = "h_deathstalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "Mennet's recruit. He tells me you have promise, and I've learned to doubt everything Mennet tells me, so you'll forgive me if I wait to see it." },
+        { id = "h_deathstalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "Mennet's recruit. He tells me you have promise, and I've learned to doubt everything Mennet tells me, so I'll wait to see it for myself." },
         { id = "h_party", when = { party = true }, text = "You've brought company, I see, and you let them walk behind you. I'd not have kept my post a week with habits like that." },
       },
       again = {

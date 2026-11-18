@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They fear it more than anything, and I don't blame them, for the wind off the Plaguewood carries things no living creature should breathe. Georgia's bats don't mind it at all, which tells you something about bats, and something about this land too." } },
+      lines = { { id = "xdsham_default", text = "They fear it more than anything, and I don't blame them, for the wind off the Plaguewood carries things no living creature should breathe. Georgia's bats don't mind it at all, and that's a mark against bats, if ye ask me, and against this land too." } },
       choices = {
         { text = "Then I'll ask the wind to carry them gently home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear keeps them sharp, Khaelyn. Let them fear it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -144,7 +144,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "They hate it, and they tell me so every flight by refusing their feed afterward. I scrub their feathers in clean water from Chillwind, and I'd rather do it by hand than trust a stray spell anywhere near them." } },
+      lines = { { id = "xmage_default", text = "They hate it, and they tell me so every flight by refusing their feed afterward. I scrub their feathers in clean water from Chillwind, by hand, for I'll not trust a stray spell anywhere near them." } },
       choices = {
         { text = "Care for them first. They carry us through all this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Beasts are tools. Fly them until they drop.", next = "BACK", fx = { align = { light = -1 } } },
@@ -167,7 +167,7 @@ P:NPC {
       },
     },
     georgia = {
-      lines = { { id = "ge_default", text = "Aye, and I'll tell ye what I told myself the first day: inside these walls, the only enemy is the Scourge. She keeps her bats well and keeps to her side o' the yard, which is more than I can say for some Alliance folk I've known, and a few Ironforge cousins besides." },
+      lines = { { id = "ge_default", text = "Aye, and I'll tell ye what I told myself the first day: inside these walls, the only enemy is the Scourge. She keeps her bats well and keeps to her side o' the yard, and I've had worse neighbours in Ironforge, cousins among them." },
         { id = "g_scourge", when = { race = "Scourge" }, text = "You'd know her kind better than I do, but she's been a fair neighbour. Inside these walls, the only enemy is the Scourge, and she hates them as much as I do, maybe more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -178,7 +178,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't drink from any stream in this country, however clear it looks. A corporal of ours did at Corin's Crossing, and he spent three days retching green before we buried him." } },
     scourge = { { id = "tp_scourge", text = "The Scourge has gargoyles and worse in the skies over this land, and my gryphons have to fly through them. I've lost a few, and I mourn every one." } },
     forsaken = { { id = "tp_forsaken", text = "I share the yard with a Forsaken bat handler, and we've made our peace with each other. She keeps to her side, and I keep to mine, and neither of us talks about the war." } },
-    magni = { { id = "tp_magni", text = "King Magni sends good gryphons north, and I'm grateful for every one of them. They're braver than most soldiers I've met." } },
+    magni = { { id = "tp_magni", text = "King Magni sends good gryphons north, and I'm grateful for each bird that lands. They're braver than most soldiers I've met." } },
     _none = { { id = "tp_none", text = "Can't help ye there, {g:lad|lass}. Ask somebody who spends less time with birds and more time over an ale." } },
   },
 }
@@ -201,7 +201,7 @@ P:NPC {
 
   notice = {
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
-      text = "One of our own, this far east, and still walking free. Good, because the Scourge would love to have you back, and I'd rather they didn't." },
+      text = "One of our own, this far east, and still walking free. Good, because the Scourge would love to have you back, and they've taken enough of us already." },
   },
 
   start = "hello",
@@ -227,7 +227,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Only once, and the cat lost, which surprised its owner a great deal more than it surprised me. Bats are cleverer than people think, and the plague can't touch them, which makes them the healthiest things in these lands." },
+        { id = "xhuntcl_default", text = "Only once, and the cat lost, which surprised its owner far more than it surprised me. Bats are cleverer than people think, and the plague can't touch them, which makes them the healthiest things in these lands." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. It's watching my bats the way a cat watches a larder, {class}, so keep a hand on it, or I'll be writing to the Undercity for a new bat." },
       },
       choices = {
@@ -314,7 +314,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Faster to the Undercity, yes, and useless everywhere else, which is the whole of the Plaguelands. My bats go where the Dark Lady's people need them, and they don't complain, which is more than I can say for most mages." } },
+      lines = { { id = "xmage_default", text = "Faster to the Undercity, yes, and useless everywhere else, which is the whole of the Plaguelands. My bats go where the Dark Lady's people need them, and they don't complain; I've never yet met a mage who could say the same." } },
       choices = {
         { text = "Fine. Speed isn't everything.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The faster way is always better. Your bats are outdated.", next = "BACK", fx = { align = { order = -1 } } },
@@ -357,7 +357,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I was someone in Lordaeron once, and now I keep bats. The bats don't ask about the first part, and I'd rather you didn't either." } },
+    background = { { id = "tp_ba", text = "I was someone in Lordaeron once, and now I keep bats. The bats don't ask about the first part, and neither should you." } },
     advice = { { id = "tp_ad", text = "Fly over this land when you can, because walking it only gives the Scourge more chances at you." } },
     scourge = { { id = "tp_scourge", text = "The bats are the only things in this country that the plague can't touch. I find that comforting, in a cold sort of way." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken serve the Dawn as well as anyone, though the living here don't always believe it. I don't need them to believe it, only to stay out of my way." } },
@@ -495,7 +495,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Keep that little creature off the beds, {class}, for I've washed those sheets twice today, and once more would finish me." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage, good, {class}, for the well's been tasting of the plaguelands again, and I'd rather not boil it a third time." },
+          text = "A mage, good, {class}, for the well's been tasting of the plaguelands again, and I've boiled it twice already this week." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Sit with your back to the wall if you like, {class}, everybody does here. I've seen too many soldiers come in shaking to mind a rogue who checks the door." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -588,8 +588,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came to cook for the Dawn because somebody had to, and the last cook burned the porridge three days running. The knights very nearly begged." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, and sleep when you can. The Scourge never gets tired, so you'll have to be cleverer than it is." } },
-    argent_dawn = { { id = "tp_dawn", text = "They're good people, every one of them, and they eat like they haven't seen food in a week, which some of them haven't." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge sends folk in here shaking, and I feed them soup until they stop. That's all I can do, and it's more than you'd think." } },
+    argent_dawn = { { id = "tp_dawn", text = "They're good people, all of them, and they eat like they haven't seen food in a week, which some of them haven't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge sends folk in here shaking, and I feed them soup until they stop. That's all I can do, and a hot bowl steadies a hand better than any prayer I know." } },
     holy_light = { { id = "tp_holy_light", text = "The chapel keeps the dead away, and I thank the Light for it every night. It's the only safe room for miles, and I try to make it a warm one." } },
     stratholme = { { id = "tp_stratholme", text = "I've fed soldiers coming back from Stratholme, and they don't talk about it. They just eat, and I let them." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. Ask one of the Dawn's officers." } },

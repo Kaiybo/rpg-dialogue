@@ -16,7 +16,7 @@ P:NPC {
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing, and how very temporary." },
     { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and now I'm told the elements speak to you. Do tell them the smell from my workshop is entirely deliberate." },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which is more than I can say for most of my samples. Do come in." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which puts you well ahead of my samples. Do come in." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The tauren are whispering that one of them believed a tale of yours, and I find that terribly amusing. They're such trusting creatures, aren't they?" },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your fibs was seen through up on the rises. A pity, really, because a lie should be handled with the same care as any other poison." },
   },
@@ -115,7 +115,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Something in the dream, if the druids are to be believed, or something in the water, if you ask me. The deviate creatures down there are twisted in ways I've never seen, and I'd give a great deal for a fresh sample of one, preferably not attached to the rest of it." },
+        { id = "xhuntcl_default", text = "Something in the dream, if the druids are to be believed, or something in the water, if you ask me. The deviate creatures down there are twisted in ways I've never seen, and I would very much like a fresh sample of one, preferably not attached to the rest of it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep your {pet} out of the caverns' pools, by the way. Whatever twists the beasts down there isn't particular about whose beast it twists." },
       },
       choices = {
@@ -177,7 +177,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ah, a shaman. The elements are such fascinating subjects, and so very poor at holding still to be studied." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Splendid; the Wailing Caverns are full of things that bite, and I find warriors far more useful down there than poetry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a sick beast from a healthy one, which makes you more useful to the Society than most of the tauren I've asked." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, and I'd rather you didn't, because blessed water spoils my samples." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, so please don't, because blessed water spoils my samples." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and so another of Hamuul's watchers. His students on Elder Rise are always terribly polite to me, which in my experience is how the living say they don't trust you." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "You've been to the bottom of the Wailing Caverns, I'm told, and come out unpoisoned, which is remarkable considering what grows down there." },
       },
@@ -236,7 +236,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The tauren say the Pools of Vision show the spirits of their ancestors, and I'll admit some of my samples behave oddly near the water. The dead and the elements are not good neighbors, I find, which is why your elders watch me so closely, and why I smile at them." } },
+      lines = { { id = "xhsham_default", text = "The tauren say the Pools of Vision show the spirits of their ancestors, and I'll admit some of my samples behave oddly near the water. The dead and the elements are not good neighbors, I find, so your elders watch me closely, and I smile at them." } },
       choices = {
         { text = "The tauren trusted you here, so repay that with honest work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whatever you find down there, keep it from the elders.", next = "BACK", fx = { align = { honor = -1 } } },

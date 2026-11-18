@@ -54,7 +54,7 @@ P:NPC {
         { id = "h_proof_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Proof of Concept"), days = 3 } },
           text = "It holds. You held the staff and the dead obeyed you, and an outsider is not supposed to manage that, so either my method is better than I believed or you are." },
         { id = "h_mountain", when = { questActive = TODO_QUEST("Mountain of Bones") },
-          text = "The valley floor is a mountain of bones, and I want a great deal more of it. Bring what I asked for, and do not stop to wonder whose it was." },
+          text = "The valley floor is a mountain of bones, and I want more of it piled at my feet. Bring what I asked for, and do not stop to wonder whose it was." },
         { id = "h_mercy", when = { questActive = TODO_QUEST("No Mercy for the Weak") },
           text = "You have your task. The weak do not survive in Shen'dralas, and they do not deserve to, so do not waste your pity on them." },
         { id = "h_mercy_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("No Mercy for the Weak"), days = 3 } },
@@ -251,7 +251,7 @@ P:NPC {
     },
     goliaths = {
       lines = {
-        { id = "go_default", text = "Something enormous that died long before the centaur walked these lands, and that is all I know or need to know. The bones are strong, and they do not argue, which is more than I can say for my apprentices." },
+        { id = "go_default", text = "Something enormous that died long before the centaur walked these lands, and that is all I know or need to know. The bones are strong and they do not argue, and I wish my apprentices would learn from them." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -270,7 +270,7 @@ P:NPC {
       },
       choices = {
         { text = "Because I'm strong, and you need strength.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Because I'll answer for it honestly. I'll help undo it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Because I'll own what I did and help undo it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "What would you have me do, then?", next = "xjehn2" },
       },
     },

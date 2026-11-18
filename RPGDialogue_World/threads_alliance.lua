@@ -29,7 +29,7 @@ P:Thread {
   },
   pacing = { minConversations = 2, minSeconds = 900 },
   reflection = {
-    first = "A bishop, a brawler, a barman and an archmage have each told me a piece of this, and every one of them lowered their voice to do it.",
+    first = "A bishop, a brawler, a barman and an archmage have each told me a piece of this, and all four lowered their voices to do it.",
     third = "{name} had heard of the missing diplomat from a bishop, a brawler, a barman and an archmage, and each of them had lowered their voice.",
   },
   beats = {
@@ -95,7 +95,7 @@ P:Thread {
   },
   pacing = { minConversations = 3, minSeconds = 1200 },
   reflection = {
-    first = "Menethil, Dun Modr, Ironforge and Refuge Pointe all say the Span matters, and every one of them is waiting on somebody else to send the soldiers.",
+    first = "Menethil, Dun Modr, Ironforge and Refuge Pointe all say the Span matters, and not one of them has soldiers to spare for it.",
     third = "{name} had heard from Menethil to Ironforge that the Thandol Span mattered, and that someone else ought to send the soldiers.",
   },
   beats = {
@@ -122,7 +122,7 @@ P:Thread {
     {
       id = "b4_magni", npc = "magni",
       when = { thread = { id = "dwarves_and_dark_iron", beat = "b3_rhag" }, ["not"] = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni" } } },
-      text = "Ye've come from Dun Modr, I can see it in yer boots. I read every letter Longbraid sends, an' I answer every one the same, because half the Reserve's gone south tae the Alliance's wars an' the other half's holdin' the loch. I've one mountain an' too many walls, an' I hate it.",
+      text = "Ye've come from Dun Modr, I can see it in yer boots. I read every letter Longbraid sends, an' I answer every one the same, because the best o' the Reserve's gone south tae the Alliance's wars an' what's left is holdin' the loch. I've one mountain an' too many walls, an' I hate it.",
       fx = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni", state = "unfolding" } },
     },
     {

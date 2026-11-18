@@ -104,7 +104,7 @@ P:NPC {
 
     racers = {
       lines = {
-        { id = "ra_default", text = "Depends who's payin' me to say so, pal. Off the record, the gnomes build better and the goblins drive crazier, and crazier wins more often than you'd think." },
+        { id = "ra_default", text = "Depends who's payin' me to say so, pal. Off the record, the gnomes build better and the goblins drive crazier, and crazier wins more often than the gnomes' math says it should." },
         { id = "ra_gnome", when = { race = "Gnome" }, text = "Your lot build better, sweetheart, I'll give you that for free. But the goblins drive like they've got nothin' to lose, and mostly they don't." },
       },
       choices = {
@@ -153,7 +153,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jandia, and I keep the trade goods of Freewind Post. Everything up here comes up the lifts from the canyon floor, and I make sure we never run out of what matters." },
-        { id = "h_screech", when = { questActive = TODO_QUEST("Stop the Screeching") }, text = "That screeching from the cliffs keeps half the post awake at night. If you can quiet it, every one of us will sleep better." },
+        { id = "h_screech", when = { questActive = TODO_QUEST("Stop the Screeching") }, text = "That screeching from the cliffs keeps the whole post awake at night. If you can quiet it, we'll all sleep better." },
       },
       again = { { id = "h_again", text = "What else do you need?" } },
       choices = {

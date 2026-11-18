@@ -38,7 +38,7 @@ P:NPC {
   nodes = {
     op_militia = {
       lines = {
-        { id = "op_militia_a", text = "Honestly? You don't get that from me for free, but I'll trade. Farmers with pitchforks holding a hill against men who build things under mountains. I've my view, so let's hear yours first." },
+        { id = "op_militia_a", text = "My opinion? You don't get that from me for free, but I'll trade. It's farmers with pitchforks holding a hill against men who build things under mountains. I've my view, so let's hear yours first." },
       },
       choices = {
         { text = "They're the bravest men in the kingdom. I'd stand with them.", next = "op_militia_1", fx = { opinion = { peoples_militia = "admire", westfall = "abandoned" }, align = { honor = 1 }, trait = { brave = 1 } } },
@@ -63,7 +63,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll judge you." } },
       choices = {
-        { text = "Then I'll earn it honestly, Wiley.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll earn it fair and square, Wiley.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Keep your secrets. I'll find my own way.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -80,7 +80,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the gnolls know them better than the guard does, and the Blackrock know them better than the gnolls. A hunter who can track a gnoll back to its camp could learn a great deal, and I'd pay to hear it." },
+        { id = "xhuntcl_default", text = "That the gnolls know them better than the guard does, and the Blackrock know them better than the gnolls. A hunter who can track a gnoll back to its camp could learn who's paying whom, and I'd pay to hear it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its eye on my drink, {class}, and it can have the rest, because I don't like the look of it either." },
       },
       choices = {
@@ -222,7 +222,7 @@ P:NPC {
         { id = "f_default", text = "The kind that kept me breathing, and he's never let me forget it, or let me thank him properly. He thinks I'm rude, and I am." },
       },
       choices = {
-        { text = "What do you make of Gryan's militia, honestly?", next = "op_militia" },
+        { text = "What do you really make of Gryan's militia?", next = "op_militia" },
         { text = "Sounds like you respect him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Sounds like you owe him.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "You sound like you were in some kind of trouble.", next = "favor_rot" },

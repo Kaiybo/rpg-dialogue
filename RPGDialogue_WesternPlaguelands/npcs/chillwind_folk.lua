@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not in the slightest, for my ledger records names and deeds, not prayers, and it's never once asked whether someone kneels to the Light or to the earth. Some of the soldiers mutter, I'll grant you, but they muttered about the Forsaken in the Dawn's ranks too, and they've mostly got over that." } },
+      lines = { { id = "xdsham_default", text = "Not in the slightest, for my ledger records names and deeds, not prayers, and it's never once asked whether someone kneels to the Light or to the earth. Some of the soldiers mutter, true, but they muttered about the Forsaken in the Dawn's ranks too, and they've mostly got over that." } },
       choices = {
         { text = "Deeds should be all that matter. The Dawn has it right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Belief matters, Quartermaster. A ledger can't see a heart.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -59,7 +59,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because every scout in the Plaguelands shoots at shadows, and the shadows here are usually worth shooting. The fletchers are working day and night, but good feathers are hard to come by when half the birds are plagued." },
+        { id = "xhuntcl_default", text = "Because every scout in the Plaguelands shoots at shadows, and the shadows here are usually worth shooting. The fletchers are working day and night, but good feathers are hard to come by when the birds fall out of the sky with plague." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And I'll thank you to keep {pet} off the sacks of meal, {class}. They're entered in the ledger as feed for soldiers, and I'd hate to rewrite the ledger." },
       },
       choices = {
@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, and welcome, {class}. The Dawn takes its faith from the Cathedral and its funding from anyone kind enough to give it, and my ledgers know which is which." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! The Dawn has a great many knights who once wore the Silver Hand's tabard, and every one of them counts their supplies as carefully as I do, or I make them." },
+          text = "A paladin! The Dawn has a great many knights who once wore the Silver Hand's tabard, and each of them counts their supplies as carefully as I do, or I make them." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. I keep a crate of whetstones under the counter for your sort, {class}, since nothing goes out of the Dawn's stores faster except bandages." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -198,7 +198,7 @@ P:NPC {
     argent_dawn = { { id = "tp_dawn", text = "The Dawn is everyone who's decided the Scourge matters more than old grudges, and I write all their names down." } },
     scourge = { { id = "tp_scourge", text = "The Scourge eats supplies faster than any army I've ever stocked, because every battle costs us bandages, blades and soldiers, and it costs them nothing. I keep the ledgers straight so at least we know what we've lost." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's necropolis floats over the east, and the Dawn keeps a careful eye on it. I keep a careful eye on the scourgestones, which is a smaller job, but somebody has to do it." } },
-    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the Dawn will need the most supplies when we finally move on it. I'm stocking for that day already, and I'd rather it came sooner." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the Dawn will need the most supplies when we finally move on it. I'm stocking for that day already, and the sooner it comes, the happier my ledger will be." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken trade with the Dawn the same as anyone, and they're careful about their accounts. I respect that in a customer, dead or alive." } },
     _none = { { id = "tp_none", text = "That's not in any of my ledgers, I'm afraid, and I've cross-referenced all six of them, so I can't help you." } },
   },
@@ -299,7 +299,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. Your armour straps are near worn through, {class}, and a strap that breaks at the wrong moment will kill you quicker than any ghoul." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
-          text = "A hunter, good, for you'll know a clean pelt when you skin one, {class}, which is more than I can say for most of the soldiers who bring me hides." },
+          text = "A hunter, good, for you'll know a clean pelt when you skin one, {class}, and the soldiers who bring me hides mostly hack them to rags." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll not be needing leather, I expect, {class}, but if you can freeze a hide without cracking it, I've a few soldiers who'd thank you for their boots." },
       },
       again = {
@@ -333,7 +333,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked honestly on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." } },
+      lines = { { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." } },
       choices = {
         { text = "Fair rule. Demons don't belong on your racks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Demon leather would be the toughest there is.", next = "BACK", fx = { align = { light = -1 } } },
@@ -369,7 +369,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a tanner who came north because the soldiers needed boots. That's the whole of it, and it's enough." } },
     advice = { { id = "tp_ad", text = "If a hide smells sweet, burn it, because nothing out here should smell sweet." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge has plagued half the beasts in these lands, and their hides are worthless or worse. I check every one that comes to me, and I burn more than I keep." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has plagued most of the beasts in these lands, and their hides are worthless or worse. I check each one that comes to me, and I burn more than I keep." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron had the finest leather in the north, from the cattle of the Eastweald and the deer of the Alterac foothills. Now I'm lucky to find a hide that doesn't rot in my hands." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme was the great market town of the north, and every tanner worth his salt sold there. I'd never set foot in it now." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. I know leather, and that's about where it ends." } },

@@ -82,7 +82,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "There's room for anyone's, and I think a hunter's are often the most honest, because you know what it costs to live. I've heard farmers pray over a lamb with less feeling than the trappers from Elwynn pray over their snares." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} may sit too; I don't think the Light minds where its blessings fall. It looks like it has carried you through a great deal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} may sit too; I don't think the Light minds where its blessings fall. It has the look of a beast that has walked every mile beside you." },
       },
       choices = {
         { text = "I give thanks for every kill, Bishop.", next = "BACK", fx = { align = { light = 1 } } },
@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_fleet_done", when = { questDone = TODO_QUEST("The Doomed Fleet") },
           text = "Glorin wrote to say you found him, and that you didn't flinch at what the iron would cost you. I've been praying for you since, whether you wanted it or not." },
         { id = "h_human", when = { race = "Human" },
-          text = "Stormwind's own child, come home to the Cathedral. Good. Too many of you only visit when someone has died, and I'd rather see you for happier reasons." },
+          text = "Stormwind's own child, come home to the Cathedral. Good. Too many of you only visit when someone has died, and I'd much prefer a christening to a funeral." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf at the altar! My friend Glorin in Menethil would say you've wandered into the wrong sort of hall, but the Light has never minded a beard." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with the quiet look of someone who's spent a long time alone. Sit, if you like; the altar keeps no hours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and so I'll ask what weighs on you, as I ask everyone. Duskwood was green once, before the dark crept into it, and I wonder whether your people feel such things more than mine do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You keep your own counsel, I see, and the silent ones usually have the most to say once they sit down." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Something weighs on you, I think, before you say a word. A dwarf who hears spirits must hear a great deal of grief in these times." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Something weighs on you, I think, before you say a word. A dwarf who hears spirits must hear grief on every wind in these times." },
       },
       again = {
         { id = "h_again", text = "What else weighs on you, {g:brother|sister}?" },
@@ -163,7 +163,7 @@ P:NPC {
     darkshire_letters = {
       lines = { { id = "dl_default", text = "The dead walking in the vineyards, a madman in the tower on the hill, and worgen in the trees, which I'd have laughed at once. Mostly, though, they write to ask whether anyone in the city still remembers they exist. I write back that I do." } },
       choices = {
-        { text = "That must mean a great deal to them.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "worgen" } } },
+        { text = "That must mean the world to them.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "worgen" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -204,7 +204,7 @@ P:NPC {
     },
     priest = {
       big = true,
-      lines = { { id = "p_default", text = "I teach them that a priest who only heals in the Cathedral has learned half the craft. The other half is out where the wounded can't walk to us: Darkshire, the Wetlands, the roads between. Go where you're least comfortable, and you'll find the Light was there first." } },
+      lines = { { id = "p_default", text = "I teach them that a priest who only heals in the Cathedral has learned only the easy part of the craft. The rest is out where the wounded can't walk to us: Darkshire, the Wetlands, the roads between. Go where you're least comfortable, and you'll find the Light was there first." } },
       choices = {
         { text = "I'll go where I'm needed.", next = "priest_where", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
         { text = "My skills are wasted on backwater villages.", next = "priest_where", fx = { align = { light = -1 }, trait = { stern = 1 } } },
@@ -216,7 +216,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     watch = {
-      lines = { { id = "w_default", text = "Then you've met Commander Ebonlocke, and Sven at his little camp, and you've seen how thin the lanterns are spread. Tell me honestly: is Darkshire holding?" } },
+      lines = { { id = "w_default", text = "Then you've met Commander Ebonlocke, and Sven at his little camp, and you've seen how thin the lanterns are spread. Tell me plainly: is Darkshire holding?" } },
       choices = {
         { text = "Barely. They need soldiers, not letters.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { night_watch = "needs_soldiers" } } },
         { text = "They're holding, Bishop, and they're proud of it.", next = "BACK", fx = { affinity = 2, opinion = { night_watch = "holding" } } },
@@ -224,7 +224,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Every one of them was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
+      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Each of those warlocks was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
       choices = {
         { text = "I'll never become that.", next = "warlock2", fx = { align = { light = 1 } } },
         { text = "Power isn't evil. What he did with it was.", next = "warlock2", fx = { align = { light = -1 } } },
@@ -251,7 +251,7 @@ P:NPC {
     morbent_fel = { { id = "tp_fel", text = "A necromancer in the Duskwood hills who has wrapped himself in spells. Plain steel won't reach him, so don't try it.", next = "fel" } },
     third_fleet = { { id = "tp_fleet", text = "The Kul Tiran ships that sank off the Wetlands with their lightforge iron. Glorin Steelbrow in Menethil knows where they lie.", next = "iron" } },
     night_watch = { { id = "tp_watch", text = "Brave people who were left to guard their own homes and have done it. I pray for every one of them by name." } },
-    _none = { { id = "tp_none", text = "I don't know, {g:brother|sister}, and I'd rather admit that than guess at something that matters to you." } },
+    _none = { { id = "tp_none", text = "I don't know, {g:brother|sister}, and I won't guess at something that matters to you." } },
   },
 }
 
@@ -293,7 +293,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Iron that's quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it. I don't mean it unkindly, because you plainly have a great deal of will, and I'd only say a sermon needs a warning in the middle, and you'd make a fine one." },
+        { id = "xlock_default", text = "Iron that's quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it. I don't mean it unkindly, because you plainly have will enough for two, and I'd only say a sermon needs a warning in the middle, and you'd make a fine one." },
       },
       choices = {
         { text = "Then let me be the warning. Use it well.", next = "BACK", fx = { align = { light = 1 } } },
@@ -431,7 +431,7 @@ P:NPC {
       },
     },
     book_author = {
-      lines = { { id = "ba_default", text = "A dwarven miner, Margulf Blaggon, who never once mentions the Light and understood it better than half the sermons I've sat through. I'd like to meet him, though I'd probably only stammer." } },
+      lines = { { id = "ba_default", text = "A dwarven miner, Margulf Blaggon, who never once mentions the Light and understood it better than most sermons I've dozed through. I'd like to meet him, though I'd probably only stammer." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fortitude = {
@@ -517,7 +517,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "They need everyone's help, I'm afraid, since half of Gnomeregan lost everything to that poison and the other half is still trying to count what's gone. A mage who can read their workings and doesn't laugh at their gadgets is worth more to them than gold, and you'd make their day just by listening." },
+        { id = "xmage_default", text = "They need everyone's help, I'm afraid, since Gnomeregan's survivors lost everything to that poison and are still trying to count what's gone. A mage who can read their workings and doesn't laugh at their gadgets is worth more to them than gold, and you'd make their day just by listening." },
       },
       choices = {
         { text = "Then I'll listen, Brother, and help where I can.", next = "BACK", fx = { align = { light = 1 } } },
@@ -538,7 +538,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not many, though I'll confess the odd fellow comes through at night with his hood up, and I say hello anyway, and he looks very cross about it. I've decided it's good for people to be greeted, whether they like it or not." } },
       choices = {
-        { text = "Greet every one of them, because honest folk have nothing to hide.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Greet them all, because honest folk have nothing to hide.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let the hooded ones pass, Brother. They came to pray unseen.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -575,7 +575,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Every morning, and they always nod to me, which is more than the nobles do. I like to think every one of them is going out to help someone, so I say a little prayer for each as they pass, even the grumpy ones." } },
+      lines = { { id = "xapala_default", text = "Every morning, and they always nod to me, though the nobles never do. I like to think each of them is going out to help someone, so I say a little prayer for each as they pass, even the grumpy ones." } },
       choices = {
         { text = "Your prayers matter, Brother. I'll gladly carry one with me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Save your prayers for the gnomes. Paladins can look after themselves.", next = "BACK", fx = { align = { light = -1 } } },
@@ -671,7 +671,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     gnomeregan = {
-      lines = { { id = "g_default", text = "Only what your people have told me here, and I'd rather hear it from you than pretend I understand. Is there anyone you're still waiting to hear from?",
+      lines = { { id = "g_default", text = "Only what your people have told me here, so I'd like to hear it from you. Is there anyone you're still waiting to hear from?",
         fx = { learn = { "gnomeregan" } } } },
       choices = {
         { text = "Too many. Thank you for asking.", next = "BACK", fx = { affinity = 3 } },
@@ -688,7 +688,7 @@ P:NPC {
   },
 
   topics = {
-    holy_light = { { id = "tp_holy_light", text = "I greet everyone who walks through these doors, because the Light lives in every one of them. Even the ones who come in to get out of the rain are welcome, and I tell them so." } },
+    holy_light = { { id = "tp_holy_light", text = "I greet everyone who walks through these doors, because the Light lives in all of them. Even the ones who come in to get out of the rain are welcome, and I tell them so." } },
     scourge = { { id = "tp_scourge", text = "Some of the refugees who come through these doors have lost everything to the Scourge, even their names. I give them a blessing and a bowl, and I hope that's a start." } },
     magni = { { id = "tp_magni", text = "King Magni gave the gnomes of Gnomeregan a home in Ironforge after their city was poisoned, and that's the Light at work, whether the dwarves call it that or not. I pray for him every week." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire visited Goldshire once while I was there, and a gnome there showed me a mechanical bird that sang hymns. I've not stopped thinking about it, and I'm sure the Light was pleased." } },
@@ -696,7 +696,7 @@ P:NPC {
       { id = "tp_knows", text = "Everyone who comes through the Cathedral door says a little something to me on the way in, and it adds up. Ask me about any of it!" },
     },
     background = { { id = "tp_bg", text = "A brother of the Cathedral who was given the door, and who has loved it ever since. There isn't much more to tell than that, I'm afraid." } },
-    advice = { { id = "tp_ad", text = "Say hello to people first. It costs nothing, and half the time they've been waiting for someone to." } },
+    advice = { { id = "tp_ad", text = "Say hello to people first. It costs nothing, and often they've been waiting all day for someone to." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes' city under Dun Morogh, lost to something in its own depths. I pray for it, machines and all." } },
     scarlet_crusade = { { id = "tp_crusade", text = "Brother Crowley's people. I greet him every morning, and one day he'll greet me back." } },
     _none = { { id = "tp_none", text = "Oh, I've no idea, but someone inside surely does. Shall I point you to them?" } },
@@ -839,7 +839,7 @@ P:NPC {
     },
     secret = {
       lines = {
-        { id = "s_default", text = "I don't know, honestly, and I wouldn't tell if I did, because the Bishop trusts me. I only know it's about somebody who went somewhere and didn't get there, and that he looked worried." },
+        { id = "s_default", text = "I don't know, really, and I wouldn't tell if I did, because the Bishop trusts me. I only know it's about somebody who went somewhere and didn't get there, and that he looked worried." },
       },
       choices = {
         { text = "Good lad. Keep it that way.", next = "secret_good", fx = { affinity = 2, align = { order = 1 } } },
@@ -1207,7 +1207,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Every day since one of your people came through with a cart of saplings and told them trees could talk. Now half of them whisper to the potted fern by the door, and I haven't the heart to tell them it never answers." } },
       choices = {
         { text = "Better they learn their letters than talk to ferns, Shellene.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them keep whispering. A fern hears more than you'd think.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let them keep whispering. A fern by a window hears every word.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

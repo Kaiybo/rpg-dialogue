@@ -506,7 +506,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I farm. I've farmed since I could hold a hoe. That's the whole of it, and it's enough." } },
     advice = { { id = "tp_ad", text = "Never name a pig. Once you name it, it thinks it owns the place." } },
     maybell_tommy = { { id = "tp_lovers", text = "Tommy Joe? He's mending the east fence, and he's been mending it for months. It must be a very broken fence." } },
-    defias = { { id = "tp_defias", text = "They took the Brackwell farm whole, pumpkins, house and all. They left the pig, which tells you they've got some sense." } },
+    defias = { { id = "tp_defias", text = "They took the Brackwell farm whole, pumpkins, house and all. They left the pig, so they've got some sense at least." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, got a pig to worry about." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating the Brackwells' pumpkins instead." } },
     holy_light = { { id = "tp_holy_light", text = "I've no time for long prayers, so I say a short one to the Light every time I pick up a hoe. It hasn't broken yet, so I reckon it's working." } },

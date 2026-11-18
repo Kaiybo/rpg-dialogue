@@ -38,7 +38,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "You could, if you can tell a grape from a bandit when they're all in the same row. The Defias have my crates in their camp, and I want every one of them back, so freeze the thieves and leave the fruit alone." } },
+      lines = { { id = "xmage_default", text = "You could, if you can tell a grape from a bandit when they're all in the same row. The Defias have my crates in their camp, and I want each crate back, so freeze the thieves and leave the fruit alone." } },
       choices = {
         { text = "I'll bring back every crate, Milly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll clear the bandits first. The grapes come second.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -47,7 +47,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "They trampled the north rows and cut whole branches for kindling, the brutes, because they couldn't be bothered to find dead wood. Vines that old take years to come back, and I'll be counting every one of them." } },
+      lines = { { id = "xdruid_default", text = "They trampled the north rows and cut whole branches for kindling, the brutes, because they couldn't be bothered to find dead wood. Vines that old take years to come back, and I'll be counting every lost branch." } },
       choices = {
         { text = "Then they'll answer for every vine, by the Marshal's law.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then I'll drive them out myself, and the Marshal can wait.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -88,7 +88,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." } },
       choices = {
-        { text = "Trust carefully, Milly. I'll earn yours honestly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust carefully, Milly. I'll earn yours fairly.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Desperate folk can't be choosy. Take whatever help comes.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

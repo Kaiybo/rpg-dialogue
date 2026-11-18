@@ -345,6 +345,6 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm sorry, I only know about grapes and one boy across the river." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire is the one week Pa doesn't watch the river, because he's too busy selling wine. I'm not saying what I do with that week, only that I like the Faire very much." } },
     holy_light = { { id = "tp_holy_light", text = "I ask the Light every night to soften Pa's heart, and every morning he's just the same. Gramma Stonefield says the Light works slowly on stubborn men." } },
-    heroes_vigil = { { id = "tp_heroes_vigil", text = "Somebody told me there are Maclures and Stonefields both on the old stone at Stone Cairn Lake, side by side, and nobody minded it then. I think about that a great deal." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "Somebody told me there are Maclures and Stonefields both on the old stone at Stone Cairn Lake, side by side, and nobody minded it then. I think about that most nights." } },
   },
 }

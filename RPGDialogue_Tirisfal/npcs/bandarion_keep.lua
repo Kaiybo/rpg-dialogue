@@ -39,11 +39,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Danitha Morr, the closest thing this keep has to a commander. We are paladins who woke dead and found the Light still waiting for us, and we mean to serve the Forsaken with it, whether they want us to or not." },
         { id = "h_touring", tags = { "news" }, when = { questActive = TODO_QUEST("Touring the Grounds") },
-          text = "Breton sent you up, then. You've seen what we have, which isn't much yet, but it's ours, and there's a great deal of work before it's a proper home. We'd be grateful for your hands." },
+          text = "Breton sent you up, then. You've seen what we have, which isn't much yet, but it's ours, and there are walls to raise and roofs to mend before it's a proper home. We'd be grateful for your hands." },
         { id = "h_tarnished", tags = { "news" }, when = { questActive = TODO_QUEST("The Tarnished") },
           text = "Gelhardt and his Tarnished are in Shadowvale, southwest of here. It pains me to cross blades with our old brothers and sisters, but every Forsaken they kill is another reason for the Undercity to fear us all." },
         { id = "h_tarnished_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Tarnished"), days = 3 } },
-          text = "Gelhardt was a knight once, and I knew men like him in life. It gives me no joy to see his head in a sack, but it may take years to win the Forsaken's trust, and I'd rather not lose any more of it to him." },
+          text = "Gelhardt was a knight once, and I knew men like him in life. It gives me no joy to see his head in a sack, but it may take years to win the Forsaken's trust, and I won't have him squander any more of it." },
         { id = "h_token", tags = { "news" }, when = { questActive = TODO_QUEST("A Token of Good Faith") },
           text = "Take the head to the Dark Lady and say as little as you can. She'll judge us by what we do, not by anything we say in our own defence." },
         { id = "h_token_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Token of Good Faith"), days = 5 } },
@@ -53,7 +53,7 @@ P:NPC {
         { id = "h_diplomatic", tags = { "news" }, when = { questActive = TODO_QUEST("Diplomatic Incident") },
           text = "Trevan Rol at the Sepulcher will know more than I do. If we can find those Earthen Ring travellers, the Horde may start to think of us as something more than a curiosity." },
         { id = "h_nonpal", when = { race = "Scourge", ["not"] = { class = "PALADIN" } },
-          text = "You're no paladin, but you climbed the hill to see us, which is more than most of the Forsaken bother to do. Ask whatever you like." },
+          text = "You're no paladin, but you climbed the hill to see us, and few of the Forsaken have bothered. Ask whatever you like." },
         { id = "h_horde", when = { race = { "Orc", "Troll", "Tauren" } },
           text = "The Horde sends visitors now. Good; I'd rather your people saw what we are with their own eyes than heard about us from an apothecary." },
       },
@@ -284,7 +284,7 @@ P:NPC {
     scarlet_crusade = { { id = "tp_crusade", text = "They wield the Light with hatred in their hearts, and they call us the abomination. I knew some of them in life, and I pray for them, though I'd still not turn my back on one." } },
     argent_dawn = { { id = "tp_argent", text = "Good people, and Leonid is the best of them. They held this keep before us, and they'd have us back among them if I'd let them." } },
     background = { { id = "tp_bg", text = "A knight of the Silver Hand, once, and now whatever this is. I'm still deciding what to call it, and so is the Dark Lady." } },
-    _none = { { id = "tp_none", text = "I don't know, and I'd rather say so than guess. Ask Jorin; he hears everything that comes up the road." } },
+    _none = { { id = "tp_none", text = "I don't know, and I won't guess at it. Ask Jorin; he hears everything that comes up the road." } },
   },
 }
 
@@ -992,7 +992,7 @@ P:NPC {
     },
     breaker_truth = {
       lines = {
-        { id = "bt_default", text = "Fine. In life I broke warhorses for the Silver Hand's stables, and now I break paladins, which kick less but whine a great deal more. Tell anyone, and you'll find out the other reason." },
+        { id = "bt_default", text = "Fine. In life I broke warhorses for the Silver Hand's stables, and now I break paladins, which kick less but whine considerably more. Tell anyone, and you'll find out the other reason." },
       },
       choices = {
         { text = "My lips are sealed, Hilda.", next = "BACK", fx = { affinity = 1 } },
@@ -1016,7 +1016,7 @@ P:NPC {
     },
     cellars = {
       lines = {
-        { id = "ce_default", text = "Something's been rising beneath Shadowvale, right under the Tarnished's feet, and nobody noticed until the bones started to glow. If we're careless, it'll become a proper Scourge uprising on our doorstep, and I'd rather it didn't." },
+        { id = "ce_default", text = "Something's been rising beneath Shadowvale, right under the Tarnished's feet, and nobody noticed until the bones started to glow. If we're careless, it'll become a proper Scourge uprising on our doorstep, a stone's throw from Brill." },
       },
       choices = {
         { text = "Why study the bones instead of burning them?", next = "study" },
@@ -1190,7 +1190,7 @@ P:NPC {
     worst = {
       big = true,
       lines = {
-        { id = "wo_default", text = "When some mindless thrall wanders too close. I can kill murlocs all day, but some of the Scourge I've had to destroy were friends of mine, and some were family, and I'd rather it was me than some passing adventurer, though it still stings." },
+        { id = "wo_default", text = "When some mindless thrall wanders too close. I can kill murlocs all day, but some of the Scourge I've had to destroy were friends of mine, and some were family, and better my hand than some passing adventurer's, though it still stings." },
       },
       choices = {
         { text = "It's a mercy, Ander. You're giving them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1324,7 +1324,7 @@ P:NPC {
     deathguard = {
       big = true,
       lines = {
-        { id = "dg_default", text = "Most of them don't trust paladins, and I didn't either, not after what the living did to us in the Light's name. But I'll tell every one of them what Danitha's people did for Falgan, and some might even listen." },
+        { id = "dg_default", text = "Most of them don't trust paladins, and I didn't either, not after what the living did to us in the Light's name. But I'll tell anyone who'll listen what Danitha's people did for Falgan, and some might even believe it." },
       },
       choices = {
         { text = "The Forsaken should welcome them. They've earned it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },

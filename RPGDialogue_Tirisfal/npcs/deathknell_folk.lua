@@ -111,15 +111,15 @@ P:NPC {
     },
     source = {
       big = true,
-      lines = { { id = "s_default", text = "From the Undercity's tailors, mostly, and the rest from what the deathguards bring back off the fields, washed twice and mended once. Some of it belonged to the Scarlets, and I unpick the red before I sell it, which takes longer than you'd think." } },
+      lines = { { id = "s_default", text = "From the Undercity's tailors, mostly, and the rest from what the deathguards bring back off the fields, washed twice and mended once. Some of it belonged to the Scarlets, and I unpick the red before I sell it, stitch by tedious stitch." } },
       choices = {
         { text = "Spoils of war are fair. I'd wear the red proudly.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather wear something honestly made.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather wear something not stripped off a corpse.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     look = {
-      lines = { { id = "l_default", text = "More than you'd think, because a body that's coming apart at the seams still wants a decent coat over it. The vain ones come back every week, and I don't mind, since vanity is a sign somebody's still in there." } },
+      lines = { { id = "l_default", text = "Plenty, because a body that's coming apart at the seams still wants a decent coat over it. The vain ones come back every week, and I don't mind, since vanity is a sign somebody's still in there." } },
       choices = {
         { text = "Is somebody still in there, usually?", next = "look2" },
         { text = "Something else.", next = "BACK" },

@@ -29,7 +29,7 @@ P:NPC {
     { id = "g_star", when = { carrying = 282548 }, text = "Is that light in your pack what I think it is? Elune's own star, still whole?" },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, which to one of my years is scarcely the turning of a page, and yet I find I noticed your absence. Come, the overlook has kept your place." },
     { id = "g_away_long", when = { away = 60 }, text = "You have been away {away}, and you climb back to the overlook as though the world had been kind to you in the meantime. I hope it was, for it rarely troubles to be kind to those who visit ruins." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown a great deal since we last spoke, and I can feel the change in you as my people once felt the tides of the Well. Power suits some and ruins others, and I am curious which you will be." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown since we last spoke, and I can feel the change in you as my people once felt the tides of the Well. Power suits some and ruins others, and I am curious which you will be." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you talked someone of this valley round to your view, which is a rarer art here than sorcery, and my people valued it once, before we came to value power more." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word reaches even this overlook that you were caught in a falsehood, and I confess I am sorry to hear it, for my people told many lies to themselves, and you can see from here where they led." },
   },
@@ -115,7 +115,7 @@ P:NPC {
           text = "A shu'halo, from the plains to the east. I have watched your people's fires from this hill on clear nights, and I have often wondered what you made of the ruins." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? I have a great deal of time, and very little use for it." },
+        { id = "h_again", text = "What else would you know? I have ten thousand years of time behind me, and very little use for what remains of it." },
         { id = "h_again2", text = "Ask, if you have more. The ruins are patient, and so am I." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Go on. The moon is high, and I am in no hurry to go back to the halls." },
       },
@@ -259,7 +259,7 @@ P:NPC {
     },
     magram = {
       lines = {
-        { id = "mg_default", text = "The centaur keep to their valley and their front, and they leave a lone old elf on a hill alone, which suits us both. Their shamans raise the dead in the Valley of Bones, though, and I like that a great deal less than I like their manners." },
+        { id = "mg_default", text = "The centaur keep to their valley and their front, and they leave a lone old elf on a hill alone, which suits us both. Their shamans raise the dead in the Valley of Bones, though, and that I cannot forgive as easily as their manners." },
       },
       choices = {
         { text = "There are quilboar to the south as well.", next = "quilboar" },
@@ -329,7 +329,7 @@ P:NPC {
     },
     luminarian = {
       lines = {
-        { id = "lu_default", text = "He was secretive with his commissions and proud of every one of them, as great craftsmen are. Two of his blades were sisters, the Night Dancer and the Dawn Waker, and I had thought them both lost for good." },
+        { id = "lu_default", text = "He was secretive with his commissions and proud of each as though it were his only child, as great craftsmen are. Two of his blades were sisters, the Night Dancer and the Dawn Waker, and I had thought them both lost for good." },
         { id = "lu_eluv", when = { carrying = 276188 }, text = "Ask the blade at your side; it knows him better than I do. The Night Dancer and the Dawn Waker were sisters, made by his hand, and I had thought them both lost until you climbed this hill." },
       },
       choices = {
@@ -575,7 +575,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xm_default", text = "The magic of today pales beside the magic of ten thousand years ago, but we Highborne still know a great deal of the arcane. The first lesson is the one my people forgot: power drawn from something you do not understand will one day draw something from you." },
+        { id = "xm_default", text = "The magic of today pales beside the magic of ten thousand years ago, but we Highborne have not forgotten all we knew of the arcane. The first lesson is the one my people ignored: power drawn from something you do not understand will one day draw something from you." },
         { id = "xm_sky", when = { race = "Skyborne" }, text = "Gladly, child of Eldre'Thalas, though the first lesson is the one our people forgot. Power drawn from something you do not understand will one day draw something from you, and the Prince below is proof enough of that." },
       },
       choices = {
@@ -624,7 +624,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "Everything. Our Queen opened the way for the Legion, and the Prince below has a demon in chains to keep himself in power, so forgive me if I look at a warlock and see the next chapter of a very old book." },
+        { id = "xl_default", text = "Everything. Our Queen opened the way for the Legion, and the Prince below keeps a demon in chains to hold his throne, so when I look at a warlock I see the next chapter of a very old book." },
       },
       choices = {
         { text = "I command what I summon. Your Prince did not.", next = "BACK", fx = { align = { order = 1 } } },

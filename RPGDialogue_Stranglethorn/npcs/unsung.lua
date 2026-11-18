@@ -87,7 +87,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Because you can't stay a bear forever, friend, and when you're back on two legs and a raptor's still coming, a staff only gets you so far. Half the druids I've sold to carried a mace under their robes, and they all looked embarrassed about it." } },
+      lines = { { id = "xdruid_default", text = "Because you can't stay a bear forever, friend, and when you're back on two legs and a raptor's still coming, a staff only gets you so far. Most of the druids I've sold to carried a mace under their robes, and they all looked embarrassed about it." } },
       choices = {
         { text = "A staff from a living tree serves me better than your iron.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fair point. A good weapon is a good weapon, whoever carries it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -303,7 +303,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want leather for under that plate, I suppose, though your lot always ask whether the hide was fairly taken, and that slows business nearly as much as the shamans do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want mail, I suppose, though your lot always ask whose hide it was, which slows business down, and slow business is no business." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll ask whose hide it was too, I suppose, and the answer's a raptor's, and the raptor didn't object." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've had requests for some very strange hides from your lot, chum, and I've turned every one of them down, mostly, unless the price was very strange too." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've had requests for some very strange hides from your lot, chum, and I've turned 'em all down, mostly, unless the price was very strange too." },
         { id = "h_default", key = true,
           text = "Rikqiz, leatherworking supplies! The jungle's full of tigers, raptors and basilisks, and all of them are wearing hides that somebody wants, so I sell the somebodies what they need to turn them into armor, and take a little off the top." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I'll bet you've got a few hides in that pack you'd rather not explain, and I'm the very goblin who won't ask you to." },
@@ -444,7 +444,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "It spoils them, rots them and sometimes makes them explode, which is why I seal everything in wax twice. The other shops seal it once, if at all, so you can save a copper at theirs and find out for yourself, from a safe distance." } },
+      lines = { { id = "xhcast_default", text = "It spoils them, rots them and sometimes makes them explode, so I seal everything in wax twice. The other shops seal it once, if at all, so you can save a copper at theirs and find out for yourself, from a safe distance." } },
       choices = {
         { text = "Twice-sealed it is. Care is worth paying for.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll risk the cheaper stuff and see what happens.", next = "BACK", fx = { align = { order = -1 } } },
@@ -453,7 +453,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Alchemy follows recipes and the elements follow their moods, which is why I prefer alchemy; you can't put a mood on an invoice. Still, I once watched a shaman cleanse a fouled well with a totem and a word, and I was jealous for a week." } },
+      lines = { { id = "xhsham_default", text = "Alchemy follows recipes and the elements follow their moods, and I'll take the recipe every time, pal, because you can't put a mood on an invoice. Still, I once watched a shaman cleanse a fouled well with a totem and a word, and I was jealous for a week." } },
       choices = {
         { text = "Recipes have their place. Discipline serves a shaman too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The elements follow no recipe, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
@@ -518,7 +518,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Do mind the shelves with that hammer, please, because I polished every vial this morning and I'd like at least one day without broken glass." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Mind the shelves, please, because everything on them is clean and I'd like it to stay that way, though I'll admit a blessing on the bottles couldn't hurt." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll be wanting clean reagents, I expect, pal, and mine are the only clean ones in Booty Bay, which is why they cost a little more and worth every copper." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll be wanting clean reagents, I expect, pal, and mine are the only clean ones in Booty Bay, so they cost a little more, and they're worth every copper." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll want holy water vials, I expect, or unholy ones, and I clean both the same way, thoroughly, and charge for both the same way, too." },
         { id = "h_default", key = true,
           text = "Glyx Brewright, alchemy supplies! I sell vials, flasks and the odd reagent you can't pick in the jungle, and everything I sell is clean, which is more than any other shop in Booty Bay can say, and that's a selling point, friend." },
@@ -527,7 +527,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll sell you candles and chalk, but I'll ask you not to summon anything in my shop, because the last time someone tried, the soot took me a week to scrub out, and a week's a lot of lost sales." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, and you'll want healing potions, of course, but please don't carry them loose in your pack, because broken glass in a wound is the last thing you need." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You'll want antivenom, I'd guess, buddy, because every spider and snake in this jungle bites, and every hunter thinks it won't happen to them until it does." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Do me a favor and don't touch anything with leaves on it; I like my shelves clean, and the last druid left half the jungle on my counter." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Do me a favor and don't touch anything with leaves on it; I like my shelves clean, and the last druid left a fern and two beetles on my counter." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? Keep your hands off the shelves while you think; thinking's free, breakage isn't." },
@@ -633,7 +633,7 @@ P:NPC {
 
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
-      text = "You've a smith's hands or a miner's, I can't tell which, but either way you'll know a good bar of iron when you see one. That's more than most of the sailors who come in here can say." },
+      text = "You've a smith's hands or a miner's, I can't tell which, but either way you'll know a good bar of iron when you see one. Most of the sailors who come in here couldn't tell iron from ballast." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another face from the north, good. I don't get many of my own sort in the shop, and it's nice to hear a voice that isn't haggling." },
   },
@@ -663,7 +663,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Not much, I'll grant you, unless a staff wants shoeing or a wand wants setting in iron. Mostly I see your kind when an enchanter wants a plain rod to work on, and the plain ones take a spell better than fancy ones, because there's nothing in them to argue with it." } },
+      lines = { { id = "xhcast_default", text = "Not much, unless a staff wants shoeing or a wand wants setting in iron. Mostly I see your kind when an enchanter wants a plain rod to work on, and the plain ones take a spell better than fancy ones, because there's nothing in them to argue with it." } },
       choices = {
         { text = "Plain and honest work. That's worth something.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fancy sells better. You should charge more for less.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -729,7 +729,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Not many of your sort need coal and flux, but you're welcome to stand by the forge a while, because the damp in this town gets into your bones." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. That plate wants looking after in this damp, and I sell the oil and the files to do it, though I'd wager you know more about keeping armor than most of my customers." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I've sold iron to a few of yours, and they always ask where it was mined before they buy, which I respect." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, is it? I'll not pretend to know what you pray to, but I sell honest iron, and I'll sell it to you honestly." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, is it? I'll not pretend to know what you pray to, but I sell honest iron, and a priest pays the same as a pirate." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've heard tales of where your power comes from, but I'm a supplier, not a judge, so tell me what you need." },
         { id = "h_default", key = true,
           text = "Jansen Underwood. I sell what a forge needs: coal, flux, iron bars and the tools to work them. Every smith in Booty Bay buys from me, and so do the ships' carpenters when their nails run out." },
@@ -800,7 +800,7 @@ P:NPC {
     },
     goblins = {
       lines = {
-        { id = "gb_default", text = "They pay on time, and they'll tell you to your face what they think you're worth, which is more than I can say for some men I've worked for. You just read every word of a contract twice before you sign it." },
+        { id = "gb_default", text = "They pay on time, and they'll tell you to your face what they think you're worth, and the foremen I worked under in Stormwind never had the nerve for that. You just read every word of a contract twice before you sign it." },
       },
       choices = {
         { text = "A fair deal is a fair deal, whoever offers it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -868,8 +868,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I'd rather not start checking for paw prints as well." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I'd rather not start checking for paw prints as well. Your {pet} looks well behaved, I'll admit, but I've written its name down all the same, and I'll be checking the vault floor tonight." },
+        { id = "xhuntcl_default", text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I don't need paw prints on the list as well." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I don't need paw prints on the list as well. Your {pet} looks well behaved, I'll admit, but I've written its name down all the same, and I'll be checking the vault floor tonight." },
       },
       choices = {
         { text = "Your doors, your rules. My cat waits outside.", next = "BACK", fx = { align = { order = 1 } } },
@@ -879,7 +879,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "I trust neither, which is why I use both, and then I check them, and then I check the bill for them. A lock can be picked and a ward can be broken, but nobody has ever got past both while I was counting, and I am always counting." } },
+      lines = { { id = "xhcast_default", text = "I trust neither, so I use both, and then I check them, and then I check the bill for them. A lock can be picked and a ward can be broken, but nobody has ever got past both while I was counting, and I am always counting." } },
       choices = {
         { text = "Both, and then check again. That's wise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You'd sleep better if you trusted your locks for once.", next = "BACK", fx = { align = { order = -1 } } },
@@ -924,7 +924,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not hard, exactly, just heavy, since your lot store armor and hammers where other folk store coin, and every piece gets counted twice like everything else, at the heavy-goods rate. I'll grant that a paladin has never once argued with my totals, which is more than I can say for the sailors." } },
+      lines = { { id = "xapala_default", text = "Not hard, exactly, just heavy, since your lot store armor and hammers where other folk store coin, and every piece gets counted twice like everything else, at the heavy-goods rate. And I'll say this, pal: a paladin has never once argued with my totals, while the sailors argue with every line." } },
       choices = {
         { text = "Careful counting is a virtue, Rickle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Counting everything twice sounds exhausting, Rickle.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1052,8 +1052,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, which is why I sell it to every hunter clever enough to ask, and it's cheaper than a funeral." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, which is why I sell it to every hunter clever enough to ask. Your {pet} hears you coming from a mile off as it is, so you might as well make it a little harder for the rest of the jungle." },
+        { id = "xhuntcl_default", text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, so I sell it to every hunter clever enough to ask, and it's cheaper than a funeral." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, so I sell it to every hunter clever enough to ask. Your {pet} hears you coming from a mile off as it is, so you might as well make it a little harder for the rest of the jungle." },
       },
       choices = {
         { text = "A careful hunter prepares every detail. I'll take the silk.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1099,7 +1099,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than mages do, I've found, because a warlock wants to look the part when the demon arrives, and looking the part costs extra. I've made more black silk robes for warlocks than I can count, and every one of them wanted a high collar, no matter the heat." } },
+      lines = { { id = "xlock_default", text = "More than mages do, I've found, because a warlock wants to look the part when the demon arrives, and looking the part costs extra. I've made more black silk robes for warlocks than I can count, and each one wanted a high collar, no matter the heat." } },
       choices = {
         { text = "Looks matter less than comfort. Make it light.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A warlock must look the part. High collar, please.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1292,7 +1292,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Not much, I'll grant you, but a spell takes time to say, and a panther doesn't wait for anyone to finish. I've seen priests come back from the jungle with a hatchet on their belt and a look on their face that said they'd rather not discuss it." } },
+      lines = { { id = "xapriest_default", text = "Not much, it's true, but a spell takes time to say, and a panther doesn't wait for anyone to finish. I've seen priests come back from the jungle with a hatchet on their belt and a look on their face that said they'd rather not discuss it." } },
       choices = {
         { text = "The Light is my weapon. I'll trust it over steel.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Fair point. I'll carry something sharp, just in case.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1301,7 +1301,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because the grip tells you who taught them and whether they listened, which is more than most people will tell you about themselves. A soldier grips tight and a hunter grips loose, and a paladin grips like the weapon belongs to someone else, which I've always found curious." } },
+      lines = { { id = "xapala_default", text = "Because the grip tells you who taught them and whether they listened, and that's more than they'd ever admit aloud. A soldier grips tight and a hunter grips loose, and a paladin grips like the weapon belongs to someone else, which I've always found curious." } },
       choices = {
         { text = "It does. The Light lends me the strength to swing it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "It's mine, and I swing it for my own reasons.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1372,7 +1372,7 @@ P:NPC {
     },
     hemet_students = {
       lines = {
-        { id = "hs_default", text = "Ajeck is the real thing; she's been hunting tigers since she was a girl. Sir Erlgadin is a nobleman who can shoot, which is rarer than you'd think, but he talks about Stormwind's lords as if they owe him money." },
+        { id = "hs_default", text = "Ajeck is the real thing; she's been hunting tigers since she was a girl. Sir Erlgadin is a nobleman who can shoot, which is rarer than a sober night in Booty Bay, but he talks about Stormwind's lords as if they owe him money." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1552,7 +1552,7 @@ P:NPC {
         { text = "Let me see your recipes.", next = "BUSINESS" },
         { text = "What's good to eat around here?", next = "eat" },
         { text = "What shouldn't I eat in the jungle?", next = "dont" },
-        { text = "You must cook for half the town.", next = "cook_for" },
+        { text = "You must cook for the whole town.", next = "cook_for" },
         { text = "Dried clam strips? Are they any good, Kelsey?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does pepper matter so much, Kelsey?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do sailors pray before they eat, Kelsey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1566,7 +1566,7 @@ P:NPC {
     },
     eat = {
       lines = {
-        { id = "e_default", text = "Clams from the reefs, steamed with a bit of pepper, and the cod from the deep water, if you've the patience to catch it. Tiger meat's tough but honest, and raptor's better than you'd think, if you cook it long enough to stop it looking at you." },
+        { id = "e_default", text = "Clams from the reefs, steamed with a bit of pepper, and the cod from the deep water, if you've the patience to catch it. Tiger meat's tough but honest, and raptor's surprisingly good, if you cook it long enough to stop it looking at you." },
       },
       choices = {
         { text = "Raptor. I'd never have thought it.", next = "eat_raptor" },
@@ -1645,7 +1645,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "For when ten trolls rush you at once, of course, and you need to make it nine, or eight, or a crater. I've sold plenty to warriors who swore they'd never use it, and every one of them came back for more." } },
+      lines = { { id = "xwarcl_default", text = "For when ten trolls rush you at once, of course, and you need to make it nine, or eight, or a crater. I've sold plenty to warriors who swore they'd never use it, and they all came back for a second crate." } },
       choices = {
         { text = "A warrior wins with skill and steel, not explosives.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Whatever wins the fight is the right tool.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1702,7 +1702,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Only my shop, these days, because the Venture Company men buy my powder by the barrel to clear the trees, and I'd rather not be standing there when they light it. I don't ask what they're clearing, but I hear the trees fall from here some mornings." } },
+      lines = { { id = "xdruid_default", text = "Only my shop, these days, because the Venture Company men buy my powder by the barrel to clear the trees, and I make sure I'm a long way off when they light it. I don't ask what they're clearing, but I hear the trees fall from here some mornings." } },
       choices = {
         { text = "Then stop selling to the Venture Company. Their coin is poisoned.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A merchant can't choose his customers. Selling powder isn't felling trees.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },

@@ -175,7 +175,7 @@ P:NPC {
   },
   notice = {
     { id = "n_arcane", cat = "arcane", when = { class = { "MAGE", "WARLOCK" }, race = "Scourge" },
-      text = "Your hands still remember the gestures, I can see it. Death steals the names and faces, but it leaves the spellwork, which tells you something about where the mind keeps its treasures." },
+      text = "Your hands still remember the gestures, I can see it. Death steals the names and faces, but it leaves the spellwork, and I find that says something about where the mind keeps its treasures." },
   },
   start = "hello",
   nodes = {
@@ -202,7 +202,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dalaran = {
-      lines = { { id = "d_default", text = "I think they sat behind their walls arguing about protocol while Kel'Thuzad walked out of their halls with the plague in his pocket. Then they sent mages to Ambermill to guard a ruin, which tells you everything about their priorities." } },
+      lines = { { id = "d_default", text = "I think they sat behind their walls arguing about protocol while Kel'Thuzad walked out of their halls with the plague in his pocket. Then they sent mages to Ambermill to guard a ruin, and there you have their priorities." } },
       choices = {
         { text = "They suffered too, Cain.", next = "dalaran_stance" },
         { text = "Something else.", next = "BACK" },
@@ -285,7 +285,7 @@ P:NPC {
     },
     sevren_stance = {
       big = true,
-      lines = { { id = "ss_default", text = "I'm a citizen with good hearing, and that's a much nicer word for it. Every town needs someone who listens, and I'd rather it was me than someone with a grudge." } },
+      lines = { { id = "ss_default", text = "I'm a citizen with good hearing, and that's a much nicer word for it. Every town needs someone who listens, and better me than someone with a grudge." } },
       choices = {
         { text = "Someone has to keep order. Good on you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A thief who reports to magistrates isn't much of one.", next = "BACK", fx = { align = { order = -1 } } },

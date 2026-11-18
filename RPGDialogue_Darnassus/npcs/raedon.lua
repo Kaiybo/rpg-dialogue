@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Raedon Duskstriker, quartermaster for the Alliance's cloth here in Darnassus. My people have endured a great deal since we left the old forests for Teldrassil, and now, on top of everything, we find ourselves in a dire shortage of cloth." },
+          text = "I am Raedon Duskstriker, quartermaster for the Alliance's cloth here in Darnassus. My people have endured the loss of Hyjal and the long years of rebuilding on Teldrassil, and now, on top of everything, we find ourselves in a dire shortage of cloth." },
         { id = "h_young", when = { maxLevel = 25 },
           text = "You're young for this work, friend, and I'd not ask much of you yet. When you've cloth to spare, though, bring it here, because every bundle counts." },
         { id = "h_rune", when = { minLevel = 50 },
@@ -135,6 +135,6 @@ P:NPC {
     warsong = { { id = "tp_warsong", text = "The Warsong cut Ashenvale and the Sentinels hold the line, and every bale of cloth I send goes to that line. Most of it comes back as bandages." } },
     theramore = { { id = "tp_theramore", text = "Theramore requisitions cloth from us when their ships are late, and Lady Proudmoore always pays her debts. I like a quartermaster on the other end of the ledger who keeps her word." } },
     booty_bay = { { id = "tp_booty_bay", text = "A goblin port that sells to both sides and smiles at each. I've bought cloth there when I had to, and I counted it twice." } },
-    _none = { { id = "tp_none", text = "I only know cloth, friend, and I have had a long life to learn a great deal about it. Ask me about that." } },
+    _none = { { id = "tp_none", text = "I only know cloth, friend, and I have had centuries to learn its every weave. Ask me about that." } },
   },
 }

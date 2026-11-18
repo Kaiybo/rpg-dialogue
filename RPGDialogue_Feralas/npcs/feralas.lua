@@ -155,7 +155,7 @@ P:NPC {
     },
     rogue_sh = {
       lines = {
-        { id = "rsh_default", text = "Everyone works where my archers can't see them, eventually, so make yourself useful while you're out of sight. The ogres in the Feral Scar keep their chiefs well hidden, and a rogue who learns where would save a great deal of arrows." },
+        { id = "rsh_default", text = "Everyone works where my archers can't see them, eventually, so make yourself useful while you're out of sight. The ogres in the Feral Scar keep their chiefs well hidden, and a rogue who learns where would spare my Sentinels many arrows." },
         { id = "rsh_watch", when = { origin = "nightelf_watcher_trained" },
           text = "Watcher-trained, by the look of you. Maiev's people and mine don't always agree, but I've never once known one of you to waste an arrow's worth of effort, so go find me those chiefs." },
       },
@@ -221,7 +221,7 @@ P:NPC {
       lines = {
         { id = "h_pt_shandris", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
           text = "You ride with one of my people, I see. I trust {companion} has told you that the forests of Feralas do not forgive carelessness, and that the Sentinels expect better than that from their friends." },
-        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul", faction = "Alliance" }, text = "My scouts say you went into the ruins of Eldre'Thalas, the place the ogres call Dire Maul, and came back out of its depths. Few of my Sentinels have walked those halls and lived, so forgive me if I look at you more carefully now." },
+        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul", faction = "Alliance" }, text = "My scouts say you went into the ruins of Eldre'Thalas, the place the ogres call Dire Maul, and came back out of its depths. Few of my Sentinels have walked those halls and lived, and I find I must look at you more carefully now." },
         { id = "h_default", key = true,
           text = "Shandris Feathermoon, General of the Sentinels. This stronghold watches over Feralas for the High Priestess. The naga stir along the coast, and the ogres in the hills; we watch them both." },
         { id = "h_tyrande", when = { heardLine = "tyrande.h_default" },
@@ -232,7 +232,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You carry the stench of the Legion, warlock, and every Sentinel on this isle can smell it. You stand on Feathermoon by the grace of the Alliance, and by nothing else." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage of the Alliance. Our people remember too well what arcane hunger did to this world, so you'll forgive me if I watch your spells as closely as I watch the naga." },
+          text = "A mage of the Alliance. Our people remember too well what arcane hunger did to this world, so I will watch your spells as closely as I watch the naga." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk like a Sentinel on the hunt, which I'll take as a compliment to whoever trained you. The naga on the coast are sly, and I have use for anyone who can match them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand on Feathermoon. Pratt McGrubben once wore that tabard, and he tells me your order stands its ground, which is the only praise I give." },
@@ -387,7 +387,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "My scouts cover every road and shore in Feralas, and every one of them reports to me. Ask what you need." },
+      { id = "tp_knows", text = "My scouts cover every road and shore in Feralas, and each reports to me by moonrise. Ask what you need." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
         text = "You've earned a straight answer from the Sentinels, so ask me anything. I'll tell you what I'd tell my own second." },
     },
@@ -516,7 +516,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It worries me, which is different, and it worries the Sentinels a great deal more. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." } },
+      lines = { { id = "xlock_default", text = "It worries me, which is different, and it troubles the Sentinels far more. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." } },
       choices = {
         { text = "Pray all you like. I don't need it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll take any prayers you have to spare.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -556,7 +556,7 @@ P:NPC {
           text = "Pratt McGrubben, mostly retired from paladin work and fully employed in leather. I patch whatever the Sentinels bring back torn." },
         { id = "h_quality", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Mark of Quality") }, { questActive = TODO_QUEST("Improved Quality") } } },
           text = "Show me the hides, and I'll show you how to make something a Sentinel would be proud to wear. Quality takes patience, and I've got plenty of that now." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Good, because half the hides the Sentinels bring me were torn by things I'd rather a druid explained to me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Good, because too many of the hides the Sentinels bring me were torn by things I'd like a druid to explain." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, is it? I've hung up my hammer, friend, but a man doesn't stop being a paladin all at once, and I'll admit my hand still twitches for it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -700,7 +700,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Of course, for the kettle at least. My sisters are wary of your kind, and they have their reasons, but I've never met a mage who couldn't be trusted with a cup of tea, and the Sentinels drink a great deal of it." } },
+      lines = { { id = "xmage_default", text = "Of course, for the kettle at least. My sisters are wary of your kind, and they have their reasons, but I've never met a mage who couldn't be trusted with a cup of tea, and the Sentinels go through it by the barrel." } },
       choices = {
         { text = "Kindness should come first, whatever someone's craft.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your sisters are right to be wary.", next = "BACK", fx = { align = { light = -1 } } },
@@ -878,7 +878,7 @@ P:NPC {
     },
     op_warchief_r4 = {
       lines = {
-        { id = "op_warchief_r4", text = "It's worth something, I'll grant you. Don't tell the braves I said so, but I'll take fair over friendly any day." },
+        { id = "op_warchief_r4", text = "It's worth something. Don't tell the braves I said so, but I'll take fair over friendly any day." },
       },
       choices = {
         { text = "Something else, Rok.", next = "BACK" },
@@ -1096,7 +1096,7 @@ P:NPC {
     },
     ceremony_orb = {
       lines = {
-        { id = "co_default", text = "A mage-lord's orb holds a great deal of power, and I know my enemy well, but I can't tell you what it does. There's a mage in Orgrimmar, Uthel'nay, in the Darkbriar Lodge, who can." },
+        { id = "co_default", text = "A mage-lord's orb holds real power, and I know my enemy well, but I can't tell you what it does. There's a mage in Orgrimmar, Uthel'nay, in the Darkbriar Lodge, who can." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1134,7 +1134,7 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "m_default", text = "Maybe you could, but it's dangerous, and I'd rather a master looked at it far from my camp. Bring the orbs to me and let Uthel'nay take the risk; that's what Orgrimmar feeds him for." },
+        { id = "m_default", text = "Maybe you could, but it's dangerous, and a master should look at it far from my camp. Bring the orbs to me and let Uthel'nay take the risk; that's what Orgrimmar feeds him for." },
       },
       choices = { { text = "Better Uthel'nay's eyebrows than mine.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
@@ -1352,7 +1352,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "That's exactly what I'm trying to find out, my friend, and the ogres aren't telling. It's heavy and it's blue, and I've a hunch it would take an enchantment better than iron, so somebody in Orgrimmar is going to want a great deal of it at a great deal of gold." } },
+      lines = { { id = "xhcast_default", text = "That's exactly what I'm trying to find out, my friend, and the ogres aren't telling. It's heavy and it's blue, and I've a hunch it would take an enchantment better than iron, so somebody in Orgrimmar is going to want a cartload of it at a fat price." } },
       choices = {
         { text = "Sell it first. The study can wait.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Study it properly before you sell a single stone.", next = "BACK", fx = { align = { order = 1 } } },

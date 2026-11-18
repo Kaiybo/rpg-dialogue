@@ -147,7 +147,7 @@ P:NPC {
     },
     eng_gx = {
       lines = {
-        { id = "eg_default", text = "A detonator with a timer, so I can be somewhere else when it goes off. It's revolutionary, honestly; you'd be amazed how few designs bother with that part." },
+        { id = "eg_default", text = "A detonator with a timer, so I can be somewhere else when it goes off. It's revolutionary, pal, trust me; you'd be amazed how few designs bother with that part." },
       },
       choices = {
         { text = "Very sensible, Gaxim.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -158,7 +158,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Mage, alchemist, engineer and Assembly member in good standing! Mostly good standing. There was an incident with a teapot." } },
-    advice = { { id = "tp_ad", text = "Always label your crates, every one of them, and don't ask me why; just do it." } },
+    advice = { { id = "tp_ad", text = "Always label your crates, every last one, and don't ask me why; just do it." } },
     venture_company = { { id = "tp_venture", text = "Greedy, wasteful and terrible engineers, and that last one offends me most of all." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not talk about Gnomeregan, if it's all the same to you. That's why I'm out here saving somebody else's home." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are the finest in the world, and I'd give my left eyebrow to study there. I've already given the right one to an experiment, so it's a fair trade." } },

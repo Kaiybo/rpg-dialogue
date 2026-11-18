@@ -20,7 +20,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every one of them does, and every dent's an insult. A shaman might be kinder to metal, spirits or not. We'll see." } },
+      lines = { { id = "xdsham_default", text = "They all do, and every dent's an insult. A shaman might be kinder to metal, spirits or not. We'll see." } },
       choices = {
         { text = "I'll treat your work with respect, Godric.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Armour's meant to be dented. That's its job.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -86,7 +86,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Over every shield, before it leaves the forge, because every one of them goes on the arm of some lad who's never been hit. Brother Paxton says the Light doesn't care about iron, but I've seen what comes back, and I'll keep praying." } },
+      lines = { { id = "xapriest_default", text = "Over every shield, before it leaves the forge, because each one goes on the arm of some lad who's never been hit. Brother Paxton says the Light doesn't care about iron, but I've seen what comes back, and I'll keep praying." } },
       choices = {
         { text = "Then your prayers are in every shield. Keep at it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Good iron matters more than prayers, Godric.", next = "BACK", fx = { align = { light = -1 } } },
@@ -105,7 +105,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll be in robes, I suppose, but come back when you've learned that robes don't stop a kobold's pick." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now that's a sight, because I made half the plate Sammuel's students wear, and I like to see it come back with honest dents." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now that's a sight, because I made most of the plate Sammuel's students wear, and I like to see it come back with honest dents." },
         { id = "h_default", text = "Godric Rothgar, armorer to the Abbey. Every recruit who walks out of Northshire walks out in something I've hammered, so mind you bring it back unbroken." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane will teach you to swing, but I'll teach you to love a shield, because a kobold's pick goes through a sword arm far easier than oak." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -153,7 +153,7 @@ P:NPC {
       },
     },
     recruits = {
-      lines = { { id = "rc_default", text = "Half of them do. The other half learn the first time a kobold catches them without a helm, and then they listen very well, usually with a lump the size of an egg." } },
+      lines = { { id = "rc_default", text = "The sensible ones do, and the rest learn the first time a kobold catches them without a helm, and then they listen very well, usually with a lump the size of an egg." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -292,7 +292,7 @@ P:NPC {
       },
     },
     torn = {
-      lines = { { id = "t_default", text = "The novices who chase the wolves into the woods, every one of them. Brother Paxton tends their bruises and sends them straight to me for their sleeves." } },
+      lines = { { id = "t_default", text = "The novices who chase the wolves into the woods, the whole lot. Brother Paxton tends their bruises and sends them straight to me for their sleeves." } },
       choices = {
         { text = "You should charge them double for carelessness.", next = "BACK", fx = { align = { light = -1 }, trait = { greedy = 1 } } },
         { text = "Mending for the young is good work.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
@@ -307,7 +307,7 @@ P:NPC {
       },
     },
     leather_more = {
-      lines = { { id = "lm_default", text = "Eagan Peltskinner down in Goldshire tans better than I ever could, mind you. When I've coin to spare I buy from him instead." } },
+      lines = { { id = "lm_default", text = "Eagan Peltskinner down in Goldshire tans better than I ever could, I'll admit. When I've coin to spare I buy from him instead." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -385,7 +385,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Point away from ye, edge down, an' loose enough that it doesn't twist in yer hand, which is more than half the recruits manage. I'd rather sell a dagger tae a rogue than a sword tae a farmhand, because at least I know ye'll use it." } },
+      lines = { { id = "xrogue_default", text = "Point away from ye, edge down, an' loose enough that it doesn't twist in yer hand, an' most recruits cannae manage even that. I'd sooner sell a dagger tae a rogue than a sword tae a farmhand, because at least I know ye'll use it." } },
       choices = {
         { text = "I'll use it well and honorably, Janos.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll use it however the moment calls for.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -550,7 +550,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Every one of them, at least once, and usually the week they learn their first fireball and try it on a wolf by the vineyards. The Light mends burns well enough, but I wish the Light could mend impatience." } },
+      lines = { { id = "xmage_default", text = "All of them, at least once, and usually the week they learn their first fireball and try it on a wolf by the vineyards. The Light mends burns well enough, but I wish the Light could mend impatience." } },
       choices = {
         { text = "I'll be careful with my fire, Brother. Patience first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Burns are how you learn. A few scars never hurt.", next = "BACK", fx = { align = { order = -1 } } },

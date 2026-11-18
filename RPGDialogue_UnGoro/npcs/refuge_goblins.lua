@@ -128,7 +128,7 @@ P:NPC {
     scared_shame = {
       big = true,
       lines = {
-        { id = "ss_default", text = "That's easy for you to say with all that armour on. Goblins who get brave around big lizards end up as stories other goblins tell to scare their kids, and I'd rather be a coward with a flyer than a hero in a nest." },
+        { id = "ss_default", text = "That's easy for you to say with all that armour on. Goblins who get brave around big lizards end up as stories other goblins tell to scare their kids, so I'll be a coward with a flyer before I'm a hero in a nest, pal." },
       },
       choices = {
         { text = "Courage is facing fear. You'll find yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -289,7 +289,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Gibbert's the name, weapons are the game, and in Un'Goro the game is staying alive, friend. Swords, axes, maces, a few staves, all hauled down the ramp from Gadgetzan at great personal expense, which is why the prices are what they are." },
+        { id = "h_default", key = true, text = "Gibbert's the name, weapons are the game, and in Un'Goro the game is staying alive, friend. Swords, axes, maces, a few staves, all hauled down the ramp from Gadgetzan at great personal expense, and that personal expense goes straight on the price tag." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter! I've got nothing that shoots, pal, but when a raptor gets inside your bow range you'll want somethin' sharp in the other hand, believe me." },
       },
@@ -307,7 +307,7 @@ P:NPC {
     },
     best = {
       lines = {
-        { id = "b_default", text = "Depends what you're fighting, pal. Raptors, somethin' quick; stegodons, somethin' heavy; devilsaurs, honestly, a fast pair of boots, but I don't sell those, so buy the biggest axe on the rack and hope." },
+        { id = "b_default", text = "Depends what you're fighting, pal. Raptors, somethin' quick; stegodons, somethin' heavy; devilsaurs, a fast pair of boots, but I don't sell those, so buy the biggest axe on the rack and hope." },
       },
       choices = {
         { text = "Have you ever fought a devilsaur?", next = "devilsaur" },

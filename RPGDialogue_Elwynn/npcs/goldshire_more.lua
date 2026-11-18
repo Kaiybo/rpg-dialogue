@@ -233,7 +233,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I walk every one of them with my basket. I've met every sort of traveller, and you're the first shaman. Here, take a loaf." } },
+      lines = { { id = "xdsham_default", text = "I walk every road in Elwynn with my basket. I've met every sort of traveller, and you're the first shaman. Here, take a loaf." } },
       choices = {
         { text = "Thank you, Kira. Kindness on the road is a blessing.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll pay for the loaf. Charity's not needed.", next = "BACK", fx = { align = { light = -1 } } },

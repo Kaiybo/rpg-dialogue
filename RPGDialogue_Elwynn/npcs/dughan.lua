@@ -31,7 +31,7 @@ P:NPC {
     { id = "n_bounty", cat = "bounty", place = "before", when = { questReady = TODO_QUEST("WANTED: \"Hogger\"") },
       text = "Is that what I think it is? Put it on the desk, slowly, because I want the guards to see it." },
     { id = "n_town_hero", cat = "reputation", when = { townStanding = { town = "goldshire", min = 55 } },
-      text = "Half the town wants to buy you a drink. The other half wants to name a pig after you. I've told them both to wait." },
+      text = "The Lion's Pride wants to buy you a drink and the farmers out east want to name a pig after you, and I've told them both to wait." },
   },
 
   start = "hello",
@@ -75,7 +75,7 @@ P:NPC {
     },
     xcl_stocks = {
       big = true,
-      lines = { { id = "xcl_stocks_default", text = "Some of them will, when their sentences run out, because a cell never cured a hungry man of stealing. I've a handful of guards for a whole county, and I'd rather folk believed the Defias are a nuisance than a war, since a frightened town is harder to keep than an angry one." } },
+      lines = { { id = "xcl_stocks_default", text = "Some of them will, when their sentences run out, because a cell never cured a hungry man of stealing. I've a handful of guards for a whole county, and I'd sooner folk believed the Defias are a nuisance than a war, since a frightened town is harder to keep than an angry one." } },
       choices = {
         { text = "People have a right to the truth, Marshal, frightened or not.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Keep them calm, Marshal. A little quiet is worth a little lying.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -125,7 +125,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than I'd like and fewer than I feared, and every one of them was too young for it. The army's away and the gnolls know it, so I send farm boys to do soldiers' work, and then I write to their mothers." } },
+      lines = { { id = "xapriest_default", text = "More than I'd like and fewer than I feared, and all of them were too young for it. The army's away and the gnolls know it, so I send farm boys to do soldiers' work, and then I write to their mothers." } },
       choices = {
         { text = "Let me help you write those letters, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Soldiers die, Marshal. That's what the uniform is for.", next = "BACK", fx = { align = { light = -1 } } },
@@ -468,7 +468,7 @@ P:NPC {
       lines = {
         { id = "warrior_l", text = "I did, and I meant it. The posters by the door are the jobs: murlocs east, kobolds in the mines, gnolls west and Hogger worst of all, and every one of them pays in coin and in Goldshire sleeping easier." },
         { id = "warrior_guard", when = { origin = "human_city_guard" },
-          text = "City Watch, weren't you, with that walk? Then you know how a posting works: the posters by the door are the jobs, and every one of them pays in coin and in Goldshire sleeping easier." },
+          text = "City Watch, weren't you, with that walk? Then you know how a posting works: the posters by the door are the jobs, and each pays in coin and in Goldshire sleeping easier." },
       },
       choices = {
         { text = "Which one's the worst?", next = "warrior_worst" },
@@ -520,7 +520,7 @@ P:NPC {
     dg_self = {
       hub = true,
       lines = {
-        { id = "dxs_default", text = "About me? There's a desk, a town and not enough guards, and that's most of it. Still, you've asked civilly, which is rarer in this office than you'd think, so go on." },
+        { id = "dxs_default", text = "About me? There's a desk, a town and not enough guards, and that's most of it. Still, you've asked civilly, and that doesn't happen often in this office, so go on." },
         { id = "dxs_warm", when = { disposition = { min = 70 } }, text = "For you I'll put the pen down, which I don't do for the Regent's couriers. Ask what you like." },
       },
       again = {
@@ -662,7 +662,7 @@ P:NPC {
 
     dg_ask = {
       lines = {
-        { id = "dxa_default", text = "I'll ask you one first, since you're in a talking mood. You've walked more of Elwynn this month than my guards have, so tell me honestly: what are folk saying about Goldshire out on the roads?" },
+        { id = "dxa_default", text = "I'll ask you one first, since you're in a talking mood. You've walked more of Elwynn this month than my guards have, so tell me straight: what are folk saying about Goldshire out on the roads?" },
       },
       choices = {
         { text = "That it's safe, and that's thanks to you.", next = "dg_ask2", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -719,7 +719,7 @@ P:NPC {
     },
     dg_squire = {
       lines = {
-        { id = "dxq_default", text = "The Silver Hand's squires used to pass through Goldshire on their way north, every one of them very sure of himself and very fond of Farley's pies. You kept the oaths with nobody left to hold you to them, and that's the kind of soldier I'd put on the Westbrook road tomorrow." },
+        { id = "dxq_default", text = "The Silver Hand's squires used to pass through Goldshire on their way north, each one very sure of himself and very fond of Farley's pies. You kept the oaths with nobody left to hold you to them, and that's the kind of soldier I'd put on the Westbrook road tomorrow." },
       },
       choices = {
         { text = "Then put me there, Marshal.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
@@ -765,15 +765,15 @@ P:NPC {
       { id = "tp_varian", text = "The king has been missing for months and the army's been told to say nothing, so I'll say nothing too. I'll only tell you I'd give a year's pay to see him ride back through the gate." },
       { id = "tp_varian2", when = { disposition = { min = 70 } }, text = "Between us, I think somebody in the Keep knows more than they've told the army. I've no proof of it, so it stays between us and this desk." },
     },
-    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar holds the kingdom together for the boy king, and he does it honestly. I've served under worse men and been paid more for it." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar holds the kingdom together for the boy king, and he does it without lining his own pockets. I've served under worse men and been paid more for it." } },
     prestor = { { id = "tp_prestor", text = "Lady Prestor has the Highlord's ear and the House of Nobles in her pocket, and she's done more for the nobles than she's ever done for Goldshire. That's all a marshal ought to say about a lady of the court." } },
     scourge = { { id = "tp_scourge", text = "Refugees came south after Lordaeron fell, and they told stories I didn't believe until the second hundred told the same ones. Pray it stays north of the Thandol Span." } },
     second_war = { { id = "tp_second_war", text = "I was a young footman under Lord Lothar's banner in the Second War, and I've been holding lines ever since. The orcs were the worst thing I ever faced, until the paperwork." } },
     the_stockade = { { id = "tp_the_stockade", text = "Every Defias I catch goes to the Stockade in the city, and the warden writes to me complaining that it's full. I send him more Defias by way of reply." } },
     stonemasons = { { id = "tp_stonemasons", text = "Westfall's thieves started as the city's stonemasons, unpaid for raising the walls, and I'll grant they had a grievance. A grievance doesn't give a man the right to burn a farm, though." } },
     heroes_vigil = { { id = "tp_heroes_vigil", text = "The stone on the island in Stone Cairn Lake remembers Goldshire's dead from the First War, and now rogue wizards squat on it. It shames me every time I ride past, and I haven't the men to fix it." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps near Goldshire I double the night watch and still lose three purses a day. I like the music well enough, mind you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps near Goldshire I double the night watch and still lose three purses a day. I like the music well enough, I'll say that." } },
     si7 = { { id = "tp_si7", text = "SI:7 doesn't report to marshals, and marshals don't ask SI:7 questions. I'll leave it there, and so should you." } },
-    thrall = { { id = "tp_thrall", text = "They say the orcs have a new warchief across the sea, one who broke out of an internment camp and took half the prisoners with him. I stood guard at one of those camps once, and I'm not sorry I'm in Goldshire now.", fx = { learn = { "internment" } } } },
+    thrall = { { id = "tp_thrall", text = "They say the orcs have a new warchief across the sea, one who broke out of an internment camp and freed the prisoners in the other camps after him. I stood guard at one of those camps once, and I'm not sorry I'm in Goldshire now.", fx = { learn = { "internment" } } } },
   },
 }

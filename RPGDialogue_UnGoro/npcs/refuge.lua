@@ -115,7 +115,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Like a living thing, if you want my plain opinion, one that breathes heat and eats anything foolish enough to stand still. The crystals glow, the springs boil and the mountain smokes, and every scholar I've brought down here has a different theory why, which is half the reason I keep coming back." } },
+      lines = { { id = "xhsham_default", text = "Like a living thing, if you want my plain opinion, one that breathes heat and eats anything foolish enough to stand still. The crystals glow, the springs boil and the mountain smokes, and every scholar I've brought down here has a different theory why, and that's the reason I keep coming back." } },
       choices = {
         { text = "Treat the crater as a host, not a prize.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Claim it, Williden. Knowledge belongs to whoever's brave enough.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -167,7 +167,7 @@ P:NPC {
         { id = "h_journal_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Williden's Journal"), days = 3 } },
           text = "My journal, back on my desk! Half the pages are muddy and one's been chewed, and it's still the best thing anyone's given me in a year." },
         { id = "h_warm", when = { disposition = { min = 70 } },
-          text = "There you are! Half the Refuge asks after you when you're down in the crater, and I tell them you're too stubborn to be eaten, which I hope is true." },
+          text = "There you are! Folk all over the Refuge ask after you when you're down in the crater, and I tell them you're too stubborn to be eaten, which I hope is true." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage at the Refuge! J.D. will want to show you his crystals, and I'd be glad of a learned eye on them myself, because they hum in a way that I can't explain and don't entirely trust." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -207,7 +207,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     purpose = {
-      lines = { { id = "p_default", text = "Crystals, rare plants, a few answers, and honestly a bit of money, because expeditions don't pay for themselves. Discovery's the best part, but funding's the necessary part." } },
+      lines = { { id = "p_default", text = "Crystals, rare plants, a few answers, and, I'll admit, a bit of money, because expeditions don't pay for themselves. Discovery's the best part, but funding's the necessary part." } },
       choices = {
         { text = "What do you make of the Explorers' League?", next = "op_explorers" },
         { text = "Was it worth it?", next = "purpose_worth" },
@@ -228,7 +228,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     ready = {
-      lines = { { id = "r_default", text = "Honestly? Not yet, friend. Stay near the rim, take the small jobs and grow into it; the crater isn't going anywhere, and you should try not to either." } },
+      lines = { { id = "r_default", text = "Not yet, friend, and I'd be doing you no kindness to say otherwise. Stay near the rim, take the small jobs and grow into it; the crater isn't going anywhere, and you should try not to either." } },
       choices = { { text = "Good advice.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     beasts = {
@@ -317,7 +317,7 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I'd rather it didn't tell me, if it's all the same to you." } },
+      lines = { { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you." } },
       choices = {
         { text = "Your past will come back in time. Be patient.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe some memories are better left forgotten.", next = "BACK", fx = { align = { light = -1 } } },
@@ -328,7 +328,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I remember throwing something that came back to my hand, which feels like a hunter's sort of memory, doesn't it? The rest went with the raft, but my feet still know how to follow a raptor through the ferns, and that has to count for something." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks at me like it's met me before, which is more than I can say for most people, so I'll take that as a good sign." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks at me like it's met me before, and nobody else in this world ever does, so I'll take that as a good sign." },
       },
       choices = {
         { text = "Rebuild who you were, Linken. Your past still matters.", next = "BACK", fx = { align = { order = 1 } } },
@@ -567,7 +567,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Some of them hum, some of them heal, and some make every plant around them grow twice as big. I honestly don't know whether they're good for the crater or just very, very strange." } },
+      lines = { { id = "dq_default", text = "Some of them hum, some of them heal, and some make every plant around them grow twice as big. I can't tell you yet whether they're good for the crater or just very, very strange." } },
       choices = {
         { text = "Take only what you need and leave the rest.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Dig them all up. The knowledge is worth it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -585,7 +585,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, and I'd rather admit it now than explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
+      lines = { { id = "xlock_default", text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
       choices = {
         { text = "That's fair. I'll keep my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't get your research far, Collie.", next = "BACK", fx = { align = { light = -1 } } },
@@ -595,7 +595,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! You've got quick hands, and that's exactly what I need, because the crystals out in the crater are guarded by things that bite, and I'd rather lose your patience than my other eyebrow." },
+          text = "A rogue! You've got quick hands, and that's exactly what I need, because the crystals out in the crater are guarded by things that bite, and I've only the one eyebrow left to lose." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, splendid! The crystals hum a little louder when the Light comes into the cave, and I've been dying to know whether they like it or whether they're complaining." },
         { id = "h_default", key = true,
@@ -678,7 +678,7 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran would want my crystals, I'm sure of it, if they ever opened their gates long enough to see them. I've written twice, and I suspect they used my letters to light their pipes." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have rules about studying unknown magic, and I've broken all of them, but for science, so I think they'd forgive me. Probably." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells me copper wire and good lenses, and I'd be lost without both. The goblins also sell me crystals they swear are from here, and they aren't." } },
-    green_dragons = { { id = "tp_green_dragons", text = "I've a theory that the crystals hum the same note the green dragons hum when they sleep. I've never heard a green dragon sleep, mind you, so the theory needs work." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I've a theory that the crystals hum the same note the green dragons hum when they sleep. Of course, I've never heard a green dragon sleep, so the theory needs work." } },
     _none = { { id = "tp_none", text = "No idea! But give me a week and a crystal, and I'll have a theory." } },
   },
 }
@@ -762,7 +762,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Quietly, please, because the raptors come running at any noise, and Ringo makes a great deal of noise when he's frightened, which is always. But don't be too long about it, friend, because he never carries enough water, and I've told him and told him and even sold him a second canteen once." } },
+      lines = { { id = "xrogue_default", text = "Quietly, please, because the raptors come running at any noise, and Ringo squeals like a stuck boar when he's frightened, which is always. But don't be too long about it, friend, because he never carries enough water, and I've told him and told him and even sold him a second canteen once." } },
       choices = {
         { text = "Quiet is safest. I'll take my time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Speed matters more. I'll cut straight through.", next = "BACK", fx = { align = { order = -1 } } },
@@ -801,12 +801,12 @@ P:NPC {
           text = "A paladin! Would you say a prayer for Ringo, please, friend, any prayer at all, because he's been gone for days and I've run clean out of my own." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you ask the spirits where Ringo is? I know that's probably not how it works, friend, but I'm asking everybody, and you'd be the first who might actually know." },
         { id = "h_default", key = true,
-          text = "Spraggle Frock, Marshal Expedition! I run supplies, or I did before the camps fell and took half the stock with 'em, and now I mostly worry, mostly about Ringo. He went off toward the volcano, friend, and he hasn't come back." },
+          text = "Spraggle Frock, Marshal Expedition! I run supplies, or I did before the camps fell and took most of the stock with 'em, and now I mostly worry, mostly about Ringo. He went off toward the volcano, friend, and he hasn't come back." },
         { id = "h_lost", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Lost!") }, { questActive = TODO_QUEST("A Little Help From My Friends") } } },
           text = "You found him, and he's all right? He's dried out like a husk? Oh, that's so Ringo, so please, friend, bring him home before he tries to sell the husk." },
         { id = "h_pterrordax", when = { questActive = TODO_QUEST("Beware of Pterrordax") },
           text = "The pterrordax keep swooping on the supply runs, friend, big angry lizards with wings, and every bag they snatch comes out of my ledger. Thin them out, please, and the runners can breathe again." },
-        { id = "h_ringo", when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Ringo's back and he won't stop talkin' about how thirsty he was. I've given him eleven canteens, friend, and I'm writing every one of them down, and he's still talking." },
+        { id = "h_ringo", when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Ringo's back and he won't stop talkin' about how thirsty he was. I've given him eleven canteens, friend, and I've got every one on the books, and he's still talking." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Could you, I don't know, ask a bird whether it's seen Ringo, friend? I'm only half joking, because I've tried everything else." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You're the sort who could slip through the ferns without the raptors noticing, aren't you, friend? Oh, I wish Ringo had your feet instead of his own, because he trips over everything, and he's never once paid for what he breaks." },
@@ -880,7 +880,7 @@ P:NPC {
     steamwheedle = { { id = "tp_steamwheedle", text = "I came out from Gadgetzan because they said it was steady work at good wages, friend, and now I sleep on a ledge above dinosaurs." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where the expedition sends the bills, friend, and they come back unpaid about half the time. I worry about that too, as you'd expect." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's my hometown, and I worry about it all the time, the pirates, the sharks, the cousins who still owe me money. Mostly the cousins." } },
-    silithid = { { id = "tp_silithid", text = "The bugs from the south are getting closer every week, and nobody here wants to talk about it except me. I talk about it a great deal." } },
+    silithid = { { id = "tp_silithid", text = "The bugs from the south are getting closer every week, and nobody here wants to talk about it except me. I talk about it constantly, friend, and nobody even pays me to." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Mulgore when I was passing through once, and I worried the whole time I'd fall off the rides. I didn't, but I could have." } },
     _none = { { id = "tp_none", text = "Sorry, I don't know, friend! Maybe ask Williden, he knows things." } },
   },

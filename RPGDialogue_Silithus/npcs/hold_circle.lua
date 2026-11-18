@@ -41,7 +41,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Ha, I'd show you, but the scholars took them off to study, and I only kept the ones with the funniest drawings! There's a great deal about the wind stones and something called the Abyssal Council, and I'd much rather you burned their camps than read their scribbles." } },
+      lines = { { id = "xmage_default", text = "Ha, I'd show you, but the scholars took them off to study, and I only kept the ones with the funniest drawings! There's pages on the wind stones and something called the Abyssal Council, and I'd much rather you burned their camps than read their scribbles." } },
       choices = {
         { text = "Their writing could reveal their plans. It must be studied.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Burn the camps, then. Knowledge like that should die with them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -529,7 +529,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Not if I've done my work properly, and I have. The stones answer to the cult's medallion and robes, not to the heart beneath them, which tells me whatever speaks through them is either very old or very foolish, and I'd rather not learn which." } },
+      lines = { { id = "xhsham_default", text = "Not if I've done my work properly, and I have. The stones answer to the cult's medallion and robes, not to the heart beneath them, so whatever speaks through them is either very old or very foolish, and I have no wish to learn which." } },
       choices = {
         { text = "Deceiving the elements feels wrong, even against the cult.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A good lie in a good cause. Make it convincing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -638,7 +638,7 @@ P:NPC {
       lines = { { id = "ho_default", text = "Is it honourable to let a cult call fire down on a desert because I was too proud to tell a lie? I've thought about it, and I sleep well." } },
       choices = {
         { text = "Deceiving deceivers is fair play.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'd still rather face them honestly, blade drawn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd still rather face them openly, blade drawn.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -688,7 +688,7 @@ P:NPC {
 
   notice = {
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
-      text = "One of my own people, though you would not know my face. We have both forgotten a great deal, you and I, but I was made to remember." },
+      text = "One of my own people, though you would not know my face. We have both forgotten much, you and I, but I was made to remember." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid of the Circle. Druids stood on this sand once before, beside the Brood, and some of them were very brave." },
   },
@@ -751,7 +751,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Little alone, and a great deal together, as those who stood at the wall learned a thousand years ago. Heal those who hold the line, mortal, and do not let the whispers from beneath the sand persuade you that the dark is kinder." } },
+      lines = { { id = "xhcast_default", text = "Little alone, and much together, as those who stood at the wall learned a thousand years ago. Heal those who hold the line, mortal, and do not let the whispers from beneath the sand persuade you that the dark is kinder." } },
       choices = {
         { text = "I'll heal those on the line, and close my ears to whispers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Whispers can be heard without being obeyed. I'll listen.", next = "BACK", fx = { align = { light = -1 } } },

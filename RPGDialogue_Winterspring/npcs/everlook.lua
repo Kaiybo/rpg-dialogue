@@ -95,7 +95,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Less than you'd think, sugar, because the bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind 'em the inn's neutral, the snow outside isn't, and broken chairs go on the tab." } },
+      lines = { { id = "xapala_default", text = "Not often, sugar, because the bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind 'em the inn's neutral, the snow outside isn't, and broken chairs go on the tab." } },
       choices = {
         { text = "Good. Old grudges should stay outside your door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some grudges are earned. This truce won't last.", next = "BACK", fx = { align = { order = -1 } } },
@@ -148,7 +148,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Oh, sugar, you don't know a prayer against beetles, do you? I'd light a candle every night for one, because that bug by the hearth has outlived three traps and a boot." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin, all shiny! Mind you don't drip snowmelt off that plate onto my floor, sugar, because I've only just mopped it." },
+          text = "A paladin, all shiny! Don't you go dripping snowmelt off that plate onto my floor, sugar, because I've only just mopped it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up in the snow with the rest of us! Warm yourself at the fire, and if your loa or your Light have anything to say about beetles, I'd dearly love to hear it." },
       },
       again = {
@@ -351,7 +351,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Stand still a moment, would you? I need to know how tall a yeti has to be before somebody in armour stops being brave about it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Oh, you'll know a real yeti's tracks better than anybody, so tell me honestly, does mine walk like one or like a gnome in a fur coat?" },
+          text = "A hunter! Oh, you'll know a real yeti's tracks better than anybody, so tell me straight, does mine walk like one or like a gnome in a fur coat?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the spirits would mind a mechanical yeti? I'd hate to offend the snow, because it's been so good to me." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could you make something glow? No, wait, don't, the last spark nearly set my yeti's fur alight, and that fur took me three weeks to get." },
@@ -364,7 +364,7 @@ P:NPC {
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },
           text = "An engineer who wants a yeti of their own? Oh, you have good taste. Let me show you how it's done." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I'd rather not find out before Legacki screams." },
+          text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I want to find out after Legacki screams, not before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Don't bless anything in here, please; the last time someone said a prayer over my yeti its eyes lit up, and I don't think that was me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You can turn into a bear, can't you? I'm building a yeti, and I'd love to know how a real animal moves, because mine keep falling over on the ice." },
       },
@@ -437,7 +437,7 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "Good day to you, and may the Light keep you warm. Winterspring could use the help." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Light has kept you, I see. Welcome back to Everlook, and come warm yourself by the fire." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we first met, and I can see the Light's work in it, or at least a good deal of hard road. The Dawn always has need of hands as steady as yours have become." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we first met, and I can see the Light's work in it, or at least a long stretch of hard road. The Dawn always has need of hands as steady as yours have become." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Everlook has been speaking well of you, and the traders here don't praise anyone for free, so I'd say you've earned it, and I thank you." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone in town parted from you in anger, and I'd not take sides without hearing both, though I'll say the Dawn's work always goes better when the living aren't quarreling." },
   },
@@ -470,7 +470,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
-      lines = { { id = "op_r2_default", text = "They kill a great deal more than Scourge, friend, and they keep poor records of which was which." } },
+      lines = { { id = "op_r2_default", text = "They kill plenty besides Scourge, friend, and they keep poor records of which was which." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r3 = {
@@ -520,7 +520,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Someone who stands still when the ghouls come, mostly, because the dead never tire and a line that breaks once breaks for good. The Plaguelands are full of brave fighters who charged in alone, and the Scourge raised every one of them." } },
+      lines = { { id = "xwarcl_default", text = "Someone who stands still when the ghouls come, mostly, because the dead never tire and a line that breaks once breaks for good. The Plaguelands are full of brave fighters who charged in alone, and the Scourge raised them all to fight for it." } },
       choices = {
         { text = "Then I'll hold the line and leave the glory to others.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'd sooner cut down their necromancers from behind than wait in a line.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -530,7 +530,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "It could, because half the trouble there is the beasts the plague has twisted, and a hunter knows how a sick animal moves. Our scouts tell me the wolves of the eastern Plaguelands have turned on anything living, and I'd like someone who understands wolves to see why." },
+        { id = "xhuntcl_default", text = "It could, because much of the trouble there is the beasts the plague has twisted, and a hunter knows how a sick animal moves. Our scouts tell me the wolves of the eastern Plaguelands have turned on anything living, and I want someone who understands wolves to see why." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close if you go east, though, and keep it away from the corpses. The plague takes beasts as easily as men, and I'd hate to see it turn on you." },
       },
       choices = {
@@ -611,7 +611,7 @@ P:NPC {
           text = "A hunter. Your eyes would serve the Dawn well in the east, where the plaguebats and the twisted hounds run ahead of the dead themselves." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome. The Dawn has learned to value every kind of strength against the Scourge, and the spirits you speak to hate the plague as much as we do." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. The Argent Dawn welcomes anyone who fights the Scourge, and I'll hold to that, but forgive me if I ask what you mean to do with that power here in Everlook." },
+          text = "A warlock. The Argent Dawn welcomes anyone who fights the Scourge, and I'll hold to that, but I must ask what you mean to do with that power here in Everlook." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! We could use your kind in the east, where the Scourge are thick and their necromancers study in Scholomance. How are you with fire against the dead?" },
         { id = "h_default", key = true,

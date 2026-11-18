@@ -52,7 +52,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? The kettle's on, an' the students are out, so I've a minute." },
-        { id = "h_again2", text = "Ask away. A question costs nothin', an' a wrong guess down a shaft costs a great deal." },
+        { id = "h_again2", text = "Ask away. A question costs nothin', an' a wrong guess down a shaft costs ye a leg." },
         { id = "h_again3", text = "Go on, then. I've had worse interruptions, an' most o' them were cave-ins." },
       },
       choices = {
@@ -207,7 +207,7 @@ P:NPC {
     },
     xgnome = {
       lines = {
-        { id = "xg_default", text = "Course ye could! Ye're nearer the ground than I am, which is half the battle in a low tunnel. Only promise me ye'll no' bring one o' those drillin' machines in here, for the last one went through my floor." },
+        { id = "xg_default", text = "Course ye could! Ye're nearer the ground than I am, an' that's a blessing in a low tunnel. Only promise me ye'll no' bring one o' those drillin' machines in here, for the last one went through my floor." },
       },
       choices = {
         { text = "Machines are the future of mining, Brock.", next = "BACK", fx = { align = { order = -1 } } },
@@ -297,7 +297,7 @@ P:NPC {
     },
     picking = {
       lines = {
-        { id = "pk_default", text = "Take the leaves an' leave the root, an' never strip a patch bare, for then there's nothin' next year for you or anyone. Half the herbalists who come through here pull like they're weedin' a field, an' it breaks my heart." },
+        { id = "pk_default", text = "Take the leaves an' leave the root, an' never strip a patch bare, for then there's nothin' next year for you or anyone. Too many herbalists who come through here pull like they're weedin' a field, an' it breaks my heart." },
       },
       choices = {
         { text = "Leave some for whoever comes after.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },

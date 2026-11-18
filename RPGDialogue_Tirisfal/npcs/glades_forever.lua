@@ -33,7 +33,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hadric Harlson, of the Argent Dawn. Keep your voice down, {class}, because there are Cult of the Damned skulking around the outskirts of the city, and I'd rather they didn't hear us coming." },
+          text = "Hadric Harlson, of the Argent Dawn. Keep your voice down, {class}, because there are Cult of the Damned skulking around the outskirts of the city, and I want them to hear nothing until we're on them." },
         { id = "h_emissary", tags = { "news" }, when = { questActive = TODO_QUEST("The Argent Emissary") },
           text = "Terrence sent you after me, I suppose, to see what the Argent Dawn is doing poking about Tirisfal unsupervised. Stay low and try not to be seen, {class}; these cultists are not to be trifled with." },
         { id = "h_crystals", when = { questActive = TODO_QUEST("Remnants of War") },
@@ -101,7 +101,7 @@ P:NPC {
     },
     naxx = {
       lines = {
-        { id = "n_default", text = "It wasn't long ago, {class}, and both the Forsaken and the Dawn lost a great deal that day to secure the Forsaken's future. Leonid fought there, and so did I, and we both have names we don't say anymore." },
+        { id = "n_default", text = "It wasn't long ago, {class}, and both the Forsaken and the Dawn bled for it that day to secure the Forsaken's future. Leonid fought there, and so did I, and we both have names we don't say anymore." },
         { id = "n_forsaken", when = { race = "Scourge" },
           text = "You'll have risen after, or you'd remember the sky going dark over the ruins. Both the Forsaken and the Dawn lost a great deal that day, and the city you walk into owes its life to people whose names you'll never hear." },
       },
@@ -129,7 +129,7 @@ P:NPC {
     },
     pieces = {
       lines = {
-        { id = "p_default", text = "I don't know, and I'd rather not find out. The denizens of Tirisfal will be pulling those crystals out of the ground for years, I expect, but every piece we take from the cult is one less they can use." },
+        { id = "p_default", text = "I don't know, and I'm not eager to find out. The denizens of Tirisfal will be pulling those crystals out of the ground for years, I expect, but every piece we take from the cult is one less they can use." },
       },
       choices = {
         { text = "Then I'll gather what I can.", next = "BACK", fx = { affinity = 1 } },
@@ -235,7 +235,7 @@ P:NPC {
         { id = "h_patience", tags = { "news" }, when = { questActive = TODO_QUEST("Patience") },
           text = "Zygand wants my report? Then take it, and please see that he reads it at once, because I fear our Scourge problem has only just begun. Come back to me in due time, too; I believe I've nearly uncovered something I could use a willing blade for." },
         { id = "h_discipline", when = { questActive = TODO_QUEST("Discipline") },
-          text = "I see the Executor's given you his motivator. Go on, then, if you must; there is no escape, even in death, and I'd rather it were your hand than his." },
+          text = "I see the Executor's given you his motivator. Go on, then, if you must; there is no escape, even in death, and it may as well be your hand as his." },
         { id = "h_wrath", tags = { "news" }, when = { questBefore = TODO_QUEST("The Wrath of Rath'mael"), minLevel = 15 },
           text = "Reports have come in from the Lordamere Overlook, deep in the Ruins of Lordaeron. An unholy fog has taken the streets and the graveyard up there, and my scouts say it's being conjured by a necromancer named Rath'mael." },
         { id = "h_wrathact", when = { questActive = TODO_QUEST("The Wrath of Rath'mael") },
@@ -305,7 +305,7 @@ P:NPC {
     },
     zygand = {
       lines = {
-        { id = "zy_default", text = "The Executor listens to everything and believes nothing until it's been proven twice. His patience ran out on our reports, which is fair, because mine ran out on his instructions some time ago, but he reads every word, and that's more than most commanders do." },
+        { id = "zy_default", text = "The Executor listens to everything and believes nothing until it's been proven twice. His patience ran out on our reports, which is fair, because mine ran out on his instructions some time ago, but he reads every word, and few commanders bother." },
       },
       choices = {
         { text = "Then give him proof.", next = "BACK", fx = { affinity = 1 } },
@@ -325,7 +325,7 @@ P:NPC {
       lines = {
         { id = "ha_default", text = "Hadric Harlson, yes, one of ours who went over to the Dawn. Terrence doesn't trust him out of sight, but I've watched him, and he kills cultists with the kind of care you only see in someone who hates them personally." },
         { id = "ha_cult", when = { questDone = TODO_QUEST("The Cult of the Damned") },
-          text = "Hadric and his cultists, yes. You helped him clear them, I hear, and if the Cult of the Damned is this close to the city, it explains a great deal of what I've been seeing. Perhaps I should speak to the man." },
+          text = "Hadric and his cultists, yes. You helped him clear them, I hear, and if the Cult of the Damned is this close to the city, it explains the lights I've been seeing in the woods. Perhaps I should speak to the man." },
       },
       choices = {
         { text = "You should. You're both after the same enemy.", next = "BACK", fx = { affinity = 1 } },
@@ -462,7 +462,7 @@ P:NPC {
     },
     life = {
       lines = {
-        { id = "lf_default", text = "Standing, mostly, and not complaining where the Executor can hear. We don't sleep and we don't eat, so the Dark Lady gets a great deal of standing out of each of us, and we're expected to be grateful, and on the whole I am." },
+        { id = "lf_default", text = "Standing, mostly, and not complaining where the Executor can hear. We don't sleep and we don't eat, so the Dark Lady gets every hour of standing out of each of us, and we're expected to be grateful, and on the whole I am." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -618,7 +618,7 @@ P:NPC {
     },
     vale = {
       lines = {
-        { id = "v_default", text = "Venomweb Vale. It was good hunting country once, all deer and rabbits, and now it's spiders the size of carts and a Scarlet camp in the north end. The Scarlet Monastery is just beyond, which is why they're so thick on the ground." },
+        { id = "v_default", text = "Venomweb Vale. It was good hunting country once, all deer and rabbits, and now it's spiders the size of carts and a Scarlet camp in the north end. The Scarlet Monastery is just beyond, so they're thick on the ground." },
       },
       choices = {
         { text = "Tell me about the Scarlet camp.", next = "camp" },
@@ -662,7 +662,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Deyrek Duke. I watch the zeppelins, since somebody ought to, and the goblins certainly won't. One goes to Durotar and one to Grom'gol in Stranglethorn, and neither of them keeps to the timetable." },
         { id = "h_fire", tags = { "news" }, when = { questDone = TODO_QUEST("A Lesson in Divinity") },
-          text = "I hear the Scarlets meant to set this tower alight to draw off Brill's guards. I'd have seen them coming, mind you, but I'm glad somebody read their orders first." },
+          text = "I hear the Scarlets meant to set this tower alight to draw off Brill's guards. I'd have seen them coming, of course, but I'm glad somebody read their orders first." },
       },
       again = {
         { id = "h_again", text = "What else? I've nothing but time until the next ship." },
@@ -713,7 +713,7 @@ P:NPC {
     allies = {
       big = true,
       lines = {
-        { id = "a_default", text = "The orcs and the trolls? They're loud and they eat a great deal, and they look at us as if we might fall apart at any moment, which is fair. Some in Brill say the Dark Lady only made this alliance because she needed bodies on her walls, and I'd like to know what you think." },
+        { id = "a_default", text = "The orcs and the trolls? They're loud and they eat enough for a garrison, and they look at us as if we might fall apart at any moment, which is fair. Some in Brill say the Dark Lady only made this alliance because she needed bodies on her walls, and I'd like to know what you think." },
       },
       choices = {
         { text = "The Horde stands together. The alliance is real.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -833,7 +833,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I've a cottage and a dog, and that's more than most of us have. I don't go looking for the rest." } },
+    background = { { id = "tp_bg", text = "I've a cottage and a dog, and most of us came back to neither. I don't go looking for the rest." } },
     advice = { { id = "tp_ad", text = "Find something that's glad to see you. It makes the long nights shorter." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Max might, but he's not telling." } },
   },
@@ -978,7 +978,7 @@ P:NPC {
     },
     eye = {
       lines = {
-        { id = "e_default", text = "Lost it, and I'd rather not say how, because the true story is less impressive than the ones I tell at the inn. The other one sees well enough, and it's had more practice since." },
+        { id = "e_default", text = "Lost it, and I won't say how, because the true story is less impressive than the ones I tell at the inn. The other one sees well enough, and it's had more practice since." },
       },
       choices = {
         { text = "Then I won't ask again.", next = "BACK", fx = { affinity = 1 } },

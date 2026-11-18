@@ -86,7 +86,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Every one of them who knows the spell, and they never even say goodbye, or pay a fare. I tell them the view's better from the zeppelin, and it's true, but they'd rather blink and be home than spend an afternoon looking at the sea." } },
+      lines = { { id = "xmage_default", text = "Every mage who knows the spell, and they never even say goodbye, or pay a fare. I tell them the view's better from the zeppelin, and it's true, but they'd rather blink and be home than spend an afternoon looking at the sea." } },
       choices = {
         { text = "I'll take the zeppelin. The view's worth it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll teleport. Time is too precious to waste.", next = "BACK", fx = { align = { light = -1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "More than you'd think, because Thunder Bluff's a long way from anywhere and even the Earth Mother's own get tired of walking. One of your elders rode up top the whole way to Orgrimmar once, and I swear the gas bags were happier for it." } },
+      lines = { { id = "xdruid_default", text = "Oh, they ride all the time, pal, because Thunder Bluff's a long way from anywhere and even the Earth Mother's own get tired of walking. One of your elders rode up top the whole way to Orgrimmar once, and I swear the gas bags were happier for it." } },
       choices = {
         { text = "Your zeppelins are clever, but the sky was ours first, friend.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Your zeppelins haven't dropped me in the jungle yet. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -108,7 +108,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say a little something for the engine, would you, pal? It's been coughing since the last crossing." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your little buddy rides in the hold, pal, because the last imp we let up top set the balloon smoking." },
         { id = "h_default", key = true,
-          text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. It's the best post on the line, if you ask me, and nobody ever does, which is why I charge for my opinions." },
+          text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. It's the best post on the line, if you ask me, and nobody ever does, so I've started chargin' for my opinions." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night runs are the quiet ones, pal, and the jungle down there sounds like it's eating itself. Up here you just hear the engine and the wind and the coins in the fare box, and that's how I like it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, the zeppelin's perfectly safe, pal, and I'll thank you not to go poking around the engine, because it doesn't like being poked." },
@@ -127,7 +127,7 @@ P:NPC {
         { text = "What happens if the zeppelin goes down over the jungle?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Are these zeppelins safe?", next = "safe" },
         { text = "Why do you like it here?", next = "sun" },
-        { text = "You must see a great deal from up here.", next = "view" },
+        { text = "You must see the whole coast from up here.", next = "view" },
         { text = "Is the zeppelin really perfectly safe, Nez'raz?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Plenty of mages must skip the zeppelin, Nez'raz.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What happened to the rope, Nez'raz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -263,7 +263,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Everything that comes and goes from Grom'gol, including the wind riders, which is why I fly them low and fast. The Bloodscalp have archers who can hit a rider at a hundred paces, and I've lost a beast to them already." } },
+      lines = { { id = "xrogue_default", text = "Everything that comes and goes from Grom'gol, including the wind riders, so I fly them low and fast. The Bloodscalp have archers who can hit a rider at a hundred paces, and I've lost a beast to them already." } },
       choices = {
         { text = "I'll clear the archers from the ridges.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fly higher. That's the simplest answer.", next = "BACK", fx = { align = { order = -1 } } },
@@ -405,8 +405,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because everything comes in by zeppelin, the goblins charge by the crate, and half the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because everything comes in by zeppelin, the goblins charge by the crate, and half the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining. And food for {pet} as well, I suppose, unless it's learned to hunt for itself, which out here it had better." },
+        { id = "xhuntcl_default", text = "Because everything comes in by zeppelin, the goblins charge by the crate, and the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because everything comes in by zeppelin, the goblins charge by the crate, and the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining. And food for {pet} as well, I suppose, unless it's learned to hunt for itself, which out here it had better." },
       },
       choices = {
         { text = "Every arrow should count. I don't waste shots.", next = "BACK", fx = { align = { order = 1 } } },

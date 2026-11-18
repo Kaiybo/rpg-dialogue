@@ -443,7 +443,7 @@ P:NPC {
       },
     },
     bd_lands2 = {
-      lines = { { id = "bdl2_default", text = "The high mesas of Thousand Needles, where the Grimtotem already camp, and the Stonetalon peaks, where the night elves and the goblins quarrel over the trees, and the green hills of Feralas, where our people are few. Every one of them has someone living on it now, and that is the part of the argument Magatha never speaks aloud." } },
+      lines = { { id = "bdl2_default", text = "The high mesas of Thousand Needles, where the Grimtotem already camp, and the Stonetalon peaks, where the night elves and the goblins quarrel over the trees, and the green hills of Feralas, where our people are few. Each of those lands has someone living on it now, and that is the part of the argument Magatha never speaks aloud." } },
       choices = {
         { text = "So the argument is about blood, not land.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else, Chieftain.", next = "BACK" },
@@ -536,7 +536,7 @@ P:NPC {
       lines = {
         { id = "dr_default", text = "Then you are what Hamuul worked for, and what twenty generations of our people forgot how to be. When you take the shape of the bear, think of the ones who waited, and walk a little proudly for them." },
         { id = "dr_pupil", when = { origin = "tauren_hamuul_pupil" },
-          text = "Hamuul speaks of you by name at the council fire, you know. He counts his students the way I count the herds, and he worries over every one of them." },
+          text = "Hamuul speaks of you by name at the council fire, you know. He counts his students the way I count the herds, and he worries over each one like a calf in a storm." },
       },
       choices = {
         { text = "I'll be worthy of them, chieftain.", next = "BACK", fx = { affinity = 3 } },
@@ -647,7 +647,7 @@ P:NPC {
     { id = "g_rise", text = "Peace, traveller, and may the Earth Mother keep you. You're on Elder Rise, so speak softly; the old ones are thinking." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Another druid! Come, come; every one of you is a gift, when not so long ago there were none of us at all." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, traveller, and I'm glad to see you back on Elder Rise. Sit, and tell me what the wild places showed you." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I can see it as plainly as a sapling grown to an oak. It gladdens an old druid's heart." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, and I can see it as plainly as a sapling grown to an oak. It gladdens an old druid's heart." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone on the rises spoke very warmly of you, and kindness travels quickly in a city this small. It's good to hear it of you." },
   },
 
@@ -684,7 +684,7 @@ P:NPC {
     },
     op_night_elves_r2 = {
       lines = {
-        { id = "op_night_elves_r2", text = "Some of them do, and Fandral more than most, I'm sorry to say. But Malfurion said yes when he could have said no, so I can't speak of all of them that way." },
+        { id = "op_night_elves_r2", text = "Some of them do, and Fandral most of all, I'm sorry to say. But Malfurion said yes when he could have said no, so I can't speak of all of them that way." },
       },
       choices = {
         { text = "Something else, Arch Druid.", next = "BACK" },
@@ -828,7 +828,7 @@ P:NPC {
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
           text = "So Fandral has received you in Darnassus. He didn't want me taught, and he was wrong, but I don't hold it against him. Mostly." },
         { id = "h_mulgris", when = { heardLine = "mulgris.h_default" },
-          text = "You met Mulgris Deepriver, in the Plaguelands. He went east to mend what the plague had broken, and I'd rather you told me plainly how he was than spared my feelings." },
+          text = "You met Mulgris Deepriver, in the Plaguelands. He went east to mend what the plague had broken, so tell me plainly how he was, and do not spare my feelings." },
         { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know, and I'm not ashamed of it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Malfurion once told me that the fiercest warriors he knew were the most patient, and I've found that true of the tauren as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Mulgore are the Earth Mother's children, and you walk among them closer than most." },
@@ -929,7 +929,7 @@ P:NPC {
   topics = {
     knows = {
       { id = "tp_knows", text = "The Circle sends word from Moonglade, and the young druids carry the rest up the lift with them. Ask me of these, and I'll tell you what the wind has told me." },
-      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit, sit; you have the patience of someone worth talking to, and I have a great deal to say." },
+      { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit, sit; you have the patience of someone worth talking to, and I have many seasons of things to say." },
     },
     cenarion_circle = { { id = "tp_circle", text = "I'm the highest of the tauren in it, which mostly means I'm the one who gets glared at in Darnassus. Remulos is kinder." } },
     emerald_dream = {
@@ -1014,7 +1014,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Quieter, I'd wager, since we have soft paws and you have boots. But I'll grant you that a rogue and a druid both learn that the quiet hunter eats and the loud one goes hungry, which is a lesson I teach every cub who comes up the lift." },
+        { id = "xrogue_default", text = "Quieter, I'd wager, since we have soft paws and you have boots. But a rogue and a druid both learn that the quiet hunter eats and the loud one goes hungry, which is a lesson I teach every cub who comes up the lift." },
       },
       choices = {
         { text = "Quiet hunters win, and that's the whole lesson.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1221,7 +1221,7 @@ P:NPC {
     },
     op_cairne = {
       lines = {
-        { id = "opc_q", text = "Because I like to know where people stand before the wind changes. You've seen him on the High Rise, so tell me honestly, what do you think of Cairne Bloodhoof?" },
+        { id = "opc_q", text = "Because I like to know where people stand before the wind changes. You've seen him on the High Rise, so tell me, what do you think of Cairne Bloodhoof?" },
       },
       choices = {
         { text = "Cairne is the greatest chief the tauren have ever had.", next = "op_cairne_r1", fx = { affinity = -2, align = { order = 1 }, opinion = { cairne = "admire" } } },
@@ -1428,7 +1428,7 @@ P:NPC {
     },
     shaman = {
       lines = {
-        { id = "sh_default", text = "Ha! Mine, child, because I've been speaking to them since before your grandmother was weaned. But I'll grant you this: a shaman with a spine is rarer up here than one with a gift, and you seem to have both." },
+        { id = "sh_default", text = "Ha! Mine, child, because I've been speaking to them since before your grandmother was weaned. But hear this: a shaman with a spine is rarer up here than one with a gift, and you seem to have both." },
         { id = "sh_orc", when = { race = "Orc" },
           text = "An orc shaman, taught by the Warchief's people. The elements were here long before your Warchief, and they'll be here long after him; remember whose land they're speaking for." },
       },
@@ -1484,7 +1484,7 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren! Hamuul is proud of it, and I find it embarrassing." } },
     grimtotem = { { id = "tp_grimtotem", text = "You've heard about Arnak, I suppose. Every clan has its hotheads. Mine simply has more of them, and better reasons." } },
-    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, of course, and a generous one. He gives everyone a chance, which is why he gives me one, and why I make sure to be grateful." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, of course, and a generous one. He gives everyone a chance, even me, and I make very sure to look grateful for it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief is an orc, and a strong one. The tauren owe him much, Cairne says, and I am sure Cairne is right." } },
     forsaken = { { id = "tp_forsaken", text = "Cairne and Hamuul opened our doors to the dead of Lordaeron, which seems unwise to me. But I am only an elder, and what do elders know?" } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is ancient, and her children should be strong. Some of us remember that, and some of us have grown soft on these comfortable mesas." } },
@@ -1557,7 +1557,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Oh, every night, it seems, and mostly from the Barrens road, with arrows in them or centaur bruises all down their sides. I give them stew and a bed and send for a shaman, but a priest by the hearth would save a great deal of running about. You're welcome to sit with the sore ones, if you'd like, and I'll keep your bowl warm." } },
+      lines = { { id = "xhpriest_default", text = "Oh, every night, it seems, and mostly from the Barrens road, with arrows in them or centaur bruises all down their sides. I give them stew and a bed and send for a shaman, but a priest by the hearth would save my old legs a lot of running about. You're welcome to sit with the sore ones, if you'd like, and I'll keep your bowl warm." } },
       choices = {
         { text = "I'll sit with them tonight, Pala. Keep the stew coming.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I didn't come here to nurse strangers, Pala.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1638,7 +1638,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Everyone gets the same welcome and the same stew at the Cat and the Shaman, even if you don't eat it." },
         { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
-          text = "Sky-folk, from down at the camp? Sit by the fire; up here the wind's colder than you'd think, even for you." },
+          text = "Sky-folk, from down at the camp? Sit by the fire; up here the wind comes off the mesa with teeth, even for you." },
         { id = "h_lifts", when = { metBefore = true }, text = "The lift-runners eat here every night, the strongest backs in the city and the softest hearts. Don't tell them I said so." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy tonight, so listen to the totems creak; it sounds like the whole bluff is breathing." },
         { id = "h_turak", when = { heardLine = "turak.h_default" }, text = "You've been up to Turak on Elder Rise? He eats here twice a moon, and sits by the window and doesn't speak, but he tips well." },

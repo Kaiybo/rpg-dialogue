@@ -37,7 +37,7 @@ P:NPC {
     { id = "n_enclave", cat = "origin", when = { origin = "skyborne_sky_enclave_student" },
       text = "You've been to the Sky Enclave already, I can see the Violet Citadel's dust on your hem. I expect every one of you to bring something useful home, and I haven't forgotten that I said so." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Fel. Prince Tortheldrin reached for the same power, and our people have been paying for it for ten thousand years, so you'll forgive me if I keep my eyes on your hands." },
+      text = "Fel. Prince Tortheldrin reached for the same power, and our people have been paying for it for ten thousand years, so my eyes stay on your hands." },
   },
 
   start = "hello",
@@ -162,7 +162,7 @@ P:NPC {
     },
     keyhole = {
       lines = {
-        { id = "kh_default", text = "They agreed to receive us as guests, and we've learned a great deal from them already, more than we've taught them, I suspect. Ansirem Runeweaver persuaded Rhonin himself to help open the portal that brought their magi to the Shrine, and the High Order won't forget that." },
+        { id = "kh_default", text = "They agreed to receive us as guests, and we've learned more from them already than we've taught them, I suspect. Ansirem Runeweaver persuaded Rhonin himself to help open the portal that brought their magi to the Shrine, and the High Order won't forget that." },
       },
       choices = {
         { text = "Where will the High Order go?", next = "dalaran" },
@@ -222,7 +222,7 @@ P:NPC {
     },
     belathaan_fail = {
       lines = {
-        { id = "bf_default", text = "That's a question for the High Order, and you'll forgive me if I don't answer it to every passing stranger. Belathaan's dead, and the reasons are mine to carry." },
+        { id = "bf_default", text = "That's a question for the High Order, and I don't answer it for passing strangers. Belathaan's dead, and the reasons are mine to carry." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -250,7 +250,7 @@ P:NPC {
     },
     xenclave = {
       lines = {
-        { id = "xe_default", text = "Then you've seen what the Kirin Tor have that we don't, and you've seen what we have that they don't, which is rarer. Tell me honestly: did you bring anything useful home, or only a sore neck from staring at the ceilings?" },
+        { id = "xe_default", text = "Then you've seen what the Kirin Tor have that we don't, and you've seen what we have that they don't, which is rarer. So tell me: did you bring anything useful home, or only a sore neck from staring at the ceilings?" },
       },
       choices = {
         { text = "Notes, and a good deal of them.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -347,7 +347,7 @@ P:NPC {
     blame = {
       big = true,
       lines = {
-        { id = "bl_default", text = "Some in the hall are already saying it was the Windshapers, because a High Order magister died on the road not long ago and nobody's forgotten who was waiting for him. I don't know, and I'd rather not name an enemy until I'm sure, but I'm in the minority." },
+        { id = "bl_default", text = "Some in the hall are already saying it was the Windshapers, because a High Order magister died on the road not long ago and nobody's forgotten who was waiting for him. I don't know, and I won't name an enemy until I'm sure, but I'm in the minority." },
       },
       choices = {
         { text = "Don't blame the Windshapers without proof.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -478,7 +478,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Iaadaria Bitterwind. I teach alchemy to the High Order and sell vials to anyone with coin, and I'd rather be doing the first than talking about it. What is it you need?" },
+        { id = "h_default", key = true, text = "Iaadaria Bitterwind. I teach alchemy to the High Order and sell vials to anyone with coin, and I'm happier doing the first than talking about it. What is it you need?" },
         { id = "h_before", when = { questBefore = TODO_QUEST("Unwelcome Visitors") },
           text = "If you're looking for work, I have a problem with some visitors I didn't invite and can't get rid of. I'd deal with them myself, but I've a batch on the flame that won't wait for anyone." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("Unwelcome Visitors") },
@@ -501,7 +501,7 @@ P:NPC {
     },
     alchemy = {
       lines = {
-        { id = "al_default", text = "More than most people think. The Highborne could coax power out of a leaf or a stone that the rest of us would walk past, and we lost most of that knowing in Skywall. I mean to win some of it back, one recipe at a time." },
+        { id = "al_default", text = "Far more than people suppose. The Highborne could coax power out of a leaf or a stone that the rest of us would walk past, and we lost most of that knowing in Skywall. I mean to win some of it back, one recipe at a time." },
       },
       choices = {
         { text = "What's stopping you?", next = "alchemy2" },
@@ -541,7 +541,7 @@ P:NPC {
       lines = {
         { id = "vs_default", text = "The sort that don't knock, don't pay and won't leave, and that's all I care to say about them while I'm trying to concentrate. If you want to be useful, come back when you're ready to do something about them." },
         { id = "vs_done", when = { questDone = TODO_QUEST("Unwelcome Visitors") },
-          text = "Gone, thanks to you, and I'd rather not think about them again. I've already scrubbed the bench twice." },
+          text = "Gone, thanks to you, and I've no wish to think about them again. I've already scrubbed the bench twice." },
       },
       choices = {
         { text = "Should I drive them off or finish them?", next = "visitors2" },
@@ -739,7 +739,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Gelia. I sit here most days because you see everyone from this step: magisters going in and out of the hall, the dockhands coming up from the skycutters, and now mainlanders, which is the best thing that's happened to this town in years." },
       },
       again = {
-        { id = "h_again", text = "What else? I've all day, honestly." },
+        { id = "h_again", text = "What else? I've the whole day free." },
         { id = "h_again2", text = "Go on, I love a good question." },
       },
       choices = {

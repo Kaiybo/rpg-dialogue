@@ -34,7 +34,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You'll feel the ley lines tugging at you on the upper stairs. That's what's left of the disruption, and it fades a little every day." },
     { id = "n_warlock", cat = "arcane", when = { class = "WARLOCK" },
-      text = "This city once let Kel'Thuzad study in its own towers, warlock, so forgive me if I watch your hands while we talk." },
+      text = "This city once let Kel'Thuzad study in its own towers, warlock, so I'll be watching your hands while we talk." },
     { id = "n_forsaken", cat = "faction", when = { race = "Scourge" },
       text = "Some of the dead who walk with your queen wore the violet once. I try not to look for their faces, and I don't always manage it." },
   },
@@ -43,7 +43,7 @@ P:NPC {
   nodes = {
     opn_kirintor = {
       lines = {
-        { id = "opn_kirintor_q", text = "That's the argument upstairs every evening, and it ends the same way, which is with nobody agreeing. Half the council says Dalaran is an Alliance city and should act like one, and the other half says a city of scholars should belong to no banner at all. I'd like to hear it from someone who has to live with the answer." },
+        { id = "opn_kirintor_q", text = "That's the argument upstairs every evening, and it ends the same way, which is with nobody agreeing. One faction says Dalaran is an Alliance city and should act like one, while the other says a city of scholars should belong to no banner at all. I'd like to hear it from someone who has to live with the answer." },
       },
       choices = {
         { text = "The Alliance. Dalaran was founded among men, and they need you.", next = "opn_kirintor_r_alliance", fx = { align = { order = 1 }, opinion = { kirin_tor = "alliance" } } },
@@ -92,11 +92,11 @@ P:NPC {
         { id = "h_alt_class", when = { alt = { sameClass = true } },
           text = "Another {altclass}, and with the same patient frown I last saw on {alt}, who helped my magi on the upper stairs. If it's a family trait, Dalaran could use rather more of it." },
         { id = "h_default", key = true,
-          text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with half our wards held up by tired magi and the other half by stubbornness, all because of what broke at the top of the Citadel, and the council would rather nobody heard of it." },
+          text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with our wards held up by tired magi and sheer stubbornness, all because of what broke at the top of the Citadel, and the council would rather nobody heard of it." },
         { id = "h_helped", key = true, when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },
           text = "There you are, {name}. You came through our sewers when we were too proud to ask anyone else, and as far as I'm concerned, Dalaran owes you a seat by its fire." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Friend of the Kirin Tor"), days = 3 } },
-          text = "Celindra tells me the mote reached her safely, and that the council has had a great deal to say about how it got there. Let them talk; the city is quiet for the first time since the crash." },
+          text = "Celindra tells me the mote reached her safely, and that the council has had plenty to say about how it got there. Let them talk; the city is quiet for the first time since the crash." },
         { id = "h_heart", tags = { "news" }, when = { questActive = TODO_QUEST("Heart of Disruption") },
           text = "You found your way in, then. Up, {name}, to the top of the Citadel, where all of this began, and don't stop for anything that glows." },
         { id = "h_shade", tags = { "news" }, when = { killed = { name = "Shade of the Archmage", min = 1 } },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin of the Silver Hand, or what's left of it. Dalaran and your order buried a great many friends together, and I haven't forgotten." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "You walk very quietly for someone in a city full of wards. Every one of them noticed you, {class}, even if I almost didn't." },
+          text = "You walk very quietly for someone in a city full of wards. Each of them noticed you, {class}, even if I almost didn't." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I'll answer what I'm permitted to, and perhaps a little more." },
@@ -373,7 +373,7 @@ P:NPC {
     },
     xgnome = {
       lines = {
-        { id = "xg_default", text = "More than you'd think, and they argue more than the rest of us together. Lizi Silverstone could tell you, if you can get her to stop working long enough to talk." },
+        { id = "xg_default", text = "A fair few, and they argue more than the rest of us together. Lizi Silverstone could tell you, if you can get her to stop working long enough to talk." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -395,7 +395,7 @@ P:NPC {
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on our council and walked away with our secrets and our shame. He commands the Scourge from Naxxramas now, and we'll answer for him until the day he's stopped." } },
     scourge = { { id = "tp_scourge", text = "The Scourge came within sight of these walls, and Arthas took what he wanted from us and left. We've raised the city again, but every mage in it remembers that day." } },
     arthas = { { id = "tp_arthas", text = "Prince Arthas came to Dalaran for the Book of Medivh and took it from us, and we couldn't stop him. I don't speak of him often, and I'll not start now." } },
-    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was one of Antonidas's best students, and she leads Theramore now. She writes to the council, and her letters are always sensible, which is more than I can say for most." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was one of Antonidas's best students, and she leads Theramore now. She writes to the council, and her letters are always sensible, which can't be said of most that reach this council." } },
     thrall = { { id = "tp_thrall", when = { faction = "Horde" }, text = "Your Horde burned a good part of Lordaeron in the Second War, and some here remember it, and some would rather not. I've opened the gates to the Horde because the dead are a greater enemy than old grudges." }, { id = "tp_thrall2", text = "The Warchief of the Horde is an orc of uncommon sense, by every account, and I've let his people through our gates. I'll judge him by them, as I'd judge any king by his envoys." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme was where Arthas turned, and the Scourge hold it now with the Scarlet zealots in the other half. I've sent magi there, and few came back." } },
     _none = { { id = "tp_none", text = "That's outside what I can speak to, I'm afraid. Try the library, once it has a roof." } },
@@ -415,7 +415,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "A warlock, inside the Violet Citadel. You'll forgive me if I keep a ward up while we talk, {class}; the last demon to walk these halls was Archimonde, and he left by flattening the city." },
+    { id = "g_prej", when = { prejudiced = true }, text = "A warlock, inside the Violet Citadel. I'll keep a ward up while we talk, {class}; the last demon to walk these halls was Archimonde, and he left by flattening the city." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I still keep a ward up when you come in, but I've noticed I no longer weave it with my whole attention." },
     { id = "g_default", text = "Yes? Be quick, please; I'm very busy." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Is it urgent, or merely interesting?" },
@@ -549,7 +549,7 @@ P:NPC {
     mote_who = {
       big = true,
       lines = {
-        { id = "mw_default", text = "The Forsaken, for one, and I'd wager half the magisters left in the world. Power that's been torn loose always finds a buyer, which is why I'd prefer you didn't mention where it's kept." },
+        { id = "mw_default", text = "The Forsaken, for one, and I'd wager half the magisters left in the world. Power that's been torn loose always finds a buyer, so I'd prefer you didn't mention where it's kept." },
       },
       choices = {
         { text = "Destroy it, then. Some power isn't worth keeping.", next = "BACK", fx = { align = { light = 1 } } },
@@ -560,7 +560,7 @@ P:NPC {
 
     work = {
       lines = {
-        { id = "wo_default", text = "Wards, mostly, holding up the parts of the city that aren't rebuilt yet. A dome over a city is simple next to a hundred small wards over a hundred broken rooftops, and every one of them complains in a different key." },
+        { id = "wo_default", text = "Wards, mostly, holding up the parts of the city that aren't rebuilt yet. A dome over a city is simple next to a hundred small wards over a hundred broken rooftops, and each one complains in a different key." },
       },
       choices = {
         { text = "Can I help?", next = "work_help" },
@@ -591,7 +591,7 @@ P:NPC {
 
     antonidas = {
       lines = {
-        { id = "an_default", key = true, text = "He was my friend, and the finest mind this city ever produced, and he died in these streets when the dead came for us. I put a great deal of work aside after that, because some of it was his as much as mine." },
+        { id = "an_default", key = true, text = "He was my friend, and the finest mind this city ever produced, and he died in these streets when the dead came for us. I put much of my work aside after that, because some of it was his as much as mine." },
       },
       choices = {
         { text = "Should the Kirin Tor study necromancy, to fight it?", next = "opn_necro" },
@@ -633,7 +633,7 @@ P:NPC {
         { id = "xh_default", text = "Your master in Tarren Mill wanted a seat at our table, and he bargained with our own property to get one. I'd call that a poor beginning, whatever he meant by it." },
       },
       choices = {
-        { text = "Then let's begin better. I'll deal honestly with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then let's begin better. I'll deal straight with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It worked. He got his seat, and that's what counts.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -680,7 +680,7 @@ P:NPC {
     { id = "g_default", text = "Supply and logistics, at your service, such as it is." },
     { id = "g_back", when = { metBefore = true }, text = "Back to see if the stock has changed? Sometimes it has." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and yes, the stock has changed, though mostly by getting smaller. Cloth and metal go to the scaffolds first, I'm afraid." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping the city, which is more than most wizards manage for my ledgers. Do have a look round; it's the least a quartermaster can offer." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping the city, when most wizards only ever help themselves to my ledgers. Do have a look round; it's the least a quartermaster can offer." },
   },
 
   notice = {

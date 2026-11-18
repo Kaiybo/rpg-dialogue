@@ -51,7 +51,7 @@ P:NPC {
           text = "You'll understand better than anyone why a gnome takes work in a human wizard's tower. When your own city's full of poison and troggs, a damp tower in Elwynn feels like a palace." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm in no hurry to go back up those stairs, honestly." },
+        { id = "h_again", text = "Anything else? I'm in no hurry to go back up those stairs, I'll tell you that." },
         { id = "h_again2", text = "Ask away! Talking takes my mind off the gnolls." },
       },
       choices = {
@@ -167,7 +167,7 @@ P:NPC {
     gnomes = {
       lines = {
         { id = "gs_default", text = "There's a few of us at the tower, all gnomes. After Gnomeregan, a lot of us went looking for work wherever there was a roof and a wage, and a wizard's tower is about as close to home as Elwynn gets.", fx = { learn = { "gnomeregan" } } },
-        { id = "gs_gnome", when = { race = "Gnome" }, text = "You know how it was. Half of us went to Ironforge and the other half scattered, and I ended up here, sweeping a human's floors and missing the noise of real machines." },
+        { id = "gs_gnome", when = { race = "Gnome" }, text = "You know how it was. Most of us ran to Ironforge, the rest scattered wherever the roads went, and I ended up here, sweeping a human's floors and missing the noise of real machines." },
       },
       choices = {
         { text = "Will you go back when Gnomeregan is retaken?", next = "gnomes_back" },
@@ -216,7 +216,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your {pet} looks healthy and sure of itself. That's your doing, and I'll say it once, so enjoy it." },
     { id = "n_dwarf", cat = "class", when = { class = "HUNTER", race = "Dwarf" },
-      text = "A dwarf hunter. Your folk taught half the hunters in this kingdom to shoot straight, so there's little I can show you about a rifle." },
+      text = "A dwarf hunter. Your folk taught this kingdom's hunters to shoot straight, so there's little I can show you about a rifle." },
   },
 
   start = "hello",
@@ -228,7 +228,7 @@ P:NPC {
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "Hunting in Elwynn's no small thing anymore, with wolves on every hillside and gnolls in the hills. I'll make sure you're ready for both, and for whatever's waiting past Goldshire." },
         { id = "h_tame_before", when = { class = "HUNTER", questBefore = TODO_QUEST("Taming the Beast") },
-          text = "You're ready to take a beast of your own, I think, or near enough. There's a way to do it, and it starts with a rod and a great deal of patience." },
+          text = "You're ready to take a beast of your own, I think, or near enough. There's a way to do it, and it starts with a rod and a long, quiet wait." },
         { id = "h_tame_active", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("Taming the Beast") },
           text = "Use the rod, hold your nerve, and don't let the creature see you're afraid of it. Once it settles, you'll feel it, and then send it off and come back to me." },
         { id = "h_training", tags = { "news" }, when = { class = "HUNTER", questDone = TODO_QUEST("Taming the Beast") },
@@ -556,7 +556,7 @@ P:NPC {
 
     kobolds = {
       lines = {
-        { id = "ko_default", text = "They're everywhere inside, and they've taken to the tunnels like they own them. Some of them dig, some of them guard the ones who dig, and every one of them yells about candles if you get near." },
+        { id = "ko_default", text = "They're everywhere inside, and they've taken to the tunnels like they own them. Some of them dig, some of them guard the ones who dig, and they all yell about candles if you get near." },
         { id = "ko_done", when = { questDone = TODO_QUEST("Investigate Echo Ridge") }, text = "You've been inside, so you've seen them, hundreds of the little rats with candles on their heads. The Abbey sends recruits, and the recruits come out bloodied, and still the kobolds keep digging." },
       },
       choices = {
@@ -673,7 +673,7 @@ P:NPC {
 
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "You've been picking, I can tell, and you've left the roots in, which is more than most beginners manage." },
+      text = "You've been picking, I can tell, and you've left the roots in, and most beginners tear them up whole." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy", ["not"] = { profession = "Herbalism" } },
       text = "An alchemist who doesn't pick their own herbs? You'll pay double at every market from here to Stormwind, you know." },
   },
@@ -778,7 +778,7 @@ P:NPC {
     { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
       text = "That's clean work on those pelts you're carrying. Somebody's been teaching you right." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking", ["not"] = { profession = "Skinning" } },
-      text = "A leatherworker who doesn't skin? You'll spend a fortune on hides, and half the time they'll be badly cut." },
+      text = "A leatherworker who doesn't skin? You'll spend a fortune on hides, and too many of them will come to you badly cut." },
   },
 
   start = "hello",

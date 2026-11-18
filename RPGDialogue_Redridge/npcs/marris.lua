@@ -98,7 +98,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "One mage can hold a bridge, I'll grant you, until the mana runs dry and the orcs don't. I want you where the Blackrock least expect you, which is wherever I tell you to be." } },
+      lines = { { id = "xma_default", text = "One mage can hold a bridge, true enough, until the mana runs dry and the orcs don't. I want you where the Blackrock least expect you, which is wherever I tell you to be." } },
       choices = {
         { text = "Put me where you need me, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hold wherever I think best.", next = "BACK", fx = { align = { order = -1 } } },

@@ -96,7 +96,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Blimo Gadgetspring, trade supplies: thread, dye, vials, coal, fishing lures, a bit of everything. Jubie handles the explosive things upstairs, and I handle the things that don't explode, which is a much shorter list than you'd think in this house." },
+          text = "Blimo Gadgetspring, trade supplies: thread, dye, vials, coal, fishing lures, a bit of everything. Jubie handles the explosive things upstairs, and I handle the things that don't explode, which is a much shorter list in this house than it ought to be, pal." },
       },
       again = { { id = "h_again", text = "Anything else? I've time; nobody else is coming." } },
       choices = {

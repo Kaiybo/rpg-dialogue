@@ -37,7 +37,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else, while my patience lasts?" },
-        { id = "h_again2", text = "Ask. I have all the time this forest has left, which is a great deal more than you." },
+        { id = "h_again2", text = "Ask. I have all the time this forest has left, and it has outlived kings." },
       },
       choices = {
         { text = "What is Xorothian stardust?", next = "stardust" },

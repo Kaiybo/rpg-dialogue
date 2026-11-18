@@ -169,7 +169,7 @@ P:NPC {
         { id = "wc_default", text = "My name, among the Sentinels, and my family's door, which closed behind me and stayed closed. And sleep; the fel does not let you forget what it is, and some nights I hear it bargaining with me in my own voice." },
       },
       choices = {
-        { text = "You've paid more than most.", next = "BACK", fx = { affinity = 2 } },
+        { text = "You've already given this mountain your share.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -242,7 +242,7 @@ P:NPC {
     xlight = {
       big = true,
       lines = {
-        { id = "xli_default", text = "It cannot be trusted; that is the point. I do not trust it either, which is why I am still myself. Your Light asks for faith, and mine asks for vigilance, and I have seen faith fail more often." },
+        { id = "xli_default", text = "It cannot be trusted; that is the point. I do not trust it either, and that distrust is what has kept me myself. Your Light asks for faith, and mine asks for vigilance, and I have seen faith fail more often." },
         { id = "xli_priest", when = { class = "PRIEST" }, text = "It cannot be trusted, priest, and I do not ask you to trust it. Your Light asks for faith, and mine asks for vigilance, and I would not trade my vigilance for all the faith in Stormwind's cathedral." },
       },
       choices = {

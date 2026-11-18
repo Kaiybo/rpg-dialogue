@@ -163,7 +163,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A keeper of hippogryphs from Ashenvale, sent south with the Circle and the sand. I'd go back tomorrow, but the birds would miss the work." } },
-    advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and every one of them regrets it." } },
+    advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and regrets it at the first gust." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives look like scabs from the air, ugly and swollen, and the hippogryphs won't go near them. I don't blame them." } },
     teldrassil = { { id = "tp_teldrassil", text = "My birds came from Teldrassil, and I sing them the songs of the high branches when the sand blows. It keeps them calm, and me too." } },
     elune = { { id = "tp_elune", text = "Elune watches over the flyers, my grandmother said, and I've never fallen, so she must. I'd like to keep it that way." } },

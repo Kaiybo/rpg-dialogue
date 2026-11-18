@@ -19,7 +19,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They do, and so do I, honestly. Your wind spirits might steady them in flight." } },
+      lines = { { id = "xdsham_default", text = "They do, and so do I, most nights. Your wind spirits might steady them in flight." } },
       choices = {
         { text = "Then keep them steady, Felicia. They need you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Gryphons should be brave. Train them harder.", next = "BACK", fx = { align = { order = -1 } } },
@@ -82,7 +82,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Now and then, wrapped and strapped, to families in Stormwind who'd rather bury their own. The birds go quiet on those flights, every one of them, and I've never had to tell them why." } },
+      lines = { { id = "xapriest_default", text = "Now and then, wrapped and strapped, to families in Stormwind who'd rather bury their own. The birds go quiet on those flights, even the noisy ones, and I've never had to tell them why." } },
       choices = {
         { text = "That's a kindness, Felicia. The dead deserve to go home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bury them here. The living need those birds more.", next = "BACK", fx = { align = { light = -1 } } },
@@ -187,7 +187,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Nothing I sell, honestly. But a shaman's lightning might keep the dead at bay a little longer." } },
+      lines = { { id = "xdsham_default", text = "Nothing I sell, I'm sorry to say, though a shaman's lightning might keep the dead at bay a little longer." } },
       choices = {
         { text = "Then I'll fight with honest steel and lightning both.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If nothing's ever enough, there's no point bothering.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -239,7 +239,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Skinning knives, belt knives and a few good long knives for the close work, because a bow's no use at arm's length. In this wood, you'll be at arm's length more often than you'd think." },
+        { id = "xhuntcl_default", text = "Skinning knives, belt knives and a few good long knives for the close work, because a bow's no use at arm's length. In this wood, you'll be at arm's length more often than you'd like." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} is a good blade in its own right, {class}, and better than half of what I've got in stock." },
       },
       choices = {

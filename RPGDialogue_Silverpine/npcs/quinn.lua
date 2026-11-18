@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_bed", text = "Forgive me if I don't get up. Ivar left me with fewer working parts than I started with." },
+    { id = "g_bed", text = "I won't be getting up, I'm afraid. Ivar left me with fewer working parts than I started with, and the apothecaries are still arguing over the leg." },
     { id = "g_back", when = { metBefore = true }, text = "Oh. You're back? Good, because the ceiling and I ran out of things to say to each other." },
     { id = "g_potion", when = { questActive = TODO_QUEST("Return to Quinn") }, text = "Rane said someone was coming with a potion. If it has hearts in it, please don't tell me which kind." },
     { id = "g_eyes", when = { questActive = TODO_QUEST("Wild Eyes") }, text = "Murloc eyes, along the lakeshore. Renferrel will grumble, but he'll grumble with something new to try." },

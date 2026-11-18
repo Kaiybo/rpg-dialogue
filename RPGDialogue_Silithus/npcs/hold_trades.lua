@@ -38,7 +38,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A great deal, if you'd let us, though warriors always want their weapons to glow and never their armor to hold. A cloak enchanted against nature's venom would do more for you at the hives than any shining edge, but no warrior has ever thanked me for one." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, if you'd let us, though warriors always want their weapons to glow and never their armor to hold. A cloak enchanted against nature's venom would do more for you at the hives than any shining edge, but no warrior has ever thanked me for one." } },
       choices = {
         { text = "Sound defence before showy edges. You're right about that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A deadlier blade ends fights faster. I'll take the glow.", next = "BACK", fx = { align = { order = -1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every day, and then I sell them anyway. Magic has to come from somewhere, and I'd rather it came from a broken trinket than from the land, though I know some druids see little difference between the two." } },
+      lines = { { id = "xdruid_default", text = "Every day, and then I sell them anyway. Magic has to come from somewhere, and I'll take it from a broken trinket before I take it from the land, though I know some druids see little difference between the two." } },
       choices = {
         { text = "You choose the gentler source. That counts for something.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Magic is a tool. Where it comes from hardly matters.", next = "BACK", fx = { align = { light = -1 } } },
@@ -151,7 +151,7 @@ P:NPC {
       },
     },
     who_resist = {
-      lines = { { id = "wr_default", text = "Some of them do. A cloak that turns away fire or poison has saved more than one scout in these dunes, and I'd rather sell those than anything prettier." } },
+      lines = { { id = "wr_default", text = "Some of them do. A cloak that turns away fire or poison has saved more than one scout in these dunes, and I'm prouder of those than of anything prettier on my table." } },
       choices = {
         { text = "Useful work matters more than beauty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A fine enchantment is its own reward.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -320,7 +320,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I walked from Mulgore to stand with the Circle. What I left behind there is my own business." } },
     advice = { { id = "tp_ad", text = "Carry an antivenom in Silithus, always. The scorpids here don't warn you before they strike." } },
-    cenarion_circle = { { id = "tp_cc", text = "The Circle protects the land from those who would poison it, which is why I sell poison only to its friends." } },
+    cenarion_circle = { { id = "tp_cc", text = "The Circle protects the land from those who would poison it, and so I sell poison only to its friends." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives give me the best venoms in Kalimdor, and the bugs don't give them up willingly. I sell what the hunters bring, and I tell them to wash their hands." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made poison as well as medicine, and she made them both for a reason. I only sell what she made." } },
     cairne = { { id = "tp_cairne", text = "Cairne would not approve of poison, I think, but he would approve of a tauren who sells honestly. That will have to do." } },
@@ -406,7 +406,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep every one of them safe." } },
+      lines = { { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep each one safe." } },
       choices = {
         { text = "I understand. I'll keep my demon away.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon's just as worthy as any beast.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -447,7 +447,7 @@ P:NPC {
           text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the nightsabers of Darnassus." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Is your mount well? Not that I'd presume, but a war-mount in this sand needs looking after, and I'm the one who looks after them." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll understand my charges better than most of their own masters do, and you'll forgive me if I ask how the desert beasts seem to you." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll understand my charges better than their own masters do, so may I ask how the desert beasts seem to you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them." },
       },
       again = {
@@ -486,7 +486,7 @@ P:NPC {
       },
     },
     sand_scorpid = {
-      lines = { { id = "ss_default", text = "I take them outside on the end of a pitchfork and throw them as far as I can. Captain Kozus says I should just kill them, but they're only doing what scorpids do, and I'd rather not." },
+      lines = { { id = "ss_default", text = "I take them outside on the end of a pitchfork and throw them as far as I can. Captain Kozus says I should just kill them, but they're only doing what scorpids do, and I haven't the heart." },
         { id = "ss_hunter", when = { class = "HUNTER" }, text = "I carry them out on a pitchfork and throw them over the wall, though I suppose a hunter would just tame one. Captain Kozus says I should kill them, but I haven't the heart." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },

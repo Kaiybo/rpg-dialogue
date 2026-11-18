@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_doll", when = { questDone = TODO_QUEST("Pamela's Doll") },
           text = "Pamela showed me her doll, all stitched back together, and she says a stranger did it. That was you, I think, and I'll not forget it." },
         { id = "h_warrior", when = { class = "WARRIOR" },
-          text = "You carry yourself like a soldier, {class}. I had farmers with pitchforks that day, and they stood like soldiers too, every one of them, right up until the end." },
+          text = "You carry yourself like a soldier, {class}. I had farmers with pitchforks that day, and they stood like soldiers too, all of them, right up until the end." },
         { id = "h_horde", when = { faction = "Horde", race = { "Orc", "Tauren", "Troll" } },
           text = "I fought orcs once, in the Second War, and I thought I'd never want one standing in my town. Yet here you are, and the Scourge is the enemy we share, so I've no quarrel left in me." },
       },
@@ -100,7 +100,7 @@ P:NPC {
     },
     battle_remember = {
       big = true,
-      lines = { { id = "br_default", text = "Pieces, like a fever dream, and I'd rather not have any of them. The Scourge didn't care who I'd been, only what I could do for it, and it used me hard. Tell me true, friend: is a man to blame for what his body does when he's gone?" } },
+      lines = { { id = "br_default", text = "Pieces, like a fever dream, and I'd give them all back if I could. The Scourge didn't care who I'd been, only what I could do for it, and it used me hard. Tell me true, friend: is a man to blame for what his body does when he's gone?" } },
       choices = {
         { text = "No. The Scourge did those things, not you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Blame or not, you carry it. That's what honor asks.", next = "BACK", fx = { align = { honor = 1 } } },

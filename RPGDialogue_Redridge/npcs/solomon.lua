@@ -240,7 +240,7 @@ P:NPC {
     },
     letters = {
       lines = {
-        { id = "le_default", text = "General Jonathan in Stormwind, who answered kindly. Gryan Stoutmantle in Westfall, who answered honestly. Lord Ebonlocke in Darkshire, who answered as if I'd gone mad." },
+        { id = "le_default", text = "General Jonathan in Stormwind, who answered kindly. Gryan Stoutmantle in Westfall, who answered plainly. Lord Ebonlocke in Darkshire, who answered as if I'd gone mad." },
       },
       choices = {
         { text = "What did the General say?", next = "letters_general" },
@@ -591,7 +591,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep to the roads, and never trust a quiet night in Redridge. The orcs count on both." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "It was ours until Morganth's sorcery and Gath'Ilzogg's axes took it. The court has not ruled it lost, only taken.", next = "stonewatch" } },
     keeshan = { { id = "tp_keeshan", text = "Of the 12th Sabre Regiment, dragged off the walls at Stonewatch. The notice by the inn carries my seal." } },
-    night_watch = { { id = "tp_watch", text = "Lord Ebonlocke's lantern-bearers, you mean. I asked him for them anyway, which tells you how desperate Lakeshire has become." } },
+    night_watch = { { id = "tp_watch", text = "Lord Ebonlocke's lantern-bearers, you mean. I asked him for them anyway; that's how desperate Lakeshire has become." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "There are two packs: one steals our horses, and the other serves a warlock. I've put a price on the second." } },
     defias = { { id = "tp_defias", text = "That's Westfall's trouble, and Stoutmantle's reply told me enough to stop asking him for men." } },
     blackrock = { { id = "tp_blackrock", text = "They hold Render's Valley and Stonewatch Keep, and there are too many of them, too well organized, and getting bolder by the week." } },

@@ -135,7 +135,7 @@ P:NPC {
           text = "A priest, how nice! You'll say a word for an old man's wife, won't you? From here is fine, dear; from here is best, really." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Oh my, all that shine! Do stand a little further off, dear, because my eyes aren't what they were, and nor is anything else of me." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Oh, a warrior, dear! Such a sturdy build, and all of it still attached, which is more than most folk round Raven Hill can say." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Oh, a warrior, dear! Such a sturdy build, and all of it still attached, which you can't say for most folk round Raven Hill, not anymore." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a dwarf who talks to spirits! How lovely. My wife would have liked you. She's just in the next room, resting, so we'll keep our voices down." },
       },
       again = {
@@ -313,7 +313,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "Oh, an old hermit hears a great deal out here, you know, more than you'd think. Ask me about any of this, and I'll put the kettle on." },
+      { id = "tp_knows", text = "Oh, an old hermit hears all sorts out here, you know, with only the crows for company. Ask me about any of this, and I'll put the kettle on." },
     },
     background = { { id = "tp_bg", text = "I'm just an old alchemist who outlived his wife, though 'outlived' is rather a strong word." } },
     advice = { { id = "tp_ad", text = "Keep your strength up and your stitches tight, dear, because things come apart otherwise." } },
@@ -326,6 +326,6 @@ P:NPC {
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a lovely little village once, dear, with a church and a well and my Eliza's garden. It's quieter now, and the cemetery's grown, as cemeteries do." } },
     scourge = { { id = "tp_scourge", text = "They say in Lordaeron the dead get up and walk about at somebody else's bidding, which seems terribly rude to them, dear. Here, at least, our dead only get up for love." } },
     holy_light = { { id = "tp_holy_light", text = "Eliza used to take me to the chapel every week to hear about the Light, and I'd sit at the back counting herbs in my head. I miss those mornings more than I can say." } },
-    dark_riders = { { id = "tp_dark_riders", text = "Those riders come through the hills on black horses some nights, dear, and I draw the curtains and keep very still. They've never knocked, and I'd rather they never did." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Those riders come through the hills on black horses some nights, dear, and I draw the curtains and keep very still. They've never knocked, and I pray they never will." } },
   },
 }

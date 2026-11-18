@@ -48,7 +48,7 @@ P:NPC {
     { id = "n_mounted", cat = "state", when = { mounted = true },
       text = "Mind the hooves, mind the hooves! I lost a toe to a carthorse in Goldshire once, and I've only the nine left to give." },
     { id = "n_tabard", cat = "status", when = { tabard = true },
-      text = "A tabard and everything! You look like you belong to somebody, which is more than I can say for myself." },
+      text = "A tabard and everything! You look like you belong to somebody, and nobody's claimed me since the farm went." },
   },
 
   react = {
@@ -178,7 +178,7 @@ P:NPC {
       },
     },
     f_orcs_two = {
-      lines = { { id = "fot_default", text = "Two farms, friend, two! The orcs had the first one off me, and after the second war I went west and got another, which tells you I'm either very brave or very slow to learn." },
+      lines = { { id = "fot_default", text = "Two farms, friend, two! The orcs had the first one off me, and after the second war I went west and got another, so I'm either very brave or very slow to learn." },
       },
       choices = {
         { text = "Then what took the Westfall farm?", next = "BACK", fx = { learn = { "westfall" } } },
@@ -242,7 +242,7 @@ P:NPC {
     },
     f_neighbours = {
       lines = {
-        { id = "fn_default", text = "The Saldeans to the north, who still feed half the Militia, and the Furlbrows by the road, with that old horse of theirs that never would pull straight. Good people, the lot of them, and I didn't say goodbye to any of them." },
+        { id = "fn_default", text = "The Saldeans to the north, who still feed the whole Militia on a good week, and the Furlbrows by the road, with that old horse of theirs that never would pull straight. Good people, the lot of them, and I didn't say goodbye to any of them." },
         { id = "fn_farmhand", when = { origin = "human_westfall_farmhand" }, text = "The Saldeans and the Furlbrows, mostly, and you'll know them better than I do these days. Tell Verna Furlbrow that Topper's alive, if you're ever down that way, and don't tell her where." },
       },
       choices = {
@@ -290,7 +290,7 @@ P:NPC {
     },
     f_letters = {
       big = true,
-      lines = { { id = "fl_default", key = true, text = "I write to her every Winter Veil, friend, a good long letter, and I keep them all in my coat, because I've never once had anything good to put in one. Six letters, and every one of them says I'm doing very well in the city." } },
+      lines = { { id = "fl_default", key = true, text = "I write to her every Winter Veil, friend, a good long letter, and I keep them all in my coat, because I've never once had anything good to put in one. Six letters, and each one says I'm doing very well in the city." } },
       choices = {
         { text = "Send them anyway. She'd rather have the truth than nothing.", next = "f_letter_read", fx = { affinity = 2, align = { honor = 1 }, letter = "topper_true_letter" } },
         { text = "Keep them. Some things are kinder left unsaid.", next = "f_letter_read", fx = { align = { honor = -1 } } },
@@ -460,7 +460,7 @@ P:NPC {
       choices = { { text = "I'll keep an eye out for her.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     lv_winter = {
-      lines = { { id = "lw_default", text = "The canal steams in the cold, friend, so it's warmer by the water than you'd think, and the Gilded Rose leaves its kitchen door open while the bread's baking. Still, every winter I count my toes in the spring, and every spring I've got the nine I started with, which is a good year." } },
+      lines = { { id = "lw_default", text = "The canal steams in the cold, friend, so it's warmer by the water than up on the street, and the Gilded Rose leaves its kitchen door open while the bread's baking. Still, every winter I count my toes in the spring, and every spring I've got the nine I started with, which is a good year." } },
       choices = {
         { text = "Nine? What happened to the tenth?", next = "lv_toe" },
         { text = "I'm glad you've got through them.", next = "BACK", fx = { affinity = 1 } },
@@ -475,7 +475,7 @@ P:NPC {
     },
     lv_cathedral = {
       big = true,
-      lines = { { id = "lc_default", text = "There's soup in the Cathedral square of an evening, and a bed for the night if you'll sit through a sermon first, which I do in the worst weeks. But a man likes his own bridge, friend, and I'd rather be cold under a roof I picked than warm under one I was given." } },
+      lines = { { id = "lc_default", text = "There's soup in the Cathedral square of an evening, and a bed for the night if you'll sit through a sermon first, which I do in the worst weeks. But a man likes his own bridge, friend, and a cold roof I picked suits me better than a warm one I was given." } },
       choices = {
         { text = "Pride won't keep you warm. Take the bed.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A man should choose his own roof. I understand.", next = "BACK", fx = { align = { order = -1 } } },
@@ -495,7 +495,7 @@ P:NPC {
     },
     lv_guards_stance = {
       big = true,
-      lines = { { id = "lgs_default", text = "Oh, I do, friend, I respect it a great deal, especially the part where they don't do it very hard. A city needs its guards and it needs its beggars, because otherwise who would the guards have to chase?" } },
+      lines = { { id = "lgs_default", text = "Oh, I do, friend, I respect it no end, especially the part where they don't do it very hard. A city needs its guards and it needs its beggars, because otherwise who would the guards have to chase?" } },
       choices = {
         { text = "Order is what keeps this city standing, Topper.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A city that chases its poor has its priorities wrong.", next = "BACK", fx = { align = { order = -1 } } },
@@ -535,7 +535,7 @@ P:NPC {
     ----------------------------------------------------------------------------------------------
     stories = {
       hub = true,
-      lines = { { id = "st_default", text = "A story! Now you're speaking my language, friend. I've the kobold and the candle, the murloc who followed me home, the gnoll who wanted my hat, and the day I met King Llane, and every one of them is at least partly true." } },
+      lines = { { id = "st_default", text = "A story! Now you're speaking my language, friend. I've the kobold and the candle, the murloc who followed me home, the gnoll who wanted my hat, and the day I met King Llane, and each one is at least partly true." } },
       again = {
         { id = "st_again", text = "Another? You're a dangerous audience, friend, because I never know when to stop." },
         { id = "st_again2", text = "Pick another. They get better the more you hear." },
@@ -674,7 +674,7 @@ P:NPC {
       choices = { { text = "I hope someone buys you two this year.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     d_cheese = {
-      lines = { { id = "dc_default", text = "Trias's place, the cheese shop on the corner. Lovely cheese, friend, but I've noticed that half the folk who go in come out without any, and some of them come out by the back door, which isn't how cheese works." } },
+      lines = { { id = "dc_default", text = "Trias's place, the cheese shop on the corner. Lovely cheese, friend, but I've noticed that plenty of folk who go in come out without any, and some of them come out by the back door, which isn't how cheese works." } },
       choices = {
         { text = "They sound like trouble to me.", next = "d_cheese2" },
         { text = "Maybe they're just picky about cheese.", next = "BACK", fx = { affinity = 1 } },
@@ -779,7 +779,7 @@ P:NPC {
         { id = "nw_again2", text = "What else would you like to hear? I've half of what the guards say and all of what the washerwomen say." },
       },
       choices = {
-        { text = "People talk about the king a great deal, I notice.", next = "n_king" },
+        { text = "People talk about the king a lot, I notice.", next = "n_king" },
         { text = "Westfall seems to be in a bad way.", next = "n_westfall" },
         { text = "What happened at the Stockade?", next = "n_stockade" },
         { text = "What news from Redridge?", next = "n_redridge" },
@@ -852,7 +852,7 @@ P:NPC {
     n_redridge = {
       lines = {
         { id = "nr_default", text = "Blackrock orcs over the mountains and gnolls on the river, friend, and the Lakeshire folk building walls with whatever they've got. My Elsie's there with her sister, so I ask every soldier who passes for news, and they tell me it's fine, which soldiers always say." },
-        { id = "nr_lake", when = { origin = "human_redridge_born" }, text = "You'd know better than me, friend, being from there. Blackrock orcs over the mountains and gnolls on the river, and my Elsie in Lakeshire with her sister, so tell me honestly: is the town holding?" },
+        { id = "nr_lake", when = { origin = "human_redridge_born" }, text = "You'd know better than me, friend, being from there. Blackrock orcs over the mountains and gnolls on the river, and my Elsie in Lakeshire with her sister, so tell me straight: is the town holding?" },
       },
       choices = {
         { text = "Lakeshire's holding. The Watch is strong.", next = "n_redridge2", fx = { affinity = 1 } },
@@ -877,7 +877,7 @@ P:NPC {
     },
     n_masons_stance = {
       big = true,
-      lines = { { id = "nms_default", text = "Wronged, aye, and then they wronged me, friend, and the farmers next door, so where does the wronging stop? I've thought about it a great deal under that bridge, and I've never got further than being cold." } },
+      lines = { { id = "nms_default", text = "Wronged, aye, and then they wronged me, friend, and the farmers next door, so where does the wronging stop? I've thought about it many a night under that bridge, and I've never got further than being cold." } },
       choices = {
         { text = "The nobles started it. The blame is theirs.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" }, learn = { "stonemasons", "defias" } } },
         { text = "Whatever the cause, the Defias are criminals now.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonemasons", "defias" } } },
@@ -912,7 +912,7 @@ P:NPC {
       choices = { { text = "I'll remember the step.", next = "BACK", fx = { affinity = 1 } } },
     },
     asks_reply = {
-      lines = { { id = "asr_default", text = "Well, friend, whatever it is, you said it like you meant it, which is more than most manage. Mind you come back up this road, because I'd like to hear how it went, and I can't make up the ending myself." } },
+      lines = { { id = "asr_default", text = "Well, friend, whatever it is, you said it like you meant it, and that's a rare thing on this road. Be sure you come back up this road, because I'd like to hear how it went, and I can't make up the ending myself." } },
       choices = { { text = "I'll come back and tell you.", next = "BACK", fx = { affinity = 1 } } },
     },
     asks_lost = {
@@ -1065,7 +1065,7 @@ P:NPC {
       },
     },
     k_sky = {
-      lines = { { id = "ksk_default", text = "Never, friend, and I've seen a great deal from this step, including a goblin selling a dwarf his own beard. You're the newest thing to come past in years, and I'd very much like to hear where you're from, if it's not a secret." } },
+      lines = { { id = "ksk_default", text = "Never, friend, and I've seen all sorts from this step, including a goblin selling a dwarf his own beard. You're the newest thing to come past in years, and I'd very much like to hear where you're from, if it's not a secret." } },
       choices = {
         { text = "From very high up, Topper.", next = "k_sky2" },
         { text = "It's a long story.", next = "k_sky2" },
@@ -1254,7 +1254,7 @@ P:NPC {
       },
     },
     xapala2 = {
-      lines = { { id = "xpa2_default", text = "The Silver Hand's not what it was, friend, I know, with the north gone and the knights scattered. But a paladin walking down the Westfall road would still make the farmers stand up straighter, and that's worth more than you'd think." } },
+      lines = { { id = "xpa2_default", text = "The Silver Hand's not what it was, friend, I know, with the north gone and the knights scattered. But a paladin walking down the Westfall road would still make the farmers stand up straighter, and a straight back on a frightened farmer is no small thing." } },
       choices = { { text = "Then I'll walk that road.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
   },

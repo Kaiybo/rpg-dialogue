@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Umbranse, and some call me the Spiritspeaker, which is a grand name for a man who listens carefully. The dead are everywhere in Winterspring, Highborne mostly, from the old days, and if you know how to ask, they have a great deal to say." },
+          text = "I am Umbranse, and some call me the Spiritspeaker, which is a grand name for a man who listens carefully. The dead are everywhere in Winterspring, Highborne mostly, from the old days, and if you know how to ask, they will talk until dawn." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Your sort usually wants the dead sent onward, and I usually want them to stay a little longer and talk. I hope we can be friends regardless." },
       },
@@ -71,7 +71,7 @@ P:NPC {
       },
     },
     speak_end = {
-      lines = { { id = "se_default", text = "A great deal, though very little of it would interest a practical person. Old spells, old quarrels, the names of rivers that have changed course since. I write it all down, and someday it will make a very long book that nobody reads." } },
+      lines = { { id = "se_default", text = "Volumes, though very little of it would interest a practical person. Old spells, old quarrels, the names of rivers that have changed course since. I write it all down, and someday it will make a very long book that nobody reads." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
 

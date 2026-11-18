@@ -159,7 +159,7 @@ P:NPC {
     crystal_trust = {
       big = true,
       lines = {
-        { id = "ct_default", text = "I trust the Arch Druid more than I trust anyone who'd be tempted to use it, and that includes me. You could have kept it, you know, and you didn't, which says a great deal about you." },
+        { id = "ct_default", text = "I trust the Arch Druid more than I trust anyone who'd be tempted to use it, and that includes me. You could have kept it, you know, and you didn't, and I shall remember that." },
       },
       choices = {
         { text = "Power like that should be locked away.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

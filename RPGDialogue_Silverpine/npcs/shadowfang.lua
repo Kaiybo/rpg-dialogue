@@ -73,7 +73,7 @@ P:NPC {
     hadrec_report = {
       big = true,
       lines = {
-        { id = "hr_default", text = "That the keep is held, that Arugal is mad, and that Vincent is dead because I told him the courtyard was clear. That last part I'll say first, because Hadrec will find it out anyway, and I'd rather he heard it from me." },
+        { id = "hr_default", text = "That the keep is held, that Arugal is mad, and that Vincent is dead because I told him the courtyard was clear. That last part I'll say first, because Hadrec will find it out anyway, and he should hear it from my mouth." },
       },
       choices = {
         { text = "Tell him all of it. He deserves the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -103,7 +103,7 @@ P:NPC {
     captured_children = {
       big = true,
       lines = {
-        { id = "cc_default", text = "Every night, through the floor, as if he were reading them to sleep. He called them out of somewhere to fight the Scourge, and now he loves them more than he ever loved Dalaran, and I'll tell you honestly that it's worse than if he hated them." },
+        { id = "cc_default", text = "Every night, through the floor, as if he were reading them to sleep. He called them out of somewhere to fight the Scourge, and now he loves them more than he ever loved Dalaran, and to my ear that's worse than if he hated them." },
         { id = "cc_scourge", when = { race = "Scourge" }, text = "Every night, through the floor. He called them up to fight the Scourge, and you and I were the Scourge once, so I suppose we're the reason those beasts exist at all, which is a thought I could do without in a cell." },
       },
       choices = {
@@ -293,7 +293,7 @@ P:NPC {
     },
     who_sent = {
       lines = {
-        { id = "ws_default", text = "Nobody very important, which is why they sent me rather than going themselves. The Kirin Tor would like to know whether Arugal can be reasoned with, and I can now tell them with some confidence that he cannot." },
+        { id = "ws_default", text = "Nobody very important, so naturally they sent me rather than going themselves. The Kirin Tor would like to know whether Arugal can be reasoned with, and I can now tell them with some confidence that he cannot." },
       },
       choices = {
         { text = "They waited a long time to ask.", next = "who_late" },
@@ -383,7 +383,7 @@ P:NPC {
     },
     ambermill_forsaken = {
       lines = {
-        { id = "af_default", text = "The Forsaken would say that, and the Forsaken would be right to worry, because a wizard who feels threatened builds things. Tell me honestly, since you've been out there: how bad are they, the dead of this forest?" },
+        { id = "af_default", text = "The Forsaken would say that, and the Forsaken would be right to worry, because a wizard who feels threatened builds things. You've been out there, so tell me straight: how bad are they, the dead of this forest?" },
       },
       choices = {
         { text = "They're dangerous, and Dalaran should stay wary.", next = "ambermill_answer", fx = { align = { order = 1 } } },
@@ -393,7 +393,7 @@ P:NPC {
     },
     ambermill_answer = {
       lines = {
-        { id = "aa_default", text = "Well, I'll write that down, once I have a quill again. It's more than the Kirin Tor have bothered to ask anyone who's actually walked the place, which tells you something about the Kirin Tor." },
+        { id = "aa_default", text = "Well, I'll write that down, once I have a quill again. The Kirin Tor have never once asked anyone who's actually walked the place, and that says something about the Kirin Tor." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -402,6 +402,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A sorcerer of Dalaran, of the sort they send when they'd rather not send anyone important. I'm told that's a compliment." } },
     dalaran = { { id = "tp_dalaran", text = "Still standing behind its shield, last I knew, and still arguing about what to do with itself." } },
-    _none = { { id = "tp_none", text = "I'm afraid that's outside my reading, and I've done a great deal of reading." } },
+    _none = { { id = "tp_none", text = "I'm afraid that's outside my reading, and I've read most of the Violet Citadel's lower library." } },
   },
 }

@@ -114,7 +114,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll find nothing to learn here but discipline, and I'd wager the Quarter teaches little of that." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your gear well and I'll judge you fairly. The Silver Hand fought the orcs and all their dark arts in the Second War, so forgive me if I look twice." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your gear well and I'll judge you fairly. The Silver Hand fought the orcs and all their dark arts in the Second War, so you'll understand why I look twice." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly, and I'll answer the same way." },
@@ -386,7 +386,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I've never known it refuse anyone who asked honestly, though I've known plenty who were afraid to ask. Faith isn't for the spotless, friend, or I'd never have been given the name." } },
+      lines = { { id = "xrogue_default", text = "I've never known it refuse anyone who asked in earnest, though I've known plenty who were afraid to ask. Faith isn't for the spotless, friend, or I'd never have been given the name." } },
       choices = {
         { text = "Then I'll ask, Arthur, and I'll mean it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll carry what I've done myself, Arthur.", next = "BACK", fx = { align = { light = -1 } } },
@@ -415,7 +415,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It teaches that every life has worth, which is a hard thing for a hunter to hear, I know. But I've met hunters who give thanks for each kill, and I think they understand the Light better than many priests." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a creature that's been loved. That counts for a great deal, I think, with the Light and with anyone else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a creature that's been loved. The Light notices that sort of thing, I think, and so do I." },
       },
       choices = {
         { text = "I give thanks for every life I take.", next = "BACK", fx = { align = { light = 1 } } },
@@ -536,7 +536,7 @@ P:NPC {
       choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2 } } },
     },
     grayson = {
-      lines = { { id = "grayson_l", text = "He's harder on himself than on any of you, and that's saying a great deal. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
+      lines = { { id = "grayson_l", text = "He's harder on himself than on any of you, and he's very hard on all of you. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
       choices = {
         { text = "How do you know?", next = "grayson_know" },
         { text = "Something else.", next = "BACK" },
@@ -793,7 +793,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
   notices = { "lore" },
   impression = {
-    first = "In the Royal Library one whispers, because Milton Sheaf believes the books are sleeping. He forgave a book seventy years overdue for the sake of a pressed flower, which tells you everything.",
+    first = "In the Royal Library one whispers, because Milton Sheaf believes the books are sleeping. He forgave a book seventy years overdue for the sake of a pressed flower he found between its pages.",
     third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
   },
 
@@ -1048,7 +1048,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "More than you'd think, because scholars forget to eat until they're starving, and cheese keeps on a desk. Some of them talk quite freely while they wait for it, too, which is entirely beside the point." } },
+      lines = { { id = "xmage_default", text = "Plenty, because scholars forget to eat until they're starving, and cheese keeps on a desk. Some of them talk quite freely while they wait for it, too, which is entirely beside the point." } },
       choices = {
         { text = "Their talk is their own business, Elling, so leave it be.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Every word a customer drops is worth picking up.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1087,7 +1087,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because nobody believes it once they've seen my wife's stairs, I suppose, and because a man in my trade hears all kinds of things across a counter. I pass a few of them on, to the right people, and I'd rather that's where it ended." } },
+      lines = { { id = "xapala_default", text = "Because nobody believes it once they've seen my wife's stairs, I suppose, and because a man in my trade hears all kinds of things across a counter. I pass a few of them on, to the right people, and there it stops, so far as anyone at my counter knows." } },
       choices = {
         { text = "Then I'll ask no more. Some service must stay quiet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Secrets rot a city. I'd sooner everything were said openly.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1115,7 +1115,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you live on what you catch, but even the best hunter wants something besides venison now and then, don't they?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Now, I sell cheese, only cheese, and nothing that ever lived in a forest, so you've no cause to look at me like that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, buying cheese? Of course. Everyone has to eat, even the folk from the Lamb." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Well, I sell cheese. Only cheese. Honestly cheese. Your spirits are welcome to inspect it, if they like." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Well, I sell cheese, only cheese, nothing but plain good cheese, and your spirits are welcome to inspect it if they like." },
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese-related, ideally." },
@@ -1164,7 +1164,7 @@ P:NPC {
       },
     },
     church = {
-      lines = { { id = "ch_default", text = "The Church eats cheese like everyone else. One or two of its bishops eat a great deal of it. I say no more." } },
+      lines = { { id = "ch_default", text = "The Church eats cheese like everyone else. One or two of its bishops eat rather a lot of it, and I'll say no more than that." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     jorgen = {
@@ -1189,7 +1189,7 @@ P:NPC {
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins tried to sell me a cheese made from goat's milk and sea salt, and I sent them packing. I sell only cheese, and only good cheese, and only from Stormwind's own dairies." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells cheese on sticks, toasted over a fire, and it's an abomination. I've told them so, and they laughed, and I've never been back." } },
     gilneas = { { id = "tp_gilneas", text = "Gilnean cheese was the finest in the north, and it's all behind that wall now. I've a little left in my cellar, and I'll not sell it for any price, only look at it on festival days." } },
-    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, I'm told, and the guards just stand at the doors. I sell cheese to the guards, and they've never been so hungry, which tells you something." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, I'm told, and the guards just stand at the doors. I sell cheese to the guards, and they've never been so hungry, because nobody's going in to cook." } },
     knows = {
       { id = "tp_knows", text = "A cheese merchant hears a remarkable amount, you know, people will say anything over a good wheel of cheddar. Ask me about any of this." },
     },

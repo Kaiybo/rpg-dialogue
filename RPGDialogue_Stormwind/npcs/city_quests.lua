@@ -87,7 +87,7 @@ P:NPC {
       },
     },
     drill_canal = {
-      lines = { { id = "dca_default", text = "It reached the canal before it reached the bottom of the hill, which I'd call an error of about forty degrees and a great deal of water. Nobody drowned, and the Dwarven District has a lovely new fountain, which I maintain was always the plan." } },
+      lines = { { id = "dca_default", text = "It reached the canal before it reached the bottom of the hill, which I'd call an error of about forty degrees and roughly nine thousand gallons of water. Nobody drowned, and the Dwarven District has a lovely new fountain, which I maintain was always the plan." } },
       choices = {
         { text = "Every failure is data. Keep going.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Test properly before you flood the city again.", next = "BACK", fx = { align = { order = 1 } } },
@@ -133,9 +133,9 @@ P:NPC {
       },
     },
     fall_thermaplugg = {
-      lines = { { id = "ft_default", text = "That's what they say in Tinker Town, and I believe it, though I worked two floors under him once and he always said good morning. People are complicated, and traitors more than most." } },
+      lines = { { id = "ft_default", text = "That's what they say in Tinker Town, and I believe it, though I worked two floors under him once and he always said good morning. People are complicated, and traitors are worse." } },
       choices = {
-        { text = "Traitors should pay. Every one of them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Traitors should pay, all of them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Take the city back first. Justice can wait.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -205,7 +205,7 @@ P:NPC {
     },
 
     xengineer = {
-      lines = { { id = "xe_default", text = "A real engineer, finally! Here, look at the gearing on the main shaft, no, the other way up, and tell me honestly whether the torque ratio is mad or merely ambitious." } },
+      lines = { { id = "xe_default", text = "A real engineer, finally! Here, look at the gearing on the main shaft, no, the other way up, and tell me straight whether the torque ratio is mad or merely ambitious." } },
       choices = {
         { text = "Merely ambitious.", next = "BACK", fx = { affinity = 1 } },
         { text = "Mad. Completely mad. I love it.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -441,7 +441,7 @@ P:NPC {
       },
     },
     city_humans = {
-      lines = { { id = "ch_default", text = "Kindly, mostly, with a great deal of staring. One baker charged me twice what he charged a human for bread, and when I paid without a word he gave me the second loaf for nothing, so I think he was ashamed of himself." } },
+      lines = { { id = "ch_default", text = "Kindly, mostly, though the staring has not stopped since I arrived. One baker charged me twice what he charged a human for bread, and when I paid without a word he gave me the second loaf for nothing, so I think he was ashamed of himself." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },

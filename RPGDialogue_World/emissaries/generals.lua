@@ -196,7 +196,7 @@ P:NPC {
     sport = {
       big = true,
       lines = {
-        { id = "sp_default", text = "I've heard that said in every tavern from Goldshire to Menethil, usually by men who've never stood on the field. The blood's real, the ground's real and the Horde would take every inch of it if we let them, but I'll grant you the tabards and the weekly tallies make it look like a tourney. Which do you think it is?" },
+        { id = "sp_default", text = "I've heard that said in every tavern from Goldshire to Menethil, usually by men who've never stood on the field. The blood's real, the ground's real and the Horde would take every inch of it if we let them, though I admit the tabards and the weekly tallies make it look like a tourney. Which do you think it is?" },
         { id = "sp_rank", when = { pvpRank = 10 }, text = "You've climbed higher in those tallies than nearly anyone, {rank}, so you'd know better than I would. Is it a war you're fighting, or a ladder you're climbing?" },
       },
       choices = {
@@ -263,7 +263,7 @@ P:NPC {
       choices = { { text = "Another field, then.", next = "BACK" } },
     },
     ab_defilers = {
-      lines = { { id = "abd_default", text = "Forsaken, and the cruellest lot the Horde has sent, from what the Arathorians tell me. They're not out for land so much as for the people on it, which is why the League fights that basin like a family defending its own farm." } },
+      lines = { { id = "abd_default", text = "Forsaken, and the cruellest lot the Horde has sent, from what the Arathorians tell me. They're not out for land so much as for the people on it, and so the League fights that basin like a family defending its own farm." } },
       choices = { { text = "Then I'll fight it the same way.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     av = {
@@ -286,7 +286,7 @@ P:NPC {
     -- Ranks
     ranks = {
       lines = {
-        { id = "rk_default", text = "The ranks were the marshals' idea, so the army could see who's doing the fighting without reading my reports. Private to Grand Marshal, all of it counted weekly, and I'll tell you honestly that it's made men fight harder and some of them fight worse." },
+        { id = "rk_default", text = "The ranks were the marshals' idea, so the army could see who's doing the fighting without reading my reports. Private to Grand Marshal, all of it counted weekly, and I'll tell you plainly, it's made men fight harder and some of them fight worse." },
       },
       choices = {
         { text = "Fight worse? How so?", next = "ranks_worse" },
@@ -318,7 +318,7 @@ P:NPC {
     },
     k_dishonor = {
       big = true,
-      lines = { { id = "kd_default", text = "Because word of every one of them reaches Orgrimmar, soldier, and the Horde's officers make sure their grunts hear it before every battle. Each dead cook puts another angry orc on the field against us, and I'd rather you did your killing where it does the Alliance some good." } },
+      lines = { { id = "kd_default", text = "Because word of each one reaches Orgrimmar, soldier, and the Horde's officers make sure their grunts hear it before every battle. Each dead cook puts another angry orc on the field against us, so do your killing where it does the Alliance some good." } },
       choices = {
         { text = "You're right. I'll keep my blade for soldiers.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The Horde's all the same to me, armed or not.", next = "BACK", fx = { opinion = { horde = "hate" }, align = { honor = -1 } } },
@@ -402,7 +402,7 @@ P:NPC {
         { id = "h_marks", when = ALL_MARKS, priority = 5,
           text = "All three marks, carried by one warrior! Sit with me a moment, because I want to hear how you earned them." },
         { id = "h_rank", when = { pvpRank = 10 },
-          text = "{rank}, it's an honor. You've fought more battles than half the officers in this city, so speak to me as one veteran to another." },
+          text = "{rank}, it's an honor. You've seen more battles than the officers who dine at the Keep, so speak to me as one veteran to another." },
         { id = "h_young", when = { maxLevel = 19 },
           text = "You're young for the battlegrounds, whelp, but don't be ashamed of it. Everyone I've ever fought beside started where you stand now." },
         { id = "h_dishonor", when = { dishonorKills = { min = 1 } },

@@ -45,7 +45,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? The cask's not going anywhere." },
-        { id = "h_again2", text = "Go on, friend. I've time for a chat; it's half the job." },
+        { id = "h_again2", text = "Go on, friend. I've time for a chat; it's a good part of the job." },
       },
       choices = {
         { text = "What does a morale officer do?", next = "job" },
@@ -86,7 +86,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A sergeant of the Stormwind Guard, posted to Westbrook. I'm better with a cask than a sword, and the captain knew it." } },
     advice = { { id = "tp_ad", text = "Eat something before you drink something. You'd be amazed how many soldiers never learn it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask Deputy Rainer; he's the one with the reports." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire I lose half the garrison to it on their days off, and they come back with sore heads and a story apiece. Good for morale, I tell the deputy, and he pretends to believe me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire I lose most of the garrison to it on their days off, and they come back with sore heads and a story apiece. Good for morale, I tell the deputy, and he pretends to believe me." } },
     booty_bay = { { id = "tp_booty_bay", text = "I tasted rum from Booty Bay once that took the varnish off a table, and I've wanted a cask for the garrison ever since. Deputy Rainer says no, very firmly." } },
     varian = { { id = "tp_varian", text = "The lads ask me about the king, because I'm the morale officer and they think I know things. I pour them a drink and tell them he'll be back, and I hope I'm not a liar." } },
   },

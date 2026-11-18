@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_ally", cat = "race", when = { race = { "Human", "NightElf" } },
-      text = "You'll forgive me if I look twice. My people and yours were allies once, and some days I miss it more than I let my crew see." },
+      text = "Pardon me for looking twice. My people and yours were allies once, and some days I miss it more than I let my crew see." },
     { id = "n_travel", cat = "travel", when = { mounted = true },
       text = "You'll want to leave that beast on the pier, friend. The planks are older than they look, and so am I." },
   },
@@ -135,7 +135,7 @@ P:NPC {
       },
     },
     alliance = {
-      lines = { { id = "al_default", text = "Then you'll forgive me if I don't ask you to sail against them, friend. I'll not hold Northwatch's guns against everyone who wears the same tabard, but I'll not pretend they didn't sink my ship, either." } },
+      lines = { { id = "al_default", text = "Then I'll not ask you to sail against them, friend. I'll not hold Northwatch's guns against everyone who wears the same tabard, but I'll not pretend they didn't sink my ship, either." } },
       choices = {
         { text = "Some of our soldiers forget whose peace they keep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A ship from a Horde port takes its chances.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -150,7 +150,7 @@ P:NPC {
     steamwheedle = { { id = "tp_sw", text = "The Cartel keeps Ratchet open to anyone who pays, and that makes it the only harbor on this coast where an elf captain can tie up without a flag." } },
     theramore = { { id = "tp_theramore", text = "Lady Proudmoore I have no quarrel with, and I'd drink to her health in any port. But it was Northwatch Hold's guns that sank my ship, and Northwatch flies her colours, so you'll forgive me if I don't toast too often." } },
     bloodsail = { { id = "tp_bloodsail", text = "They are pirates in red, sailing out of Stranglethorn and stealing from honest privateers like myself. There is a difference between us, and it is mostly that I keep a contract." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a fine harbour with a terrible reputation, which suits me perfectly. Half of my crew signed on there, and the other half drank there first." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a fine harbour with a terrible reputation, which suits me perfectly. Most of my crew signed on there, and the rest drank there first." } },
     dalaran = { { id = "tp_dalaran", text = "My family had friends in Dalaran before the war, and I have not heard from them since it fell. They say the Kirin Tor are raising it again, though slowly, and behind a great many locked doors." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet took us in when Northwatch made us homeless, and Gazlowe has been decent about it, for a goblin. We pay our berth and we keep the pirates off his docks, which is a trade that suits us both." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond what a sea captain hears, friend. Try the goblins; they hear everything and sell half of it." } },

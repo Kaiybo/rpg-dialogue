@@ -308,7 +308,7 @@ P:NPC {
     },
     farholde_hold = {
       lines = {
-        { id = "fhh_default", text = "Then it's what it always was with him, a little honour and a great deal of stubbornness. I'll not wish them ill, whatever I say about Demar; I only wish they'd stop sending letters home in other people's hands." },
+        { id = "fhh_default", text = "Then it's what it always was with him, a little honour and a mule's share of stubbornness. I'll not wish them ill, whatever I say about Demar; I only wish they'd stop sending letters home in other people's hands." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -579,7 +579,7 @@ P:NPC {
 
     years_voyage = {
       lines = {
-        { id = "yv_default", text = "Cold, and crowded, and half the boat crying for people left on the docks. Lothar's men kept order with a word and a look, and I gutted fish for three hundred people with a knife I've still got, that one there on the crate." },
+        { id = "yv_default", text = "Cold, and crowded, and the whole deck crying for people left on the docks. Lothar's men kept order with a word and a look, and I gutted fish for three hundred people with a knife I've still got, that one there on the crate." },
       },
       choices = {
         { text = "And Lordaeron, when you got there?", next = "years_lordaeron" },
@@ -641,7 +641,7 @@ P:NPC {
     },
     xfisher_spot = {
       lines = {
-        { id = "xfs_default", text = "Good answer, whatever it was; a fisher who keeps a spot or two quiet is a fisher I can trust. Arnold Leland would tell the whole city his best water for a silver, which is why there's nothing left in it." },
+        { id = "xfs_default", text = "Good answer, whatever it was; a fisher who keeps a spot or two quiet is a fisher I can trust. Arnold Leland would tell the whole city his best water for a silver, and now there's nothing left in it but boot leather." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1454,7 +1454,7 @@ P:NPC {
 
     why_wiser = {
       lines = {
-        { id = "ww_default", text = "I have not decided, which is why I am still standing here. The kaldorei remembered so well that we let ten thousand years pass without changing, and humans forget so fast that they build new walls where their grandfathers burned." },
+        { id = "ww_default", text = "I have not decided, and so I am still standing here. The kaldorei remembered so well that we let ten thousand years pass without changing, and humans forget so fast that they build new walls where their grandfathers burned." },
       },
       choices = {
         { text = "Change is how a people survives.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1711,7 +1711,7 @@ P:NPC {
 
     why_asks = {
       lines = {
-        { id = "wa_default", text = "Warriors want to look like their captains, mages want to look like their teachers, and paladins want to look like Uther, every one of them, in white and gold with a hammer. I have made a great many Uthers." },
+        { id = "wa_default", text = "Warriors want to look like their captains, mages want to look like their teachers, and paladins all want to look like Uther, in white and gold with a hammer. I have made a great many Uthers." },
       },
       choices = {
         { text = "And the rogues?", next = "why_rogues" },
@@ -1780,7 +1780,7 @@ P:NPC {
 
     xpriest = {
       lines = {
-        { id = "xpr_default", text = "Robes are the easiest of all, and priests the hardest customers, because every one of them insists they do not care how they look and then asks for gold trim on the hem." },
+        { id = "xpr_default", text = "Robes are the easiest of all, and priests the hardest customers, because each of them insists they do not care how they look and then asks for gold trim on the hem." },
       },
       choices = {
         { text = "Just a little gold trim.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -1790,7 +1790,7 @@ P:NPC {
 
     xmage = {
       lines = {
-        { id = "xm_default", text = "You could try, and many of your kind have, and they come to me afterwards with robes that flicker like a candle in a draught. A glamour wants patience more than power, which is why mages are so bad at it." },
+        { id = "xm_default", text = "You could try, and many of your kind have, and they come to me afterwards with robes that flicker like a candle in a draught. A glamour wants patience more than power, and mages have never had the patience for anything." },
       },
       choices = {
         { text = "That's fair. I'll leave it to you.", next = "BACK", fx = { affinity = 1 } },

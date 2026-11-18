@@ -39,7 +39,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Healing, always, and something against fire, because the Shadowsworn don't fight fair. I'd tell you to carry an elixir of strength as well, but I've seen what the bloodmages put in theirs, and I'd rather sell you something honest." } },
+      lines = { { id = "xwarcl_default", text = "Healing, always, and something against fire, because the Shadowsworn don't fight fair. I'd tell you to carry an elixir of strength as well, but I've seen what the bloodmages put in theirs, and I'll stick to selling you something honest." } },
       choices = {
         { text = "Preparation wins fights. I'll carry what you recommend.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I don't fight with bottles. Steel is enough.", next = "BACK", fx = { align = { order = -1 } } },
@@ -49,7 +49,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some do, and the animals have learned which ones, which is more than I can say for the soldiers. Firebloom grows out in the wastes, and I've watched the boars eat round it as neatly as a cook trims a roast." },
+        { id = "xhuntcl_default", text = "Some do, and the animals have learned which ones, though the soldiers still haven't. Firebloom grows out in the wastes, and I've watched the boars eat round it as neatly as a cook trims a roast." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the red flowers by the road, though. I don't think firebloom would kill a beast, but I'd wager it would make it very sorry for a day." },
       },
       choices = {
@@ -60,7 +60,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "More than you'd think, because the plants here grew up beside the Portal's taint and learned to live with it. The mages downstairs call them corrupted, but I've brewed better salves from Blasted Lands roots than anything that grows in Elwynn." } },
+      lines = { { id = "xapala_default", text = "A good many, because the plants here grew up beside the Portal's taint and learned to live with it. The mages downstairs call them corrupted, but I've brewed better salves from Blasted Lands roots than anything that grows in Elwynn." } },
       choices = {
         { text = "Then the land isn't lost. Something good still grows.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Tainted things are tainted. I'd rather not risk it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -87,7 +87,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because the captain would have me down those stairs faster than I could carry the vials. Antidotes I'll sell to anyone, though, since half the scorpids out there would kill a soldier before he made it back to the gate." } },
+      lines = { { id = "xrogue_default", text = "Because the captain would have me down those stairs faster than I could carry the vials. Antidotes I'll sell to anyone, though, since a single scorpid out there could kill a soldier before he made it back to the gate." } },
       choices = {
         { text = "Antidotes save lives. That's the better trade.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Poison wins fights. Antidotes only lose them slower.", next = "BACK", fx = { align = { light = -1 } } },
@@ -96,7 +96,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Blindweed, firebloom, and a twisted thistle that grows only near the Tainted Scar, and every one of them is stronger and stranger than it should be. The mages want to know if it's the fel magic doing it, and I want to know if it's useful, so we're both very busy." } },
+      lines = { { id = "xdruid_default", text = "Blindweed, firebloom, and a twisted thistle that grows only near the Tainted Scar, and each is stronger and stranger than it should be. The mages want to know if it's the fel magic doing it, and I want to know if it's useful, so we're both very busy." } },
       choices = {
         { text = "Twisted plants should be destroyed, Nina, not brewed into potions.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "If they're useful, use them. Something good should come of this place.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },

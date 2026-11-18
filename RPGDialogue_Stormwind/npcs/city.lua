@@ -11,7 +11,7 @@ P:NPC {
   notices = { "stealth", "watch" },
   impression = {
     first = "Master Mathias Shaw talks like a man who has already read my file, and he probably has. I couldn't tell whether he approved of me or merely made a note.",
-    third = "{name} met Master Mathias Shaw, head of SI:7, who knows a great deal more than he says.",
+    third = "{name} met Master Mathias Shaw, head of SI:7, who listened to every word I said and gave back almost none.",
   },
 
   greetings = {
@@ -27,11 +27,11 @@ P:NPC {
 
   notice = {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
-      text = "The third step from the door creaks, and you stepped on it. Everyone does, the first time, which is why it's there." },
+      text = "The third step from the door creaks, and you stepped on it. Everyone does, the first time, and I had it left that way on purpose." },
     { id = "n_watch", cat = "watch", when = { deed = "dungeon:The Deadmines" },
       text = "You've been under Moonbrook, and I read the reports before you'd washed the mud off. That's my job." },
     { id = "n_beast", cat = "watch", when = { class = "HUNTER", pet = { type = "Beast" } },
-      text = "Your animal went straight for the corner where my man's standing, which is more than most of my recruits manage. Call it off, please, before he takes it personally." },
+      text = "Your animal went straight for the corner where my man's standing, and my recruits take a fortnight to spot him. Call it off, please, before he takes it personally." },
   },
 
   start = "hello",
@@ -103,13 +103,13 @@ P:NPC {
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
           text = "{alt}'s file has grown thicker this month, which means that one's been busy in places I'd rather know about. If your paths cross, tell them Shaw is paying attention, and that I mean it kindly." },
         { id = "h_pt_shaw", tags = { "news" }, when = { party = true },
-          text = "You travel with company, and company talks, so choose yours carefully. I've had good agents undone by a friend's loose tongue in a Goldshire tavern, and I'd rather it didn't happen to you." },
+          text = "You travel with company, and company talks, so choose yours carefully. I've had good agents undone by a friend's loose tongue in a Goldshire tavern, and I'd hate to lose you the same way." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "Thredd's dead and the riot's over, which leaves one less Defias mouth in the Stockade for me to question. Next time you go down there, come to me first, because a living prisoner is worth ten dead ones to SI:7." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand makes poor spies and honest witnesses, and I've a use for honest witnesses now and then." },
         { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
-          text = "So you found the building, which is good, because finding things people would rather you didn't is the whole job. You'll be doing a great deal of it." },
+          text = "So you found the building, which is good, because finding things people would rather you didn't is the whole job. You'll be doing it until your feet ache." },
         { id = "h_defias", when = { topicKnown = "defias", minLevel = 15 },
           text = "The Brotherhood wants Stormwind hollowed out from the inside. Every gang has a weak link, and my people find it; then I decide what to do with it." },
         { id = "h_deadmines", when = { deed = "dungeon:The Deadmines" },
@@ -389,7 +389,7 @@ P:NPC {
       },
     },
     skyfile_thin = {
-      lines = { { id = "skyfile_thin_l", text = "Because a thin file is a guess wearing a uniform. I've buried agents who trusted guesses, and I'd rather not start with your people." } },
+      lines = { { id = "skyfile_thin_l", text = "Because a thin file is a guess wearing a uniform. I've buried agents who trusted guesses, and I won't bury any of your people on account of one." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     watchers = {
@@ -420,7 +420,7 @@ P:NPC {
       { id = "tp_deadmines2", when = { class = "ROGUE" }, text = "You've the hands for the Deadmines, and the eyes, which matters more down there. If you go, come back and tell me what you saw before you tell Stoutmantle, and we'll call it a professional courtesy." },
     },
     syndicate = { { id = "tp_syndicate", text = "The Syndicate are the fallen nobles of Alterac, playing thieves in the hills and conspiring with anyone who'll pay. They're on my list, a fair way down, because Stormwind has problems closer to home." } },
-    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt Manor is a fine old house in the Alterac foothills, I'm told, and I'm told a great deal. If you find it, give them my regards, and don't tell them I sent you." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt Manor is a fine old house in the Alterac foothills, I'm told, and people tell me most things eventually. If you find it, give them my regards, and don't tell them I sent you." } },
     prestor = { { id = "tp_prestor", text = "Lady Prestor has the Regent's ear and the House of Nobles' devotion, and she's done nothing I can point to. I keep files on everyone in the Keep, and hers is very thin, which I find interesting." } },
     varian = { { id = "tp_varian", text = "SI:7 has been searching for the King since the day his ship went missing, and we've not found so much as a boot. That's either very good news or very bad, and I'm paid to assume the second." } },
     thrall = { { id = "tp_thrall", text = "Thrall's orcs keep to Durotar and the Barrens, and his envoys talk peace with Theramore. I don't take talk at face value, and I'd advise you don't either." } },
@@ -515,7 +515,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "We respect what works, and your healers work, which is more than I can say for some of my students. Where we part ways is whether power must be granted or can be earned by study, and that argument is older than this city." } },
+      lines = { { id = "xapriest_default", text = "We respect what works, and your healers work, while some of my students' spells fizzle halfway through the incantation. Where we part ways is whether power must be granted or can be earned by study, and that argument is older than this city." } },
       choices = {
         { text = "Power that's prayed for is humbler than power that's taken.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Study earns more than kneeling ever has, Magus.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -524,7 +524,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "To the Kirin Tor in principle, and to their own sense in practice, which is why I test my students so harshly. Untested power is a danger, and I would rather fail a student than bury one." } },
+      lines = { { id = "xapala_default", text = "To the Kirin Tor in principle, and to their own sense in practice, and so I test my students harshly, for untested power is a danger and I would sooner fail a student than bury one." } },
       choices = {
         { text = "Then magic should answer to law, like everything else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A mage's mind is their own. No council should rule it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -551,7 +551,7 @@ P:NPC {
         { id = "h_quarter", when = { origin = "human_mage_quarter" },
           text = "One of the Quarter's own apprentices, and I remember your teachers, who never stopped mentioning Dalaran. You've outgrown them; that doesn't mean they were wrong about everything." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue in the Sanctum. If you've come for a spellbook, half of them are warded to bite, and the other half are only dull." },
+          text = "A rogue in the Sanctum. If you've come for a spellbook, the ones worth stealing are warded to bite, and the rest would bore you to tears." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Sanctum. You may stand there, by the door, where the wards won't take offence at all that iron." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with the smell of the woods on you. Stand outside the circles, please, and keep your beast from sniffing the reagents." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Sanctum. The wards hum differently around your people, as if they're not quite sure what you are, and I confess I'm not either." },
@@ -693,7 +693,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The Sanctum keeps careful records, and I keep careful notes on the records. Ask me about any of these, and listen closely." },
     },
-    background = { { id = "tp_bg", text = "My history is dull, and I'd rather not waste your lesson on it. The magic is the interesting part. Ask about that." } },
+    background = { { id = "tp_bg", text = "My history is dull, and I won't waste your lesson on it when the magic is the interesting part, so ask about that." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you couldn't explain to a child. If you can't explain it, you don't understand it, and it will notice." } },
     morganth = { { id = "tp_morganth", text = "His name is not spoken lightly in this building, because he stole from us, and he will be stopped." } },
     _none = { { id = "tp_none", text = "Not a question for the Sanctum, I'm afraid. Try the library." } },
@@ -1025,7 +1025,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They do, quietly, and they tip well and break nothing, which is more than I can say for the guests who've just got rich at the auction house. I only ask that nothing comes out of a circle on my floorboards, love, because the last time I had the whole room re-scrubbed and it still smelled of sulphur." },
+        { id = "xlock_default", text = "They do, quietly, and they tip well and break nothing, unlike the guests who've just got rich at the auction house and want the whole street to know it. I only ask that nothing comes out of a circle on my floorboards, love, because the last time I had the whole room re-scrubbed and it still smelled of sulphur." },
       },
       choices = {
         { text = "No circles on your floorboards, Allison. You have my word.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1072,11 +1072,11 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I would and I have, love, and the cook does a venison pie with Elwynn mushrooms that's half the reason anyone stays here. Bring me something fresh and you'll find the price of supper rather friendlier." },
+        { id = "xhuntcl_default", text = "I would and I have, love, and the cook does a venison pie with Elwynn mushrooms that keeps folk coming back from as far as Lakeshire. Bring me something fresh and you'll find the price of supper rather friendlier." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And who's this handsome thing? Keep {pet} by the hearth and out of the kitchen, and I'll find it a bone or two." },
       },
       choices = {
-        { text = "I'll bring you good meat, honestly hunted.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring you good meat, cleanly hunted.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll bring whatever I catch. Don't ask where.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1178,10 +1178,10 @@ P:NPC {
   topics = {
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum is the best in the world, love, and I keep a bottle behind the bar for the ones who've earned it. I'll not say who those are, because they'd all want one." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sends its performers here when they're in the city, and they eat like wolves and tip like kings. I've never had a better week than the one when the fire-eaters stayed." } },
-    deadmines = { { id = "tp_deadmines", text = "Half the adventurers who stay here are headed for the Deadmines, love, and half of them come back with tales they won't tell. The other half don't come back, and I keep their rooms a week before I let them." } },
+    deadmines = { { id = "tp_deadmines", text = "Most of the young adventurers who stay here are headed for the Deadmines, love, and the ones who come back won't tell what they saw. Some don't come back, and I keep their rooms a week before I let them." } },
     theramore = { { id = "tp_theramore", text = "They say Theramore's a lovely place, love, all sea air and soldiers, and the Lady Proudmoore runs it with a firm hand. I'd go if I didn't have a whole inn to keep, and I've a feeling I never will." } },
     knows = {
-      { id = "tp_knows", text = "Half the kingdom eats breakfast at my tables, and the other half talks about it. Ask me about any of this, love, while the kettle's on." },
+      { id = "tp_knows", text = "Lords, guardsmen and mud-booted adventurers all eat breakfast at my tables, and I hear every word over the porridge. Ask me about any of this, love, while the kettle's on." },
     },
     background = { { id = "tp_bg", text = "If I've a story, it happened while I was making breakfast, and I wasn't paying attention. Ask me about the guests instead." } },
     advice = { { id = "tp_ad", text = "Eat before you go out that gate. The road doesn't serve breakfast." } },

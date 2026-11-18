@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_shop", text = "A customer, a real live customer, or at least a customer who's still walking about! Come in, come in, and mind the mold on the step, because it's for sale." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back, you know, they come once and look at me sideways and go, but you came back, and that makes you my favourite." },
     { id = "g_book", when = { questActive = TODO_QUEST("Augustus' Receipt Book") }, text = "Have you got it? My book, my lovely book, the one with all the numbers in it? Upstairs at the inn, I'm sure of it, or nearly sure." },
-    { id = "g_open", when = { questDone = TODO_QUEST("Augustus' Receipt Book") }, text = "Open for business, open for business! Every price is written down now, and every one of them is perfectly insane." },
+    { id = "g_open", when = { questDone = TODO_QUEST("Augustus' Receipt Book") }, text = "Open for business, open for business! Every price is written down now, and each price is perfectly insane." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? I counted the days on the wall, but the wall ran out, so I counted the mushrooms instead, and some of them got eaten." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Night already? The ghouls are louder at night, but they never buy anything, so I don't mind them." },
   },

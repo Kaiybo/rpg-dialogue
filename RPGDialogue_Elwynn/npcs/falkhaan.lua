@@ -65,7 +65,7 @@ P:NPC {
     },
     xpt_falkhaan = {
       big = true,
-      lines = { { id = "xpt_falkhaan_default", text = "More than anyone gives you credit for, because every gnoll you put down on your way to Goldshire is one that won't trouble a farmer's cart next week. Mind you, a company that rides through too fast doesn't see the trouble at all, so slow down now and then." } },
+      lines = { { id = "xpt_falkhaan_default", text = "More than anyone gives you credit for, because every gnoll you put down on your way to Goldshire is one that won't trouble a farmer's cart next week. But a company that rides through too fast doesn't see the trouble at all, so slow down now and then." } },
       choices = {
         { text = "We'll take the time to deal with what we find.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "We've places to be. The guards can clear the roads.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They come every day, from every corner of the Alliance. A dwarf shaman is a new one, I'll grant you, but the inn's welcome is the same for all." } },
+      lines = { { id = "xdsham_default", text = "They come every day, from every corner of the Alliance. A dwarf shaman is a new one on me, but the inn's welcome is the same for all." } },
       choices = {
         { text = "A fair welcome for everyone is good order, Falkhaan.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Welcome is cheap. Let them earn their beds.", next = "BACK", fx = { align = { order = -1 } } },

@@ -174,7 +174,7 @@ P:NPC {
       },
     },
     doubt = {
-      lines = { { id = "do_default", text = "Then watch the Hunter Rise bridge at sunset, hero, and you'll see a blur, and that blur will be me. Mind you, I'll be too busy running to wave." } },
+      lines = { { id = "do_default", text = "Then watch the Hunter Rise bridge at sunset, hero, and you'll see a blur, and that blur will be me. I won't wave, though, because the wind would knock me clean off the bridge." } },
       choices = { { text = "Something else, Windstrider.", next = "BACK" } },
     },
   },

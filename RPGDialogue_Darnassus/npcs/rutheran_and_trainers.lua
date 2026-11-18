@@ -157,7 +157,7 @@ P:NPC {
       },
     },
     b = {
-      lines = { { id = "b_default", text = "No, only patient work, and a great deal of fish. They choose their riders more than we choose them, which is why I let them sniff you first." } },
+      lines = { { id = "b_default", text = "No, only patient work, and baskets of fish. They choose their riders more than we choose them, so I let them sniff you first." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -196,7 +196,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "A priest who can't defend themselves is a priest who needs a Sentinel beside them, and I'd rather the Sentinel were fighting. Learn the staff well enough to keep an enemy at arm's length, and your prayers will have time to work." } },
+      lines = { { id = "xapriest_default", text = "A priest who can't defend themselves is a priest who needs a Sentinel beside them, when that Sentinel ought to be fighting. Learn the staff well enough to keep an enemy at arm's length, and your prayers will have time to work." } },
       choices = {
         { text = "My faith is my first defense, but I'll learn the staff.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd trade a long prayer for a good staff any day.", next = "BACK", fx = { align = { light = -1 } } },
@@ -247,7 +247,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "One day you'll be out of mana in Ashenvale with a Warsong grunt in front of you, and then you'll be very glad you listened to an old weapon master. I teach patience above all, and a mage needs it more than most." },
+        { id = "xmage_default", text = "One day you'll be out of mana in Ashenvale with a Warsong grunt in front of you, and then you'll be very glad you listened to an old weapon master. I teach patience above all, and a mage with an empty well needs it most of all." },
       },
       choices = {
         { text = "Then show me. I'd rather be ready.", next = "BACK", fx = { align = { order = 1 } } },
@@ -331,7 +331,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I served among the Sentinels before I came to teach. My hands remember more than my mouth will tell." } },
-    centaur = { { id = "tp_centaur", text = "I fought centaur once in the Barrens, when our patrols ran farther south. They're stronger than you'd think, and smarter than they let you see." } },
+    centaur = { { id = "tp_centaur", text = "I fought centaur once in the Barrens, when our patrols ran farther south. They hit like a falling oak, and they are smarter than they let you see." } },
     warsong = { { id = "tp_warsong", text = "I've fought the Warsong in Ashenvale, and I'll fight them again if they ask. Strong arms, poor patience, which is what I teach my students to use against them." } },
     blackfathom = { { id = "tp_blackfathom", text = "The deeps swallowed a temple and more than one patrol. Fight with your back to stone and your feet out of the water." } },
     _none = { { id = "tp_none", text = "That is not something a blade can answer, and I have asked my blades a great many things." } },

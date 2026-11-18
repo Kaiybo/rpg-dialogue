@@ -46,7 +46,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Half of them this season, and the other half arrive late and short. The Sentinels can't guard every cart, so when a warrior's going the same way I ask, and most of them are good enough to say yes." } },
+      lines = { { id = "xwarcl_default", text = "Many of them this season, and the rest arrive late and short. The Sentinels can't guard every cart, so when a warrior's going the same way I ask, and most of them are good enough to say yes." } },
       choices = {
         { text = "I'll guard your carts. Astranaar needs its bread.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'm no cart guard. Hire someone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -104,7 +104,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Likely none, but the Sentinels buy their bread from me, and if one of them smells sulphur on a loaf I'll lose half my trade by morning. With the Warsong turning back my carts already, I can't afford to lose the other half." },
+        { id = "xlock_default", text = "Likely none, but the Sentinels buy their bread from me, and if one of them smells sulphur on a loaf I'll lose their trade by morning. With the Warsong turning back my carts already, I can't afford that." },
       },
       choices = {
         { text = "Right, then. It can wait outside.", next = "BACK", fx = { align = { order = 1 } } },
@@ -114,14 +114,14 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Haljan Oakheart, and I keep the general goods here in Astranaar: bread, water, bags and thread. With the orcs on the roads, half my work is getting the goods here in the first place, and the other half is praying to Elune that they stay." },
+        { id = "h_default", text = "I am Haljan Oakheart, and I keep the general goods here in Astranaar: bread, water, bags and thread. With the orcs on the roads, my days go to getting the goods here at all, and my nights to praying to Elune that they stay." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I keep my eye on the satchels when your sort come in, no offence meant, because a shop under siege can't spare a single loaf. If you're buying, though, you're as welcome as anyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, and you'll travel light, I expect, though even mages need thread and a good bag. If you know a spell that keeps the Warsong off my eastern road, you'd be the most popular person in Astranaar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're heading out on the roads, you could do worse than keep an eye on my supply carts while you're at it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want food for the road, and something for your companion, and I've both." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because half the carts that make it here come in with someone hurt aboard, and I'm no healer." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because too many of the carts that make it here come in with someone hurt aboard, and I'm no healer." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The carts could use one riding alongside them, because the Warsong have turned back more than I'd like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'd guess you came through the woods instead of along the road, and I wish my supply carts could do the same." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you thread and bread like anyone else, though I'd ask you not to bring your companion in among the flour sacks." },
@@ -158,7 +158,7 @@ P:NPC {
     },
     supply2 = {
       lines = {
-        { id = "su2_default", text = "Twice this season, and both times the drivers ran for the trees and lived, which is all I asked of them. The flour was lost, but flour can be replaced, and I'd rather go hungry than bury a driver." },
+        { id = "su2_default", text = "Twice this season, and both times the drivers ran for the trees and lived, which is all I asked of them. The flour was lost, but flour can be replaced, and a driver cannot." },
       },
       choices = {
         { text = "The Horde should pay for every cart.", next = "BACK", fx = { align = { light = -1 }, learn = { "warsong" } } },
@@ -310,8 +310,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, because the orcs won't wait for you to finish your prayers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you've seen orcs at war, and you'll understand why I don't sell anything blunt or badly made." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Warsong are felling the old trees by the dozen, and I'll wager you feel every one of them come down." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Warsong drank demon blood before they ever came to these woods, so you'll forgive me if I don't care to see that craft again." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Orc shamans call lightning down on Astranaar's scouts, so you'll forgive me if I flinch at your totems." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Warsong drank demon blood before they ever came to these woods, and I have no wish to see that craft again." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Orc shamans call lightning down on Astranaar's scouts, so don't be surprised if I flinch at your totems." },
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
@@ -487,7 +487,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You'll want a robe with deep sleeves for your reagents, I expect, and I've a few with good hems for these wet paths. I sewed for the moon festivals once, so I know how to make a mage look lovely, though the Sentinels may still stare." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Forgive me, but your imp keeps looking at my silks, and I'd rather it didn't." },
+          text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Pardon me, but your imp keeps eyeing my silks, and I'd thank you to keep it from touching them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My robes won't stop an axe, but I've a few sturdy cloaks, if you'd like something to keep the rain off your mail." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen how the forest looked before the Warsong cut into it, I hope." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I sell robes the priestesses like, and I'm sure I have something that would suit you, whatever you pray to." },
@@ -619,7 +619,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every one of them, and they come back from the eastern woods so hungry I could weep, though they never say where they've been. I pack them honey cakes for the road, because a scout lying still in the ferns for half a day needs more than water." } },
+      lines = { { id = "xrogue_default", text = "All of them, and they come back from the eastern woods so hungry I could weep, though they never say where they've been. I pack them honey cakes for the road, because a scout lying still in the ferns from dawn to dusk needs more than water." } },
       choices = {
         { text = "A scout's work is hard. They deserve every cake.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Scouts should learn to go hungry. It keeps them sharp.", next = "BACK", fx = { align = { light = -1 } } },

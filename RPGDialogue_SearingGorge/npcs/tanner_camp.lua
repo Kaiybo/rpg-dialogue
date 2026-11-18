@@ -24,7 +24,7 @@ P:NPC {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "You've leather-worker's hands, the knife calluses and the stained nails. Let me see your stitching before you say a word." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "A shaman. Then you hear what I only feel, and I'd give a great deal for a morning of your ears." },
+      text = "A shaman. Then you hear what I only feel, and I'd trade my best hide for a single morning with your ears." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another human, out here! Don't look so surprised; I'm not the strangest thing in the Gorge, though I may be the friendliest." },
   },
@@ -162,7 +162,7 @@ P:NPC {
     },
     gorge_learn = {
       lines = {
-        { id = "gl_default", text = "That the vents breathe on a rhythm, and a hide laid near one cures evenly if you turn it on the breath. That earth elementals shed dust that sets a dye harder than any mordant. And that I'm a great deal braver than I thought." },
+        { id = "gl_default", text = "That the vents breathe on a rhythm, and a hide laid near one cures evenly if you turn it on the breath. That earth elementals shed dust that sets a dye harder than any mordant. And that I can stand at a lava vent without shaking now, which I couldn't do in spring." },
       },
       choices = {
         { text = "That's a lot of hard-won knowledge.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -191,7 +191,7 @@ P:NPC {
 
     xshaman = {
       lines = {
-        { id = "xs_default", text = "No, I only feel them, and I don't think I'd want to hear. From what I've seen of this place, the elements in the Gorge are furious, and I'd rather not know what they're saying." },
+        { id = "xs_default", text = "No, I only feel them, and I don't think I'd want to hear. From what I've seen of this place, the elements in the Gorge are furious, and whatever they're saying, I doubt it's kind." },
       },
       choices = {
         { text = "They're in pain. Someone should listen.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },

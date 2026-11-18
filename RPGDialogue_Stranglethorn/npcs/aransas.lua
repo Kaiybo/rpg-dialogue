@@ -88,7 +88,7 @@ P:NPC {
     -- Who she is -----------------------------------------------------------
     who = {
       lines = {
-        { id = "who_default", text = "Aransas, captain of the Gull's Wager, and ye'll find her the slowest ship in the cove and the last one to sink. I've carried cargo and cannon both, and I'd rather it were cargo, for cargo doesn't shoot back." },
+        { id = "who_default", text = "Aransas, captain of the Gull's Wager, and ye'll find her the slowest ship in the cove and the last one to sink. I've carried cargo and cannon both, and give me cargo every time, for a crate of rum never fired back at anybody." },
         { id = "who_rogue", when = { class = "ROGUE" }, text = "Aransas, captain of the Gull's Wager, and I'll tell ye straight, since ye'd find out anyway. I've been a smuggler, a privateer and a plain thief in my time, and only the Baron's peace made an honest captain of me." },
       },
       choices = {
@@ -125,7 +125,7 @@ P:NPC {
     crew = {
       hub = true,
       lines = {
-        { id = "cr_default", text = "Eleven good hands and one bad parrot, and every one of them would follow me into a storm, though they'd complain the whole way. That's how ye know a crew's sound, when they grumble but still haul." },
+        { id = "cr_default", text = "Eleven good hands and one bad parrot, and the whole crew would follow me into a storm, though they'd complain the whole way. That's how ye know a crew's sound, when they grumble but still haul." },
         { id = "cr_missing", when = { ["not"] = { questDone = Q_REWARD } }, text = "Ten hands aboard and one missing, which is one too many for my liking. They're good sailors, but they're quiet these days, and a quiet crew is a worried one." },
       },
       again = {
@@ -238,7 +238,7 @@ P:NPC {
         { id = "bs_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Ye've read their letters, so ye know what they've planned for this cove. I've buried two crewmen on their account, and I'll see their red sails at the bottom before I'm done." },
       },
       choices = {
-        { text = "Then sink every one of them. They earned it.", next = "BACK", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
+        { text = "Then sink them down to the last plank. They earned it.", next = "BACK", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
         { text = "Some of them must be pressed men. Spare those you can.", next = "BACK", fx = { align = { light = 1 }, learn = { "bloodsail" } } },
         { text = "Are they all born pirates, or are some pressed men?", next = "bloodsail_fight" },
         { text = "Who were the two you buried?", next = "bloodsail_buried" },
@@ -438,7 +438,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I think the sea minds everything and forgives nothing, which is why I respect it. If yer kind can talk to it, tell it the Gull's Wager means no harm, and ask it kindly to keep the Bloodsail on the reefs." } },
+      lines = { { id = "xdruid_default", text = "I think the sea minds everything and forgives nothing, and I've buried enough sailors to respect it for that. If yer kind can talk to it, tell it the Gull's Wager means no harm, and ask it kindly to keep the Bloodsail on the reefs." } },
       choices = {
         { text = "The sea keeps its own balance. I'd not ask favors.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd gladly ask it to drown a few Bloodsail.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -479,7 +479,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never sail on an empty stomach, never trust a red sail, and never let the cook go ashore alone." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've cost me two good crewmen, and I'll see their red sails sunk before I'm done." } },
     kurzen = { { id = "tp_kurzen", text = "A mad colonel with a jungle camp and a taste for taking folk off the roads. Keep clear of his patrols." } },
-    booty_bay = { { id = "tp_booty_bay", text = "It's a goblin town that lets a fisherman's daughter tie up her ship and drink in peace, and I'll take that over half the ports up north. Mind your purse and it'll mind you back." } },
+    booty_bay = { { id = "tp_booty_bay", text = "It's a goblin town that lets a fisherman's daughter tie up her ship and drink in peace, and I'll take that over Menethil Harbor any day. Just keep a hand on yer purse past the Salty Sailor after dark." } },
     theramore = { { id = "tp_theramore", text = "I've run cargo to Theramore twice, and the harbor's clean and the soldiers are polite, and they still searched my hold like I was a Bloodsail. Proudmoore runs a tidy island." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some of my crew bet their wages at the Arena every time the chest comes up, and they come back poorer and full of stories. I've never seen the sense in fighting for a box." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The trolls up the coast at Zul'Gurub have been lighting fires at night, and the sailors who pass close say they hear drums. I keep my ship well out from that shore." } },

@@ -8,7 +8,7 @@ P:Pool {
     { id = "b_pay", text = "Hazard pay, they said, and I've had three weeks of hazard and not a copper of the pay." },
   },
   greetings = {
-    { id = "g_refuge", text = "Welcome to Marshal's Refuge, up on the high ground, out of reach of most things with teeth. Most, mind you." },
+    { id = "g_refuge", text = "Welcome to Marshal's Refuge, up on the high ground, out of reach of most things with teeth, though not all of them, so keep your eyes open." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
@@ -16,7 +16,7 @@ P:Pool {
   },
   react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel" } }, text = "Whoa! Oh, you're a druid... don't do that, friend, not when every animal down there is trying to eat us." } },
   lines = {
-    { id = "l_default", text = "The expedition hired us to keep the crater out of the camp, and half the crater wants in, so we keep busy. Last night it was a raptor in the latrine trench, and nobody's volunteered to fetch it out." },
+    { id = "l_default", text = "The expedition hired us to keep the crater out of the camp, and the whole crater wants in, so we keep busy. Last night it was a raptor in the latrine trench, and nobody's volunteered to fetch it out." },
   },
   choices = { { text = "Stay sharp.", next = "END", fx = { standing = { marshals_refuge = 1 } } } },
   topics = {

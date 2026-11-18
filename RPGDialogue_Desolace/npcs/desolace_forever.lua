@@ -68,7 +68,7 @@ P:NPC {
     },
     hatefury = {
       lines = {
-        { id = "hf_default", text = "Satyrs, mon, horned and hoofed and rotten through. They hold the ruins of Sargeron in the north, and they've made friends with the Burning Blade, which tells you everything you need to know about them both.",
+        { id = "hf_default", text = "Satyrs, mon, horned and hoofed and rotten through. They hold the ruins of Sargeron in the north, and they've made friends with the Burning Blade, and dat be all you need to know about either of dem.",
           fx = { learn = { "satyrs", "burning_blade" } } },
       },
       choices = {
@@ -251,7 +251,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = QUM },
           text = "You have strong arms, outsider. In the Valley of Spears there is a khan called Hratha, of the Maraudine, and I want him dead before I am, and I have very little time left." },
         { id = "h_active", tags = { "news" }, when = { questActive = QUM },
-          text = "Hratha keeps to the Valley of Spears, with his guards and his advisors about him. He is strong and he is proud, and he will call you out himself if you make enough noise, so make a great deal of it." },
+          text = "Hratha keeps to the Valley of Spears, with his guards and his advisors about him. He is strong and he is proud, and he will call you out himself if you make enough noise, so make plenty of it." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { QUM, days = 3 } },
           text = "Hratha is dead. I have waited a long time to say those words, outsider, and I find they taste better than I imagined." },
         { id = "h_done", when = { questDone = QUM },

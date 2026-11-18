@@ -73,7 +73,7 @@ P:NPC {
       },
     },
     xpt_pala2 = {
-      lines = { { id = "xpt_pala2_default", text = "Not for a single day, though I've regretted a great deal else, my wife and my son most of all. Eitrigg was an old soldier tired of killing, and he saved my life before I saved his, and some debts are worth an exile." } },
+      lines = { { id = "xpt_pala2_default", text = "Not for a single day, though I've regretted much else, my wife and my son most of all. Eitrigg was an old soldier tired of killing, and he saved my life before I saved his, and some debts are worth an exile." } },
       choices = {
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -118,12 +118,12 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_scmercy", tags = { "news" }, when = { opinion = { topic = "scarlet_crusade", stance = "mercy" } }, text = "I'm told you'd rather reason with the Crusade than break it. My son wears their colours in Hearthglen, so you'll forgive me if I hope with all my heart that you're right." },
+        { id = "o_scmercy", tags = { "news" }, when = { opinion = { topic = "scarlet_crusade", stance = "mercy" } }, text = "I'm told you'd rather reason with the Crusade than break it. My son wears their colours in Hearthglen, so I hope with all my heart that you're right." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" } },
           text = "You travel with {companion}, and they carry themselves like one of the Silver Hand, though I'd guess they never knew Uther. I was one of the first to take that oath, and I've been out here long enough to wonder whether the order still remembers my name." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits, here by my river. I fought beside many dwarves in the Second War, {class}, stout friends every one, though none of them ever spoke to the wind the way you seem to." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid, by the look of you. I've watched this river run grey with plague for a long while now, and I'd give a great deal to hear from someone who knows whether it will ever run clean." },
+          text = "A druid, by the look of you. I've watched this river run grey with plague for a long while now, and I would dearly like to hear from someone who knows whether it will ever run clean." },
         { id = "h_default", key = true,
           text = "Tirion Fordring, once a knight of the Silver Hand and lord of Hearthglen, and now an old man by a river, with a horse and a fishing line. It's a quieter life, though I didn't choose it, and it keeps me far from my son." },
         { id = "h_food", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Demon Dogs") }, { questActive = TODO_QUEST("Blood Tinged Skies") }, { questActive = TODO_QUEST("Carrion Grubbage") } } },
@@ -312,7 +312,7 @@ P:NPC {
   topics = {
     knows = {
       { id = "tp_knows", text = "I've been out of the world a long while, but an old knight remembers more than he lets on. Ask me about any of these and I'll tell you what I can." },
-      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've sat by this river with me often enough to ask me anything. These I can speak to, and honestly, which is the only way I still know how." },
+      { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've sat by this river with me often enough to ask me anything. These I can speak to, and I'll speak plainly, for it's the only way I still know how." },
     },
     background = { { id = "tp_ba", text = "A lord, a paladin, a traitor, a fisherman. Each of them was true for a while.", next = "story" } },
     advice = { { id = "tp_ad", text = "Do the right thing, and pay what it costs without complaining. That's the whole of the Light, as far as I can tell." } },
@@ -461,7 +461,7 @@ P:NPC {
       lines = {
         { id = "o_sydistrust", tags = { "news" }, when = { opinion = { topic = "sylvanas", stance = { "distrust", "doubt" } } }, text = "Word reaches even Marris Stead, and word is you doubt the Dark Lady. Say it to my face, if you'd like to learn how the rangers of Quel'Thalas settled such things." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for half of them are rotten through and the other half are worse." },
+          text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for the ones not rotten through are hollow and full of something worse." },
         { id = "h_default", key = true,
           text = "Nathanos, Champion of the Banshee Queen; they call me the Blightcaller. The Scourge, the plaguebats and the Scarlet zealots all crawl over these fields, and I mean to clear them, and you'll help." },
         { id = "h_queen", when = { heardLine = "sylvanas.h_default" },
@@ -505,7 +505,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "On anything that crawls across these fields, and the Crusade crawl more than most, preaching all the while. Get close enough to cut a throat before the prayer is finished, and I'll count you worth my time." } },
+      lines = { { id = "xrogue_default", text = "On anything that crawls across these fields, and the Crusade crawl further than anyone, preaching all the while. Get close enough to cut a throat before the prayer is finished, and I'll count you worth my time." } },
       choices = {
         { text = "Zealots get no fair fight from me.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll face them openly. Even zealots get that.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -514,7 +514,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I trust no one, and the Dark Lady trusts less, which is why she rules. But the arcane burns plaguebats out of the sky better than any arrow I've loosed, so I'll put you where they swarm and see what you're worth." } },
+      lines = { { id = "xmage_default", text = "I trust no one, and the Dark Lady trusts less; that is how she rules. But the arcane burns plaguebats out of the sky better than any arrow I've loosed, so I'll put you where they swarm and see what you're worth." } },
       choices = {
         { text = "Trust is earned. I'll earn it in fire.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need your trust, only your targets.", next = "BACK", fx = { align = { honor = -1 } } },

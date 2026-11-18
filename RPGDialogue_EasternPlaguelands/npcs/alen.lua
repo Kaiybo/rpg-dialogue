@@ -77,7 +77,7 @@ P:NPC {
     },
     pit_care = {
       big = true,
-      lines = { { id = "pc_default", text = "Don't spread that around, it'll ruin my reputation. Somebody's got to toss them in, and I'd rather it was someone who minds than someone who doesn't." } },
+      lines = { { id = "pc_default", text = "Don't spread that around, it'll ruin my reputation. Somebody's got to toss them in, and it ought to be someone who minds." } },
       choices = {
         { text = "Then the dead are in good hands. Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", fx = { align = { light = -1 } } },

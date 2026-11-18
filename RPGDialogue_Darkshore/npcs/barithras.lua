@@ -70,7 +70,7 @@ P:NPC {
     },
     potion_poison = {
       lines = {
-        { id = "pp_default", text = "In a large measure, certainly, and in a careless one. Most good medicines are poisons that someone measured patiently, which is why I do not let apprentices near the death caps." },
+        { id = "pp_default", text = "In a large measure, certainly, and in a careless one. Most good medicines are poisons that someone measured patiently, and so I keep the death caps on the top shelf, far from my apprentices." },
       },
       choices = {
         { text = "I'll be careful how I carry it.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -144,7 +144,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A maker of potions, and a careful one. Careful people live long in Darkshore; I would like to be one of them." } },
     advice = { { id = "tp_ad", text = "When the Ancients warn you away from a place, believe them. Then, if you must go, go carefully." } },
-    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and I'd rather be dull and alive." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and a dull alchemist lives longer than a bold one." } },
     blackfathom = { { id = "tp_blackfathom", text = "The water near Blackfathom is fouled with something I can't name, and I don't want to name it. I keep my vials far from that coast." } },
     highborne = { { id = "tp_highborne", text = "Highborne alchemy was brilliant and reckless, and the ruins prove both. I've found their vials, and I've put them back where I found them." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the Grove of the Ancients, if you have the patience for the answer." } },

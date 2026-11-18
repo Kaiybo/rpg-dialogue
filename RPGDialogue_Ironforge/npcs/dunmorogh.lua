@@ -144,7 +144,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because the mountains are too big to see from an inn. And anyone coming down the road can sit at your fire, which is half the fun of it." } },
+      lines = { { id = "w_default", text = "Because the mountains are too big to see from an inn. And anyone coming down the road can sit at your fire, and that's the best part of it." } },
       choices = {
         { text = "Teach me.", next = "camp", fx = { affinity = 2, learn = { "camping" } } },
         { text = "Something else.", next = "BACK" },
@@ -320,7 +320,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Ye're green, but ye've the look o' somebody who'll stand when the troggs come, an' that's more than I can say fer half the recruits." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Ye're green, but ye've the look o' somebody who'll stand when the troggs come, an' most o' the recruits I get would run tae Kharanos first." },
         { id = "h_default", key = true,
           text = "Sten Stoutarm. I run the post fer Anvilmar, such as it is, an' letters come through the pass along wi' the troggs. I prefer the letters." },
         { id = "h_outfit", tags = { "news" }, when = { questActive = TODO_QUEST("Dwarven Outfitters") },
@@ -708,7 +708,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep yer {pet} close, for the trolls would eat it too, an' they'd no' be fussy about the recipe." },
       },
       choices = {
-        { text = "I'll count their bones and report honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll count their bones and report every one.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll poach their prey and starve them out.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -928,7 +928,7 @@ P:NPC {
     },
     opn_darkiron = {
       lines = {
-        { id = "opn_darkiron_q", text = "Thieves an' fire-worshippers, an' they cannae brew tae save their lives, which is why they steal ours. Mind ye, my pappy used tae say they were Bronzebeards once, near enough. What's yer view o' the soot-beards?" },
+        { id = "opn_darkiron_q", text = "Thieves an' fire-worshippers, an' they cannae brew tae save their lives, so they steal ours. Mind ye, my pappy used tae say they were Bronzebeards once, near enough. What's yer view o' the soot-beards?" },
       },
       choices = {
         { text = "Thieves and murderers. Ironforge should root them out.", next = "opn_darkiron_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
@@ -1194,7 +1194,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "A brewer hears a great deal over a good stout, an' I've poured a great many. Ask me about any o' this." },
+      { id = "tp_knows", text = "A brewer hears all manner o' things over a good stout, an' I've poured a great many. Ask me about any o' this." },
     },
     background = { { id = "tp_bg", text = "I'm part owner o' the finest distillery in Dun Morogh. The other part's family, an' family's complicated.", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust a boar that's too easy to catch. It's either sick or it's a trap, an' both ruin ribs." } },
@@ -1242,7 +1242,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A few o' the old miners grumble intae their ale, an' one asked if ye'd be callin' up orc spirits in my upstairs. I told him the only spirits upstairs are the ones in the bottles he didnae pay for. Most folk are only curious, an' curious dwarves buy more ale, so ye're welcome." } },
       choices = {
-        { text = "I'll answer the miners' questions honestly, if they ask.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll answer the miners' questions truthfully, if they ask.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them grumble. I'll not explain myself to drunks.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1387,7 +1387,7 @@ P:NPC {
     },
     malt = {
       lines = {
-        { id = "mt_default", text = "It's the best malt in Kharanos, an' the secret in Ragnar's ribs. I sell it by the mug, an' he sends half the town over fer it." },
+        { id = "mt_default", text = "It's the best malt in Kharanos, an' the secret in Ragnar's ribs. I sell it by the mug, an' he sends every thirsty miner in town over fer it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

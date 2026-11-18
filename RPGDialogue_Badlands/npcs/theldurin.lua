@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_arcane", cat = "arcane", when = { class = { "MAGE", "WARLOCK" } },
-      text = "You smell of spellwork, and the cult smelled of it too, so forgive me if I keep my hand on my pick while we talk." },
+      text = "You smell of spellwork, and the cult smelled of it too, so I'll keep my hand on my pick while we talk, if it's all the same tae ye." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look like the earth already had a go at you, friend, so sit on that rock and don't let it hear you complain." },
   },
@@ -104,7 +104,7 @@ P:NPC {
     },
     doom_tablet = {
       lines = {
-        { id = "dt_default", text = "Knowledge, friend, that's the only weapon that works on things you can't reach with an axe. The tablet of Ryun'eh and Yagyin's Digest between them might tell us what the makers knew, and the makers knew a great deal about what they buried." },
+        { id = "dt_default", text = "Knowledge, friend, that's the only weapon that works on things you can't reach with an axe. The tablet of Ryun'eh and Yagyin's Digest between them might tell us what the makers knew, and the makers knew exactly what they were burying." },
         { id = "dt_done", when = { questDone = TODO_QUEST("Solution to Doom") },
           text = "You brought me the tablet, and it's worse than I feared, for the makers knew exactly what lies below and they were frightened too. Now we need Yagyin's Digest to make sense of it, and the scholars in the cities have that." },
       },

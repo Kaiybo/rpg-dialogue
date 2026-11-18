@@ -304,7 +304,7 @@ P:Pool {
 
     mystery = {
       lines = {
-        { id = "m_default", text = "I am the one who stands here. That is all I am permitted to know, and more than most ask." },
+        { id = "m_default", text = "I am the one who stands here. That is all I am permitted to know, and few who pass through here think to ask even that much." },
         { id = "m_again", priority = 10, when = { npcFlagBefore = "asked_what" },
           text = "You asked that before, and my answer has not changed, though I have, a little." },
       },
@@ -318,7 +318,7 @@ P:Pool {
     mystery2 = {
       lines = {
         { id = "m2_default", text = "Ask me again when you have died a hundred times. I may know by then, and so may you." },
-        { id = "m2_default2", text = "Whoever set this hill here, and the mist around it. They never visit; they left instructions, and a great deal of silence." },
+        { id = "m2_default2", text = "Whoever set this hill here, and the mist around it. They never visit; they left instructions, and then a silence that has not ended." },
         { id = "m2_hundred", tags = { "news" }, when = { deaths = { min = 100 } },
           text = "A hundred deaths, and I promised you an answer, so here it is: I do not know, and I no longer believe anyone does. That frightens me less than it did." },
       },
@@ -447,7 +447,7 @@ P:Pool {
     },
     turn_matter = {
       lines = {
-        { id = "tm_default", text = "To me, no; I send back whoever is standing here. To you, I think it matters a great deal, and I think you know it." },
+        { id = "tm_default", text = "To me, no; I send back whoever is standing here. To you, I think it matters more than you let on, and I think you know it." },
       },
       choices = { { text = "Return me to life.", next = "BUSINESS" }, { text = "Back to my questions.", next = "ask" } },
     },
@@ -527,14 +527,14 @@ P:Pool {
     },
     song = {
       lines = {
-        { id = "so_default", text = "No, it is not, which is why I keep the record. Someone must remember that every ending was real, even the ones you walked away from." },
+        { id = "so_default", text = "No, it is not, and so I keep the record. Someone must remember that every ending was real, even the ones you walked away from." },
         { id = "so_default2", text = "You are right, and I am glad you are right. If it were only a song, I could stop listening." },
       },
       choices = { { text = "Return me to life.", next = "BUSINESS" }, { text = "Back to my questions.", next = "ask" } },
     },
     nothing = {
       lines = {
-        { id = "no_default", text = "Ask the ones I could not send back. Some arrive with no body left to return to, and some with no will left, and death means a great deal to them." },
+        { id = "no_default", text = "Ask the ones I could not send back. Some arrive with no body left to return to, and some with no will left, and to them death is no small thing." },
       },
       choices = {
         { text = "Who are they?", next = "others" },
@@ -869,7 +869,7 @@ P:Pool {
         { id = "tk_kind", when = { trait = "kind" },
           text = "You are kind, and the others in the gray notice it. They drift a little closer when you are here, so do not be alarmed." },
         { id = "tk_cruel", when = { trait = "cruel" },
-          text = "There is a cruel streak in you, and I have seen what cruelty does up here. It is the first thing that thins, and it takes a great deal with it." },
+          text = "There is a cruel streak in you, and I have seen what cruelty does up here. It is the first thing that thins, and it takes the kinder things with it." },
         { id = "tk_pious", when = { trait = "pious" },
           text = "You prayed on the way up; most do not notice they are doing it. I heard every word, and I do not know who else did." },
         { id = "tk_skeptic", when = { trait = "skeptical" },

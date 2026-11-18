@@ -81,7 +81,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "It says a great deal, citizen, about licences and seasons and the Magistrate's share, though none of it has been enforced since the gnolls arrived. If you mean to take game in Redridge, I'd ask you to keep a tally, so the Magistrate can pretend the law still holds." } },
+      lines = { { id = "xdruid_default", text = "It says plenty, citizen, about licences and seasons and the Magistrate's share, though none of it has been enforced since the gnolls arrived. If you mean to take game in Redridge, I'd ask you to keep a tally, so the Magistrate can pretend the law still holds." } },
       choices = {
         { text = "I'll keep the tally. Law matters most when it's hard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hunting laws mean nothing while gnolls roam the hills.", next = "BACK", fx = { align = { order = -1 } } },
@@ -95,14 +95,14 @@ P:NPC {
         { id = "h_law", tags = { "news" }, when = { questActive = TODO_QUEST("Solomon's Law") },
           text = "Morganth commands the Shadowhide gnolls from the eastern hills, and aiding an enemy of the kingdom is a hanging matter under Lakeshire law. Bring me their pendants." },
         { id = "h_law_done", when = { questDone = TODO_QUEST("Solomon's Law") },
-          text = "The pendants are entered into evidence, every one of them, and the clerk has asked me, politely, to stop bringing him gnoll jewellery." },
+          text = "Every pendant is entered into evidence, and the clerk has asked me, politely, to stop bringing him gnoll jewellery." },
         { id = "h_solomon", when = { heardLine = "solomon.s_default" },
           text = "The Magistrate told you about his letters? I carry them to the courier myself. They are very thorough letters, and they come back very thin." },
         { id = "h_morning", when = { metBefore = true }, text = "It's been a long morning and my temper's short, so talk fast." },
         { id = "h_cityguard", when = { origin = "human_city_guard" },
-          text = "You stand like a city guardsman, citizen, which is more than I can say for the deputies. The court could use someone who knows how a warrant is served." },
+          text = "You stand like a city guardsman, citizen, while my deputies still stand like farmhands at a dance. The court could use someone who knows how a warrant is served." },
         { id = "h_lakeborn", when = { origin = "human_redridge_born" },
-          text = "Citizen, the court's register says you were born in Lakeshire, and the court is glad to see a local name come home. Mind you, the register also says what the orcs did to half the names beside it." },
+          text = "Citizen, the court's register says you were born in Lakeshire, and the court is glad to see a local name come home. The register also records what the orcs did to the names beside yours, so it's a gladness with some weight to it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, citizen. You'll be glad to know that hunting in Redridge is entirely lawful, provided the quarry isn't the Magistrate's cattle." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, citizen. The court has no objection to prayer, provided it is conducted in an orderly fashion and does not block the steps." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Citizen, and a druid of the kaldorei, I see. The Magistrate will want your name for the register, since it has never yet listed a night elf." },
@@ -422,7 +422,7 @@ P:NPC {
   topics = {
     worgen = { { id = "tp_worgen", text = "Parker swears the Duskwood road has wolves walking on two legs past the border, and I'd laugh if he weren't the soberest man in Lakeshire. I count gnolls, and gnolls are bad enough." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The gnolls answer to the orcs, the orcs answer to that mountain, and the mountain answers to nobody, as far as I can tell. I'd like to count what's inside it, but I'd need a bigger ledger." } },
-    second_war = { { id = "tp_second_war", text = "Every old man in Lakeshire fought in the Second War, and every one of them will tell you about it whether you ask or not. I've learned to count gnolls while they talk, which is the only skill the war gave me." } },
+    second_war = { { id = "tp_second_war", text = "Every old man in Lakeshire fought in the Second War, and each of them will tell you about it whether you ask or not. I've learned to count gnolls while they talk, which is the only skill the war gave me." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire on my one leave last year and lost to a gnome at a shooting gallery. I've told everyone it was a rigged gun, and I've half convinced myself." } },
     background = { { id = "tp_bg", text = "I'm a deputy at the south end of the bridge, and I count." } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. If the road's not safe, stay in town. If the town's not safe, tell me first." } },
@@ -512,7 +512,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "It'd be welcome, but the Marshal hasn't the men, and I'd rather they were on the walls than holding my hand. One guard can see trouble coming and run to warn the town, and that's the job; two guards would only argue." } },
+      lines = { { id = "xapala_default", text = "It'd be welcome, but the Marshal hasn't the men, and they're better used on the walls than holding my hand. One guard can see trouble coming and run to warn the town, and that's the job; two guards would only argue." } },
       choices = {
         { text = "Then I'll walk with you a while. Nobody should guard alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your road, your risk, Parker. I've my own business.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -622,7 +622,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "ro_default", text = "Didn't I? Well, that's a fine thing to tell a man whose whole job is seeing people on that road. If you can slip past me, so can a Blackrock scout, and I'd rather not think about that." } },
+      lines = { { id = "ro_default", text = "Didn't I? Well, that's a fine thing to tell a man whose whole job is seeing people on that road. If you can slip past me, so can a Blackrock scout, and that's a thought to keep a man up nights." } },
       choices = {
         { text = "Watch the ditches, not the road.", next = "BACK", fx = { affinity = 1 } },
         { text = "Don't worry. Orcs are louder than me.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -699,7 +699,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The best, love, though half of them are lies and the other half are worse. There's one about a boar called Bellygrub who ate a guard's boot right off his foot, and I've heard it told twelve different ways." },
+        { id = "xhuntcl_default", text = "The best, love, though the true ones are the hardest to believe. There's one about a boar called Bellygrub who ate a guard's boot right off his foot, and I've heard it told twelve different ways." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a sweetheart, love, and I'll not hear a word against it. Would it like a bit of ham?" },
       },
       choices = {
@@ -738,7 +738,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Mostly that you're tall and quiet and never seem to sleep, love, which is what they say about the Watch too. Some of the older folk mutter that elves are trouble, but they say that about anyone from past the mountains, so don't take it to heart." } },
       choices = {
-        { text = "Then I'll earn their trust honestly, one meal at a time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll earn their trust fairly, one meal at a time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them mutter. I don't need their good opinion.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -872,7 +872,7 @@ P:NPC {
   topics = {
     sylvanas = { { id = "tp_sylvanas", text = "A soldier at table four says the dead have a queen now, love, a dead elf with a voice that kills. I took his plate away, because nobody needs to hear that over stew." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's a lovely day out, and I heard the fortune-teller there told Brianna she'd marry a sailor. She's been watching the docks ever since, though she'll deny it." } },
-    jaina = { { id = "tp_jaina", text = "I hear Lady Jaina Proudmoore keeps an island all her own over the sea, and she's not wed, love, not to anyone. Half Lakeshire's girls think that's romantic and the other half think it's sensible." } },
+    jaina = { { id = "tp_jaina", text = "I hear Lady Jaina Proudmoore keeps an island all her own over the sea, and she's not wed, love, not to anyone. The girls of Lakeshire can't decide whether that's romantic or just sensible." } },
     onyxia = { { id = "tp_onyxia", text = "Somebody told me there's a black dragon in a swamp past Theramore, sleeping on the gold of every ship that ever sank there. I don't believe a word of it, love, but it made a lovely story for the table by the window." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord's a handsome man for a regent, love, and I'll hear nothing said against him. I've only seen a portrait, mind, but a portrait's enough for me." } },
     prestor = { { id = "tp_prestor", text = "Lady Prestor's at the Highlord's side every day, the soldiers say, and I've no love for her. Call it gossip if you like, love, but a lady who's never been seen in a market makes me suspicious." } },
@@ -1098,7 +1098,7 @@ P:NPC {
       },
     },
     hunter_miss = {
-      lines = { { id = "hm_default", text = "That's a wicked question, and I'll answer it honestly: a little. He's a horrible pig, but he's our horrible pig, and the town's talked about nothing else for a year." } },
+      lines = { { id = "hm_default", text = "That's a wicked question, and I'll answer it anyway: a little. He's a horrible pig, but he's our horrible pig, and the town's talked about nothing else for a year." } },
       choices = {
         { text = "Then he stays wild.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1149,7 +1149,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Far too few, and I feed every one of them. Stormwind sends promises, not men. Your spirits might help fill the gap." } },
+      lines = { { id = "xdsham_default", text = "Far too few, and I feed them all, because Stormwind sends promises instead of men. Your spirits might help fill the gap." } },
       choices = {
         { text = "Then I'll fight for Lakeshire, Chef. Count me in.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stormwind's forgotten you. Look after yourselves.", next = "BACK", fx = { align = { order = -1 } } },

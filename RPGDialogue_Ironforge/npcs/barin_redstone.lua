@@ -27,7 +27,7 @@ P:NPC {
     { id = "g_vote", when = { heardLine = "barin_redstone.gv_default", ["not"] = { race = "Gnome" } },
       text = "Ye'll remember what I told ye last time, an' ye'll remember tae keep it tae yerself. Now, what is it?" },
     { id = "g_reports", when = { questActive = Q }, text = "Is that Senir Whitebeard's report? Hand it over, an' if there's a royal seal on it, I dinnae want tae hear about it." },
-    { id = "g_done", when = { questDone = Q }, text = "Ye brought Whitebeard's report up the proper way. That's more than I can say for his cousin." },
+    { id = "g_done", when = { questDone = Q }, text = "Ye brought Whitebeard's report up the proper way. His cousin sent his by a drunk ram herder." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? The Senate's sat eleven times since, an' got nothin' done in any o' them." },
   },
 
@@ -47,11 +47,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Barin Redstone, Senator o' Ironforge. The King rules, but the Senate keeps the mines diggin' an' the soldiers paid, an' somebody has tae read the reports an' say no now an' then." },
         { id = "h_gnome", when = { race = "Gnome" },
-          text = "A gnome in the High Seat. Yer tinkers have the run o' half the city these days, so I suppose I shouldnae be surprised tae find one on my steps as well." },
+          text = "A gnome in the High Seat. Yer tinkers have the run o' Tinker Town an' a fair stretch o' the Commons these days, so I suppose I shouldnae be surprised tae find one on my steps as well." },
         { id = "h_gnome_soft", when = { race = "Gnome", heardLine = "barin_redstone.gv_default" },
           text = "I've been thinkin' about what I told ye, gnome, an' I've no' enjoyed it. Ask what ye came tae ask." },
         { id = "h_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } },
-          text = "Wildhammer blood, by the look o' ye. Yer kin left this mountain an' the High King's throne behind them, so ye'll forgive me if I dinnae roll out a carpet." },
+          text = "Wildhammer blood, by the look o' ye. Yer kin left this mountain an' the High King's throne behind them, so I'll no' be rollin' out a carpet." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A Bronzebeard, by the cut o' yer beard, an' welcome. There are few enough o' us left in the city who'll stand up an' say what this mountain's owed." },
         { id = "h_reports", tags = { "news" }, when = { questActive = Q },

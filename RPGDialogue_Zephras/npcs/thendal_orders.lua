@@ -50,9 +50,9 @@ P:NPC {
         { id = "h_ho", when = { race = "Skyborne", faction = "Alliance" },
           text = "I'll offer you a single warning, High Order, and then we needn't speak of it again. Outside the grove, the divisions between our orders run deep enough to turn into violence, so do not cross the Windshapers." },
         { id = "h_forsaken", when = { race = "Scourge" },
-          text = "You carry death about with you, and the winds around you go very still. I'll speak with you, since the Horde has been good to my order, but forgive me if I stand upwind." },
+          text = "You carry death about with you, and the winds around you go very still. I'll speak with you, since the Horde has been good to my order, though I'll be standing upwind, if it's all the same to you." },
         { id = "h_orc", when = { race = "Orc" },
-          text = "An orc, and one who walked through the grove without starting a fight, which is more than I can say for the High Order's apprentices. Winds guide you." },
+          text = "An orc, and one who walked through the grove without starting a fight, and the High Order's apprentices can rarely manage that much. Winds guide you." },
         { id = "h_wsorigin", when = { origin = "skyborne_windshaper" },
           text = "I remember your face from the trials, pale as cloud after the sapta and still standing. The winds that sheltered us are gone, but an oath sworn to the absent is still an oath, and you swore it well." },
       },
@@ -229,7 +229,7 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "They looked across Skywall, saw Al'Akir's might, and knelt to it. That isn't faith; it's fear in grey robes." } },
     highborne = { { id = "tp_highborne", text = "The High Order is arrogant in exactly the way our Highborne ancestors were, and they wear it proudly. I can read it in their auras, and it looks like an old wound." } },
     the_elements = { { id = "tp_the_elements", text = "We owe the spirits our lands, our lives and our gifts, and we've done very little to deserve them. The Windshapers mean to pay that debt, whatever it costs us." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The tauren of the Earthen Ring speak to the elements as partners, and they call the earth their mother. I think we have a great deal to learn from them, and very little to teach." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren of the Earthen Ring speak to the elements as partners, and they call the earth their mother. I think we have much to learn from them, and very little to teach." } },
     dalaran = { { id = "tp_dalaran", text = "The High Order looks to the Kirin Tor in Dalaran for teaching, as if human wizards could give back what the Highborne lost. They'll learn power there, and very little wisdom." } },
     elune = { { id = "tp_elune", text = "Our cousins pray to the moon, and I don't scorn them, but the spirits of the air raised us. I'll owe the moon when the moon has done as much." } },
     _none = { { id = "tp_none", text = "The winds don't speak of it, and neither will I." } },
@@ -260,7 +260,7 @@ P:NPC {
 
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },
-      text = "A human! Are you one of the Kirin Tor's? It was their magi who saw us through the High Order's keyhole and saw us back, and I'd give a great deal to meet one in person." },
+      text = "A human! Are you one of the Kirin Tor's? It was their magi who saw us through the High Order's keyhole and saw us back, and I've longed to meet one in person ever since." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "Remarkable. I'd heard the Kirin Tor counted gnomes among their scholars, and I confess I didn't believe it until this moment." },
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
@@ -415,7 +415,7 @@ P:NPC {
     xwarn = {
       big = true,
       lines = {
-        { id = "xw_default", text = "Because Windshaper novices keep trying to heal the ley lines shut, and the High Order regards them as treasures. People have already died over it in the highlands, and I'd rather not add a promising youngster to the count, even one of yours." },
+        { id = "xw_default", text = "Because Windshaper novices keep trying to heal the ley lines shut, and the High Order regards them as treasures. People have already died over it in the highlands, and I won't add a promising youngster to the count, even one of yours." },
       },
       choices = {
         { text = "I'll keep clear of your order's work. I've no wish to fight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -426,7 +426,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "Interest me? It terrifies me, and those are not always different things. Our ancestors bled to stop Tortheldrin drinking from the Nether, so tell me honestly, what makes you so sure you won't end the way he meant to?" },
+        { id = "xl_default", text = "Interest me? It terrifies me, and those are not always different things. Our ancestors bled to stop Tortheldrin drinking from the Nether, so tell me plainly, what makes you so sure you won't end the way he meant to?" },
       },
       choices = {
         { text = "Discipline. The demons serve me, never the reverse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

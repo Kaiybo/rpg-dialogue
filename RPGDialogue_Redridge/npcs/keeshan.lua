@@ -68,7 +68,7 @@ P:NPC {
       },
     },
     xcl_ubrs2 = {
-      lines = { { id = "xcl_ubrs2_default", text = "That Rend sat at the top like a king, and that dragons came and went from the peak, though I took that for drunk talk at the time. I'm not so sure now that it was the drink talking, and I'd rather not think too hard about it." } },
+      lines = { { id = "xcl_ubrs2_default", text = "That Rend sat at the top like a king, and that dragons came and went from the peak, though I took that for drunk talk at the time. I'm not so sure now that it was the drink talking, and I try not to think too hard about it." } },
       choices = {
         { text = "You're safe now, Corporal. Leave the Spire to me.", next = "BACK" },
       },
@@ -137,7 +137,7 @@ P:NPC {
           text = "How old are you? Never mind; I was younger when I first went to war, and that's not the comfort it sounds like." },
         { id = "h_sleep", when = { metBefore = true }, text = "I slept through the night, the first time since the camp, and woke up reaching for a sword that wasn't there. That's progress, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. In the Blackrock pens I heard their wolves at night, and I'd like to think someone like you might teach those beasts some manners." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I spent a long while in Blackrock hands, and I heard their shamans chanting every night. Forgive me if I don't smile." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I spent a long while in Blackrock hands and heard their shamans chanting every night, so don't take it ill if I don't smile." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short, if you would; my head's still ringing." },
@@ -188,7 +188,7 @@ P:NPC {
     fall = {
       big = true,
       lines = {
-        { id = "f_default", text = "Our regiment was the 12th Sabre. Cavalry, on a wall, which tells you how it went. Most of the lads died, something hit me on the head, and the world went black." },
+        { id = "f_default", text = "Our regiment was the 12th Sabre, cavalry posted on a wall, and you can guess how that went. Most of the lads died, something hit me on the head, and the world went black." },
       },
       choices = {
         { text = "The 12th Sabre?", next = "regiment" },
@@ -267,7 +267,7 @@ P:NPC {
                    { id = "tp_bg2", text = "I'm a soldier. I was one before the cave, and I mean to be one after." } },
     advice = { { id = "tp_ad", text = "Keep your head down and your shield up; I only managed one of those." } },
     stonewatch_keep = { { id = "tp_stonewatch", text = "I was on its walls when it fell. That's all I'll say about it sober." } },
-    keeshan = { { id = "tp_keeshan", text = "That's me, and I'd rather you asked me something I don't have to think hard about." } },
+    keeshan = { { id = "tp_keeshan", text = "That's me, and if it's all the same to you, ask me something I don't have to think hard about." } },
     blackrock = { { id = "tp_blackrock", text = "They're disciplined and well fed, and that doesn't happen by accident." } },
     _none = { { id = "tp_none", text = "I've been on a rock. Ask me again when I've had a drink." } },
   },

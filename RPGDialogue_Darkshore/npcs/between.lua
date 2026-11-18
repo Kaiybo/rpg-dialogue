@@ -70,7 +70,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Old sorrow, and old magic that the Deth'ryll want badly, which tells you it is not the kind of magic anyone should have. Pray over these stones, if you would, in whatever name you pray." } },
+      lines = { { id = "xapriest_default", text = "Old sorrow, and old magic that the Deth'ryll want badly, and anything a satyr craves is magic no one should hold. Pray over these stones, if you would, in whatever name you pray." } },
       choices = {
         { text = "I'll pray over the stones. Your people deserve peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Stones don't need prayer. The satyrs need killing.", next = "BACK", fx = { align = { light = -1 } } },
@@ -319,7 +319,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand, because the murlocs keep chasin' me off my own dig, an' I've had enough o' runnin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have a good eye, then, an' I've lost a fossil the size o' my head somewhere about here." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Grand, grand, because I've a nasty feeling I've been bitten by something, and I can't remember what." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now that's a proper sight for an old prospector, and you'll forgive me if I ask you to watch my back while I dig." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now that's a proper sight for an old prospector, and if ye'd watch my back while I dig, I'll dig all the faster." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ah, one of the elf druids! You lot can talk to trees, can't you, so ask one of them whether it's seen my fossil, would you?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You haven't seen a pick lying about, have you, or a notebook with an ale ring on the cover? Don't let your wee beastie eat it if you do." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! By my beard, that's a first for the Explorers' League! Do your spirits know where I left my notes?" },
@@ -373,7 +373,7 @@ P:NPC {
     },
     danger = {
       lines = {
-        { id = "danger_default", text = "Dangerous? Oh, terribly, what with the murlocs and the Blackwood furbolgs and the gnolls of the hills. But I've a stout hat and a good sense of direction, which is more than most of my colleagues can say, mind." },
+        { id = "danger_default", text = "Dangerous? Oh, terribly, what with the murlocs and the Blackwood furbolgs and the gnolls of the hills. But I've a stout hat and a good sense of direction, and half the League can't claim either." },
       },
       choices = {
         { text = "If you say so.", next = "BACK" },
@@ -393,7 +393,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Explorers' League, thirty years in the field, and only lost twice, whatever Gorbold tells you." } },
     magni = {
       { id = "tp_magni", text = "King Magni funds the League, and I've a letter from him on my wall that says 'Find something, Remtravel.' I'm working on it." },
-      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king's a fine patron, {g:lad|lass}, and I'd say so even if he weren't. Mind you, he wants results, and I'd rather he didn't hear how often I get lost." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king's a fine patron, {g:lad|lass}, and I'd say so even if he weren't. He wants results, though, and I'd sooner he never heard how often I get lost." },
     },
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Silithus has walls older than any dwarf city, with carvings nobody can read. One day I'll go and get lost there properly." } },
     dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas, the night elves' old city in Feralas, mostly intact. If I didn't have a fossil to find here, I'd be there." } },
@@ -460,7 +460,7 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xwl_default", text = "You could, and I think whatever stirs there would welcome you, which is why I do not want you near it. The Twilight cultists gather at the Glaive, and they would find one of your kind very useful." },
+        { id = "xwl_default", text = "You could, and I think whatever stirs there would welcome you, and that is exactly why I do not want you near it. The Twilight cultists gather at the Glaive, and they would find one of your kind very useful." },
       },
       choices = {
         { text = "Then I'll go and burn them out.", next = "BACK", fx = { align = { light = 1 } } },
@@ -658,7 +658,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Quickly, if you can, because they're fierce in a pack and I'm in no shape to hold any of them off. Mind you don't burn the trees, though, because the Blackwood were my friends before the madness took them, and this was their forest too." },
+        { id = "xmage_default", text = "Quickly, if you can, because they're fierce in a pack and I'm in no shape to hold any of them off. Don't burn the trees, though, because the Blackwood were my friends before the madness took them, and this was their forest too." },
       },
       choices = {
         { text = "I'll spare them if I can. They were your friends.", next = "BACK", fx = { align = { light = 1 } } },
@@ -801,7 +801,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some of them sniff at me and wander off, which is kind of them, and some of them don't, which is why I'm glad of company. In the Dream they're all much friendlier, but I can't stay there, because Liladris is waiting." },
+        { id = "xhuntcl_default", text = "Some of them sniff at me and wander off, which is kind of them, and some of them don't, so I'm glad of company. In the Dream they're all much friendlier, but I can't stay there, because Liladris is waiting." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks as if it would wake me before anything nasty arrived. I'd be very grateful, and so would Liladris." },
       },
       choices = {
@@ -841,7 +841,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, and I'd trust a paladin more than most. Only mind the cubs in the woods, for I'd rather you didn't fight them while I'm snoring." } },
+      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, and a paladin sooner than most. Only mind the cubs in the woods, for I don't want them hurt while I'm snoring." } },
       choices = {
         { text = "I'll get you home to Liladris, I swear it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll take you part way. Then you're on your own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -863,12 +863,12 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Kerlonian, and I'm meant to be on my way home to Auberdine and my love, Liladris. The trouble is that I keep falling asleep on the road, and the Dream doesn't want to let me go." },
         { id = "h_cond", when = { class = "DRUID" }, text = "Another druid! You'll understand, then, how sweet the Dream is, and how easy it is to stay there longer than you should." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, good, because I'm going to fall asleep again any moment, and I'd rather somebody with a sword was nearby when I do." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your companion would make a fine watchman while I nap, and I nap a great deal, I'm afraid." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, good, because I'm going to fall asleep again any moment, and it's a comfort to have somebody with a sword nearby when I do." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your companion would make a fine watchman while I nap, and I nap rather often, I'm afraid." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? Oh, good, perhaps you can tell me if something in the Dream is following me, because I feel it watching sometimes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll keep me safe on the road, I'm sure, but you may have to carry me, and I do apologise in advance." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock. Forgive me if I yawn, because it's the Dream and not you, though your friend there does give me rather sharp dreams." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Forgive me if I drift off, because I fall into the Emerald Dream sometimes without meaning to, and I wonder, do your spirits dream?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock. Pardon the yawn, because it's the Dream and not you, though your friend there does give me rather sharp dreams." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I may drift off in the middle of a sentence, because I fall into the Emerald Dream sometimes without meaning to, and I wonder, do your spirits dream?" },
       },
       again = {
         { id = "h_again1", text = "Ask, quickly, before I nod off." },
@@ -937,7 +937,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I am a druid of the Cenarion Circle, and very nearly a bridegroom, if I can stay awake." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream pulls at me every time I close my eyes, and Liladris would very much like me to stay awake. I'm trying, I promise you, but it's beautiful in there." } },
     elune = { { id = "tp_elune", text = "Liladris and I mean to be married under Elune's moon at Auberdine. If I can get there without falling asleep, that is." } },
-    nordrassil = { { id = "tp_nordrassil", text = "I studied under the roots of Nordrassil, and I slept a great deal of my study there. The Circle wasn't surprised." } },
+    nordrassil = { { id = "tp_nordrassil", text = "I studied under the roots of Nordrassil, and I slept through most of my study there. The Circle wasn't surprised." } },
     _none = { { id = "tp_none", text = "I'm not sure, and I think I may have dreamed the answer once and forgotten it." } },
   },
 }

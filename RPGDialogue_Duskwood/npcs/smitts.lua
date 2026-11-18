@@ -228,7 +228,7 @@ P:NPC {
 
     rumors = {
       lines = {
-        { id = "r_default", text = "There are lights at Manor Mistmantle again, the mayor's written another letter, and somebody's been buying a great deal of thread up at Raven Hill." },
+        { id = "r_default", text = "There are lights at Manor Mistmantle again, the mayor's written another letter, and somebody up at Raven Hill has been buying black thread by the dozen spools." },
       },
       choices = {
         { text = "And the worgen? What do the regulars say about them?", next = "op_worgen" },
@@ -319,7 +319,7 @@ P:NPC {
 
     suspect = {
       lines = {
-        { id = "su_default", text = "Honestly? I've thought it, and so did Haggard, but thinking's cheap. A court wants a hand that matches, and we never had one." },
+        { id = "su_default", text = "Between us, I've thought it, and so did Haggard, but thinking's cheap. A court wants a hand that matches, and we never had one." },
       },
       choices = {
         { text = "Then let's find one.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -382,7 +382,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "That's not in my book, and my book's thick, so try Daltry at the Town Hall." } },
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a fine village once, with a stone church and a cemetery so peaceful folk picnicked in it. I've the old drawings in my book, and nobody believes me when I show them." } },
     dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders turned up in the same years the dead started walking, and I don't think that's coincidence. I've a page on them in my book, and it's all questions." } },
-    scourge = { { id = "tp_scourge", text = "Travellers from the north drink here on their way to Stormwind, and every one of them has a story about the Scourge he can't finish. I write them down after they've gone; it seems the decent thing." } },
+    scourge = { { id = "tp_scourge", text = "Travellers from the north drink here on their way to Stormwind, and each of them carries a story about the Scourge he can't finish. I write them down after they've gone; it seems the decent thing." } },
     varian = { { id = "tp_varian", text = "When the king went missing, the Watch stopped expecting the army and I stopped expecting good news. I pour the same beer either way." } },
     prestor = { { id = "tp_prestor", text = "Lady Prestor's name comes up in my tavern more than you'd expect for a town this far from court, and never fondly. I only pour and listen." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire won't come to Darkshire, and I don't blame them, but I've a copy of their song sheet behind the bar. On a bad night, Hann plays it on a spoon." } },

@@ -19,7 +19,7 @@ P:Thread {
       third = "{name} heard Master Gadrin speak of Zalazane, the student who took the Echo Isles from the Darkspear." },
     unfolding = { first = "Lar Prowltusk watches the isles at dusk and knows some of the hexed by name, and Gar'Thok says Razor Hill leans on Darkspear scouts who lost more than his grunts ever did. The hexed on the isles were Darkspear, and nobody in Sen'jin is quite sure what they are now.",
       third = "{name} heard the Darkspear of Durotar speak of the hexed on the Echo Isles as kin they had not yet stopped mourning." },
-    resolved = { first = "I told Vol'jin the hexed are still Darkspear, and that they deserve to be freed and named. He said Sen'jin would say their names at the fire, and that Zalazane would hate every one of them.",
+    resolved = { first = "I told Vol'jin the hexed are still Darkspear, and that they deserve to be freed and named. He said Sen'jin would say their names at the fire, and that Zalazane would hear every name and hate it.",
       third = "{name} told Vol'jin that the hexed of the Echo Isles were still Darkspear, and Vol'jin had their names said at Sen'jin's fire." },
     soured = { first = "I told Vol'jin the hexed belong to Zalazane now and should be counted with the enemy. He agreed in the voice of a chief, and then he looked away from me the way a man does when he's agreed to something he hates.",
       third = "{name} told Vol'jin to count the hexed of the Echo Isles among the enemy, and Vol'jin agreed without warmth." },
@@ -39,7 +39,7 @@ P:Thread {
     {
       id = "b1_gadrin", npc = "gadrin",
       when = { minLevel = 6, faction = "Horde", thread = { id = "darkspear_isles", notBeat = "b1_gadrin" } },
-      text = "You see the isles from the shore there, {class}, close enough to swim if a troll be foolish. Zalazane hold them with our own people, hexed so deep they don't know their mothers, and every one of them Gadrin can see from here be a Darkspear who still need to be brought home, one way or another.",
+      text = "You see the isles from the shore there, {class}, close enough to swim if a troll be foolish. Zalazane hold them with our own people, hexed so deep they don't know their mothers, and each one Gadrin can see from here be a Darkspear who still need to be brought home, one way or another.",
       fx = { thread = { id = "darkspear_isles", beat = "b1_gadrin", state = "stirring" }, learn = { "echo_isles" } },
     },
     {

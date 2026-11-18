@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "You carry yourself like a soldier, which is more than I can say for most who wash up on this island." },
+      text = "You carry yourself like a soldier, and most who wash up on this island carry themselves like driftwood." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's in tatters. See Pratt before you go anywhere near Sardor's shore, or the naga will finish what someone else started." },
   },
@@ -95,7 +95,7 @@ P:NPC {
           text = "One of our own, good. You'll understand why I don't let the island go unwatched for a single night." },
       },
       again = {
-        { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I'd rather not give them another hour." },
+        { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I will not hand them another hour." },
         { id = "h_again2", text = "Go on. I can spare a moment more, Elune grant me patience." },
       },
       choices = {
@@ -192,7 +192,7 @@ P:NPC {
     { id = "n_lore", cat = "lore", when = { class = "MAGE" },
       text = "You've the look of someone who reads, and probably someone who reads things they shouldn't. I won't tell." },
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
-      text = "A fellow priest! Then you'll forgive me if I ask how you keep your prayers and your studies from fighting each other." },
+      text = "A fellow priest! Then tell me, if you would, how you keep your prayers and your studies from fighting each other." },
   },
 
   start = "hello",
@@ -200,7 +200,7 @@ P:NPC {
     op_arcane = {
       lines = {
         { id = "opa_q", text = "That's the question I ask myself every time Latronicus brings me another relic, and I'd like an outsider's answer for once. What do you think of arcane magic?" },
-        { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have thought about this more than most. Tell me honestly what you think of the arcane, now that you've seen what it did to the highborne." },
+        { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have weighed this longer than I have. I would hear what you think of the arcane, now that you've seen what it did to the highborne." },
       },
       choices = {
         { text = "It's a tool. In careful hands it does great good.", next = "op_arcane_r1", fx = { align = { order = 1 }, opinion = { arcane_magic = "useful" } } },
@@ -282,7 +282,7 @@ P:NPC {
     },
     relic_stance = {
       big = true,
-      lines = { { id = "rs_default", text = "Perhaps, but not knowing has never kept anyone safe that I've heard of. The naga dug this out of the ground for a reason, and I'd rather understand that reason than be surprised by it." } },
+      lines = { { id = "rs_default", text = "Perhaps, but not knowing has never kept anyone safe that I've heard of. The naga dug this out of the ground for a reason, and I mean to understand that reason before it surprises us." } },
       choices = {
         { text = "Knowledge is the best shield we have. Keep at it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Be careful. Some secrets are buried for a reason.", next = "BACK", fx = { align = { order = 1 } } },
@@ -322,7 +322,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write things down. Memory is a kind priestess but a poor scholar." } },
     highborne = { { id = "tp_hb", text = "Brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
     elune = { { id = "tp_elune", text = "I am a priestess of Elune before I am a scholar, though Latro says the order runs the other way. He is usually right about me, which is very annoying." } },
-    dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would give a great deal to read a single shelf of it." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would sit through a century of ogre grunting to read a single shelf of it." } },
     queen_azshara = { { id = "tp_queen_azshara", text = "The tablets Latro brings back from the naga ruins speak of Azshara as a goddess. It is chilling to read, and very well written, which is more chilling still." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids walk in the Dream, and the priestesses of Elune pray beneath the moon, and we have had ten thousand years to argue about which is wiser. I think we are both a little right." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande blessed our marriage herself, and Latro cried, though he will tell you it was the incense. Please do not tell him I told you." } },

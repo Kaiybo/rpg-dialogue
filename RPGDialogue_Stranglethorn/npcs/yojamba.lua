@@ -261,7 +261,7 @@ P:NPC {
     },
 
     king = {
-      lines = { { id = "ki_default", text = "Rastakhan is old, and wise, and he does not leave Zandalar for anything less dan de end of de world, which is why he sent me. He chose me because I do not forget a word he says, and I will not forget yours either." } },
+      lines = { { id = "ki_default", text = "Rastakhan is old, and wise, and he does not leave Zandalar for anything less dan de end of de world, and so he sent me. He chose me because I do not forget a word he says, and I will not forget yours either." } },
       choices = {
         { text = "Then I'll choose my words carefully.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -380,7 +380,7 @@ P:NPC {
       },
     },
     bijou = {
-      lines = { { id = "bi_default", text = "It breaks, and de mojo in it goes back to de loa it was stolen from, which is why de bijou screams a little when it dies. Do not listen too closely, and do not try to keep one, for dey whisper to dose who carry dem too long." } },
+      lines = { { id = "bi_default", text = "It breaks, and de mojo in it goes back to de loa it was stolen from, and so de bijou screams a little when it dies. Do not listen too closely, and do not try to keep one, for dey whisper to dose who carry dem too long." } },
       choices = {
         { text = "I'll be quick about it.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },

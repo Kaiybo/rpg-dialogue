@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_prej1", when = { prejudiced = true }, text = "A rogue in my camp. Keep your hands out of my supplies and in plain sight, because the last one who walked in looking like you was a Syndicate scout." },
     { id = "g_prej2", when = { prejudiced = true }, text = "I know that walk; it's a cutthroat checking for the exits. Stand where my sentries can see you, and then we'll talk." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've been in and out of Refuge Pointe and nothing's gone missing, which is more than I can say for my own sentries. Come in, then." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've been in and out of Refuge Pointe and nothing's gone missing from the stores, and I can't say that of the last three sellswords Stromgarde sent me. Come in, then." },
     { id = "g_tent", text = "Captain Nials. Make it quick; the highlands don't wait, and neither do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills, are you? What did you find?" },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the highlands haven't got any quieter. Tell me you're back to stay a while." },
@@ -190,7 +190,7 @@ P:NPC {
     },
     xorig_sellsword = {
       lines = {
-        { id = "xosellsword_default", text = "I know, and I'll not pretend I've forgotten the day you walked out, because I signed your last pay slip myself and there was nothing in the chest to honour it. You came back, though, which is more than most of them did. Is it the coin that brought you, or the Syndicate?" },
+        { id = "xosellsword_default", text = "I know, and I've not forgotten the day you walked out, because I signed your last pay slip myself and there was nothing in the chest to honour it. Most who left that week are in the Syndicate's camps now, but you came back. Is it the coin that brought you, or the Syndicate?" },
       },
       choices = {
         { text = "The coin, Captain, and I'll not pretend otherwise.", next = "BACK", fx = { trait = { greedy = 1 } } },
@@ -278,7 +278,7 @@ P:NPC {
     },
     tents = {
       lines = {
-        { id = "te_default", text = "Honestly? Not as long as I tell the soldiers. I count the tents every morning, and there are fewer each season, because I lose more to the Syndicate's knives and the ogres' clubs than Stromgarde can send me, and I write every one of those letters home myself." },
+        { id = "te_default", text = "Not as long as I tell the soldiers. I count the tents every morning and there are fewer each season, because the Syndicate's knives and the ogres' clubs take more than Stromgarde can send me, and I write each of those letters home myself." },
         { id = "te_priest", when = { class = "PRIEST" },
           text = "You've blessed enough of our dead to know the answer, priest. I count the tents every morning and there are fewer each season, and I write every letter to the families myself, because I won't let a clerk do it." },
       },
@@ -318,7 +318,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "So the old stories say: a hundred of Arathor's people taught by the elves to fight the trolls, and Strom stood at the heart of it. I'd give a great deal for one of those hundred today, so you'll have to do." } },
+      lines = { { id = "xma_default", text = "So the old stories say: a hundred of Arathor's people taught by the elves to fight the trolls, and Strom stood at the heart of it. I'd trade my whole garrison for one of those hundred today, so you'll have to do." } },
       choices = {
         { text = "I'll do.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "The keep doesn't seem to be in Stromgarde's hands.", next = "keep" },
@@ -1108,7 +1108,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     xskyborne = {
-      lines = { { id = "xsk_default", text = "Then you are welcome twice, once for the Horde and once for the Bluff. I have not met your people before, so forgive me if I stare; sit by the fire, and the grunts will soon find someone else to look at." } },
+      lines = { { id = "xsk_default", text = "Then you are welcome twice, once for the Horde and once for the Bluff. I have not met your people before, so if my eyes linger, it is curiosity and nothing worse; sit by the fire, and the grunts will soon find someone else to look at." } },
       choices = {
         { text = "Winds be with you, innkeeper.", next = "BACK", fx = { affinity = 2 } },
         { text = "A tauren must stand out among all these orcs.", next = "among" },
@@ -1120,7 +1120,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Every traveller who warms himself at my fire leaves a story behind. Ask me, and I will share what the fire has heard." },
     },
-    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That is all there is to tell, and may the Earth Mother keep you as you go." } },
+    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall, with the wind off the highlands and the grunts coming in cold from the walls, needed one sooner than most. That is all there is to tell, and may the Earth Mother keep you as you go." } },
     advice = { { id = "tp_ad", text = "Eat before you climb to Stromgarde. Nobody fights well hungry, not even an orc, though they'll swear otherwise." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother walks beneath every land, even these hard stones of Arathi. I feel her here, faintly, and I think she is tired of so much fighting." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the wisest of the tauren, and he gave us a home in Mulgore when we had none. I miss him, and I miss the grass of Mulgore more." } },

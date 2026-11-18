@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "The League of Arathor stands ready, {class}. The basin won't win itself back, and the Defilers are digging in while we talk." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing, which is the first thing I ask of anyone I send to Arathi. What do you need?" },
-    { id = "g_marks", when = { carrying = { 20559, min = 3 } }, text = "Those are Arathi marks in your pack, unless my eyes have gone. Every one of them is a stretch of the basin we held for a while, and I'm glad to take them." },
+    { id = "g_marks", when = { carrying = { 20559, min = 3 } }, text = "Those are Arathi marks in your pack, unless my eyes have gone. Each mark stands for a stretch of the basin we held for a while, and I'm glad to take them." },
     { id = "g_honored", when = { reputation = { faction = "League of Arathor", min = "honored" } }, text = "They speak your name at Trollbane Hall now, friend, and not just when they're counting the dead. Sit down a moment before you go back out." },
     { id = "g_horde_kills", when = { honorKills = { min = 500 } }, text = "You've the look of someone the Horde has learned to avoid on a battlefield. Arathi could use that look, if you've time for it." },
   },
@@ -244,7 +244,7 @@ P:NPC {
     },
     k_dwarf = {
       lines = {
-        { id = "kd_default", text = "Thandol Span is the only road from the Highlands to your mountains, and the Dark Iron dwarves have made it a misery to cross. As for the Wildhammer, they flew beside Stromgarde in the Second War, and I'd give a great deal to see a gryphon over the basin again." },
+        { id = "kd_default", text = "Thandol Span is the only road from the Highlands to your mountains, and the Dark Iron dwarves have made it a misery to cross. As for the Wildhammer, they flew beside Stromgarde in the Second War, and I'd give my best horse to see a gryphon over the basin again." },
       },
       choices = {
         { text = "I'll write to Aerie Peak for you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -276,7 +276,7 @@ P:NPC {
     xpala = {
       big = true,
       lines = {
-        { id = "xp_default", text = "It goes with the paladins of the League, and some of them are Stromgarde men who never left the Highlands. Mind you, many of the Forsaken knelt in Lordaeron's chapels once, and that makes the Light a heavy thing to carry into the basin." },
+        { id = "xp_default", text = "It goes with the paladins of the League, and some of them are Stromgarde men who never left the Highlands. Remember, though, many of the Forsaken knelt in Lordaeron's chapels once, and that makes the Light a heavy thing to carry into the basin." },
       },
       choices = {
         { text = "The Light shows them mercy. I can do no less.", next = "BACK", fx = { opinion = { undeath = "mercy" }, align = { light = 1 } } },
@@ -286,7 +286,7 @@ P:NPC {
     },
     xpriest = {
       lines = {
-        { id = "xpr_default", text = "Not enough of your kind, friend, which is why I'm asking. The barrow fields need blessing again after every fight, and the priests at the Hall can't keep up." },
+        { id = "xpr_default", text = "Not enough of your kind, friend, and that's the reason I'm asking. The barrow fields need blessing again after every fight, and the priests at the Hall can't keep up." },
       },
       choices = {
         { text = "I'll bless the barrows myself.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -334,7 +334,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The Defilers have need of you, living or otherwise. Speak, if you've come about Arathi." },
-    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, which is more than I can say for most of the people I send to the basin. What is it?" },
+    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, though most of the people I send to the basin come back in pieces, if they come back. What is it?" },
     { id = "g_marks", when = { carrying = { 20559, min = 3 } }, text = "You carry Arathi marks, and enough of them to be useful. The Defilers keep a careful count, and they'll count yours." },
     { id = "g_honored", when = { reputation = { faction = "The Defilers", min = "honored" } }, text = "The Den speaks well of you, and the Den speaks well of almost no one. Come closer, ally." },
     { id = "g_kills", when = { honorKills = { min = 500 } }, text = "You've killed enough of the Alliance to make the League remember your face. I find that very encouraging." },
@@ -392,7 +392,7 @@ P:NPC {
     -- What they want (chain: basin -> basin_points -> basin_strip)
     basin = {
       lines = {
-        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, which is more than Tirisfal can say. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself, though the League howls whenever we go near their old barrows." },
+        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, while Tirisfal's fields grow mostly blight. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself, though the League howls whenever we go near their old barrows." },
       },
       choices = {
         { text = "How does the fighting go there?", next = "basin_points" },
@@ -495,7 +495,7 @@ P:NPC {
     },
     self_dog = {
       lines = {
-        { id = "sd_default", text = "I've no idea, and I'd rather not guess, since the Plague went through the Highlands before I did. I don't look for it anymore when I pass the Farm, and I want that understood." },
+        { id = "sd_default", text = "I've no idea, and I won't guess, since the Plague went through the Highlands before I did. I don't look for it anymore when I pass the Farm, and I want that understood." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },

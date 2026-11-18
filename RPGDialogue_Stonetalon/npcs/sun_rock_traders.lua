@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Bread, water, bags and thread, all of it carried up the mountain the hard way. Buy something, so the kodo's back ache was worth it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because the last caravan made it up without losing a crate, and I'd like to sell what's in them." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the prices haven't moved while you were away, which is more than I can say for the road." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the prices haven't moved while you were away, though the road's got twice as dangerous." },
   },
 
   notice = {
@@ -70,7 +70,7 @@ P:NPC {
     road_grim = {
       big = true,
       lines = {
-        { id = "rg_default", text = "Twice since the thaw, and they took the water and left the bread, which tells you something about the Grimtotem. Maggran wants an escort on every caravan, and the tauren want to talk to the Grimtotem first, and while they argue I lose water." },
+        { id = "rg_default", text = "Twice since the thaw, and they took the water and left the bread, so the Grimtotem know exactly what Sun Rock can't live without. Maggran wants an escort on every caravan, and the tauren want to talk to the Grimtotem first, and while they argue I lose water." },
       },
       choices = {
         { text = "Talk first. They're still tauren.", next = "BACK", fx = { align = { light = 1 } } },

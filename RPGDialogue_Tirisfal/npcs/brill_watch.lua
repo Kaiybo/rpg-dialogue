@@ -139,7 +139,7 @@ P:NPC {
     },
 
     brill = {
-      lines = { { id = "b_default", text = "Brill's the Dark Lady's first real town outside the Undercity, and it's busier than you'd think for a place full of dead folk. Magistrate Sevren runs it, Executor Zygand guards it, and Renee at the Gallows' End feeds whoever still wants feeding." } },
+      lines = { { id = "b_default", text = "Brill's the Dark Lady's first real town outside the Undercity, and it's busy for a place full of dead folk. Magistrate Sevren runs it, Executor Zygand guards it, and Renee at the Gallows' End feeds whoever still wants feeding." } },
       choices = {
         { text = "Who's worth knowing here?", next = "brill_who" },
         { text = "Something else.", next = "BACK" },
@@ -227,7 +227,7 @@ P:NPC {
     },
     past_stance = {
       big = true,
-      lines = { { id = "ps_default", text = "That's kindly meant, and I'll take it. Mind you, the clerks have a point; the Bulwark needs every sword, and if they emptied it to guard my road, I'd have a lot more than horrors coming down it." } },
+      lines = { { id = "ps_default", text = "That's kindly meant, and I'll take it. Still, the clerks have a point; the Bulwark needs every sword, and if they emptied it to guard my road, I'd have a lot more than horrors coming down it." } },
       choices = {
         { text = "The chain of command knows best. Hold the line.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Orders that leave you alone out here are bad orders.", next = "BACK", fx = { align = { order = -1 } } },

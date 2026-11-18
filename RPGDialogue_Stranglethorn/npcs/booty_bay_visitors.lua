@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_troll", cat = "race", when = { race = "Troll" }, place = "before",
       text = "Ah, a troll, and one who wears de Horde's colours. Stand straight, young one, for you speak with your eldest kin." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "You carry de smell of prayer about you. Whatever god you kneel to, you know dat gods listen, and dat is more than most in dis port understand." },
+      text = "You carry de smell of prayer about you. Whatever god you kneel to, you know dat gods listen, and few in dis port of coin-counters understand dat." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "De spirits walk close beside you, shaman. They are restless near dis coast, because they can feel what stirs in de jungle." },
   },
@@ -520,7 +520,7 @@ P:NPC {
       },
     },
     family_frix = {
-      lines = { { id = "ff_default", text = "Still sellin' insurance, sport, mostly against my rockets, and he's got half the docks signed up. He says my Lost and Found is bad for his business, because people don't claim on a ring they can just buy back from me." } },
+      lines = { { id = "ff_default", text = "Still sellin' insurance, sport, mostly against my rockets, and he's got every captain on the docks signed up. He says my Lost and Found is bad for his business, because people don't claim on a ring they can just buy back from me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -640,7 +640,7 @@ P:NPC {
       },
       choices = {
         { text = "Why don't you cut it yourself?", next = "reed_why" },
-        { text = "You seem to need a great deal of it.", next = "reed_more" },
+        { text = "You seem to need an awful lot of it.", next = "reed_more" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -721,7 +721,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the coast from the Cape to the Wild Shore, shipmate, and every Bloodsail sail I've seen on it." } },
     background = { { id = "tp_bg", text = "Westfall farm boy turned sailor, now master of the Saltpenny under the Baron's letter of marque.", next = "marque" } },
     advice = { { id = "tp_ad", text = "Never wade where you can't see your feet, shipmate, not on this coast." } },
-    bloodsail = { { id = "tp_blood", text = "Red sashes, black hearts and leaky brigs, shipmate, and every one of them's lawful prize to me." } },
+    bloodsail = { { id = "tp_blood", text = "Red sashes, black hearts and leaky brigs, shipmate, and all of it's lawful prize to me." } },
     _none = { { id = "tp_none", text = "Never heard of it, shipmate, and I've heard most things said in a port tavern." } },
   },
 }
@@ -742,7 +742,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Make it quick, partner, because I've got wagons to load and every hour they sit here is an hour of feed I'm payin' for." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, partner, and still breathin'! That puts you ahead of half the drivers I've hired this year." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, partner, and still breathin'! That puts you ahead of six drivers I hired this year, rest their ledgers." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, partner, and I'd already written you into the ledger under losses, so you've done my accounts a favour by walkin' in." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? The Cartel's wagons carry for anybody who pays, partner, and the raptors don't check colours either." },
   },
@@ -987,7 +987,7 @@ P:NPC {
       },
     },
     crossing_pass = {
-      lines = { { id = "cp_default", text = "Cards, mostly, passenger, and every game ends with an orc and a dwarf glaring at each other over a pile of copper. The Cartel's rule is no fighting aboard, and the crew enforce it with buckets of seawater, which works better than you'd think." } },
+      lines = { { id = "cp_default", text = "Cards, mostly, passenger, and every game ends with an orc and a dwarf glaring at each other over a pile of copper. The Cartel's rule is no fighting aboard, and the crew enforce it with buckets of seawater, and a soggy orc sulks instead of swinging." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

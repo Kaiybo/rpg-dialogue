@@ -55,7 +55,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not much, because half the beasts here eat things that glow, and I don't trust anything that's been near those old elf ruins. The coursers are clean enough, I think, but the furbolg on the cliff gets cross if you take too many." },
+        { id = "xhuntcl_default", text = "Not much, because the beasts here eat things that glow, and I don't trust anything that's been near those old elf ruins. The coursers are clean enough, I think, but the furbolg on the cliff gets cross if you take too many." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} can have the scraps, if it doesn't mind fruit peel, because that's mostly what we've got." },
       },
       choices = {
@@ -66,7 +66,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit in those woods looks fine and the water looks clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'd rather pay for it than bury another orc." } },
+      lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit in those woods looks fine and the water looks clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'll pay goblin freight before I bury another orc." } },
       choices = {
         { text = "Keep your rules, Kurll. Discipline keeps this camp alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the warriors have their grog. They've earned it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -117,7 +117,7 @@ P:NPC {
           text = "A warrior. You'll be asking for grog, then, and I'll tell you what I tell every warrior in this camp: milk, juice or water, take your pick." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Bring me fresh meat, if you find any that's safe, because I'm tired of feeding this camp on fruit and good intentions." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good, then you'll keep a clear head, which is more than I can say for the warriors who keep asking me for grog." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good, then you'll keep a clear head, unlike the warriors who keep pestering me for grog." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. You'll want something light to eat, I expect, so you can keep moving, and I've got fresh fruit, which is more than the naga ever offer." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -174,7 +174,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Eat before you go out to fight in Azshara, because you won't find anything out there you'd want to eat." } },
     thrall = { { id = "tp_thrall", text = "The Warchief doesn't drink on duty, and neither do his warriors, so I don't sell grog. Take it up with Thrall, if you dare." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships want to sell me rum by the barrel, and I send them away every time. It's bad for business, but good for the camp." } },
-    cairne = { { id = "tp_cairne", text = "The tauren know how to drink milk without complaining, which is more than I can say for orcs. I'd like a few more of them in camp." } },
+    cairne = { { id = "tp_cairne", text = "The tauren know how to drink milk without complaining, while orcs moan about it like it's poison. I'd like a few more of them in camp." } },
     _none = { { id = "tp_none", text = "Don't know. Ask Ag'tor; he's the one who gives the orders, and he's earned the right with his blood." } },
   },
 }
@@ -224,7 +224,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Axes and knives, and I'll put an edge on anything that has one, though I leave the bowstrings to the hunters themselves. A hunter's knife does more work than anyone thinks, because the skinning is half the job." },
+        { id = "xhuntcl_default", text = "Axes and knives, and I'll put an edge on anything that has one, though I leave the bowstrings to the hunters themselves. A hunter's knife does more work than his bow, because every kill still has to be skinned." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from my whetstone. The last beast that came by here chewed the handle off a perfectly good axe." },
       },
       choices = {

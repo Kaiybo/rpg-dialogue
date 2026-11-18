@@ -268,7 +268,7 @@ P:NPC {
     lordaeron = { { id = "tp_lordaeron", text = "I lived in the hills of Lordaeron for years, alone, and I watched that kingdom die from the edges in. It was a beautiful land once, and the humans who loved it deserved better." } },
     thrall = { { id = "tp_thrall", text = "Thrall is Durotan's son, and he has Durotan's honour, and something else besides that none of us had. He gave me back my place among my people, and he asked nothing for it." } },
     scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and Tirion is still there, somewhere, watching it rot. If I could, I'd go back and stand beside him, but the Warchief needs me here." } },
-    stratholme = { { id = "tp_stratholme", text = "Stratholme was a city of humans, and their prince killed every one of them rather than let the plague take them. Tirion told me about it once, and he didn't sleep that night." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a city of humans, and their prince put the whole city to the sword rather than let the plague take it. Tirion told me about it once, and he didn't sleep that night." } },
     _none = { { id = "tp_none", text = "I don't know that one, and I'll not guess at it. Old soldiers who pretend tend to get young ones killed." } },
   },
 }

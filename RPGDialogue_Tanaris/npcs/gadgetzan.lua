@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     op_steamwheedle = {
       lines = {
-        { id = "ops_q", text = "Speakin' of the Cartel, I'm doin' a little market research, friend, purely for the elixir business. What do you think of the Steamwheedle Cartel, honestly, between us and the sand?" },
+        { id = "ops_q", text = "Speakin' of the Cartel, I'm doin' a little market research, friend, purely for the elixir business. What do you really think of the Steamwheedle Cartel, just between us and the sand?" },
       },
       choices = {
         { text = "The Cartel keeps its towns neutral and its trade fair. I admire that.", next = "op_steamwheedle_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { steamwheedle = "admire" } } },
@@ -358,7 +358,7 @@ P:NPC {
     },
     x_shaman = {
       lines = {
-        { id = "xs_default", text = "Rain, over Gadgetzan? You'd put the Water Company out of business by suppertime, and then who'd be left to buy my elixirs? Mind you, if your spirits ever want to knock a few degrees off this oven, I'll sign whatever contract they like." },
+        { id = "xs_default", text = "Rain, over Gadgetzan? You'd put the Water Company out of business by suppertime, and then who'd be left to buy my elixirs? Then again, if your spirits ever want to knock a few degrees off this oven, I'll sign whatever contract they like." },
       },
       choices = {
         { text = "The spirits aren't for hire, Marin.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
@@ -475,7 +475,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Every one of them, sweetie, whether they've coin or not, though don't tell Marin, because he thinks I charge, and he'd want his cut. You priests mend the body and the soul and I mend the stomach, and I'd say mine's the hardest job on a water ration." } },
+      lines = { { id = "xhcast_default", text = "All of 'em, sweetie, whether they've coin or not, though don't tell Marin, because he thinks I charge, and he'd want his cut. You priests mend the body and the soul and I mend the stomach, and I'd say mine's the hardest job on a water ration." } },
       choices = {
         { text = "Feeding the hungry is holy work. Keep doing it, Sprinkle.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Charity on a water ration? The desert will punish that kindness.", next = "BACK", fx = { align = { light = -1 } } },
@@ -511,7 +511,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than you'd think, sweetie, because a goblin who won't pay a healer will still pay for soup, and that's just good business. I put a little something in it for the fevers and a little something for the taste, and between the two they mostly get better on their own." } },
+      lines = { { id = "xapriest_default", text = "Plenty, sweetie, because a goblin who won't pay a healer will still pay for soup, and that's just good business. I put a little something in it for the fevers and a little something for the taste, and between the two they mostly get better on their own." } },
       choices = {
         { text = "Leave real fevers to trained healers, Sprinkle.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Soup and kindness work fine. Folk don't need temple rules.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -699,7 +699,7 @@ P:NPC {
     },
     xcl_zf = {
       big = true,
-      lines = { { id = "xcl_zf_default", text = "Broken for a season, maybe, and a season is all the Water Company needs to run new pipe out toward the west, if the Cartel signs the requisition, which it won't. The Sandfury have been fouling springs out there since before I owned my first wrench, so you'll forgive me if I wait for the gauges before I celebrate." } },
+      lines = { { id = "xcl_zf_default", text = "Broken for a season, maybe, and a season is all the Water Company needs to run new pipe out toward the west, if the Cartel signs the requisition, which it won't. The Sandfury have been fouling springs out there since before I owned my first wrench, so I'm waitin' on the gauges before I celebrate anything." } },
       choices = {
         { text = "Strike now, while they're leaderless. Mercy only gives them time to regroup.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Let the survivors be. A beaten enemy deserves the chance to stay beaten.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -715,7 +715,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hyenas chew the seals, scorpids nest in the pump housings because it's cool in there, and I once found a basilisk sunning itself on the main valve like it paid for the privilege. Every one of them costs me a crew day, pal, and every crew day costs Gadgetzan water and me a reprimand." },
+        { id = "xhuntcl_default", text = "Hyenas chew the seals, scorpids nest in the pump housings because it's cool in there, and I once found a basilisk sunning itself on the main valve like it paid for the privilege. Each critter costs me a crew day, pal, and every crew day costs Gadgetzan water and me a reprimand." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If {pet} fancies a bit of work, there's a hyena pack that's been sniffing round the north well every night, and I'd be glad if they found something else to sniff." },
       },
       choices = {
@@ -726,7 +726,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "If you can keep my crew standing in this heat, you'd be worth more to me than a new pump, and I don't say that lightly, because I've priced new pumps. The Wastewanderers jump them at the wells, and half come back cut up while the other half come back too scared to go out again." } },
+      lines = { { id = "xhcast_default", text = "If you can keep my crew standing in this heat, you'd be worth more to me than a new pump, and I don't say that lightly, because I've priced new pumps. The Wastewanderers jump them at the wells, and my crews come back either cut up or too scared to go out again." } },
       choices = {
         { text = "I'll tend your crew. A town's water is worth guarding.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let the weak ones fall. The desert keeps only the strong.", next = "BACK", fx = { align = { light = -1 } } },
@@ -968,7 +968,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Quietly would be new, I'll grant you, because my lads go in loud and come out running, and they drop the expensive gear every time. If you can slip into a bandit camp and slip out again, you'd be the first plan of mine in a month that didn't go wrong." } },
+      lines = { { id = "xrogue_default", text = "Quietly would be new, pal, because my lads go in loud and come out running, and they drop the expensive gear every time. If you can slip into a bandit camp and slip out again, you'd be the first plan of mine in a month that didn't go wrong." } },
       choices = {
         { text = "Leave the thieves alone. Your gear isn't worth blood.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Thieves deserve what's coming to them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -977,7 +977,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because out here water is gold, pal, and whoever controls the wells controls who lives in Tanaris. The Wastewanderers know that, which is why they hit the sources first and the caravans second, and why I expect every job to go wrong." } },
+      lines = { { id = "xapala_default", text = "Because out here water is gold, pal, and whoever controls the wells controls who lives in Tanaris. The Wastewanderers know that, so they hit the sources first and the caravans second, and I've budgeted for every job to go wrong." } },
       choices = {
         { text = "Water should be shared under law, not seized by bandits.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Whoever can hold a well has earned it, I suppose.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1024,7 +1024,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, good, because my last survey party had three engineers and one Bruiser, and the Bruiser spent the whole trip complaining about his feet and claiming overtime. Please tell me your feet are fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter? Oh, good, someone who can read tracks, because half the water I find out there already has paw prints all round it." },
+          text = "A hunter? Oh, good, someone who can read tracks, because every puddle I find out there already has paw prints all round it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please don't summon anything near my dowsing rods, pal, because they twitch at every strange thing, and I've already got a month of readings that point at demons and a boss who wants them explained." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, out here with the surveyors? Good, because my crew comes back from the dunes sunburnt and scared, and I'm a surveyor, not a nursemaid." },
       },
@@ -1113,7 +1113,7 @@ P:NPC {
   notices = { "craft", "pet" },
 
   impression = {
-    first = "Alchemist Pestlezugg keeps a rat named Rose for an assistant and seems to trust her more than most people. He is brisk, curious and a little too pleased by horrible discoveries.",
+    first = "Alchemist Pestlezugg keeps a rat named Rose for an assistant and seems to trust her over any person in Gadgetzan. He is brisk, curious and a little too pleased by horrible discoveries.",
     third = "{name} met Alchemist Pestlezugg, the Gadgetzan alchemist who studies the desert's stranger creatures for the Water Company.",
   },
 
@@ -1144,7 +1144,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Glands, stingers, the odd basilisk eye, all the lovely bits a hunter usually throws away, and I pay by the ounce. Scorpid venom goes into half the antidotes in Gadgetzan, which I find delightfully ironic and very profitable." },
+        { id = "xhuntcl_default", text = "Glands, stingers, the odd basilisk eye, all the lovely bits a hunter usually throws away, and I pay by the ounce. Scorpid venom goes into most of the antidotes in Gadgetzan, which I find delightfully ironic and very profitable." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} at a polite distance from Rose, please, because she's the best assistant I've ever had and she's quite small enough to be mistaken for a snack." },
       },
       choices = {
@@ -1181,7 +1181,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Someone who can freeze a sample before it goes off in this heat, mostly, and I'd pay well for that. Whatever the Water Company finds in the bad wells rots in an hour, and I'd rather study it fresh than smell it stale." } },
+      lines = { { id = "xmage_default", text = "Someone who can freeze a sample before it goes off in this heat, mostly, and I'd pay well for that. Whatever the Water Company finds in the bad wells rots in an hour, and a stale sample smells like a dead kodo and tells me nothin'." } },
       choices = {
         { text = "Science needs patience, not shortcuts.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Use whatever works, magic included.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1241,7 +1241,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Good, you'll have a steady hand, and Rose likes steady hands; she bites the shaky ones, and I don't pay for the bandages." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "Warlock. I can smell the brimstone on your sleeve, and so can Rose, which is why she's hiding behind the flasks." },
+          text = "Warlock. I can smell the brimstone on your sleeve, and so can Rose, and she's hiding behind the flasks about it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Rose and I have opened up a fair few dead things this month, and I'll confess some of them looked at me afterward in a way I didn't care for." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Splendid timing, because Rose and I have something from the Wastewanderer camps on the bench, and I'd love to know whether your Light can tell me if it's cursed or merely disgusting." },
@@ -1285,7 +1285,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     insects = {
-      lines = { { id = "i_default", text = "Giant insects from Sandsorrow Watch, pal: hard shells, a shared scent, the same markings on every one of them. That's not a swarm; it's a hive with somewhere to be." } },
+      lines = { { id = "i_default", text = "Giant insects from Sandsorrow Watch, pal: hard shells, a shared scent, the same markings on every last bug. That's not a swarm; it's a hive with somewhere to be." } },
       choices = {
         { text = "Where would a hive like that come from?", next = "insects_where" },
         { text = "Something else.", next = "BACK" },
@@ -1403,7 +1403,7 @@ P:NPC {
       },
     },
     xcl_zf2 = {
-      lines = { { id = "xcl_zf2_default", text = "Collectors in Booty Bay, a few scholars in Ironforge who pretend they don't buy from goblins, and the odd Forsaken who never says what it's for. Each of them thinks the scarabs mean something different, and I let every one of them go on thinking it." } },
+      lines = { { id = "xcl_zf2_default", text = "Collectors in Booty Bay, a few scholars in Ironforge who pretend they don't buy from goblins, and the odd Forsaken who never says what it's for. Each of them thinks the scarabs mean something different, and I let 'em all go on thinking it, at full price." } },
       choices = {
         { text = "Your secrets are safe with me, Tran'rek.", next = "BACK" },
       },
@@ -1795,8 +1795,8 @@ P:NPC {
         { id = "h_alt_class", when = { alt = { sameClass = true }, metBefore = false },
           text = "Another {altclass} at the Road Warrior! The last one, {alt}, broke a chair, apologized and paid for it, which puts your sort ahead of most of my customers already." },
         { id = "h_pt_fizzgrimble", tags = { "news" }, when = { party = { size = { min = 2 } } },
-          text = "A table for {companion} and the rest of you, then? Sit anywhere the sand isn't, and mind you settle your shares before you start drinking, not after, because I'm not refereeing for free." },
-        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Half the Road Warrior's talking about you tonight, friend, because word is you went all the way down into Zul'Farrak and came back with the chief's head. I've heard the story told four ways already, and in one of them you wrestled a hydra." },
+          text = "A table for {companion} and the rest of you, then? Sit anywhere the sand isn't, and make sure you settle your shares before you start drinking, not after, because I'm not refereeing for free." },
+        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Every table in the Road Warrior is talking about you tonight, friend, because word is you went all the way down into Zul'Farrak and came back with the chief's head. I've heard the story told four ways already, and in one of them you wrestled a hydra." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, pal, I'll stop calling the sand in the stew seasoning and start calling it soup." },
         { id = "h_default", key = true,
           text = "Innkeeper Fizzgrimble, of the Road Warrior: the best inn in Gadgetzan, and also the only inn in Gadgetzan, and those two facts are related, and so are my prices." },
@@ -1991,7 +1991,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because he's tried everything else! He's sent letters, he's sent sailors, and once he sent a parrot that sat on my window and shouted my debts. A demon would be the next step, and I'd honestly rather have the parrot back." } },
+      lines = { { id = "xlock_default", text = "Because he's tried everything else! He's sent letters, he's sent sailors, and once he sent a parrot that sat on my window and shouted my debts. A demon would be the next step, and frankly I'd take the parrot back any day." } },
       choices = {
         { text = "Pay what you owe and you won't need to fear him.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Nobody sent me. Your debts are your business.", next = "BACK", fx = { align = { order = -1 } } },
@@ -2025,7 +2025,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You couldn't, ah, make a man look like somebody else for a while, could you? Asking for a friend, who owes money." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior? You're not here from Booty Bay, are you? Only, you've got the look of someone who collects things, and I'd rather it wasn't me." },
+          text = "A warrior? You're not here from Booty Bay, are you? Only, you've got the look of someone who collects things, and I'm very much hoping it isn't me." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. You're tracking something, I can tell, and I'd feel a lot better if you told me it wasn't me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd not happen to have a shape that lets a fellow disappear quickly, would you? I'm asking for a friend, and the friend is me." },
@@ -2094,7 +2094,7 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "Sailor, merchant and debtor, and mostly the last one, lately." } },
     advice = { { id = "tp_ad", text = "Never borrow from anyone with a nickname." } },
-    booty_bay = { { id = "tp_booty_bay", text = "I owe money in Booty Bay, pal, quite a lot of it, and I'd rather not go back until I've found a way to pay it. Or until they forget, which is more likely." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I owe money in Booty Bay, pal, quite a lot of it, and I'm not going back until I've found a way to pay it, or until they forget, which is likelier." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine place to hide, pal, because nobody comes out here unless they have to. That's why I came." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail would sell me back to my creditors for a copper, pal, and they'd think it a good deal. I stay well away from the coast." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I bet on the Arena once, pal, and that's how I came to owe money in Booty Bay. I don't bet anymore, mostly." } },
@@ -2274,7 +2274,7 @@ P:NPC {
     },
     x_dwarf = {
       lines = {
-        { id = "xd_default", text = "Go on, knock on it, bend it, breathe your beard all over it; I've had Ironforge smiths in here before, and every one of them left carrying something. Dwarves complain the loudest and buy the most, which is why I keep a little extra on the rack for your lot." },
+        { id = "xd_default", text = "Go on, knock on it, bend it, breathe your beard all over it; I've had Ironforge smiths in here before, and not one of 'em walked out empty-handed. Dwarves complain the loudest and buy the most, so I keep a little extra on the rack for your lot." },
       },
       choices = {
         { text = "Not bad, for goblin work.", next = "BACK", fx = { affinity = 1 } },

@@ -20,9 +20,9 @@ P:NPC {
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}, we were slaves once, and now we have a home. Never let anyone make us forget either." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and the Horde is stronger for every warrior who comes back. Sit with me a while." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the city kept turning without you, but I'm glad to see you walk back through the gate. Sit, and tell me what the world looks like beyond Durotar." },
-    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last stood in this hall, and you carry yourself like someone who has seen a great deal of fighting since. The Horde grows stronger every time a warrior like you comes home." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last stood in this hall, and you carry yourself like someone who has bled for the Horde since. The Horde grows stronger every time a warrior like you comes home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first spoke you were barely blooded, and now I can see the battles on you. You've grown into the kind of warrior I hoped this Horde would make." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and I hear of it more often than you'd think. A name like that will open more doors than any title I could give you." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and word of it reaches this hall on every runner's tongue. A name like that will open more doors than any title I could give you." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone in this city caught you in a lie not long ago. I was a slave to men who lied to me every day of my youth, so understand that I'll be listening carefully." },
   },
 
@@ -40,7 +40,7 @@ P:NPC {
     xalt_thrall = {
       lines = {
         { id = "xalt_thrall_default", text = "Many have stood here, and I try to remember each of them, because I was once a slave nobody looked at twice. Whoever they are to you, they came in with their head up and left the same way, and that is all I ask of anyone in the Horde." },
-        { id = "xalt_thrall_kin", when = { alt = { kin = true } }, text = "{alt}, you mean. That {altclass} spoke plainly and listened when I answered, which is rarer than you'd think in this hall, and if you share blood with them I'd guess you share a stubborn streak as well." },
+        { id = "xalt_thrall_kin", when = { alt = { kin = true } }, text = "{alt}, you mean. That {altclass} spoke plainly and listened when I answered, which few do in this hall, and if you share blood with them I'd guess you share a stubborn streak as well." },
       },
       choices = {
         { text = "Kin or not, we both answer to the Warchief.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -306,7 +306,7 @@ P:NPC {
     },
     neeru_suspect = {
       lines = {
-        { id = "ns_default", text = "Since the day he offered to watch the Burning Blade for me. Nobody knows that much about a fire without standing close to it, and Neeru knows a great deal. I keep him where I can see him, and I let him think I'm grateful." },
+        { id = "ns_default", text = "Since the day he offered to watch the Burning Blade for me. Nobody knows that much about a fire without standing close to it, and Neeru knows that fire very well indeed. I keep him where I can see him, and I let him think I'm grateful." },
         { id = "ns_chasm", when = { questDone = TODO_QUEST("Hidden Enemies") },
           text = "You've been down in the chasm and seen what crawls there, so yes, I suspect him. A snake I can see is safer than one I can't, and so he stays in the Cleft, and I watch him smile." },
       },
@@ -335,7 +335,7 @@ P:NPC {
       hub = true,
       lines = {
         { id = "pp_default", text = "Four peoples stand under one banner now, and each of them looks at the same sunrise a different way. Ask about any of them and I'll tell you what I know and what I'm still learning, because a Warchief who thinks he understands his allies has already stopped listening." },
-        { id = "pp_scourge", when = { race = "Scourge" }, text = "Four peoples stand under one banner now, and yours is the newest and the least understood. Ask about any of them, and forgive me if I speak of the others more easily than I speak of the dead." },
+        { id = "pp_scourge", when = { race = "Scourge" }, text = "Four peoples stand under one banner now, and yours is the newest and the least understood. Ask about any of them, though I'll warn you that I speak of the others more easily than I speak of the dead." },
       },
       again = {
         { id = "pp_again", text = "Who else would you hear about? There's no shortage of opinions in this hall." },
@@ -352,7 +352,7 @@ P:NPC {
     },
     clans = {
       lines = {
-        { id = "cl_default", text = "The Frostwolves, the Warsong, the Blackrock who stayed loyal, and the orcs born in the camps who never had a clan at all, and I've tried to make one Horde out of every one of them. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
+        { id = "cl_default", text = "The Frostwolves, the Warsong, the Blackrock who stayed loyal, and the orcs born in the camps who never had a clan at all, and I've tried to make one Horde out of all of them. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
         { id = "cl_orc", when = { race = "Orc" }, text = "You know this as well as I do, {g:brother|sister}, because if you ask any orc in the Drag for their clan you'll learn more about them than their name ever told you. I've tried to make one Horde out of all those banners, and some days the old ones still pull harder than the new." },
       },
       choices = {
@@ -402,7 +402,7 @@ P:NPC {
       choices = { { text = "I'll tell them, Warchief.", next = "BACK", fx = { affinity = 2 } } },
     },
     dissent = {
-      lines = { { id = "ds_default", text = "Some still kneel in the Spire with the Blackrock, and some fed the fire under my own city, and every one of them was once an orc I'd have died to free. If one of them came to my gate tomorrow and laid down his axe, I'd have to decide what kind of Warchief I am, so tell me, what would you do?" } },
+      lines = { { id = "ds_default", text = "Some still kneel in the Spire with the Blackrock, and some fed the fire under my own city, and each of them was once an orc I'd have died to free. If one of them came to my gate tomorrow and laid down his axe, I'd have to decide what kind of Warchief I am, so tell me, what would you do?" } },
       choices = {
         { text = "Take him back, Warchief. Every orc freed is a victory.", next = "BACK", fx = { trait = { kind = 1 }, opinion = { orc_traitors = "mercy" } } },
         { text = "He chose the dragons. Let him die among them.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { orc_traitors = "hardline" } } },
@@ -437,11 +437,11 @@ P:NPC {
       },
     },
     trolls_old = {
-      lines = { { id = "to_default", text = "They did, the Amani of the northern forests, because they hated the elves more than they feared us, and when the war turned they left us to the camps without a backward glance. The Darkspear are another tribe with another debt, and I've learned that trolls, like orcs, are a great deal more than their worst chieftains." } },
+      lines = { { id = "to_default", text = "They did, the Amani of the northern forests, because they hated the elves more than they feared us, and when the war turned they left us to the camps without a backward glance. The Darkspear are another tribe with another debt, and I've learned that trolls, like orcs, should not be judged by their worst chieftains." } },
       choices = { { text = "Something else, Warchief.", next = "BACK" } },
     },
     sailed = {
-      lines = { { id = "sa_default", text = "Then you saw the worst day of my first voyage, and I've never asked a Darkspear what it looked like from the shore. Tell me honestly, did your people think we'd come to save them, or to make them slaves?" } },
+      lines = { { id = "sa_default", text = "Then you saw the worst day of my first voyage, and I've never asked a Darkspear what it looked like from the shore. Tell me plainly, did your people think we'd come to save them, or to make them slaves?" } },
       choices = {
         { text = "We thought you'd be just another master, Warchief.", next = "sailed2", fx = { trait = { skeptical = 1 } } },
         { text = "We saw you fight for us, and we knew.", next = "sailed2", fx = { affinity = 1, trait = { generous = 1 } } },
@@ -479,7 +479,7 @@ P:NPC {
       },
     },
     migration2 = {
-      lines = { { id = "mg2_default", text = "I'll take all of it, and I'd rather hear it from you than learn it too late. The tauren gave us friendship before we'd earned it, so if your people ever stop trusting mine, I want to know the day it starts." } },
+      lines = { { id = "mg2_default", text = "I'll take all of it, because I'd sooner hear it from you than learn it too late. The tauren gave us friendship before we'd earned it, so if your people ever stop trusting mine, I want to know the day it starts." } },
       choices = { { text = "I'll tell you, Warchief.", next = "BACK", fx = { affinity = 1 } } },
     },
     grimtotem = {
@@ -489,7 +489,7 @@ P:NPC {
     forsaken_p = {
       lines = {
         { id = "fk_default", text = "The Forsaken were humans and elves once, and the Scourge made them into the very thing they'd fought, until their queen tore them free and gave them a name for what was done to them. I took them into the Horde because I know what it is to be made into a weapon by someone else's hand, and because Cairne asked me to." },
-        { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so forgive me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
+        { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so bear with me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
       },
       choices = {
         { text = "You can't really trust the Dark Lady.", tag = "Persuade", next = "sylvanas_truth",
@@ -699,11 +699,11 @@ P:NPC {
         { text = "For my people, and for the ones who come after.", next = "ask_me2", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "For glory, and a name the songs remember.", next = "ask_me2", fx = { trait = { brave = 1 } } },
         { text = "Because you freed us, Warchief.", next = "ask_me_grat", fx = { affinity = 1 } },
-        { text = "Honestly? It pays better than anything else.", next = "ask_me2", fx = { affinity = -1, trait = { greedy = 1 } } },
+        { text = "The truth? It pays better than anything else.", next = "ask_me2", fx = { affinity = -1, trait = { greedy = 1 } } },
       },
     },
     ask_me_grat = {
-      lines = { { id = "amg_default", text = "Then I'll ask you for more than gratitude, because gratitude fades, and I'd rather you stood for the Horde because of what it is than because of who I am. If I fell tomorrow, would you still fight for it?" } },
+      lines = { { id = "amg_default", text = "Then I'll ask you for more than gratitude, because gratitude fades, and I want you to stand for the Horde because of what it is than because of who I am. If I fell tomorrow, would you still fight for it?" } },
       choices = {
         { text = "I would, Warchief, for what it's become.", next = "ask_me2", fx = { affinity = 2, opinion = { horde = "loyal" } } },
         { text = "I don't know, Warchief, and that's the truth.", next = "ask_me2", fx = { trait = { honest = 1 } } },
@@ -1064,7 +1064,7 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "He be my son. Say his name careful, mon; I say it every night." } },
     echo_isles = { { id = "tp_isles", text = "I see them in my sleep: the sand, the sea, the old huts, and Zalazane's puppets walking where my father walked." } },
     burning_blade = { { id = "tp_blade", text = "Orcs who miss the demons. The Warchief watch them closer than they think, and so do I." } },
-    thrall = { { id = "tp_thrall", text = "Thrall pulled the Darkspear out of the sea when the murlocs and the humans would have finished us, and I swore my people to him on that beach. He never asked for the oath, which is why it holds." } },
+    thrall = { { id = "tp_thrall", text = "Thrall pulled the Darkspear out of the sea when the murlocs and the humans would have finished us, and I swore my people to him on that beach. He never asked for de oath, and dat be why it holds." } },
     darkspear = {
       { id = "tp_darkspear", text = "The Darkspear are a small tribe with a long memory, mon, and we don't forget a friend or an enemy. We came to Kalimdor with nothing, and now we have Sen'jin, and soon we'll have the isles again." },
       { id = "tp_darkspear2", when = { race = "Troll" }, text = "You're one of mine, and I see it in how you stand. Make the Darkspear proud out there, and come home to Sen'jin when you need to remember who you are." },
@@ -1133,7 +1133,7 @@ P:NPC {
       },
     },
     xcl_rfc2 = {
-      lines = { { id = "xcl_rfc2_default", text = "Oh, once or twice, purely to keep an eye on things, as the Warchief asked. The caves run deeper than most of the city realises, and the fire down there is older than Orgrimmar. One learns a great deal about people by watching what they do in the dark." } },
+      lines = { { id = "xcl_rfc2_default", text = "Oh, once or twice, purely to keep an eye on things, as the Warchief asked. The caves run deeper than most of the city realises, and the fire down there is older than Orgrimmar. One learns so much about people by watching what they do in the dark." } },
       choices = { { text = "I'll remember that, Neeru.", next = "BACK" } },
     },
     xfpala = {
@@ -1166,7 +1166,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Pay it no mind, my friend; the warlocks keep their pets on short leashes, which is more than I can say for some hunters I've met in the Drag." },
+        { id = "xhuntcl_default", text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Pay it no mind, my friend; the warlocks keep their pets on far shorter leashes than the hunters who let their cats nose through the Drag." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at me, doesn't it? Animals are such poor judges of character, and I've always found that rather charming." },
       },
       choices = {
@@ -1197,7 +1197,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Arcane fire is a much tidier thing than the kind the Cleft studies, I'll grant you. The trolls in the Valley of Spirits teach it well enough, and they'll tell you what I'd tell any warlock, which is that every flame wants more than you give it." },
+        { id = "xmage_default", text = "Arcane fire is a much tidier thing than the kind the Cleft studies, certainly. The trolls in the Valley of Spirits teach it well enough, and they'll tell you what I'd tell any warlock, which is that every flame wants more than you give it." },
       },
       choices = {
         { text = "I'll keep my flames under strict control.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1257,7 +1257,7 @@ P:NPC {
     warlock = {
       big = true,
       lines = {
-        { id = "wl_default", text = "Everything the Warchief's shamans won't, and with far less disapproval. The Horde fears our art, and fear is such a waste of good power. Down here, at least, we can speak of it honestly." },
+        { id = "wl_default", text = "Everything the Warchief's shamans won't, and with far less disapproval. The Horde fears our art, and fear is such a waste of good power. Down here, at least, we can speak of it without lowering our voices." },
         { id = "wl_cleft", when = { origin = "orc_cleft_initiate" },
           text = "Ah, one of our own initiates come home. You've learned your lessons well, I'm told. Do remember who taught them to you when the Warchief's people start asking questions." },
         { id = "wl_troll", when = { race = "Troll", class = "WARLOCK" },
@@ -1382,7 +1382,7 @@ P:NPC {
     { id = "g_home", when = { homeInn = { "Orgrimmar", "Valley of Strength" } }, text = "The Tusk missed you! Your bed's warm and there's a haunch on the spit, so your timing's good." },
     { id = "g_away", when = { away = 14 }, text = "There you are! You've been gone {away}, and I was starting to think something out there ate you before I could feed you, so sit down while the spit's turning." },
     { id = "g_away_long", when = { away = 60 }, text = "You've gone {away} without a hot meal from the Tusk, and look at you, you're all gristle. Sit, and you're not getting up until you've eaten and told me every fight." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Half the Tusk has been talking about the work you've done for the city, so your first plate's on the house tonight. Then you can tell me the stories yourself." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Every table in the Tusk has been talking about the work you've done for the city, so your first plate's on the house tonight. Then you can tell me the stories yourself." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put somebody's back up in the city not long ago, and they came in here grumbling about it. Whatever it was, you leave it at the door of my inn." },
   },
 
@@ -1452,7 +1452,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Better than you'd think, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
+      lines = { { id = "dq_default", text = "Better than you'd fear, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
       choices = {
         { text = "I'd take that friendship over any war.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Friendship is fine, but it's the war that binds us.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1462,7 +1462,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "They do, and what's said in the Broken Tusk stays in the Broken Tusk, so mind you don't go repeating it in the Drag. I've thrown bigger orcs than you out the door for listening at tables, and I'll do it again." },
+        { id = "xrogue_default", text = "They do, and what's said in the Broken Tusk stays in the Broken Tusk, so don't go repeating it in the Drag. I've thrown bigger orcs than you out the door for listening at tables, and I'll do it again." },
       },
       choices = {
         { text = "Understood. What's said here stays here.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1485,7 +1485,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I mind, and so does every grunt in this room who remembers what the demon blood did to us. Leave the little horror outside the door, and if it scorches one of my tables, you'll be scrubbing it yourself." },
-        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Half the grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Plenty of grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
       },
       choices = {
         { text = "Fair. It waits outside, out of respect.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1675,7 +1675,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and I'd rather be knocked down by grunts every night than end up like that." },
+        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and being knocked down by grunts every night is a kinder fate than that." },
       },
       choices = {
         { text = "You're right to be wary. I'll stay careful.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1711,7 +1711,7 @@ P:NPC {
           text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again. My herd is a long way off in Mulgore, and it's better they don't see me like this." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and I'd rather not add a bear to the list." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and a bear would round the list off badly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "Oh, a hunter. Mind your beast doesn't lick my face, because the last one did, and I couldn't get up to stop it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Don't set me on fire, that's all I ask, because people usually settle for punching me." },
       },
@@ -1734,7 +1734,7 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "wa_default", text = "I carried a big totem-hammer once, the kind my grandfather carved, and I wasn't bad with it either. I don't really remember when I put it down, which tells you most of what you need to know about me, I suppose." } },
+      lines = { { id = "wa_default", text = "I carried a big totem-hammer once, the kind my grandfather carved, and I wasn't bad with it either. I don't really remember when I put it down, and I suppose that's most of my story right there." } },
       choices = {
         { text = "You could pick that hammer back up.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then stay away from the ale, Gamon.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },

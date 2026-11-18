@@ -65,7 +65,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman! Could you ask the spirits for the way back to Freewind? I've gotten so turned around in these canyons." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Are you a priest? My grandmother says priests can hear things the rest of us can't, so maybe you can hear the way back to Freewind." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Are you a mage? Could you make a light? It gets dark in the canyons very fast, and I don't like the dark out here." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "You're a warlock? I'm not scared, honestly, but please keep that thing on your side of the path." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "You're a warlock? I'm not scared, I promise, but please keep that thing on your side of the path." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! You scared me, because I didn't hear you at all. Can you teach me to walk like that, so the Galak won't hear me either?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, from Thunder Bluff maybe? My mother wanted me to study with the druids, but I wanted to see the canyons first, and now look at me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin? I've heard about the Forsaken, but nobody told me they could glow. Are you here to help me get back to Freewind?" },
@@ -100,7 +100,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "The Swiftmountains, from Freewind Post up on the mesas. My father's a hunter and my mother keeps the hearth, and they've probably already sent half the post looking for me." } },
+      lines = { { id = "b2_1_l", text = "The Swiftmountains, from Freewind Post up on the mesas. My father's a hunter and my mother keeps the hearth, and they've probably already sent every brave on the post looking for me." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
@@ -519,7 +519,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Afraid? Sure I'm afraid, friend, every single lap, and that's what makes it worth doing. If I go out in a blaze on the Shimmering Flats, at least they'll talk about it in Booty Bay for a month, and that's more than most goblins get." } },
+      lines = { { id = "xapriest_default", text = "Afraid? Sure I'm afraid, friend, every single lap, and that's what makes it worth doing. If I go out in a blaze on the Shimmering Flats, at least they'll talk about it in Booty Bay for a month, and most goblins only get talked about at their debt hearings." } },
       choices = {
         { text = "No gossip's worth your neck. Stay off the cliff path.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A blaze of glory beats a long and dull life.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -636,7 +636,7 @@ P:NPC {
   },
   topics = {
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the money, pal, and the money's what keeps this track running. Every bet on the Flats goes through a Gadgetzan bookie, and every bookie takes a cut." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel sponsors half the races on the Flats, and they want to see goblins win. I want to see goblins win too, mostly because I'm the goblin in the car." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel sponsors most of the races on the Flats, and they want to see goblins win. I want to see goblins win too, mostly because I'm the goblin in the car." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city, and now they've got nothing to do but build race cars. I'd feel sorry for 'em if they weren't so fast." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best mechanics in the world, pal, and I've been tryin' to hire one for three seasons. They keep sayin' no, on account of my last three mechanics." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, but if it's fast, I want to drive it, and if it explodes, I want to drive it twice." } },
@@ -697,7 +697,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "A kodo, once, that got loose from somebody's caravan and ran half the track before anyone could catch it. I gave it a respectable time, too, and it beat two of the gnome cars, which nobody has let them forget." } },
+      lines = { { id = "xdruid_default", text = "A kodo, once, that got loose from somebody's caravan and ran most of the track before anyone could catch it. I gave it a respectable time, too, and it beat two of the gnome cars, which nobody has let them forget." } },
       choices = {
         { text = "Let the kodo race next season. It earned it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Beasts belong in the wild, not on a racetrack.", next = "BACK", fx = { align = { order = 1 } } },

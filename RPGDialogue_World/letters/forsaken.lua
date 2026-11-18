@@ -67,7 +67,7 @@ P:Letter {
   id = "origin_forsaken_dalaran_apprentice_2", from = "Edwina Quell", stranger = true, delay = 2400,
   when = { origin = "forsaken_dalaran_apprentice", cleared = "Shadowfang Keep" },
   subject = "Arugal",
-  body = "{name},\n\nSo Arugal is finished. I remember him from the Citadel, you know, a tall man with a sour face who always asked for the restricted section and was usually granted it. He gave a lecture on summoning once that put half our year to sleep, and I would never have guessed he'd end up as a madman howling in a keep full of wolves.\n\nIt makes you wonder how many of our masters had something like that in them, waiting for the right catastrophe. It makes me wonder about myself, if I'm honest, and I'd rather not.\n\nWell done, anyway. I've crossed his name off the list of Dalaran faculty I still mean to write to, which was a short list to begin with.\n\nEdwina",
+  body = "{name},\n\nSo Arugal is finished. I remember him from the Citadel, you know, a tall man with a sour face who always asked for the restricted section and was usually granted it. He gave a lecture on summoning once that put half our year to sleep, and I would never have guessed he'd end up as a madman howling in a keep full of wolves.\n\nIt makes you wonder how many of our masters had something like that in them, waiting for the right catastrophe. It makes me wonder about myself, too, and I try to stop before the wondering gets anywhere.\n\nWell done, anyway. I've crossed his name off the list of Dalaran faculty I still mean to write to, which was a short list to begin with.\n\nEdwina",
 }
 
 ---------------------------------------------------------------------------
@@ -84,7 +84,7 @@ P:Letter {
   id = "origin_forsaken_chapel_priest_2", from = "Wendel Harrow", stranger = true, delay = 2400,
   when = { origin = "forsaken_chapel_priest", cleared = "Scarlet Monastery" },
   subject = "The monastery",
-  body = "{name},\n\nThey say you went into the Scarlet Monastery and walked out again, which is more than most of us managed while we were alive. I used to dream of seeing its chapel, you know, back when it was a holy place and the pilgrims came up from Southshore with their candles.\n\nI hope you looked at the windows before you burned them. They were the finest glass in Lordaeron, and the men who made them believed every word you used to preach.\n\nThe Crusade will say the Light abandoned you for what you did there. I'd say the Light stood beside you while you did it, since it still answers when you call, and they'll have to explain that to themselves.\n\nWendel",
+  body = "{name},\n\nThey say you went into the Scarlet Monastery and walked out again, which the Crusade would tell you is impossible for one of us. I used to dream of seeing its chapel, you know, back when it was a holy place and the pilgrims came up from Southshore with their candles.\n\nI hope you looked at the windows before you burned them. They were the finest glass in Lordaeron, and the men who made them believed every word you used to preach.\n\nThe Crusade will say the Light abandoned you for what you did there. I'd say the Light stood beside you while you did it, since it still answers when you call, and they'll have to explain that to themselves.\n\nWendel",
 }
 
 ---------------------------------------------------------------------------
@@ -196,7 +196,7 @@ P:Letter {
   id = "origin_forsaken_shadow_acolyte_1", from = "Sister Ilsa Veyne", stranger = true, delay = 1200,
   when = { origin = "forsaken_shadow_acolyte", minLevel = 6 },
   subject = "From the War Quarter",
-  body = "{name},\n\nThe candles in the cellar of the War Quarter have gone out three times since you left, and Brother Merrick insists it is a sign. I told him it is a draught, and that the shadow has better things to do than blow on our candles, and we have not spoken since.\n\nThe new acolytes are a sorry lot. Half of them still pray to the Light under their breath when they think we can't hear, and the other half pray to nothing at all, which is at least honest.\n\nYou were always the quiet one, and the shadow likes the quiet ones. Keep listening to it in the dark places you visit, and remember that it answers, but it does not care for you, and that is precisely why it can be trusted.\n\nSister Ilsa Veyne",
+  body = "{name},\n\nThe candles in the cellar of the War Quarter have gone out three times since you left, and Brother Merrick insists it is a sign. I told him it is a draught, and that the shadow has better things to do than blow on our candles, and we have not spoken since.\n\nThe new acolytes are a sorry lot. Some still pray to the Light under their breath when they think we can't hear, and the rest pray to nothing at all, which at least shows some sense.\n\nYou were always the quiet one, and the shadow likes the quiet ones. Keep listening to it in the dark places you visit, and remember that it answers, but it does not care for you, and that is precisely why it can be trusted.\n\nSister Ilsa Veyne",
 }
 
 P:Letter {
@@ -254,7 +254,7 @@ P:Letter {
   id = "origin_forsaken_unsworn_squire_2", from = "Hob Tallow", stranger = true, delay = 2400,
   when = { origin = "forsaken_unsworn_squire", minLevel = 30 },
   subject = "Your master",
-  body = "{name},\n\nI've been asking around the Undercity, and I finally found someone who knew what became of your master. He rode out from Andorhal to warn the villages about the grain and never came back. They found his shield in Felstone Field with the Hand's sigil still on it.\n\nI don't know if that's good news. I suppose it means he died trying to do the right thing, which is more than most of us can say, and it means he never had to see what we turned into.\n\nI think he'd have knighted you, if he'd lived to see what you've done since. I'm only a stable boy, so it doesn't count from me, but I'm saying it anyway.\n\nHob",
+  body = "{name},\n\nI've been asking around the Undercity, and I finally found someone who knew what became of your master. He rode out from Andorhal to warn the villages about the grain and never came back. They found his shield in Felstone Field with the Hand's sigil still on it.\n\nI don't know if that's good news. I suppose it means he died trying to do the right thing, which is a better end than most of us got, and it means he never had to see what we turned into.\n\nI think he'd have knighted you, if he'd lived to see what you've done since. I'm only a stable boy, so it doesn't count from me, but I'm saying it anyway.\n\nHob",
 }
 
 ---------------------------------------------------------------------------

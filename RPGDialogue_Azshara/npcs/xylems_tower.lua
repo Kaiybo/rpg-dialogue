@@ -15,13 +15,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_pj_druid", when = { prejudiced = true }, text = "A druid, climbing my tower, how bracing. Your Circle drove the Highborne's learning out of Kalimdor and then spent ten thousand years asleep in trees, so you'll forgive me if I don't expect a scholarly conversation." },
-    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My druid! I told Sanath you were the exception that proves the rule, and he asked which rule, and I couldn't remember, which tells you how thoroughly you've ruined it." },
+    { id = "g_pj_druid", when = { prejudiced = true }, text = "A druid, climbing my tower, how bracing. Your Circle drove the Highborne's learning out of Kalimdor and then spent ten thousand years asleep in trees, so I shan't expect a scholarly conversation." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My druid! I told Sanath you were the exception that proves the rule, and he asked which rule, and I couldn't remember, and that is how thoroughly you've ruined it." },
     { id = "g_op_arcane", when = { opinion = { topic = "arcane_magic", stance = "dangerous" } }, text = "I'm told you think magic should be locked away by wiser heads than ours. Wiser than mine? Name one, and I'll write to them." },
     { id = "g_default", text = "Ah, a visitor who survived Sanath's manners. Come in, and do try not to touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}. Good; the last three visitors were disappointments." },
     { id = "g_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") }, text = "My favourite drake-slayer! Sit, sit; the shard has been singing all week." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The ley lines are louder after dark. You'll forgive me if I listen to them and to you at once." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The ley lines are louder after dark. I shall listen to them and to you at once, so do speak up." },
     { id = "g_away", when = { away = 14 }, text = "Ah, {name}, back after {away}, which by a tower's reckoning is barely a pause between thoughts. Sit, and tell me whether the world below has done anything worth writing down." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since your last visit, and the ley lines shift when you stand there, which is more than I could ever say for my late apprentice." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Sanath tells me you talked someone round down below, which is a rare talent in a world full of people who don't care to understand anything, and I find that almost refreshing." },
@@ -183,7 +183,7 @@ P:NPC {
           text = "A hunter. You'll not be interested in my research, I suppose, unless it involves something with fur and teeth, which, now that I think of it, it often does." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my tower? How quaint. I suppose you've come to tell me the Highborne relics upset the local spirits, and I suppose I'll pretend to listen." },
         { id = "h_default", key = true,
-          text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't, not least the drake Morphaz." },
+          text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a treasury of lore, guarded by a great many things that would rather I didn't, not least the drake Morphaz." },
         { id = "h_dust", when = { questActive = TODO_QUEST("Magic Dust") },
           text = "The elves on the northern cliffs grind their relics to a glittering dust, and they killed the apprentice I sent to buy some. We'll take it the other way, then; violence is only a less polite kind of trade." },
         { id = "h_coral", when = { questActive = TODO_QUEST("The Siren's Coral") },
@@ -480,7 +480,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "My master needs a great many things, and most of them are hit with swords, apparently, which is why you lot keep coming up here. I'd tell you to be polite to him, but warriors never are, so just try not to break the furniture." } },
+      lines = { { id = "xwarcl_default", text = "My master needs a great many things, and most of them are hit with swords, apparently, and that's what keeps you lot trudging up here. I'd tell you to be polite to him, but warriors never are, so just try not to break the furniture." } },
       choices = {
         { text = "I'll be polite to the Archmage, which is more than you are.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll be whatever I like to the Archmage. Just send me up.", next = "BACK", fx = { align = { order = -1 } } },

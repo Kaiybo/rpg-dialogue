@@ -332,7 +332,7 @@ P:NPC {
         { id = "h_news", tags = { "news" }, when = { questActive = TODO_QUEST("News of Dogran") },
           text = "You come from Camp Taurajo about the grunt? Then I already know why you be here, mon, because they sent a runner for my draught days ago and the runner never come back." },
         { id = "h_draught", when = { questActive = TODO_QUEST("Ken'zigla's Draught") },
-          text = "Take it to Grunt Logmar at Taurajo, mon, he knows where they keep Dogran. Half the draught first, then wait a night, or he bleeds himself dry tryin' to stand up." },
+          text = "Take it to Grunt Logmar at Taurajo, mon, he knows where they keep Dogran. First half de draught, then wait a night, or he bleeds himself dry tryin' to stand up." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Ken'zigla's Draught"), days = 3 } },
           text = "Dogran be on his feet, they say, and cursing the quilboar already. That be the best sign there is, mon, because the dyin' don't curse." },
       },

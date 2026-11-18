@@ -79,7 +79,7 @@ P:NPC {
     },
 
     retrain = {
-      lines = { { id = "br_default", text = "Most who come to me learned the Light in life, under the Order, and it sits wrong in them now, so I break them of what they knew and teach them anew. It grows harder each time I do it, for them and for me, which is why I charge more each time." } },
+      lines = { { id = "br_default", text = "Most who come to me learned the Light in life, under the Order, and it sits wrong in them now, so I break them of what they knew and teach them anew. It grows harder each time I do it, for them and for me, so I charge more each time." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -96,7 +96,7 @@ P:NPC {
     },
 
     xscarlet = {
-      lines = { { id = "xs_default", text = "So did more of my students than you'd think. The Crusade taught you to hate what you've become, and I'll have to teach you that the Light didn't agree with them, and that's the hardest lesson I give." } },
+      lines = { { id = "xs_default", text = "So did a good many of my students. The Crusade taught you to hate what you've become, and I'll have to teach you that the Light didn't agree with them, and that's the hardest lesson I give." } },
       choices = {
         { text = "I still hear their prayers in my head.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -383,7 +383,7 @@ P:NPC {
     },
 
     merra = {
-      lines = { { id = "me_default", text = "Merra, and she baked for half the village outside the capital, sweet buns on feast days that you'd smell from the crossroads. She laughed at everything, me most of all, and she still does, when her jaw's holding." } },
+      lines = { { id = "me_default", text = "Merra, and she baked for the whole village outside the capital, sweet buns on feast days that you'd smell from the crossroads. She laughed at everything, me most of all, and she still does, when her jaw's holding." } },
       choices = {
         { text = "She sounds wonderful.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },

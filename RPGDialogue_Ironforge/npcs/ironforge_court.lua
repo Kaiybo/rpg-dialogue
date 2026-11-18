@@ -119,7 +119,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Oh, a great deal, for the troggs that poured out of the deep have spread all over Dun Morogh, and someone has to watch where they go. A hunter who could track them back to the city's outer tunnels would save my engineers a great many dangerous guesses." },
+        { id = "xhuntcl_default", text = "Oh, enormously, for the troggs that poured out of the deep have spread all over Dun Morogh, and someone has to watch where they go. A hunter who could track them back to the city's outer tunnels would save my engineers a great many dangerous guesses." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! Splendid creature; I once designed a mechanical one, but it kept trying to fetch the furniture." },
       },
       choices = {
@@ -154,7 +154,7 @@ P:NPC {
     },
     xalt_mekkatorque = {
       big = true,
-      lines = { { id = "xalt_mekkatorque_default", text = "{alt}! A {altrace} {altclass}, and very reliable about standing exactly where I asked, which is rarer than you'd think. I've pencilled that name onto my list for the return to Gnomeregan, and I'd be delighted to pencil yours in beside it." } },
+      lines = { { id = "xalt_mekkatorque_default", text = "{alt}! A {altrace} {altclass}, and very reliable about standing exactly where I asked, which in my experience is rarer than a working teleporter. I've pencilled that name onto my list for the return to Gnomeregan, and I'd be delighted to pencil yours in beside it." } },
       choices = {
         { text = "Count me in for Gnomeregan, High Tinker.", next = "BACK", fx = { affinity = 1 } },
         { text = "Standing still for your tests sounds dangerous, High Tinker.", next = "BACK" },
@@ -171,7 +171,7 @@ P:NPC {
           text = "There's my optimist! I put your answer in the council file, you know, right at the top, under a drawing of a very determined mechanostrider." },
         { id = "h_pt_mekkatorque", tags = { "news" }, when = { party = { race = "Gnome" } },
           text = "Is that a gnome in your company? Splendid! {companion} will be the one who fixes everything, I expect, and you'll be the one who explains to everybody else why it's now on fire." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, because I've a great many plans for Gnomeregan and every one of them has a little box marked 'someone very brave goes first'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, because I've a great many plans for Gnomeregan and each one has a little box marked 'someone very brave goes first'." },
         { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
           text = "Word is you went all the way down to the Engineering Labs and Thermaplugg won't be ruling anyone again. I drew up a plan to celebrate, and then I put it in the drawer, because there are still a great many gnomes down there." },
         { id = "h_default", key = true,
@@ -196,7 +196,7 @@ P:NPC {
           text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you eat properly out there? I only ask because my people forget to, and you look as though you'd forget too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My engineers have argued about your sort for weeks. Half think you're picking up seismic vibrations, and the other half think you're simply very sensitive." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My engineers have argued about your sort for weeks. Sixty percent think you're picking up seismic vibrations, and the rest think you're simply very sensitive." },
       },
       again = {
         { id = "h_again", text = "Where were we? I've lost the thread again; I lose a lot of threads, so I keep them in a drawer." },
@@ -493,7 +493,7 @@ P:NPC {
     },
     lock_why = {
       lines = {
-        { id = "lw_default", text = "Because a book's a very tempting machine with no safety catch, and gnomes pull levers to find out what they do. I trusted the wrong advisor once already, so forgive me if I'm slow to trust a demon." },
+        { id = "lw_default", text = "Because a book's a very tempting machine with no safety catch, and gnomes pull levers to find out what they do. I trusted the wrong advisor once already, so I'm in no hurry to trust a demon." },
       },
       choices = {
         { text = "That's fair, High Tinker.", next = "BACK", fx = { affinity = 1 } },
@@ -577,9 +577,9 @@ P:NPC {
     gnomeregan = { { id = "tp_gnomeregan", text = "Our home, and radiant now, though not in a good way, with troggs in the halls and worse in the deep workshops. We'll go back; I've already drawn the plans." } },
     dark_iron = { { id = "tp_dark_iron", text = "That's Magni's business, and he carries it heavily. I'd lend him every gnome I have if he asked, but he hasn't asked." } },
     explorers_league = { { id = "tp_league", text = "Wonderful people, and they write everything down, which I wish we had done. We'd lost half our records before we even knew what we'd lost." } },
-    uldaman = { { id = "tp_uldaman", text = "That's where the troggs first woke, I'm told, and I'd rather not visit; I've met enough troggs for one lifetime." } },
+    uldaman = { { id = "tp_uldaman", text = "That's where the troggs first woke, I'm told, and I've no plans to visit, because I've met enough troggs for one lifetime." } },
     troggs = { { id = "tp_troggs", text = "They came up under our city first, and whatever they are, they're not finished yet.", next = "troggs" } },
-    dalaran = { { id = "tp_dalaran", text = "Gnomes and Dalaran go together like gears and grease! Half the city's good spellwork has gnomish hands in it, and I'm delighted they're rebuilding, though I do wish someone would answer my letters about the mana conduits." } },
+    dalaran = { { id = "tp_dalaran", text = "Gnomes and Dalaran go together like gears and grease! A great share of the city's best spellwork has gnomish hands in it, and I'm delighted they're rebuilding, though I do wish someone would answer my letters about the mana conduits." } },
     booty_bay = { { id = "tp_booty_bay", text = "Goblins, goblins and more goblins, all building things too fast and charging too much for them. I admire their speed and deplore their safety margins, which, coming from me, I realize is saying something." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "A goblin town in the middle of a desert, with water pumped up from who knows how deep! I'd love a look at their pumps, though I suspect they'd charge me for the look." } },
     scourge = { { id = "tp_scourge", text = "A plague that walks, and it doesn't care whether you're a gnome or a giant. I keep wondering whether it could be cured like any other contamination, and then I remember Gnomeregan and stop wondering quite so loudly." } },
@@ -975,7 +975,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every one of them, and I worry about each one, for the Badlands have troggs, Loch Modan has troggs, and Uldaman has things worse than troggs. A warrior at a dig lets my Prospectors dig instead of looking over their shoulders, and lets me sleep, occasionally." } },
+      lines = { { id = "xwarcl_default", text = "All of them, and I worry about each one, for the Badlands have troggs, Loch Modan has troggs, and Uldaman has things worse than troggs. A warrior at a dig lets my Prospectors dig instead of looking over their shoulders, and lets me sleep, occasionally." } },
       choices = {
         { text = "I'll guard a dig site, if the League asks it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Guarding scholars is dull work. I'll need good pay.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1054,7 +1054,7 @@ P:NPC {
       lines = {
         { id = "h_pt_magellas", tags = { "news" }, when = { party = { size = { min = 2 } } },
           text = "A full digging crew, by the look of you! If any of your friends knows a pick from a trowel, send them up to me, because the League always needs more hands in the Badlands and more eyes in Uldaman." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Hall of Explorers! Do mind the cases, and if you could tell me whether that relic on my desk is cursed, I'd sleep a great deal better." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Hall of Explorers! Do mind the cases, and if you could tell me whether that relic on my desk is cursed, I'd sleep much better." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Excellent, because my Prospectors keep running into Dark Irons and troggs at the dig sites, and they'd much rather run into you." },
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
           text = "You've been to the bottom of Uldaman, past Archaedas himself, I'm told! Sit down, please, because I want every detail, and I want them in order." },
@@ -1257,7 +1257,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Curious since I could crawl, and paying for it since I could read. Now I steer the League and answer all its letters, which is a deal more ink than stone." } },
     advice = { { id = "tp_ad", text = "Write it down: dates, places, who was with ye. Memory is a liar with very good manners, and stone is the only honest witness." } },
-    explorers_league = { { id = "tp_league", text = "Mine to steer, for my sins, with hundreds of Prospectors across the world, and every one of them writes to me at once.", next = "league" } },
+    explorers_league = { { id = "tp_league", text = "Mine to steer, for my sins, with hundreds of Prospectors across the world, and all of them write to me at once.", next = "league" } },
     dark_iron = { { id = "tp_dark_iron", text = "They're digging in Uldaman, and they're not digging for history. That frightens me more than their axes." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We sent a team to chart the outer halls, and they came back with maps and a terrible cough." } },
     uldaman = { { id = "tp_uldaman", text = "Ours first, then the troggs', then the Dark Irons'. One day it'll be ours again, and I'd like to be alive for it." } },
@@ -1287,7 +1287,7 @@ P:NPC {
 
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
-      text = "A miner. At least ye know which end o' the pick goes in the rock. That's more than half the folk who come in here." },
+      text = "A miner. At least ye know which end o' the pick goes in the rock. Most o' the folk who come in here couldnae tell ye." },
   },
 
   start = "hello",
@@ -1322,7 +1322,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out, which is three uses more than most o' the folk Magellas sends me." },
+        { id = "xhuntcl_default", text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out, which is three uses more than the clerks Magellas usually sends me." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
       },
       choices = {
@@ -1368,7 +1368,7 @@ P:NPC {
       },
     },
     xcl_ulda2 = {
-      lines = { { id = "xcl_ulda2_default", text = "The old titan script, an' the dwarven runes that came after it, cut intae the same wall. Put the two together an' ye've a key tae half the ruins in Khaz Modan, which is why I've no time for chat." } },
+      lines = { { id = "xcl_ulda2_default", text = "The old titan script, an' the dwarven runes that came after it, cut intae the same wall. Put the two together an' ye've a key tae every ruin in Khaz Modan, so I've no time for chat." } },
       choices = {
         { text = "Then I'll leave you to your ciphers.", next = "BACK" },
       },
@@ -1496,7 +1496,7 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "mg_default", text = "Aye, an' they read them wrong, wi' a great deal o' confidence. I've had a Dalaran man tell me a rune meant 'beware' when it meant 'storeroom', so ye'll forgive me if I do my own readin'." },
+        { id = "mg_default", text = "Aye, an' they read them wrong, wi' all the confidence in the world. I've had a Dalaran man tell me a rune meant 'beware' when it meant 'storeroom', so I do my own readin' now." },
       },
       choices = {
         { text = "Then let's compare readings sometime.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -1642,7 +1642,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Better than a clerk, for ye'll know the difference between a trogg's track an' a bear's, an' my clerks wouldnae. Tell me where they go at night, an' I'll tell the Senate somethin' worth hearin' for once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could flush them out o' the rocks, I imagine, which would make the countin' a great deal quicker." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could flush them out o' the rocks, I imagine, which would make the countin' twice as quick." },
       },
       choices = {
         { text = "I'll give you an honest count, Senator.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1727,7 +1727,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll be plain, warlock, for I've no' the time tae be anythin' else: there's members o' this Senate who'd like yer kind banned from the city." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; I've plenty o' troggs tae count, an' I'd rather ye helped reduce the number." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know how tae count a herd, which is more than most o' the Senate's clerks can." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know how tae count a herd, an' the Senate's clerks cannae count past their own fingers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. As a senator I'm told tae disapprove o' ye, an' as a League man I'd like tae know what ye've heard in the quarry. I've no' decided which o' me is talkin'." },
       },
       again = {
@@ -1740,7 +1740,7 @@ P:NPC {
         { text = "This sounds like a job for the guards.", next = "why" },
         { text = "Where did the troggs come from?", next = "troggs" },
         { text = "What does the Senate do, exactly?", next = "senate" },
-        { text = "The quarry must keep half the city in stone.", next = "quarry" },
+        { text = "The quarry must keep the whole city in stone.", next = "quarry" },
         { text = "I grew up in the mines under the mountain.", next = "miner", when = { origin = "dwarf_ironforge_miner" } },
         { text = "A Wildhammer's camped above your quarry.", next = "farsen", when = { questDone = TODO_QUEST("Farsen's Watch") } },
         { text = "Send me after the troggs, Senator. I'm a warrior.", next = "warrior", when = { class = { "WARRIOR", "PALADIN" } } },
@@ -1886,7 +1886,7 @@ P:NPC {
     { id = "g_tavern", text = "Welcome tae the Stonefire! Grab a stool, grab a mug, an' if ye've a story, grab the room's attention." },
     { id = "g_home", when = { homeInn = { "Ironforge", "Stonefire Tavern" } }, text = "There ye are! Yer bed's warm, as is everythin' in Ironforge, thanks tae the forges." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Grab a stool, an' I hope ye've brought a story big enough tae make up fer the wait." },
-    { id = "g_away_long", when = { away = 60 }, text = "By my beard, {away} away, an' half the regulars swore ye'd been eaten by somethin' fierce! Sit down an' prove 'em wrong over a mug." },
+    { id = "g_away_long", when = { away = 60 }, text = "By my beard, {away} away, an' the regulars swore ye'd been eaten by somethin' fierce! Sit down an' prove 'em wrong over a mug." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody's been tellin' the whole tavern what a grand sort ye are! Now I'll want the story from yer own mouth, mind." },
     { id = "g_word_caught", when = { word = "caughtLying" }, text = "Word round the kegs is someone caught ye spinnin' a lie. A tall tale's welcome in the Stonefire, friend, but a lie's another thing entirely." },
   },
@@ -1958,7 +1958,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than ye'd think, though they ask it wi' a mug in hand an' call it a story. Half the soldiers in here lost somebody at the Thandol Span or the Second War, an' a priest who'll sit an' listen does more good than one who preaches." } },
+      lines = { { id = "xapriest_default", text = "Often enough, though they ask it wi' a mug in hand an' call it a story. Most o' the soldiers in here lost somebody at the Thandol Span or the Second War, an' a priest who'll sit an' listen does more good than one who preaches." } },
       choices = {
         { text = "Then I'll listen. Sometimes that's the best prayer there is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Ale and stories won't heal grief. They need proper counsel.", next = "BACK", fx = { align = { light = -1 } } },
@@ -2064,7 +2064,7 @@ P:NPC {
     },
     shaman = {
       lines = {
-        { id = "sh_default", text = "Ha! I'll drink tae that, an' so will the fire, by the way it's crackin'. Half my regulars think ye shamans are Wildhammers in disguise, an' the other half want ye tae make the hearth burn hotter." },
+        { id = "sh_default", text = "Ha! I'll drink tae that, an' so will the fire, by the way it's crackin'. One old miner swears ye shamans are Wildhammers in disguise, but the rest o' my regulars just want ye tae make the hearth burn hotter." },
       },
       choices = {
         { text = "The fire burns how it likes, Firebrew.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },

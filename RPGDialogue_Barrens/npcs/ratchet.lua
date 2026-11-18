@@ -54,7 +54,7 @@ P:NPC {
     },
     xcl_dm = {
       big = true,
-      lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it, pal. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never saw a copper of the bill, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, which is why I'm running a port and not hiding in a mine with a rag over my face." } },
+      lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it, pal. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never saw a copper of the bill, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, so I'm running a port instead of hiding in a mine with a rag over my face." } },
       choices = {
         { text = "Always pay the builders. Stormwind had it coming.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "VanCleef was owed, Gazlowe, but that doesn't make him right.", next = "BACK", fx = { align = { order = 1 } } },
@@ -232,7 +232,7 @@ P:NPC {
     pirates_op = {
       lines = { { id = "po_default", text = "Pay 'em? Pal, Revilgaz pays the Bloodsail off down in Booty Bay, and they come back every season asking for more, with interest. Some folks say a pirate's just a goblin without a license, so what's your take on the whole business?" } },
       choices = {
-        { text = "Pirates are thieves. Hang every one of them.", next = "po_hang", fx = { affinity = 1, align = { order = 1 }, opinion = { pirates = "hate" } } },
+        { text = "Pirates are thieves, so hang them all.", next = "po_hang", fx = { affinity = 1, align = { order = 1 }, opinion = { pirates = "hate" } } },
         { text = "A free captain owes nobody. I almost admire them.", next = "po_admire", fx = { affinity = -2, align = { order = -1 }, opinion = { pirates = "admire" } } },
         { text = "Pay them. It's cheaper than a war at sea.", next = "po_pay", fx = { opinion = { pirates = "pay" } } },
         { text = "I've sailed with worse than the Southsea, Gazlowe.", next = "po_rogue", when = { class = "ROGUE" }, fx = { affinity = -1, opinion = { pirates = "mixed" } } },
@@ -445,7 +445,7 @@ P:NPC {
     },
     thrall = {
       { id = "tp_thrall", text = "Thrall? Me and Thrall go way back, pal, because I built his whole city for him, Orgrimmar, every stone and every beam, and he paid me in Ratchet. Best deal I ever made, and I'll tell you the same thing tomorrow." },
-      { id = "tp_thrall2", when = { race = "Orc" }, text = "You're one of Thrall's own, so let me say it plain: that orc paid on time, every time, which is more than I can say for the Cartel. Tell him Gazlowe says hi, and that the port's still standing." },
+      { id = "tp_thrall2", when = { race = "Orc" }, text = "You're one of Thrall's own, so let me say it plain: that orc paid on time, every time, and the Cartel still owes me for the cranes I built at Booty Bay. Tell him Gazlowe says hi, and that the port's still standing." },
     },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's our sister port across the sea, and the boats run between us twice a day if the pirates don't get frisky. Baron Revilgaz runs it tight, and I'd say tighter than me, but I'd be lying." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Southsea pirates on my coast are bad enough, but the Bloodsail are worse, and they don't even pay to dock. Every ship they sink is a hole in my ledger the size of a cannonball." } },
@@ -637,7 +637,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Anything a priest gives away for free, I sell in a bottle, which is why your lot and I don't always get along. But a long day of healing grunts leaves anybody dry, and there's nothing a little raptor horn can't fix, if you catch my meaning." } },
+      lines = { { id = "xhpriest_default", text = "Anything a priest gives away for free, I sell in a bottle, so your lot and I don't always get along. But a long day of healing grunts leaves anybody dry, and there's nothing a little raptor horn can't fix, if you catch my meaning." } },
       choices = {
         { text = "Healing shouldn't come in a bottle at a goblin's price.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Sell what you like. People pay for what they need.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -851,7 +851,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "No, they don't, pal, and I've got a whole page in my ledger for crates that walked off with somebody's help. Half go to the Southsea, but the other half go missing right here between the ship and my scales, and that tells me somebody in Ratchet knows how to lift a lid quietly." },
+        { id = "xrogue_default", text = "No, they don't, pal, and I've got a whole page in my ledger for crates that walked off with somebody's help. Some go to the Southsea, sure, but the rest go missing right here between the ship and my scales, and that tells me somebody in Ratchet knows how to lift a lid quietly." },
       },
       choices = {
         { text = "Then I'll help you catch them, wharfmaster.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -895,7 +895,7 @@ P:NPC {
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "I've had your cargo through my ledger before, pal, or the cargo of a {altrace} called {alt}, other side of the war, with the same habit of not declaring half of it. I've got a column for that, and I've a feeling I'm about to use it again." },
         { id = "h_alt_same", when = { alt = { faction = "same", days = 30 } },
-          text = "{alt} had crates on the last boat out, pal, all counted and taxed, and every one of 'em arrived, which is more than I can say for most. Same family, maybe? Then let's keep the streak going." },
+          text = "{alt} had crates on the last boat out, pal, all counted and taxed, and every crate arrived, which in this port is practically a miracle. Same family, maybe? Then let's keep the streak going." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Let me guess, pal, you've come to find my missing crates through the power of the Light, and I suppose you'll want a finder's fee for it too." },
         { id = "h_default", key = true,
           text = "Wharfmaster Dizzywig, and every crate that comes through Ratchet goes through my ledger first, weighed, counted and taxed. Lately too many of 'em have been going missing before they ever reach it, and missing crates don't pay their tolls." },
@@ -931,7 +931,7 @@ P:NPC {
       choices = { { text = "So someone on the docks is talking.", next = "missing_spy" } },
     },
     missing_spy = {
-      lines = { { id = "ms_default", text = "I didn't say that, pal, and I'd rather you didn't say it either, not loud. But somebody's selling our sailing times, and when I find out who, Gazlowe will want a word and an itemized apology." } },
+      lines = { { id = "ms_default", text = "I didn't say that, pal, and you didn't hear it, not loud anyway. But somebody's selling our sailing times, and when I find out who, Gazlowe will want a word and an itemized apology." } },
       choices = { { text = "What will Gazlowe do?", next = "missing_gaz" } },
     },
     missing_gaz = {

@@ -41,7 +41,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "Burn the lumber camp to the ground, salt the stumps and send every one of them back to Durotar with splinters in their pride. You've seen them up close, though, so tell me what you make of the Warsong." },
+        { id = "op_ask_default", text = "Burn the lumber camp to the ground, salt the stumps and send the Warsong back to Durotar with splinters in their pride. You've seen them up close, though, so tell me what you make of them." },
       },
       choices = {
         { text = "Butchers. Every axe they swing is an insult.", next = "op_r1", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 }, opinion = { warsong = "hate" } } },
@@ -181,13 +181,13 @@ P:NPC {
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Raene's Cleansing") },
           text = "Teronis was my friend, and he died seeking a way to slow the furbolgs. I would rest much easier knowing his death was not in vain, so finish his work." },
         { id = "h_ran", when = { questDone = TODO_QUEST("Raene's Cleansing") },
-          text = "You took up Teronis's work when no one else would, and that means a great deal to me. He would have been proud of whoever finishes it." },
+          text = "You took up Teronis's work when no one else would, and I will not forget it. He would have been proud of whoever finishes it." },
         { id = "h_thundris", when = { heardLine = "thundris.h_ashenvale" },
           text = "Thundris Windweaver sent you down from Auberdine? Then he thinks well of you, and he doesn't think well of many." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, good. My scouts come back from the Thistlefur hills with wounds that need more than bandages." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "There's a mage in Astranaar, and the Sentinels are already watching you, I'd wager. My people learned what the arcane costs when the Well of Eternity swallowed half the world, so don't take the stares personally." },
+          text = "There's a mage in Astranaar, and the Sentinels are already watching you, I'd wager. My people learned what the arcane costs when the Well of Eternity dragged our homeland under the sea, so don't take the stares personally." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "So you're the warlock Korra has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and your craft smells the way their camps did." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! I hope you came to fight, because Ashenvale has no use for anyone who came to watch." },
@@ -414,7 +414,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know what reaches into her dreams, and that is what frightens me most, because whatever it is came out of this forest's sickness. If your craft can feel such things, tell me honestly, and then please stand a little further from the door." } },
+      lines = { { id = "xlock_default", text = "I don't know what reaches into her dreams, and that is what frightens me most, because whatever it is came out of this forest's sickness. If your craft can feel such things, say so, and then please stand a little further from the door." } },
       choices = {
         { text = "I'll keep my distance from her room, Pelturas.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Let me sit by her. I might hear what whispers to her.", next = "BACK", fx = { align = { light = -1 } } },
@@ -432,7 +432,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "A little, for a night or two, and then the dreams come back worse than before. The priestesses say the sickness is not of the body, which is why I have pinned my hopes on Orendil's cure instead." } },
+      lines = { { id = "xapriest_default", text = "A little, for a night or two, and then the dreams come back worse than before. The priestesses say the sickness is not of the body, and so I have pinned my hopes on Orendil's cure instead." } },
       choices = {
         { text = "I'll pray for her every night until she's well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If healers failed, prayer won't help her either.", next = "BACK", fx = { align = { light = -1 } } },
@@ -935,7 +935,7 @@ P:NPC {
     { id = "g_rest", text = "You look worn through, body and spirit both. Rest here a while, and may Elune keep your dreams gentle." },
     { id = "g_home", when = { homeInn = { "Astranaar" } }, text = "Your bed's ready, and the island's quiet tonight; the lake keeps the worst of the forest out." },
     { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and thinner than when you left, I'd wager. Sit down and let me bring you something warm before you tell me anything at all." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself differently now, as if the road taught you a great deal while you were gone. I hope it let you rest now and then, because strength without sleep doesn't last." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself differently now, as if the road taught you hard lessons while you were gone. I hope it let you rest now and then, because strength without sleep doesn't last." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came by tonight still smiling about a talk they'd had with you, and smiles have been scarce in Astranaar lately. Thank you for that." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear things over the broth pot, and what I heard today was that someone caught you in an untruth. I won't scold you, but Astranaar is small, and trust here is hard to win twice." },
   },
@@ -979,7 +979,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because Raene sends a few out to watch the Warsong camps, and they come back hungry and won't tell me a thing. I've learned to feed them first and ask nothing, and they always leave a little extra on the table that way." } },
+      lines = { { id = "xrogue_default", text = "Often, because Raene sends a few out to watch the Warsong camps, and they come back hungry and won't tell me a thing. I've learned to feed them first and ask nothing, and they always leave a little extra on the table that way." } },
       choices = {
         { text = "Then I'll tell you what I can, and thank you properly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Asking nothing is wise. Rogues remember who's curious.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1108,7 +1108,7 @@ P:NPC {
       { id = "tp_knows", text = "Scouts talk while I bandage them, and I remember more than they think. Ask me what you like." },
     },
     background = { { id = "tp_bg", text = "I keep the inn on the island. There's not much more to me than a warm bed and a full pot." } },
-    advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because Ashenvale gives you fewer chances than you'd think." } },
+    advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because between the Warsong and the satyrs, Ashenvale rarely gives you the chance." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Sentinels on leave sometimes talk about sneaking off to the Darkmoon Faire. I tell them to sleep instead, and they never listen." } },
     theramore = { { id = "tp_theramore", text = "Theramore's soldiers come through on their way to the coast now and then. They eat like bears and sleep like stones, and they always leave a coin for the pot." } },
     blackfathom = { { id = "tp_blackfathom", text = "I've nursed more than one scout back from Blackfathom in my beds upstairs. They don't talk much about it, and I don't ask." } },
@@ -1203,7 +1203,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "A great deal, because they post lookouts in the ruins around the Tower of Althalaxx, and my paladins clank far too loudly to reach them. Pick them off from the trees, and we'll do the rest with the Light and our hammers." },
+        { id = "xhuntcl_default", text = "Plenty, because they post lookouts in the ruins around the Tower of Althalaxx, and my paladins clank far too loudly to reach them. Pick them off from the trees, and we'll do the rest with the Light and our hammers." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steady, and it will need to be, because the Dark Strand call things up from the Void. Keep it close, and the Light keep you both." },
       },
       choices = {
@@ -1256,7 +1256,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, out here in elf country, and that's a cheering sight! The Dark Strand work their spells in that old tower, and I'd welcome someone who understands how such magic thinks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Light bless you, friend, for we've been short of strong arms since the Dark Strand dug in at the tower." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light welcomes you, and so do I, because there's a great deal of forest between us and that tower, and you'll know it better than my paladins." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light welcomes you, and so do I, because there are long leagues of forest between us and that tower, and you'll know them better than my paladins." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've learned a good deal about your Circle since I came to Ashenvale, though I'll admit I still don't follow half of it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "The Light's blessing upon you, shaman! I'm a long way from home and glad of any company. Do your spirits bless too?" },
       },
@@ -1297,7 +1297,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     orcish = {
-      lines = { { id = "o_default", text = "Many in my order scoffed when I chose to learn it, but understanding your enemy is half of beating him. Their writing's little better than a child's scribbles, mind you, though it served me well enough with the warlock Ilkrud's notes." } },
+      lines = { { id = "o_default", text = "Many in my order scoffed when I chose to learn it, but you cannot beat an enemy whose orders you cannot read. Their writing's little better than a child's scribbles, though it served me well enough with the warlock Ilkrud's notes." } },
       choices = {
         { text = "Only to beat them?", next = "orcish2" },
         { text = "Wise.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },

@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_default", text = "Greetings from the Gadgetzan Water Company, where every drop counts! Huzzah!" },
     { id = "g_pouch", when = { questActive = TODO_QUEST("Water Pouch Bounty") }, text = "Got the five pouches, pal? If you do, a Care Package, Model 103-XB, is yours, courtesy of the Company and its very generous reclamation program!" },
     { id = "g_pouch_done", when = { questDone = TODO_QUEST("Water Pouch Bounty") }, text = "My best supplier! Keep 'em coming, buddy, and I'll keep the care packages coming right back, by the book, one per five." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and the town's drunk a lake's worth of water since, every drop billed. Well, a pond's worth. A puddle, honestly, but a profitable puddle." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and the town's drunk a lake's worth of water since, every drop billed. Well, a pond's worth, or a puddle if we're bein' precise, but a profitable puddle." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folks say you've been helping Gadgetzan help itself, which is our motto! Well, one of them." },
   },
 

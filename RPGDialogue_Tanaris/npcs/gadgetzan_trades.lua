@@ -59,7 +59,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Elemental essences, mostly, earth and fire and water, bottled by folk who don't say where they got them. Fire went up in price after somebody brought a crate in from Un'Goro, and I'm still not sure that crate's finished being on fire, which is why I listed the crate too." } },
+      lines = { { id = "xhsham_default", text = "Elemental essences, mostly, earth and fire and water, bottled by folk who don't say where they got them. Fire went up in price after somebody brought a crate in from Un'Goro, and I'm still not sure that crate's finished being on fire, so I listed the crate too." } },
       choices = {
         { text = "Bottling elements is cruel. Those essences were alive.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Supply and demand. If it's bottled, it's for sale.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -113,7 +113,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Anything that comes out of Zul'Farrak, for a start, because the trolls put curses on things the way other folk put locks. I sell them all the same, mind you, at a premium, but I write 'buyer beware' on the tag, and I mean it." } },
+      lines = { { id = "xapriest_default", text = "Anything that comes out of Zul'Farrak, for a start, because the trolls put curses on things the way other folk put locks. I sell them all the same, at a premium, but I write 'buyer beware' on the tag, and I mean it." } },
       choices = {
         { text = "Selling cursed goods is wrong, warning or not.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A warning's fair. Buyers can decide for themselves.", next = "BACK", fx = { align = { light = -1 } } },
@@ -196,7 +196,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     stolen = {
-      lines = { { id = "st_default", text = "Every item in this house was honestly found by somebody, friend, and I've no reason to wonder where. If the owner turns up with a receipt, the Bruisers will take it from there, and that's all I'll say." } },
+      lines = { { id = "st_default", text = "Every item in this house was found by somebody, friend, fair and square as far as I know, and I've no reason to wonder where. If the owner turns up with a receipt, the Bruisers will take it from there, and that's all I'll say." } },
       choices = {
         { text = "I'll keep that in mind.", next = "BACK", fx = { trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -229,7 +229,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the troughs, pal, they're full, and that's more than I can say for my purse after the Water Company's been round." },
+    { id = "g_default", text = "Mind the troughs, pal, they're full, which is more water than my purse can afford since the Water Company raised the rate." },
   },
 
   notice = {
@@ -276,7 +276,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then it did something to that shade that looked a great deal like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, pal, and keep it out of the sun for your own sake." } },
+      lines = { { id = "xlock_default", text = "Then it did something to that shade that looked an awful lot like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, pal, and keep it out of the sun for your own sake." } },
       choices = {
         { text = "My demons are my business, not yours.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Fair. I'll keep my servant with me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -321,7 +321,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The beasts settle when your kind are about, which is more than I can say for the Water Company's collectors." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The beasts settle when your kind are about, and the Water Company's collectors set 'em kickin' every time they come round." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, good, because two of my beasts came back from the dunes with a fever, and the Water Company won't sell me a drop extra to cool them, not for any price I can afford." },
         { id = "h_default", key = true,
           text = "Laziphus, stable master. Hunters leave their beasts with me while they travel, and I keep them fed, watered and out of the sun, which in Tanaris means a lot of buckets, a lot of bills and a lot of complaining, mostly from the raptors." },
@@ -336,7 +336,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, with no beast, which makes you my favorite kind of visitor today, buddy. You're not going to ask me to board a horse in this heat, are you?" },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've got no beast for me, I suppose, unless that charger of yours needs stabling, and I'll warn you it'd hate the heat as much as you do." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue at my stables. If you're thinking of taking a beast that isn't yours, I'll tell you now that every one of them bites, and the scorpids do worse." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue at my stables. If you're thinking of taking a beast that isn't yours, I'll tell you now that they all bite, and the scorpids do worse." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll find the beasts here don't care for prayers, but they do like a calm voice, and you look like you've got one." },
       },
       again = {
@@ -431,7 +431,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, pal! A good bomb clears a line of Wastewanderers faster than any axe, and you get to stand further back while it does, which keeps all ten fingers where they belong and saves a fortune on bandages." } },
+      lines = { { id = "xwarcl_default", text = "All the time, pal! A good bomb clears a line of Wastewanderers faster than any axe, and you get to stand further back while it does, which keeps all ten fingers where they belong and saves a fortune on bandages." } },
       choices = {
         { text = "My own arm does the work. I don't need bombs.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If a bomb wins the fight, I'll throw it gladly.", next = "BACK", fx = { align = { order = -1 } } },
@@ -461,7 +461,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I've wondered, honestly. After every big blast out back, the sand settles strangely for a day or two, like it's sulking, and the scorpids come up to look at the hole. Either the earth's annoyed, or the scorpids are admirers." } },
+      lines = { { id = "xhsham_default", text = "I've wondered about that myself, pal. After every big blast out back, the sand settles strangely for a day or two, like it's sulking, and the scorpids come up to look at the hole. Either the earth's annoyed, or the scorpids are admirers." } },
       choices = {
         { text = "The earth will answer one day. Mind your charges.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep blasting. The earth has survived worse than goblins.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -515,7 +515,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Burns, mostly, and the odd broken finger, and once a gnome who blew himself clear over the town wall and landed in a cactus. They all come back, though, and pay for the next lesson, which tells you something about engineers." } },
+      lines = { { id = "xapriest_default", text = "Burns, mostly, and the odd broken finger, and once a gnome who blew himself clear over the town wall and landed in a cactus. They all come back, though, and pay for the next lesson, and that's engineers for you: they never learn, and I never run short of students." } },
       choices = {
         { text = "I'll keep bandages ready for your students.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "They choose the risk. Let them learn from it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -584,7 +584,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     money = {
-      lines = { { id = "mo_default", text = "Plenty, if you sell to travelers, kid. A water-finder that half works, a scope for a hunter's rifle, a bomb for the Wastewanders, and every one of them sells faster than you can build it, at whatever price you like." } },
+      lines = { { id = "mo_default", text = "Plenty, if you sell to travelers, kid. A water-finder that half works, a scope for a hunter's rifle, a bomb for the Wastewanders, and each one sells faster than you can build it, at whatever price you like." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -595,7 +595,7 @@ P:NPC {
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a great place to teach engineering, pal, because there's plenty of open space for the explosions. I've only lost one hut so far." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own inventions, pal, and I respect the ambition, if not the safety record. I'd love to see their workshops." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's got good engineers, pal, but they're too cautious. Engineering's about pushing things until they break, and then pushing them a little more." } },
-    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak have no engineering at all, pal, which is why they keep losing to us. A good bomb solves most troll problems." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak have no engineering at all, pal, so they keep losing to us. A good bomb solves most troll problems." } },
     _none = { { id = "tp_none", text = "If I can't build it, take it apart, sell it or blow it up, pal, I don't know much about it." } },
   },
 }
@@ -665,7 +665,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Maybe, but nobody ever got arrested for mining a thorium vein, pal, and nobody ever got rich picking locks. Mind you, the ogres in the hills might disagree, since they think every rock in Tanaris is theirs, and they're just as quick to crack your head for it." } },
+      lines = { { id = "xrogue_default", text = "Maybe, but nobody ever got arrested for mining a thorium vein, pal, and nobody ever got rich picking locks. Course, the ogres in the hills might disagree, since they think every rock in Tanaris is theirs, and they're just as quick to crack your head for it." } },
       choices = {
         { text = "Honest work is still the best kind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Honest work doesn't pay as well.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -728,11 +728,11 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You'll be after arcane crystals, then, because every mage who comes through asks me where the rich thorium is. Don't look so surprised, it's always the same question." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior? You've got the shoulders for a pick, buddy, I'll give you that, and the patience of someone who hits things for fun, which is half the trade." },
+          text = "A warrior? You've got the shoulders for a pick, buddy, I'll give you that, and the patience of someone who hits things for fun, and that's most of the trade." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and you're looking at the hills instead of at me, which means you've already spotted something worth digging up or worth shooting." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I know your kind don't love a pick in the ground, but I only dig where nothing grows, and out here that's nearly everywhere." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good, because there's ogres and bandits in half the hills worth mining around here, and I'd sooner send students with someone like you than on their own." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good, because there's ogres and bandits in every hill worth mining around here, and I'd sooner send students with someone like you than on their own." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! You won't need a pick, I suppose, with a demon to do the digging, though I've never yet seen one that would." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, wanting to learn mining? Well, I've taught stranger, and the ore doesn't care who's swinging the pick." },
       },

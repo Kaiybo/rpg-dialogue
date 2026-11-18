@@ -55,7 +55,7 @@ P:NPC {
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_stormwind_r3 = {
-      lines = { { id = "opsw_r3", text = "I've asked, and the King sends what he can, which is more than most. Ironforge has its own troubles with the Dark Iron, and I'll not begrudge it." } },
+      lines = { { id = "opsw_r3", text = "I've asked, and the King sends what he can, more than Stormwind manages some months. Ironforge has its own troubles with the Dark Iron, and I'll not begrudge it." } },
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     xpt_company = {
@@ -69,14 +69,14 @@ P:NPC {
       },
     },
     xpt_company2 = {
-      lines = { { id = "xpt_company2_default", text = "Because the Cult of the Damned will raise a fallen hero far more gladly than a fallen farmer, and they're patient about it. I've seen men I trained walking with the Scourge at Andorhal, and I'd rather not see you there too." } },
+      lines = { { id = "xpt_company2_default", text = "Because the Cult of the Damned will raise a fallen hero far more gladly than a fallen farmer, and they're patient about it. I've seen men I trained walking with the Scourge at Andorhal, and I don't mean to see you there too." } },
       choices = {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     xcl_scholo = {
       big = true,
-      lines = { { id = "xcl_scholo_default", text = "Then the school that taught Kel'Thuzad's students to raise our dead has lost its headmaster, and I'll write that to Stormwind in my own hand. Half the necromancers in Andorhal learned their trade on that island, so you've done more for my soldiers than a regiment of reinforcements would have." } },
+      lines = { { id = "xcl_scholo_default", text = "Then the school that taught Kel'Thuzad's students to raise our dead has lost its headmaster, and I'll write that to Stormwind in my own hand. Most of the necromancers in Andorhal learned their trade on that island, so you've done more for my soldiers than a regiment of reinforcements would have." } },
       choices = {
         { text = "The credit belongs to everyone who went in with me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Then make sure Stormwind knows my name, Commander.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -111,7 +111,7 @@ P:NPC {
       lines = {
         { id = "o_fkhate", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "The High Priestess says you'd put every Forsaken back in the ground. Do it on the far side of the field, if you must, and don't start a war I can't afford." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
-          text = "Five of you, and every one looking like they can hold a line, which is more than I can say for half the volunteers Stormwind sends me. The Scourge come at Chillwind in numbers, so I think in numbers too, and you've just made my count a good deal kinder." },
+          text = "Five of you, and each one looking like they can hold a line, which I can't say of most volunteers Stormwind sends me. The Scourge come at Chillwind in numbers, so I think in numbers too, and you've just made my count a good deal kinder." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've a handful of soldiers to break Andorhal with, {class}, so I'll not be choosy about where my help comes from, and I suspect the earth here could do with someone listening." },
         { id = "h_default", key = true,
           text = "Commander Ashlam Valorfist. Stormwind sent me to hold this camp and break Andorhal with a handful of soldiers, a priestess, an alchemist and whoever walks through that gate, and today that's you." },
@@ -122,11 +122,11 @@ P:NPC {
         { id = "h_cleared", when = { questRecent = { TODO_QUEST("Clear the Way"), days = 3 } },
           text = "Sorrow Hill's quieter, though it won't stay that way, since the dead never tire. Still, quieter is a start, and I've learned to be grateful for starts out here." },
         { id = "h_towers", tags = { "news" }, when = { questActive = TODO_QUEST("All Along the Watchtowers") },
-          text = "The Scourge moves its troops by four towers in Andorhal, so mark every one of them with the beacon torch. And bring that torch back to me, mind, as it's the only one we have." },
+          text = "The Scourge moves its troops by four towers in Andorhal, so mark each one with the beacon torch. And bring that torch back to me, mind, as it's the only one we have." },
         { id = "h_araj", tags = { "news" }, when = { questActive = TODO_QUEST("Alas, Andorhal") },
           text = "Araj the Summoner is a lich, and he sits at the heart of the city. Don't go in alone, and I mean that, because I've written enough letters to mothers this year." },
         { id = "h_araj_dead", when = { questDone = TODO_QUEST("Alas, Andorhal") },
-          text = "The lich of Andorhal is dust, and I said it aloud three times this morning before I believed it. The dead still walk there, mind you, and without a master they walk worse." },
+          text = "The lich of Andorhal is dust, and I said it aloud three times this morning before I believed it. The dead still walk there, though, and without a master they walk worse." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "At night you can hear Andorhal from here, and it isn't the dead you hear but the bells. Nobody living has rung them in years." },
         { id = "h_back", when = { metBefore = true },
@@ -212,7 +212,7 @@ P:NPC {
         { id = "nm_default", text = "Because Stormwind has a great many walls to man and this is the farthest of them. So I hire who I can, I strike where it hurts, and I make every sword count twice." },
       },
       choices = {
-        { text = "Do you honestly expect to take Andorhal with this?", tag = "Persuade", next = "need_truth",
+        { text = "Do you really expect to take Andorhal with this?", tag = "Persuade", next = "need_truth",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Clear the Way") }, { trait = "brave" } } } },
           fail = { next = "need_shut", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } },
@@ -558,7 +558,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Arbington says the same, and he's right, curse him, which is why we brew the counter agent first. But once the plague's dead in the pot, I want you to melt the thing to slag, and I'll stand there and pray over the puddle." } },
+      lines = { { id = "xmage_default", text = "Arbington says the same, and he's right, curse him, so we brew the counter agent first. But once the plague's dead in the pot, I want you to melt the thing to slag, and I'll stand there and pray over the puddle." } },
       choices = {
         { text = "Do it properly. Counter agent first, then fire.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd burn it now and pray the wind is kind.", next = "BACK", fx = { align = { order = -1 } } },
@@ -606,7 +606,7 @@ P:NPC {
     },
     commander = {
       lines = {
-        { id = "co_default", text = "He's hard, and he's fair, and he writes every letter home himself, which is more than most commanders bother with. I'd follow him into Andorhal, and I may yet have to." },
+        { id = "co_default", text = "He's hard, and he's fair, and he writes every letter home himself, when most commanders leave that to a clerk. I'd follow him into Andorhal, and I may yet have to." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -663,7 +663,7 @@ P:NPC {
       { id = "tp_holy_light", text = "The Light burns in me, and I mean it to burn the Scourge to ash, every last cauldron and corpse of it. That's my faith, and I've never once doubted it." },
       { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You feel it too, don't you, the fire in your hands when you face the dead? Hold on to that, because the Scourge has no answer to it." },
     },
-    scourge = { { id = "tp_scourge", text = "The Scourge breathes its plague over our farms through those wretched cauldrons, and every one of them is a personal insult. I'll see them all turned to our purpose before the year's out." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge breathes its plague over our farms through those wretched cauldrons, and I take each one as a personal insult. I'll see them all turned to our purpose before the year's out." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is the father of the plague, and I pray every night that the Light lets me see him burn. I'm not a patient woman, but I'll wait for that." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme fell to the plague before any other city of note, and the Scourge still holds it. I'd march there tomorrow if Valorfist would let me." } },
     _none = { { id = "tp_none", text = "Unless it's in a jar, I'm afraid I don't know it. Try the commander." } },
@@ -714,7 +714,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I honestly don't know, and that's what worries me, because nothing I've read says what happens when a shaman stands next to a vial of plague. I'd like to keep it that way, if you don't mind, so if you feel a spirit coming on, please step outside first." } },
+      lines = { { id = "xdsham_default", text = "I really don't know, and that's what worries me, because nothing I've read says what happens when a shaman stands next to a vial of plague. I'd like to keep it that way, if you don't mind, so if you feel a spirit coming on, please step outside first." } },
       choices = {
         { text = "Of course. Your work matters more than my curiosity.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your work could use a little chaos. Let's find out.", next = "BACK", fx = { align = { order = -1 } } },
@@ -762,7 +762,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't call any lightning in here, {class}, because half of what's on this table would explode, and the other half would explode a little later." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't call any lightning in here, {class}, because most of what's on this table would explode at once, and the rest would explode a little later." },
         { id = "h_default", key = true,
           text = "Arbington, alchemist, at your service. I make the counter agent for MacDonnell's cauldrons and the quickener, and I've done more reading about the Scholomance than anyone ever should, so please don't ask me what I've read." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("Skeletal Fragments") },
@@ -774,7 +774,7 @@ P:NPC {
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Alliance" },
           text = "You went into the Scholomance, didn't you, and you came back out, and Gandling didn't. That is precisely the opposite of how I pictured it every night for a month." },
         { id = "h_key", when = { questDone = TODO_QUEST("The Key to Scholomance") },
-          text = "You have the key, and you'll go in, won't you? I'd ask you to write and tell me what's inside, but I already know, and I'd rather not read it in your handwriting." },
+          text = "You have the key, and you'll go in, won't you? I'd ask you to write and tell me what's inside, but I already know, and I couldn't bear to read it in your handwriting." },
         { id = "h_pay", when = { metBefore = true },
           text = "Stormwind pays me in coin, mud and the occasional ghoul through the tent wall. I did the sums once, and then I stopped doing sums altogether." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -784,7 +784,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Oh, thank goodness, because every time I open one of these Scholomance texts I feel I ought to have someone holy standing behind me, and the soldiers keep laughing when I ask." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
-          text = "Oh, you're wearing a great deal of metal, {class}, so please turn very slowly, because my glassware is on both sides of you and there's no more coming from Stormwind." },
+          text = "Oh, you're wearing a lot of metal, {class}, so please turn very slowly, because my glassware is on both sides of you and there's no more coming from Stormwind." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! I don't suppose you've ever tracked anything onto Caer Darrow, {class}? I've read that the beasts won't go near the island, and I'd love to know if it's true." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've read about your people's herbalism, though only in very old books, and I'd love to compare notes with you." },
@@ -834,7 +834,7 @@ P:NPC {
         { id = "s_default", text = "It was the Barovs' keep on Caer Darrow, and they gave it to Kel'Thuzad, who made it a school for necromancers. Its door doesn't open for the likes of us, hence the key, and hence my nightmares.", fx = { learn = { "scholomance" } } },
       },
       choices = {
-        { text = "You know a great deal about it.", next = "know" },
+        { text = "You know a lot about it.", next = "know" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -900,14 +900,14 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I know a great deal more than anyone ought to about some very unpleasant subjects. These, specifically, if you can bear to hear about them." },
+      { id = "tp_knows", text = "I know far more than anyone ought to about some very unpleasant subjects. These, specifically, if you can bear to hear about them." },
     },
     background = { { id = "tp_ba", text = "I'm an alchemist who studied the wrong school for too many years, and now Stormwind finds that useful, which I suppose is a sort of compliment." } },
     advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, since it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
     scholomance = { { id = "tp_scholomance", text = "Don't go in without a key and don't go in without friends, and if you can possibly manage it, don't go in at all." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Bring me what the creatures carry, with the focuser on you, or it's just bones. Osseous, somatic and ectoplasmic sound terribly grand, but I promise you they aren't." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's necromancers learn their craft at Scholomance, and I've spent years studying how they do it. I wash my hands after every chapter and still don't feel clean." } },
-    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned and taught the Barovs to bargain away their own island. Every horror in Scholomance traces back to him, and I'd rather not say his name too often." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned and taught the Barovs to bargain away their own island. Every horror in Scholomance traces back to him, and I try not to say his name too often." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran had the finest libraries in the world, and some of what they kept would have helped us here. They're rebuilding behind closed gates, and they don't answer my letters." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme is a dead city full of Scourge and Crusaders, and both would kill me on sight. I'll study it from a very great distance, thank you." } },
     _none = { { id = "tp_none", text = "That's out of my field, I'm afraid, as most things are out here. My field is very small and rather full of bones." } },
@@ -1275,7 +1275,7 @@ P:NPC {
       },
     },
     op_silver_hand_r1 = {
-      lines = { { id = "opsh_r1", text = "That's kind of you, and heavier than you'd think. I'll try to be worth it, though some days the vows are all I have left of it." } },
+      lines = { { id = "opsh_r1", text = "That's kind of you, and heavier than it sounds. I'll try to be worth it, though some days the vows are all I have left of it." } },
       choices = { { text = "Something else, officer.", next = "BACK" } },
     },
     op_silver_hand_r2 = {
@@ -1288,7 +1288,7 @@ P:NPC {
     },
     xpt_priest = {
       big = true,
-      lines = { { id = "xpt_priest_default", text = "Rarer than it should be, because half the bold young things who come north think a sharp blade is all they need, and the plague teaches them otherwise within a day or two. The Dawn will take any soul willing to fight the Scourge, but I'll always think a little better of the ones who plan on coming back." } },
+      lines = { { id = "xpt_priest_default", text = "Rarer than it should be, because the bold young things who come north think a sharp blade is all they need, and the plague teaches them otherwise within a day or two. The Dawn will take any soul willing to fight the Scourge, but I'll always think a little better of the ones who plan on coming back." } },
       choices = {
         { text = "Every company should travel with a healer. It's only sense.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A quick blade ends the fight before healing ever matters.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1331,7 +1331,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, because the plague doesn't care which kingdom a wolf belongs to. I've seen a dwarf and a troll share a fire and argue happily all night about tracking, and neither of them reached for a knife once." },
+        { id = "xhuntcl_default", text = "Quite a lot, because the plague doesn't care which kingdom a wolf belongs to. I've seen a dwarf and a troll share a fire and argue happily all night about tracking, and neither of them reached for a knife once." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is welcome here, {class}. The beasts were the first to make peace at this table, for they never cared what colours their masters wore." },
       },
       choices = {
@@ -1393,7 +1393,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Sometimes, and I'd rather not know about it, for the Dawn's good name opens doors in Stormwind and the Undercity both. Work against the Scourge however you must, but don't wear our colours while you do the ugly parts." } },
+      lines = { { id = "xrogue_default", text = "Sometimes, and I don't care to hear about it, for the Dawn's good name opens doors in Stormwind and the Undercity both. Work against the Scourge however you must, but don't wear our colours while you do the ugly parts." } },
       choices = {
         { text = "I won't do anything I'd hide from the Dawn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some ugly work has to be done. I'll do it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1432,7 +1432,7 @@ P:NPC {
     },
     crusade = {
       lines = {
-        { id = "c_default", text = "They do, and bravely, but they'd also burn half the people in this camp for being the wrong sort of alive. I'll pray for them gladly, but I won't march with them." },
+        { id = "c_default", text = "They do, and bravely, but they'd also burn a good many people in this camp for being the wrong sort of alive. I'll pray for them gladly, but I won't march with them." },
       },
       choices = { { text = "Understood.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -1576,7 +1576,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I would, though the Crusade will tell you they've blessed it already, every beam of it, twice a day with a great deal of shouting. Their Light doesn't feel much like the one my mother prayed to, and that's half the reason I want them out." } },
+      lines = { { id = "xapriest_default", text = "I would, though the Crusade will tell you they've blessed it already, every beam of it, twice a day with a lot of shouting. Their Light doesn't feel much like the one my mother prayed to, and that's a good part of why I want them out." } },
       choices = {
         { text = "The Light is mercy, not shouting. I'll bless it gladly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Crusade at least fights the Scourge. Bless it as they do.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1602,7 +1602,7 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("A Plague Upon Thee") },
           text = "I almost feel sorry for them, sitting in a mill that's falling down around their ears. Almost, but it was never their mill to begin with." },
         { id = "h_father", when = { metBefore = true },
-          text = "Father used to say a mill's only as good as its river, and the river's still there, sick as it is. That's more than I can say for most of Northridge." },
+          text = "Father used to say a mill's only as good as its river, and the river's still there, sick as it is. Most of Northridge has nothing left at all." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! My father used to say a Dalaran wizard once fixed the mill's waterwheel with a single word, {class}, though I suspect he embellished." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1890,7 +1890,7 @@ P:NPC {
     },
     gryphons = {
       lines = {
-        { id = "gy_default", text = "Better than you'd think, though they won't land anywhere near Andorhal however nicely I ask. I give them extra feed when the wind blows from the north, and they forgive me for bringing them here." },
+        { id = "gy_default", text = "Well enough, though they won't land anywhere near Andorhal however nicely I ask. I give them extra feed when the wind blows from the north, and they forgive me for bringing them here." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },

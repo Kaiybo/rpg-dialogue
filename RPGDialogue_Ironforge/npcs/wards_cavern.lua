@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "There's a fine beast at yer heel, an' it's been well fed, I can see. It trusts ye, which is more than most pets trust the ones who keep them." },
+      text = "There's a fine beast at yer heel, an' it's been well fed, I can see. It trusts ye, an' ye cannae buy that wi' any amount o' meat." },
   },
 
   start = "hello",
@@ -269,7 +269,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, which is more than I can say for an imp." } },
+      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, and it never sulks or sets your robes alight like an imp." } },
       choices = {
         { text = "I'll learn it and fight beside my demon, not behind it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My demon does the fighting. That's what it's for.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -341,7 +341,7 @@ P:NPC {
     },
     xorig_tt2 = {
       lines = {
-        { id = "xtt2_default", text = "They stare at everyone who's short and doesn't have a beard, so don't take it to heart. Mind you, a well-thrown dagger from someone they weren't watching is the best answer to a stare I've ever found." },
+        { id = "xtt2_default", text = "They stare at everyone who's short and doesn't have a beard, so don't take it to heart. That said, a well-thrown dagger from someone they weren't watching is the best answer to a stare I've ever found." },
       },
       choices = {
         { text = "I'll remember that, Bixi.", next = "BACK", fx = { affinity = 1 } },
@@ -439,7 +439,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "It looks at what it's thinkin' about, an' a watcher can follow its eyes tae yer target before ye've drawn. Train it tae look away, an' ye'll be harder tae read than half the rogues I teach." },
+        { id = "xhuntcl_default", text = "It looks at what it's thinkin' about, an' a watcher can follow its eyes tae yer target before ye've drawn. Train it tae look away, an' ye'll be harder tae read than most o' the rogues I teach." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} is lookin' at me now, as it happens, which tells me ye've already decided I'm the danger in this room." },
       },
       choices = {
@@ -493,12 +493,12 @@ P:NPC {
         { id = "h_rogue", key = true, when = { class = "ROGUE" },
           text = "Ormyr Flinteye, an' ye've come to the right corner. I'll teach ye what ye're ready to learn an' not a lesson more, for a rogue who knows too much too soon gets careless." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage. I've nothin' tae teach ye, but I'll tell ye that half the rogues in this cavern would pay well for a mage who could keep a secret." },
+          text = "A mage. I've nothin' tae teach ye, but I'll tell ye that plenty o' rogues in this cavern would pay well for a mage who could keep a secret." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. Yer trainers aren't far from mine, an' I'd say we get along, so long as yer lot keeps their creatures out o' our corner." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye're in the wrong cavern, friend, but I'll no' throw ye out for askin' directions." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye've a lighter step than most, I'll grant ye, but yer beast gives ye away." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind can walk as a cat in the dark, I hear, which makes ye more of a rogue than half the ones I train." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind can walk as a cat in the dark, I hear, which makes ye more of a rogue than some o' the ones I train." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Ye'll no' find many friends o' the earth down here, for my lot prefer the shadows, an' shadows dinnae answer tae anybody." },
       },
       again = {
@@ -567,7 +567,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'd tell ye, but then I'd have to stop trusting ye, an' I've only just started." } },
     advice = { { id = "tp_ad", text = "Never sit wi' yer back to a door. No' even in Ironforge." } },
-    ravenholdt = { { id = "tp_ravenholdt", text = "If ye have tae ask about Ravenholdt, ye've no business there. That's all ye'll get from me, an' it's more than most." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "If ye have tae ask about Ravenholdt, ye've no business there. That's all ye'll get from me, an' it's more than I tell the guards." } },
     syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves who think they're nobles, or nobles who think they're thieves. Either way, they make the rest o' us look bad." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine place fer a rogue tae lose himself, if ye can keep yer purse away from the goblins. They're better at it than we are." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' if I had, I'd no' tell ye." } },
@@ -618,7 +618,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because a warrior posted at Menethil or Thelsamar can eat fresh from the water instead o' hard biscuit, an' a warrior who eats well fights well. Patience is the lesson, mind, an' warriors are short on it, which is why they need it most." } },
+      lines = { { id = "xwarcl_default", text = "Because a warrior posted at Menethil or Thelsamar can eat fresh from the water instead o' hard biscuit, an' a warrior who eats well fights well. Patience is the lesson, mind, an' warriors are short on it, so they need it most." } },
       choices = {
         { text = "Patience, then. I'll learn the knots.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll learn, but I'll catch them my own way.", next = "BACK", fx = { align = { order = -1 } } },
@@ -739,7 +739,7 @@ P:NPC {
     },
     beyond_nat = {
       lines = {
-        { id = "bn_default", text = "By fishin', an' a great deal of it, an' bringin' him somethin' he's no' seen before. I met him once, an' he said three words tae me in an hour, an' all three were about my knots." },
+        { id = "bn_default", text = "By fishin', an' years of it, an' bringin' him somethin' he's no' seen before. I met him once, an' he said three words tae me in an hour, an' all three were about my knots." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -823,16 +823,16 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could tell me whether it sounds right, though I'd hold on to it in case it sounds too right." },
       },
       choices = {
-        { text = "I'll test it fairly and tell you honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll test it fairly and tell you the truth.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll test it, and keep the lure if it works.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because the ones I make for the cavern's rogues get used for all sorts of things besides fishing, and I'd rather not know what. A quiet line's a useful tool, and I'm a gnome who appreciates a useful tool." } },
+      lines = { { id = "xrogue_default", text = "Because the ones I make for the cavern's rogues get used for all sorts of things besides fishing, and I make a point of not asking. A quiet line's a useful tool, and I'm a gnome who appreciates a useful tool." } },
       choices = {
-        { text = "I'll only use it for fishing, Tansy. Honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll only use it for fishing, Tansy, you have my word.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Better you don't ask what it's really for.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

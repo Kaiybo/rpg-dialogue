@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_prej1", when = { prejudiced = true }, text = "Another of the living Horde, holding your breath so you won't smell us. The front doesn't care how I smell, so state your business and breathe as you like." },
     { id = "g_prej2", when = { prejudiced = true }, text = "The Warchief sends his living soldiers to help us, and they spend their first week staring at our jaws. Are you here to fight, or to stare?" },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. You've stood on this front without wrinkling your nose, which is more than most of your kind manage, and I have noticed it." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. You've stood on this front without wrinkling your nose, which few of your kind manage, and I have noticed it." },
     { id = "g_front", text = "You stand at the Dark Lady's front. Be useful to it, or stand somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, good. The front moves forward only when people like you push it." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and the front did not wait for you. Report what you can and take up your post." },
@@ -260,10 +260,10 @@ P:NPC {
     },
     xorig_militia = {
       lines = {
-        { id = "xml_default", text = "Then you've seen this war from both ends of the same hill, which is more than most of my Deathguard can say. Southshore's militia will be full of your old neighbors. Can I trust you to fight them?" },
+        { id = "xml_default", text = "Then you've seen this war from both ends of the same hill, and few of my Deathguard can say that. Southshore's militia will be full of your old neighbors. Can I trust you to fight them?" },
       },
       choices = {
-        { text = "Every one of them. They'd not hesitate over me.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "All of them, if need be. They'd not hesitate over me.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "I'll fight their soldiers, not farmers with pitchforks.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Who do you think taught them to drill?", next = "BACK", fx = { trait = { witty = 1 } } },
       },
@@ -317,7 +317,7 @@ P:NPC {
     },
     syndicate = {
       lines = {
-        { id = "sy_default", text = "By the Dark Lady's decree, every one of them is wanted dead. Those we capture are executed. It saves us posting guards on them." },
+        { id = "sy_default", text = "By the Dark Lady's decree, all of them are wanted dead, and those we capture are executed, since it saves us posting guards on them." },
       },
       choices = {
         { text = "Where do they hide?", next = "durnholde" },
@@ -428,7 +428,7 @@ P:NPC {
     new_plague = { { id = "tp_plague", text = "The Society's work. Until it is ready, we hold the fields.", next = "plague" } },
     background = { { id = "tp_bg", text = "I died for Lordaeron, and now I take it back for the Dark Lady. The account is simple.", next = "why" } },
     advice = { { id = "tp_ad", text = "Do not linger near Southshore's walls. Their guards are bored, and bored men shoot first." } },
-    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on our minds, and she gave us a kingdom from the ruins of the old. Every field I take from Southshore is a field I lay at her feet." }, { id = "tp_sylvanas2", when = { faction = "Alliance" }, text = "You serve the living kings who left us to rot, and you ask me about my queen? She will outlast every one of them, and I will see it." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on our minds, and she gave us a kingdom from the ruins of the old. Every field I take from Southshore is a field I lay at her feet." }, { id = "tp_sylvanas2", when = { faction = "Alliance" }, text = "You serve the living kings who left us to rot, and you ask me about my queen? She will outlast them all, and I will be standing beside her to watch." } },
     scourge = { { id = "tp_scourge", text = "The Scourge are the Lich King's slaves, and we were once among them. I hate them more than any human could, because I remember what it was to be one." } },
     forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and we have chosen our own path, and we owe nothing to the living. Southshore will learn that, one field at a time." } },
     thrall = { { id = "tp_thrall", text = "The Warchief is an ally of convenience, and the Dark Lady treats with him as one. He sends his orcs to Hammerfall and Tarren Mill, and I make use of them as I can." } },
@@ -455,7 +455,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. I'd say I'm pleased, but I'm not anything, really, though you are useful." },
     { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "The Cult of the Damned, before you died? How refreshing, since most of the Dark Lady's servants pretend they've never touched a plague. I have no such pretensions, and I find I'm almost glad of the company." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been gone {away}, have you? I hadn't noticed, though I suppose I'm meant to say I had." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become considerably more dangerous since we last spoke. I find that almost interesting, which for me is a great deal." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become considerably more dangerous since we last spoke. I find that almost interesting, and I have not found anything interesting since I died." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone at the Mill was talked into something by a clever tongue, and it sounded rather like yours. I'll be reading my own labels twice while you're here." },
   },
 
@@ -498,7 +498,7 @@ P:NPC {
     },
     opn_plague_r_wrong = {
       lines = {
-        { id = "opn_plague_r_wrong", text = "An abomination! Oh, that's good, say it again more slowly. No, don't; the Executor's listening, and I'd rather not test what the Society does with traitors on Umpi." },
+        { id = "opn_plague_r_wrong", text = "An abomination! Oh, that's good, say it again more slowly. No, don't; the Executor's listening, and I've no wish to learn what the Society does with traitors on Umpi." },
       },
       choices = {
         { text = "Something else, Lydon.", next = "BACK" },
@@ -533,7 +533,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "On whatever wanders into the fields and doesn't wander out again, which is mostly rats and the occasional unlucky boar. I've never tested anything on Umpi, though, and I never will, which I suppose is the closest thing I still have to a principle." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Keep it well clear of Umpi, please, because she's survived more than any frog should, and I'd rather she didn't end her days as a snack." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Keep it well clear of Umpi, please, because she's survived more than any frog should, and it would be a waste for her to end her days as a snack." },
       },
       choices = {
         { text = "Beasts don't deserve your plague. Test it on the enemy.", next = "BACK", fx = { align = { light = 1 } } },
@@ -598,7 +598,7 @@ P:NPC {
         { id = "h_pain", tags = { "news" }, when = { questActive = TODO_QUEST("Elixir of Pain") },
           text = "A new elixir needs testing, on something living. Don't look at me like that; the frog's busy." },
         { id = "h_suffering", when = { questActive = TODO_QUEST("Elixir of Suffering") },
-          text = "Suffering, in a bottle, is harder to make than you'd think. Suffering out of a bottle is everywhere, of course." },
+          text = "Suffering, in a bottle, is harder to make than the Society's critics suppose. Suffering out of a bottle is everywhere, of course." },
         { id = "h_agony", when = { questActive = TODO_QUEST("Elixir of Agony") },
           text = "Master Apothecary Faranell in the Undercity wants this finished. When the Master wants something, one finishes it." },
         { id = "h_helbrim", when = { heardLine = "helbrim.h_default" },

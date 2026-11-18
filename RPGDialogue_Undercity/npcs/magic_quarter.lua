@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the chalk on the floor. Some of those lines are holding something in, and I'd rather they kept doing it." },
+    { id = "g_default", text = "Mind the chalk on the floor. Some of those lines are holding something in, and I prefer that they go on holding it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. That puts you ahead of a few of my students." },
     { id = "g_summons", when = { questActive = TODO_QUEST("Halgar's Summons") }, text = "Ah, the one I sent for. You came quickly, which tells me you're either eager or afraid, and both can be put to use." },
     { id = "g_binding", when = { questActive = TODO_QUEST("The Binding") }, text = "The circle is waiting, and so is the thing you're going to put in it. Don't keep either of them waiting long." },
@@ -104,7 +104,7 @@ P:NPC {
 
     learned = {
       lines = {
-        { id = "le_default", text = "Some from books that were burned in Lordaeron before the plague, and the rest from a cult that thought it was using me. The Cult of the Damned taught its servants a great deal, and was careless about whom it taught." },
+        { id = "le_default", text = "Some from books that were burned in Lordaeron before the plague, and the rest from a cult that thought it was using me. The Cult of the Damned taught its servants generously, and was careless about whom it taught." },
         { id = "le_cult", when = { origin = "forsaken_cult_remnant" }, text = "From the same people who taught you, I suspect, before the Dark Lady broke their hold on us. The Cult of the Damned was generous with its lessons and careless about whom it taught." },
       },
       choices = {
@@ -466,7 +466,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Josef Gregorian, artisan enchanter. Lavinia Crowe teaches the basics very ably, and when you've outgrown them, you come to me, and not a moment before." },
-        { id = "h_notench", when = { ["not"] = { profession = "Enchanting" } }, text = "You're no enchanter, I see. Still, you're carrying a great deal of steel that's never had a kind word said over it, and that offends me professionally." },
+        { id = "h_notench", when = { ["not"] = { profession = "Enchanting" } }, text = "You're no enchanter, I see. Still, you're carrying a good deal of steel that's never had a kind word said over it, and that offends me professionally." },
       },
       again = {
         { id = "h_again", text = "Something further? Speak; the runes can wait, as they've waited for centuries." },
@@ -498,7 +498,7 @@ P:NPC {
       },
     },
     learned_arthas = {
-      lines = { { id = "la_default", text = "I saw the bells ring and the petals fall, and I went back to my bench, because the work wasn't finished. I've thought a great deal since about that unfinished blade." } },
+      lines = { { id = "la_default", text = "I saw the bells ring and the petals fall, and I went back to my bench, because the work wasn't finished. I have had years since to think about that unfinished blade." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -531,7 +531,7 @@ P:NPC {
     },
 
     crowe = {
-      lines = { { id = "cr_default", text = "Lavinia is thorough, and patient, and I could never do what she does with beginners. I do wish she'd stop letting them handle rods with bare hands, mind you, because I can taste their fingers in the dust for weeks afterwards." } },
+      lines = { { id = "cr_default", text = "Lavinia is thorough, and patient, and I could never do what she does with beginners. I do wish she'd stop letting them handle rods with bare hands, though, because I can taste their fingers in the dust for weeks afterwards." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     everything = {

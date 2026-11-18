@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bread doesn't need much meat, dear, but meat pies do, and I'd sell twice as many pies if anyone brought me a clean haunch. Most of what's out in the wood isn't fit for a pie, though, so be choosy." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, {class}, which is more than I can say for half of Darkshire. You take good care of it, I can tell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, {class}, rounder than most of the children in Darkshire this winter. You take good care of it, I can tell." },
       },
       choices = {
         { text = "I'll bring you good game for pies, and not a scrap of rot.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -131,7 +131,7 @@ P:NPC {
         { text = "How do supplies reach you?", next = "supplies" },
         { text = "Most folk would have left Darkshire by now.", next = "stay" },
         { text = "Your candles would burn brighter with a cantrip.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "The Watch must buy a great deal of your lamp oil, Mabel.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Watch must keep you busy with lamp oil, Mabel.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need fresh game for your flour and bread trade, Mabel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I doubt you sell anything for the darker arts, Mabel.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Night Watch ever ask for blessed candles, Mabel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -150,7 +150,7 @@ P:NPC {
       },
     },
     sells_dark = {
-      lines = { { id = "sd_default", fx = { learn = { "worgen" } }, text = "Because things come out of it, dear. Worgen in the woods, the dead from Raven Hill, and worse things nobody names, and every one of them seems to prefer a dark window." } },
+      lines = { { id = "sd_default", fx = { learn = { "worgen" } }, text = "Because things come out of it, dear. Worgen in the woods, the dead from Raven Hill, and worse things nobody names, and all of them seem to like a dark window best." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     supplies = {
@@ -223,7 +223,7 @@ P:NPC {
         { id = "xmage_default", text = "Parchment, mostly, and vials, and the odd spool of silk thread for mending robes that caught on a thornbush between here and Raven Hill. There used to be a scribe in town who bought twice what you will, but he went home to Stormwind, and the trade went with him, the way it all does." },
       },
       choices = {
-        { text = "Then I'll buy honestly and keep your counting simple.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll pay what's marked and keep your counting simple.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take what I need and you can count it after.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Gunder.", next = "BACK" },
       },
@@ -259,7 +259,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Half of them, and the other half have gone into the ground, which is why I count my stock aloud, so somebody in this town is still counting something. Them that left took their trades with them." } },
+      lines = { { id = "xapriest_default", text = "Half of them, and the rest have gone into the ground, so I count my stock aloud now, just so somebody in this town is still counting something. Them that left took their trades with them." } },
       choices = {
         { text = "I'll pray for those who stayed and those who left.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayer won't bring them back, Gunder. Work will.", next = "BACK", fx = { align = { light = -1 } } },
@@ -584,7 +584,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "They did, and that's half the trouble, since every old seam round here has something hiding in it now, worgen or worse. Nobody goes down without wondering who's waiting in the dark." } },
+      lines = { { id = "xro_default", text = "They did, and that's where the trouble starts, since every old seam round here has something hiding in it now, worgen or worse. Nobody goes down without wondering who's waiting in the dark." } },
       choices = {
         { text = "I'll clear one, and do it openly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Hiding in one suits me fine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -870,11 +870,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Zipstitches have sewn in Darkshire since before it was dark, and Sheri and I don't mean to be the last." } },
     advice = { { id = "tp_ad", text = "Mend a tear the day you get it, love. In Duskwood, tomorrow you'll have three." } },
-    _none = { { id = "tp_none", text = "I haven't heard a thing about that, and believe me, I hear a great deal." } },
+    _none = { { id = "tp_none", text = "I haven't heard a thing about that, and believe me, everything said over this counter reaches me sooner or later." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Sheri and I went to the Faire in Elwynn once and came home with sore feet and new patterns. We've been copying those patterns for years, love." } },
     raven_hill = { { id = "tp_raven_hill", text = "We buried our mother at Raven Hill, before it turned. Sheri doesn't speak of it, so please don't ask her." } },
     holy_light = { { id = "tp_holy_light", text = "We sew a little circle of gold thread into every Watch cloak for the Light's protection. Whether it works I can't say, but nobody's sent a cloak back." } },
-    prestor = { { id = "tp_prestor", text = "The ladies of Stormwind wear black now, I'm told, because Lady Prestor does. We sell a great deal of black in Darkshire too, love, though for different reasons." } },
+    prestor = { { id = "tp_prestor", text = "The ladies of Stormwind wear black now, I'm told, because Lady Prestor does. We sell plenty of black in Darkshire too, love, though for different reasons." } },
   },
 }
 
@@ -942,7 +942,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not hides, but I'd buy spider silk if it's clean, and Danielle says it sews finer than anything from Stormwind. I keep the accounts, so I'll pay you fair, but don't expect me to haggle; I'll only lose." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my scissors, {class}, and I'd rather it didn't, because those are the good scissors." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my scissors, {class}, and I'll thank you to keep it off them, because those are the good scissors." },
       },
       choices = {
         { text = "I'll bring you silk at a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1019,7 +1019,7 @@ P:NPC {
     },
     window_look = {
       big = true,
-      lines = { { id = "wl_default", text = "No! Please don't. Whatever it is, it hasn't come in, and I'd rather not give it a reason. Some things in Duskwood are better left unseen." } },
+      lines = { { id = "wl_default", text = "No! Please don't. Whatever it is, it hasn't come in, and I won't give it a reason to. Some things in Duskwood are better left unseen." } },
       choices = {
         { text = "Fear only grows in the dark. Face it.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } },
         { text = "You're right. Leave it alone.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
@@ -1158,7 +1158,7 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, at last! Are you here for the dead at Raven Hill? Say you are, because this town has prayed for one of you for years." },
         { id = "h_soldier", when = { origin = "human_city_guard" }, text = "You've the bearing of a Stormwind guardsman. Tell me, then, why your lot haven't come back for us, because nobody else in this hall will." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Will you come in with me tomorrow, when I ask the council again? They might answer a man in armour, where they won't answer a farmer." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves took my sheep and the dead took my neighbour, so you'll forgive me if I ask you to start with the wolves, since those I understand." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves took my sheep and the dead took my neighbour, so start with the wolves, if you please, since those I understand." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people know about putting things back the way nature meant, I'm told, so perhaps you'll answer where the council won't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Do you know anything about the dead, then, or are you just here for the council like the rest of us?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I wait every day to ask the council about the dead. Nobody answers. Will your spirits?" },
@@ -1305,7 +1305,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Three? Then two of 'em are fakes, my friend, and I'd be happy to sell you the real one at a modest markup. You got a good eye, which I respect, though not so much that I'll lower my prices." } },
       choices = {
-        { text = "Fine. Show me the real one, honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fine, then show me the real one.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll buy all three and sell them back to you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Why set up shop out here?", next = "why" },
       },

@@ -178,7 +178,7 @@ P:NPC {
       },
       choices = {
         { text = "Who's hitting the caravans?", next = "road_raiders" },
-        { text = "Stonard seems to matter a great deal to you.", next = "road_stonard" },
+        { text = "You speak of Stonard like it's home.", next = "road_stonard" },
         { text = "Then I'll help you count.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Stonard's caravans are someone else's problem.", next = "BACK", fx = { align = { honor = -1 } } },
       },
@@ -257,7 +257,7 @@ P:NPC {
 
     camp = {
       lines = {
-        { id = "c_default", text = "Nimboya and Kin'weelay came from Orgrimmar on the Darkspear's business, Mok'thardin works enchantments by the fire, and Thulbek keeps the inn. Every one of them pulls their weight, or they'd hear about it from me." },
+        { id = "c_default", text = "Nimboya and Kin'weelay came from Orgrimmar on the Darkspear's business, Mok'thardin works enchantments by the fire, and Thulbek keeps the inn. They all pull their weight, or they hear about it from me." },
       },
       choices = {
         { text = "The trolls aren't here for your caravans.", next = "camp_trolls" },
@@ -518,7 +518,7 @@ P:NPC {
       },
       choices = {
         { text = "Your people gave a child away?", next = "yenniku_custom" },
-        { text = "The chief must trust you a great deal.", next = "yenniku_trust" },
+        { text = "The chief must trust you deeply.", next = "yenniku_trust" },
         { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } },
       },
     },
@@ -631,7 +631,7 @@ P:NPC {
 
   topics = {
     yenniku = { { id = "tp_yenniku", text = "Every day he be gone, the chief carry it. I carry it too.", next = "yenniku" } },
-    background = { { id = "tp_ba", text = "Nimboya be Darkspear, sent by the chief from Orgrimmar. That all you need to know, and more than most get." } },
+    background = { { id = "tp_ba", text = "Nimboya be Darkspear, sent by the chief from Orgrimmar. That all you need to know, mon, and more than I tell most strangers." } },
     advice = { { id = "tp_ad", text = "The Bloodscalp hunt heads, so keep yours low in the ruins along the coast. They come from above, mon, always from above." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin be the chief of the Darkspear, and he send Nimboya to find his son. Nimboya not go home without Yenniku, not ever." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear be the best of the trolls, mon, and Nimboya be proud to be one of them. We be the ones who remember what loyalty mean." } },
@@ -1028,7 +1028,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "The elements answer the shaman and the Light answers the paladin, and I have never needed to choose between them. What I wonder is what it asks of you in return, for a power that crosses death must ask a great deal." } },
+      lines = { { id = "xfpala_default", text = "The elements answer the shaman and the Light answers the paladin, and I have never needed to choose between them. What I wonder is what it asks of you in return, for a power that crosses death must ask a heavy price." } },
       choices = {
         { text = "It asks that I serve, and I serve gladly.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "It asks nothing. I take what it gives.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1048,7 +1048,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, which is why it watches the trees more closely than you do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, for it watches the trees more closely than you do." },
       },
       choices = {
         { text = "Clean kills only. The beasts deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1180,7 +1180,7 @@ P:NPC {
     },
     ench_claim = {
       lines = {
-        { id = "ec_default", text = "Perhaps all of them, perhaps none. The water doesn't seem to mind who drinks it, which is more than I can say for the scholars who argue about it." },
+        { id = "ec_default", text = "Perhaps all of them, perhaps none. The water doesn't seem to mind who drinks it, and I have learned not to mind either." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

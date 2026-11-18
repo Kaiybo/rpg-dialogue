@@ -164,7 +164,7 @@ P:NPC {
     },
     tom_alive = {
       lines = {
-        { id = "ta_default", text = "Don't you say that. If there's any of him left in there, then he's up on that hill brewing plague for the Banshee Queen, and I'd rather he was dead and done with." },
+        { id = "ta_default", text = "Don't you say that. If there's any of him left in there, then he's up on that hill brewing plague for the Banshee Queen, and better he was dead and done with." },
         { id = "ta_millfriend", when = { npcFlagBefore = "hm_millfriend" },
           text = "There it is again, the soft word for the Mill. I knew you'd say it, and I wish to the Light I knew you were wrong." },
       },
@@ -224,7 +224,7 @@ P:NPC {
         { id = "xli_default", text = "That's what I want to hear. Every grey thing up on that hill wants laying in the ground, and the sooner it's done by someone who knows the right words, the better I'll sleep." },
       },
       choices = {
-        { text = "Every one of them, Hal. That's the Light's work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "All of them, Hal. That's the Light's work.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some might be saved, not burned. I'd ask first.", next = "xlight_ask", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -273,10 +273,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Thread, cloth, dye and flux, all of it honestly priced. Look as long as you like; the dead are patient shopkeepers." },
+    { id = "g_default", text = "Thread, cloth, dye and flux, all of it fairly priced. Look as long as you like; the dead are patient shopkeepers." },
     { id = "g_orc", when = { race = "Orc" }, text = "An orc. Of course. What is it you need, and how quickly can I find it for you?" },
     { id = "g_dead", when = { race = "Scourge" }, text = "Come in, cousin. It's good to deal with someone who doesn't flinch at my hands." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and I remember what you bought, which is more than most merchants can say. The dead have good memories; it's half our trouble." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and I remember what you bought down to the spool. The dead have good memories; it's a good deal of our trouble." },
     { id = "g_agreed", when = { npcFlagBefore = "cj_agreed", race = "Orc" }, priority = 10,
       text = "The orc who agreed with me about orcs. You're a strange sort, and I find I don't mind your custom as much as I should." },
     { id = "g_softened", when = { npcFlagBefore = "cj_softened" }, priority = 10,
@@ -291,7 +291,7 @@ P:NPC {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Mind the beams, tauren. Your kind never burned anything of mine, so you'll get my best manners, such as they are." },
     { id = "n_militia", cat = "origin", when = { origin = "forsaken_hillsbrad_militia" },
-      text = "You stood the militia line here, didn't you, when the dead came over the hill? So did half the town, and now we sell each other bandages." },
+      text = "You stood the militia line here, didn't you, when the dead came over the hill? So did I, and the cooper, and the miller's boys, and now we sell each other bandages." },
   },
 
   start = "hello",

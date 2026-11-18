@@ -64,7 +64,7 @@ P:NPC {
     },
     saddles_miss = {
       big = true,
-      lines = { { id = "sm_default", text = "I miss the horses, which I didn't expect. The knights I don't miss at all, since half of them rode out to fight the Scourge on my saddles and came back as the Scourge, and the other half never paid." } },
+      lines = { { id = "sm_default", text = "I miss the horses, which I didn't expect. The knights I don't miss at all, since plenty of them rode out against the Scourge on my saddles and came back as the Scourge, and the rest never paid." } },
       choices = {
         { text = "The knights did their duty. Don't mock them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Unpaid bills outlive kingdoms. You're owed.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -160,7 +160,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "wy_default", text = "Because a bow doesn't care if your hands are cold, and a dead archer never shakes. Half the Deathguard on the walls can put an arrow through a worgen's eye at sixty paces, and not one of them could do it alive." } },
+      lines = { { id = "wy_default", text = "Because a bow doesn't care if your hands are cold, and a dead archer never shakes. There are Deathguard on these walls who can put an arrow through a worgen's eye at sixty paces, and not one of them could do it alive." } },
       choices = {
         { text = "That's a grim kind of advantage.", next = "why_grim" },
         { text = "Something else.", next = "BACK" },
@@ -299,7 +299,7 @@ P:NPC {
       },
     },
     vials = {
-      lines = { { id = "v_default", text = "Renferrel says it's samples, from the forest, for the war against the Scourge. Mind you, a sample in my day was a thimbleful, and he takes them by the crate." } },
+      lines = { { id = "v_default", text = "Renferrel says it's samples, from the forest, for the war against the Scourge. A sample in my day was a thimbleful, and he takes them by the crate." } },
       choices = {
         { text = "What do you think he's making?", next = "vials_what" },
         { text = "Something else.", next = "BACK" },

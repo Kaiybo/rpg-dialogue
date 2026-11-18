@@ -66,7 +66,7 @@ P:NPC {
     xmage = {
       lines = {
         { id = "xma_default", text = "It would, and it'd bring the roof down on the silver and you both. Use yer fire on the kobolds and not the timbers, and mind the candles on their heads, for they're daft enough to catch alight on their own." },
-        { id = "xma_gnome", when = { race = "Gnome" }, text = "I heard how Gnomeregan got cleared, and I'd rather my mine wasn't cleared the same way. Burn the kobolds by all means, but leave the timbers standin', for I want that silver back." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "I heard how Gnomeregan got cleared, an' I'll no' have my mine cleared the same way. Burn the kobolds by all means, but leave the timbers standin', for I want that silver back." },
       },
       choices = {
         { text = "I'll burn only what needs burning, Mountaineer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -236,7 +236,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Aye, a great deal, for the troggs swarm up the slopes at night an' my rifles cannae find them all in the dark. A mage who could light the hillside would let my lads pick them off before they reach the walls." } },
+      lines = { { id = "xmage_default", text = "Aye, plenty, for the troggs swarm up the slopes at night an' my rifles cannae find them all in the dark. A mage who could light the hillside would let my lads pick them off before they reach the walls." } },
       choices = {
         { text = "I'll light the slopes for your riflemen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather burn them myself than light targets.", next = "BACK", fx = { align = { order = -1 } } },
@@ -322,7 +322,7 @@ P:NPC {
           text = "The hills are quieter since ye went through them, and my lads are sleepin' sound for once." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, for I need a shield on the south wall more than I need another letter from Ironforge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? A rifle on the tower and a beast at the foot of it would thin the troggs nicely." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the south tower! Bless the wall, if ye've a mind, for the troggs have scratched half the mortar out." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the south tower! Bless the wall, if ye've a mind, for the troggs have clawed the mortar out o' every course they can reach." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Stand on the south wall a while, for the troggs dinnae like shine, an' I've a mind tae see them squint." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my tower! The troggs are swarming the hills again, and if you can talk to bears, tell them to eat a few." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Good; the troggs in these hills are thick as stone in the head an' the hide both, an' fire gets through either." },
@@ -403,7 +403,7 @@ P:NPC {
 
   greetings = {
     { id = "g_pass", text = "Halt, and let me see yer face. Right, ye're no' an orc, so come in." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Still in one piece, I see, which is more than I can say for the last runner." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Still in one piece, I see; the last runner came back missing two fingers and his satchel." },
   },
 
   start = "hello",
@@ -737,7 +737,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } } },
     },
     gnoarn = {
-      lines = { { id = "g_default", text = "My colleague in Tinker Town, and he's convinced I'll blow myself up one day. He's very nearly right, which is why I don't tell him things." } },
+      lines = { { id = "g_default", text = "My colleague in Tinker Town, and he's convinced I'll blow myself up one day. He's very nearly right, about seventy percent by my own figures, so I've stopped telling him things." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnome = {

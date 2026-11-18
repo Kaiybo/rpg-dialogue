@@ -81,7 +81,7 @@ P:NPC {
     },
     bond = {
       lines = {
-        { id = "bo_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A beast will forgive you a great deal, but not being used." },
+        { id = "bo_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A beast will forgive you hunger and cold and long roads, but not being used." },
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { trait = { kind = 1 } } },

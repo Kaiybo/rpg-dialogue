@@ -120,7 +120,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Tirisfal Glades, pal, the Undercity line, leaving from the top of the tower whenever the wind and the Cartel agree, which is more often than you'd think!" },
+    { id = "g_default", text = "Tirisfal Glades, pal, the Undercity line, leaving from the top of the tower whenever the wind and the Cartel agree, which is about twice a day if the gas bags behave!" },
     { id = "g_back", when = { metBefore = true }, text = "My favorite repeat customer! Well, top five, but the list is short and you're on it." },
   },
 
@@ -216,7 +216,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Blades, axes and maces, and every one of them will hold an edge through a troll's skull. Look, but do not touch the edges." },
+    { id = "g_default", text = "Blades, axes and maces, and each will hold an edge through a troll's skull. Look, but do not touch the edges." },
     { id = "g_back", when = { metBefore = true }, text = "Back, and still in one piece, so the steel I sold you did its work." },
   },
 
@@ -347,7 +347,7 @@ P:NPC {
     },
 
     strange = {
-      lines = { { id = "sr_default", text = "A basilisk, from up by the crystal mines, and the meat glittered in the pot like it was full of little stones. It tasted of nothing at all, and Kin'weelay would not touch it, which tells you something." } },
+      lines = { { id = "sr_default", text = "A basilisk, from up by the crystal mines, and the meat glittered in the pot like it was full of little stones. It tasted of nothing at all, and even Kin'weelay, who eats anything, would not touch it." } },
       choices = {
         { text = "I'll take the raptor, then.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -407,7 +407,7 @@ P:NPC {
     },
 
     damp = {
-      lines = { { id = "dm_default", text = "Salt in the bottom of every crate, oilcloth over the top, and nothing ever touches the ground, which is why my stall stands on stones. A grunt laughed at my stones once, and then his tent flooded in the rains, and he has not laughed since." } },
+      lines = { { id = "dm_default", text = "Salt in the bottom of every crate, oilcloth over the top, and nothing ever touches the ground, and so my stall stands on stones. A grunt laughed at my stones once, and then his tent flooded in the rains, and he has not laughed since." } },
       choices = {
         { text = "That's careful work.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },

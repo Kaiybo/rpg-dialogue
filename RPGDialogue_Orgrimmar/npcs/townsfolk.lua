@@ -46,7 +46,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, though most come in with packs full of blunted blades and broken shields they can't bear to throw away. I keep them safe all the same, because a grunt's first axe means something to him, even when it's bent." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, though most come in with packs full of blunted blades and broken shields they can't bear to throw away. I keep them safe all the same, because a grunt's first axe means something to him, even when it's bent." } },
       choices = {
         { text = "A warrior honours his old gear. I keep mine.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Sentiment is dead weight. I'd sell the lot.", next = "BACK", fx = { align = { order = -1 } } },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde. My father owned a chain and a bowl; I like keeping what orcs own now." },
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, which is more than most of my depositors do with their gold." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, and my depositors never give anything back to anyone." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the vaults. Your kind carry less than anyone who walks in here, so I'll wager you've come for gold and not to leave any." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with full packs, I see. Leave the spare axes with me, because nobody ever won a fight carrying three of them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you'll have hides and teeth to stow, I expect. They go in the back vault, where the smell won't trouble anyone." },
@@ -151,7 +151,7 @@ P:NPC {
       },
     },
     vault = {
-      lines = { { id = "v_default", text = "Couriers, ledgers and a great deal of trust between bankers who've never met. The goblins worked out most of it, and they'd want me to add that they charge for the idea." } },
+      lines = { { id = "v_default", text = "Couriers, ledgers and a lot of trust between bankers who've never met. The goblins worked out most of it, and they'd want me to add that they charge for the idea." } },
       choices = {
         { text = "I wouldn't trust goblins with that much.", next = "vault_goblins" },
         { text = "Something else.", next = "BACK" },
@@ -162,7 +162,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     keep = {
-      lines = { { id = "k_default", text = "Less gold than you'd think. Mostly it's things they can't carry and won't sell: a father's axe, a clan banner from before the camps, letters from a cousin at Hammerfall." } },
+      lines = { { id = "k_default", text = "Less gold than you'd guess. Mostly it's things they can't carry and won't sell: a father's axe, a clan banner from before the camps, letters from a cousin at Hammerfall." } },
       choices = {
         { text = "Keepsakes are worth guarding.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sentiment is dead weight in a war.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -184,7 +184,7 @@ P:NPC {
       },
     },
     rob_after = {
-      lines = { { id = "ra_default", text = "He spent a season hauling stone for the city walls. He hauls crates in the Drag now, and honestly, I hear, which is more than most rogues can say." } },
+      lines = { { id = "ra_default", text = "He spent a season hauling stone for the city walls. He hauls crates in the Drag now, and I hear he hasn't lifted a single purse since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -267,7 +267,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "If they do, I don't know about it, and I'd rather not know, because the deposit is the same either way. But the Warchief's guards read the lists, so if you're thinking of selling something with somebody else's name scratched on it, you'd best scratch harder." },
+        { id = "xrogue_default", text = "If they do, I don't ask, because the deposit is the same either way. But the Warchief's guards read the lists, so if you're thinking of selling something with somebody else's name scratched on it, you'd best scratch harder." },
       },
       choices = {
         { text = "Then I'll scratch harder. Good advice.", next = "BACK", fx = { align = { order = -1 } } },
@@ -432,7 +432,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Slowly, and with a great deal of raw meat. A wind rider is part lion and part bat and all temper, so you earn its trust the way a hunter earns a beast's, by feeding it and never once lying to it." },
+        { id = "xhuntcl_default", text = "Slowly, and with buckets of raw meat. A wind rider is part lion and part bat and all temper, so you earn its trust the way a hunter earns a beast's, by feeding it and never once lying to it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close on the roost. The wind riders have never eaten a hunter's beast, but they look at them sometimes, and I don't like the look." },
       },
       choices = {
@@ -704,14 +704,14 @@ P:NPC {
     },
     clans_better = {
       big = true,
-      lines = { { id = "cb_default", text = "Freer, perhaps, and also always at each other's throats. The Warchief's Horde is the first that chose to be one, and I'd rather record a hundred small guilds who chose it than one great clan that was forced." } },
+      lines = { { id = "cb_default", text = "Freer, perhaps, and also always at each other's throats. The Warchief's Horde is the first that chose to be one, and a hundred small guilds who chose it fill my book more proudly than one great clan that was forced." } },
       choices = {
         { text = "Old clan names won't hold this city together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A people without their clans has lost something.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     peoples_op = {
-      lines = { { id = "po_default", text = "That's the question my book answers every day. Cairne's tauren came to us with a debt and a war against the centaur, the Darkspear came with nothing but Vol'jin's oath, and now both send names to be written beside ours, so tell me honestly what you make of them." } },
+      lines = { { id = "po_default", text = "That's the question my book answers every day. Cairne's tauren came to us with a debt and a war against the centaur, the Darkspear came with nothing but Vol'jin's oath, and now both send names to be written beside ours, so tell me what you make of them." } },
       choices = {
         { text = "Every people that chose the Horde makes it stronger.", next = "po_loyal", fx = { affinity = 1, align = { order = 1 }, opinion = { horde = "loyal" } } },
         { text = "This is an orc's city. The others are guests.", next = "po_orcs", fx = { affinity = -1, align = { order = -1 }, opinion = { horde = "orcs_first" } } },
@@ -871,7 +871,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Durotar's thin on game and thick on teeth, which tells you something. Go south past Razor Hill for the boar and the scorpids, and if you want a real fight, the raptors of the Barrens will give you one before you've walked a day past the Southfury." },
+        { id = "xhuntcl_default", text = "Durotar's thin on game and thick on teeth, so a hunter earns every meal here. Go south past Razor Hill for the boar and the scorpids, and if you want a real fight, the raptors of the Barrens will give you one before you've walked a day past the Southfury." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours stands straighter than half my recruits. If it ever wants to join the guard, it'll have to learn to salute." },
       },
       choices = {
@@ -882,7 +882,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Every day, though he'd say he never left it. Drek'Thar taught him among the Frostwolves, and he carries the Doomhammer that Orgrim gave him, and I've seen the sky darken when he's angry, which is why I'd rather he wasn't." } },
+      lines = { { id = "xhsham_default", text = "Every day, though he'd say he never left it. Drek'Thar taught him among the Frostwolves, and he carries the Doomhammer that Orgrim gave him, and I've seen the sky darken when he's angry, so I do my best to keep him pleased." } },
       choices = {
         { text = "Then I'll hold myself to the Warchief's standard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Warchief walks his path, and I'll walk my own.", next = "BACK", fx = { align = { order = -1 } } },
@@ -986,7 +986,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hu_respect = {
-      lines = { { id = "hur_default", text = "Taretha Foxton, aye, and the Warchief still says her name. I've no love for humans, but I'll grant you that one." } },
+      lines = { { id = "hur_default", text = "Taretha Foxton, aye, and the Warchief still says her name. I've no love for humans, but that one earned her name." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hu_danger = {
@@ -1022,7 +1022,7 @@ P:NPC {
   },
 
   topics = {
-    burning_blade = { { id = "tp_blade", text = "Traitors who miss the demons. I'd hang every one of them from the city walls, if the Warchief would let me." } },
+    burning_blade = { { id = "tp_blade", text = "Traitors who miss the demons. I'd hang them all from the city walls, if the Warchief would let me." } },
     wailing_caverns = { { id = "tp_caverns", text = "A druid's den in the Barrens with something sick inside it. That's the tauren's mess, but our young ones go and help." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's word is law in this city, and I'm the one who makes sure it's heard. If you've got a problem with that, you've got a problem with me." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are Horde, the Warchief says, and so they're Horde. I don't have to like it, and I don't, but I'll follow orders." } },
@@ -1050,7 +1050,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Mind the pups; they nip, but they mean it kindly, the way a good orc does." },
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}! Come and meet the new litter. There's a grey one that looks at you like an old chieftain." },
-    { id = "g_back", when = { metBefore = true }, text = "Back to visit the wolves, are you? They remember your smell, which is more than I can say for most visitors." },
+    { id = "g_back", when = { metBefore = true }, text = "Back to visit the wolves, are you? They remember your smell, and a wolf doesn't bother remembering just anyone." },
   },
 
   start = "hello",
@@ -1075,7 +1075,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "They do, and better than half the riders, though I'd not say that in the Valley of Honor. A war wolf learns to snap at the legs of anything that charges and keep its rider in the saddle, so treat yours like a shield-brother and it'll carry you out of fights you had no business walking into." } },
+      lines = { { id = "xwarcl_default", text = "They do, and better than many riders, though I'd not say that in the Valley of Honor. A war wolf learns to snap at the legs of anything that charges and keep its rider in the saddle, so treat yours like a shield-brother and it'll carry you out of fights you had no business walking into." } },
       choices = {
         { text = "A wolf is a shield-brother. I'll treat mine that way.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A wolf is a mount. I'll ride it till it drops.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1084,7 +1084,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Every one, and a stubborn one at that. The shamans say a wolf's spirit is half the beast and half the wind on the plains, and when one of mine dies I sit with it until the spirit has gone, because a wolf should never run alone." } },
+      lines = { { id = "xhsham_default", text = "Every one, and a stubborn one at that. The shamans say a wolf's spirit is part beast and part wind off the plains of Nagrand, and when one of mine dies I sit with it until the spirit has gone, because a wolf should never run alone." } },
       choices = {
         { text = "A wolf that served the Horde deserves that kindness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A wolf is a mount, and mourning it seems a waste.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1136,7 +1136,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin wants to see the wolves. They'll smell the grave on you, and they'll smell that light too, so stand still and let them decide." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The wolves don't care what you pray to, but they'll know if you're afraid of them, so don't be." },
-        { id = "h_default", key = true, text = "Ogunaro Wolfrunner, kennel master. I raise the wolves the Horde rides to war, as our clans did on Draenor, and every one of them was raised by my hand. Have you come to look, or have you come to buy?" },
+        { id = "h_default", key = true, text = "Ogunaro Wolfrunner, kennel master. I raise the wolves the Horde rides to war, as our clans did on Draenor, and each pup in these kennels was raised by my hand. Have you come to look, or have you come to buy?" },
         { id = "h_orc", when = { race = "Orc", minLevel = 40 }, text = "You're ready for one of my wolves, and they can tell. Come and choose, though the truth is the wolf will choose you." },
         { id = "h_friend", when = { ["not"] = { race = "Orc" }, reputation = { faction = "Orgrimmar", min = "exalted" } },
           text = "The whole city speaks well of you, so I'll sell you a wolf, whoever your people are. Come and choose one." },
@@ -1268,7 +1268,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Closer than most hunters think. You read the water the way you read tracks, you wait where the prey wants to be, and you never take more than you'll eat, because the river remembers greed the same way the plains do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Go on, then; it's earned one more than most of the grunts who walk past." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Go on, then; it's earned one more than the grunts who try to beg them off me." },
       },
       choices = {
         { text = "Take only what you'll eat. That's the rule I live by.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1335,7 +1335,7 @@ P:NPC {
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, here at the river. Sit down and be quiet a while, because you'll know better than most that the water gives more to those who wait for it." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with a fishing question, I hope? More come to me after a long patrol than you'd think, wanting something to do with their hands that isn't killing." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with a fishing question, I hope? Plenty come to me after a long patrol, wanting something to do with their hands that isn't killing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll know about patience already, so you'll make a better fisher than any warrior, though I'll not tell them I said it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock wants to fish? Good, because a quiet river is the best place to forget whatever you've been listening to." },
       },
@@ -1466,7 +1466,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "It does, and I'll not pretend otherwise, because Durotar heals slower than any land I know. But Orgrimmar's walls had to come from somewhere, and I'd rather the Horde dug its own stone than begged it from anyone." } },
+      lines = { { id = "xdruid_default", text = "It does, and I'll not pretend otherwise, because Durotar heals slower than any land I know. But Orgrimmar's walls had to come from somewhere, and better the Horde digs its own stone than begs it from anyone." } },
       choices = {
         { text = "The Horde needs walls. The hills can bear the cost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then dig less, and let the hills heal before the city grows.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1695,7 +1695,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "A dagger, or a cap for your staff, and I'd make it honest, though you'll swing it less than you think. A weapon's only honest if the smith would carry it into battle, and I'd carry anything I made for you, so mind you do the same." },
+        { id = "xmage_default", text = "A dagger, or a cap for your staff, and I'd make it honest, though you'll swing it less than you think. A weapon's only honest if the smith would carry it into battle, and I'd carry anything I made for you, so see that you do the same." },
       },
       choices = {
         { text = "I'll carry it with pride, Saru.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1896,7 +1896,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I've always wanted to ask one of you how the shapeshifting works, because I tried it once with a stolen gnomish gadget and spent most of a day as a chicken." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You know what's better than a big axe? A big axe with a bomb on the end of it, and I've been working on that design for months." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Ever thought about a scope on that gun? I can make you hit a plainstrider from so far away it'll never know you were there." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Don't touch anything on the bench, friend, because half of it explodes and the other half isn't paid for." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Don't touch anything on the bench, friend, because some of it explodes and none of it is paid for." },
       },
       again = { { id = "h_again", text = "Got another question, chum? Ask quick, because somethin's smoking in the back and I've only got the one fire bucket." } },
       choices = {

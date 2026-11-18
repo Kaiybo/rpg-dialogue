@@ -89,7 +89,7 @@ P:NPC {
       },
     },
     past_foundry = {
-      lines = { { id = "paf_default", text = "Hard? It was an education, chum, and the only one I ever got without paying for it, which is why I charge for mine now. The old smith there said a goblin who can't hear the iron should go into banking, and I've been listening to iron ever since." } },
+      lines = { { id = "paf_default", text = "Hard? It was an education, chum, and the only one I ever got without paying for it, so naturally I charge for mine now. The old smith there said a goblin who can't hear the iron should go into banking, and I've been listening to iron ever since." } },
       choices = {
         { text = "What does iron sound like when it's wrong?", next = "past_ear" },
         { text = "And then you came south?", next = "past_leave" },
@@ -420,7 +420,7 @@ P:NPC {
       },
     },
     past_looking = {
-      lines = { { id = "pal_default", text = "Not once, which tells you how well Stormwind remembers the men it sends into this jungle. The Baron asked my name the day I arrived and what I could make, and the second question interested him a great deal more than the first." } },
+      lines = { { id = "pal_default", text = "Not once, and that's how well Stormwind remembers the men it sends into this jungle. The Baron asked my name the day I arrived and what I could make, and the second question interested him far more than the first." } },
       choices = {
         { text = "Stormwind's loss, then.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -445,7 +445,7 @@ P:NPC {
     },
     fit_slow = {
       big = true,
-      lines = { { id = "fs_default", text = "It is slow, and the goblins hate it, because every customer I keep waiting might walk to Zarena or Kizz instead. But a man who buys his armor in a hurry gets buried in a hurry, and I'd rather lose the sale." } },
+      lines = { { id = "fs_default", text = "It is slow, and the goblins hate it, because every customer I keep waiting might walk to Zarena or Kizz instead. But a man who buys his armor in a hurry gets buried in a hurry, so I'll lose the sale before I rush a fitting." } },
       choices = {
         { text = "Your standard matters more than any sale. Keep it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A lost sale is a lost sale. Work faster.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -470,7 +470,7 @@ P:NPC {
       },
     },
     hurklor_talk = {
-      lines = { { id = "hut_default", text = "When there's something worth saying, which is more than I can say for most of this town. Ask him about his crab if you want to see him smile, but don't bring up the Bruisers, because that's a sore spot." } },
+      lines = { { id = "hut_default", text = "When there's something worth saying, and in this town that makes him a rare bird. Ask him about his crab if you want to see him smile, but don't bring up the Bruisers, because that's a sore spot." } },
       choices = {
         { text = "Why are the Bruisers a sore spot?", next = "hurklor_bruisers" },
         { text = "I'll ask him about the crab.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -541,7 +541,7 @@ P:NPC {
       },
     },
     xmail = {
-      lines = { { id = "xm_default", text = "Mail breathes better than plate, which counts for a great deal in this jungle, but it rusts like a guilty conscience and the links pinch where you'd least want them to. Oil it every night and wear a good gambeson under it, and it'll serve you to the end of the season." } },
+      lines = { { id = "xm_default", text = "Mail breathes better than plate, which counts for plenty in this steam, but it rusts like a guilty conscience and the links pinch where you'd least want them to. Oil it every night and wear a good gambeson under it, and it'll serve you to the end of the season." } },
       choices = {
         { text = "I'll oil it every night.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -567,7 +567,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know plate and mail, I know the jungle, and I know what Kurzen's column looked like before it went bad. Ask me about any of it." } },
     background = { { id = "tp_bg", text = "I was armorer to Kurzen's column, and I walked away from it, and I've been fitting armor in Booty Bay ever since.", next = "past" } },
     advice = { { id = "tp_ad", text = "Linen under your plate, never wool, and have it fitted by somebody who isn't in a hurry." } },
-    kurzen = { { id = "tp_kurzen", text = "I fitted half the men in that compound, and I'd rather not think about who's wearing my work up there now." } },
+    kurzen = { { id = "tp_kurzen", text = "I fitted most of the men in that compound with their mail, and some nights I wonder whose shoulders it hangs on now." } },
     _none = { { id = "tp_none", text = "That's not armor and it's not the jungle, soldier, so I've nothing useful to tell you." } },
   },
 }
@@ -644,7 +644,7 @@ P:NPC {
       },
     },
     rivet_found = {
-      lines = { { id = "rif_default", text = "Under the pier, two years ago, when the tide went out and left him on the stones without a shell. A gull wanted him, so I picked him up first, and now he sleeps in a helm that cost more than most sailors' boots." } },
+      lines = { { id = "rif_default", text = "Under the pier, two years ago, when the tide went out and left him on the stones without a shell. A gull wanted him, so I picked him up first, and now he sleeps in a helm that cost more than a sailor's whole kit." } },
       choices = {
         { text = "You saved him from the gull. That was kind.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "A crab in a helm. He's living well.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -780,7 +780,7 @@ P:NPC {
   notices = { "craft", "kit", "class" },
 
   impression = {
-    first = "Grarnik Goodstitch is the eldest of Booty Bay's Goodstitch clan and dresses like it, in a waistcoat with more buttons than it needs. Every compliment Grarnik paid me came with a price attached, and I think every one of them was sincere.",
+    first = "Grarnik Goodstitch is the eldest of Booty Bay's Goodstitch clan and dresses like it, in a waistcoat with more buttons than it needs. Every compliment Grarnik paid me came with a price attached, and I think he meant each one.",
     third = "{name} met Grarnik Goodstitch, head of the Goodstitch family, who teaches tailoring at A Tailor to Cities and dresses the Baron himself.",
   },
 
@@ -877,7 +877,7 @@ P:NPC {
       },
     },
     xizk = {
-      lines = { { id = "xz_default", text = "Xizk sells the thread and cloth along the boardwalk and fusses over every bolt like it's a newborn, which is exactly what you want in a supplier. Every tailor I train buys from Xizk, and every one of them gets the lecture about mold for nothing." } },
+      lines = { { id = "xz_default", text = "Xizk sells the thread and cloth along the boardwalk and fusses over every bolt like it's a newborn, which is exactly what you want in a supplier. Every tailor I train buys from Xizk, and gets the lecture about mold for nothing." } },
       choices = {
         { text = "I think I've heard that lecture.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Someone else.", next = "BACK" },
@@ -923,7 +923,7 @@ P:NPC {
 
     -- Customers
     customers = {
-      lines = { { id = "cu_default", text = "The Baron, first and always, because Revilgaz wears a new coat for every ship that docks and every one of them comes out of my back room. After the Baron come the captains, and after the captains, whoever's got coin and no taste, which is most of the town." } },
+      lines = { { id = "cu_default", text = "The Baron, first and always, because Revilgaz wears a new coat for every ship that docks and each one comes out of my back room. After the Baron come the captains, and after the captains, whoever's got coin and no taste, which is most of the town." } },
       choices = {
         { text = "You dress Baron Revilgaz himself?", next = "baron" },
         { text = "Pirates must buy from you too.", next = "pirates" },
@@ -1178,14 +1178,14 @@ P:NPC {
       },
     },
     xhunt = {
-      lines = { { id = "xh_default", text = "Your hides? I'd love 'em, pal, but let me see your skinning first, because half the hunters who come down from Nesingwary's camp hack at a pelt like it owes them money. A clean cut's worth double, and a hole in the middle's worth nothing but a sad face." } },
+      lines = { { id = "xh_default", text = "Your hides? I'd love 'em, pal, but let me see your skinning first, because the hunters who come down from Nesingwary's camp mostly hack at a pelt like it owes them money. A clean cut's worth double, and a hole in the middle's worth nothing but a sad face." } },
       choices = {
         { text = "My cuts are clean. You'll see.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xdruid = {
-      lines = { { id = "xd_default", text = "Trouble me? Pal, they're already dead by the time they get to me, and I'd rather make something useful of 'em than leave the profit to the flies. I'll grant it's an odd thing to say to somebody who turns into a cat." } },
+      lines = { { id = "xd_default", text = "Trouble me? Pal, they're already dead by the time they get to me, so I might as well make somethin' useful of 'em before the flies take the profit. It's an odd thing to say to somebody who turns into a cat." } },
       choices = {
         { text = "It's odd, but at least it's honest.", next = "BACK", fx = { affinity = 1 } },
         { text = "Please don't talk about cats right now.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -1339,7 +1339,7 @@ P:NPC {
       },
     },
     oox_crash = {
-      lines = { { id = "oxc_default", text = "The navigation matrix is perfect and the propulsion is perfect, but the fuel was bought on this very boardwalk, which explains a great deal. Gnaz Blunderflame swears it was the best grade in the shop, and I'm inclined to believe it, because Gnaz lost both eyebrows proving the point." } },
+      lines = { { id = "oxc_default", text = "The navigation matrix is perfect and the propulsion is perfect, but the fuel was bought on this very boardwalk, which accounts for roughly ninety percent of the anomaly. Gnaz Blunderflame swears it was the best grade in the shop, and I'm inclined to believe it, because Gnaz lost both eyebrows proving the point." } },
       choices = {
         { text = "Perhaps buy your fuel somewhere else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1393,12 +1393,12 @@ P:NPC {
       lines = { { id = "kg_default", text = "Overspark says that, does he? Of course he does, because if it wasn't me then it was somebody on his own council, and Overspark would rather lose an arm than admit his council can make a mistake. Did he look well, at least?" } },
       choices = {
         { text = "He looked tired. Gnomeregan weighs on him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "gnomeregan" } } },
-        { text = "He looked rather smug, honestly.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "He looked rather smug, if you ask me.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
       },
     },
     xeng = {
       big = true,
-      lines = { { id = "xe_default", text = "Gnomish, obviously, because a gnomish device does precisely what it was designed to do, while a goblin device does what it was designed to do and then explodes. Mind you, the goblin version is cheaper and gets there faster, and I've never once seen a goblin cry over a failed prototype." } },
+      lines = { { id = "xe_default", text = "Gnomish, obviously, because a gnomish device does precisely what it was designed to do, while a goblin device does what it was designed to do and then explodes. In fairness, the goblin version is cheaper and gets there faster, and I've never once seen a goblin cry over a failed prototype." } },
       choices = {
         { text = "Precision first. Gnomish engineering is the true craft.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Cheap and fast wins. The goblins have it right.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1439,7 +1439,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know gnomish engineering better than anyone who got out of Gnomeregan, whatever Tinker Town says, and I know to within a hundred yards where three of my robots crashed." } },
     background = { { id = "tp_bg", text = "Tinker Town engineer, inventor of the Crowd Pummeler, wrongly banished, now teaching in Booty Bay among the goblins.", next = "exile" } },
     advice = { { id = "tp_ad", text = "Never buy fuel from a goblin with no eyebrows, my friend, because that's a goblin who knows exactly how good it is." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "My Pummeler walks those halls still, and I'd rather not think about who's in there with it." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "My Pummeler walks those halls still, and I try very hard not to calculate who's still down there with it." } },
     steamwheedle = { { id = "tp_steam", text = "The Cartel lets me work, which is more than my own council ever did, and they only take a modest share of everything." } },
     _none = { { id = "tp_none", text = "Not my field, my friend, and if it isn't engineering, I'm not convinced it's anybody's." } },
   },

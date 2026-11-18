@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "A gnome, on Stonetalon Peak. Forgive me if I'm short with you; I've spent a year watching machines chew through the valleys below, and I've forgotten how to like the people who build them." },
+    { id = "g_prej", when = { prejudiced = true }, text = "A gnome, on Stonetalon Peak. I'll be short with you, I'm afraid; I've spent a year watching machines chew through the valleys below, and I've forgotten how to like the people who build them." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, little friend, and I'm not good at them. You're not the Venture Company, and I shouldn't have looked at you as if you were." },
     { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound, and Elune keep the wind steady under you." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the peak again. The birds know your scent by now, so they won't fuss." },
@@ -81,7 +81,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because the Venture Company sends scouts up the cliffs to see what the druids are planting, and my birds can't follow them into the rocks. If you find one, tell me where he climbed, so I can watch that path from the air." } },
+      lines = { { id = "xrogue_default", text = "Often, because the Venture Company sends scouts up the cliffs to see what the druids are planting, and my birds can't follow them into the rocks. If you find one, tell me where he climbed, so I can watch that path from the air." } },
       choices = {
         { text = "I'll find the path and tell you, nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll find the scout, and he won't climb back down.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -128,7 +128,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Teloren, and I keep the hippogryphs here on Stonetalon Peak. From here they'll carry you to Auberdine, to Astranaar or down to Nijel's Point in Desolace, which is a great deal quicker than the paths." },
+        { id = "h_default", text = "I am Teloren, and I keep the hippogryphs here on Stonetalon Peak. From here they'll carry you to Auberdine, to Astranaar or down to Nijel's Point in Desolace, which is far quicker than the paths." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, come to see the Keeper? He'll be glad of it. Most who climb this far come for the Peak's sake, but few of them can feel what the Vale has lost." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -195,7 +195,7 @@ P:NPC {
     },
     post = {
       lines = {
-        { id = "po_default", text = "Because the Keeper is here, and the druids who serve him, and they need a way to reach the rest of our people quickly. Besides, nothing on foot can surprise us up here, and that's worth a great deal in these mountains." },
+        { id = "po_default", text = "Because the Keeper is here, and the druids who serve him, and they need a way to reach the rest of our people quickly. Besides, nothing on foot can surprise us up here, and that matters in these mountains." },
       },
       choices = {
         { text = "Has anyone ever tried to surprise you?", next = "post2" },

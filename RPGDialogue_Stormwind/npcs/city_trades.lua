@@ -57,7 +57,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "We learned that it hungers, and that those who feed it are one day fed upon, which is why the kaldorei turned from it after the Sundering. I do not ask you to give it up, but I ask you to remember the price." } },
+      lines = { { id = "xmage_default", text = "We learned that it hungers, and that those who feed it are one day fed upon, and so the kaldorei turned from it after the Sundering. I do not ask you to give it up, but I ask you to remember the price." } },
       choices = {
         { text = "I'll remember the price, Tannysa, and wield it carefully.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The price was your people's, Tannysa. I'll take my chances.", next = "BACK", fx = { align = { light = -1 } } },
@@ -206,7 +206,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "More than you'd think, because your words run out in a long fight and linen doesn't. I've wrapped refugees who waited days for a healer, and a clean bandage kept them alive until one came." } },
+      lines = { { id = "xdruid_default", text = "It matters, because your words run out in a long fight and linen doesn't. I've wrapped refugees who waited days for a healer, and a clean bandage kept them alive until one came." } },
       choices = {
         { text = "Teach me, then. Every healer should know the plain way too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "My gift is enough. I'll leave the linen to others.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -224,7 +224,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than you'd think, because the priests ask too many questions and the Lamb's own people ask none at all. I'd rather be the one in between, where a burn is only a burn." } },
+      lines = { { id = "xlock_default", text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I like being the one in between, where a burn is only a burn." } },
       choices = {
         { text = "A burn from the fel is never only a burn, Shaina.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A burn's a burn, and I'm glad you see it so.", next = "BACK", fx = { align = { light = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Fewer soldiers than refugees, these days, and the refugees are harder, because their wounds are old and nobody tended them on the road south. I'd give a great deal to see the Silver Hand ride north and stop the bleeding at its source." } },
+      lines = { { id = "xapala_default", text = "Fewer soldiers than refugees, these days, and the refugees are harder, because their wounds are old and nobody tended them on the road south. I'd give my last roll of linen to see the Silver Hand ride north and stop the bleeding at its source." } },
       choices = {
         { text = "The refugees deserve our protection. I'll help where I can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Lordaeron is lost. Stormwind must look after its own first.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -275,9 +275,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll heal faster than I can bandage, so I'll only ask you to remember that not everyone has a priest about when they're bleeding." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You can heal yourself, I know, but the Light won't always come when you're tired, and a good bandage always will." },
         { id = "h_default", text = "Shaina Fuller. I teach first aid to anyone with two hands and a little patience, because the priests can't be everywhere at once." },
-        { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior! You'll bleed more than most, so you'd best learn to tie a bandage one-handed. I'll show you." },
+        { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior! You'll stand at the front and bleed for it, so you'd best learn to tie a bandage one-handed. I'll show you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "You'll need this lesson more than most, I'd guess, because knife wounds bleed worse than you'd think and they're always in awkward places." },
+          text = "You'll need this lesson, I'd guess, because knife wounds bleed like a stuck pig and they're always in awkward places." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Warlocks always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be patching up your beast as often as yourself, I'd wager, so you'll be wanting to learn properly." },
@@ -487,7 +487,7 @@ P:NPC {
       },
     },
     b = {
-      lines = { { id = "b_default", text = "Less than you'd think, since the army buys in bulk from the Ironforge suppliers. I sell to hunters, guards and the odd noble who fancies himself an archer." } },
+      lines = { { id = "b_default", text = "Hardly any, since the army buys in bulk from the Ironforge suppliers. I sell to hunters, guards and the odd noble who fancies himself an archer." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -547,7 +547,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Half my roses go to sweethearts nobody's supposed to know about, and the other half go to wives who've just found out. I sell to both, dear, and I never mix up the orders." } },
+      lines = { { id = "xrogue_default", text = "My roses go to sweethearts nobody's supposed to know about, and to the wives who've just found out. I sell to both, dear, and I never mix up the orders." } },
       choices = {
         { text = "Secrets like that always come out, so it's better to be honest.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "What the wives don't know can't hurt them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -565,7 +565,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, for sweethearts and mothers, and a few for the Cathedral steps. A sergeant buys one red rose from me every time he leaves for Redridge, and he's come back eleven times now." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, for sweethearts and mothers, and a few for the Cathedral steps. A sergeant buys one red rose from me every time he leaves for Redridge, and he's come back eleven times now." } },
       choices = {
         { text = "Everyone should leave something kind behind before a march.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I don't buy flowers. It's bad luck to say goodbye.", next = "BACK", fx = { align = { light = -1 } } },
@@ -604,7 +604,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll know my lilies, then, since half the funerals in the Cathedral are dressed in them, and more every month." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll know my lilies, then, since most funerals in the Cathedral are dressed in them, and more every month." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The young knights always buy roses before they ride out, and I always wonder who they're for." },
         { id = "h_default", text = "Felicia Gump, florist. I sell flowers for weddings and herbs for the kitchen, and lately, I'm sorry to say, a great many lilies for funerals." },
         { id = "h_cond", when = { profession = "Cooking" }, text = "A cook! Then you'll want my herbs. Even Chef Grual in Darkshire sends for them, and that man's terribly hard to please." },
@@ -613,7 +613,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Oh, the lilies are wilting now you've come close, dear, just look at them. I'm sure it's only the heat." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I sell a great many flowers to the families of warriors, and I'd much rather sell yours a wedding bouquet someday." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must see the most beautiful wildflowers out in the hills, and I envy you every one of them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must see the most beautiful wildflowers out in the hills, and I envy you every bloom." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now you'll know more about flowers than I ever will, dear, so please don't tell my customers that half my roses are forced." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I'd love one of your little lights in my window for the evening trade, if you ever have one spare." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your spirits care for flowers? I can tell who's courting and who's grieving by what they buy, you know." },

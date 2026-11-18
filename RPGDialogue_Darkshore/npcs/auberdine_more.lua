@@ -92,7 +92,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one with a demon's claw marks across it." },
+        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, so I need a sick bear brought to me alive, and not a dead one with a demon's claw marks across it." },
       },
       choices = {
         { text = "The bears deserve a cure, not a blade.", next = "BACK", fx = { align = { light = 1 } } },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask you to keep your demon well back from my bears, because whatever is souring their blood, it smells a good deal like what follows you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Thistle Bear", min = 20 } },
-          text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But I'd still give a great deal for one brought to me alive." },
+          text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But one brought to me alive could teach me more than a hundred carcasses." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The thistle bears are sick, and I want one brought to me alive, so perhaps your spirits could calm it where my potions cannot." },
       },
       again = {
@@ -263,7 +263,7 @@ P:NPC {
 
   greetings = {
     { id = "g_stores", text = "Ishnu-alah. If you're here about supplies, speak quickly, and if you're carrying any, put them down gently." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. Everything you've carried for us has arrived whole, which is more than I can say for most." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. Everything you've carried for us has arrived whole, and the couriers before you lost a crate a week to the murlocs." },
   },
 
   notice = {
@@ -474,7 +474,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry more bandages than you think you need, because Darkshore has a way of using them up." } },
     dark_strand = { { id = "tp_strand", text = "Warlocks in the Tower of Althalaxx, and Delgren's paladins after them. I hope he gets there first." } },
     sentinels = { { id = "tp_sent", text = "We guard the village, the road and the boats, and we are never quite enough for all three." } },
-    blackfathom = { { id = "tp_blackfathom", text = "I've counted Twilight's Hammer patrols on the road south to Blackfathom, and the number goes up every month. I don't know how many there are inside, and I'd rather not count those myself." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've counted Twilight's Hammer patrols on the road south to Blackfathom, and the number goes up every month. How many wait inside, I leave to braver scouts than me." } },
     theramore = { { id = "tp_theramore", text = "I log every Theramore ship that docks, crew and cargo. They're always correct, which makes me trust them more than I'd like to admit." } },
     warsong = { { id = "tp_warsong", text = "The Warsong in Ashenvale aren't my count, but I keep an ear on the numbers. They're growing too." } },
     forsaken = { { id = "tp_forsaken", text = "There are reports of undead sailors on the coast now and then. I count those twice, and I count them with my bow." } },
@@ -620,7 +620,7 @@ P:NPC {
     },
     birds = {
       lines = {
-        { id = "b_default", text = "Proud and clever and moody as autumn, every one of them. They're the forest's own creatures, so they don't care for the salt here, but they put up with it for my sake." },
+        { id = "b_default", text = "Proud and clever and moody as autumn, all of them. They're the forest's own creatures, so they don't care for the salt here, but they put up with it for my sake." },
       },
       choices = {
         { text = "Do they ever refuse to fly?", next = "birds2" },

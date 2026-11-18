@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_ranch", text = "Mind the gate, and mind the dung while ye're at it. This is a workin' ranch, no' a sightseein' one." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? The rams remember ye, which is more than I can say for most travellers." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? The rams remember ye, an' they dinnae bother remembering most travellers." },
   },
 
   start = "hello",
@@ -289,7 +289,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out in the snows! Ye'll forgive me if I don't kneel, for my knees froze solid back in the Second War, an' they've no' thawed since." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out in the snows! I'd kneel, but my knees froze solid back in the Second War, an' they've no' thawed since." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! Ye'll have come tae deal wi' Ol' Sooty, then, an' I'll warn ye he's bigger than he looks, an' he looks big." },
         { id = "h_default", key = true,
           text = "Tundra MacGrann, at yer service, and I've lived in these snows longer than some o' the hills. I'd offer ye a bite, but a great black bear has made off with my whole stash." },
@@ -355,7 +355,7 @@ P:NPC {
       },
     },
     life_lonely = {
-      lines = { { id = "ll_default", text = "Now and then, which is why I'm talkin' yer ear off. I go down to Kharanos for a pint when the loneliness gets worse than the walkin'." } },
+      lines = { { id = "ll_default", text = "Now and then, so I'm talkin' yer ear off. I go down to Kharanos for a pint when the loneliness gets worse than the walkin'." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     hills = {
@@ -472,7 +472,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because they're full of very flammable things, and your servant is a very flammable sort of thing, and I've done the sums on what happens when the two meet! Steelgrill's Depot has had one explosion this season already, and I'd rather the next one wasn't mine." },
+        { id = "xlock_default", text = "Because they're full of very flammable things, and your servant is a very flammable sort of thing, and I've done the sums on what happens when the two meet! Steelgrill's Depot has had one explosion this season already, and the next one is not going to be mine." },
       },
       choices = {
         { text = "Understood. It stays far from the fuel.", next = "BACK", fx = { align = { order = 1 } } },
@@ -592,7 +592,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They frighten everythin' for a mile, an' then everythin' comes back, for the hills are stubborn. A good shot's quick an' clean, which is kinder than a bad arrow, whatever an elf might tell ye." } },
       choices = {
-        { text = "A clean kill is kinder. I'll grant you that much.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A clean kill is kinder, I agree with you there.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "The hills were quieter before gunpowder ever came to them.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -617,7 +617,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because most o' yer lot reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as yer demons, at least the troggs will die honestly." } },
+      lines = { { id = "xlock_default", text = "Because most o' yer lot reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as yer demons, at least the troggs will die clean." } },
       choices = {
         { text = "A clean shot is honest work. I'll keep one handy.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The curse is slower, Hegnar, and that's the point.", next = "BACK", fx = { align = { light = -1 } } },

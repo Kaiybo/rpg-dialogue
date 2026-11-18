@@ -95,7 +95,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because they think the arcane is how our people lost half the world, and they're not wrong, are they? Still, it'd be very nice to have a spell for shoveling, and I'd keep it a secret if you did." },
+        { id = "xmage_default", text = "Because they think the arcane is how our people lost the old lands to the sea, and they're not wrong, are they? Still, it'd be very nice to have a spell for shoveling, and I'd keep it a secret if you did." },
       },
       choices = {
         { text = "Dig with your hands, Jenal. The druids are right.", next = "BACK", fx = { align = { order = 1 } } },
@@ -143,7 +143,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't step in the dirt. I am a visionary, you know, held back by lesser minds for a good few centuries now, and I think your spirits would understand." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
+        { id = "h_again", text = "What else? I've got all night, and more dirt than any one elf should have to sort." },
         { id = "h_again2", text = "Go on, ask me something; nobody else ever does." },
       },
       choices = {
@@ -224,7 +224,7 @@ P:NPC {
     },
     soil = {
       lines = {
-        { id = "so_default", text = "They say the soil of Un'Goro is rich with some sort of power, and the Arch Druid wants facts from falsehoods. I sort it, label it and keep it out of the rain, which takes more vision than you'd think." },
+        { id = "so_default", text = "They say the soil of Un'Goro is rich with some sort of power, and the Arch Druid wants facts from falsehoods. I sort it, label it and keep it out of the rain, and a mislabeled jar could cost the Circle a season's study." },
       },
       choices = {
         { text = "The Circle studies everything.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
@@ -348,7 +348,7 @@ P:NPC {
     rogue_s = {
       big = true,
       lines = {
-        { id = "rs_default", text = "Shadowmeld is a gift; everything after it is patience. Humans learn the dark in alleys, but we learned it from the forest, which hides better than any alley and talks a great deal less." },
+        { id = "rs_default", text = "Shadowmeld is a gift; everything after it is patience. Humans learn the dark in alleys, but we learned it from the forest, which hides better than any alley and never boasts of what it saw." },
         { id = "rs_watch", when = { origin = "nightelf_watcher_trained" },
           text = "You stand with your back to the wall, like the Watchers teach, and I won't ask who taught you. Then you already know we don't take a life for coin; we take it for the forest, or not at all." },
       },
@@ -366,7 +366,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That the rot in Darkshore's woods is creeping across the water into ours, and that nobody in the Enclave seems to be in a hurry about it. I had to send a rogue to learn that much, which tells you how hard the druids were looking." } },
+      lines = { { id = "xdruid_default", text = "That the rot in Darkshore's woods is creeping across the water into ours, and that nobody in the Enclave seems to be in a hurry about it. I had to send a rogue to learn that much, so you may judge for yourself how hard the druids were looking." } },
       choices = {
         { text = "The Circle will act once it has proof, so bring it to them.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then I won't wait for the Circle, and I'll go and look myself.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -376,7 +376,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You won't learn anything from me, but I'll grant that your trade and mine both work in the dark, after a fashion." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my shade. Your kind make a great deal of noise about justice, and I'm always curious how much of it survives a dark alley." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my shade. Your kind speak loudly of justice, and I'm always curious how much of it survives a dark alley." },
         { id = "h_default", text = "I'm Syurna, and I train rogues. If you aren't one, I can't teach you anything, and I rarely talk for the pleasure of it, so choose your questions well." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "We are darkness and shadow, rogue, and the forest needs both now more than it did. Ask what you came to ask." },
@@ -389,7 +389,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You aren't a rogue, so I can't teach you anything. You are a mage, though, and that makes you very easy to hear coming." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Enclave. You're bolder than most of my students, and I don't mean that kindly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I don't teach your kind, and you make far too much noise in my alcove." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. That's more than I can say for most who come here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. Most who come down these steps clatter like a cart full of pans." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my alcove. You can't learn anything from me, but your Circle ought to be listening harder to what Teldrassil's forests are trying to tell it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak to rogues, not to spirit-callers, but the forests suffer all the same, so tell me whether your spirits feel it." },
       },
@@ -426,7 +426,7 @@ P:NPC {
     },
     jannok2 = {
       lines = {
-        { id = "j2_default", text = "Because I won't talk to anyone who isn't a rogue, and he knows it, which is why he keeps sending you. Tell him I said that, if you like; he'll only paint another picture." },
+        { id = "j2_default", text = "Because I won't talk to anyone who isn't a rogue, and he knows it, so he keeps sending you. Tell him I said that, if you like; he'll only paint another picture." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -594,7 +594,7 @@ P:NPC {
     },
     gun_h = {
       lines = {
-        { id = "gh_default", text = "Every beast in Teldrassil heard you arrive, I'm sure, and so did half the Sentinels. I won't tell you to put it down, since Ironforge's hunters swear by them, but a bow lets the forest keep its silence, and the forest remembers who keeps it." },
+        { id = "gh_default", text = "Every beast in Teldrassil heard you arrive, I'm sure, and so did the Sentinels on the far bridges. I won't tell you to put it down, since Ironforge's hunters swear by them, but a bow lets the forest keep its silence, and the forest remembers who keeps it." },
       },
       choices = {
         { text = "A clean kill matters more than a quiet one.", next = "BACK", fx = { align = { order = -1 } } },
@@ -637,7 +637,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The beasts are restless, warlock, and so am I. Whatever walks behind you is no part of the balance I teach." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, a keeper of the balance as my hunters are. Yours is the gentler half of the work, though I've seen a druid in cat shape who would shame any hunter of mine." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and you'll forgive me if I mention that before anything else." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and I cannot greet you without remembering it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance is the oldest law of the wild, older than my people's memory, so tell me whether your spirits respect it or upset it." },
       },
       again = {
@@ -720,7 +720,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach hunters, and I teach them hard. Ask any of them in ten years whether it was worth it." } },
     advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself. It's watching to see whether you will." } },
     centaur = { { id = "tp_centaur", text = "The centaur of the Barrens and Desolace ride in war bands and hold nothing sacred but the hunt. Respect that, because it means they're good at it." } },
-    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are proud and quick to anger, but they keep their word. That's more than I can say for most." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are proud and quick to anger, but they keep their word, even to those they would sooner see gone from their tunnels." } },
     blackfathom = { { id = "tp_blackfathom", text = "The drowned temple off Ashenvale's coast, where the nagas crawl. Bring a pet that can swim, and don't go alone." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "I leave the Dream to the druids. A hunter's job is the waking world, and that keeps me plenty busy." } },
     _none = { { id = "tp_none", text = "That's no concern of the hunt, and Elune gave me only so many years to learn the hunt in. Ask someone else." } },
@@ -836,7 +836,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Mostly how you can draw on something so wild without it drawing on you in turn. Malfurion taught us that the arcane was a wound in the world, which is why we turned to Cenarius instead, and I've yet to meet a mage who could tell me he was wrong." },
+        { id = "xmage_default", text = "Mostly how you can draw on something so wild without it drawing on you in turn. Malfurion taught us that the arcane was a wound in the world, and so we turned to Cenarius instead; I've yet to meet a mage who could tell me he was wrong." },
       },
       choices = {
         { text = "Maybe he wasn't wrong. I'll take care with the wound.", next = "BACK", fx = { align = { order = 1 } } },
@@ -847,7 +847,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "There is, slowly, which is why Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, so you'll forgive me for not offering you tea." },
+        { id = "xlock_default", text = "There is, slowly, and so Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, so you'll understand why I do not offer you tea." },
       },
       choices = {
         { text = "Then I'll be the careful kind of summoner.", next = "BACK", fx = { align = { light = 1 } } },
@@ -907,7 +907,7 @@ P:NPC {
         { text = "Is Teldrassil a true world tree?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who is Cenarius, to you?", next = "cenarius" },
-        { text = "A young druid must have a great deal to learn.", next = "first" },
+        { text = "A young druid must have much to learn.", next = "first" },
         { text = "How is the Circle under Fandral?", next = "circle" },
         { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
         { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -970,7 +970,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The Enclave is full of druids, and druids talk more than you'd think. Ask, and I'll tell you what I've overheard." } },
+    knows = { { id = "tp_knows", text = "The Enclave is full of druids, and druids whisper beneath the boughs as freely as any gossip in a tavern. Ask, and I'll tell you what I've overheard." } },
     background = { { id = "tp_bg", text = "I teach the young druids before Mathrengyl takes them further. It's a gentle post, and I like it." } },
     advice = { { id = "tp_ad", text = "Listen to the forest before you speak for it. Most druids skip that step." } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle, and we serve the balance. Our leaders disagree sometimes, but the duty doesn't change." } },

@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "Another mage, is it? Then you'll know what an Azoran crystal costs, and you'll forgive me for counting them twice." },
     { id = "n_quarter", cat = "origin", when = { origin = "human_mage_quarter" },
-      text = "Trained in Stormwind's Mage Quarter, were you? Half the magi on these walls came out of the same towers, and every one of them talks about Dalaran as if they'd built it themselves, so you'll fit right in." },
+      text = "Trained in Stormwind's Mage Quarter, were you? Most of the magi on these walls came out of the same towers, and they all talk about Dalaran as if they'd built it themselves, so you'll fit right in." },
     { id = "n_lamb", cat = "origin", when = { origin = "human_lamb_cellar" },
       text = "I know that look, because I've seen it on the Lamb's people when they come through for the demons on the plain. You'll sign for anything you take from my stores, and you'll sign in ink, not in anything else." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
@@ -56,7 +56,7 @@ P:NPC {
     },
     op_defias_nobles = {
       lines = {
-        { id = "opdn_default", text = "Keep your voice down; half the soldiers here are paid by those same nobles, when they're paid at all. Mind you, I've been waiting on a wagon of their silver for three weeks, so I'm not saying you're wrong." },
+        { id = "opdn_default", text = "Keep your voice down; most of the soldiers here are paid by those same nobles, when they're paid at all. I have been waiting on a wagon of their silver for three weeks, though, so I'm not saying you're wrong." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away. Nothing comes up the road after dark, so I've nothing better to do than talk." },
       },
       choices = {
-        { text = "A quartermaster must need a great deal out here.", next = "supplies" },
+        { text = "A quartermaster must need everything out here.", next = "supplies" },
         { text = "Who holds Nethergarde Keep?", next = "keep" },
         { text = "What's out there in the wastes?", next = "wastes" },
         { text = "Why guard a portal that's dead?", next = "portal" },
@@ -326,7 +326,7 @@ P:NPC {
     },
     k_warrior = {
       lines = {
-        { id = "xwa_default", text = "Boots, first, because the red clay eats them in a month, then whetstones, then sleep, and I can only supply the first two. Every soldier on that wall has walked the Darkshire road, and every one of them would trade a week's pay for a night without ogres." },
+        { id = "xwa_default", text = "Boots, first, because the red clay eats them in a month, then whetstones, then sleep, and I can only supply the first two. Every soldier on that wall has walked the Darkshire road, and each would trade a week's pay for a night without ogres." },
         { id = "xwa_dwarf", when = { race = "Dwarf" },
           text = "Boots, whetstones and sleep, in that order, though your folk seem to manage without the third. I've two dozen dwarves on the south wall and they've worn out more boots than the rest of the keep together." },
       },
@@ -401,17 +401,17 @@ P:NPC {
     { id = "g_portal_resolved", when = { thread = { id = "portal_watch", state = "resolved" } }, text = "Ah, my fellow watcher! The stones were cold again this morning, and I wrote it down, and I've promised Lungertz not to read it out at supper." },
     { id = "g_essays", when = { questDone = TODO_QUEST("Mazen's Behest") }, text = "My courier of Khadgar! I've read the essays twice already and I understand perhaps half of them, which is twice what I expected." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've filled most of another book in that time, almost none of it good news. Do come in and tell me something better." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, which is more than I can say for my understanding of the Portal. Come and tell me what you've seen." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, and a good deal faster than my understanding of the Portal. Come and tell me what you've seen." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I'm told you talked someone in the Keep round to your view. I'd be grateful if you'd try it on the mages, because I've been failing for months." },
   },
 
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A fellow student of the arcane, and out here of all places! Forgive me if I talk too much; the soldiers have heard all my theories and started hiding from me." },
+      text = "A fellow student of the arcane, and out here of all places! I'll warn you now that I talk too much; the soldiers have heard all my theories and started hiding from me." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "I can feel the fel on you from across the room, warlock. Mind it near the wards, please; they were made to keep your sort of power out, and they're not subtle about it." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
-      text = "A night elf at Nethergarde! Your people fought the Legion ten thousand years ago, and I'd give a great deal to know what you remember of it." },
+      text = "A night elf at Nethergarde! Your people fought the Legion ten thousand years ago, and I'd give a year of my notes to know what you remember of it." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "Forgive me, I'm staring; you're one of the people Dalaran's letters call the Skyborne, and I've only read about you by lamplight." },
   },
@@ -432,7 +432,7 @@ P:NPC {
     },
     op_arc_useful = {
       lines = {
-        { id = "opau_default", text = "Exactly! The Portal isn't the fault of magic any more than a flood is the fault of water. Mind you, I wouldn't say that too loudly to the soldiers, who've seen the floods up close." },
+        { id = "opau_default", text = "Exactly! The Portal isn't the fault of magic any more than a flood is the fault of water. I wouldn't say that too loudly to the soldiers, though, since they've seen the floods up close." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -589,7 +589,7 @@ P:NPC {
       },
     },
     khadgar_fate = {
-      lines = { { id = "kf_default", text = "Nobody knows. The Alliance mourned them, Stormwind carved them in stone, and the rest of us go on reading what they left behind, which in Khadgar's case is a great deal." } },
+      lines = { { id = "kf_default", text = "Nobody knows. The Alliance mourned them, Stormwind carved them in stone, and the rest of us go on reading what they left behind, which in Khadgar's case fills a library." } },
       choices = {
         { text = "You don't sound like you've mourned him.", tag = "Persuade", next = "khadgar_hope",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Mazen's Behest") }, { class = "MAGE" } } } },
@@ -689,7 +689,7 @@ P:NPC {
     k_shaman = {
       big = true,
       lines = {
-        { id = "xsh_default", text = "Screaming. I measure it with crystals and charts and call it residue, and you put your hand on the ground and call it screaming, and I can't honestly say which of us is closer. Does it say what would quiet it?" },
+        { id = "xsh_default", text = "Screaming. I measure it with crystals and charts and call it residue, and you put your hand on the ground and call it screaming, and I can't say for certain which of us is closer. Does it say what would quiet it?" },
       },
       choices = {
         { text = "Close the Portal for good. Seal it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -763,7 +763,7 @@ P:NPC {
   nodes = {
     op_wildhammer = {
       lines = {
-        { id = "opw_default", text = "Neither, an' both, which is why I live in a mage's keep at the end o' the world. But ye've an opinion, I can see it on yer face, so out wi' it: should the Wildhammer come home tae Ironforge, or stay free in the Hinterlands?" },
+        { id = "opw_default", text = "Neither, an' both, an' that's how I came tae live in a mage's keep at the end o' the world. But ye've an opinion, I can see it on yer face, so out wi' it: should the Wildhammer come home tae Ironforge, or stay free in the Hinterlands?" },
       },
       choices = {
         { text = "Ironforge is the heart of the dwarves. They should come home.", next = "op_wh_home", fx = { align = { order = 1 }, opinion = { wildhammer = "distrust", magni = "trust" } } },
@@ -818,7 +818,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Both, like a good axe, an' it depends entirely on whose hand is on the haft. I've seen things in the chalk that I'd rather not have seen, an' I've found lost gryphons an' lost children, an' I'll not be ashamed o' the second for fear o' the first." } },
       choices = {
-        { text = "Then use it honestly, and I'll not judge it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then use it in the open, and I'll not judge it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some doors should stay shut, whatever good comes through.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -851,7 +851,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" }, text = "So the Emperor's dead under the mountain, and the Dark Irons have lost their king in his own throne room! I'm a Wildhammer, mind, and my clan has a long memory where Thaurissan's line is concerned, so you'll forgive me if I pour a dram for it." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" }, text = "So the Emperor's dead under the mountain, and the Dark Irons have lost their king in his own throne room! I'm a Wildhammer, mind, and my clan has a long memory where Thaurissan's line is concerned, so I'm pouring a dram for it tonight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, eh? Ye've the shoulders for a Wildhammer storm hammer, if ye ever tire o' whatever it is ye're carryin' now." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I find lost things, an' ye find things that werenae lost till ye came along, so in a way we're in the same trade." },
@@ -985,7 +985,7 @@ P:NPC {
       },
     },
     priest = {
-      lines = { { id = "pr_default", text = "Aye, an' I pay it, which is more than most who say so. Yer Light has its price too, priest; ye just call it faith an' pay it in advance." } },
+      lines = { { id = "pr_default", text = "Aye, an' I pay it, an' I've the scars tae show for every payment. Yer Light has its price too, priest; ye just call it faith an' pay it in advance." } },
       choices = {
         { text = "Faith isn't a price. It's a gift.", next = "BACK", fx = { align = { light = 2 } } },
         { text = "You're not wrong. Every power costs something.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
@@ -1050,7 +1050,7 @@ P:NPC {
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer o' Aerie Peak are my kin, an' they fly free an' drink free an' think a book is somethin' ye light a fire with. I love them dearly an' I left." } },
     magni = { { id = "tp_magni", text = "Magni's a fine king for the Bronzebeards, I'll grant ye, an' he doesn't tell the Wildhammer what to do, which is the best thing a king can do for us." } },
     grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was ours once, before the Dark Irons cursed it an' the orcs used it to break dragons. No Wildhammer goes there now, an' none ever should." } },
-    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages taught me what I know, an' they never let me forget I was a dwarf. I learned anyway, an' I learned more than most o' them." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages taught me what I know, an' they never let me forget I was a dwarf. I learned anyway, an' by the end I could out-cast most o' their journeymen." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres are thick as stone an' twice as stubborn, an' they've no business near the Portal. I'd like them gone, an' I'd pay to see it." } },
     _none = { { id = "tp_none", text = "That's no' somethin' I've ever cared tae look for. Ask the Watcher; he cares about everythin'." } },
   },
@@ -1164,7 +1164,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Then perhaps every spy is sincere, which would be a pleasant surprise for us all. I carry no knives and steal no letters, which is more than I can say for half the garrison, so judge me by what I ask of you, not by what I won't say." } },
+      lines = { { id = "xrogue_default", text = "Then perhaps every spy is sincere, which would be a pleasant surprise for us all. I carry no knives and steal no letters, unlike a fair portion of this garrison, so judge me by what I ask of you, not by what I won't say." } },
       choices = {
         { text = "Fair. I'll judge you by your deeds.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Secrets cut both ways. I'll find yours, Ambassador.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1249,7 +1249,7 @@ P:NPC {
       },
       choices = {
         { text = "Who should I talk to?", next = "enemy_hero" },
-        { text = "The Horde burned half the world. I won't fight beside them.", next = "BACK", fx = { align = { honor = -1 }, opinion = { horde = "never" } } },
+        { text = "The Horde burned Stormwind once. I won't fight beside them.", next = "BACK", fx = { align = { honor = -1 }, opinion = { horde = "never" } } },
         { text = "If the demons are the threat, I'll stand with anyone.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2, opinion = { horde = "common_cause" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1357,7 +1357,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "Diplomats hear a great deal, mostly from people who don't think we're listening. Pick a subject." },
+      { id = "tp_knows", text = "Diplomats hear everything, mostly from people who don't think we're listening. Pick a subject." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've listened to me, which nobody else here does, so I'll return the favour. Ask anything." },
     },
     background = {
@@ -1708,7 +1708,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "They mind the wards on the tower more, because the air hums when the Watchers are working and the birds hate a humming sky. Every one of them has learned to land on the far side of the keep, which tells you how clever they are." } },
+      lines = { { id = "xmage_default", text = "They mind the wards on the tower more, because the air hums when the Watchers are working and the birds hate a humming sky. They've all learned to land on the far side of the keep, the clever things." } },
       choices = {
         { text = "Then I'll keep my spells quiet near your birds.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Birds can learn to put up with a little noise.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1735,7 +1735,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every one of them, and I'd think less of them if they didn't, because in this land anything that creeps up on you usually means to eat you. Walk up to them openly and let them see your hands, and they'll carry you anywhere you need to go, even a rogue." } },
+      lines = { { id = "xrogue_default", text = "All of them do, and I'd think less of them if they didn't, because in this land anything that creeps up on you usually means to eat you. Walk up to them openly and let them see your hands, and they'll carry you anywhere you need to go, even a rogue." } },
       choices = {
         { text = "Hands showing, then. I'll walk up openly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep creeping. It's good practice, birds or not.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1748,7 +1748,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll be heavy in the saddle, so mind how you mount, because my birds remember who kicked them on the way up." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
-          text = "A hunter! Then you'll understand what it is to keep an animal alive in a place that wants it dead, which is more than I can say for most visitors." },
+          text = "A hunter! Then you'll understand what it is to keep an animal alive in a place that wants it dead, and most visitors never give it a thought." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon well away from the roost, because a gryphon that smells a demon won't fly for a day." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you're flying, keep your hands in your lap; the last one cast a frost spell to cool off, and my bird came down at Darkshire with ice on its wings." },
         { id = "h_default", key = true,
@@ -1903,7 +1903,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every new recruit tries, and every one of them gives up when the seeds come up black and twisted. One lad ate one of the blackened turnips on a dare, and the healers said he'd live, though he never talked about it again." } },
+      lines = { { id = "xdruid_default", text = "Every new recruit tries, and gives up the moment the seeds come up black and twisted. One lad ate one of the blackened turnips on a dare, and the healers said he'd live, though he never talked about it again." } },
       choices = {
         { text = "Then plant again, carefully. The land must be coaxed back to life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burn whatever comes up black. Nothing from this ground is safe.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1912,7 +1912,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, and I can't blame them, because every one of them has stood a watch facing the Dark Portal and wondered what might come through it. Sit with your back to the wall and eat what you're given without any fuss, and by the third meal they'll stop staring, mostly." } },
+      lines = { { id = "xlock_default", text = "Not much, and I can't blame them, because each of them has stood a watch facing the Dark Portal and wondered what might come through it. Sit with your back to the wall and eat what you're given without any fuss, and by the third meal they'll stop staring, mostly." } },
       choices = {
         { text = "I'll keep my head down and earn their trust.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them stare. I don't need their trust.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1957,7 +1957,7 @@ P:NPC {
       },
     },
     food = {
-      lines = { { id = "f_default", text = "Honestly? The bread, because I bake it myself, and the water, because it came from Stormwind and not from anywhere around here. Don't drink from anything in the Blasted Lands, whatever it looks like." } },
+      lines = { { id = "f_default", text = "The bread, if you want my word for it, because I bake it myself, and the water, because it came from Stormwind and not from anywhere around here. Don't drink from anything in the Blasted Lands, whatever it looks like." } },
       choices = {
         { text = "The water here tastes wrong.", next = "food_water" },
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -2089,7 +2089,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at my forge? Cloth doesnae need an anvil, friend, though I'll mend yer gloves if ye ask nicely." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, is it? I'm an armorer, no' a tanner, but I'll stitch yer jerkin if ye don't mind it comin' back stiff." },
         { id = "h_default", key = true,
-          text = "Strumner Flintheel, armorer. There's no other forge between here and Darkshire that'll take yer coin, so ye'll forgive me if I don't haggle." },
+          text = "Strumner Flintheel, armorer. There's no other forge between here and Darkshire that'll take yer coin, so I'll no' be hagglin'." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. Ye'll not need much from my forge, I'd wager, but the soldiers here are glad o' ye, so sit by the fire if ye like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll not want my steel, I'd wager, but if ye've armor that needs mending after a fight as a bear, bring it here and I'll see what I can do." },

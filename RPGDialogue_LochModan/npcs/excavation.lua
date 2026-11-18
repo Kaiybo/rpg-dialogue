@@ -259,7 +259,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Huldar, hauler for the Explorers' League, an' this here's a cart o' blastpowder bound for Ironband's dig. The south road round the loch is flat an' easy, which is why we take it, an' why someone was waitin' on it." },
+          text = "Huldar, hauler for the Explorers' League, an' this here's a cart o' blastpowder bound for Ironband's dig. The south road round the loch is flat an' easy, so we always take it, an' somebody knew that an' was waitin' on it." },
         { id = "h_resupply", tags = { "news" }, when = { questActive = TODO_QUEST("Resupplying the Excavation") },
           text = "Jern sent ye after us? Good, for there's been a feelin' on this road all mornin' that I dinnae like, an' Saean's been lookin' at the hills more than his feet." },
         { id = "h_protect", tags = { "news" }, when = { questActive = TODO_QUEST("Protecting the Shipment") },

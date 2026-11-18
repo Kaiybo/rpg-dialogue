@@ -45,7 +45,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "Rules and study, yes, and the Highborne had libraries finer than anything in Stormwind. I hope your rules hold better than theirs did, but you'll forgive me if I keep watching." } },
+      lines = { { id = "prej_a_default", text = "Rules and study, yes, and the Highborne had libraries finer than anything in Stormwind. I hope your rules hold better than theirs did, but I shall keep watching all the same." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -197,7 +197,7 @@ P:NPC {
     },
     balance_evil = {
       big = true,
-      lines = { { id = "be_default", text = "Then it is no longer part of nature, and we fight it, the Burning Legion and its servants most of all. But a hungry wolf is not evil, and a forest fire is not evil, and a great deal of harm is done by people who cannot tell the difference." } },
+      lines = { { id = "be_default", text = "Then it is no longer part of nature, and we fight it, the Burning Legion and its servants most of all. But a hungry wolf is not evil, and a forest fire is not evil, and much harm is done by people who cannot tell the difference." } },
       choices = {
         { text = "Some things are simply evil.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Nothing is evil, only hungry.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
@@ -292,7 +292,7 @@ P:NPC {
     green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Emerald Dream, and Ysera is their mother and queen. They watch over the great trees where the Dream touches our world, and they've no patience for anyone who disturbs them." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last furbolgs untouched by corruption, and they guard their tunnels in Felwood and Winterspring. I'd count them friends, though they'd not count me one until I proved it." } },
     knows = {
-      { id = "tp_knows", text = "The trees of this park hear a great deal, and so do I, sitting among them. Ask what you will." },
+      { id = "tp_knows", text = "The trees of this park hear every whisper on these paths, and so do I, sitting among them. Ask what you will." },
     },
     background = { { id = "tp_bg", text = "A druid of the Cenarion Circle who has spent longer among humans than he expected to. The trees here are young; perhaps I am keeping them company." } },
     advice = { { id = "tp_ad", text = "Look inside yourself for balance before you look for it in the world. The world is very noisy, and you are much quieter than it." } },

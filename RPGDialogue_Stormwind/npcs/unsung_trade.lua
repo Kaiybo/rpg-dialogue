@@ -20,9 +20,9 @@ P:NPC {
   },
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } }, place = "before",
-      text = "Goodness, that's a great deal of coin to be carrying about the Trade District. Do let us look after some of it before a cutpurse does." },
+      text = "Goodness, that's a heavy purse to be carrying about the Trade District. Do let us look after some of it before a cutpurse does." },
     { id = "n_rogue", cat = "watch", when = { class = "ROGUE" }, place = "before",
-      text = "You'll forgive me if I keep my eyes on your hands while we talk. It's nothing personal; I do it with everyone who walks the way you do." },
+      text = "I'll keep my eyes on your hands while we talk, if you don't mind. It's nothing personal; I do it with everyone who walks the way you do." },
   },
   start = "hello",
   nodes = {
@@ -48,7 +48,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "A cat got in once, and the guards chased it for an hour before it turned out to be only a cat. I've had the bars narrowed since, so you'll forgive me if I watch every animal in the hall." } },
+      lines = { { id = "xdruid_default", text = "A cat got in once, and the guards chased it for an hour before it turned out to be only a cat. I've had the bars narrowed since, so I watch every animal in the hall." } },
       choices = {
         { text = "Watch away. A bank should guard against every shape.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You'll never guard against everything, Olivia, so don't try.", next = "BACK", fx = { align = { order = -1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, because a fine pelt fetches more than a pouch of silver if you wait for the right buyer. We had a whole winter's worth of wolf pelts from Duskwood last year, and the whole vault smelled of wet dog until spring." },
+        { id = "xhuntcl_default", text = "Often, because a fine pelt fetches more than a pouch of silver if you wait for the right buyer. We had a whole winter's worth of wolf pelts from Duskwood last year, and the whole vault smelled of wet dog until spring." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can't come into the vault, I'm sorry to say. The rules are very clear on beasts, though I'll admit it's very sweet." },
       },
       choices = {
@@ -96,7 +96,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I couldn't possibly say, but I'll tell you it's very old and very carefully wrapped. Nothing's ever been stolen from the Bank of Stormwind, and I'd rather not test that with anything holy." } },
+      lines = { { id = "xapriest_default", text = "I couldn't possibly say, but I'll tell you it's very old and very carefully wrapped. Nothing's ever been stolen from the Bank of Stormwind, and I'll not test that with anything holy." } },
       choices = {
         { text = "Holy things belong in the Cathedral, not a vault.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A vault's safer than any altar. The Church chose well.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_default", text = "Olivia Burnside, at your service. We keep accounts and safe deposit boxes, and no one has ever stolen a thing out of this bank, not in its whole history." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Ah, a dwarf! You'll want to see our vaults, I expect, and compare them with Ironforge's. I promise ours will stand the comparison." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue. I'll say it again, because it bears repeating: no one has ever stolen a thing from this bank, and I'd rather you weren't the first." },
+          text = "A rogue. I'll say it again, because it bears repeating: no one has ever stolen a thing from this bank, and I'll not have you be the first." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! We keep a few boxes for the Sanctum, and they always come with a note asking us not to open them, which I think is rather sweet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gold is safe with us, I promise, whatever happens to you out in Westfall." },
@@ -283,7 +283,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "That the Silver Hand has been everywhere, and lost a great deal. I've seen boxes left untouched for years, and I keep them, because someone might come back." } },
+      lines = { { id = "xapala_default", text = "That the Silver Hand has been everywhere, and lost more than it kept. I've seen boxes left untouched for years, and I keep them, because someone might come back." } },
       choices = {
         { text = "Keep them, Newton. Some of us will come home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If no one comes back, the boxes should go to the living.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -294,15 +294,15 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your boxes are always the same, candles and letters and a spare robe, and I find that rather comforting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your order's boxes tell me more about the kingdom than the crown's dispatches do, if you'll forgive me saying so." },
-        { id = "h_default", text = "Newton Burnside. I keep boxes and accounts for half the Trade District, and I've learned that what people put away tells you more about them than anything they say across a counter." },
+        { id = "h_default", text = "Newton Burnside. I keep boxes and accounts for most of the Trade District, and I've learned that what people put away tells you more about them than anything they say across a counter." },
         { id = "h_lowlevel", when = { maxLevel = 15 }, text = "A new face, and a young one. Most of our new customers start with a few spare linen shirts and a sword they've outgrown, so don't be shy about what you bring." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue. I can tell a great deal from what someone puts in a box, and I'll be very interested to see what you put in yours." },
+          text = "A rogue. What someone puts in a box tells me most of what I need to know, and I'll be very interested to see what you put in yours." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I've a rule that nothing alive goes in the boxes, and I'd like to remind you of it before you ask." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. People keep strange things in their boxes, and warriors keep the strangest: old letters, lockets and the occasional broken sword." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll keep trophies in your box, I suppose, as hunters do, and you'll tell me a story about each one if I let you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I can tell a great deal about someone from their box, and I confess I'm curious what your people put away, since you seem to own so little." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. A box tells me about its owner, and I confess I'm curious what your people put away, since you seem to own so little." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've a fair idea what's in your box already, and I'd wager it's mostly reagents and a scroll you've forgotten about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The bank sees more of the kingdom than the king does, and I've never seen a shaman deposit before." },
       },
@@ -343,7 +343,7 @@ P:NPC {
     },
     mine = {
       lines = {
-        { id = "mi_default", text = "It says you come back alive, which is more than I can say for some. The ones who stop coming are the reason we keep the boxes sealed for a year before anyone may claim them." },
+        { id = "mi_default", text = "It says you come back alive, and not every name in my ledger does. The ones who stop coming are the reason we keep the boxes sealed for a year before anyone may claim them." },
         { id = "mi_priest", when = { class = "PRIEST" }, text = "That you keep more cloth than coin, which is common among the Cathedral's people. You'd be surprised how many priests store a spare set of vestments and nothing else." },
       },
       choices = {
@@ -476,7 +476,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Welcome, welcome, and tell me where you've been, because the Cathedral's people always come back with the best stories." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Welcome, welcome, and you'll have been somewhere dangerous, I can see it in the way you're standing." },
         { id = "h_default", text = "John Burnside. I've the first window, so I see everyone before my kin do, and I like to think I give the city a friendly face when they've only come to count their coin." },
-        { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! We've had a few of your people in since Gnomeregan, and every one of them has asked to see how the locks work. I'm not allowed to show you, I'm sorry to say." },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! We've had a few of your people in since Gnomeregan, and each one has asked to see how the locks work. I'm not allowed to show you, I'm sorry to say." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue at the first window! I'll give you the same smile I give everyone, but I'll be counting my fingers when you go." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -565,7 +565,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It needs rules, mostly. Everyone bids honestly, and the deposit keeps them so. Your spirits must have rules too." } },
+      lines = { { id = "xdsham_default", text = "It needs rules, mostly. Everyone bids in good faith, and the deposit keeps them so. Your spirits must have rules too." } },
       choices = {
         { text = "Rules keep the market fair. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Theatre sells better than rules.", next = "BACK", fx = { align = { order = -1 } } },
@@ -575,7 +575,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Never knowingly, and I check every consignment against the guard's list of reported thefts, which is longer than you'd think. The auction house is a temple to fair dealing, and I'll not have it turned into a fence's market, however good the goods." },
+        { id = "xrogue_default", text = "Never knowingly, and I check every consignment against the guard's list of reported thefts, which runs to forty pages this season. The auction house is a temple to fair dealing, and I'll not have it turned into a fence's market, however good the goods." },
       },
       choices = {
         { text = "Fair dealing it is, Chilton. My goods are clean.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -603,7 +603,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a great deal of gold to a buyer I never saw, and I've tried very hard not to wonder where it went." } },
+      lines = { { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a fortune in gold to a buyer I never saw, and I've tried very hard not to wonder where it went." } },
       choices = {
         { text = "You should have burned it, Chilton.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A book like that deserves a worthy owner.", next = "BACK", fx = { align = { light = -1 } } },
@@ -652,7 +652,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The auction house sees a fair few holy relics, and I always make sure they go to a good home." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your order's old gear fetches a fine price, and I'll see it's sold honestly if you ever bring any in." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your order's old gear fetches a fine price, and I'll see it's sold fairly if you ever bring any in." },
         { id = "h_default", text = "Auctioneer Chilton, at the left podium. Leave your goods with me, set your price and your deposit, and every buyer in Stormwind will have the chance to fight over them." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Your people do run a fine auction in Ironforge, but I'll wager ours is warmer, and the bidders here haven't learned to haggle as hard." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -703,7 +703,7 @@ P:NPC {
     sells = {
       lines = {
         { id = "s_default", text = "Cloth, always, because every tailor in the city needs it and no tailor wants to fight a gnoll for it. After that, ore and herbs, and then anything that glows." },
-        { id = "s_mage", when = { class = "MAGE" }, text = "Cloth first, and then anything that glows, which is your people's fault. Half the bids on enchanted goods come from the Mage Quarter, and they always want it yesterday." },
+        { id = "s_mage", when = { class = "MAGE" }, text = "Cloth first, and then anything that glows, which is your people's fault. Most bids on enchanted goods come from the Mage Quarter, and they always want it yesterday." },
       },
       choices = {
         { text = "Who buys the glowing things?", next = "glow" },
@@ -749,7 +749,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "More than you'd think. I write it all down so nobody can say otherwise. Your spirits could help, if they're honest." } },
+      lines = { { id = "xdsham_default", text = "Often enough, and I write it all down so nobody can say otherwise. Your spirits could help, if they're honest." } },
       choices = {
         { text = "Honest records keep honest people. Keep writing.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fraud's a minor danger. Worry about the Defias.", next = "BACK", fx = { align = { order = -1 } } },
@@ -795,7 +795,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, because two wolf pelts look much alike to most people. I keep a note of every scar and every colour, and I've settled more arguments with my ledger than any guard has with his sword." },
+        { id = "xhuntcl_default", text = "All the time, because two wolf pelts look much alike to most people. I keep a note of every scar and every colour, and I've settled more arguments with my ledger than any guard has with his sword." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sitting very still by my desk, which I appreciate. The last animal in here chewed through a ledger." },
       },
       choices = {
@@ -827,7 +827,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll write your name down, if you don't mind, though I'm sure there's a better book than mine being kept somewhere above." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll still write your name down, {class}, because the book doesn't make exceptions, even for the Silver Hand." },
-        { id = "h_default", text = "Auctioneer Fitch. Chilton calls the bids and Jaxon charms the buyers, and I write everything down, which is why nobody in this hall has ever been cheated on my watch." },
+        { id = "h_default", text = "Auctioneer Fitch. Chilton calls the bids and Jaxon charms the buyers, and I write everything down, and so nobody in this hall has ever been cheated on my watch." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "I'll note your name very carefully, if you don't mind. It isn't an accusation; it's simply that the book has a long memory and I'd like you to know that." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll be the first to write the correct price down without my help, I expect. Most of our customers can't do sums." },
@@ -990,7 +990,7 @@ P:NPC {
     -- Who the player is
     xpickpocket = {
       big = true,
-      lines = { { id = "xpp_default", text = "Then I've almost certainly written you down already, under someone else's name, as the buyer of a ring that wasn't yours to sell. I'll not dig it up, provided whatever you sell me today was honestly come by." } },
+      lines = { { id = "xpp_default", text = "Then I've almost certainly written you down already, under someone else's name, as the buyer of a ring that wasn't yours to sell. I'll not dig it up, provided whatever you sell me today was lawfully come by." } },
       choices = {
         { text = "It was. I've left that life behind.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Honest enough. Don't ask too closely.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1031,7 +1031,7 @@ P:NPC {
   },
   topics = {
     booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay keep their books in a code I've never been able to break. I keep mine in plain Common, because fraud is the greatest sin in this trade, and I'll not commit it." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel runs auction houses in every goblin port, and they're very good at it, I'll grant them. But they'll sell to anyone, and I'd rather know where my goods are going." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel runs auction houses in every goblin port, and they're very good at it, I admit. But they'll sell to anyone, and I like to know where my goods are going." } },
     the_stockade = { { id = "tp_the_stockade", text = "Some of the goods that come up for auction have very suspicious origins, and I note every one. I've sent a few names to the Stockade, back when the Stockade held anyone." } },
     stonemasons = { { id = "tp_stonemasons", text = "I copied the debts owed to them, once, and I watched the lines grow smaller on the page. I'll say no more than that in a public hall." } },
     background = { { id = "tp_bg", text = "I was a scribe in the House of Nobles once, copying deeds, and I left because I preferred honest bidding to what I saw written there." } },
@@ -1081,7 +1081,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That you're here to judge them for selling wolf pelts, mostly, and half of them hide their stock under the counter. The other half double their prices, because they think you'll pay anything to set a beast free." } },
+      lines = { { id = "xdruid_default", text = "That you're here to judge them for selling wolf pelts, mostly, and some of them hide their stock under the counter. The rest double their prices, because they think you'll pay anything to set a beast free." } },
       choices = {
         { text = "Then the ones doubling prices should be reported to the house.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them think what they like. I'll bid however I please.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1129,7 +1129,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than you'd think, dear, and usually to pay for something they can't ask the Cathedral for. I don't pry, but I make sure they get a fair price." } },
+      lines = { { id = "xapriest_default", text = "Now and then, dear, and usually to pay for something they can't ask the Cathedral for. I don't pry, but I make sure they get a fair price." } },
       choices = {
         { text = "That's kind of you, Jaxon. Fairness is its own blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If they're selling, they should haggle like anyone else.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1149,14 +1149,14 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Hello, dear, a priest! Do ask me before you price your robes, because the Cathedral's novices always ask too little." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Hello, dear, a paladin! Do price that old shield with me before you list it, because the Silver Hand's crest adds a fair bit." },
-        { id = "h_default", text = "Auctioneer Jaxon. I have the right-hand podium, and I'll tell you honestly what your goods will fetch, which is more than Chilton will, bless him." },
+        { id = "h_default", text = "Auctioneer Jaxon. I have the right-hand podium, and I'll tell you straight what your goods will fetch, while Chilton hums and haws, bless him." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "Hello, dear. Your people bring the loveliest things in from Darnassus, and they never know what to charge for them, so do ask me before you list anything." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "Hello, dear. You've a sharp eye for a bargain, I can tell, and I'd rather you used it on the listings than on the bidders' purses." },
+          text = "Hello, dear. You've a sharp eye for a bargain, I can tell, so use it on the listings, dear, not on the bidders' purses." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Hello, dear. A mage at the auction always makes me a little nervous, because I'm never quite sure the gold you bid is really there." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gear would fetch more than you think, I'd wager, and I'll tell you to the copper what it's worth." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I'll tell you honestly what each is worth, which is more than Chilton will, bless him." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I'll tell you what each is worth before you've unbuckled the pack." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my podium! I don't see many of your people bid, dear, so I'll give you the same sensible advice I give everyone, and you'll ignore it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want to sell your bags, I suppose, because your sort always end up with more bags than sense." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You should've listed your goods sooner. Prices are falling, and your spirits can't help that." },
@@ -1189,7 +1189,7 @@ P:NPC {
       },
     },
     price2 = {
-      lines = { { id = "p2_default", text = "Then hold out, love, and good luck to you. Mind you, a fair price is whatever somebody pays, and there's no shame in a quick sale when you need the coin." } },
+      lines = { { id = "p2_default", text = "Then hold out, love, and good luck to you. Still, a fair price is whatever somebody pays, and there's no shame in a quick sale when you need the coin." } },
       choices = {
         { text = "Underselling everyone hurts the honest crafters.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Business is business, and the quick sale wins.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
@@ -1264,7 +1264,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, and they always want crests with no animals, no colours and nothing anyone could recognise. I design them anyway, and I sign them properly, because a charter's a charter whoever holds it." } },
+      lines = { { id = "xrogue_default", text = "Twice this year, and they always want crests with no animals, no colours and nothing anyone could recognise. I design them anyway, and I sign them properly, because a charter's a charter whoever holds it." } },
       choices = {
         { text = "A charter should be honest about who signs it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A crest nobody recognises is a sensible crest.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1387,7 +1387,7 @@ P:NPC {
     silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was the finest fellowship in the world, and its crest is still the one I most admire. I've designed a hundred crests, and not one of them is as fine as that hand." } },
     argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn has a crest that's simple and fine, and I'd have designed it myself if they'd asked. They're a good fellowship, by every account, and I'd charter them in a heartbeat." } },
     background = { { id = "tp_bg", text = "I was a herald's clerk before the city's guilds needed a registry, so I've spent my whole life drawing other people's banners." } },
-    _none = { { id = "tp_none", text = "That's not in the registry, friend, and I'd rather not guess." } },
+    _none = { { id = "tp_none", text = "That's not in the registry, friend, and I don't put guesses on parchment." } },
   },
 }
 
@@ -1648,7 +1648,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than they used to, which tells you something about the roads. A priest who can't defend themselves gets taken first, and I'd rather sell a mace than hear about it." } },
+      lines = { { id = "xapriest_default", text = "More than they used to, and that's the roads talking. A priest who can't defend themselves gets taken first, and I'd sooner sell a mace than hear about it." } },
       choices = {
         { text = "I'll carry one, but faith is my first defence.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A good mace has saved more priests than prayer.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1668,7 +1668,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, I expect, and Gunther will want to lecture you about balance, so I'd buy quickly." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You'll know your way to the back wall, {class}, since that's where every paladin goes first." },
-        { id = "h_default", text = "Marda Weller. Gunther forges and fusses, Woo Ping teaches, and I keep the counter and the ledger, which is why this shop still has a roof." },
+        { id = "h_default", text = "Marda Weller. Gunther forges and fusses, Woo Ping teaches, and I keep the counter and the ledger, and that's how this shop still has a roof." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, so it's a mace or a two-hander you're after. We've a few heavy pieces on the back wall, though Gerik Koen in Old Town has more if ours don't suit you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so you'll be after the daggers, which Gunther will have told you I count. He's right, and I count the coin too." },
@@ -1690,7 +1690,7 @@ P:NPC {
         { text = "I'd have thought the army bought most of your weapons.", next = "buyers" },
         { text = "Has anyone stolen from you, Marda?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Sanctum disapprove of weapons training?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Gunther seems to talk about balance a great deal, Marda.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Gunther never stops talking about balance, Marda.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'd wager Weller's has something for hunters, Marda.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many priests buy weapons, Marda?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell much to the Silver Hand, Marda?", next = "xapala", when = { class = "PALADIN" } },
@@ -1780,7 +1780,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "They carve them from something that isn't quite wood and isn't quite glass, and I've studied one for a year without learning how. I'd give a great deal to know, though I suspect the answer is that a tree agreed to it." } },
+      lines = { { id = "xdruid_default", text = "They carve them from something that isn't quite wood and isn't quite glass, and I've studied one for a year without learning how. I'd give my best lens to know, though I suspect the answer is that a tree agreed to it." } },
       choices = {
         { text = "Study it properly, Keldric, and write down what you learn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some secrets aren't for writing down. Leave it be, Keldric.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1922,7 +1922,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "quick" }, values = { "practical", "community" },
   notices = { "class" },
   impression = {
-    first = "Kyra Boucher sells reagents just inside the door of Pestle's Apothecary and knows what every sort of spellcaster runs out of. She seemed to have memorised half the city's habits by what they bought.",
+    first = "Kyra Boucher sells reagents just inside the door of Pestle's Apothecary and knows what every sort of spellcaster runs out of. She seemed to know the habits of every caster in the city by what they bought.",
     third = "{name} met Kyra Boucher, the reagent seller at Pestle's Apothecary.",
   },
   greetings = {
@@ -2156,7 +2156,7 @@ P:NPC {
       },
     },
     supply_dalaran = {
-      lines = { { id = "sd_default", text = "Because Dalaran used to make half the runes in the Seven Kingdoms, and Dalaran's been in ruins since the Scourge came through. The Kirin Tor are rebuilding, I'm told, but they're keeping what they make for themselves, and I can't say I blame them.",
+      lines = { { id = "sd_default", text = "Because Dalaran used to make most of the runes in the Seven Kingdoms, and Dalaran's been in ruins since the Scourge came through. The Kirin Tor are rebuilding, I'm told, but they're keeping what they make for themselves, and I can't say I blame them.",
           fx = { learn = { "dalaran", "scourge" } } } },
       choices = {
         { text = "The Kirin Tor owe the world better than that.", next = "BACK" },
@@ -2191,7 +2191,7 @@ P:NPC {
       },
     },
     rogues = {
-      lines = { { id = "r_default", text = "Flash powder isn't a crime, and half the guard's own scouts buy it from me. If I asked every customer what they meant to do with their reagents, I'd sell nothing at all." } },
+      lines = { { id = "r_default", text = "Flash powder isn't a crime, and the guard's own scouts buy it from me. If I asked every customer what they meant to do with their reagents, I'd sell nothing at all." } },
       choices = {
         { text = "Leave it, then. What they do isn't your concern.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A careful seller should still keep an eye out.", next = "BACK", fx = { align = { order = 1 } } },

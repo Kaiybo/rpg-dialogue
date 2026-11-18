@@ -111,7 +111,7 @@ P:Pool {
     },
     yeti = {
       lines = {
-        { id = "ye_default", text = "Umi Rumplesnicker builds them for a laugh and sends them out to scare folks, and every time one comes clanking up to the gate I've got about a second to work out whether to swing or wave. So far I'm right about half the time." },
+        { id = "ye_default", text = "Umi Rumplesnicker builds them for a laugh and sends them out to scare folks, and every time one comes clanking up to the gate I've got about a second to work out whether to swing or wave. So far I've waved at two real yetis and swung at one of hers, and she still hasn't forgiven me." },
       },
       choices = {
         { text = "That's the funniest thing I've heard all week.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },

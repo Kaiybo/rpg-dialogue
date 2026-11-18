@@ -169,7 +169,7 @@ P:NPC {
     },
     ore = {
       lines = {
-        { id = "o_default", text = "Iron in the hills, and mithril if you're lucky and brave, but the Badlands are crawling with ogres, troggs and Dark Iron dwarves, and every one of them's a cost I can't pass on. Every good seam out here is guarded by something with a club or a hammer or both." },
+        { id = "o_default", text = "Iron in the hills, and mithril if you're lucky and brave, but the Badlands are crawling with ogres, troggs and Dark Iron dwarves, and every last one's a cost I can't pass on. Every good seam out here is guarded by something with a club or a hammer or both." },
       },
       choices = {
         { text = "Troggs?", next = "ore_troggs" },
@@ -184,7 +184,7 @@ P:NPC {
     },
     goretooth = {
       lines = {
-        { id = "g_default", text = "Hard? He's a rock with a grudge, buddy, but he pays on time and he's never once broken a contract, which is more than I can say for some goblins I know. I just make very sure he's never got a reason to look at me, or at my books." },
+        { id = "g_default", text = "Hard? He's a rock with a grudge, buddy, but he pays on time and he's never once broken a contract, and I can't say that of my own cousins. I just make very sure he's never got a reason to look at me, or at my books." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

@@ -133,7 +133,7 @@ P:NPC {
 
     duriel = {
       lines = {
-        { id = "du_default", text = "She commands Silverwing, and she's good at it, which is why she has to fall. Night elves are decent foes, a little skinny but strong and fierce, and I'd sooner fight a good one than a bad one." },
+        { id = "du_default", text = "She commands Silverwing, and she's good at it, so she has to fall. Night elves are decent foes, a little skinny but strong and fierce, and I'd sooner fight a good one than a bad one." },
       },
       choices = {
         { text = "You respect them.", next = "duriel_respect" },
@@ -195,7 +195,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A raider of the Horde, born in the camps and freed by Thrall. Since then I've been looking for a good fight, and Ashenvale's full of them." } },
     advice = { { id = "tp_ad", text = "In these woods, the arrow comes before the sound. Keep your shield up even when it's quiet." } },
-    warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and I'd rather it was me." } },
+    warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and it may as well be me." } },
     sentinels = { { id = "tp_sentinels", text = "Good fighters, every one, and quieter than any orc. I like them better than I should." } },
     thrall = { { id = "tp_thrall", text = "Thrall broke the chains on my people and gave us back our honour. I raid these woods because he needs the timber, and I'd raid anywhere he asked." } },
     tyrande = { { id = "tp_tyrande", text = "The night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },

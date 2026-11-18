@@ -226,7 +226,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_friends = {
-      lines = { { id = "hr_default", text = "That's the best answer anyone's given me this year, and I hear a great many. A friend will pick up your fingers for you, which is more than most prayers will." } },
+      lines = { { id = "hr_default", text = "That's the best answer anyone's given me this year, and I hear a great many. A friend will pick up your fingers for you, and no prayer I know of has ever done that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_joke = {
@@ -307,7 +307,7 @@ P:NPC {
     },
     xorig_squire = {
       lines = {
-        { id = "xsq_default", text = "And you've sworn it since, I suppose, and the Light burns you every time. Good. A test that doesn't hurt teaches nothing, and the Light is testing you more honestly than it ever tested the knights who swore in comfort. Will you keep swearing?" },
+        { id = "xsq_default", text = "And you've sworn it since, I suppose, and the Light burns you every time. Good. A test that doesn't hurt teaches nothing, and the Light is testing you harder than it ever tested the knights who swore in comfort. Will you keep swearing?" },
       },
       choices = {
         { text = "Every morning, Father, for as long as I last.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -336,7 +336,7 @@ P:NPC {
       },
     },
     sermon_long = {
-      lines = { { id = "sl_default", text = "Some four hundred pages, and the subject has not changed, only the examples, which have become a great deal more vivid. Before I go on, tell me something, and answer honestly: do you pray?" } },
+      lines = { { id = "sl_default", text = "Some four hundred pages, and the subject has not changed, only the examples, which have become far more vivid. Before I go on, tell me something, and answer truthfully: do you pray?" } },
       choices = {
         { text = "Every day, Father, without fail.", next = "pray_yes", fx = { trait = { pious = 1 }, affinity = 1, align = { light = 1 } } },
         { text = "No. I trust my own hands, not the Light.", next = "pray_no", fx = { trait = { stern = 1 }, align = { light = -1 } } },
@@ -431,7 +431,7 @@ P:NPC {
       },
     },
     gate_lose = {
-      lines = { { id = "gl_default", text = "I don't count it lost, because I'm back at it, in a manner of speaking, and the same enemy's on the other side. That's more than most watchmen ever get, a second shift." } },
+      lines = { { id = "gl_default", text = "I don't count it lost, because I'm back at it, in a manner of speaking, and the same enemy's on the other side. Few watchmen ever get a second shift." } },
       choices = {
         { text = "Then hold the line this time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Forget the line. Take the fight to them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -510,7 +510,7 @@ P:NPC {
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "I fought your people at Hillsbrad, in the Second War. You'll forgive me if my shoulder twitches." },
+      text = "I fought your people at Hillsbrad, in the Second War. If my shoulder twitches, that's the reason." },
     { id = "n_soldier", cat = "origin", when = { origin = "forsaken_lordaeron_soldier" },
       text = "You stand like one of ours, from the old army. Feet apart, weight back, and waiting for an order that won't come." },
   },
@@ -549,7 +549,7 @@ P:NPC {
       },
     },
     first = {
-      lines = { { id = "fi_default", text = "How to fall, and how to get up again. The dead get up more easily than the living, but they fall just the same, and I'd rather they did it on purpose." } },
+      lines = { { id = "fi_default", text = "How to fall, and how to get up again. The dead get up more easily than the living, but they fall just the same, and they may as well learn to do it on purpose." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -565,7 +565,7 @@ P:NPC {
       choices = {
         { text = "A sergeant who hit me until I stopped showing off.", next = "pike_sergeant", fx = { trait = { stern = 1 }, affinity = 1 } },
         { text = "Nobody. I taught myself, the hard way.", next = "pike_self", fx = { trait = { brave = 1 } } },
-        { text = "I like to show off a little, honestly.", next = "pike_show", fx = { trait = { honest = 1 } } },
+        { text = "I like to show off a little, I admit.", next = "pike_show", fx = { trait = { honest = 1 } } },
       },
     },
     pike_sergeant = {
@@ -573,7 +573,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pike_self = {
-      lines = { { id = "pk_default", text = "That shows, both the good and the bad of it. You'll have habits I'll need to beat out of you, but you'll also have learned that the ground hurts, and that's half the lesson." } },
+      lines = { { id = "pk_default", text = "That shows, both the good and the bad of it. You'll have habits I'll need to beat out of you, but you'll also have learned that the ground hurts, and that's a fair start on the lesson." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pike_show = {
@@ -675,7 +675,7 @@ P:NPC {
       lines = { { id = "dy_default", text = "Not yet, but it could, if you hit hard enough! Here, I ask everyone this, so don't be shy: what's the hardest you've ever been hit?" } },
       choices = {
         { text = "An ogre once threw me across a river.", next = "dents_brag", fx = { trait = { brave = 1 }, affinity = 1 } },
-        { text = "Honestly? I try very hard not to get hit.", next = "dents_honest", fx = { trait = { cautious = 1 } } },
+        { text = "Truthfully? I try very hard not to get hit.", next = "dents_honest", fx = { trait = { cautious = 1 } } },
         { text = "Nothing's hit me hard enough yet.", next = "dents_proud", fx = { trait = { proud = 1 } } },
       },
     },

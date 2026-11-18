@@ -100,7 +100,7 @@ P:Pool {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "The Ironforge birds take to dwarves better than anyone. It's the beard, I think; they mistake it for a nest." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "Hold on with both hands, now. A gnome comes off a gryphon easier than you'd think, and the ground's a long way down." },
+      text = "Hold on with both hands, now. Gnomes come off gryphons more often than the flight logs admit, and the ground's a long way down." },
     { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
       text = "Your hippogryphs over in Kalimdor are gentler than my birds. Don't hold it against them; gryphons just have opinions." },
     { id = "n_hunter", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
@@ -139,7 +139,7 @@ P:Pool {
     { id = "g_op_in_chief", priority = 60, when = { npcFlag = "op_in_chief" }, fx = { npcFlag = { clear = "op_in_chief" } },
       text = "So do I, and so does every soldier who drinks under this roof. They grumble about him all night and they'd die for him in the morning." },
     { id = "g_op_in_soft", priority = 60, when = { npcFlag = "op_in_soft" }, fx = { npcFlag = { clear = "op_in_soft" } },
-      text = "Not so loud, friend; I've grunts at the corner table who'd take that personally. Mind you, half of them say the same thing after their third mug." },
+      text = "Not so loud, friend; I've grunts at the corner table who'd take that personally, though by their third mug they're usually saying it themselves." },
     -- Opinion pass: word of what the player said to someone else in this community.
     { id = "g_o_peace_for", once = true, priority = 40, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
       text = "My regulars tell me you're all for keeping the peace. One of them called you wise and another called you soft, and I had to separate them." },
@@ -223,7 +223,7 @@ P:Pool {
     { id = "g_o_soft", once = true, when = { gossip = { topic = "warchief", stance = { "soft", "weak" } } },
       text = "I hear you've been telling folk the Warchief's gone soft. Say what you like, friend, but say it after you've paid." },
     { id = "g_o_bolvar", once = true, when = { gossip = { topic = "bolvar", stance = { "weak", "soft" } } },
-      text = "Folk tell me you think the regent bows to the nobles. Half my customers say the same, and the other half are nobles, so keep your voice down." },
+      text = "Folk tell me you think the regent bows to the nobles. Plenty of my customers mutter the same over their ale, but some of the others wear signet rings, so keep your voice down." },
   },
   -- 0.71.0: a conversation tree (stock and prices, the roads, haggling, town talk,
   -- what you've been up to, and who a merchant ought to sell to).
@@ -324,7 +324,7 @@ P:Pool {
       lines = {
         { id = "g_default", text = "The same as always: whose roof leaks, whose son's run off to be a soldier, and which of the guards owes me money. Nothing you'd cross the street for, but it passes the afternoon." },
         { id = "g_alliance", when = { faction = "Alliance" }, text = "Folk say the king's been gone so long now that half the children don't remember his face. The regent means well, but people want their king home, and they say so over every counter in town." },
-        { id = "g_horde", when = { faction = "Horde" }, text = "Folk say the Warchief means to keep the peace with the humans for as long as they'll let him, and half the town thinks that's wisdom and the other half calls it weakness. They all still buy their bread from me, though." },
+        { id = "g_horde", when = { faction = "Horde" }, text = "Folk say the Warchief means to keep the peace with the humans for as long as they'll let him, and folk argue over whether that's wisdom or weakness until their bread goes cold. They all still buy their bread from me, though." },
       },
       choices = {
         { text = "And what have you been up to, then?", next = "player" },
@@ -403,7 +403,7 @@ P:Pool {
         { id = "vp_default", text = "Every day, and loudest when they're buying the least. A merchant learns to nod at everything, but I'll tell you how the talk runs, if you're curious." },
         { id = "vp_g_peace", when = { gossip = { topic = "peace", stance = "for" } }, text = "A customer told me you'd spoken up for the peace between Theramore and Orgrimmar. Peace is good for trade, so you'll get no argument from this side of the counter." },
         { id = "vp_g_nopeace", when = { gossip = { topic = "peace", stance = "against" } }, text = "I heard you'd been running down the peace with the other side. Folk who want a war don't usually think about who sells the boots and bandages for it, but I do." },
-        { id = "vp_g_nobles", when = { gossip = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Somebody said you think the nobles ought to pay the war debts before the rest of us. Half my customers want to buy you a drink, and the other half are the nobles' stewards." },
+        { id = "vp_g_nobles", when = { gossip = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Somebody said you think the nobles ought to pay the war debts before the rest of us. The farmhands at my bar want to buy you a drink, and the stewards in the corner have been writing your name down." },
         { id = "vp_contra", when = { contradiction = "peace" }, text = "Two customers this week told me two different things about what you think of the peace. A merchant notices when someone's prices change depending on who's buying." },
       },
       choices = {
@@ -427,8 +427,8 @@ P:Pool {
     v_pol_tax_said = {
       lines = {
         { id = "vpts_default", text = "Well, the toll's the toll either way, until somebody at court decides otherwise." },
-        { id = "vpts_nobles", when = { opinion = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Say that loudly enough and you'll have half the Trade District buying you drinks and the other half reporting you. I'll be in the first half, quietly." },
-        { id = "vpts_crown", when = { opinion = { topic = "war_taxes", stance = "pay_the_crown" } }, text = "Spoken like someone who's never had to pay it. Still, I'll grant you that walls come cheaper than whatever climbs over them." },
+        { id = "vpts_nobles", when = { opinion = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Say that loudly enough and the dockhands will buy you drinks while some lord's clerk writes down your name. I'd buy you one myself, though quietly." },
+        { id = "vpts_crown", when = { opinion = { topic = "war_taxes", stance = "pay_the_crown" } }, text = "Spoken like someone who's never had to pay it. Still, walls do come cheaper than whatever climbs over them." },
       },
       choices = {
         { text = "What else are your customers arguing about?", next = "v_pol" },
@@ -586,7 +586,7 @@ P:Pool {
     { id = "n_centaur", cat = "kills", when = { killed = { name = { "Kolkar", "Galak", "Magram", "Gelkis", "Centaur" }, min = 50 } },
       text = "The centaur clans curse a name around their fires now. I didn't catch it, but I think it's yours." },
     { id = "n_bladecult", cat = "kills", when = { killed = { name = "Burning Blade", min = 20 } },
-      text = "You've been killing Burning Blade cultists. Good. Every one of them is an orc who chose the demons again, and they get no grief from me." },
+      text = "You've been killing Burning Blade cultists, and good. Each of them is an orc who chose the demons a second time, and they get no grief from me." },
     { id = "n_scarlet", cat = "kills", when = { killed = { name = "Scarlet", min = 50 } },
       text = "You've been at the Scarlet Crusade, I hear. Those zealots would burn every one of us, so I hope you made them pay for the wood." },
     { id = "n_cl_ragefire", cat = "dungeon", when = { cleared = "Ragefire Chasm" },
@@ -748,6 +748,6 @@ P:Pool {
     { id = "l_night", when = { timeOfDay = "night" },
       text = "This is the best hour in an inn. The loud ones have gone to bed and the honest ones are still talking." },
     { id = "l_dawn", when = { timeOfDay = "dawn" },
-      text = "Half my guests leave before sunrise, and the other half leave before I've counted the spoons." },
+      text = "My guests come in after dark and leave before I've had a chance to count the spoons." },
   },
 }

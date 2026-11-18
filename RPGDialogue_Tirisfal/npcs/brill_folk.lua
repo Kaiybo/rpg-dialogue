@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Proof of Demise") },
           text = "Ten Scarlet Insignia Rings, {class}, taken from ten Crusaders. A zealot's word is worth nothing, so his jewelry will have to speak for him." },
         { id = "h_done", when = { questDone = TODO_QUEST("Proof of Demise") },
-          text = "Your rings went down to the Undercity in a sealed box, and I'm told Lord Varimathras looked at every one of them himself. You've been noticed, which is an honor or a warning, depending entirely on how you go on serving." },
+          text = "Your rings went down to the Undercity in a sealed box, and I'm told Lord Varimathras looked at each one himself. You've been noticed, which is an honor or a warning, depending entirely on how you go on serving." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren, all the way from the Warchief's plains to my town hall. I'm told your people honor the living and the dead alike, which must make Tirisfal a very confusing place for you." },
       },

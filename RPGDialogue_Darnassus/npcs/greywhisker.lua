@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! By my beard, it's good to hear a proper accent; these elves talk as if every sentence costs them a gold piece." },
     { id = "n_arch", cat = "craft", when = { profession = { "Mining", "Engineering" } },
-      text = "You've got grit under your nails, and I mean that kindly. Mind you don't go mining through anything older than you are without telling the League." },
+      text = "You've got grit under your nails, and I mean that kindly. Just don't go mining through anything older than you are without telling the League." },
   },
 
   start = "hello",
@@ -50,7 +50,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
-      lines = { { id = "op_r2_default", text = "Aye, I hear that a great deal, and I've stopped arguing it in the street. We record and we don't loot, and anyone who tells you otherwise has met the wrong dwarves." } },
+      lines = { { id = "op_r2_default", text = "Aye, I hear that often, and I've stopped arguing it in the street. We record and we don't loot, and anyone who tells you otherwise has met the wrong dwarves." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r3 = {
@@ -72,7 +72,7 @@ P:NPC {
         { id = "o_magni_distrust", tags = { "news" }, when = { opinion = { topic = "magni", stance = "distrust" } },
           text = "You've been heard saying the King cares more for old stones than for his people. I'll not argue, but I'll thank you not to say it in front of the League." },
         { id = "h_default", key = true,
-          text = "Chief Archaeologist Greywhisker, of the Explorers' League, at your service. Most folk think our work is a hobby for old dwarves with too much time, but the ruins of this world have a great deal to tell us, if we listen." },
+          text = "Chief Archaeologist Greywhisker, of the Explorers' League, at your service. Most folk think our work is a hobby for old dwarves with too much time, but the ruins of this world have stories carved in their stones, if we've the patience to read them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Darkshore?") },
           text = "I sent a crew to Darkshore under Prospector Remtravel, and I've not heard a word from them in weeks. Would a {class} like you travel to Auberdine and look for any clue to where they've got to?" },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Trouble in Darkshore?"), days = 5 } },
@@ -101,7 +101,7 @@ P:NPC {
 
     crew = {
       lines = {
-        { id = "cr_default", text = "Remtravel thinks there was a great society under those forests long before the elves planted anything there. He's got young Hollee with him to keep his tools in order, and she'll need every one of them." },
+        { id = "cr_default", text = "Remtravel thinks there was a great society under those forests long before the elves planted anything there. He's got young Hollee with him to keep his tools in order, and the way he loses trowels, she'll be busy." },
       },
       choices = {
         { text = "A society older than the night elves?", next = "crew_older" },

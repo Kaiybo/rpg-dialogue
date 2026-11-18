@@ -197,7 +197,7 @@ P:NPC {
           text = "A tauren druid in Brackenwall, good. You'll know better than I do what the Earth Mother makes of tauren who'd start a war in her name." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the truth about that inn won't be found by shouting at the gates of Theramore, and you know how to listen where others stomp." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Thrall forgives the old ways in those who serve him well, and I'll do the same, but keep your demons away from the human road while the inn still smokes." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Good, because if this turns ugly with Theramore there'll be wounded on both sides of the marsh, and I'd rather you were here than there." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Good, because if this turns ugly with Theramore there'll be wounded on both sides of the marsh, and I want you on this side of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore's full of your kind, wearing blue and doing the Lady's bidding, and I'd like someone on our side who knows what they're capable of." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "Word is the Grimtotem in the marsh are a good deal fewer than they were, and they're not happy about it. Neither am I, though only because I'd have liked to watch." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The humans of Theramore have paladins too, and they'd look at you and see something worse than an orc." },
@@ -447,7 +447,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Their mages are the walls Proudmoore never had to build, and every one of them saw Dalaran fall. I've watched them ward the docks and the tower at night, and I don't think they sleep any more than I do." } },
+      lines = { { id = "xmage_default", text = "Their mages are the walls Proudmoore never had to build, and they all watched Dalaran fall. I've watched them ward the docks and the tower at night, and I don't think they sleep any more than I do." } },
       choices = {
         { text = "Respect them. A frightened mage keeps the peace better than a proud one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Every ward has a gap. Find it before they need to.", next = "BACK", fx = { align = { order = -1 } } },
@@ -493,7 +493,7 @@ P:NPC {
         { id = "h_wet", when = { metBefore = true }, text = "Another report from Theramore, soaked through. Everything in this marsh is soaked through, even the secrets." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore is full of your kind, Kirin Tor refugees with long memories, so I'd like to hear how you think one of them thinks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp could slip under Theramore's walls easier than any of my spies, and I've thought about it more than once, I'll admit." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, I'll grant you, and the Stonemaul trust you more than they trust me." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, and the Stonemaul trust you more than they trust me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Theramore would count you a threat twice over, and for once I think they'd be right." },
       },
       again = {

@@ -158,7 +158,7 @@ P:NPC {
     },
     loch_dam = {
       lines = {
-        { id = "ld_default", text = "Then the loch empties intae the Wetlands an' takes half o' Menethil wi' it, which is why Hinderweir sleeps on the thing. I fly over it every day, an' I've never seen a crack, but I'm no engineer." },
+        { id = "ld_default", text = "Then the loch empties intae the Wetlands an' takes half o' Menethil wi' it, so Hinderweir sleeps on the thing. I fly over it every day, an' I've never seen a crack, but I'm no engineer." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "stonewrought_dam" } } } },
     },
@@ -175,7 +175,7 @@ P:NPC {
 
     train = {
       lines = {
-        { id = "tr_default", text = "Wi' patience, an' meat, an' a great deal o' talkin' to. A gryphon has tae trust ye before it'll carry ye, an' ye earn that trust one day at a time, no' all at once." },
+        { id = "tr_default", text = "Wi' patience, an' meat, an' long evenin's o' talkin' to. A gryphon has tae trust ye before it'll carry ye, an' ye earn that trust one day at a time, no' all at once." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -345,7 +345,7 @@ P:NPC {
 
     troggs = {
       lines = {
-        { id = "tr_default", text = "They've come up out o' the ground at Stonesplinter Valley an' around Ironband's dig, an' they bite through leather like it's bread. Mail stops them, mostly, which is why business is good, though I'd rather it wasn't." },
+        { id = "tr_default", text = "They've come up out o' the ground at Stonesplinter Valley an' around Ironband's dig, an' they bite through leather like it's bread. Mail stops them, mostly, so business is good, though I'd trade every coin of it for a quiet valley." },
       },
       choices = {
         { text = "You sound as if you'd rather business was bad.", next = "troggs_bad" },
@@ -500,7 +500,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll be out in the hills for days, so ye'll want somethin' that keeps." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the loaves, if ye like, for they've tae feed the whole road from here tae the dam." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' a big loaf, an' maybe two, tae fill out that armour." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye kaldorei eat a great deal o' fruit, I'm told, but I'll wager ye've never had fresh bread at dawn by the loch." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye kaldorei live on fruit an' moonlight, I'm told, but I'll wager ye've never had fresh bread at dawn by the loch." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be conjurin' yer own bread, I suppose, an' I'll tell ye now it's no' a patch on mine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll be hungry, I expect, for talkin' tae the elements must be hard work. Have a roll." },
       },
@@ -545,7 +545,7 @@ P:NPC {
 
     who = {
       lines = {
-        { id = "wh_default", text = "The mountaineers, every mornin', an' the miners on their way tae the hills, an' the Explorers' League folk when they come back from their digs, starvin'. I've fed half o' Loch Modan, an' I'd feed the other half if they'd come in." },
+        { id = "wh_default", text = "The mountaineers, every mornin', an' the miners on their way tae the hills, an' the Explorers' League folk when they come back from their digs, starvin'. I've fed most o' Loch Modan by now, an' I'd feed the rest if they'd come in." },
       },
       choices = {
         { text = "The Explorers' League folk must come in hungry.", next = "who_league" },
@@ -623,7 +623,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Silver Stream's full o' kobolds, an' the troggs have Stonesplinter Valley an' half the hills around it. Clear either one, an' ye'll have a dozen miners buyin' ye ale." } },
+      lines = { { id = "xwarcl_default", text = "The Silver Stream's full o' kobolds, an' the troggs have Stonesplinter Valley an' the hills around it. Clear either one, an' ye'll have a dozen miners buyin' ye ale." } },
       choices = {
         { text = "I'll clear them so the miners can go home.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll clear them, and keep whatever ore I find.", next = "BACK", fx = { align = { honor = -1 } } },

@@ -57,7 +57,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because of Maybell, of course, and because half the valley thinks a Stonefield and a Maclure is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
+      lines = { { id = "xwarcl_default", text = "Because of Maybell, of course, and because both families think a Stonefield and a Maclure together is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
       choices = {
         { text = "Then fight for her, Tommy Joe. She's worth it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Mend your fences and leave her be.", next = "BACK", fx = { align = { honor = -1 } } },

@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep yer head down, friend, for the Dark Irons have archers on the walls. What brings ye tae Dun Modr, besides bad luck an' a bad map?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece. That's more than most manage on this road." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece, which on this road is a feat worth a toast." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' Dun Modr's still standin', just about. Any word o' reinforcements on yer travels?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown fierce since I sent ye out tae look for Rustlocke. Longbraid could use a hundred like ye." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Menethil's talkin' about ye, an' even out here we hear it. Good deeds travel faster than reinforcements, it seems." },
@@ -137,7 +137,7 @@ P:NPC {
     span_fall = {
       big = true,
       lines = {
-        { id = "sf_default", text = "Then Khaz Modan's cut off from the north, an' every caravan for Arathi an' Lordaeron goes by sea or no' at all. The Dark Irons know it, too, which is why they're still out there." },
+        { id = "sf_default", text = "Then Khaz Modan's cut off from the north, an' every caravan for Arathi an' Lordaeron goes by sea or no' at all. The Dark Irons know it too, so they're still squattin' on it." },
       },
       choices = {
         { text = "Then the Dark Irons must be crushed, every one.", next = "BACK", fx = { align = { order = -1 } } },
@@ -248,7 +248,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Cannae say, friend. Out here we hear about the Dark Irons an' little else." } },
     grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's east o' here over the hills, an' no dwarf wi' sense goes near it. It was the Wildhammer's hold once, the Dark Irons cursed it, an' then the orcs filled it wi' dragons, so that's three good reasons." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer were Ironforge's kin before the War o' the Three Hammers, an' they're kin still, if ye squint. They fly over the Span now an' then, an' I'll admit it's a fine sight." } },
-    magni = { { id = "tp_magni", text = "King Magni sent us tae hold Dun Modr's edge, an' we'll hold it till he says otherwise. He's a king who remembers his soldiers' names, an' that's worth a great deal." } },
+    magni = { { id = "tp_magni", text = "King Magni sent us tae hold Dun Modr's edge, an' we'll hold it till he says otherwise. He's a king who remembers his soldiers' names, an' a soldier will stand a long while for a king like that." } },
     stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's men held the north end o' the Span once, an' now Stromgarde itself is half ogres an' half ruins. They were good allies, an' I'd like them back." } },
     scourge = { { id = "tp_scourge", text = "There are dead men walkin' in Lordaeron, I hear, an' the Span's the only dry road south for them. That's another reason we cannae let it fall." } },
   },

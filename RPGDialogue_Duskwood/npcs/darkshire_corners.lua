@@ -204,7 +204,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Malissa. I sell vials, leaded and crystal, and the reagents to fill them, and I don't ask what they're for. In Duskwood, a blade that bites twice is worth a great deal." },
+          text = "Malissa. I sell vials, leaded and crystal, and the reagents to fill them, and I don't ask what they're for. In Duskwood, a blade that bites twice is what gets you home before dark." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "A rogue, and a careful one by the look of you. Take what you need, and if anyone asks, you came back here to get out of the wind." },
         { id = "h_priest", when = { class = { "PRIEST", "PALADIN" } },

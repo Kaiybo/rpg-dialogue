@@ -187,7 +187,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come closer, {class}, and keep your voice down. The hills carry sound further than you'd think." },
+    { id = "g_default", text = "Come closer, {class}, and keep your voice down. The hills carry sound all the way to Thorn Hill." },
     { id = "g_seed", when = { questActive = TODO_QUEST("The Demon Seed") }, text = "Have you found the stone yet? The longer it stays whole, the more the cult on Dreadmist Peak draws from it." },
   },
 
@@ -288,7 +288,7 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_bb", text = "Cultists who worship what the old Horde served. They have a foothold on Dreadmist Peak and, I'd wager, other places closer to the Warchief than he'd like." } },
-    neeru = { { id = "tp_neeru", text = "Neeru Fireblade, in Orgrimmar's Cleft of Shadow. He knows a great deal, and he shares a little of it." } },
+    neeru = { { id = "tp_neeru", text = "Neeru Fireblade, in Orgrimmar's Cleft of Shadow. He knows much, and he shares a little of it." } },
     _none = { { id = "tp_none", text = "That's outside my study. I watch the Blade, and the Blade cares for nothing but demon blood." } },
   },
 }
@@ -422,7 +422,7 @@ P:NPC {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Let's see your feet, because they tell me more than your axe ever will." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Look at the state of that armor. You've been taking hits you should have turned, and I can count every one of them." },
+      text = "Look at the state of that armor. You've been taking hits you should have turned, and I can count each one in the dents." },
   },
 
   start = "hello",
@@ -471,7 +471,7 @@ P:NPC {
     },
     charged = {
       lines = {
-        { id = "c_default", text = "The knights rode them down in the open, as the knights always did. I don't hold it against them, because they were brave, but brave and dead is still dead, and I'd rather train you to be the other kind." },
+        { id = "c_default", text = "The knights rode them down in the open, as the knights always did. I don't hold it against them, because they were brave, but brave and dead is still dead, and I train grunts to come home." },
         { id = "c_forsaken", when = { race = "Scourge" }, text = "The knights rode them down in the open. For all I know, one of those knights is standing in front of me, wearing a different face, and if so, you rode well." },
       },
       choices = {

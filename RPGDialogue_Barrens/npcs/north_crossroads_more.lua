@@ -116,7 +116,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Sikwa, and I keep the stables here, which means I keep the beasts that the hunters of the Barrens can't take with them. Every one of them gets fed and watered and walked, and every owner gets told off if they've neglected it." },
+        { id = "h_default", key = true, text = "I am Sikwa, and I keep the stables here, which means I keep the beasts that the hunters of the Barrens can't take with them. Each beast gets fed and watered and walked, and every owner gets told off if they've neglected it." },
       },
       again = { { id = "h_again", text = "Anything else? The beasts need their evening walk soon." } },
       choices = {

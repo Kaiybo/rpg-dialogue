@@ -70,7 +70,7 @@ P:NPC {
     },
     possession = {
       big = true,
-      lines = { { id = "po_default", text = "We possessed their chieftain, which is a great deal more efficient than persuading two hundred ogres one at a time. The living use whips and coin to make others serve them, and we use what we have." } },
+      lines = { { id = "po_default", text = "We possessed their chieftain, which is far more efficient than persuading two hundred ogres one at a time. The living use whips and coin to make others serve them, and we use what we have." } },
       choices = {
         { text = "Bending the will of brutes serves the Dark Lady well.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Possession is a cruelty, even done to ogres.", next = "BACK", fx = { align = { light = 1 } } },
@@ -123,7 +123,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock, and you've read more than most, I can tell from your eyes. You have the squint." },
+      text = "A warlock, and a well-read one, I can tell from your eyes. You have the squint." },
   },
 
   start = "hello",

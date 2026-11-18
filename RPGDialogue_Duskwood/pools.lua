@@ -12,7 +12,7 @@ P:Pool {
   greetings = {
     { id = "g_lamp", text = "Stay in the lamplight, and if the lamp's out, shout for whoever's got the oil can." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Long night, and they're all long nights here. Keep moving, friend; standing still draws them." },
-    { id = "g_liked", when = { townStanding = { town = "darkshire", min = 30 } }, text = "Good to see a friendly face, and yours more than most. Round here the faces are mostly crying or rotting." },
+    { id = "g_liked", when = { townStanding = { town = "darkshire", min = 30 } }, text = "Good to see a friendly face, and yours is one the town speaks well of, which helps when most faces round here are crying or rotting." },
     { id = "g_distrust", when = { townStanding = { town = "darkshire", max = -20 } }, text = "The Watch knows who you are, so mind yourself while you're inside our gate." },
   },
   notice = {

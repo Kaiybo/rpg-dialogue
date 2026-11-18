@@ -167,7 +167,7 @@ P:NPC {
     },
     xgnome = {
       lines = {
-        { id = "xgn_default", text = "Ye can talk tae him in that quick gnomish o' yours, which is more than I can. He nods at my jokes, but I don't think he understands half o' them, an' the other half he's too polite tae laugh at." },
+        { id = "xgn_default", text = "Ye can talk tae him in that quick gnomish o' yours, which is more than I can. He nods at my jokes, but I think he's only bein' polite, an' the polite ones are the worst." },
       },
       choices = {
         { text = "I'll sit with him a while.", next = "BACK", fx = { affinity = 2 } },
@@ -296,13 +296,13 @@ P:NPC {
       },
       choices = {
         { text = "Try a recoil spring in the stock.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Honestly? Just build a bigger gun.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Why not just build a bigger gun?", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Gnomeregan, a workshop on the fourth level, ten years of good work, and then the alarms. That's everything, really, and I'd rather talk about barrels." } },
+    background = { { id = "tp_bg", text = "Gnomeregan, a workshop on the fourth level, ten years of good work, and then the alarms. That's everything, really, so let's talk about barrels instead." } },
     advice = { { id = "tp_ad", text = "Always carry your toolbag, even when you're running for your life. Especially then." } },
     _none = { { id = "tp_none", text = "I don't know, sorry, my head's still half frozen. Ask Grund, he knows everything that isn't engineering." } },
   },

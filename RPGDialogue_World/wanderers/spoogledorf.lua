@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm the founder, treasurer and oldest member of Uber Town, a company of the finest young adventurers you've never heard of. I'm a bit past crawling into dungeons myself, so I keep the ledgers and they keep me in stories. One day there'll be songs, mark my words." },
         { id = "h_gnome", when = { race = "Gnome" },
-          text = "It does an old heart good to see another of us walking about with a sword or a staff instead of a begging cup. Half of Gnomeregan ended up in Ironforge's back rooms, and the other half here, fixing human clocks for pennies." },
+          text = "It does an old heart good to see another of us walking about with a sword or a staff instead of a begging cup. Most of Gnomeregan ended up in Ironforge's back rooms, and the rest of us scattered to places like this, fixing human clocks for pennies." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage, I see. The robes? No, no, I'm no wizard. I was an engineer, and these are what I had on when we ran. They've been mended so often that there's more thread in them than robe." },
         { id = "h_warlock", when = { class = "WARLOCK" },

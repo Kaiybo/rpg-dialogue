@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of ours. Sit, if you've a moment, because you rarely will, later." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Duthorian's latest, I suspect, and he speaks well of very few. Welcome." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, child, and I wondered now and then where the road had taken you. Come in and rest a while." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, child, and I can see the road has asked a great deal of you. I hope it left you some kindness to bring home." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, child, and I can see the road has taken its toll on you. I hope it left you some kindness to bring home." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and one of our neighbors. I won't ask what was said, child, but the Light is patient with those who mend things." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the city has been speaking warmly of you, child, and it did an old man good to hear it." },
   },
@@ -76,7 +76,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Not fear, child, but we remember that the more magic men wielded, the more the darkness noticed them, which is why there was ever a Guardian at all. Power that serves only the curious tends to forget the people standing near it." } },
+      lines = { { id = "xmage_default", text = "Not fear, child, but we remember that the more magic men wielded, the more the darkness noticed them, and the Guardian of Tirisfal was set to watch for exactly that. Power that serves only the curious tends to forget the people standing near it." } },
       choices = {
         { text = "My power will serve the people standing near it, Your Grace.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Curiosity built Dalaran, Your Grace, and I won't apologise for mine.", next = "BACK", fx = { align = { light = -1 } } },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The Cathedral is in no hurry, and neither am I." },
       },
       choices = {
-        { text = "Archbishop Faol must have taught you a great deal.", next = "faol" },
+        { text = "Archbishop Faol must have taught you much.", next = "faol" },
         { text = "Does the Light ever abandon anyone?", next = "abandon" },
         { text = "Tell me about the Cathedral.", next = "cathedral" },
         { text = "Why let the Scarlet Crusade recruit downstairs?", next = "crusade" },
@@ -234,7 +234,7 @@ P:NPC {
       big = true,
       lines = { { id = "cm_default", text = "The same. Their hands built this house of the Light, and the city's purse forgot them. I've said so in the Keep and I'll say it again; it's not much, but it's what an old priest has." } },
       choices = {
-        { text = "It's more than most said.", next = "BACK", fx = { affinity = 2, learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
+        { text = "Few others said so at the time.", next = "BACK", fx = { affinity = 2, learn = { "defias" }, opinion = { defias = "masons_wronged" } } },
         { text = "Saying isn't doing.", next = "BACK", fx = { trait = { stern = 1 }, learn = { "defias" } } },
         { text = "Did the Church ever ask the crown to pay them?", tag = "Persuade", next = "masons_ledger",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { opinion = { topic = "defias", stance = "masons_wronged" } } } } },
@@ -320,13 +320,13 @@ P:NPC {
       },
       choices = {
         { text = "Then carry it up now, Your Grace.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "You've done more than most, Your Grace.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "You've done more than anyone could ask, Your Grace.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Thank you for telling me.", next = "BACK" },
       },
     },
     masons_gentle = {
       lines = {
-        { id = "mg_default", text = "The Church spoke for them, child, and it still does. That's all I'll say on it today, I think, because it's an old ache and I'd rather not wake it in front of the altar." },
+        { id = "mg_default", text = "The Church spoke for them, child, and it still does. That's all I'll say on it today, I think, because it's an old ache, and the altar is no place to wake it." },
         { id = "mg_default2", text = "We asked, as we ask for many things, and the asking goes on. Come and pray with me for them some evening; that's the better answer, and the only one I have just now." },
       },
       choices = {
@@ -336,7 +336,7 @@ P:NPC {
     },
     paladin_doubt = {
       big = true,
-      lines = { { id = "paladin_doubt_l", text = "Every one of them should, child, and the good ones do it before they swing the hammer rather than after. A paladin who never doubts is only a soldier who glows." } },
+      lines = { { id = "paladin_doubt_l", text = "They all should, child, and the good ones do it before they swing the hammer rather than after. A paladin who never doubts is only a soldier who glows." } },
       choices = {
         { text = "Then I'll keep my doubts close.", next = "paladin_doubt2" },
         { text = "Doubt gets people killed. I'll leave it to priests.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
@@ -614,7 +614,7 @@ P:NPC {
     deadmines = { { id = "tp_deadmines", text = "Henze and I followed the Defias trail far enough to know they've a nest under Moonbrook. We never got close enough to see it, and that's the only reason I'm still breathin'." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a curse on every dwarf, and I'd hammer them flat if I could. Henze always said we'd go after them once the Defias were done, and I mean to hold him to it." } },
     knows = {
-      { id = "tp_knows", text = "I've been sitting by this altar long enough to hear half the Trade District's business, lad. Ask me about any of it, and I'll tell you what I can between prayers." },
+      { id = "tp_knows", text = "I've been sitting by this altar long enough to hear the Trade District's every quarrel and debt, lad. Ask me about any of it, and I'll tell you what I can between prayers." },
     },
     background = { { id = "tp_bg", text = "A dwarf who went lookin' for proof an' found more than he wanted. That's me lately. Ask me again when Henze is on his feet." } },
     advice = { { id = "tp_ad", text = "If a friend tells ye tae run, run, but then come back with help. Dinnae skip the second part." } },
@@ -716,7 +716,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Every one of them, and half the girls too, though I'd sooner they wanted to be bakers. It's a fine thing to protect people, but I've seen too many go off to war and never come home." } },
+      lines = { { id = "xapala_default", text = "All the boys do, and a good many girls too, though I'd sooner they wanted to be bakers. It's a fine thing to protect people, but I've seen too many go off to war and never come home." } },
       choices = {
         { text = "Someone must stand between them and the dark. Let them dream.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "You're right. Let them choose a safer trade while they can.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -725,7 +725,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The little ones sleep better on the nights someone from the Cathedral comes to say prayers with them, so you'll forgive me if I ask." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The little ones sleep better on the nights someone from the Cathedral comes to say prayers with them, so I hope you won't mind my asking." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, don't let the boys see you, or they'll follow you to the gate and I'll spend the afternoon fetching them back." },
         { id = "h_default", text = "Stephanie Turner. My husband and I run the orphanage. I make their clothes and keep them fed; John's off begging for the rest. Neither of us sleeps much." },
         { id = "h_tome", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity") },
@@ -806,7 +806,7 @@ P:NPC {
       lines = { { id = "r_default", text = "Then tell me something, love. What helped you, that first winter here? I'll do more of it." } },
       choices = {
         { text = "Someone who didn't ask questions.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Bread, honestly.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
+        { text = "Bread, if I'm choosing.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
       },
     },
     sew = {
@@ -828,7 +828,7 @@ P:NPC {
 
   topics = {
     holy_light = { { id = "tp_holy_light", text = "The Light watches over every child in that orphanage, and I'd like it to send a few more blankets while it's watching. I pray every night, and I darn every night, and I think the Light prefers the darning." } },
-    scourge = { { id = "tp_scourge", text = "Half the new children come from Lordaeron, and some of them won't sleep without a candle. I don't ask what they've seen, because I can see it in their faces when the lights go out." } },
+    scourge = { { id = "tp_scourge", text = "Most of the new children come from Lordaeron, and some of them won't sleep without a candle. I don't ask what they've seen, because I can see it in their faces when the lights go out." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took the children to the Darkmoon Faire when it came to Goldshire, all thirty of them, and only lost one for an hour. He was found asleep in the fortune-teller's tent, and he said she'd promised him a dog." } },
     deadmines = { { id = "tp_deadmines", text = "Some of my older boys talk about running off to join the Defias in their mines under Moonbrook. I tell them the Defias have no orphanage, and they go quiet, and I pray it's enough." } },
     knows = {
@@ -874,7 +874,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Yes, and Father says ours isn't one, but he's wrong, because it's warm and there's milk. You could talk to his spirit and fix him." } },
       choices = {
-        { text = "Ask your father honestly, Timmy, and keep asking.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Ask your father straight out, Timmy, and keep asking.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Hide the kitten in the cellar. He'll never know.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -912,7 +912,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Only a little bit, just so he'd say yes about the kitten, and then you could unmagic him after. Mum says that's not fair, but Mum didn't say it was impossible." } },
       choices = {
-        { text = "That wouldn't be fair, Timmy, so ask him honestly instead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "That wouldn't be fair, Timmy, so ask him plainly instead.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A little spell never hurt anyone, Timmy.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1118,7 +1118,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, because a hunter and a priest can both stand back and see the whole of a fight. I've sent many young priests out to Redridge with hunter companions, and most came back telling me it was the hunter who kept them alive." },
+        { id = "xhuntcl_default", text = "Often, and gladly, for a hunter and a priest can both stand back and see the whole of a fight. I've sent many young priests out to Redridge with hunter companions, and most came back telling me it was the hunter who kept them alive." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will be the one taking the blows, I suppose. I've mended a few beasts in my time, and they're far better patients than soldiers." },
       },
       choices = {
@@ -1164,7 +1164,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Some lessons aren't in any book, I'd guess.", next = "lessons", when = { class = "PRIEST" } },
-        { text = "A high priestess must have a great deal to do.", next = "duty" },
+        { text = "A high priestess must have little time to herself.", next = "duty" },
         { text = "Josetta speaks well of you.", next = "josetta", when = { heardLine = "josetta.h_prayer" } },
         { text = "The Abbey raised me. I'm one of theirs.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I doubt the Light can mend what a demon has touched.", next = "warlock", when = { class = "WARLOCK" } },
@@ -1632,7 +1632,7 @@ P:NPC {
 
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Walk with me. I think better moving, and so will you." },
-    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It walks faster than you'd think." },
+    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It keeps pace with you, whether you look back or not." },
   },
 
   notice = {
@@ -1691,7 +1691,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than either would admit, I think, because both of us spend our days standing between people and harm. The difference is that you can see what you're fighting, and I've to take a great deal on faith." } },
+      lines = { { id = "xwarcl_default", text = "More than either would admit, I think, because both of us spend our days standing between people and harm. The difference is that you can see what you're fighting, and I've to take most of mine on faith." } },
       choices = {
         { text = "We're both servants. My arm and your prayers serve the same people.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I can see what I hit. That makes my work more honest.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1926,7 +1926,7 @@ P:NPC {
         { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "I doubt the Crusade has much use for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You seem to hold something against Dalaran, Brother.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "The Scarlet Crusade must ask a great deal of a warrior.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Scarlet Crusade must ask hard things of a warrior.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are the beasts of Lordaeron truly sick, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you count every shaman an enemy, Brother Crowley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've seen inside the Monastery, Brother. It isn't what you think.", next = "xcl_sm", when = { cleared = "Scarlet Monastery" } },
@@ -1990,7 +1990,7 @@ P:NPC {
     },
     paladin_oath = {
       big = true,
-      lines = { { id = "paladin_oath_l", text = "The Hand's oath! Half the Crusade swore it first, paladin, and then watched Uther's order sit on its hands while the plague walked into Andorhal. The Crusade is the Hand with its eyes open." } },
+      lines = { { id = "paladin_oath_l", text = "The Hand's oath! Our commanders swore it first, paladin, and then watched Uther's order sit on its hands while the plague walked into Andorhal. The Crusade is the Hand with its eyes open." } },
       choices = {
         { text = "The Hand kept its mercy. You threw yours away.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Perhaps the Hand was too gentle.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -2006,7 +2006,7 @@ P:NPC {
   topics = {
     scourge = { { id = "tp_scourge", text = "The Scourge is a plague on the living and a mockery of the dead, and the Scarlet Crusade will burn it from Lordaeron or die in the trying. Every soul that stands aside is one more for the Lich King's army." } },
     forsaken = {
-      { id = "tp_forsaken", text = "The Forsaken are the Scourge with better manners, and nothing more. They walk, they speak, they claim to be free, and every one of them belongs in a pyre." },
+      { id = "tp_forsaken", text = "The Forsaken are the Scourge with better manners, and nothing more. They walk, they speak, they claim to be free, and each rotting one of them belongs in a pyre." },
       { id = "tp_forsaken2", when = { race = "Undead" }, text = "You dare walk in this Cathedral, corpse? The Crusade would put you to the torch on the steps, and I'd say the prayers myself." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was a hero once, and the Scourge made her a monster, and now she calls herself a queen. The Crusade will see her crowned in fire, if the Light grants us strength." } },
@@ -2016,7 +2016,7 @@ P:NPC {
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a mage of Dalaran who sold his soul to the dead, and now he commands them from a floating citadel over the Plaguelands. The Crusade will drag him down from his tower, or die trying." } },
     holy_light = { { id = "tp_holy_light", text = "The Light is a fire, and fire burns away corruption, and that's all the Crusade asks of it. The soft-hearted priests here have forgotten that." } },
     knows = {
-      { id = "tp_knows", text = "The Crusade keeps itself well informed, and so do I. Ask, and I'll answer honestly, which is more than the Church upstairs does about us." },
+      { id = "tp_knows", text = "The Crusade keeps itself well informed, and so do I. Ask, and I'll answer you straight, which the Church upstairs never does about us." },
     },
     background = { { id = "tp_bg", text = "A priest who saw what the plague does and stopped pretending prayer alone would hold it back." } },
     advice = { { id = "tp_ad", text = "If someone you love is bitten, don't wait to be sure. Waiting is how Lordaeron fell." } },

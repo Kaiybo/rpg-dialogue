@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very little that isn't about rents or bandits, I'm afraid. When the wolves of Duskwood took three children last winter, it reached this chamber as a line in a tax petition." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} sits more patiently than half the court, I'd say. I'll pray for its health along with yours, if you don't mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} sits more patiently than most courtiers, I'd say. I'll pray for its health along with yours, if you don't mind." },
       },
       choices = {
         { text = "Then I'll tell them what's happening out there, Bishop.", next = "BACK", fx = { align = { light = 1 } } },
@@ -99,7 +99,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at court. The Highlord will be glad of it, and so am I, though I'd advise you to say very little and listen a great deal." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at court. The Highlord will be glad of it, and so am I, though I'd advise you to say very little and listen to everything." },
         { id = "h_default", text = "I am Bishop DeLavey, and I represent the Church of the Holy Light at the King's court. Which is to say I sit in this chamber, I listen, and I remind the court now and then that the Light has opinions." },
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "If young Thomas sent you, he's done well again. I'll be blunt, because I haven't time to be anything else: a diplomat bound for Theramore never arrived, and I believe the Defias had a hand in it. Please keep this from becoming common knowledge." },
@@ -115,7 +115,7 @@ P:NPC {
           text = "I can tell what you are, and I'll not pretend otherwise in my own chamber. You're welcome to speak, though, because the Light has never closed its ears to anyone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at court. I'm sure you've opinions on how the kingdom's soldiers are spent, and I'm sure no one here has asked for them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, before the throne. I'll ask you to keep your animal close; some of the nobles here startle easily, and complain longer." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at court, and you'll forgive me if I lower my voice, because half this hall reports to the other half. The Church is glad of the kaldorei, whatever the nobles mutter." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at court, so let me lower my voice, because everyone in this hall reports to someone. The Church is glad of the kaldorei, whatever the nobles mutter." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak for the Church at court, so I must choose my words carefully. I'm not certain what the Church would say of you." },
       },
       again = {
@@ -141,7 +141,7 @@ P:NPC {
     },
     diplomat = {
       lines = {
-        { id = "d_default", text = "Someone whose safe arrival mattered a great deal, and that's all I'll say in this chamber. The meeting in Theramore never took place, and the silence since has been louder than any message." },
+        { id = "d_default", text = "Someone whose safe arrival mattered to the whole kingdom, and that's all I'll say in this chamber. The meeting in Theramore never took place, and the silence since has been louder than any message." },
       },
       choices = {
         { text = "Why suspect the Defias?", next = "diplomat_defias" },
@@ -174,7 +174,7 @@ P:NPC {
       },
     },
     court_regent = {
-      lines = { { id = "cr_default", text = "Highlord Bolvar rules as Regent for the boy king, and he's an honest man buried in other people's advice. Lady Prestor has his ear more than most, and she's very gracious to the Church, so I'm told to be grateful." } },
+      lines = { { id = "cr_default", text = "Highlord Bolvar rules as Regent for the boy king, and he's an honest man buried in other people's advice. Lady Prestor has his ear more than anyone, and she's very gracious to the Church, so I'm told to be grateful." } },
       choices = {
         { text = "You don't sound grateful.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -355,7 +355,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Oh, I should think the Cathedral has quite enough relics already, and mine is far better cared for. I keep it under glass and dust it personally, which is more than I can say for the Archbishop's vestry." } },
+      lines = { { id = "xapriest_default", text = "Oh, I should think the Cathedral has quite enough relics already, and mine is far better cared for. I keep it under glass and dust it personally, while the Archbishop's vestry has cobwebs on its saints." } },
       choices = {
         { text = "Holy things belong to the faithful, Count, not a private case.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "It's yours by right, Count. Keep it as you see fit.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -364,7 +364,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not yours, of course, but the old ones from Lordaeron surface now and then, and a collector has to be ready. Somebody must keep these things safe, and the Silver Hand seems to have mislaid a great deal of its history." } },
+      lines = { { id = "xapala_default", text = "Not yours, of course, but the old ones from Lordaeron surface now and then, and a collector has to be ready. Somebody must keep these things safe, and the Silver Hand seems to have mislaid most of its history somewhere north of the Thandol Span." } },
       choices = {
         { text = "Those badges belong with the order, Count. Return any you find.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Better in your glass case than lost in the plaguelands, Count.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -463,7 +463,7 @@ P:NPC {
       },
     },
     mayara_danger = {
-      lines = { { id = "md_default", text = "Terribly, which is why I pay her so well and worry about her so much. She says the Blackrock orcs are the worst of it, and that I'm not to send any more letters asking her to be careful." } },
+      lines = { { id = "md_default", text = "Terribly, and so I pay her very well and worry about her constantly. She says the Blackrock orcs are the worst of it, and that I'm not to send any more letters asking her to be careful." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {
@@ -485,7 +485,7 @@ P:NPC {
   topics = {
     blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths holds treasures the Dark Irons have hoarded for centuries, and I'd give my finest coat to see them. I've sent a few brave souls to look, and some of them even came back." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman is a vault of the titans, so the Explorers' League says, and full of relics that belong in a proper collection. Mine, ideally, though I'd settle for a sketch." } },
-    dire_maul = { { id = "tp_dire_maul", text = "Dire Maul was a city of the ancient elves, deep in Feralas, and its libraries are said to hold books older than Stormwind itself. I've an empty shelf waiting for them, and a great deal of patience." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Dire Maul was a city of the ancient elves, deep in Feralas, and its libraries are said to hold books older than Stormwind itself. I've an empty shelf waiting for them, and the patience of a man who has outwaited three auctioneers." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme was a city of fine houses and finer collections, and the dead have them now. I've a list of what was there, and I'd pay handsomely for anything on it, though I'd rather not know how it was got." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's artefacts are the envy of every collector in the world, and the Kirin Tor won't sell a single one. I've offered, and they've declined, very politely, with a spell on the letter that made my ink run." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "The sandfury trolls of Zul'Farrak keep idols of gold in their temples, so I'm told, and I've a niche in the east gallery that would suit one perfectly. Do bring back anything small and shiny, won't you?" } },
@@ -515,7 +515,7 @@ P:NPC {
 
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "I'm told you're a mason's whelp, and that your father's guild still thinks the crown owes it a fortune. You may speak, briefly, and keep your hands where my steward can see them." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and I find I don't mind it. I said hard things about your father's trade, and you've carried yourself better than half the lords on this floor." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and I find I don't mind it. I said hard things about your father's trade, and you've carried yourself better than most lords on this floor." },
     { id = "g_house", text = "Mark my words, the House will hear of it! Oh, it's you; what is it?" },
     { id = "g_thirst", text = "Lobbying is thirsty work, dreadfully thirsty work." },
   },
@@ -531,7 +531,7 @@ P:NPC {
   nodes = {
     prej = {
       big = true,
-      lines = { { id = "prej_default", text = "I think the Stonemasons' Guild rebuilt this city, demanded a sum the treasury didn't have, and when it was refused, went west and took up masks and knives. Forgive me if I look at every mason's child and wonder which uncle is in the Deadmines." } },
+      lines = { { id = "prej_default", text = "I think the Stonemasons' Guild rebuilt this city, demanded a sum the treasury didn't have, and when it was refused, went west and took up masks and knives. I confess I look at every mason's child and wonder which uncle is in the Deadmines." } },
       choices = {
         { text = "The House of Nobles cheated honest men. You made the Defias.", next = "prej_a", fx = { align = { order = -1 } } },
         { text = "The law is the law. The guild should have gone to court.", next = "prej_b", fx = { align = { order = 1 } } },
@@ -540,7 +540,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "Careful. That is the sort of talk that gets a name written in a ledger by Lord Shaw's people, and I'd rather not see yours in it, whatever your father did." } },
+      lines = { { id = "prej_a_default", text = "Careful. That is the sort of talk that gets a name written in a ledger by Lord Shaw's people, and I've no wish to see yours in it, whatever your father did." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -571,7 +571,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Dozens, and every one of them pretends to be my friend at supper. I suspect half of them drink at the Lamb themselves, which is precisely why nobody wants an inquiry." } },
+      lines = { { id = "xrogue_default", text = "Dozens, and they all pretend to be my friend at supper. I suspect a few of them drink at the Lamb themselves, and that is precisely why nobody wants an inquiry." } },
       choices = {
         { text = "Then let the inquiry go ahead and shame them all.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let them keep their secrets. Everyone's entitled to a few.", next = "BACK", fx = { align = { order = -1 } } },
@@ -620,7 +620,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, just the sort of fellow I want behind me when I stand up in the House and say what's under the Lamb." },
-        { id = "h_default", text = "Lord Baurles K. Wishock, of the House of Nobles, and I am about to cause a great deal of trouble for some very deserving people. There is a nest of dark practitioners in this city, and I mean to have it cleared out." },
+        { id = "h_default", text = "Lord Baurles K. Wishock, of the House of Nobles, and I am about to cause no end of trouble for some very deserving people. There is a nest of dark practitioners in this city, and I mean to have it cleared out." },
         { id = "h_brew", key = true, when = { questActive = TODO_QUEST("A Noble Brew") },
           text = "The Lamb's lot have stopped serving me, can you believe it? Over a trifling bill! It hardly matters, because the House will have them shut by spring, and I'll toast it somewhere with better wine." },
         { id = "h_human", when = { race = "Human" },
@@ -684,7 +684,7 @@ P:NPC {
       },
     },
     house = {
-      lines = { { id = "h2_default", text = "They will, if I shout long enough, and I've a very good voice for shouting. Half of them are afraid of the magi and the other half are afraid of me, so I expect a full investigation by the end of the season." } },
+      lines = { { id = "h2_default", text = "They will, if I shout long enough, and I've a very good voice for shouting. Some of them are afraid of the magi and the rest are afraid of me, so I expect a full investigation by the end of the season." } },
       choices = {
         { text = "They might come for you.", next = "house_fear" },
         { text = "Something else.", next = "BACK" },

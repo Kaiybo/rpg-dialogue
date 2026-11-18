@@ -13,7 +13,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Welcome to Forest Song, {class}, the last kind word you'll hear before Felwood." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. That's more than I can say for the Forsaken's last messenger." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. The Forsaken's last messenger came back in several." },
   },
 
   start = "hello",
@@ -262,7 +262,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I'll make you one, but I'll make it heavy, because you'll treat it roughly and a light bow would snap. Learn to draw it smooth instead of yanking it, and it'll serve you longer than you'd think." } },
+      lines = { { id = "xwarcl_default", text = "I'll make you one, but I'll make it heavy, because you'll treat it roughly and a light bow would snap. Learn to draw it smooth instead of yanking it, and it'll outlast a dozen of the bows you'd break." } },
       choices = {
         { text = "I'll learn to draw it properly.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "As long as it shoots, I don't care how.", next = "BACK", fx = { align = { order = -1 } } },

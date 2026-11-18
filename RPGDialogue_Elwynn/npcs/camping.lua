@@ -73,7 +73,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because a fire you've worked for is half the point of camping, though I won't deny I've wished for a spell when the wood's wet. Light it once with magic and I'd never learn to do it properly, so I suppose I'd better say no." } },
+      lines = { { id = "xmage_default", text = "Because a fire you've worked for is the whole point of camping, though I won't deny I've wished for a spell when the wood's wet. Light it once with magic and I'd never learn to do it properly, so I suppose I'd better say no." } },
       choices = {
         { text = "You're right. The proper way is worth learning first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic does it faster. Take the easy road, Sam.", next = "BACK", fx = { align = { order = -1 } } },

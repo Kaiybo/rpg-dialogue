@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Of course it is, because a demon's real and Umi's yeti is just fur on a pile of gears! Not that I'd want it in my room, mind you, so if it starts sniffing about my door, I'll scream, and that'll only be because I'm being polite." } },
+      lines = { { id = "xlock_default", text = "Of course it is, because a demon's real and Umi's yeti is just fur on a pile of gears! Not that I'd want it in my room, so if it starts sniffing about my door, I'll scream, and that'll only be because I'm being polite." } },
       choices = {
         { text = "A demon is nothing to laugh about, Legacki. Keep away from mine.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Want me to set my imp on Umi's yeti? It'd be funny.", next = "BACK", fx = { align = { light = -1 } } },
@@ -88,7 +88,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because Umi's been building one for weeks and swears it'll scare me silly, and I'd rather it never got the chance. Mind you, if it's made of the junk she buys cheap from Felnok, it'll fall apart without your help, and I've got a gold piece riding on it." } },
+      lines = { { id = "xmage_default", text = "Because Umi's been building one for weeks and swears it'll scare me silly, and I mean to see it scrapped before it gets the chance. If it's made of the junk she buys cheap from Felnok, it'll fall apart without your help, and I've got a gold piece riding on it." } },
       choices = {
         { text = "I won't wreck someone else's work for you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "One fireball, for the fun of it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -239,7 +239,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The chillwind chimaerae, that's the use, because they breathe frost hard enough to freeze a fighter where they stand, and somebody has to get close. Mind you, a warrior's whole idea of getting close is hitting things in the head, and I need those horns uncracked." } },
+      lines = { { id = "xwarcl_default", text = "The chillwind chimaerae, that's the use, because they breathe frost hard enough to freeze a fighter where they stand, and somebody has to get close. Trouble is, a warrior's whole idea of getting close is hitting things in the head, and I need those horns uncracked." } },
       choices = {
         { text = "Then I'll fight carefully and strike the body. The horns stay whole.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll hit them however I can. Cracked horns are your problem.", next = "BACK", fx = { align = { order = -1 } } },
@@ -296,7 +296,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Precise, I'll grant you, though I've never seen the schematics. You put your hands on a broken thing and it mends, which is the job I do with a spanner, only slower and with a lot more swearing." } },
+      lines = { { id = "xhcast_default", text = "Precise, sure, though I've never seen the schematics. You put your hands on a broken thing and it mends, which is the job I do with a spanner, only slower and with a lot more swearing." } },
       choices = {
         { text = "Discipline is the heart of both crafts, I think.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Prayer's no craft, Felnok. It's a gamble, like anything.", next = "BACK", fx = { align = { order = -1 } } },
@@ -332,7 +332,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Felnok Steelspring, and I build things for people who can't build them for themselves, to tolerances you could measure a gnat's whisker by. Right now that's Tinkee Steamboil, down in the Burning Steppes, and she wants her order finished yesterday, which is a schedule I've never once managed." },
         { id = "h_from_tinkee", tags = { "news" }, when = { questActive = TODO_QUEST("Felnok Steelspring") },
-          text = "Tinkee sent you? Then she's sent me something she needs freezing, and I'm nearly ready for it. Nearly, mind you, because I'm missing one thing." },
+          text = "Tinkee sent you? Then she's sent me something she needs freezing, and I'm nearly ready for it, nearly being the word, because I'm still missing one part." },
         { id = "h_horns_before", when = { questDone = TODO_QUEST("Felnok Steelspring"), questBefore = TODO_QUEST("Chillwind Horns") },
           text = "I've got nearly everything Tinkee asked for, except the horns of the chillwind chimaera. They have to be uncracked, mind, because a cracked horn is worth nothing to me." },
         { id = "h_horns_during", tags = { "news" }, when = { questActive = TODO_QUEST("Chillwind Horns") },
@@ -404,11 +404,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I make parts, I make them right and I make them on time. That's all there is to tell, and it's more than most can say." } },
+    background = { { id = "tp_ba", text = "I make parts, I make them right and I make them on time. That's all there is to tell, and in a goblin town that's rarer than it sounds." } },
     advice = { { id = "tp_ad", text = "Wear gloves. Always wear gloves, in Winterspring and everywhere else." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "My employer works near Blackrock Spire, and that's all I'll say about it. I make the parts, and I don't ask what they're for, because asking isn't part of the price." } },
     everlook = { { id = "tp_everlook", text = "Everlook's cold enough to keep a horn from cracking, which is the whole reason I'm here. The goblins are pleasant enough, though I wear gloves when I shake their hands." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I lost a good workshop with it. I don't talk about it much, and I'd rather you didn't either." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I lost a good workshop with it. I don't talk about it much, and I'll thank you not to either." } },
     _none = { { id = "tp_none", text = "Not my department, friend. Ask somebody who isn't busy recalibrating a frost coil for the third time since breakfast." } },
   },
 }
@@ -497,7 +497,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Not that I know of, but mages travel more than most, so every one who comes through Everlook, I ask whether they've heard any news of the folk from Darrowshire. Every one of them shakes their head, and I keep asking anyway." } },
+      lines = { { id = "xmage_default", text = "Not that I know of, but mages travel farther than anyone, so every one who comes through Everlook, I ask whether they've heard any news of the folk from Darrowshire. They all shake their heads, and I keep asking anyway." } },
       choices = {
         { text = "Don't stop asking. Someone may know.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "He's probably dead. You should let go.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -524,7 +524,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "No, though I did for a while, because it's easier to be angry at someone than at a sickness in the grain. They died in the same fields as everyone else, and I've heard some of their order still fight on in the east, which is more than most of us managed." } },
+      lines = { { id = "xapala_default", text = "No, though I did for a while, because it's easier to be angry at someone than at a sickness in the grain. They died in the same fields as everyone else, and I've heard some of their order still fight on in the east, when most of us only ran." } },
       choices = {
         { text = "The order still stands. I'll carry its oath into the Plaguelands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Hand failed Lordaeron. I serve the Light, not an order.", next = "BACK", fx = { align = { order = -1 } } },
@@ -552,9 +552,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "o_scarlet_crusade_useful", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "useful" } },
-          text = "Gregor says you'd forgive the Crusade a lot for killing Scourge. I've heard what they do to the villages they cleanse, so forgive me if I can't." },
+          text = "Gregor says you'd forgive the Crusade a lot for killing Scourge. I've heard what they do to the villages they cleanse, and I can't." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. I've heard what the Cult of the Damned did with the dark arts back home, so forgive me if I stand a little further off, though I'll still ask you whether you've been east." },
+          text = "A warlock. I've heard what the Cult of the Damned did with the dark arts back home, so I'll stand a little further off, though I'll still ask you whether you've been east." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "You're a warrior, aren't you? Darrowshire had soldiers once, good ones, who stood against the dead in the streets, but I've never heard who came out again." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -851,7 +851,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Malyfous Darkhammer of the Thorium Brotherhood, and I do not waste my hours on idle talk. If you have a task worthy of my hammer, name it; if not, there are snowdrifts outside you could study." },
         { id = "h_warm", when = { reputation = { faction = "Thorium Brotherhood", min = "honored" } },
-          text = "You're known to the Brotherhood, I see, so I'll grant you a little patience. A little." },
+          text = "You're known to the Brotherhood, I see, so you'll have a little patience from me. A little." },
         { id = "h_beast", when = { minLevel = 58 },
           text = "There's a beast in Blackrock Spire whose hide would make armour fit for a king, if anyone could skin it whole. The odds of a pristine hide are one in a million, so I don't expect you to bring me one." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Pip Quickwit, At Your Service!") },
@@ -925,7 +925,7 @@ P:NPC {
       },
     },
     smith = {
-      lines = { { id = "sm_default", text = "Heat is patience, not force, and the metal tells you when it's ready if you listen. You surface folk beat it until it obeys, which is why your blades break." } },
+      lines = { { id = "sm_default", text = "Heat is patience, not force, and the metal tells you when it's ready if you listen. You surface folk beat it until it obeys, and then you wonder why your blades break." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -936,7 +936,7 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "My people are slaves to the fire in the mountain, the ones who stayed, and the Brotherhood is what's left of the ones who chose otherwise. Don't call me Dark Iron unless you mean it as a compliment, ant." } },
     thaurissan = { { id = "tp_thaurissan", text = "Emperor Thaurissan rules the Dark Irons in Blackrock Depths, and he's welcome to it. I'd sooner forge in the snow than kneel to that one." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths is a city of fire and chains under the mountain, and I spent enough of my life there. The Brotherhood's forge is the only thing I miss." } },
-    everlook = { { id = "tp_everlook", text = "Everlook is cold and quiet, and the goblins pay on time, which is more than I can say for most ants. The forge burns hot enough up here, if you feed it right." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is cold and quiet, and the goblins pay on time, unlike most of the ants who come begging at my anvil. The forge burns hot enough up here, if you feed it right." } },
     _none = { { id = "tp_none", text = "The Brotherhood doesn't waste time on that. Neither will I." } },
   },
 }
@@ -1106,7 +1106,7 @@ P:NPC {
           text = "Brumeran rules the chillwind chimaera, and his breath freezes a warrior where he stands. Strike fast and keep moving." },
         { id = "h_shyrotam", tags = { "news" }, when = { questActive = TODO_QUEST("Shy-Rotam") },
           text = "Shy-Rotam is the matriarch of the frostsabers, old and clever, and she will not show herself to just anyone. Prepare well before you face her." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here in the snow! Then you know as well as I do that the great beasts of Winterspring have a great deal to teach a patient hunter." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here in the snow! Then you know as well as I do that the great beasts of Winterspring can teach a patient hunter things no trainer ever will." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The great beasts of Winterspring do not fear prayers, but they respect anyone who stands their ground, and so do I." },
       },
       again = {
@@ -1209,7 +1209,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, because a goblin town's full of secrets and somebody's always carrying one to Orgrimmar. I don't ask what's in their packs, and I don't want to know, but I've had to sew up two blankets that somebody used to hide a crate of something that ticked." } },
+      lines = { { id = "xrogue_default", text = "Plenty, because a goblin town's full of secrets and somebody's always carrying one to Orgrimmar. I don't ask what's in their packs, and I don't want to know, but I've had to sew up two blankets that somebody used to hide a crate of something that ticked." } },
       choices = {
         { text = "Your riders deserve better. I'll carry nothing that ticks.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "What's in my pack is my business, and nobody else's.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1290,7 +1290,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior of the Horde. Help me lift this saddle, would you? My back's been stiff since the snow started, and the snow started the day I arrived." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
-          text = "A hunter of the Horde! Then you know how to keep a beast fed and warm, which is more than most riders who come through here can say." },
+          text = "A hunter of the Horde! Then you know how to keep a beast fed and warm, and most riders who come through here treat their mounts like a cart." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell the wind up here to stop biting my beasts, because they won't listen to me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock. My wind riders don't like the smell of brimstone, so I'll have you stand downwind while I saddle one, if it's the same to you." },

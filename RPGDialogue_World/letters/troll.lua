@@ -110,7 +110,7 @@ P:Letter {
   id = "origin_troll_senjin_spear_1", from = "Watch Captain Jharra", stranger = true, delay = 1200,
   when = { origin = "troll_senjin_spear", minLevel = 6 },
   subject = "De gate holds",
-  body = "Spear {name},\n\nYou left de watch, and de gate is still standing, so do not let anybody tell you it fell down without you. It nearly did, mind you, when de Kolkar came up de road last week with more riders than we have ever seen.\n\nWe held, mon. Young Zabi took an arrow in his backside and will not sit down for a month, and de rest of us have been very kind to him about it, mostly by laughing.\n\nThe Kul Tirans are still sitting in their keep up de coast, watching us. I watch dem back. Go fight where de Horde needs you, but remember dis gate taught you how to stand.\n\nJharra, Sen'jin watch",
+  body = "Spear {name},\n\nYou left de watch, and de gate is still standing, so do not let anybody tell you it fell down without you. It came close, though, when de Kolkar came up de road last week with more riders than we have ever seen.\n\nWe held, mon. Young Zabi took an arrow in his backside and will not sit down for a month, and de rest of us have been very kind to him about it, mostly by laughing.\n\nThe Kul Tirans are still sitting in their keep up de coast, watching us. I watch dem back. Go fight where de Horde needs you, but remember dis gate taught you how to stand.\n\nJharra, Sen'jin watch",
 }
 
 P:Letter {

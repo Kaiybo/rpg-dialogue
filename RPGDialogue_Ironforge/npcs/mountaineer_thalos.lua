@@ -90,7 +90,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kharanos = {
-      lines = { { id = "k_default", text = "Kharanos, an' a warm fire at the Thunderbrew, an' the road on tae Ironforge. Senir Whitebeard's there, an' Ragnar Thunderbrew, an' half the gnomes o' Gnomeregan, it feels like." },
+      lines = { { id = "k_default", text = "Kharanos, an' a warm fire at the Thunderbrew, an' the road on tae Ironforge. Senir Whitebeard's there, an' Ragnar Thunderbrew, an' every gnome that got out o' Gnomeregan, it feels like." },
       },
       choices = {
         { text = "Who's Senir Whitebeard?", next = "kharanos_senir" },

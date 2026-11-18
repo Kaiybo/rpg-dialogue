@@ -120,7 +120,7 @@ P:NPC {
         { id = "h_heirloom_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Forgotten Heirloom"), days = 3 } },
           text = "Her father's watch, and you brought it back to me. I've nothing to give you but this handshake, and it's a good one." },
         { id = "h_wagon", text = "We tried to leave for Elwynn, but the wagon broke on the road. So here we are in someone else's empty house, sharing it with the mice and waiting on a wheel." },
-        { id = "h_dream", when = { metBefore = true }, text = "I dreamt about the pumpkins again, every one of them as big as a wagon wheel. Then I woke up and remembered, but it was a good dream while it lasted." },
+        { id = "h_dream", when = { metBefore = true }, text = "I dreamt about the pumpkins again, each one as big as a wagon wheel. Then I woke up and remembered, but it was a good dream while it lasted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you'd come a year ago, maybe I'd still be on my farm, and maybe not, but I'd have liked to see you try." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a dog once, a good dog, before the thieves came, and I miss him more than the pumpkins." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Verna will be glad of you, since she's been doing all the praying and I've not been much help with it." },

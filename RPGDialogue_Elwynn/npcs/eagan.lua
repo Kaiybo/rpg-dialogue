@@ -243,6 +243,6 @@ P:NPC {
     _none = { { id = "t_none", text = "Ask someone who talks more." } },
     echo_ridge = { { id = "tp_echo_ridge", text = "Wolves won't go near Echo Ridge anymore, and wolves aren't fools. The kobolds dig there day and night, and the whole ridge stinks of candle wax." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire folk buy my wolf pelts to make their tents look wild. I don't ask what they tell the children, and they don't ask what the wolf did." } },
-    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers pay a fair price for pelts and don't haggle, which is more than I can say for most holy folk. I'll speak well of them for that." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers pay a fair price for pelts and don't haggle, and that's rare among holy folk with a purse. I'll speak well of them for that." } },
   },
 }

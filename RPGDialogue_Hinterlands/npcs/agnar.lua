@@ -87,7 +87,7 @@ P:NPC {
 
     gryphons = {
       lines = {
-        { id = "gr_default", text = "Slowly, an' wi' a great deal o' raw meat an' patience. A Wildhammer gryphon picks its rider as much as the rider picks it, so ye raise a chick tae trust, an' ye let it choose." },
+        { id = "gr_default", text = "Slowly, an' wi' a bucket o' raw meat an' more patience than a dwarf's born wi'. A Wildhammer gryphon picks its rider as much as the rider picks it, so ye raise a chick tae trust, an' ye let it choose." },
       },
       choices = {
         { text = "And if it never chooses anyone?", next = "gryphons_none" },

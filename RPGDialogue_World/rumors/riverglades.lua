@@ -10,7 +10,7 @@ P:Rumors {
     { id = "chogall", when = { minLevel = 36 },
       text = "An old sailor swears Cho'gall himself came here to lick his wounds, back after the Second War, two heads and one bad mood. Nobody's ever seen him, and nobody's ever wanted to.",
       fx = { hear = "chogall_in_riverglades", learn = { "twilights_hammer" } } },
-    { id = "windstead", text = "Pirates in the ruins up at Windstead, flying Eastsea flags. They don't come in here to drink, which tells you how they pay." },
+    { id = "windstead", text = "Pirates in the ruins up at Windstead, flying Eastsea flags. They never come in here to drink, so I'd guess they take their rum off passing boats." },
     { id = "caves", when = { questBefore = TODO_QUEST("Eye of Mugg") },
       text = "The Brotherhood's scouts keep going into caves up the northwest ridge and not coming out. The Knight Commander's stopped sending them alone, and I've stopped asking." },
     { id = "mugg", when = { questRecent = { TODO_QUEST("Eye of Mugg"), days = 7 } },

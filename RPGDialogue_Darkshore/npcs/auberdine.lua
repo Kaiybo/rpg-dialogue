@@ -694,7 +694,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Whether you pray to the Light or to Elune, you are welcome to stand beside me on this sad beach." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here on our shore! The Temple speaks of your order with respect, though few of us have met one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to not being seen, and I'll not ask why. The Sisterhood tends everyone who comes to Auberdine, the ones who come in by the back door included." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Temple sent me to tend Auberdine's people, and instead I tend the dead creatures the sea casts up, so forgive me if I am wary of any voice but Elune's." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Temple sent me to tend Auberdine's people, and instead I tend the dead creatures the sea casts up, so I am slow to trust any voice but Elune's." },
       },
       again = {
         { id = "h_again", text = "What else? I'm listening, though I keep one eye on the tide." },
@@ -752,7 +752,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "The Sisterhood teaches us to listen before we speak, and I have listened to a great deal on this shore. Ask what you need to." },
+      { id = "tp_knows", text = "The Sisterhood teaches us to listen before we speak, and this shore has given me much to listen to. Ask what you need to." },
     },
     background = { { id = "tp_bg", text = "The Temple of the Moon sent me to see to Auberdine's troubles. I expected sick villagers, not dead threshers." } },
     advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because whatever the murlocs leave behind, something larger may come for." } },
@@ -860,7 +860,7 @@ P:NPC {
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then thin them, and quickly, for they have been creeping further up the beach every night. Murkdeep leads them now, and if you can get near enough to see him, you will have done more than my Sentinels." },
-        { id = "xro_nightelf", when = { race = "NightElf" }, text = "Then thin them, sister's child, for they creep further up the beach every night and you move as quietly as any Sentinel. Murkdeep leads them now, and if you can get near enough to see him, you will have done more than most." },
+        { id = "xro_nightelf", when = { race = "NightElf" }, text = "Then thin them, sister's child, for they creep further up the beach every night and you move as quietly as any Sentinel. Murkdeep leads them now, and if you can get near enough to see him, you will have gone where my scouts could not." },
       },
       choices = {
         { text = "I'll bring Murkdeep down face to face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -910,7 +910,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I count what I see: the furbolgs maddened, the moonkin gone wild and the bears with a sourness in their blood. Something fouls this land, and your craft draws from the same well the Legion did, so forgive me if I watch your hands." },
+        { id = "xlock_default", text = "I count what I see: the furbolgs maddened, the moonkin gone wild and the bears with a sourness in their blood. Something fouls this land, and your craft draws from the same well the Legion did, so I will keep my eyes on your hands." },
       },
       choices = {
         { text = "Watch, then. I'll prove you wrong at the murloc camps.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1051,7 +1051,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_dock", text = "Hm? Forgive me; I was watching the water. I do a great deal of that." },
+    { id = "g_dock", text = "Hm? Pardon me; I was watching the water. Since the Sundering, it has never quite stopped surprising me." },
     { id = "g_after", when = { questDone = TODO_QUEST("For Love Eternal") }, text = "You freed her. I will never be able to thank you properly, but I will try, every time I see you." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, have you? I'm afraid I've lost track of days; I've been watching the water." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, and the change is plain even to eyes that only watch the sea. Anaya would have admired you, I think." },
@@ -1339,7 +1339,7 @@ P:NPC {
       lines = {
         { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
           text = "Glynda says you've no patience for talk of peace with the orcs. I've no patience for brawls in my inn, so let's both keep our tempers." },
-        { id = "h_default", text = "I am Shaussiy, and I keep the inn by the docks of Auberdine. My guests come off the boats from Teldrassil and Menethil, mostly, and every one of them arrives seasick, though my people have sailed these waters since before the Sundering." },
+        { id = "h_default", text = "I am Shaussiy, and I keep the inn by the docks of Auberdine. My guests come off the boats from Teldrassil and Menethil, mostly, and nearly all arrive green with seasickness, though my people have sailed these waters since before the Sundering." },
         { id = "h_cerellean", when = { heardLine = "cerellean.h_default" },
           text = "So you've spoken with Cerellean. He stands on that dock every day, and I bring him tea, and he forgets to drink it, and I bring him more." },
         { id = "h_boards", when = { metBefore = true }, text = "The sailors swear the floorboards creak in a different key before a storm. I've started listening, and they're right." },
@@ -1423,7 +1423,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine is mostly about leaky barrels." } },
     advice = { { id = "tp_ad", text = "Sleep on the landward side of the inn if you want quiet, and on the water side if you want to dream." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Every sailor who's been to Booty Bay drinks to it and curses it in the same breath. I'm told the beer's better there, which is why I don't mention it to my barrels." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Every sailor who's been to Booty Bay drinks to it and curses it in the same breath. I'm told the beer's better there, so I never mention the place within earshot of my barrels." } },
     theramore = { { id = "tp_theramore", text = "Theramore folk come through on the boats, and they tip in silver and talk about Lady Proudmoore like she's their mother. Nice people, though they'd rather eat stew than moonberries." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's the goblin port across the water on the Barrens coast. Their ships are faster than ours and their sailors are louder, and both pay their bills, eventually." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Somebody always comes in talking about the Darkmoon Faire and how they won a prize. They never have the prize with them, I notice." } },

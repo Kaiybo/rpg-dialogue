@@ -300,7 +300,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I know blades and demons and the slopes between here and Dae'gun. Ask about those, and I will answer honestly." },
+      { id = "tp_knows", text = "I know blades and demons and the slopes between here and Dae'gun. Ask about those, and you will get a straight answer." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask, if you must. I will decide if the question deserves an answer." },
     },
     background = { { id = "tp_bg", text = "I was born in the camps, freed by Thrall, and taught the blade by an old master who never told me his true name. That is all of my story worth telling." } },

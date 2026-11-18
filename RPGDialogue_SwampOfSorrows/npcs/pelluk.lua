@@ -140,7 +140,7 @@ P:NPC {
 
     fishing = {
       lines = {
-        { id = "fi_default", text = "Better than you would think in water this dark. The lake gives up fat fish if you know the deep places, and the bait is everything, which is why losing it was so bad for us." },
+        { id = "fi_default", text = "Better than it looks in water this dark. The lake gives up fat fish if you know the deep places, and the bait is everything, so losing it hurt us badly." },
       },
       choices = {
         { text = "What lives in the deep places?", next = "fishing_deep" },

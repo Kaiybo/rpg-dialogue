@@ -455,7 +455,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, because a druid in bear form stands in front of the quilboar the same as any warrior. The difference is that a bear knows when the fight is over, and I'd wish that wisdom on every warrior who walks through Narache." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, because a druid in bear form stands in front of the quilboar the same as any warrior. The difference is that a bear knows when the fight is over, and I'd wish that wisdom on every warrior who walks through Narache." } },
       choices = {
         { text = "I'll know when the fight is over, Gart.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The fight's over when the enemy's dead.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -681,7 +681,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "So I've heard the orcs of the Shattered Hand fought, and nobody I know calls them cowards. I'll teach my warriors to stand firm and you can go around the side, but mind you don't arrive after the fight's already won." },
+        { id = "xrogue_default", text = "So I've heard the orcs of the Shattered Hand fought, and nobody I know calls them cowards. I'll teach my warriors to stand firm and you can go around the side, but don't arrive after the fight's already won." },
       },
       choices = {
         { text = "The flank wins battles. The front only bleeds.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -712,7 +712,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "They do, as long as they stay behind my warriors and don't hurl fire across the grass. Mulgore's borders run from the Venture Company's camps to the Bael'dun digs, and every one of them needs guarding, so I'll take a mage if I can't get a warrior." },
+        { id = "xmage_default", text = "They do, as long as they stay behind my warriors and don't hurl fire across the grass. Mulgore's borders run from the Venture Company's camps to the Bael'dun digs, and every mile of it needs guarding, so I'll take a mage if I can't get a warrior." },
       },
       choices = {
         { text = "I'll stand behind your warriors and guard the border.", next = "BACK", fx = { align = { order = 1 } } },
@@ -846,7 +846,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "I do, though I keep them on the bottom shelf where no tauren has to look at them. Orc and troll rogues come through Bloodhoof more often than you'd think, and I'm not too proud to admit the little things sell." },
+        { id = "xrogue_default", text = "I do, though I keep them on the bottom shelf where no tauren has to look at them. Orc and troll rogues come through Bloodhoof often enough, and I'm not too proud to admit the little things sell." },
       },
       choices = {
         { text = "A small blade in the right place beats a big one.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -987,7 +987,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every one of them, and some take a loaf in their packs for the road as well. A brave who fights on an empty belly fights badly, and the centaur aren't kind to those who falter, so I bake enough for every one of them and a few besides." } },
+      lines = { { id = "xwarcl_default", text = "All of them, and some take a loaf in their packs for the road as well. A brave who fights on an empty belly fights badly, and the centaur aren't kind to those who falter, so I bake enough for the whole watch and a few besides." } },
       choices = {
         { text = "Thank you for feeding the braves, Jhawna.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Bread is soft. Warriors should eat what they kill.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1095,7 +1095,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "They matter to me, and to every farmer around the village, because the rains have come strangely this year. Nobody sings over the fields anymore except old Zarlman, and he forgets half the words." } },
+      lines = { { id = "xhsham_default", text = "They matter to me, and to every farmer around the village, because the rains have come strangely this year. Nobody sings over the fields anymore except old Zarlman, and he forgets the words." } },
       choices = {
         { text = "The old songs should be kept, even over something as plain as wheat.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The songs are pretty, but rain matters more than ritual.", next = "BACK", fx = { align = { order = -1 } } },

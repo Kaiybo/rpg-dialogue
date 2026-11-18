@@ -160,7 +160,7 @@ P:NPC {
     { id = "o_ne_hate", when = { gossip = { topic = "night_elves", stance = "hate" } }, text = "Father says you've no love for the kaldorei. I'd keep that quiet in Moonglade, if I were you, because they remember everything for ten thousand years." },
     { id = "g_hi", text = "If you're here for my father, he's thinking, which could take until An'she sets. If you're here for seeds, I'm faster." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Did anything you planted come up, or did the Earth Mother have other ideas?" },
-    { id = "g_morrow", when = { questActive = TODO_QUEST("Morrowgrain Research") }, text = "The Tharlendris seeds want soil from Un'Goro Crater and a great deal of patience. I can give you the first, and the second is your affair." },
+    { id = "g_morrow", when = { questActive = TODO_QUEST("Morrowgrain Research") }, text = "The Tharlendris seeds want soil from Un'Goro Crater and the patience of a kodo in the dry season. I can give you the first, and the second is your affair." },
   },
 
   notice = {

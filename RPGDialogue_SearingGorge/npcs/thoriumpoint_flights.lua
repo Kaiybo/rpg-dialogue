@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It's a close race, by my beard. The Dark Irons called up fire and it burned half their own kingdom, so you'll forgive me if I watch anyone who talks to the elements a little closely, even one of ours." } },
+      lines = { { id = "xdsham_default", text = "It's a close race, by my beard. The Dark Irons called up fire and it burned half their own kingdom, so I keep a close eye on anyone who talks to the elements, even one of ours." } },
       choices = {
         { text = "Ironforge's law keeps me honest, whatever the spirits say.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The elements answer to no king, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
@@ -94,7 +94,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "They're polite to everyone, which isn't the same as trust, and a knight of the Light reminds them of every Bronzebeard who ever marched on Blackrock. Be civil, mind your tongue around Oilfist, and remember that every one of them walked away from Thaurissan with nothing but their hands." } },
+      lines = { { id = "xapala_default", text = "They're polite to everyone, which isn't the same as trust, and a knight of the Light reminds them of every Bronzebeard who ever marched on Blackrock. Be civil, mind your tongue around Oilfist, and remember that each of them walked away from Thaurissan with nothing but their hands." } },
       choices = {
         { text = "They broke free. That earns my respect, Lanie.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A Dark Iron is a Dark Iron. I'll keep watch.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -155,7 +155,7 @@ P:NPC {
       },
     },
     brotherhood_trust = {
-      lines = { { id = "bt_default", text = "I trust them to keep their word, because they keep it to each other, and they've not broken it to me yet. I'll not say I'd turn my back on every one of them, but I'd say the same in Ironforge." } },
+      lines = { { id = "bt_default", text = "I trust them to keep their word, because they keep it to each other, and they've not broken it to me yet. I'll not say I'd turn my back on all of them, but I'd say the same of a Stormwind tavern." } },
       choices = {
         { text = "People can change. They've proved it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A Dark Iron is a Dark Iron.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "As closely as I watch them, which is very closely, because every one of them swears he left the mountain behind and none of us can prove it. They trade fair and keep their word, so far, but I sleep with my axe by the bed and I'd advise you to do the same." } },
+      lines = { { id = "xrogue_default", text = "As closely as I watch them, which is very closely, because each of them swears he left the mountain behind and none of us can prove it. They trade fair and keep their word, so far, but I sleep with my axe by the bed and I'd advise you to do the same." } },
       choices = {
         { text = "They've kept their word. That should count, Grisha.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Then I'll watch them too, and trust none of them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -281,7 +281,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Heat off the Cauldron, ash off Blackrock and the fire spirits the Dark Irons keep stirring up, all of it churning together until a wind rider can't find a straight line through. I've lost no riders yet, but I've lost a great deal of sleep, and I'd give a week's pay for one calm crossing." } },
+      lines = { { id = "xhsham_default", text = "Heat off the Cauldron, ash off Blackrock and the fire spirits the Dark Irons keep stirring up, all of it churning together until a wind rider can't find a straight line through. I've lost no riders yet, but I've lost plenty of sleep, and I'd give a week's pay for one calm crossing." } },
       choices = {
         { text = "Keep flying the routes, Grisha. The Horde relies on them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Ground the riders on bad days, Grisha. They come first.", next = "BACK", fx = { align = { order = -1 } } },
@@ -299,7 +299,7 @@ P:NPC {
           text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
         { id = "h_default", key = true,
           text = "I am Grisha, wind rider master for the Horde at Thorium Point, and the only orc fool enough to sleep among Dark Irons. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe on your back while you're here, because the dwarves have long memories and short tempers, and I'd rather not lose a customer." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe on your back while you're here, because the dwarves have long memories and short tempers, and a dead rider pays no fare." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll understand my beasts, then, and why I won't let anyone near them who doesn't know how to treat an animal." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarves around here will stare at you twice, once for the Light and once for the rot, so let them stare and keep your hand off your hammer." },
       },
@@ -324,7 +324,7 @@ P:NPC {
       },
     },
     dwarves = {
-      lines = { { id = "d_default", text = "The Brotherhood keeps to their forges and I keep to my riders, and nobody makes trouble. I watch them, mind you, because their kin inside Blackrock Mountain are at war with orcs as we speak." } },
+      lines = { { id = "d_default", text = "The Brotherhood keeps to their forges and I keep to my riders, and nobody makes trouble. I still watch them, because their kin inside Blackrock Mountain are at war with orcs as we speak." } },
       choices = {
         { text = "Which orcs are they fighting?", next = "dwarves_past" },
         { text = "Something else.", next = "BACK" },

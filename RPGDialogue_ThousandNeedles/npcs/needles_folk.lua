@@ -38,7 +38,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "They did in the wars on this continent, so the orcs tell me, and they would again if the Warchief asked it. But a wind rider sent into battle is one I may not get back, and I'd rather they carried soldiers home than carried them off to die." } },
+      lines = { { id = "xwarcl_default", text = "They did in the wars on this continent, so the orcs tell me, and they would again if the Warchief asked it. But a wind rider sent into battle is one I may not get back, and I want them carrying soldiers home, not carrying them off to die." } },
       choices = {
         { text = "If the Warchief calls, they fly. That's duty.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep them home. No order is worth a wind rider.", next = "BACK", fx = { align = { order = -1 } } },
@@ -173,7 +173,7 @@ P:NPC {
     cairne = { { id = "tp_cairne", text = "Cairne flew from here once, and he said the drop made his stomach turn. I've never heard a chieftain admit that before, and I liked him better for it." } },
     centaur = { { id = "tp_centaur", text = "The Galak shoot at my riders when they fly low, but they never hit. A wind rider climbs faster than any centaur can aim." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "The flight to Gadgetzan is long and hot, and my riders hate it. I send them anyway, because the goblins pay well." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. The wind carries a great deal past this mesa, but not that, and the Earth Mother keeps what the wind doesn't." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. The wind carries many things past this mesa, but not that, and the Earth Mother keeps what the wind doesn't." } },
   },
 }
 
@@ -507,7 +507,7 @@ P:NPC {
     mirage_raceway = { { id = "tp_race", text = "The best place in Kalimdor to watch things explode at speed, and the best place to sell bolts." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I'm not going to talk about it, except to say that we'll get it back one day. Until then, I sell bolts to everyone, because bolts don't care where you're from." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, and I'll admit that even though it's full of goblins. They buy my bolts and I buy their gears, and nobody gets hurt, mostly." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's neutral, and so am I, which is why I sell to gnomes and goblins both. Business doesn't take sides, and neither does a good wrench." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's neutral, and so am I, so I sell to gnomes and goblins both. Business doesn't take sides, and neither does a good wrench." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a goblin port, but they've got a few gnome engineers working the cranes. I hear they're paid better than the goblins, though nobody will admit it." } },
     _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you a sprocket that's eighty percent likely to help!" } },
   },

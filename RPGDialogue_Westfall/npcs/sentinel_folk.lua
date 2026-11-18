@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_defias_hard", when = { gossip = { topic = "defias", stance = "hardline" } }, text = "Danuvin tells me you'd hang the Defias lads off the tower. Some of those lads drank at my tables once, so forgive me if I pour a little slower for you." },
+    { id = "g_op_defias_hard", when = { gossip = { topic = "defias", stance = "hardline" } }, text = "Danuvin tells me you'd hang the Defias lads off the tower. Some of those lads drank at my tables once, so I'll be pouring a little slower for you." },
     { id = "g_op_bolvar_soft", when = { gossip = { topic = "bolvar", stance = "soft" } }, text = "The Commander says you told him the Regent's forgotten his oath. Say it again by my fire, love, and the whole room will stand you a drink." },
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
     { id = "g_home", when = { homeInn = { "Sentinel Hill" } }, text = "Your bed's made, and I've shaken the grit out of the blankets, though it'll be back by morning. It always is." },
@@ -65,7 +65,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "Don't you dare, {class}. Half of them are militia who've nothing but those boots, and the other half are travellers who'll never come back if they lose their purse under my roof." } },
+      lines = { { id = "xro_default", text = "Don't you dare, {class}. Those are militia who've nothing but those boots, and travellers who'll never come back if they lose their purse under my roof." } },
       choices = {
         { text = "Your roof, your rules. I'll wipe my boots.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Only the ones who can spare it, Heather.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -225,7 +225,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They know the roads better than we do. I record every loss in my ledger, and I'd rather not know how the gear gets damaged." } },
+      lines = { { id = "xdsham_default", text = "They know the roads better than we do. I record every loss in my ledger, and I don't ask how the gear gets damaged." } },
       choices = {
         { text = "Keep honest records, Lewis. They'll matter someday.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stop writing it down. Ledgers won't stop thieves.", next = "BACK", fx = { align = { order = -1 } } },
@@ -254,7 +254,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "Linen, water and a great deal of wishing, since the reagent wagon from Stormwind gets robbed twice as often as the rest. If you've ever conjured water for a militia patrol, you've done more for this hill than my ledger ever has." } },
+      lines = { { id = "xma_default", text = "Linen, water and plenty of wishing, since the reagent wagon from Stormwind gets robbed twice as often as the rest. If you've ever conjured water for a militia patrol, you've done more for this hill than my ledger ever has." } },
       choices = {
         { text = "I'll conjure for the patrols. Put it in the ledger.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll conjure for whoever pays best, Lewis.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -291,7 +291,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "If you can bring me herbs that do the work, I'll take them gladly, because Elwynn charges dear for everything that comes down that road. I'll have to log them as something, though, so tell me what they're called before I invent a name." } },
       choices = {
-        { text = "Log them honestly, Lewis, whatever Stormwind makes of it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Log them true, Lewis, whatever Stormwind makes of it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Write them down as bandages. Nobody in Stormwind will check.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -635,7 +635,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "It would, and it would show every Defias on that road exactly where I'm standing, which is why I keep my tower dark. If you want to help, put your fire on the riders I point at, not on the lamp." } },
+      lines = { { id = "xma_default", text = "It would, and it would show every Defias on that road exactly where I'm standing, so I keep my tower dark. If you want to help, put your fire on the riders I point at, not on the lamp." } },
       choices = {
         { text = "I'll follow your lead, Riell.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll pick my own targets, scout.", next = "BACK", fx = { align = { order = -1 } } },
@@ -872,7 +872,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "From the windbreaks the old farmers planted, mostly, and only the trees that are already dying, because I'll not fell a sound one when there are so few left. It makes for knotty staves, which is why I charge for the patience." } },
+      lines = { { id = "xdruid_default", text = "From the windbreaks the old farmers planted, mostly, and only the trees that are already dying, because I'll not fell a sound one when there are so few left. It makes for knotty staves, and I charge for the patience they take." } },
       choices = {
         { text = "Only the dying trees. That's a fair bargain with the land.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Cut the sound ones. The militia needs bows now, not later.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -935,7 +935,7 @@ P:NPC {
       },
     },
     gina = {
-      lines = { { id = "gi_default", text = "She does, and she charges me for them too, which is why mine are extra. That's all the family business you'll get out of me." } },
+      lines = { { id = "gi_default", text = "She does, and she charges me for them too, so mine cost extra. That's all the family business you'll get out of me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     hunter = {

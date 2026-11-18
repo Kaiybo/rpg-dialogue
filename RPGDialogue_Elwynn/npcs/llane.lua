@@ -47,7 +47,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That you win fights before they start, and I'll grant you that's smart. But one day the wolf gets past the beast and the arrow, and then you'll wish you'd stood in my yard a week and learned to take a hit." },
+        { id = "xhuntcl_default", text = "That you win fights before they start, and that's smart, I'll give you that. But one day the wolf gets past the beast and the arrow, and then you'll wish you'd stood in my yard a week and learned to take a hit." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours takes the hits for you, I see. Look after it; it's doing my job." },
       },
       choices = {
@@ -58,7 +58,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I'd train anyone who can stand up again after I knock them down, and rogues get knocked down a lot, by my reckoning. You'll never block like a warrior, but you'll learn when to run, and that's half the fight anyway." } },
+      lines = { { id = "xrogue_default", text = "I'd train anyone who can stand up again after I knock them down, and rogues get knocked down a lot, by my reckoning. You'll never block like a warrior, but you'll learn when to run, and that's won more fights than any parry." } },
       choices = {
         { text = "I'll stand and take your drills like anyone else.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll learn to run, Llane. Standing's for fools.", next = "BACK", fx = { align = { honor = -1 } } },

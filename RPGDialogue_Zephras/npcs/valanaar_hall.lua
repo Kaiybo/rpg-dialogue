@@ -103,7 +103,7 @@ P:NPC {
     },
     eye2 = {
       lines = {
-        { id = "e2_default", text = "Everything that moves makes a sound, and everything that's afraid makes a different one. A vuldren that's turned dangerous breathes faster than a calm one, and I can hear that across a clearing, which is more than most hunters can see." },
+        { id = "e2_default", text = "Everything that moves makes a sound, and everything that's afraid makes a different one. A vuldren that's turned dangerous breathes faster than a calm one, and I can hear that across a clearing, while most hunters couldn't even see it." },
       },
       choices = {
         { text = "Teach me to listen like that.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -137,7 +137,7 @@ P:NPC {
     },
     xoutsider = {
       lines = {
-        { id = "xo_default", text = "I'd imagine so, and I'd give a great deal to hear what's out there. Tell me, what's the hardest beast you've ever brought to your hand?" },
+        { id = "xo_default", text = "I'd imagine so, and I'd love to hear what's out there. Tell me, what's the hardest beast you've ever brought to your hand?" },
         { id = "xo_tauren", when = { race = "Tauren" },
           text = "I'd imagine so; the Windshapers say your plains are full of beasts the size of a house. Tell me, what's the hardest one you've ever brought to your hand?" },
       },
@@ -511,7 +511,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "<Alvarion winces as he turns his head toward you, bandages showing under his shirt.>" },
-    { id = "g_again", when = { metBefore = true }, text = "You again. Forgive me if I don't get up." },
+    { id = "g_again", when = { metBefore = true }, text = "You again, and no, I'm not getting up." },
     { id = "g_news", tags = { "news" }, when = { questActive = TODO_QUEST("Deliver the News") }, text = "You've come from the orchard? From Aamelia? Tell me, quickly." },
   },
 
@@ -706,7 +706,7 @@ P:NPC {
     },
     kit = {
       lines = {
-        { id = "ki_default", text = "Clean linen, more than you think you need, and something to tie it with. Everything else is a luxury, but I've seen people die for want of a strip of cloth, and I'd rather that never happened to anyone I taught." },
+        { id = "ki_default", text = "Clean linen, more than you think you need, and something to tie it with. Everything else is a luxury, but I've seen people die for want of a strip of cloth, and I won't have that happen to anyone I've taught." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -731,7 +731,7 @@ P:NPC {
     },
     healing = {
       lines = {
-        { id = "he_default", text = "The Windshapers can do a great deal with the elements, and the druids with what grows, but there aren't enough of either to go round. So most of us are healed by people like me, with linen and herbs and stubbornness, and I've come to think that's no bad thing." },
+        { id = "he_default", text = "The Windshapers can work wonders with the elements, and the druids with what grows, but there aren't enough of either to go round. So most of us are healed by people like me, with linen and herbs and stubbornness, and I've come to think that's no bad thing." },
       },
       choices = {
         { text = "Why no bad thing?", next = "healing2" },

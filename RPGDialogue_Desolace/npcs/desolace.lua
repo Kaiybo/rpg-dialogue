@@ -55,7 +55,7 @@ P:NPC {
     },
     warrior_pg = {
       lines = {
-        { id = "wpg_default", text = "Welcome, and don't get comfortable, because there's no line here to hold, only a ridge and a great deal of centaur on either side of it. My best warriors are the ones who learned to count before they learned to charge." },
+        { id = "wpg_default", text = "Welcome, and don't get comfortable, because there's no line here to hold, only a ridge and a sea of centaur on either side of it. My best warriors are the ones who learned to count before they learned to charge." },
         { id = "wpg_guard", when = { origin = "human_city_guard" },
           text = "City Watch, aren't you? I can tell by the way you check the gate before you check the view. Stormwind sends me plenty of those, and they're the only ones who ever remember to lock anything." },
       },
@@ -94,7 +94,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "More than you'd think, because a single fireball dropped between the Kolkar and the Gelkis at the right moment starts a feud that lasts all season. I'd rather the clans blamed each other's shamans than came looking for us, and a little well-placed flame helps them along." } },
+      lines = { { id = "xmage_default", text = "Plenty, because a single fireball dropped between the Kolkar and the Gelkis at the right moment starts a feud that lasts all season. Better the clans blame each other's shamans than come looking for us, and a little well-placed flame helps them along." } },
       choices = {
         { text = "I'll start no feuds. I fight in the open, Captain.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Point me at the right camp and I'll light it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -171,7 +171,7 @@ P:NPC {
     clans = {
       big = true,
       lines = {
-        { id = "c_default", text = "Kolkar, Magram, Gelkis: three clans, three grudges, one valley. If they spend their arrows on each other, they don't spend them on us, and I'd rather that than a war I can't win." },
+        { id = "c_default", text = "Kolkar, Magram, Gelkis: three clans, three grudges, one valley. If they spend their arrows on each other, they don't spend them on us, and that suits me better than a war I can't win." },
       },
       choices = {
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -298,7 +298,7 @@ P:NPC {
     maraudon = { { id = "tp_maraudon", text = "The centaur call Maraudon a holy place, the tomb of their father, and something down there is poisoning the valley around it. I'd rather it stayed their problem, though I doubt it will." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord writes to say Stormwind has no troops to spare, and he writes it politely. I'd rather he wrote less politely and sent more men." } },
     prestor = { { id = "tp_prestor", text = "Lady Prestor's office signs off on our supply requests, eventually, and with very elegant handwriting. I've never seen a lady take so long to approve so little." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade are bargaining with demons in Thunder Axe Fortress, and I've no soldiers to spare for it. If a real demon ever walks out of that place, we'll have a great deal more than centaur to worry about." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade are bargaining with demons in Thunder Axe Fortress, and I've no soldiers to spare for it. If a real demon ever walks out of that place, we'll have far worse than centaur to worry about." } },
     thrall = { { id = "tp_thrall", text = "The orcs at Shadowprey Village keep to their coast and I keep to my mountain, which suits us both. Their warchief signed a peace with Theramore, but I don't see it written on any Kolkar spear." } },
     scourge = { { id = "tp_scourge", text = "There are dead walking in the Valley of Bones, raised by the Magram, and the Scarlet Crusade has sent zealots after them. I've no love for either, and I'm short of men to spare." } },
     _none = { { id = "tp_none", text = "Not in my orders. Ask Kreldig; the Reclaimers poke into everything." } },
@@ -556,7 +556,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Belt buckles, arrowheads, a centaur's earring, an' once the whole brass compass off a wagon, which I'll swear blind is true. The Scorpashi dig deep in the sand, an' a hunter who knew where they nest could tell me a great deal about what Desolace has lost." },
+        { id = "xhuntcl_default", text = "Belt buckles, arrowheads, a centaur's earring, an' once the whole brass compass off a wagon, which I'll swear blind is true. The Scorpashi dig deep in the sand, an' a hunter who knew where they nest could tell me plenty about what Desolace has lost." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out o' the nests, though, because Scorpashi venom'll lay a beast low faster than a dwarf after a cask o' stout." },
       },
       choices = {
@@ -637,7 +637,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Good, because half o' what I salvage out o' this waste was left behind by folk who didnae make it home, an' it'd sit easier wi' me if someone said a word over them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin o' the Silver Hand, out among the dust an' the demon-lovers! Reclaimers Inc. could use a strong back an' a stronger conscience, an' ye look like ye've brought both." },
         { id = "h_default", key = true,
-          text = "Kreldig Ungor, o' Reclaimers Inc., an' we find what others lost an' put it back to use. Desolace has lost a great deal, the Karnitol's cargo not least." },
+          text = "Kreldig Ungor, o' Reclaimers Inc., an' we find what others lost an' put it back to use. Desolace has lost more'n its share, the Karnitol's cargo not least." },
         { id = "h_karnitol", tags = { "news" }, when = { questActive = TODO_QUEST("The Karnitol Shipwreck") },
           text = "The Karnitol went down off the coast with her cargo, an' the Reclaimers want what's left aboard. Fetch what ye can." },
         { id = "h_reagents", when = { questActive = TODO_QUEST("Reagents for Reclaimers Inc.") },
@@ -735,7 +735,7 @@ P:NPC {
   nodes = {
     xpt_anton = {
       big = true,
-      lines = { { id = "xpt_anton_default", text = "Because the Crusade is the only order that never stopped fighting the Scourge, while the Silver Hand scattered and argued over who should lead it. Our methods are hard, I'll grant you, but the dead don't negotiate, and neither do we." } },
+      lines = { { id = "xpt_anton_default", text = "Because the Crusade is the only order that never stopped fighting the Scourge, while the Silver Hand scattered and argued over who should lead it. Our methods are hard, I admit, but the dead don't negotiate, and neither do we." } },
       choices = {
         { text = "Hard methods in the Light's name are still wrong, Brother.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The Crusade does what must be done. I respect that.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -802,7 +802,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "The Crusade welcomes anyone who will put the dead back in their graves, friend. Mind you, there are brothers in Lordaeron who would call your moon goddess a heresy, and I pray you never have to meet them." } },
+      lines = { { id = "xdruid_default", text = "The Crusade welcomes anyone who will put the dead back in their graves, friend. Still, there are brothers in Lordaeron who would call your moon goddess a heresy, and I pray you never have to meet them." } },
       choices = {
         { text = "Then I'll fight the Scourge, but never under your banner.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The dead are a common enemy. I'll stand with you.", next = "BACK", fx = { align = { order = 1 } } },
@@ -983,7 +983,7 @@ P:NPC {
     { id = "g_home", when = { homeInn = { "Nijel's Point" } }, text = "You've come back to the Point. Your bed's made, though the dust got in anyway." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the dust has had all that time to settle in your room, though I swept it as often as I could. Come in, and rest." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came in this evening still smiling about a talk with you, and that's rare enough at the Point that I noticed. Whatever you said, it helped." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "One of our folk has been sour since speaking with you, and sat by the fire muttering half the night. I won't ask what happened, but I'd mend it if I were you." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "One of our folk has been sour since speaking with you, and sat by the fire muttering till the lamps burned out. I won't ask what happened, but I'd mend it if I were you." },
   },
 
   notice = {
@@ -1042,7 +1042,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Twice, on the worst storm nights, when the wind came up from the Kodo Graveyard and filled the chimney with grit. I sat everyone round a single lamp and told stories until morning, and I'd rather that than any spell, though I'm glad to see a mage all the same." } },
+      lines = { { id = "xmage_default", text = "Twice, on the worst storm nights, when the wind came up from the Kodo Graveyard and filled the chimney with grit. I sat everyone round a single lamp and told stories until morning, and I'd choose that over any spell, though I'm glad to see a mage all the same." } },
       choices = {
         { text = "A good story warms better than any fire I could conjure.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Next storm, let a mage keep the hearth lit. Power is for using.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1093,7 +1093,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week, though I haven't stopped yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, come down to Desolace. Most of your kind take one look at the dust and go straight back to Feralas, and I can't say I blame them." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Walk as softly as you like, but my floorboards have learned every trick, and they'll tell me if you come down for a midnight snack. Sit, and I'll bring you something honestly." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Walk as softly as you like, but my floorboards have learned every trick, and they'll tell me if you come down for a midnight snack. Sit, and I'll bring you something all the same." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you warm the hearth a little? I'm only joking, though the dust does make the fire sulk, and I'd not say no." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, at the edge of Desolace. Sit, and let me feed you before you go down, because I've seen what that dust does to armour, and to the people inside it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome at my hearth like anyone else, but leave your companion outside, please, because the soldiers here have seen what the Burning Blade do with theirs." },
@@ -1132,7 +1132,7 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "A hearth, a broom, and travellers who need both. I don't need more of a story than that." } },
     advice = { { id = "tp_ad", text = "Shake out your boots every morning. Desolace has scorpions, and scorpions like boots." } },
-    elune = { { id = "tp_elune", text = "I pray to Elune each morning for patience with the dust, and she has given me a great deal of patience and none of the dust's absence. I take it as a lesson." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune each morning for patience with the dust, and she has given me patience in plenty and not one day free of dust. I take it as a lesson." } },
     centaur = { { id = "tp_centaur", text = "The centaur thunder past at night, and the guards count the hoofbeats from the walls. I keep the shutters closed and the tea warm." } },
     maraudon = { { id = "tp_maraudon", text = "The druids speak of Maraudon in hushed voices, as of a tomb that should not be opened. Those who go in come back thirsty, and some come back not at all." } },
     teldrassil = { { id = "tp_teldrassil", text = "I left Teldrassil for this dusty mountain because someone had to keep a fire lit for travelers. On quiet nights I can almost hear its leaves." } },
@@ -1445,7 +1445,7 @@ P:NPC {
     { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting the Earth Mother to grow anything in it. Sit down." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Are the centaur still out there? They always are." },
     { id = "g_away", when = { away = 14 }, text = "Ah, you've been gone {away}, and the fish have been biting the whole time, which is how I measure such things. Sit down and tell me where you went." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last sat together, and I'm glad the road was good to you. I've only grown older, and a little better at fishing." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown like spring grass since we last sat together, and I'm glad the road was good to you. I've only grown older, and a little better at fishing." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in camp told me you gave them good words and a lighter heart, and I was glad to hear it, because Desolace has little enough of either." },
   },
 
@@ -1480,7 +1480,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The thunder lizards on the plains, if you have the stomach for it, and the kodo herds if you have the patience. My people don't hunt the old kodos that walk toward the Graveyard, though, and I'd ask the same of you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows the land it's walking on. That's more than I can say for most hunters who come through Shadowprey." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows the land it's walking on. Most hunters who come through Shadowprey bring beasts that pull at the leash and sniff for home." },
       },
       choices = {
         { text = "The old kodos walk in peace. I'll leave them be.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1565,7 +1565,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, come all the way out to Desolace. The land here could use a prayer, though I think it would be content just to be left alone for a while." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly the fish didn't even notice, which is more than I can manage. Sit, if you like, and tell me what you're really doing in Desolace." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here with the fishermen. If you could conjure a fish that bites, I'd call it the greatest magic I've ever seen." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll forgive me if I keep my line between us, because I've seen what the Burning Blade leave behind at Thunder Axe, and it doesn't sit well with me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I will keep my line between us, if you don't mind, because I've seen what the Burning Blade leave behind at Thunder Axe, and it doesn't sit well with me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in hand. The Earth Mother sends us all kinds of surprises, and I think you might be the strangest one I've seen in Desolace." },
       },
       again = {
@@ -1612,7 +1612,7 @@ P:NPC {
 
     brother = {
       lines = {
-        { id = "b_default", text = "Cliffwatcher Longhorn, at Freewind Post in Thousand Needles. He writes when there's something to worry about, which is why a whole year can go by between letters." },
+        { id = "b_default", text = "Cliffwatcher Longhorn, at Freewind Post in Thousand Needles. He writes when there's something to worry about, so a whole year can go by between letters." },
       },
       choices = {
         { text = "I'd guess he had news to write about this time.", next = "brother_worry" },
@@ -1670,7 +1670,7 @@ P:NPC {
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_default", text = "That the land remembers whatever is done to it, and a great deal has been done. The Burning Blade foul the ground near Thunder Axe, and the Kodo Graveyard has a heaviness to it that no spell could lift, so walk softly and you'll do better than most." },
+        { id = "xhcast_default", text = "That the land remembers whatever is done to it, and much has been done to this one. The Burning Blade foul the ground near Thunder Axe, and the Kodo Graveyard has a heaviness to it that no spell could lift, so walk softly and you'll do better than most." },
       },
       choices = {
         { text = "I'll walk softly and leave the land as I found it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

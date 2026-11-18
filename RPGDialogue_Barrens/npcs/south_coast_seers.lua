@@ -166,7 +166,7 @@ P:NPC {
       choices = { { text = "Something else, Mahren.", next = "BACK" } },
     },
     sea = {
-      lines = { { id = "se_default", text = "Patiently, and with a long spear, and with a great deal of salt in your nose. You learn the tides the way you'd learn a herd's paths, and you wait for the beast to come to the shallows." } },
+      lines = { { id = "se_default", text = "Patiently, and with a long spear, and with the sea's salt stinging your nose. You learn the tides the way you'd learn a herd's paths, and you wait for the beast to come to the shallows." } },
       choices = {
         { text = "And the humans on this coast?", next = "humans" },
         { text = "Something else.", next = "BACK" },

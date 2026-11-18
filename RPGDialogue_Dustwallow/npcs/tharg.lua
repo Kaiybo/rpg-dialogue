@@ -37,7 +37,7 @@ P:NPC {
         { id = "opd_q", text = "Tharg asks every traveller the same thing, because Tharg is old and wants to know if Tharg is mad. The black dragons in the Wyrmbog, what do you think of them?" },
       },
       choices = {
-        { text = "They're monsters. Every one of them should die.", next = "op_dragons_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { black_dragonflight = "hate" } } },
+        { text = "They're monsters, and every last one should die.", next = "op_dragons_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { black_dragonflight = "hate" } } },
         { text = "Not every dragon is wicked, Tharg, but those ones are.", next = "op_dragons_r2", fx = { affinity = 1, align = { light = 1 }, opinion = { dragons = "mixed" } } },
         { text = "They're too strong to fight. Best leave them be.", next = "op_dragons_r3", fx = { affinity = -1, trait = { cautious = 1 }, opinion = { black_dragonflight = "fear" } } },
         { text = "I don't know enough of dragons to say.", next = "BACK" },

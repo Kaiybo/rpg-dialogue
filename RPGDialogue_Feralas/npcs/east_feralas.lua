@@ -211,7 +211,7 @@ P:NPC {
     },
 
     sentinels = {
-      lines = { { id = "se_default", text = "The general has the naga on the coast and the ogres to the north, and only so many bows. Two Sentinels in the hills cost her nothing, and we can do a great deal of damage for nothing." } },
+      lines = { { id = "se_default", text = "The general has the naga on the coast and the ogres to the north, and only so many bows. Two Sentinels in the hills cost her nothing, and two Sentinels who know these hills can bleed an ogre camp for a month." } },
       choices = {
         { text = "You're brave to try alone.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },

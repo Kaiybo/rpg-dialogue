@@ -165,7 +165,7 @@ P:NPC {
         { id = "h_port", tags = { "news" }, when = { questActive = TODO_QUEST("The Barrens Port") },
           text = "Ratchet is the only port in the Barrens, and goblins run it. If Velinde took ship for the other continent, the master of their docks will have it in a ledger somewhere." },
         { id = "h_answered", tags = { "news" }, when = { questActive = TODO_QUEST("Answered Questions") },
-          text = "So that is what became of Velinde. The High Priestess will be grieved; they were good friends, before. I owe you a great deal of thanks for this." },
+          text = "So that is what became of Velinde. The High Priestess will be grieved; they were good friends, before. You have my deepest thanks for bringing me this." },
         { id = "h_done", when = { questDone = TODO_QUEST("Answered Questions") },
           text = "We'll deal with what she left in our woods, and I bear her no ill will for it. Strange things are afoot these days, and the darkness never rests long." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The Sentinels have use for anyone who can walk into a Warsong camp and walk back out with something worth hearing." },
@@ -212,7 +212,7 @@ P:NPC {
     },
     velinde2 = {
       lines = {
-        { id = "v2_default", text = "No. We believed she had her own reasons for leaving and would come back when she was ready, because she had done a great deal to earn our trust. I still believe she had reasons, even if I'll never hear them now." },
+        { id = "v2_default", text = "No. We believed she had her own reasons for leaving and would come back when she was ready, because she had earned our trust many times over. I still believe she had reasons, even if I'll never hear them now." },
       },
       choices = {
         { text = "Trust like that is rare.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
@@ -227,7 +227,7 @@ P:NPC {
       choices = {
         { text = "Then drive them out for good.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "warsong" } } },
         { text = "Neither side can win this. Seek a truce.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1, learn = { "warsong" } } },
-        { text = "You must need a great deal out there.", next = "ashenvale2" },
+        { text = "You must need a lot out there.", next = "ashenvale2" },
       },
     },
     ashenvale2 = {
@@ -572,7 +572,7 @@ P:NPC {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A fellow smith! Tell me, does your forge run hot or slow? Furen in Stormwind swears by slow, and I'm half convinced." },
     { id = "n_dwarf", cat = "craft", when = { race = "Dwarf" },
-      text = "A dwarf at my forge! Please, have a look and tell me honestly where I'm going wrong. Furen says I fold too often, but he's polite about it." },
+      text = "A dwarf at my forge! Please, have a look and show me where I'm going wrong. Furen says I fold too often, but he's polite about it." },
   },
 
   start = "hello",
@@ -729,7 +729,7 @@ P:NPC {
     },
     friends = {
       lines = {
-        { id = "fr_default", text = "Furen Longbeard in Stormwind's Dwarven District, and Klockmort Spannerspan in Tinker Town, and both write better letters than I do. Smiths share secrets more than you'd think, as long as nobody tells the guilds." },
+        { id = "fr_default", text = "Furen Longbeard in Stormwind's Dwarven District, and Klockmort Spannerspan in Tinker Town, and both write better letters than I do. Smiths trade secrets across the sea freely enough, as long as nobody tells the guilds." },
       },
       choices = {
         { text = "Knowledge should be shared freely.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
@@ -781,7 +781,7 @@ P:NPC {
       { id = "tp_magni", text = "King Magni writes back to me himself, sometimes, when his smiths are busy. He has opinions on night elf steel, and most of them are unkind." },
       { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king answered my letter on folding steel, and he signed it himself. I've framed it, and I won't tell you what it says." },
     },
-    dark_iron = { { id = "tp_dark_iron", text = "The dwarven smiths talk of the Dark Iron forges under Blackrock with a hate that's almost envy. I'd give a great deal to see one, from a long way off." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The dwarven smiths talk of the Dark Iron forges under Blackrock with a hate that's almost envy. I should like to see one someday, from a long way off." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "A Dark Iron city under the mountain, the dwarves say, with forges hotter than any above ground. Bring me a piece of their steel and I'll study it for a month." } },
     thrall = { { id = "tp_thrall", text = "The orcs' warchief carries a hammer that's older than his people's arrival here. I'd like to see how it was made, though I doubt he'd lend it." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend, for I'm only a smith, and Elune gave me hands for the anvil rather than for lore." } },
@@ -937,7 +937,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I teach only those with the warrior's spirit, but I'll grant that some healers have more of it than the fighters they heal." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You may have the warrior's spirit, {class}, though I'll want to see it for myself before I say so." },
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a great deal of cunning. It isn't the worst combination I've ever seen." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a good deal of cunning. It isn't the worst combination I've ever seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach only those with the warrior's spirit, warlock, and whatever spirit is walking behind you isn't the right kind." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether there's a warrior's spirit in you, and in some hunters there is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I see something of the warrior's spirit in you, which is not common in the Circle, though I teach only those who carry it whole." },
@@ -1187,9 +1187,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "A crier knows a little of everything and a great deal about nothing. Ask, and I'll tell you the latest." } },
+    knows = { { id = "tp_knows", text = "A crier knows a little of everything and the whole of nothing. Ask, and I'll tell you the latest." } },
     background = { { id = "tp_bg", text = "I'm the crier. I walk, I call, and I make sure nobody can say they weren't told." } },
-    advice = { { id = "tp_ad", text = "Listen to the proclamations, hero. Half the adventures in Azeroth start with somebody shouting." } },
+    advice = { { id = "tp_ad", text = "Listen to the proclamations, hero. Many a great adventure in Azeroth began with somebody shouting." } },
     rumors = { { id = "tp_rumors", text = "Officially, I only cry what's sealed and signed. Unofficially, the Sentinels say Ashenvale is busier than they'd like." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Hear ye, the Darkmoon Faire comes and goes like the moon, and when it's near I cry it. When it's far I cry something else, but I always cry something." } },
     scourge = { { id = "tp_scourge", text = "Hear ye, the plague of the dead still holds the human north! I cry it every week so nobody can say they weren't told, though I'm told it gets less cheerful each time." } },
@@ -1227,7 +1227,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every one of them is a hero in the making. It is my honour to supply them. A shaman is no different." } },
+      lines = { { id = "xdsham_default", text = "Each who comes to my stall is a hero in the making, and it is my honour to supply them. A shaman is no different." } },
       choices = {
         { text = "Then I will try to live up to it, Mydrannul.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Some adventurers are only thieves.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1254,7 +1254,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Food, every time, because they pack whetstones and spare buckles and forget that they need to eat. I've sent warriors down to Ashenvale with a bag full of steel and nothing else, and every one of them came back hungry and wiser." } },
+      lines = { { id = "xwarcl_default", text = "Food, every time, because they pack whetstones and spare buckles and forget that they need to eat. I've sent warriors down to Ashenvale with a bag full of steel and nothing else, and they all came back hungry and wiser." } },
       choices = {
         { text = "I'll pack properly. A wise warrior plans ahead.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll live off the land. Supplies slow me down.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1504,7 +1504,7 @@ P:NPC {
       },
     },
     xcl_kraul2 = {
-      lines = { { id = "xcl_kraul2_default", text = "That Agamaggan was a great boar demigod who fell fighting the Burning Legion, and that the Kraul's thorns grew from his blood where he died. The quilboar think the brambles are still his body, so to them every one of us who cuts a path through is cutting their god, and Heralath said that explained a great deal." } },
+      lines = { { id = "xcl_kraul2_default", text = "That Agamaggan was a great boar demigod who fell fighting the Burning Legion, and that the Kraul's thorns grew from his blood where he died. The quilboar think the brambles are still his body, so to them every one of us who cuts a path through is cutting their god, and Heralath said that explained their fury." } },
       choices = {
         { text = "Thank you. I'll remember his work, Treshala.", next = "BACK" },
       },
@@ -1513,7 +1513,7 @@ P:NPC {
       lines = {
         { id = "h_cl_kraul", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Alliance", ["not"] = { questDone = TODO_QUEST("Mortality Wanes") } }, text = "Someone told me you've been down to the bottom of Razorfen Kraul, and that's the very warren Heralath wrote about in his last letters. Please, did you see anything of him down there?" },
         { id = "h_cl_kraul2", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Alliance", questDone = TODO_QUEST("Mortality Wanes") }, text = "You went all the way down into the Kraul, past the place where Heralath fell, and you came back out. I'm glad someone did, and I'm gladder it was you." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Forgive me if I seem far away, {class}, because my thoughts are usually somewhere in the Barrens with Heralath." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Pardon me if I seem far away, {class}, because my thoughts are usually somewhere in the Barrens with Heralath." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Heralath always said the Barrens needed knights more than scholars, though he went anyway, and he took only a staff." },
         { id = "h_default", text = "I am Treshala Fallowbrook. My husband, Heralath, went south to the Barrens to study the quilboar and the rumours of their fallen boar god, and I wait here for his letters, as I have waited for him before." },
         { id = "h_pendant", tags = { "news" }, when = { questActive = TODO_QUEST("Mortality Wanes") },
@@ -1680,7 +1680,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They're very particular, because Telonis says a badly skinned stag is an insult to the stag, but a clean hide from a hunter who knows the work always gets a smile. Radnaal Maneweaver taught half the skinners on Teldrassil, so if he taught you, say so!" },
+        { id = "xhuntcl_default", text = "They're very particular, because Telonis says a badly skinned stag is an insult to the stag, but a clean hide from a hunter who knows the work always gets a smile. Radnaal Maneweaver taught most of the skinners on Teldrassil, so if he taught you, say so!" },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is beautiful, but please don't let it near the hides in the back, because the last companion took a whole bolt of leather for a bed." },
       },
       choices = {

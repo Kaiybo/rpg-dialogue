@@ -30,7 +30,7 @@ P:Pool {
     { id = "n_druid", cat = "form", when = { form = { "cat", "bear", "travel" } },
       text = "One of the druids? There are so few of you that I forget what you look like, so now you'll be the one I picture." },
     { id = "n_stranger", cat = "kit", when = { ["not"] = { race = "Skyborne" } },
-      text = "You're dressed for somewhere a great deal less windy. You'll learn." },
+      text = "You're dressed for somewhere with far less wind. You'll learn." },
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
       text = "Engineering? I'm afraid I don't know that trade, friend, and I've never heard of anyone here who teaches it. Is it something like smithing?" },
     { id = "n_alliance", cat = "kit", when = { race = { "Human", "Dwarf", "NightElf", "Gnome" } },
@@ -42,7 +42,7 @@ P:Pool {
   lines = {
     { id = "l_default", text = "We're Peacekeepers, so we keep the peace, and lately that means keeping a few people apart who'd rather not be kept." },
     { id = "l_blades", text = "The Empyrean Blades guarded the Shal'nan once, and now they guard all of us: a step down in company, and a step up in work." },
-    { id = "l_bandits", text = "Half the trouble on the roads now is refugees gone bandit, and I can't find it in me to hate them, though I'll still arrest them." },
+    { id = "l_bandits", text = "Most of the trouble on the roads now is refugees gone bandit, and I can't find it in me to hate them, though I'll still arrest them." },
     { id = "l_pylons", text = "If you see anyone in grey robes near the anchor pylons, don't approach them; come and find us, and quickly." },
     { id = "l_alliance", when = { race = "Skyborne", faction = "Alliance" }, text = "High Order, are you? You'll be off to Dalaran soon, I expect, so mind your tongue around the Windshapers before you go." },
     { id = "l_horde", when = { race = "Skyborne", faction = "Horde" }, text = "A Windshaper, then. Mulgore's a long way from here, but the Earthen Ring will look after you better than we can." },
@@ -72,7 +72,7 @@ P:Pool {
   },
   lines = {
     { id = "l_default", text = "A good fire, warm bread, and a blanket someone's grandmother wove. The bread's yesterday's, but the wind hasn't stolen it yet, which makes it a good day on this isle." },
-    { id = "l_feathers", text = "If you want hippogryph feathers for your hair, ask about; somebody always has a few to spare, and wearing one is half the fashion on the isle." },
+    { id = "l_feathers", text = "If you want hippogryph feathers for your hair, ask about; somebody always has a few to spare, and on this isle a feather in the hair is practically required." },
     { id = "l_food", text = "Try the gustberry pie, or a bit of skycheddar if you're brave. Stormapples, too, from the Windfield Orchard down in the lowlands." },
     { id = "l_refugees", text = "Half my rooms go to folk from the fallen places, and they pay when they can. I'd sooner have a full house of the unlucky than an empty one." },
   },

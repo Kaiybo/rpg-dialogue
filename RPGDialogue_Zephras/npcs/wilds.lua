@@ -275,7 +275,7 @@ P:NPC {
     },
     xalaketh = {
       lines = {
-        { id = "xa_default", text = "I know you did; I sewed the seams on yours. You've walked away from it, and I'm still standing here in grey, so tell me honestly, is there anything on the other side worth leaving for?" },
+        { id = "xa_default", text = "I know you did; I sewed the seams on yours. You've walked away from it, and I'm still standing here in grey, so tell me, is there anything on the other side worth leaving for?" },
       },
       choices = {
         { text = "There is. Take off the robes, Zendraas.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -399,7 +399,7 @@ P:NPC {
     },
     xoutsider = {
       lines = {
-        { id = "xo_default", text = "I don't doubt it, and I'd love to hear about every one of them. Tell me, what's the worst night you ever spent under the stars down there?" },
+        { id = "xo_default", text = "I don't doubt it, and I'd love to hear them all. Tell me, what's the worst night you ever spent under the stars down there?" },
       },
       choices = {
         { text = "In the rain, with a wolf pack circling.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },

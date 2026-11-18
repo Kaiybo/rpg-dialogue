@@ -39,7 +39,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Now and then, mostly offerings to be held until the Temple decides how to spend them. They leave everything in perfect order, which is more than I can say for the adventurers coming back from Ashenvale." } },
+      lines = { { id = "xapriest_default", text = "Now and then, mostly offerings to be held until the Temple decides how to spend them. They leave everything in perfect order, unlike the adventurers coming back from Ashenvale with mud on every coin." } },
       choices = {
         { text = "Offerings given in faith should go to the needy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Offerings are coin like any other, better kept than given away.", next = "BACK", fx = { align = { light = -1 } } },
@@ -173,7 +173,7 @@ P:NPC {
       lines = {
         { id = "co_default", text = "We trust what lasts, and gold lasts better than most things. Since we joined the Alliance, the human and dwarf traders have brought more of it up through Rut'theran than this city ever needed before, and someone has to keep it straight." },
         { id = "co_dwarf", when = { race = "Dwarf" },
-          text = "Your own people taught half of Darnassus to count in gold, I'm told, and the other half is still learning. I'm in the first half, so you may relax." },
+          text = "Your own people taught much of Darnassus to count in gold, I'm told, and the rest are still learning. I learned early, so you may relax." },
       },
       choices = {
         { text = "So the Alliance changed even the bank.", next = "BACK" },
@@ -187,7 +187,7 @@ P:NPC {
     trade = { { id = "tp_trade", text = "More coin comes up from the boats every season. Most of it leaves again for Auberdine, but some of it stays with me for a while." } },
     booty_bay = { { id = "tp_booty_bay", text = "The goblin bank in Booty Bay charges for keeping your gold and charges again for giving it back. Ours does neither, though we do insist on legible handwriting." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle goblins keep accounts in four colours of ink and a code nobody else can read. I admire the discipline, though not the interest." } },
-    theramore = { { id = "tp_theramore", text = "Theramore's credit is good at our counter. Lady Proudmoore runs a tidy treasury, which is rarer than you'd think among wizards." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's credit is good at our counter. Lady Proudmoore runs a tidy treasury, which is rare among wizards." } },
     _none = { { id = "tp_none", text = "That isn't written in any ledger I keep, so I'm afraid I can't help you with it." } },
   },
 }
@@ -210,7 +210,7 @@ P:NPC {
 
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human", class = "WARRIOR" },
-      text = "A human warrior. Your people fought the orcs with steel and stubbornness for years, and I'll grant you the stubbornness at least." },
+      text = "A human warrior. Your people fought the orcs with steel and stubbornness for years, and of the two, the stubbornness impressed us more." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid on the Warrior's Terrace? If you came to learn how the bear fights without claws, you're welcome to watch." },
   },
@@ -219,7 +219,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I allow none. But I listen when a student answers honestly. Do so, and you will learn." } },
+      lines = { { id = "xdsham_default", text = "I allow none. But I listen when a student answers truthfully, and those are the ones who learn." } },
       choices = {
         { text = "I will answer honestly, Sildanair.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Excuses are sometimes reasons.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -301,7 +301,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My students will be glad to have you behind them, but only if you're still standing, so keep your head down." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because you'll actually listen when I tell you to keep your shield up, which is more than I can say for most." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because you'll actually listen when I tell you to keep your shield up, and most who come through here only nod and drop it the moment they swing." },
         { id = "h_default", text = "I'm Sildanair, and I train warriors here alongside Arias'ta and Darnath Bladesinger. Arias'ta will tell you about the warrior's spirit, but I'll tell you to keep your shield up, and between us you'll survive." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "You've got the shoulders for it, so let's see whether you've got the sense. Most warriors who die young die with their weapon raised and their guard down." },
@@ -401,7 +401,7 @@ P:NPC {
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "You hold yourself like someone who prefers short blades and dark corners. I keep the daggers on the left, and I'd rather not know why you want them." },
+      text = "You hold yourself like someone who prefers short blades and dark corners. I keep the daggers on the left, and I won't ask why you want them." },
   },
 
   start = "hello",
@@ -457,7 +457,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "A staff, because you can lean on it after a long walk and it keeps a gnoll an arm's length away. Daggers are for rogues and dreamers, and I'd rather sell you the right thing than the costly one." },
+        { id = "xmage_default", text = "A staff, because you can lean on it after a long walk and it keeps a gnoll an arm's length away. Daggers are for rogues and dreamers, and a good merchant sells the right thing before the costly one." },
       },
       choices = {
         { text = "A staff, then. Thank you for the honest advice.", next = "BACK", fx = { align = { order = 1 } } },
@@ -512,7 +512,7 @@ P:NPC {
         { text = "What blade would you sell a warrior like me?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why would a hunter need a dagger, Ariyell?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have warlocks asked you for cursed blades before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What weapon would you honestly sell a priest, Ariyell?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What weapon would you really sell a priest, Ariyell?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Which weapon would you honestly recommend for a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which staff would you sell a druid, Ariyell?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is my weapon a poor choice, Ariyell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -559,7 +559,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell weapons on the Warrior's Terrace. I've handled more blades than I could count, and I still like the feel of a good one." } },
     advice = { { id = "tp_ad", text = "Oil your blade after the rain, even if you're tired. Rust doesn't care how tired you are." } },
-    booty_bay = { { id = "tp_booty_bay", text = "The smiths of Booty Bay can make a fine cutlass, I'll admit, for twice the price and half the balance. Buy local." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The smiths of Booty Bay can make a fine cutlass, I'll admit, for twice the price and with the balance of a drunken sailor. Buy local." } },
     magni = { { id = "tp_magni", text = "Ironforge steel is the best there is, and King Magni knows it. I stock a little when I can get it, and it sells before I've finished unpacking." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The arena in Stranglethorn wears blades out faster than anywhere I know. Good for business, if I sold there." } },
     _none = { { id = "tp_none", text = "I only know about steel and the people who carry it, as my mother did before me, so ask someone else about that." } },
@@ -642,7 +642,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "The best, if you treat her as a companion and not a getaway horse. A nightsaber moves without a sound and remembers every kindness, and she'll forgive a great deal, though never cruelty." },
+        { id = "xrogue_default", text = "The best, if you treat her as a companion and not a getaway horse. A nightsaber moves without a sound and remembers every kindness, and she'll forgive a clumsy rider, though never a cruel one." },
       },
       choices = {
         { text = "I'd treat her as a friend, nothing less.", next = "BACK", fx = { align = { light = 1 } } },
@@ -798,7 +798,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every one of them, at least once, because a saber moves like water and doesn't wait for anyone. Most of them get up laughing, and the ones who don't need a kind word more than a prayer." } },
+      lines = { { id = "xapriest_default", text = "All of them, at least once, because a saber moves like water and doesn't wait for anyone. Most of them get up laughing, and the ones who don't need a kind word more than a prayer." } },
       choices = {
         { text = "Then I'll offer both, the kind word and the prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A fall teaches better than any healing would.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1127,7 +1127,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the guild rolls of Darnassus. Every name in them made me a promise of some kind." } },
     advice = { { id = "tp_ad", text = "Choose your companions slowly and keep them long. Gold is easier to find." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Half the guilds in Darnassus were founded over a drink at the Darkmoon Faire, according to their charters. The other half were founded in arguments." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Many of the guilds in Darnassus were founded over a drink at the Darkmoon Faire, according to their charters. The rest, I suspect, were founded in arguments afterward." } },
     blackfathom = { { id = "tp_blackfathom", text = "Many a new guild has gone into Blackfathom together and come back as old friends. Some came back as fewer friends, but they all came back closer." } },
     onyxia = { { id = "tp_onyxia", text = "I've had guilds come in talking about Onyxia's lair, very bold. I've updated more than one roster afterwards." } },
     _none = { { id = "tp_none", text = "I can't say. If there's a guild that knows, I'll have its name in my rolls, but not the answer." } },
@@ -1229,7 +1229,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Because a druid spends half the day as a bear or a cat, I'm told, and a tabard looks ridiculous on a bear. I still think the Enclave would look splendid in proper colors, and I've told them so twice." } },
+      lines = { { id = "xdruid_default", text = "Because a druid spends much of the day as a bear or a cat, I'm told, and a tabard looks ridiculous on a bear. I still think the Enclave would look splendid in proper colors, and I've told them so twice." } },
       choices = {
         { text = "The Circle should wear its colors proudly, like any guild.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A druid needs no colors to show what they serve.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1331,7 +1331,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It is, and mine is the best. Your spirits might appreciate good meat honestly hunted." } },
+      lines = { { id = "xdsham_default", text = "It is, and mine is the best. Your spirits might appreciate meat taken cleanly, with thanks to the beast." } },
       choices = {
         { text = "Honest meat honestly sold is good, Jaeana.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Meat is meat.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1391,7 +1391,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I don't know and I'd rather not find out, though the hunters say the felhounds in Felwood eat everything they find. Buy what you like, but keep it from licking the counter, because I've got to sell to the Sentinels after you." },
+        { id = "xlock_default", text = "I don't know and I've no wish to find out, though the hunters say the felhounds in Felwood eat everything they find. Buy what you like, but keep it from licking the counter, because I've got to sell to the Sentinels after you." },
       },
       choices = {
         { text = "I'll keep it well away from your counter.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1420,7 +1420,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You'll not be needing my meat, mage, since you can conjure your own supper. Or can you? I've always wondered what it tastes like." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whatever that is, warlock, it's eyeing my meat, and I'd ask you to tell it no." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want meat, not berries, whatever the druids tell you." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Half the meat on this counter came in on a hunter's back, so you're among friends here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Most of the meat on this counter came in on a hunter's back, so you're among friends here." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I've had cutpurses on the Terrace before, so you'll forgive me for keeping my eye on the venison while you look." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Whatever the stories say, night elves do not live on moonlight and berries, so buy some venison, and your spirits will thank you." },
       },
@@ -1477,7 +1477,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I sell meat on the Tradesmen's Terrace. Somebody in this city has to feed people who don't live on dew." } },
     advice = { { id = "tp_ad", text = "Salt anything you mean to carry past Darkshore. The damp there ruins meat in a day." } },
     booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they eat raptor and call it a delicacy. I'll stay on my terrace and sell honest boar." } },
-    centaur = { { id = "tp_centaur", text = "I'm told the centaur eat what they kill, and they kill a great deal. Not a customer base I'm after." } },
+    centaur = { { id = "tp_centaur", text = "I'm told the centaur eat what they kill, and they kill without end. Not a customer base I'm after." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells meat on sticks, and everyone loves it. I've thought about trying it here, but the priestesses would talk." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask me what's fresh today and I'll tell you." } },
   },
@@ -1573,7 +1573,7 @@ P:NPC {
         { id = "xlock_default", text = "Of course, because a wound bleeds the same whatever made it, and a warlock who can bandage is one fewer warlock calling on darker means to heal. Sit down, and we'll start with linen." },
       },
       choices = {
-        { text = "Linen it is. I'd rather heal honestly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Linen it is. I'll heal the slow, plain way.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll learn it, though my own means work faster.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1604,7 +1604,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order heals with the Light, I know, but even the Light needs a moment, and a bandage can buy you that moment." },
         { id = "h_default", text = "I'm Dannelor, and I teach first aid: linen, wool, a steady hand and the sense to use them before it's too late. It's the one trade every adventurer should learn, because the healer isn't always beside you." },
         { id = "h_warrior", when = { class = { "WARRIOR", "ROGUE" } },
-          text = "You'll bleed more than most, given how you fight. I'd learn this before you learn anything else, if I were you." },
+          text = "You'll bleed often, given how you fight. I'd learn this before you learn anything else, if I were you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Rogues are my best students, oddly. You all get cut up in places no healer will reach, so you learn to bandage yourselves very quickly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll teach first aid to anyone, warlock, but I'll not teach your servant. That much I can promise you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need bandages more than anyone on this Terrace, so let me teach you to tie them before you need them." },
@@ -1778,7 +1778,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I pick exactly what I need and not a leaf more, and I measure it, which is more than I can say for the young herbalists who come up from Dolanaar. If the Circle thinks Teldrassil's earthroot is suffering, I'd welcome a druid's word on it." } },
+      lines = { { id = "xdruid_default", text = "I pick exactly what I need and not a leaf more, and I measure it, unlike the young herbalists who come up from Dolanaar and strip a patch bare. If the Circle thinks Teldrassil's earthroot is suffering, I'd welcome a druid's word on it." } },
       choices = {
         { text = "The tree needs rest, so pick less than you need.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Careful measure is enough, and the tree can spare that much.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },

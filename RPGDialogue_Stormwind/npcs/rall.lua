@@ -89,7 +89,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I think every gift asks a debt, and yours more than most, because you're given the strength of the wild and must answer to the wild for how you use it. I'd not want to be tested by a forest, I'll tell you that." } },
+      lines = { { id = "xdruid_default", text = "I think every gift asks a debt, and yours is heavier than many, because you're given the strength of the wild and must answer to the wild for how you use it. I'd not want to be tested by a forest, I'll tell you that." } },
       choices = {
         { text = "Every gift is a debt, and I mean to repay mine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "My gifts are mine. I owe nobody for them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -116,7 +116,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Not courage, and not skill, but what you lean on when both run out. A paladin can call on the Light, and a warrior can only call on the person beside him, which is why warriors make the most loyal comrades I've ever known." } },
+      lines = { { id = "xwarcl_default", text = "Not courage, and not skill, but what you lean on when both run out. A paladin can call on the Light, and a warrior can only call on the person beside him, and that's how warriors become the most loyal comrades I've ever known." } },
       choices = {
         { text = "Then I'll be the comrade others lean on.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I lean on no one. My strength is my own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -175,7 +175,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; I've time for questions, though not for excuses." },
       },
       choices = {
-        { text = "The Light must ask a great deal of a paladin.", next = "ask" },
+        { text = "The Light must ask much of a paladin.", next = "ask" },
         { text = "Why test us at all?", next = "why" },
         { text = "How do you test the paladins they send you?", next = "tome" },
         { text = "Is there a further test for me, Rall?", next = "valor", when = { class = "PALADIN", minLevel = 20 } },

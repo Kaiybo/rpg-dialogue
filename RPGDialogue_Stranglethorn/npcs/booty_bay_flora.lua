@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid in my little shop! I always feel as though I should apologise to you for the dried things on the beams, but they were picked with care, I promise you that." },
         { id = "h_shaman", when = { class = "SHAMAN" },
-          text = "A shaman, is it? I've had your kind up here before, and every one of them stood at the window listening to something I couldn't hear, so you're welcome to do the same." },
+          text = "A shaman, is it? I've had your kind up here before, and not one of them could leave the window, listening to something I couldn't hear, so you're welcome to do the same." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "Mind your horns on the lintel, friend, the goblins built the doorways for goblins. I'm glad to see you, because tauren herbalists always teach me something before they leave." },
         { id = "h_troll", when = { race = "Troll" },
@@ -140,7 +140,7 @@ P:NPC {
     },
     why_goblins = {
       big = true,
-      lines = { { id = "wg_default", text = "Better than you'd think, because a goblin will tell you exactly what he wants from you, which is more than I could say for some of my old neighbours in the Trade District. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed all these stairs to ask after me, though I suspect they were checking on their orders." } },
+      lines = { { id = "wg_default", text = "Better than I feared, because a goblin will tell you exactly what he wants from you, and my old neighbours in the Trade District never once managed that. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed all these stairs to ask after me, though I suspect they were checking on their orders." } },
       choices = {
         { text = "Honest dealing's honest dealing, whoever does it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A goblin's honesty only lasts until the price changes.", next = "BACK", fx = { align = { honor = -1 } } },

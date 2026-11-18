@@ -34,7 +34,7 @@ P:NPC {
   },
 
   react = {
-    { id = "r_stealth", on = "stealth", text = "There it goes again, the air going quiet. Strom's students vanish on this landing twice an hour, so you'll forgive me if I keep a hand on my purse." },
+    { id = "r_stealth", on = "stealth", text = "There it goes again, the air going quiet. Strom's students vanish on this landing twice an hour, so I keep a hand on my purse whenever it happens." },
   },
 
   start = "hello",
@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "Welcome up, friend. I've witnessed bargains between orcs and goblins, trolls and dwarves, and once a tauren and a parrot, so you'll not find me squeamish about whose colors you wear." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "One of Strom's, or soon to be? His door's just along the landing, and you'll forgive me if I keep one hand on my purse while we talk." },
+          text = "One of Strom's, or soon to be? His door's just along the landing, so don't take it personally if one hand stays on my purse while we talk." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "You've the look of someone who settles arguments on the pier, and in this town that means you'll need a witness sooner or later. Remember the name, friend: Smythe, with a y." },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -158,7 +158,7 @@ P:NPC {
     -- The neighbours (sub-hub)
     around = {
       hub = true,
-      lines = { { id = "ar_default", text = "From this landing I can see the Baron's balcony, the Salty Sailor's door and half the pier, and I know everybody's business, which is my trade. Who did you want to hear about?" } },
+      lines = { { id = "ar_default", text = "From this landing I can see the Baron's balcony, the Salty Sailor's door and most of the pier, and I know everybody's business, which is my trade. Who did you want to hear about?" } },
       again = {
         { id = "ar_again", text = "Who else? I know them all, and most of them owe somebody money." },
         { id = "ar_again2", text = "Go on, name another. I've an opinion for every door on this landing." },
@@ -213,7 +213,7 @@ P:NPC {
       },
     },
     strom = {
-      lines = { { id = "st_default", text = "Ian Strom trains rogues, just along the landing from me, and he's the best neighbor I've ever had in that I've never once heard him come or go. I hung a string of shells over my door the week he moved in, and I sleep a great deal better for it." } },
+      lines = { { id = "st_default", text = "Ian Strom trains rogues, just along the landing from me, and he's the best neighbor I've ever had in that I've never once heard him come or go. I hung a string of shells over my door the week he moved in, and now I hear them rattle every time he goes by." } },
       choices = {
         { text = "Has anyone ever crept in past the shells?", next = "strom_shells" },
         { text = "Shells. That's clever, Markel.", next = "BACK", fx = { affinity = 1 } },
@@ -322,7 +322,7 @@ P:NPC {
     -- Class
     xrogue = {
       big = true,
-      lines = { { id = "xr_default", text = "Not nervous, exactly, but watchful, because his students practice on whoever happens to be passing, and I happen to pass a great deal. I've witnessed the return of three purses that walked off this landing, and I'd swear one of them came back heavier." } },
+      lines = { { id = "xr_default", text = "Not nervous, exactly, but watchful, because his students practice on whoever happens to be passing, and I happen to pass all day long. I've witnessed the return of three purses that walked off this landing, and I'd swear one of them came back heavier." } },
       choices = {
         { text = "I take from those who can spare it, never from neighbors.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A purse on a landing is anybody's, neighbor or not.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -349,7 +349,7 @@ P:NPC {
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpr_default", text = "More than you'd think, because people forget a witness is a man and not a piece of furniture. I carry a fair few secrets that ought to have gone to a priest, and some nights they sit heavier than the book under my bed." } },
+      lines = { { id = "xpr_default", text = "Often enough, because people forget a witness is a man and not a piece of furniture. I carry a fair few secrets that ought to have gone to a priest, and some nights they sit heavier than the book under my bed." } },
       choices = {
         { text = "Then let the Light carry them with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Secrets are coin here. Keep them close and spend wisely.", next = "BACK", fx = { align = { light = -1 } } },

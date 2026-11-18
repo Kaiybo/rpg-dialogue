@@ -115,7 +115,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
-          text = "A warrior, ready to go down into Desolace and fight the whole of it single-handed. You'll want rope, bandages and a great deal more water than you think." },
+          text = "A warrior, ready to go down into Desolace and fight the whole of it single-handed. You'll want rope, bandages and twice the water you think you need." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. I sell arrows by the quiver and rope by the coil, and in Desolace you'll need more of both than you planned." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, I don't stock holy water, but I've got bandages, bread and enough water skins to get you to the bottom of Desolace and back, which round here is about the same as a miracle." },
@@ -249,7 +249,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Precious little, I'm afraid, because the lizards are as tough as boots and the scorpids taste of sand. The deer up here around the Point are better, though there aren't many left, and I'd rather it stayed that way." },
+        { id = "xhuntcl_default", text = "Precious little, I'm afraid, because the lizards are as tough as boots and the scorpids taste of sand. The deer up here around the Point are better, though there aren't many left, and I'd like to keep it that way." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bring {pet} round to the back door, if you like, because there are always scraps, and I never could stand to see a beast go hungry." },
       },
       choices = {
@@ -259,7 +259,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Thistles and bones, mostly, and a few hardy roots the kodos dig up. I tried planting herbs against the outpost wall once, and the wind had taken every one of them by morning." } },
+      lines = { { id = "dq_default", text = "Thistles and bones, mostly, and a few hardy roots the kodos dig up. I tried planting herbs against the outpost wall once, and the wind had taken the lot by morning." } },
       choices = {
         { text = "Plant again. Stubbornness is how forests start.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Don't waste good seed on dead ground.", next = "BACK", fx = { align = { light = -1 } } },
@@ -295,7 +295,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "It needs someone the young ones can look up to, because they came out here thinking it would be glory and found it's mostly dust and waiting. You stand a bit straighter than most, and they notice that more than you'd think." } },
+      lines = { { id = "xapala_default", text = "It needs someone the young ones can look up to, because they came out here thinking it would be glory and found it's mostly dust and waiting. You stand a bit straighter than most, and the young ones notice." } },
       choices = {
         { text = "Then I'll drill with them. Discipline keeps a soldier alive.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "They should know the truth. Glory is a story told to recruits.", next = "BACK", fx = { align = { order = -1 } } },
@@ -317,7 +317,7 @@ P:NPC {
           text = "A warrior! You'll be going down into Desolace, I suppose, so sit and eat first, because nobody fights well on an empty belly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! If you bring down anything up here that's fit to cook, bring it round to my kitchen, because the soldiers are sick to death of cheese." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, thank goodness. Half the soldiers here haven't had a proper blessing since they left Stormwind, so if you've a moment after supper, I'd count it a kindness if you sat with them." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, thank goodness. Most of the soldiers here haven't had a proper blessing since they left Stormwind, so if you've a moment after supper, I'd count it a kindness if you sat with them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! You'll eat first, no arguments, because I've never yet seen anybody protect anything on an empty stomach." },
         { id = "h_default", key = true,
           text = "Janet Hommers, and I feed this outpost. Bread, cheese, water and something stronger for the evenings, and I make sure nobody goes down into Desolace on an empty stomach, because it's hard enough on a full one." },
@@ -351,7 +351,7 @@ P:NPC {
     },
     bread = {
       lines = {
-        { id = "b_default", text = "With flour that comes a long way and water from the spring up the hill, and an oven I built myself out of stones from the mountainside. It's not Stormwind bread, but it's warm, and out here warm counts for a great deal." },
+        { id = "b_default", text = "With flour that comes a long way and water from the spring up the hill, and an oven I built myself out of stones from the mountainside. It's not Stormwind bread, but it's warm, and out here warm counts for a lot." },
       },
       choices = {
         { text = "It smells wonderful.", next = "BACK", fx = { affinity = 1 } },
@@ -376,7 +376,7 @@ P:NPC {
     },
     travelers = {
       lines = {
-        { id = "t_default", text = "More than you'd think, dear, adventurers mostly, headed down to the centaur lands or the old caverns in the south. Some come back, and some don't, and I keep a loaf aside for each of them until I know which." },
+        { id = "t_default", text = "A steady trickle, dear, adventurers mostly, headed down to the centaur lands or the old caverns in the south. Some come back, and some don't, and I keep a loaf aside for each of them until I know which." },
       },
       choices = {
         { text = "Keep one aside for me.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },

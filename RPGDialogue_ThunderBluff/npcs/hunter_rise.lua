@@ -92,7 +92,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     krog = {
-      lines = { { id = "k_default", text = "Tell him I'm sorry, but that's the truth of it. Half the tauren in Dustwallow carry a shield like that, and the Grimtotem buy more than anyone, if that helps him at all." } },
+      lines = { { id = "k_default", text = "Tell him I'm sorry, but that's the truth of it. Many tauren in Dustwallow carry a shield like that, and the Grimtotem buy more than anyone, if that helps him at all." } },
       choices = { { text = "It might. Thank you, Mosarn.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -475,7 +475,7 @@ P:NPC {
     },
     op_dwarves_r1 = {
       lines = {
-        { id = "op_dwarves_r1", text = "Fierce, yes, I'll grant you that much, and I'd rather fight them than drink with them, because the drinking's worse. Still, you're not wrong." },
+        { id = "op_dwarves_r1", text = "Fierce, yes, and I've fought beside them and drunk beside them, and the drinking left the worse bruises. Still, you're not wrong." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -530,7 +530,7 @@ P:NPC {
     },
     why_end = {
       big = true,
-      lines = { { id = "we_default", text = "Not every one, and the High Chieftain would rather none were. But the dwarves started this one, and I'd rather they found tauren waiting for them than orc children." } },
+      lines = { { id = "we_default", text = "Not every one, and the High Chieftain would rather none were. But the dwarves started this one, and better they find tauren horns waiting for them than orc children." } },
       choices = {
         { text = "Then I'll go. The Horde stands together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll fight for myself, not for old debts.", next = "BACK", fx = { align = { order = -1 } } },

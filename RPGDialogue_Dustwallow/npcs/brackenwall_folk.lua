@@ -103,7 +103,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Shardi is an orc woman with a scarred chin who keeps Brackenwall's wind riders flying through fog that would ground anyone sensible. She has opinions about the marsh, and every one of them is rude.",
+    first = "Shardi is an orc woman with a scarred chin who keeps Brackenwall's wind riders flying through fog that would ground anyone sensible. She has opinions about the marsh, and not one of them is polite.",
     third = "{name} met Shardi, the wind rider master of Brackenwall Village.",
   },
 
@@ -134,7 +134,7 @@ P:NPC {
       },
     },
     theramore = {
-      lines = { { id = "th_default", text = "We give it a wide berth. There's a peace, but nobody told the gryphon riders' crossbows, and I'd rather not be the one who tests it." } },
+      lines = { { id = "th_default", text = "We give it a wide berth. There's a peace, but nobody told the gryphon riders' crossbows, and I won't be the one who tests it." } },
       choices = {
         { text = "Do you trust the peace?", next = "theramore_stance" },
         { text = "Something else.", next = "BACK" },

@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. So many hunters come back hurt from the trees that I am glad of anyone who can mend them, whatever voice answers your prayers." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "The arcane comes off you like heat off a stone, and I can feel it from here. Please be careful with your fire in this forest, because it is the most beautiful thing I know, and it would burn very quickly." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. This forest still has burned ground where the demons walked not so long ago, and I wonder what it thinks of you. I will not turn you away, but I would ask you to keep your servant close." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk lightly, and the forest does not seem to mind you, which is more than I can say for the Warsong and their axes. I think you would make a fine hunter, if you ever put the knives down." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk lightly, and the forest does not seem to mind you, unlike the Warsong and their axes. I think you would make a fine hunter, if you ever put the knives down." },
         { id = "h_default", key = true,
           text = "I am Senani Thunderheart. I came here to hunt and stayed because this forest is the most beautiful thing the Earth Mother has shown me, and that we are at war in it is a sorrow I carry." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("The Ashenvale Hunt") },
@@ -257,7 +257,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every one of them, though Splintertree never has warriors to spare. Seventeen wagons this week and three of them burned, and if a warrior rode with each, I'd have fewer things to count and fewer people to be angry at." } },
+      lines = { { id = "xwarcl_default", text = "All of them, though Splintertree never has warriors to spare. Seventeen wagons this week and three of them burned, and if a warrior rode with each, I'd have fewer things to count and fewer people to be angry at." } },
       choices = {
         { text = "I'll guard your wagons. Splintertree needs them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Wagons are your problem. I came for the fighting.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -327,7 +327,7 @@ P:NPC {
           text = "Senani says you think the logging's wrong. I count the logs, and I'd count fewer if you had your way, but I'd still count them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You lot talk to everything, I hear, so maybe you can talk my wagon wheels out of the mud on the Splintertree road." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you can pray over the next wagon the elves set fire to, because I've run out of things to say to them." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and I suppose you'll want to know where the caravans are headed. Don't light anything near the timber, that's all I ask, because a burning wagon is a great deal of counting." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and I suppose you'll want to know where the caravans are headed. Don't light anything near the timber, that's all I ask, because a burning wagon means a week of recounting." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, near my wagons. The kodos don't like the smell of whatever you keep in that pocket, and neither do I, so state your business and keep your pet away from the harness." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You're the sort who counts other people's wagons, I can tell. So am I, so let's be clear that every crate here has already been counted twice." },
         { id = "h_default", text = "Name's Mastok. I track every caravan in and out of Splintertree, because people are trouble and wagons are just wagons, and the Horde fights on its supplies whether the warriors admit it or not." },

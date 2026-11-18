@@ -37,7 +37,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "A few, dear, for the living and the dead both, though never the same ones! The pale caps from under the Sepulcher settle a Forsaken's joints, and the little brown ones by the Dead Fields ease a living fever if you boil them twice. I'd never sell a healer the wrong kind." } },
       choices = {
         { text = "Then I'll take the healing ones and leave the rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The purple caps sound more useful, honestly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The purple caps sound more useful, to be frank.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -58,7 +58,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring them to you, Gwyn, and leave guessing to experts.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll taste them myself. That's half the fun.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll taste them myself. That's the best part.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,7 +106,7 @@ P:NPC {
       choices = { { text = "What are the worgen, exactly?", next = "worgen" } },
     },
     worgen = {
-      lines = { { id = "wg_default", text = "Wolf-men that the wizard Arugal let loose, and they've taken Shadowfang Keep and half the forest with it. The Deathstalkers hunt them, but there always seem to be more of them in the morning." } },
+      lines = { { id = "wg_default", text = "Wolf-men that the wizard Arugal let loose, and they've taken Shadowfang Keep and most of the southern woods with it. The Deathstalkers hunt them, but there always seem to be more of them in the morning." } },
       choices = {
         { text = "Then they must be hunted down, every one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Some of them might have been people once.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
@@ -151,7 +151,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, as it happens, and they come up black and smelling of brimstone, so I leave them for the bats. Do keep your little friend off my stall; one trod on a whole tray of caps the last time a warlock stopped by." },
-        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "They do, and they come up black and stinking of brimstone, which is more than I can say for the caps that grow on the dead. Keep your little friend off my stall, though, because one trod on a whole tray last week." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "They do, and they come up black and stinking of brimstone, and still they're better eating than the caps that grow on the dead. Keep your little friend off my stall, though, because one trod on a whole tray last week." },
       },
       choices = {
         { text = "I'll keep it off your stall, Gwyn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -329,7 +329,7 @@ P:NPC {
   },
   topics = {
     forsaken = { { id = "tp_forsaken", text = "The Forsaken have no excuse for wearing their robes badly, death or no death. A seam is a seam, and a hem is a hem, and I won't hear otherwise." } },
-    lordaeron = { { id = "tp_lordaeron", text = "I sewed gowns for ladies in Lordaeron, and I still remember every one of them. Most of them are dead now, and I'd wager some of them are badly dressed." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I sewed gowns for ladies in Lordaeron, and I remember each of them by her measurements. Most of them are dead now, and I'd wager some of them are badly dressed." } },
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran wore the finest robes in the world, violet silk with silver thread. I've seen their apprentices in Ambermill, and they've let their standards slip." } },
     _none = { { id = "tp_none", text = "Hems and seams are all I know, so take your question to High Executor Hadrec." } },
   },
@@ -357,7 +357,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "The forest doesn't care about anything, which is what makes it dangerous. The worgen might, mind you, because anything that glows is easy to follow, so I'd keep your prayers short between here and Pyrewood." } },
+      lines = { { id = "xfpala_default", text = "The forest doesn't care about anything, which is what makes it dangerous. The worgen might, though, because anything that glows is easy to follow, so I'd keep your prayers short between here and Pyrewood." } },
       choices = {
         { text = "I'll pray as long as I need. Let them follow.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Short prayers, then. I'll trust my blade on the road.", next = "BACK", fx = { align = { light = -1 } } },
@@ -470,7 +470,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "A great deal, since it was a Dalaran archmage who brought the worgen here, and Dalaran mages still squat at Ambermill as if nothing happened. If you've got their kind of magic, use it to clean up their kind of mess." },
+        { id = "xmage_default", text = "Plenty, since it was a Dalaran archmage who brought the worgen here, and Dalaran mages still squat at Ambermill as if nothing happened. If you've got their kind of magic, use it to clean up their kind of mess." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "If you were Kirin Tor before you died, you'll know Arugal's name, and you'll know the Council never sent anyone to answer for him, only more mages to dig at Ambermill. That should tell you all you need to know about Dalaran's gratitude." },
       },
       choices = {

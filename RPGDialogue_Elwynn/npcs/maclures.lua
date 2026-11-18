@@ -35,7 +35,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'm worried about everything that comes near the vineyard, since the Defias came and Goldtooth's lot went through the kobold mines. A mage could do good out here, I'll grant you, but I've seen one fire take a whole row, and I'm not seeing it again." } },
+      lines = { { id = "xmage_default", text = "I'm worried about everything that comes near the vineyard, since the Defias came and Goldtooth's lot went through the kobold mines. A mage could do good out here, I don't doubt, but I've seen one fire take a whole row, and I'm not seeing it again." } },
       choices = {
         { text = "I'll be careful, Pa. Your vines are safe from me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little fire might clear out the Defias quicker.", next = "BACK", fx = { align = { order = -1 } } },
@@ -174,7 +174,7 @@ P:NPC {
     },
 
     vines = {
-      lines = { { id = "v_default", text = "Good grapes and too few hands. Half of Elwynn's young folk have gone for soldiers or adventurers, and the other half want paying in coin I haven't got." } },
+      lines = { { id = "v_default", text = "Good grapes and too few hands. Elwynn's young folk have gone for soldiers or adventurers, and the ones who stayed want paying in coin I haven't got." } },
       choices = {
         { text = "I hear Joshua sells the wine.", next = "vines_joshua" },
         { text = "Something else.", next = "BACK" },
@@ -219,7 +219,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "Maclures have kept this vineyard since before the orcs came, and after they'd gone we planted it again." } },
-    advice = { { id = "tp_ad", text = "Know whose land you're standing on. Out here it matters more than you'd think." } },
+    advice = { { id = "tp_ad", text = "Know whose land you're standing on. Out here, with Stonefields across the fence, it matters plenty." } },
     maybell_tommy = { { id = "tp_mt", text = "What's that? My Maybell and who? I'll not hear gossip about my own daughter, and I'll not hear that name.", next = "feud" } },
     defias = { { id = "tp_defias", text = "They cross my land at night. They'll not cross it with my grapes." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I'm not sure I want to. Ask in Goldshire." } },
@@ -278,7 +278,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than you'd think, and they drink it faster than anyone. A warrior coming back from Fargodeep wants a bottle to forget the kobolds, and I'm happy to sell it, though I'd not say so in front of Pa." } },
+      lines = { { id = "xwarcl_default", text = "Plenty, and they drink it faster than anyone. A warrior coming back from Fargodeep wants a bottle to forget the kobolds, and I'm happy to sell it, though I'd not say so in front of Pa." } },
       choices = {
         { text = "I'll drink to the ones who didn't come back.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll drink to forget the lot of them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -336,7 +336,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want something gentle, then, and I've a white that won't keep you up praying all night." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want something strong and honest, and I've a red that's both, which is more than I can say for most of Goldshire." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want something strong and honest, and I've a red that's both, and that's more than the Lion's Pride can say of its ale." },
         { id = "h_default", text = "Joshua Maclure. I sell what the vineyard makes, and a few things it doesn't, to whoever comes up the path. Don't mind Pa; he's sharper than he means to be." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! You'll want ale, and I've a little, though Pa says ale's for folk who can't wait on a grape. Don't tell him I stock it." },
@@ -369,7 +369,7 @@ P:NPC {
         { text = "Is your family safe out here, Joshua?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes a vine give good grapes, besides the weather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does your family distrust warlocks, Joshua?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Your father seems to grumble a great deal, Joshua.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your father seems to grumble a lot, Joshua.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },

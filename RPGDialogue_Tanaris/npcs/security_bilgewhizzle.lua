@@ -17,7 +17,7 @@ P:NPC {
 
   greetings = {
     { id = "g_pj_rogue", when = { prejudiced = true }, text = "Hold it right there, pal, and keep your hands out of your sleeves. I know a pickpocket's walk when I see one, and the Water Company doesn't pay me to give anybody the benefit of the doubt." },
-    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Oh, it's you, and I didn't even check my coin purse, which tells you somethin'. I had you down in the book as a liability, buddy, and I've moved you over to assets." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Oh, it's you, and I didn't even check my coin purse, and that's a first in this job. I had you down in the book as a liability, buddy, and I've moved you over to assets." },
     { id = "g_default", text = "We're here to make a profit, pal, and having our goods stolen is no way to make one. What do you want, and is it going to cost me?" },
     { id = "g_shake", when = { questActive = TODO_QUEST("Southsea Shakedown") }, text = "Back so soon? I hope you taught those Southsea hoodlums something they won't forget, like the price of crossing the Cartel." },
     { id = "g_shake_done", when = { questDone = TODO_QUEST("Southsea Shakedown") }, text = "My favourite deputy! The Cartel's been off my back for days, and I've been sleeping like a baby, a baby with a cudgel under the pillow." },
@@ -56,7 +56,7 @@ P:NPC {
         { id = "opp_q", text = "Look, look, I've got to file a report to the Cartel on public sentiment, which is a thing they make me do now, on top of everythin' else. What's your take on the Southsea pirates, pal?" },
       },
       choices = {
-        { text = "Hang every one of them from the port cranes.", next = "op_pirates_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { pirates = "hate" } } },
+        { text = "Hang the lot from the port cranes.", next = "op_pirates_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { pirates = "hate" } } },
         { text = "Some are just sailors out of work. Offer them honest jobs.", next = "op_pirates_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { pirates = "pity" } } },
         { text = "Pay them less and hire more Bruisers.", next = "op_pirates_r3", fx = { trait = { practical = 1 }, opinion = { pirates = "contain" } } },
         { text = "A pirate's life sounds better than guarding a dock.", next = "op_pirates_r4", fx = { affinity = -1, trait = { witty = 1 }, opinion = { pirates = "admire" } }, when = { class = "ROGUE" } },
@@ -176,7 +176,7 @@ P:NPC {
       choices = { { text = "Then I'll ask the other one.", next = "BACK", fx = { affinity = 1 } } },
     },
     rogue = {
-      lines = { { id = "r_default", text = "I'll bet you do, and I'd rather not ask how. If you know where they stash the stolen crates, tell me, pal, and I'll forget I ever saw you near my warehouse, which is a better deal than most get." } },
+      lines = { { id = "r_default", text = "I'll bet you do, and I'm not askin' how. If you know where they stash the stolen crates, tell me, pal, and I'll forget I ever saw you near my warehouse, and that's the best deal anybody's had out of me all year." } },
       choices = { { text = "Lost Rigger Cove keeps its secrets well.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     dockers = {

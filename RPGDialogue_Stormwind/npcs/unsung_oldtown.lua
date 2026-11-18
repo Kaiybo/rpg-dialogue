@@ -46,7 +46,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I'd rather not meet the warlock who taught one to swing an axe." } },
+      lines = { { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet the warlock who taught one to swing an axe." } },
       choices = {
         { text = "I'll keep my voidwalker away from your axes.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A voidwalker with an axe would be something to see.", next = "BACK", fx = { align = { light = -1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Strength, mostly, and the sense to know when not to swing. I've sold greatswords to fools who cut down their own banners, and I'd rather sell to someone who thinks first." } },
+      lines = { { id = "xapala_default", text = "Strength, mostly, and the sense to know when not to swing. I've sold greatswords to fools who cut down their own banners, so I look for buyers who think first." } },
       choices = {
         { text = "Strength without restraint is no strength at all.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "In battle there's no time to think. Swing hard and true.", next = "BACK", fx = { align = { order = -1 } } },
@@ -272,7 +272,7 @@ P:NPC {
       },
     },
     xfarmhand = {
-      lines = { { id = "xf_default", text = "Ha! Then you've a better swing than half the recruits I see, because a scythe's no toy and a harvest's a long day. I'm sorry for Westfall, friend, truly; I hear there's more swinging out there now than any harvest needs." } },
+      lines = { { id = "xf_default", text = "Ha! Then you've a better swing than most of the recruits I see, because a scythe's no toy and a harvest's a long day. I'm sorry for Westfall, friend, with all my heart; I hear there's more swinging out there now than any harvest needs." } },
       choices = {
         { text = "The Defias swing for nothing but themselves.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
@@ -304,7 +304,7 @@ P:NPC {
   },
   notice = {
     { id = "n_skin", cat = "craft", when = { profession = "Skinning" }, place = "before",
-      text = "Let me see your knife. Hm, it's sharp, at least, which is more than most who walk in here can say." },
+      text = "Let me see your knife. Hm, it's sharp, at least, and most knives that come through that door couldn't cut butter." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, place = "before",
       text = "A hunter. Finally, somebody who brings in pelts that aren't full of holes." },
   },
@@ -511,7 +511,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, which is more than I can say for Bartleby's crowd." } },
+      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, unlike Bartleby's crowd, who still owe me for the summer." } },
       choices = {
         { text = "I'd use your dye for honest work, Jillian.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Better you don't know what the red's for.", next = "BACK", fx = { align = { light = -1 } } },
@@ -600,7 +600,7 @@ P:NPC {
       },
     },
     haggle = {
-      lines = { { id = "h_default2", text = "Because haggling only rewards the loudest customer, and I'd rather treat the quiet ones the same. The price on the tag is the price for everyone, noble or farmhand." } },
+      lines = { { id = "h_default2", text = "Because haggling only rewards the loudest customer, and the quiet ones deserve the same price. The price on the tag is the price for everyone, noble or farmhand." } },
       choices = {
         { text = "That's fair, if everyone pays the same.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "A good bargain is half the fun of buying.", next = "BACK", fx = { align = { order = -1 } } },
@@ -645,7 +645,7 @@ P:NPC {
 
     -- Supplies
     supplies = {
-      lines = { { id = "su_default", text = "Thread, always, because every leatherworker thinks they've enough until the last stitch of a pair of boots. After that it's salt for curing and dye for the vain, and I sell a great deal more dye than anyone admits to buying." } },
+      lines = { { id = "su_default", text = "Thread, always, because every leatherworker thinks they've enough until the last stitch of a pair of boots. After that it's salt for curing and dye for the vain, and I sell far more dye than anyone admits to buying." } },
       choices = {
         { text = "Where does all your salt come from?", next = "supplies_salt" },
         { text = "Who buys all that dye, then?", next = "supplies_dye" },
@@ -702,7 +702,7 @@ P:NPC {
     hands_tannery = {
       lines = { { id = "ht_default", text = "Two years by the canals, before they moved the tanneries downstream because the nobles complained of the smell. I can still tell you which week of curing a hide's in by sniffing it, which is a gift nobody has ever once envied." } },
       choices = {
-        { text = "That's a useful nose, honestly.", next = "BACK" },
+        { text = "That's a useful nose, I'll say.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

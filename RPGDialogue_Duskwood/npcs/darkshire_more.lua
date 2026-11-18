@@ -129,7 +129,7 @@ P:NPC {
         { text = "What's moving where it shouldn't, lately?", next = "raven" },
         { text = "Who needs supplies most these days?", next = "sven" },
         { text = "You said someone hasn't been seen in a while.", next = "hermit" },
-        { text = "Your family seems to do more than most in Darkshire.", next = "family" },
+        { text = "Your family seems to have a hand in everything in Darkshire.", next = "family" },
         { text = "Do you walk under the Light, Elaine?", next = "light", when = { class = "PRIEST" } },
         { text = "About the hermit you sent me to...", next = "hermit_after", when = { questDone = TODO_QUEST("Translation to Ello") } },
         { text = "I walk under the Light, with a hammer.", next = "paladin", when = { class = "PALADIN" } },
@@ -511,7 +511,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Ledgers and roads are what I know, and a good deal about what the road does to both. Pick something." } },
     background = { { id = "tp_bg", text = "A soldier who learned to count, which in the army means they give you wagons instead of a sword." } },
     advice = { { id = "tp_ad", text = "Never stop on the road to Nethergarde; anything that waves you down is either dying or hungry." } },
-    nethergarde = { { id = "tp_nethergarde", text = "A keep full of mages at the end of the worst road in the kingdom, and every one of them wants something yesterday.", next = "crate" } },
+    nethergarde = { { id = "tp_nethergarde", text = "A keep full of mages at the end of the worst road in the kingdom, and each of those mages wants his crate yesterday.", next = "crate" } },
     dark_portal = { { id = "tp_portal", text = "I've never seen it and I never mean to. I send it powerstones, and that's as close as I like to get." } },
     _none = { { id = "tp_none", text = "That's not something I keep a ledger on. Ask me about crates and wagons instead." } },
     raven_hill = { { id = "tp_raven_hill", text = "I won't send a wagon down the road past Raven Hill without guards. The dead don't rob carts, but they frighten the horses, and that's worse." } },
@@ -528,7 +528,7 @@ P:NPC {
   notices = { "drink", "class" },
 
   impression = {
-    first = "Barkeep Hann leans across the bar to whisper about his moonshine as if the Night Watch might arrest us both. I suspect half the thrill of the stuff is the whispering.",
+    first = "Barkeep Hann leans across the bar to whisper about his moonshine as if the Night Watch might arrest us both. I suspect the whispering is most of the thrill.",
     third = "{name} met Barkeep Hann, who serves drinks at Darkshire's Scarlet Raven Tavern and keeps a jug of moonshine under the counter.",
   },
 
@@ -550,9 +550,9 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Strong enough to see spirits without being a shaman! Half the thrill is the whispering. Try a sip." } },
+      lines = { { id = "xdsham_default", text = "Strong enough to see spirits without being a shaman, and the whispering's part of the flavour, so lean in close and try a sip!" } },
       choices = {
-        { text = "I'll try it honestly, Hann, and keep your secret.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll give it a fair try, Hann, and keep your secret.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Tell the Watch. Moonshine's trouble.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -580,7 +580,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not me, I'm drink and drink only, but Grual in the kitchen will take a good haunch off your hands. Mind you, half of what's out there now isn't fit to eat, so bring him something that was healthy when you shot it." },
+        { id = "xhuntcl_default", text = "Not me, I'm drink and drink only, but Grual in the kitchen will take a good haunch off your hands. Most of what runs out there now isn't fit to eat, though, so bring him something that was healthy when you shot it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the water bowl, {class}, but not the jug. I tried that once with a stray dog and it never walked straight again." },
       },
       choices = {
@@ -765,7 +765,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Honestly, not much, unless you want a candle for your bedside so you can see what's coming through the window. Gran insists warriors need fortune most of all, but I think they mostly need a good lock and a better shield." } },
+      lines = { { id = "xwarcl_default", text = "Not much, I'm afraid, unless you want a candle for your bedside so you can see what's coming through the window. Gran insists warriors need fortune most of all, but I think they mostly need a good lock and a better shield." } },
       choices = {
         { text = "Then I'll trust my shield and leave fortune to your gran.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll take a reading. A warrior should know what's coming.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -776,7 +776,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not much, I'm afraid, because my shelves are mostly for mages and priests. If you need arrows, though, the fletchers in Lakeshire do good work, and the road there is only half as bad as the one to anywhere else." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my reagents, {class}, and I'd rather it didn't, because some of those powders make beasts sneeze fire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my reagents, {class}, so call it back before it gets a noseful, because some of those powders make beasts sneeze fire." },
       },
       choices = {
         { text = "I'll keep it outside. Your shop isn't a kennel.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -812,7 +812,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Mostly mages and the Watch, but I keep maple seeds and wild thornroot for the odd druid who drifts through, since your lot burn through them faster than you'd think. Grandmother says that means one of you is coming soon, which is what she says about everything." } },
+      lines = { { id = "xdruid_default", text = "Mostly mages and the Watch, but I keep maple seeds and wild thornroot for the odd druid who drifts through, since your lot go through a pouch of them every time the wolves come close. Grandmother says that means one of you is coming soon, which is what she says about everything." } },
       choices = {
         { text = "Fate is real, Alyssa. Heed your grandmother's cards.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You're right to doubt. We make our own fate.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1010,7 +1010,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "We have a few, and good ones, though most of my folk would rather tinker with a problem than pray over it. I've been praying over a bronze tube all week, mind you, and it's still cracked." } },
+      lines = { { id = "xapriest_default", text = "We have a few, and good ones, though most of my folk would rather tinker with a problem than pray over it. I've been praying over a cracked bronze tube all week, for what it's worth, and the crack's grown two millimetres." } },
       choices = {
         { text = "Prayer and tinkering can work together, Herble.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep tinkering. Prayer won't fix a cracked tube.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1019,7 +1019,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I've a lamp that never goes out and a flare that lights half the wood, and neither one has blown up in at least a week. The trouble's parts, since everything I need comes down the road from Stormwind and half of it never arrives." } },
+      lines = { { id = "xapala_default", text = "I've a lamp that never goes out and a flare that lights half the wood, and neither one has blown up in at least a week. The trouble's parts, since everything I need comes down the road from Stormwind and a good third of it never arrives, by my count." } },
       choices = {
         { text = "Test them properly before the Watch carries one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hand the Watch your flares now. We'll learn as we go.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1050,7 +1050,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've three conversations going in my head already, so one more won't hurt." },
-        { id = "h_again2", text = "Ask, ask! Half my mind is on the stars tonight, but the other half is yours." },
+        { id = "h_again2", text = "Ask, ask! I've one eye on the stars tonight, but the other's all yours." },
       },
       choices = {
         { text = "Show me your stock.", next = "BUSINESS" },
@@ -1156,7 +1156,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Has anyone come yet, anyone at all? The dead walk the roads, and still nobody lifts a finger to stop them." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I don't suppose you've brought any news, because nobody ever does." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Don't stand near the window. Something bad is on its way here, I can feel it, and I'd rather it didn't see us." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Don't stand near the window. Something bad is on its way here, I can feel it, and I don't want it seeing us through the glass." },
   },
 
   notice = {
@@ -1247,7 +1247,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I don't know, and that's what eats at me, because the last time I went the earth one row over had been turned from beneath. I planted a rowan at his head when we buried him, so if the tree's still standing, I'll take that as a sign." } },
       choices = {
-        { text = "I'll look for the rowan and tell you honestly what I find.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look for the rowan and tell you exactly what I find.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Better not to know. Let him and the question rest.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1449,7 +1449,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The animals settle a little when your sort walk through, and I've never worked out why." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your horse will be a well-bred sort, I'd guess, and well-bred horses hate this wood more than most." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your horse will be a well-bred sort, I'd guess, and well-bred horses hate this wood worst of all, because they can smell the graves." },
         { id = "h_default", text = "Steven Black, stable master. I keep your animals behind a stout fence and well away from the trees, which is more than I can do for the people." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your horse will thank me for the rest, I'd wager, since I doubt you ever let it stop long enough to drink." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The horses went to the back of their stalls when you came in, and the gryphons stretched their necks, so I'll let them argue about you." },
@@ -1504,7 +1504,7 @@ P:NPC {
     },
     customers_refuse = {
       lines = {
-        { id = "cr_default", text = "Every one of them, at the edge of the pass, and they have to be led on foot. I've never once seen a horse wrong about a road, so I'd take it as advice." },
+        { id = "cr_default", text = "All of them, right at the edge of the pass, and they have to be led on foot. I've never once seen a horse wrong about a road, so I'd take it as advice." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

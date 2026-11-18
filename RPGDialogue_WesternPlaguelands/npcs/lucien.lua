@@ -45,7 +45,7 @@ P:NPC {
           text = "You are one of the risen, but your eyes are your own. Forgive me if I keep a little distance; the last of your kind I saw up close were carrying my wife down the cellar stairs." },
       },
       again = {
-        { id = "h_again", text = "Is there anything further? Take your time; we have a great deal of it." },
+        { id = "h_again", text = "Is there anything further? Take your time; the dead have little else." },
         { id = "h_again2", text = "Please, go on. Eva says I don't let people finish, and I'm trying to improve." },
       },
       choices = {
@@ -118,7 +118,7 @@ P:NPC {
       lines = { { id = "no_default", text = "Then you'll know there was always someone like me just behind the door, listening for the bell. I hope you were kind to yours; most of the families were, and the ones who weren't, we remembered." } },
       choices = {
         { text = "I tried to be. I hope I was.", next = "BACK", fx = { affinity = 1 } },
-        { text = "I barely noticed them, honestly.", next = "BACK", fx = { affinity = -1 } },
+        { text = "I barely noticed them, to tell the truth.", next = "BACK", fx = { affinity = -1 } },
       },
     },
   },

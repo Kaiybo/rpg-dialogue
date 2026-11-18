@@ -152,7 +152,7 @@ P:NPC {
         { text = "Will you let my beast eat in the yard, at least?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is anyone in Goldshire in danger, Melika?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do warlocks from the cellar eat with the other guests, Melika?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "You seem to notice a great deal about your guests, Melika.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You seem to notice everything about your guests, Melika.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
     },
 
@@ -179,7 +179,7 @@ P:NPC {
         { id = "w_default", text = "The Westfall wagons come in short a crate or two. Everyone blames the Defias, and nobody's been wrong yet.",
           fx = { learn = { "defias" } } },
         { id = "w_hogger", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Hogger again. Half the room wants him dead and the other half's scared of him. Same half, mostly.",
+          text = "Hogger again. The whole room wants him dead, and the whole room's scared of him, and they're the same men.",
           fx = { learn = { "hogger" } } },
         { id = "w_hogger_done", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
           text = "Since Hogger went down, the hunters drink to celebrate instead of to forget. Better for the floor." },
@@ -253,7 +253,7 @@ P:NPC {
         { id = "ro_default", text = "Then sit and tell me one thing worth hearing. Everyone who comes back down that road has one. Most have three and tell the worst." },
       },
       choices = {
-        { text = "The sea's bigger than you'd think.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The sea's bigger than any map makes it look.", next = "BACK", fx = { affinity = 2 } },
         { text = "Nothing out there beats a bed in Goldshire.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
       },
     },
@@ -273,7 +273,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I carry plates at the Lion's Pride, and I'm Falkhaan's family. That's all anybody needs to know, and more than Remy does." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, not after. You'll fight better and I'll have fewer people fainting into the stew." } },
-    lions_pride = { { id = "t_inn", text = "Upstairs for sleeping, downstairs for everything else. Farley's family has kept it for generations, and he'll name every one of them." } },
+    lions_pride = { { id = "t_inn", text = "Upstairs for sleeping, downstairs for everything else. Farley's family has kept it for generations, and he'll name them all, back to his great-great-grandfather." } },
     hogger = { { id = "t_hogger", text = "Big, mean and southwest of here. Don't go alone, and don't go hungry." } },
     defias = { { id = "t_defias", text = "Red bandanas. They don't wear them in here. That doesn't mean they aren't in here." } },
     murlocs_east = { { id = "t_murlocs", text = "Ask Remy, and then ask anyone else." } },

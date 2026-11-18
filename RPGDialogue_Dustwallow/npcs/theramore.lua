@@ -17,8 +17,8 @@ P:NPC {
     { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, good. I have few enough people I can rely on outside these walls." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I wondered more than once whether the marsh had swallowed you. Welcome back to Theramore, and tell me what you've seen of the world outside it." },
-    { id = "g_away_long", when = { away = 60 }, text = "{name}, it's been {away}, and a great deal has happened on this island since you left, little of it restful. I'm glad you've come back to Theramore, because I could use someone I already trust." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I can see it plainly, because Dalaran taught me to recognize power when it walks into a room. I hope it hasn't cost you more than it should." },
+    { id = "g_away_long", when = { away = 60 }, text = "{name}, it's been {away}, and much has happened on this island since you left, little of it restful. I'm glad you've come back to Theramore, because I could use someone I already trust." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since we last spoke, and I can see it plainly, because Dalaran taught me to recognize power when it walks into a room. I hope it hasn't cost you more than it should." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear you had harsh words with one of my people, and Theramore is too small and too fragile for grudges. I'd ask you to mend it, because this city only works when we trust one another." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Half the city is talking about what you did for Theramore, and I wanted to thank you myself before the stories grew any larger. People like you are what keep this peace standing." },
   },
@@ -37,7 +37,7 @@ P:NPC {
     op_orcs = {
       lines = {
         { id = "opo_q", text = "I've spent years learning to see the orcs as people rather than as the monsters my father fought, and I'm still learning. You've travelled among them, so I'd value your honest answer: what do you think of the orcs?" },
-        { id = "opo_q_h", when = { faction = "Horde" }, text = "You're of the Horde, so you'll know them far better than I ever can from this side of the marsh. Tell me honestly, what are the orcs like now, under Thrall?" },
+        { id = "opo_q_h", when = { faction = "Horde" }, text = "You're of the Horde, so you'll know them far better than I ever can from this side of the marsh. So tell me, what are the orcs like now, under Thrall?" },
       },
       choices = {
         { text = "They've changed under Thrall. They deserve the chance you've given them.", next = "op_orcs_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { orcs = "redeemable" } } },
@@ -135,7 +135,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "It means a great deal, because I watched Uther hold Lordaeron together with nothing but faith and stubbornness. I also watched what became of Arthas, and I learned that the Light does not keep anyone safe from his own choices." } },
+      lines = { { id = "xapala_default", text = "It means much to me, because I watched Uther hold Lordaeron together with nothing but faith and stubbornness. I also watched what became of Arthas, and I learned that the Light does not keep anyone safe from his own choices." } },
       choices = {
         { text = "Then I'll guard my choices as carefully as my oath.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The Light failed Arthas. Faith alone isn't enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -179,7 +179,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Cenarion Circle in Theramore. I stood beside your people on Mount Hyjal, and I haven't forgotten what the forest gave to stop the Legion there." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the light step of someone who prefers not to be noticed, and I won't ask whom you've been reporting to. Theramore has nothing to hide from friends." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand. I knew Uther well, and I knew another of your order better, so forgive me if I look at you a little longer than I should." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand. I knew Uther well, and I knew another of your order better, and if I look at you a little too long, that's why." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I studied at Dalaran with dwarves who swore the stone remembered everything, and I'm beginning to think they were right." },
       },
       again = {
@@ -492,7 +492,7 @@ P:NPC {
     },
     jd_sw2 = {
       lines = {
-        { id = "jsw2_default", text = "I don't know, and I won't guess aloud about a court I can't see from here. I'll only say that somebody in Stormwind finds a war with the Horde more useful than a peace, and that whoever it is has a great deal of patience." },
+        { id = "jsw2_default", text = "I don't know, and I won't guess aloud about a court I can't see from here. I'll only say that somebody in Stormwind finds a war with the Horde more useful than a peace, and that whoever it is can wait a long time for it." },
         { id = "jsw2_warm", when = { disposition = { min = 70 } }, text = "Since it's you, I'll tell you what I've told only Tervosh: I keep copies of every answer Stormwind sends me, and when I lay them side by side the delays fall into a pattern I don't like. Someone at court doesn't want Theramore strong, and I can't prove who, so it stays in this room." },
       },
       choices = {
@@ -502,7 +502,7 @@ P:NPC {
     },
     jd_magni = {
       lines = {
-        { id = "jmg_default", text = "King Magni's dwarves came west with me out of Lordaeron, and he's never once asked for them back, which I count as friendship. He doesn't trust Thrall and says so to my face, and I'd rather have an honest doubter than a polite ally." },
+        { id = "jmg_default", text = "King Magni's dwarves came west with me out of Lordaeron, and he's never once asked for them back, which I count as friendship. He doesn't trust Thrall and says so to my face, and I trust that more than all of Lady Prestor's gracious letters." },
         { id = "jmg_dwarf", when = { race = "Dwarf" }, text = "If you see your king before I do, tell him his masons still complain about my architects, and that the walls are still standing. He'll laugh, and then he'll ask about the orcs, because he always does." },
       },
       choices = {
@@ -593,7 +593,7 @@ P:NPC {
     },
     jd_want2 = {
       lines = {
-        { id = "jwt2_default", text = "Whatever brought you, I'm glad of it, because I need people who'll carry word between the Alliance's cities honestly. When someone in Stormwind or Ironforge tells you the orcs are massing on our border, ask them how they know, and remember who told you." },
+        { id = "jwt2_default", text = "Whatever brought you, I'm glad of it, because I need people who'll carry word between the Alliance's cities without bending it. When someone in Stormwind or Ironforge tells you the orcs are massing on our border, ask them how they know, and remember who told you." },
       },
       choices = {
         { text = "I'll be your eyes, my lady.", next = "jd_want3", fx = { affinity = 2, standing = { theramore = 1 } } },
@@ -625,7 +625,7 @@ P:NPC {
     },
     jd_test2 = {
       lines = {
-        { id = "jte2_default", text = "I had him clean the envoy's boots on the same dock, in front of the same people, and then I paid his passage home to Kul Tiras myself, because he couldn't bear to live beside orcs and I couldn't let him go on trying. Half of Theramore thought I was too harsh and the other half too soft, and the envoy thought the whole thing very funny, which helped more than anything." },
+        { id = "jte2_default", text = "I had him clean the envoy's boots on the same dock, in front of the same people, and then I paid his passage home to Kul Tiras myself, because he couldn't bear to live beside orcs and I couldn't let him go on trying. Theramore couldn't decide whether I'd been too harsh or too soft, and the envoy thought the whole thing very funny, which helped more than anything." },
       },
       choices = {
         { text = "That sounds like justice to me, my lady.", next = "BACK", fx = { affinity = 1 } },
@@ -706,7 +706,7 @@ P:NPC {
     sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner died defending Quel'Thalas and came back as something I don't know how to speak to. Her people are bitter and clever, and they aren't part of any peace I signed." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken broke free of the Lich King, and I'm glad of that much. What they want now frightens Lordaeron's survivors, and I can't promise them that their fear is wrong." } },
     onyxia = { { id = "tp_onyxia", text = "There is a black dragon laired in the south of this marsh, and her brood grows bolder every season. I've lost scouts to Wyrmbog, and I won't send more until I know what she's waiting for." } },
-    prestor = { { id = "tp_prestor", text = "Lady Katrana Prestor writes very gracious letters from Stormwind on the young king's behalf. They say a great deal and promise nothing, and I've learned to read those carefully." } },
+    prestor = { { id = "tp_prestor", text = "Lady Katrana Prestor writes very gracious letters from Stormwind on the young king's behalf. They run to several pages and promise nothing, and I've learned to read those carefully." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is a good man holding Stormwind together while they wait for Varian. I'd trust him with my life, and I'd trust him more if the court let him decide anything." } },
     varian = { { id = "tp_varian", text = "King Varian vanished on his way to meet me, on the road to Theramore, and nobody has found a trace of him. I think about it more often than I say." } },
     theramore = {
@@ -729,7 +729,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_tower", text = "Quickly, please. There's a great deal to do and not much day to do it in." },
+    { id = "g_tower", text = "Quickly, please. There's too much to do and not enough day to do it in." },
   },
 
   notice = {
@@ -771,7 +771,7 @@ P:NPC {
     },
     op_kirin_tor_r3 = {
       lines = {
-        { id = "op_kirin_tor_r3", text = "That's harsh, though I'll not say it's wrong. Some of us lost a great deal in that city, so do say it gently." },
+        { id = "op_kirin_tor_r3", text = "That's harsh, though I'll not say it's wrong. Some of us lost everything in that city, so do say it gently." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -891,7 +891,7 @@ P:NPC {
           text = "Another student of the arcane in your company, I see. {companion} has the look of someone trained in Dalaran's habits, or at least someone who has read the right books." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "You've come back from the Wyrmbog with Onyxia dead behind you and the smell of dragonfire still on your cloak. I've studied black dragons from a respectful distance for years, and I find I'm a little jealous." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
-          text = "A warrior. You'll forgive me if I keep this brief, because the last time a soldier stood in my study he knocked over a shelf of reagents with his scabbard." },
+          text = "A warrior. Let's keep this brief, because the last time a soldier stood in my study he knocked over a shelf of reagents with his scabbard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! If your beasts have trampled anything in my garden, I'd rather hear it now, while I'm still in a forgiving mood." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive me, I've a meeting with the Lady in a quarter hour and I haven't read half of what I meant to, but I'm always glad to see the Light about the place, because Theramore has a great many mages and not nearly enough healers." },
@@ -905,7 +905,7 @@ P:NPC {
         { id = "h_garden", when = { metBefore = true }, text = "The marsh air is wonderful for herbs and terrible for parchment, so I've chosen the herbs. My notes forgive me, mostly." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Please don't look too closely at my garden; I've read every herbal in Theramore, and they're all wrong about swamp soil." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You'll forgive me if I keep an eye on my books, because a rogue in a mage's study is like a cat in a fishmonger's, and I'm fond of both." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "I'll be keeping an eye on my books, because a rogue in a mage's study is like a cat in a fishmonger's, and I'm fond of both." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my tower. The Lady has asked me to judge by deeds rather than by schools, and I'm trying, though I'll confess my wards are less patient than I am." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I have three books that say it can't be done and one that says it was done long ago, and I'd very much like to know which is right." },
       },
@@ -1002,7 +1002,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A great many books, and then the Lady's tower, because she asked and I'd run out of better reasons to say no." } },
     advice = { { id = "tp_ad", text = "Never eat anything from the marsh you can't name. I can name most of them, and I still don't eat them." } },
-    dalaran = { { id = "tp_dalaran", text = "I was at Dalaran when the Legion took it apart stone by stone, and I'd rather not describe it, thank you. The Kirin Tor are putting it back together, and they'll open the gates when they're ready, which knowing them will be a decade late." } },
+    dalaran = { { id = "tp_dalaran", text = "I was at Dalaran when the Legion took it apart stone by stone, and I won't describe it, thank you. The Kirin Tor are putting it back together, and they'll open the gates when they're ready, which knowing them will be a decade late." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are brilliant, and they argue like starlings over a crust. I followed the Lady here because I'd rather be useful than right." } },
     jaina = { { id = "tp_jaina", text = "The Lady is the most capable mage I've known, and she works harder than anyone in Theramore, myself included. Somebody ought to make her sit down, and it won't be me." } },
     onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Wyrmbog, south of here, and her whelps grow bolder each spring. I've written to the Lady twice about it, and I'd write a third time if I thought paper burned slower." } },
@@ -1033,7 +1033,7 @@ P:NPC {
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Lok'tar. Yes, I speak a bit of your tongue, more than most here; it's useful in a land full of misunderstandings." },
+      text = "Lok'tar. Yes, I speak a bit of your tongue, more than anyone else in the garrison; it's useful in a land full of misunderstandings." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something out there has been at you, so get mended. I need my witnesses alive." },
   },
@@ -1266,7 +1266,7 @@ P:NPC {
     },
     x_warrior = {
       lines = {
-        { id = "xw_default", text = "I want a sword that stays in its sheath until I say otherwise, and that's harder to find than you'd think. Half my recruits came out here to fight orcs, and I spend more time talking them out of it than I spend drilling them." },
+        { id = "xw_default", text = "I want a sword that stays in its sheath until I say otherwise, and out here that's a rare blade. Half my recruits came out here to fight orcs, and I spend more time talking them out of it than I spend drilling them." },
       },
       choices = {
         { text = "I'll follow your orders, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1287,7 +1287,7 @@ P:NPC {
     onyxia = { { id = "tp_onyxia", text = "There's a black dragon in the south, Onyxia by name, and her brood have killed more of my scouts than the Horde ever has. I keep a map of their flights, and it grows every week." } },
     theramore = { { id = "tp_theramore", text = "Theramore's a good city with a hot temper, and right now it wants the inn's burning pinned on the Horde. I'd rather pin it on whoever did it." } },
     jaina = { { id = "tp_jaina", text = "The Lady wants the truth even when it's inconvenient, which is rarer than it ought to be in a ruler. That's why I can still do my job." } },
-    scourge = { { id = "tp_scourge", text = "Most of us here are from Lordaeron, and we left because of the plague. You'll find that half the city still wakes up at night counting the dead." } },
+    scourge = { { id = "tp_scourge", text = "Most of us here are from Lordaeron, and we left because of the plague. You'll find that most of the city still wakes up at night counting the dead." } },
     booty_bay = { { id = "tp_booty_bay", text = "Pirates sail out of Booty Bay with goblin papers and sail back with our cargo. The goblins call it neutrality, and I call it a fence with a harbor." } },
     _none = { { id = "tp_none", text = "Not my investigation. I've got one already, and it's plenty." } },
   },
@@ -1369,7 +1369,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Very little, which is the trouble. Two of your Circle came to study the marsh in the city's first year, wrote a great deal in a script none of us read, and left without signing out, so they're still on my books as on patrol." } },
+      lines = { { id = "xdruid_default", text = "Very little, which is the trouble. Two of your Circle came to study the marsh in the city's first year, filled three notebooks in a script none of us read, and left without signing out, so they're still on my books as on patrol." } },
       choices = {
         { text = "Keep their names on the rolls. They may return.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Strike them off. Whoever leaves is gone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1409,7 +1409,7 @@ P:NPC {
         { text = "What does the record say about Theramore's druids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the records say about the Guard?", next = "records" },
         { text = "The ones who walked away?", next = "deserters" },
-        { text = "That's a great deal to keep track of.", next = "system" },
+        { text = "That's a lot to keep track of.", next = "system" },
         { text = "I'd wager you have a file on me.", next = "file", when = { townStanding = { town = "theramore", min = 20 } } },
         { text = "Records on deserters? I'd be hard to find.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "What became of the Admiral's men?", next = "daelin", when = { any = { { questActive = TODO_QUEST("Daelin's Men") }, { questDone = TODO_QUEST("Daelin's Men") } } } },
@@ -1574,7 +1574,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every night, because soldiers talk when they're tired and sailors talk when they're drunk, and mages talk to themselves. I keep all of it in the kitchen and none of it in my mouth, which is why they keep coming back." } },
+      lines = { { id = "xrogue_default", text = "Every night, because soldiers talk when they're tired and sailors talk when they're drunk, and mages talk to themselves. I keep all of it in the kitchen and none of it in my mouth, so they keep coming back to tell me more." } },
       choices = {
         { text = "A good innkeeper keeps her guests' secrets. I'd do the same.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Secrets are worth something. You could sell them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1592,7 +1592,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A few, though not as many as came over from Lordaeron at the start. They're quiet when they drink, and they'll always sit with a grieving soldier, which is more than most, and the soldiers notice it." } },
+      lines = { { id = "xapala_default", text = "A few, though not as many as came over from Lordaeron at the start. They're quiet when they drink, and they'll always sit with a grieving soldier, when nobody else will, and the soldiers notice it." } },
       choices = {
         { text = "Then I'll sit with them too, before I sleep.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I came here to rest, not to tend to others.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1620,7 +1620,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The sea's loud tonight. Sailors say a loud sea is a lucky sea, but sailors say a lot of things." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at my tables! Sit down, dear, and tell me the truth: is it the marsh air, or does everyone from Darnassus look this tired when they first arrive?" },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You moved through my common room without spilling a drink or bumping a chair, which is more than most soldiers manage, so I suppose that makes you a rogue." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You moved through my common room without spilling a drink or bumping a chair, and no soldier's ever managed that, so I suppose that makes you a rogue." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Another mage at my tables! Half of Theramore's tower eats here, and they all want their tea hotter than I can make it, so don't you start." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my tables, love! Sit by the fire, because the damp gets into plate faster than anything, and I've seen your lot rattle when they stand up." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, love? Leave the little fellow by the door and don't let him near the bread, because the sailors are a superstitious lot and they'll not eat a crumb he's breathed on." },

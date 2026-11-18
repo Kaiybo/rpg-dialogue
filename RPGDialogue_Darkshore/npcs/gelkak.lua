@@ -57,7 +57,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r4 = {
-      lines = { { id = "op_r4_default", text = "Mock him? I'm not mocking him, I'm just not waiting for him, which is a very different thing and a great deal wetter." } },
+      lines = { { id = "op_r4_default", text = "Mock him? I'm not mocking him, I'm just not waiting for him, which is a very different thing and a good deal wetter." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hello = {

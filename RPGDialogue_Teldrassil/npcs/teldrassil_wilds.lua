@@ -103,7 +103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The timberlings I study are sick in a way I don't yet understand, and I wonder whether a healer's eye might see what mine has missed." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, out by Lake Al'Ameth? You're welcome, though I hope you'll forgive me if I go on taking notes while we talk." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, out by Lake Al'Ameth? You're welcome, though I'll go on taking notes while we talk, if you don't object." },
         { id = "h_default", key = true,
           text = "I am Denalan, and I study how the life of Teldrassil grows. The great tree is young, and the creatures born of it are not always what we hoped." },
         { id = "h_earth", when = { questActive = TODO_QUEST("Denalan's Earth") },
@@ -278,7 +278,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin? Forgive me if I don't rise, {class}, because the venom has made my legs heavy, though seeing you makes me feel a little braver." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin? Pardon me for staying down, {class}, because the venom has made my legs heavy, though seeing you makes me feel a little braver." },
         { id = "h_default", key = true,
           text = "I am Iverron, and I was foolish enough to wander too near the spiders' cave. The venom works slowly, which is a mercy and a torment both." },
         { id = "h_antidote", when = { questActive = TODO_QUEST("Iverron's Antidote") },
@@ -438,7 +438,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Thistle boar, if you ask me, and the stags from the high slopes when I can get them. The recipes of the kaldorei need a few things you can only find in the wilds, so a hunter is the best friend a cook can have." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it has been eating well already, so I suspect you're a good hunter. Don't let it near my pots, mind you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it has been eating well already, so I suspect you're a good hunter. Just keep it away from my pots." },
       },
       choices = {
         { text = "I'll hunt with respect and bring you the best cuts.", next = "BACK", fx = { align = { light = 1 } } },

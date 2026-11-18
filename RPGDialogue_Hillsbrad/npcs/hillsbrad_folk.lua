@@ -45,7 +45,7 @@ P:NPC {
         { id = "h_done", when = { questRecent = { Q_VORREL, days = 7 } },
           text = "Vorrel led such a troubled existence, and what a good mate he was. You brought his ring back to me, and I'll not forget that the living helped me when the living took him." },
         { id = "h_later", when = { questDone = Q_VORREL },
-          text = "I still look at the road some evenings. The Deathguard tell me I'm wasting what time I have, and I tell them I've a great deal of it." },
+          text = "I still look at the road some evenings. The Deathguard tell me I'm wasting what time I have, and I tell them the dead have nothing but time." },
       },
       again = {
         { id = "h_again", text = "Is there something else, stranger?" },

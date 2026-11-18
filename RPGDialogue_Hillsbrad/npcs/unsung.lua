@@ -58,7 +58,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, since the hills are thin this year and the bay never quite is. Donald says a hunter who fishes is only being sensible, and I say a hunter who fishes couldn't find a lion, and we both enjoy the argument." },
+        { id = "xhuntcl_default", text = "A good deal, since the hills are thin this year and the bay never quite is. Donald says a hunter who fishes is only being sensible, and I say a hunter who fishes couldn't find a lion, and we both enjoy the argument." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will want the fish, I suppose, which is fair, since your beast is the only one in Southshore who'll eat Donald's catch without complaining about the bones." },
       },
       choices = {
@@ -87,7 +87,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "More than you'd think, and none of them have ever fished in their lives. Donald says I should ask what it's for, but I find it's better business not to know, and the bay doesn't mind either way." } },
+      lines = { { id = "xrogue_default", text = "A steady trade, and none of them have ever fished in their lives. Donald says I should ask what it's for, but I find it's better business not to know, and the bay doesn't mind either way." } },
       choices = {
         { text = "Smart of you not to ask. Keep it that way.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You should ask. Line can strangle as well as fish.", next = "BACK", fx = { align = { order = 1 } } },
@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "One, a few summers back, and he tried to use his imp as bait, and Donald still tells the story at the bar. The imp came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." } },
       choices = {
-        { text = "A proper lure it is. I'll do this honestly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A proper lure it is. I'll pay a fair price.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The imp could use a swim, frankly.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Lindea.", next = "BACK" },
       },
@@ -116,7 +116,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, buying hooks? I'd have thought you could just ask the fish to jump into the basket, {class}, but I suppose that would put me out of business." },
         { id = "h_default", key = true,
-          text = "Lindea Rabonne, fishing supplies. Donald teaches the lessons, I sell the gear, and between us we've put a pole in the hands of half of Southshore. The other half are soldiers, and they never have the time." },
+          text = "Lindea Rabonne, fishing supplies. Donald teaches the lessons, I sell the gear, and between us we've put a pole in the hands of most of Southshore, bar the soldiers, who never have the time." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
           text = "You're the one who cleared the Torn Fin off the strand, aren't you? The nets are coming back full again, and I've sold more line this week than all last month, so you have my thanks." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want fishing line, I suppose, though I suspect you'll use it to trip someone rather than catch a fish, and I'll not ask which." },
@@ -317,10 +317,10 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Nandar Branson, alchemy supplies. I keep the vials clean and the reagents dry, and I try not to think too much about what the apothecaries in Tarren Mill are mixing up there in their cauldrons." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, and I'll warn you that the good ones come from the Alterac hills, which means they're expensive and hard won." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I'd rather not know where you get them." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I don't want to know where you get them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of those who goes up toward Tarren Mill, then, and I'd beg you to carry an antidote, because what they're brewing up there won't care how thick your armour is." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're out in the hills, I'd pay well for herbs from the higher slopes, so long as you pick them above the streams the Forsaken have been fouling." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf one! I've a hundred questions about herbs and no one to ask, so do forgive me if I follow you around." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf one! I've a hundred questions about herbs and no one to ask, so don't be surprised if I follow you around." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want the poison vials, I suppose, and the clean ones, and I'll sell you those, but please don't tell me what goes in them, because I sleep badly enough already." },
       },
       again = {
@@ -403,7 +403,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I studied under an alchemist in Lordaeron, before the plague, and came south when the north went bad. I didn't think it would follow me here." } },
     advice = { { id = "tp_ad", text = "Never drink anything you didn't see bottled, friend. Not in Hillsbrad, not anymore." } },
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken are brewing something up the hill, and I'd give a great deal to know what. Every vial I sell is a vial that might save someone from it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are brewing something up the hill, and I'd give my whole shop to know what. Every vial I sell is a vial that might save someone from it." } },
     scourge = { { id = "tp_scourge", text = "The plague came from somewhere, and someone brewed it, and I think about that every day. I read every label twice, and I still can't sleep." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a mage of Dalaran before he turned necromancer, and he brewed the plague himself, or so the tales say. I read everything I can find on him, and it never helps me sleep." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend, I wouldn't know. I keep to my shelves and my labels." } },
@@ -484,7 +484,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "The soldiers up north at Chillwind Camp, mostly, and the order grows every month, which tells you all you need to know about how the fighting goes. I pack it myself and I try not to think about it, though I don't always manage." } },
+      lines = { { id = "xapriest_default", text = "The soldiers up north at Chillwind Camp, mostly, and the order grows every month, so I know how the fighting goes without anyone telling me. I pack it myself and I try not to think about it, though I don't always manage." } },
       choices = {
         { text = "Every shroud is a soul given proper rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better to send more blades and fewer shrouds.", next = "BACK", fx = { align = { light = -1 } } },
@@ -493,10 +493,10 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every week, from people who say they've lost their keys, and I tell every one of them to see the Magistrate. Southshore's a small town, and if a lock gets picked, everyone knows who bought the tools." } },
+      lines = { { id = "xrogue_default", text = "Every week, from people who say they've lost their keys, and I send each one to the Magistrate. Southshore's a small town, and if a lock gets picked, everyone knows who bought the tools." } },
       choices = {
         { text = "You're right. A small town needs honest traders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A lockpick is just a tool. You could sell it honestly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A lockpick is just a tool. You could sell it to honest folk.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Micha.", next = "BACK" },
       },
     },
@@ -605,7 +605,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Buy your thread before a battle, not after. Afterwards, everyone needs it." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill don't buy thread or dye, so I've no idea what they're working on. I wish I did, and I'm glad I don't." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys dye by the barrel for its banners, and I sold them a cartload once. They paid in Darkmoon tickets, and I've still got most of them." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys fine silk from the south, and I'd love to see it. Pirates dress better than you'd think, I'm told." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys fine silk from the south, and I'd love to see it. I'm told the pirates there dress like lords." } },
     _none = { { id = "tp_none", text = "Not my trade, friend. Ask Loremaster Dibbs; he'll tell you more than you wanted to know." } },
   },
 }

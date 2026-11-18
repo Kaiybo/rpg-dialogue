@@ -240,7 +240,7 @@ P:NPC {
       choices = {
         { text = "I believe it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Ten years? Lakeshire doesn't have ten weeks.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
-        { text = "Honestly, Oslow. Will it be done before the rains?", tag = "Persuade", next = "collapse_honest",
+        { text = "Straight answer, Oslow: will it be done before the rains?", tag = "Persuade", next = "collapse_honest",
           check = { pass = { any = { { disposition = { min = 62 } }, { profession = "Blacksmithing" }, { questDone = TODO_QUEST("The Everstill Bridge") } } } },
           fail = { next = "collapse_schedule", fx = { affinity = -1 } } },
       },
@@ -318,7 +318,7 @@ P:NPC {
     },
     collapse_honest = {
       lines = {
-        { id = "co_default", text = "Honestly? No, it won't, not with the iron I've got and the crew I've got, and I've known it since the caravan went into the hills. I'll have the main span up, and the rest will be planks and prayer until spring." },
+        { id = "co_default", text = "Straight answer? No, it won't, not with the iron I've got and the crew I've got, and I've known it since the caravan went into the hills. I'll have the main span up, and the rest will be planks and prayer until spring." },
         { id = "co_after", text = "But I'll keep saying before the rains, because the crew works faster for a schedule than for the truth, and so does the town. Don't you go telling Solomon, or he'll write it down." },
       },
       choices = {

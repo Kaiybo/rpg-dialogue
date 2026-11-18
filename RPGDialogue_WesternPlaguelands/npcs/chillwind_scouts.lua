@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep your voice down and your back to the camp, if you would. I'd rather the whole of Chillwind didn't know my business." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good; I remember faces, and I'd rather see yours than most." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good; I remember faces, and yours is one of the few I don't mind seeing twice." },
     { id = "g_active", when = { questActive = TODO_QUEST("The Eastern Plagues") }, text = "Marris Stead, in the Eastern Plaguelands, west of the road. Bring me what's left of my people, and watch the treeline." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You're a long way from your own lines, and I'm not the one you want to be seen talking to. Make it quick." },
   },
@@ -93,7 +93,7 @@ P:NPC {
     },
 
     si7 = {
-      lines = { { id = "si_default", text = "Stormwind likes to know what's moving on its borders, and the Plaguelands are moving a great deal. The Scourge, the Crusade, the Forsaken: somebody has to keep count, and the Dawn's too busy fighting to write it all down." } },
+      lines = { { id = "si_default", text = "Stormwind likes to know what's moving on its borders, and in the Plaguelands everything's moving. The Scourge, the Crusade, the Forsaken: somebody has to keep count, and the Dawn's too busy fighting to write it all down." } },
       choices = {
         { text = "Does Stormwind trust the Argent Dawn?", next = "si7_dawn" },
         { text = "Something else.", next = "BACK" },

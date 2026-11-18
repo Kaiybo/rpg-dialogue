@@ -5,7 +5,7 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 
 P:Views { topic = "eldarath", views = {
   { id = "beauty", text = "Even drowned and broken, those ruins are beautiful. The Highborne knew how to build.", fx = { opinion = { eldarath = "admire" }, trait = { curious = 1 } }, replies = {
-    { id = "a", text = "They did, and they built it on the Well's power, which is why so much of it is under the sea now. Beauty was never what they lacked, {class}.", fx = { affinity = 1 } },
+    { id = "a", text = "They did, and they built it all on the Well's power, so the sea has most of it now. Beauty was never what they lacked, {class}.", fx = { affinity = 1 } },
     { id = "b", when = { race = "NightElf" }, text = "Beautiful, yes, and every stone of it remembers Azshara's pride. My people look at Eldarath and see a warning, not an ornament." },
     { id = "c", text = "Admire it from the cliff, then, because the naga swimming through it don't care how pretty the arches are." },
   } },
@@ -29,7 +29,7 @@ P:Views { topic = "spitelash", views = {
     { id = "b", when = { race = "NightElf" }, text = "They were Highborne, the queen's own, and they chose her over all of us. I find my pity runs thin where they are concerned.", fx = { affinity = -1 } },
   } },
   { id = "watch", text = "Naga don't raid without a reason. Something down there is directing them.", fx = { opinion = { spitelash = "distrust" }, trait = { cautious = 1 }, align = { order = -1 } }, replies = {
-    { id = "a", text = "You're not the first to say it. They don't take gold, they take relics, and that's an errand, not a raid.", fx = { affinity = 1 } },
+    { id = "a", text = "I've thought the same. They don't take gold, they take relics, and that's an errand, not a raid.", fx = { affinity = 1 } },
     { id = "b", text = "Maybe so, but whatever's giving the orders is a long way below the waves, and the naga are right here on the beach." },
   } },
 } }
@@ -37,11 +37,11 @@ P:Views { topic = "spitelash", views = {
 P:Views { topic = "satyrs", views = {
   { id = "purge", text = "Satyrs are demon-spawn, and the only good one is a dead one.", fx = { opinion = { satyrs = "hate" }, trait = { stern = 1 }, align = { light = 1 } }, replies = {
     { id = "a", text = "You'll get no argument here. Haldarr, Legashi, all of them sold themselves to the Legion and kept the horns to prove it.", fx = { affinity = 1 } },
-    { id = "b", when = { race = "NightElf" }, text = "Spoken like a Sentinel. Every satyr was one of us before he bargained his soul away, and that is why we cannot forgive them.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "NightElf" }, text = "You speak like a Sentinel. Every satyr was one of us before he bargained his soul away, and so we cannot forgive them.", fx = { affinity = 1 } },
   } },
   { id = "pity", text = "They were elves who traded everything for power. That's sad more than anything.", fx = { opinion = { satyrs = "pity" }, trait = { kind = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "Sad, maybe, but a satyr's claws don't know you feel sorry for them. Save the tears for after the camp's burned." },
-    { id = "b", text = "There's something to that, I'll grant. Nobody wakes up wanting hooves; they want one more spell and pay for it all at once." },
+    { id = "b", text = "There's something to that. Nobody wakes up wanting hooves; they want one more spell, and then the bill comes all at once." },
   } },
   { id = "study", text = "If they still hold demon secrets, someone should take those secrets from them.", fx = { opinion = { satyrs = "profit" }, trait = { curious = 1 }, align = { light = -2 } }, replies = {
     { id = "a", text = "That's exactly the thought that made the first satyrs, {class}. I'd keep it to myself if I were you.", fx = { affinity = -1 } },
@@ -56,7 +56,7 @@ P:Views { topic = "xylem", views = {
   } },
   { id = "arrogant", text = "Brilliant, maybe, but he treats everyone as an errand-runner, me included.", fx = { opinion = { xylem = "distrust" }, trait = { proud = 1 } }, replies = {
     { id = "a", text = "Everyone notices that inside a minute. The trick is to get paid before he remembers he's above thanking you." },
-    { id = "b", text = "He does, and he'll go on doing it. Archmages are like that; it's being right half the time that ruins them." },
+    { id = "b", text = "He does, and he'll go on doing it. Archmages are like that; it's being right so often that ruins them." },
   } },
   { id = "danger", text = "A man who meddles that close to Highborne magic will wake something.", fx = { opinion = { xylem = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "That's my worry too. Azshara's coast has drowned better wizards than him, and they all thought they were careful.", fx = { affinity = 1 } },
@@ -71,7 +71,7 @@ P:Views { topic = "morphaz", views = {
   } },
   { id = "shard", text = "Xylem misses the shard more than the boy, I'd guess.", fx = { opinion = { morphaz = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Cruel, {class}, and maybe not wrong. He talks about both, but I've noticed which one comes first." },
-    { id = "b", text = "That's a hard thing to say of a man who lost his student. Archmages grieve badly, but they still grieve.", fx = { affinity = -1 } },
+    { id = "b", text = "Harsh, for a man who lost his student. Archmages grieve badly, but they still grieve.", fx = { affinity = -1 } },
   } },
   { id = "wary", text = "A dragon is a dragon. I'll not go poking one for a wizard's grudge.", fx = { opinion = { morphaz = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Sensible. Grudges get people eaten, and the drake isn't the one who'll feel sorry afterward." },
@@ -86,7 +86,7 @@ P:Views { topic = "rimtori", views = {
   } },
   { id = "elves", text = "High elves this far from Quel'Thalas aren't here for the scenery.", fx = { opinion = { rimtori = "distrust" }, trait = { skeptical = 1 }, align = { order = 1 } }, replies = {
     { id = "a", text = "No, they're here for arcane dust and anything else the Highborne left lying about. They'd sell their mothers for a crystal.", fx = { affinity = 1 } },
-    { id = "b", text = "Exactly so. Somebody's paying for that expedition, and I'd like to know who sent them before I learn the hard way." },
+    { id = "b", text = "Exactly so. Somebody's paying for that expedition, and I'd like to know who before their next crate of dust ships out." },
   } },
   { id = "understand", text = "They're hungry for magic. I can't entirely blame them for that.", fx = { opinion = { rimtori = "pity" }, trait = { honest = 1 }, align = { honor = -1 } }, replies = {
     { id = "a", text = "Hungry, aye, and the hungry kill for crumbs. Understand them all you like, but they killed for it all the same.", fx = { affinity = -1 } },
@@ -140,17 +140,17 @@ P:Views { topic = "arkkoroc", views = {
 } }
 
 P:Views { topic = "horizon_scout", views = {
-  { id = "sorry", text = "Losing a ship and half a crew on that coast. I'm sorry for them.", fx = { opinion = { horizon_scout = "pity" }, trait = { kind = 1 } }, replies = {
+  { id = "sorry", text = "A ship and most of its crew lost on that coast. I'm sorry for them.", fx = { opinion = { horizon_scout = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "So am I. Beltis keeps the survivors together, but you can see it costing her, every night.", fx = { affinity = 1 } },
     { id = "b", text = "Kindly said. They don't hear much kindness out in those ruins, only the surf and the naga." },
   } },
   { id = "salvage", text = "A wreck that fresh still has cargo in it. Somebody should go and get it.", fx = { opinion = { horizon_scout = "profit" }, trait = { greedy = 1 } }, replies = {
     { id = "a", text = "Somebody will, and it'll likely be the naga. If you beat them to it, at least ask the captain what was hers first.", fx = { affinity = -1 } },
-    { id = "b", text = "Spoken like a goblin, {class}. Mind you, a goblin would already be halfway there with a rope and a price list." },
+    { id = "b", text = "There speaks a goblin at heart, {class}. A real goblin would already be halfway there with a rope and a price list." },
   } },
   { id = "fool", text = "Anyone who sails Azshara's coast at night is asking to drown.", fx = { opinion = { horizon_scout = "doubt" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Maybe so, but the charts didn't say naga, and nobody ever expects the water to climb aboard." },
-    { id = "b", text = "That's a hard thing to say about folk who already paid for it. Hindsight's cheap on dry land.", fx = { affinity = -1 } },
+    { id = "b", text = "Easy to say on dry land, about folk who've already paid for it.", fx = { affinity = -1 } },
   } },
 } }
 
@@ -162,7 +162,7 @@ P:Views { topic = "ahn_qiraj", views = {
     { id = "b", text = "It will hold, until it doesn't. The hives grow louder every year, and the Cenarion Circle knows it." },
   } },
   { id = "break", text = "Sooner or later someone has to go in and finish what's inside.", fx = { opinion = { ahn_qiraj = "respect" }, trait = { brave = 1 }, align = { order = -1 } }, replies = {
-    { id = "a", text = "Brave talk, and maybe true. It'd take both factions and every army they've got, which is why nobody's said it out loud yet." },
+    { id = "a", text = "Brave talk, and maybe true. It'd take both factions and every army they've got, so nobody's said it out loud yet." },
     { id = "b", when = { race = "NightElf" }, text = "My people tried that once, in the War of the Shifting Sands. We won by walling it up, and even that nearly broke us.", fx = { affinity = -1 } },
   } },
   { id = "relics", text = "A city that old must be full of things worth finding.", fx = { opinion = { ahn_qiraj = "profit" }, trait = { curious = 1 } }, replies = {
@@ -182,7 +182,7 @@ P:Views { topic = "silithid_hives", views = {
   } },
   { id = "fear", text = "I've seen those tunnels. I'll not be going back in.", fx = { opinion = { silithid_hives = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "No shame in that. More than one dig team went down there in good spirits and didn't come up at all." },
-    { id = "b", text = "Fair enough, though someone will have to. The hives don't stop digging because we stop going." },
+    { id = "b", text = "Nobody would blame you, though someone will have to. The hives don't stop digging because we stop going." },
   } },
 } }
 
@@ -192,7 +192,7 @@ P:Views { topic = "abyssal_council", views = {
     { id = "b", text = "Good. Every duke and lord you put down is one less voice whispering to the cultists in those camps." },
   } },
   { id = "used", text = "A cult that bargains with elemental lords is playing with fire it can't hold.", fx = { opinion = { abyssal_council = "fear" }, trait = { cautious = 1 }, align = { order = -1 } }, replies = {
-    { id = "a", text = "Fire, wind, stone and water, all of it, and the Twilight's Hammer thinks it can hold the leash. Fools usually think that right up to the end." },
+    { id = "a", text = "Fire, wind, stone and water, all of it, and the Twilight's Hammer thinks it can hold the leash." },
     { id = "b", text = "True, but you'd be surprised how long a fool can hold fire before it burns his hand off, and how much burns meanwhile." },
   } },
   { id = "curious", text = "Templars, dukes, lords. The elementals keep a stranger court than kings do.", fx = { opinion = { abyssal_council = "doubt" }, trait = { witty = 1 } }, replies = {
@@ -207,7 +207,7 @@ P:Views { topic = "natalia", views = {
     { id = "b", text = "Maybe, but the cult that has her now doesn't care whose fault it was, and neither do the people they've killed." },
   } },
   { id = "stop", text = "Whatever she was, she's dangerous now. She has to be stopped.", fx = { opinion = { natalia = "hate" }, trait = { stern = 1 }, align = { light = -1, order = 1 } }, replies = {
-    { id = "a", text = "Aye, and that's a hard thing for the Commander to hear. Say it gently around him, if you say it at all.", fx = { affinity = 1 } },
+    { id = "a", text = "Aye, though the Commander can't bear to hear it. Say it gently around him, if you say it at all.", fx = { affinity = 1 } },
     { id = "b", text = "Hard words, {class}, but true ones. Just don't expect thanks from the man who married her." },
   } },
   { id = "warning", text = "If one crystal could turn her, I dread what waits in the deeper hives.", fx = { opinion = { natalia = "fear" }, trait = { cautious = 1 } }, replies = {
@@ -222,7 +222,7 @@ P:Views { topic = "southwind", views = {
     { id = "b", when = { race = "NightElf" }, text = "Ishnu-alah. It was ours, and the sands swallowed it, and still we go back to tend it. That is the Kaldorei way." },
   } },
   { id = "retake", text = "Someone ought to clear the cult out and give those spirits peace.", fx = { opinion = { southwind = "respect" }, trait = { brave = 1 } }, replies = {
-    { id = "a", text = "Layo Starstrike at Valor's Rest would agree with you. She's tried to free them more than once.", fx = { affinity = 1 } },
+    { id = "a", text = "Layo Starstrike at Valor's Rest has tried more than once, and she'd welcome the help.", fx = { affinity = 1 } },
     { id = "b", text = "Someone ought to, and maybe you're that someone. The Twilight's Hammer don't care whose bones they camp on." },
   } },
   { id = "doomed", text = "Building a village on the edge of the sands was asking for it.", fx = { opinion = { southwind = "doubt" }, trait = { skeptical = 1 } }, replies = {
@@ -234,13 +234,13 @@ P:Views { topic = "southwind", views = {
 P:Views { topic = "ortell", views = {
   { id = "redeem", text = "He walked away from the cult. That took more nerve than joining it.", fx = { opinion = { ortell = "respect" }, trait = { kind = 1 }, align = { honor = 1 } }, replies = {
     { id = "a", text = "It did, and they'd skin him for it if they found him. That's why he jumps at every footstep.", fx = { affinity = 1 } },
-    { id = "b", text = "More nerve, aye, though he left it late. Still, late's better than never, out here." },
+    { id = "b", text = "More nerve, aye, though he left it late. Out here, late still counts." },
   } },
   { id = "suspect", text = "Once a cultist, always a cultist. I'd not turn my back on him.", fx = { opinion = { ortell = "distrust" }, trait = { skeptical = 1 }, align = { honor = -1 } }, replies = {
     { id = "a", text = "Maybe you're right to be careful, but he's given us more on the Twilight's Hammer than any spy we've sent." },
     { id = "b", text = "That's harsh, and I've thought it myself. Watch him, by all means, but use what he tells you." },
   } },
-  { id = "use", text = "A former cultist knows their camps. That's worth more than his feelings.", fx = { opinion = { ortell = "profit" }, trait = { practical = 1 } }, replies = {
+  { id = "use", text = "A former cultist knows their camps. His feelings matter less than that.", fx = { opinion = { ortell = "profit" }, trait = { practical = 1 } }, replies = {
     { id = "a", text = "Cold, but it's how Larksbane treats him too. She brings him supper and asks about the camps between bites." },
     { id = "b", text = "Squeeze him too hard and he'll bolt into the hills. Gently, {class}, if you want any more from him.", fx = { affinity = -1 } },
   } },
@@ -253,7 +253,7 @@ P:Views { topic = "bronze_dragonflight", views = {
   } },
   { id = "help", text = "If the bronze dragons know what's coming, they should be helping us.", fx = { opinion = { bronze_dragonflight = "distrust" }, trait = { stern = 1 }, align = { order = -1 } }, replies = {
     { id = "a", text = "They'd say they are, in their own way. Nozdormu's brood think in thousands of years, and we barely count in that." },
-    { id = "b", text = "You're not the first to say it, and I agree with you. Knowing and doing nothing is still a choice." },
+    { id = "b", text = "I've said the same myself. Knowing and doing nothing is still a choice." },
   } },
   { id = "trust", text = "They've watched the world longer than anyone. I'll trust their patience.", fx = { opinion = { bronze_dragonflight = "trust" }, trait = { patient = 1 }, align = { order = 1 } }, replies = {
     { id = "a", text = "Patience is the right word for them. They stopped the qiraji once, a thousand years ago, and they've been watching the wall since." },
@@ -292,7 +292,7 @@ P:Views { topic = "ashenvale", views = {
     { id = "b", when = { race = "NightElf" }, text = "Every tree they fell was standing when your kingdoms were young, {class}. We do not forget, and neither does the forest.", fx = { affinity = 1 } },
   } },
   { id = "share", when = { faction = "Alliance" }, text = "The forest is big enough for both of us, if anyone would talk.", fx = { opinion = { ashenvale = "necessary" }, trait = { kind = 1 }, align = { order = -1 } }, replies = {
-    { id = "a", text = "Fine words, and Jaina would say the same. Try telling them to a Sentinel who's buried her sister at Splintertree, though." },
+    { id = "a", text = "Fine words, and Lady Proudmoore would agree. Try them on a Sentinel who's buried her sister at Splintertree, though." },
     { id = "b", when = { race = "NightElf" }, text = "Big enough? You have never watched a demigod die there, {class}, or you would not say so.", fx = { affinity = -1 } },
   } },
   { id = "bloody", text = "Ashenvale's going to soak up blood for another hundred years.", fx = { opinion = { ashenvale = "fear" }, trait = { skeptical = 1 } }, replies = {
@@ -310,7 +310,7 @@ P:Views { topic = "scourge", views = {
     { id = "a", text = "Free, if they can be, and destroyed if they can't. Most can't, and we tell ourselves that's mercy.", fx = { affinity = 1 } },
     { id = "b", text = "So were we all. Some of us woke up, and the rest still march for him; that is the only difference between us and them." },
   } },
-  { id = "victims", text = "Every one of those ghouls was somebody's neighbor once. It's horrible.", fx = { opinion = { scourge = "pity" }, trait = { kind = 1 }, align = { light = 1, order = -1 } }, replies = {
+  { id = "victims", text = "Each of those ghouls was somebody's neighbor once. It's horrible.", fx = { opinion = { scourge = "pity" }, trait = { kind = 1 }, align = { light = 1, order = -1 } }, replies = {
     { id = "a", text = "It is, and that's what breaks the new recruits. Not the fighting, but recognizing the farmer from the next village." },
     { id = "b", text = "Remember that, but strike anyway. Pity won't stop a ghoul, and they'd want you to put them down." },
   } },
@@ -335,7 +335,7 @@ P:Views { topic = "forsaken", views = {
   } },
   { id = "pity", when = { faction = "Alliance" }, text = "They were the people of Lordaeron once. I can't help pitying them.", fx = { opinion = { forsaken = "pity" }, trait = { kind = 1 }, align = { light = 1, order = -1 } }, replies = {
     { id = "a", text = "Pity them from a distance, then. Whatever they were, they've taken the Horde's side and the Undercity's poisons with it." },
-    { id = "b", text = "Some of us lost family to the Plague, and maybe some of those walk in Tirisfal now. It's a hard thing to think about." },
+    { id = "b", text = "Some of us lost family to the Plague, and maybe some of those walk in Tirisfal now. I try not to think about it." },
   } },
   { id = "hate", when = { faction = "Alliance" }, text = "Walking corpses with free will are still corpses. Put them back in the ground.", fx = { opinion = { forsaken = "hate" }, trait = { stern = 1 }, align = { light = 1, order = 1 } }, replies = {
     { id = "a", text = "The Crusade would cheer that, and that should give you pause, {class}. Still, I can't say I'd weep.", fx = { affinity = 1 } },
@@ -356,7 +356,7 @@ P:Views { topic = "kelthuzad", views = {
     { id = "a", text = "Carefully, and with the Light. They say he still gives the Scourge its orders from somewhere in the north, and nobody has found where." },
     { id = "b", text = "By killing him better next time. That's all the Argent Dawn's got, and it's more than despair." },
   } },
-  { id = "mind", text = "Say what you like, he was clever. Dalaran never saw it coming.", fx = { opinion = { kelthuzad = "respect" }, trait = { skeptical = 1 }, align = { light = -1 } }, replies = {
+  { id = "mind", text = "Whatever else he was, he was clever. Dalaran never saw it coming.", fx = { opinion = { kelthuzad = "respect" }, trait = { skeptical = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "Clever's a cold thing to admire in a man who poisoned grain carts, {class}. Mind how you say that.", fx = { affinity = -1 } },
     { id = "b", text = "Clever, and patient, which is worse. Dalaran saw it coming and threw him out, but it was too late by then." },
   } },
@@ -425,7 +425,7 @@ P:Views { topic = "shadowfang", views = {
     { id = "b", text = "That's a gentler way to describe a man who calls wolves his children. I'd not say it in Pyrewood.", fx = { affinity = -1 } },
   } },
   { id = "treasure", text = "A baron's keep abandoned to beasts. There'll be loot in there.", fx = { opinion = { shadowfang = "profit" }, trait = { greedy = 1 } }, replies = {
-    { id = "a", text = "Loot, aye, and a great many teeth guarding it, {class}, because the worgen sleep on Arugal's floors now." },
+    { id = "a", text = "Loot, aye, and more teeth than coins guarding it, {class}, because the worgen sleep on Arugal's floors now." },
     { id = "b", text = "Plenty have thought the same, and their gear is in there too now. Go in numbers, if you go." },
   } },
 } }
@@ -444,12 +444,12 @@ P:Views { topic = "internment", views = {
     { id = "b", text = "It cost the crown a fortune and bred a whole army of Thralls. Necessary or not, it didn't work." },
   } },
   { id = "shame", when = { faction = "Alliance" }, text = "The camps were a mistake. We made the Horde we're fighting now.", fx = { opinion = { internment = "wrong" }, trait = { honest = 1 }, align = { order = -1 } }, replies = {
-    { id = "a", text = "Some veterans would agree with you, quietly. Others still say they'd do it again, and louder." },
+    { id = "a", text = "Some veterans think so too, though only after a few drinks. Others still say they'd do it again, and louder." },
     { id = "b", text = "Careful, {class}. Men who guarded those camps lost sons at Blackrock, and they won't like hearing it." },
   } },
   { id = "past", text = "The camps are gone and both sides have moved on. Let it lie.", fx = { opinion = { internment = "doubt" }, trait = { patient = 1 } }, replies = {
     { id = "a", text = "Easy for some to say. The orcs who were in them haven't moved on, and I don't expect they ever will." },
-    { id = "b", text = "Maybe, but nothing lies still in this world for long. Old grudges have a way of finding new swords." },
+    { id = "b", text = "Maybe, but the old guards haven't let it lie, and they're the ones still telling the stories." },
   } },
 } }
 
@@ -463,7 +463,7 @@ P:Views { topic = "second_war", views = {
     { id = "b", when = { race = "Orc" }, text = "Speak softly, {class}. Some old warriors fought bravely in it, whatever the warlocks did with their courage.", fx = { affinity = -1 } },
   } },
   { id = "proud_h", when = { faction = "Horde" }, text = "We nearly took Lordaeron. The orcs fought like legends in that war.", fx = { opinion = { second_war = "admire" }, trait = { brave = 1 }, align = { honor = -1 } }, replies = {
-    { id = "a", text = "Like legends, and lost like fools, thanks to Gul'dan's treachery. Never forget both halves of it." },
+    { id = "a", text = "Like legends, and lost like fools, thanks to Gul'dan's treachery. Remember the losing as well as the legend." },
     { id = "b", text = "Orgrim Doomhammer nearly did it, aye. Thrall carries his hammer now, for good reason." },
   } },
   { id = "waste", text = "A generation of soldiers died, and nobody learned a thing from it.", fx = { opinion = { second_war = "doubt" }, trait = { skeptical = 1 }, align = { order = -1 } }, replies = {
@@ -493,10 +493,10 @@ P:Views { topic = "stromgarde", views = {
     { id = "b", text = "Proud, aye, and too proud to stay in the Alliance when it mattered. Retake it, but don't expect thanks." },
   } },
   { id = "foes", when = { faction = "Horde" }, text = "Stromgarde never stopped hating orcs. Let it lie in ruins.", fx = { opinion = { stromgarde = "hate" }, trait = { stern = 1 }, align = { order = -1 } }, replies = {
-    { id = "a", text = "The Defilers would agree. Every inch of Arathi they take back from Stromgarde's men is one more lesson.", fx = { affinity = 1 } },
+    { id = "a", text = "That's the Defilers' view exactly. Every inch of Arathi they take back from Stromgarde's men is one more lesson.", fx = { affinity = 1 } },
     { id = "b", text = "Ruins or not, they still field soldiers. Don't count them out because their walls are cracked." },
   } },
-  { id = "pity", text = "A kingdom that walked out of the Alliance and fell apart anyway. Sad.", fx = { opinion = { stromgarde = "pity" }, trait = { kind = 1 }, align = { order = -1 } }, replies = {
+  { id = "pity", text = "A kingdom that left the Alliance and fell apart anyway. That's sad.", fx = { opinion = { stromgarde = "pity" }, trait = { kind = 1 }, align = { order = -1 } }, replies = {
     { id = "a", text = "Sad, yes, and Thoras Trollbane's death didn't help. Galen's a lesser man, and everyone knows it." },
     { id = "b", text = "That's the way of kingdoms that think they don't need anyone else. The ogres taught them otherwise." },
   } },
@@ -526,8 +526,8 @@ P:Views { topic = "thrall", views = {
     { id = "a", text = "Some grunts mutter the same, but never near his door. He fought his way out of Durnholde, and that's not soft.", fx = { affinity = -1 } },
     { id = "b", text = "Maybe. He'd rather talk with Theramore than fight it, and not everyone in Orgrimmar likes that." },
   } },
-  { id = "respect_a", when = { faction = "Alliance" }, text = "Thrall's an enemy, but an honorable one. I'll grant him that.", fx = { opinion = { thrall = "respect" }, trait = { honest = 1 }, align = { honor = 1 } }, replies = {
-    { id = "a", text = "Jaina says the same, and she's dealt with him more than any of us. He kept his word at Hyjal.", fx = { affinity = 1 } },
+  { id = "respect_a", when = { faction = "Alliance" }, text = "Thrall's an enemy, but an honorable one. I'll give him that much.", fx = { opinion = { thrall = "respect" }, trait = { honest = 1 }, align = { honor = 1 } }, replies = {
+    { id = "a", text = "Lady Proudmoore would tell you so, and she's dealt with him more than any of us. He kept his word at Hyjal.", fx = { affinity = 1 } },
     { id = "b", text = "Honor's easy to grant from across an ocean. The Sentinels in Ashenvale don't see much of it." },
   } },
   { id = "distrust_a", when = { faction = "Alliance" }, text = "An orc warchief who smiles at us is still an orc warchief.", fx = { opinion = { thrall = "distrust" }, trait = { cautious = 1 }, align = { honor = -1, order = 1 } }, replies = {
@@ -570,7 +570,7 @@ P:Views { topic = "sylvanas", views = {
 P:Views { topic = "cairne", views = {
   { id = "wise", text = "Cairne's the wisest leader in Kalimdor. Everyone should listen to him.", fx = { opinion = { cairne = "admire" }, trait = { kind = 1 }, align = { honor = 1 } }, replies = {
     { id = "a", when = { race = "Tauren" }, text = "The Earth Mother speaks through him, young one. He has walked the plains longer than most of us have lived.", fx = { affinity = 1 } },
-    { id = "b", text = "Thrall listens, which is more than most do. Cairne brought the tauren home to Mulgore when they had nowhere left." },
+    { id = "b", text = "Thrall listens to him, and that counts. Cairne brought the tauren home to Mulgore when they had nowhere left." },
   } },
   { id = "old", when = { faction = "Horde" }, text = "He's old now. The Horde needs younger blood in its councils.", fx = { opinion = { cairne = "doubt" }, trait = { proud = 1 }, align = { honor = -1 } }, replies = {
     { id = "a", text = "Old, and still able to break your arm across his knee. Mind your tongue around Thunder Bluff.", fx = { affinity = -1 } },
@@ -634,7 +634,7 @@ P:Views { topic = "jaina", views = {
     { id = "b", text = "Thrall trusts her, and that's enough for the Warchief's grunts. Keep the worry, but keep it quiet." },
   } },
   { id = "admire", text = "A sorceress who fought at Hyjal and built a city after. Impressive.", fx = { opinion = { jaina = "admire" }, trait = { curious = 1 } }, replies = {
-    { id = "a", text = "Impressive, and she's younger than you'd think. Antonidas taught her before Dalaran fell." },
+    { id = "a", text = "Impressive, and she's young for an archmage. Antonidas taught her before Dalaran fell." },
     { id = "b", text = "Theramore's her city through and through, and the Kul Tiran sailors there would die for her." },
   } },
 } }

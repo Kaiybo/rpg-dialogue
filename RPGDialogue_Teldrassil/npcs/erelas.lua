@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_moon", when = { questActive = TODO_QUEST("Moontouched Wildkin") }, text = "Winterspring feathers, friend, the ones that have fallen in the snow. I can hardly sit still waiting for them." },
     { id = "g_answer", when = { questDone = TODO_QUEST("Wildkin of Elune") }, text = "I still think about what you found at that altar. Elune's own guardians, and we never knew!" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and two of the chicks have flown their first circle of the harbour since. You missed it, I'm sorry to say." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown a great deal since we first spoke on this pier. Like the chicks, really, except you complain less about being fed." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown since we first spoke on this pier. Like the chicks, really, except you complain less about being fed." },
   },
 
   notice = {
@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 40 },
           text = "You're welcome to look around the nests, friend, though I'd not ask you to go chasing wildkin just yet. They are gentle right up until they decide you're a threat." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Favored of Elune?"), minLevel = 45 },
-          text = "I've heard of wildkin living wild in the Hinterlands, and I'd give a great deal for a bundle of their feathers. Will you gather some for me?" },
+          text = "I've heard of wildkin living wild in the Hinterlands, and their feathers would make the finest fletching Rut'theran has ever seen. Will you gather some for me?" },
         { id = "h_fav_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Favored of Elune?"), days = 3 } },
           text = "These feathers carry something, friend, a trace of power the creatures don't seem to wield at all. It's part of them, like the colour of their eyes." },
         { id = "h_moon_active", tags = { "news" }, when = { questActive = TODO_QUEST("Moontouched Wildkin") },
@@ -80,7 +80,7 @@ P:NPC {
     },
     eggs_curgle = {
       lines = {
-        { id = "ec_default", text = "She has a gift for it, and a great deal of energy, and she ships eggs halfway across the world in crates I'd never trust with a teacup. Not one has broken yet, which I count as a small miracle." },
+        { id = "ec_default", text = "She has a gift for it, and more energy than a hippogryph chick, and she ships eggs across the world in crates I'd never trust with a teacup. Not one has broken yet, which I count as a small miracle." },
       },
       choices = {
         { text = "Is she in Feralas too?", next = "eggs_where" },

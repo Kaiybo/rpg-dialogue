@@ -548,7 +548,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You return to Nighthaven after {away}, and again I don't think it is chance. Speak, please, and tell me what has drawn you back." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told that one of Nighthaven's people saw through a falsehood of yours, and the Keeper's house hears such things. Speak plainly here, please, for the peace of this glade rests on it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The village speaks of the help you gave it, and I don't believe that was chance either, and the Keeper will hear of it if he hasn't already." },
-    { id = "g_hyjal", when = { origin = "nightelf_hyjal_survivor" }, text = "You were at Hyjal; the Keeper told me so before you'd reached the door. Sit, please, and don't apologise for the gray at your temples, because half of Nighthaven has it now and the other half is merely lying about it." },
+    { id = "g_hyjal", when = { origin = "nightelf_hyjal_survivor" }, text = "You were at Hyjal; the Keeper told me so before you'd reached the door. Sit, please, and don't apologise for the gray at your temples, because every elder in Nighthaven has it now, whether they admit it or not." },
   },
 
   notice = {
@@ -595,7 +595,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "More than most of the Circle would admit. The spirits of this glade are old and patient, and if they've drawn a dwarf all the way from Ironforge, I'd look for their reason by the lake." } },
+      lines = { { id = "xdsham_default", text = "Often, though few of the Circle would admit it. The spirits of this glade are old and patient, and if they've drawn a dwarf all the way from Ironforge, look for their reason by the lake." } },
       choices = {
         { text = "The spirits guide me. I go where they send.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I choose my own road. The spirits only advise.", next = "BACK", fx = { align = { order = 1 } } },
@@ -604,7 +604,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "More than most of the Circle would admit. The tauren druids among us hear the Earth Mother as you do, and the spirits of this glade are old and patient, so if they've drawn you here, there's something they wish you to see, and I'd look for it by the lake." } },
+      lines = { { id = "xhsham_default", text = "Often, though few of the Circle would say so aloud. The tauren druids among us hear the Earth Mother as you do, and the spirits of this glade are old and patient, so if they've drawn you here, there's something they wish you to see, most likely by the lake." } },
       choices = {
         { text = "I'll listen to them, and do what they ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I go where I choose. The spirits can follow if they like.", next = "BACK", fx = { align = { order = -1 } } },
@@ -847,7 +847,7 @@ P:NPC {
     },
     dream = {
       lines = {
-        { id = "d_default", text = "Then you know more than most of Nighthaven does, so keep it close. The Keeper carries that worry so the rest of us can sleep, and I'd rather it stayed that way." },
+        { id = "d_default", text = "Then you know what most of Nighthaven does not, so keep it close. The Keeper carries that worry so the rest of us can sleep, and it should stay with him." },
       },
       choices = {
         { text = "I'll keep it close.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
@@ -930,7 +930,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The bear's, certainly, since it's mostly about patience and watching, and hunters watch for a living. The lake's trial would be harder, because hunters like to keep their feet dry, and the lake prefers students who don't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is very well behaved, which is more than I can say for the druid in bear form who knocked over my reading table this morning." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is very well behaved, unlike the druid in bear form who knocked over my reading table this morning." },
       },
       choices = {
         { text = "The trials belong to your students. I'll leave them be.", next = "BACK", fx = { align = { order = 1 } } },
@@ -969,7 +969,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Fear is a strong word, though fire in a grove does make us twitchy. The arcane takes from the world without asking, and our trials teach young druids the opposite, which is why I'd rather you practised down by the lake, well away from the trees." } },
+      lines = { { id = "xmage_default", text = "Fear is a strong word, though fire in a grove does make us twitchy. The arcane takes from the world without asking, and our trials teach young druids the opposite, so please practise down by the lake, well away from the trees." } },
       choices = {
         { text = "Down by the lake, then. Your trees are safe from me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The arcane is a craft like any other. I won't apologise.", next = "BACK", fx = { align = { order = -1 } } },
@@ -978,7 +978,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, I'll grant you, but one leaves the world as it found it, and the other leaves Felwood." } },
+      lines = { { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, but one leaves the world as it found it, and the other leaves Felwood." } },
       choices = {
         { text = "Fair. I'll keep my demons well away from the grove.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thanks or orders, the power's the same. Mine just obeys.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1243,7 +1243,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Better than you'd think, since the night needs the dark half as much as the bright. It's only when a healer forgets that shadow is half of a whole and starts treating it as the whole that the scale tips, and I've seen it tip in priests and druids alike." } },
+      lines = { { id = "xhcast_default", text = "Well enough, since the night needs its dark as surely as its moon. It's only when a healer forgets that shadow is half of a whole and starts treating it as the whole that the scale tips, and I've seen it tip in priests and druids alike." } },
       choices = {
         { text = "Then I'll mind the other half, and not let it tip.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let it tip, then. Shadow gets results.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1252,7 +1252,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "You can try, which is more than most rogues ever do. Your craft is always leaning one way or another, toward the knife in the dark or away from it, and balance is learning when to stop leaning." } },
+      lines = { { id = "xrogue_default", text = "You can try, and few rogues ever do. Your craft is always leaning one way or another, toward the knife in the dark or away from it, and balance is learning when to stop leaning." } },
       choices = {
         { text = "Then I'll learn to sit still, at least here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leaning keeps me alive. Balance can wait.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1282,7 +1282,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. You know balance better than most, I think, because the elements are never still, and a shaman who tries to make them so soon learns how foolish that is." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin, in Nighthaven. You carry a great deal of armour and a great deal of certainty, and I'd wager the certainty is the heavier of the two, so sit a while, if you'd like to set it down." },
+          text = "A paladin, in Nighthaven. You carry heavy armour and heavier certainty, and I'd wager the certainty weighs more, so sit a while, if you'd like to set it down." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, in Nighthaven. You carry your balance in your shoulders, I see, which is good for a shield and poor for sitting still." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -1293,7 +1293,7 @@ P:NPC {
         { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment, not for training but only to sit. Most druids forget to, and it shows in their bears." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in Nighthaven. Balance is something you carry, priest, and yours looks heavier than most, so sit, if you'd like to set it down for a moment." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, in Nighthaven. You carry your balance on the balls of your feet, I see, which is good for a quick exit and poor for sitting still." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Nighthaven. You carry a great deal of power, I can tell, and power is the heaviest thing there is to keep in balance." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Nighthaven. You carry power enough that the grove can feel it, and power is the heaviest thing there is to keep in balance." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Balance is something you carry, and yours has a demon sitting on one side of the scale, so I'd guess it's hard going." },
       },
       again = {
@@ -1335,7 +1335,7 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other, and for some who have." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is stillness itself, and that's why the young druids find it so hard to reach. They try too hard, and it slips away from them." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The tauren call her the Earth Mother, and I've learned a great deal about stillness from the way they speak of her. Peace, friend, by any name." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren call her the Earth Mother, and the way they speak of her has taught me more of stillness than many a druid has. Peace, friend, by any name." } },
     elune = { { id = "tp_elune", text = "Elune's moon over the lake is the best teacher of stillness I know. Sit, and watch it, and let it teach you." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil's roots go deeper than any of us can feel, and I find that comforting. Some things are steady whatever happens." } },
     _none = { { id = "tp_none", text = "Ask Rabine. He keeps a ledger of everything, including, I suspect, how often I nap." } },
@@ -1636,7 +1636,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Once, a goblin with a rope and a great deal of confidence, and he left with neither. They fly for druids only because they choose to, so a thief would get as far as the edge of the perch and then a very long way down." } },
+      lines = { { id = "xrogue_default", text = "Once, a goblin with a rope and boundless confidence, and he left with neither. They fly for druids only because they choose to, so a thief would get as far as the edge of the perch and then a very long way down." } },
       choices = {
         { text = "I wouldn't dream of it. They're yours to fly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "With the right rope and some patience, I'd manage it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1673,7 +1673,7 @@ P:NPC {
           text = "A hunter! My birds only fly for druids, I'm afraid, but they're curious about your companion, so you may stand close if it's polite." },
         { id = "h_default", text = "I am Silva, and I keep the Circle's hippogryphs. They fly one road only, to Rut'theran beneath Teldrassil, and only for druids, for they are as particular as any elder of the Enclave." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think, if only slightly less." },
+          text = "You'd rather have your own wings, I imagine. These ones bite less than they look like they will, if only slightly less." },
         { id = "h_names", when = { metBefore = true }, text = "The oldest of my hippogryphs won't fly unless I say her name first, and politely. I've stopped finding it strange." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night flights are the best. Teldrassil's lights come up out of the sea like someone's left a lantern for you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! My birds only fly for druids, I'm afraid, but you're welcome to sit with them, because they like a quiet voice and priests usually have one." },
@@ -1733,9 +1733,9 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The hippogryphs carry riders, and riders carry news. Ask me what you like." },
     },
-    background = { { id = "tp_bg", text = "I keep the Circle's hippogryphs and fly druids home to Teldrassil. That's the whole of it, apart from a great deal of feather-sweeping." } },
+    background = { { id = "tp_bg", text = "I keep the Circle's hippogryphs and fly druids home to Teldrassil. That's the whole of it, apart from endless feather-sweeping." } },
     advice = { { id = "tp_ad", text = "Never walk behind a hippogryph you haven't been introduced to. I mean that more than I'd like to." } },
-    nordrassil = { { id = "tp_nordrassil", text = "My birds fly the druids to Teldrassil, but every one of them was hatched under Nordrassil's shade. They know which tree is the elder." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds fly the druids to Teldrassil, but each of them was hatched under Nordrassil's shade. They know which tree is the elder." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw don't like my birds overhead, and they make that very clear with stones. I fly high over their ground." } },
     everlook = { { id = "tp_everlook", text = "Everlook's goblins ask after my birds every time a druid flies through. My answer is always no, and they always ask again." } },
     _none = { { id = "tp_none", text = "I fly birds, friend; Rabine knows everything else, and has for longer than I have been alive." } },
@@ -1853,7 +1853,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, all the way out in Moonglade! My riders fly for druids alone, friend, but you're welcome on the perch, and I'll confess they like a sturdy back to lean on." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter, at the perch! The riders like your kind, friend, because you smell of open country and honest beasts, which is more than I can say for most." },
+          text = "A hunter, at the perch! The riders like your kind, friend, because you smell of open country and honest beasts, not lamp oil and city streets." },
         { id = "h_default", text = "Bunthen Plainswind is my name, and I keep the Circle's wind riders, who fly for druids to Thunder Bluff. It's a short road through the sky, from one home to another." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "From the sky to the Bluff, your folk came, I hear, and the Earthen Ring vouched for you. The winds are kind to you. Let my riders be kind too." },

@@ -75,7 +75,7 @@ P:NPC {
 
     razelikh = {
       lines = {
-        { id = "ra_default", text = "Razelikh the Defiler, a demon lord who oversees the Legion's work in these lands, and the one who took our regiment. His cunning is almost as calculated as his brutality, and that's saying a great deal." },
+        { id = "ra_default", text = "Razelikh the Defiler, a demon lord who oversees the Legion's work in these lands, and the one who took our regiment. His cunning is almost as calculated as his brutality, and I watched both on the day he took us." },
       },
       choices = {
         { text = "A demon lord like that won't be without servants.", next = "razelikh_triad" },
@@ -94,7 +94,7 @@ P:NPC {
 
     amulet = {
       lines = {
-        { id = "am_default", text = "Each of the triad wears a third of an amulet of Razelikh's own making, and you'll need the whole of it to summon the arch demon. He made it so he couldn't be called without his servants' leave, which tells you how much he trusts them." },
+        { id = "am_default", text = "Each of the triad wears a third of an amulet of Razelikh's own making, and you'll need the whole of it to summon the arch demon. He made it so he couldn't be called without his servants' leave, so he trusts his servants no further than they trust him." },
       },
       choices = {
         { text = "Then I take the amulet from their corpses.", next = "amulet_plan" },
