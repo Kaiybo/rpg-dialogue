@@ -244,6 +244,7 @@ A **choice**:
 | `fx` | effects (2.8) |
 | `next` | a node id, `"END"`, `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath), or `"BACK"` (the last hub visited) |
 | `repeatable` | keep offering it after its node was shown in this conversation |
+| `reply` | the NPC's answer to this reply, said before the next page: a string, or `{ { text, when }, … }` (first that passes). With `BACK` it replaces the hub's "anything else?" line; with `END` it's shown with a single farewell instead of closing at once; with a node id it comes before that node's line. Give a stance that goes `BACK`/`END` one wherever a real person would answer. |
 | `fail` | for checks: `{ fx = …, next = … }` |
 | `journal` | `{ first = …, third = … }` |
 

@@ -640,7 +640,42 @@ local function choiceLabel(entry)
   return text
 end
 
-function Conv.ShowNode(nodeId)
+-- A reply's own answer from the NPC (choice.reply, 0.82.0): a string, or a list of
+-- { text, when } where the first whose conditions pass is said.
+function Conv.ReplyText(choice, ctx, env)
+  local r = choice and choice.reply
+  if type(r) == "string" then return Tokens.Render(r, ctx, env) end
+  if type(r) == "table" then
+    for _, line in ipairs(r) do
+      if type(line) == "table" and line.text and (not line.when or Cond.Eval(line.when, ctx, env)) then
+        return Tokens.Render(line.text, ctx, env, line.when)
+      end
+    end
+  end
+  return nil
+end
+
+-- The NPC answers a reply that ends the visit: their answer, then a single farewell.
+function Conv.ShowReplyEnd(text)
+  local s = Conv.session
+  if not s then return end
+  local info = s.info
+  local linked = Conv.Hear(text)
+  Conv.Log("npc", text)
+  local said = s.said
+  s.said = nil
+  s.choiceEntries = { { choice = { text = L.FAREWELL, next = "END" } } }
+  present(s, {
+    name = info.name, subtitle = info.subtitle, unit = s.unit,
+    text = text, linkedText = linked, choices = { { text = L.FAREWELL } },
+    said = (ns.db.settings.echoReply ~= false) and said or nil,
+    canAsk = ns.Topics and ns.Topics.Any(), askCount = ns.Topics and ns.Topics.Count(),
+    disposition = Conv.DispositionView(s),
+  })
+  if ns.db.settings.tts then Conv.Speak(s, text) end
+end
+
+function Conv.ShowNode(nodeId, reply)
   local s = Conv.session
   if not s then return end
   local info, ctx, env = s.info, s.ctx, s.env
@@ -661,12 +696,15 @@ function Conv.ShowNode(nodeId)
 
   local winner
   -- A rotating node (a story told, a question asked) draws a fresh line every visit.
-  if returning and not node.rotating then
+  if reply and returning then
+    winner = nil   -- their answer to your reply stands in for the "anything else?" line
+  elseif returning and not node.rotating then
     winner = Engine.PickAgain(info, nodeId, ctx, env)
   else
     winner = Engine.PickLine(info, nodeId, ctx, env, node.big)
   end
   local main = winner and Tokens.Render(winner.line.text, ctx, env, winner.line.when) or L.FALLBACK_LINE
+  if reply then main = winner and (reply .. "\n\n" .. main) or reply end
   Conv.Shown(winner)
   s.lastLine = winner and winner.gid or s.lastLine
 
@@ -906,13 +944,19 @@ function Conv.Choose(index)
     s.pendingNote = nil
     Conv.Business(choice.text)
   elseif nextId == "BACK" then
-    Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello")
+    Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello", Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
   elseif nextId == nil or nextId == "END" then
-    s.pendingNote = nil
-    Conv.End()
+    local answer = Conv.ReplyText(choice, ctx, env)
+    if answer then
+      Conv.ShowReplyEnd(answer)
+      Conv.ShowPendingNote()
+    else
+      s.pendingNote = nil
+      Conv.End()
+    end
   else
-    Conv.ShowNode(nextId)
+    Conv.ShowNode(nextId, Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
   end
 end
