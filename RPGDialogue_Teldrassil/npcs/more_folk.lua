@@ -2265,3 +2265,917 @@ P:NPC {
     _none = { { id = "tp_none", text = "I do not know. Forgive me, I am seldom thinking of anything further off than this table." } },
   },
 }
+
+-- Second sweep: Dolanaar's and Aldrassil's remaining vendors, and Orenthil Whisperwind.
+
+---------------------------------------------------------------------------
+-- Sinda
+---------------------------------------------------------------------------
+P:NPC {
+  key = "sinda", id = TODO_NPC("Sinda"), name = "Sinda", title = "Leather Armor Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
+  communities = { "dolanaar" }, temper = { "quiet", "exacting" }, values = { "craft", "thrift" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Sinda cuts and sells leather armor in Dolanaar, and she speaks less than her neighbours but notices more. She judged the fit of what I was wearing before I had said a word.",
+    third = "{name} met Sinda, who sells leather armor in Dolanaar.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Ishnu-alah. I have jerkins, bracers and boots, all of them cut here in Dolanaar, and all of them cut to last." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and that strap I looked at has stretched further. Sit, and let me see it." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "You work hide yourself, by the look of your thumbs. Then you will know what you are looking at on my table." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "ROGUE", "DRUID" } },
+      text = "You move like someone who needs quiet leather, and what you have on creaks at the shoulder. I can mend that, or sell you something that never learned to creak." },
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "Your knife has been through nightsaber hide lately, for the smell stays in the sheath. If the cuts were clean, Nadyia Maneweaver will want to see them." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Sinda. I cut the leathers for Dolanaar, and I share a fire with Shalomon, Jeena Featherbow and Meri Ironweave, who see to the blades, the bows and the mail. Between us the village goes out dressed for the forest, which is all I ask." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again2", text = "Ask, and I will answer as I work." },
+        { id = "h_again3", text = "Go on. My hands are busy, but my ears are not." },
+      },
+      choices = {
+        { text = "Show me your leathers.", next = "BUSINESS" },
+        { text = "Where do your hides come from?", next = "hides" },
+        { text = "You four share one fire.", next = "fire" },
+        { text = "You sized me up the moment I walked in.", next = "sized" },
+        { text = "What would you put on a cat's shoulders?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does Nadyia buy from outsiders too?", next = "xskin", when = { profession = "Skinning" } },
+        { text = "Elune light your path, Sinda.", next = "END" },
+      },
+    },
+    hides = {
+      lines = {
+        { id = "hides_default", text = "From Teldrassil, every one of them. Radnaal Maneweaver and his students skin the nightsabers and the striders on the road to Darnassus, and Nadyia tans what they bring. I take the hides that are too good to be practised on." },
+      },
+      choices = {
+        { text = "Are there hides you refuse?", next = "hides2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides2 = {
+      lines = {
+        { id = "hides2_default", text = "I refuse anything taken from the timberlings or from beasts near the furbolg village. The hide may look sound, but it goes soft and sour within a season, and I will not sell a jerkin that rots on its owner. Whatever ails the Gnarlpine is in the animals around them too." },
+      },
+      choices = {
+        { text = "A careful seller is worth the extra silver.", next = "BACK", reply = "It costs me trade, and I have never once regretted it.", fx = { align = { order = 1 } } },
+        { text = "Sour leather still sells, to someone.", next = "BACK", reply = "It does, and then it fails them in the forest. I would rather keep my name.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fire = {
+      lines = {
+        { id = "fire_default", text = "We do, in the cold months. Meri talks for all of us, Jeena hums while she strings, and Shalomon says perhaps six words between dusk and dawn. I find it restful, for nobody there expects me to be clever." },
+      },
+      choices = {
+        { text = "What do the six words tend to be?", next = "fire2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fire2 = {
+      lines = {
+        { id = "fire2_default", text = "Usually they are about the edge on a blade, and once in a long while about Hyjal. He was there, and Meri knows better than to ask him. When he does speak of it, the rest of us put down our work and listen." },
+      },
+      choices = {
+        { text = "Some silences have been earned. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    sized = {
+      lines = {
+        { id = "sized_default", text = "I did, and I do it to everyone, so do not take it as a discourtesy. A seam tells me where its wearer has been and how hard they were pressed there. Yours tell me you have been running more than you have been resting." },
+      },
+      choices = {
+        { text = "You are not wrong.", next = "sized2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sized2 = {
+      lines = {
+        { id = "sized2_default", text = "Then let me ask you something in return. When it wears through, will you mend what you have, or will you buy new?" },
+      },
+      choices = {
+        { text = "I mend. A thing I've repaired is a thing I trust.", next = "BACK", reply = "That is how I was taught, and it is how I would teach you, if you ever had a season to spare.", fx = { trait = { patient = 1 }, affinity = 1 } },
+        { text = "I buy new. The road doesn't wait on stitching.", next = "BACK", reply = "That is honest, and it keeps me in trade. Buy well, then, so that you buy seldom." },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "xdruid_default", text = "Very little, and that is the art of it. A druid's harness must lie flat on two legs and on four, so I cut it loose at the shoulder and leave no buckle where a foreleg bends. Kal sends his students to me once they have torn their first one in the change." },
+      },
+      choices = {
+        { text = "Loose at the shoulder. I will remember. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xskin = {
+      lines = {
+        { id = "xskin_default", text = "She buys from anyone whose cuts are straight, and she is kinder about crooked ones than I am. Take your hides to her before they dry, and tell her where each beast fell, for she will ask." },
+      },
+      choices = {
+        { text = "I'll take them today. Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I cut and sell leather armor in Dolanaar. I have done so since the village was planted." } },
+    furbolgs = { { id = "tp_furbolgs", text = "I will not buy a hide taken near the Gnarlpine. Something has soured the beasts there, as it soured them." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The leather tells me the tree is not well. Hides from the eastern boughs have not cured properly for some years." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels wear mail, and Meri fits them. They come to me for the straps, which matter more than they admit." } },
+    advice = { { id = "tp_advice", text = "Oil your leather before the rain, never after it. Most of what I mend was ruined by kindness that came too late." } },
+    _none = { { id = "tp_none", text = "That is beyond my bench. Ask Innkeeper Keldamyr, for he hears everything that passes through Dolanaar." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brannol Eaglemoon
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brannol", id = TODO_NPC("Brannol Eaglemoon"), name = "Brannol Eaglemoon", title = "Clothier",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "dolanaar" }, temper = { "gentle", "wry" }, values = { "craft", "community" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "Brannol Eaglemoon sells cloth and robes in Dolanaar with a gentle, wry patience. He seems to know every novice in the village by the state of their hems.",
+    third = "{name} met Brannol Eaglemoon, the clothier of Dolanaar.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Welcome, friend. I have robes, shirts and good plain cloth, and nothing here will weigh on you the way mail does." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you have returned, and with a new tear at the cuff, I see. The forest has been at you again." },
+    { id = "g_caster", when = { class = { "PRIEST", "MAGE", "WARLOCK" } }, text = "A robe-wearer, at last. I had begun to think all the world went about in leather." },
+  },
+
+  notice = {
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "You carry yourself like one of Laurna Morninglight's pupils, though your hem says you kneel on rougher ground than hers do. I have a heavier weave that forgives the knees." },
+    { id = "n_human", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
+      text = "You are not of the forest, and yet you came to a night elf for your cloth. I am flattered, and I shall try to remember that your people prefer sleeves." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Brannol Eaglemoon, and I clothe Dolanaar, or as much of it as will stand still to be measured. Laurna's novices come to me for their robes, and half the village comes for mending it is too proud to do at home." },
+      },
+      again = {
+        { id = "h_again", text = "What more may I tell you?" },
+        { id = "h_again2", text = "Ask freely. Cloth is patient, and so am I." },
+        { id = "h_again3", text = "Yes, friend?" },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Who do you sew for, mostly?", next = "sew" },
+        { text = "Your cloth is paler than Darnassus cloth.", next = "pale" },
+        { text = "You must hear a great deal, measuring people.", next = "hear" },
+        { text = "What weave suits a priestess on the road?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Is it true the looms were sung to, once?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Walk in peace, Brannol.", next = "END" },
+      },
+    },
+    sew = {
+      lines = {
+        { id = "sew_default", text = "The novices, first of all, because Laurna Morninglight will not have them at prayer in travelling clothes. After them come the young druids, who tear everything they own learning to change shape, and who are always surprised by it." },
+      },
+      choices = {
+        { text = "Do the druids pay for all that tearing?", next = "sew2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sew2 = {
+      lines = {
+        { id = "sew2_default", text = "Kal pays, and sighs, and tells me that I am part of their instruction. He believes a student who must walk through Dolanaar to my door in a ruined shirt learns care faster than one who is lectured. I think he is right, though it is hard on the shirts." },
+      },
+      choices = {
+        { text = "Shame teaches quickly. Kal knows his work.", next = "BACK", reply = "So he says, and the tears do grow smaller each season.", fx = { align = { order = 1 } } },
+        { text = "That's a hard lesson to hand a child.", next = "BACK", reply = "It is, and so I mend them quickly and say nothing while I do it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pale = {
+      lines = {
+        { id = "pale_default", text = "You have a good eye. I bleach mine in moonlight on the lake shore at Al'Ameth, as it was done before there was a Darnassus to buy from. It takes three nights longer, and it gives a grey that the city dyers cannot quite match." },
+      },
+      choices = {
+        { text = "Is the lake still safe for that?", next = "pale2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pale2 = {
+      lines = {
+        { id = "pale2_default", text = "Less than it was. Denalan keeps his camp there now, studying the sick plants, and he has asked me to stay off the eastern bank where the timberlings walk. I spread my cloth nearer the road, and I bring it in before the mist comes down." },
+      },
+      choices = {
+        { text = "A wise caution. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
+      },
+    },
+    hear = {
+      lines = {
+        { id = "hear_default", text = "More than I repeat. A person being measured must stand still and has nothing to do but talk, and so I know who is homesick, who is frightened of the furbolgs, and who has been sneaking toward Ban'ethil to look at them." },
+      },
+      choices = {
+        { text = "And what do you do with it?", next = "hear2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hear2 = {
+      lines = {
+        { id = "hear2_default", text = "Very little, and that is why they keep telling me. If a child is truly in danger, I mention to Sentinel Kyra Starsong that a certain path might want watching, and I name no names. What would you do with such knowledge, I wonder?" },
+      },
+      choices = {
+        { text = "Keep it. A confidence is a debt.", next = "BACK", reply = "Then you may be measured in my shop whenever you like.", fx = { align = { honor = 1 } } },
+        { text = "Use it. Secrets are worth more than cloth.", next = "BACK", reply = "Perhaps they are, in other shops. In mine they are only kept.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      lines = {
+        { id = "xpriest_default", text = "A close wool for the body and linen at the wrists, where the hands must be free for blessing. Do not be tempted by silk until you have stopped sleeping on the ground. Shanda's pupils from Shadowglen all learn that in their first rain." },
+      },
+      choices = {
+        { text = "Wool and linen. Thank you. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xnelf_default", text = "My grandmother swore to it. She said the old weavers of Suramar sang the warp straight, and that a robe so made never frayed. I hum at my own loom, in case she was right, and my robes fray just as everyone's do." },
+      },
+      choices = {
+        { text = "Keep humming. It can't hurt. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I am the clothier of Dolanaar. I bleach my own cloth by the lake, and I mend what the forest tears." } },
+    furbolgs = { { id = "tp_furbolgs", text = "The children creep toward Ban'ethil to stare at the Gnarlpine. I wish they feared them a little more than they do." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Denalan says the plants by the lake are sick. I only know that my cloth dries slower there than it used to." } },
+    elune = { { id = "tp_elune", text = "I bleach by Her light, and so I count every robe I sell as partly Her work." } },
+    advice = { { id = "tp_advice", text = "Buy your robe a hand too long. The forest will shorten it for you soon enough." } },
+    _none = { { id = "tp_none", text = "I could not say, friend. Ask Athridas Bearmantle, who knows the tree better than any of us." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Andiss
+---------------------------------------------------------------------------
+P:NPC {
+  key = "andiss", id = TODO_NPC("Andiss"), name = "Andiss", title = "Armorer & Shieldcrafter",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "shadowglen" }, temper = { "steady", "plainspoken" }, values = { "protection", "duty" },
+  notices = { "class", "level" },
+
+  impression = {
+    first = "Andiss fits the young of Shadowglen for their first mail and shields. He is steady and plain, and he will not let anyone leave his bench with a strap done up wrongly.",
+    third = "{name} met Andiss, the armorer and shieldcrafter of Aldrassil.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Well met. Mail, leather and shields, all sized for those who are only beginning. Hold out your arm and let me see the length of it." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back whole, and so the armor did its work. Let me look at the dents and learn what hit you." },
+    { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior. Then Alyissia has sent you, and she will have told you a shield is half of fighting. She is right." },
+  },
+
+  notice = {
+    { id = "n_war", cat = "class", when = { class = "WARRIOR" },
+      text = "You carry your shield a hand too low. Every one of Alyissia's students does it in the first month, and every one of them has a bruise on the collarbone to show for it." },
+    { id = "n_young", cat = "level", when = { maxLevel = 8 },
+      text = "You have not been out of the glen long, for there is still no scratch on you. Let us keep it so for as long as we may." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Andiss, and I make the first armor that most children of Shadowglen ever wear. Khardan Proudblade puts a blade in their hands and Keina a bow, but it is my work that brings them home again to complain about the weight." },
+      },
+      again = {
+        { id = "h_again", text = "What else do you need?" },
+        { id = "h_again2", text = "Speak, and I will listen while I rivet." },
+        { id = "h_again3", text = "Yes? I have a moment between shields." },
+      },
+      choices = {
+        { text = "Let me see your armor.", next = "BUSINESS" },
+        { text = "What do the young ones break first?", next = "breaks" },
+        { text = "Night elf mail looks lighter than the dwarves' work.", next = "light" },
+        { text = "Have you much call for shields in Shadowglen?", next = "call" },
+        { text = "What should I check before every fight?", next = "xwar", when = { class = { "WARRIOR", "HUNTER" } } },
+        { text = "I've heard Darnassus has its own armorers.", next = "city" },
+        { text = "Elune guard you, Andiss.", next = "END" },
+      },
+    },
+    breaks = {
+      lines = {
+        { id = "breaks_default", text = "The straps, always. They pull a buckle tight in fear and never loosen it again, and by the third day the leather has torn at the hole. I replace more straps than I sell shields, and I do not grudge it." },
+      },
+      choices = {
+        { text = "What breaks after the straps?", next = "breaks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    breaks2 = {
+      lines = {
+        { id = "breaks2_default", text = "Their confidence, the first time a webwood spider comes over the shield's rim instead of politely striking the front of it. I cannot rivet that back on. I can only tell them that Gilshalan Windwalker still looks over his shoulder in the cave, and he has hunted those spiders for longer than they have been alive." },
+      },
+      choices = {
+        { text = "Fear that keeps you careful is worth keeping.", next = "BACK", reply = "That is what I tell them, in more words and with less grace.", fx = { align = { order = 1 } } },
+        { text = "Better they learn to laugh at the spiders.", next = "BACK", reply = "The ones who laugh come back with the worst bites. But they do come back.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light = {
+      lines = {
+        { id = "light_default", text = "It is lighter, and it is meant to be. A Sentinel must run a league through the boughs and still draw a bow at the end of it. Dwarven plate would stop more, I grant you, but its wearer would still be on the road when the fight was over." },
+      },
+      choices = {
+        { text = "Have you handled dwarven work yourself?", next = "light2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light2 = {
+      lines = {
+        { id = "light2_default", text = "Since the Alliance came to us, yes. A smith of Ironforge passed through and left me a pauldron to study, and I have had it on my bench for two years. I admire it very much, and I would not wear it up a tree for all the silver in his mountain." },
+      },
+      choices = {
+        { text = "Each folk armors for its own ground. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    call = {
+      lines = {
+        { id = "call_default", text = "More than I should like. The grells in the north of the glen throw stones, and a thrown stone is the first thing a shield teaches you about. Then there are the nightsabers, which teach the second thing, that a shield is no use if you do not turn with it." },
+      },
+      choices = {
+        { text = "And the third thing?", next = "call2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    call2 = {
+      lines = {
+        { id = "call2_default", text = "The third is that it is heavy, and that you will carry it all the same. Conservator Ilthalaine sends the young out to thin the beasts, and I see them go by with their shields slung on their backs like cradles. They come home carrying them in front, and that is how I know they have learned." },
+      },
+      choices = {
+        { text = "A good way to mark it. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xwar = {
+      lines = {
+        { id = "xwar_default", text = "Check the grip, the arm strap and the rim, in that order, and do it with your eyes shut so that your hands learn it. A cracked rim will turn a blade the first time and guide it into you the second. I have told Alyissia so until she is tired of hearing it." },
+      },
+      choices = {
+        { text = "Grip, strap, rim. I'll learn it blind. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    city = {
+      lines = {
+        { id = "city_default", text = "It has, and fine ones. Cylania keeps the armorer's stall there, and her mail is prettier than mine. I make what a beginner can afford to dent, and when they have outgrown me I send them up the road to her with a clear conscience." },
+      },
+      choices = {
+        { text = "No rivalry, then? Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I am the armorer and shieldcrafter of Aldrassil. I make what the young wear on their first day out." } },
+    sentinels = { { id = "tp_sentinels", text = "Half the Sentinels on this tree wore my mail before they wore the Temple's. I look for my rivets when they pass." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The grells grow bolder each season, and I sell more shields because of it. I take no pleasure in the trade." } },
+    advice = { { id = "tp_advice", text = "Loosen your buckles when the fighting is done. Leather that is never rested tears when you need it most." } },
+    _none = { { id = "tp_none", text = "I know armor and little else. Tenaron Stormgrip, up in the tree, is the one to ask." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Keina
+---------------------------------------------------------------------------
+P:NPC {
+  key = "keina", id = TODO_NPC("Keina"), name = "Keina", title = "Bowyer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
+  communities = { "shadowglen" }, temper = { "bright", "teasing" }, values = { "skill", "patience" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "Keina strings bows by the door in Aldrassil and teases every young hunter who buys one. Under the teasing she is watching how they stand, and she corrects it before they leave.",
+    third = "{name} met Keina, the bowyer of Aldrassil.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day to you! Bows, arrows and quivers, and a word of advice with each, whether you want it or not." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Tell me you still have all your arrows, and I shall know you are lying." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Ayanna sent you down, did she? Then stand over there and let me see your draw before I sell you anything." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Your string has a fray two fingers below the nock. It will hold for perhaps ten more shots, and it will choose the worst of them to part." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! I have heard that your people shoot with powder and thunder. It must be difficult to creep up on anything." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Keina, and I make the bows for Shadowglen. Ayanna Everstride teaches the young to shoot them, Khardan sells them a knife for when they miss, and I stand here by the door and count how many arrows come home." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I can talk and string at once." },
+        { id = "h_again2", text = "Go on, ask. The glue wants a moment to set anyway." },
+        { id = "h_again3", text = "Something more?" },
+      },
+      choices = {
+        { text = "Show me your bows.", next = "BUSINESS" },
+        { text = "How many arrows do come home?", next = "home" },
+        { text = "You watch how every buyer stands.", next = "stance" },
+        { text = "What wood do you use?", next = "wood" },
+        { text = "What would you make of a rifle?", next = "xgun", when = { race = { "Dwarf", "Gnome", "Human" } } },
+        { text = "My string keeps fraying at the same place.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Shoot straight, Keina.", next = "END" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "home_default", text = "About one in three, in a student's first week. The rest are in the grass, in the pool, or in trees that have done nothing to deserve it. I have asked Conservator Ilthalaine whether the young might be set to gathering them, and he says the forest will give them back in its own time." },
+      },
+      choices = {
+        { text = "Does it give them back?", next = "home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home2 = {
+      lines = {
+        { id = "home2_default", text = "It does, in a manner of speaking. The grells collect them. I have seen one of the little brutes with four of my arrows stuck in its belt like trophies, and every one of them had missed it. I was not sure whether to be insulted for myself or for the student." },
+      },
+      choices = {
+        { text = "For the student. The arrows flew true enough.", next = "BACK", reply = "You are kind, and you are wrong, but I shall take it.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stance = {
+      lines = {
+        { id = "stance_default", text = "Of course I do. A bow is cut to a body, and a body that stands badly will blame the bow. So I watch the feet first, and if the feet are wrong I say so, and nobody thanks me until about a month later." },
+      },
+      choices = {
+        { text = "Do you sell to the ones who won't listen?", next = "stance2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stance2 = {
+      lines = {
+        { id = "stance2_default", text = "I do, though I have thought about it. A bow in clumsy hands is still better than no bow, out among the nightsabers. But I sell them the plain one, and I keep the good yew for someone who will hear me." },
+      },
+      choices = {
+        { text = "Right. Fine work should go to careful hands.", next = "BACK", reply = "So I tell myself, each time I put the yew back on the hook.", fx = { align = { order = 1 } } },
+        { text = "Their coin is as good as anyone's. Sell them the yew.", next = "BACK", reply = "Their coin is, yes. It is their elbows I object to.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wood = {
+      lines = {
+        { id = "wood_default", text = "Fallen wood only, from Teldrassil itself. I take no living bough, for the tree is young and Melithar Staghelm would have a great deal to say about it. The grain is quick and springy, and a little wild, as you would expect of wood that grew so fast." },
+      },
+      choices = {
+        { text = "Wild how?", next = "wood2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wood2 = {
+      lines = {
+        { id = "wood2_default", text = "It moves with the weather more than old Ashenvale wood ever did. A bow I cut in the dry will pull a finger heavier in the mist. I tell my buyers to learn their bow again each morning, and the good ones do. Dazalar in Dolanaar says the same, and he is harder to please than I am." },
+      },
+      choices = {
+        { text = "A bow you must greet each morning. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
+      },
+    },
+    xgun = {
+      lines = {
+        { id = "xgun_default", text = "I should want to stand a long way behind it. One of your kind let me hold his, and it was heavy and cold and smelled like a forge. He told me it never frays. I told him it never sings either, and we parted friends." },
+      },
+      choices = {
+        { text = "You should hear one echo off a mountain. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhunter_default", text = "Then your nock has a burr in it, and no string will last until it is filed smooth. Give it here. It is the work of a moment, and I would rather do it than hear that one of Ayanna's pupils was let down by a bow." },
+      },
+      choices = {
+        { text = "Thank you, Keina. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I am the bowyer of Aldrassil. Every hunter in Shadowglen takes a first bow from my hands." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The wood of this tree is quick and restless. I make good bows of it, and I do not pretend it is Ashenvale yew." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels string their own bows and trust nobody else to do it. I respect that, and I sell them the staves." } },
+    advice = { { id = "tp_advice", text = "Unstring your bow at night. A bow kept bent forgets how to spring." } },
+    _none = { { id = "tp_none", text = "I have not the faintest notion. Ask Tenaron Stormgrip, and climb carefully on your way up." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Lyrai
+---------------------------------------------------------------------------
+P:NPC {
+  key = "lyrai", id = TODO_NPC("Lyrai"), name = "Lyrai", title = "General Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
+  communities = { "shadowglen" }, temper = { "brisk", "kindly" }, values = { "preparedness", "community" },
+  notices = { "level", "race" },
+
+  impression = {
+    first = "Lyrai sells general supplies to the young of Shadowglen and checks their packs as if they were her own children's. She is brisk about it, and plainly fond of them.",
+    third = "{name} met Lyrai, who sells general supplies in Aldrassil.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day. Water, bread, a bedroll and a bag to carry them in, which is everything you need and more than most remember." },
+    { id = "g_back", when = { metBefore = true }, text = "Back already? Open your pack, then, and show me what you ran out of." },
+    { id = "g_young", when = { maxLevel = 8 }, text = "Your first day out of the glen, is it? Then we shall go slowly, and you will not leave without a waterskin." },
+  },
+
+  notice = {
+    { id = "n_young", cat = "level", when = { maxLevel = 8 },
+      text = "Your pack is nearly empty and you are smiling, so I gather nobody has told you yet how far it is to Dolanaar. I shall tell you now, and then I shall sell you bread." },
+    { id = "n_outl", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
+      text = "An outlander in Shadowglen is a rare thing. Mind the pool, for it is deeper than it looks, and mind the grells, for they are smaller than they sound." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Lyrai. I keep the stores for Aldrassil, and I see every one of our young before they go out through the gate. Dellylah feeds them and Janna Brightmoon clothes them, and I make sure they are carrying something to put it all in." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I find for you?" },
+        { id = "h_again2", text = "Yes, dear? Ask." },
+        { id = "h_again3", text = "Go on, I am only counting candles." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "What do the young forget most?", next = "forget" },
+        { text = "You see everyone before they leave.", next = "leave" },
+        { text = "Where do your stores come from?", next = "stores" },
+        { text = "What should an outlander carry here?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "I remember buying my first pack from you.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Thank you, Lyrai. Farewell.", next = "END" },
+      },
+    },
+    forget = {
+      lines = {
+        { id = "forget_default", text = "Water, though they are setting out from beside a pool. After that it is anything to make a fire with, because they have been told the forest dislikes fire and have concluded they must never be warm. I tell them a small careful fire offends nobody." },
+      },
+      choices = {
+        { text = "Does the forest truly mind?", next = "forget2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forget2 = {
+      lines = {
+        { id = "forget2_default", text = "Melithar Staghelm minds, and he speaks for a good deal of it. He and I have settled on dead wood, a ring of stones, and no flame left burning when you sleep. He inspects my flint and tinder each spring, as if they had grown more dangerous over the winter." },
+      },
+      choices = {
+        { text = "He's right to be strict. Fire forgives nothing.", next = "BACK", reply = "So he says, and I let him inspect. It costs me an hour and buys a year of peace.", fx = { align = { order = 1 } } },
+        { text = "A cold child is worse than a singed branch.", next = "BACK", reply = "That is what I told him, a little more politely, and it is why they are allowed any fire at all.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave = {
+      lines = {
+        { id = "leave_default", text = "I do, and I remember each of them. They come to me bold and loud, and they go out through the gate a little quieter once the pack is on their shoulders and has some weight in it. I like them better quiet, for the quiet ones listen for the nightsabers." },
+      },
+      choices = {
+        { text = "Do they all come back?", next = "leave2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave2 = {
+      lines = {
+        { id = "leave2_default", text = "Nearly all. Iverron went north after the spiders not long ago and was brought home poisoned, and Dirania Silvershine sat with him for days. He lived, and I have sold a great many more antidotes since, because fear is a better merchant than I am." },
+      },
+      choices = {
+        { text = "Fear has its uses. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    stores = {
+      lines = {
+        { id = "stores_default", text = "The bread and fruit are Dellylah's, and the bags are stitched in Dolanaar. The candles, the flint and the cord come up from Rut'theran by the portal, through Darnassus, and down the road by cart. Aldia in Dolanaar and I split each load, and we argue over the candles every time." },
+      },
+      choices = {
+        { text = "Who wins?", next = "stores2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stores2 = {
+      lines = {
+        { id = "stores2_default", text = "She does, because Dolanaar has an inn and an inn eats candles. But I have the young, and the young lose everything, and so I get the larger share of the cord. It is a fair peace, and it has lasted longer than some treaties I could name." },
+      },
+      choices = {
+        { text = "Longer than most, I'd wager. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xout = {
+      lines = {
+        { id = "xout_default", text = "Carry more water than you think you need, for you are not used to climbing, and all of Teldrassil is a climb. Take a light too, since your eyes are not ours and the boughs make it dusk by midday. I shall not think the less of you for a lantern." },
+      },
+      choices = {
+        { text = "A lantern it is. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xnelf_default", text = "Did you? Then you will remember that I made you carry it twice around the trunk before I let you pay. I do that still. A pack that rubs in the first hundred paces will have you bleeding by Dolanaar." },
+      },
+      choices = {
+        { text = "Twice around. I cursed you the whole way. Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell general supplies in Aldrassil. I see every one of our young before they pass the gate." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The grells come closer to the path each year. I sell more lanterns now than I ever did." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "Melithar Staghelm inspects my flint each spring. The druids are careful folk, and I should not wish them otherwise." } },
+    advice = { { id = "tp_advice", text = "Pack your water first and your pride last. Only one of them will be any use by nightfall." } },
+    _none = { { id = "tp_none", text = "I could not tell you, dear. Go up and ask Tenaron Stormgrip, who has the long view." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Freja Nightwing
+---------------------------------------------------------------------------
+P:NPC {
+  key = "freja", id = TODO_NPC("Freja Nightwing"), name = "Freja Nightwing", title = "Leather Armor Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
+  communities = { "shadowglen" }, temper = { "dry", "watchful" }, values = { "craft", "independence" },
+  notices = { "class", "craft" },
+
+  impression = {
+    first = "Freja Nightwing sells leather armor in Aldrassil with a dry tongue and a hunter's eye. She says she would rather be out among the trees, and I believed her.",
+    third = "{name} met Freja Nightwing, who sells leather armor in Aldrassil.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Well met. I have leather for those who would rather not be heard coming. Have a look and tell me what you hunt." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive, I see, and still in my leather. I shall take the credit for one of those." },
+    { id = "g_rogue", when = { class = { "ROGUE", "HUNTER" } }, text = "You walk softly already. Good, for I do not much enjoy selling quiet leather to noisy feet." },
+  },
+
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You stepped around the loose board at my door without looking down. Frahun Shadewhisper teaches that, and very few of his pupils learn it so soon." },
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You have been stitching with waxed thread, for I can smell it on you. Good. Unwaxed thread is the reason half my mending exists." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Freja Nightwing. I sell jerkins, leggings and gloves to the young of Shadowglen, most of whom would sooner have mail because it shines. I tell them that the nightsaber has never worn mail and has never needed to." },
+      },
+      again = {
+        { id = "h_again", text = "What else?" },
+        { id = "h_again2", text = "Ask it. I have nowhere to be until dusk." },
+        { id = "h_again3", text = "Go on, then." },
+      },
+      choices = {
+        { text = "Show me your leathers.", next = "BUSINESS" },
+        { text = "You'd rather be hunting than selling.", next = "rather" },
+        { text = "Why leather over mail?", next = "why" },
+        { text = "A Nightwing teaches the druids in Darnassus.", next = "kin" },
+        { text = "What do you make of Frahun's pupils?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Who tans for you?", next = "xlw", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "Good hunting, Freja.", next = "END" },
+      },
+    },
+    rather = {
+      lines = {
+        { id = "rather_default", text = "Is it so plain? I hunted these woods before Aldrassil had a door to stand beside. But somebody must dress the children, and I had the hides and the knack, and so here I stand for most of the day." },
+      },
+      choices = {
+        { text = "And after dusk?", next = "rather2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rather2 = {
+      lines = {
+        { id = "rather2_default", text = "After dusk I go north toward the Shadowthread Cave and see what the webwood have been doing. Gilshalan Windwalker studies them, and I only count them. There are more each season, and they hang their lines lower over the path than they once did." },
+      },
+      choices = {
+        { text = "Someone should thin them. I may see to it.", next = "BACK", reply = "Then speak to Gilshalan first, and do not go in alone. I mean that as more than a courtesy.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_default", text = "Because the forest hears mail. Every ring of it rubs its neighbour, and a strider can hear that at a hundred paces. Leather keeps its own counsel. You give up something when the blow lands, I admit, but far fewer blows find you." },
+      },
+      choices = {
+        { text = "Andiss would argue the point.", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why2 = {
+      lines = {
+        { id = "why2_default", text = "He does argue it, every evening, and he is not a fool. He says a young fighter will be hit whatever they wear, and had better be wearing something that stops it. I say they had better learn not to be hit. Which of us would you send a child to?" },
+      },
+      choices = {
+        { text = "To you. Not being struck beats being armored.", next = "BACK", reply = "I thought you had the look of it. Do not tell Andiss, for he sulks.", fx = { align = { order = -1 } } },
+        { text = "To Andiss. Skill fails; mail doesn't.", next = "BACK", reply = "A sober answer, and he will be glad of it. I shall sell you gloves all the same.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = {
+        { id = "kin_default", text = "Fylerian. Yes, I know of her, and she knows of me, and we have managed for a very long time on that. The Nightwings are an old family with many branches, and not all of them went to the druids or the Temple. Some of us only wanted to walk in the woods." },
+      },
+      choices = {
+        { text = "No quarrel between you, then?", next = "kin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin2 = {
+      lines = {
+        { id = "kin2_default", text = "None at all. She serves the Enclave, and it is not easy service these days, from what comes down the road. I should not trade my stall for her place beside the Arch Druid, though hers has the better view." },
+      },
+      choices = {
+        { text = "Nor would I, from what I hear. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xrogue_default", text = "They are quick, and they are too pleased with themselves, as the quick always are. Frahun cures them of it by sending them to pick the pockets of people who are expecting them. I sell them dark gloves afterward, and I never ask how it went." },
+      },
+      choices = {
+        { text = "I won't tell you how it went. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xlw = {
+      lines = {
+        { id = "xlw_default", text = "I tan my own, in a pit behind the trunk, and I am told it can be smelled from the pool. For the finer hides I send to Nadyia Maneweaver, on the road to Darnassus. If you have skins to sell, take them to her, for she pays better than I do." },
+      },
+      choices = {
+        { text = "Nadyia Maneweaver. I'll remember. Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell leather armor in Aldrassil. Before that I hunted these boughs, and I still do, after dusk." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The webwood spiders are spinning lower over the paths. I count them, and the count does not please me." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "I have kin in the Enclave. I am content to leave the Circle's business to her." } },
+    advice = { { id = "tp_advice", text = "Walk as if the forest were listening, because it is. Leather helps, but only feet can do the rest." } },
+    _none = { { id = "tp_none", text = "That is no business of mine. Ask Conservator Ilthalaine, who makes everything his business." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Orenthil Whisperwind
+---------------------------------------------------------------------------
+P:NPC {
+  key = "orenthil", id = TODO_NPC("Orenthil Whisperwind"), name = "Orenthil Whisperwind",
+  bible = "bibles/more_folk.md", role = "citizen", tier = "service", gender = "male",
+  communities = { "shadowglen" }, temper = { "courteous", "bookish" }, values = { "hospitality", "learning" },
+  notices = { "race", "level" },
+
+  impression = {
+    first = "Orenthil Whisperwind greets newcomers under the boughs of Aldrassil with a scholar's courtesy. He seems to have appointed himself to the task, and nobody has thought to stop him.",
+    third = "{name} met Orenthil Whisperwind, who welcomes newcomers to Shadowglen.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Ishnu-alah, and welcome. I am told that somebody ought to say so to each new face, and I have taken the duty upon myself." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, we have met. You are welcome again, and that is a shorter speech, you will be glad to hear." },
+    { id = "g_young", when = { maxLevel = 8 }, text = "A new face in Shadowglen! Be welcome under the boughs. Has anyone yet shown you where the pool is, and where the grells are not?" },
+  },
+
+  notice = {
+    { id = "n_outl", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
+      text = "A guest from the eastern kingdoms, here in our nursery glen. You are the reason I began this work, for I thought it shameful that the Alliance should arrive and find nobody at the door." },
+    { id = "n_young", cat = "level", when = { maxLevel = 8 },
+      text = "You have the look of someone who woke only this morning with the whole world still ahead. I envy you a little, and I shall try not to lecture." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Orenthil Whisperwind. I hold no post in Aldrassil, as Conservator Ilthalaine will hasten to tell you. I simply stand where the path comes in, and I see that nobody begins their life on Teldrassil without a kind word and directions to the bread." },
+      },
+      again = {
+        { id = "h_again", text = "What more would you hear?" },
+        { id = "h_again2", text = "Ask, please. I have all the day and half the night." },
+        { id = "h_again3", text = "Yes, friend?" },
+      },
+      choices = {
+        { text = "Whisperwind. Are you kin to the High Priestess?", next = "name" },
+        { text = "Tell me about this glen.", next = "glen" },
+        { text = "You welcome everyone yourself.", next = "welcome" },
+        { text = "What should I know about Aldrassil's people?", next = "people" },
+        { text = "What do you make of us outlanders?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Were you here when the tree was planted?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Thank you for the welcome, Orenthil.", next = "END" },
+      },
+    },
+    name = {
+      lines = {
+        { id = "name_default", text = "Everyone asks, and I wish I had a grander answer. It is an old name and a wide one, and if Tyrande Whisperwind and I share a great-grandmother, neither of us has ever found her. I have never spoken with the High Priestess, though I bowed to her once, from some way off." },
+      },
+      choices = {
+        { text = "A famous name must open doors.", next = "name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name2 = {
+      lines = {
+        { id = "name2_default", text = "It opens a few, and then it closes them again when people learn I am only myself. I decided long ago to be neither proud of it nor sorry for it. What do you think a name is worth?" },
+      },
+      choices = {
+        { text = "Nothing. Deeds are the only name worth having.", next = "BACK", reply = "That is very nearly what I concluded, though it took me some centuries longer.", fx = { align = { honor = 1 } } },
+        { text = "A great deal, if you use it well.", next = "BACK", reply = "You are more practical than I am. I never had the nerve to try.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glen = {
+      lines = {
+        { id = "glen_default", text = "Shadowglen is where our young are raised now, in the shade of Aldrassil. The pool lies to the north, with the grells beyond it, and the Shadowthread Cave past them, which you should leave alone until Gilshalan Windwalker says otherwise. The road south leads out to Dolanaar." },
+      },
+      choices = {
+        { text = "Why raise children so near to grells and spiders?", next = "glen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glen2 = {
+      lines = {
+        { id = "glen2_default", text = "Because there is nowhere on this tree that is quite free of them, and the Conservator holds that a little danger, watched over, makes a better teacher than none. I was raised more softly myself, long ago in Ashenvale, and I cannot say it made me braver." },
+      },
+      choices = {
+        { text = "He may be right, then. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    welcome = {
+      lines = {
+        { id = "welcome_default", text = "I do. When the kaldorei joined the Alliance, I thought of how it would be to cross the sea and climb into a stranger's tree and be met by nothing but stares. We are not a warm people at first sight, and I thought one of us ought to try." },
+      },
+      choices = {
+        { text = "Does anyone thank you for it?", next = "welcome2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    welcome2 = {
+      lines = {
+        { id = "welcome2_default", text = "The dwarves do, loudly, and they try to give me ale. The young of our own people think me a harmless oddity, and I daresay they are right. I do not do it for thanks. I do it because the first hour in a strange place colours every hour after." },
+      },
+      choices = {
+        { text = "It does. Mine was kinder for meeting you.", next = "BACK", reply = "Then I have done today's work, and done it well. Thank you.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    people = {
+      lines = {
+        { id = "people_default", text = "Tenaron Stormgrip sits at the top of the tree and misses nothing below it. Dirania Silvershine tends the sick, Melithar Staghelm tends the beasts, and the trainers stand about the trunk, each convinced their own art is the one that matters. Be courteous to Dellylah, who has the food." },
+      },
+      choices = {
+        { text = "Sound advice, that last. Something else.", next = "BACK" },
+      },
+    },
+    xout = {
+      lines = {
+        { id = "xout_default", text = "I think you are loud, hurried and brave, and that we have been in need of all three. My people remember ten thousand years and it has made us slow to begin anything. You begin things before breakfast. I find it alarming and rather wonderful." },
+      },
+      choices = {
+        { text = "We haven't your years. We have to hurry.", next = "BACK", reply = "Just so, and I try to remember it when one of you is impatient with me.", fx = { affinity = 1 } },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xnelf_default", text = "I was, in a crowd, a long way back, and I could not see a thing. I remember the druids singing and somebody's child crying, and afterward a seedling no taller than my knee. I have never felt so hopeful about anything so small." },
+      },
+      choices = {
+        { text = "And now we live in its branches. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I welcome newcomers to Shadowglen. Nobody asked me to, and nobody has asked me to stop." } },
+    tyrande = { { id = "tp_tyrande", text = "I share the High Priestess's name and nothing else that I can prove. I have bowed to her once, at a distance." } },
+    teldrassil = { { id = "tp_teldrassil", text = "I saw this tree when it was a seedling at my knee. I try to remember that when people speak ill of it." } },
+    advice = { { id = "tp_advice", text = "Learn where the bread is and where the grells are. Everything else about Shadowglen can wait until tomorrow." } },
+    _none = { { id = "tp_none", text = "I am afraid I do not know. Tenaron Stormgrip will, if you do not mind the climb." } },
+  },
+}

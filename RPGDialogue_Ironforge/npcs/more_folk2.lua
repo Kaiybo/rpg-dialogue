@@ -1,6 +1,7 @@
 -- More Dun Morogh folk: Beldin Steelgrill and Milli Featherwhistle at Steelgrill's Depot, Tharek Blackstone and
 -- Granis Swiftaxe in Kharanos, and the Anvilmar trainers Thran Khorman, Thorgas Grimson, Bromos Grummner and Solm Hargrin.
 -- Also (added later): Lomac Gearstrip, Hands Springsprocket, Tannok Frosthammer, Mountaineer Barleybrew and seven Ironforge vendors.
+-- Also (second pass): the Steelfury, Goldfury and Timberline Arms counters, Longberrys, supply vendors, trainers.
 -- Voice: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.ironforge")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST

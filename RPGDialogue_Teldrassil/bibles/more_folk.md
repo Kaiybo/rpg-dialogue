@@ -57,3 +57,20 @@ Later fates (the Burning of Teldrassil), Cataclysm-era Teldrassil changes, anyth
 
 ### Authored, not canon
 Janna's shelf of sleeves; Khardan's three refused sales; Dellylah's hidden moonberry; Narret and Aldia's shared cart; the Nyoma/Zarrin soup quarrel; Alanna hearing the harpies' charms; Nhemai's tale of Amara tending a furbolg. Deepened entries (Danlyia, Keldas, Meri, Porthannius, Shalomon): neighbours and work; Shalomon at Hyjal is one line, never a tale.
+
+## Second sweep (vendors and Orenthil)
+
+### Sources
+- warcraft.wiki.gg: Sinda, Brannol Eaglemoon (Dolanaar); Andiss, Keina, Lyrai, Freja Nightwing (Aldrassil); Orenthil Whisperwind (Collector's Edition greeter, first placed in Shadowglen; his "Welcome!" quest is not used). All service; no quests.
+
+### Voices
+**Sinda.** Quiet, exacting leatherworker; reads people by their seams; shares a fire with Shalomon, Jeena and Meri.
+**Brannol Eaglemoon.** Gentle, wry clothier; bleaches by the lake; keeps what he hears at a fitting.
+**Andiss.** Steady, plain; straps first; sends the outgrown on to Cylania in Darnassus.
+**Keina.** Bright, teasing bowyer; watches the feet before she sells.
+**Lyrai.** Brisk, kindly; "twice around the trunk"; her candle treaty with Aldia.
+**Freja Nightwing.** Dry hunter turned seller; counts the webwood after dusk; distant kin of Fylerian.
+**Orenthil Whisperwind.** Courteous, bookish; self-appointed welcomer; no proven tie to Tyrande.
+
+### Authored, not canon
+Sinda refusing hides from near the Gnarlpine; Brannol's moon-bleaching and his quiet word to Kyra Starsong; Andiss's dwarven pauldron; the grell with Keina's arrows; Lyrai's flint inspection by Melithar; Freja's evening argument with Andiss and her kinship with Fylerian (left unconfirmed by both); Orenthil at the planting of Teldrassil.

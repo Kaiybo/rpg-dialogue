@@ -2223,3 +2223,1292 @@ P:NPC {
     _none = { { id = "tp_none", text = "No idea! Ask Astaia; she knows a good deal and says about a tenth of it." } },
   },
 }
+
+-- Second sweep, Craftsmen's Terrace: the suppliers and the trainers who work beside the masters.
+
+---------------------------------------------------------------------------
+-- Fyldan
+---------------------------------------------------------------------------
+P:NPC {
+  key = "fyldan", id = TODO_NPC("Fyldan"), name = "Fyldan", title = "Cooking Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "darnassus" }, temper = { "placid", "droll" }, values = { "plenty", "patience" },
+  notices = { "craft", "race" },
+
+  impression = {
+    first = "Fyldan sells salt, spice and flour beside Alegorn's fire on the Craftsmen's Terrace. He is placid and droll, and he has plainly heard every one of Alegorn's lessons a thousand times.",
+    third = "{name} met Fyldan, who sells cooking supplies in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day. Salt, spice, flour and sweet oil. Alegorn will tell you what to do with them, at some length." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back, and so the last dish was either very good or very bad. I can sell you the cure for either." },
+    { id = "g_cook", when = { profession = "Cooking" }, text = "A cook. Then I need not explain what the mild spices are for, and that saves us both a morning." },
+  },
+
+  notice = {
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "You have a burn on your wrist in the shape of a pan's rim. Every student of Alegorn's has one, and he calls it the first diploma." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf. Your people ask me for more salt than all of Darnassus together, and I have begun ordering with you in mind." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Fyldan. Alegorn teaches the cooking, three paces to my left, and I sell what he tells his students to buy. It is a fine arrangement, for he does all of the talking and I do all of the sitting." },
+      },
+      again = {
+        { id = "h_again", text = "What else may I weigh out for you?" },
+        { id = "h_again2", text = "Ask. The spice will keep." },
+        { id = "h_again3", text = "Yes? I am in no hurry, as you see." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "You've heard all his lessons, I take it.", next = "lessons" },
+        { text = "Where do spices come from, up a tree?", next = "spice" },
+        { text = "Who else do you supply on this terrace?", next = "terrace" },
+        { text = "What do you make of dwarven cooking?", next = "xdwarf", when = { race = { "Dwarf", "Human", "Gnome" } } },
+        { text = "What does Alegorn get wrong?", next = "xcook", when = { profession = "Cooking" } },
+        { text = "Good day, Fyldan.", next = "END" },
+      },
+    },
+    lessons = {
+      lines = {
+        { id = "lessons_default", text = "Every one, and I could give them myself, in half the time. He begins each new student on spice bread, and each of them burns it, and he says the same kind thing to each. I have counted the words, and there are forty-one." },
+      },
+      choices = {
+        { text = "You sound fond of him, all the same.", next = "lessons2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lessons2 = {
+      lines = {
+        { id = "lessons2_default", text = "I am. He has never once blamed my flour for a student's failure, and a lesser cook would have. When the bread burns he says the fire was eager, and when it rises he says the student has the gift. I think that is why they come back." },
+      },
+      choices = {
+        { text = "Kindness makes better cooks than scolding does.", next = "BACK", reply = "So he holds, and the terrace eats well on it.", fx = { align = { order = -1 } } },
+        { text = "A burnt loaf should be called a burnt loaf.", next = "BACK", reply = "Eladriel, across the way, would agree with you. Her students are quicker, and they cry more.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spice = {
+      lines = {
+        { id = "spice_default", text = "Up the same way as everything else, through the portal from Rut'theran. The mild spices are grown in Darkshore and Ashenvale, and the hot ones come by ship from the human lands. I had never sold a hot spice before the Alliance, and I am still not sure I approve of them." },
+      },
+      choices = {
+        { text = "Has the war touched your supply?", next = "spice2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spice2 = {
+      lines = {
+        { id = "spice2_default", text = "The Ashenvale herbs come slower, and dearer, and sometimes not at all. The growers near the Warsong camps have left their gardens, and I do not blame them. I make up the lack with Darkshore leaf, and Alegorn pretends he cannot taste the difference." },
+      },
+      choices = {
+        { text = "A small courtesy in a hard year. Something else.", next = "BACK", fx = { learn = { "warsong" } } },
+      },
+    },
+    terrace = {
+      lines = {
+        { id = "terrace_default", text = "Ainethil buys my salt for her alembics and will not say why. Lotherias buys sweet oil for her leather, which pains me, for it is good oil. And the priestesses send down for honey before every festival, by the crock." },
+      },
+      choices = {
+        { text = "And Ainethil's salt? You've no guess?", next = "terrace2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    terrace2 = {
+      lines = {
+        { id = "terrace2_default", text = "I have a guess, and I shall keep it. An alchemist's secrets are her trade, as a cook's are his. But I notice that she buys the coarse salt and never the fine, and that Milla comes for it at dusk, when the terrace is empty. Make of that what you like." },
+      },
+      choices = {
+        { text = "I'll make nothing of it, and say less.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xdwarf_default", text = "I think it honest and heavy, and I think it has taught Alegorn a great deal about beer. A dwarf stood here for an afternoon showing him how to braise in ale. The terrace smelled like a tavern for a week, and nobody complained." },
+      },
+      choices = {
+        { text = "You'll be brewing your own before long. Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    xcook = {
+      lines = {
+        { id = "xcook_default", text = "He salts at the end, and I have told him for centuries that he should salt at the start. He says it is a matter of taste, and I say it is a matter of chemistry. Try both, and tell him which you preferred, but do not tell him that I asked." },
+      },
+      choices = {
+        { text = "Salt first. I'll put it to the test. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell cooking supplies on the Craftsmen's Terrace. I sit beside Alegorn, and I have done so for a very long time." } },
+    warsong = { { id = "tp_warsong", text = "The Ashenvale herb gardens near the orc camps stand empty. I feel that war first in my spice jars." } },
+    elune = { { id = "tp_elune", text = "The Temple sends for honey before every festival. I like to think the Goddess has a sweet tooth." } },
+    advice = { { id = "tp_advice", text = "Salt at the start, whatever Alegorn tells you. And buy more flour than the recipe says, for the first loaf never counts." } },
+    _none = { { id = "tp_none", text = "I know flour and salt. For anything else, ask Alegorn, and bring a chair." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Elynna
+---------------------------------------------------------------------------
+P:NPC {
+  key = "elynna", id = TODO_NPC("Elynna"), name = "Elynna", title = "Tailoring Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
+  communities = { "darnassus" }, temper = { "candid", "lively" }, values = { "honesty", "craft" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Elynna sells thread, dye and bolts beside Me'lynn's loom and gives her honest opinion of each, asked or not. She would rather lose a sale than let a bad colour leave her stall.",
+    third = "{name} met Elynna, who sells tailoring supplies in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day! Thread, dye and cloth. Tell me what you are making and I shall tell you which of these you should not buy." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back. Did the blue hold, or did it run? Be truthful, for I shall know by your cuffs." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor. Good. Show me your last seam before you choose a thread, and do not be shy about it." },
+  },
+
+  notice = {
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "Your needle hand is callused at the second finger, where the thimble should sit. You sew without one, and you sew a great deal." },
+    { id = "n_caster", cat = "class", when = { class = { "PRIEST", "MAGE", "WARLOCK" } },
+      text = "That robe was dyed in two lots, and the left sleeve came from the second. Nobody else will ever see it. I am sorry that I have." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Elynna. Me'lynn teaches the tailors of Darnassus, and I keep them in thread, and between lessons I tell them the truth about their colour sense. Somebody must, and she is too gracious to do it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I have opinions to spare." },
+        { id = "h_again2", text = "Ask me, and I shall be honest, as always." },
+        { id = "h_again3", text = "Yes? Go on." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Which dye should nobody buy?", next = "dye" },
+        { text = "You and Me'lynn make an odd pair.", next = "pair" },
+        { text = "Where does your cloth come from?", next = "cloth" },
+        { text = "Does the Temple buy its white from you?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What's the hardest colour to hold?", next = "xtailor", when = { profession = "Tailoring" } },
+        { text = "Farewell, Elynna.", next = "END" },
+      },
+    },
+    dye = {
+      lines = {
+        { id = "dye_default", text = "The red, unless you have the mordant to go with it and the patience to use it. Without both it will be pink in a month and grey in a season. I say so to every buyer. Half of them buy it anyway, and they come back in a month to tell me I was right." },
+      },
+      choices = {
+        { text = "Why stock it at all?", next = "dye2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dye2 = {
+      lines = {
+        { id = "dye2_default", text = "Because when it is done properly there is nothing like it, and the Sentinels' officers will have no other colour for their sashes. I would rather sell it with a warning than leave the terrace without a true red. Do you think I am wrong to?" },
+      },
+      choices = {
+        { text = "No. Warn them, then let them choose.", next = "BACK", reply = "That is my view exactly. They are grown elves, most of them.", fx = { align = { order = -1 } } },
+        { text = "Yes. Sell it only to those who can use it.", next = "BACK", reply = "Me'lynn says the same, and perhaps you are both right. I have not the heart to refuse them.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pair = {
+      lines = {
+        { id = "pair_default", text = "We do, and it works. She believes sewing is a devotion and speaks of it as a priestess would. I believe it is thread and cloth, and that a crooked hem is crooked however devoutly it was sewn. Her students need both of us, though they like her better." },
+      },
+      choices = {
+        { text = "Does she mind your bluntness?", next = "pair2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pair2 = {
+      lines = {
+        { id = "pair2_default", text = "She asked for it. Long ago she told me that she could not bring herself to say a hard word to a child with a needle, and would I do it for her? I have been doing it ever since. She comforts them afterward, and so we are both of us useful." },
+      },
+      choices = {
+        { text = "A fair division of labour. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    cloth = {
+      lines = {
+        { id = "cloth_default", text = "The linen is woven in Dolanaar and the wool comes from Darkshore. Silk I buy from Raedon Duskstriker's surplus, when the quartermaster has any to spare, which of late he has not. Every bolt in Darnassus seems to be going south to the war." },
+      },
+      choices = {
+        { text = "What does a war want with silk?", next = "cloth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cloth2 = {
+      lines = {
+        { id = "cloth2_default", text = "Bandages, for the fine weaves, and banners, and linings for mail so that it does not chafe. Raedon collects it from every city in the Alliance. I gave him forty bolts of my own in the spring, and I should do it again, though my shelves have looked poor ever since." },
+      },
+      choices = {
+        { text = "That was well done. Something else.", next = "BACK", fx = { trait = { generous = 1 } } },
+      },
+    },
+    xpriest = {
+      lines = {
+        { id = "xpriest_default", text = "They buy the cloth and bleach it themselves, by moonlight, in the Temple Gardens. I offered once to do it for them and was told very sweetly that it is a rite and not a chore. I sell them the silver thread for the hems, and I am content with that." },
+      },
+      choices = {
+        { text = "A rite and not a chore. That sounds like them.", next = "BACK", fx = { trait = { pious = 1 } } },
+      },
+    },
+    xtailor = {
+      lines = {
+        { id = "xtailor_default", text = "Black, strange as that may sound. A true black wants three dippings and an iron mordant, and it will go green at the seams if you rush any of them. Trianna rushes them. Tell her I said so, for she has stopped listening to me." },
+      },
+      choices = {
+        { text = "Three dippings. I'll be patient. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell tailoring supplies beside Me'lynn's loom. I also tell her students the truth, which she is too kind to do." } },
+    warsong = { { id = "tp_warsong", text = "The war has taken my silk. Raedon gathers every bolt in the Alliance for bandages and banners." } },
+    sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisters bleach their own white by moonlight and call it a rite. I sell them the silver thread." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels' officers wear my red on their sashes. It is the one colour I never apologise for." } },
+    advice = { { id = "tp_advice", text = "Hold the dye to daylight and to moonlight before you buy. A colour that is true in only one of them is a lie." } },
+    _none = { { id = "tp_none", text = "I cannot tell you, and I shall not pretend to. Ask Me'lynn, who will be kinder about not knowing." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Saenorion
+---------------------------------------------------------------------------
+P:NPC {
+  key = "saenorion", id = TODO_NPC("Saenorion"), name = "Saenorion", title = "Leatherworking Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "darnassus" }, temper = { "meticulous", "mild" }, values = { "order", "craft" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Saenorion sells thread, salt and dyes to the leatherworkers of Darnassus and keeps his stall in an order that is almost painful to look at. He apologised when I moved a spool.",
+    third = "{name} met Saenorion, who sells leatherworking supplies in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Welcome. Thread, salt, dye and wax, each in its place. Please ask before you lift anything, and I shall gladly fetch it for you." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it is you. I have put the coarse thread back where it was, since your last visit. Do not concern yourself." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker. You will want the heavy thread, third row, second from the left. I shall get it for you." },
+  },
+
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You have dye under three of your nails and each is a different colour. I mean no criticism at all. I only wonder how you bear it." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. If you skin what you shoot, salt the hide before the day is out. I sell the salt, and Eladriel will tell you the rest." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Saenorion. Telonis and Faldron teach the leatherworkers, Eladriel teaches the skinners, and Lotherias takes the orders. I supply all four of them, and I keep the only tidy bench on this side of the terrace." },
+      },
+      again = {
+        { id = "h_again", text = "What else may I fetch for you?" },
+        { id = "h_again2", text = "Please, ask. It is no trouble." },
+        { id = "h_again3", text = "Yes? I am listening." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Yours is the only tidy bench here.", next = "tidy" },
+        { text = "What do the leatherworkers use most?", next = "most" },
+        { text = "How do you get on with your neighbours?", next = "neigh" },
+        { text = "Which thread for nightsaber hide?", next = "xlw", when = { profession = "Leatherworking" } },
+        { text = "Does Darianna buy from you?", next = "darianna" },
+        { text = "Good day, Saenorion.", next = "END" },
+      },
+    },
+    tidy = {
+      lines = {
+        { id = "tidy_default", text = "It is kind of you to notice. Leatherwork is a messy art, all scrapings and grease, and I find I cannot think in the midst of it. So I keep this one bench as it should be, and the others come to me when they cannot find their own awls." },
+      },
+      choices = {
+        { text = "Do they find them?", next = "tidy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tidy2 = {
+      lines = {
+        { id = "tidy2_default", text = "They find mine, which they borrow, and which come home a week later with somebody else's wax on the handle. I have marked each of them with a small notch, and I count them every evening. Telonis says I should have been a banker. Do you think it a fault, to care so much for order?" },
+      },
+      choices = {
+        { text = "No. Order is what lets good work happen.", next = "BACK", reply = "Thank you. I shall tell Telonis that I have an ally.", fx = { align = { order = 1 } } },
+        { text = "A little mess never hurt a craftsman.", next = "BACK", reply = "Lotherias says exactly that, usually while looking for her shears.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    most = {
+      lines = {
+        { id = "most_default", text = "Salt, by the sack, for curing. Then the heavy thread, and the black dye, because every young leatherworker wishes to make something black and dangerous to look at. After a year or two they discover brown, and their work improves a great deal." },
+      },
+      choices = {
+        { text = "What's wrong with black?", next = "most2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    most2 = {
+      lines = {
+        { id = "most2_default", text = "Nothing, when it is earned. But black hides every flaw in the cutting, and a student who cannot see their mistakes will not mend them. Faldron makes his pupils work in undyed hide for a full year. They grumble, and I sell less dye, and he is entirely right." },
+      },
+      choices = {
+        { text = "A hard rule, and a good one. Something else.", next = "BACK", fx = { trait = { patient = 1 } } },
+      },
+    },
+    neigh = {
+      lines = {
+        { id = "neigh_default", text = "Very well, on the whole. Telonis is grave and Faldron is gentle, and Eladriel is neither of those things. She once told me that my bench looked as though nobody had ever worked at it, and she meant it as an insult. I chose to take it as praise." },
+      },
+      choices = {
+        { text = "And Lotherias?", next = "neigh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neigh2 = {
+      lines = {
+        { id = "neigh2_default", text = "Lotherias works harder than any three of us and forgets to eat while she does it. Alegorn sends her a bowl, and I see that she has thread before she knows she is short of it. She has never thanked either of us, because she has never noticed, and we would both be embarrassed if she did." },
+      },
+      choices = {
+        { text = "That's the best sort of kindness. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    xlw = {
+      lines = {
+        { id = "xlw_default", text = "The waxed sinew, doubled, and a curved needle. Nightsaber hide closes on a straight needle and will snap it. I learned that from Telonis, who learned it from breaking a great many needles, and it has saved my customers a fortune in steel." },
+      },
+      choices = {
+        { text = "Doubled sinew and a curved needle. Thank you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    darianna = {
+      lines = {
+        { id = "darianna_default", text = "Daily, and in great haste, and she always knocks something over. She puts it back in the wrong place with the best will in the world. I have not the heart to correct her, and so I move it when she has gone. She will be a fine leatherworker, if the terrace survives her." },
+      },
+      choices = {
+        { text = "Faldron says the same of her. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell leatherworking supplies on the Craftsmen's Terrace. Mine is the tidy bench." } },
+    warsong = { { id = "tp_warsong", text = "The Sentinels order more harness than they ever did, and so I sell more thread. I should prefer a quieter trade." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids ask that no hide be wasted, and I agree with them. Waste is only disorder by another name." } },
+    advice = { { id = "tp_advice", text = "Salt a hide the same day it is taken. And put your awl back where you found it." } },
+    _none = { { id = "tp_none", text = "I am afraid that is outside my shelves. Telonis may know, for he has been here longer than I have." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Telonis
+---------------------------------------------------------------------------
+P:NPC {
+  key = "telonis", id = TODO_NPC("Telonis"), name = "Telonis", title = "Leatherworking Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service", gender = "male",
+  communities = { "darnassus" }, temper = { "grave", "exacting" }, values = { "craft", "respect" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Telonis teaches leatherworking in Darnassus with a gravity that makes his apprentices stand straighter. He speaks of each hide as a debt owed to the beast that wore it.",
+    third = "{name} met Telonis, who teaches leatherworking in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Ishnu-alah. I teach the working of leather to those who will take the time to learn it properly. Have you the time?" },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Show me what you have made since we last spoke, and do not hide the seams from me." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "You have begun the craft already. Let me see your hands, and then your work, in that order." },
+  },
+
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "Your stitches are even, but you pull them too tight, and the leather puckers at each one. You are afraid it will come apart, and it will not." },
+    { id = "n_war", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "You wear plate over leather that was cut by somebody in a hurry. The metal has been forgiving it for you, and the metal will tire of that." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Telonis. I have taught leatherworking on this terrace since Darnassus was grown, and in Ashenvale before it. Faldron takes the beginners now, and I take those who have stopped being proud of their first jerkin." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again2", text = "Speak. I am listening." },
+        { id = "h_again3", text = "Go on." },
+      },
+      choices = {
+        { text = "I'd like to train.", next = "BUSINESS" },
+        { text = "Why only when the pride has gone?", next = "pride" },
+        { text = "You taught in Ashenvale, before.", next = "ashen" },
+        { text = "They say you think hurried leather cracks.", next = "hurry" },
+        { text = "How do I stop pulling my stitches tight?", next = "xlw", when = { profession = "Leatherworking" } },
+        { text = "What do you ask of the skinners?", next = "xskin", when = { profession = "Skinning" } },
+        { text = "Elune be with you, Telonis.", next = "END" },
+      },
+    },
+    pride = {
+      lines = {
+        { id = "pride_default", text = "Because a student who is pleased with their work has stopped looking at it. I wait for the day they bring me a piece and say that it is wrong and they cannot tell why. That is the first day I can teach them anything." },
+      },
+      choices = {
+        { text = "And if that day never comes?", next = "pride2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pride2 = {
+      lines = {
+        { id = "pride2_default", text = "Then they stay with Faldron, who is gentler than I am, and they make serviceable boots for the rest of their lives. There is no dishonour in it, for the city needs boots. But I shall not spend my hours on a pupil who wants praise more than they want the craft." },
+      },
+      choices = {
+        { text = "Right. A master's time is for the serious.", next = "BACK", reply = "So I have always held, and the work that leaves this terrace bears it out.", fx = { align = { order = 1 } } },
+        { text = "A little praise might bring them further.", next = "BACK", reply = "Faldron says so, and he may be right, for his way keeps more of them at the bench.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ashen = {
+      lines = {
+        { id = "ashen_default", text = "At Astranaar, for a long age. The hides there were thicker and the beasts were older, and a leatherworker had all the time in the world. I came to Teldrassil with the first of us, because the new city needed its crafts, and I have not been back." },
+      },
+      choices = {
+        { text = "Do you miss it?", next = "ashen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ashen2 = {
+      lines = {
+        { id = "ashen2_default", text = "I miss the stag hides. Nothing on this tree has grown slowly enough to make leather of that kind. I am told the orcs are felling the forest where I used to walk, and that they take the hides as well and tan them with fire. I try not to think about how." },
+      },
+      choices = {
+        { text = "They'll answer for it. Something else.", next = "BACK", fx = { learn = { "warsong" } } },
+      },
+    },
+    hurry = {
+      lines = {
+        { id = "hurry_default", text = "It does. A hide wants a season to cure, and a seam wants a night to settle before it is waxed. The outlanders ask for armor by tomorrow, since they march tomorrow, and Lotherias obliges them. Her work is very good. It would be better if she had a month." },
+      },
+      choices = {
+        { text = "The war won't give anyone a month.", next = "hurry2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hurry2 = {
+      lines = {
+        { id = "hurry2_default", text = "No, and I know it. I am ten thousand years old and I am being asked to hurry by people who will live for sixty, and they are not wrong to ask. So I have begun teaching a quick seam as well as a true one. I tell my students which is which, and I do not let them confuse the two." },
+      },
+      choices = {
+        { text = "That's wisdom, and no surrender. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xlw = {
+      lines = {
+        { id = "xlw_default", text = "Sew a practice strip each morning with thread that is too weak to pull. It will break every time your hand is heavy, and within a month your hand will have learned. I did it myself for a year, and I have not puckered a seam since the Sundering." },
+      },
+      choices = {
+        { text = "Weak thread, every morning. I will. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xskin = {
+      lines = {
+        { id = "xskin_default", text = "I ask for straight cuts, and for a word of thanks to the animal, as Eladriel teaches. A hide taken in anger or in haste is easy to tell on the bench, because the knife wandered. Bring me the other kind and I shall pay you fairly for it." },
+      },
+      choices = {
+        { text = "Straight cuts and thanks. Understood. Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I teach leatherworking in Darnassus, and I taught it at Astranaar before the city was grown." } },
+    warsong = { { id = "tp_warsong", text = "The orcs fell the forest where I once walked and tan its hides with fire. I do not speak of them calmly." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids and I agree that nothing taken from a beast should be wasted. We disagree only about how much may be taken." } },
+    ashenvale = { { id = "tp_ashenvale", text = "I left the best stag hides in the world behind in Ashenvale. I think of them more often than a sensible elf should." } },
+    advice = { { id = "tp_advice", text = "Let a seam rest a night before you wax it. Nothing made in a hurry was ever made twice as well." } },
+    _none = { { id = "tp_none", text = "I do not know, and I shall not guess. Ask at the Temple, or ask the Arch Druid's people." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Faldron
+---------------------------------------------------------------------------
+P:NPC {
+  key = "faldron", id = TODO_NPC("Faldron"), name = "Faldron", title = "Leatherworking Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service", gender = "male",
+  communities = { "darnassus" }, temper = { "gentle", "encouraging" }, values = { "patience", "teaching" },
+  notices = { "craft", "level" },
+
+  impression = {
+    first = "Faldron teaches the beginners of Darnassus to work leather and has a kind word for every crooked seam. His apprentice Darianna adores him, and he is quietly proud of her.",
+    third = "{name} met Faldron, who teaches leatherworking to beginners in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Welcome, welcome. Come and sit at the bench. Have you ever held an awl before, or shall we begin with which end is which?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you have come back to us! Good. Most of the craft is only coming back." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "You know the work a little, I can see. Then let us find the next thing you cannot yet do, and do it badly together." },
+  },
+
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You hold your awl like a dagger. There is no harm in that at all, since everybody begins so, but turn your wrist a little and it will stop fighting you." },
+    { id = "n_young", cat = "level", when = { maxLevel = 12 },
+      text = "You are new to the road, I think. It is a good time to learn a craft, while your hands are still willing to be told things." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Faldron, and I teach the first steps of leatherworking. Telonis takes my students when they are ready for a harder master. Until then they have me, and a bench, and as many scraps as they care to ruin." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I help you with?" },
+        { id = "h_again2", text = "Ask anything. No question is too small at this bench." },
+        { id = "h_again3", text = "Yes, friend?" },
+      },
+      choices = {
+        { text = "I'd like to train.", next = "BUSINESS" },
+        { text = "You let them ruin as much as they like?", next = "ruin" },
+        { text = "Tell me about Darianna.", next = "darianna" },
+        { text = "How do you and Telonis divide the teaching?", next = "divide" },
+        { text = "What should a beginner make first?", next = "first" },
+        { text = "Why undyed hide for the first year?", next = "xlw", when = { profession = "Leatherworking" } },
+        { text = "Thank you, Faldron. Farewell.", next = "END" },
+      },
+    },
+    ruin = {
+      lines = {
+        { id = "ruin_default", text = "I do, and gladly. Leather forgives nothing once it is cut, and so a student must cut wrongly a hundred times before they dare to cut rightly. Saenorion saves me the offcuts. I think he is only pleased to have them off his shelves." },
+      },
+      choices = {
+        { text = "Doesn't Telonis object to the waste?", next = "ruin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ruin2 = {
+      lines = {
+        { id = "ruin2_default", text = "He did, once. I showed him that we use every scrap in the end, the smallest for lacing and the worst for glue, and he was satisfied. He and I want the same thing for our students. He simply wants it sooner and with fewer smiles." },
+      },
+      choices = {
+        { text = "You're the better teacher for beginners.", next = "BACK", reply = "You are kind to say so. I think they need us both, at different hours.", fx = { align = { order = -1 } } },
+        { text = "His rigor is what makes masters.", next = "BACK", reply = "It is, and I send them to him for exactly that. I only warm them first.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darianna = {
+      lines = {
+        { id = "darianna_default", text = "She is the quickest pupil I have had in an age, and the least patient. She will knock over a dye pot reaching for the next lesson before she has finished the last. But she looks, truly looks, at every piece that crosses the terrace, and that cannot be taught." },
+      },
+      choices = {
+        { text = "She thinks you're never wrong.", next = "darianna2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darianna2 = {
+      lines = {
+        { id = "darianna2_default", text = "Then I have deceived the poor child, for I am wrong most mornings. I let her think it a little longer, because she works harder for a teacher she believes in. One day she will catch me in a mistake, and I shall congratulate her, and that will be the best lesson I ever give." },
+      },
+      choices = {
+        { text = "A good teacher plans for that day. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    divide = {
+      lines = {
+        { id = "divide_default", text = "I take those who have never cut a hide, and he takes those who believe they have nothing left to learn. Mine are frightened of the knife and his are too fond of it. Sometimes I think we ought to trade for a week, and see what comes of it." },
+      },
+      choices = {
+        { text = "What would come of it?", next = "divide2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    divide2 = {
+      lines = {
+        { id = "divide2_default", text = "My beginners would be in tears by midday, and his journeymen would have had a pleasant week and learned nothing. So we stay as we are. A teacher should know which pupils he is good for, and I am good for the frightened ones." },
+      },
+      choices = {
+        { text = "That's worth knowing about oneself. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    first = {
+      lines = {
+        { id = "first_default", text = "A strap. It is only a strap, with two holes and a buckle, and it does not sound like much. But it must be straight, and even, and strong, and when you can make one that Telonis will not frown at, you can make half of everything else there is." },
+      },
+      choices = {
+        { text = "A strap, then. I'll start there. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xlw = {
+      lines = {
+        { id = "xlw_default", text = "So that you can see what your knife has done. Dye is a kindness to the eye and a thief to the hand, for it hides the very faults you most need to find. Work plain for a year and you will never again cut a line you cannot account for." },
+      },
+      choices = {
+        { text = "Plain hide for a year. I'll try it. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I teach leatherworking to beginners on the Craftsmen's Terrace. Telonis has them after me." } },
+    advice = { { id = "tp_advice", text = "Begin with a strap and make it well. Everything else in the craft is a strap that has grown ambitious." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels' harness is made on this terrace, some of it by my students. I check every buckle of theirs twice." } },
+    elune = { { id = "tp_elune", text = "I am no priest. But I think the Goddess must be patient, to have made a people who take so long to learn." } },
+    _none = { { id = "tp_none", text = "I am sorry, I do not know. Telonis might, and he will tell you more briefly than I should." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Trianna
+---------------------------------------------------------------------------
+P:NPC {
+  key = "trianna", id = TODO_NPC("Trianna"), name = "Trianna", title = "Tailoring Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service", gender = "female",
+  communities = { "darnassus" }, temper = { "quick", "ambitious" }, values = { "skill", "novelty" },
+  notices = { "craft", "race" },
+
+  impression = {
+    first = "Trianna teaches tailoring to Darnassus's beginners and sews faster than she talks, which is saying a good deal. She is fascinated by every outlander fashion that climbs the tree.",
+    third = "{name} met Trianna, who teaches tailoring to beginners in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day! You have come to learn tailoring? Sit here, take this needle, and tell me about yourself while you thread it." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, good, it is you. Come and look at what I have made since you left, and tell me truly what you think." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "You sew! Then let me see what you are wearing. No, turn around, for I want the back seam." },
+  },
+
+  notice = {
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "That collar is a Stormwind cut. I have been trying to copy it from memory for a month. Would you stand still for a little while so that I can see how it is set?" },
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "You finish your seams on the inside, where nobody will ever see. Me'lynn will love you for it. I think it a waste of thread, but she is the master here." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Trianna. Me'lynn is the master tailor here, and I teach the ones who are just beginning, which leaves me time for my own work. And my own work, since the Alliance came, is finding out how everybody else in the world makes a sleeve." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask quickly, my needle is cooling." },
+        { id = "h_again2", text = "Yes? Go on, I can sew and listen." },
+        { id = "h_again3", text = "Something more? Good." },
+      },
+      choices = {
+        { text = "I'd like to train.", next = "BUSINESS" },
+        { text = "How does everybody else make a sleeve?", next = "sleeve" },
+        { text = "You and Me'lynn sew very differently.", next = "melynn" },
+        { text = "Elynna says you rush your black.", next = "black" },
+        { text = "You can study this collar, if you like.", next = "xhuman", when = { race = { "Human", "Gnome", "Dwarf" } } },
+        { text = "Do our own old patterns bore you?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Farewell, Trianna.", next = "END" },
+      },
+    },
+    sleeve = {
+      lines = {
+        { id = "sleeve_default", text = "Badly, most of them, but so interestingly! The humans set theirs into the shoulder with a curved seam, which wastes cloth and looks very fine. The gnomes sew pockets into everything. And a dwarf told me he had never thought about sleeves in his life, and I believed him." },
+      },
+      choices = {
+        { text = "Have you put any of it to use?", next = "sleeve2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sleeve2 = {
+      lines = {
+        { id = "sleeve2_default", text = "I made a robe with a human shoulder and a kaldorei drape, and I wore it to the Temple. Two priestesses asked me who had made it and one of the old matrons asked me whether I was unwell. I count that a success, on balance." },
+      },
+      choices = {
+        { text = "New ideas keep a craft alive. Sew on.", next = "BACK", reply = "I intend to! Come back in a year, and half the terrace will be wearing curved seams.", fx = { align = { order = -1 } } },
+        { text = "Some traditions shouldn't be cut about.", next = "BACK", reply = "The matron said so too. I have left her robes exactly as they were.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    melynn = {
+      lines = {
+        { id = "melynn_default", text = "We do. She sews as if each stitch were a prayer, slowly, and it is perfect. I sew as if somebody were waiting, and it is very nearly perfect, in a third of the time. She has never once told me to slow down. She only looks at my hems, and that is worse." },
+      },
+      choices = {
+        { text = "Does she disapprove of the new cuts?", next = "melynn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    melynn2 = {
+      lines = {
+        { id = "melynn2_default", text = "She says that she has seen fashions come and go for some thousands of years and that this one will go as well. Then she asked me, very quietly, to show her the curved seam. She has not used it yet, but I caught her practising it on a scrap." },
+      },
+      choices = {
+        { text = "I'll keep her secret. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    black = {
+      lines = {
+        { id = "black_default", text = "Elynna says a great many things, and that one is true. Three dippings take three days, and I had a robe promised in two. It went a little green at the seam, and the buyer did not notice, and Elynna did, from across the terrace." },
+      },
+      choices = {
+        { text = "Did you tell the buyer?", next = "black2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    black2 = {
+      lines = {
+        { id = "black2_default", text = "I did, in the end. I went after her to the bank and offered to dye it again properly, and she said that she rather liked the green. So I learned two things, that I should not rush a black, and that Elynna does not know everything about what people like." },
+      },
+      choices = {
+        { text = "Owning to it was the right thing.", next = "BACK", reply = "It kept me awake, otherwise. I am not made for secrets.", fx = { align = { honor = 1 } } },
+        { text = "She was happy. You needn't have said anything.", next = "BACK", reply = "Perhaps not. But Elynna knew, and Elynna would have said it for me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xhuman_default", text = "May I? Hold your arm out. I see, it is cut in two pieces, and the under one is narrower! That is how it turns without pulling. I should never have guessed it. Thank you, truly, for you have saved me a month of ruined linen." },
+      },
+      choices = {
+        { text = "Glad to be of use. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xnelf_default", text = "They do not bore me. I love them, and I can sew every one of them in my sleep, which is the difficulty. I have been making the same robe since before the Sundering. Would you not want to try something else, after ten thousand years?" },
+      },
+      choices = {
+        { text = "Perhaps I would, at that. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I teach tailoring to beginners in Darnassus. In my own hours I study how the rest of the world cuts cloth." } },
+    sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "I wore a human-shouldered robe to the Temple, and the priestesses asked who made it. The matrons asked whether I was ill." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The dwarves of the League wear the same coat until it falls off them. I have offered to help, and they looked frightened." } },
+    advice = { { id = "tp_advice", text = "Learn the old patterns until they bore you, and only then change them. I changed mine a little early." } },
+    _none = { { id = "tp_none", text = "I have no idea! Ask Me'lynn, who has had a great deal longer than I have to find things out." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Sylvanna Forestmoon
+---------------------------------------------------------------------------
+P:NPC {
+  key = "sylvanna", id = TODO_NPC("Sylvanna Forestmoon"), name = "Sylvanna Forestmoon", title = "Alchemy Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service", gender = "female",
+  communities = { "darnassus" }, temper = { "precise", "dry" }, values = { "knowledge", "caution" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Sylvanna Forestmoon teaches alchemy at Ainethil's side and is drily exact about measures. She trusts a recipe more than a person, and she said as much.",
+    third = "{name} met Sylvanna Forestmoon, who teaches alchemy in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day. If you have come to learn alchemy, I shall ask you first to put down anything you are carrying that might be flammable." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and you have both your eyebrows. That is better than most of my pupils manage in their first season." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Then you will not mind my asking what you last brewed and how far it went wrong." },
+  },
+
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "There is a stain on your sleeve that was a healing draught and is now something else. You let it boil. They always smell of pears when they have been boiled." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. Your order gathers the herbs that I render down, and it has opinions about how many. I am always careful to count aloud when one of you is watching." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Sylvanna Forestmoon. Ainethil is the master of this bench and Milla Fairancora teaches the very newest, and I have those who can be trusted near a flame but not yet alone with one. It is the longest stage, and some never leave it." },
+      },
+      again = {
+        { id = "h_again", text = "What else do you wish to know?" },
+        { id = "h_again2", text = "Ask, precisely, if you can." },
+        { id = "h_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "I'd like to train.", next = "BUSINESS" },
+        { text = "Why do some never leave that stage?", next = "stage" },
+        { text = "What goes wrong most often?", next = "wrong" },
+        { text = "What is it like, working under Ainethil?", next = "ainethil" },
+        { text = "What does a boiled draught turn into?", next = "xalch", when = { profession = "Alchemy" } },
+        { text = "Does the Enclave watch how much you gather?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Good day, Sylvanna.", next = "END" },
+      },
+    },
+    stage = {
+      lines = {
+        { id = "stage_default", text = "Because they will not measure. They learn that a pinch more silverleaf does no harm in a weak draught, and they carry that habit up into the strong ones, where a pinch more will take the bench with it. I can teach anyone a recipe. I cannot teach respect for a scale." },
+      },
+      choices = {
+        { text = "How do you deal with them?", next = "stage2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stage2 = {
+      lines = {
+        { id = "stage2_default", text = "I give them the same draught to make every day, until ten of them in a row are identical. Some manage it in a fortnight and one has been at it for three years. She is a pleasant girl, and she will never brew anything stronger than a tonic while I am here." },
+      },
+      choices = {
+        { text = "Good. That caution saves lives.", next = "BACK", reply = "It has saved this terrace twice, to my certain knowledge.", fx = { align = { order = 1 } } },
+        { text = "Three years is cruel. Let her try and learn.", next = "BACK", reply = "She may try it, on some other terrace, a long way downwind of this one.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong = {
+      lines = {
+        { id = "wrong_default", text = "Heat, nearly always. Our students think of fire as an enemy, as they have been taught, and so they either starve the flame or lose their heads when it flares. The humans who come to study are better at it. They have burned things all their lives and have no fear of it." },
+      },
+      choices = {
+        { text = "Do you teach many outlanders?", next = "wrong2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong2 = {
+      lines = {
+        { id = "wrong2_default", text = "More each year. A gnome came for a season and rebuilt my alembic while I was at the Temple, without asking. It runs a third faster now, and I have not forgiven her. I use it every day." },
+      },
+      choices = {
+        { text = "Sounds like a fair trade to me. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    ainethil = {
+      lines = {
+        { id = "ainethil_default", text = "It is instructive. She has forgotten more alchemy than I shall ever learn, and she is not being modest when she says so. She watches my hands rather than my results, and when she is displeased she says nothing at all and moves my salt a finger to the left." },
+      },
+      choices = {
+        { text = "What is the coarse salt for?", next = "ainethil2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ainethil2 = {
+      lines = {
+        { id = "ainethil2_default", text = "Has Fyldan been wondering aloud again? It is no great mystery. She uses it to draw the water from moonwell clippings, for a work she does at the Temple's asking. I do not know what the work is. I have learned that when Ainethil wishes me to know a thing, she tells me." },
+      },
+      choices = {
+        { text = "Then I'll not pry further. Something else.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    xalch = {
+      lines = {
+        { id = "xalch_default", text = "It becomes a mild purgative, and a very quick one. I do not recommend finding that out as my last pupil did, an hour before the Festival procession. Keep your draught below a simmer and it will stay what you meant it to be." },
+      },
+      choices = {
+        { text = "Below a simmer. Noted, with feeling. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "xdruid_default", text = "It does, through Firodren Mooncaller, who teaches the herbalists and reports what is taken. I welcome it. A bench that could have all the herbs it wanted would brew a great deal that should never be brewed, and I had rather be kept short than be trusted too far." },
+      },
+      choices = {
+        { text = "The Circle would be glad to hear it. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I teach alchemy in Darnassus, under Ainethil. Mine are the students who are no longer new and not yet safe." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids count what we gather, and I count it with them. Nobody should be given all the herbs they want." } },
+    highborne = { { id = "tp_highborne", text = "They also began with small measures taken carelessly. I think of them whenever a pupil says a pinch more cannot hurt." } },
+    advice = { { id = "tp_advice", text = "Measure twice, and keep your draught below a simmer. Most of what goes wrong in alchemy is impatience with a flame." } },
+    _none = { { id = "tp_none", text = "I have no recipe for that. Ask Ainethil, if she is in a mood to be asked." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Lalina Summermoon
+---------------------------------------------------------------------------
+P:NPC {
+  key = "lalina", id = TODO_NPC("Lalina Summermoon"), name = "Lalina Summermoon", title = "Enchanting Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service", gender = "female",
+  communities = { "darnassus" }, temper = { "earnest", "careful" }, values = { "restraint", "learning" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Lalina Summermoon teaches the middle steps of enchanting under Taladan and treats every lesson as a trust. She is earnest about it, and a little anxious, and I liked her for both.",
+    third = "{name} met Lalina Summermoon, who teaches enchanting in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Elune-adore. You wish to learn enchanting? Then I must ask you something first, and I hope that you will not be offended by it." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned. I am glad. Did the last working hold, and did you feel well after it?" },
+    { id = "g_ench", when = { profession = "Enchanting" }, text = "You have the craft in your hands already, for I can feel the dust on you. Then you know what I am going to say about care." },
+  },
+
+  notice = {
+    { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
+      text = "There is essence on your fingers that you have not washed away. Please do so before you touch anything of mine. It lingers, and it grows fond of whatever it touches." },
+    { id = "n_mage", cat = "class", when = { class = { "MAGE", "WARLOCK" } },
+      text = "You work the arcane openly, as your people do. I shall teach you what Taladan permits, and I ask you to understand why he permits no more." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Lalina Summermoon. Taladan is the master enchanter here, and he has given the journeymen into my keeping. I teach them to draw the magic out of a made thing and lay it on another, and I teach them when to stop, which is the harder half." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask of me?" },
+        { id = "h_again2", text = "Please, go on." },
+        { id = "h_again3", text = "Yes? I am listening carefully." },
+      },
+      choices = {
+        { text = "I'd like to train.", next = "BUSINESS" },
+        { text = "What were you going to ask me?", next = "ask" },
+        { text = "Why is enchanting so guarded here?", next = "guarded" },
+        { text = "How is Taladan as a master?", next = "taladan" },
+        { text = "How do I know when to stop?", next = "xench", when = { profession = "Enchanting" } },
+        { text = "Would you have taught a Highborne?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Elune keep you, Lalina.", next = "END" },
+      },
+    },
+    ask = {
+      lines = {
+        { id = "ask_default", text = "I ask every student why they want it. I have no wrong answer in mind. But I listen to how they say it. Those who want to mend and strengthen what they already have, I teach gladly. Those who speak only of power, I send to Taladan, and he decides." },
+      },
+      choices = {
+        { text = "I want to make my gear serve me better.", next = "ask2", reply = "That is the answer I hope for, and the one I most often hear. Thank you.", fx = { align = { order = 1 } } },
+        { text = "I want power. I won't pretend otherwise.", next = "ask2", reply = "You are honest, at least, and honesty is something. Taladan will want a word with you.", fx = { align = { order = -1 } } },
+        { text = "I'd rather not say.", next = "ask2" },
+      },
+    },
+    ask2 = {
+      lines = {
+        { id = "ask2_default", text = "Whatever your reason, the lessons are the same. You will take apart a great many small things before you are allowed to make a large one, and Vaean will write down everything you buy. We are watched here, and I am content to be." },
+      },
+      choices = {
+        { text = "I understand. Something else.", next = "BACK" },
+      },
+    },
+    guarded = {
+      lines = {
+        { id = "guarded_default", text = "Because of what we were. Our people once drew on the arcane without limit, and it called the Legion down on the world and broke it. Enchanting is a small art and a tame one, but it drinks from the same well. The Temple lets us practise it on conditions, and I think the conditions wise." },
+      },
+      choices = {
+        { text = "Do you ever resent them?", next = "guarded2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guarded2 = {
+      lines = {
+        { id = "guarded2_default", text = "When I was younger, a little. I had a gift, and I was made to go slowly while clumsier students went at the same pace beside me. Then I watched one of Taladan's pupils go fast, and I saw what it did to his sleep and his temper. I have not resented going slowly since." },
+      },
+      choices = {
+        { text = "A hard thing to witness. Something else.", next = "BACK", fx = { learn = { "highborne" } } },
+      },
+    },
+    taladan = {
+      lines = {
+        { id = "taladan_default", text = "He is grave, and he is fair, and he has never raised his voice in all the years I have known him. He asks of every working what it costs and who pays. I used to think it a tiresome question. I now ask it of my own students, in his very words." },
+      },
+      choices = {
+        { text = "What does a working cost?", next = "taladan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taladan2 = {
+      lines = {
+        { id = "taladan2_default", text = "It costs the thing that you unmake, first, since that is gone for good. Then it costs a little of the enchanter, each time, in weariness. And if it is done carelessly, it costs whoever must stand near. A sound working pays all of its own costs, and that is his whole teaching." },
+      },
+      choices = {
+        { text = "A good rule for more than enchanting. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xench = {
+      lines = {
+        { id = "xench_default", text = "You stop when the work begins to feel easy. I know that sounds backward. But a difficult working keeps your attention, and an easy one invites you to try a little more. When your hands grow light and quick, put the rod down and walk about the terrace once." },
+      },
+      choices = {
+        { text = "When it feels easy, stop. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xmage_default", text = "No. I should not have been asked to, for they did not think they needed teaching. That was the whole of their fault, as I understand it. You have come and asked, and you have sat through my questions, and so you are already something they were not." },
+      },
+      choices = {
+        { text = "I'll try to stay that way. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I teach enchanting in Darnassus, under Taladan. The journeymen are mine." } },
+    highborne = { { id = "tp_highborne", text = "We practise a small tame art that drinks from their well. I teach my students to remember whose well it is." } },
+    sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Temple permits us on conditions, and Vaean keeps the ledger. I have never found the conditions unjust." } },
+    elune = { { id = "tp_elune", text = "I ask Her pardon before each large working. I have been told it is unnecessary, and I do it all the same." } },
+    advice = { { id = "tp_advice", text = "Ask of every working what it costs and who pays. And when the work feels easy, put the rod down." } },
+    _none = { { id = "tp_none", text = "I do not know, and I should not like to mislead you. Taladan may, if you ask him plainly." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Mythrin'dir
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mythrindir", id = TODO_NPC("Mythrin'dir"), name = "Mythrin'dir", title = "General Trade Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "darnassus" }, temper = { "shrewd", "genial" }, values = { "commerce", "fairness" },
+  notices = { "craft", "race" },
+
+  impression = {
+    first = "Mythrin'dir sells tools and trade goods to every craft on the terrace and knows what each of his neighbours will run out of before they do. He is shrewd and genial with it.",
+    third = "{name} met Mythrin'dir, who sells general trade supplies in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Good day to you! Hammers, picks, knives, vials, thread and dye. If a craft needs it and has forgotten it, I am very likely holding it." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Let me guess, a mining pick? No? I was sure this time." },
+    { id = "g_craft", when = { profession = { "Blacksmithing", "Mining", "Engineering" } }, text = "Ah, a worker of metal, here in Darnassus. You will find I am the only one on this terrace who stocks a hammer, and I am proud of it." },
+  },
+
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
+      text = "You have forge-scale on your boots. There is no forge in Darnassus, as you may have found, so you have walked a long way with that hammer." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome. One of your people asked me for a spanner and I had to have it drawn for me. I stock six now, and they are gone within the week." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Mythrin'dir. Every other seller on this terrace keeps to one craft, and I keep the things that fall between them. I am the one they come to when a student has broken the only skinning knife or dropped a mortar off the edge of the terrace." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I find for you?" },
+        { id = "h_again2", text = "Ask away, I have a little of everything." },
+        { id = "h_again3", text = "Yes, friend?" },
+      },
+      choices = {
+        { text = "Show me your goods.", next = "BUSINESS" },
+        { text = "Why is there no forge in Darnassus?", next = "forge" },
+        { text = "You know what everyone will run short of.", next = "short" },
+        { text = "What do outlanders ask for that you lack?", next = "lack" },
+        { text = "Where does a smith work, on this tree?", next = "xsmith", when = { profession = { "Blacksmithing", "Mining", "Engineering" } } },
+        { text = "Has the Alliance been good for trade?", next = "trade" },
+        { text = "Good day, Mythrin'dir.", next = "END" },
+      },
+    },
+    forge = {
+      lines = {
+        { id = "forge_default", text = "Because we live in a tree, friend, and the druids who grew it are not fond of furnaces. There is no vein to mine up here either. A night elf who wants to work metal goes down to Auberdine, or across the sea, and comes home smelling of smoke." },
+      },
+      choices = {
+        { text = "And yet you sell hammers.", next = "forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge2 = {
+      lines = {
+        { id = "forge2_default", text = "I do, to the dwarves and humans who arrive expecting an anvil and find a moonwell. They look so lost that I had not the heart to stock none. A hammer cannot harm the tree by lying on my table, as I explained to the druid who came to ask about it." },
+      },
+      choices = {
+        { text = "Right. A tool on a table harms nobody.", next = "BACK", reply = "So I told him, and he went away thoughtful, which with a druid is nearly agreement.", fx = { align = { order = -1 } } },
+        { text = "The druids' wishes ought to be honoured here.", next = "BACK", reply = "They are. I sell the hammer, and I point the buyer firmly toward the boat.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    short = {
+      lines = {
+        { id = "short_default", text = "It is no great art. Ainethil's students break vials on the first warm day, because they open the shutters and the draught takes them. Eladriel's lose their knives when the striders are calving. And Me'lynn's run out of needles a week before every festival." },
+      },
+      choices = {
+        { text = "So you order ahead.", next = "short2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    short2 = {
+      lines = {
+        { id = "short2_default", text = "I do, and then I say nothing. If I told them I had seen it coming, they would feel watched. So I am simply delighted, each time, to find that I happen to have exactly what they need. Vaean knows what I am doing, because she does the same." },
+      },
+      choices = {
+        { text = "Kindly done, and good for business. Something else.", next = "BACK", fx = { trait = { practical = 1 } } },
+      },
+    },
+    lack = {
+      lines = {
+        { id = "lack_default", text = "Blasting powder, which I refused outright. Coal, which I cannot get. And a human once asked me for a fishing reel, and I sent him to Voloren, who has been trying to carve one ever since. That poor man has not had a moment's peace over it." },
+      },
+      choices = {
+        { text = "What do they ask for that you now stock?", next = "lack2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lack2 = {
+      lines = {
+        { id = "lack2_default", text = "Spanners, as I said. Flint and tinder, in quantities that worry the Enclave. And little iron rings for lacing human boots, which I thought absurd until Lotherias saw them and bought the lot. We have learned something from you after all." },
+      },
+      choices = {
+        { text = "We've a few good ideas between us. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xsmith = {
+      lines = {
+        { id = "xsmith_default", text = "At Auberdine there is a forge, of a kind, and beyond that you must go to Ironforge or Stormwind. I can sell you the hammer and the flux, and I can tell you the boat times. For a night elf smith it has always been a craft practised away from home." },
+      },
+      choices = {
+        { text = "A long road to an anvil. Thank you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    trade = {
+      lines = {
+        { id = "trade_default", text = "Very good, and very strange. I sell three times what I did. But I used to know every customer by name, and now half of them are gone to Ashenvale before I have learned it. I keep a list of those who said they would come back. It has grown longer than I like." },
+      },
+      choices = {
+        { text = "I'll come back. Put me on the short list.", next = "BACK", reply = "I shall hold you to it, friend.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell general trade supplies on the Craftsmen's Terrace. I keep whatever falls between the other crafts." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "A druid came to ask about my hammers. I told him a tool on a table harms no tree, and he went away thinking." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The dwarves of the League buy every pick I have and ask where the rock is. I point down, and they sigh." } },
+    warsong = { { id = "tp_warsong", text = "I keep a list of customers who went to Ashenvale and said they would return. Too many names are still on it." } },
+    advice = { { id = "tp_advice", text = "Buy the spare before you need it. I have built a whole trade on people who did not." } },
+    _none = { { id = "tp_none", text = "I stock a little of everything except that. Try the bank, where Garryeth hears most of what passes." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Chardryn
+---------------------------------------------------------------------------
+P:NPC {
+  key = "chardryn", id = TODO_NPC("Chardryn"), name = "Chardryn", title = "Herbalism Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
+  communities = { "darnassus" }, temper = { "soft-spoken", "intent" }, values = { "growth", "care" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Chardryn sells herbalists' pouches and tools near the Temple of the Moon and speaks of plants as if they could overhear. He is soft-spoken and very intent on his pots.",
+    third = "{name} met Chardryn, who sells herbalism supplies in Darnassus.",
+  },
+
+  greetings = {
+    { id = "g_hello", text = "Quietly, please, and welcome. I have pouches, sickles and seedling pots. The mageroyal behind me is flowering, and it dislikes a loud voice." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back. The peacebloom you admired has opened since, so come and see it." },
+    { id = "g_herb", when = { profession = "Herbalism" }, text = "An herbalist. Then you will forgive me if I ask how you cut, before I sell you anything to cut with." },
+  },
+
+  notice = {
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "There is sap on your sickle that has dried black. That is from briarthorn, pulled when you should have cut. It will grow again, but slowly, and it will remember." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. You need no telling, then, that these pots are listening. Most of my customers think it a figure of speech." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Chardryn. Firodren Mooncaller teaches the herbalists of Darnassus, over in the Cenarion Enclave, and I supply them from here. I also grow a few things in pots, for no reason except that a stall without anything living on it seems to me a sad affair." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again2", text = "Softly, please, but do go on." },
+        { id = "h_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Do the plants truly mind noise?", next = "noise" },
+        { text = "What grows well on Teldrassil?", next = "grows" },
+        { text = "How do you and Firodren work together?", next = "firodren" },
+        { text = "How should briarthorn be cut?", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "What are the pots telling you, of late?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Go gently, Chardryn.", next = "END" },
+      },
+    },
+    noise = {
+      lines = {
+        { id = "noise_default", text = "I believe so, and Firodren believes it too, though Ulthir the alchemists' supplier laughs at us both. The mageroyal closes when the Sentinels drill on the Warrior's Terrace and opens again when they have done. Ulthir says it is the shaking of the ground. I say that is only another way of being loud." },
+      },
+      choices = {
+        { text = "I think you're right. Plants feel more than we credit.", next = "BACK", reply = "Thank you. I shall tell the mageroyal that it has a friend.", fx = { align = { light = 1 } } },
+        { text = "It's the ground shaking. A flower has no ears.", next = "BACK", reply = "So Ulthir says. The flower and I have agreed to let him think so.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows = {
+      lines = {
+        { id = "grows_default", text = "Everything grows quickly here, and that is what troubles me. A peacebloom that would take a season in Ashenvale is up in a fortnight on this tree. It is tall and bright, and it has half the virtue. I think it is being hurried by something." },
+      },
+      choices = {
+        { text = "Hurried by what?", next = "grows2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows2 = {
+      lines = {
+        { id = "grows2_default", text = "I cannot say, and I am only a seller of pouches. But Denalan, at the lake, has written to Firodren about plants that walk, and about roots gone soft and dark. I have begun keeping Ashenvale seed apart from Teldrassil seed. My pots of the one are thriving and my pots of the other are only large." },
+      },
+      choices = {
+        { text = "Has the Enclave been told?", next = "grows3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows3 = {
+      lines = {
+        { id = "grows3_default", text = "Firodren has told them, and he is of the Circle himself. I gather that the Arch Druid does not care to hear the tree spoken of so. I shall go on keeping my two sets of pots, and when somebody wishes to look at them, they are here." },
+      },
+      choices = {
+        { text = "Keep them safe. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
+      },
+    },
+    firodren = {
+      lines = {
+        { id = "firodren_default", text = "He teaches where to find a herb and how to know it, and I teach, without being asked, how to leave it alive. He has the gentler hands of the two of us, but he also has students to get through. I have all day, and so I do the nagging." },
+      },
+      choices = {
+        { text = "Do his students listen to you?", next = "firodren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    firodren2 = {
+      lines = {
+        { id = "firodren2_default", text = "The good ones do. I sell every beginner a sickle, and I will not hand it over until they have shown me the cut on a stem of my own. Some have gone away without one. Firodren has never once overruled me, though it costs him pupils." },
+      },
+      choices = {
+        { text = "A fair test. Something else.", next = "BACK", fx = { trait = { patient = 1 } } },
+      },
+    },
+    xherb = {
+      lines = {
+        { id = "xherb_default", text = "Cut it a hand above the root, on a slant, and take one stem in three. Never pull it. The root holds the whole thicket together, and a pulled briarthorn takes its neighbours with it by the next spring. You will find more there next year if you are sparing this year." },
+      },
+      choices = {
+        { text = "One stem in three, on a slant. I will.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "xdruid_default", text = "That they are thirsty when the soil is wet, which ought not to be. I have told Firodren, and he looked at me for a long moment and asked me not to say it on the Enclave's side of the bridge. So I am saying it on this side, to you." },
+      },
+      choices = {
+        { text = "I'll carry it carefully. Thank you.", next = "BACK", fx = { trait = { discreet = 1 }, learn = { "teldrassil" } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_background", text = "I sell herbalism supplies near the Temple of the Moon, and I supply Firodren Mooncaller's students. I keep a few pots for company." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Everything grows too fast on this tree and comes up with half its virtue. I keep Ashenvale seed apart, and it does better." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "Firodren is of the Circle and listens to me. I am told the Arch Druid listens less." } },
+    elune = { { id = "tp_elune", text = "I set the pots where the moonlight from the Temple reaches them. The peacebloom leans toward it, whatever Ulthir says." } },
+    advice = { { id = "tp_advice", text = "Cut, never pull, and take one stem in three. A patch you spare will feed you for years." } },
+    _none = { { id = "tp_none", text = "I know only what grows in a pot. Ask Firodren in the Enclave, quietly, for he knows the rest." } },
+  },
+}
