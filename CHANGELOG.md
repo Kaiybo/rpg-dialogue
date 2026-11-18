@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.82.0 (2026-11-18)
+### Export your character sheet.
+- New **Export sheet** button on the journal's Myself page (or `/rpgd sheet`) opens your whole character as plain text to copy: name, realm, level, race, class, sex, faction, guild, location, hearthstone, money, experience; attributes, armor, resistances, attack power and crit/dodge/parry/block; every equipped item with quality and item level; talents by tree with every point spent; skills and professions; reputations; your alignment, traits, insanity, conversations and deaths as numbers; then every journal page (Myself, Stories, People, Heard of, Diary) and your notes.
+- It's for reading and sharing (a forum post, a roleplay profile). `/rpgd export` is still the string that restores a story.
+- No new files: a /reload is enough.
+
 ## 0.81.0 (2026-11-17)
 Everything from the parallel 0.80 work in one release. **New files: restart the game fully (a /reload won't load them).** Most packs got a minor version bump.
 

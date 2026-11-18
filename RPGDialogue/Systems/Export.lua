@@ -168,3 +168,227 @@ function Export.Apply(payload)
   ns.Compat.SetSV("RPGDialogueCharDB", fixed)
   return true
 end
+
+---------------------------------------------------------------------------
+-- Character sheet (0.82.0): everything about the character as plain, readable text, for
+-- copying out of the game (a forum post, a roleplay profile, a backup you can read). Not
+-- importable; /rpgd export is the restorable string. Every game call is protected, so a
+-- missing API just leaves its section out.
+---------------------------------------------------------------------------
+local function plain(s)
+  s = tostring(s or "")
+  s = s:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", ""):gsub("|T.-|t", ""):gsub("|A.-|a", "")
+  s = s:gsub("|H.-|h(.-)|h", "%1")
+  return s
+end
+
+local SLOTS = {
+  { 1, "Head" }, { 2, "Neck" }, { 3, "Shoulder" }, { 15, "Back" }, { 5, "Chest" }, { 4, "Shirt" },
+  { 19, "Tabard" }, { 9, "Wrist" }, { 10, "Hands" }, { 6, "Waist" }, { 7, "Legs" }, { 8, "Feet" },
+  { 11, "Finger" }, { 12, "Finger" }, { 13, "Trinket" }, { 14, "Trinket" }, { 16, "Main hand" },
+  { 17, "Off hand" }, { 18, "Ranged" },
+}
+local STATS = { "Strength", "Agility", "Stamina", "Intellect", "Spirit" }
+local RESISTS = { [2] = "Fire", [3] = "Nature", [4] = "Frost", [5] = "Shadow", [6] = "Arcane" }
+
+local function money(c)
+  c = tonumber(c) or 0
+  local g, s, k = math.floor(c / 10000), math.floor(c / 100) % 100, c % 100
+  local out = {}
+  if g > 0 then out[#out + 1] = g .. "g" end
+  if s > 0 or g > 0 then out[#out + 1] = s .. "s" end
+  out[#out + 1] = k .. "c"
+  return table.concat(out, " ")
+end
+
+local function pct(v) return v and string.format("%.2f%%", v) or nil end
+
+function Export.Sheet()
+  local C, call = ns.Compat, ns.Compat.Call
+  local c = ns.char
+  local out = {}
+  local function line(s) if s and s ~= "" then out[#out + 1] = plain(s) end end
+  local function kv(k, v) if v ~= nil and v ~= "" then out[#out + 1] = k .. ": " .. plain(v) end end
+  local function section(title) out[#out + 1] = ""; out[#out + 1] = "== " .. title .. " ==" end
+
+  -- Who
+  local name = C.Name("player") or "?"
+  local realm = call("GetRealmName")
+  out[#out + 1] = "RPG Dialogue character sheet: " .. name .. (realm and (" of " .. realm) or "")
+  out[#out + 1] = "Written " .. tostring(call("date", "%Y-%m-%d %H:%M") or "") .. " (RPG Dialogue " .. tostring(ns.VERSION or C.AddOnMeta("RPGDialogue", "Version") or "?") .. ")"
+  section("Character")
+  kv("Name", name)
+  kv("Realm", realm)
+  kv("Level", C.Level("player"))
+  kv("Race", C.Race("player"))
+  kv("Class", C.Class("player"))
+  local sex = call("UnitSex", "player")
+  kv("Sex", sex == 2 and "Male" or sex == 3 and "Female" or nil)
+  kv("Faction", call("UnitFactionGroup", "player"))
+  local guild, rank = call("GetGuildInfo", "player")
+  if guild then kv("Guild", guild .. (rank and (" (" .. rank .. ")") or "")) end
+  local zone, sub = call("GetRealZoneText") or call("GetZoneText"), call("GetSubZoneText")
+  kv("Location", zone and (zone .. ((sub and sub ~= "" and sub ~= zone) and (", " .. sub) or "")))
+  kv("Hearthstone", call("GetBindLocation"))
+  local m = call("GetMoney")
+  if m then kv("Money", money(m)) end
+  local xp, xpMax = call("UnitXP", "player"), call("UnitXPMax", "player")
+  if xp and xpMax and xpMax > 0 then
+    local rest = call("GetXPExhaustion")
+    kv("Experience", xp .. " / " .. xpMax .. (rest and (" (" .. rest .. " rested)") or ""))
+  end
+  kv("Health", call("UnitHealthMax", "player"))
+  local pmax = call("UnitPowerMax", "player") or call("UnitManaMax", "player")
+  if pmax and pmax > 0 then kv("Power", pmax) end
+
+  -- Stats
+  local stats = {}
+  for i, label in ipairs(STATS) do
+    local _, v = call("UnitStat", "player", i)
+    if v then stats[#stats + 1] = label .. " " .. math.floor(v) end
+  end
+  if #stats > 0 then
+    section("Attributes")
+    line(table.concat(stats, ", "))
+    local _, armor = call("UnitArmor", "player")
+    kv("Armor", armor and math.floor(armor))
+    local res = {}
+    for i = 2, 6 do
+      local _, v = call("UnitResistance", "player", i)
+      if v and v > 0 then res[#res + 1] = RESISTS[i] .. " " .. math.floor(v) end
+    end
+    if #res > 0 then kv("Resistances", table.concat(res, ", ")) end
+    local base, pos, neg = call("UnitAttackPower", "player")
+    if base then kv("Attack power", math.floor(base + (pos or 0) + (neg or 0))) end
+    local rbase, rpos, rneg = call("UnitRangedAttackPower", "player")
+    if rbase and rbase > 0 then kv("Ranged attack power", math.floor(rbase + (rpos or 0) + (rneg or 0))) end
+    local combat = {}
+    local function add(label, v) if v and v > 0 then combat[#combat + 1] = label .. " " .. pct(v) end end
+    add("crit", call("GetCritChance"))
+    add("ranged crit", call("GetRangedCritChance"))
+    add("spell crit", call("GetSpellCritChance", 2))
+    add("dodge", call("GetDodgeChance"))
+    add("parry", call("GetParryChance"))
+    add("block", call("GetBlockChance"))
+    if #combat > 0 then kv("Chances", table.concat(combat, ", ")) end
+  end
+
+  -- Gear
+  local gear = {}
+  for _, s in ipairs(SLOTS) do
+    local link = call("GetInventoryItemLink", "player", s[1])
+    if link then
+      local item = link:match("%[(.-)%]") or plain(link)
+      local _, _, quality, ilvl = call("GetItemInfo", link)
+      local q = quality and _G["ITEM_QUALITY" .. quality .. "_DESC"]
+      local extra = {}
+      if q then extra[#extra + 1] = q end
+      if ilvl and ilvl > 0 then extra[#extra + 1] = "item level " .. ilvl end
+      gear[#gear + 1] = s[2] .. ": " .. item .. (#extra > 0 and (" (" .. table.concat(extra, ", ") .. ")") or "")
+    end
+  end
+  if #gear > 0 then section("Equipped"); for _, g in ipairs(gear) do line(g) end end
+
+  -- Talents
+  local tabs = call("GetNumTalentTabs") or 0
+  if tabs > 0 then
+    local tlines, spent = {}, 0
+    for t = 1, tabs do
+      local r = { call("GetTalentTabInfo", t) }
+      local tname, points
+      if type(r[1]) == "number" then tname, points = r[2], r[5] else tname, points = r[1], r[3] end
+      points = tonumber(points) or 0
+      if tname then
+        spent = spent + points
+        local picks = {}
+        for i = 1, (call("GetNumTalents", t) or 0) do
+          local n, _, _, _, rk, maxRk = call("GetTalentInfo", t, i)
+          if n and (rk or 0) > 0 then picks[#picks + 1] = n .. " " .. rk .. "/" .. (maxRk or "?") end
+        end
+        tlines[#tlines + 1] = tname .. " (" .. points .. ")" .. (#picks > 0 and (": " .. table.concat(picks, ", ")) or "")
+      end
+    end
+    if #tlines > 0 then
+      section("Talents (" .. spent .. " points)")
+      for _, l in ipairs(tlines) do line(l) end
+    end
+  end
+
+  -- Skills and professions
+  local nSkills = call("GetNumSkillLines") or 0
+  if nSkills > 0 then
+    section("Skills")
+    local group
+    for i = 1, nSkills do
+      local n, header, _, rk, temp, mod, maxRk = call("GetSkillLineInfo", i)
+      if n then
+        if header then group = n; line("- " .. n)
+        else
+          local v = (rk or 0) + (temp or 0) + (mod or 0)
+          line("  " .. n .. ((maxRk and maxRk > 1) and (" " .. v .. "/" .. maxRk) or ""))
+        end
+      end
+    end
+  end
+
+  -- Reputation
+  local nFac = call("GetNumFactions") or 0
+  if nFac > 0 then
+    section("Reputation")
+    for i = 1, nFac do
+      local n, _, standing, bMin, bMax, bVal, _, _, header, _, hasRep = call("GetFactionInfo", i)
+      if n then
+        if header and not hasRep then line("- " .. n)
+        else
+          local label = standing and _G["FACTION_STANDING_LABEL" .. standing] or tostring(standing or "?")
+          local prog = (bMin and bMax and bVal and bMax > bMin) and (" " .. (bVal - bMin) .. "/" .. (bMax - bMin)) or ""
+          line("  " .. n .. ": " .. label .. prog)
+        end
+      end
+    end
+  end
+
+  -- RPG Dialogue: the numbers behind the journal.
+  section("Standing in numbers")
+  local a = c.align or {}
+  kv("Light / Shadow", a.light or 0)
+  kv("Order / Wild", a.order or 0)
+  kv("Honor / Cunning", a.honor or 0)
+  if (a.taint or 0) > 0 then kv("Taint", a.taint) end
+  local title = ns.Effects.TitleName and ns.Effects.TitleName()
+  kv("Title", title)
+  local traits = {}
+  for tname, n in pairs(c.traits or {}) do
+    if type(n) == "number" and n ~= 0 then traits[#traits + 1] = { tname, n } end
+  end
+  table.sort(traits, function(x, y) if x[2] ~= y[2] then return x[2] > y[2] end return x[1] < y[1] end)
+  local tl = {}
+  for _, t in ipairs(traits) do tl[#tl + 1] = t[1] .. " " .. t[2] end
+  if #tl > 0 then kv("Traits", table.concat(tl, ", ")) end
+  if ns.Insanity and ns.Insanity.Level and (ns.Insanity.Level() or 0) > 0 then kv("Insanity", ns.Insanity.Level()) end
+  kv("Conversations", c.conversations or 0)
+  kv("Deaths", c.deathCount or 0)
+  if c.homeInn then kv("Home inn", type(c.homeInn) == "table" and (c.homeInn.name or c.homeInn.zone) or c.homeInn) end
+
+  -- The journal, every page.
+  local J = ns.Journal
+  if J and J.Text then
+    local pages = { { "sheet", "Myself" }, { "stories", "Stories" }, { "people", "People" },
+                    { "heard", "Heard of" }, { "chronicle", "Diary" } }
+    for _, p in ipairs(pages) do
+      local ok, text = pcall(J.Text, p[1], "")
+      if ok and text and text ~= "" then
+        section("Journal: " .. p[2])
+        for l in (text .. "\n"):gmatch("(.-)\n") do
+          l = plain(l)
+          if l:match("%S") then out[#out + 1] = l else out[#out + 1] = "" end
+        end
+      end
+    end
+  end
+  if c.notes and U.Trim(c.notes) ~= "" then
+    section("Notes")
+    out[#out + 1] = plain(c.notes)
+  end
+  return table.concat(out, "\n")
+end
