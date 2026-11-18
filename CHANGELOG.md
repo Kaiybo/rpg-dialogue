@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.83.1 (2026-11-18)
+No new files: a /reload is enough.
+
+### Text to speech
+- **When the game's speech engine itself fails, RPG Dialogue now says so.** If every way of speaking is rejected (status 13, "InternalError"), it prints one message pointing at the game and Windows settings to check (Accessibility > Text to Speech > Play Sample, the Voice Chat output device), instead of quietly giving up.
+- **Text to speech no longer goes silent for the rest of the session** after one bad line. Every method is tried again on the next line.
+- `/rpgd tts` now names the failure status on clients that don't supply the names themselves.
+
 ## 0.83.0 (2026-11-18)
 Six pieces of work in one release. No new files: a /reload is enough. Every content pack got a minor version bump.
 

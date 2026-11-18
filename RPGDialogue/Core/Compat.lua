@@ -1348,13 +1348,34 @@ function C.StopSpeaking()
   call("C_VoiceChat.StopSpeakingText")
 end
 
--- Name a VoiceTtsStatus number where the client has the enum.
+-- Name a VoiceTtsStatus number: from the client's enum, else the classic-era numbering.
+local STATUS = { [0] = "Success", "InvalidEngineType", "EngineAllocationFailed", "NotSupported",
+  "MaxCharactersExceeded", "UtteranceBelowMinimumDuration", "InputTextEnqueued", "SdkNotInitialized",
+  "DestinationQueueFull", "EnqueueNotNecessary", "UtteranceNotFound", "ManagerNotFound",
+  "InvalidArgument", "InternalError" }
 local function statusName(n)
+  if type(n) ~= "number" then return nil end
   local e = resolve("Enum.VoiceTtsStatus")
-  if type(e) == "table" and type(n) == "number" then
+  if type(e) == "table" then
     for k, v in pairs(e) do if v == n then return k end end
+    return nil
   end
-  return nil
+  return STATUS[n]
+end
+
+-- Every way failing means the client's speech engine itself isn't playing, not a wrong
+-- call: say so once, and let every way be tried again on the next line.
+local ENGINE_DOWN = "RPG Dialogue: the game's own speech engine is failing (every method was rejected, "
+  .. "status %s), so this is a client or Windows problem, not the addon. Try Options > Accessibility > "
+  .. "Text to Speech > Play Sample; if that is silent too, set Options > Sound > Voice Chat output "
+  .. "device to your speakers, and check Windows speech settings."
+local function engineDown(status)
+  tts.bad = {}
+  tts.lastError = (tts.lastError or "") .. "; nothing else worked"
+  if tts.verbose or not tts.warned then
+    tts.warned = true
+    C.Print(ENGINE_DOWN:format(status or "?"))
+  end
 end
 
 -- Playback events (where the client has them) tell us whether a stop is needed, and why
@@ -1364,9 +1385,11 @@ function C.TTSEvents(on)
   on("VOICE_CHAT_TTS_PLAYBACK_FINISHED", function() tts.speaking = false end)
   on("VOICE_CHAT_TTS_PLAYBACK_FAILED", function(_, a, b, c)
     tts.speaking = false
-    local parts = {}
+    -- The argument order differs between clients; the status is the small number.
+    local parts, status = {}, nil
     for _, v in ipairs({ a, b, c }) do
-      local n = statusName(v)
+      local n = type(v) == "number" and v < 100 and statusName(v)
+      if n and not status then status = v .. "=" .. n end
       parts[#parts + 1] = n and (tostring(v) .. "=" .. n) or tostring(v)
     end
     tts.lastError = "playback failed (" .. table.concat(parts, ", ") .. ") via " .. tostring(tts.lastHow)
@@ -1383,7 +1406,7 @@ function C.TTSEvents(on)
       tts.current = cur
       if tts.verbose then C.Print("RPG Dialogue: trying " .. how .. " instead.") end
     else
-      tts.lastError = tts.lastError .. "; nothing else worked"
+      engineDown(status)
     end
   end)
 end
