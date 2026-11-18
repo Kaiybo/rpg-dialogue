@@ -1026,8 +1026,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "I'd like to think so, though I've swept this floor every morning and the dust never seems to mind. Keeper Marandis says the sickness rises from deep under Maraudon, and if he's right, no broom of mine will help." } },
       choices = {
-        { text = "It will heal. Every wasteland was green once.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some places are meant to die. Let it go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It will heal. Every wasteland was green once.", next = "BACK", reply = "I hope you are right, and I will keep sweeping, in case the green comes back and needs a clean floor to walk on.", fx = { align = { light = 1 } } },
+        { text = "Some places are meant to die. Let it go.", next = "BACK", reply = "Perhaps some are, but I came here to keep a hearth, and a hearth is a stubborn sort of hope.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
