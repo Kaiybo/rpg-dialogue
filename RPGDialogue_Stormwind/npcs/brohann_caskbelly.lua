@@ -3,6 +3,10 @@
 local P = RPGDialogueAPI:Pack("rpgd.stormwind")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
+local QT = TODO_QUEST("In Search of The Temple")
+local QRT = TODO_QUEST("Rhapsody's Tale")
+local QA = TODO_QUEST("Into The Temple of Atal'Hakkar")
+
 P:NPC {
   key = "brohann_caskbelly", id = TODO_NPC("Brohann Caskbelly"), name = "Brohann Caskbelly",
   title = "Explorers' League",
@@ -65,6 +69,7 @@ P:NPC {
       choices = { { text = "Something else, Brohann.", next = "BACK" } },
     },
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", key = true, text = "Brohann Caskbelly, Explorers' League, or what's left o' him. I was young an' full o' vigour like ye once, an' now I'm old an' I mostly remember things, chiefly the Temple of Atal'Hakkar, which I never found, an' the gryphon pilot I lost lookin' for it." },
         { id = "h_before", when = { questBefore = TODO_QUEST("In Search of The Temple"), minLevel = 38 },
@@ -75,16 +80,28 @@ P:NPC {
           text = "Falstad Wildhammer at Aerie Peak will know the pilot's name, for I'm ashamed tae say I've forgotten it. Find out what happened tae the poor fellow." },
         { id = "h_tablets_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Into The Temple of Atal'Hakkar"), days = 5 } },
           text = "The Atal'ai Tablets! Our names'll go down in history together, {name}. Ye've helped an old dwarf finish his last duty, an' I'll be grateful fer the rest o' my days." },
+        { id = "h_rhapsody", when = { questDone = QRT },
+          text = "Rhapsody Shindigger! I've said it every mornin' since ye brought me his tale, so I'll never lose it again. Alive, an' brewin' in the Hinterlands, the old devil." },
+        { id = "h_explorer", when = { origin = "dwarf_explorers_league" },
+          text = "Ye've the League's mark about ye, {g:lad|lass}, the squint o' someone who's read too many maps by candlelight. Sit; we're kin twice over." },
       },
       again = {
         { id = "h_again", text = "What else? I've stories enough fer a week." },
         { id = "h_again2", text = "Go on, {g:lad|lass}. Old dwarves love a question." },
+        { id = "h_again3", text = "Where was I? Ach, never mind where I was; ask me somethin' new an' I'll start fresh." },
       },
       choices = {
         { text = "I've never heard of the Temple of Atal'Hakkar.", next = "temple" },
         { text = "Why give up exploring?", next = "retire" },
         { text = "What happened to your gryphon pilot?", next = "pilot" },
+        { text = "What's the best thing you ever found?", next = "stories" },
+        { text = "This corner of Stormwind smells like a forge.", next = "district" },
+        { text = "What are the Atal'ai Tablets, exactly?", next = "tablets", when = { any = { { questActive = QA }, { questDone = QA } } } },
         { text = "Tell me about the Explorers' League.", next = "league", when = { race = "Dwarf" } },
+        { text = "I carry the League's mark myself, Brohann.", next = "xexplorer", when = { origin = "dwarf_explorers_league" } },
+        { text = "Aerie Peak's my home. I know its riders.", next = "xwildhammer", when = { origin = "dwarf_wildhammer_kin" } },
+        { text = "You've dug under Khaz Modan. Ever reached Gnomeregan?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "My people fought the trolls long before yours.", next = "xnelf", when = { race = "NightElf" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Farewell, Brohann.", next = "END" },
       },
@@ -94,6 +111,36 @@ P:NPC {
       },
       choices = {
         { text = "Why does the League want it?", next = "temple_why" },
+        { text = "Who was Hakkar the Soulflayer?", next = "temple_hakkar" },
+        { text = "How does a whole temple sink?", next = "temple_dragons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temple_hakkar = {
+      lines = { { id = "th_default", text = "A blood god o' the jungle trolls, back when the Gurubashi ruled all o' Stranglethorn. They called him up tae win their wars, an' he wanted blood fer it, more an' more, till the trolls themselves turned on his priests an' drove them out intae the swamp.",
+          fx = { learn = { "sunken_temple", "zul_gurub" } } },
+      },
+      choices = {
+        { text = "And the priests built the temple there?", next = "temple_atalai" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temple_atalai = {
+      lines = { { id = "ta_default", text = "Aye, the Atal'ai, an' they never stopped prayin' fer him tae come back, by all accounts. That's the part that keeps me up at night, {g:lad|lass}: no' the old stones, but the folk still kneelin' in front o' them." },
+      },
+      choices = {
+        { text = "Then the League's not only after history.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temple_dragons = {
+      lines = { { id = "td_default", text = "The trolls' own tale says the green dragons pulled it under, tae stop the Atal'ai callin' their god back. I've always laughed at that, but then, I've never found the place, so who's tae say.",
+          fx = { learn = { "green_dragons" } } },
+        { id = "td_found", when = { questDone = QT },
+          text = "The trolls' own tale says the green dragons pulled it under, tae stop the Atal'ai callin' their god back. I laughed at that when I was young, an' then ye came back an' told me there were green dragons sleepin' round the Pool o' Tears, an' I've no' laughed since." },
+      },
+      choices = {
+        { text = "Dragons guarding a temple means something terrible inside.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,6 +167,26 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help you finish it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "What will you do once you've retired?", next = "retire_after" },
+        { text = "Why retire in Stormwind, and not Ironforge?", next = "retire_stormwind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    retire_after = {
+      lines = { { id = "ra_default", text = "Write it all down afore it leaks out o' my ears, every hole an' every ruin, an' send it tae Magellas fer the Hall. Then sit by a warm forge wi' a pint an' tell lies tae young explorers about how brave I was." },
+      },
+      choices = {
+        { text = "They won't all be lies, Brohann.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    retire_stormwind = {
+      big = true,
+      lines = { { id = "rs_default", text = "Because the tram brings me home in an hour whenever I'm homesick, an' because the League's southern digs all report through here. An' I'll be honest wi' ye: Ironforge is full o' dwarves who remember me young, an' I'd rather they kept rememberin' it that way." },
+      },
+      choices = {
+        { text = "Pride's a poor reason to stay away from home.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them remember you young. That's a wise choice.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,7 +201,142 @@ P:NPC {
     pilot_blame = {
       lines = { { id = "pb_default", text = "Who else would I blame? It was my expedition an' my curiosity. If he's alive, I owe him an apology, an' if he isn't, I owe him more than that." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "His name was Rhapsody Shindigger. He's alive.", next = "pilot_name", when = { questDone = QRT } },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pilot_name = {
+      lines = { { id = "pn_default", text = "Rhapsody, aye, Rhapsody Shindigger, an' how did I ever let that slip? Ye tell me he swam out o' that swamp wi' a troll's trinket in his fist, an' now he brews in the Hinterlands an' cannae hold a gryphon's reins fer the shakin'." },
+      },
+      choices = {
+        { text = "He drinks to forget the swamp. That's on your expedition.", next = "pilot_drink" },
+        { text = "He seemed happy enough, in his way.", next = "pilot_drink" },
+      },
+    },
+    pilot_drink = {
+      big = true,
+      lines = { { id = "pd_default", text = "I'll carry that, then, alongside the rest. I've a mind tae send him a cask o' the best Ironforge has, an' I've an equal mind that it's the last thing the poor fellow needs. What would ye do?" },
+      },
+      choices = {
+        { text = "Go and see him yourself. A cask's no apology.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Send the cask. He'll take it the way it's meant.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The tablets
+    tablets = {
+      lines = { { id = "tb2_default", text = "Stone tablets the Atal'ai carved, tellin' their own history in their own hand, from the Gurubashi wars tae the sinkin'. There's no' a scholar in Ironforge who's read a troll's account o' itself, an' I mean tae be the first who has." },
+        { id = "tb2_done", when = { questDone = QA },
+          text = "The ones ye brought me are bein' copied in Ironforge as we speak, an' Magellas says there's a passage in them nobody can make sense of yet. It's the Atal'ai tellin' their own history, {g:lad|lass}, an' we're the first who've ever read it." },
+      },
+      choices = {
+        { text = "What happens to the tablets now?", next = "tablets_fate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tablets_fate = {
+      big = true,
+      lines = { { id = "tf_default", text = "Some say lock 'em in the Hall o' Explorers an' let scholars pore over 'em, an' some priests say smash 'em, so nobody learns the prayers carved on 'em. I've my own view, but I'd like tae hear yers first." },
+      },
+      choices = {
+        { text = "Study them. Knowing the enemy's prayers is how we stop them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Smash them. Some words should never be read again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What's your own view, Brohann?", next = "tablets_view" },
+      },
+    },
+    tablets_view = {
+      lines = { { id = "tv_default", text = "Copy every word, then bury the stones somewhere only Magellas knows. The knowledge is ours tae keep, but I'll no' leave a ready-made altar lyin' about fer some fool tae kneel at." },
+      },
+      choices = {
+        { text = "A sensible middle road, Brohann.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Stories
+    stories = {
+      lines = { { id = "st_default", text = "Ach, there's a question tae make an old dwarf's eyes water. I've walked the halls o' Uldaman where the stone's carved finer than any mason alive could manage, an' I've stood at the gate o' Zul'Farrak wi' sand in my beard an' trolls on the wall." },
+      },
+      choices = {
+        { text = "Tell me about Uldaman.", next = "stories_uldaman" },
+        { text = "What happened at Zul'Farrak?", next = "stories_zf" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stories_uldaman = {
+      lines = { { id = "su_default", text = "Deep in the Badlands, an' older than Ironforge by a long road. We found carvin's there that look like dwarves, but made o' stone, as if the titans shaped us an' then went on their way, an' if that's true, {g:lad|lass}, it changes everythin' we thought we knew about ourselves.",
+          fx = { learn = { "uldaman" } } },
+      },
+      choices = {
+        { text = "Dwarves made of stone? That's a big claim.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stories_zf = {
+      lines = { { id = "sz_default", text = "I got as far as the gate an' no further, fer the Sandfury had a mind tae add my skull tae the decorations. I took one rubbin' off the outer wall an' ran, an' that rubbin' hangs in the Hall o' Explorers wi' my name under it, which is more than most get.",
+          fx = { learn = { "zul_farrak" } } },
+      },
+      choices = {
+        { text = "Running was the wise thing to do.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The district
+    district = {
+      lines = { { id = "di_default", text = "That's the smithies, an' a good honest smell it is. The humans gave us this corner after the war, when half their city needed rebuildin' an' dwarven hands were cheap an' willin', an' most o' us never went home." },
+      },
+      choices = {
+        { text = "Do the humans treat you well here?", next = "district_humans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    district_humans = {
+      big = true,
+      lines = { { id = "dh_default", text = "Well enough, though some o' them think every dwarf is a smith an' every smith is a drunk, an' I'm only one o' those. Stormwind owes Ironforge a great deal, an' I'll say this: the humans remember it better than their nobles do." },
+      },
+      choices = {
+        { text = "Stormwind should honour that debt properly.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Allies help each other. Nobody owes anyone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Who the player is
+    xexplorer = {
+      lines = { { id = "xe_default", text = "Do ye now! Then Magellas sent ye out green, the way he sent me, wi' a pick an' a notebook an' no' a word o' warnin'. What are they diggin' this season, {g:lad|lass}? I've no' had a letter in a month." },
+      },
+      choices = {
+        { text = "Uldaman, mostly, and arguing about Uldaman.", next = "stories_uldaman" },
+        { text = "Too much to tell. I'll write it down for you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xwildhammer = {
+      lines = { { id = "xw_default", text = "Then ye'll know Falstad, an' the aviary, an' ye'll know what it means fer a rider tae fall. I flew wi' one o' yer kin over that swamp, an' I lost him, an' I'd count it a kindness if ye'd no' look at me too hard." },
+      },
+      choices = {
+        { text = "Riders know the risk, Brohann. It wasn't your fault.", next = "pilot_blame", fx = { affinity = 1 } },
+        { text = "Aerie Peak remembers. You should go and make it right.", next = "pilot_blame" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xg_default", text = "Once, through a side tunnel, an' yer people were so polite about chasin' me out that I've no' forgotten it. I'm sorry fer what's become o' the place; we built the tram together, yer folk an' mine, an' I'd like tae think we'll dig it back together too.",
+          fx = { learn = { "gnomeregan" } } },
+      },
+      choices = {
+        { text = "We will. Gnomeregan isn't lost forever.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = { { id = "xn_default", text = "So I've read, an' I'd give my last tooth tae hear it from someone who knows the old tales. Did yer people ever face the Gurubashi, or only the forest trolls o' the north? There's nothin' in our books about it but guesses." },
+      },
+      choices = {
+        { text = "The Amani, in the north. Long before your mountains had names.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Those tales are ours to keep, dwarf.", next = "BACK", fx = { affinity = -1 } },
+      },
     },
     league = {
       lines = { { id = "l_default", text = "The finest company o' scholars an' diggers in Khaz Modan, or so we tell everyone. Magellas runs it from the Hall o' Explorers now, an' he's a sharper mind than I ever was, though don't tell him." },

@@ -737,6 +737,13 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Good day. If you'll give me your name for the book, we can begin." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, I have you in the book already. Welcome back." },
+    { id = "g_word_deceived", when = { word = { "deceived", "caughtLying" } }, text = "I've heard a story about you that I've not yet written down, and I'd prefer to keep it that way. Shall we begin honestly?" },
+  },
+  notice = {
+    { id = "n_purse_heavy", cat = "purse", when = { money = { min = 1000000 } }, place = "before",
+      text = "That purse rides heavy, if you'll forgive a clerk for noticing. Large sums are where the mistakes hide, so I'll be counting twice today." },
+    { id = "n_purse_light", cat = "purse", when = { money = { max = 500 } }, place = "before",
+      text = "If you're selling to raise coin, I'd advise a modest starting bid. A greedy first price has stranded more goods in this hall than any thief." },
   },
   start = "hello",
   nodes = {
@@ -816,6 +823,7 @@ P:NPC {
       },
     },
     hello = {
+      hub = true,
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll write your name down, if you don't mind, though I'm sure there's a better book than mine being kept somewhere above." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll still write your name down, {class}, because the book doesn't make exceptions, even for the Silver Hand." },
@@ -833,6 +841,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Is there anything else? I'd like to finish this page before the ink dries." },
         { id = "h_again2", text = "Go on, I'm listening, though I'll keep writing." },
+        { id = "h_again3", text = "Yes? I've turned to a fresh page, so whatever you say next will have plenty of room." },
       },
       choices = {
         { text = "Show me what's up for auction.", next = "BUSINESS" },
@@ -846,6 +855,16 @@ P:NPC {
         { text = "Do you trust anyone at the auction house, Fitch?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has a druid ever bought a pelt just to bury it, Fitch?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is fraud really so common, Fitch?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Who are the other two auctioneers?", next = "colleagues" },
+        { text = "What's the strangest lot you've ever written down?", next = "strange" },
+        { text = "Why does the hall take a cut of every sale?", next = "fees" },
+        { text = "You don't trust a soul in here, do you?", next = "trust" },
+        { text = "Where did you learn to keep books like that?", next = "nobles" },
+        { text = "I worked these streets as a cutpurse once.", next = "xpickpocket", when = { origin = "human_canal_pickpocket" } },
+        { text = "You'll know my family's name, I expect.", next = "xnoble", when = { origin = "human_minor_noble" } },
+        { text = "I wore the Watch's colours before I took up the road.", next = "xguard", when = { origin = "human_city_guard" } },
+        { text = "I'd like to sell what I carried out of Gnomeregan.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "Your book doesn't frighten me, Fitch.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Thank you, Fitch.", next = "END" },
       },
     },
@@ -866,13 +885,155 @@ P:NPC {
     },
     book = {
       lines = { { id = "b_default", text = "Because coin is only trust that clinks, and trust needs a record. If every buyer knows the book is honest, they'll bid, and if they bid, the whole Trade District eats." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "How far back do your books go?", next = "book_old" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    book_old = {
+      lines = { { id = "bo_default", text = "To the day the hall reopened after the city was rebuilt, forty-one volumes, and I could tell you what sold on any morning you care to name. The first entry is a dented helm, sold for nine copper to a man who said it had been his father's." } },
+      choices = {
+        { text = "Where do you keep forty-one volumes?", next = "book_vault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    book_vault = {
+      lines = { { id = "bv_default", text = "The finished ones go across the square to the bank, in a box the Burnsides keep for me, and the current one never leaves my hand. I'm told I sleep with it, which is an exaggeration; it sleeps on the chair beside me." } },
+      choices = {
+        { text = "That seems a very lonely way to live, Fitch.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Colleagues
+    colleagues = {
+      lines = { { id = "co_default", text = "Chilton on the left podium, who calls bids as though he were announcing a royal wedding, and Jaxon on the right, who can sell a cracked pot to a potter by asking after his mother. I'm in the middle, which suits me, because the middle is where you can hear both lies." } },
+      choices = {
+        { text = "Tell me more about Chilton.", next = "colleagues_chilton" },
+        { text = "And Jaxon?", next = "colleagues_jaxon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    colleagues_chilton = {
+      lines = { { id = "cc_default", text = "He started as a clerk, like me, and discovered he had a voice that carried, and he's never stopped using it since. He calls me the conscience of the hall, and he means it kindly, mostly." } },
+      choices = {
+        { text = "Every hall needs a conscience.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    colleagues_jaxon = {
+      lines = { { id = "cj_default", text = "Warm, quick, and kinder to the old soldier who bids a silver and a copper on everything than I would have the patience to be. I write his bids down every time, I'll have you know, though they've never once won." } },
+      choices = {
+        { text = "You write down bids that never win?", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- His past
+    nobles = {
+      lines = { { id = "n_default", text = "In the House of Nobles, copying deeds and debts for men who never once looked up from their wine. I left after the rebuilding, because I didn't care for what I saw written there." } },
+      choices = {
+        { text = "What did you see written there?", next = "nobles_saw" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nobles_saw = {
+      lines = { { id = "ns_default", text = "Sums owed to the stonemasons who rebuilt this city, written in, then written smaller, then struck through with a note that said the treasury would review it. It's still under review, I imagine, and the masons are in Westfall now, wearing red.",
+          fx = { learn = { "stonemasons", "defias" } } } },
+      choices = {
+        { text = "Did you ever tell anyone what you saw?", next = "nobles_silent" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nobles_silent = {
+      big = true,
+      lines = { { id = "nsi_default", text = "Whom would I tell? The ledger was the House's own, the men who struck the lines sat in the House, and I was a scribe with a family to feed. I keep this book honest instead, and some nights I think that's penance and some nights I think it's cowardice." } },
+      choices = {
+        { text = "You did right to keep your head down. Nobody listens to scribes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should have spoken. It might have changed everything.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The trade
+    strange = {
+      lines = { { id = "st_default", text = "A jar of something from Duskwood that the seller swore was a ghost, and which did, I'll grant, knock twice on the lid whenever Chilton raised his voice. It sold for four gold to a gentleman from the Mage Quarter, and I wrote it down as a jar." } },
+      choices = {
+        { text = "Do you ever turn goods away?", next = "strange_stolen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange_stolen = {
+      big = true,
+      lines = { { id = "ss_default", text = "Stolen goods, when I can prove it, which isn't as often as I'd like. A good deal comes through here off dead Defias in Westfall, and the law says what's taken off a bandit belongs to the one who took it, though I don't always like how it was taken." } },
+      choices = {
+        { text = "Spoils of the fight belong to whoever fought. Fair's fair.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Looting the dead sits ill with me, bandits or not.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fees = {
+      lines = { { id = "fe_default", text = "The deposit keeps people from listing rubbish to clutter the hall, and you get it back if your goods sell. The cut keeps the lamps lit and the guards paid, and a share goes to the crown, which I write down very clearly, so nobody can say it went into my pocket." } },
+      choices = {
+        { text = "The crown takes a share of everything, it seems.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trust = {
+      lines = { { id = "tr_default", text = "I trust the book, which is not the same as distrusting you. If everyone is written down, nobody has to be suspected, and that's a kindness, though people rarely take it as one." } },
+      choices = {
+        { text = "That's a strange sort of kindness, Fitch.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Who the player is
+    xpickpocket = {
+      big = true,
+      lines = { { id = "xpp_default", text = "Then I've almost certainly written you down already, under someone else's name, as the buyer of a ring that wasn't yours to sell. I'll not dig it up, provided whatever you sell me today was honestly come by." } },
+      choices = {
+        { text = "It was. I've left that life behind.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Honest enough. Don't ask too closely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnoble = {
+      lines = { { id = "xn_default", text = "I've copied it, at least, in a deed or two, and I'll say nothing more, because the House of Nobles taught me to forget what I copy. Your family's coin spends here the same as a farmer's, and I write it down in the same hand." } },
+      choices = {
+        { text = "That's how it should be.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What did those deeds say?", next = "nobles_saw" },
+      },
+    },
+    xguard = {
+      lines = { { id = "xg_default", text = "Then you'll know the names I've sent to the barracks, and perhaps you carried one or two of them yourself. It's a comfort to meet someone else who believes a list can keep the peace." } },
+      choices = {
+        { text = "A list and a truncheon, in my experience.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xgn_default", text = "Many of your people have stood where you're standing, selling the only things they carried out, and I write each lot down with a note of where it came from. One day someone may want to know what Gnomeregan was, and my book will remember it.",
+          fx = { learn = { "gnomeregan" } } } },
+      choices = {
+        { text = "Thank you for that, Fitch.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xr_default", text = "It isn't meant to frighten anyone, only to remember them. Though I'll admit the ones who say it doesn't frighten them are usually the ones I end up writing about twice." } },
+      choices = {
+        { text = "Fair enough. Your hall, your rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules are for people who can't get around them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
     booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay keep their books in a code I've never been able to break. I keep mine in plain Common, because fraud is the greatest sin in this trade, and I'll not commit it." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel runs auction houses in every goblin port, and they're very good at it, I'll grant them. But they'll sell to anyone, and I'd rather know where my goods are going." } },
     the_stockade = { { id = "tp_the_stockade", text = "Some of the goods that come up for auction have very suspicious origins, and I note every one. I've sent a few names to the Stockade, back when the Stockade held anyone." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I copied the debts owed to them, once, and I watched the lines grow smaller on the page. I'll say no more than that in a public hall." } },
     background = { { id = "tp_bg", text = "I was a scribe in the House of Nobles once, copying deeds, and I left because I preferred honest bidding to what I saw written there." } },
     _none = { { id = "tp_none", text = "I have nothing written on that, I'm afraid, and I don't repeat what isn't written." } },
   },
@@ -1834,6 +1995,7 @@ P:NPC {
       },
     },
     hello = {
+      hub = true,
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Symbols of divinity, I expect, {class}, and I've a fresh crate, though I always hope your sort never has to use them." },
         { id = "h_default", text = "Kyra Boucher. Reagents for every kind of spellcaster, right by the door so nobody has to walk past Keldric's lectures on glass. Keldric is my kin, so I'm allowed to say that." },
@@ -1849,12 +2011,20 @@ P:NPC {
       again = {
         { id = "h_again", text = "Who's next, then? Oh, still you; what else have you run short of?" },
         { id = "h_again2", text = "Anything else? I've another customer at the door." },
+        { id = "h_again3", text = "Still here? Good, I like a customer who chats; most of them grab their powder and bolt." },
       },
       choices = {
         { text = "Show me your reagents.", next = "BUSINESS" },
         { text = "Priests come to you for supplies too, I see.", next = "priest", when = { class = "PRIEST" } },
         { text = "Mages seem to run through their supplies quickly.", next = "mage", when = { class = "MAGE" } },
         { text = "You'll have some good customers, I expect.", next = "customers" },
+        { text = "Tell me about Pestle's Apothecary.", next = "shop" },
+        { text = "Why keep your counter right by the door?", next = "door" },
+        { text = "You've already guessed what I'm here for, haven't you?", next = "guess" },
+        { text = "Where do all these reagents come from?", next = "supply" },
+        { text = "Seeds and berries, for a druid's rebirth. You stock them?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I learned my craft in the Lamb's cellar.", next = "xlamb", when = { origin = "human_lamb_cellar" } },
+        { text = "I came south from Lordaeron, after the plague.", next = "xrefugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Why wrap a warlock's reagents in plain paper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the difference between yours and Jasper's?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors ever buy reagents, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1869,16 +2039,154 @@ P:NPC {
         { id = "pr_default", text = "Light feathers for levitating, and holy candles for the prayers that strengthen a whole company at once. The Cathedral's sisters buy candles by the box before they go to the front." },
         { id = "pr_low", when = { maxLevel = 33 }, text = "Not much yet, I'm afraid, but once you learn to float, you'll need light feathers, and later holy candles for the bigger prayers. I'll be here when you do." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Where are the sisters going with all those candles?", next = "priest_front" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priest_front = {
+      lines = { { id = "pf_default", text = "Lakeshire, mostly, where the orcs keep coming down out of the hills, and Darkshire, where nobody sleeps well. They buy candles for prayers and come back for more a month later, a little thinner and a little quieter each time." } },
+      choices = {
+        { text = "The Church does good work out there.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     mage = {
       lines = { { id = "m_default", text = "Runes of teleportation, always, because a mage would rather walk home by magic than by foot. Arcane powder, too, once you're strong enough to grant your brilliance to a whole group." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Do mages ever buy runes for anyone else?", next = "mage_runes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage_runes = {
+      lines = { { id = "mr_default", text = "Runes of portals, for when they've a whole party to send home, and I'll tell you those go quickly whenever there's trouble in the south. One young mage bought twenty at once and opened a portal into the Canals by mistake, and the ducks have never forgiven him." } },
+      choices = {
+        { text = "Into the Canals? I'd have paid to see that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     customers = {
       lines = { { id = "c_default", text = "The Mage Quarter, when its own shops run dry, and the Cathedral, which never does. Rogues buy flash powder from me and never look me in the eye, which I find rather sweet." } },
       choices = {
         { text = "You sell to rogues without asking questions?", next = "rogues" },
+        { text = "What's the oddest thing anyone's asked you for?", next = "customers_odd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers_odd = {
+      lines = { { id = "co_default", text = "A dwarf wanted arcane powder for his beard, because he'd heard it made a wizard's hair shine, and I couldn't talk him out of it. He came back a week later glittering faintly and very pleased with himself, and bought another pouch." } },
+      choices = {
+        { text = "Did it work?", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The shop
+    shop = {
+      lines = { { id = "s_default", text = "Morgan Pestle owns it and brews in the back, Keldric sells the arcane goods along the wall, and I keep the reagents by the door. It smells of three different herbs on any given day, and I've stopped noticing, but the customers never do." } },
+      choices = {
+        { text = "What's Morgan Pestle like?", next = "shop_pestle" },
+        { text = "You and Keldric are family, then?", next = "shop_keldric" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop_pestle = {
+      lines = { { id = "sp_default", text = "Quiet, careful, and happiest with his sleeves rolled and something bubbling, which suits me, because I do the talking for the whole shop. He's never once raised his voice, except at a cat that got into the mandrake." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop_keldric = {
+      lines = { { id = "sk_default", text = "We share a name, and I call him kin, and he lets me, which is as much as either of us will say about it. He'll talk your ear off about Ironforge glass if you stand still too long, so I keep my counter well clear of his." } },
+      choices = {
+        { text = "That's not really an answer, Kyra.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The door
+    door = {
+      lines = { { id = "d_default", text = "Because folk in a hurry want what they came for without walking past three shelves of things they didn't. And because from the door I can see the whole Trade District go by, and I do love watching it." } },
+      choices = {
+        { text = "What have you seen go by lately?", next = "door_watch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    door_watch = {
+      lines = { { id = "dw_default", text = "More guards than there used to be, and more of them looking worried. More carts from Westfall with families sitting on top, and fewer with grain, and folk from the north with Lordaeron in their voices, buying nothing and asking directions to the Cathedral." } },
+      choices = {
+        { text = "The refugees? What becomes of them here?", next = "door_refugees" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    door_refugees = {
+      big = true,
+      lines = { { id = "dr_default", text = "Some find work, some find the Cathedral's soup line, and some find the Canals, where nobody asks questions. I hear people grumble that the city's too full already, and then I see a child with a Lordaeron accent and I can't think why anyone would grumble." } },
+      choices = {
+        { text = "Stormwind should take in everyone who needs it.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The city can only feed so many. There have to be limits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- An observation
+    guess = {
+      lines = { { id = "g_default2", text = "I have, though I'll not say it aloud in case I'm wrong and you think less of me. I've stood at this counter long enough that I can usually tell a customer's trade before they've wiped their boots." } },
+      choices = {
+        { text = "How do you tell?", next = "guess_trick" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guess_trick = {
+      lines = { { id = "gt_default", text = "Mages smell faintly of a thunderstorm, priests of candle wax, and druids of cut grass, whatever they're wearing. Rogues are the easiest of all, because they're the only ones who check where the door is before they look at the shelves." },
+        { id = "gt_rogue", when = { class = "ROGUE" }, text = "You, for instance, checked where the door was before you looked at a single shelf, which is what all your sort do. Mages smell of thunderstorms, priests of candle wax, and you smell of nothing at all, which gives you away worst of all." },
+      },
+      choices = {
+        { text = "That's a clever trick, Kyra.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Supply
+    supply = {
+      lines = { { id = "su_default", text = "Feathers from the hill farms, candles from a chandler near the Cathedral who blesses every batch, and the arcane powder from mages who'd rather sell it than grind it themselves. The runes are the hard part, because they come from people who know runes, and those are fewer every year." } },
+      choices = {
+        { text = "Fewer every year? Why is that?", next = "supply_dalaran" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supply_dalaran = {
+      lines = { { id = "sd_default", text = "Because Dalaran used to make half the runes in the Seven Kingdoms, and Dalaran's been in ruins since the Scourge came through. The Kirin Tor are rebuilding, I'm told, but they're keeping what they make for themselves, and I can't say I blame them.",
+          fx = { learn = { "dalaran", "scourge" } } } },
+      choices = {
+        { text = "The Kirin Tor owe the world better than that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Who the player is
+    xdruid = {
+      lines = { { id = "xd_default", text = "Maple seeds for the rebirth, and wild berries for your gift to the whole party, and once you're older, thornroot for the stronger gift. I've no idea what you do with them, and I've decided I'd rather keep it a little mystery." } },
+      choices = {
+        { text = "The seed carries a life back into the world.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlamb = {
+      big = true,
+      lines = { { id = "xl_default", text = "Then you'll be one of the plain-paper customers, and I'll wrap yours the same as the rest. I don't hold the cellar against anyone, but I'd be lying if I said I never wondered what you all do down there." } },
+      choices = {
+        { text = "We study what others fear. Someone has to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of it frightens me too. I'm careful.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrefugee = {
+      lines = { { id = "xr_default", text = "I've had a good many of your people through that door, and they always ask the same thing first, which is where the Cathedral is. I've drawn the way on so many scraps of paper that I've started keeping a stack of maps under the counter." },
+        { id = "xr_priest", when = { class = "PRIEST" }, text = "A priest from Lordaeron. You'll have prayed over things I'd not want to hear about, I expect, and you still come in for candles, which says something good about you." },
+      },
+      choices = {
+        { text = "That's a kindness. Thank you, Kyra.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
