@@ -75,7 +75,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "We make use of them when they serve the kaldorei, because the Warsong scouts can't be caught by arrows alone. But a blade in the dark can serve anyone who pays for it, so I judge a rogue by whose coin they carry, and I watch them longer than most." } },
       choices = {
-        { text = "My blade serves Ashenvale, not whoever pays most.", next = "BACK", reply = "Then you'll find Astranaar a friend, and I'll remember it. Good.", fx = { align = { honor = 1 } } },
+        { text = "My blade serves Ashenvale, not whoever pays most.", next = "BACK", reply = "Then you'll find Astranaar a friend, and I'll remember your face.", fx = { align = { honor = 1 } } },
         { text = "Coin is coin. I take the best offer.", next = "BACK", reply = "Then I'll be watching who pays you, rogue. The Sentinels keep careful lists.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -181,7 +181,7 @@ P:NPC {
         { id = "pr2_default", text = "They talk to me, which is not the same thing. A village at war has to know who it can trust, and I would rather learn it from neighbours than from graves." },
       },
       choices = {
-        { text = "That's wise. Trust has to be earned.", next = "BACK", reply = "It is, and I'm glad you see it. Neighbours make better witnesses than graves.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "That's wise. Trust has to be earned.", next = "BACK", reply = "It is, and I'm glad you see it. Every newcomer gets watched for a season, and most never notice.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "It sounds like spying on your own people.", next = "BACK", reply = "It may sound so, and I'll not argue. But a village at war cannot afford blind trust.", fx = { align = { order = -1 }, affinity = -1 } },
       },
     },
@@ -294,7 +294,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the Warsong keep archers at their lumber camps to the east, and a bird up high is a target while a bird down low is a blur. I've lost one already this season, and I don't mean to lose another." } },
       choices = {
-        { text = "Fly as you must. I'll trust your judgment.", next = "BACK", reply = "Thank you, and the birds will thank you too. Low and fast keeps them home.", fx = { align = { order = 1 } } },
+        { text = "Fly as you must. I'll trust your judgment.", next = "BACK", reply = "Thank you, and the birds will thank you too. I'll send you over the lake; the Warsong never watch the water.", fx = { align = { order = 1 } } },
         { text = "If they shoot your birds, I'll go and stop them.", next = "BACK", reply = "That's brave, and I'll not stop you. Bring back the archers' bows, if you can.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },

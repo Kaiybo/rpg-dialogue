@@ -318,7 +318,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing useful, which is what bothers me, because they guard them like treasure and can't read a word. And keep {pet} out of the water by the ruins, because the naga eat anything that swims, and I can't sell a tablet with teeth marks in it." },
       },
       choices = {
-        { text = "I'll take them openly. I'm no thief, Jediga.", next = "BACK", reply = "Openly, he says, against naga, as if they'd let you. Fine, but bring them back in one piece.", fx = { align = { honor = 1 } } },
+        { text = "I'll take them openly. I'm no thief, Jediga.", next = "BACK", reply = "Openly, {g:he|she} says, against naga, as if they'd let you. Fine, but bring them back in one piece.", fx = { align = { honor = 1 } } },
         { text = "Then I'll slip in, take them, and never be seen.", next = "BACK", reply = "Now that's a hunter I can work with. I'll have the coin ready.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -593,7 +593,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "When Ag'tor asks, I do, but I keep my beasts high and fast. The elves have archers, and a wind rider is a big target, so I'm careful about who I carry." } },
       choices = {
-        { text = "Your caution keeps them alive.", next = "BACK", reply = "It does, and I'll keep being careful. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your caution keeps them alive.", next = "BACK", reply = "It does, and it's kept every one of them alive this season. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Risks are part of war.", next = "BACK", reply = "They are, but they're my beasts' risks, not yours. I'll decide.", fx = { align = { order = -1 } } },
         { text = "I'll keep quiet, then.", next = "BACK" },
       },
@@ -611,7 +611,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Well enough, but they won't fly low over the old elf ruins, no matter how hard I push them. Something down there frightens them, and I've learned to trust a wind rider's nose more than my own eyes, so we go high, and we go fast." } },
       choices = {
-        { text = "Trust the beasts. They know danger better than we do.", next = "BACK", reply = "I do, and they've kept me alive. Glad you see it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Trust the beasts. They know danger better than we do.", next = "BACK", reply = "I do, and twice now they've refused to fly into weather that would have killed us both.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Beasts should be trained past their fear. Push them harder.", next = "BACK", reply = "You can try, druid, and they'll throw you off. Some fear is worth listening to.", fx = { align = { order = 1 } } },
         { text = "Something else, Kroum.", next = "BACK" },
       },

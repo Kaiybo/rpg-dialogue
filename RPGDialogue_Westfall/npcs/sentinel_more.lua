@@ -30,7 +30,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "The thread sales say so, because folk are patching old clothes instead of sewing new. Your spirits might help them heal, in their way." } },
       choices = {
         { text = "Mending is a kindness. Keep the thread flowing, Christopher.", next = "BACK", reply = "It is, and it keeps me in business, which is a kindness of another sort. I'll keep the spools coming as long as the wagons do.", fx = { align = { light = 1 } } },
-        { text = "Mending is weakness. Make something new.", next = "BACK", reply = "New cloth costs coin nobody on this hill has, friend. A patched coat keeps the wind out just as well as a fresh one.", fx = { align = { light = -1 } } },
+        { text = "Mending is weakness. Make something new.", next = "BACK", reply = "New cloth costs coin nobody on this hill has, friend. I've patched Gryan's own cloak four times, and he's never once complained of the wind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -53,7 +53,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back. {pet} had better keep its head down near the roost, because my old hen has snatched a hare out of a man's arms before now." },
       },
       choices = {
-        { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", reply = "That's how my father ran his, an' his father before him. A fed bird is a happy bird, an' a happy bird comes home.", fx = { align = { order = 1 } } },
+        { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", reply = "That's how my father ran his roost, an' his father before him. Three generations, an' nae bird ever flew off on us.", fx = { align = { order = 1 } } },
         { text = "Let them hunt. A gryphon ought to be wild.", next = "BACK", reply = "They ought tae be, in the mountains, aye. But the marsh is full o' things that bite back, an' I'd rather they were wild somewhere else.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -243,7 +243,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Ask any sergeant in Theramore whether he'd rather have a full company or a fed one, and he'll tell you they're the same thing. A man on hard bread fights for an hour, but a man on tortoise soup fights till supper, and then he wants seconds." } },
       choices = {
-        { text = "Feed the line and it holds. You're right, Morgan.", next = "BACK", reply = "That's the whole of it, and I'll have it carved over my door someday. A full belly holds a wall better than a sharp sword.", fx = { align = { order = 1 } } },
+        { text = "Feed the line and it holds. You're right, Morgan.", next = "BACK", reply = "That's the whole of it, and I'll have it carved over my door someday. Ask any sergeant which he'd rather lose, his cook or his whetstone.", fx = { align = { order = 1 } } },
         { text = "A real warrior fights the same hungry or full.", next = "BACK", reply = "Then you've never stood a double watch on hard bread, friend. Try my soup first, and tell me if you still believe it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I resent that it's always on hand when the supply ships are late, and nobody ever asks me for tortoise soup when there's free bread to be had. It's good for a soldier in the field, I'll grant, but you can't build a garrison on it." } },
       choices = {
-        { text = "You're right. Good food keeps morale up.", next = "BACK", reply = "It does, and I've watched it happen a hundred times. A good bowl of soup has turned more battles than you'd think.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. Good food keeps morale up.", next = "BACK", reply = "It does, and I've watched it happen a hundred times. Serve the watch cold porridge three days running, and see how they look on the fourth.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Free food is free food. A garrison should take what's easiest.", next = "BACK", reply = "Easiest, maybe, but not best, and you can taste the difference. Come by when the boats are in, and I'll show you.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -291,7 +291,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Crab and crocolisk, mostly, and tubers from the wet ground north of the city that taste like dirt until you boil them twice. When the boats are late, it's the marsh that feeds this island, and I don't let anyone forget it." } },
       choices = {
-        { text = "Take only what you need. The marsh must last.", next = "BACK", reply = "That's the rule in my kitchen, and I'll not break it. The marsh will be here long after Theramore is gone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Take only what you need. The marsh must last.", next = "BACK", reply = "That's the rule in my kitchen, and I'll not break it. A basket of crabs a day and not a claw more, whatever the quartermaster says.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Feed the city first. The marsh has plenty.", next = "BACK", reply = "It does, but it's not endless, and I've seen the crabs grow scarce. The city first, yes, but the marsh second.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Call it what you like. I've seen a bow of local yew split in the cold for no reason, and I've seen a satyr laugh when it happened, and that's enough for me." } },
       choices = {
-        { text = "Good. Some lines should never be crossed.", next = "BACK", reply = "They should, and that's one of mine. I'll carry wood from Ashenvale until the satyrs stop laughing.", fx = { align = { order = 1 } } },
+        { text = "Good. I wouldn't touch that cursed wood either.", next = "BACK", reply = "Nor will I, and that's one of my lines. I'll carry wood from Ashenvale until the satyrs stop laughing.", fx = { align = { order = 1 } } },
         { text = "Wood is wood. Fear wastes good timber.", next = "BACK", reply = "Maybe, until your bow splits mid-draw with a satyr in front of you. Fear's cheaper than a funeral.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

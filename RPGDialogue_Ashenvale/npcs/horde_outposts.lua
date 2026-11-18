@@ -545,8 +545,8 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll keep coming back alive, Kaylisk.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kaylisk_flirt_yes" }, clear = { "kaylisk_flirt_no" } } } },
-        { text = "Lok'tar, Kaylisk. A warrior's heart knows a strong woman.", next = "flirt_yes", when = { race = "Orc" },
-          reply = "Hah! An orc with a tongue in his head, and a civil one. Mind it doesn't get you hit.",
+        { text = "Lok'tar, Kaylisk. I'd take your stew over any feast in Orgrimmar.", next = "flirt_yes", when = { race = "Orc" },
+          reply = "Hah! An orc with a civil tongue in {g:his|her} head, and a flattering one. Mind it doesn't get you hit.",
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kaylisk_flirt_yes" }, clear = { "kaylisk_flirt_no" } } } },
         { text = "My people say a full pot means a warm heart, Kaylisk.", next = "flirt_yes", when = { race = "Tauren" },
           reply = "Then mine must be scalding, because I've never once let this pot go empty.",
@@ -565,7 +565,7 @@ P:NPC {
     flirt_yes = {
       lines = { { id = "fy_default", text = "Good, because I'm sick of burying the ones who don't. Come back alive, eat what I give you, and maybe one night, when the shutters are closed and the elves are quiet, I'll sit down with you." } },
       choices = {
-        { text = "I'll hold you to that one night.", next = "BACK",
+        { text = "I'll hold you to that, Kaylisk.", next = "BACK",
           reply = "Hold me to it, then. Now eat, before it goes cold and you blame my cooking." },
       },
     },

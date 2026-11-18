@@ -71,7 +71,7 @@ P:NPC {
     romantic = {
       lines = { { id = "ro_default", text = "Then you can wait for him next time, and I'll go to the inn at Astranaar. No, I don't mean that, or not entirely, because I'd wait another thousand years if he asked me to, though I'd complain about it." } },
       choices = {
-        { text = "Love that waits is worth more than gold.", next = "BACK", reply = "It is, and I'll remind myself of that the next time he oversleeps by a century. You're kind to say it.", fx = { align = { order = 1 } } },
+        { text = "Love that waits is worth more than gold.", next = "BACK", reply = "Is he? I'll remind myself of that the next time he oversleeps by a century. You're kind to say it.", fx = { align = { order = 1 } } },
         { text = "Life is short. Go and drag him here yourself.", next = "BACK", reply = "Ha! If I could drag a druid out of the Dream, I'd have done it long ago. But I like the way you think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

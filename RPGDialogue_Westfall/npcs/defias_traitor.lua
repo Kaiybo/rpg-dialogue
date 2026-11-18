@@ -41,7 +41,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where the road narrows by the old farms and the hedges are thickest, with a man up a tree and two in the ditch. Your {pet} will smell them before we see them, I hope, so if its hackles go up, trust it more than me." },
       },
       choices = {
-        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", reply = "Traitor or not, he says, and I'll take it gladly. Get me there breathing, and you can call me anything you like.", fx = { align = { honor = 1 } } },
+        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", reply = "Traitor or not, {g:he|she} says, and I'll take it gladly. Get me there breathing, and you can call me anything you like.", fx = { align = { honor = 1 } } },
         { text = "I'll get you there, but my beast comes first.", next = "BACK", reply = "Wonderful, I'm second to a beast, and I suppose that's fair. Tell it to bite the man in the tree first, will you?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

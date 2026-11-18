@@ -144,7 +144,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fear is the wrong word. Their Lady could have burned Brackenwall to the mud any night she liked, and she hasn't, which tells me more about her than any treaty. Still, I'd like to know what Archmage Tervosh keeps in that tower of his." } },
       choices = {
-        { text = "I'll respect their peace. They've kept their word.", next = "BACK", reply = "They have, and I'll keep mine as long as they keep theirs. Good, that's one less worry.", fx = { align = { honor = 1 } } },
+        { text = "I'll respect their peace. They've kept their word.", next = "BACK", reply = "They have, and I'll keep mine as long as they keep theirs. That's one worry I can cross off, at least.", fx = { align = { honor = 1 } } },
         { text = "I'll find out what's in that tower, quietly.", next = "BACK", reply = "Quietly, then, and don't get caught, or Tervosh will have something new in that tower. Tell me what you find.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

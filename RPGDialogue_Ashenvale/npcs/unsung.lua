@@ -582,7 +582,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I feed everyone who looks thin, which is everyone, and my bread is very good, so your spirits might agree." } },
       choices = {
-        { text = "Thank you, Maliynn. Your kindness matters.", next = "BACK", reply = "Thank you, dear, and here's a little extra for the road. Your spirits look hungry too.", fx = { align = { light = 1 } } },
+        { text = "Thank you, Maliynn. You're the kindest baker in Ashenvale.", next = "BACK", reply = "Thank you, dear, and here's a little extra for the road. Your spirits look hungry too.", fx = { align = { light = 1 } } },
         { text = "I'm not thin. Save it for others.", next = "BACK", reply = "Everyone says that, dear, and they all come back for more. I'll keep a loaf aside.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

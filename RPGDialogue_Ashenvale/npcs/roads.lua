@@ -255,7 +255,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Only fallen wood, and only from trees the storms brought down, because I learned long ago that a bow cut from a living tree never sits right in the hand. The orcs cut living wood by the cartload, and it shows in everything they make." } },
       choices = {
-        { text = "A good rule. The forest gives enough without cutting.", next = "BACK", reply = "It is, and it's served me well. The forest gives enough if you wait for it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good rule. The forest gives enough without cutting.", next = "BACK", reply = "It is, and it's served me well. This stave came off a limb the storm dropped last spring, and it'll outshoot anything cut green.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A bow's a bow. The wood doesn't care how it fell.", next = "BACK", reply = "The wood cares, friend, whether you do or not. Try a living-cut bow and you'll see.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Nothing, if you mean to shoot a man across a tavern, which I suppose is what your sort do. A bow wants a long draw and patient wood, and a rogue wants to be gone before the arrow lands, so we've never got on." } },
       choices = {
-        { text = "I'd rather face a man than shoot him from hiding.", next = "BACK", reply = "Then you're not much of a rogue, and I'll make you a proper bow. Good.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather face a man than shoot him from hiding.", next = "BACK", reply = "Then you're not much of a rogue, and I like you better for it. I'll make you a proper bow.", fx = { align = { honor = 1 } } },
         { text = "Gone before it lands is the whole point.", next = "BACK", reply = "Then buy a crossbow from a dwarf, friend. My bows want patience.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -427,7 +427,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Crabs and murlocs on the sand and wolves in the trees, but it's the Wrathtail naga who hunt us. Your {pet} smells them already, I can see its hackles up, and a beast that knows its enemy is worth two warriors who don't." },
       },
       choices = {
-        { text = "I'll hunt the naga scouts and bring you word.", next = "BACK", reply = "Good. That's what Zoram'gar needs.", fx = { align = { order = 1 } } },
+        { text = "I'll hunt the naga scouts and bring you word.", next = "BACK", reply = "Good. Bring me their numbers and which way they swim, and I'll pass it to the shaman.", fx = { align = { order = 1 } } },
         { text = "I'll hunt what I like. The naga can wait.", next = "BACK", reply = "Then hunt it, and come back when you've finished. The naga will still be there.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },

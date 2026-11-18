@@ -488,7 +488,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They'd love to, the brutes, but I keep them out of it, since a gryphon's a flier and not a soldier. The Defias leave the birds alone, and I'd like it to stay that way." } },
       choices = {
-        { text = "Wise. Everyone on this hill has their own duty to keep.", next = "BACK", reply = "It is, and mine is keeping these birds alive. Thank you for understanding.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair enough. Everyone on this hill has a duty, birds included.", next = "BACK", reply = "It is, and mine is keeping these birds alive. Thank you for understanding.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every weapon you have, Thor. Send the birds in.", next = "BACK", reply = "Not mine, friend, they're fliers, not soldiers. I'll not lose a bird to a Defias arrow.", fx = { align = { order = -1 } } },
         { text = "Something else, Thor.", next = "BACK" },
       },
@@ -556,7 +556,7 @@ P:NPC {
       lines = { { id = "fy_default", text = "Gryphon masters don't fly for pleasure as a rule, because it feels too much like work. For you I'd make an exception, though I'd want a clear sky, the gentle bird, and nobody from the militia watching." } },
       choices = {
         { text = "I'll hold you to that, Thor.", next = "BACK",
-          reply = "Hold on with your knees, not your hands, and you can hold me to anything you like." },
+          reply = "Do, and I'll save you the gentle bird. Hold on with your knees, not your hands, and leave the rest to me." },
       },
     },
     birds = {
@@ -691,7 +691,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I see every cart come up the road, and I count what's lying in the back before anyone else does. Gryan buries them on the east slope, and I'd be glad if someone said better words over them than he does." } },
       choices = {
-        { text = "I'll say those words, Riell, and I'll say them properly.", next = "BACK", reply = "Thank you, and Gryan will thank you too, though he'll not say it. The east slope.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll say those words, Riell, and I'll say them properly.", next = "BACK", reply = "Thank you, and Gryan will thank you too, though he'll not say it. They're buried on the east slope, under the old fence line.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Words don't help the dead. Keep your eyes on the road.", next = "BACK", reply = "Maybe not, but they help the living. I'll keep watching.", fx = { align = { light = -1 } } },
         { text = "Something else, scout.", next = "BACK" },
       },
@@ -893,7 +893,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Once, for a young brother from the Cathedral who couldn't hit a barn door, and I bought it back from him for half the price. Your sort have your own weapons, I'm told, and I'd guess prayer doesn't need a string." } },
       choices = {
-        { text = "My faith is my weapon, William, and it never misses.", next = "BACK", reply = "Then you'll never need a bow from me, and that's fine. Strings are extra anyway.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My faith is my weapon, William, and it never misses.", next = "BACK", reply = "Then you'll never need a bow from me, and I'll not argue with a priest. Pray for my strings, though; they keep snapping.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith's well enough, but I'd rather carry a good bow.", next = "BACK", reply = "Then you'll want a good one, and I'll find you one. Strings extra.", fx = { align = { light = -1 } } },
         { text = "Something else, William.", next = "BACK" },
       },

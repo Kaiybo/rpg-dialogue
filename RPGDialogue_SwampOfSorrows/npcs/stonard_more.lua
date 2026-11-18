@@ -55,7 +55,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave, and the spiders if you're daft. None of it tastes good, but Karakul will cook anything you bring him and never asks what it was. Your {pet} looks like it would enjoy chasing a jaguar through the reeds, so let it, and bring back whatever's left." },
       },
       choices = {
-        { text = "I hunt only what the town needs, no more.", next = "BACK", reply = "Good, and Karakul will thank you for it. The town eats what you bring, and no more.", fx = { align = { light = 1 } } },
+        { text = "I hunt only what the town needs, no more.", next = "BACK", reply = "Good, and Karakul will thank you for it. Bring him jaguar if you can; the grunts are sick of crocolisk.", fx = { align = { light = 1 } } },
         { text = "I hunt for the sport of it. The swamp has plenty.", next = "BACK", reply = "Plenty, aye, until it isn't. The jaguars are thinning already, so mind what you take.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -276,7 +276,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They are, because a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
       choices = {
-        { text = "I'll wait. Patience is part of any soldier's work.", next = "BACK", reply = "Good. A soldier who waits for dry wings lives to fight another day.", fx = { align = { order = 1 } } },
+        { text = "I'll wait. Patience is part of any soldier's work.", next = "BACK", reply = "Good. A wet wind rider flies like a drunk ogre, and lands like one too.", fx = { align = { order = 1 } } },
         { text = "I'd fly now and take the risk. Waiting wastes daylight.", next = "BACK", reply = "Waste daylight, or waste a wind rider in the swamp. I'll keep my riders on the ground till they're dry.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -315,7 +315,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Warm and gentle, mind, because a rider with a singed mane sulks for a week and won't fly south past the temple at all. Do it right, and you'll have a friend in every stall." } },
       choices = {
-        { text = "Gently, then. Your riders deserve the care.", next = "BACK", reply = "Gently, aye, and the riders will love you for it. Warm hands and soft words.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Gently, then. Your riders deserve the care.", next = "BACK", reply = "Gently, aye, and the riders will love you for it. Warm your hands first; they hate cold fingers on the wing.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A little singe won't hurt them. Toughens them up.", next = "BACK", reply = "Toughen them? A sulking rider toughens nobody. Warm and gentle, or keep your hands off.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -480,7 +480,7 @@ P:NPC {
         { id = "xhcast_default", text = "Closer than Fel'zerul would like to admit. The Atal'ai bargained with a god the way we bargain with demons, and they lost, which is the only lesson any of us needs, if anyone would listen." },
       },
       choices = {
-        { text = "Then the Warchief is right to keep warlocks on a leash.", next = "BACK", reply = "Right, aye, maybe, and I'd say the same in his place. A leash is wise.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then the Warchief is right to keep warlocks on a leash.", next = "BACK", reply = "Right, aye, maybe, and I'd say the same in his place. I'd want a leash on me too, if I were him.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "They lost because they were weak, not because they reached.", next = "BACK", reply = "Weak, aye, and greedy. Reach carefully, and keep your feet on the ground.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -490,7 +490,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Ask Dalaran, if you can find it, or ask the elves what their Sunwell brought down on Quel'Thalas. Every power has a price, mage; mine just has the honesty to bite." } },
       choices = {
         { text = "The arcane can be used well. The fel can't.", next = "BACK", reply = "Can it? Ask the elves, mage. Every power has a price, and some prices are just hidden better.", fx = { align = { light = 1 } } },
-        { text = "You're right. Power's power, whatever it costs.", next = "BACK", reply = "Exactly, mage, and I'm glad someone in this town says it. Power's power.", fx = { align = { light = -1 } } },
+        { text = "You're right. Power's power, whatever it costs.", next = "BACK", reply = "Exactly, mage, and I'm glad someone in this town says it. Come back when you want a book they don't sell in Undercity.", fx = { align = { light = -1 } } },
         { text = "Another question, then.", next = "BACK" },
       },
     },
@@ -621,7 +621,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "I train warriors, not paladins, but I'll tell you what I tell them: the mud doesn't care what you pray to. If the Light makes you hard to kill, good, because the Horde needs soldiers who stay standing longer than their enemies." } },
       choices = {
         { text = "I'll stand and fight fair, mud or no mud.", next = "BACK", reply = "Fair, aye, and the mud will make it unfair anyway. Good on you.", fx = { align = { honor = 1 } } },
-        { text = "I'll win however I can. The mud doesn't care either.", next = "BACK", reply = "However you can, aye, and that's what I teach. The mud doesn't fight fair.", fx = { align = { honor = -1 } } },
+        { text = "I'll win however I can. The mud doesn't care either.", next = "BACK", reply = "However you can, aye, and that's what I teach. Throw mud in their eyes if there's mud to throw.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -668,7 +668,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "One thing: that a robe can kill you just as dead as an axe, if you're slow to close the distance. I tell the young ones to charge the mage first, and the mage tells them to try it, and that's how I lose recruits to the mud." } },
       choices = {
-        { text = "Teach them caution. They'll live longer.", next = "BACK", reply = "Caution, aye, and they'll learn it from me. Charge, but charge smart.", fx = { align = { light = 1 } } },
+        { text = "Teach them caution, or they won't last the season.", next = "BACK", reply = "Caution, aye, and they'll learn it from me. Charge, but charge smart.", fx = { align = { light = 1 } } },
         { text = "Let them charge, then, and dig their own graves.", next = "BACK", reply = "Their graves, aye, and I'll dig them. Teach them, or let them learn the hard way.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },

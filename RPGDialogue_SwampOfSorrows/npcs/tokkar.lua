@@ -47,7 +47,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Talk while I stir." },
-        { id = "h_again2", text = "Anything more? The pot doesn't stir itself." },
+        { id = "h_again2", text = "Anything more? Talk while I stir, because this pot burns the moment I look away." },
       },
       choices = {
         { text = "What do you smith out here?", next = "claws" },

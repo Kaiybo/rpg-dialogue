@@ -77,7 +77,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because Ag'tor needs sharp eyes on the woods and steady hands on the axes, and grog gives neither. A rogue knows that better than most, I'd say, since one slip in the dark is all it takes." } },
       choices = {
-        { text = "You're right. A clear head saves lives.", next = "BACK", reply = "Good. Glad someone in this camp sees it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right. A clear head saves lives.", next = "BACK", reply = "Good. Tell that to the grunts by the fire, because they think I'm their mother.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little grog never hurt anyone.", next = "BACK", reply = "Tell that to the grunt who fell asleep on watch last spring. We buried him the next week.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll take the fruit.", next = "BACK" },
       },

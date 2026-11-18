@@ -164,7 +164,7 @@ P:NPC {
     paladin = {
       lines = { { id = "pa_default", text = "Not as he taught you, no; I'm a priest, and he'd have despaired of my swordwork. But I listened to him preach, once, and he spoke of the Light as a duty you carry rather than a gift you're handed." } },
       choices = {
-        { text = "A duty. I'll carry it.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
+        { text = "It's a duty, and I'll carry it.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

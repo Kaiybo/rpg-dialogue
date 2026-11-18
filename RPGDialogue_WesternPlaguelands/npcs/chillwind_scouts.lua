@@ -47,7 +47,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Talk while I watch the road." },
-        { id = "h_again2", text = "Go on. Quietly." },
+        { id = "h_again2", text = "Go on, but keep your voice down." },
       },
       choices = {
         { text = "Who is the Blightcaller?", next = "blight" },
@@ -209,7 +209,7 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Fear, I'd say. The Crusade's afraid of everythin' they cannae burn, an' a man who can make a better bow wi' a few words is a man they cannae control." } },
       choices = {
-        { text = "Fear like that rots an order from inside.", next = "BACK", reply = "Aye, it does, an' I've watched it happen tae better orders than theirs. Fear's a slow rot, but a sure one.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fear like that rots an order from inside.", next = "BACK", reply = "Aye, it does, an' I've watched it happen tae better orders than theirs. Next they'll be burnin' their own cooks for stirrin' the pot wrong.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some caution about mages is warranted, after Dalaran's mistakes.", next = "BACK", reply = "Mebbe so, after what Dalaran let loose. But there's caution an' there's burnin' folk, an' the Crusade forgot the difference.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },

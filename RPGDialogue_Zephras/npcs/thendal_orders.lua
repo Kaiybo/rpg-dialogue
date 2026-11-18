@@ -330,7 +330,7 @@ P:NPC {
         { id = "ab_default", text = "Vanished, abandoned, I see little difference from where we stand. The spirits wouldn't even speak of Al'Akir when we asked, and the High Order always said we ought to understand what powers we were living among, while the Windshapers trusted them to tell us what we needed. Well, they didn't." },
       },
       choices = {
-        { text = "You were right. Trust without knowledge was folly.", next = "BACK", reply = "At last, someone with sense on this island. Knowledge is the only shelter that doesn't vanish.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "You were right. Trust without knowledge was folly.", next = "BACK", reply = "At last, someone with sense on this island! Come by the High Order's tower, and I'll show you what we've already pieced together.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "They sheltered us for millennia. They earned that trust.", next = "BACK", reply = "Earned it, and then walked away from it, which tells you how much our trust was worth to them. I'll not mourn that.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -440,7 +440,7 @@ P:NPC {
         { id = "xb_default", text = "Good, because every old line has the same complaint: a spell that stops halfway down the page, a ward with no key, a history that skips a century. The Kirin Tor's libraries may hold the other halves, so when you find them, will you bring them home to the Order, or keep them for your family?" },
       },
       choices = {
-        { text = "To the Order. Knowledge hoarded is knowledge lost.", next = "BACK", reply = "Good, that's what the Order needs, and what our forebears would have wanted. Bring them home.", fx = { affinity = 2, align = { order = 1 }, trait = { generous = 1 } } },
+        { text = "To the Order, where everyone can learn from them.", next = "BACK", reply = "Good, that's what the Order needs, and what our forebears would have wanted. Bring them home.", fx = { affinity = 2, align = { order = 1 }, trait = { generous = 1 } } },
         { text = "My line kept them alive. My line keeps what I find.", next = "BACK", reply = "Then you're no better than the line that hid them. I'd hoped for more from you.", fx = { affinity = -1, align = { order = -1 }, trait = { ambitious = 1 } } },
         { text = "Which gaps worry you most?", next = "xbooks_gap" },
       },

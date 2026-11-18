@@ -510,7 +510,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep my fear and use it. It keeps me alive.", next = "BACK", reply = "Then you'll do, and you'll live to see a few battles yet. Use it well.", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "I'll train it out of me. Discipline first.", next = "BACK", reply = "Discipline's good, but don't train out what keeps you careful. Fear's a tool too.", fx = { affinity = 2, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "I'll train it out of me. Discipline first.", next = "BACK", reply = "Discipline's good, but don't train out what makes you duck. I've buried two recruits who stopped ducking.", fx = { affinity = 2, align = { order = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -616,7 +616,7 @@ P:NPC {
         { id = "w2_default", text = "To keep our people safe, first and last. Some hunters out there think it's their job to put the wild back the way it was, but I don't think anyone can, so I spend my arrows on what's in front of me." },
       },
       choices = {
-        { text = "Protect the people first. The wild can fend for itself.", next = "BACK", reply = "Good, that's my thinking. The wild can look after itself, most days.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Protect the people first. The wild can fend for itself.", next = "BACK", reply = "Good, that's my thinking. The ursera came within a stone's throw of the well last week, and I'll not wait for closer.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "We should try to heal the wild, not just shoot it.", next = "BACK", reply = "Maybe we should, and I'll not stop you trying. But keep your bow ready while you do.", fx = { affinity = -1, align = { order = -1 }, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

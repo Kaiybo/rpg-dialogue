@@ -199,7 +199,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? The bugs won't wait." },
-        { id = "h_again2", text = "Go on, then. Quickly." },
+        { id = "h_again2", text = "Go on, then, but quickly; the stones won't watch themselves." },
       },
       choices = {
         { text = "What are cirrusflies?", next = "flies" },
