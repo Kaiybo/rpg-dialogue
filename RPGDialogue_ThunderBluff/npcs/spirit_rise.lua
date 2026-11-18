@@ -40,12 +40,33 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "How do you ask the elements?", next = "ask" },
         { text = "What happens if you command them instead?", next = "command" },
+        { text = "Tell me of the Skychaser tribe.", next = "tribe" },
+        { text = "What do you make of the Forsaken in the caves below?", next = "below" },
+        { text = "Thrall brought the spirits back to my people.", next = "orc_thrall", when = { race = "Orc", class = "SHAMAN" } },
+        { text = "The elders say this rise was always holy ground.", next = "holy_ground", when = { race = "Tauren" } },
         { text = "Farewell, Tigor.", next = "END" },
       },
     },
     ask = {
       lines = { { id = "a_default", text = "As you'd ask an elder for a favor, with respect and with patience, and knowing they might say no. A totem is a request, not a leash." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you thank them with?", next = "ask_thanks" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ask_thanks = {
+      lines = { { id = "at_default", text = "Water poured on the stone for the earth, a pinch of ash given back to the fire, a breath for the wind, and for the water a little of whatever you carry. It needn't be costly, only meant, and the spirits know the difference better than any merchant at the Crossroads." } },
+      choices = {
+        { text = "And if they refuse you anyway?", next = "ask_refuse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ask_refuse = {
+      lines = { { id = "ar_default", text = "Then you go without, and you ask yourself what you did to earn the silence. Most often it's nothing against you at all, only that the land is tired or grieving, as the Charred Vale in Stonetalon has grieved for years now." } },
+      choices = {
+        { text = "I'll remember that, elder.", next = "BACK" },
+        { text = "Farewell, Tigor.", next = "END" },
+      },
     },
     command = {
       lines = { { id = "c_default", text = "Then you are a warlock, or worse, and the elements will wait for the moment you falter. The orc warlocks once commanded the land of their homeworld, and the orcs themselves will tell you how that ended." } },
@@ -62,11 +83,59 @@ P:NPC {
         { text = "In great need, I'd compel them.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    tribe = {
+      lines = { { id = "tr_default", text = "The Skychasers have watched the sky and listened to the winds since long before Cairne gathered the tribes together. When the Bluff was raised, the High Chieftain gave this rise to us, because the spirits were already here and somebody had to keep them company." } },
+      choices = {
+        { text = "Beram and Siln are your kin, then?", next = "tribe_kin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tribe_kin = {
+      lines = { { id = "tk_default", text = "They are of my blood, and both of them think I am too slow. Beram carves totems as if the wood owed him money, and Siln slips down into the caves whenever my back is turned, which is less often than Siln believes." } },
+      choices = {
+        { text = "They seem to teach well enough.", next = "tribe_teach" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tribe_teach = {
+      lines = { { id = "tt_default", text = "They do, though I'd not say it to their faces, and neither will you. A tribe needs one who listens, one who builds and one who asks too many questions, and the spirits seem content with the three of us." } },
+      choices = {
+        { text = "Something else, elder.", next = "BACK" },
+        { text = "Farewell, Tigor.", next = "END" },
+      },
+    },
+    below = {
+      lines = { { id = "bl_default", text = "The Pools of Vision lie beneath this rise, where shaman have gone to see what the spirits would show them for as long as we have held this place. Now Forsaken mages and priests live in the caves beside them, by Cairne's leave, and I keep my peace because he asked me to." } },
+      choices = {
+        { text = "You don't trust them.", next = "below_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    below_trust = {
+      big = true,
+      lines = { { id = "bt_default", text = "I don't know them, which is not the same thing. The dead walk because something unnatural raised them, and the spirits of the earth do not forget a wrong so quickly, whatever the Forsaken have chosen since." } },
+      choices = {
+        { text = "They broke free of the Scourge. That deserves a welcome.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead should stay buried. You're right to be wary.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc_thrall = {
+      lines = { { id = "ot_default", text = "He did, and he found them waiting, which tells you how patient the spirits are. Your warlocks poisoned the land of your old world, and still the elements took back the orcs who asked properly, so remember that the next time you are tempted to hurry them." } },
+      choices = { { text = "I'll remember. Something else.", next = "BACK" } },
+    },
+    holy_ground = {
+      lines = { { id = "hg_default", text = "The elders are right, and for once I agree with all of them. Before the bluffs held lifts and tents, Skychaser shaman climbed here alone to fast and listen, and the wind still remembers the ones who came up on their own hooves." } },
+      choices = { { text = "Something else, elder.", next = "BACK" } },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "Skychaser. Shaman. Old enough that the spirits call me by name." } },
     advice = { { id = "tp_ad", text = "Thank the element that answered you, every time. They notice who forgets." } },
+    the_elements = { { id = "tp_el", text = "Earth, fire, water and air, each with its own temper, and none of them yours to own, however long you've spoken with them." } },
+    earth_mother = { { id = "tp_em", text = "She is mother to the spirits as much as to the tauren, and they speak of her more kindly than we deserve." } },
+    thrall = { { id = "tp_th", text = "The young Warchief understood the spirits better than any orc in generations, and from me that is high praise." } },
     _none = { { id = "tp_none", text = "The spirits haven't told me of that, and I won't guess on their behalf." } },
   },
 }
@@ -104,6 +173,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "Where should a totem go?", next = "where" },
         { text = "Tigor must mind you saying that.", next = "tigor" },
+        { text = "What are you carving?", next = "carve" },
+        { text = "Our loa and the elements get along fine.", next = "troll_loa", when = { race = "Troll" } },
+        { text = "Could a warrior make use of a totem?", next = "warrior_totem", when = { class = "WARRIOR" } },
         { text = "Farewell, Beram.", next = "END" },
       },
     },
@@ -124,11 +196,51 @@ P:NPC {
     },
     tigor = {
       lines = { { id = "t_default", text = "He minds everything I say, and I mind half of what he says, and between us the students turn out well. That's how a tribe works." } },
+      choices = {
+        { text = "Do the two of you ever agree?", next = "tigor_agree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tigor_agree = {
+      lines = { { id = "ta_default", text = "On the things that matter, yes: the spirits come first, a shaman serves the people, and Siln goes down into the caves far too often. We only argue about everything that comes after that, which keeps us both young." } },
+      choices = { { text = "Something else, Beram.", next = "BACK" } },
+    },
+    carve = {
+      lines = { { id = "cv_default", text = "A searing totem for a young shaman from Bloodhoof who burned through his last one in a week. It's cedar from the Stonetalon foothills, because cedar holds a fire spirit without cracking, which is more than I can say for pine." } },
+      choices = {
+        { text = "Where do you find the cedar?", next = "carve_wood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carve_wood = {
+      lines = { { id = "cw_default", text = "On the lower slopes of Stonetalon, when the Venture Company's saws haven't got there first. The goblins cut the old trees by the hundred for coin, and every season I walk farther to find wood worth carving." } },
+      choices = {
+        { text = "What do the spirits make of that?", next = "carve_venture" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carve_venture = {
+      big = true,
+      lines = { { id = "cx_default", text = "The druids at Stonetalon Peak send word that whole hillsides are gone, and the spirits of the wood go with them. I'm a practical bull, but there's a difference between using a tree and using up a forest." } },
+      choices = {
+        { text = "Then drive the goblins out. The forest can't defend itself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trees grow back. Trade feeds the Horde.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troll_loa = {
+      lines = { { id = "tl_default", text = "Do they? Then I'd like to hear how, because Tigor says a shaman can only serve one master, and I've never been sure he's right. If your loa help you set a totem where it ought to go, I'm glad of any help you can get." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    warrior_totem = {
+      lines = { { id = "wt_default", text = "Only if you like carrying a lump of carved wood and scowling at it, because it won't answer you. Stand beside a shaman who knows where to plant one, though, and you'll fight twice as long, and I'd call that the next best thing." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    venture_company = { { id = "tp_vc", text = "Saws and smoke all over Stonetalon. They take the trees and leave the stumps for the spirits to mourn." } },
+    the_elements = { { id = "tp_el", text = "Earth for holding, fire for fighting, water for mending and air for moving. Put each totem where it can do its work." } },
     background = { { id = "tp_bg", text = "Skychaser, shaman, and the best totem-carver on this rise, whatever my cousins say." } },
     advice = { { id = "tp_ad", text = "Carry a spare totem. A broken one in the middle of a fight is no use to anyone." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Tigor; he'll take an hour to say he doesn't know either." } },
@@ -169,6 +281,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "You must visit the Forsaken below.", next = "below" },
         { text = "What does the wind say?", next = "wind" },
+        { text = "What are Tigor and Beram like as teachers?", next = "elders" },
+        { text = "What's the first thing you teach a shaman?", next = "first_lesson", when = { class = "SHAMAN" } },
+        { text = "I could tell you what dying was like.", next = "fk_tell", when = { race = "Scourge" } },
         { text = "Farewell, Siln.", next = "END" },
       },
     },
@@ -176,6 +291,7 @@ P:NPC {
       lines = { { id = "b_default", text = "Sometimes, when Tigor isn't watching. The Pools of Vision are a holy place, and now there are Forsaken mages and priests living in the caves beside them, and I'd like to know what the spirits there think of that." } },
       choices = {
         { text = "And what do they think?", next = "below_end" },
+        { text = "Who do you talk to down there?", next = "below_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -189,11 +305,61 @@ P:NPC {
     },
     wind = {
       lines = { { id = "w_default", text = "Mostly that there's rain coming over the Stonetalon peaks, and that the harpies are squabbling again at the Windfury Ridge. It's a terrible gossip, the wind." } },
+      choices = {
+        { text = "What else does it carry?", next = "wind_far" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wind_far = {
+      lines = { { id = "wf_default", text = "Smoke from the Barrens when the quilboar burn the thorns, salt from the coast when it blows from the west, and once, I swear, the smell of the forges in Orgrimmar. Tigor says I make half of it up, and he's half right." } },
+      choices = {
+        { text = "Could you teach me to listen?", next = "wind_listen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wind_listen = {
+      lines = { { id = "wl_default", text = "Stand at the edge of the rise at dusk, close your eyes and don't think about anything you want. The wind only talks to people who aren't waiting for it, which is why Tigor hears it best and I hear it loudest." } },
+      choices = {
+        { text = "I'll try it tonight.", next = "BACK" },
+        { text = "Farewell, Siln.", next = "END" },
+      },
+    },
+    below_who = {
+      lines = { { id = "bw_default", text = "Thurston Xane, mostly, because he's the only one who laughs at my questions kindly. Apothecary Zamah laughs too, though not kindly, and Archmage Shymm won't laugh at anything at all." } },
+      choices = {
+        { text = "What do you ask them?", next = "below_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    below_ask = {
+      lines = { { id = "ba_default", text = "What it felt like to come back, whether they remember dying, and whether they hear the spirits at all. Thurston says the dead hear a great deal, but none of it is worth repeating, and I still can't tell if he was joking." } },
+      choices = { { text = "Something else, Siln.", next = "BACK" } },
+    },
+    elders = {
+      big = true,
+      lines = { { id = "el_default", text = "Tigor makes you sit until your legs go numb and Beram makes you carve until your hands bleed, and somewhere in between you become a shaman. I'm the one who lets the students ask why, and they both say that's a mistake." } },
+      choices = {
+        { text = "Asking why is how anyone learns.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Students should listen before they question.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_lesson = {
+      lines = { { id = "fl_default", text = "To thank the fire out loud, even when you feel silly doing it. Tigor teaches that with a long speech and I teach it with a burnt finger, and I think mine sticks better." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fk_tell = {
+      lines = { { id = "fk_default", text = "Would you? Only if you want to, and only as much as you want to. The spirits say death is a door that opens one way, and you came back through it, so I think you know something none of us do." } },
+      choices = {
+        { text = "It was quiet. I'd rather not say more.", next = "BACK" },
+        { text = "Another time, perhaps.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    forsaken = { { id = "tp_fk", text = "They're Horde, and they're our neighbours under the rise, and I think they're lonelier than they let on." } },
+    the_elements = { { id = "tp_el", text = "They're like people, really, except fire, which is like my cousins before breakfast." } },
     background = { { id = "tp_bg", text = "Skychaser, the youngest who teaches. I still carry water for Tigor when he asks." } },
     advice = { { id = "tp_ad", text = "Listen to the wind before a long journey. It'll tell you about the weather, at least." } },
     _none = { { id = "tp_none", text = "I don't know! But I'd like to, and the spirits like a curious heart. Tell me if you find out." } },
@@ -240,11 +406,52 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Why teach mages here, of all places?", next = "here" },
         { text = "I've heard magic can burn the untrained.", next = "burn" },
+        { text = "Were you of the Kirin Tor?", next = "kirin" },
+        { text = "How do you get along with Thurston Xane?", next = "thurston" },
+        { text = "What's the most common mistake you see?", next = "mistake", when = { class = "MAGE" } },
+        { text = "Do you miss being alive?", next = "fk_miss", when = { race = "Scourge" } },
         { text = "Farewell, Archmage.", next = "END" },
       },
     },
     here = {
       lines = { { id = "h2_default", text = "Because the High Chieftain offered us a place when few others would, and the caves are quiet, and the tauren leave us alone. One could do worse, and in the Undercity one often does." } },
+      choices = {
+        { text = "You don't care for the Undercity?", next = "here_uc" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    here_uc = {
+      lines = { { id = "hu_default", text = "I care for it as one cares for a damp cellar with a throne in it. The Royal Apothecary Society bubbles away in its vats, the Dark Lady's court plots in corners, and nobody there has read a book for pleasure since the Plague." } },
+      choices = {
+        { text = "And the tauren are better company?", next = "here_tauren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    here_tauren = {
+      lines = { { id = "ht_default", text = "The tauren have no arcane tradition to argue with mine, which makes them excellent neighbours. They bring bread we can't eat and keep their curious calves away from my wards, and I've known worse landlords in Lordaeron." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kirin = {
+      lines = { { id = "kt_default", text = "I studied in Dalaran, which is all I'll say, and that was a long time and one death ago. Ursyn Ghull still pines for the place, while I find it simpler to remember that the Kirin Tor would burn us both on sight." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    thurston = {
+      lines = { { id = "tx_default", text = "He hums. I have asked him not to, in writing, twice. He is a competent mage and an exhausting colleague, and the tauren adore him, which I find faintly insulting to us both." } },
+      choices = {
+        { text = "You're fond of him, really.", next = "thurston_fond" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thurston_fond = {
+      lines = { { id = "tf_default", text = "I am fond of silence, and he is its natural enemy. If something were to happen to him I would notice the quiet, and I suppose that is the nearest I come to sentiment." } },
+      choices = { { text = "Something else, Archmage.", next = "BACK" } },
+    },
+    mistake = {
+      lines = { { id = "mi_default", text = "Casting while frightened. Fear makes a frostbolt wobble and a fireball go wherever it likes, and I have the scorch marks on this ceiling to prove it." } },
+      choices = { { text = "I'll keep my nerve.", next = "BACK" } },
+    },
+    fk_miss = {
+      lines = { { id = "fm_default", text = "I miss very little, and it's none of your business which little it is. Sleep, perhaps, because it was the only time my colleagues stopped talking, and you'll find the dead are rarely sentimental unless they're Thurston." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     burn = {
@@ -265,6 +472,8 @@ P:NPC {
   },
 
   topics = {
+    kirin_tor = { { id = "tp_kt", text = "Careful wizards in violet robes who let a kingdom rot while they debated the proper response." } },
+    forsaken = { { id = "tp_fk", text = "We are what the Scourge left behind and the living refused, and we've done rather well with it." } },
     background = { { id = "tp_bg", text = "I studied the arcane in life and I study it still. The details are my own affair." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you don't know how to stop." } },
     _none = { { id = "tp_none", text = "Not my field. Try a library, if you can read, and if the Scarlets haven't burned it." } },
@@ -413,11 +622,57 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "How do the tauren treat you?", next = "tauren" },
         { text = "Why are you so cheerful?", next = "cheer" },
+        { text = "What does Shymm make of you?", next = "shymm" },
+        { text = "What do you teach first?", next = "lesson" },
+        { text = "My elders are wary of your kind.", next = "tauren_wary", when = { race = "Tauren" } },
+        { text = "Do you remember your life before?", next = "before", when = { race = "Scourge" } },
         { text = "Farewell, Thurston.", next = "END" },
       },
     },
     tauren = {
       lines = { { id = "t_default", text = "Kindly, and nervously, which is a charming combination. A little calf left a bundle of flowers outside our cave last spring, and I've kept it in a jar ever since, though it's gone a bit brown." } },
+      choices = {
+        { text = "You really kept the flowers?", next = "flowers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flowers = {
+      lines = { { id = "fw_default", text = "Of course I did, it was the first gift anyone gave me after I died. Her mother came to fetch her the next day looking terrified, so I waved, and she waved back, and that was the start of a lovely, nervous friendship." } },
+      choices = {
+        { text = "Do other tauren come down here?", next = "visitors" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    visitors = {
+      lines = { { id = "vi_default", text = "A few young shaman come to ask about the arcane, and Siln Skychaser comes to ask about death, which is a cheerier subject than you'd think. The elders never come, but they send bread, and I can't eat it, but I do appreciate the thought." } },
+      choices = { { text = "Something else, Thurston.", next = "BACK" } },
+    },
+    shymm = {
+      lines = { { id = "sh_default", text = "He thinks I'm a disgrace to the dead, and he may be right, but somebody has to be. Underneath all that frost he's a fine teacher, and I've caught him smiling twice since the Plague, which must be some sort of record." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    lesson = {
+      lines = { { id = "le2_default", text = "Conjured water, always, because a mage who can't make a drink is going to have a very short and thirsty career. Then a little fire, and a great deal of advice about not setting yourself on it." } },
+      choices = {
+        { text = "Magic is dangerous, though.", next = "lesson_danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson_danger = {
+      big = true,
+      lines = { { id = "ld_default", text = "Terribly, which is half the fun! Shymm thinks only the clever few should learn, and I think everyone ought to learn a little, because the Scourge didn't stop to ask who was clever before it came." } },
+      choices = {
+        { text = "Teach anyone willing. The Scourge won't wait.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Shymm is right. Keep it to the careful few.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren_wary = {
+      lines = { { id = "tw_default", text = "Very sensible of them, I'd be wary of me too! But Cairne gave us these caves when no one else would have us, and I'd sooner spend eternity earning your people's trust than wasting it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "Bits and pieces, like a book with the pages torn out. A little house in Lordaeron with a crooked chimney, I think, and a cat that hated me, and if that's all I get to keep, I'll count myself lucky." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     cheer = {
@@ -438,6 +693,8 @@ P:NPC {
   },
 
   topics = {
+    cairne = { { id = "tp_ca", text = "The High Chieftain took in a cave full of corpses and asked nothing for it. I'd do almost anything for him, within reason and a little beyond." } },
+    forsaken = { { id = "tp_fk", text = "We're a gloomy lot, mostly. I'm doing my best to bring the average up." } },
     background = { { id = "tp_bg", text = "A mage, before and after. The middle bit I'd rather not discuss." } },
     advice = { { id = "tp_ad", text = "Keep a sense of humor. It's the last thing to rot." } },
     _none = { { id = "tp_none", text = "Haven't the faintest! Isn't that exciting?" } },
@@ -481,11 +738,62 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is the Forgotten Shadow?", next = "shadow" },
         { text = "Why did the Light abandon you?", next = "light" },
+        { text = "Why teach here, among the tauren?", next = "here" },
+        { text = "Where did you serve, before?", next = "past" },
+        { text = "My loa grant Shadowguard. Is that your shadow?", next = "troll_loa", when = { race = "Troll", class = "PRIEST" } },
+        { text = "Can a priest walk both the Light and the shadow?", next = "both", when = { class = "PRIEST" } },
+        { text = "I don't believe in anything anymore.", next = "fk_doubt", when = { race = "Scourge" } },
         { text = "Farewell, Miles.", next = "END" },
       },
     },
     shadow = {
       lines = { { id = "s_default", text = "A faith for those the Light forgot, or turned away. We were priests in Lordaeron once, many of us, and when we woke we found the Light was silent, and something else was listening instead." } },
+      choices = {
+        { text = "What does a shadow priest learn?", next = "shadow_teach" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shadow_teach = {
+      lines = { { id = "st_default", text = "Shadowguard to the trolls, and Touch of Weakness and Devouring Plague to my own kind. Each people takes its own gift from the dark, and I teach the one they were given." } },
+      choices = {
+        { text = "Does the shadow ask a price?", next = "shadow_cost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shadow_cost = {
+      lines = { { id = "sc_default", text = "Everything does. The shadow asks that you look at what you are without flinching, which is harder than any fast or penance the Church ever set me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    here = {
+      lines = { { id = "he_default", text = "We don't preach, we teach, and only those who come down to us. The tauren were kind enough to give us these caves, and the Earth Mother's people have their own faith, which I've no wish to take from them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    past = {
+      lines = { { id = "pa_default", text = "I served the Church in a village of Lordaeron, and its name doesn't matter now. I blessed the grain the autumn before the Plague, and so I blessed the Plague as well, and I have had a long time to think about that." } },
+      choices = {
+        { text = "That wasn't your doing.", next = "past_fault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past_fault = {
+      big = true,
+      lines = { { id = "pf_default", text = "It was the Cult of the Damned's doing, and Kel'Thuzad's, and I know that. Knowing it helps less than you would think." } },
+      choices = {
+        { text = "Forgive yourself. You couldn't have known.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then carry it. Guilt keeps a priest honest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troll_loa = {
+      lines = { { id = "tl_default", text = "Perhaps they are one darkness wearing different masks, and perhaps not. Your people prayed to the loa long before we turned to the shadow, so I would sooner learn from you than lecture you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    both = {
+      lines = { { id = "bo_default", text = "Many in the Horde do, the trolls especially, and I don't scold them for it. I only ask that you never pretend the shadow is the Light in a cheaper coat." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fk_doubt = {
+      lines = { { id = "fd_default", text = "That is a faith of its own, and a lonely one. Sit with it a while, because the Forgotten Shadow asks nothing of you but honesty, and you've already given that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     light = {
@@ -506,6 +814,8 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_hl", text = "A door that closed on us. I don't curse it, but I don't knock either." } },
+    scourge = { { id = "tp_sc", text = "They made us, and they would unmake us if they could. We remember both." } },
     background = { { id = "tp_bg", text = "A priest, before and after. The faith changed; the calling didn't." } },
     advice = { { id = "tp_ad", text = "The shadow takes as much as it gives. Keep count." } },
     _none = { { id = "tp_none", text = "I couldn't say. The shadow keeps its own counsel on that." } },

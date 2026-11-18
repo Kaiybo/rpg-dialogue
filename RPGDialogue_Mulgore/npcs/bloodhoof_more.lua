@@ -400,6 +400,11 @@ P:NPC {
         { text = "Teach me to ride.", next = "BUSINESS", when = { minLevel = 40 } },
         { text = "Why must outsiders be exalted?", next = "why", when = { race = { "Orc", "Troll", "Scourge" } } },
         { text = "What makes the kodo special?", next = "kodo" },
+        { text = "How do you teach a kodo to carry a rider?", next = "train" },
+        { text = "Why are you called Stormsinger?", next = "name" },
+        { text = "My family has always ridden kodo.", next = "tauren_family", when = { race = "Tauren" } },
+        { text = "Could a kodo be a hunter's companion?", next = "hunter_kodo", when = { class = "HUNTER" } },
+        { text = "Would a kodo carry one of the dead?", next = "fk", when = { race = "Scourge" } },
         { text = "Farewell, Kar.", next = "END" },
       },
     },
@@ -429,13 +434,52 @@ P:NPC {
       lines = { { id = "kod_default", text = "They walk to the graveyard in the Barrens, the old ones, and lie down among their ancestors. The Kolkar and the hunters of other peoples go there to take their bones, and I do not speak of those hunters kindly." } },
       choices = {
         { text = "Nor should you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Have you seen the graveyard yourself?", next = "ko_grave" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    ko_grave = {
+      lines = { { id = "kog_default", text = "Once, as a young bull, when I followed my grandmother's old kodo south to see where she would lie. The bones stretch farther than the eye can follow, and I sat with her until the sun went down, and I have never ridden that way since." } },
+      choices = {
+        { text = "Something else, Kar.", next = "BACK" },
+        { text = "Farewell, Kar.", next = "END" },
+      },
+    },
+    train = {
+      lines = { { id = "tr_default", text = "You don't teach a kodo, you ask it, and you keep asking for a season or two until it agrees. The calves learn from their mothers to let a tauren climb aboard, and I only teach the riders how not to fall off." } },
+      choices = {
+        { text = "Do many riders fall?", next = "train_fall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    train_fall = {
+      lines = { { id = "trf_default", text = "Every one of them, at least once, and usually in front of the whole village. A kodo will stop the moment you slip, which is a mercy, but it will also turn and look at you, which is worse." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    name = {
+      lines = { { id = "na_default", text = "My grandfather sang to the herds through the great storms on the plains, so the kodo would follow his voice instead of bolting. I cannot sing as he did, but the name came down to me, and the kodo still like a low hum when the thunder starts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren_family = {
+      lines = { { id = "tf_default", text = "Then you have felt the rhythm of a kodo under you since before you could walk, and you will learn quickly. The trick is to forget that you are riding and remember that you are travelling together." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter_kodo = {
+      lines = { { id = "hk_default", text = "No, and I would thank you not to try. A kodo may walk beside a hunter for a while out of kindness, but it belongs to the herd, and the herd will always call it home." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fk = {
+      lines = { { id = "fk_default", text = "Some would and some would not, and it is the kodo who decide, not me. A Forsaken rider must stand very still and let the beast smell him for as long as it likes, and most of them decide in the end that you are only a very quiet sort of traveller." } },
+      choices = {
+        { text = "I can be patient.", next = "BACK" },
       },
     },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "The kodo, their paths, and who may ride them." } },
+    centaur = { { id = "tp_ce", text = "They hunted us across the plains, and the kodo carried our children away from their spears. The kodo have not forgotten." } },
+    earth_mother = { { id = "tp_em", text = "She gave us the kodo to carry what we could not. That is why I call them kin." } },
     background = { { id = "tp_bg", text = "I was raised among the herds, and I have never once walked when I could ride." } },
     advice = { { id = "tp_ad", text = "Never stand behind a kodo when it is thinking. You will know when it is thinking." } },
     _none = { { id = "tp_none", text = "The kodo do not know that, and neither do I." } },
@@ -486,6 +530,11 @@ P:NPC {
         { text = "I'd like to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Do hunters ever not come back?", next = "lost" },
         { text = "Which beast is your favorite?", next = "favorite" },
+        { text = "How do you calm a frightened beast?", next = "calm" },
+        { text = "What beasts come through Bloodhoof?", next = "beasts" },
+        { text = "How should I care for my companion on the road?", next = "care", when = { class = "HUNTER" } },
+        { text = "My raptor is a picky eater.", next = "troll_raptor", when = { race = "Troll" } },
+        { text = "I could talk to them in their own shape.", next = "druid", when = { class = "DRUID" } },
         { text = "Goodbye, Seikwa.", next = "END" },
       },
     },
@@ -511,13 +560,52 @@ P:NPC {
       lines = { { id = "fa_default", text = "I shouldn't say, because they can hear me. But the old plainstrider never bites, never complains and always eats his supper, which is more than I can say for most of the braves." } },
       choices = {
         { text = "Your secret is safe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Does the plainstrider have a name?", next = "fav_name" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    fav_name = {
+      lines = { { id = "fn_default", text = "Old Wobble, because of the way he walks, and he doesn't seem to mind it. A hunter left him here the spring the Venture Company came into the eastern hills, and never came back for him." } },
+      choices = {
+        { text = "The Venture Company?", next = "fav_venture" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fav_venture = {
+      lines = { { id = "fv_default", text = "Goblins with saws and loud machines, digging into Mulgore where they've no right to be. The hunters went out to drive them off, and not all of them came home, which is how I came to have so many beasts to look after." } },
+      choices = {
+        { text = "I'm sorry, Seikwa.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    calm = {
+      lines = { { id = "ca_default", text = "You sit down beside it and hum, and you don't look it in the eye, and you wait until it decides you're only furniture. Bulrug up in Thunder Bluff sings to his, but I've never had the voice for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    beasts = {
+      lines = { { id = "be_default", text = "Wolves from the orc hunters, cats and boars from ours, and once a troll's raptor who ate a whole barrel of apples and then sulked for two days. I loved him dearly, though he bit me twice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    care = {
+      lines = { { id = "cr_default", text = "Brush it every evening, check its paws for thorns after the Barrens, and never let it drink still water near the quilboar camps. And talk to it, always, because a beast that hears you every night will hear you in a fight." } },
+      choices = { { text = "I'll remember.", next = "BACK" } },
+    },
+    troll_raptor = {
+      lines = { { id = "tr_default", text = "Most raptors are, the dear things! Try him on fish, which the Darkspear hunters swear by, and never on anything that's been dead more than a day." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Oh, could you? Then please tell the cats the swoop isn't going to eat them, because they don't believe me, and I'm running out of ways to say it." } },
+      choices = {
+        { text = "I'll have a word with them.", next = "BACK" },
       },
     },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Every beast in this stable, and what each one likes to eat." } },
+    venture_company = { { id = "tp_vc", text = "Noisy goblins in the eastern hills. They've cost me more sleepless nights than any sick beast ever has." } },
+    quilboar = { { id = "tp_qb", text = "Their camps foul the water for miles. Keep your beasts well away from them, friend." } },
     background = { { id = "tp_bg", text = "I grew up mending broken wings and splinting legs, and I never stopped." } },
     advice = { { id = "tp_ad", text = "Talk to your beast every evening. It will listen better in a fight." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend, I only know about beasts." } },

@@ -160,6 +160,11 @@ P:NPC {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What troubles the post?", next = "trouble" },
         { text = "How do you get goods up here?", next = "lifts" },
+        { text = "What sells best up here?", next = "sells" },
+        { text = "What's the canyon floor like?", next = "canyon" },
+        { text = "Where does your thread come from?", next = "thread", when = { profession = { "Tailoring", "Leatherworking" } } },
+        { text = "Is Freewind a good home?", next = "tauren_home", when = { race = "Tauren" } },
+        { text = "I could stand guard over your crates tonight.", next = "guard", when = { class = { "WARRIOR", "HUNTER" } } },
         { text = "Farewell, Jandia.", next = "END" },
       },
     },
@@ -167,6 +172,7 @@ P:NPC {
       lines = { { id = "tr_default", text = "Supplies go missing between the lifts and the storehouses, and the harpies in the cliffs scream all night. Some say they're the same trouble, and I'm beginning to think so too." } },
       choices = {
         { text = "What should be done?", next = "trouble_stance" },
+        { text = "Who would steal from Freewind?", next = "trouble_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -186,10 +192,55 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    trouble_who = {
+      lines = { { id = "tw_default", text = "Harpies, if the feathers by the storehouse mean anything, though I've heard the Galak come up the paths at night as well. Whoever it is knows when the lift runs and when the guard changes, and that troubles me more than the theft." } },
+      choices = {
+        { text = "Have you told Cliffwatcher Longhorn?", next = "trouble_longhorn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble_longhorn = {
+      lines = { { id = "tl_default", text = "Twice, and he listens, and then he tells me he hasn't the braves to guard every crate on the mesa. He's right, and I hate that he's right, so I've started counting the crates myself every morning." } },
+      choices = {
+        { text = "Something else, Jandia.", next = "BACK" },
+        { text = "Farewell, Jandia.", next = "END" },
+      },
+    },
+    sells = {
+      lines = { { id = "se_default", text = "Salt, always, because meat won't keep without it and Turhaw goes through it like water. After that it's thread and dye for the weavers, and rope, because everyone on a mesa thinks about rope more than they'd like to." } },
+      choices = {
+        { text = "Turhaw, the orc butcher?", next = "sells_turhaw" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sells_turhaw = {
+      lines = { { id = "st_default", text = "He's loud and he burns everything, but he pays on time and he's never once haggled with me. After his trouble with the kodo steaks he asked me for a whole season what tauren will and won't eat, and I respect anyone who asks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    canyon = {
+      lines = { { id = "ca_default", text = "Hot and dusty and full of things that bite, and the Galak centaur hold most of the western needles. I went down once when I was young and came back up in a hurry, and I've been content to trade from the top ever since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    thread = {
+      lines = { { id = "th_default", text = "Fine thread from the traders at the Crossroads, and coarse thread spun right here from the hair the kodo shed in spring. If you're stitching for the canyon, take the coarse one, because it holds up against the thorns." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren_home = {
+      lines = { { id = "tn_default", text = "The best I've had, though the wind never stops and the harpies never sleep. We came up here because the mesas are high and the centaur can't climb them easily, and the Earth Mother's sky feels very close at night." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    guard = {
+      lines = { { id = "gu_default", text = "That's kind of you, though I've nothing to pay a guard with but my thanks. If you do, watch the eastern storehouse, because that's where the feathers keep turning up." } },
+      choices = {
+        { text = "I'll keep an eye on it.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Thread, salt, dye, and how much rope it takes to lift a crate of each." } },
+    centaur = { { id = "tp_ce", text = "The Galak hold the canyon floor. They don't climb well, and I thank the Earth Mother for it daily." } },
+    earth_mother = { { id = "tp_em", text = "She keeps the rope from fraying, I like to think, though I check it myself all the same." } },
     advice = { { id = "tp_ad", text = "Never stand under the lift when it's loaded. Never." } },
     _none = { { id = "tp_none", text = "I don't know. I only know what comes up the lifts." } },
   },
@@ -226,6 +277,10 @@ P:NPC {
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What about the kodo?", next = "kodo" },
         { text = "What's an orc doing here?", next = "why" },
+        { text = "What's good today?", next = "food" },
+        { text = "Lok'tar, brother. You've gone soft among the tauren.", next = "orc_soft", when = { race = "Orc" } },
+        { text = "Thank you for honouring the kodo.", next = "tauren_thanks", when = { race = "Tauren" } },
+        { text = "Do you need meat brought up?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Turhaw.", next = "END" },
       },
     },
@@ -249,12 +304,54 @@ P:NPC {
       lines = { { id = "wh_default", text = "The Warchief wanted orcs and tauren to live side by side, so some of us came to the tauren posts. I came for a season, and I've stayed four, because the views are good and nobody steals my knives." } },
       choices = {
         { text = "Sounds like a good life.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Four seasons? What keeps you here?", next = "why_stay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_stay = {
+      lines = { { id = "ws_default", text = "The view, first, because on a clear morning you can see across the needles to the salt flats. And the tauren, second, because they treated an orc with a cleaver like a neighbour from the first day, even after the kodo business." } },
+      choices = {
+        { text = "Don't you miss the orcs at the Crossroads?", next = "why_crossroads" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_crossroads = {
+      lines = { { id = "wc_default", text = "Some days I miss a good loud argument over supper, because the tauren won't argue, they just look at you sadly. But the Crossroads is all dust and grunts and Razormane, and up here the worst that happens is a harpy steals your washing." } },
+      choices = {
+        { text = "Something else, Turhaw.", next = "BACK" },
+        { text = "Farewell, Turhaw.", next = "END" },
+      },
+    },
+    food = {
+      lines = { { id = "fo_default", text = "Plainstrider leg roasted till the skin cracks, and a cougar flank the hunters brought up this morning. There's spiced wolf too, if you've the stomach for it, from a recipe an old cook taught me in Durotar." } },
+      choices = {
+        { text = "Do the tauren like it charred?", next = "food_char" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    food_char = {
+      lines = { { id = "fc_default", text = "They like it fine once they've tried it! Abeqwa won't admit it, but I've caught her back for seconds twice, and she told me it was only to check I hadn't burned the post down." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orc_soft = {
+      lines = { { id = "os_default", text = "Soft? I chased a cougar off the lift with this cleaver two days ago! I'll grant you I've started thanking my meat before I cut it, and if you laugh, your supper gets burned." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren_thanks = {
+      lines = { { id = "tt_default", text = "You don't need to thank me for doing what's right, friend, though I'll take it. Just tell the old ones down the post that Turhaw learns, slow as he is." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Always! Boar and plainstrider from up top, cougar if you're brave, and nothing from the canyon floor, because the scorpids taste like old boots. Take it to Jandia for salt first, or it'll spoil before it reaches my fire." } },
+      choices = {
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
+    thrall = { { id = "tp_th", text = "The Warchief said orcs and tauren should share a fire. I took him at his word and brought my own." } },
+    centaur = { { id = "tp_ce", text = "The Galak raid the canyon. None of them has ever tried my cooking, and it's their loss." } },
     knows = { { id = "tp_knows", text = "Meat, fire, and what the tauren will and won't eat. I've learned that last one the hard way." } },
     advice = { { id = "tp_ad", text = "Eat before you go down to the canyon. You won't want to after you've seen the scorpids." } },
     _none = { { id = "tp_none", text = "I don't know that one, but ask me about meat and I'll talk all day." } },

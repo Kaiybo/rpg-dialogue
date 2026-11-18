@@ -141,6 +141,10 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What's the hardest lesson?", next = "hard" },
         { text = "Why do the Ragetotem train warriors?", next = "tribe" },
+        { text = "Have you fought the centaur?", next = "centaur" },
+        { text = "How do I hold my ground against a charge?", next = "charge", when = { class = "WARRIOR" } },
+        { text = "You can't hurt what doesn't feel pain, Sark.", next = "fk_pain", when = { race = "Scourge" } },
+        { text = "My father says the Ragetotem are all bluster.", next = "bluster", when = { race = "Tauren" } },
         { text = "Farewell, Sark.", next = "END" },
       },
     },
@@ -161,11 +165,55 @@ P:NPC {
     },
     tribe = {
       lines = { { id = "t_default", text = "Because somebody has to, and we're good at it! Ragetotem calves wrestle before they can walk, and the ones who survive their cousins grow up to be very hard to knock over." } },
+      choices = {
+        { text = "Who are Ker and Torm to you?", next = "cousins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cousins = {
+      lines = { { id = "co_default", text = "Torm's my cousin, and so is Taim, the one sending braves off to Alterac to fight beside the Frostwolves! Ker's an older relation who trained me himself, and he still says I drop my shoulder, and he's still right!" } },
+      choices = {
+        { text = "Why send tauren to fight in Alterac?", next = "alterac" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alterac = {
+      lines = { { id = "al_default", text = "Because Thrall's orcs stood with us against the centaur when we were wandering, and the Frostwolf clan is his own blood! We pay our debts, so if you want a real fight, go and talk to Taim, and take warm furs, because those mountains are no place for a bull without them." } },
+      choices = { { text = "Something else, Sark.", next = "BACK" } },
+    },
+    centaur = {
+      lines = { { id = "ce2_default", text = "More times than I've counted! The Kolkar in the Barrens and the Galak in Thousand Needles, and every last one of them thinks a tauren is slow right up until the axe arrives." } },
+      choices = {
+        { text = "Do you respect them as fighters?", next = "centaur_respect" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    centaur_respect = {
+      big = true,
+      lines = { { id = "cr_default", text = "I do, and I hate saying it! They ride hard and they never quit a fight, but they burned our camps when we were wandering the plains, and I'll never forgive them that." } },
+      choices = {
+        { text = "They're foes, but worthy ones. Respect them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Raiders who burn camps deserve no respect.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charge = {
+      lines = { { id = "ch_default", text = "You plant your hooves, you lower your shoulder and you yell louder than the thing that's charging you! Torm will tell you all about footwork, but nothing stops a raptor like a bull who won't move." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fk_pain = {
+      lines = { { id = "fp_default", text = "No, but I can knock it over, and you get up slower than you think! Feeling nothing isn't the same as being unbreakable, and bones crack whether you notice it or not." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bluster = {
+      lines = { { id = "bu_default", text = "Does he! Then send him up here and I'll bluster at him until he sits down! Tell him I said it fondly, mind, because every bull on this rise has a father who said the same about us." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    centaur = { { id = "tp_ce", text = "Fast, fierce and fond of burning tents! Keep your shield up and your back to a rock." } },
+    cairne = { { id = "tp_ca", text = "The High Chieftain could put me on my back in three breaths, even now! Nobody else living can say that." } },
     background = { { id = "tp_bg", text = "Ragetotem, warrior, teacher. I hit things and I show others how." } },
     advice = { { id = "tp_ad", text = "Keep your shield arm up. Every warrior who forgot is buried somewhere." } },
     _none = { { id = "tp_none", text = "What? Never heard of it! Ask someone who spends more time with the elders than with a spear." } },
@@ -207,6 +255,10 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does footwork matter so much?", next = "feet" },
         { text = "You're quieter than your cousin.", next = "sark" },
+        { text = "How do you train footwork?", next = "drill" },
+        { text = "What did the plains teach you?", next = "plains" },
+        { text = "Orcs fight with fury, not footwork.", next = "orc_fury", when = { race = "Orc" } },
+        { text = "Trolls fight low and fast.", next = "troll_low", when = { race = "Troll" } },
         { text = "Farewell, Torm.", next = "END" },
       },
     },
@@ -227,11 +279,46 @@ P:NPC {
     },
     sark = {
       lines = { { id = "s_default", text = "Somebody in the family has to be. Sark thinks shouting makes a lesson stick, and I think listening does, and the warriors we train seem to need a little of both." } },
+      choices = {
+        { text = "So which of you is the better teacher?", next = "sark_better" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sark_better = {
+      lines = { { id = "sb_default", text = "Ask the warriors in a year, not today. Sark's students hit harder at the start, and mine are still standing at the end of the season, and that's all I'll say before he hears me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    drill = {
+      lines = { { id = "dr_default", text = "On the edge of the rise, with nothing behind you but the drop and the wind. A brave who learns to keep his hooves on that ledge won't stumble on flat ground in the Barrens." } },
+      choices = {
+        { text = "Has anyone ever fallen?", next = "drill_fall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drill_fall = {
+      lines = { { id = "df_default", text = "Once, and the wind rider master caught him halfway down, and he has never stepped wrong since. I don't recommend the method, but I can't argue with the result." } },
+      choices = {
+        { text = "I'd like to try the ledge.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plains = {
+      lines = { { id = "pl_default", text = "That a quiet hoof finds more game and meets fewer arrows. I hunted with my father long before I held an axe, and the hunt is all footwork and patience, which is everything a warrior needs and most of them lack." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orc_fury = {
+      lines = { { id = "of_default", text = "And the orcs who lived through the Second War learned footwork anyway, or they wouldn't have lived. Fury carries you forward, and balance tells you where forward is." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    troll_low = {
+      lines = { { id = "tr_default", text = "They do, and I've watched the Darkspear braves at the Crossroads with some envy. A troll can duck under a swing that a tauren must take on the horns, so if you've a trick or two to share, I'll listen." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    centaur = { { id = "tp_ce", text = "They aim for the legs. Remember that and you'll keep yours." } },
+    earth_mother = { { id = "tp_em", text = "She gave us our weight. Learning to carry it well is how we honour her." } },
     background = { { id = "tp_bg", text = "A Ragetotem who trains warriors. I prefer to let my students speak for me." } },
     advice = { { id = "tp_ad", text = "Plant your back hoof before you swing. Everything else is decoration." } },
     _none = { { id = "tp_none", text = "I don't know. I'd rather say so than guess, and the Earth Mother respects an honest blank." } },
@@ -273,6 +360,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Tell me about getting lost.", next = "lost" },
         { text = "What's the best beast to tame?", next = "beast" },
+        { text = "Tell me about Holt and Kary.", next = "trainers" },
+        { text = "What should a young hunter never do?", next = "never", when = { class = "HUNTER" } },
+        { text = "My grandfather told hunting stories too.", next = "tauren_stories", when = { race = "Tauren" } },
         { text = "Farewell, Urek.", next = "END" },
       },
     },
@@ -280,6 +370,7 @@ P:NPC {
       lines = { { id = "l_default", text = "I once followed a plains lion three days into the Barrens and woke up surrounded by Razormane, with my bow at the bottom of a waterhole. I came home on foot, very hungry and very much wiser." } },
       choices = {
         { text = "What did you learn?", next = "lost_end" },
+        { text = "How did you get home?", next = "lost_home" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,11 +384,43 @@ P:NPC {
     },
     beast = {
       lines = { { id = "b_default", text = "The one that chooses you back. Hesuwa will tell you the same, though he'll take longer about it and sound wiser." } },
+      choices = {
+        { text = "Which beast chose you?", next = "beast_mine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beast_mine = {
+      lines = { { id = "bm_default", text = "An old plainstrider who followed me home from Red Cloud Mesa when I was a calf and never left. She's long gone now, and I still look over my shoulder for her on the trail." } },
+      choices = { { text = "Something else, Urek.", next = "BACK" } },
+    },
+    lost_home = {
+      lines = { { id = "lh_default", text = "On foot, up the road to the Crossroads, where I begged a meal off an orc grunt who thought I was a very large ghost. He still tells the story at the inn, and his version is worse than mine." } },
+      choices = {
+        { text = "Did you ever find the bow?", next = "lost_bow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lost_bow = {
+      lines = { { id = "lb_default", text = "A Razormane turned up near Camp Taurajo two summers later wearing it across his back, and Holt shot it clean off him at sixty paces. We hung it by the fire here, and I tell that story far more than I use the bow." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    trainers = {
+      lines = { { id = "tn_default", text = "Holt is the archer, steady as a stone, and Kary could track a moth across bare rock, and I'm the one who talks. Between the three of us we turn out hunters who can shoot, find their quarry and tell a good story afterward." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    never = {
+      lines = { { id = "nv_default", text = "Never shoot what you can't name, never camp downwind of a quilboar, and never follow a lion three days into the Barrens. I learned all three the hard way, and the last one twice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren_stories = {
+      lines = { { id = "ts_default", text = "Then he was a wise bull, because a hunt that isn't told is half wasted. The young ones learn more around the fire than they ever do on the trail, though they'd never admit it to me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    quilboar = { { id = "tp_qb", text = "Smelly, angry and very good at hiding in thorns. Never camp downwind of one, friend." } },
+    earth_mother = { { id = "tp_em", text = "She gave us the hunt, the beasts and a fire to tell stories by, and I thank her for all three every night." } },
     background = { { id = "tp_bg", text = "Thunderhorn, hunter, teller of stories. Some of them are even true." } },
     advice = { { id = "tp_ad", text = "Always know where the nearest water is. You'll be surprised how often it matters." } },
     _none = { { id = "tp_none", text = "Never heard of it, but if you find out, come back and tell me the story, and I'll tell it round the fire for you!" } },
@@ -339,6 +462,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What can tracks tell you?", next = "tracks" },
         { text = "Is Urek a good hunter, then?", next = "urek" },
+        { text = "Read my tracks, then.", next = "read" },
+        { text = "In the jungle, we track by smell and broken leaves.", next = "troll_jungle", when = { race = "Troll", class = "HUNTER" } },
+        { text = "Could you track someone who doesn't want to be found?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Farewell, Kary.", next = "END" },
       },
     },
@@ -346,6 +472,7 @@ P:NPC {
       lines = { { id = "t_default", text = "Who passed, how heavy they were, whether they were hurt, and whether they were in a hurry. Quilboar drag their feet and centaur never do, and a kodo with a limp will tell you about it a mile off." } },
       choices = {
         { text = "I'd guess you can track people too.", next = "tracks_people" },
+        { text = "Have you tracked anything strange lately?", next = "grim" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -359,11 +486,54 @@ P:NPC {
     },
     urek = {
       lines = { { id = "u_default", text = "He's the best shot of the three of us when he can find his bow, which I'd never say in front of Holt. He loses it often, and always when it matters most." } },
+      choices = {
+        { text = "And what of Holt?", next = "holt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    holt = {
+      lines = { { id = "ho_default", text = "Holt doesn't waste words or arrows, and I respect both. He's the one who shot Urek's lost bow off a Razormane's back, though Urek tells it as a story about himself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    grim = {
+      lines = { { id = "gr_default", text = "Grimtotem hoofprints near the Stonetalon trail, a dozen of them, moving by night and keeping off the roads. Our own people don't walk like that unless they don't want to be seen." } },
+      choices = {
+        { text = "What are the Grimtotem after?", next = "grim_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+      learn = { "grimtotem" },
+    },
+    grim_more = {
+      lines = { { id = "gm_default", text = "Magatha would call them simple traditionalists, and I'd say traditionalists don't hide their tracks. I told Cairne's guards what I saw, and that's as far as a tracker's duty goes, though I'll keep watching the ground." } },
+      choices = { { text = "Something else, Kary.", next = "BACK" } },
+    },
+    read = {
+      lines = {
+        { id = "rd_default", text = "You favour your left side, you've slept on hard ground for a week, and something with claws has been at your boots. That isn't magic, only looking, and anyone can learn it who stops talking long enough." },
+        { id = "rd_fk", when = { race = "Scourge" }, text = "Your steps are uneven, as if one leg doesn't always listen to you, and you leave grave dirt wherever you stand. That isn't magic, only looking, and I'd notice it on any of your kind." },
+      },
+      choices = {
+        { text = "Teach me to see like that.", next = "read_teach" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    read_teach = {
+      lines = { { id = "rt_default", text = "Start with your own tracks. Walk across the soft ground below the rise, come back an hour later and tell me what they say about you, and you'll be surprised how much you didn't know." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    troll_jungle = {
+      lines = { { id = "tj_default", text = "Then you'd be half wasted on the plains, where the grass springs back and the wind carries the smell away. Walk the Mulgore trails with me one morning and I'll show you what the ground does instead." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Everyone leaves something, even your kind. The careful ones step on stones and the clever ones walk in streams, and the ones who think they leave nothing at all are always the easiest." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    grimtotem = { { id = "tp_gt", text = "They walk at night and off the roads. Draw your own conclusions." } },
+    quilboar = { { id = "tp_qb", text = "They drag their feet and leave a trail a calf could follow, which is the only kind thing I'll say about them." } },
     background = { { id = "tp_bg", text = "Thunderhorn, tracker, teacher. I've followed most things across Mulgore at one time or another." } },
     advice = { { id = "tp_ad", text = "Look down before you look ahead. The ground remembers what the wind forgets." } },
     _none = { { id = "tp_none", text = "No tracks on that one, not on any ground I've walked. Ask someone else." } },
@@ -405,6 +575,10 @@ P:NPC {
         { text = "Teach my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you teach a beast?", next = "teach" },
         { text = "You seem to prefer beasts to people.", next = "people" },
+        { text = "Urek says the right beast chooses you.", next = "choose" },
+        { text = "What should I feed my companion?", next = "feed", when = { class = "HUNTER" } },
+        { text = "My companion seems unhappy with me lately.", next = "unhappy", when = { class = "HUNTER" } },
+        { text = "Darkspear tame raptors and bats, you know.", next = "troll_beasts", when = { race = "Troll" } },
         { text = "Farewell, Hesuwa.", next = "END" },
       },
     },
@@ -425,11 +599,43 @@ P:NPC {
     },
     people = {
       lines = { { id = "p_default", text = "Beasts are simpler, and they don't argue about the Grimtotem at supper. I like people well enough, only I like them best when they're feeding something." } },
+      choices = {
+        { text = "They say you raised orphaned calves.", next = "calves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    calves = {
+      lines = { { id = "ca_default", text = "Kodo calves, mostly, whose mothers fell to the centaur or the quilboar out on the plains. A calf that has lost its herd will follow anything warm, and for a few summers that was me." } },
+      choices = {
+        { text = "What became of them?", next = "calves_grown" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    calves_grown = {
+      lines = { { id = "cg_default", text = "They grew and walked back to the herds, every one, and I was proud of them for it. Sometimes a big kodo on the plains stops and looks at me for a long while, and I like to think she remembers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    choose = {
+      lines = { { id = "ch_default", text = "He's right, though he says it faster than I would. You can't force a bond any more than you can force the rain, so you go out and you wait and you're patient, and one day a beast decides you'll do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    feed = {
+      lines = { { id = "fd_default", text = "Whatever it would hunt for itself, as near as you can manage. A cat wants meat, a boar will eat nearly anything, and a wolf would rather share your supper than eat alone, so let it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    unhappy = {
+      lines = { { id = "un_default", text = "Then ask yourself when you last fed it before you fed yourself, and whether you've dragged it into fights it didn't need. Beasts sulk like calves, and like calves they forgive quickly once you make it right." } },
+      choices = { { text = "I'll make it right.", next = "BACK" } },
+    },
+    troll_beasts = {
+      lines = { { id = "tb_default", text = "And I'd dearly love to see a Darkspear raptor up close, if it promised not to eat my students. The beasts of the Echo Isles must be very different from ours, but I'd wager they want the same things." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    earth_mother = { { id = "tp_em", text = "She made the beasts first, the elders say, and us after, to look after them. I take that seriously." } },
+    centaur = { { id = "tp_ce", text = "They took the mothers of too many of my calves. I try not to hate them, and most days I manage." } },
     background = { { id = "tp_bg", text = "Thunderhorn. I raised orphaned calves before I trained anyone's companion, and it's much the same work." } },
     advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself, and it'll never leave you." } },
     _none = { { id = "tp_none", text = "I don't know, and neither does your companion, by the look of its ears." } },

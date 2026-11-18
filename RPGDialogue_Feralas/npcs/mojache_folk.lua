@@ -270,6 +270,11 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Is flying over Feralas dangerous?", next = "danger" },
         { text = "Do the riders like the rain?", next = "rain" },
+        { text = "Where do your riders fly?", next = "routes" },
+        { text = "How did you become a wind rider master?", next = "how" },
+        { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },
+        { text = "Your riders don't seem to like me.", next = "fk", when = { race = "Scourge" } },
+        { text = "Could a hunter tame a wind rider?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Shyn.", next = "END" },
       },
     },
@@ -293,6 +298,50 @@ P:NPC {
       lines = { { id = "ra_default", text = "They love it! Mulgore's riders get dusty and cross, but these ones are always clean and always hungry. I've had to stop them diving into Wildwind Lake after fish." } },
       choices = {
         { text = "That sounds like fun.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Wind riders eat fish?", next = "rain_fish" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rain_fish = {
+      lines = { { id = "rf_default", text = "They eat anything that doesn't fly faster than they do, and in Wildwind Lake that's most things. I've pulled one out of the water by its tail with a whole fish in its mouth, very proud of itself and soaked to the bone." } },
+      choices = {
+        { text = "How do you dry off a wet wind rider?", next = "rain_care" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rain_care = {
+      lines = { { id = "rc_default", text = "You don't, you stand well back while it shakes and then you laugh, because there's nothing else to do. After that you check its wings for rot, because the Feralas damp gets into everything, feathers and saddles alike." } },
+      choices = {
+        { text = "Something else, Shyn.", next = "BACK" },
+        { text = "Farewell, Shyn.", next = "END" },
+      },
+    },
+    routes = {
+      lines = { { id = "ro_default", text = "North to Thunder Bluff, east over the canyons to Freewind, and onward from there to most of the Horde's perches. The flight over the Thousand Needles is the prettiest in Kalimdor, and I'll argue with anyone who says otherwise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    how = {
+      lines = { { id = "ho_default", text = "I climbed the tower in Thunder Bluff as a calf and wouldn't come down until Tal let me feed one. He let me feed one every day for six years, and then he handed me the reins and told me to go somewhere wetter." } },
+      choices = {
+        { text = "Tal taught you, then?", next = "how_tal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    how_tal = {
+      lines = { { id = "ht_default", text = "Tal taught half the wind rider masters in Kalimdor, though he'd tell you the riders taught us and he only watched. When I came to Feralas he sent the first three riders himself, and they're still the best in the roost." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mulgore = {
+      lines = { { id = "mu_default", text = "Only the open sky, because here the trees grow so tall it's like flying inside a lodge. But Mulgore never smelled like this after the rain, and I wouldn't trade it back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fk = {
+      lines = { { id = "fk_default", text = "It's the smell, friend, no offence meant, and they'll have forgotten it by the time you land. Hold on tighter than you think you need to, because a nervous rider likes to roll once or twice to see whether you fall off." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Hunters ask me that every week, and the answer is still no! A wind rider carries the whole Horde, not one hunter, and it would pine if it could only fly for one of you." } },
+      choices = {
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,6 +349,8 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "The winds of Feralas and every perch between here and Thunder Bluff." } },
+    sentinels = { { id = "tp_se", text = "Their hippogryphs keep to the coast and we keep inland, and that way everyone stays dry and alive." } },
+    dire_maul = { { id = "tp_dm", text = "The riders won't fly low over those old elven ruins. They know something we don't, and I trust them." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. The rider knows what it's doing." } },
     _none = { { id = "tp_none", text = "I don't know. I'm usually in the air when people talk about things like that." } },
   },
