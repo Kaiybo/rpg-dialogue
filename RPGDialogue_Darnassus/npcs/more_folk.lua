@@ -888,6 +888,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "They like an owl in the branches over a watch post. I lend them the steadier birds, and I always get them back." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The owls roost lower on the tree than they did a few years ago. I do not know why, and it has begun to trouble me." } },
     advice = { { id = "tp_advice", text = "If an owl turns her head away from you, do not follow her gaze round. Wait, and she will look back when she is ready." } },
     background = { { id = "tp_bg", text = "I raise owls on the Warrior's Terrace. It's quiet work, and that suits me." } },
     elune = { { id = "tp_elune", text = "The owls wake when the moon rises. I think they know her better than any of us." } },
@@ -1004,6 +1006,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "I was one. They are better people than I am, the ones who stayed, and I catch fish for a few of them." } },
+    elune = { { id = "tp_elune", text = "I thank Her for every fish from Her lake, quietly, where the Sisters can't hear and take it for cheek." } },
+    ashenvale = { { id = "tp_ashenvale", text = "It's a beautiful forest, friend, and I hope never to see it again. Both of those are true." } },
     advice = { { id = "tp_advice", text = "Buy the lake fish in the morning and the sea fish by noon, and never either one at dusk, whoever is selling." } },
     background = { { id = "tp_bg", text = "I sell fish in the Temple Gardens. I used to do something louder." } },
     warsong = { { id = "tp_warsong", text = "The orcs who cut the trees in Ashenvale. I've seen enough of them for one lifetime, and ours are long." } },
@@ -1133,6 +1138,8 @@ P:NPC {
   },
 
   topics = {
+    furbolgs = { { id = "tp_furbolgs", text = "A student brought me herbs from near Ban'ethil, and the draught came out grey. Ainethil took the vial away and would not say why." } },
+    highborne = { { id = "tp_highborne", text = "They brewed things that made them live for ever, or so it is said. I am still trying to get a healing draught the right green." } },
     background = { { id = "tp_background", text = "I teach beginners' alchemy on the Craftsmen's Terrace. I am Ainethil's apprentice still, and glad to be." } },
     advice = { { id = "tp_advice", text = "Never let a healing draught come to a full boil, and never taste before it has cooled. Those two rules cover most accidents." } },
     teldrassil = { { id = "tp_teldrassil", text = "Herbs grow faster on this tree than on the mainland, and a little stronger. I have had to cut my measures by a tenth." } },
@@ -1271,6 +1278,7 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion came because our people would not stop drinking from the Well. I keep that before me whenever a student asks for more." } },
     background = { { id = "tp_background", text = "I teach enchanting in Darnassus, in the open, by leave of the Temple. I keep to the limits of the craft and I teach others to." } },
     highborne = { { id = "tp_highborne", text = "They believed there was no cost. Every lesson I give is an argument against them." } },
     queen_azshara = { { id = "tp_queen_azshara", text = "I do not speak that name at my bench. What was done in it is reason enough for every rule I keep." } },
@@ -1400,6 +1408,8 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "I sew Her priestesses' robes, and I say a word over every hem. It keeps my stitches honest." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess wears my work, and has never once asked for it grander. I think the better of her for that." } },
     background = { { id = "tp_background", text = "I teach tailoring on the Craftsmen's Terrace. The Temple's robes and the Sentinels' cloaks begin at my bench." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisters are my most exacting patrons. I would not have it otherwise." } },
     highborne = { { id = "tp_highborne", text = "My mother sewed for their lesser houses. I kept her craft and none of their pride, or so I hope." } },
@@ -1671,6 +1681,8 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "I fought them at Hyjal. I do not speak of it by the water, and the water is where I always am." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess gave me leave to fish her lake. She said that stillness was a kind of prayer, and I have tried to deserve it." } },
     background = { { id = "tp_background", text = "I teach fishing in the Temple Gardens. I was something louder once, and I prefer this." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisters lend me their lake and their anxious novices. I return the novices calmer." } },
     elune = { { id = "tp_elune", text = "I think She is in still water as much as in the moon. I have never said so on the Temple steps." } },
@@ -1939,6 +1951,9 @@ P:NPC {
   },
 
   topics = {
+    highborne = { { id = "tp_highborne", text = "They kept their reagents in crystal that sang, I have read. Mine merely sit where I put them, and I prefer it." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The Enclave reads my notes about spoiled herbs and never answers. I go on writing them; someone should." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels send for healing draughts by the crate before every patrol to Ashenvale. The crates have grown larger." } },
     background = { { id = "tp_background", text = "I sell alchemy supplies on the Craftsmen's Terrace. I know where everything is, which on this terrace makes me unusual." } },
     furbolgs = { { id = "tp_furbolgs", text = "Herbs from near their dens come in with a grey bloom on the stem. I burn them and I write to the Enclave." } },
     teldrassil = { { id = "tp_teldrassil", text = "Everything grows strong on this tree. The alchemists have had to learn to use less." } },
@@ -2067,6 +2082,9 @@ P:NPC {
   },
 
   topics = {
+    warsong = { { id = "tp_warsong", text = "I know the war in Ashenvale by what its fighters ask to have laid on their blades. It has been all warding, of late." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids watch this terrace from above. I keep my ledger so that there is nothing for them to find." } },
+    elune = { { id = "tp_elune", text = "The Temple holds my ledger, and so in a sense the Goddess reads over my shoulder. I write neatly." } },
     background = { { id = "tp_background", text = "I sell enchanting supplies in Darnassus, and I keep the Temple's record of who buys them." } },
     highborne = { { id = "tp_highborne", text = "They are the reason for my ledger. I think of them each time I rule a new page." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Temple permits this bench on conditions. I am one of the conditions, and I take that seriously." } },
@@ -2195,6 +2213,9 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "The Sisters say the lake reflects Her. I say it also holds fish, and I see no quarrel between the two." } },
+    sentinels = { { id = "tp_sentinels", text = "A Sentinel casts as though the float had insulted her. I sell them the heavy line and stand well back." } },
+    explorers_league = { { id = "tp_explorers_league", text = "A dwarf of the League asked me for a net fine enough to sieve mud. I sold him three, and I did not ask." } },
     background = { { id = "tp_background", text = "I sell fishing supplies in the Temple Gardens. I also fish, while I am at it, as a display of the goods." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisters frown at me from the steps and send their novices down to my bank. I count that as approval." } },
     advice = { { id = "tp_advice", text = "Buy twice the line you think you need. The reeds here have taken more of it than the fish ever did." } },

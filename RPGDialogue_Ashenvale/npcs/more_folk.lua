@@ -349,6 +349,9 @@ P:NPC {
   },
 
   topics = {
+    thrall = { { id = "tp_thrall", text = "The Warchief asked the tribes to stand with the orcs, and Cairne said yes. That is reason enough for one armor merchant to be here." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is as steady as the mesa he sits on. When I am weary of this forest, I think of how long he waited for a home." } },
+    sentinels = { { id = "tp_sentinels", text = "They are patient hunters, and they love this land as we love Mulgore. I sell armor against them, and I cannot bring myself to hate them." } },
     warsong = { { id = "tp_warsong", text = "The Warsong cut and the elves shoot, and I sell armor to those who stand between. I would rather the forest were left more of itself, but no one asks the armor merchant." } },
     advice = { { id = "tp_advice", text = "Wear a helm on the road to the Lumber Camp, friend, however hot the day. The Sentinels aim for the head." } },
     background = { { id = "tp_bg", text = "I sell heavy armor at Splintertree. The orcs buy a great deal of it." } },
@@ -723,6 +726,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "Raene's Sentinels buy my lamp oil and my salt, and pay in thanks more often than silver. I have decided thanks will do, for now." } },
+    furbolgs = { { id = "tp_furbolgs", text = "The Thistlefur used to trade me beeswax for thread, if you can believe it. I still have the last cake of it under the counter." } },
+    explorers_league = { { id = "tp_explorers_league", text = "A dwarf of the Explorers' League bought every spool of twine I had, to measure a ruin with. I do admire a customer with a plan." } },
     warsong = { { id = "tp_warsong", text = "The Warsong have cut the eastern road, and every week it costs me a little more to stock the same shelf. I would send the orcs the difference, if I thought they could read a bill." } },
     advice = { { id = "tp_advice", text = "Buy your thread and flux here before you go east or south, because there is not another honest trade counter until the Barrens, and that one belongs to the Horde." } },
     background = { { id = "tp_bg", text = "I sell trade goods in Astranaar. Rare things, too, if you ask." } },
@@ -832,6 +838,10 @@ P:NPC {
   },
 
   topics = {
+    warsong = { { id = "tp_warsong", text = "The Warsong burn good oak for charcoal. A baker knows what wood is worth, and it grieves me to smell it wasted." } },
+    furbolgs = { { id = "tp_furbolgs", text = "I used to leave the burnt loaves at the edge of the wood for the Thistlefur cubs. Nothing comes for them now." } },
+    elune = { { id = "tp_elune", text = "I say a word to Elune over the first loaf each morning. It is a small prayer, and She has always seemed to like small ones." } },
+    ashenvale = { { id = "tp_ashenvale", text = "Ashenvale is the oldest forest I know, and Raene Wolfrunner carries our corner of it on her shoulders. I worry for her, and I show it with bread." } },
     sentinels = { { id = "tp_sentinels", text = "The Sentinels are the reason I still have an oven to stand at. I feed them as well as the flour allows, and I wish that it allowed more." } },
     advice = { { id = "tp_advice", text = "Carry bread, not meat, on the roads here, friend. Bread does not draw the wolves down on you." } },
     background = { { id = "tp_bg", text = "I bake bread in Astranaar. It's simple, and it's needed." } },
@@ -1097,6 +1107,7 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "We are few, and we do not complain of it where the recruits can hear. Among ourselves we complain a good deal." } },
     background = { { id = "tp_background", text = "I keep the road watch at Maestra's Post, on the border with Darkshore. Nothing comes into Ashenvale from the north without passing me." } },
     dark_strand = { { id = "tp_dark_strand", text = "Hooded cultists at the Tower of Althalaxx, robbing my road. Delgren means to end them, and I mean to help him." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Thistlefur to the east have gone the way of the Blackwood in Darkshore. Two of mine are abed with the proof of it." } },
@@ -1485,6 +1496,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "I cut their bracers and their jerkins, and I mend what comes back. I know the war by where the leather is scored." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "A druid once taught me that only waste offends the forest. I have taught it to every student since." } },
     background = { { id = "tp_background", text = "I teach leatherworking in Astranaar. I have done so since before the town had a wall to speak of." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Thistlefur's sickness is in the game near their dens. I can smell it in the hide before the knife is through." } },
     warsong = { { id = "tp_warsong", text = "Every jerkin I teach is cut against a Warsong axe now. I would rather be making saddles." } },
@@ -1607,6 +1620,10 @@ P:NPC {
   },
 
   topics = {
+    warsong = { { id = "tp_warsong", text = "Orc axes leave a clean straight cut at the shoulder. I've seen enough of them now to know the smith by the notch." } },
+    satyrs = { { id = "tp_satyrs", text = "Satyr fire scorches leather past mending. If you go to Xavian, don't wear anything you're fond of." } },
+    dark_strand = { { id = "tp_dark_strand", text = "The cultists up at the tower wear robes, so they're no customers of mine. I only see what they do to other people's armor." } },
+    elune = { { id = "tp_elune", text = "I'm not much for the Temple, but I say a word at the moonwell before a big order. It can't hurt the stitching." } },
     background = { { id = "tp_background", text = "I sell leather armor in Astranaar. I can usually tell you where you've been before you tell me." } },
     furbolgs = { { id = "tp_furbolgs", text = "I mend more Thistlefur claw-marks than anything else. They never used to come south of the road." } },
     sentinels = { { id = "tp_sentinels", text = "They're prouder than they are well supplied, just now. I do what I can, quietly." } },
@@ -1736,6 +1753,9 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "The priestesses need no reagent but the moon. I find that beautiful, and bad for business." } },
+    highborne = { { id = "tp_highborne", text = "They used arcane dust as I use salt, I am told. I write that in my book as a warning, and not as a recipe." } },
+    satyrs = { { id = "tp_satyrs", text = "A satyr's magic needs no pouch of powder, only malice. I have nothing on my shelves for that, and I am glad of it." } },
     background = { { id = "tp_background", text = "I sell reagents in Astranaar, and I ask too many questions about them. Nobody has minded yet." } },
     warsong = { { id = "tp_warsong", text = "The Warsong turn back the carts from Darnassus, and my shelves show it before anyone's. I do not understand a people who would starve a town of candles." } },
     cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids are my best teachers and my most patient customers. They explain everything twice and never seem to tire of it." } },
@@ -1866,6 +1886,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "They hold the bridges in daylight. Someone has to hold what the daylight does not reach." } },
+    satyrs = { { id = "tp_satyrs", text = "Xavian's satyrs were our own people once, and they remember how we think. I would not send a novice among them." } },
     background = { { id = "tp_background", text = "I sell tools and supplies in Astranaar. Some of the supplies are for work that is not discussed at the inn." } },
     warsong = { { id = "tp_warsong", text = "They watch us from the eastern ridge and think we do not watch back. I am content to let them think it." } },
     dark_strand = { { id = "tp_dark_strand", text = "Hooded amateurs at the tower in the north-west, but amateurs with a warlock at their head. I would not turn my back on them." } },
@@ -1988,6 +2010,9 @@ P:NPC {
   },
 
   topics = {
+    furbolgs = { { id = "tp_furbolgs", text = "The Thistlefur are sick with something I can't brew a cure for. Believe me, I've tried four recipes." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "Cylania's of the Circle, more or less, and she tells me which herbs I may not strip bare. I listen, mostly." } },
+    ashenvale = { { id = "tp_ashenvale", text = "Something has stirred up the water spirits on Mystral Lake, and half of Ashenvale's streams with them. I boil the lake water twice now, to be safe." } },
     background = { { id = "tp_background", text = "I teach alchemy at Silverwind Refuge, and I brew for the Sentinels who keep it. Both keep me busy." } },
     sentinels = { { id = "tp_sentinels", text = "They drink my potions too late and my tea too often. I love them dearly and they'll be the death of me." } },
     advice = { { id = "tp_advice", text = "Drink the healing draught when you're hurt, not when you're dying. It's the commonest mistake there is." } },
@@ -2112,6 +2137,8 @@ P:NPC {
   },
 
   topics = {
+    thrall = { { id = "tp_thrall", text = "The Warchief's put outposts on every coast, and somebody has to fly between them. I'd follow him further than this beach." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls here are loud, loyal and afraid of nothing but their own spirits. I've come to like having them at my back." } },
     background = { { id = "tp_background", text = "I keep the wind riders at Zoram'gar. It's the worst roost in Kalimdor, and my beasts fly out of it anyway." } },
     blackfathom = { { id = "tp_blackfathom", text = "A hole in the coast north of here that the naga keep slipping into. My riders won't fly low over it, and I trust them." } },
     warsong = { { id = "tp_warsong", text = "The Warsong hold the east of this forest. We hold a beach. Don't tell them I said they got the better deal." } },

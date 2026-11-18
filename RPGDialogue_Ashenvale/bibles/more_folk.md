@@ -33,3 +33,30 @@
 
 ## Never
 Wolfheart (the novel), the War of the Thorns, Forest Song, Silverwind Refuge's fall, Cataclysm Ashenvale, Nightmare Incursions or Battle for Ashenvale (Season of Discovery).
+
+## Added later: missed folk (same file, npcs/more_folk.lua)
+
+### Sources
+- warcraft.wiki.gg: Sentinel Melyria Frostshadow, Sentinel Onaeya, Feero Ironhand, Pixel, Aayndia Floralwind, Tandaan Lightmane, Llana, Fahran Silentblade, Kylanna, Andruk. Classic placement used: Melyria and Kylanna at Silverwind Refuge; Onaeya and Feero at Maestra's Post; Pixel at Splintertree; the four vendors/trainer in Astranaar; Andruk at Zoram'gar.
+
+### Their quests (TODO_QUEST by title)
+- Melyria: The Howling Vale, Velinde Starsong (the missing Sentinel, the scythe, the worgen; report goes to Thyn'tel Bladeweaver in Darnassus).
+- Onaeya: One Shot. One Kill. (turn-in from Sentinel Aynasha in Darkshore).
+- Feero: Supplies to Auberdine (escort north; three Dark Strand ambushes).
+- Pixel: Satyr Horns (16 horns from Satyrnaar/Xavian). The saw blades are her business only; no quest ID used.
+- Aayndia, Tandaan, Llana, Fahran, Kylanna, Andruk: none (service).
+
+### Voices
+**Melyria.** Grave Sentinel; speaks of Velinde as still on duty; counts the Horde's road.
+**Onaeya.** Brisk road-watch; no patience for excuses; dry.
+**Feero.** Earnest human, Delgren's man; stubborn, says "friend"; the Light without preaching.
+**Pixel.** Goblin hauler: prices everything, "pal", won't release unpaid blades.
+**Aayndia.** Patient, exacting tanner; nothing wasted.
+**Tandaan.** Easy-going; reads where you've been from your armor.
+**Llana.** Soft-spoken, curious; keeps a notebook of what reagents are for.
+**Fahran.** Dry, guarded; sells poisons and says so; on the town's side.
+**Kylanna.** Brisk, cheerful, singed sleeves; brews for the Refuge.
+**Andruk.** Gruff orc wind rider master; respects the trolls; mourns two lost riders.
+
+### Authored, not canon
+Llana's notebook; Fahran's past with Erion Shadewhisper's people and Raene knowing about his shelf; Tandaan's armor-reading; Pixel's unpaid invoice with Locke; Andruk's lost riders; Kylanna's wakefulness tea; Onaeya's recruits. Deepened entries (Burkrum, Dalria, Nantar, Farsong, Gurda, Moonblaze): neighbours and work only, no new backstory beyond a line each.

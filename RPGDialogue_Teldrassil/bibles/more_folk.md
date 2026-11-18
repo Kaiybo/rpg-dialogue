@@ -29,3 +29,31 @@
 
 ## Never
 Later fates (the Burning of Teldrassil), Cataclysm-era Teldrassil changes, anything after Classic.
+
+## Added later: missed folk (same file, npcs/more_folk.lua)
+
+### Sources
+- warcraft.wiki.gg: Tarindrella, Dazalar, Huntress Nhemai, Janna Brightmoon, Byancie, Aldia, Narret Shadowgrove, Nyoma, Khardan Proudblade, Dellylah, Alanna Raveneye. Placement: Shadowglen/Aldrassil (Tarindrella, Janna, Khardan, Dellylah), Dolanaar (Dazalar, Byancie, Aldia, Narret, Nyoma), the Darnassus road (Nhemai, with Moon Priestess Amara), Oracle Glade (Alanna).
+
+### Their quests (TODO_QUEST by title)
+- Tarindrella: The Woodland Protector (fel moss from the grells).
+- Dazalar: Taming the Beast (stalker, screecher, lurker), then on to Jocaste (Training the Beast).
+- Nhemai: none of her own; reacts to Amara's The Road to Darnassus.
+- Nyoma: Reminders of Home / Return to Nyoma (Sister Aquinne's recipe book).
+- Others: none. The wiki's Forever sections list Camping 101 and other quests for Byancie, Aldia and Alanna; not used until captured.
+
+### Voices
+**Tarindrella.** Gentle, grave dryad; "young one"; frank that the tree is unblessed.
+**Dazalar.** Few words; taming as befriending; makes students release what they tame.
+**Nhemai.** Terse escort; eyes on the trees.
+**Janna.** Fussy, warm clothier; keeps a sleeve from each year's young.
+**Byancie.** Calm bandager; "a wound is also a message".
+**Aldia.** Practical; rope and torches.
+**Narret.** Dry, exact; reads the village from what it buys.
+**Nyoma.** Generous, teasing; her standing quarrel with Zarrin.
+**Khardan.** Proud, kindly; tests the hand before the sale.
+**Dellylah.** Motherly; remembers what each young elf liked.
+**Alanna.** Absorbed; hears made things hum.
+
+### Authored, not canon
+Janna's shelf of sleeves; Khardan's three refused sales; Dellylah's hidden moonberry; Narret and Aldia's shared cart; the Nyoma/Zarrin soup quarrel; Alanna hearing the harpies' charms; Nhemai's tale of Amara tending a furbolg. Deepened entries (Danlyia, Keldas, Meri, Porthannius, Shalomon): neighbours and work; Shalomon at Hyjal is one line, never a tale.

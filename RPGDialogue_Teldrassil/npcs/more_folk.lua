@@ -464,6 +464,7 @@ P:NPC {
   },
 
   topics = {
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids ask me how the beasts are faring before they ask anyone else. I take that as the highest compliment I am likely to get." } },
     teldrassil = { { id = "tp_teldrassil", text = "The beasts were the first to notice that something on this island is amiss. They usually are, if anyone troubles to watch them." } },
     advice = { { id = "tp_advice", text = "Feed your companion before yourself at the end of a day's march. It costs you a few minutes and buys you a great deal." } },
     background = { { id = "tp_bg", text = "I train hunters' companions in Dolanaar. The beasts are better students than the hunters." } },
@@ -578,6 +579,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "Kyra Starsong's Sentinels wear leather, but they send their recruits to me for a shield first. Sensible girls." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Everything rusts on this island, and faster each year, I'd swear. I oil my stock twice as often as my mother did." } },
+    explorers_league = { { id = "tp_explorers_league", text = "A dwarf from the boats looked at my mail for an hour and then asked who my master was. I said my mother, and he took his hat off." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine hit harder every season. I can read it in the shields that come back to me." } },
     advice = { { id = "tp_advice", text = "Oil your mail after rain, every time. This island's damp will rust a shirt in a week if you let it." } },
     background = { { id = "tp_bg", text = "I sell mail and shields in Dolanaar. It's honest work, and it keeps the young ones alive." } },
@@ -690,6 +694,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "They are the reason I can sell fewer blades than I otherwise would. I am grateful to them every day." } },
+    burning_legion = { { id = "tp_burning_legion", text = "I was at Hyjal. I do not speak of it, and I ask you not to press me." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The tree is young, and the creatures on it have grown fierce too quickly. I do not understand it, and I arm people against it all the same." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were neighbours once. I think of that with every blade I hand across." } },
     advice = { { id = "tp_advice", text = "Come back. That is all the advice I have, and I give it to everyone." } },
     background = { { id = "tp_bg", text = "I sell weapons in Dolanaar. More every season, for worse reasons every season." } },
@@ -806,6 +813,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "Kyra Starsong hasn't smiled in a month, and when a Sentinel stops smiling I start baking extra. That's how serious it is." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Everything grows so big here! My pears, the spiders, the opinions. It's the tree, they say." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids are dears, but you cannot get a plain answer out of one. I asked Kal the time once and heard about the seasons." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine used to trade honey for my bread at the edge of the village. Now Tallonkai won't let me walk the Ban'ethil road alone." } },
     advice = { { id = "tp_advice", text = "Eat something before you go up to the Fel Rock, friend. Everyone who comes back from there says they lost their appetite for a week." } },
     background = { { id = "tp_bg", text = "I sell food and drink in Dolanaar. I also know everyone's business, but that's free." } },
@@ -1194,6 +1204,8 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "I ride for Her priestess. That is prayer enough for a huntress." } },
+    teldrassil = { { id = "tp_teldrassil", text = "The road was safe when the tree was planted. It is my work to make it so again." } },
     background = { { id = "tp_background", text = "I ride escort for Moon Priestess Amara on the Darnassus road. It is a short road and it wants watching." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine ambush at midday now. Something has made them bold, and it is not courage." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisters heal and we guard them while they do it. It is an old arrangement, and a good one." } },
@@ -1324,6 +1336,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "They wear leather, the dear things, and I only get them for their cloaks. I make the cloaks very warm." } },
+    elune = { { id = "tp_elune", text = "Shanda's young priests leave here in white, and I say a little word over each robe. She does not know, and need not." } },
     background = { { id = "tp_background", text = "I sell cloth armor inside Aldrassil. I have seen off every young elf of this glade, and I worry about all of them." } },
     teldrassil = { { id = "tp_teldrassil", text = "The creatures of the glade tear a sleeve higher than they used to. I notice, because I am the one who mends it." } },
     advice = { { id = "tp_advice", text = "Keep a needle and thread in your pack. A small tear mended tonight is a robe saved next month." } },
@@ -1447,6 +1461,9 @@ P:NPC {
   },
 
   topics = {
+    teldrassil = { { id = "tp_teldrassil", text = "The island's creatures bite deeper than they did, and the bites fester more quickly. I have changed my poultice twice this year." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "A druid can mend with a touch what takes me an hour. They are seldom nearby when the bleeding starts, which is why I teach." } },
+    elune = { { id = "tp_elune", text = "I do not pray over a wound until it is bound. I think She would rather I used both hands first." } },
     background = { { id = "tp_background", text = "I teach first aid in Dolanaar, from a corner of the inn. Most of the island's young adventurers have bled on my linen." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine's claws I know how to dress. It is the burns from their barrow that trouble me." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisters mend what I cannot, and I keep their patients alive on the road to them. We think well of each other." } },
@@ -1576,6 +1593,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "Sentinel Shayla walks beside our supply cart when she can spare the hour. I send her home with lamp oil she pretends not to want." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids buy nothing but twine and never say what for. I have stopped guessing." } },
+    explorers_league = { { id = "tp_explorers_league", text = "A dwarf came through asking for forty torches and a chisel. I sold him the torches and sent him to Darkshore for the rest." } },
     background = { { id = "tp_background", text = "I sell general supplies in Dolanaar. Packs, rope and light, mostly, to people who thought they would not need them." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine watch the cart road now. I order a little extra each time, to be safe." } },
     advice = { { id = "tp_advice", text = "Twenty paces of rope and two torches more than you think. I have never had anyone come back to complain of the weight." } },
@@ -1708,6 +1728,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels buy whetstones and bowstring wax, in exact quantities, on the same day each month. I approve of them entirely." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Dyes take differently in this island's water than they did on the mainland. I have had to relabel half my jars." } },
     background = { { id = "tp_background", text = "I sell trade supplies in Dolanaar. I make nothing, and I see everything that is made." } },
     furbolgs = { { id = "tp_furbolgs", text = "When the village buys linen and flux together, I know what is expected from Ban'ethil. It has bought a great deal of both." } },
     advice = { { id = "tp_advice", text = "Buy the extra spool. It is the cheapest lesson I can offer, and nobody takes it the first time." } },
@@ -1838,6 +1860,7 @@ P:NPC {
   },
 
   topics = {
+    furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine used to trade me honey for flatbread at the wood's edge. I still bake a few extra, out of habit, and then eat them myself." } },
     background = { { id = "tp_background", text = "I sell cooking supplies in Dolanaar and I keep the village's recipes. I also keep an argument going with Zarrin, as a public service." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "My dearest friend serves in the Temple kitchen. I think of the Sisterhood kindly, and I think they are underfed." } },
     teldrassil = { { id = "tp_teldrassil", text = "Everything grows large on this tree, and quickly. I taste it twice before it goes in the pot." } },
@@ -1968,6 +1991,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels forge their own glaives, as they should. But most of them held one of my daggers first." } },
+    highborne = { { id = "tp_highborne", text = "My family made blades for the palace guard, once. We do not boast of it, and we do not forget how that city ended." } },
     background = { { id = "tp_background", text = "I am the weaponsmith of Aldrassil. My family has armed our people's young since before the Sundering." } },
     burning_legion = { { id = "tp_burning_legion", text = "My mother's glaives went to the war against the Legion. I pray mine never need go to another." } },
     teldrassil = { { id = "tp_teldrassil", text = "The damp of this tree rusts a blade in a week. I tell every young one to oil it nightly, and half of them remember." } },
@@ -2100,6 +2125,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels on the Dolanaar road stop for water and never stay to talk. I put a berry in the cup, and they pretend not to notice." } },
+    elune = { { id = "tp_elune", text = "I leave the first berry of each morning's picking at the moonwell. It is always gone by noon, and I choose not to ask who takes it." } },
     background = { { id = "tp_background", text = "I sell food and drink inside Aldrassil. I have fed nearly every young elf of this glade on the morning they left it." } },
     teldrassil = { { id = "tp_teldrassil", text = "The grells sit and watch me pick berries now, where once they ran. I do not like it, and I have said so." } },
     advice = { { id = "tp_advice", text = "Eat before you set out, and carry one thing you can eat walking. The road always takes longer than they tell you." } },
@@ -2229,6 +2256,8 @@ P:NPC {
   },
 
   topics = {
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids think my craft a small unwisdom, and tell me so kindly. I think theirs a large patience, and tell them the same." } },
+    elune = { { id = "tp_elune", text = "I work by moonlight when I can. The essences settle better, and so do I." } },
     background = { { id = "tp_background", text = "I teach enchanting in the Oracle Glade. It is a long walk, and that is partly the point." } },
     highborne = { { id = "tp_highborne", text = "They believed power had no bottom. Every lesson I give begins by showing that it has." } },
     teldrassil = { { id = "tp_teldrassil", text = "The tree hums, too, if you are quiet enough. Of late the note has not been quite true, and I cannot tell you why." } },

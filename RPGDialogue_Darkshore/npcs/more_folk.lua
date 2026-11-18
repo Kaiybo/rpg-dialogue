@@ -237,6 +237,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "They come off the night patrol grey with tiredness, dear, and I have a warm loaf waiting. It's little enough." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The dwarves from the dig buy my hardest bread by the sackful. They say it reminds them of home, which I try to take kindly." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "There are hooded folk at the Master's Glaive, dear, and nobody goes that way for a picnic any more. That's all I know, and all I want to." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Blackwood used to come to the edge of town for honey cakes, dear. I still bake a few by habit, and then I remember." } },
     background = { { id = "tp_bg", text = "I bake for Auberdine and the boats. It's simple work, and everyone's glad of it." } },
     advice = { { id = "tp_advice", text = "Carry bread in your pack, always. You never know when you'll be stuck on a beach with murlocs between you and the town." } },
@@ -353,6 +356,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "Glynda's Sentinels eat at my stall when they've a moment, which is never. I wrap it so they can eat walking." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "A traveler told me there are cultists down at the Master's Glaive, praying to old bones. I gave him a second helping; he looked as if he needed it." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Blackwood used to trade berries at the edge of town when I was small. Now I won't even buy meat that was hunted near their dens." } },
     advice = { { id = "tp_advice", text = "Eat before you take the road south, friend. There's nothing between here and Ashenvale but bears and one very lonely Sentinel." } },
     background = { { id = "tp_bg", text = "I sell food and drink in Auberdine. I know everyone, and everyone knows me." } },
@@ -468,6 +473,9 @@ P:NPC {
   },
 
   topics = {
+    highborne = { { id = "tp_highborne", text = "The spirits at Ameth'Aran were Highborne, and they dressed beautifully, by the look of them. I try not to admire it." } },
+    elune = { { id = "tp_elune", text = "The silver dye wants a full moon, so in a manner of speaking She is my partner in it. I have never dared say so to a priestess." } },
+    sentinels = { { id = "tp_sentinels", text = "Sentinel Elissa Starbreeze guarded me while I gathered moss, and tapped her foot the whole while. I was grateful, and I hurried." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Blackwood have closed the northern woods to me, and my green dye with them. It is a small loss beside the others, I know, but it is mine." } },
     advice = { { id = "tp_advice", text = "Wash a good robe in cold water and dry it out of the sun. Half the robes I mend were ruined by their owners and not by any enemy." } },
     background = { { id = "tp_bg", text = "I sell cloth armor in Auberdine, dyed with colours from the shore." } },
@@ -585,6 +593,8 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "A Sentinel skins the way she fights, fast and with nothing wasted. I'd take a dozen of them as apprentices." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The moonstalkers have left the hills round the Master's Glaive. Beasts know a bad neighbour when they smell one." } },
     furbolgs = { { id = "tp_furbolgs", text = "Whatever has taken the Blackwood is in the beasts near their dens too. I can smell it on a hide before I've unrolled it." } },
     advice = { { id = "tp_advice", text = "Cut slowly and keep your knife sharp. A good hide pays for a week on the road, and a ruined one pays for nothing." } },
     background = { { id = "tp_bg", text = "I sell leather and leatherworking goods in Auberdine. I buy hides too, if they're worth it." } },
@@ -1127,6 +1137,7 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The elf lasses on patrol wear leather against furbolgs, which is madness. I've forged a few bucklers for them, on the quiet." } },
     background = { { id = "tp_background", text = "I'm a smith out o' Ironforge, teachin' in Auberdine. They'd no anvil till I came, if ye can credit it." } },
     explorers_league = { { id = "tp_explorers_league", text = "The League's diggin' up the coast at Remtravel's. Daft beggars, the lot, but they buy my chisels." } },
     furbolgs = { { id = "tp_furbolgs", text = "Whatever's got into the Blackwood, it's why half this town's learnin' to make a blade. I'd rather teach for a happier reason." } },
@@ -1258,6 +1269,8 @@ P:NPC {
   },
 
   topics = {
+    highborne = { { id = "tp_highborne", text = "They wore silk such as no loom now makes, and it did not save them. I tell my students that when they grow vain about a hem." } },
+    elune = { { id = "tp_elune", text = "The Temple's vestments are the standard I teach to. One should sew as though the Goddess will inspect the lining." } },
     background = { { id = "tp_background", text = "I teach tailoring in Auberdine. I have corrected every seam sewn in this town for longer than its dock has stood." } },
     sentinels = { { id = "tp_sentinels", text = "The Sentinels bleed on my linen and never see the hem. That is as it should be." } },
     furbolgs = { { id = "tp_furbolgs", text = "I cut more shrouds this year than last, and most of them on account of the Blackwood. I do not need to know more than that." } },
@@ -1530,6 +1543,8 @@ P:NPC {
   },
 
   topics = {
+    gnomeregan = { { id = "tp_gnomeregan", text = "A bad business, yon. There's a wee gnome at the inn who cannae talk about it, and I've learned no' to ask." } },
+    highborne = { { id = "tp_highborne", text = "The old elf ruins are full o' cut stone, grand work, and no' a quarry in sight. I'd give a good pick to know where they dug it." } },
     background = { { id = "tp_background", text = "I sell minin' supplies in Auberdine, beside my kinsman Kurdram. It's a thin coast for ore, but it's all ours." } },
     explorers_league = { { id = "tp_explorers_league", text = "They dig for pots, no' ore, and they blunt a good chisel doin' it. But they're dwarves, so I give them a fair price." } },
     furbolgs = { { id = "tp_furbolgs", text = "The best copper seam on this coast is under a furbolg den. I'd weep, if I were the weepin' sort." } },
@@ -1651,6 +1666,10 @@ P:NPC {
   },
 
   topics = {
+    explorers_league = { { id = "tp_explorers_league", text = "The dwarves from the dig buy canvas, a great deal of canvas. I have never asked what they wrap in it." } },
+    highborne = { { id = "tp_highborne", text = "Shaldyn's moonflower grows only among their ruins. It seems they left one beautiful thing behind them, after all." } },
+    elune = { { id = "tp_elune", text = "I keep the white bolt for the Temple first, always. It is the nearest thing to a prayer a cloth merchant has." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "I am told the cultists at the Master's Glaive wear dark wool, poorly dyed. I should not have sold it to them, had they asked." } },
     background = { { id = "tp_background", text = "I sell tailoring supplies in Auberdine. What I have depends on the boat, and the boat depends on the sea." } },
     advice = { { id = "tp_advice", text = "Buy thread when you see it, not when you need it. On this coast the two are seldom the same day." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Blackwood have closed the northern woods, and with them half the plants we dyed with. It is a small sorrow among larger ones." } },
@@ -1772,6 +1791,10 @@ P:NPC {
   },
 
   topics = {
+    explorers_league = { { id = "tp_explorers_league", text = "The dwarves brought a pack ram that eats my rope. I have grown fond of him, and I keep the rope higher now." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "No beast will go willingly toward the Master's Glaive. I had a saber refuse the southern road altogether last month." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "Tharnariun Treetender comes to sit with the sick ones. He cannot always heal them, but they are calmer when he has been." } },
+    elune = { { id = "tp_elune", text = "The owls wake at moonrise and all look the same way for a breath. I have never found a better hour for a prayer." } },
     background = { { id = "tp_background", text = "I keep Auberdine's stable. Every beast here was left with me in trust, and I treat it so." } },
     furbolgs = { { id = "tp_furbolgs", text = "The owls fled the woods near the Blackwood dens and live in my rafters now. The beasts knew before any of us." } },
     advice = { { id = "tp_advice", text = "Rest your companion one day in seven, whatever the hurry. A tired beast makes a hunter's mistakes for them." } },

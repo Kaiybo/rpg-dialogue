@@ -30,3 +30,22 @@
 
 ## Never
 Later fates (the Burning of Teldrassil, Amirdrassil, Dragon Isles), Cylania's later quests, anything from Wrath or later.
+
+## Added later: missed folk (same file, npcs/more_folk.lua)
+
+### Sources
+- warcraft.wiki.gg: Milla Fairancora, Taladan, Me'lynn, Eladriel, Ulthir, Vaean (Craftsmen's Terrace); Astaia, Voloren (Temple Gardens); Anishar (Cenarion Enclave). All service; no quests used (wiki lists later-era fishing dailies for Astaia: not Year 1).
+
+### Voices
+**Milla.** Eager apprentice teaching beginners; measures twice; in awe of Ainethil.
+**Taladan.** Grave; teaches enchanting as restraint; "what does it cost, and who pays".
+**Me'lynn.** Proud, generous; sewing as devotion.
+**Eladriel.** Blunt; students thank the animal aloud; "slower".
+**Astaia.** Serene former Sentinel; hates clams, loves octopus (wiki); turns a blind eye to Talaelar.
+**Anishar.** Wry, watchful; the "root cellar"; careful about Staghelm.
+**Ulthir.** Genial, orderly; kind to apprentices.
+**Vaean.** Cool, exact; keeps the Temple's ledger of buyers.
+**Voloren.** Cheerful, talkative; fishes while he sells.
+
+### Authored, not canon
+The Temple's ledger condition on enchanting (Vaean, Taladan); Taladan's dismissed student; Me'lynn's mother and the needle; Milla's forty years of stirring the wrong way; Ulthir's notes to the Enclave about spoiled herbs; Anishar's letter from Stormwind's SI:7; Voloren's whittled reel. Deepened entries (Alegorn, Cylania, Fylerian, Lotherias, Shylenai, Talaelar): neighbours and craft only; Fylerian stays careful, never disloyal, about Staghelm.
