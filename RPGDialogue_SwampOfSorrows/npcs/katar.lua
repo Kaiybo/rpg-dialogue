@@ -81,8 +81,8 @@ P:NPC {
         { id = "sr_default", text = "Perhaps, but it's kept me sharp on this beach for a long time, and the camp's alive because of it. When the sea stops sending murlocs, I'll consider stopping hating it." },
       },
       choices = {
-        { text = "Hate that keeps the camp alive is no sin.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'd rather fight for something than against it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hate that keeps the camp alive is no sin.", next = "BACK", reply = "It isn't, and I'm glad someone sees it. The sea can have my hatred; it gave me reason enough.", fx = { align = { light = -1 } } },
+        { text = "I'd rather fight for something than against it.", next = "BACK", reply = "For something? I fight for the camp, if that helps. But it's the sea that gets my axe.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,8 +120,8 @@ P:NPC {
         { id = "pm_default", text = "I need soldiers who don't drink, and those are rarer than pearls out here. Tok'Kar's right about that, though I'd never tell him." },
       },
       choices = {
-        { text = "Discipline should be enforced. Punish the drinkers.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them drink. It's a miserable post.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline should be enforced. Punish the drinkers.", next = "BACK", reply = "Punished, aye, and they will be, if I catch them. Tok'Kar can keep his sympathy.", fx = { align = { order = 1 } } },
+        { text = "Let them drink. It's a miserable post.", next = "BACK", reply = "Miserable, aye, and drunk makes it worse. A drunk on watch is a murloc's dinner.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,8 +132,8 @@ P:NPC {
         { id = "xs_default", text = "Then they're not the spirits that live in this sea, shaman, or they've grown deaf to whatever happens beneath it. Pray to them if you like, but bring your axe to the beach either way." },
       },
       choices = {
-        { text = "The spirits can be called to help. I'll ask.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You're right. Here, the axe speaks louder.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The spirits can be called to help. I'll ask.", next = "BACK", reply = "Ask, then, and I'll watch. If they answer, I'll owe you an apology, shaman.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Here, the axe speaks louder.", next = "BACK", reply = "It does, and it always has. Pick up an axe, and I'll stand you on the beach.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,8 +143,8 @@ P:NPC {
         { id = "xf_default", text = "You'd know, I suppose, that it doesn't care whether you're living or dead, only whether you're in it. I'll trust a corpse who's seen the sea's indifference over a living orc who hasn't." },
       },
       choices = {
-        { text = "The sea's just water. It's the murlocs we fight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some things deserve hatred. The sea's one of them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The sea's just water. It's the murlocs we fight.", next = "BACK", reply = "Just water, aye, and the murlocs are its children. You'll forgive me if I hate the mother as well.", fx = { align = { order = 1 } } },
+        { text = "Some things deserve hatred. The sea's one of them.", next = "BACK", reply = "You understand, then, corpse. Stand on my beach whenever you like.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

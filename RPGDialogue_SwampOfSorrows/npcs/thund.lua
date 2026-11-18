@@ -92,8 +92,8 @@ P:NPC {
         { id = "dw_default", text = "No, only tired, and a little afraid, and glad of the soldiers beside me. Anger is my captain's burden, and he carries enough of it for all of us." },
       },
       choices = {
-        { text = "Holding the line was right. Orders are orders.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You should have fallen back. Orders aren't worth dying for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Holding the line was right. Orders are orders.", next = "BACK", reply = "They were, and I held, and I'd hold again. Thank you for saying it, friend; it eases the waiting.", fx = { align = { order = 1 } } },
+        { text = "You should have fallen back. Orders aren't worth dying for.", next = "BACK", reply = "Perhaps, but my captain stood, and I would not leave him to stand alone. The Earth Mother understands that, I think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "rf_default", text = "There's no one left who'd know it, friend, for the Splithooves were never a large tribe. Better it goes forward with someone who fights the Legion than back into a tent to be wept over." },
       },
       choices = {
-        { text = "I'll carry it with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's a good blade. That's all that matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll carry it with honor.", next = "BACK", reply = "Then it goes in good hands, and the Splithooves walk with you a little longer. Walk with the Earth Mother.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's a good blade. That's all that matters.", next = "BACK", reply = "It is a good blade, and it will serve you well, whatever you think of the hands that held it before.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,8 +153,8 @@ P:NPC {
         { id = "xt_default", text = "She does, I know, and someday I'll walk to her. But a soldier doesn't leave his captain alone on a dark road, even when the Earth Mother calls." },
       },
       choices = {
-        { text = "Then stay, and be at peace in staying.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your duty ended with your death. Go to her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then stay, and be at peace in staying.", next = "BACK", reply = "At peace, yes, I think I am, more than I was. Thank you, and may the eternal sun shine upon you.", fx = { align = { light = 1 } } },
+        { text = "Your duty ended with your death. Go to her.", next = "BACK", reply = "Ended? Perhaps, but loyalty does not die so easily as flesh. I will go to her when my captain is ready.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
