@@ -2,7 +2,10 @@
 -- the Drag), Thuwd (skinning, the Drag), Handor and Tor'phan (cloth and leather, the Drag), Kor'jus and
 -- Muragus (mushrooms and staves, the Cleft of Shadow), Shan'ti (fruit), Stone Guard Zarg and Brave Stonehide
 -- (the Hall of Legends). Added later: Nazgrel, Kor'ghan, Krathok Moltenfist, Borgosh Corebender, Barkeep Morag,
--- Zayus, Pephredo, Koma, Roxxik and Godan. Voices: bibles/more_folk.md
+-- Zayus, Pephredo, Koma, Roxxik and Godan. Then the remaining class trainers (Deino, Enyo, Thuul, X'yera, Ormok,
+-- Gest, Sian'dur, Xor'juul, Zel'mak, Grol'dar) and the craftsmen of the forges and the Drag (Okothos Ironrager,
+-- Snarl, Ug'thok, Shayis Steelfury, Kelgruk Bloodaxe, Aturk the Anvil, Ox, Jhag, Whuut, Thund, Snang, Kamari).
+-- The bank, auction house, suppliers and merchants continue in more_folk2.lua. Voices: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.orgrimmar")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -2409,3 +2412,2649 @@ P:NPC {
     _none = { { id = "tp_none", text = "I have not taken that apart, and so I do not understand it." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Deino: troll mage trainer, Darkbriar Lodge, Valley of Spirits; the careful one of the circle.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "deino", id = TODO_NPC("Deino"), name = "Deino", title = "Mage Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "patient", "precise" }, values = { "careful", "learned" },
+  notices = { "class" },
+  impression = {
+    first = "Deino is the careful one of the three mages who teach in the Valley of Spirits. She would sooner have a student draw one ward a hundred times than cast a spell they do not understand.",
+    third = "{name} met Deino, the most cautious of the three mage trainers in Orgrimmar's Valley of Spirits.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come in slowly, mon, and mind de chalk on de floor. Dat circle took me all mornin' and I be not done checkin' it." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, as I told Pephredo you would. Sit, and show me your hands before you show me any spell." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage of de Horde. Good, den you will know better dan to step across a line you did not draw yourself." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "Your fingertips be scorched, mon, and all on de one hand. You be reachin' for de fire before de words be finished." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "I can smell what you carry, and I will teach you nothin'. But I will tell you dis for free: a circle only holds what is weaker dan de one who drew it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Deino. Pephredo and Enyo and I teach de mages of Orgrimmar from dis lodge, and of de three I be de one who makes you do it again until it be right." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "I be Deino, and I teach de slow way. Enyo will give you de bigger spell sooner, so go to her if you want to be impressive and come to me if you want to be old." },
+        { id = "h_young", when = { maxLevel = 15 }, text = "I be Deino. You be new to de road, so hear dis before anythin' else: every mage who burned was sure dey were ready." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? I have time, I always make time." },
+        { id = "h_again2", text = "Ask it carefully and I will answer it carefully." },
+        { id = "h_again3", text = "Go on. Pephredo be not here to answer for me, for once." },
+      },
+      choices = {
+        { text = "Teach me what you know, Deino.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "Pephredo says you would make students draw circles for a year.", next = "circles" },
+        { text = "Where does a Darkspear learn arcane magic?", next = "darkspear" },
+        { text = "Who else works out of this lodge?", next = "lodge" },
+        { text = "This valley feels different from the rest of the city.", next = "valley" },
+        { text = "In Lordaeron we learned from books, not chalk.", next = "books", when = { race = "Scourge" } },
+        { text = "Walk carefully, Deino.", next = "END" },
+      },
+    },
+    circles = {
+      lines = {
+        { id = "circles_default", text = "Pephredo exaggerates, but not by much. A circle be de first thing I teach because it be de thing dat saves you when everythin' after it goes wrong. I have seen a good ward hold a spell dat should have taken de roof off dis lodge." },
+      },
+      choices = {
+        { text = "What went wrong, that day?", next = "circles2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circles2 = {
+      lines = {
+        { id = "circles2_default", text = "A student's hands shook on a frost spell, and it came apart into every direction at once. She stood in de middle of her own circle with ice on de walls all round her and not a mark on her skin. She had drawn dat circle two hundred times and hated me for every one." },
+      },
+      choices = {
+        { text = "And Enyo would have taught her differently.", next = "circles3" },
+        { text = "Something else, Deino.", next = "BACK" },
+      },
+    },
+    circles3 = {
+      big = true,
+      lines = {
+        { id = "circles3_default", text = "Enyo would have given her de spell sooner and trusted her to hold it. Sometimes Enyo be right, mon, and her students go further and faster dan mine. Mine come home, though, and I have decided I can live with bein' de dull teacher." },
+      },
+      choices = {
+        { text = "A teacher's first duty is to bring them home alive.", next = "BACK", reply = "Dat be what I tell myself on de days dey leave me for Enyo. It be good to hear someone else say it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power comes from risk. You hold your students back.", next = "BACK", reply = "Maybe I do. But I have never had to carry one down dis valley in a blanket, and I mean to keep it so.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkspear = {
+      lines = {
+        { id = "darkspear_default", text = "De Darkspear had hexes and spirits long before we had spellbooks, and most of de tribe still trusts a witch doctor over a mage. But fire be fire, and when we joined de Horde dere were scrolls and teachers we never had on de islands. I learned to read so I could learn to cast." },
+      },
+      choices = {
+        { text = "What do you read now?", next = "reading" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reading = {
+      lines = {
+        { id = "reading_default", text = "Anythin' I can get. De goblins sell books by de crate without knowin' what be in dem, and de Forsaken brought what dey could carry out of Lordaeron. Half of what I own be water-stained and missin' pages, so I have become very good at guessin' how a sentence ends." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lodge = {
+      lines = {
+        { id = "lodge_default", text = "Pephredo and Enyo teach beside me, and Thuul keeps de portals at de back, where a mistake will hurt fewer people. Across de water Ur'kyo and X'yera have de young priests, and Zayus watches over de whole valley. We borrow each other's students when one of us be tired." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley = {
+      lines = {
+        { id = "valley_default", text = "It should, mon. De Warchief gave dis end of de city to de Darkspear, and we filled it with water and reeds because red rock alone makes a troll homesick. De orcs come down here and walk softer without knowin' why." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    books = {
+      lines = {
+        { id = "books_default", text = "So I have heard, and I envy you de libraries, dead as dey are now. But a book cannot stand between you and your own mistake, and a line of chalk can. I would dearly like to have both in dis lodge." },
+      },
+      choices = {
+        { text = "I'll bring you a book if I find one worth reading.", next = "BACK", reply = "Den you will be welcome here twice over. I do not mind if it be damp.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    dalaran = { { id = "tp_dalaran", text = "A city dat was nothin' but mages and books, and it be a crater now. I think about dat whenever a student tells me dey be careful enough." } },
+    echo_isles = { { id = "tp_echo_isles", text = "Dere was no lodge like dis on de islands. We had de sea, de spirits and one old troll who could light a fire by pointin'." } },
+    voljin = { { id = "tp_voljin", text = "He be a shadow hunter, and dat be older magic dan mine. He asked me once how a ward be drawn, and he listened to de whole answer." } },
+    advice = { { id = "tp_advice", text = "Draw de circle first, mon. If you never need it you have lost a little chalk." } },
+    _none = { { id = "tp_none", text = "I have not read about dat, and I do not guess out loud. Ask Pephredo, she enjoys it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Enyo: troll mage trainer, Darkbriar Lodge, Valley of Spirits; the bold one of the circle.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "enyo", id = TODO_NPC("Enyo"), name = "Enyo", title = "Mage Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "brash", "eager" }, values = { "brave", "ambitious" },
+  notices = { "class" },
+  impression = {
+    first = "Enyo teaches magic in the Valley of Spirits and believes a student learns fastest with a spell slightly too big for them. She laughs easily and has a burn scar she is plainly proud of.",
+    third = "{name} met Enyo, the boldest of the three mage trainers in Orgrimmar's Valley of Spirits.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ha, a new face! Stand dere, mon, a little to de left, because de last one stood where you be standin' and lost an eyebrow." },
+    { id = "g_back", when = { metBefore = true }, text = "You be back! Pephredo bet me you would, so you have cost me a silver and I be glad to see you anyway." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "Now here be one of mine. Show me de biggest thing you can cast, and don't tell Deino I asked." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "You be holdin' back, I can see it in how you stand. Whoever taught you was afraid of you, mon, and you learned to be afraid too." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior in de mages' lodge! Do not look so nervous. De fire only goes where I point it, most days." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Enyo. I teach fire and frost with Deino and Pephredo, and if you want de spell dat be one size too large for you, I be de one to ask." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "I be Enyo, and you be a mage, so here be how I teach. I show you somethin' you cannot do yet, and den I stand close while you do it." },
+        { id = "h_troll", when = { race = "Troll" }, text = "I be Enyo, cousin. De orcs still think a troll with a spell be a witch doctor who lost his mask, so every time you cast in dis city you teach dem somethin'." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? Ask quick, I have a student about to set fire to de reeds." },
+        { id = "h_again2", text = "Go on, I like questions better dan drills." },
+        { id = "h_again3", text = "More! Deino never gets dis many questions, you know." },
+      },
+      choices = {
+        { text = "Teach me something worth learning, Enyo.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "Pephredo says you would hand a child your strongest fire.", next = "bold" },
+        { text = "That burn on your arm looks like it has a story.", next = "scar" },
+        { text = "What do the orcs make of mages?", next = "orcs" },
+        { text = "What do you send your students out to do?", next = "errands" },
+        { text = "I'm no mage. What good is all this to me?", next = "nomage", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Keep your eyebrows, Enyo.", next = "END" },
+      },
+    },
+    bold = {
+      lines = {
+        { id = "bold_default", text = "Not my strongest, mon, she always tells it worse dan it is. But yes, I give dem more dan dey can hold, because nobody ever learned to swim on de beach. De world will not wait until a mage feels ready, so I do not wait either." },
+      },
+      choices = {
+        { text = "And when a student can't hold it?", next = "bold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bold2 = {
+      lines = {
+        { id = "bold2_default", text = "Den I be standin' right dere to catch it, and dat be de part Deino leaves out when she tells de story. I have taken a student's fire on my own hands more dan once. A teacher who pushes and den steps back be no teacher at all." },
+      },
+      choices = {
+        { text = "Has one ever got past you?", next = "bold3" },
+        { text = "Something else, Enyo.", next = "BACK" },
+      },
+    },
+    bold3 = {
+      big = true,
+      narr = "She turns her forearm over without seeming to notice she is doing it.",
+      lines = {
+        { id = "bold3_default", text = "One, a long time ago, and dat be where dis came from. She was not hurt, mon, because I got my arm in de way. I thought about teachin' de slow way after dat, for about a week, and den she cast de same spell clean and I knew I was right." },
+      },
+      choices = {
+        { text = "You were right. She learned it because you dared.", next = "BACK", reply = "Dat be how I see it. Deino sees de scar and I see de student, and we will argue about it till we be old.", fx = { align = { order = -1 } } },
+        { text = "Next time it may be the student who burns. Slow down.", next = "BACK", reply = "Ha, now you sound like Deino. Maybe one day I will listen to de two of you, but not today.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scar = {
+      lines = {
+        { id = "scar_default", text = "It does, and it be a short one. A student lost hold of a flame, and I caught it with de only thing I had to hand, which was my arm. Zayus mended it and told me to keep de mark so I would remember, and I kept it because I like it." },
+      },
+      choices = {
+        { text = "Tell me how you teach, then.", next = "bold" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs = {
+      lines = {
+        { id = "orcs_default", text = "Dey be comin' round, slowly. An orc remembers warlocks when he sees a robe, and you cannot blame him after what warlocks did to his people. So I cast in de open where everyone can see dere be no demon in it, and I buy de grunts a drink now and den." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    errands = {
+      lines = {
+        { id = "errands_default", text = "Out into de world, mon, as far as dey will go. I have sent young mages to de Barrens to study what de water does at de oases, and one all de way to de goblins at Ratchet to learn what makes a thing explode. Dey come back knowin' things I do not, and den dey teach me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nomage = {
+      lines = {
+        { id = "nomage_default", text = "More dan you think. When a mage beside you starts to cast, you will want to know where to stand and how long she needs, and most warriors learn dat by gettin' singed. Come and watch my students for an hour and you will be worth twice as much in a fight." },
+      },
+      choices = {
+        { text = "I'll stand where you point, Enyo.", next = "BACK", reply = "Good! Dat be all I ask of anyone without a spellbook.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    ratchet = { { id = "tp_ratchet", text = "De goblins dere know more about fire dan most mages and understand none of it. I love dem for it." } },
+    darkspear = { { id = "tp_darkspear", text = "We be a small tribe, mon, so every one of us who can cast counts for ten." } },
+    thrall = { { id = "tp_thrall", text = "He be a shaman and has no need of my sort of magic, but he gave us dis lodge and never once asked what we do in it." } },
+    advice = { { id = "tp_advice", text = "If you be goin' to fail, mon, fail big and near a teacher." } },
+    _none = { { id = "tp_none", text = "I do not know dat one. Ask Deino, she will have read three books about it and trust none of dem." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Thuul: troll portal trainer, Darkbriar Lodge, Valley of Spirits; never opens a door without looking.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "thuul", id = TODO_NPC("Thuul"), name = "Thuul", title = "Portal Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "calm", "watchful" }, values = { "careful", "dutiful" },
+  notices = { "class", "weary" },
+  impression = {
+    first = "Thuul teaches mages to open portals at the back of the lodge in the Valley of Spirits. He calls a portal a door, and will not open one until he has looked hard at the other side.",
+    third = "{name} met Thuul, the cautious troll who teaches portal magic in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stay on dis side of de stones, mon. Dere be nothin' open just now, but I like to keep de habit." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, you came by de path and not through de air, so you have been listenin'." },
+    { id = "g_away", when = { away = 14 }, text = "You have been far, I can tell. Tell me where, and I will tell you how close I could have set you down." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "You have de look of a mage who has learned to blink and thinks a portal be de same thing made bigger. It be not, mon, and I will show you why." },
+    { id = "n_tired", cat = "weary", when = { minLevel = 40 },
+      text = "Dat be a lot of road on your boots. Find a mage you trust and you could have saved half of it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Thuul, and I teach de openin' of portals. A portal be a door, mon, and I teach mages to knock, look and listen before dey walk anyone through it." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "I be Thuul. If you have come to learn de doors, I will teach you, but you will learn to close one before I ever let you open one." },
+        { id = "h_other", when = { class = { "WARRIOR", "ROGUE", "HUNTER", "SHAMAN" } }, text = "I be Thuul. I cannot teach you my trade without de gift for it, but I can tell you what you be trustin' when you step through a mage's door." },
+      },
+      again = {
+        { id = "h_again", text = "What else? De weave be quiet, I can talk." },
+        { id = "h_again2", text = "Ask, mon. I would rather answer now dan explain after." },
+        { id = "h_again3", text = "Go on, and take your time, because I do everythin' slowly." },
+      },
+      choices = {
+        { text = "Teach me the doors, Thuul.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "Pephredo says you have refused the Warchief's messengers.", next = "refused" },
+        { text = "Where can a portal from here lead?", next = "where" },
+        { text = "What is on the other side that worries you?", next = "other" },
+        { text = "You keep your work well away from the others.", next = "back" },
+        { text = "The Undercity has its own portal mages. Do you know them?", next = "undercity", when = { race = "Scourge" } },
+        { text = "Keep the doors shut, Thuul.", next = "END" },
+      },
+    },
+    refused = {
+      lines = {
+        { id = "refused_default", text = "Twice, and I would again. A portal be laid along somethin' I can only call de weave, and some days de weave over Durotar be tangled, most often after a big storm. On such a day de door opens where it likes, and I will not send a courier into a wall to save him a day's ridin'." },
+      },
+      choices = {
+        { text = "What did the messengers say?", next = "refused2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    refused2 = {
+      lines = {
+        { id = "refused2_default", text = "De first one shouted, and went by wind rider, and arrived. De second one said he would report me, and I told him to do it, and dat evenin' a note came down from Grommash Hold. It said only dat de Warchief would rather have a late message dan a lost messenger." },
+      },
+      choices = {
+        { text = "He was right to trust your judgment.", next = "refused3" },
+        { text = "Something else, Thuul.", next = "BACK" },
+      },
+    },
+    refused3 = {
+      big = true,
+      lines = {
+        { id = "refused3_default", text = "He was kind to, mon, and dat be not always de same thing. One day de message will be one dat cannot wait, and I will have to choose between de risk and de delay with no time to think. I have asked myself what I will do, and I do not yet know." },
+      },
+      choices = {
+        { text = "Then open it. Some messages are worth a life.", next = "BACK", reply = "Maybe so. But it will be his life and my hand, and I would want him to know de odds before he stepped.", fx = { align = { honor = -1 } } },
+        { text = "Refuse again. No order makes a bad door safe.", next = "BACK", reply = "Dat be what I believe on a calm day. I hope I believe it on de bad one.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where = {
+      lines = {
+        { id = "where_default", text = "To de great cities of de Horde, and only dose, because a door needs an anchor at de far end and somebody to keep it. Thunder Bluff has one on de high rise and de Undercity has one down in de dark. I have stood at both, so I know what I be reachin' for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    other = {
+      lines = {
+        { id = "other_default", text = "Mostly nothin', and dat be what worries me. A mage who has opened a thousand good doors stops lookin', and de one time somethin' be standin' on de far side, he has already waved his friends through. I look every time, mon, like it be my first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    back = {
+      lines = {
+        { id = "back_default", text = "By my own askin'. Deino draws her circles and Enyo throws her fire at de front of de lodge, and neither of dose can swallow a room. I work at de back, behind stones I set myself, so if a door goes wrong it be only me standin' near." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    undercity = {
+      lines = {
+        { id = "undercity_default", text = "I know dem by deir work, which be clean and very cold. We send word through to each other when a door behaves strangely, and dey answer in three lines with no greetin'. I have come to like dem for it." },
+      },
+      choices = {
+        { text = "Precision is its own courtesy.", next = "BACK", reply = "Ha. I will tell dem a Forsaken said so, and dey will not answer.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    the_elements = { { id = "tp_the_elements", text = "De shaman say de storms be spirits quarrellin'. I only know dat when dey quarrel over Durotar, my doors go crooked." } },
+    thrall = { { id = "tp_thrall", text = "He sent a note where another chief would have sent a guard. I keep it folded in my book." } },
+    dalaran = { { id = "tp_dalaran", text = "Dey say its mages could step across de world before breakfast. Den it fell, and all dose doors shut at once." } },
+    advice = { { id = "tp_advice", text = "Never step through a door a stranger opened in a hurry, mon." } },
+    _none = { { id = "tp_none", text = "I cannot see dat from here, and I do not speak about what I cannot see." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- X'yera: troll priest trainer, Spirit Lodge, Valley of Spirits; sends the faithful to the Cenarion Circle (Cenarion Aid).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "xyera", id = TODO_NPC("X'yera"), name = "X'yera", title = "Priest Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "gentle", "wry" }, values = { "devout", "kind" },
+  notices = { "class", "wounds" },
+  impression = {
+    first = "X'yera teaches the young priests of the Darkspear in the Valley of Spirits, in the shade of High Priest Zayus. He speaks of the spirits with affection and a little exasperation, like relatives who visit too often.",
+    third = "{name} met X'yera, a Darkspear priest who teaches in Orgrimmar's Valley of Spirits.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come in out of de sun, mon. De spirits be listenin' today, so say only what you would not mind dem repeatin'." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you again. De spirits told me someone was comin', but dey never say who, so I be pleased it was you." },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "A priest. Den sit, and tell me who you have been prayin' to, because in dis lodge we do not take it for granted." },
+  },
+  notice = {
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "Dere be someone followin' you, mon, and I do not mean on two legs. Do not worry. It be one of de kind ones." },
+    { id = "n_hurt", cat = "wounds", when = { durability = { max = 0.3 } },
+      text = "Your armor be in rags and you be standin' by will alone. Sit a moment and let me look at you before you fall on my floor." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be X'yera. Ur'kyo and I teach de priests of de Horde here under High Priest Zayus, and I have de younger ones, which means I answer de same four questions every day and never tire of dem." },
+        { id = "h_priest", when = { class = "PRIEST" }, text = "I be X'yera, and you be one who mends. Good. Zayus teaches what de spirits are, Ur'kyo teaches what dey want, and I teach what to do when dey do not answer." },
+        { id = "h_cen", tags = { "news" }, when = { questActive = TODO_QUEST("Cenarion Aid") }, text = "You have my word to carry. Ogtinc of de Cenarion Circle keeps a camp high in de cliffs of Azshara, and he asked for a healer who comes willin'." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? De spirits can wait, dey have nothin' but time." },
+        { id = "h_again2", text = "Ask. I be used to questions." },
+        { id = "h_again3", text = "Go on, I be listenin', and so be dey." },
+      },
+      choices = {
+        { text = "I've come to learn, X'yera.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "What do you do when the spirits don't answer?", next = "silence" },
+        { text = "Zayus says his knees send the students to you.", next = "zayus" },
+        { text = "Why would a Darkspear priest help the druids?", next = "cenarion" },
+        { text = "You speak of the spirits like family.", next = "family" },
+        { text = "The Light I knew in life never answered either.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Spirits keep you, X'yera.", next = "END" },
+      },
+    },
+    silence = {
+      lines = {
+        { id = "silence_default", text = "You keep workin', mon. A young priest thinks de healin' comes from de spirit and stops when de spirit goes quiet. But your hands still know how to bind and clean and sit with someone through de night, and often de spirit only comes back when it sees you did not wait for it." },
+      },
+      choices = {
+        { text = "Have they gone quiet on you?", next = "silence2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    silence2 = {
+      lines = {
+        { id = "silence2_default", text = "On de crossin' from de islands, for nine days. Half de tribe was sick with de sea and with grief, and I prayed until my voice went, and nothin' came. So I boiled water and held heads over de side, and on de tenth day I could mend again." },
+      },
+      choices = {
+        { text = "Why do you think they left you?", next = "silence3" },
+        { text = "Something else, X'yera.", next = "BACK" },
+      },
+    },
+    silence3 = {
+      big = true,
+      lines = {
+        { id = "silence3_default", text = "I have turned it over many times. Maybe dey were busy with de dead we left behind us. Maybe dey wanted to see what sort of priest I was without dem. I have never asked, because I be not sure I would like either answer." },
+      },
+      choices = {
+        { text = "They were testing you, and you passed. Be proud.", next = "BACK", reply = "It be a kind thought, and I will keep it for de bad nights. I be not sure de loa are so tidy.", fx = { align = { light = 1 } } },
+        { text = "Spirits that abandon the sick aren't worth your prayers.", next = "BACK", reply = "Careful, mon, dey be listenin'. But I will not pretend I never thought it, somewhere around de seventh day.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zayus = {
+      lines = {
+        { id = "zayus_default", text = "His knees and his kindness, both. Zayus has carried dis tribe's dead for longer dan I have been alive, and he should not have to explain to a child which end of a prayer comes first. So Ur'kyo and I take de young ones, and he keeps de ones who be ready for de hard things." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cenarion = {
+      lines = {
+        { id = "cenarion_default", text = "Because de land be sick in places, mon, and a sick land makes sick people, and den dey come to me. De Cenarion Circle takes anyone who will help, tauren or elf, and I would rather send dem a healer dan wait for de sickness to walk into Durotar." },
+        { id = "cenarion_done", when = { questDone = TODO_QUEST("Cenarion Aid") }, text = "You went to dem, and dey sent word back dat you were useful. I be glad of it. De land be sick in places, mon, and I would rather mend it out dere dan wait for it to reach Durotar." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family = {
+      lines = {
+        { id = "family_default", text = "Dat be what dey are. Some of dem were our grandmothers and some were never anythin' like us, but all of dem be touchy, generous, and quick to take offence. You bring a small gift, you remember deir names, and you do not ask for too much at once." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken = {
+      lines = {
+        { id = "forsaken_default", text = "I have heard dat from many of your people, and I do not argue with it. I will only say dat our spirits be less grand dan your Light and a good deal nosier, and dey do not seem to mind who be alive. One of dem has been lookin' at you since you came in." },
+      },
+      choices = {
+        { text = "I'm not sure I want to be looked at.", next = "BACK", reply = "Dat be wise, mon. I will ask it to be polite about it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    echo_isles = { { id = "tp_echo_isles", text = "We left our dead dere with no one to tend dem. I say deir names here, and hope a name can cross water." } },
+    voljin = { { id = "tp_voljin", text = "He walks with de loa in ways a priest does not. I heal what he cannot stop to heal, and we get along well." } },
+    forsaken = { { id = "tp_forsaken", text = "Dey be dead and walkin', and de spirits be very curious about dem. So am I, if I be honest." } },
+    advice = { { id = "tp_advice", text = "Bring a small gift and ask a small favor, mon. Dat goes for spirits and for chiefs." } },
+    _none = { { id = "tp_none", text = "De spirits have told me nothin' about dat, and when dey say nothin' I try to do de same." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ormok: orc rogue trainer, Shadowswift Brotherhood, Cleft of Shadow.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ormok", id = TODO_NPC("Ormok"), name = "Ormok", title = "Rogue Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "sharp", "dry" }, values = { "cunning", "loyal" },
+  notices = { "stealth", "class" },
+  impression = {
+    first = "Ormok trains rogues for the Shattered Hand in the Cleft of Shadow and seems to know where everyone in the room is standing without looking. He says a quiet knife has spared the Horde more battles than any charge.",
+    third = "{name} met Ormok, who trains rogues for the Shattered Hand in Orgrimmar's Cleft of Shadow.",
+  },
+  greetings = {
+    { id = "g_default", text = "You walked in heel first. I heard you from the top of the ramp, and so did everyone else in here." },
+    { id = "g_back", when = { metBefore = true }, text = "You're quieter than last time. You're still not quiet, but I'll grant you quieter." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "One of ours. Stand out of the lamplight when you talk to me; it's a habit worth having." },
+  },
+  notice = {
+    { id = "n_stealth", cat = "stealth", when = { stealthed = true },
+      text = "Good, you came in unseen by most of them. Your shadow crossed the lamp by the door, though, and I teach against that." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "Your off-hand blade is duller than your main. You've been leading with the same side every time, and someone will notice it before I'd like." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Ormok. Shenthul leads the Shattered Hand in this city, and Gest and I teach those he thinks are worth teaching. We make the kind of soldier nobody sings about, and that suits us." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Ormok. You carry the Hand's trade, so I'll speak plainly: I teach the knife, Gest teaches the patience, and Shenthul decides what you're for." },
+        { id = "h_loud", when = { class = { "WARRIOR", "PALADIN" } }, text = "I'm Ormok, and you clank. That's no insult; somebody has to stand in the open and be looked at while we work." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep your voice where it is." },
+        { id = "h_again2", text = "Ask it, and I'll decide if it has an answer." },
+        { id = "h_again3", text = "Go on. I'm listening, and I'm counting who else is." },
+      },
+      choices = {
+        { text = "Train me, Ormok.", next = "BUSINESS", when = { class = "ROGUE" } },
+        { text = "What does the Shattered Hand do for the Horde?", next = "hand" },
+        { text = "You heard me from the top of the ramp.", next = "hearing" },
+        { text = "Why does the Hand keep its hall down here?", next = "cleft" },
+        { text = "Who else keeps shop in this hole?", next = "neighbours" },
+        { text = "I came in unseen, and you still knew.", next = "seen", when = { stealthed = true } },
+        { text = "I'll walk softer on my way out.", next = "END" },
+      },
+    },
+    hand = {
+      lines = {
+        { id = "hand_default", text = "We find out things, and now and then we end things, so that the grunts on the wall never have to. A spy caught in the Drag is a raid that doesn't reach the gate. The Warchief knows what we are, and he'd rather know us than pretend he has no need of us." },
+      },
+      choices = {
+        { text = "The old Shattered Hand had a darker name.", next = "hand2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hand2 = {
+      lines = {
+        { id = "hand2_default", text = "It did, and it earned it. In the old Horde the clan cut off their own hands to prove they feared nothing, and then they did whatever the warlocks pointed them at. What's left of us took the name and the skill and left the madness on Draenor, or so we tell the recruits." },
+      },
+      choices = {
+        { text = "Do you believe it was left behind?", next = "hand3" },
+        { text = "Something else, Ormok.", next = "BACK" },
+      },
+    },
+    hand3 = {
+      big = true,
+      narr = "He is quiet long enough for you to hear water dripping somewhere back in the rock.",
+      lines = {
+        { id = "hand3_default", text = "I believe it has to be left behind again every morning. A knife in the dark is the easiest work there is to do for bad reasons, and nobody watches us do it. So I watch my students, and Gest watches me, and Shenthul watches all of us." },
+      },
+      choices = {
+        { text = "Then the Hand is honorable, in its own way.", next = "BACK", reply = "In its own way is the most I'd ever claim. But I'll take it, from someone who asked the question straight.", fx = { align = { honor = 1 } } },
+        { text = "Honor is for the wall. Your work needs none.", next = "BACK", reply = "That's the thinking that ruined the old clan. Say it to Shenthul and see how long you keep your place here.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hearing = {
+      lines = {
+        { id = "hearing_default", text = "Loose buckle on your left side, and you favor the outside of your foot. I didn't hear all that from the ramp, I'm only telling you what I see now. Most of the trade is noticing; the knife comes a long way after." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cleft = {
+      lines = {
+        { id = "cleft_default", text = "Because no one comes down here by accident. The warlocks have the far end, Rekkul sells what Rekkul sells, and everyone who walks this floor expects not to be asked their business. A hall for people like us would look wrong anywhere with sunlight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours = {
+      lines = {
+        { id = "neighbours_default", text = "Rekkul, for poisons, and you'll be told honestly what each one does. Kareth sells blades at the Slow Blade and knows which of my students can afford them. The warlocks I leave alone, and I advise the same, though I always know where Neeru Fireblade is standing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seen = {
+      lines = {
+        { id = "seen_default", text = "The air moved when you passed the brazier. You did well, better than most who try it on me, and I'll say so to Shenthul if he asks. Next time, come in along the left wall, where the draught runs the other way." },
+      },
+      choices = {
+        { text = "I'll remember the left wall.", next = "BACK", reply = "Do. And don't tell the others; let them find their own wall.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    burning_blade = { { id = "tp_burning_blade", text = "They're in this city and under it. I'll not say more than that to anyone I haven't trained myself." } },
+    thrall = { { id = "tp_thrall", text = "He keeps us close and in plain sight of himself. A wise chief knows where his knives are." } },
+    second_war = { { id = "tp_second_war", text = "The old Shattered Hand went wherever the warlocks pointed. Shenthul rebuilt the name so that it would never be pointed that way again." } },
+    advice = { { id = "tp_advice", text = "Check your buckles before you check your blades." } },
+    _none = { { id = "tp_none", text = "If I knew that, I wouldn't say so here. As it happens, I don't." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Gest: orc rogue trainer, Shadowswift Brotherhood, Cleft of Shadow; teaches waiting.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "gest", id = TODO_NPC("Gest"), name = "Gest", title = "Rogue Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "quiet", "patient" }, values = { "patient", "discreet" },
+  notices = { "class" },
+  impression = {
+    first = "Gest trains rogues beside Ormok in the Cleft of Shadow and speaks so seldom that students lean in to hear him. He teaches the part of the trade that is nothing but waiting.",
+    third = "{name} met Gest, the quiet rogue trainer of the Shattered Hand in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Sit, if you like. Most people who come down here are in a hurry, and I've found that it passes." },
+    { id = "g_back", when = { metBefore = true }, text = "I thought you might come back. I had no reason to; I only waited, and here you are." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "You're one of the Hand's. Take the stool by the wall, it has the best view of the door." },
+  },
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You shift your weight every few breaths. A watcher learns to count that, and then he knows exactly when you'll move." },
+    { id = "n_loud", cat = "class", when = { class = "WARRIOR" },
+      text = "You're standing in the middle of the room, as warriors do. I envy it a little, being that sure nobody will mind." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Gest. Ormok teaches the young ones how to strike, and I teach them how to wait until striking is worth it. It's the duller half of the trade, and it keeps more of them alive." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Gest. You'll have learned the blade already, or you wouldn't be standing. I teach what comes before it, which is usually a long time in a cold place." },
+        { id = "h_low", when = { maxLevel = 12 }, text = "I'm Gest. You're young in the work, so here's the first of it: sit down, be still, and tell me in a while what you noticed." },
+      },
+      again = {
+        { id = "h_again", text = "There's no hurry, so ask when you're ready." },
+        { id = "h_again2", text = "Go on. I'm still here." },
+        { id = "h_again3", text = "Something more? I've time." },
+      },
+      choices = {
+        { text = "I'm ready to learn, Gest.", next = "BUSINESS", when = { class = "ROGUE" } },
+        { text = "How long have you ever waited for one moment?", next = "waiting" },
+        { text = "Ormok says you teach patience.", next = "ormok" },
+        { text = "What do you see from this stool all day?", next = "watch" },
+        { text = "This place is quieter than I expected.", next = "quiet" },
+        { text = "I came in unseen. Did you mark me?", next = "seen", when = { stealthed = true } },
+        { text = "I'll leave you to your watching.", next = "END" },
+      },
+    },
+    waiting = {
+      lines = {
+        { id = "waiting_default", text = "Four days, in a dry gully in the Barrens, for a man who was selling our patrol routes to the quilboar. I had a waterskin and a view of one path. He came on the fourth evening, and it was over before he had finished sitting down." },
+      },
+      choices = {
+        { text = "Four days is a long time to think.", next = "waiting2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    waiting2 = {
+      lines = {
+        { id = "waiting2_default", text = "It is, and that's the danger in it. By the second day you've imagined the thing so often that you want it, and wanting it is how you move too soon. I teach my students to think about something else entirely. I counted ants, mostly." },
+      },
+      choices = {
+        { text = "And after it was over?", next = "waiting3" },
+        { text = "Something else, Gest.", next = "BACK" },
+      },
+    },
+    waiting3 = {
+      big = true,
+      lines = {
+        { id = "waiting3_default", text = "I walked back to the Crossroads and slept. I'd like to tell you I felt something large about it, but he'd sold orcs to be killed and I'd stopped it. What I think about, sometimes, is that he never knew anyone was there. I haven't settled whether that was mercy or the lack of it." },
+      },
+      choices = {
+        { text = "A clean, unseen end is the most mercy a traitor earns.", next = "BACK", reply = "That's where I come down, most days. It's good to hear it from outside my own head.", fx = { align = { light = 1 } } },
+        { text = "He deserved to see it coming and know why.", next = "BACK", reply = "Ormok says the same. I think that would have been for my sake, though, and not for his.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ormok = {
+      lines = {
+        { id = "ormok_default", text = "He does, and he's generous to say so. Ormok can teach a recruit to open a throat in an afternoon. It takes me a season to teach the same recruit to sit through an afternoon, and he sends them to me anyway because he's buried the ones who couldn't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch = {
+      lines = {
+        { id = "watch_default", text = "Who comes down the ramp with their hood up and who doesn't bother. Which of Rekkul's customers look behind them. How long anyone stands near Neeru Fireblade, and whether they leave looking pleased. I tell Shenthul what's worth telling, and the rest I keep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = {
+        { id = "quiet_default", text = "Sound carries strangely in the Cleft, so the people who live down here have all learned to keep their voices low. The warlocks murmur, Kor'jus hardly speaks, and Katis sells her wands by pointing. I find it restful, after the Drag." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seen = {
+      lines = {
+        { id = "seen_default", text = "I marked the door moving and nobody in it, and then I watched where the dust lifted. You did it well. I only had the advantage of doing nothing else at the time, which is the whole of what I teach." },
+      },
+      choices = {
+        { text = "Then I'll learn to do nothing better.", next = "BACK", reply = "That's the first sensible thing a student has said to me this week.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quilboar = { { id = "tp_quilboar", text = "They're cleverer than the grunts think, and they pay for information. That's worth remembering in the Barrens." } },
+    background = { { id = "tp_background", text = "Shenthul taught me to wait, by making me wait a year before he'd teach me anything. I was angry for most of it." } },
+    thrall = { { id = "tp_thrall", text = "I've stood in his hall unseen, once, on Shenthul's order, to prove it could be done. Then we told him how to stop it." } },
+    advice = { { id = "tp_advice", text = "Count something small while you wait. It keeps your hands still." } },
+    _none = { { id = "tp_none", text = "I haven't watched that, so I can't tell you about it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Sian'dur: troll hunter trainer, Hunter's Hall, Valley of Honor; The Hunter's Path.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "siandur", id = TODO_NPC("Sian'dur"), name = "Sian'dur", title = "Hunter Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "warm", "sharp" }, values = { "nature", "brave" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Sian'dur trains hunters in the Valley of Honor and judges a newcomer by how their beast behaves while they talk. She grew up tracking raptors on the Echo Isles and still thinks orcs make too much noise in the brush.",
+    third = "{name} met Sian'dur, a Darkspear huntress who trains hunters in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hold dere, mon, and let me look at how you walk. You can learn a lot about a hunter before de bow ever comes off de shoulder." },
+    { id = "g_back", when = { metBefore = true }, text = "Back from de wild, are you? You smell of it, and I mean dat kindly." },
+    { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Now who be dis? Let {pet} come and sniff my hand, and we will see what it thinks of you." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Your string hand be raw between de fingers. You be snatchin' at de release, mon, and it will pull every shot to de left." },
+    { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
+      text = "{pet} keeps its eyes on you and not on me. Dat be a beast dat trusts its hunter, and you cannot teach it or buy it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Sian'dur. Ormak Grimshot and Xor'juul and I train de hunters of Orgrimmar here, and I be de one who takes you out past de gate and makes you find your own dinner." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I be Sian'dur, and you be a hunter, so we can skip de speeches. Show me your bow, your beast and your boots, in dat order." },
+        { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("The Hunter's Path") }, text = "You were sent to me about de hunter's path. Good. It starts with a walk, mon, and Thotar at Razor Hill be waitin' to show you where." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? I be listenin' with one ear and watchin' de door with de other." },
+        { id = "h_again2", text = "Go on. A hunter asks before she shoots." },
+        { id = "h_again3", text = "Ask it, den. De beasts be not goin' anywhere." },
+      },
+      choices = {
+        { text = "Train me, Sian'dur.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What did you hunt on the Echo Isles?", next = "isles" },
+        { text = "What do you make of how orcs hunt?", next = "orcs" },
+        { text = "Who shares this hall with you?", next = "hall" },
+        { text = "A hunter with no beast seems half a hunter.", next = "beast" },
+        { text = "The plains hunt differently. We give thanks first.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Good hunting, Sian'dur.", next = "END" },
+      },
+    },
+    isles = {
+      lines = {
+        { id = "isles_default", text = "Raptors, mostly, and de big cats when dey swam over from de mainland. On an island you cannot hunt a thing out, mon, because next year dere will be none, so we learned to take de old and de lame and leave de rest. My mother taught me to count a pack before I ever strung a bow." },
+      },
+      choices = {
+        { text = "Do you miss hunting there?", next = "isles2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    isles2 = {
+      lines = {
+        { id = "isles2_default", text = "Every mornin'. Durotar has boar and scorpid and not much else, and none of it be clever. De raptors of de isles would circle behind you while you tracked dem. Zalazane has dose islands now, and I hear his hexed trolls hunt everythin' dat moves and eat none of it." },
+      },
+      choices = {
+        { text = "What would you do, if the isles were retaken?", next = "isles3" },
+        { text = "Something else, Sian'dur.", next = "BACK" },
+      },
+    },
+    isles3 = {
+      big = true,
+      lines = {
+        { id = "isles3_default", text = "I would go home and count de packs, mon, and I think I would weep at de number. A place can be won back in a day and still take twenty years to be full again. Some of de young ones say we should hunt it bare ourselves to starve Zalazane out." },
+      },
+      choices = {
+        { text = "Starve him out. Beasts breed back; a tribe may not.", next = "BACK", reply = "Dat be de war talkin', and war be not always wrong. But I would be de one who had to shoot dem, and I do not think I could.", fx = { align = { light = -1 } } },
+        { text = "An island hunted bare is not the home you lost.", next = "BACK", reply = "Dat be what I tell dem. It be good to hear it in someone else's mouth.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs = {
+      lines = {
+        { id = "orcs_default", text = "Dey hunt like dey fight, straight at it and shoutin'. It works on boar, I will give dem dat. Ormak be different, he can sit a ridge all day, and he has been teachin' de young orcs dat patience be not de same as cowardice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall = {
+      lines = {
+        { id = "hall_default", text = "Ormak Grimshot be de master here and de best shot I ever saw. Xor'juul teaches de traps and de close work, and Xao'tsu looks after de beasts' trainin'. Next door de warriors bang on each other in de Hall of de Brave, and we have learned to shoot through de noise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beast = {
+      lines = {
+        { id = "beast_default", text = "Half a hunter, yes, but de beast be not a tool, mon. You do not own it, you only have an agreement, and it can end dat agreement any day by walkin' off. De hunters who forget dat end up with a beast dat obeys and does not care, and dat one will not die for you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "tauren_default", text = "I know it, and I learned it from your people, mon. Before de Horde we took what we needed and said nothin'. Now I say a word over de kill, de way a brave showed me in Mulgore, and I find I track better de next day. I cannot tell you why." },
+      },
+      choices = {
+        { text = "The Earth Mother hears thanks in any tongue.", next = "BACK", reply = "Den she has heard some very bad Taurahe from me. I be glad she be patient.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    echo_isles = { { id = "tp_echo_isles", text = "Home, mon, and full of someone else's madness now. I will see it again or my daughters will." } },
+    voljin = { { id = "tp_voljin", text = "He hunted with us as a boy and he hunts for all of us now. I would follow him onto any shore." } },
+    quilboar = { { id = "tp_quilboar", text = "Dey eat everythin' and plant nothin', so de game runs thin wherever dey dig in." } },
+    advice = { { id = "tp_advice", text = "Count de pack before you shoot, mon. If you cannot count it, you be not close enough." } },
+    _none = { { id = "tp_none", text = "I never tracked dat, so I will not tell you where it sleeps." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Xor'juul: troll hunter trainer, Hunter's Hall, Valley of Honor; traps and close work.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "xorjuul", id = TODO_NPC("Xor'juul"), name = "Xor'juul", title = "Hunter Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "gruff", "patient" }, values = { "practical", "cunning" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Xor'juul teaches trapping and close fighting to the hunters of Orgrimmar and is missing the tip of one finger, which he uses as the first lesson. He is gruff with students and unexpectedly soft with their animals.",
+    third = "{name} met Xor'juul, the Darkspear trapper who trains hunters in Orgrimmar's Valley of Honor.",
+  },
+  greetings = {
+    { id = "g_default", text = "Watch your feet, mon. Dere be nothin' set on dis floor, but you did not know dat when you walked in." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and you looked at de floor first dis time. Good, somethin' stuck." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Show me your hands, both sides, and I will tell you how careful you be." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "All ten fingers, I see. Den you have either been careful or you have not yet set enough traps to find out." },
+    { id = "n_cat", cat = "pet", when = { pet = { family = "Cat" } },
+      text = "Dat cat of yours be favorin' a hind leg. Check between de toes for a thorn before you take it out again." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Xor'juul. Ormak teaches de bow and Sian'dur teaches de trackin', and I teach what you do when de beast has got past both and be close enough to smell." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I be Xor'juul. You can shoot, or Ormak would not have let you through de door, so I will teach you what to do when shootin' be over." },
+        { id = "h_troll", when = { race = "Troll" }, text = "I be Xor'juul, cousin. You will have set snares as a child like de rest of us, so I will not insult you with de beginnin'." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask while I be oilin' dis spring." },
+        { id = "h_again2", text = "Go on, mon. I talk better with my hands busy." },
+        { id = "h_again3", text = "Ask it. Mind where you lean." },
+      },
+      choices = {
+        { text = "Teach me the close work, Xor'juul.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "You're short a fingertip.", next = "finger" },
+        { text = "What makes a good trap?", next = "trap" },
+        { text = "Sian'dur says you're soft on the animals.", next = "soft" },
+        { text = "What do you think of this valley?", next = "valley" },
+        { text = "I trap for the hides. Any counsel?", next = "skinner", when = { profession = "Skinning" } },
+        { text = "I'll watch my feet, Xor'juul.", next = "END" },
+      },
+    },
+    finger = {
+      narr = "He holds the hand up and waggles the short finger at you, plainly a thing he has done for many students.",
+      lines = {
+        { id = "finger_default", text = "Dis be my first lesson and I give it free. I was fourteen, I set a steel jaw for a raptor, and I reached in to move de bait without springin' it first. De trap does not know whose hand it be, mon, and it does not care how long you have been doin' dis." },
+      },
+      choices = {
+        { text = "Did it stop you trapping?", next = "finger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    finger2 = {
+      lines = {
+        { id = "finger2_default", text = "For one season. My father made me go back and reset de same trap in de same place, with nine and a half fingers, and stood over me till I did it right. I caught de raptor de next week, and I have never once reached past a set spring since." },
+      },
+      choices = {
+        { text = "That sounds like a hard father.", next = "finger3" },
+        { text = "Something else, Xor'juul.", next = "BACK" },
+      },
+    },
+    finger3 = {
+      big = true,
+      lines = {
+        { id = "finger3_default", text = "He was, and he was right, and I still have not decided if I forgive him. I teach de same way he did, up to a point. I make dem reset de trap dat bit dem, but I do not stand over dem while dey do it." },
+      },
+      choices = {
+        { text = "He was right. Fear has to be faced at once.", next = "BACK", reply = "So he said. It worked on me, and I have seen it break others, so I keep one foot on each side of it.", fx = { align = { order = 1 } } },
+        { text = "A lesson learned in fear is only half learned.", next = "BACK", reply = "Dat be what my mother told him, across de fire, for about a year. I have come round to her side slowly.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trap = {
+      lines = {
+        { id = "trap_default", text = "One de beast cannot see, cannot smell, and has no reason to walk around. De last be de part de young ones forget. You do not put a trap where you want de beast to go, you put it where de beast already wants to go, and dat means you watch for three days before you dig." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    soft = {
+      lines = {
+        { id = "soft_default", text = "She talks too much. A trap should hold, mon, not maim, and a beast dat be hurt worse dan it needs to be was caught by a lazy hunter. I check mine twice a day so nothin' sits in one sufferin'. If dat be soft, den I be soft." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley = {
+      lines = {
+        { id = "valley_default", text = "Too much hammerin'. De smiths be on one side and de warriors on de other, and no beast within a mile of dis hall has slept in years. But de pond be good, and Shankys down at Lumak's saves me de fish heads for bait." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    skinner = {
+      lines = {
+        { id = "skinner_default", text = "Set for de leg, never de body, or you will ruin de hide before you ever get your knife out. And go to your traps at dawn, mon, because a beast dat has fought a snare all day has rubbed half its coat away. Thuwd in de Drag will pay more for one clean pelt dan three torn ones." },
+      },
+      choices = {
+        { text = "Dawn, and set for the leg. I'll remember.", next = "BACK", reply = "See dat you do. I will ask Thuwd what you bring him.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    echo_isles = { { id = "tp_echo_isles", text = "We trapped raptors dere with vine and green wood, and dey still got out one time in three." } },
+    darkspear = { { id = "tp_darkspear", text = "We be a tribe of trappers, mon. Ormak has de best eyes in de Horde and cannot set a snare to save his life, which be why I have work." } },
+    centaur = { { id = "tp_centaur", text = "Dey dig pit traps in de Barrens for kodo, and dey leave dem open when dey move on. Watch for dose." } },
+    advice = { { id = "tp_advice", text = "Spring it before you reach into it, mon. Every time." } },
+    _none = { { id = "tp_none", text = "I never caught one of dose, so I cannot tell you how it be made." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Zel'mak: troll warrior trainer, Hall of the Brave, Valley of Honor.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zelmak", id = TODO_NPC("Zel'mak"), name = "Zel'mak", title = "Warrior Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "jovial", "fierce" }, values = { "brave", "proud" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Zel'mak is the one troll among the warrior trainers in the Hall of the Brave, and he laughs while he fights. He holds that an orc's strength and a troll's quickness together are worth more than either alone.",
+    third = "{name} met Zel'mak, the Darkspear who trains warriors in Orgrimmar's Hall of the Brave.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ha! Come in, come in, and duck, mon. De orcs built dis door for orcs." },
+    { id = "g_back", when = { metBefore = true }, text = "You be back for more! Good, de last one I taught went home cryin' and I have been bored since." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior! Put down dat pack and pick up a practice axe, we can talk while I hit you." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "You plant your feet like an orc, mon, wide and proud. It be strong and it be slow, and I can show you what to do about de slow." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Another Darkspear in de Hall of de Brave! Stand tall, cousin. Dey stopped starin' at me after de first year." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I be Zel'mak. Sorek and Grezz Ragefist teach de orc way of war in dis hall, and I teach de other way, which be to not be standin' dere when de axe comes down." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "I be Zel'mak, and you be a warrior, so listen. De orcs will teach you to hit harder, and dey be right. I will teach you to still be alive for de second swing." },
+        { id = "h_troll", when = { race = "Troll" }, text = "I be Zel'mak, cousin, de only troll who teaches in dis hall. Dat makes two of us in de room now, and I like dose odds better." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? Talk fast, I be coolin' down." },
+        { id = "h_again2", text = "Ask it! I answer better when I be out of breath." },
+        { id = "h_again3", text = "Go on. Sorek be watchin', so make it sound important." },
+      },
+      choices = {
+        { text = "Train me, Zel'mak.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How does a troll come to teach orcs to fight?", next = "teach" },
+        { text = "What is the troll way of war?", next = "way" },
+        { text = "What are Sorek and Grezz like to work beside?", next = "orcs" },
+        { text = "This hall never seems to go quiet.", next = "hall" },
+        { text = "The Bloodhoof fight with the feet set, like the orcs.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Keep ducking, Zel'mak.", next = "END" },
+      },
+    },
+    teach = {
+      lines = {
+        { id = "teach_default", text = "By beatin' one, mon. When de Darkspear first came to Durotar, a big orc sergeant said trolls were skirmishers and could not hold a line. I asked him to show me his line, and I went through it three times before he touched me. Sorek was watchin', and he asked me to stay." },
+      },
+      choices = {
+        { text = "How did the sergeant take it?", next = "teach2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach2 = {
+      lines = {
+        { id = "teach2_default", text = "Badly, den well. He would not speak to me for a month. Den he came to me at night, when nobody could see, and asked how I did it, and I taught him. He holds a wall at de Crossroads now and dey say nothin' gets round him." },
+      },
+      choices = {
+        { text = "So he swallowed his pride to learn.", next = "teach3" },
+        { text = "Something else, Zel'mak.", next = "BACK" },
+      },
+    },
+    teach3 = {
+      big = true,
+      lines = {
+        { id = "teach3_default", text = "He did, and dat be harder for an orc dan takin' a spear. Dese people were slaves in camps not ten years ago, mon, and deir pride be all some of dem brought out. So I teach dem quietly if dey want it quiet, and I never tell who came to me in de dark." },
+      },
+      choices = {
+        { text = "That's right. Pride that's been wounded should be spared.", next = "BACK", reply = "Dat be how I see it. A warrior learns nothin' while he be busy bein' ashamed.", fx = { align = { light = 1 } } },
+        { text = "A warrior too proud to be seen learning deserves the shame.", next = "BACK", reply = "Ha, dat be easy to say when nobody ever put you behind a fence. I will keep doin' it my way, mon.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    way = {
+      lines = {
+        { id = "way_default", text = "Be where de blow is not. An orc takes a hit on his shield and gives a bigger one back, and dat works until he meets somethin' bigger dan he is. A troll moves his feet, mon. I teach de orcs to do both, plant when you strike and move when you do not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs = {
+      lines = {
+        { id = "orcs_default", text = "Sorek be de best teacher I know and has no sense of humor at all. Grezz Ragefist shouts, and de shoutin' be most of his lesson, and somehow it works. Dey both thought I was a joke for a season, and now dey send me de students who keep gettin' hit." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall = {
+      lines = {
+        { id = "hall_default", text = "Never, mon. Dere be sparrin' from sunrise, and when we stop de smiths start, and de hunters next door complain about both. I sleep down in de Valley of Spirits, where de loudest thing be a frog." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "tauren_default", text = "And your braves be so big it does not matter, mon, de blow lands and you only blink. I sparred a Bloodhoof once and it was like hittin' a hill. But I have taught two tauren to step aside, and when somethin' dat size also moves quick, I almost pity de enemy." },
+      },
+      choices = {
+        { text = "I'd like to learn that step.", next = "BACK", reply = "Den come back with a practice axe and thick skin, mon. I will enjoy dis.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    darkspear = { { id = "tp_darkspear", text = "We be few, so we cannot afford to trade blow for blow. Every troll way of fightin' comes from dat." } },
+    internment = { { id = "tp_internment", text = "I was never in de camps, and I do not pretend to know it. I only see what it left in my students." } },
+    voljin = { { id = "tp_voljin", text = "He fights like smoke, mon. I learned half of what I teach from watchin' him." } },
+    advice = { { id = "tp_advice", text = "Move your feet. Whatever de question was, de answer be to move your feet." } },
+    _none = { { id = "tp_none", text = "I do not know dat, mon. If it cannot be hit or dodged, it be not my business." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Grol'dar: orc warlock trainer, Darkfire Enclave, Cleft of Shadow.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "groldar", id = TODO_NPC("Grol'dar"), name = "Grol'dar", title = "Warlock Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "grim", "proud" }, values = { "ambitious", "cunning" },
+  notices = { "class" },
+  impression = {
+    first = "Grol'dar teaches warlocks in the Darkfire Enclave and is old enough to remember when his kind ruled the Horde. He insists the art can be mastered without being served, and has plainly said so often.",
+    third = "{name} met Grol'dar, an old orc warlock who trains in Orgrimmar's Cleft of Shadow.",
+  },
+  greetings = {
+    { id = "g_default", text = "You may come as far as the brazier. Past it, I expect a reason." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Either you've grown curious or you've grown careless, and I'll know which before you leave." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Another who carries the fire. Come closer, then, and let me see how much of it is carrying you." },
+  },
+  notice = {
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "Your demon is quiet behind your eyes, and too quiet for my liking. When one of them stops arguing, it has started planning." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman, in the Darkfire Enclave. The spirits will be shouting at you to leave, so I'll not keep you long." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Grol'dar. I teach the binding of demons and the shaping of fel fire, here, where the Warchief permits it and his spies can count us. I've taught it in worse places and to worse ends." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "Grol'dar. You've chosen the hardest road an orc can walk in this city, so I'll give you the rule first. You command it, always, and the day you bargain with it you are finished." },
+        { id = "h_orc", when = { race = "Orc" }, text = "I am Grol'dar, and you're an orc, so you know what my kind did. I'll not ask you to forgive it, only to understand that somebody must know these arts when the demons come again." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask? Choose with care." },
+        { id = "h_again2", text = "Go on. I answer most questions once." },
+        { id = "h_again3", text = "Speak. The fire is patient and I am nearly so." },
+      },
+      choices = {
+        { text = "I've come for instruction, Grol'dar.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "You were a warlock in the old Horde.", next = "old" },
+        { text = "Why does Thrall allow this enclave at all?", next = "allowed" },
+        { text = "Who else practices down here?", next = "enclave" },
+        { text = "Your imp keeps staring at me.", next = "imp" },
+        { text = "The Forsaken don't share the orcs' dread of your art.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I'll stay on my side of the brazier.", next = "END" },
+      },
+    },
+    old = {
+      lines = {
+        { id = "old_default", text = "I was, though I was young and of no rank, a carrier of other warlocks' books. I saw the shaman cast down and the circles raised, and I thought we had been handed the strength of gods. We had been handed a leash, and I didn't feel it until it was pulled." },
+      },
+      choices = {
+        { text = "When was it pulled?", next = "old2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    old2 = {
+      lines = {
+        { id = "old2_default", text = "When the blood was drunk, and after, when it wore thin. The power left us all at once, and the whole Horde sat down in the dirt of the camps and couldn't lift its head. I had a spellbook and no will to open it. That is what serving them buys you, in the end." },
+      },
+      choices = {
+        { text = "And still you teach it.", next = "old3" },
+        { text = "Something else, Grol'dar.", next = "BACK" },
+      },
+    },
+    old3 = {
+      big = true,
+      narr = "He looks into the brazier, and the green in it climbs a little, as if it had been addressed.",
+      lines = {
+        { id = "old3_default", text = "Still, and I'll tell you why. The Legion came back at Hyjal, and it will come again, and the shaman can't bind a doomguard or read what's scratched on a summoning stone. Someone must know the enemy's own arts. I'd rather it were an orc who has already paid for the knowledge." },
+      },
+      choices = {
+        { text = "Then you serve the Horde. A hard duty, but a duty.", next = "BACK", reply = "I've never heard it called duty by anyone who didn't carry the fire. I'll remember that you said it.", fx = { align = { honor = 1 } } },
+        { text = "You tell yourself that. The fire wants to be used.", next = "BACK", reply = "It does, and so does a sword. I've heard your warning from wiser mouths, and I'm still my own master.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    allowed = {
+      lines = {
+        { id = "allowed_default", text = "Because he is not a fool. He could drive us out, and then we'd practice in caves where no one watches, as some already do. Here he knows our names, and the Shattered Hand sits at the mouth of this cleft counting who comes and goes. I'd do the same in his place." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    enclave = {
+      lines = {
+        { id = "enclave_default", text = "Mirket and Zevrost teach beside me, and Kurgul sees to the demons themselves. Gan'rul Bloodeye is the eldest of us and the only one the Warchief speaks to directly. Neeru Fireblade keeps his own tent further along, and I advise my students to be civil to him and nothing more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    imp = {
+      lines = {
+        { id = "imp_default", text = "It stares at everyone, and it's weighing how you'd burn. Pay it no mind and, above all, don't speak to it. They take any answer as the opening of a bargain, and it has been trying to open one with me for eleven years." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken = {
+      lines = {
+        { id = "forsaken_default", text = "No, and I find that restful and troubling in about equal parts. Your people ask what a thing can do and never what it did to those who used it before. I've had Forsaken students master in a season what took me five years, and I don't sleep well afterward." },
+      },
+      choices = {
+        { text = "We have less left to lose. It makes us quick.", next = "BACK", reply = "Then lose it slowly. I'd not see the Dark Lady's people learn my lesson the way mine did.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    burning_blade = { { id = "tp_burning_blade", text = "Fools who think they'll be favored when their masters return. I taught some of them, to my shame, before I knew what they were." } },
+    burning_legion = { { id = "tp_burning_legion", text = "They don't hate us. We were a tool that broke, and they'd pick us up again without a thought." } },
+    thrall = { { id = "tp_thrall", text = "He looks at me as a healer looks at a poison he keeps on the shelf, and I've no quarrel with it." } },
+    advice = { { id = "tp_advice", text = "Command, and never bargain. If you find yourself explaining your reasons to a demon, it's already too late." } },
+    _none = { { id = "tp_none", text = "That knowledge isn't mine, and I've learned not to pretend to knowledge I lack." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Okothos Ironrager: master armorsmith at the Burning Anvil, Valley of Honor; The Art of the Armorsmith.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "okothos", id = TODO_NPC("Okothos Ironrager"), name = "Okothos Ironrager", title = "Blacksmithing Trainer",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "stern", "exacting" }, values = { "craft", "dutiful" },
+  notices = { "gear", "craft" },
+  impression = {
+    first = "Okothos Ironrager tests the armorsmiths of Orgrimmar and has never been known to pass a piece out of kindness. He runs a thumb along every rivet as though a life depended on it, and by his account one always does.",
+    third = "{name} met Okothos Ironrager, the Orgrimmar armorsmith who judges every rivet as if a life hung on it.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand where I can see what you're wearing. I learn more from a stranger's armor than from his name." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Hold out your hands, palms up, and I'll tell you how long you've been at it and what you still do wrong." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Turn around; I want to see whether that back plate still sits crooked." },
+  },
+  notice = {
+    { id = "n_worn", cat = "gear", when = { durability = { max = 0.3 } },
+      text = "That armor is one blow from failing you. Whoever made it did honest work, and you've repaid it with neglect." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You've a burn on the inside of the wrist, where the glove ends. You're pulling work from the fire too soon because you're eager to see it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Okothos Ironrager, and I make armor for the Horde. Krathok Moltenfist decides when a smith is ready to choose that road, and then I decide whether the smith was right." },
+        { id = "h_before", when = { all = { { profession = { name = "Blacksmithing", min = 200 } }, { questBefore = TODO_QUEST("The Art of the Armorsmith") } } }, text = "Krathok tells me you mean to be an armorsmith. Many say it. I'll set you a trial of mithril, helms and boots and a breastplate, and you'll bring me every piece, because armor that is nearly finished protects no one." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Art of the Armorsmith") }, text = "You have my trial. Don't show me pieces one at a time as you finish them, like a child with drawings. Bring the whole of it and stand quiet while I look." },
+        { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Art of the Armorsmith"), days = 3 } }, text = "I went over your pieces again last night, by lamplight, looking for what I'd missed. I found nothing. You are an armorsmith, and I don't say it twice." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The iron is cooling." },
+        { id = "h_again2", text = "Ask it. I can listen and work." },
+        { id = "h_again3", text = "Go on, but be brief about it." },
+      },
+      choices = {
+        { text = "What do you look for in a piece of armor?", next = "look" },
+        { text = "Krathok says you won't pass a single loose rivet.", next = "rivet" },
+        { text = "Why armor, and not weapons?", next = "why" },
+        { text = "Who else works these forges?", next = "forges" },
+        { text = "I've come about the armorsmith's trial.", next = "trial", when = { questActive = TODO_QUEST("The Art of the Armorsmith") } },
+        { text = "I wear plate into battle. How do I keep it sound?", next = "wearer", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I'll leave you to the iron.", next = "END" },
+      },
+    },
+    look = {
+      lines = {
+        { id = "look_default", text = "Where it will fail. Every piece fails somewhere, and a good smith decides where and makes it a place the wearer can survive. A strap that parts before the plate does is a choice. A rivet that pulls through because someone was tired is a death that had my mark on it." },
+      },
+      choices = {
+        { text = "Has a piece of yours ever failed that way?", next = "rivet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rivet = {
+      lines = {
+        { id = "rivet_default", text = "One piece of mine has failed, and it is why I pass no loose rivet now. In the first year of this city I made a gorget for a young grunt posted to the Barrens. It was good work and I was proud of it. I'd set one rivet a hair shallow on the left side, and I knew it, and I let it go because the caravan was leaving." },
+      },
+      choices = {
+        { text = "What happened to the grunt?", next = "rivet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rivet2 = {
+      lines = {
+        { id = "rivet2_default", text = "A quilboar spear found the left side. They sent the gorget back to me with his name scratched inside, as is the custom, so that I might mend it for the next one. I didn't mend it. It hangs over my bench, and every apprentice asks what it is, and I tell them." },
+      },
+      choices = {
+        { text = "One rivet in a lifetime of good work.", next = "rivet3" },
+        { text = "Something else, Okothos.", next = "BACK" },
+      },
+    },
+    rivet3 = {
+      big = true,
+      narr = "He does not look up at the bench behind him. He has no need to.",
+      lines = {
+        { id = "rivet3_default", text = "So Krathok says. He tells me a spear will find a gap in any armor ever made, and that I have armored a thousand who came home. He may be right. I only know that I was tired and in a hurry, and that the boy wasn't either of those things when he put it on." },
+      },
+      choices = {
+        { text = "You owe it to the living to forgive yourself and keep working.", next = "BACK", reply = "I keep working. The other I've never managed, and I find the work is better for it.", fx = { align = { light = 1 } } },
+        { text = "Don't forgive it. That memory is why your armor holds.", next = "BACK", reply = "That's my own thinking, said plainer than I'd say it. Few people have the stomach to agree with me.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_default", text = "Because I'd made enough things for killing. Any smith in the old Horde did, and we were good at it. When the Warchief asked for smiths, I asked to make the things that bring orcs home. Borgosh thinks it the lesser art, and Borgosh has never had a gorget sent back to him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forges = {
+      lines = {
+        { id = "forges_default", text = "Saru Steelfury teaches the trade, with Snarl and Ug'thok for the beginners. Krathok is master of the Burning Anvil, and Borgosh Corebender tests the weaponsmiths as I test my own. Old Aturk grumbles in the corner, and the tauren, Ox, speaks for the Mithril Order. It's a full valley." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trial = {
+      lines = {
+        { id = "trial_default", text = "Then you know what's asked. Work the mithril cold as long as you can before you take it to the fire, and set every rivet as if you'd be the one wearing it at the Crossroads. I'll know if you didn't, and I won't tell you which one." },
+      },
+      choices = {
+        { text = "I'll bring you all of it.", next = "BACK" },
+      },
+    },
+    wearer = {
+      lines = {
+        { id = "wearer_default", text = "Oil the straps before the plates, because leather goes first and nobody looks at it. Have dents beaten out the day you take them, not at the end of the campaign. And when a smith tells you a piece is finished, bring it back to him anyway." },
+      },
+      choices = {
+        { text = "I'll have mine looked at today.", next = "BACK", reply = "Good. Take it to Tumi if you won't trust it to me; she knows what she's looking at.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quilboar = { { id = "tp_quilboar", text = "Their spears are fire-hardened wood, crude and very sharp. I build every gorget now against that point." } },
+    thrall = { { id = "tp_thrall", text = "He wears the Doomhammer's own plate, older than any of us. I've looked at it closely, and whoever made it never hurried." } },
+    second_war = { { id = "tp_second_war", text = "I made axes by the hundred for it. I don't keep any of them." } },
+    advice = { { id = "tp_advice", text = "Look at the left side. Most smiths are right-handed, so that's where they get tired." } },
+    _none = { { id = "tp_none", text = "I know iron, mithril and where they fail. Ask me about those." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Snarl: orc smith at the Burning Anvil, Valley of Honor; takes Saru Steelfury's beginners.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "snarl", id = TODO_NPC("Snarl"), name = "Snarl", title = "Blacksmithing Trainer",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "service",
+  communities = { "orgrimmar" }, temper = { "gruff", "loud" }, values = { "craft", "hardworking" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Snarl takes the newest smiths at the forges of the Valley of Honor and shouts over the hammering as a matter of habit. He earned his name as a child and has never minded it.",
+    third = "{name} met Snarl, who teaches the newest blacksmiths at the forges of Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Speak up! I've had a hammer in my ear since dawn and I'll have one there till dark." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Good. Grab the bellows if you're going to stand there." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, are you? Show me your tongs hand, then. Hah, it's soft yet, but we'll fix that." },
+  },
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You're holding your shoulder high on the hammer side. Drop it, or you'll have an arm like a knot by the time you're my age." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "That edge has been sharpened on a rock, hasn't it? Don't lie to me, I can see the scratches from here." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Snarl! Saru Steelfury runs the teaching here, and Ug'thok and I take the ones who don't know which end of the tongs is hot. Somebody has to, and I've got the voice for it." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Snarl. If you already know the tongs from the hammer, you're ahead of half my students, and I'll thank you not to tell them so." },
+        { id = "h_low", when = { maxLevel = 12 }, text = "I'm Snarl. You're green, and that's no shame, every axe on that wall started as a lump. Stand out of the sparks and ask what you like." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Louder, this time!" },
+        { id = "h_again2", text = "Go on, I'm listening as well as I can." },
+        { id = "h_again3", text = "Ask it! The iron won't mind." },
+      },
+      choices = {
+        { text = "Teach me the trade, Snarl.", next = "BUSINESS" },
+        { text = "How did you come by a name like Snarl?", next = "name" },
+        { text = "What's the first thing you teach a new smith?", next = "first" },
+        { text = "What's it like, working under Saru?", next = "saru" },
+        { text = "The whole valley rings with hammers.", next = "valley" },
+        { text = "I dig my own ore. Does that make a better smith?", next = "miner", when = { profession = "Mining" } },
+        { text = "I'll let you get back to shouting.", next = "END" },
+      },
+    },
+    name = {
+      lines = {
+        { id = "name_default", text = "My mother said I came out making the noise and never stopped. In the camps the human guards used it too, since they couldn't say my birth name, and they meant it as an insult. I kept it to spite them, and now I'd not answer to anything else." },
+      },
+      choices = {
+        { text = "You kept the name the guards used?", next = "name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name2 = {
+      lines = {
+        { id = "name2_default", text = "I did. Some orcs dropped their camp names the day the fences came down, and I understand it. But I'd been Snarl since the cradle, and I wasn't going to let a few humans take the name off me by saying it badly. It's on every blade I've finished." },
+      },
+      choices = {
+        { text = "That takes a stubborn kind of pride.", next = "name3" },
+        { text = "Something else, Snarl.", next = "BACK" },
+      },
+    },
+    name3 = {
+      big = true,
+      lines = {
+        { id = "name3_default", text = "Stubborn's the right word! Ug'thok thinks I should have taken a proper name, something with an ancestor in it. He says a smith's mark ought to honor the past. I say the past did me few favors, and the name's mine because I made it mine." },
+      },
+      choices = {
+        { text = "A name is what you make of it. Keep yours.", next = "BACK", reply = "Hah! That's what I tell him. I'll say a stranger agreed with me, and he'll sulk till supper.", fx = { align = { order = -1 } } },
+        { text = "Ug'thok is right. A mark should honor your ancestors.", next = "BACK", reply = "Then you can go and stand at his anvil. No, stay, I'm only shouting. He's not wrong, he's just not me.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first = {
+      lines = {
+        { id = "first_default", text = "To stand still! They all want to swing. I make them hold a cold hammer over a cold anvil for half a morning, until they stop gripping it like a throat. A smith who strangles the hammer is worn out by midday and no use to anybody." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    saru = {
+      lines = {
+        { id = "saru_default", text = "Fast! Saru does everything at a run and expects the iron to keep up. I learned more in a season under Saru than in ten years of mending camp shovels, and I got shouted at the whole time. I suppose that's where I learned the shouting." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley = {
+      lines = {
+        { id = "valley_default", text = "It does, and you stop hearing it after a year, which is when you start shouting. We arm the wall and the wolf riders and send crates out to the Crossroads. Sumi keeps us in coal and flux, and Gorina brings down the ore from Makaru's diggers." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    miner = {
+      lines = {
+        { id = "miner_default", text = "It makes one who knows what he's paid for! A smith who's swung a pick can tell good ore by the weight, and no trader will cheat him. Makaru will tell you the same, and at greater length. Bring your own copper and I'll show you what's in it." },
+      },
+      choices = {
+        { text = "I'll bring a sack next time.", next = "BACK", reply = "Do that. And wash it first, I've enough dirt in here.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    internment = { { id = "tp_internment", text = "We mended the humans' shovels and were grateful for the work. I think of that whenever a student complains about nails." } },
+    thrall = { { id = "tp_thrall", text = "He came through the forges once and lifted a hammer to feel the balance. He held it right, too. Somebody taught him." } },
+    blackrock = { { id = "tp_blackrock", text = "Good smiths, the Blackrock, and they chose the wrong master twice. Don't let anyone tell you the craft makes you wise." } },
+    advice = { { id = "tp_advice", text = "Loosen your grip! On the hammer, and on most things." } },
+    _none = { { id = "tp_none", text = "What? No, I don't know about that. Ask somebody who can hear the question." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ug'thok: orc smith at the Burning Anvil, Valley of Honor; Saru's apprentice; This Is Spinal Axe (Forever).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ugthok", id = TODO_NPC("Ug'thok"), name = "Ug'thok", title = "Blacksmithing Trainer",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "earnest", "steady" }, values = { "tradition", "craft" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Ug'thok teaches beginners at the forges of the Valley of Honor and stamps each piece with a clan mark an elder had to draw for him. He speaks of ancestors he never met as though they watched his anvil.",
+    third = "{name} met Ug'thok, a young smith of Orgrimmar who works to honor ancestors he never knew.",
+  },
+  greetings = {
+    { id = "g_default", text = "Throm-ka. Mind the quench trough behind you; it was oil this morning and it's still warm." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Good. I've a piece cooling that I'd like another pair of eyes on." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A fellow smith. Then tell me who taught you, and who taught them. I like to know whose hands I'm talking to." },
+  },
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You've no maker's mark on your work, or none I can find. A piece without a mark has no one to be ashamed of it." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. When I quench a blade I ask the water's pardon, as my elder showed me. I've never known if I do it properly." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Ug'thok. I learned the hammer from Saru Steelfury, and now I teach those who come after me, as it should be. Every smith is one link, and I mean to be a sound one." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Ug'thok. You carry the trade already, so you'll know that nobody learns it alone. If I can add a little to what your own teacher gave you, I'll count it an honor." },
+        { id = "h_axe", tags = { "news" }, when = { questActive = TODO_QUEST("This Is Spinal Axe") }, text = "You've come about the axe. Then stand there and show me how you swing, because Saru won't have me shape a haft for an arm I haven't seen move." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again2", text = "Go on. The iron needs a moment yet." },
+        { id = "h_again3", text = "Ask, and I'll answer as well as I'm able." },
+      },
+      choices = {
+        { text = "Teach me what Saru taught you.", next = "BUSINESS" },
+        { text = "What mark is that you stamp on your work?", next = "mark" },
+        { text = "You speak of smithing as a chain.", next = "chain" },
+        { text = "Snarl says you wanted him to take a proper name.", next = "snarl" },
+        { text = "What do you make of the old Horde's weapons?", next = "old" },
+        { text = "The spirits of fire and water meet in your trough.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "May your links hold, Ug'thok.", next = "END" },
+      },
+    },
+    mark = {
+      lines = {
+        { id = "mark_default", text = "It's the sign of my father's clan, or as near as old Aturk could draw it from memory. I was born in the camps, and by then nobody near me wore it. I asked every elder in this valley until one of them knew the shape." },
+      },
+      choices = {
+        { text = "Did Aturk know your father?", next = "mark2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mark2 = {
+      lines = {
+        { id = "mark2_default", text = "He knew of him. He said my father's people were smiths before they were anything else, and that their work was known three valleys away on Draenor. Then he said they followed the warlocks as gladly as the rest. Aturk doesn't tell half a story." },
+      },
+      choices = {
+        { text = "That's a hard thing to learn about your own blood.", next = "mark3" },
+        { text = "Something else, Ug'thok.", next = "BACK" },
+      },
+    },
+    mark3 = {
+      big = true,
+      lines = {
+        { id = "mark3_default", text = "It was. I'd made them into something clean in my head, because I had nothing else to go on. I stamp the mark all the same. Their craft was good even when their cause wasn't, and I think a smith can carry the one forward and set the other right." },
+      },
+      choices = {
+        { text = "Honor the craft and mend the name. That's a worthy task.", next = "BACK", reply = "It's the one I've chosen. Thank you for not telling me to throw the stamp in the fire.", fx = { align = { honor = 1 } } },
+        { text = "A mark that served the warlocks should be struck from the iron.", next = "BACK", reply = "Some would say so, and I've heard it in this valley. But then the camps would have finished what the warlocks began.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chain = {
+      lines = {
+        { id = "chain_default", text = "It is one. Saru learned from a smith who learned on Draenor, and that one learned from someone whose name is lost, and so back to whoever first struck hot iron. In the camps the chain very nearly broke. Each student I teach is another link between us and that edge." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    snarl = {
+      lines = {
+        { id = "snarl_default", text = "I did, and I was wrong to press him. I had to go looking for a name with a past in it, so I thought everyone should want one. Snarl's name has a past too. It's only that he was there for all of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    old = {
+      lines = {
+        { id = "old_default", text = "They were well made and badly meant. There are axes from the Second War in the Hall of Legends, and I've stood and studied the forge-work on them for hours. I'd give a great deal to have that smith's hands, and nothing at all to have his orders." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaman = {
+      lines = {
+        { id = "shaman_default", text = "So Searn Firewarder told me, and it has stayed with me. Fire makes the blade and water decides whether it will hold. I say a word to each, though nobody taught me the right ones. If you know them, I'd be grateful." },
+      },
+      choices = {
+        { text = "Speak plainly and mean it. The spirits ask no more.", next = "BACK", reply = "Then perhaps I've been doing it properly after all. That's a weight off me.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    internment = { { id = "tp_internment", text = "I was born behind the fence. I don't remember it well, only that nobody there made anything." } },
+    second_war = { { id = "tp_second_war", text = "Aturk says we were strong then. I notice he never says we were right." } },
+    thrall = { { id = "tp_thrall", text = "He gave us back the spirits and our clan signs both. I owe him my mark as much as I owe my father." } },
+    advice = { { id = "tp_advice", text = "Learn who taught your teacher. It tells you what you're carrying." } },
+    _none = { { id = "tp_none", text = "No elder has spoken to me of that, so I've nothing sound to pass on." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Shayis Steelfury: orc armor crafter who walks the Valley of Honor.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "shayis", id = TODO_NPC("Shayis Steelfury"), name = "Shayis Steelfury", title = "Blacksmithing Trainer",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "service",
+  communities = { "orgrimmar" }, temper = { "brisk", "sharp" }, values = { "craft", "practical" },
+  notices = { "gear", "craft" },
+  impression = {
+    first = "Shayis Steelfury makes armor in the Valley of Honor and delivers it herself, walking the valley with a sack of finished pieces over her shoulder. She fits each one on its wearer and takes it back if it sits wrong.",
+    third = "{name} met Shayis Steelfury, an armor crafter who walks Orgrimmar's Valley of Honor fitting her own work.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk with me if you want to talk. I've three fittings before noon and none of them will hold still." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Keep up, then, I'm on my way to the Hall of the Brave." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Stop there a moment and lift your arms. No, that pauldron wasn't made for you, was it?" },
+  },
+  notice = {
+    { id = "n_gear", cat = "gear", when = { durability = { max = 0.3 } },
+      text = "You're wearing a ruin. Take it to the forges before somebody mistakes you for a quilboar's leavings." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You've a smith's forearms. Tell me, do you fit your work to the wearer, or hand it over and hope?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Shayis Steelfury. I make armor, and then I walk it to whoever ordered it and see it on them myself. A breastplate isn't finished on the anvil; it's finished on a chest." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Shayis Steelfury, armor crafter. You're in the trade, so here's the half of it nobody teaches at the forge: go and watch your work being worn." },
+        { id = "h_kin", when = { race = "Orc" }, text = "I'm Shayis Steelfury. Yes, the same blood as Saru at the forges, and no, I won't put in a word for you. Saru takes students on their hands, not their friends." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I can talk as far as the pond." },
+        { id = "h_again2", text = "Go on, but walk while you ask." },
+        { id = "h_again3", text = "Ask it. I've a moment before the next one." },
+      },
+      choices = {
+        { text = "What can you teach a smith, Shayis?", next = "BUSINESS", when = { profession = "Blacksmithing" } },
+        { text = "Why deliver the armor yourself?", next = "deliver" },
+        { text = "You and Saru share a name.", next = "saru" },
+        { text = "Who are your hardest customers?", next = "customers" },
+        { text = "You must know every corner of this valley.", next = "valley" },
+        { text = "Plate that doesn't fit has nearly killed me.", next = "warrior", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Go on to your fittings.", next = "END" },
+      },
+    },
+    deliver = {
+      lines = {
+        { id = "deliver_default", text = "Because the smith who never sees the wearer makes armor for a drawing. Orcs aren't built alike. One has a shoulder that sits high from an old break, another breathes from the belly, and a plate cut for neither will rub them raw in a day's march." },
+      },
+      choices = {
+        { text = "How did you learn that?", next = "deliver2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    deliver2 = {
+      lines = {
+        { id = "deliver2_default", text = "From a wolf rider who brought a cuirass back and threw it at my feet. It was perfect work, and she'd ridden four days in it and bled under both arms. I'd measured her standing. Nobody rides a wolf standing." },
+      },
+      choices = {
+        { text = "What did you do with the cuirass?", next = "deliver3" },
+        { text = "Something else, Shayis.", next = "BACK" },
+      },
+    },
+    deliver3 = {
+      big = true,
+      lines = {
+        { id = "deliver3_default", text = "I cut it apart and made it again with her sitting a saddle in my yard, and I didn't charge her. Okothos told me I was a fool to work twice for one fee. He says the smith's duty ends when the piece is sound, and what the wearer does with it is the wearer's affair." },
+      },
+      choices = {
+        { text = "You were right. The work isn't done until it serves.", next = "BACK", reply = "That's my view, and it's cost me some coin and a good many arguments. I'd still rather have the arguments.", fx = { align = { light = 1 } } },
+        { text = "Okothos is right. Sound work is all a smith owes.", next = "BACK", reply = "Then you and he can share a forge. I'll go on walking mine about, and we'll see whose customers come back.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    saru = {
+      lines = {
+        { id = "saru_default", text = "We do, and we share a temper, which is why we work at opposite ends of the valley. Saru teaches and I make. We agree on steel and on very little else, and we eat together at midwinter and argue through the whole meal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers = {
+      lines = {
+        { id = "customers_default", text = "The warrior trainers. Sorek wants everything a finger's width heavier than is sensible, and Grezz Ragefist dents his on purpose to show the students it can be done. The troll, Zel'mak, is the easy one. He only asks that it not slow him down, and then he never gets hit anyway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley = {
+      lines = {
+        { id = "valley_default", text = "Every stone. The forges at the top, the hunters and the warriors side by side, Lumak's pond in the middle, and Kiro's harness shop, where I send anyone who needs leather under their steel. Kelgruk walks it too, with his blades, and we nod as we pass." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "warrior_default", text = "It would. Show me where it rubs. There, under the arm, I can see the wear on the lining from here. Go to Tumi and have it let out a thumb's width, and tell her I said the armhole was cut for someone standing still." },
+      },
+      choices = {
+        { text = "I'll tell her. My thanks, Shayis.", next = "BACK", reply = "Don't thank me, go and do it. And lift your arms when she measures.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    warsong = { { id = "tp_warsong", text = "Their riders are hard on armor and never complain of it. I make their gear lighter than they ask for and they haven't noticed." } },
+    thrall = { { id = "tp_thrall", text = "I've never fitted him and never will; that black plate is older than I am. I'd like to see how it sits across the shoulders, though." } },
+    internment = { { id = "tp_internment", text = "We wore sacking. I think that's why I care how a thing sits on a body." } },
+    advice = { { id = "tp_advice", text = "Have yourself measured the way you fight, not the way you stand." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. Unless it can be measured and fitted, I've not given it much thought." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kelgruk Bloodaxe: orc weapon crafter who walks the Valley of Honor.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kelgruk", id = TODO_NPC("Kelgruk Bloodaxe"), name = "Kelgruk Bloodaxe", title = "Blacksmithing Trainer",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "service",
+  communities = { "orgrimmar" }, temper = { "dry", "proud" }, values = { "craft", "proud" },
+  notices = { "class", "craft" },
+  impression = {
+    first = "Kelgruk Bloodaxe crafts weapons in the Valley of Honor and carries a different one on his back each day, to learn how it rides. He has a dry opinion of every blade he sees.",
+    third = "{name} met Kelgruk Bloodaxe, a dry-spoken weapon crafter who walks Orgrimmar's Valley of Honor.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hm. Go on, then. You were looking at the axe, so ask about the axe." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. It's a different one today, if you're wondering. Yesterday's pulled to the left." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior. Draw that and hold it out level. I only want to see how long before the tip drops." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "Your weapon's too heavy in the head for your wrist. You'll never admit it, so I'll only say it the once." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You forge, by those scars. Weapons or armor? Think before you answer; I'll hold it against you either way." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Kelgruk Bloodaxe. I make weapons, and I carry each one for a day before I'll sell it. A blade can be flawless on the bench and a misery on the back, and the buyer will wear it far more than he swings it." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Kelgruk Bloodaxe, weapon crafter. If you're in the trade, I can show you a thing or two about balance. Borgosh will show you the rest, at greater length." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Kelgruk Bloodaxe. You'll want Kareth in the Cleft for the small quiet blades. I make the sort a warrior is proud to be seen with." },
+      },
+      again = {
+        { id = "h_again", text = "Hm. What else?" },
+        { id = "h_again2", text = "Go on. I've only the walking to do." },
+        { id = "h_again3", text = "Ask. I'll tell you if it's a foolish question." },
+      },
+      choices = {
+        { text = "Show me what you know, Kelgruk.", next = "BUSINESS", when = { profession = "Blacksmithing" } },
+        { text = "Why carry a new weapon every day?", next = "carry" },
+        { text = "Bloodaxe is a name with weight to it.", next = "name" },
+        { text = "What do you think of Borgosh and his hammer?", next = "borgosh" },
+        { text = "Which is the best weapon you ever made?", next = "best" },
+        { text = "Tell me truly what you think of my weapon.", next = "honest", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
+        { text = "Walk well, Kelgruk.", next = "END" },
+      },
+    },
+    carry = {
+      lines = {
+        { id = "carry_default", text = "Because that's how it will be used. A warrior marches twenty days for every one he fights. If the haft knocks his knee at each step or the head drags his shoulder down, he'll hate it by the time he needs it, and a weapon you hate is slow out of the sling." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name = {
+      lines = {
+        { id = "name_default", text = "It has, and none of it's mine. I took it when the camps opened, as a good many of us took names then. I'd read it off a broken war-banner the humans kept as a trophy. I thought it sounded like someone who had never been a prisoner." },
+      },
+      choices = {
+        { text = "You named yourself from a captured banner.", next = "name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name2 = {
+      lines = {
+        { id = "name2_default", text = "I did. Later I learned whose banner it was, a raider in the First War who burned farms and boasted of it. So I'm named for a butcher I never met. I've thought about changing it, and Aturk tells me the butcher was a great warrior and I should be proud." },
+      },
+      choices = {
+        { text = "What have you decided?", next = "name3" },
+        { text = "Something else, Kelgruk.", next = "BACK" },
+      },
+    },
+    name3 = {
+      big = true,
+      lines = {
+        { id = "name3_default", text = "Nothing yet. Each year I make a better axe than the year before and stamp that name on it. I tell myself that sooner or later the name will mean the axes and not the farms. I can't tell whether that's wisdom or only laziness." },
+      },
+      choices = {
+        { text = "Keep it. Good work can redeem a bad name.", next = "BACK", reply = "That's the wager I've made. I'll know in twenty years whether I won it.", fx = { align = { honor = 1 } } },
+        { text = "A butcher's name is a butcher's name. Choose another.", next = "BACK", reply = "Hm. You're not the first to say it. I notice the ones who say it were all born with a name they liked.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    borgosh = {
+      lines = {
+        { id = "borgosh_default", text = "I think he'll die at that anvil with the hammer unfinished, and I think he knows it. I'd not spend my life on one piece. Still, each one he breaks for scrap is better than the best I've made, and I've the sense not to say so where he can hear." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    best = {
+      lines = {
+        { id = "best_default", text = "A plain two-handed axe, eight years ago. There was no ornament on it at all. I carried it a week instead of a day because I couldn't find the fault, and then a grunt bought it for less than it was worth. I've no idea where it is now, and that's as it should be." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    honest = {
+      lines = {
+        { id = "honest_default", text = "Truly? The edge is honest and the balance is a little forward, which suits someone stronger than you are yet. Whoever made it made it for the fighter you'll be in two years. Keep it. Grow into it, and don't let Zendo'jian sell you something lighter." },
+      },
+      choices = {
+        { text = "Then I'll grow into it.", next = "BACK", reply = "Hm. Good. Most people only want to be told it's fine.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    second_war = { { id = "tp_second_war", text = "The best orc steel ever made went into that war, and most of it's rusting in a human marsh." } },
+    internment = { { id = "tp_internment", text = "We weren't allowed so much as a knife. I'd been a smith's boy, and for years I made nothing." } },
+    thrall = { { id = "tp_thrall", text = "A hammer suits him. An axe would have been the easy choice, and he's not made many of those." } },
+    advice = { { id = "tp_advice", text = "Carry it a day before you buy it. If the seller won't allow that, ask yourself why." } },
+    _none = { { id = "tp_none", text = "Hm. No. I'll not give an opinion on a thing I haven't carried." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Aturk the Anvil: old orc smith, Valley of Honor; The Old Ways (blacksmithing).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "aturk", id = TODO_NPC("Aturk the Anvil"), name = "Aturk the Anvil",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "gruff", "bitter" }, values = { "tradition", "strength" },
+  notices = { "class", "craft" },
+  impression = {
+    first = "Aturk the Anvil is an old smith in the Valley of Honor who misses the days of war and says so. He obeys the Warchief's peace all the same, like an orc swallowing bad medicine.",
+    third = "{name} met Aturk the Anvil, an old Orgrimmar smith who misses the wars and obeys the peace.",
+  },
+  greetings = {
+    { id = "g_default", text = "Bah. Another one come to stare at the old orc. Stare, then, and learn something while you're at it." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. In my day a warrior was too busy to visit twice." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "You smell of coal, at least. That's the first honest smell I've met today." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior, and whole in every limb. In the old days you'd have had three scars by your age and been glad of them." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "Soft hands for a smith. They use gloves now. We used calluses, and they never wore out." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Aturk, and they call me the Anvil because everything that's hit me has bounced. I forged for the Horde when it shook the world. Now I forge for a Horde that plants crops, and I do it because the Warchief asks." },
+        { id = "h_before", when = { all = { { profession = { name = "Blacksmithing", min = 200 } }, { questBefore = TODO_QUEST("The Old Ways") } } }, text = "You've a smith's arm, I'll grant you. Then I've a use for it. Make me steel breastplates and steel helms the way they were made when armor was for war, and I'll teach you a pattern the young ones have let slip." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Old Ways") }, text = "Where's my steel? Breastplates and helms, I said, forged the old way and heavy enough to matter. Don't come back to me with anything a merchant would wear." },
+        { id = "h_done", when = { questDone = TODO_QUEST("The Old Ways") }, text = "Hah, the one who made the steel. It was good work, heavy and plain. There's hope for this valley yet, though I'll not say it where Saru can hear." },
+      },
+      again = {
+        { id = "h_again", text = "Bah. What else?" },
+        { id = "h_again2", text = "Go on. I've nothing but time, and it's the Warchief's doing." },
+        { id = "h_again3", text = "Ask it. You'll get a straight answer and you may not like it." },
+      },
+      choices = {
+        { text = "Why do they call you the Anvil?", next = "anvil" },
+        { text = "You don't think much of the peace.", next = "peace" },
+        { text = "What were the old ways of the forge?", next = "oldways" },
+        { text = "The young smiths here speak of you.", next = "young" },
+        { text = "I've brought what you asked for.", next = "BUSINESS", when = { questActive = TODO_QUEST("The Old Ways") } },
+        { text = "I've seen war. I'd not wish it back.", next = "veteran", when = { minLevel = 40 } },
+        { text = "Strength to you, old one.", next = "END" },
+      },
+    },
+    anvil = {
+      lines = {
+        { id = "anvil_default", text = "Because I've been struck by everything this world and the last one had, and I'm still the same shape. I took an ogre's club at the crossing, a knight's lance at Blackrock Mountain, and twelve years of camp gruel. The gruel was the worst of the three." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace = {
+      lines = {
+        { id = "peace_default", text = "I think it's unnatural, and I obey it. We were made for war. I watched us take a world, and whatever else you say of it, no orc in those days sat idle and wondered what he was for. Now I see young ones growing melons in Durotar." },
+      },
+      choices = {
+        { text = "And yet you follow Thrall.", next = "peace2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace2 = {
+      lines = {
+        { id = "peace2_default", text = "I do. I was in the camps when he came. I'd sat in the mud for years and couldn't have told you why I didn't get up, and neither could anyone near me. That boy walked in and we stood. Whatever he asks of me after that, he gets, even if it's melons." },
+      },
+      choices = {
+        { text = "So the old ways led to the camps, and he led you out.", next = "peace3" },
+        { text = "Something else, Aturk.", next = "BACK" },
+      },
+    },
+    peace3 = {
+      big = true,
+      narr = "His jaw works for a moment, as if he were chewing something tough.",
+      lines = {
+        { id = "peace3_default", text = "Don't be clever with an old orc. Yes, I know where the old road ended. I walked every step of it. But a thing can end badly and still have had glory in it, and I'll not spit on the best years of my life because of how they closed." },
+      },
+      choices = {
+        { text = "There was glory in it. A warrior may honor that.", next = "BACK", reply = "There was. You'll not hear many in this city say so above a mutter. Sit, if you want, I'll tell you about the crossing.", fx = { align = { order = -1 } } },
+        { text = "Glory bought with demon blood was never yours to keep.", next = "BACK", reply = "Bah. That's the Warchief's own answer, near enough, and I've never had one to give him back. Leave me to my forge.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldways = {
+      lines = {
+        { id = "oldways_default", text = "Heavy, plain and quick. We made armor for an orc who'd be dead or victorious in a season, so nobody wasted time on scrollwork. Now they work mithril thin as a leaf and call it craft. It is craft, I'll allow, but none of them could arm a warband by morning." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young = {
+      lines = {
+        { id = "young_default", text = "Do they? Ug'thok comes to me for clan signs and stories, and I give him the true ones, which he likes less than he expected. Snarl shouts at me and I shout back. They're good smiths. They've just never had to make a thing for a war they might lose." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    veteran = {
+      lines = {
+        { id = "veteran_default", text = "No? Then you've seen the other face of it, and I'll not call you a coward for that. I've buried more friends than I've kept. I only say that I knew what I was for in those days, and it's a hard thing to be old and unsure of it." },
+      },
+      choices = {
+        { text = "You're a smith. That's reason enough.", next = "BACK", reply = "Hm. That's what the tauren says, the one they call Ox. I'd not expected to hear it from two mouths.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    second_war = { { id = "tp_second_war", text = "We nearly had it. One mountain and one traitor's fleet short, and I'll go to my pyre saying so." } },
+    internment = { { id = "tp_internment", text = "I'll not speak of it at length. We forgot how to stand, and that's all there is to say." } },
+    thrall = { { id = "tp_thrall", text = "He's wrong about the humans and right about nearly everything else, and he pulled me out of the mud. I'm his." } },
+    dark_portal = { { id = "tp_dark_portal", text = "I came through it young and sure of myself. I wonder some nights what's on the other side now." } },
+    advice = { { id = "tp_advice", text = "Make it heavy and make it plain. Ornament is for people who expect to live." } },
+    _none = { { id = "tp_none", text = "Bah. That's some new thing, and I don't hold with new things." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ox: tauren smith of the Mithril Order, Valley of Honor; Booty Bay or Bust! (to McGavan).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ox", id = TODO_NPC("Ox"), name = "Ox", title = "The Mithril Order",
+  bible = "bibles/more_folk.md", role = "blacksmith", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "calm", "patient" }, values = { "craft", "wise" },
+  notices = { "race", "craft" },
+  impression = {
+    first = "Ox is a tauren smith who speaks for the Mithril Order at the forges of the Valley of Honor. He works slowly and without wasted motion, and treats the bad-tempered orc smiths around him like weather.",
+    third = "{name} met Ox, a tauren of the Mithril Order who works among the orc smiths of Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Be welcome. Stand upwind of the forge, friend; the smoke goes where it likes." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back, and I am glad of it. The metal has had time to think, and so have I." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. I see it in how you look at the fire before you look at me. Be welcome twice." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "It is good to see another of the herd among all this red rock. Have you word from Mulgore? I miss the grass." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You strike in a hurry, by the look of your wrist. Mithril will not be hurried, and it remembers every blow." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Ox. I work metal for the Mithril Order, which is a fellowship of smiths who care more for the craft than for the banner over the forge. The orcs have made room for me here, and I am grateful for it." },
+        { id = "h_before", when = { all = { { profession = { name = "Blacksmithing", min = 200 } }, { questBefore = TODO_QUEST("Booty Bay or Bust!") } } }, text = "You have the skill to work mithril, and I think the patience too. The Order would welcome such a smith. If you are willing, I will give you my sign to carry to McGavan in Booty Bay, who will set you on the path." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Booty Bay or Bust!") }, text = "You carry my sign. McGavan keeps his forge in Booty Bay, far to the south across the sea. He is brisk, as humans are, but he honors the Order's mark, whoever bears it." },
+        { id = "h_done", when = { questDone = TODO_QUEST("Booty Bay or Bust!") }, text = "You found McGavan, then, and he has sent word of you. The Order is a long road, friend, and I am glad to see you walking it." },
+      },
+      again = {
+        { id = "h_again", text = "There is no haste, friend, so what else would you ask?" },
+        { id = "h_again2", text = "Ask, friend. The fire will keep." },
+        { id = "h_again3", text = "Go on. I am listening." },
+      },
+      choices = {
+        { text = "What is the Mithril Order?", next = "order" },
+        { text = "How does a tauren come to forge in Orgrimmar?", next = "here" },
+        { text = "You seem unbothered by Aturk's temper.", next = "aturk" },
+        { text = "What makes mithril different from steel?", next = "mithril" },
+        { text = "Tell me again where to find McGavan.", next = "mcgavan", when = { questActive = TODO_QUEST("Booty Bay or Bust!") } },
+        { text = "The red rock is hard on a tauren's spirit.", next = "grass", when = { race = "Tauren" } },
+        { text = "Walk with the Earth Mother, Ox.", next = "END" },
+      },
+    },
+    order = {
+      lines = {
+        { id = "order_default", text = "Smiths of many peoples who hold that mithril deserves the best that hands can give it. The eldest of us is called Galvan, and he keeps his forge in the jungle of Stranglethorn. We share what we learn, and we ask only that a member's work be worthy of the metal." },
+      },
+      choices = {
+        { text = "Humans and Horde, sharing a craft?", next = "order2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    order2 = {
+      lines = {
+        { id = "order2_default", text = "Yes. McGavan is a man of the south, and there are dwarves among us, and I am what you see. At the anvil we speak of heat and grain and nothing else. It is the one place I know where the wars are left outside the door." },
+      },
+      choices = {
+        { text = "The orcs here can't all approve.", next = "order3" },
+        { text = "Something else, Ox.", next = "BACK" },
+      },
+    },
+    order3 = {
+      big = true,
+      lines = {
+        { id = "order3_default", text = "Some do not. Aturk has told me to my face that I trade secrets with the enemy. I answered that I have never given a dwarf a blade, only the knowledge of how to keep a furnace even, and that he gave me his own in return. A good pattern belongs to no banner, I think." },
+      },
+      choices = {
+        { text = "Craft belongs to no banner. You do well to share it.", next = "BACK", reply = "So the Order holds, and so the tauren have always held of the hunt. I am glad you see it so.", fx = { align = { light = 1 } } },
+        { text = "What a dwarf learns from you may arm the Alliance.", next = "BACK", reply = "It may. I have weighed that, and I walk on. A world where smiths cannot speak is a poorer one, and I will not help to build it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    here = {
+      lines = {
+        { id = "here_default", text = "Cairne asked for smiths to go to Orgrimmar, so that the tribes and the orcs would know each other's hands. I had never worked beside anyone who shouted so much. But they taught me steel, which the tauren never used greatly, and I taught them to rest between heats." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aturk = {
+      lines = {
+        { id = "aturk_default", text = "He is an old bull who has lost the herd he knew. I have seen it on the plains. Such a one stamps and bellows at the young and means none of it. I let him bellow, and now and then I bring him tea, and he drinks it and says it is terrible." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mithril = {
+      lines = {
+        { id = "mithril_default", text = "Steel forgives. You may strike it wrong and strike it again, and it will come right. Mithril is light and proud, and it holds every mistake where the next smith can see it. To work it well you must be calm before you lift the hammer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mcgavan = {
+      lines = {
+        { id = "mcgavan_default", text = "Take the goblins' ship from Ratchet to Booty Bay. McGavan's forge stands among the wooden walkways above the water, and you will hear it before you see it. Show him my sign and say little; he will ask what he wishes to know." },
+      },
+      choices = {
+        { text = "My thanks, Ox.", next = "BACK" },
+      },
+    },
+    grass = {
+      lines = {
+        { id = "grass_default", text = "It is. I dream of Mulgore most nights, and wake to dust. But the orcs had no home at all for many years, and they built this one from nothing with their own hands. I find I can bear the red rock when I remember that." },
+      },
+      choices = {
+        { text = "We'll both see the plains again.", next = "BACK", reply = "May it be so. May the eternal sun shine on you until then.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    cairne = { { id = "tp_cairne", text = "He sent me here, and he was right to. A herd that keeps to itself learns nothing new." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A loud wooden town where everything has a price. McGavan is honest, which makes him rare there." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The ore is hers before it is ours. I thank her at the first heat of each day." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The goblins carry our Order's letters between its smiths, for a fee, and they have never opened one that I know of." } },
+    advice = { { id = "tp_advice", text = "Rest between heats, friend. The metal needs it, and so do you." } },
+    _none = { { id = "tp_none", text = "I do not know that trail, friend, and I will not guess at where it leads." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Jhag: orc enchanter at Godan's Runeworks, the Drag; takes the beginners; Camping 101: Enchanting (Forever).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "jhag", id = TODO_NPC("Jhag"), name = "Jhag", title = "Enchanting Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "patient", "gentle" }, values = { "patient", "kind" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Jhag teaches the first steps of enchanting at Godan's Runeworks in the Drag. He is patient with clumsy students, and seems glad of any excuse to explain a thing a second time.",
+    third = "{name} met Jhag, the patient enchanter who teaches beginners at Godan's Runeworks in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come in, and shut the hide behind you. The dust settles better when the Drag stays outside." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. I kept your place at the bench, in case you had more questions." },
+    { id = "g_ench", when = { profession = "Enchanting" }, text = "Ah, you've the grey fingers of the trade. Sit, and tell me what you last took apart." },
+  },
+  notice = {
+    { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
+      text = "You've strange dust under your nails, and you've been rubbing your eyes with it. Don't. I learned that the slow way." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage. You'll find our work slow beside your own, I expect. We do in an afternoon what you do in a breath, but ours stays where it's put." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Jhag. Master Godan owns this shop and does the fine work, and I teach those who are starting out. It suits us both. He hasn't the patience for beginners, and I've nothing but." },
+        { id = "h_ench", when = { profession = "Enchanting" }, text = "I'm Jhag. You've begun the craft already, so I'll not make you sort dusts by color. Tell me where you're stuck, and we'll start there." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Enchanting") }, text = "You've come about the camping lesson, haven't you? Sit down. A little enchanter's craft will make a camp far kinder to sleep in, and it's the easiest thing I teach." },
+        { id = "h_campdone", when = { questDone = TODO_QUEST("Camping 101: Enchanting") }, text = "How did the camp serve you? I've wondered whether what I showed you held through a Durotar night. The wind there is hard on anything fine." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I explain?" },
+        { id = "h_again2", text = "Ask, please. I like being asked." },
+        { id = "h_again3", text = "Go on. There's no foolish question in this shop, whatever Godan says." },
+      },
+      choices = {
+        { text = "Teach me, Jhag.", next = "BUSINESS" },
+        { text = "Why must an enchanter destroy things to learn?", next = "unmake" },
+        { text = "What is Godan like as a master?", next = "godan" },
+        { text = "Who comes to learn a trade like this?", next = "students" },
+        { text = "This shop is very quiet for the Drag.", next = "shop" },
+        { text = "What has enchanting to do with a campsite?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Enchanting") } },
+        { text = "Thank you for your patience, Jhag.", next = "END" },
+      },
+    },
+    unmake = {
+      lines = {
+        { id = "unmake_default", text = "Because the magic is bound into the thing, and the only way to learn how it was tied is to untie it. You take a ring apart and you're left with dust and a small understanding. Put enough of those understandings together and you can tie the knot yourself." },
+      },
+      choices = {
+        { text = "That sounds like a costly way to learn.", next = "unmake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unmake2 = {
+      lines = {
+        { id = "unmake2_default", text = "It is, and it troubles the beginners. A young orc brings me the first good thing he's ever owned and I tell him he must unmake it. Some of them can't. I tell those ones to go and find something they care about less, and come back." },
+      },
+      choices = {
+        { text = "Did you find it hard, at the start?", next = "unmake3" },
+        { text = "Something else, Jhag.", next = "BACK" },
+      },
+    },
+    unmake3 = {
+      big = true,
+      lines = {
+        { id = "unmake3_default", text = "Very. The first piece I broke down was a copper band my sister gave me when the camps opened. It was all I had that was worth the dust. Godan didn't ask it of me. I chose it because I thought a craft ought to cost something to begin." },
+      },
+      choices = {
+        { text = "A craft should cost something. You chose well.", next = "BACK", reply = "I believe I did, though I think of that band more than I expected to. My sister says she'd have done the same.", fx = { align = { order = 1 } } },
+        { text = "No trade is worth a sister's gift. You were too hard on yourself.", next = "BACK", reply = "You may be right. I'd not let a student do it today. I'd hand him a bent nail and say begin with this.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    godan = {
+      lines = {
+        { id = "godan_default", text = "Exact, quiet, and kinder than he seems. He can't abide waste or noise, and beginners are made of both. So he gave them to me, and in return he teaches me in the evenings, when the shop's shut. I've learned more in those hours than I can tell you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    students = {
+      lines = {
+        { id = "students_default", text = "All kinds. There are warriors who want an edge that bites harder, and tailors who want their cloth to hold a charm. I had a peon once who'd saved for a year and only wanted his shovel to glow. I taught him, and it does. I've never been prouder of a student." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop = {
+      lines = {
+        { id = "shop_default", text = "We keep it so on purpose. The work wants a steady hand, and Zamja's cleaver next door doesn't help. Kithas hung the double hides over the door, and she keeps the accounts so that neither Godan nor I have to speak to a tax collector." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "camp_default", text = "More than you'd think. A rune scratched on a stone will hold a little warmth, or keep a lantern steady in the wind. It's small work, the smallest we do. But a traveler who's slept cold thinks better of the craft after one warm night." },
+      },
+      choices = {
+        { text = "Then show me how it's done.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    dalaran = { { id = "tp_dalaran", text = "Godan speaks of its books the way other orcs speak of old battles. I'd settle for seeing one page." } },
+    forsaken = { { id = "tp_forsaken", text = "They taught Godan a good deal and asked nothing but coin. I find them easier to learn from than to sit beside." } },
+    camping = { { id = "tp_camping", text = "A warm stone and a steady light. That's most of what a traveler needs, and I can teach both in an afternoon." } },
+    thrall = { { id = "tp_thrall", text = "I saw his hammer once from the back of a crowd. Godan says there's more bound into it than in everything on our shelves." } },
+    advice = { { id = "tp_advice", text = "Begin with something you can bear to lose, and work up from there." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I don't know that. I could ask Godan this evening, if you'll come by again." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Whuut: young orc alchemist at Yelmak's Alchemy and Potions, the Drag; Camping 101: Alchemy, Whuut's the Rush (Forever).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "whuut", id = TODO_NPC("Whuut"), name = "Whuut", title = "Alchemy Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "eager", "restless" }, values = { "ambitious", "curious" },
+  notices = { "craft" },
+  impression = {
+    first = "Whuut is Yelmak's gifted young alchemist in the Drag, forever reaching past the common herbs for the rarest thing on the shelf. He talks about what he will brew next more than what he is brewing now.",
+    third = "{name} met Whuut, a gifted and impatient young alchemist at Yelmak's shop in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "One moment, one moment, because if I take my eye off this it turns to tar. There, now it can sit a while, so tell me who you are." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Good, I want to tell someone what I'm planning, and Kor'geld has stopped listening." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Then you'll understand me when I ask whether you've ever worked with black lotus. I haven't either, yet." },
+  },
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "You've peacebloom stains to the elbow. Still on the simple herbs, then? No offense meant. I skipped most of those." },
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "You pick your own herbs, I can smell the sap. What's the rarest thing you've ever pulled out of the ground? Tell me everything." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Whuut! I work under Yelmak here, and I teach the beginners, though between ourselves I'd rather be at the back bench with the reagents nobody else is allowed to touch." },
+        { id = "h_alch", when = { profession = "Alchemy" }, text = "Whuut. You're in the craft, so you know how it is. They want you to make the same healing draught four hundred times, and all the while there's mountain silversage sitting right there on the shelf." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Alchemy") }, text = "The camping lesson, yes, Yelmak said someone would come. It's simple stuff, a few tonics to keep by a fire. I can show you between stirs." },
+        { id = "h_rush", tags = { "news" }, when = { questActive = TODO_QUEST("Whuut's the Rush") }, text = "What's that you're carrying, something from Yelmak? He never sends me anything but instructions. Give it here, then, because I'm in the middle of something important." },
+        { id = "h_rushdone", when = { questDone = TODO_QUEST("Whuut's the Rush") }, text = "Speargrass and cattail, and nothing else. I've been turning it over ever since you brought it. I walked past those plants every day of my life and never once thought to boil them." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Quickly, something's about to change color." },
+        { id = "h_again2", text = "Go on, I can talk and stir." },
+        { id = "h_again3", text = "Ask! I think better with somebody asking." },
+      },
+      choices = {
+        { text = "Teach me alchemy, Whuut.", next = "BUSINESS" },
+        { text = "Yelmak says you're a prodigy.", next = "prodigy" },
+        { text = "What would you brew, if nobody stopped you?", next = "dream" },
+        { text = "Who keeps this shop running?", next = "shop" },
+        { text = "What does a camp want with an alchemist?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Alchemy") } },
+        { text = "Common herbs have their own secrets, Whuut.", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "Don't let it turn to tar.", next = "END" },
+      },
+    },
+    prodigy = {
+      lines = {
+        { id = "prodigy_default", text = "He does say it, and then he says \"but\" every time. I can hold a recipe after reading it once, and I could tell you what's in a flask by the smell from across the room. It isn't boasting. It's just a thing I can do, like some orcs can throw an axe." },
+      },
+      choices = {
+        { text = "What comes after the \"but\"?", next = "prodigy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    prodigy2 = {
+      lines = {
+        { id = "prodigy2_default", text = "That I've no patience, that I waste what's rare, that I've never ruined a batch badly enough to learn from it. He wants me to grind peacebloom for a year. I ground peacebloom for a month and there was nothing left in it to know." },
+        { id = "prodigy2_done", when = { questDone = TODO_QUEST("Whuut's the Rush") }, text = "That I've no patience and waste what's rare. I used to answer that there was nothing left to know about the simple herbs. Then you brought me a potion made of ditch-weeds that I couldn't have brewed, and I've had less to say since." },
+      },
+      choices = {
+        { text = "Could he be right about the simple herbs?", next = "prodigy3" },
+        { text = "Something else, Whuut.", next = "BACK" },
+      },
+    },
+    prodigy3 = {
+      big = true,
+      lines = {
+        { id = "prodigy3_default", text = "He might be. I don't like saying so. If I slow down, I'm afraid I'll turn into one of the careful ones who makes the same four potions well until he dies. Yelmak says a gift without a foundation is only a quick way to fall over." },
+      },
+      choices = {
+        { text = "He's right. Master the roots before you reach for the crown.", next = "BACK", reply = "Everyone older than me says that. It's maddening how often they turn out to have a point.", fx = { align = { order = 1 } } },
+        { text = "Gifts like yours shouldn't wait on the slow. Reach.", next = "BACK", reply = "Yes! That's what I say. Though the last time I reached, I cost Yelmak a month's lotus. Don't tell him you said it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dream = {
+      lines = {
+        { id = "dream_default", text = "Something nobody's made. There are recipes in the old books that end halfway down the page because the alchemist didn't live to finish writing. I want to finish one. Yelmak says that's exactly the kind of sentence those alchemists said the day before." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop = {
+      lines = {
+        { id = "shop_default", text = "Yelmak owns it and teaches the ones who are worth his time. Kor'geld sells the vials and the common stock, and counts every leaf I take off the shelf, which I think is Yelmak's doing. Jandi sends herbs up from the arboretum, and always asks what I've wasted this week." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "camp_default", text = "A tonic for bad water, mostly, and something for the bites. You can brew both over a cook-fire in a tin cup. I'll admit it's cleverer than it looks, getting anything to work with no proper glass and half the heat blowing away." },
+      },
+      choices = {
+        { text = "Show me, then.", next = "BACK" },
+      },
+    },
+    herbs = {
+      lines = {
+        { id = "herbs_default", text = "Do they? You're the second person to tell me so this season. Go on, then, what's in a cattail that I can't get stronger from something rarer? No, really, I'm asking. I've started keeping a list." },
+      },
+      choices = {
+        { text = "Patience, for one. They teach you to look twice.", next = "BACK", reply = "Hah. I walked into that. Write it down for me, I'll put it at the top.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    wailing_caverns = { { id = "tp_wailing_caverns", text = "They say there are plants in there that grow nowhere else, changed by whatever's wrong with the place. I'd go tomorrow if Yelmak would let me." } },
+    forsaken = { { id = "tp_forsaken", text = "Their apothecaries have reagents I've only read about. Yelmak won't let me write to them, and he won't say why." } },
+    camping = { { id = "tp_camping", text = "Clean water and something for the bites. It's dull, and I'm told it saves more lives than anything else I make." } },
+    thrall = { { id = "tp_thrall", text = "I don't think of him much, honestly. Does he need a potion? I could make him one nobody's ever tasted." } },
+    advice = { { id = "tp_advice", text = "Read the recipe to the end before you light the burner. Yes, I learned that the usual way." } },
+    _none = { { id = "tp_none", text = "I've not read about that yet. Give me a week and the right book, and I'll know more than anyone." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Thund: orc engineer at Nogg's Machine Shop; takes the beginners for Nogg and Roxxik.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "thund", id = TODO_NPC("Thund"), name = "Thund", title = "Engineering Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "orgrimmar" }, temper = { "cheerful", "anxious" }, values = { "inventive", "curious" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Thund is an orc who took up engineering among the goblins of Nogg's Machine Shop and teaches its beginners. He is cheerful about the trade and has the slight flinch of someone who works beside explosives all day.",
+    third = "{name} met Thund, an orc engineer who teaches beginners at Nogg's Machine Shop in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome! Don't touch the red one. No, the other red one. Actually, keep your hands by your sides." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and I'm still here, so that's two pieces of good news." },
+    { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Count your fingers for me. All ten? You must be new, or very good." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "You've powder burn on your sleeve and none on your face. You've learned to turn your head, then. That's lesson one." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "That's a fine gun, and Kaja's work unless I miss my guess. If it ever jams, bring it to me before you bring it to a goblin, because I charge less and explain more." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Thund. Nogg owns the shop and Roxxik has the know-how, and I teach the beginners, on account of being the only one here who'll say the same thing twice without billing for it." },
+        { id = "h_eng", when = { profession = "Engineering" }, text = "Thund. You're in the trade, so you know the first rule, which is that everything works until it doesn't. I teach the second rule, which is where to stand when it doesn't." },
+        { id = "h_orc", when = { race = "Orc" }, text = "I'm Thund, and yes, I'm an orc in a goblin shop. My clan think I've lost my mind. I tell them I've seen what a goblin rocket does to a quilboar wall, and I want to know how." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Mind that lever." },
+        { id = "h_again2", text = "Go on and ask, since nothing's ticking just now." },
+        { id = "h_again3", text = "Ask away! I'll duck if I need to." },
+      },
+      choices = {
+        { text = "Teach me engineering, Thund.", next = "BUSINESS" },
+        { text = "How does an orc end up working for goblins?", next = "goblins" },
+        { text = "You flinch when something clicks.", next = "flinch" },
+        { text = "What are Nogg and Roxxik like to work for?", next = "bosses" },
+        { text = "What does this shop actually build?", next = "build" },
+        { text = "Goblin and gnomish work. Which do you favor?", next = "schools", when = { profession = "Engineering" } },
+        { text = "Keep your fingers, Thund.", next = "END" },
+      },
+    },
+    goblins = {
+      lines = {
+        { id = "goblins_default", text = "I was a peon on the wall crews when the city was built. A goblin team came through to blast the back of the Drag out of the rock, and they did in one morning what we'd have dug in a season. I put down my pick and asked the nearest one how. He said, \"For a fee.\"" },
+      },
+      choices = {
+        { text = "Did you pay it?", next = "goblins2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goblins2 = {
+      lines = {
+        { id = "goblins2_default", text = "I swept Nogg's floor for two years to pay it. Peons don't have coin, so I paid in sweeping and in holding things that might go off. Then one day Roxxik's press jammed and I had it apart and back together before he'd finished swearing, and they started paying me." },
+      },
+      choices = {
+        { text = "Your clan still disapproves?", next = "goblins3" },
+        { text = "Something else, Thund.", next = "BACK" },
+      },
+    },
+    goblins3 = {
+      big = true,
+      lines = {
+        { id = "goblins3_default", text = "My uncle does. He says an orc's strength is in his arm and his axe, and that powder is a coward's weapon, since it kills from behind a rock. I tell him a catapult does the same and nobody calls that cowardly. We don't speak much at feasts." },
+      },
+      choices = {
+        { text = "He's right. There's no honor in killing from behind a rock.", next = "BACK", reply = "That's him to the letter. I notice the grunts on the wall are glad enough of my cannon when the centaur come.", fx = { align = { honor = 1 } } },
+        { text = "Your uncle's wrong. Whatever keeps orcs alive is honorable.", next = "BACK", reply = "That's what I think! I only wish I could say it to him without the whole table going quiet.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flinch = {
+      lines = {
+        { id = "flinch_default", text = "You'd flinch too. I've been within arm's reach of three bench fires and one thing Roxxik still calls \"the incident.\" A goblin laughs and pats out his eyebrows. I've never got the knack of that. I just keep a bucket of sand by each foot." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bosses = {
+      lines = {
+        { id = "bosses_default", text = "Nogg counts everything and trusts nothing, and Roxxik will sell you your own spanner if you put it down. But they took on a peon when no orc smith would have, and they've never once cheated me on wages. Sovik, out front, slips me the parts with the scratched cases." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    build = {
+      lines = {
+        { id = "build_default", text = "Guns and powder for the hunters, mostly, and blasting charges for the mines. Roxxik's forever working on something he won't show anyone. I do the plain repairs, the scopes and springs, and I like those best. A thing that was broken and now works is a good day." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    schools = {
+      lines = {
+        { id = "schools_default", text = "Goblin, and I'm not only saying it because of who pays me. A gnome builds a thing to work every time and it takes him a year. A goblin builds it to work most times by tomorrow. When there's a centaur warband at the gate, I know which I'd rather have." },
+      },
+      choices = {
+        { text = "Most times by tomorrow suits the Horde.", next = "BACK", reply = "That's what I say! Put it over the shop door, Roxxik would love it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    ratchet = { { id = "tp_ratchet", text = "Every part in this shop comes through there. I went once and it was the loudest place I've ever loved." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "They'll sell to anyone, and they say so. I trust that more than I'd trust a promise." } },
+    centaur = { { id = "tp_centaur", text = "They don't like loud noises. That's most of why I have work." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Roxxik says the gnomes built a whole city of machines and then lost it to their own cleverness. He tells it as a joke, and I've never found it funny." } },
+    advice = { { id = "tp_advice", text = "Know where the sand bucket is before you light anything." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and I've learned not to poke at things I don't know." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Snang: orc tailor at Magar's Cloth Goods, the Drag; takes the beginners; Camping 101: Tailoring (Forever).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "snang", id = TODO_NPC("Snang"), name = "Snang", title = "Tailoring Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "fussy", "earnest" }, values = { "craft", "careful" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Snang teaches the beginners at Magar's Cloth Goods in the Drag, and cannot pass a crooked seam without reaching for it. He is earnest about a craft most orcs think beneath them, and has given up defending it.",
+    third = "{name} met Snang, a fussy young tailor who teaches beginners at Magar's Cloth Goods in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand still a moment. You've a thread loose at the shoulder, and I'll not be able to listen to you until it's gone." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. You've torn that hem since I saw you. How do you people manage it?" },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! Let me see your seams. No, the inside. Anybody can make the outside look right." },
+  },
+  notice = {
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "You've pricked your thumb to pieces. Push with the thimble, not the flesh. I must say that forty times a day." },
+    { id = "n_cloth", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "Those robes were cut for someone a hand taller than you. You've been stepping on the hem, I can see where it's gone grey." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Snang. Magar is master here, and I take those who've never threaded a needle. In an orc city that's nearly everyone, so I'm kept busy." },
+        { id = "h_tailor", when = { profession = "Tailoring" }, text = "I'm Snang. You know the craft a little, so we can skip how to hold the shears. Most of my week goes to prying them out of fists." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Tailoring") }, text = "You're here about the camp, aren't you? Good. A tent that leaks and a bedroll that splits are both a tailor's fault, and I can teach you to make neither." },
+        { id = "h_campdone", when = { questDone = TODO_QUEST("Camping 101: Tailoring") }, text = "Did the canvas hold? Tell me truthfully, because if a seam went, I want to know which one, so I can teach it better." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm only pinning." },
+        { id = "h_again2", text = "Go on, ask. I can sew and listen." },
+        { id = "h_again3", text = "Yes? Mind the pins on the bench." },
+      },
+      choices = {
+        { text = "Teach me to sew, Snang.", next = "BUSINESS" },
+        { text = "What do orcs make of an orc who sews?", next = "orcs" },
+        { text = "What is Magar like as a master?", next = "magar" },
+        { text = "What's the hardest thing to teach a beginner?", next = "hard" },
+        { text = "Handor and Tor'phan seem to quarrel a good deal.", next = "neighbours" },
+        { text = "What has a tailor to do with a campsite?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
+        { text = "I'll mind my hems, Snang.", next = "END" },
+      },
+    },
+    orcs = {
+      lines = {
+        { id = "orcs_default", text = "Not much. A smith is respected and a leatherworker is at least bloody. A tailor is thought to be doing what a grandmother does. I've had grunts laugh at me in the Drag, in tunics I stitched for them." },
+      },
+      choices = {
+        { text = "Why choose it, then?", next = "orcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs2 = {
+      lines = {
+        { id = "orcs2_default", text = "Because of the camps. We wore what the humans threw us, sacking and dead men's shirts, and nothing fit anyone. When Thrall freed us, the first thing I wanted was a garment made for the one wearing it. Nobody was making them, so I learned how." },
+      },
+      choices = {
+        { text = "That's a better reason than most warriors have.", next = "orcs3" },
+        { text = "Something else, Snang.", next = "BACK" },
+      },
+    },
+    orcs3 = {
+      big = true,
+      lines = {
+        { id = "orcs3_default", text = "I think so. Magar says a people who dress themselves are a people again, and I've always held to that. But I've stopped saying it to the grunts. I only sew now, and I let the tunics speak for me, and I don't know if that's patience or having given up." },
+      },
+      choices = {
+        { text = "Let the work speak. It will outlast their laughing.", next = "BACK", reply = "That's what I've settled on. It's a slow way to win an argument, but the seams hold.", fx = { align = { order = 1 } } },
+        { text = "Don't go quiet. Tell them what the trade means.", next = "BACK", reply = "I used to. They heard me out and then asked if I did mending. But perhaps I stopped too soon.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    magar = {
+      lines = {
+        { id = "magar_default", text = "Exacting, and never unkind about it. Magar will unpick a whole sleeve of mine without a word and hand it back to me to do again. I used to mind. Now, when a piece of mine is passed without being touched, I'm happy for a week." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard = {
+      lines = {
+        { id = "hard_default", text = "Patience with the cutting. They all want to sew, because sewing looks like the work. But the garment is decided on the cutting table, and if it's cut badly no stitch will save it. I make them measure three times, and they hate me until the first thing fits." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours = {
+      lines = {
+        { id = "neighbours_default", text = "That's all show. They've stood across from each other since the Drag was roofed, and they'd be lost without it. Borya here sells the thread and bolts to both of them, and he says they complain about the same things in the same words." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "camp_default", text = "Everything. Canvas, guy-lines, a bedroll that keeps the ground out of your bones. I'll teach you a flat seam that sheds rain, and how to patch in the dark by feel. It isn't fine work, but you'll bless it the first wet night in the Barrens." },
+      },
+      choices = {
+        { text = "Then let's begin.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    internment = { { id = "tp_internment", text = "Sacking and dead men's shirts. I can still feel the itch when I think of it." } },
+    camping = { { id = "tp_camping", text = "A dry tent is half of a good night. The other half is not pitching it in a gully." } },
+    thrall = { { id = "tp_thrall", text = "I'd like to make him something that isn't armor. I doubt he owns anything that isn't." } },
+    trade = { { id = "tp_trade", text = "Linen and wool come up from the Barrens, and silk, when the goblins have it, costs what they please." } },
+    advice = { { id = "tp_advice", text = "Measure three times, because cloth doesn't grow back." } },
+    _none = { { id = "tp_none", text = "I couldn't say. If it isn't cut from cloth, I've likely never looked at it properly." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kamari: orc leatherworker at Kodohide Leatherworkers, the Drag; Beasts of Thunder Ridge, Halikor's Hoof (Forever).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "kamari", id = TODO_NPC("Kamari"), name = "Kamari", title = "Leatherworking Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
+  communities = { "orgrimmar" }, temper = { "fierce", "blunt" }, values = { "brave", "practical" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Kamari teaches beginners at the Kodohide Leatherworkers in the Drag and killed and skinned the beast whose hide lies on her floor. She would rather be hunting than teaching, and does not pretend otherwise.",
+    third = "{name} met Kamari, a fierce leatherworker in Orgrimmar who hunts her own hides.",
+  },
+  greetings = {
+    { id = "g_default", text = "You're standing on my best kill. I tracked that beast, brought it down and took the hide off it with my own knife, and I only wish the centaur came apart so cleanly." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. Have you killed anything worth skinning since?" },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "You work hides. Then tell me, do you buy them, or do you take them yourself?" },
+  },
+  notice = {
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "There's a skinning knife on your belt, and it's seen use. Good. I've no time for those who've never opened a beast." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. Where do you put your shot? If it's the flank, you're ruining the best of the hide, and I'll not buy from you." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Kamari. Karolek is master of this shop and I teach the ones who are starting. I'd sooner be out past the gate with a knife, but someone has to show these whelps which side of a hide is which." },
+        { id = "h_lw", when = { profession = "Leatherworking" }, text = "Kamari. You know the trade somewhat, so I'll speak plainly. Half of good leather is how the beast was killed, and nobody in a shop will tell you so." },
+        { id = "h_ridge", tags = { "news" }, when = { questActive = TODO_QUEST("Beasts of Thunder Ridge") }, text = "You're bound for Thunder Ridge, then. The lizards there have hides like nothing else in Durotar, thick and still humming with the storm in them. Bring them back whole, and don't touch the horn." },
+        { id = "h_hoof", when = { questDone = TODO_QUEST("Halikor's Hoof") }, text = "So you're the one who brought down Halikor. I've wanted that beast for two seasons. Next time you find something that size, you come and get me first." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Be quick about it." },
+        { id = "h_again2", text = "Go on. I'm only scraping." },
+        { id = "h_again3", text = "Ask. I'll answer if it's worth answering." },
+      },
+      choices = {
+        { text = "Teach me to work leather, Kamari.", next = "BUSINESS" },
+        { text = "Tell me about the beast on your floor.", next = "rug" },
+        { text = "You speak of the centaur with real hatred.", next = "centaur" },
+        { text = "Who else works in this shop?", next = "shop" },
+        { text = "What's so special about thunder lizard hide?", next = "lizard" },
+        { text = "I hunt for the hides myself.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Good hunting, Kamari.", next = "END" },
+      },
+    },
+    rug = {
+      lines = {
+        { id = "rug_default", text = "A plainstrider from the Barrens, the biggest I ever saw, the kind that can outrun a wolf. I tracked it two days and took it with one throw at dusk. I cured the hide myself on the road home, and Karolek says it's the best work I've done." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    centaur = {
+      lines = {
+        { id = "centaur_default", text = "I've reason. When the city was being built I rode guard on the hide caravans from the Barrens, and the centaur hit us at the Southfury crossing. They don't raid for the goods. They kill the drivers and the kodo and leave it all to rot." },
+      },
+      choices = {
+        { text = "You fought them there?", next = "centaur2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    centaur2 = {
+      lines = {
+        { id = "centaur2_default", text = "I did, and we held, and I lost a friend who'd come out of the camps beside me. Afterward I went back alone and took a hide from one of theirs. I meant to make something of it, a drum or a shield-cover, so that every orc in the Drag would see." },
+      },
+      choices = {
+        { text = "Did you make it?", next = "centaur3" },
+        { text = "Something else, Kamari.", next = "BACK" },
+      },
+    },
+    centaur3 = {
+      big = true,
+      narr = "She stops scraping, and the blade rests flat on the hide.",
+      lines = {
+        { id = "centaur3_default", text = "No. Karolek wouldn't have it in the shop. He said we skin beasts, and that the day we skin things that speak, we're no better than they are. I shouted at him for an hour. It's still in a chest at home, uncured and spoiled now, and I've not been able to throw it out." },
+      },
+      choices = {
+        { text = "Karolek was right. Bury it, and be done.", next = "BACK", reply = "I know he was. Knowing it and doing it aren't the same. Maybe this winter.", fx = { align = { light = 1 } } },
+        { text = "They killed your friend. You owed them no better.", next = "BACK", reply = "That's what I said to Karolek. It sounded stronger when I was the one shouting it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop = {
+      lines = {
+        { id = "shop_default", text = "Karolek is master, and Thuwd teaches the skinning out front and thinks only of the knife. Tamar sells the salts and thread. Handor and Morgum sell what we make, and they argue with us over the price as if we weren't all kin by now." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lizard = {
+      lines = {
+        { id = "lizard_default", text = "The storm stays in it. You can feel it in your fingers when you scrape one, a prickle like the air before rain. It's hard to cut and worse to stitch, and it'll turn a blade better than boiled kodo. There's a great one out on Thunder Ridge the hunters call Halikor." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hunter_default", text = "Then you're worth talking to. Go for the throat or behind the shoulder, and never the belly. Skin it warm, and salt it before you sleep, however tired you are. I'd take one hide from a hunter who knows that over ten from a butcher." },
+      },
+      choices = {
+        { text = "Throat or shoulder, and salt before sleep.", next = "BACK", reply = "Good. You listen. Bring me what you take and I'll tell you honestly what it's worth.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    centaur = { { id = "tp_centaur", text = "They kill for the pleasure of it and leave the meat. I've no words for a hunter who wastes the kill." } },
+    quilboar = { { id = "tp_quilboar", text = "Bristle and scar, and hardly worth the knife. Their hide makes poor leather and worse boots." } },
+    internment = { { id = "tp_internment", text = "They gave us nothing to do with our hands. I think that's why I can't sit idle now." } },
+    thrall = { { id = "tp_thrall", text = "He lets a huntress teach and a peon learn. I'd follow him for that alone." } },
+    advice = { { id = "tp_advice", text = "Salt the hide before you sleep. Tomorrow is too late." } },
+    _none = { { id = "tp_none", text = "I don't know it. If it has a hide, bring me the hide and I'll tell you something." } },
+  },
+}
+
