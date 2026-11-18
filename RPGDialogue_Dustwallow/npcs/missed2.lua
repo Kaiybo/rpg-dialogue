@@ -157,7 +157,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask, and I'll answer between bouts." },
-        { id = "h_again2", text = "Yes?" },
+        { id = "h_again2", text = "Yes, what else would you ask?" },
       },
       choices = {
         { text = "You don't shout the way Criton does.", next = "quiet" },
@@ -396,7 +396,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I'm next up." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, I am listening." },
       },
       choices = {
         { text = "What did happen with the mud?", next = "mud" },
@@ -619,8 +619,8 @@ P:NPC {
         { id = "h_default", text = "I serve on Captain Thomas' Blue Team with Edward and Kahil. I'm neither the strongest nor the fastest here, so I've made a habit of deciding how a bout will end before I step in." },
       },
       again = {
-        { id = "h_again", text = "Something more?" },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again", text = "Was there something more you wanted?" },
+        { id = "h_again2", text = "Go on, I am listening." },
       },
       choices = {
         { text = "Tark says he can't read you.", next = "tark" },
