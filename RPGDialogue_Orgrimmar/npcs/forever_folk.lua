@@ -85,8 +85,8 @@ P:NPC {
         { id = "ag_default", text = "Older than most wolves get, and slower in the mornings. Some say a hunter should let an old beast go before it fails him in the field, and others say you stay with it to the end. What would you do?" },
       },
       choices = {
-        { text = "Stay with him to the end. He's earned that.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Let him rest, and find a younger hunting partner.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Stay with him to the end. He's earned that.", next = "BACK", reply = "That's what I'll do, then, and Evermore will hunt beside me till he can't. He's earned his last run.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Let him rest, and find a younger hunting partner.", next = "BACK", reply = "Maybe that's wiser, but I couldn't do it. Evermore stays, and I'll carry the slower mornings.", fx = { align = { honor = -1 } } },
         { text = "That's between you and Evermore.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
         { id = "gh_default", text = "The cove, every time, because the tide comes in and the humans come with it. Some fighters say you hold your ground no matter what, and some say you fall back and take it again later. What kind of fighter be you?" },
       },
       choices = {
-        { text = "I hold the line. Nobody gives up ground.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I fall back, wait, and strike where they're weak.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I hold the line. Nobody gives up ground.", next = "BACK", reply = "Dat be the warrior's way, mon, and the cove need more like you. Hold it, and the tide break on you.", fx = { align = { order = 1 } } },
+        { text = "I fall back, wait, and strike where they're weak.", next = "BACK", reply = "Smart, mon, very smart, and the humans never see it coming. Fall back, and take it again.", fx = { align = { order = -1 } } },
         { text = "I'll find out when I get there.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -283,8 +283,8 @@ P:NPC {
         { id = "he_default", text = "Your armor, yes, but never your face, and Mon'ye don't do that kind of work. Some customers want to look humble so nobody sees them coming, and some want to look exactly as dangerous as they be. Which kind be you?" },
       },
       choices = {
-        { text = "Let them see exactly what's coming.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Humble. Let them underestimate me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let them see exactly what's coming.", next = "BACK", reply = "Then Mon'ye make you look like the storm, mon, and they see you coming a mile off. Good choice.", fx = { align = { honor = 1 } } },
+        { text = "Humble. Let them underestimate me.", next = "BACK", reply = "Humble it is, mon, and they never know what hit them. Mon'ye like that kind of customer.", fx = { align = { honor = -1 } } },
         { text = "I haven't decided yet.", next = "BACK" },
       },
     },

@@ -76,8 +76,8 @@ P:NPC {
         { id = "sc_default", text = "A jest, little one, though the Council began humbly enough, whispering in tents beside the orcs' warlocks. Everything great begins as something small that nobody thought to stamp on, and that is the only lesson worth carrying out of this hold." },
       },
       choices = {
-        { text = "Then someone should have stamped on you long ago.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Ambition's no crime. Small things should aim high.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then someone should have stamped on you long ago.", next = "BACK", reply = "Many tried, little one, and their bones are in the foundations of this place. You are welcome to join them.", fx = { align = { honor = 1 } } },
+        { text = "Ambition's no crime. Small things should aim high.", next = "BACK", reply = "How refreshing, a little thing with sense. Keep that ambition, and perhaps one day you'll be worth noticing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +106,8 @@ P:NPC {
         { id = "cc_default", text = "They die, as people do, and the druids at their little sanctuary write their names on stones. You disapprove, I see, but you came here to buy from me, so let us not pretend either of us has clean hands." },
       },
       choices = {
-        { text = "My hands aren't clean, but I don't pretend it's scholarship.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power has a price. Someone always pays it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My hands aren't clean, but I don't pretend it's scholarship.", next = "BACK", reply = "An honest answer, and I almost respect it. Your hands will be dirtier yet before you leave Felwood.", fx = { align = { light = 1 } } },
+        { text = "Power has a price. Someone always pays it.", next = "BACK", reply = "Indeed, and you would rather it were not you, which is wise. Come back when you are willing to pay it yourself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
         { id = "dt_default", text = "Then you will meet Shadow Lord Fel'dan and the others on your way out, and I will sell your boots to the next fool. Now I will ask you something: why would anyone of your sort trade with me, rather than simply try to kill me?" },
       },
       choices = {
-        { text = "Because I need what you sell. I'll deal with you later.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Because a bargain is a bargain, even with you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Because I need what you sell. I'll deal with you later.", next = "BACK", reply = "Later, little one, is a word the Council has heard many times. We are still here, and they are not.", fx = { align = { order = 1 } } },
+        { text = "Because a bargain is a bargain, even with you.", next = "BACK", reply = "Even with me, yes, and that is the first wise thing you have said. A bargain kept is the only honesty I value.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
         { id = "xf_default", text = "Then a dreadsteed will have you instead, and I will have one fewer customer. But you will not fail, I think, because warlocks who have come this far have already decided their souls are a fair price." },
       },
       choices = {
-        { text = "My soul's my own. I bargain on my terms.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Any price is fair for real power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My soul's my own. I bargain on my terms.", next = "BACK", reply = "On your terms, then, and we shall see how long they last. The dreadsteeds are fond of confident warlocks.", fx = { align = { light = 1 } } },
+        { text = "Any price is fair for real power.", next = "BACK", reply = "Spoken like a true customer, little one. Power always costs exactly what you can bear, and a little more.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

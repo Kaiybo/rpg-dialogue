@@ -60,8 +60,8 @@ P:NPC {
       big = true,
       lines = { { id = "fa_default", text = "Both, all, everybody, pal. Gold doesn't fly a flag, and neither does a Steamwheedle banker. I've had Horde and Alliance in my queue at the same time, glarin' at each other, and they both paid the same fee." } },
       choices = {
-        { text = "That's how it should be. Business keeps the peace.", next = "BACK", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
-        { text = "Some things should matter more than coin, Izzy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's how it should be. Business keeps the peace.", next = "BACK", reply = "You get it, pal, and that's why nobody's ever drawn steel in my line, because they both know the vault closes on whoever starts it. Peace is just good business with better manners.", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
+        { text = "Some things should matter more than coin, Izzy.", next = "BACK", reply = "Sure, sweetheart, and when you find one of those things, bring it by and I'll see if I can store it for you. Until then, the vault only takes what jingles.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
       big = true,
       lines = { { id = "vy_default", text = "I don't send anybody anywhere, pal, I just sell 'em picks and wave goodbye. What they do with the picks is between them and the yeti, and some of 'em come back rich, and some of 'em come back in pieces, and both kinds paid up front." } },
       choices = {
-        { text = "You should warn them properly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Their risk, your profit. Smart.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should warn them properly.", next = "BACK", reply = "Warn 'em? Pal, I put a sign up, and the yetis ate the sign. Anybody who walks into those caves without hearin' the roaring first wasn't gonna listen to me anyway.", fx = { align = { honor = 1 } } },
+        { text = "Their risk, your profit. Smart.", next = "BACK", reply = "Now there's a customer who reads the small print! Every pick that walks out that door is paid for in full, and whatever comes back is a happy bonus.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,8 +200,8 @@ P:NPC {
       big = true,
       lines = { { id = "id_default", text = "Course it's dangerous, chum! If survival was your first priority, you could never be a real goblin engineer. We goblin engineers laugh at danger, and sometimes danger laughs back, and that's just the overhead." } },
       choices = {
-        { text = "Fortune favors the bold. I'd try it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Some risks aren't worth any profit.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fortune favors the bold. I'd try it.", next = "BACK", reply = "Ha! That's the spirit, chum, and I'll put you down as a test subject, I mean a valued customer, right after I find my other eyebrow. Bold folks make the best data.", fx = { align = { order = -1 } } },
+        { text = "Some risks aren't worth any profit.", next = "BACK", reply = "Sure, and some folks never leave the house, and they never get to see a yeti turn inside out either. Your loss, pal, but I respect a coward who knows his own mind.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

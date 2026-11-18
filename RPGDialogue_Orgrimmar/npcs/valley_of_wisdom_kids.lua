@@ -93,8 +93,8 @@ P:NPC {
         { id = "gp_default", text = "All right, but you have to be the Alliance, and you have to lose at the end, because the Horde always wins. Mogra says that's not fair but it's my rule. Do you want to win or be fair?" },
       },
       choices = {
-        { text = "A game's only fun if anyone can win, Migi.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll lose on purpose. Just don't tell Mogra.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "A game's only fun if anyone can win, Migi.", next = "BACK", reply = "Mogra says that too, and now you're saying it. All right, but if the Alliance wins, I'm not playing anymore.", fx = { align = { honor = 1 } } },
+        { text = "I'll lose on purpose. Just don't tell Mogra.", next = "BACK", reply = "I won't tell, I promise! You're the best Alliance anybody ever played, honest.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Maybe another time.", next = "BACK" },
       },
     },
@@ -202,8 +202,8 @@ P:NPC {
         { id = "ch_default", text = "Because I'm the best at it, and because I'm the only one who remembers all the rules. Brog says that's not why, he says it's because I shout loudest. Is it better to be the best or the loudest?" },
       },
       choices = {
-        { text = "The best. Lead because you're good at it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The loudest. Whoever takes charge, gets it.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "The best. Lead because you're good at it.", next = "BACK", reply = "The best, I knew it! I'm going to tell Brog you said so, and he'll have to stop shouting.", fx = { align = { order = 1 } } },
+        { text = "The loudest. Whoever takes charge, gets it.", next = "BACK", reply = "Then I'll shout even louder, and nobody will ever take my place. Thanks!", fx = { align = { order = -1 }, trait = { witty = 1 } } },
         { text = "Both, I think, in your case.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -301,8 +301,8 @@ P:NPC {
         { id = "wi_default", text = "Sometimes, but if I stopped healing, everybody would lose their figures and the game would be over too soon. Mogra says healers never win wars, but my grandmother says nobody wins wars without them. Who's right?" },
       },
       choices = {
-        { text = "Your grandmother. Keeping people alive matters most.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Mogra. Sometimes you have to fight to win.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your grandmother. Keeping people alive matters most.", next = "BACK", reply = "I knew it! I'm going to tell Mogra right now, and she'll have to let me keep healing.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Mogra. Sometimes you have to fight to win.", next = "BACK", reply = "Maybe, but if I stop healing, nobody's left to fight. I'll ask my grandmother again.", fx = { align = { light = -1 } } },
         { text = "I think you already know.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },

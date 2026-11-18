@@ -101,8 +101,8 @@ P:NPC {
       },
       choices = {
         { text = "Were any of them edible?", next = "library_edible" },
-        { text = "Knowledge should be open to anyone who asks.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A library needs rules, or it's just a pile.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge should be open to anyone who asks.", next = "BACK", reply = "In principle I agree, but in practice the last person who asked took Lord Ebonlocke's atlas to Duskwood and left it in a puddle. Open, yes, but careful.", fx = { align = { order = -1 } } },
+        { text = "A library needs rules, or it's just a pile.", next = "BACK", reply = "Thank you! I'll embroider that on a cushion and set it on the reading bench, where the apprentices will ignore it as usual.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     library_edible = {
@@ -147,8 +147,8 @@ P:NPC {
       },
       choices = {
         { text = "Have you read them yourself?", next = "essays_read" },
-        { text = "Some doors are better left without maps.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If there's a door, we should understand it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some doors are better left without maps.", next = "BACK", reply = "Khadgar might have agreed with you, in his later years. But a door without a map is only a door you trip through in the dark.", fx = { align = { light = 1 } } },
+        { text = "If there's a door, we should understand it.", next = "BACK", reply = "That's the scholar's answer, and the one I'd have given at your age. I still give it, though I lower my voice now when I do.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
     essays_read = {
@@ -185,8 +185,8 @@ P:NPC {
         { id = "mf_default", text = "Not forgotten, never that, only buried. Since all these strange happenings began, every lord and captain in Stormwind wants a book, a map or an opinion by Tuesday, and a quiet man at the edge of the world gets pushed to the bottom of the pile." },
       },
       choices = {
-        { text = "The man watching the Portal should come first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Stormwind's lords keep the city standing. They come first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The man watching the Portal should come first.", next = "BACK", reply = "That's what I keep saying, but the man watching the Portal doesn't have a seat at court. I'll keep looking for those essays, I promise you.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stormwind's lords keep the city standing. They come first.", next = "BACK", reply = "They keep it standing, I'll grant, and they do love to remind me of it while they wait for their maps. Nethergarde can wait a day, I suppose.", fx = { align = { order = 1 } } },
         { text = "What strange happenings?", next = "happenings" },
       },
     },
@@ -340,8 +340,8 @@ P:NPC {
         { id = "hk_default", text = "I pray so, and I keep the histories of his father's reign on the front shelf, in case he wants to read them when he's home. It's a small thing, but small things are what I'm good at." },
       },
       choices = {
-        { text = "He'll come back. Stormwind doesn't lose its kings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The city can't wait on one man forever.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "He'll come back. Stormwind doesn't lose its kings.", next = "BACK", reply = "I'd like to believe that as much as you do. Until then, his father's histories stay on the front shelf, dusted every morning.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The city can't wait on one man forever.", next = "BACK", reply = "Perhaps not, but a city that stops waiting has given up on more than one man. I'll keep my small hope, if you don't mind.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -361,8 +361,8 @@ P:NPC {
         { id = "xdl_default", text = "Then there's hope, and hope will have to do until someone in a violet robe deigns to write back. Dalaran was the reason I took up books in the first place; it's strange to love a city you've never been allowed into." },
       },
       choices = {
-        { text = "Dalaran should share what it knows with Stormwind.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Dalaran keeps its secrets for good reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dalaran should share what it knows with Stormwind.", next = "BACK", reply = "They should, and some of their archmages agree with you in private. In public, their letters are very elegant ways of saying no.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dalaran keeps its secrets for good reason.", next = "BACK", reply = "Good reason or not, it makes for a lonely library. Still, I've read enough of Khadgar to know what careless sharing can open.", fx = { align = { order = 1 } } },
       },
     },
     xquarter = {
@@ -406,8 +406,8 @@ P:NPC {
         { id = "xw_default", text = "Perhaps not, and I'm not a jailer by temperament, believe me. But I've seen what one page can do in the wrong hour, and I'd sooner be called a coward by you than be the man who handed over the third fire." },
       },
       choices = {
-        { text = "Power belongs to those willing to master it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "That's fair. Some things should stay shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power belongs to those willing to master it.", next = "BACK", reply = "I've heard that before, from people who weren't here a year later to repeat it. The shelf stays locked, and I'll sleep easier for it.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "That's fair. Some things should stay shut.", next = "BACK", reply = "Thank you, truly. It's not often someone with your sort of power agrees with me on that, and it makes my keys feel a little lighter.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     xdone = {

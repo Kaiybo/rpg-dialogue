@@ -83,8 +83,8 @@ P:NPC {
         { id = "st2_default", text = "Tell him I was drunk on watch while the Dark Irons blew the Span? He'd throw me off it himself, an' I'd no' blame him." },
       },
       choices = {
-        { text = "The truth is owed to the dead, Foggy.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your secret's safe. It changes nothing now.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "The truth is owed to the dead, Foggy.", next = "BACK", reply = "Aye, it is, an' I know it, which is why I drink. Maybe one day I'll have the stones tae say it to his face.", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe. It changes nothing now.", next = "BACK", reply = "Bless ye for that. It changes nothin', true, but it lets an old fool sleep a wee bit easier.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -41,8 +41,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "There are kobolds in the mine, wolves in the woods, and Defias in the vineyard. Your spirits might help, if you're willing." } },
       choices = {
-        { text = "I'll help keep the valley safe, Willem. Count on it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The valley can handle itself. I've places to be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll help keep the valley safe, Willem. Count on it.", next = "BACK", reply = "Good, and I'll put your name at the top of the bounty board. Start with the kobolds, they're closest.", fx = { align = { order = 1 } } },
+        { text = "The valley can handle itself. I've places to be.", next = "BACK", reply = "It can't, friend, or I'd not be asking. Go on, then, and mind the wolves on your way out.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -50,8 +50,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They shout that nobody takes their candle at anyone who comes near, so I reckon they're afraid of the dark down in those tunnels. I'd almost feel sorry for them, if they weren't digging up the vineyard to get here." } },
       choices = {
-        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Leave them their candles and they'll stop digging. Fear makes them bold.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", reply = "That's the job, and I'll mark it on the board. The Marshal will be glad.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Leave them their candles and they'll stop digging. Fear makes them bold.", next = "BACK", reply = "Maybe they would, but they've had the Abbey's candles already. I'd rather they stopped digging under the vines.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -59,8 +59,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Walk in and take their bandanas, and make it hard enough that they think twice about coming back. The Marshal wants a full count, and I want the vineyard clear before the grapes are ruined." } },
       choices = {
-        { text = "I'll take the bandanas and clear the vineyard.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll take the bandanas. The vineyard's not my concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take the bandanas and clear the vineyard.", next = "BACK", reply = "That's what I want to hear, and the Marshal will be glad of the count. Mind the ones in the rows.", fx = { align = { honor = 1 } } },
+        { text = "I'll take the bandanas. The vineyard's not my concern.", next = "BACK", reply = "The bandanas will do, friend, and the vineyard will clear itself if you take enough. Off you go.", fx = { align = { honor = -1 } } },
         { text = "Something else, Willem.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could handle a wolf or two. Just don't let it bring one back to the fold." },
       },
       choices = {
-        { text = "I'll thin the pack, for the Abbey's sake.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll hunt them, but the bounty's mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll thin the pack, for the Abbey's sake.", next = "BACK", reply = "The Abbey will be grateful, and so will the recruits. The sheep, too.", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them, but the bounty's mine.", next = "BACK", reply = "It's yours, fair and square, and I'll pay it gladly. Just bring me proof.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They're digging under the vines and stealing candles from the Abbey, and the Marshal's short of men to deal with them. A mage who can clear a burrow without burning the grapes would make my tally a lot shorter." } },
       choices = {
-        { text = "I'll clear the kobolds without harming the vines, deputy.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If a few vines burn, the kobolds burn with them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll clear the kobolds without harming the vines, deputy.", next = "BACK", reply = "That's what I hoped, and Milly will thank you for it. Mind the vines.", fx = { align = { order = 1 } } },
+        { text = "If a few vines burn, the kobolds burn with them.", next = "BACK", reply = "Milly would have your hide for that, and so would I. Find another way, if you please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when La Salle's students are on the far side of the Abbey. The Marshal says they're useful, and I take him at his word, mostly." } },
       choices = {
-        { text = "I'll prove myself useful and keep my demon leashed, deputy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your trust doesn't matter. The Marshal's word is enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll prove myself useful and keep my demon leashed, deputy.", next = "BACK", reply = "That's all I ask, and I'll sleep a little easier for it. The Marshal will hear about it.", fx = { align = { light = 1 } } },
+        { text = "Your trust doesn't matter. The Marshal's word is enough.", next = "BACK", reply = "It is, I suppose, and I'll not argue with him. Just mind the Abbey on your way past.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,8 +98,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not badly yet, a few cuts and a farmhand's broken arm, but they're getting bolder, and bold thieves end up using their knives. Milly's family hasn't slept properly in a month, and that's a wound too, whatever the Marshal says." } },
       choices = {
-        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "No blood, no wound. Let the Marshal handle the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", reply = "Thank you, Milly's family will be glad of it. The Light knows they need some rest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No blood, no wound. Let the Marshal handle the rest.", next = "BACK", reply = "You've not met Milly, then, after a week of no sleep. I'll leave it to the Marshal.", fx = { align = { light = -1 } } },
         { text = "Something else, Willem.", next = "BACK" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Men, and he won't get them, because the army's gone abroad and the Abbey's sworn to heal, not fight. So he takes recruits off the road and makes soldiers of them, and some days I think he's making them out of nothing at all." } },
       choices = {
-        { text = "Then I'll serve him as long as he needs me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I came to protect people, not to follow a Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll serve him as long as he needs me.", next = "BACK", reply = "Good, he needs every one of you. Report to him when you're ready.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I came to protect people, not to follow a Marshal.", next = "BACK", reply = "Following him is how you protect people round here, friend. But I'll not argue the point.", fx = { align = { order = -1 } } },
         { text = "Something else, Willem.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
       choices = {
         { text = "Who leads them up here?", next = "garrick" },
         { text = "I can't see why anyone would join them.", next = "why", fx = { trait = { curious = 1 } } },
-        { text = "Then I'll clear them out.", next = "BACK", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
-        { text = "The vineyard's not my problem, Deputy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll clear them out.", next = "BACK", reply = "Good, and the Marshal will be glad of it. The camp's in the north rows.", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "The vineyard's not my problem, Deputy.", next = "BACK", reply = "It's all our problem, friend, if they get bolder. But I'll not force you.", fx = { align = { order = -1 } } },
       },
     },
     why = {
@@ -193,8 +193,8 @@ P:NPC {
         { id = "w_default", text = "Hungry, mostly, or angry. Some say Stormwind owes them, but I'm a deputy, not a judge, so I'll leave that to the judges." },
       },
       choices = {
-        { text = "Maybe Stormwind does owe them.", next = "BACK", fx = { align = { order = -2 }, opinion = { defias = "sympathetic" } } },
-        { text = "Owed or not, theft is theft.", next = "BACK", fx = { align = { order = 2 }, opinion = { defias = "hardline" } } },
+        { text = "Maybe Stormwind does owe them.", next = "BACK", reply = "Maybe it does, and I'll not argue. But I'll still stop them stealing Milly's grapes.", fx = { align = { order = -2 }, opinion = { defias = "sympathetic" } } },
+        { text = "Owed or not, theft is theft.", next = "BACK", reply = "That's my view, and the Marshal's too. I'll leave the rest to the judges.", fx = { align = { order = 2 }, opinion = { defias = "hardline" } } },
       },
     },
     garrick = {
@@ -214,8 +214,8 @@ P:NPC {
         { id = "gw_default", text = "Who? I'm one deputy with a door to watch. That's why I put bounties up. People like you are the nearest thing to a patrol I've got." },
       },
       choices = {
-        { text = "Then I'm your patrol.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { northshire = 1 } } },
-        { text = "I'm nobody's patrol, and I'm in it for the bounties.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'm your patrol.", next = "BACK", reply = "Good, then I'll stop worrying about the north road. Report back when you can.", fx = { affinity = 2, align = { order = 1 }, standing = { northshire = 1 } } },
+        { text = "I'm nobody's patrol, and I'm in it for the bounties.", next = "BACK", reply = "That's honest, and the bounties are real. Bring me proof and you'll get paid.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -255,8 +255,8 @@ P:NPC {
         { id = "bw_default", text = "Wherever they're sent. I don't ask; I'd only get an answer I didn't like. Meanwhile we've kobolds, wolves and thieves, and a Marshal who won't sleep." },
       },
       choices = {
-        { text = "Then I'll help where I can.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Somebody should ask.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
+        { text = "Then I'll help where I can.", next = "BACK", reply = "Thank you, the Marshal will be glad of it. So will I.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Somebody should ask.", next = "BACK", reply = "Somebody should, aye, and it'll not be a deputy. Ask it in Stormwind if you like.", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
     westfall = {

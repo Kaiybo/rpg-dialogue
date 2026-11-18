@@ -83,8 +83,8 @@ P:NPC {
         { id = "tr_default", text = "Rakaiah, they call her, and she laughs while she works. I don't want revenge, I tell myself, but then I hear that laugh again and I know I'm lying." },
       },
       choices = {
-        { text = "Revenge won't bring him back. Get home first.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then let her hear you laugh last.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Revenge won't bring him back. Get home first.", next = "BACK", reply = "I know it won't, and I know you're right, but it's hard to hear down here. Get me out, and I'll think about it after.", fx = { align = { light = 1 } } },
+        { text = "Then let her hear you laugh last.", next = "BACK", reply = "Elune, I like that, and I'll hold you to it. Let her hear me laugh when the Sentinels come.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "ct_default", text = "That's why I can't just run; I have to get out with proof and carry it home myself. If I die on the stairs, everything Trey went through was for nothing, and I won't allow that." },
       },
       choices = {
-        { text = "Your duty matters most. I'll see you home.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget orders. Just live through this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your duty matters most. I'll see you home.", next = "BACK", reply = "Then I'll trust you to get me up those stairs alive. Darnassus has to know what's down here.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget orders. Just live through this.", next = "BACK", reply = "I'd like to, believe me, but if I just live, Trey died for nothing. I can't let that happen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
         { id = "xp_default", text = "Trey Lightforge, and he'd have liked you, because he liked everyone, which was his worst fault. His sword is still down here somewhere, and I won't leave without it, whatever you say." },
       },
       choices = {
-        { text = "Then we'll carry it out together, in his honor.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A sword isn't worth your life. Leave it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we'll carry it out together, in his honor.", next = "BACK", reply = "He'd be glad of that, and so would I. Find it, and we'll carry it home between us.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A sword isn't worth your life. Leave it.", next = "BACK", reply = "It's worth more than mine, I think, and he'd say the same. I won't leave without it, so don't ask me to.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

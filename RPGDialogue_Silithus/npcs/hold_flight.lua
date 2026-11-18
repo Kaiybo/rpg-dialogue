@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "cs_default", text = "Out here, I am not sure there is a difference. The bugs do not care whose banner we fly, and the sand gets into everyone's eyes the same." } },
       choices = {
-        { text = "Then the nod is worth keeping. Keep it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A nod won't stop an elf's arrow later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the nod is worth keeping. Keep it.", next = "BACK", reply = "I will keep it, then, for as long as she keeps hers, and the winds may sort out the rest when this war is done.", fx = { align = { order = 1 } } },
+        { text = "A nod won't stop an elf's arrow later.", next = "BACK", reply = "Perhaps not, but I have lived long enough to know that a hand raised first is the one that starts the war, so I will nod and watch.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,8 +150,8 @@ P:NPC {
       big = true,
       lines = { { id = "rs_default", text = "Runk can be trusted with a bucket, and I'll start there. Whatever happens beyond the Hold's walls, here we're both just keepers of tired animals." } },
       choices = {
-        { text = "Start with a bucket, then. Trust grows.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Don't turn your back on him, all the same.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Start with a bucket, then. Trust grows.", next = "BACK", reply = "That is how the old trees grew, one ring at a time, and I am content to let this trust grow slowly under the same sun.", fx = { align = { light = 1 } } },
+        { text = "Don't turn your back on him, all the same.", next = "BACK", reply = "I hear you, and I will keep one eye on him as he keeps one eye on me, which I suppose is its own kind of courtesy.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

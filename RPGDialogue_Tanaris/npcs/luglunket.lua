@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "bs_default", text = "Everybody's thirsty in Tanaris, friend, and everybody else pays. If we let the bandits drink for free, the town goes dry, and then nobody drinks at all." } },
       choices = {
-        { text = "Rules keep a town alive. Make them pay.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Water should never be a business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rules keep a town alive. Make them pay.", next = "BACK", reply = "That's it exactly, friend, and if more folks out here thought like you, I'd spend less time chasin' bandits off the pumps.", fx = { align = { order = 1 } } },
+        { text = "Water should never be a business.", next = "BACK", reply = "Easy to say when you're not the one fixin' the pumps, friend, and those pumps don't run on kind thoughts, they run on coin.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -168,8 +168,8 @@ P:NPC {
         { id = "dk_default", text = "He says I can be anything I want, only not yet, and only when it's safe. But it's never safe, and I'm tired of waiting, so I'm going to learn on my own and surprise him." },
       },
       choices = {
-        { text = "He's right. Wait until you're older.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Don't wait for anyone. Learn it yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He's right. Wait until you're older.", next = "BACK", reply = "That's just what grown-ups always say, and then they never say when older is. I'm already taller than I was last summer, so it must be soon.", fx = { align = { light = 1 } } },
+        { text = "Don't wait for anyone. Learn it yourself.", next = "BACK", reply = "That's what I think too! I'll be the best alchemist in all of Westfall, and when Daddy sees, he'll be so surprised he'll drop his spoon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -237,8 +237,8 @@ P:NPC {
         { id = "mob_default", text = "I don't know, I wasn't born, or I was very little. Daddy says there used to be farmers and a school and a market, before the nobles took everything away." },
       },
       choices = {
-        { text = "The nobles didn't take everything. The bandits did.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your daddy's right. The nobles failed Westfall.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The nobles didn't take everything. The bandits did.", next = "BACK", reply = "Daddy says that too, sometimes, when he's cross about the bandits. I hide when they go past the barn, and I'm very good at hiding.", fx = { align = { order = 1 } } },
+        { text = "Your daddy's right. The nobles failed Westfall.", next = "BACK", reply = "That's what I said, wasn't it? When I'm a famous alchemist, I'll make a potion that makes nobles nice, and then everybody can come back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

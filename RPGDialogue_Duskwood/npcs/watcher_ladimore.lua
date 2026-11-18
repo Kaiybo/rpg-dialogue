@@ -83,8 +83,8 @@ P:NPC {
       lines = { { id = "fd_default", text = "Some do say so, and Sirra has his books full of theories. But a man still swung the sword, and I can't decide whether to forgive the man or the darkness." },
       },
       choices = {
-        { text = "Forgive him. The darkness did this, not your father.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "He chose. Don't excuse him because it's easier.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Forgive him. The darkness did this, not your father.", next = "BACK", reply = "That's what my heart wants to hear, and I thank you for it. He sang to me when I couldn't sleep, and I'd like to remember that man instead of the other.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "He chose. Don't excuse him because it's easier.", next = "BACK", reply = "You're harder than Sirra and maybe more honest. I won't make it easy for him, then, though I wish I could.", fx = { align = { light = -1 } } },
         { text = "That's yours to decide, not mine.", next = "BACK" },
       },
     },

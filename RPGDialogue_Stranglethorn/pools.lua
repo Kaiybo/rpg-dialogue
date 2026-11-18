@@ -120,8 +120,8 @@ P:Pool {
         { id = "ne_default", text = "Bother me? Pal, neutrality's the best business plan anybody ever had. Orcs and humans can kill each other all they like out there, and in here they both buy rope from the same shop, so what's to be bothered about?" },
       },
       choices = {
-        { text = "Smart. Coin outlasts every war.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
-        { text = "Some fights are worth picking a side in.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Smart. Coin outlasts every war.", next = "BACK", reply = "Now you're talkin' my language, pal! Kings come and go and armies burn, but the Cartel's ledger keeps ticking along, and I get paid on the first of every month.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Some fights are worth picking a side in.", next = "BACK", reply = "Sure, buddy, and you go pick one, out past the shark's teeth where it's your own neck on the line. In here the only side I'm on is the one signing my wages.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
         { text = "Somebody must try to drag you in.", next = "neutral_drag" },
       },
     },
@@ -236,8 +236,8 @@ P:Pool {
         { id = "rao_default", text = "Odd, maybe, but it works, friend. A pirate who's paid every month doesn't need to rob anybody, and one who's paid by the Cartel can't rob anybody in the Cartel's port, so we get the cannons without the trouble." },
       },
       choices = {
-        { text = "Paid pirates are still pirates. I'd not trust them.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Good. Even pirates need someone to answer to.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Paid pirates are still pirates. I'd not trust them.", next = "BACK", reply = "Trust's an expensive thing, friend, and nobody in this port's buying it. We don't trust 'em, we pay 'em, and that's a whole lot cheaper and a whole lot steadier.", fx = { align = { order = -1 } } },
+        { text = "Good. Even pirates need someone to answer to.", next = "BACK", reply = "That's the Baron's whole business model right there, chum. Everybody answers to somebody in Booty Bay, and the somebody at the top answers to the ledger.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

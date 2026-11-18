@@ -130,8 +130,8 @@ P:Pool {
         { id = "ne_default", text = "Bother me? The desert's trying to kill everybody equally, pal, so why should I pick favourites? Horde and Alliance both need water and both need guns, and the Cartel sells to both, and that keeps this town alive." },
       },
       choices = {
-        { text = "Smart. Neutral ground makes the best profit.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
-        { text = "Sooner or later, everyone has to choose a side.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Smart. Neutral ground makes the best profit.", next = "BACK", reply = "Now you're talkin' my language, pal, because a neutral town is a town where nobody burns the ledger. Spread the word, and spread it to both sides.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Sooner or later, everyone has to choose a side.", next = "BACK", reply = "Maybe so, but the day Gadgetzan picks one is the day the other side stops buying, and I don't plan on bein' here for that invoice.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Has anyone ever tested that?", next = "neutral_test" },
       },
     },

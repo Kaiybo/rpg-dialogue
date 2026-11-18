@@ -112,8 +112,8 @@ P:NPC {
         { id = "lk_default", text = "I've read it so often the ink's going grey. Some nights I think I should burn it and be done, and other nights I think it's all I have left of him." },
       },
       choices = {
-        { text = "Keep it. Remembering him is no weakness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Burn it once Ror is dead. Then let him go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep it. Remembering him is no weakness.", next = "BACK", reply = "Maybe it isn't, and maybe I'll keep it a while longer. You talk like a friend of his would have.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn it once Ror is dead. Then let him go.", next = "BACK", reply = "Aye, that's the right order of things. When that beast is dead, I'll burn it and let the smoke carry him home.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,8 +140,8 @@ P:NPC {
         { id = "rh_default", text = "I want its clawed hand on the table in front of me, so I can look at the thing that took him. I don't care whether it's corrupted or simply angry from living in this cursed place, because no furbolg kills my family and lives." },
       },
       choices = {
-        { text = "Blood for blood. I'll bring you that claw.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Revenge won't fill the empty place, Dreka'Sur.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Blood for blood. I'll bring you that claw.", next = "BACK", reply = "Good. Bring it, and I'll stand you at my side when I look at it. Blood answers blood.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Revenge won't fill the empty place, Dreka'Sur.", next = "BACK", reply = "I know it won't, and I don't care. Bring me the claw, and let me find out for myself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -159,8 +159,8 @@ P:NPC {
         { id = "xt_default", text = "Maybe they are, and maybe the Earth Mother weeps for them, but I don't. A sick wolf that bites a child still gets put down, and Ror is a sick wolf." },
       },
       choices = {
-        { text = "Then put it down cleanly, and mourn what it was.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You're right. Sick or not, it dies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then put it down cleanly, and mourn what it was.", next = "BACK", reply = "I'll mourn it after, maybe, tauren. Bring me its hand first.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Sick or not, it dies.", next = "BACK", reply = "You understand, then, and I'm glad of it. Sick or wicked, it took him, and it dies.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

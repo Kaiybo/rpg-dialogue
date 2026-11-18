@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "tr_default", text = "Find the silver first, and the truth will be lying next to it. Thork wants me to write it off and I won't, because the guards would never trust that strongbox again." } },
       choices = {
-        { text = "The guards earned that silver. It comes back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let it go. Pay them from somewhere else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The guards earned that silver. It comes back.", next = "BACK", reply = "Good, because that's the only answer the guards will accept. Bring it back to this strongbox, and I'll count every coin of it in front of them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let it go. Pay them from somewhere else.", next = "BACK", reply = "You sound like Thork, and I've already told Thork no. Pay a guard from some other purse and he learns that his own pay was never safe.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

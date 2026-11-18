@@ -63,8 +63,8 @@ P:NPC {
     obey = {
       lines = { { id = "ob_default", text = "Neither, I'd say, though the Arch Druid might say otherwise. We are the forest's friends, not its masters and not its servants." } },
       choices = {
-        { text = "Then a druid must act for the forest, even unasked.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Then a druid waits until the forest asks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then a druid must act for the forest, even unasked.", next = "BACK", reply = "Then you will be bold and often wrong, and the forest will forgive you most of it. Act with care, at least.", fx = { align = { order = -1 } } },
+        { text = "Then a druid waits until the forest asks.", next = "BACK", reply = "Then you may wait a very long time, for the forest speaks slowly. Listen hard, and do not wait too long.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
     good = {
       lines = { { id = "go_default", text = "Discipline first, strength second, and courage only when the other two are in place. A brave fool with no discipline dies in the first rush, and takes the archers behind him down too." } },
       choices = {
-        { text = "Discipline wins battles. I'll hold the line.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Battles are won by whoever strikes hardest first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline wins battles. I'll hold the line.", next = "BACK", reply = "Then you will be a warrior the Sentinels can count on. Come back and drill with me tomorrow.", fx = { align = { order = 1 } } },
+        { text = "Battles are won by whoever strikes hardest first.", next = "BACK", reply = "Then you will strike first and hardest and die first and fastest. I have buried many who believed it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -196,8 +196,8 @@ P:NPC {
     need_stance = {
       lines = { { id = "ns_default", text = "Tell that to the satyr, who never once fought cleanly. I'll teach you both ways, and you can decide which one keeps you alive." } },
       choices = {
-        { text = "I'll fight with honor, whatever the satyr do.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Whatever works. The dead don't complain.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight with honor, whatever the satyr do.", next = "BACK", reply = "Then you are better than the satyr, and I will respect you for it. Only do not let your honour get you killed.", fx = { align = { honor = 1 } } },
+        { text = "Whatever works. The dead don't complain.", next = "BACK", reply = "They do not, and neither do the ones who left them. I will teach you whatever keeps you breathing, rogue.", fx = { align = { honor = -1 } } },
       },
     },
     after = {
@@ -256,8 +256,8 @@ P:NPC {
     respect = {
       lines = { { id = "re_default", text = "Take what you need, and take it quickly, and never take for the pleasure of it. The nightsabers hunt that way, and so did our people, once, before some forgot." } },
       choices = {
-        { text = "Take only what you need. I'll hold to that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The strong take what they want. That's nature too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Take only what you need. I'll hold to that.", next = "BACK", reply = "Then the forest will feed you for as long as you hunt in it. That is the oldest promise the kaldorei know.", fx = { align = { light = 1 } } },
+        { text = "The strong take what they want. That's nature too.", next = "BACK", reply = "It is nature too, and so is starving when you have taken everything. The nightsabers know better than that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -323,8 +323,8 @@ P:NPC {
     fight = {
       lines = { { id = "fi_default", text = "Because the Mother Moon is also the huntress, and the Sisterhood has always carried bows as well as prayers. Healing comes first, but a priestess who won't defend the wounded isn't much use to them." } },
       choices = {
-        { text = "Healing first. A priest shouldn't seek the fight.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Strike first, and there's less to heal.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Healing first. A priest shouldn't seek the fight.", next = "BACK", reply = "Then you have learned the first lesson of the Sisterhood, and I am glad. The fight will come to you soon enough.", fx = { align = { light = 1 } } },
+        { text = "Strike first, and there's less to heal.", next = "BACK", reply = "There is sense in that, and the Sentinels would agree with you. Only be sure you do not forget how to heal.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

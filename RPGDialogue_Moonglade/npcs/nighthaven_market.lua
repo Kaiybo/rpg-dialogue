@@ -57,8 +57,8 @@ P:NPC {
       big = true,
       lines = { { id = "wh2_default", text = "Not once, in Moonglade, though I hear the stories from Ashenvale like everyone else. Some of my neighbours say I shouldn't sell to them at all, peace or no peace." } },
       choices = {
-        { text = "The peace here is sacred. Sell to anyone.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your neighbours have a point. Ashenvale is still bleeding.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The peace here is sacred. Sell to anyone.", next = "BACK", reply = "That's how I've always felt, and the Keeper agrees with us both. A dress doesn't know which side its wearer fights for.", fx = { align = { order = 1 } } },
+        { text = "Your neighbours have a point. Ashenvale is still bleeding.", next = "BACK", reply = "They do, and I won't pretend I haven't wondered myself. But Moonglade is the one place the bleeding stops, and I'd like to keep it so.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

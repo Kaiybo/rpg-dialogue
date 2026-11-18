@@ -161,8 +161,8 @@ P:NPC {
       big = true,
       lines = { { id = "fr_default", text = "Speed, mostly, and the nerve to keep running when you can hear wolves behind you. The best runners I've known wouldn't stop for a wounded friend on the way home, and I've never decided whether I admire them for it." } },
       choices = {
-        { text = "You never leave anyone behind. The banner can wait.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The banner wins the fight. A runner who stops loses it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You never leave anyone behind. The banner can wait.", next = "BACK", reply = "Elune bless you for saying it, because I have buried runners who carried the banner home and left a sister in the gulch, and the banner never meant as much to me afterward.", fx = { align = { honor = 1 } } },
+        { text = "The banner wins the fight. A runner who stops loses it.", next = "BACK", reply = "That is the hard truth of the gulch, and perhaps you are right, but I hope I never have to watch you run past someone I love with that banner on your back.", fx = { align = { honor = -1 } } },
         { text = "I've never carried a banner. I'd like to learn.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -422,8 +422,8 @@ P:NPC {
       big = true,
       lines = { { id = "fr_default", text = "Legs, guts and friends who'll die for you on the way home. I've seen runners leave a wounded friend in the tunnel to get the banner back, and I've seen others turn around for them, and I still can't say which one Hellscream would have honored." } },
       choices = {
-        { text = "You never leave a comrade. The banner can wait.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The banner wins the fight. The runner keeps running.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You never leave a comrade. The banner can wait.", next = "BACK", reply = "Then you have Grom's heart, I think, because he did not leave his people behind, even at the very end, and I would run beside you anywhere.", fx = { align = { honor = 1 } } },
+        { text = "The banner wins the fight. The runner keeps running.", next = "BACK", reply = "Many would agree, and the gulch has been won that way before, but do not be surprised if the grunt you left in the tunnel never runs beside you again.", fx = { align = { honor = -1 } } },
         { text = "I'd like to try carrying it myself.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },

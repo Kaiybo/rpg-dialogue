@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Good, though I'll tell you plainly that Westfall won't feel it. The men in that prison have been out of the fight for years, and the ones burning our farms are still out there, so a quiet Stockade means a quiet city and nothing more for us." } },
       choices = {
-        { text = "Justice in the city still matters, Gryan. It's a start.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Westfall needs swords here, not jailers there.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Justice in the city still matters, Gryan. It's a start.", next = "BACK", reply = "A start it is, and I'll not sneer at it, because the law has to begin somewhere. I only wish it would walk a little further west.", fx = { align = { order = 1 } } },
+        { text = "You're right. Westfall needs swords here, not jailers there.", next = "BACK", reply = "Glad you see it that way. Bring that sword up the hill, and we'll put it where the farms need it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Did you know Thredd, before all this?", next = "xcl_stocks2" },
       },
     },
@@ -85,24 +85,24 @@ P:NPC {
     xmage = {
       lines = { { id = "xma_default", text = "Then you've walked past the towers the Stonemasons raised there, and you know the city never paid them in full. I've nothing against the Mage Quarter, but I'd not have you think Stormwind's hands were ever as clean as its streets." } },
       choices = {
-        { text = "The Masons were wronged, but VanCleef's road is worse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The nobles cheated them. Stormwind earned this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Masons were wronged, but VanCleef's road is worse.", next = "BACK", reply = "That's my thinking exactly, and I'm glad to hear it from someone who's seen the towers. A wrong can be righted without burning a farmhouse.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The nobles cheated them. Stormwind earned this.", next = "BACK", reply = "Earned a wrong, maybe, but not this, not burned farms and dead families. The farmers never cheated anyone.", fx = { align = { order = -1 } } },
         { text = "What happened with the Stonemasons?", next = "masons" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I fought the Horde when its warlocks were burning Lordaeron, so forgive me if I don't thank you for that. Still, I lead a militia of farmers and broken men, and I'll judge you by what you do on this hill, not by what follows you onto it." } },
       choices = {
-        { text = "Judge me, then. I'll answer for every deed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll do whatever wins, Gryan, however it looks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Judge me, then. I'll answer for every deed.", next = "BACK", reply = "Then you'll have a place here, and I'll be watching every deed. That's fair to both of us.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll do whatever wins, Gryan, however it looks.", next = "BACK", reply = "However it looks matters, out here, because the farmers are watching. Win the right way or don't come back to my hill.", fx = { align = { honor = -1 } } },
         { text = "Tell me about the People's Militia.", next = "militia" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "I know it is. Nobody has turned a furrow in Moonbrook for years, and the harvest golems the Defias stole have torn up what was left. If you can coax anything green out of it, the farmers will remember you longer than they remember me." } },
       choices = {
-        { text = "I'll mend what I can, and leave the rest stronger.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The land will heal itself once the people leave it be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll mend what I can, and leave the rest stronger.", next = "BACK", reply = "That's all any of us can do, and more than most try. The farmers will thank you with a harvest, if one ever comes.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land will heal itself once the people leave it be.", next = "BACK", reply = "The land's been left be for years, and the Defias moved onto it. It needs people, druid, the right ones.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -164,7 +164,7 @@ P:NPC {
         { text = "About Magistrate Solomon's letter.", next = "solomon", when = { questActive = TODO_QUEST("Messenger to Westfall") } },
         { text = "VanCleef is dead. What happens now?", next = "after", when = { deed = "dungeon:The Deadmines" } },
         { text = "Bazil Thredd is dead, Gryan. The Stockade riot is over.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
-        { text = "I'm at your service.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm at your service.", next = "END", reply = "Good, and welcome to Sentinel Hill. Find Danuvin, and he'll put you to work before your boots are dry.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Put me on the wall, Stoutmantle. I'm a soldier.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can track the Defias through these hills.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The land here is grieving, Stoutmantle. I can hear it.", next = "shaman", when = { class = "SHAMAN" } },
@@ -172,7 +172,7 @@ P:NPC {
         { text = "The Sentinels would never abandon a province like this.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I studied in Stormwind's Mage Quarter, Gryan.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I command a demon, Stoutmantle. It fights for Westfall now.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "I'll help, but I answer to no militia.", next = "END", fx = { align = { order = -1 } } },
+        { text = "I'll help, but I answer to no militia.", next = "END", reply = "That's your right, and I'll not hold it against you. Help however you will, and the farmers will remember it.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -185,7 +185,7 @@ P:NPC {
         { text = "And you came back for it.", next = "back" },
         { text = "Some folk must still hold out.", next = "holdouts" },
         { text = "I'll help you take it back.", next = "BACK", fx = { affinity = 2, learn = { "westfall" }, align = { order = 1 } } },
-        { text = "Maybe the Defias have earned a share of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Maybe the Defias have earned a share of it.", next = "BACK", reply = "A share of what, the graves they've dug? I'll hear that from a farmer who lost nothing, and I've yet to meet one.", fx = { align = { order = -1 } } },
       },
     },
     holdouts = {
@@ -201,8 +201,8 @@ P:NPC {
     tithe = {
       lines = { { id = "ti_default", text = "Habit and pride, mostly, and some hope that somebody in the Keep reads the ledger and remembers us. I'd have stopped paying years ago, but I'm glad they haven't." } },
       choices = {
-        { text = "That's a stubborn kind of loyalty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd have stopped paying years ago.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's a stubborn kind of loyalty.", next = "BACK", reply = "It is, and I'll own it gladly. Stubbornness is half of what's kept this hill standing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd have stopped paying years ago.", next = "BACK", reply = "Many have, and I don't blame them. But someone has to show the Keep that Westfall hasn't given up on the kingdom.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -214,8 +214,8 @@ P:NPC {
           text = "You squired for the Silver Hand; you know what Lordaeron cost us. Some of us went home to make sure it didn't cost everything." },
       },
       choices = {
-        { text = "Then let's save it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, trait = { brave = 1 } } },
-        { text = "Save what you like. I'll look after myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let's save it.", next = "BACK", reply = "Good, then we'll start with the next farm over. I'm glad to have you.", fx = { affinity = 2, align = { light = 1, order = 1 }, trait = { brave = 1 } } },
+        { text = "Save what you like. I'll look after myself.", next = "BACK", reply = "Then look after yourself, and if you've a moment to spare, look after a farmer too. That's all I ask.", fx = { align = { light = -1 } } },
         { text = "You can't save everything.", next = "everything", fx = { trait = { skeptical = 1 } } },
         { text = "What did you see in Lordaeron?", next = "lordaeron" },
       },
@@ -231,7 +231,7 @@ P:NPC {
         { text = "Then I won't ask again.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "If you ever want to set it down, I'm a priest.", next = "BACK", when = { class = "PRIEST" },
           fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "Some things are better buried than confessed, Commander.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -2 } } },
+        { text = "Some things are better buried than confessed, Commander.", next = "BACK", reply = "They are, and you understand that better than most who come up this hill. Thank you.", when = { class = "PRIEST" }, fx = { align = { light = -2 } } },
         { text = "Silence won't heal it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
@@ -259,7 +259,7 @@ P:NPC {
       lines = { { id = "no_default", text = "Someone in the House of Nobles keeps telling the Regent that Westfall can wait. I don't know who, but I know they've never stood on this hill." } },
       choices = {
         { text = "Then somebody should find out who.", next = "BACK", fx = { trait = { curious = 1 }, align = { order = -1 } } },
-        { text = "It isn't our place to question the House of Nobles.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It isn't our place to question the House of Nobles.", next = "BACK", reply = "It's my place to ask, as a man of Westfall, even if no one answers. But I'll not trouble you with it further.", fx = { align = { order = 1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -292,8 +292,8 @@ P:NPC {
     rogue = {
       lines = { { id = "rg_default", text = "One of your trade already owes me his life. I'd sooner not be owed by two. Go where my farmers can't, then, and bring me back the truth." } },
       choices = {
-        { text = "The truth, and nothing I pocket on the way.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Mostly the truth.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "The truth, and nothing I pocket on the way.", next = "BACK", reply = "That's a rare promise from a rogue, and I'll take you at your word. Go carefully.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Mostly the truth.", next = "BACK", reply = "Mostly, he says, and grins, just like Wiley. I'll take what I get, I suppose.", fx = { affinity = -1, align = { honor = -1 }, trait = { witty = 1 } } },
       },
     },
     wiley = {
@@ -315,8 +315,8 @@ P:NPC {
       lines = { { id = "wf_default", text = "It's about farms to me. Let Wiley lose sleep over what they're building under Moonbrook. I'll lose mine over whose fields they're standing in." } },
       choices = {
         { text = "Both matter.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
-        { text = "Then the farms come first.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Whatever's under Moonbrook matters more than any field.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the farms come first.", next = "BACK", reply = "Good, because that's what I'm fighting for. Wiley can lose sleep for both of us.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Whatever's under Moonbrook matters more than any field.", next = "BACK", reply = "Maybe so, and Wiley would agree with you. But a farmer can't eat a secret.", fx = { align = { light = -1 } } },
       },
     },
     masons = {
@@ -329,8 +329,8 @@ P:NPC {
       },
       choices = {
         { text = "They were cheated. Can you blame them?", next = "masons_blame" },
-        { text = "No grievance excuses murder.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, opinion = { defias = "hardline" } } },
-        { text = "The nobles cheated them first, and I'd have fought too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "No grievance excuses murder.", next = "BACK", reply = "No, it doesn't, and I'll say so to their faces if I ever get the chance. Thank you for seeing it.", fx = { affinity = 1, align = { order = 1 }, opinion = { defias = "hardline" } } },
+        { text = "The nobles cheated them first, and I'd have fought too.", next = "BACK", reply = "Then you'd have been wrong, as they are. Fight the nobles if you must, but leave the farmers out of it.", fx = { align = { order = -1 } } },
         { text = "Masons built the Cathedral I pray in.", next = "masons_cathedral", when = { class = "PRIEST" } },
       },
     },
@@ -341,8 +341,8 @@ P:NPC {
     masons_cathedral = {
       lines = { { id = "mc_default", text = "Then pray for them there, and for the farmers they've robbed as well. If the Light can hold both at once, it's bigger than I am." } },
       choices = {
-        { text = "It is. I'll pray for both.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
-        { text = "I'll pray for the farmers. The thieves chose their road.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It is. I'll pray for both.", next = "BACK", reply = "Then you're a better man of faith than I am. I'm grateful someone can.", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "I'll pray for the farmers. The thieves chose their road.", next = "BACK", reply = "That's fair, and it's what I'd do, if I could pray at all. The farmers will thank you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -373,8 +373,8 @@ P:NPC {
       big = true,
       lines = { { id = "oa_default", text = "To the people of these farms, and to the Light. The Light because it's what I was taught. The people because they're who we're fighting for." } },
       choices = {
-        { text = "Then I'll swear it.", next = "BACK", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { sentinel_hill = 2 } } },
-        { text = "I'll fight. I won't swear.", next = "BACK", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
+        { text = "Then I'll swear it.", next = "BACK", reply = "Then welcome, truly, and the people of these farms are yours to keep safe. That's no light thing.", fx = { affinity = 2, align = { light = 1, order = 1 }, standing = { sentinel_hill = 2 } } },
+        { text = "I'll fight. I won't swear.", next = "BACK", reply = "That's fair, and I'll not ask more. A sword's worth as much as an oath, out here.", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
 
@@ -388,8 +388,8 @@ P:NPC {
     paladin_light = {
       lines = { { id = "pl_default", text = "Every morning I ask it to help me keep these people alive, and most mornings it does. The other mornings, I do it myself." } },
       choices = {
-        { text = "That's a prayer too.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Then it's you keeping them alive, not the Light.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a prayer too.", next = "BACK", reply = "Maybe it is, and I'll not argue the point. Either way, they're still alive this morning.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then it's you keeping them alive, not the Light.", next = "BACK", reply = "Maybe, but I'd rather think the Light's in my hands than nowhere. Let me keep that.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -404,16 +404,16 @@ P:NPC {
     priest_words = {
       lines = { { id = "pw_default", text = "I'll hold you to that, priest, because there'll be a next time. There always is, out here." } },
       choices = {
-        { text = "I'll be here.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { sentinel_hill = 2 } } },
-        { text = "Don't count on me. I go wherever the work is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll be here.", next = "BACK", reply = "Good, because they'll need you, and so will I. Thank you, priest.", fx = { affinity = 2, align = { light = 2 }, standing = { sentinel_hill = 2 } } },
+        { text = "Don't count on me. I go wherever the work is.", next = "BACK", reply = "Then I'll not count on you, but I'll hope. That's the way of this hill.", fx = { align = { light = -1 } } },
       },
     },
     priest_defias = {
       big = true,
       lines = { { id = "pd_default", text = "We bury them too. A lot of them were Stormwind men with Stormwind mothers, and someone ought to pray for them, but I find I can't." } },
       choices = {
-        { text = "I can.", next = "BACK", fx = { affinity = 1, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "They chose their road.", next = "BACK", fx = { align = { light = -2 }, trait = { stern = 1 } } },
+        { text = "I can.", next = "BACK", reply = "Then I'm grateful, more than I can say. Someone should, and it can't be me.", fx = { affinity = 1, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "They chose their road.", next = "BACK", reply = "They did, and their mothers didn't. I'll leave it there.", fx = { align = { light = -2 }, trait = { stern = 1 } } },
       },
     },
 
@@ -424,8 +424,8 @@ P:NPC {
     farmhand_home = {
       lines = { { id = "fh2_default", text = "Thieves, or watchers, or nobody. Help me clear it, and you can tell me its name when it's yours again." } },
       choices = {
-        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { sentinel_hill = 2 } } },
-        { text = "I left for a reason.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
+        { text = "I will.", next = "BACK", reply = "Then let's go and clear it, and I'll be glad to hear its name. Welcome home, or nearly.", fx = { affinity = 2, align = { order = 1 }, standing = { sentinel_hill = 2 } } },
+        { text = "I left for a reason.", next = "BACK", reply = "Many did, and I don't blame them. But it's still yours, if you ever want it.", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
       },
     },
 
@@ -433,8 +433,8 @@ P:NPC {
       lines = { { id = "nb_default", text = "Then you know the men who decided we could wait. Tell them Westfall's still waiting. Tell them we've stopped being polite about it." } },
       choices = {
         { text = "Not all of us forgot you.", next = "noble_defend" },
-        { text = "I'm ashamed of them.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "My family has its reasons, and I'll keep them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm ashamed of them.", next = "BACK", reply = "Shame's a start, but I'd rather have a letter in their hands. Tell them anyway.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "My family has its reasons, and I'll keep them.", next = "BACK", reply = "Then keep them, and I'll keep my opinions. Westfall's still waiting either way.", fx = { align = { honor = -1 } } },
       },
     },
     noble_defend = {
@@ -454,8 +454,8 @@ P:NPC {
       lines = { { id = "sa_default", text = "That my heart's heavy for every good man he loses. That I lose mine the same way, for the same reason. Nobody's coming, for either of us." } },
       choices = {
         { text = "He'll understand.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Then the two of you should stand together.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Then stop waiting on Stormwind and go your own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the two of you should stand together.", next = "BACK", reply = "We would, if there were a road between us that didn't run through orcs and gnolls. I'll write back, at least.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Then stop waiting on Stormwind and go your own way.", next = "BACK", reply = "And go where? Westfall is mine and Redridge is his, and neither of us is leaving it. We'll wait, and fight.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -515,8 +515,8 @@ P:NPC {
     warrior_march = {
       lines = { { id = "warrior_march_l", text = "With what? Danuvin's drilled farmers and Galiaan's map? The Defias have the mines, the ships and the Deadmines, and we have a hill. We bleed them slowly, or they bleed us quickly." } },
       choices = {
-        { text = "Slowly, then. Patience wins.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Slowly lets them grow. Strike now.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Slowly, then. Patience wins.", next = "BACK", reply = "Patience, aye, it's all I've got. Thank you for seeing it.", fx = { align = { order = 1 } } },
+        { text = "Slowly lets them grow. Strike now.", next = "BACK", reply = "Maybe it does, but I'll not throw farmers at the Deadmines to prove a point. Slowly, I'm afraid.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
     hunter = {
@@ -550,8 +550,8 @@ P:NPC {
       lines = { { id = "mason_child_l", text = "Then your father was wronged, and I'll say so to anyone in Stormwind who'll listen. But some of the men he laid stone beside are out there in red masks, and I've buried farmers they killed, so forgive me if I can't say more than that." } },
       choices = {
         { text = "He never wore a mask. He stayed honest.", next = "mason_child2" },
-        { text = "The masks are what the nobles bought with their debts.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "A wrong done to you doesn't excuse a farmer's grave.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The masks are what the nobles bought with their debts.", next = "BACK", reply = "They are, and that's the bitterest part of it. I'll still fight them, but I'll not forget why they're masked.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "A wrong done to you doesn't excuse a farmer's grave.", next = "BACK", reply = "No, it doesn't, and I'm glad you see it. Your father would be proud, I think.", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
     mason_child2 = {
@@ -561,8 +561,8 @@ P:NPC {
     kaldorei = {
       lines = { { id = "kaldorei_l", text = "Maybe they wouldn't, and I'd be glad to see a few of them on this hill if Darnassus is offering. Stormwind didn't abandon us, exactly; it just forgot to remember, which is worse." } },
       choices = {
-        { text = "Then the Alliance should remember for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A kingdom that forgets doesn't deserve its provinces.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the Alliance should remember for it.", next = "BACK", reply = "It should, and I'd thank Darnassus for any help it sends. We've stopped being proud.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A kingdom that forgets doesn't deserve its provinces.", next = "BACK", reply = "Careful, friend, I'm still the king's man, whatever the kingdom's done. I'll not hear treason on my hill.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -746,8 +746,8 @@ P:NPC {
         { id = "gxl_default", text = "Here's one the hill argued over last week, and I'd like your answer before I give you mine. My scouts caught a lad of sixteen in a red mask with a sack of seed corn on his back, and he wept the whole way up the hill, so tell me: what would you have done with him?" },
       },
       choices = {
-        { text = "Put him to work for the farms he robbed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Hang him by the tower, so the others see it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Put him to work for the farms he robbed.", next = "BACK", reply = "That's close to my own answer, and it does my heart good to hear it. A boy put to honest work is one the Brotherhood doesn't get back.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hang him by the tower, so the others see it.", next = "BACK", reply = "Some on the hill said the same, and I understand it. But I'll not hang a weeping boy for seed corn, not while I command here.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "What did you do with him?", next = "gr_lad2" },
         { text = "Something else.", next = "BACK" },
       },

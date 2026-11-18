@@ -54,8 +54,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Against me, quite useless, but against my enemies in this land, perhaps not. The Flight has use for a strong arm that does what it is told and asks for payment afterwards, if it lives to ask." } },
       choices = {
-        { text = "I'm no dragon's sword. I'll fight my own battles.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Point me at your enemies. Payment afterwards suits me fine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm no dragon's sword. I'll fight my own battles.", next = "BACK", reply = "Your own battles, against my enemies, in my Steppes. You will find, warrior, that those are very often the same thing.", fx = { align = { honor = 1 } } },
+        { text = "Point me at your enemies. Payment afterwards suits me fine.", next = "BACK", reply = "How refreshingly simple you are, little one. Kill the Dark Irons who trouble the Flight's ground, and we shall see whether you live to collect.", fx = { align = { honor = -1 } } },
         { text = "I will speak of something else.", next = "BACK" },
       },
     },
@@ -66,8 +66,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the good sense to be afraid of me. You would do well to learn from it." },
       },
       choices = {
-        { text = "Patience is a hunter's first virtue. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A hunter who waits a hundred years has already lost.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience is a hunter's first virtue. I respect that.", next = "BACK", reply = "A small virtue in a small creature, but a true one. Perhaps you will live long enough to learn the rest of it.", fx = { align = { order = 1 } } },
+        { text = "A hunter who waits a hundred years has already lost.", next = "BACK", reply = "Spoken like a creature who will not live a hundred years. When you are dust, little one, I will still be waiting, and I will still win.", fx = { align = { order = -1 } } },
         { text = "I will speak of something else.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Humility, first, though few of you survive the lesson. Your spells are borrowed light, mortal, and fire like mine was old before your first wizard drew breath, so study it if you must, but from a distance." } },
       choices = {
-        { text = "Then I'll study from a distance, great one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll master your fire someday, dragon. Mark that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll study from a distance, great one.", next = "BACK", reply = "Wise, for a mortal, and wisdom will keep your eyebrows where they are. The fire will still be here after your grandchildren are dust.", fx = { align = { order = 1 } } },
+        { text = "I'll master your fire someday, dragon. Mark that.", next = "BACK", reply = "Mark it I shall, mage, beside the names of all the others who said the same. They were all very warm, at the end.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Bold, and foolish, which in mortals is the same thing. A dragon's hoard is a lifetime of tribute and a thief's is a week of luck, and when we meet over the same treasure, only one of us walks away." } },
       choices = {
-        { text = "Then I'll rob smaller prey. No shame in that.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd face you openly, dragon, not as a thief.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll rob smaller prey. No shame in that.", next = "BACK", reply = "Smaller prey is the wisest choice a thief ever made. You may yet keep your fingers.", fx = { align = { honor = -1 } } },
+        { text = "I'd face you openly, dragon, not as a thief.", next = "BACK", reply = "Openly? Then you are bolder than the thieves and twice as foolish. I shall remember your face, and I shall enjoy remembering it.", fx = { align = { honor = 1 } } },
         { text = "On to other things.", next = "BACK" },
       },
     },
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That they are dreamers who mistake sleep for wisdom, while the true heirs of this world wake and act. Your Circle bows to them, I know, and bowing is the only thing mortals do well, so perhaps you will be useful after all." } },
       choices = {
-        { text = "The green dragons guard the Dream well. I'll not hear them mocked.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Perhaps they sleep too much. I'll keep my own counsel, Cyrus.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The green dragons guard the Dream well. I'll not hear them mocked.", next = "BACK", reply = "Loyal to your sleeping masters, then, how touching. They will not wake to thank you for it, druid.", fx = { align = { order = 1 } } },
+        { text = "Perhaps they sleep too much. I'll keep my own counsel, Cyrus.", next = "BACK", reply = "Your own counsel, yes, which is a better master than a sleeper. Perhaps you are not as foolish as the rest of your Circle.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Because the earth was my Flight's long before your people learned to speak to it, and it remembers whom it served first. Pray to your spirits as much as you like, little one, but when the mountain shakes, ask yourself whose breath is moving it." } },
       choices = {
-        { text = "The elements serve no master, dragon. Not even yours.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then perhaps your Flight and I could come to terms.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The elements serve no master, dragon. Not even yours.", next = "BACK", reply = "Brave words, little one, and the earth has heard braver from shamans now buried beneath it. We shall see whom it obeys when it is asked.", fx = { align = { honor = 1 } } },
+        { text = "Then perhaps your Flight and I could come to terms.", next = "BACK", reply = "Terms? Mortals always want terms when they glimpse the size of what they face. Bring me something useful first, and then we shall discuss them.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -197,8 +197,8 @@ P:NPC {
     light = {
       lines = { { id = "l_default", text = "Then the Light is a fool, and so are you, which is at least consistent. Walk carefully, priest; the dark is very large, and it has been patient for a very long time." } },
       choices = {
-        { text = "So has the Light.", next = "BACK", fx = { align = { light = 2 }, affinity = -1 } },
-        { text = "You might be right. The dark does seem to keep winning.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "So has the Light.", next = "BACK", reply = "And still it has not won, priest, which tells you something about its patience. Go on, then, and keep your little candle lit.", fx = { align = { light = 2 }, affinity = -1 } },
+        { text = "You might be right. The dark does seem to keep winning.", next = "BACK", reply = "It does, and you are wiser for noticing. Remember that when the candle in your hand starts to gutter.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -208,9 +208,9 @@ P:NPC {
         { id = "xlk_default", text = "Demons. Little things from the Nether that you bind with circles and call yourself a master. I am older than your circles, mortal, so do not mistake my patience for your power." },
       },
       choices = {
-        { text = "Every power can be bound, dragon.", next = "BACK", fx = { align = { light = -1 }, trait = { brave = 1 } } },
+        { text = "Every power can be bound, dragon.", next = "BACK", reply = "Every power you have met, mortal, which is not very many. Try your circles on me, and I shall find out what warlock tastes like.", fx = { align = { light = -1 }, trait = { brave = 1 } } },
         { text = "I meant no insult. What do you want?", next = "want" },
-        { text = "Then I'll go no further down this road.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Then I'll go no further down this road.", next = "BACK", reply = "The first wise choice you have made today. Walk away slowly, and I may even forget your face.", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
   },

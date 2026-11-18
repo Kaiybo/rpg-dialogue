@@ -103,8 +103,8 @@ P:NPC {
         { id = "wi_default", text = "Because they're rumoured to have been made by Elune, and nobody seems to have checked. Ferocious monsters or misguided pets, the hunters say, but I'd like to know the truth before we decide." },
       },
       choices = {
-        { text = "Some questions are better left to the priestesses.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Good. Somebody should ask instead of assuming.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some questions are better left to the priestesses.", next = "BACK", reply = "Perhaps, though the priestesses have had ten thousand years to answer it and haven't. I'm not inclined to wait another ten thousand.", fx = { align = { order = 1 } } },
+        { text = "Good. Somebody should ask instead of assuming.", next = "BACK", reply = "Exactly, and you would be astonished how few people say that around here. Go and look, and then tell me what you saw.", fx = { align = { order = -1 } } },
         { text = "What have you learned so far?", next = "wildkin_learned" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "al_default", text = "That the wildkin in those caves were left to guard something sacred to Elune, and they've kept the watch longer than any of us remember. The Arch Druid will make of it what he likes, but I'll never look at an owlbeast the same way again." },
       },
       choices = {
-        { text = "Then we should stop hunting them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Guardians or not, they attack travellers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we should stop hunting them.", next = "BACK", reply = "I would like that, and I think Elune might too. Tell the Sentinels, if you can make them listen.", fx = { align = { light = 1 } } },
+        { text = "Guardians or not, they attack travellers.", next = "BACK", reply = "They do, and I can't pretend they don't. Defend yourself, but don't go looking for more of them than you must.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

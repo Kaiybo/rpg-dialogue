@@ -39,8 +39,8 @@ P:NPC {
       lines = { { id = "pj_bilge_default", text = "That's the job, buddy. Every crate that goes missing comes out of my budget, and nine times in ten the fellow who took it walked just like you, light on the feet and looking at everything but me. I'm not sayin' you're a thief; I'm sayin' I can't afford to guess." } },
       choices = {
         { text = "And the tenth time?", next = "pj_bilge2" },
-        { text = "Then watch me. I've nothing to hide on your dock.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Smart. A good thief never looks like a thief, Chief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then watch me. I've nothing to hide on your dock.", next = "BACK", reply = "Oh, I'll watch you, don't you worry, and if you turn out clean then that's one less name on my list and one less headache on my budget.", fx = { align = { honor = 1 } } },
+        { text = "Smart. A good thief never looks like a thief, Chief.", next = "BACK", reply = "Chief, is it? Listen, pal, keep talkin' like that and you'll find out what a deputy's boot feels like on the way off my dock.", fx = { align = { honor = -1 } } },
         { text = "I'd do the same in your boots, Chief.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -137,8 +137,8 @@ P:NPC {
       big = true,
       lines = { { id = "ps_default", text = "Now we teach them a lesson, so they remember who's the customer here. Then we go back to paying them, because the arrangement worked fine until they got greedy, and fine is all I ask for on my wage." } },
       choices = {
-        { text = "A deal's a deal. Make them keep it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stop paying them. Hang a few instead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A deal's a deal. Make them keep it.", next = "BACK", reply = "That's what I keep tellin' the boss, and it's nice to hear somebody else say it, because an arrangement nobody enforces is just a donation.", fx = { align = { order = 1 } } },
+        { text = "Stop paying them. Hang a few instead.", next = "BACK", reply = "Hang 'em? Do you know what rope costs out here, buddy, and who'd I pay off next season if every bruiser in Tanaris was danglin' from the wall?", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
       big = true,
       lines = { { id = "d_default", text = "Dock workers who unload stolen cargo for pirates are pirates, deputy, whatever they call themselves and whatever they're paid. The Cartel doesn't pay me to split hairs, and it barely pays me to split heads." } },
       choices = {
-        { text = "You're right. They chose their side.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Not every hired hand is a criminal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. They chose their side.", next = "BACK", reply = "Glad somebody around here sees it plain, deputy, because I've got enough on my plate without fellows arguing about who carried which crate.", fx = { align = { light = -1 } } },
+        { text = "Not every hired hand is a criminal.", next = "BACK", reply = "Maybe not, pal, and maybe I'll sleep worse for it, but the Cartel pays me to keep the docks clean, not to read every docker's heart.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

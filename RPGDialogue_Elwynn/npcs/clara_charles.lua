@@ -73,8 +73,8 @@ P:NPC {
       lines = { { id = "wg_default", text = "I've told them, and they come and look, and the men are gone, and the guards go home. If you were me, would you keep complaining, or keep your head down and your boy safe?" },
       },
       choices = {
-        { text = "Keep complaining. The guards owe you protection.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Keep your head down. The law won't save you here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep complaining. The guards owe you protection.", next = "BACK", reply = "You're right, and I know it, though it's hard to keep knocking on a door that never opens. I'll go to the Marshal again tomorrow, and I'll keep on going until somebody listens.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Keep your head down. The law won't save you here.", next = "BACK", reply = "That's what my head says too, though my heart hates hearing it. I'll keep the shutters closed and my boy close, and pray the Light keeps watch where the guards won't.", fx = { align = { order = -1 } } },
         { text = "I don't know, Clara.", next = "BACK" },
       },
     },

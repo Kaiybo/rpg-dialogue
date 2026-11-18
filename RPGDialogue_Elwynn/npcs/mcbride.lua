@@ -48,8 +48,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_mcbride_default", text = "They do, and they'll tell you so at length, though they'll also want you to stay for vespers. My own concern is simpler: so long as there are kobolds in Echo Ridge and Defias in the vineyards, I'll welcome anyone who can hold a blade." } },
       choices = {
-        { text = "The monks' prayers do as much good as any blade.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Blades keep the abbey safe, Marshal. Prayer comes after.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The monks' prayers do as much good as any blade.", next = "BACK", reply = "Maybe so, and I'd never say otherwise in their hearing. But prayer doesn't stand watch on the vineyard wall at night, recruit, and my guards do.", fx = { align = { light = 1 } } },
+        { text = "Blades keep the abbey safe, Marshal. Prayer comes after.", next = "BACK", reply = "That's my view, though I'll thank you not to say it near Brother Sammuel. Keep your blade sharp and your mouth shut at vespers.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -57,8 +57,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The vineyard, where the Defias pick at our grapes, and the kobold camps to the east, where the miners stopped going. Llane has your training, but I have the map, and the map's mostly red." } },
       choices = {
-        { text = "Put me where the line's thinnest, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll go where the fighting's best, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Put me where the line's thinnest, Marshal.", next = "BACK", reply = "Good answer, and I'll hold you to it. The vineyard's thinnest right now, so start there.", fx = { align = { order = 1 } } },
+        { text = "I'll go where the fighting's best, Marshal.", next = "BACK", reply = "That's a soldier who wants glory, and glory gets recruits killed. You'll go where I send you, and you'll be glad of it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -66,16 +66,16 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I need the kobolds cleared out of the vineyard and the Defias kept off the Abbey road, and I've four guards to do it with. A mage who can follow orders is worth a dozen who can't, so learn to follow them." } },
       choices = {
-        { text = "I'll follow your orders, Marshal. You'll have no trouble from me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll get results, Marshal, but I'll choose how.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll follow your orders, Marshal. You'll have no trouble from me.", next = "BACK", reply = "Good, because I've no time for mages who think they know better than the map. Report to the vineyard when you're ready.", fx = { align = { order = 1 } } },
+        { text = "I'll get results, Marshal, but I'll choose how.", next = "BACK", reply = "Results without discipline are how fires start, and I've lost one barn already. Choose wisely, then, and choose my way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Not for sport, no. They've been taking our sheep, and I can't let a farmer's flock suffer for the sake of a wolf." } },
       choices = {
-        { text = "That's fair. Protect the flock.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Wolves hunt to live. Show some mercy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's fair. Protect the flock.", next = "BACK", reply = "Glad you see it plainly. I take no joy in it, but the farmers need their sheep more than the wolves need their supper.", fx = { align = { order = 1 } } },
+        { text = "Wolves hunt to live. Show some mercy.", next = "BACK", reply = "Mercy's a fine thing for a druid, and I'll not mock it. But the farmer who loses his flock goes hungry, and I'll not put a wolf before a family.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Fewer than I'd lose without the Abbey, and more than I'd like to write home about. The kobolds in the mine aren't much, but a recruit who panics is worse than any kobold, and I can't train the panic out of them fast enough." } },
       choices = {
-        { text = "Then I'll help steady them when the panic comes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Panic culls the weak, Marshal. Better here than at the front.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll help steady them when the panic comes.", next = "BACK", reply = "I'd be grateful for it, because a calm voice saves more lives than a sharp blade. Stay close to the new ones.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Panic culls the weak, Marshal. Better here than at the front.", next = "BACK", reply = "That's a hard view, and I don't share it. Every recruit I lose here is one less man at the front, so I'll train them, not cull them.", fx = { align = { light = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "On the line, between the recruits and whatever's coming at them, because that's where the Light does the most good. I've read the old histories, and the Silver Hand never won a fight from a pew." } },
       choices = {
-        { text = "Then I'll stand on the line, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll serve where my conscience sends me, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll stand on the line, Marshal.", next = "BACK", reply = "Good, then I'll know where to find you when it counts. The recruits fight better with a paladin beside them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll serve where my conscience sends me, Marshal.", next = "BACK", reply = "Then I hope your conscience sends you to the line, because that's where I need you. I'll not order a paladin, but I'll ask.", fx = { align = { order = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -218,8 +218,8 @@ P:NPC {
           text = "You cleared more of it than anyone. There may still be some down there, and I'll send others after them; that's not a failure, recruit, it's what a garrison is for." },
       },
       choices = {
-        { text = "Then I'll keep coming back.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "That sounds exhausting.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 } } },
+        { text = "Then I'll keep coming back.", next = "BACK", reply = "Good, because I'll need you. The kingdom's soldiers are spread thin, and I'll take every pair of hands that keeps coming.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "That sounds exhausting.", next = "BACK", reply = "It is, and I've been doing it for years. Don't complain to me about tired legs, recruit.", fx = { align = { order = -1 }, trait = { witty = 1 } } },
       },
     },
 
@@ -254,7 +254,7 @@ P:NPC {
           text = "I've asked, twice, and the answer came back with a seal on it and nothing inside. Keep that to yourself, recruit." },
       },
       choices = {
-        { text = "Understood, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Understood, Marshal.", next = "BACK", reply = "Good. Off you go, then.", fx = { align = { order = 1 } } },
         { text = "Someone in the city should hear about this.", next = "BACK", fx = { trait = { stern = 1 }, align = { order = -1 } } },
         { text = "You've already asked the Keep, haven't you, Marshal?", tag = "Persuade", next = "garrison_letters",
           check = { pass = { any = { { disposition = { min = 65 } }, { origin = "human_abbey_novice" }, { questDone = TODO_QUEST("Skirmish at Echo Ridge") } } } },
@@ -295,8 +295,8 @@ P:NPC {
       },
       choices = {
         { text = "Drilled. Someone trained him.", next = "BACK", fx = { hear = "defias_trained", affinity = 1 } },
-        { text = "Like a desperate man.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Like a cutthroat, and he'll die like one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Like a desperate man.", next = "BACK", reply = "Desperate men break, recruit, and these don't. Somebody's training them, and I'd like to know who.", fx = { align = { light = 1 } } },
+        { text = "Like a cutthroat, and he'll die like one.", next = "BACK", reply = "I'd not argue, but I'd sooner know who taught him to fight like that. Keep your eyes open in the vineyard.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -369,8 +369,8 @@ P:NPC {
         { id = "lo_default", text = "Lordaeron, yes. Then you know why I don't laugh at kobolds, or bandits, or anything else that grows while nobody's watching it." },
       },
       choices = {
-        { text = "That's why I'm here.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
-        { text = "I came south to look after myself, not to stand watch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's why I'm here.", next = "BACK", reply = "Then you're welcome here, and you'll understand my orders better than most. Watch the small things, recruit.", fx = { affinity = 3, align = { order = 1 } } },
+        { text = "I came south to look after myself, not to stand watch.", next = "BACK", reply = "Then you'd best look after yourself somewhere else. I've no use for a soldier who won't stand watch.", fx = { align = { order = -1 } } },
         { text = "Nobody watched for us.", next = "lordaeron_watch" },
       },
     },
@@ -395,8 +395,8 @@ P:NPC {
     veteran_need = {
       lines = { { id = "vn_default", text = "Always, though not for kobolds. Go and do what we trained you for, somewhere it matters more than my woods." } },
       choices = {
-        { text = "Then I'll go where the fight matters most.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll go where I please, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll go where the fight matters most.", next = "BACK", reply = "That's what I hoped you'd say. Stormwind needs that more than my woods do.", fx = { align = { order = 1 } } },
+        { text = "I'll go where I please, Marshal.", next = "BACK", reply = "You will, I expect, but I hope your feet take you somewhere useful. Go with the Light, recruit.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -425,8 +425,8 @@ P:NPC {
       big = true,
       lines = { { id = "warlock_l", text = "It did, and I wrote it anyway, because the kingdom asked me to send every recruit to their teacher, and La Salle is yours. I don't have to like it, recruit, and I don't." } },
       choices = {
-        { text = "You'll be glad of me when the Defias come.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "I don't need your approval, Marshal.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "You'll be glad of me when the Defias come.", next = "BACK", reply = "Maybe I will, recruit, and I'll be the first to say so if it happens. Until then, mind how you go in my valley.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "I don't need your approval, Marshal.", next = "BACK", reply = "You don't, and I'll not offer it. Do your work and stay out of the Abbey after dark.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Why does the kingdom allow us at all?", next = "warlock2" },
       },
     },
@@ -448,7 +448,7 @@ P:NPC {
     hunter = {
       lines = { { id = "hunter_l", text = "So I see. Keep it off the Abbey's flowerbeds and away from the brothers' chickens, and it can hunt every kobold and wolf in the valley for all I care." } },
       choices = {
-        { text = "It only hunts what I point it at.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It only hunts what I point it at.", next = "BACK", reply = "Then point it at the kobolds and not the chickens. I'll be watching.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No promises about the chickens.", next = "BACK", fx = { trait = { witty = 1 }, align = { order = -1 } } },
       },
     },

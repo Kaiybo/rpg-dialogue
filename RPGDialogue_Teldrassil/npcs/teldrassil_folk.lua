@@ -63,8 +63,8 @@ P:NPC {
     council = {
       lines = { { id = "co_default", text = "Elders of the Sentinels and the druids, who see to the forest's laws while Darnassus sees to the city's. The Arch Druid and the High Priestess have the final word, but the Council has the first, and the first is the one most people hear." } },
       choices = {
-        { text = "The forest needs its laws. I'll respect them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A forest has no use for councils.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The forest needs its laws. I'll respect them.", next = "BACK", reply = "Good, and the Council will be glad of it. The forest has kept its own laws longer than any city.", fx = { align = { order = 1 } } },
+        { text = "A forest has no use for councils.", next = "BACK", reply = "Then you have not been on Teldrassil very long, {class}. The forest has a great use for them, and so do the Sentinels.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
     excuse = {
       lines = { { id = "ex_default", text = "Horns, hooves and a voice like honey poured over a knife, and you didn't know? The Council doesn't care what you knew, {class}, only what you'll do about it now." } },
       choices = {
-        { text = "I'll make it right. I give you my word.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A satyr's coin spends like any other.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll make it right. I give you my word.", next = "BACK", reply = "See that you do, and the Council will hear of it from me. A satyr's favour is a debt you do not want.", fx = { align = { honor = 1 } } },
+        { text = "A satyr's coin spends like any other.", next = "BACK", reply = "It spends, and it buys you nothing but the Council's attention. I would get rid of it before it gets rid of you.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -150,8 +150,8 @@ P:NPC {
     runner = {
       lines = { { id = "ru_default", text = "The Oracle Tree sent a runner to Darnassus with a report, and the harpies caught her on the road and tore her apart. We found her satchel, but not the report, and we still don't know what the Tree wanted to say." } },
       choices = {
-        { text = "Then we make the harpies pay.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Protect the next runner. That matters more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we make the harpies pay.", next = "BACK", reply = "They will, and Elune knows they have earned it. But do not let vengeance make you careless on that road.", fx = { align = { light = -1 } } },
+        { text = "Protect the next runner. That matters more.", next = "BACK", reply = "It does, and you see more clearly than most of my Sentinels. Guard the next one well, and we will deal with the harpies after.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -225,8 +225,8 @@ P:NPC {
     shaya = {
       lines = { { id = "sh_default", text = "A young Sentinel who patrols the road south of town and refuses to come in when she's hurt, because she says a wound is no reason to leave a post. I send students to her because she won't come to me." } },
       choices = {
-        { text = "Duty before comfort. She's right.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "She should come in. Pride kills good soldiers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Duty before comfort. She's right.", next = "BACK", reply = "She thinks so, and I admire her for it, even when it drives me to distraction. I only wish she would let me look at her arm.", fx = { align = { order = 1 } } },
+        { text = "She should come in. Pride kills good soldiers.", next = "BACK", reply = "It does, and I have told her so many times. Perhaps she would listen to you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -301,8 +301,8 @@ P:NPC {
     sign = {
       lines = { { id = "si_default", text = "It's a sign she noticed me enough to ignore me, which is more than most get. Love is patient, isn't it? I've got a few thousand years to wait." } },
       choices = {
-        { text = "Then keep trying. Never give up on love.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "She's said no. Respect it and move on.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then keep trying. Never give up on love.", next = "BACK", reply = "Thank you, friend, I knew you would understand! I have three new poems already, and one of them almost rhymes.", fx = { align = { order = -1 } } },
+        { text = "She's said no. Respect it and move on.", next = "BACK", reply = "Perhaps you are right, though it is very hard to hear. I will think about it, after one more poem.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,8 +369,8 @@ P:NPC {
     gnarlpine = {
       lines = { { id = "gn_default", text = "They didn't use to. The Gnarlpine were friends once, and now the animals smell them coming and hide in the back of the stalls. It breaks my heart a little every time." } },
       choices = {
-        { text = "They may still be saved. Don't give up on them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Friends or not, they're a danger now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They may still be saved. Don't give up on them.", next = "BACK", reply = "I hope you are right, and so do the animals, I think. They still remember the Gnarlpine who were kind.", fx = { align = { light = 1 } } },
+        { text = "Friends or not, they're a danger now.", next = "BACK", reply = "They are, and I have to keep the animals safe from them. But I will not stop hoping they come back to themselves.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -441,8 +441,8 @@ P:NPC {
     turtle_mind = {
       lines = { { id = "tm_default", text = "Not as we do, but she knows where the warm sand is and where the sharks wait, and she knew it before the humans built anything up there. That's a kind of history, even if it isn't written down." } },
       choices = {
-        { text = "All life holds wisdom. That's worth studying.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
-        { text = "History is what's written. The rest is guessing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "All life holds wisdom. That's worth studying.", next = "BACK", reply = "It is, and I am glad someone besides me thinks so. The turtle has seen more of the world than any of us.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "History is what's written. The rest is guessing.", next = "BACK", reply = "Perhaps, but the turtle was there before anyone wrote anything. That seems worth guessing about.", fx = { align = { order = 1 } } },
       },
     },
     travel = {
@@ -459,8 +459,8 @@ P:NPC {
     feralas_stance = {
       lines = { { id = "fs_default", text = "Easy to say when it isn't your only copy. But you're right, I suppose, and Troyas will look after it, or I'll hear about it." } },
       choices = {
-        { text = "Shared knowledge grows. Locked knowledge dies.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep it safe. Borrowers rarely return things.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Shared knowledge grows. Locked knowledge dies.", next = "BACK", reply = "It does, and you are right, though it still pains me to lend it. Troyas had better take good care of it.", fx = { align = { light = 1 } } },
+        { text = "Keep it safe. Borrowers rarely return things.", next = "BACK", reply = "They do, and I will remind Troyas of that in every letter. Still, knowledge locked away does no one any good either.", fx = { align = { light = -1 } } },
       },
     },
     winterspring = {

@@ -39,8 +39,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've never asked them, and I'm not about to start. A pelt's a living to me, and I don't waste any part of the animal. If that offends a spirit, it can tell me itself." } },
       choices = {
-        { text = "Take what you need and waste nothing. That's fair.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Trap them all, Eagan. The forest has plenty.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Take what you need and waste nothing. That's fair.", next = "BACK", reply = "That's how my grandfather did it, and his before him. You'll do all right.", fx = { align = { honor = 1 } } },
+        { text = "Trap them all, Eagan. The forest has plenty.", next = "BACK", reply = "It had plenty once, and then it didn't. I'll take what I need and leave the rest.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -48,8 +48,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "For a night, maybe, but they're hungry, and hunger comes back faster than fear does. Kill the worst of them and bring me their meat, and the rest will think twice about the ridge." } },
       choices = {
-        { text = "I'll kill them cleanly and spare the pelts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll burn them out. Pelts aren't my concern.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll kill them cleanly and spare the pelts.", next = "BACK", reply = "Good, and I'll pay fair for every pelt. Clean kills, mind.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll burn them out. Pelts aren't my concern.", next = "BACK", reply = "They're mine, friend, and I'll not pay for ashes. Burn something else.", fx = { align = { order = -1 } } },
         { text = "Something else, Eagan.", next = "BACK" },
       },
     },
@@ -57,8 +57,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "From behind, and in pairs, the way hungry ones always do. One shows you its teeth while the other goes for your legs, so watch the one you can't see and let the noisy one wait." } },
       choices = {
-        { text = "I'll watch my back and fight them properly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then I'll charge the noisy one and be done fast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll watch my back and fight them properly.", next = "BACK", reply = "Good, that's the way to come home with both legs. Mind the quiet one.", fx = { align = { order = 1 } } },
+        { text = "Then I'll charge the noisy one and be done fast.", next = "BACK", reply = "You'll be done fast, aye, with the other one hanging off your leg. Suit yourself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -69,8 +69,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a good nose. Let it find their trail and keep it off the ones still nursing." },
       },
       choices = {
-        { text = "I'll take the hungry ones and spare the young.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A wolf's a wolf. I'll take every one on the ridge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take the hungry ones and spare the young.", next = "BACK", reply = "That's a hunter who thinks ahead, and I'll be glad of you on the ridge. The young ones grow up to be next year's trouble, but they're not this year's.", fx = { align = { honor = 1 } } },
+        { text = "A wolf's a wolf. I'll take every one on the ridge.", next = "BACK", reply = "They'll come back with every litter, friend, and you'll be up there forever. Take the hungry ones.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -78,8 +78,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "It would, because the young ones scatter before a man gets within a stone's throw of them, and then they come back for my drying racks after dark. If you can get close enough to see the whites of their eyes, you'll do better than most of the Abbey's recruits." } },
       choices = {
-        { text = "I'll thin the pack so they stop starving on your racks.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll kill every wolf on that ridge, pups and all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll thin the pack so they stop starving on your racks.", next = "BACK", reply = "That's what I need, and I'll thank you for it. Mind the racks on your way back.", fx = { align = { light = 1 } } },
+        { text = "I'll kill every wolf on that ridge, pups and all.", next = "BACK", reply = "Then you'll leave nothing for next year, and the deer will eat my crops instead. Take the hungry ones.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,8 +87,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Every animal does, and mine have been howling at the graveyard behind the Abbey since La Salle took up her post there. A wolf knows something wrong when it smells it, and I've learned to trust a wolf's nose over a man's word." } },
       choices = {
-        { text = "Your wolves are right to fear it. I'll keep it leashed.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let them howl. Fear keeps beasts in their place.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your wolves are right to fear it. I'll keep it leashed.", next = "BACK", reply = "Thank you, and I'll keep the wolves' trust in their noses. They've not been wrong yet.", fx = { align = { light = 1 } } },
+        { text = "Let them howl. Fear keeps beasts in their place.", next = "BACK", reply = "Fear keeps them howling all night, friend, and none of us sleep. Keep it leashed.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,8 +96,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "My grandfather did, every one, and I thought it was soft until the year I stopped and the wolves got bolder. Now I mutter something before I skin them, and I'll thank you not to tell Helene, because she'd laugh." } },
       choices = {
-        { text = "Every creature deserves a word at the end, Eagan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A wolf's a wolf. Save your prayers for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every creature deserves a word at the end, Eagan.", next = "BACK", reply = "Grandfather would've liked you. Keep it between us, mind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A wolf's a wolf. Save your prayers for people.", next = "BACK", reply = "That's what I thought too, until the wolves got bolder. Try it once and see.", fx = { align = { light = -1 } } },
         { text = "Something else, Eagan.", next = "BACK" },
       },
     },
@@ -105,8 +105,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not yet, but they're hungry, and hungry wolves get brave, so it's the recruits walking the vineyards at dusk that worry me. I'd rather thin them now, cleanly, than bury a novice come winter." } },
       choices = {
-        { text = "Then I'll thin them quickly, and spare the pups.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Kill the lot, pups and all. The Abbey comes first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll thin them quickly, and spare the pups.", next = "BACK", reply = "That's the way, and the pups will grow up warier for it. I'll be glad of you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kill the lot, pups and all. The Abbey comes first.", next = "BACK", reply = "Then there'll be nothing left to keep the deer off the crops, and the Abbey will thank you for that too. Take the hungry ones.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -213,7 +213,7 @@ P:NPC {
     pity = {
       lines = { { id = "p_default", text = "Sorry for them? They'd eat me if I let them, and I don't let them." } },
       choices = {
-        { text = "Then keep them off your doorstep.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Then keep them off your doorstep.", next = "BACK", reply = "That's the plan, aye. And I'll keep doing it till I'm too old to lift a trap.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Seems a hard way to see it.", next = "pity_hard", fx = { align = { light = 1 }, trait = { kind = 1 }, affinity = -1 } },
       },
     },

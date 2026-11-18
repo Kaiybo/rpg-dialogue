@@ -178,8 +178,8 @@ P:NPC {
         { id = "hc_default", text = "Every alliance is convenience, warm or cold. They need the Undercity's apothecaries and we need their axes between us and the Scourge, and the day either of those stops being true, you'll see how long the speeches last." },
       },
       choices = {
-        { text = "Allies are allies. Treat them as you'd be treated.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then use them before they use us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Allies are allies. Treat them as you'd be treated.", next = "BACK", reply = "A nice sentiment, friend, and I'll treat them exactly as they treat me. Warmly, until it's convenient not to.", fx = { align = { order = 1 } } },
+        { text = "Then use them before they use us.", next = "BACK", reply = "Now you're talking like a proper Forsaken, friend, but keep it quiet near the orcs. They hear better than you'd think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -223,7 +223,7 @@ P:NPC {
         { id = "xd_default", text = "Of course they will, friend, and the Dark Lady knows it better than any of us. Until then we smile at them, as well as these faces smile, and we keep our blades oiled." },
       },
       choices = {
-        { text = "Then let's take what we need from them first.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Then let's take what we need from them first.", next = "BACK", reply = "Patience, friend, patience. Take too soon and they'll notice, and we're not ready for that conversation yet.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Not all of them, Gordon. I've met decent warm ones.", next = "xdead_decent", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

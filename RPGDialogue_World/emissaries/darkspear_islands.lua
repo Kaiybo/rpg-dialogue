@@ -119,8 +119,8 @@ P:NPC {
         { id = "sw_default", text = "That be what the Raiders want to know. Some say we should bring them all to Durotar, where the Horde can keep them safe, and some say the islands be theirs and we should fight to let them stay. Which would you choose?" },
       },
       choices = {
-        { text = "Bring them home to the Horde, where they're safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The islands are theirs. Fight so they can stay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Bring them home to the Horde, where they're safe.", next = "BACK", reply = "Dat be the safe answer, and many of the elders say it too, though some of dem old ones would sooner die on the sand than live in a city of orcs.", fx = { align = { order = 1 } } },
+        { text = "The islands are theirs. Fight so they can stay.", next = "BACK", reply = "Ah, you got the fire of Sen'jin in you, mon, and the Raiders be glad to hear it, because a tribe dat runs from every home never gets to keep one.", fx = { align = { order = -1 } } },
         { text = "Ask them first. It's their choice.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
         { id = "tp_default", text = "That be the question everybody in the Raiders argues over by the fire. The Warchief and the lady of Theramore keep their truce, and nobody wants to break it, but the soldiers on the islands be shooting at us all the same. How would you deal with them?" },
       },
       choices = {
-        { text = "Fight only as hard as we must, and leave room for peace.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They shot first. Drive them into the sea.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Fight only as hard as we must, and leave room for peace.", next = "BACK", reply = "Vol'jin would say the same, and he be wiser than me, so I'll pass your words along and hope the Theramore soldiers be listenin' too.", fx = { align = { light = 1 } } },
+        { text = "They shot first. Drive them into the sea.", next = "BACK", reply = "Plenty of young Darkspear feel the way you do, and I can't blame dem, but if the truce breaks over dis, it be the whole Horde paying, not just the islands.", fx = { align = { light = -1 } } },
         { text = "I'll leave that to the Warchief.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -229,8 +229,8 @@ P:NPC {
         { id = "kt_default", text = "Because Sen'jin's bones be there, and our grandparents' fires, and the first place the Darkspear were ever safe. Some trolls say leave the past in the sea, and others say a tribe without its old home be only half a tribe. What do you say, Darkspear?" },
       },
       choices = {
-        { text = "We go back. The old home is part of us.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Our home is with the Horde now. Look forward.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We go back. The old home is part of us.", next = "BACK", reply = "Den the loa be smiling on you, cousin, because a troll who remembers where he come from be harder to drive off than any wall the Alliance can build.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Our home is with the Horde now. Look forward.", next = "BACK", reply = "Dat be Vol'jin's way too, and maybe it be right, but don't you forget the old fires, cousin, because the spirits don't forget dem.", fx = { align = { order = 1 } } },
         { text = "I'll go, but for the fight, not the past.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },

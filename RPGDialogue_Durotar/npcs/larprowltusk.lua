@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "b_default", text = "Because the Darkspear lose too many already, mon, on the isles and before that in the jungle. As sure as there be sand in Tanaris, there will be blood before these times be through, but I won't spend it where I don't have to." } },
       choices = {
-        { text = "A war won without bloodshed is the best kind.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some blood should be spilled. They'd spill ours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A war won without bloodshed is the best kind.", next = "BACK", reply = "Dat be the best kind, mon, and the hardest to find. The Darkspear been bleeding long enough, so I hunt for it every day.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some blood should be spilled. They'd spill ours.", next = "BACK", reply = "They would, and they will, if we let them. When the time come, I'll spill it gladly, but not one drop before.", fx = { align = { honor = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
     kolkar = {
       lines = { { id = "k_default", text = "The centaur been in these lands longer than us, mon, and they don't like sharing them with orcs and trolls. The Kolkar raid the caravans and the farms, and now they think they got enough spears to take more." } },
       choices = {
-        { text = "They were here first. Maybe they have a claim.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "This land is the Horde's now. That's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They were here first. Maybe they have a claim.", next = "BACK", reply = "A claim, maybe, but they make it with spears on our caravans. Speak to the spirits about it, {class}, and see what they say.", fx = { align = { order = -1 } } },
+        { text = "This land is the Horde's now. That's the end of it.", next = "BACK", reply = "Dat be what the Warchief say, and I stand with him. The Kolkar will learn it, one way or the other.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

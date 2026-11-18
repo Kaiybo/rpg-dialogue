@@ -96,8 +96,8 @@ P:NPC {
         { id = "ac_default", text = "Among other places, and some of them still work, in Jaedenar in Felwood, under Lord Banehollow. I've no love for the Council, but I'll use their stardust and their roads, for knowledge owes nothing to the hands that hold it." },
       },
       choices = {
-        { text = "Knowledge is knowledge. Use what works.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some knowledge stains whoever touches it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge is knowledge. Use what works.", next = "BACK", reply = "You'd have made a fine student of the dark arts, I think. A blade does not ask whose forge made it, and neither should the hand that swings it.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge stains whoever touches it.", next = "BACK", reply = "Every power stains, little one, and the only question is whether you get anything for the mark. I have always made very sure that I do.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,8 +162,8 @@ P:NPC {
         { id = "xpa_default", text = "Abomination is a word for what frightens you, holy one. My students bind demons and ride them against the Legion's own servants, which is more than your sermons have managed lately." },
       },
       choices = {
-        { text = "Demons can't be tamed. You'll learn that too late.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If it works against the Legion, I'll hold my tongue.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Demons can't be tamed. You'll learn that too late.", next = "BACK", reply = "Perhaps I will, and you may come and gloat over my bones if you live so long. Until then, my dreadsteeds will keep riding where your Light does not reach.", fx = { align = { order = 1 } } },
+        { text = "If it works against the Legion, I'll hold my tongue.", next = "BACK", reply = "How unexpectedly sensible of you, holy one. Hold it a while longer and you may even learn something worth knowing.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

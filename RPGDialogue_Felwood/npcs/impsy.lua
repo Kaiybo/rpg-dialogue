@@ -87,8 +87,8 @@ P:NPC {
         { id = "nl_default", text = "Leave? I'm bound, you dolt, it's what summoned means. If I wander off he just snaps his fingers and back I come, and he laughs, and then he makes me fetch the slippers again." },
       },
       choices = {
-        { text = "A bargain is a bargain. Serve him well.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then find a way to break the binding.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A bargain is a bargain. Serve him well.", next = "BACK", reply = "Serve him well? Serve him well, says the fool who doesn't fetch slippers! I'll serve him as well as he deserves, which is barely.", fx = { align = { order = 1 } } },
+        { text = "Then find a way to break the binding.", next = "BACK", reply = "Ooh, now you're thinking, and I've been thinking it for years. If you find the trick, I'll owe you something nasty.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
         { id = "bs_default", text = "So everybody knows whose it is! A pet that smells like flowers might as well belong to a druid. Mine's going to smell like brimstone and bad ideas, the way a pet should." },
       },
       choices = {
-        { text = "Be proud of what you are, Impsy.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Maybe try being something better than a demon.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Be proud of what you are, Impsy.", next = "BACK", reply = "I am proud, thank you very much, and it's about time someone noticed. Brimstone is a perfectly respectable perfume.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Maybe try being something better than a demon.", next = "BACK", reply = "Better than a demon? There's no such thing, you twit, and I'd know. Go and preach at a priest.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -164,8 +164,8 @@ P:NPC {
         { id = "ps_default", text = "Steal? I'm redistributing, warlock. He took my time and my dignity and my afternoons, and I'm only taking back a few shiny things in return. That's fair dealing where I come from." },
       },
       choices = {
-        { text = "I'll take the reward. His loss is my gain.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll help, but I won't take stolen goods.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the reward. His loss is my gain.", next = "BACK", reply = "There's a warlock with sense, and I knew I liked you. His loss, your gain, and my revenge, all in one.", fx = { align = { honor = -1 } } },
+        { text = "I'll help, but I won't take stolen goods.", next = "BACK", reply = "Oh, a principled one, how dull. Fine, keep your hands clean, and I'll keep the shiny things.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -175,8 +175,8 @@ P:NPC {
         { id = "xh_default", text = "Banish me? Go on, then, and see what happens; I'll be back in a fortnight when Niby gets bored, and in a worse mood. Or you could leave a little imp alone to make his little pet, and nobody gets hurt." },
       },
       choices = {
-        { text = "A demon is a demon. Begone from this world.", next = "BACK", fx = { affinity = -2, align = { light = 1 } } },
-        { text = "You're harmless enough. Make your pet, imp.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A demon is a demon. Begone from this world.", next = "BACK", reply = "Go on, then, and I'll be back sooner than you'd like, and grumpier for it. Niby always gets bored.", fx = { affinity = -2, align = { light = 1 } } },
+        { text = "You're harmless enough. Make your pet, imp.", next = "BACK", reply = "Harmless? I'm deeply offended, but I'll take it. Off you go, and don't tell anyone I was polite.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

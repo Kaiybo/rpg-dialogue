@@ -89,8 +89,8 @@ P:NPC {
     drill_canal = {
       lines = { { id = "dca_default", text = "It reached the canal before it reached the bottom of the hill, which I'd call an error of about forty degrees and a great deal of water. Nobody drowned, and the Dwarven District has a lovely new fountain, which I maintain was always the plan." } },
       choices = {
-        { text = "Every failure is data. Keep going.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Test properly before you flood the city again.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every failure is data. Keep going.", next = "BACK", reply = "That's exactly what I told the canal warden, though he didn't write it down, and he used some very unscientific words about my mother.", fx = { align = { order = -1 } } },
+        { text = "Test properly before you flood the city again.", next = "BACK", reply = "Properly is a wonderful word and I'll take it under advisement, right after I've dried out the last three schematics.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,8 +105,8 @@ P:NPC {
     crew_goblin = {
       lines = { { id = "cg_default", text = "Steamwheedle, not those Venture Company thugs, and he charges me a fortune, and he's the best wiring man I've ever met. If the High Tinker ever asks, he's a very short dwarf with a sunburn.", fx = { learn = { "steamwheedle" } } } },
       choices = {
-        { text = "You shouldn't lie to the High Tinker.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "What Mekkatorque doesn't know won't hurt him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You shouldn't lie to the High Tinker.", next = "BACK", reply = "Lie is such an ugly word, and I prefer selective reporting, which is what every engineer does when the numbers come out embarrassing.", fx = { align = { honor = 1 } } },
+        { text = "What Mekkatorque doesn't know won't hurt him.", next = "BACK", reply = "Exactly! He's got a whole city to win back, so he doesn't need to know where my wire comes from, only that it carries the current.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
     fall_thermaplugg = {
       lines = { { id = "ft_default", text = "That's what they say in Tinker Town, and I believe it, though I worked two floors under him once and he always said good morning. People are complicated, and traitors more than most." } },
       choices = {
-        { text = "Traitors should pay. Every one of them.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Take the city back first. Justice can wait.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Traitors should pay. Every one of them.", next = "BACK", reply = "They should, and I'll hold the wrench while they do. I just can't stop remembering him saying good morning, which is very inconvenient.", fx = { align = { light = -1 } } },
+        { text = "Take the city back first. Justice can wait.", next = "BACK", reply = "That's my view, more or less, about ninety percent of it. The other ten percent wants a word with Thermaplugg first, with a very large spanner.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
     deadmines = {
       lines = { { id = "dm_default", text = "Because the Defias hired goblins to build their fleet, and goblins build the best shredders anywhere, and the Defias pay well with money they've stolen from somebody else. Somewhere under Moonbrook there's a whole ship, I'm told, and I'd love to know how they got it down there.", fx = { learn = { "deadmines", "defias" } } } },
       choices = {
-        { text = "The Defias are thieves. Hang the lot of them.", next = "BACK", fx = { align = { order = 1 }, opinion = { defias = "hardline" } } },
-        { text = "The Defias were cheated by the nobles first.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" } } },
+        { text = "The Defias are thieves. Hang the lot of them.", next = "BACK", reply = "I'd settle for hanging their goblins' shredders, since that's what really worries me, though I'll leave the rest to the guard and the rope.", fx = { align = { order = 1 }, opinion = { defias = "hardline" } } },
+        { text = "The Defias were cheated by the nobles first.", next = "BACK", reply = "Maybe they were, and I'm no expert on Stormwind's money, but cheated people still shouldn't build shredders out of stolen gold. That's just sloppy ethics.", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -233,8 +233,8 @@ P:NPC {
       big = true,
       lines = { { id = "go_default", text = "Because it works, and that's the only reason I need. The goblins in the Deadmines built a shredder with a power core better than anything we have left, and the Tinkmaster turned his nose up at it, but I'd use troll mojo if it got me through the rock." } },
       choices = {
-        { text = "Use whatever works. Pride never dug a tunnel.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Goblin parts fail. Build it the gnomish way, properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Use whatever works. Pride never dug a tunnel.", next = "BACK", reply = "Exactly! Pride never dug a tunnel, pride never drained a canal, and pride certainly never took back Gnomeregan. Write that down for me, would you?", fx = { align = { order = -1 } } },
+        { text = "Goblin parts fail. Build it the gnomish way, properly.", next = "BACK", reply = "Goblin parts fail, gnomish parts fail, everybody's parts fail, and the trick is having more parts than failures. I'm about sixty percent there.", fx = { align = { order = 1 } } },
         { text = "Why is a goblin shredder in the Deadmines?", next = "deadmines" },
         { text = "Something else.", next = "BACK" },
       },
@@ -343,8 +343,8 @@ P:NPC {
       big = true,
       lines = { { id = "ca_default", text = "He does not say, and that frightens me more than any answer would. Some of our people want the Sentinels to burn out the sick places and start again, and others say the forest must be healed and not cut, and my brother has always been one of the second." } },
       choices = {
-        { text = "Heal it if you can. Fire is a last resort.", next = "BACK", fx = { align = { light = 1 }, learn = { "furbolgs" } } },
-        { text = "Burn out the sickness before it spreads.", next = "BACK", fx = { align = { light = -1 }, learn = { "furbolgs" } } },
+        { text = "Heal it if you can. Fire is a last resort.", next = "BACK", reply = "That is my hope, and my brother's, though hope grows slowly and sickness quickly. Elune grant we find the cure before the Sentinels lose patience.", fx = { align = { light = 1 }, learn = { "furbolgs" } } },
+        { text = "Burn out the sickness before it spreads.", next = "BACK", reply = "You speak like a Sentinel, and they may yet have their way. Pray we are not forced to burn what we cannot mend.", fx = { align = { light = -1 }, learn = { "furbolgs" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -395,8 +395,8 @@ P:NPC {
     gershala_danger = {
       lines = { { id = "gd_default", text = "It is, and I told him so, and he told me that a brother who worries is a brother with too little to do. So I crossed the sea to find him help, which I suppose proves his point." } },
       choices = {
-        { text = "Understanding the enemy is worth the risk.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some knowledge costs too much. Tell him to stop.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Understanding the enemy is worth the risk.", next = "BACK", reply = "He would thank you for that, and so would I, if he lives long enough to share what he learns. I am not as brave as either of you.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge costs too much. Tell him to stop.", next = "BACK", reply = "I have told him, many times, and my brother has never once listened to me. Perhaps a stranger's voice would reach him where mine cannot.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -411,16 +411,16 @@ P:NPC {
     why_darnassus = {
       lines = { { id = "wd_default", text = "Teldrassil is young, and the old forests of Ashenvale fall to the orcs' axes, and our elders argue still over whether the new tree was wisely planted. I will not say which side I take, here among strangers, but I will say that the arguing is loud." } },
       choices = {
-        { text = "Planting a new world tree was a bold choice. Good.", next = "BACK", fx = { align = { order = -1 }, learn = { "teldrassil" } } },
-        { text = "Some things shouldn't be rushed, even trees.", next = "BACK", fx = { align = { order = 1 }, learn = { "teldrassil" } } },
+        { text = "Planting a new world tree was a bold choice. Good.", next = "BACK", reply = "Bold, yes, and some of our elders still call it too bold. I hope you are right, for we have nothing else to stand upon.", fx = { align = { order = -1 }, learn = { "teldrassil" } } },
+        { text = "Some things shouldn't be rushed, even trees.", next = "BACK", reply = "The archdruids would agree with you, though they will not say so where Fandral can hear. Young trees, like young people, grow strangely when hurried.", fx = { align = { order = 1 }, learn = { "teldrassil" } } },
         { text = "The orcs are cutting Ashenvale?", next = "ashenvale" },
       },
     },
     ashenvale = {
       lines = { { id = "as_default", text = "They cut it for their war and their fires, and the Sentinels fight them for every tree. I am no warrior, but I have heard an old tree fall, and it is a sound I will carry with me until I die.", fx = { learn = { "ashenvale" } } } },
       choices = {
-        { text = "The Horde will answer for every tree.", next = "BACK", fx = { align = { light = -1 }, opinion = { orcs = "hate" } } },
-        { text = "Perhaps peace is possible, if both sides want it.", next = "BACK", fx = { align = { light = 1 }, opinion = { peace = "for" } } },
+        { text = "The Horde will answer for every tree.", next = "BACK", reply = "I hope they do not answer only in blood, for the forest has seen enough of it. Still, I understand the anger, and I share some of it.", fx = { align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "Perhaps peace is possible, if both sides want it.", next = "BACK", reply = "Perhaps, though I have heard the axes all night and seen nothing that sounds like peace. I would like to believe you.", fx = { align = { light = 1 }, opinion = { peace = "for" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -479,8 +479,8 @@ P:NPC {
     xpriest = {
       lines = { { id = "xp_default", text = "I pray she does, every night the moon rises over this city of stone. It is strange to pray to her here; she looks just the same, but she feels further away." } },
       choices = {
-        { text = "She's no further. Faith crosses any sea.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Prayers won't help him. Hands will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "She's no further. Faith crosses any sea.", next = "BACK", reply = "Your faith shames my doubt, and gently. I will try to remember that tonight, when I look up at the moon above these stone roofs.", fx = { align = { light = 1 } } },
+        { text = "Prayers won't help him. Hands will.", next = "BACK", reply = "Then I am grateful for yours, and I think Elune will not mind sharing the work with them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -488,8 +488,8 @@ P:NPC {
     xhuman = {
       lines = { { id = "xh_default", text = "Because we stood together at Mount Hyjal, or so I am told, and because I would help a human's brother if he came to me. If that is not enough, I can only say please, which is all I have left to offer." } },
       choices = {
-        { text = "The Alliance is bound together. I'll go.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll go because you asked, not for any alliance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Alliance is bound together. I'll go.", next = "BACK", reply = "Then you have my thanks, and my brother's when you reach him. We do not forget those who keep faith.", fx = { align = { order = 1 } } },
+        { text = "I'll go because you asked, not for any alliance.", next = "BACK", reply = "That is honest, and I value honesty above oaths. Go well, and tell my brother his worried sibling sent you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -505,8 +505,8 @@ P:NPC {
     xstems = {
       lines = { { id = "xs_default", text = "His last letter said the change begins in the mind, long before the body follows, and that those it happens to rarely notice. I have read that line many times, and I do not like what it means for any of us." } },
       choices = {
-        { text = "Your people are stronger than the satyr were.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Anyone can fall. Watch yourselves closely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your people are stronger than the satyr were.", next = "BACK", reply = "I pray you are right, though the satyr were once proud of their strength too. We remember what they were, which is why we fear it.", fx = { align = { light = 1 } } },
+        { text = "Anyone can fall. Watch yourselves closely.", next = "BACK", reply = "Wise words, and harder to live by than to say. I will watch, and I will ask my brother to watch himself, though he never does.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

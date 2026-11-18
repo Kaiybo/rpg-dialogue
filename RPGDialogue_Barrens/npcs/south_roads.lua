@@ -58,8 +58,8 @@ P:NPC {
       big = true,
       lines = { { id = "wh2_default", text = "I'm a deckhand, and I can barely spot the next wave coming, never mind a secret. Northwatch fires on anything that sails too near, Horde or neutral, and if they let me go they'd have to admit they sank a Ratchet ship for nothing." } },
       choices = {
-        { text = "Northwatch has every right to guard its own coast.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sinking a neutral ship is piracy, whatever the banner.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Northwatch has every right to guard its own coast.", next = "BACK", reply = "A right to guard it, yes, but not to sink every hull that drifts within range of their guns. I hope you never find yourself on the wrong end of that right, friend.", fx = { align = { order = 1 } } },
+        { text = "Sinking a neutral ship is piracy, whatever the banner.", next = "BACK", reply = "Thank you for saying it out loud, because nobody in this place will. Piracy in a tabard is still piracy, and someday someone from Theramore will have to admit it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "gu_default", text = "You could, and they'd thank you for it, and I'd sit in this cell until Theramore remembers I exist, which could be years. All I ask is that you think on whether you'd want the same, if your ship had gone down on the wrong beach." } },
       choices = {
-        { text = "Northwatch has its reasons. I won't interfere.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're no spy. I won't call anyone.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Northwatch has its reasons. I won't interfere.", next = "BACK", reply = "Then I'll go on counting the stones in this wall, I suppose. I can't blame you for it, though I'd hoped the sea had taught you more mercy than it taught them.", fx = { align = { order = 1 } } },
+        { text = "You're no spy. I won't call anyone.", next = "BACK", reply = "You've a kinder heart than anyone I've met since that ship went down. I won't forget it, and if I ever see the docks of Ratchet again, I'll tell them a stranger kept faith.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,8 +166,8 @@ P:NPC {
       big = true,
       lines = { { id = "al2_default", text = "Solitude is the warlock's oldest companion, older than any imp, and the ones who can't bear it end up making friends of their demons, which never ends well. I would rather be lonely than owned." } },
       choices = {
-        { text = "A power that needs that much solitude is one to fear.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Better alone and strong than crowded and weak.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A power that needs that much solitude is one to fear.", next = "BACK", reply = "It should be feared, and the warlock who stops fearing it is already halfway lost. Keep that fear close, friend, because it is the only honest thing a demon ever teaches.", fx = { align = { light = 1 } } },
+        { text = "Better alone and strong than crowded and weak.", next = "BACK", reply = "Strong, yes, and alone, which you'll find is a heavier coin than it looks. I chose it with my eyes open, and I'd advise you to do the same before you choose it too.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

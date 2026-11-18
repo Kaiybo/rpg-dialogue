@@ -80,8 +80,8 @@ P:NPC {
         { id = "sw_default", text = "The war comes first, the elders say, and I'm not one to argue with elders. But a Sentinel with no bandage is only half a Sentinel, and somebody has to count the bandages." },
       },
       choices = {
-        { text = "The bow matters more than the loom.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your work is as brave as theirs.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The bow matters more than the loom.", next = "BACK", reply = "Perhaps it does, friend, until the archer bleeds and there is nothing to bind the wound with. Then the loom matters very much indeed.", fx = { align = { order = 1 } } },
+        { text = "Your work is as brave as theirs.", next = "BACK", reply = "That is kinder than most say, and I will carry it with me to the next bale of linen. Brave is a big word for counting bandages, but I thank you for it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
         { id = "wy_default", text = "Because you'll earn the gratitude of night elves everywhere, friend, and gratitude is a currency here, whatever the goblins think. And because someone in Ashenvale is cold tonight." },
       },
       choices = {
-        { text = "That's reason enough for me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Gratitude won't pay for my repairs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's reason enough for me.", next = "BACK", reply = "Then Elune keep you, and keep whoever ends up wrapped in the cloth you bring. Ashenvale will be a little warmer for it.", fx = { align = { light = 1 } } },
+        { text = "Gratitude won't pay for my repairs.", next = "BACK", reply = "No, it won't, and I would never pretend otherwise to you. But a good name opens doors in Darnassus that gold never could, and those doors lead to better work.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

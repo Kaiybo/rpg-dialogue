@@ -226,8 +226,8 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "Because the commander tolerates me and the councilman doesn't, and a corner behind a building keeps everyone's conscience clean. Poison is a coward's weapon, some say, but cowards outlive heroes in Duskwood." } },
       choices = {
-        { text = "Poison is dishonorable. I'd rather fight fair.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair fights are for people who like losing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Poison is dishonorable. I'd rather fight fair.", next = "BACK", reply = "Then fight fair, and I hope Duskwood returns the courtesy. Should you change your mind after a night on the Raven Hill road, my corner will still be here.", fx = { align = { honor = 1 } } },
+        { text = "Fair fights are for people who like losing.", next = "BACK", reply = "You'd be surprised how few people in Darkshire will say that aloud, though plenty of them buy as if they believed it. Mind the vials; they don't care whose hands they're in.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

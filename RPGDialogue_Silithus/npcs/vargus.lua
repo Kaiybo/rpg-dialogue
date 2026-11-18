@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "cf_default", text = "Some smiths would, and some leatherworkers already do. I am not sure it is wise to wear the enemy's shell, but I am not sure it is foolish either, and out here the useful thing usually wins." } },
       choices = {
-        { text = "Use every advantage. The bugs would.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Some lines are worth keeping, even here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Use every advantage. The bugs would.", next = "BACK", reply = "You may be right, young one, and if the bugs had a forge, I think they would already be wearing ours, so I will heat the coals.", fx = { align = { order = -1 } } },
+        { text = "Some lines are worth keeping, even here.", next = "BACK", reply = "Wise words, and the Earth Mother would nod at them, though she has never had to stand in this sand with a hive at her back.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

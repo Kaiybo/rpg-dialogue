@@ -34,8 +34,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Too many, and most of them say presumed wolf. I joke because the alternative is weeping into the ledgers. If your spirits know names, I'd take them." } },
       choices = {
-        { text = "Keep the records true, Daltry. Every name deserves an entry.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Burn the ledger. Counting the dead won't bring them back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep the records true, Daltry. Every name deserves an entry.", next = "BACK", reply = "I will, then, every name I can find, even the ones nobody comes asking after. Somebody ought to remember them besides the wolves.", fx = { align = { order = 1 } } },
+        { text = "Burn the ledger. Counting the dead won't bring them back.", next = "BACK", reply = "Burn it? I'd sooner burn my own fingers, which given my luck with candles is not out of the question. Somebody has to know who's gone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -43,8 +43,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "It does, and I keep it, and every week I strike a few names off for reasons I'd rather not write. The Night Watch is mostly farmers with borrowed swords, so a trained arm on the roll would be a fine change." } },
       choices = {
-        { text = "Put my name on it. I'll stand with the Watch.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep my name off it. I fight for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Put my name on it. I'll stand with the Watch.", next = "BACK", reply = "Gladly, and I'll write it neatly, which is the closest thing to bravery I possess. The commander will be very pleased to have a real fighter on the roll.", fx = { align = { order = 1 } } },
+        { text = "Keep my name off it. I fight for my own reasons.", next = "BACK", reply = "As you like; I'll leave the line blank and say nothing. Just don't end up in my other ledger, the one with the wolves in it.", fx = { align = { order = -1 } } },
         { text = "Something else, Daltry.", next = "BACK" },
       },
     },
@@ -55,32 +55,32 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a beast I'd rather not record, {class}. Keep it close, because the worgs out there don't take kindly to rivals." },
       },
       choices = {
-        { text = "I'll hunt the worgs down and balance your ledger.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The worgs are the wood's business. I hunt what pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt the worgs down and balance your ledger.", next = "BACK", reply = "That's the finest offer my ledger's had in a year, and I mean that as a clerk and a coward both. Do mind the eastern trails, though.", fx = { align = { honor = 1 } } },
+        { text = "The worgs are the wood's business. I hunt what pays.", next = "BACK", reply = "Practical of you, and practicality is something I respect, from behind a nice thick door. I'll keep counting, then, and hoping.", fx = { align = { honor = -1 } } },
         { text = "Something else, Daltry.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "Moved, stolen or borrowed by Councilman Millstipe for one of his letters, it's all the same to my ledger. I'll thank you not to move any more of them, because I've only one good quill left." } },
       choices = {
-        { text = "Your records are safe from me, clerk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A ledger's only paper, and paper can be changed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your records are safe from me, clerk.", next = "BACK", reply = "That's very kind of you, though it's exactly what someone planning to move them would say. I'll keep my good quill in my pocket anyway.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A ledger's only paper, and paper can be changed.", next = "BACK", reply = "Please don't say that within earshot of the council, because half of them would agree with you. I'll be counting my pages twice tonight.", fx = { align = { honor = -1 } } },
         { text = "Which records are missing?", next = "records_missing" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Would they? Then they'd outlast the people they're about, which in Darkshire isn't much of a feat. The fog gets into everything, mage, so I'd not say no to anything that keeps the damp off." } },
       choices = {
-        { text = "Records deserve care. They should be kept properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the damp take them. The dead won't mind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Records deserve care. They should be kept properly.", next = "BACK", reply = "Thank you; it's a rare day someone takes ink and paper as seriously as I do. If you find a spell for the mildew, I'd be grateful to the end of my days.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the damp take them. The dead won't mind.", next = "BACK", reply = "The dead won't, perhaps, but their widows come asking, and I'd rather have an answer than a damp smudge. I'll keep them dry myself, then.", fx = { align = { order = -1 } } },
         { text = "What do your records hold?", next = "records" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "That's either the most comforting thing anyone's said to me this month or the worst, and I can't decide which. I write missing, presumed wolf, because nobody in this town wants me to write what you just said." } },
       choices = {
-        { text = "Write the truth, Daltry, even if it frightens them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Keep writing wolf. Some truths help no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Write the truth, Daltry, even if it frightens them.", next = "BACK", reply = "Write it in my own hand, and sign my name below it? You're braver than I am, though I suppose that's not a very high wall to climb.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep writing wolf. Some truths help no one.", next = "BACK", reply = "Wolf it is, then, and may the Light forgive me for the tidy lie. It's the only word in my ledger that lets people sleep.", fx = { align = { honor = -1 } } },
         { text = "Who are the strangers in your book?", next = "strangers" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I suspect they were filed, which I can hardly fault them for, being a clerk myself. But the dead at Raven Hill don't wait for a reply, so I've started writing 'urgent' across the top in red ink, which feels terribly bold of me." } },
       choices = {
-        { text = "Keep writing. Proper channels matter, even slow ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stop writing, Daltry. I'll deal with Raven Hill myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep writing. Proper channels matter, even slow ones.", next = "BACK", reply = "I will, though my red ink is running low and my patience lower. Someone in Stormwind must read them eventually, if only to complain about the color.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop writing, Daltry. I'll deal with Raven Hill myself.", next = "BACK", reply = "You'd do that? I'll make a note of it, and I'll make a note of you, in the good ledger, which is very short. Do come back to be counted.", fx = { align = { order = -1 } } },
         { text = "Something else, Daltry.", next = "BACK" },
       },
     },

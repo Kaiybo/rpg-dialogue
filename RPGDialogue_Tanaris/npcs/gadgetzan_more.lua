@@ -208,8 +208,8 @@ P:NPC {
       big = true,
       lines = { { id = "bod_default", text = "He's paying, so I'll do it, and you can tell him to be careful when he sets it off. Who knows if our nineteenth driver would be any good, and I'd hate to train in another one." } },
       choices = {
-        { text = "You should refuse. It'll kill him.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "His neck, his choice, his gold.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You should refuse. It'll kill him.", next = "BACK", reply = "Refuse a payin' customer? Pal, if I turned down every job that might kill the fellow, I'd have closed shop the day I opened it.", fx = { align = { honor = 1 } } },
+        { text = "His neck, his choice, his gold.", next = "BACK", reply = "Now you sound like a proper businessman, friend, and I'll tell him you said so when they're pickin' him out of the dunes.", fx = { align = { honor = -1 } } },
         { text = "Nineteenth driver?", next = "bo_nineteen" },
       },
     },
@@ -419,8 +419,8 @@ P:NPC {
       big = true,
       lines = { { id = "plm_default", text = "Course it is, pal, a secret's only worth somethin' if it's kept. Some folks think knowledge should be free, and those folks are generally broke." } },
       choices = {
-        { text = "An oath is an oath. I'd keep it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge should be shared, not locked in a ledger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An oath is an oath. I'd keep it.", next = "BACK", reply = "You'd do well in the Cartel, pal, because a fellow who keeps his mouth shut is worth twice what a fellow who talks is worth.", fx = { align = { order = 1 } } },
+        { text = "Knowledge should be shared, not locked in a ledger.", next = "BACK", reply = "Shared, eh? Then you can share your coin with me while I share nothin' back, and we'll see how long that idea lasts ya.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

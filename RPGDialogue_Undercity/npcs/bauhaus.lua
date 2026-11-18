@@ -37,8 +37,8 @@ P:NPC {
       big = true,
       lines = { { id = "prej_bauhaus_default", text = "I think the living are careless with what matters. You have names and lose them, family trees you can't recite, and you die and leave no record of where you were buried. My work is remembering the dead of Lordaeron by name, and the living make it very hard to do." } },
       choices = {
-        { text = "Records are for the dead. The living have better things to do.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "You're right. Names matter, and I'll keep mine straight.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Records are for the dead. The living have better things to do.", next = "BACK", reply = "Better things, they say, and then they die without anyone writing down where. You'll forgive me if I keep my ledgers.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "You're right. Names matter, and I'll keep mine straight.", next = "BACK", reply = "Good, and spell it properly when you sign my register. You'd be astonished how many corpses misspell their own names.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Then let me help. Whose names are missing?", next = "prej_bauhaus_calm", fx = { affinity = 1 } },
         { text = "How many names are in the census now?", next = "prej_bauhaus_why" },
       },
@@ -122,8 +122,8 @@ P:NPC {
       big = true,
       lines = { { id = "cs_default", text = "My records serve the Dark Lady, and she lends them to whomever she pleases. I keep them accurate and I keep them safe, and what is done with them afterward is above my office." } },
       choices = {
-        { text = "Accurate records protect the city. Good work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A list of names is a dangerous thing to keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Accurate records protect the city. Good work.", next = "BACK", reply = "They do, and it is gratifying to hear someone outside this office say so. Accuracy is the only kindness a ledger can offer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A list of names is a dangerous thing to keep.", next = "BACK", reply = "Every list is, in the wrong hands, which is why mine stay in the right ones. I'll thank you not to suggest otherwise.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

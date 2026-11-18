@@ -87,8 +87,8 @@ P:NPC {
         { id = "st_default", text = "Then I would not want to be the one to tell the Arch Druid so. We were promised Teldrassil would be whole, and most of the Enclave would rather blame a satyr than the soil." },
       },
       choices = {
-        { text = "Then someone has to say it plainly.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Bring proof first. Rumour helps no one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then someone has to say it plainly.", next = "BACK", reply = "Plainly, then, and I hope your voice carries further than mine has. The Enclave hears a truth more easily from a stranger than from one of its own.", fx = { align = { order = -1 } } },
+        { text = "Bring proof first. Rumour helps no one.", next = "BACK", reply = "You sound like the elders, and in this you are right, which stings a little. Bring me seeds and I will bring the Arch Druid the proof.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
       },
     },
@@ -118,8 +118,8 @@ P:NPC {
         { id = "cu_default", text = "The ones beyond help, yes, because their seeds carry the taint and every sick sapling spreads it further. I hate it, and I have asked myself if there's another way more times than I can count." },
       },
       choices = {
-        { text = "Then I'll take only the ones past saving.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Burn them all, and be sure of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll take only the ones past saving.", next = "BACK", reply = "Thank you, and the forest will thank you too, in its slow way. Mercy for what can be saved is the whole of a druid's work.", fx = { align = { light = 1 } } },
+        { text = "Burn them all, and be sure of it.", next = "BACK", reply = "No, I beg you, not all of them, or we are no better than the blight itself. The taint is cruel enough without us doing its work for it.", fx = { align = { light = -1 } } },
         { text = "What becomes of the tumors?", next = "cull_burn" },
       },
     },

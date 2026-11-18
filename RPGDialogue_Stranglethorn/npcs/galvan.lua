@@ -82,8 +82,8 @@ P:NPC {
         { id = "sl_default", text = "Galvan prefers the metal that tells you what it is, and so should you, in smithing and in friends. A shiny thing that cracks is worse than a dull thing that holds." },
       },
       choices = {
-        { text = "Plain and steady over shiny and fickle. Agreed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sometimes the shiny gamble is worth taking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Plain and steady over shiny and fickle. Agreed.", next = "BACK", reply = "Ha! Galvan could kiss yer forge-black hands for that, if Galvan were the kissing sort, which he is not. Mithril and honest friends, and ye'll never be sorry.", fx = { align = { order = 1 } } },
+        { text = "Sometimes the shiny gamble is worth taking.", next = "BACK", reply = "Then Galvan wishes ye luck, and a good surgeon for when the shiny thing shatters in yer hand. He has seen it happen, and the scars were not shiny at all.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,8 +140,8 @@ P:NPC {
         { id = "fd_default", text = "Galvan's eyebrows are still growing back, if that answers you. A finer demon slayer has never existed than the one Galvan makes, but Galvan bathes twice after every forging." },
       },
       choices = {
-        { text = "Fighting fire with fel is wise.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Fel steel is a dark tool, even against demons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fighting fire with fel is wise.", next = "BACK", reply = "Aye, so long as ye stand well back from the anvil while it's done. Galvan's eyebrows can vouch that the fel bites the hand that shapes it.", fx = { align = { light = -1 } } },
+        { text = "Fel steel is a dark tool, even against demons.", next = "BACK", reply = "A dark tool, aye, and Galvan won't pretend otherwise, but a demon does not care how clean yer conscience is. Use it, wash after, and never grow fond of it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,8 +162,8 @@ P:NPC {
         { id = "xm_default", text = "Can there be blacksmithing without mining? An impossibility! The accomplished smith must also be an accomplished miner, and Galvan won't hear otherwise." },
       },
       choices = {
-        { text = "A smith should dig his own ore. Agreed.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd rather buy my ore than dig for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A smith should dig his own ore. Agreed.", next = "BACK", reply = "At last, somebody with sense in their beard! Ore that ye dug yerself tells ye its secrets on the anvil, and ore ye bought only tells ye the price.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather buy my ore than dig for it.", next = "BACK", reply = "Bought ore! Galvan's own apprentices would be thrown in the forge-water for saying such a thing, and Galvan would hold them under a wee while longer.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

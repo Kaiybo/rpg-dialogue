@@ -79,8 +79,8 @@ P:NPC {
       lines = { { id = "pd_default", text = "I'll no' ask it of anybody, but I'll no' complain if they do. Some go through quiet an' fast, an' some fight every step, an' I've seen both come out the other side." },
       },
       choices = {
-        { text = "Every trogg I leave alive hurts the next traveller.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "I'll go quiet and fast. The troggs aren't my problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every trogg I leave alive hurts the next traveller.", next = "BACK", reply = "That's a soldier's thinkin', an' I'm glad o' it, so go through wi' yer weapon drawn an' leave fewer troggs for the next poor soul.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'll go quiet and fast. The troggs aren't my problem.", next = "BACK", reply = "That's yer choice, an' plenty make it, but the troggs ye leave behind are the ones waitin' for the next young dwarf comin' through alone.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +106,8 @@ P:NPC {
       lines = { { id = "r_default", text = "I do. If ye've a message, an errand, or the look o' somebody who can handle a trogg, ye go through. If ye're just curious, ye stay an' grow a bit first." },
       },
       choices = {
-        { text = "That's fair. The rules keep people alive.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It's my life to risk, not yours to judge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's fair. The rules keep people alive.", next = "BACK", reply = "Aye, they do, an' I've buried enough curious youngsters tae know it, so I'm glad ye understand without me havin' tae tell ye why.", fx = { align = { order = 1 } } },
+        { text = "It's my life to risk, not yours to judge.", next = "BACK", reply = "Maybe it is, but it'll be my report that goes tae yer family when the troggs are done wi' ye, so I'll keep judgin', if ye dinnae mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "be_default", text = "That's not mine to give you. The Earth Mother, the Light, your own two hands, or the friend beside you; I've seen all of them hold, and I've seen all of them fail the ones who held them loosely." } },
       choices = {
-        { text = "Then I'll hold my faith tightly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Faith that has to be gripped isn't worth much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll hold my faith tightly.", next = "BACK", reply = "Then hold it, and it will hold you, and the next test will show us both whether your grip is as strong as your words.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Faith that has to be gripped isn't worth much.", next = "BACK", reply = "You may be right, young one, but I have seen loose faith slip away in the first hard wind, so I will wait and see.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

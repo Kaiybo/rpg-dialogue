@@ -74,8 +74,8 @@ P:NPC {
         { id = "wg_default", text = "They drive them off, and lately they kill them, Kaldorei or not. I believe the old secrets should stay where Elune put them, but the Sentinels say a guardian that kills our own people has failed in its charge." },
       },
       choices = {
-        { text = "Then leave the secrets buried. The guardians are doing their duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Secrets hidden from us aren't worth killing for. Uncover them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then leave the secrets buried. The guardians are doing their duty.", next = "BACK", reply = "That's my belief too, and it comforts me to hear it from someone else. Elune hid those secrets for a reason, and the wildkin guard them for her.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Secrets hidden from us aren't worth killing for. Uncover them.", next = "BACK", reply = "The Sentinels would agree with you, and perhaps you're both right. I only hope whatever's uncovered is worth what it costs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
         { id = "mt_default", text = "Thin the worst of them, and bring me whatever they wear or carry, because a wildkin doesn't carry trinkets without a reason. I hate to ask it, but a dead guardian can still tell me what a living one would not." },
       },
       choices = {
-        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. They were guardians once, and they deserve a clean end.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", reply = "I won't stop you, but I wish you'd think of them as they were. They guarded these woods long before any of us came.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "xh_default", text = "I've heard hunters say so, and I've heard druids say the opposite, and I've never been sure which of you to believe. The wildkin aren't ordinary beasts, though, and I'd ask you to remember that before you loose an arrow at one." },
       },
       choices = {
-        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. The wildkin are Elune's own, whatever they've become.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", reply = "Perhaps it is, out in the wider world, but the wildkin are not wolves. I'd ask you to remember that when you meet one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

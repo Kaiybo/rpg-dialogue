@@ -35,8 +35,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I mind the loneliness more than the dying. I tend the flame so no other ship meets the rocks mine did. Perhaps the spirits you speak with understand that." } },
       choices = {
-        { text = "Your watch is a kindness, Captain. Keep the flame burning.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You've done enough, Captain. Let yourself rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your watch is a kindness, Captain. Keep the flame burning.", next = "BACK", reply = "Aye, that I will, as long as there's oil and night. It's good to hear a living voice call it kindness instead of madness.", fx = { align = { light = 1 } } },
+        { text = "You've done enough, Captain. Let yourself rest.", next = "BACK", reply = "Rest, is it? I'd like it well enough, but the rocks don't rest and neither do the ships. Ask me again when they stop sailing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -44,8 +44,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Murlocs, mostly; they've no respect for the dead or the living, and they've taken the shore below the lighthouse. I can't lift a sword any more, but I can watch, and I'd like to watch them lose." } },
       choices = {
-        { text = "I'll drive the murlocs back for you, Captain.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your lamp's no business of mine, Captain.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll drive the murlocs back for you, Captain.", next = "BACK", reply = "Ha, now there's a sight I'd stay up for, if I slept at all. I'll be watching from the gallery, cheering like a sailor in port.", fx = { align = { honor = 1 } } },
+        { text = "Your lamp's no business of mine, Captain.", next = "BACK", reply = "No, I suppose it isn't, and I've learned not to expect it. The flame keeps itself company well enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -56,24 +56,24 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't stopped staring at me since you came up the path. Tell it I'm harmless, would you?" },
       },
       choices = {
-        { text = "I'll hunt Murk-Eye for you, and the keeper's family.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll leave Murk-Eye be. He's not my quarrel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt Murk-Eye for you, and the keeper's family.", next = "BACK", reply = "You'd do that for the keeper's family? Then I'll watch for you every night, and I'll grin at old Murk-Eye first, for once.", fx = { align = { honor = 1 } } },
+        { text = "I'll leave Murk-Eye be. He's not my quarrel.", next = "BACK", reply = "Fair, he's my quarrel and the keeper's, not yours. But I'd sleep easier, if I slept, knowing he wasn't grinning up at me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Aye, and a spell might fail on the one night the fog rolls in thick off the Great Sea. I've had years to think about it, {class}, and I trust a flame I can tend myself." } },
       choices = {
-        { text = "Keep your watch, Captain. It's an honest duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the ships fend for themselves. You've earned your rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep your watch, Captain. It's an honest duty.", next = "BACK", reply = "That it is, and I'll keep it honest till the oil runs dry or the sea takes the rocks. Thank you for seeing it so.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the ships fend for themselves. You've earned your rest.", next = "BACK", reply = "Earned it, have I? A pirate doesn't earn rest, {class}, he steals it, and I'd rather not steal from the ships.", fx = { align = { honor = -1 } } },
         { text = "How did your ship go down?", next = "ship" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I've no doubt you could try, and I've no doubt it would be a poor trade for both of us. I keep this light burning by my own will, and if you take that from me, it's only a lamp and a dead man." } },
       choices = {
-        { text = "I'd never bind a soul that keeps a light burning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A bound spirit keeps a flame lit just as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd never bind a soul that keeps a light burning.", next = "BACK", reply = "Then we understand each other, and I'm glad of it. I'd not want to find out what I'd be without the flame.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A bound spirit keeps a flame lit just as well.", next = "BACK", reply = "Just as well, maybe, but not by my will, and that's the difference that matters to me. Take your hand off my lamp, if you please.", fx = { align = { light = -1 } } },
         { text = "Why do you stay here?", next = "stay" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "It warms rather than burns, and nobody was more surprised than me. I was no saint in life, paladin, but I think whatever judges the dead is weighing the ships this lamp has saved against the ones I sank." } },
       choices = {
-        { text = "Your watch is atonement enough. Rest when you're ready, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A pirate's ghost has no claim on the Light's mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your watch is atonement enough. Rest when you're ready, Captain.", next = "BACK", reply = "That's kinder than I deserve, paladin, and I'll hold on to it on the long nights. When the coast is safe, perhaps.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A pirate's ghost has no claim on the Light's mercy.", next = "BACK", reply = "Maybe not, and I never asked it for any. I'll keep the lamp lit all the same, mercy or none.", fx = { align = { light = -1 } } },
         { text = "Let's speak of something else, Captain.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the rocks below this light are still there, and ships still come round the point at night with no one to warn them. When some living captain knows these waters as well as I do, perhaps I'll let the flame go out." } },
       choices = {
-        { text = "The dead must move on, Captain. That's the natural order.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stay as long as you like. No law binds a willing spirit.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The dead must move on, Captain. That's the natural order.", next = "BACK", reply = "Natural order sank my ship and drowned my crew, druid. I'll move on when the rocks do.", fx = { align = { order = 1 } } },
+        { text = "Stay as long as you like. No law binds a willing spirit.", next = "BACK", reply = "That's a kind way to put it, and an old sailor's way too. I'll stay, then, and keep the lamp.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
         { id = "s_default", text = "Because a dark lamp killed my crew, and a dark lamp killed that family. If keeping it lit is the only good I do, dead, it'll be enough." },
       },
       choices = {
-        { text = "That's a noble penance.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "A dead man keeping a lamp lit is just stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a noble penance.", next = "BACK", reply = "Penance, aye, that's as good a word as any. It doesn't feel noble most nights, just cold.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A dead man keeping a lamp lit is just stubbornness.", next = "BACK", reply = "Stubbornness has kept more sailors alive than prayer ever did. I'll take the word as a compliment.", fx = { align = { light = -1 } } },
         { text = "You don't owe anyone anything now.", next = "owe", fx = { trait = { kind = 1 } } },
         { text = "Who was the keeper's family?", next = "family" },
       },
@@ -213,23 +213,23 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Rest? Kind of you. But I've a lamp to keep, and I'd not trust the next fellow to keep it. When this coast is safe, ask me again." } },
       choices = {
-        { text = "Then I'll make it safe.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "Suit yourself. The lamp can keep you company forever.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll make it safe.", next = "BACK", reply = "Then I'll watch you do it, and I'll be glad of it. Come back and tell me when the last murloc's gone.", fx = { affinity = 2, align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Suit yourself. The lamp can keep you company forever.", next = "BACK", reply = "Aye, it can, and it has so far. There are worse companions than a good flame.", fx = { align = { light = -1 } } },
         { text = "Let me at least pray for your crew.", next = "priest_crew" },
       },
     },
     priest_crew = {
       lines = { { id = "pc_default", text = "Do, by all means. They were rough men and they'd laugh at you for it, but pray anyway; somebody should, and it can't be me." } },
       choices = {
-        { text = "Light keep them, wherever the sea put them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "If they'd laugh at prayer, I'll spare them one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Light keep them, wherever the sea put them.", next = "BACK", reply = "That's a fine thing to say over them, and they'd pretend not to hear it. Thank you, for their sake.", fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } } },
+        { text = "If they'd laugh at prayer, I'll spare them one.", next = "BACK", reply = "Ha, you're right, they'd only make rude remarks. I'll say a word for them myself, then, when nobody's listening.", fx = { align = { light = -1 } } },
       },
     },
     scourge = {
       lines = { { id = "sc_default", text = "Bitter? A dark lamp killed me, not a plague. No one did this to me but the rocks, and it's hard to hate rocks. You've better reason than I have." } },
       choices = {
-        { text = "I do.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Maybe I'll try your way.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I do.", next = "BACK", reply = "Then you've more right to bitterness than I'll ever have. Don't let it sink you, that's all I ask.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Maybe I'll try your way.", next = "BACK", reply = "It's a lonely way, I'll warn you, but it keeps a flame lit. You might find it suits you.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
     pirate_honest = {

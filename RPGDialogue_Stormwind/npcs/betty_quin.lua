@@ -232,8 +232,8 @@ P:NPC {
         { id = "lj_default", text = "Light, no. I want a shop of my own, maybe in Lakeshire or Goldshire, where people need good things and can't get to the city. Don't tell Lucan; he'll be hurt, and then he'll be adequate about it." },
       },
       choices = {
-        { text = "Stay in the city. That's where the real work is.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Go. The villages need you more than the nobles do.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stay in the city. That's where the real work is.", next = "BACK", reply = "You sound exactly like Lucan, and I love him for it, but the real work is wherever someone's plough-blade needs a good rune and can't afford the walk.", fx = { align = { order = 1 } } },
+        { text = "Go. The villages need you more than the nobles do.", next = "BACK", reply = "Oh, thank you! I'll hold onto that the next time Lucan sighs at me over his ledger, which will probably be about an hour from now.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,8 +317,8 @@ P:NPC {
         { id = "qg_default", text = "It's good for the Cordells' purse. But it means the whole city leans on a handful of tired people up a lot of stairs, and if Lucan catches a cold the guard's bracers go bare for a fortnight." },
       },
       choices = {
-        { text = "The crown should pay for more enchanters.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave the crown out. The shops manage themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The crown should pay for more enchanters.", next = "BACK", reply = "That's what I keep saying, but the crown would rather buy another wall than a second enchanter, and walls don't catch colds, I suppose.", fx = { align = { order = 1 } } },
+        { text = "Leave the crown out. The shops manage themselves.", next = "BACK", reply = "They manage, if you count Lucan asleep on his workbench at midnight as managing. I'd count it as a warning, but nobody asked me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,8 +346,8 @@ P:NPC {
         { id = "xp_default", text = "Of course I could! Though I always wonder if the Light minds sharing a sword with arcane dust. Lucan says the Light's never complained, which isn't quite an answer." },
       },
       choices = {
-        { text = "The Light welcomes any honest help.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My faith carries the sword. Your dust just sharpens it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light welcomes any honest help.", next = "BACK", reply = "That's a lovely way to put it, and I'm going to steal it for the next paladin who frowns at my rods. Lucan will say he thought of it first.", fx = { align = { light = 1 } } },
+        { text = "My faith carries the sword. Your dust just sharpens it.", next = "BACK", reply = "Just sharpens it? I'll have you know that dust took me three hours to grind, but I suppose a good whetstone doesn't need the credit.", fx = { align = { light = -1 } } },
       },
     },
     xmq = {

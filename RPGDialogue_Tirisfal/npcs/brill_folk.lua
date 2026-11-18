@@ -78,8 +78,8 @@ P:NPC {
       big = true,
       lines = { { id = "qr_default", text = "Heads rot, even for us, and they're awkward to carry down the stairs into the Undercity. A ring bears the Crusade's mark and fits in a box, and they wear them as a promise to their Light, which makes taking them all the sweeter." } },
       choices = {
-        { text = "Kill them cleanly. Mocking their faith is beneath us.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Good. Let them see their Light fail them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Kill them cleanly. Mocking their faith is beneath us.", next = "BACK", reply = "Beneath us, is it? The Crusade burns our people alive and calls it mercy, and you'd have me spare their feelings. Bring me the rings and keep your scruples to yourself.", fx = { align = { light = 1 } } },
+        { text = "Good. Let them see their Light fail them.", next = "BACK", reply = "Exactly that, and I hope they feel it right to the end. Every ring in that box is one fewer prayer going up from the Scarlet Monastery.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "vt_default", text = "The Dark Lady trusts him, and I trust the Dark Lady, so the question never troubles me for long. Some of the deathguards mutter about it in the Gallows' End, and I write their names down, purely out of habit." } },
       choices = {
-        { text = "The Dark Lady's judgment is good enough for me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd keep a close eye on any demon, lieutenant or not.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "The Dark Lady's judgment is good enough for me.", next = "BACK", reply = "Then you'll go far in the Dark Lady's service, and you'll never find your name in my book. Varimathras serves her, and that is the whole of what we need to know.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd keep a close eye on any demon, lieutenant or not.", next = "BACK", reply = "Careful, now, because that's the sort of thing the deathguards mutter in the Gallows' End. I'll not write your name down, this once, but I'd keep that opinion quieter.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "You write down their names?", next = "varim_names" },
       },
     },
@@ -154,8 +154,8 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "I stood on a wall in Lordaeron's army, though I couldn't tell you which wall or which year, since the plague took that along with my heartbeat. I remember the Dark Lady's voice when she freed me, and I find that's all the past I need." } },
       choices = {
-        { text = "She gave us everything. I'll serve her the same way.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'd rather remember who I was. All of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "She gave us everything. I'll serve her the same way.", next = "BACK", reply = "Then we're of one mind, and you'll find no truer purpose in Lordaeron. Serve her well and the past can rot as it likes.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'd rather remember who I was. All of it.", next = "BACK", reply = "All of it? Then I hope you find more pleasant memories than I did. Most of mine ended on a wall with the Scourge coming over it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,8 +232,8 @@ P:NPC {
       big = true,
       lines = { { id = "o_default", text = "The Forsaken, mostly, and the odd orc or troll who has done enough for the Undercity that the Dark Lady counts them a friend. Some of the living don't care for the smell or the clatter, and I tell them the horse feels the same about them." } },
       choices = {
-        { text = "Only the Undercity's proven friends should ride them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A horse is a horse. Sell to anyone with coin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Only the Undercity's proven friends should ride them.", next = "BACK", reply = "Proven friends, aye, and the Dark Lady decides who those are. Still, I'm glad you understand that a skeletal horse isn't just a pony with fewer manners.", fx = { align = { order = 1 } } },
+        { text = "A horse is a horse. Sell to anyone with coin.", next = "BACK", reply = "Coin's coin, I'll grant you, but the Dark Lady decides who rides her horses. I'll sell to whoever she says and let the rest grumble.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

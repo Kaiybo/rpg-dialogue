@@ -36,8 +36,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Their lightning took good men, and I've not forgotten it. But you walk like a dwarf, steady and honest, and I'll judge you on that." } },
       choices = {
-        { text = "Judge me by my deeds, Marshal. That's all I ask.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The war's long past. Let the old fears go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Judge me by my deeds, Marshal. That's all I ask.", next = "BACK", reply = "Fair enough, and that's how I'd judge any man. Sit, if you've a moment.", fx = { align = { order = 1 } } },
+        { text = "The war's long past. Let the old fears go.", next = "BACK", reply = "Easy for you to say, friend, you weren't there. Old fears keep old soldiers alive.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -45,8 +45,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." } },
       choices = {
-        { text = "I'll remember it, Marshal, and use it against our enemies.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Power isn't to blame for who used it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll remember it, Marshal, and use it against our enemies.", next = "BACK", reply = "Good, that's what I'd hoped you'd say. Turn it on the orcs if they ever come back.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but it's still dangerous in a careless hand. Be careful with yours.", fx = { align = { honor = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -54,8 +54,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Every winter, when the wolves came down hungry, and I lost more men to frostbite than to fangs. We never thought to ask the forest why, and maybe we should have, but soldiers don't ask questions of trees." } },
       choices = {
-        { text = "A guard keeps the people safe first. You did right.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "You should have asked. Fighting the forest only feeds the wolves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A guard keeps the people safe first. You did right.", next = "BACK", reply = "I like to think so, though the frostbite took more than I'd like. Thank you for saying it.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "You should have asked. Fighting the forest only feeds the wolves.", next = "BACK", reply = "Maybe so, and I've thought on it more than once since. Too late now, for my lads.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -63,8 +63,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Showing up, mostly, every watch and every bad night, without being asked twice. The ones who wanted glory didn't last, and the ones who wanted their mates to come home lasted forever, near enough." } },
       choices = {
-        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Glory's what a soldier's remembered for, Marshal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", reply = "That's the right reason, and you'll last longer for it. I'm proud to hear it.", fx = { align = { honor = 1 } } },
+        { text = "Glory's what a soldier's remembered for, Marshal.", next = "BACK", reply = "Remembered by whom, though? The ones who came home remember the men who stood beside them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a tracker. Point it at Jack's camp and it'll do my old badge proud." },
       },
       choices = {
-        { text = "I'd track for the Guard gladly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd track for whoever paid most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd track for the Guard gladly.", next = "BACK", reply = "The Guard would be glad of you, and so would I. Dughan's always short.", fx = { align = { honor = 1 } } },
+        { text = "I'd track for whoever paid most.", next = "BACK", reply = "That's honest, at least, and I'd still hire you. Times are tight.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Forty years in the Guard teaches you that honest men make noise, and the ones who don't are either rogues or Defias. You'd better be the first sort, because I've still a sword under this blanket." } },
       choices = {
-        { text = "I'm no Defias, Marshal. You have my word on that.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Honest men make noise, and they die young, Marshal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm no Defias, Marshal. You have my word on that.", next = "BACK", reply = "Good, and I'll keep my sword where it is, then. Sit down.", fx = { align = { honor = 1 } } },
+        { text = "Honest men make noise, and they die young, Marshal.", next = "BACK", reply = "Some do, aye, and I've buried plenty. But I'd still take a noisy honest man over a quiet thief.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "In the Second War, aye, and a mage from Dalaran saved my company in the Hillsbrad foothills by setting a whole hillside on fire. Mind you, she set half my tents on fire as well, and we never let her forget it." } },
       choices = {
-        { text = "She saved your company. The tents were a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "She should have been more careful. Mistakes cost lives.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "She saved your company. The tents were a fair price.", next = "BACK", reply = "It was, and I'd say so to her face if I could find her. We still laugh about it.", fx = { align = { honor = 1 } } },
+        { text = "She should have been more careful. Mistakes cost lives.", next = "BACK", reply = "She was, after, and I'll not argue it. But she saved more than she cost.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The lads I served with in the Guard, the ones who aren't sitting in the sun like me, and my eyes, if you've a prayer that does that. The Brothers tried once, and it helped a little, though the dark still comes in at the edges." } },
       choices = {
-        { text = "I'll pray for them, and for you, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Eyes fail with age, Haggard. Prayer won't change that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray for them, and for you, Captain.", next = "BACK", reply = "Thank you, friend, and I'll take every word. The lads would be glad of it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Eyes fail with age, Haggard. Prayer won't change that.", next = "BACK", reply = "No, I suppose it won't, and I've made my peace with it, mostly. Kind of you to be honest.", fx = { align = { light = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Knowing when to look away and when not to, and most of the young ones get those backward. I let a lot of small things go in my day, but never a man who preyed on the weak, and I'd tell you the same, whatever oath you've sworn." } },
       choices = {
-        { text = "The law must be kept in small things too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Some small sins aren't worth the chain. Mercy keeps the peace.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The law must be kept in small things too.", next = "BACK", reply = "Spoken like a young one with a new oath. Wait till you've held a badge for forty years.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some small sins aren't worth the chain. Mercy keeps the peace.", next = "BACK", reply = "That's the lesson, and you've learned it faster than most. You'd have made a good marshal.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -190,7 +190,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll get it back.", next = "BUSINESS", when = { class = "WARRIOR" }, fx = { affinity = 2, align = { order = 1 } } },
-        { text = "Then it's a danger to everyone.", next = "BACK", fx = { align = { order = 1 }, learn = { "defias" } } },
+        { text = "Then it's a danger to everyone.", next = "BACK", reply = "It is, and that's why I want it back. Find Jack, friend, and the badge with him.", fx = { align = { order = 1 }, learn = { "defias" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -199,8 +199,8 @@ P:NPC {
         { id = "jk_default", text = "And have Dughan hear I took a thief for him? I'd sooner eat the badge when it's back." },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
-        { text = "Pride's a poor reason to keep quiet.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Your secret's safe.", next = "BACK", reply = "Thank you, and I'll not forget it. Dughan doesn't need to know everything.", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Pride's a poor reason to keep quiet.", next = "BACK", reply = "Maybe it is, but it's the only pride I've got left. Leave an old man that much.", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
 
@@ -255,8 +255,8 @@ P:NPC {
         { id = "am_default", text = "Oil your blade every night, even when you're tired, and especially then, because the night you skip it is the night you'll need it." },
       },
       choices = {
-        { text = "Yes, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll care for my blade my own way, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Yes, Marshal.", next = "BACK", reply = "Good, and see you do. It's the only advice I'll give for free.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll care for my blade my own way, Marshal.", next = "BACK", reply = "Your way, then, so long as you do it every night. Don't let it rust.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -275,8 +275,8 @@ P:NPC {
         { id = "ep_default", text = "Priests have tried before, and the Light eased the ache but never the fog. Age isn't a wound, one of them told me, but you're welcome to try if it pleases you." },
       },
       choices = {
-        { text = "It pleases me. Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "If the Light can't clear the fog, I won't waste it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It pleases me. Hold still.", next = "BACK", reply = "Holding still, and go gently with an old soldier. The ache's eased already.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "If the Light can't clear the fog, I won't waste it.", next = "BACK", reply = "Fair enough, and I'll not hold it against you. The Brothers said the same thing, kinder.", fx = { align = { light = -1 } } },
         { text = "Then I'll pray for patience instead.", next = "BACK", fx = { trait = { pious = 1 } } },
       },
     },

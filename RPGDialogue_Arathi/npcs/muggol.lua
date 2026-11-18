@@ -67,8 +67,8 @@ P:NPC {
         { id = "wm_default", text = "We're gryphon riders an' hunters, mostly, an' the forges at the Aerie are busy wi' spearheads an' saddle iron. Easier tae fly out wi' a purse an' buy what others make well." },
       },
       choices = {
-        { text = "A clan should make what it needs.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Buy from whoever's best. That's sense.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A clan should make what it needs.", next = "BACK", reply = "Aye, an' so it should, in a better year. When the Aerie's forges catch up wi' the spears, I'll tell Falstad ye said so.", fx = { align = { order = 1 } } },
+        { text = "Buy from whoever's best. That's sense.", next = "BACK", reply = "Now that's a sensible head on ye. Gold's gold, an' a writ that brings good iron home is worth the flight.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
         { id = "st_default", text = "Always have, always will. Trolls an' Wildhammer have been fightin' over the Hinterlands since before any o' us can remember, an' I don't expect it tae stop in my lifetime." },
       },
       choices = {
-        { text = "Maybe peace is possible, given time.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then drive them out for good.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe peace is possible, given time.", next = "BACK", reply = "Ye've a kind heart, an' I'll no' laugh at it, but ye've never seen a Revantusk war party come over a ridge at dawn.", fx = { align = { light = 1 } } },
+        { text = "Then drive them out for good.", next = "BACK", reply = "Ha! Now ye sound like a proper Wildhammer. We'll do it from the sky, wi' stormhammers, an' they'll no' forget it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

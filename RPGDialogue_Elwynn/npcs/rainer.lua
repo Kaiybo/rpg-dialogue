@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "There are murlocs and gnolls and too few men to face them. I'll take any help, spirits included. You're welcome here." } },
       choices = {
-        { text = "I'll hold the line with you, Deputy. Westbrook won't fall.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Ask for more men. One shaman won't save you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll hold the line with you, Deputy. Westbrook won't fall.", next = "BACK", reply = "That's the spirit, and I'll hold you to it when the gnolls come up out of the river. We could use a few more like you.", fx = { align = { order = 1 } } },
+        { text = "Ask for more men. One shaman won't save you.", next = "BACK", reply = "I've asked, and I've asked again, and the letters come back thanking me for my patience. One shaman's better than none.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -41,8 +41,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "By standing with my farmers when the gnolls come up out of the Riverpaw camps, for they're braver when they see someone throw fire. I've only a few real soldiers, and they're tired, so anything that makes the gnolls think twice keeps them alive another night." } },
       choices = {
-        { text = "I'll stand with your farmers, Deputy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd rather strike the gnoll camps than wait here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand with your farmers, Deputy.", next = "BACK", reply = "Good, that's all I need, and the farmers will stand taller for it. Find me at the gate when the gnolls come.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather strike the gnoll camps than wait here.", next = "BACK", reply = "I'd rather that too, but I can't spare anyone to go with you. Mind yourself out there, because Hogger's camp bites back.", fx = { align = { honor = -1 } } },
         { text = "Something else, Deputy.", next = "BACK" },
       },
     },
@@ -50,8 +50,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Hunger at first, I'd say, but they've grown bold under Hogger and take more deer than they can eat. They leave the carcasses by the river, and the wolves follow the smell right up to my fence." } },
       choices = {
-        { text = "Then Hogger must be stopped, for the forest's sake as well.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Let them waste the deer. Fewer deer means fewer wolves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then Hogger must be stopped, for the forest's sake as well.", next = "BACK", reply = "Exactly right, and I'd be glad of anyone who'd take it in hand. Hogger's the root of it all.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Let them waste the deer. Fewer deer means fewer wolves.", next = "BACK", reply = "Fewer wolves, maybe, but the gnolls will come for my farmers next. I'll take your point, but I'll not take your advice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -62,8 +62,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} will have their scent in no time. Gnolls smell worse than they look, and that's saying something." },
       },
       choices = {
-        { text = "I'll follow them and bring you a true count.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll follow them and kill what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll follow them and bring you a true count.", next = "BACK", reply = "That's just what I need, and I'll write it up and send it to Dughan. A real count, at last.", fx = { align = { order = 1 } } },
+        { text = "I'll follow them and kill what I find.", next = "BACK", reply = "Kill what you can, but bring me a count all the same. I need numbers more than bodies.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd hire a gnoll to deal with Hogger if it came to that, because the Army's sent most of its soldiers abroad and I'm short of anyone with a blade. A rogue who can get close to him without being eaten would earn every copper." } },
       choices = {
-        { text = "I'll face him fairly, Rainer. No knives in the dark.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll get close and finish him quietly. Fair's for fools.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face him fairly, Rainer. No knives in the dark.", next = "BACK", reply = "Fair's a fine thing, and Hogger's never been fair a day in his life. Go carefully.", fx = { align = { honor = 1 } } },
+        { text = "I'll get close and finish him quietly. Fair's for fools.", next = "BACK", reply = "I'll not ask how it's done, only that it's done. Westbrook will be grateful.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. Just don't let anything you call up eat any of my lads, or Dughan will have my badge." } },
       choices = {
-        { text = "I'll keep my demon from your lads. They'll be safe.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your lads should learn to fear me as much as Hogger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my demon from your lads. They'll be safe.", next = "BACK", reply = "Good, and I'll hold you to it. Dughan's fond of my badge, and so am I.", fx = { align = { light = 1 } } },
+        { text = "Your lads should learn to fear me as much as Hogger.", next = "BACK", reply = "My lads already fear plenty, friend, and they don't need more. Keep it on the gnolls.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
         { id = "sa_default", text = "Abroad, and nobody tells a deputy where. They tell him to hold, so I hold, and I write letters." },
       },
       choices = {
-        { text = "Then hold.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "That's not right.", next = "BACK", fx = { align = { order = -1 }, affinity = 1, opinion = { westfall = "abandoned" } } },
+        { text = "Then hold.", next = "BACK", reply = "I will, as long as there's a gate to hold. Somebody's got to.", fx = { align = { order = 1 } } },
+        { text = "That's not right.", next = "BACK", reply = "It isn't, and I've said as much in every letter. Nobody's answered yet.", fx = { align = { order = -1 }, affinity = 1, opinion = { westfall = "abandoned" } } },
       },
     },
     fine = {
@@ -215,8 +215,8 @@ P:NPC {
         { id = "p_default", text = "They need sleep more than prayers. But a priest at the gate does wonders. Half of them haven't seen the Abbey since they enlisted." },
       },
       choices = {
-        { text = "Then I'll bring the Abbey to them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
-        { text = "Then let them sleep, since prayers won't help them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll bring the Abbey to them.", next = "BACK", reply = "They'd be grateful for it, and so would I. Go on, they're by the fire.", fx = { affinity = 2, align = { light = 1 }, standing = { goldshire = 1 } } },
+        { text = "Then let them sleep, since prayers won't help them.", next = "BACK", reply = "You might be right, and I'll not argue. I'll send them to their bunks and let you be.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

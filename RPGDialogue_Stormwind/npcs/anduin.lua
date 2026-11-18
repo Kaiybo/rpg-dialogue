@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_anduin_default", text = "Not really, because everyone wants something from me, even the ones who are nice about it. Lady Prestor says a king doesn't need friends, only loyal servants, but my father had Uncle Bolvar, so I don't think she's right." } },
       choices = {
-        { text = "Lady Prestor is right. A king must keep himself apart.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Find friends anyway, Your Majesty. Some rules are meant to bend.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Lady Prestor is right. A king must keep himself apart.", next = "BACK", reply = "Oh. Everybody says that, so I suppose it must be true, though it does make the Keep feel very big at night.", fx = { align = { order = 1 } } },
+        { text = "Find friends anyway, Your Majesty. Some rules are meant to bend.", next = "BACK", reply = "Do you really think so? I'll try, then, but please don't tell Lady Prestor it was your idea, because she'll give you that look.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -85,8 +85,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "One book said the orcs listened to the land before they listened to demons. I liked that part, but my tutor said I should not repeat it at court." } },
       choices = {
-        { text = "Repeat it, Your Majesty. Listening is never a thing to be ashamed of.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your tutor is right. Some things are better kept quiet at court.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Repeat it, Your Majesty. Listening is never a thing to be ashamed of.", next = "BACK", reply = "Thank you! I'll still say it quietly, though, because my tutor gets a sort of pained face and I don't like making people unhappy.", fx = { align = { light = 1 } } },
+        { text = "Your tutor is right. Some things are better kept quiet at court.", next = "BACK", reply = "I suppose so. I'll keep it in my own head, then, where nobody can tell me off for it, and think about it when it's raining.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Bolvar says they keep the kingdom safe in ways that wouldn't look very nice if I saw them, and that's why he doesn't let me see them. I think a king ought to know, though, even if he's only ten." } },
       choices = {
-        { text = "A king should know what's done in his name, Your Majesty.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some things are better left in the dark, Your Majesty.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A king should know what's done in his name, Your Majesty.", next = "BACK", reply = "That's what I said! Bolvar only sighed and told me I'd understand when I'm older, which is what grown-ups say when they've lost an argument.", fx = { align = { honor = 1 } } },
+        { text = "Some things are better left in the dark, Your Majesty.", next = "BACK", reply = "Maybe you're right, but I don't like not knowing. I'll leave it to Bolvar for now, since he's very good at worrying for me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Yes, please, only a small one, so the guards don't come running! Bolvar says magic is like a sword, because it's only as good as the person holding it, and I've decided that's true of kings as well." } },
       choices = {
-        { text = "Power is only good when it serves others, Your Majesty.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is its own reward, Your Majesty, so use it freely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Power is only good when it serves others, Your Majesty.", next = "BACK", reply = "That's just what Bolvar says! He'll be pleased someone agrees with him, because I usually argue with him for fun.", fx = { align = { light = 1 } } },
+        { text = "Power is its own reward, Your Majesty, so use it freely.", next = "BACK", reply = "I'm not sure that's right, because then what's it for? Bolvar says power used for nothing but itself is how the old warlocks started.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The Archbishop says warlocks call on demons, the same kind the orcs used in the war, and that it's terribly dangerous. You don't look like a bad person, though, so I suppose it depends on why you do it." } },
       choices = {
-        { text = "It does. I bind them so they can't harm anyone else.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It's power, Your Majesty, and I take it where I find it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It does. I bind them so they can't harm anyone else.", next = "BACK", reply = "That's a relief, honestly. I'll tell the Archbishop you said so, though I don't think he'll believe me, because he never does about warlocks.", fx = { align = { light = 1 } } },
+        { text = "It's power, Your Majesty, and I take it where I find it.", next = "BACK", reply = "Oh. That sounds like something the Archbishop would warn me about, so I think I'll stand a little closer to the guards now, if that's all right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
         { id = "f_default", text = "Every day. Everyone says he's coming home, and I say it too when the people are frightened, because it helps them. I think it helps me, too." },
       },
       choices = {
-        { text = "He'd be proud of you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Keep saying it. Kings have to.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "He'd be proud of you.", next = "BACK", reply = "Do you think so? I hope so, because I'm trying very hard, and I want him to find everything in order when he comes back.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Keep saying it. Kings have to.", next = "BACK", reply = "I know. I'll keep saying it, even on the days when it's hard to, because that's what he'd do for me.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     king = {
@@ -210,7 +210,7 @@ P:NPC {
           fx = { affinity = 3, align = { light = 2 }, trait = { kind = 1 } },
           journal = { first = "Taught the boy king a prayer for his father. He said it back to me twice, to be sure he had it.",
                       third = "{name} taught King Anduin a prayer for his missing father." } },
-        { text = "Prayers won't bring him home, Your Majesty, but the Regent's soldiers might.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Prayers won't bring him home, Your Majesty, but the Regent's soldiers might.", next = "BACK", reply = "I know that, really, but Bolvar's soldiers have been looking for a long time. I'd still like a prayer, if you don't mind, just for the nights.", fx = { align = { light = -1 } } },
         { text = "The Light hears you without the words.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
@@ -234,15 +234,15 @@ P:NPC {
     bless = {
       lines = { { id = "bl_default", text = "Really? Here, in the throne room? Bolvar does it before council sometimes, so go on, and I'll stand very still. Kings are good at standing still." } },
       choices = {
-        { text = "Light keep you, Your Majesty.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "Kings make their own luck, Your Majesty. You don't need my blessing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Light keep you, Your Majesty.", next = "BACK", reply = "Thank you! I didn't even wobble. I'll remember it tonight, when the Keep's quiet and I'm meant to be asleep.", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Kings make their own luck, Your Majesty. You don't need my blessing.", next = "BACK", reply = "Oh, all right, I suppose that makes sense. Bolvar says the Light helps those who help themselves, so I'll try to make some luck tomorrow.", fx = { align = { light = -1 } } },
       },
     },
     ask = {
       lines = { { id = "a_default", text = "Usually, \"but what about the people who aren't here?\" They hate that one." } },
       choices = {
-        { text = "Keep asking it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Learn when to stay quiet, Your Majesty, because courts punish awkward questions.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep asking it.", next = "BACK", reply = "I will! Even if they groan, somebody has to ask it, and it may as well be the one with the crown on.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Learn when to stay quiet, Your Majesty, because courts punish awkward questions.", next = "BACK", reply = "Lady Prestor says that too, but I think if I stop asking, nobody will ask at all. I'll try to ask it more politely, though.", fx = { align = { honor = -1 } } },
       },
     },
     prestor_true = {
@@ -320,8 +320,8 @@ P:NPC {
     pet_pat = {
       lines = { { id = "ptp_warm", text = "It's warm! I wanted a dog, but Lady Prestor says a king can't have a dog in the throne room. I think a king should be allowed one dog." } },
       choices = {
-        { text = "A king should have whatever dog he likes.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Lady Prestor has a point, Your Majesty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A king should have whatever dog he likes.", next = "BACK", reply = "I knew it! I'm going to tell Bolvar that a real adventurer agrees with me, and then perhaps he'll help me ask Lady Prestor again.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Lady Prestor has a point, Your Majesty.", next = "BACK", reply = "I suppose she does, and the throne room is very shiny, so a dog would probably slip. Still, I think a king should be allowed one dog.", fx = { align = { order = 1 } } },
       },
     },
     sword = {

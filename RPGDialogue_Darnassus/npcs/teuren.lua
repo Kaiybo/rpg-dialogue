@@ -59,8 +59,8 @@ P:NPC {
         { id = "ma_default", text = "Some are family, some are vows, and some are simply beautiful, and I ask before I ink which kind you want. The Sentinels favour the old patterns across the eyes; the young ones off the boat from Auberdine want something new every month." },
       },
       choices = {
-        { text = "The old patterns should be kept as they are.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A face is your own. Change it as you like.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The old patterns should be kept as they are.", next = "BACK", reply = "The Sentinels would kiss you for saying so, though they'd never admit it. There is a weight in an old line that a new one has to earn over centuries.", fx = { align = { order = 1 } } },
+        { text = "A face is your own. Change it as you like.", next = "BACK", reply = "Spoken like one of the young ones off the Auberdine boat, and I do not mind it at all. A face that never changes is a face that has stopped living.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

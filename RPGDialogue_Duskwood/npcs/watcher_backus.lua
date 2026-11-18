@@ -70,8 +70,8 @@ P:NPC {
       lines = { { id = "sw_default", text = "Because it's bigger than Darkshire, and the council would sit on it for a month arguing. Trias moves faster. Tell me honestly, do you think I'm doing wrong?" },
       },
       choices = {
-        { text = "Yes. Your oath is to the Watch first.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No. Do what works, and let the council argue.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Yes. Your oath is to the Watch first.", next = "BACK", reply = "Maybe so, and if the commander ever finds out, I'll tell him the same thing I told you. But the Defias don't wait on oaths, and I'd rather be wrong and useful.", fx = { align = { order = 1 } } },
+        { text = "No. Do what works, and let the council argue.", next = "BACK", reply = "That's what I tell myself on the long walks out here, and it's good to hear it in someone else's voice. Just keep my name out of it, as we agreed.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "I'm not one to judge.", next = "BACK" },
       },
     },

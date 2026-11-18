@@ -66,8 +66,8 @@ P:NPC {
     purse_regret = {
       lines = { { id = "pr_default", text = "I regret the ones who couldn't spare it. The rest were nobles who'd have burned the city before they'd fed it, and I'd lift their purses again tomorrow if they were still alive to carry them." } },
       choices = {
-        { text = "Theft from the greedy is no crime.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A thief is a thief, Miles.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Theft from the greedy is no crime.", next = "BACK", reply = "There, you see, you understand the trade better than most of my students. The greedy carry their purses loosely.", fx = { align = { order = -1 } } },
+        { text = "A thief is a thief, Miles.", next = "BACK", reply = "A thief is a thief, aye, and so is a lord who hoards bread in a famine. I know which of us sleeps better.", fx = { align = { order = 1 } } },
       },
     },
     lesson = {
@@ -138,8 +138,8 @@ P:NPC {
       big = true,
       lines = { { id = "nf_default", text = "Perhaps not, but I was paid to keep him breathing, and he stopped. I serve the Dark Lady now with the same care, and I intend to finish the job this time." } },
       choices = {
-        { text = "Loyalty like that is rare. Hold to it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Serve yourself first. Lords never repay it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Loyalty like that is rare. Hold to it.", next = "BACK", reply = "I intend to, and I'll ask the same of you. A sworn blade is worth twenty bought ones.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Serve yourself first. Lords never repay it.", next = "BACK", reply = "Lords never did, that much is true, but the Dark Lady is no lord. I'll take my chances with her.", fx = { align = { honor = -1 } } },
       },
     },
     service = {
@@ -182,8 +182,8 @@ P:NPC {
     mennet = {
       lines = { { id = "me_default", text = "Because Mennet Carkad tells every recruit they have promise, and he tells it so warmly that they believe him. I have buried enough promising young people, in two lives, to prefer evidence." } },
       choices = {
-        { text = "Encouragement makes good recruits. Mennet's right.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Trust is earned. You're right to wait.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Encouragement makes good recruits. Mennet's right.", next = "BACK", reply = "He's right often enough to be dangerous. Show me some evidence and I'll warm to you as he did.", fx = { align = { order = -1 } } },
+        { text = "Trust is earned. You're right to wait.", next = "BACK", reply = "Good. Then we agree, and you'll understand why I'm watching you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

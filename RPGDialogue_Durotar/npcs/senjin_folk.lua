@@ -170,8 +170,8 @@ P:NPC {
       big = true,
       lines = { { id = "xsh_default", text = "Then be careful with them, mon, because the spirits that answer easy when you be young get quiet when you be old. Vornal spend his youth shoutin' at them, and now he must whisper and they hardly hear." } },
       choices = {
-        { text = "I'll honor them now, so they stay close.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll use their power while it's mine to use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll honor them now, so they stay close.", next = "BACK", reply = "Good, mon, because they remember the ones who honor them young. Vornal wish he heard that advice when he had ears for it.", fx = { align = { light = 1 } } },
+        { text = "I'll use their power while it's mine to use.", next = "BACK", reply = "Use it while you can, then, and see if they still answer when you be old. Vornal used to think the same, mon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -393,8 +393,8 @@ P:NPC {
       big = true,
       lines = { { id = "gad_default", text = "The satyrs leech the purity out of Ashenvale, and I leech it back out of them, mon. Whether that be dark or bright depend on who wear the gauntlets and what they hit." } },
       choices = {
-        { text = "Turning a demon's power on demons is justice.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. I don't care where it comes from.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Turning a demon's power on demons is justice.", next = "BACK", reply = "Justice, ya, and it be the kind I like best. The satyrs feel their own rot coming back at them, and they deserve every bit.", fx = { align = { light = 1 } } },
+        { text = "Power is power. I don't care where it comes from.", next = "BACK", reply = "You should care a little, mon, because the gauntlets remember where the power come from. Wear them careful and they serve you well.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -450,8 +450,8 @@ P:NPC {
       big = true,
       lines = { { id = "xw_default", text = "Then tell me why you fight, warrior, because I put that into the iron too. A gauntlet for a proud fist and a gauntlet for a faithful one be made the same, but they do not hit the same." } },
       choices = {
-        { text = "I fight for the Horde and its Warchief.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I fight for myself, and for those I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I fight for the Horde and its Warchief.", next = "BACK", reply = "Then the iron get the Warchief's fire in it, and it'll hit like the whole Horde behind you. A good reason to fight, warrior.", fx = { align = { order = 1 } } },
+        { text = "I fight for myself, and for those I choose.", next = "BACK", reply = "For yourself and your chosen, eh? Then the iron be loyal to you alone, mon, and that be a hard, true kind of strength.", fx = { align = { order = -1 } } },
         { text = "I'd rather not say.", next = "BACK", fx = { trait = { discreet = 1 } } },
       },
     },

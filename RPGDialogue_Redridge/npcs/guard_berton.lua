@@ -90,8 +90,8 @@ P:NPC {
       lines = { { id = "c_default", text = "The court already decided; he was sentenced. All I'm asking is that someone carries out what the law already said, since the law won't do it itself." },
       },
       choices = {
-        { text = "Justice delayed is still justice. Let the crown decide.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If the law won't act, someone must.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Justice delayed is still justice. Let the crown decide.", next = "BACK", reply = "The crown has had years to decide, and Targorr still eats three meals a day in the Stockade. I'll wait for justice when justice stops waiting on a noble's say-so.", fx = { align = { order = 1 } } },
+        { text = "If the law won't act, someone must.", next = "BACK", reply = "That's all I've been saying, and it's good to hear it from someone who isn't me. Most folk nod along and then find somewhere else to be.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

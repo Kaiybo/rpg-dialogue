@@ -80,8 +80,8 @@ P:NPC {
       lines = { { id = "br_default", text = "A rival? Me? I sell a few cups in a cold valley, an' they've a whole distillery. But I'll admit I'd love tae see a mornbrew stall in Kharanos one day, right next tae their door." },
       },
       choices = {
-        { text = "Go for it. A good brew earns its place anywhere.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Mind your own valley, Nori, because Kharanos is their ground.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go for it. A good brew earns its place anywhere.", next = "BACK", reply = "Och, ye're kind tae say it, an' maybe one day I will, if I can ever get the mornin' brew tae Coldridge before it's cold, never mind Kharanos.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Mind your own valley, Nori, because Kharanos is their ground.", next = "BACK", reply = "Aye, aye, ye're right, an' the Thunderbrews would have my mugs in the snow by noon, but a dwarf can dream o' a wee stall while he's pourin'.", fx = { align = { order = 1 } } },
         { text = "Something else, Nori.", next = "BACK" },
       },
     },

@@ -152,8 +152,8 @@ P:NPC {
         { id = "whw_default", text = "Hate's a big word for it. I'd call it a debt, and I'm the only one left who remembers what it's owed for. If I let it go, then Edric was just a boy who stood on a wall, and that's not good enough for him." },
       },
       choices = {
-        { text = "Edric deserved better than to be your reason.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Some debts should never be forgiven.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Edric deserved better than to be your reason.", next = "BACK", reply = "Maybe he did, and maybe I'm a stubborn old fool for it. But a boy of sixteen with no grave deserves somebody to remember him, and I've nobody else to do it.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Some debts should never be forgiven.", next = "BACK", reply = "Aye, and you'll find a fair few in Old Town who'd buy you a drink for saying so. Mind that it doesn't eat you hollow, though, the way it has me.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -231,8 +231,8 @@ P:NPC {
         { id = "cc_default", text = "King Terenas taxed every kingdom in the Alliance to keep them fed and fenced, and Stormwind paid its share while its own walls were still rubble. Gilneas wouldn't pay and walked out, and I've never decided whether Greymane was a miser or the only one with sense." },
       },
       choices = {
-        { text = "The Alliance kept its word. That cost is worth paying.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Terenas bled the kingdoms white for a prison.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Alliance kept its word. That cost is worth paying.", next = "BACK", reply = "Spoken like someone who never paid it. I'd say the same, mind, if I hadn't watched Stormwind's masons go unpaid so the camps could be fed.", fx = { align = { order = 1 } } },
+        { text = "Terenas bled the kingdoms white for a prison.", next = "BACK", reply = "White and bloodless, aye, and Gilneas said as much before they shut their gate on the rest of us. There's a reason the Alliance is half the size it was.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -331,8 +331,8 @@ P:NPC {
         { id = "xr_default", text = "Then you'll have smelled the camps on the wind and heard the guards' horns at night. Your folk took us in when Stormwind burned, and we paid it back with soldiers and a fence. I'm glad you're here, though I'd rather you'd had a better reason to come." },
       },
       choices = {
-        { text = "We pitied them, behind the wire.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "We were glad of the fence.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "We pitied them, behind the wire.", next = "BACK", reply = "Pity's cheap when there's wire between you and the thing you pity. Still, it's more than most of your neighbours spared them, I'd wager.", fx = { align = { light = 1 } } },
+        { text = "We were glad of the fence.", next = "BACK", reply = "Honest, at least. I'll not pretend I wasn't glad of it myself, some nights, with Edric's face still in my head.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

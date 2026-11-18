@@ -41,8 +41,8 @@ P:NPC {
       lines = { { id = "pj_pozzik_default", text = "Because every gnome I've met is a spy, kid, or an engineer, which on this track is the same thing with better gloves. Fizzle's crew have copied my exhaust twice and my paint job once, and you want me to take a gnome at face value? Face value's the worst rate in the business." } },
       choices = {
         { text = "They copied your paint? What happened?", next = "pj_pozzik2" },
-        { text = "Judge me by what I do, not by Fizzle.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Maybe I am a spy. You'd better make me a better offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Judge me by what I do, not by Fizzle.", next = "BACK", reply = "Fair enough, kid, I'll judge you by what you do, and right now what you're doin' is standin' in my pit without a pass.", fx = { align = { honor = 1 } } },
+        { text = "Maybe I am a spy. You'd better make me a better offer.", next = "BACK", reply = "Ha, now there's a spy I can do business with, kid, so let's talk numbers somewhere Fizzle can't hear us.", fx = { align = { honor = -1 } } },
         { text = "I'm only here to watch the race, Pozzik.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_pozzik_default", text = "The goblin car, obviously, because it's built by people who know what speed is for, which is getting paid. The gnomes build to show off, and they'll keep losing to us until they learn the difference." } },
       choices = {
-        { text = "Hard work and hunger win races. Go goblins.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Gnomes build better, and my coin's on them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hard work and hunger win races. Go goblins.", next = "BACK", reply = "Now you're talkin', kid, and if you put your coin where your mouth is, I'll even give you decent odds.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Gnomes build better, and my coin's on them.", next = "BACK", reply = "Your funeral, kid, but when the gnome car's in pieces on the salt, I'll still sell you a ticket to the next one.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Brains build the car, but muscle gets it out of the crater, and on this track that happens more than I'd like. Half my crew used to bust heads for the cartels, and they can change a wheel faster than any gnome with a wrench." } },
       choices = {
-        { text = "Brains matter more. Muscle without a plan just breaks things.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Muscle wins. A plan never lifted an engine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Brains matter more. Muscle without a plan just breaks things.", next = "BACK", reply = "Try tellin' that to the engine that's sittin' on my driver, kid, because it doesn't care about plans, it cares about lifting.", fx = { align = { order = 1 } } },
+        { text = "Muscle wins. A plan never lifted an engine.", next = "BACK", reply = "Exactly what I keep tellin' Fizzle, kid, and he keeps answering with diagrams, which have never once lifted anything.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -123,16 +123,16 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hey, {pet} looks fast. Real fast. Ever thought about racing it against Fizzle's car? We'd sell tickets, I'm just saying." },
       },
       choices = {
-        { text = "That vulture won fair. Don't claim it for the goblins.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good story beats the truth. I'd claim it too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That vulture won fair. Don't claim it for the goblins.", next = "BACK", reply = "Fair, schmair, kid, the vulture was wearing goblin colours as far as I'm concerned, and nobody's proved otherwise.", fx = { align = { honor = 1 } } },
+        { text = "A good story beats the truth. I'd claim it too.", next = "BACK", reply = "Now you're a goblin at heart, kid, and if you ever want a job in marketing, my door's wide open.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Disturb them? There's nothin' out here but salt, scorpids and vultures, kid, and the vultures love us, because every crash is lunch. The flats were dead long before I built a track on them, and now at least they turn a profit." } },
       choices = {
-        { text = "Even salt flats have life. Race with care.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Dead ground is fair ground. Race all you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Even salt flats have life. Race with care.", next = "BACK", reply = "Care costs money, kid, and the scorpids don't buy tickets, but I'll tell the drivers to swerve when they can.", fx = { align = { light = 1 } } },
+        { text = "Dead ground is fair ground. Race all you like.", next = "BACK", reply = "That's the spirit, kid, and if the druids come around, I'll send 'em to you for the speech.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,8 +140,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Shame, because I've got a list, and the list pays. Still, honest folk are good for the track, kid, and goblins don't need sabotage when we've got better engineering anyway." } },
       choices = {
-        { text = "Cheating ruins racing. Win fairly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A good racer uses every trick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Cheating ruins racing. Win fairly.", next = "BACK", reply = "Fair's for gnomes, kid, but fine, fine, I'll win fair this season, and you can watch me do it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good racer uses every trick.", next = "BACK", reply = "There's a racer's heart in you, kid, and I've got a list of tricks that'll make you a legend on the salt.", fx = { align = { honor = -1 } } },
         { text = "Something else, Pozzik.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Faster, sure, until it melts the engine and sends the driver into orbit! Racing's about engineering, friend, and I'd rather lose fair than win with a fireball in the fuel tank, mostly." } },
       choices = {
-        { text = "Engineering's the true test. Keep it pure.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Use every edge you can get.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Engineering's the true test. Keep it pure.", next = "BACK", reply = "Pure as salt, kid, and just as dry, but I'll keep it pure as long as the gnomes do, which won't be long.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Use every edge you can get.", next = "BACK", reply = "Every edge, sure, kid, but not the kind that melts my engine, because I've only got the one.", fx = { align = { order = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -158,8 +158,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Fair? I play to win, friend, and that's fairer than pretending you don't want to. The gnomes write long reports about honor and safety, and then they lose, so you tell me which of us has got it figured out." } },
       choices = {
-        { text = "Winning by cheating isn't winning. Race them honestly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A race goes to the cleverest, not the nicest.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Winning by cheating isn't winning. Race them honestly.", next = "BACK", reply = "Honestly, kid? That's a gnome word, but I'll think about it, right after we win the next heat.", fx = { align = { honor = 1 } } },
+        { text = "A race goes to the cleverest, not the nicest.", next = "BACK", reply = "Now you're thinkin' like a winner, kid, and the gnomes can keep their nice reports.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,8 +232,8 @@ P:NPC {
     wins_lately = {
       lines = { { id = "wl_default", text = "Lately the gnomes are faster, with the same designs, and nobody can say why. Rizzle Brassbolts has been scribbling something day and night. I'd love a look at it." } },
       choices = {
-        { text = "I could get you a look.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Stealing their plans would be cheating, Pozzik.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I could get you a look.", next = "BACK", reply = "You could? Kid, if you bring me even a peek at those plans, I'll make it worth your while, on the quiet.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Stealing their plans would be cheating, Pozzik.", next = "BACK", reply = "Cheating's a strong word, kid, I'd call it competitive research, but have it your way.", fx = { align = { order = 1 } } },
         { text = "Maybe they're just better.", next = "BACK", fx = { affinity = -2, trait = { witty = 1 } } },
       },
     },
@@ -291,8 +291,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Fizzle swears they don't, but gnomes say that about everything right before it blows up. I'd love to know what's really in their engine, and a spellcaster could probably tell from a few feet away." } },
       choices = {
-        { text = "I'll look, and maybe loosen a bolt while I'm there.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll look, but I won't sabotage anyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll look, and maybe loosen a bolt while I'm there.", next = "BACK", reply = "Now you're my kind of spellcaster, kid, and if that bolt happens to fall off on the last lap, I'll never say a word.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll look, but I won't sabotage anyone.", next = "BACK", reply = "Fine, fine, a look is all I need, kid, and you can keep your hands clean while I do the dirty thinking.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,8 +300,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "If they mind, they've never filed a complaint, and I keep the noise down after sundown, mostly. The flats were nothing but empty salt before we came, so I figure we gave the spirits something worth watching." } },
       choices = {
-        { text = "Respect the land, Pozzik, and it'll put up with the racing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The spirits can watch, and buy a seat like everybody else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Respect the land, Pozzik, and it'll put up with the racing.", next = "BACK", reply = "I respect it fine, kid, from a very safe distance, and I keep the noise down after dark, mostly.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The spirits can watch, and buy a seat like everybody else.", next = "BACK", reply = "Ha, that's the spirit, kid, and I'll give 'em the spirits' discount, which is the same as everybody else's.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -390,8 +390,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very like, really, because both involve careful preparation followed by a loud noise and somebody shouting. The difference is that when my work goes wrong I lose a piston, and when yours goes wrong you lose rather more than that." } },
       choices = {
-        { text = "Preparation matters in both. Plan first, then strike.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fighting is instinct. You can't plan for every swing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Preparation matters in both. Plan first, then strike.", next = "BACK", reply = "Precisely, and I'm delighted you see it that way, because Pozzik thinks planning is something gnomes do instead of winning.", fx = { align = { order = 1 } } },
+        { text = "Fighting is instinct. You can't plan for every swing.", next = "BACK", reply = "Ah, but even instinct follows patterns, and if you let me take some measurements of your swing, I could prove it!", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -402,16 +402,16 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, keep {pet} away from the fuel line, please. It smells like venom to a beast, and I've seen what happens when one decides to chew it." },
       },
       choices = {
-        { text = "The creatures were here first. Build around them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Clear them off. A track should be clean.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The creatures were here first. Build around them.", next = "BACK", reply = "I've tried, truly, and I even drew a tortoise crossing on the second turn, but the goblins painted over it.", fx = { align = { light = 1 } } },
+        { text = "Clear them off. A track should be clean.", next = "BACK", reply = "That would be tidier, I admit, though I'd hate to evict a tortoise, they're very good at sitting still.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Salty venom burns hot and clean, very efficient! I need dozens of tails a week, though, and I'll admit the scorpids are starting to look at me funny." } },
       choices = {
-        { text = "Take fewer tails. The flats need their scorpids.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "There are plenty of scorpids. Keep racing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Take fewer tails. The flats need their scorpids.", next = "BACK", reply = "You're right, and I've been rationing, really I have, though the engine's very fond of them and so am I.", fx = { align = { light = 1 } } },
+        { text = "There are plenty of scorpids. Keep racing.", next = "BACK", reply = "Wonderful, then I'll keep my order in, though I have noticed the scorpids following me home lately.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -419,8 +419,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Help, maybe, but magic doesn't care about blueprints, and I care about blueprints very much! A spell that works once is a trick, but an engine that works every time is an achievement." } },
       choices = {
-        { text = "You're right. Reliable beats brilliant.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Magic's brilliance is worth the risk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. Reliable beats brilliant.", next = "BACK", reply = "Exactly, and I'm so pleased you said it, because I'd like that sentence engraved on the hood of my next car.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic's brilliance is worth the risk.", next = "BACK", reply = "Worth the risk to a mage, perhaps, but my engine can't afford to explode, it's the only one I've got.", fx = { align = { order = -1 } } },
         { text = "Something else, Fizzle.", next = "BACK" },
       },
     },
@@ -428,8 +428,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "That's exactly what the last warlock said, right before it happened! I'd ask you to keep your friend well back, because I've worked too hard on this engine to lose it to an imp's appetite." } },
       choices = {
-        { text = "I'll keep my demon away. Your work's safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A demon goes where it pleases.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my demon away. Your work's safe.", next = "BACK", reply = "Oh, thank you, and the engine thanks you too, though it's an engine, so it says so with a little hum.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A demon goes where it pleases.", next = "BACK", reply = "Then please keep it pleasing itself far away from my workshop, because I've only got two spare pistons left.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -437,8 +437,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every single heat, and I've drawn up three hundred pages of safety improvements that Pozzik calls gnome nonsense. The goblins treat a crash like a party, but I've pulled drivers out of the wreckage, and there's nothing funny about it, not one bit." } },
       choices = {
-        { text = "Keep pressing for safety. Every life matters, even a goblin's.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Racers know the risks. Let them crash if they want to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep pressing for safety. Every life matters, even a goblin's.", next = "BACK", reply = "Thank you, I will, and I'll add a page on goblin safety, which will be very short but very important.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Racers know the risks. Let them crash if they want to.", next = "BACK", reply = "That's what Pozzik says too, but he's the first one running to the wreck, so I don't think he means it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -446,8 +446,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I trust Pozzik to want to win more than anything else in the world, which isn't quite the same thing. Still, we built this raceway together, and when a car flips on the salt, he's the first one running to help, though I'd never tell him I noticed." } },
       choices = {
-        { text = "Tell him so. A rival who respects you deserves honesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Keep it to yourself. Never give a goblin an edge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell him so. A rival who respects you deserves honesty.", next = "BACK", reply = "I might, one day, though if I told him to his face he'd only laugh and charge me for the compliment.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep it to yourself. Never give a goblin an edge.", next = "BACK", reply = "Never, I promise you, because he'd use it to beat me by half a length, and then I'd never hear the end of it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -455,8 +455,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Kravel Koalbeard, if I had to bet, because he's always near the workshop and his story never quite adds up. But I can't prove it, and Pozzik would laugh himself sick if I accused a dwarf who works for both teams." } },
       choices = {
-        { text = "I'll watch Kravel for you and bring you proof.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget proof. Throw him off the Flats.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll watch Kravel for you and bring you proof.", next = "BACK", reply = "Oh, would you? Thank you, and if you catch him, I'll name a gear after you, a very important gear.", fx = { align = { order = 1 } } },
+        { text = "Forget proof. Throw him off the Flats.", next = "BACK", reply = "I'd love to, really I would, but without proof Pozzik would laugh at me, and that's worse than losing a race.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -464,8 +464,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Constantly. The heat swells the pistons, the salt eats the gears and the lightning makes the compass spin, and every time Pozzik says it's my engineering. I'd love to know whether the elements here simply dislike machines." } },
       choices = {
-        { text = "Respect the land, and it may treat your machines kinder.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Build better machines. The elements don't care.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Respect the land, and it may treat your machines kinder.", next = "BACK", reply = "That's what the shaman at Freewind said too, so perhaps I'll leave a little offering by the track tomorrow.", fx = { align = { light = 1 } } },
+        { text = "Build better machines. The elements don't care.", next = "BACK", reply = "Exactly my plan, and I've seventeen improvements drawn up, though the lightning keeps scrambling my compass.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -567,7 +567,7 @@ P:NPC {
       lines = { { id = "b_default", text = "The Brassbolts brothers, yes! Wizzle handles the shells and fins, Rizzle handles the plans, and I handle the genius. It's a very efficient arrangement." } },
       choices = {
         { text = "Pozzik wants Rizzle's plans.", next = "brothers_plans", fx = { align = { honor = 1 } } },
-        { text = "I'll keep what I know about Pozzik to myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll keep what I know about Pozzik to myself.", next = "BACK", reply = "Good, because the less Pozzik knows about my plans, the more I'll enjoy beating him next season.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -592,8 +592,8 @@ P:NPC {
         { id = "xm_orc", when = { race = "Orc", class = "MAGE" }, text = "An orc who studies magic instead of hitting things with it? That's a marvelous inversion, and I'd love to see your notes, though please don't cast anything near the fuel." },
       },
       choices = {
-        { text = "Slowing the goblins would be cheating, Fizzle.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Name a price, and their car will crawl.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Slowing the goblins would be cheating, Fizzle.", next = "BACK", reply = "You're right, of course you are, and I didn't mean it, mostly, so let's pretend I never asked.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Name a price, and their car will crawl.", next = "BACK", reply = "Oh dear, now I'm tempted, and I shouldn't be, so let me think about it until after the next heat.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -642,8 +642,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only when they're losin', an' that's when they come tae me first, because I know which bruisers can keep their mouths shut. Nobody gets hurt that doesnae deserve it, mind, an' the winnin' car usually wins anyway." } },
       choices = {
-        { text = "I don't hire out to rig races. Find someone else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Coin's coin. If the crew pays, I'll stand where you say.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I don't hire out to rig races. Find someone else.", next = "BACK", reply = "Suit yerself, friend, but ye'll find honest work out here pays a lot less than standin' in the right place.", fx = { align = { honor = 1 } } },
+        { text = "Coin's coin. If the crew pays, I'll stand where you say.", next = "BACK", reply = "There's a sensible head on ye, an' I'll send ye a note when there's a crew needs a bit o' standin' done.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -654,8 +654,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours doesnae miss much either, does it? A beast like that would be worth its weight in gold, keepin' watch outside the right tent." },
       },
       choices = {
-        { text = "What I see, I keep to myself. I'm no informer.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Information is coin. I'd sell it too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What I see, I keep to myself. I'm no informer.", next = "BACK", reply = "A man o' principle, eh, well, there's always room on the flats for one, though they don't usually last long.", fx = { align = { honor = 1 } } },
+        { text = "Information is coin. I'd sell it too.", next = "BACK", reply = "Ye've got the right instincts, friend, an' if ye ever see somethin' worth sellin', I'll pay a fair rate.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -663,8 +663,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, just a little whisper here an' there, maybe a loose bolt that wasn't loose a minute ago. Nothin' that'd hurt anybody, mind, just enough to make the right car win." } },
       choices = {
-        { text = "I don't fix races.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every race has a price.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't fix races.", next = "BACK", reply = "No? Well, that's a shame, friend, because ye've got the hands for it, an' the face nobody'd suspect.", fx = { align = { honor = 1 } } },
+        { text = "Every race has a price.", next = "BACK", reply = "Aye, an' I know most o' them by heart, so if ye ever want tae place a bet, come an' see old Kravel first.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else, Kravel.", next = "BACK" },
       },
     },
@@ -672,8 +672,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'm only sayin' it's possible, friend, and a dwarf can wonder aloud. The crews would never suspect a curse, an' I'd never suspect anyone who did it." } },
       choices = {
-        { text = "Curses aren't for cheating at races.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A curse might be worth the coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Curses aren't for cheating at races.", next = "BACK", reply = "Maybe not, friend, but they work awfully well, an' I'm only sayin' it's an option, nothin' more.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A curse might be worth the coin.", next = "BACK", reply = "Now ye're talkin', an' I'll keep it in mind for the next big heat, where the purse is worth the trouble.", fx = { align = { light = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -681,8 +681,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Nothin' I'd tell a druid, or anyone else with a straight face. Let's say a car runs faster when the right man's paid, an' slower when the wrong man hasn't, an' leave the rest to the wind." } },
       choices = {
-        { text = "Everyone cheats. At least you're honest about it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Cheating spoils the race. Stop it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everyone cheats. At least you're honest about it.", next = "BACK", reply = "Aye, an' honesty's my best policy, which is why I'm so very good at the rest of it.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Cheating spoils the race. Stop it.", next = "BACK", reply = "Stop it? Friend, I'm only one dwarf, an' the wind's been fixin' races out here long before I arrived.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -737,8 +737,8 @@ P:NPC {
     hush = {
       lines = { { id = "hu_default", text = "Now, now, nobody's rigged a thing. Here, for yer trouble an' yer short memory; we understand each other." } },
       choices = {
-        { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "Keep your coin, Kravel. I saw what I saw.", next = "END", fx = { align = { order = 1 } } },
+        { text = "We do.", next = "END", reply = "Good, I knew ye were a sensible sort, so off ye go, an' enjoy the races with a lighter heart an' a heavier purse.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Keep your coin, Kravel. I saw what I saw.", next = "END", reply = "Suit yerself, friend, but memory's a funny thing out here, an' the sun has a way o' makin' folk forget.", fx = { align = { order = 1 } } },
       },
     },
     laugh = {
@@ -755,8 +755,8 @@ P:NPC {
     sure_how = {
       lines = { { id = "sh_default", text = "Little things, like a delivery that arrives one wee piece short. Who'd miss one small worthless piece? Only a car doin' its top speed, that's who." } },
       choices = {
-        { text = "That's a racing crew's order you're shorting.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "That's a racing crew's order you're shorting.", next = "BACK", reply = "Is it? Well, the crews have plenty o' parts, an' they'll never miss one wee bolt, I promise ye.", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Clever.", next = "BACK", reply = "Aye, it is, an' I'm glad someone appreciates the craft o' it, because the crews certainly don't.", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
     trade = {
@@ -773,16 +773,16 @@ P:NPC {
     stout = {
       lines = { { id = "st_default", text = "A Fool's Stout, an' a wee bit of somethin' extra from a friend in Booty Bay. Nothin' harmful, mostly; they'll wake up a touch slow an' very thirsty." } },
       choices = {
-        { text = "That's poisoning, Kravel.", next = "BACK", fx = { align = { honor = 1 }, affinity = -2 } },
-        { text = "Slow and thirsty sounds like fair racing to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's poisoning, Kravel.", next = "BACK", reply = "Poisonin's a strong word, friend, I'd call it a wee hospitality, an' nobody's ever died of a slow mornin'.", fx = { align = { honor = 1 }, affinity = -2 } },
+        { text = "Slow and thirsty sounds like fair racing to me.", next = "BACK", reply = "Now ye're seein' it my way, an' I'll pour ye a pint o' the plain stuff tae celebrate.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     light = {
       lines = { { id = "li_default", text = "Does it? Well, the Light's no' placin' bets, so it's no' my concern. Pray for the losers if ye like; they'll need it more than me." } },
       choices = {
-        { text = "I'll pray for you too.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "The losers can pray for themselves, then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll pray for you too.", next = "BACK", reply = "Pray all ye like, friend, an' if the Light picks a winner, I'd be obliged if ye passed on the tip.", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "The losers can pray for themselves, then.", next = "BACK", reply = "Ha, that's the spirit, an' I'll buy ye a drink for sayin' it, from my winnings.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -795,8 +795,8 @@ P:NPC {
         { id = "xr_default", text = "Keep your voice down, friend, and your hands where I can see them, because I know exactly what you are. Nobody's rigged a thing out here, and if somebody had, the last soul they'd tell is a professional." },
       },
       choices = {
-        { text = "Cut me in, or I talk to the crews.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "I'm not working today, Kravel. Relax.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Cut me in, or I talk to the crews.", next = "BACK", reply = "Ha, there's a professional, an' I'll cut ye in, but quietly, an' ye'll forget my name when ye leave.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'm not working today, Kravel. Relax.", next = "BACK", reply = "Good, good, then we're just two friends at the races, an' I'll stop watchin' yer hands, mostly.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -804,8 +804,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "A fair bit, if they could tell me which engine's runnin' hot before the heat, an' nothin' at all if they talked about it after. Information's the only thing on these flats worth more than fuel." } },
       choices = {
-        { text = "Name your price, Kravel, and I'll name mine.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I don't sell tips on rigged races.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Name your price, Kravel, and I'll name mine.", next = "BACK", reply = "Now we're talkin', friend, an' I'll name mine over a pint, where the crews can't hear us.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't sell tips on rigged races.", next = "BACK", reply = "Suit yerself, friend, but the tips get sold whether ye like it or not, so ye might as well get paid.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -813,8 +813,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Depends what they know, don't it? If the wind tells you which car's runnin' rough before the heat, that's worth a coin or two, an' nobody needs to know where the tip came from." } },
       choices = {
-        { text = "The spirits aren't for sale, Kravel, and certainly not to you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Make me an offer, and we'll see what the wind says.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The spirits aren't for sale, Kravel, and certainly not to you.", next = "BACK", reply = "No offence meant, friend, an' I'll take my business tae the wind direct, if it ever learns tae talk.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Make me an offer, and we'll see what the wind says.", next = "BACK", reply = "Now there's a shaman I can work with, an' I'll be waitin' for that whisper, with coin in hand.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

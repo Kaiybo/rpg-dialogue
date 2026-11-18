@@ -88,8 +88,8 @@ P:NPC {
       lines = { { id = "td_default", text = "Speed wins races, {g:lad|lass}, no' fights. When the shells start flyin', I want plate between me an' the enemy, no' a lighter engine an' a prayer." },
       },
       choices = {
-        { text = "You're right. Stand firm and let them break on you.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'd still rather outrun trouble than stand in it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. Stand firm and let them break on you.", next = "BACK", reply = "Now ye're talkin', {g:lad|lass}, an' Trollplow would agree if she could talk, which she nearly can when the cannon's loaded.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'd still rather outrun trouble than stand in it.", next = "BACK", reply = "Ha, then ye'll never ride in Trollplow, an' that's yer loss, but run fast, because the shells always run faster.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

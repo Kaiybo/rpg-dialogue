@@ -78,8 +78,8 @@ P:NPC {
         { id = "mr_default", text = "Maybe, but Mokk kill plenty himself, and the jungle always eat something to feed something else. Unbagwa don't judge, Unbagwa just call." },
       },
       choices = {
-        { text = "The jungle's way is the right way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "We don't have to live by the jungle's rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The jungle's way is the right way.", next = "BACK", reply = "You hear the jungle talking, mon, Unbagwa can tell. Everything here eat and get eaten in the end, and the smart ones just pick when.", fx = { align = { order = 1 } } },
+        { text = "We don't have to live by the jungle's rules.", next = "BACK", reply = "Maybe you don't, mon, but the jungle not asking your permission. Unbagwa hope you keep that soft heart when a raptor be chewing on your boot.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "xs_default", text = "They tell Unbagwa the jungle be getting restless, mon, with the old Gurubashi ruins whispering and the tribes fighting like hungry dogs over the bones. The gorillas don't care, but the trolls should." },
       },
       choices = {
-        { text = "Then the trolls should face it together.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the tribes rot. Only the strong matter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the trolls should face it together.", next = "BACK", reply = "Dat be the wise word, mon, and the spirits nod along. Trouble is the tribes too proud to hear it, so maybe the loa got to shout louder.", fx = { align = { honor = 1 } } },
+        { text = "Let the tribes rot. Only the strong matter.", next = "BACK", reply = "Hah, you sound like the Gurubashi before they fall, mon, and look where all that strength get them. Unbagwa keep his own head down and his spirits close.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,8 +146,8 @@ P:NPC {
         { id = "xh_default", text = "Good, mon, a beast to fight beasts, Unbagwa like that! Just don't let it eat the fang before Unbagwa use it, because that happen once and Unbagwa still not forgiven that wolf." },
       },
       choices = {
-        { text = "My beast fights fair. Let the apes come.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My beast will tear them apart. Mercy's wasted here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My beast fights fair. Let the apes come.", next = "BACK", reply = "Fair, mon, fair, Unbagwa like a beast with manners. Just remember Mokk don't fight fair, so keep it watching the trees.", fx = { align = { light = 1 } } },
+        { text = "My beast will tear them apart. Mercy's wasted here.", next = "BACK", reply = "Ooh, you got a hungry one, mon! Good, good, because the apes got no mercy neither, and Unbagwa want that fang more than he want a nice fight.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

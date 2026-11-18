@@ -77,8 +77,8 @@ P:NPC {
         { id = "cw_default", text = "That is her business, and not mine to guess at aloud. I will say only that a thing that breaks one will can break others, and she has every reason to keep such a thing close." },
       },
       choices = {
-        { text = "Then destroy it. No one should hold that power.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Better in her hands than an ogre's.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then destroy it. No one should hold that power.", next = "BACK", reply = "Destroy it? You speak like one of the living, who always think power can be wished away. The Dark Lady does not throw away a blade simply because it is sharp.", fx = { align = { order = -1 } } },
+        { text = "Better in her hands than an ogre's.", next = "BACK", reply = "Precisely, and a great deal better than in the hands of whatever buried it. You learn our ways quickly, which I will remember.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,8 +98,8 @@ P:NPC {
         { id = "mc_default", text = "We had many things under our control, until one of them put on a crown. Now his ogres hold the ruins of Alterac, and the snow there blooms red with their blood, as it will until the Crushridge are ground into the dirt." },
       },
       choices = {
-        { text = "He broke his chains. I almost admire him.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A servant who slips his leash must be made an example.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He broke his chains. I almost admire him.", next = "BACK", reply = "Admire him at a distance, then, and be glad you will never stand where he stands. Our Lady does not forgive a broken chain, and neither do I.", fx = { align = { light = 1 } } },
+        { text = "A servant who slips his leash must be made an example.", next = "BACK", reply = "Yes, and he will be, piece by piece, until the Crushridge remember what obedience felt like. You understand the Dark Lady's mind better than most.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

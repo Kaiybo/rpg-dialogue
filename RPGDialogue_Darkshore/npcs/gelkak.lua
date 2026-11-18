@@ -114,8 +114,8 @@ P:NPC {
         { id = "ph_default", text = "Hush! Don't ye say that so loud, the murlocs might hear. A reputation's half of piracy, and the other half is runnin' fast when the reputation don't hold." },
       },
       choices = {
-        { text = "Then I'll keep your secret, Captain.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Better an honest tinker than a pretend pirate.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep your secret, Captain.", next = "BACK", reply = "Ye're a gem, a true gem, and a proper member o' the crew now, at least in spirit. Mum's the word, matey, and mind the murlocs.", fx = { align = { honor = -1 } } },
+        { text = "Better an honest tinker than a pretend pirate.", next = "BACK", reply = "Honest tinkerin' never got anyone a song written about 'em, I'll have ye know! Still, between you an' me, the tinkerin' was the better part.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "ms_default", text = "Well, there's a small matter of his loyalty circuits needin' a firm hand, and the key's the firm hand. Without it he's a touch... independent, ye might say." },
       },
       choices = {
-        { text = "That sounds dangerous. Build him safer.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every good crewman has a bit of spirit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That sounds dangerous. Build him safer.", next = "BACK", reply = "Safer! Safer is what they said in Gnomeregan right up until it went bang, and I'm done with safe. I'll add a second off switch, though, maybe a third.", fx = { align = { order = 1 } } },
+        { text = "Every good crewman has a bit of spirit.", next = "BACK", reply = "Exactly, exactly, ye understand perfectly, and that's why I like ye! A crewman with no spirit is just a very expensive anchor.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

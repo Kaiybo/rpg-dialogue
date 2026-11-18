@@ -92,8 +92,8 @@ P:NPC {
         { id = "dw_default", text = "I don't know, and I'm a cook, not a Sentinel. But there are those in Darnassus who see the signs and those who look away, and I know which I'd rather be." },
       },
       choices = {
-        { text = "Then I won't look away either.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Darnassus will act when it's sure. Trust the elders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I won't look away either.", next = "BACK", reply = "Then there are two of us at least, and Elune knows that is more than there were yesterday. Keep your eyes on the deer, friend.", fx = { align = { order = -1 } } },
+        { text = "Darnassus will act when it's sure. Trust the elders.", next = "BACK", reply = "They will, I am sure, in a decade or two, and by then I will have nothing left to cook. Forgive a cook her impatience.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,8 +142,8 @@ P:NPC {
         { id = "fa_default", text = "Something in the cave behind the falls, where naga have taken up living. Whatever they're doing in there, it runs out with the water and into every stream in Darkshore." },
       },
       choices = {
-        { text = "Then the naga must be driven out.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The cure comes first. The deer can't wait.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the naga must be driven out.", next = "BACK", reply = "Yes, and may Elune guide whoever does it, for I am not that brave. The water will not heal while they foul it.", fx = { align = { light = -1 } } },
+        { text = "The cure comes first. The deer can't wait.", next = "BACK", reply = "Bless you for thinking of the deer first, because most only think of the naga. The cure, then, and the fighting after.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -147,8 +147,8 @@ P:NPC {
         { id = "dm_default", text = "Taken on the road through the Burning Steppes, wi' twenty o' our best around her. The King willnae say her name in the Senate, an' the Senate willnae say it in front o' him, an' meanwhile she's somewhere under that mountain in the hands o' Thaurissan's heir." },
       },
       choices = {
-        { text = "Ironforge should march on Blackrock.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Better to send someone quiet, not an army.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Ironforge should march on Blackrock.", next = "BACK", reply = "Aye, an' I've said it in the Senate a dozen times, but nobody wants tae be the one who marches the King's army past the King's silence.", fx = { align = { honor = 1 } } },
+        { text = "Better to send someone quiet, not an army.", next = "BACK", reply = "Quiet, aye, there's sense in that, an' fewer graves, but I'd want tae know who ye'd send, because Blackrock eats quiet folk for breakfast.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -238,8 +238,8 @@ P:NPC {
     wildhammer_war = {
       lines = { { id = "ww_default", text = "Aye, on their birds, overhead, where it's dry an' safe an' the view's very fine. I'll grant they hate orcs as much as I do, but that's no' the same thing as bein' kin." } },
       choices = {
-        { text = "Kin is kin, Senator. Bronzebeard or Wildhammer.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "They chose to leave. That has a cost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Kin is kin, Senator. Bronzebeard or Wildhammer.", next = "BACK", reply = "Ye sound like Magni at a feast, an' he can afford tae be generous, but I've a long memory, an' the Wildhammer are still on my list.", fx = { align = { order = -1 } } },
+        { text = "They chose to leave. That has a cost.", next = "BACK", reply = "At last, somebody who understands, an' ye'll forgive me if I write that down, because I'll be quotin' ye in the Senate the next time it comes up.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

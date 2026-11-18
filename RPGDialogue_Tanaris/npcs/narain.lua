@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "azf_default", text = "Friend is a strong word for a dragon, but he hasn't eaten me, and that's a firm foundation. Some say you shouldn't deal with dragons at all, because they're older than us and know it, but I say knowledge is knowledge, scaly or not." } },
       choices = {
-        { text = "Dragons have their own schemes. Be careful.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Knowledge is worth the risk, scales and all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Dragons have their own schemes. Be careful.", next = "BACK", reply = "Careful's my middle name, friend, right after Soothfancy, and I've seen enough in the ball to know a dragon never gives anything away without a reason.", fx = { align = { order = 1 } } },
+        { text = "Knowledge is worth the risk, scales and all.", next = "BACK", reply = "Now that's the kind of talk I like to hear, because the folks who play it safe never learn a thing worth sellin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

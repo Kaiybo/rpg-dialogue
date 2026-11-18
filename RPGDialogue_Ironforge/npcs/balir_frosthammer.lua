@@ -82,8 +82,8 @@ P:NPC {
       lines = { { id = "cb_default", text = "Maybe no', but a commander's meant tae know, an' I'm the closest thing Coldridge has. What would ye have done, then, in my boots?" },
       },
       choices = {
-        { text = "Pulled everyone back behind Anvilmar's walls. Lives first.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Held the camp. Running teaches the troggs that it works.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Pulled everyone back behind Anvilmar's walls. Lives first.", next = "BACK", reply = "Aye, an' I tell myself the same every night, but Anvilmar's walls didnae save the lads already out at the camp, an' that's what keeps me up.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Held the camp. Running teaches the troggs that it works.", next = "BACK", reply = "That's what my gut said, an' I didnae listen, so maybe ye're right, an' maybe that's why the troggs keep comin' back hungrier every time.", fx = { align = { honor = -1 } } },
         { text = "I'd rather not say.", next = "BACK" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       lines = { { id = "k_default", text = "I hope so. I've sent word, an' Grelin's sent his reports tae the Senate, an' I can only pray the King an' the Senate are takin' steps." },
       },
       choices = {
-        { text = "The Senate will act. Trust in the proper channels.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Don't wait on the Senate. Act now, on your own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Senate will act. Trust in the proper channels.", next = "BACK", reply = "I hope ye're right, I truly do, but the Senate has a way o' takin' steps so slow ye'd think they were climbin' the mountain backwards.", fx = { align = { order = 1 } } },
+        { text = "Don't wait on the Senate. Act now, on your own.", next = "BACK", reply = "Dinnae tempt me, because I've half a mind tae do just that, an' Grelin would have my beard for it, but the troggs dinnae wait on anybody's leave.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

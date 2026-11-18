@@ -101,8 +101,8 @@ P:NPC {
       big = true,
       lines = { { id = "th_default", text = "Honest enough, honest enough. Everyone gets paid, nobody gets hurt, and if a few of my friends are people the Dark Lady wouldn't invite to dinner, well, she doesn't invite me either." } },
       choices = {
-        { text = "Careful, Andron. Somebody might be listening.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Who's to know? Keep your friends quiet and rich.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Careful, Andron. Somebody might be listening.", next = "BACK", reply = "Somebody's always listening, friend, that's half my business. Keep your voice down and buy something.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Who's to know? Keep your friends quiet and rich.", next = "BACK", reply = "A person after my own heart! Quiet and rich, the best kind of friends, and I'll introduce you to a few.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

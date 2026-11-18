@@ -66,8 +66,8 @@ P:NPC {
       lines = { { id = "ca_default", text = "Because a deputy mayor who goes around the council is the next thing the council argues about. I've thought about it, I'll admit. What would you do?" },
       },
       choices = {
-        { text = "Work through the council. Break it, and you've nothing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Act. The dead don't wait for a vote.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Work through the council. Break it, and you've nothing.", next = "BACK", reply = "That's the sensible answer, and I hate that it's right. A broken council would leave Darkshire with nothing but me and a stack of unsigned orders.", fx = { align = { order = 1 } } },
+        { text = "Act. The dead don't wait for a vote.", next = "BACK", reply = "You'd make a poor councilman and a fine deputy, which is more than I can say for half the town hall. I'll think on it, and not for as long as they would.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "That's for you to decide.", next = "BACK" },
       },
     },

@@ -59,8 +59,8 @@ P:NPC {
       big = true,
       lines = { { id = "hu_default", text = "It does, and that's the danger in it. The orcs who called on fel fire wanted power and got it, and look what it cost us, so a shaman must want the flame and still know when to let it go." } },
       choices = {
-        { text = "Wanting power isn't wrong. I'll want it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll learn to let it go, before it takes me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wanting power isn't wrong. I'll want it.", next = "BACK", reply = "Then want it, but know that the Horde once wanted it too, and we nearly drowned in it. Your hunger will be tested, and I hope it serves you better than ours served us.", fx = { align = { light = -1 } } },
+        { text = "I'll learn to let it go, before it takes me.", next = "BACK", reply = "That is the harder lesson, and you've said it before the flame taught you why. Hold to it when the fire roars loudest, because that's when it will ask you for everything.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,8 +141,8 @@ P:NPC {
       big = true,
       lines = { { id = "fi_default", text = "A caged beast dies afraid, and a free one dies fighting, if it dies at all. Some owners would rather I kept their companions locked away and safe, but I'd rather give them a chance." } },
       choices = {
-        { text = "Their owners trusted you to keep them safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Better free and fighting than caged and afraid.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Their owners trusted you to keep them safe.", next = "BACK", reply = "They trusted me to keep them alive, and a beast that can't run or bite won't stay alive long. I hear you, though, and I'll not take a risk with a pet that isn't mine to take.", fx = { align = { order = 1 } } },
+        { text = "Better free and fighting than caged and afraid.", next = "BACK", reply = "You understand it as a hunter does, then. The Earth Mother made no creature for a cage, and I sleep better knowing they had their chance.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

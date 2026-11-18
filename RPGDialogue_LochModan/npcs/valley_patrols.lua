@@ -64,8 +64,8 @@ P:NPC {
         { id = "sd_default", text = "No' wi' banners, no' any more, but they sneak about the dam an' the south road like rats in a granary. If one ever walks up this valley in the open, I'll greet him wi' a ball o' lead an' let the kings watch." },
       },
       choices = {
-        { text = "The Dark Irons are kin, whatever they've done.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Good. Kin who betray you are worse than strangers.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "The Dark Irons are kin, whatever they've done.", next = "BACK", reply = "Kin, aye, an' they'll be kin right up until they put a knife in yer back. Thaurissan's lot forgot that, so I'll no' remember it for them.", fx = { align = { light = 1 } } },
+        { text = "Good. Kin who betray you are worse than strangers.", next = "BACK", reply = "That's the truth o' it, an' it's why I keep my rifle loaded. A stranger's just a stranger, but a traitor's personal.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
     },
@@ -153,8 +153,8 @@ P:NPC {
         { id = "wc_default", text = "Forty-one sighted, twenty-six put down, an' one that I'd swear was carryin' a carved idol like a babe in its arms. I've told the Captain, an' the Captain told Ironband, an' Ironband went very quiet." },
       },
       choices = {
-        { text = "Then hunt the idol-carriers first.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Counting troggs won't stop them. Kill them all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then hunt the idol-carriers first.", next = "BACK", reply = "Aye, that's my reckonin' too, an' I've told the Captain twice. The idol-carriers know somethin' the others don't.", fx = { align = { order = 1 } } },
+        { text = "Counting troggs won't stop them. Kill them all.", next = "BACK", reply = "Counting is how I know whether they're stopped or no'. Kill them all, by all means, but I'll be countin' while ye do it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "troggs" } } },
       },
     },
@@ -231,8 +231,8 @@ P:NPC {
         { id = "jf_default", text = "Some nights, aye, for that's where the songs get written. But the Captain says the front's only a front if somebody holds the back, an' I've decided tae believe him." },
       },
       choices = {
-        { text = "The Captain's right. Holding home matters most.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Go where the glory is, lad. Life's short.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Captain's right. Holding home matters most.", next = "BACK", reply = "I think so too, most days, though it's good tae hear somebody else say it. The back needs holdin' as much as the front.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Go where the glory is, lad. Life's short.", next = "BACK", reply = "It is short, aye, an' I've thought about it every night. But the Captain needs me here, an' I'd no' let him down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

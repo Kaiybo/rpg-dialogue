@@ -87,8 +87,8 @@ P:NPC {
         { id = "fm_default", text = "A tree that cannot be healed should be cut, so that the rest of the forest can grow. I would rather my kin be ended cleanly than walk on in pain, but I do not ask you to agree with an old tree." },
       },
       choices = {
-        { text = "Ending suffering is mercy. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some might still be saved. Cutting is too easy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Ending suffering is mercy. I agree.", next = "BACK", reply = "You understand, then, and I am grateful. The forest grows best when the sick are allowed to rest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some might still be saved. Cutting is too easy.", next = "BACK", reply = "Perhaps some might, and I hope you find them. But do not mistake hope for healing, little one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,8 +124,8 @@ P:NPC {
         { id = "xd_default", text = "One day, perhaps, if enough of you keep trying, and every kind deed here is a seed. But I have watched druids weep over this forest for years, and weeping is not the same as tending." },
       },
       choices = {
-        { text = "Then I'll tend it patiently, root by root.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then burn the worst of it and let it regrow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll tend it patiently, root by root.", next = "BACK", reply = "Then you will be a seed yourself, and the forest will remember you. Patience is the only cure I know.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then burn the worst of it and let it regrow.", next = "BACK", reply = "Fire has been tried before, and Felwood remembers it as a wound. I would not see it burned again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

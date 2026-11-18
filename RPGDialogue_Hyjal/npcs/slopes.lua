@@ -89,8 +89,8 @@ P:NPC {
         { id = "fs_default", text = "I fear you're right. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
       },
       choices = {
-        { text = "Cut them out. The mountain comes first.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Even weeds deserve a chance at healing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Cut them out. The mountain comes first.", next = "BACK", reply = "Good, then we see the same mountain, and I'll be glad of another pair of hands that won't hesitate when the thorns start to twist.", fx = { align = { light = -1 } } },
+        { text = "Even weeds deserve a chance at healing.", next = "BACK", reply = "They might, and in a gentler season I'd agree with you, but the mountain hasn't got that many seasons left to spare on mercy for brambles.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "xb_default", text = "Because the brambles have deeper roots than the good growth does. Burn the slope and the poisoned roots survive under the ash, and the clean ones don't, and you've handed the mountain to the very thing you meant to destroy." },
       },
       choices = {
-        { text = "Then I'll cut, slowly and carefully.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then burn deeper. Fire solves most things.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll cut, slowly and carefully.", next = "BACK", reply = "Then you understand the slope, and you'll be slower than the fire and far more use, so take the blade and mind the roots.", fx = { align = { order = 1 } } },
+        { text = "Then burn deeper. Fire solves most things.", next = "BACK", reply = "Fire solves what it touches and nothing beneath, which is exactly the problem, and I'd rather you didn't try it anywhere near my slope.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -193,8 +193,8 @@ P:NPC {
         { id = "l_default", text = "Every time we pack up, somebody gets cut off on da slopes, or a scout don't come back, an' we turn around ta fetch 'em. Ya don't leave ya own behind, mon, even when ya own be a fool who went chasin' a pretty bird." },
       },
       choices = {
-        { text = "Then you're right to stay. No one gets left.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Sometimes you cut your losses to save the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then you're right to stay. No one gets left.", next = "BACK", reply = "Dat be the only way I know, mon, and it be good to hear somebody else say it, because some days I think I be the only fool left who believes it.", fx = { align = { honor = 1 } } },
+        { text = "Sometimes you cut your losses to save the rest.", next = "BACK", reply = "Maybe you be right, an' the trolls who say dat be alive and warm in Durotar, but I couldn't look dem in the eye after, so here I stay.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,8 +234,8 @@ P:NPC {
         { id = "xt_default", text = "Tired, cousin, but standin'. Da loa feel far away up here, an' da cold gets in ya bones. Still, a Darkspear don't run from a fight, even when da fight won't leave him alone." },
       },
       choices = {
-        { text = "We endure. That's the Darkspear way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave when you can. Pride won't keep you warm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "We endure. That's the Darkspear way.", next = "BACK", reply = "Ya, we do, cousin, and hearin' it from one of our own puts a little warmth back in dese old bones, so maybe I stand a while longer.", fx = { align = { order = 1 } } },
+        { text = "Leave when you can. Pride won't keep you warm.", next = "BACK", reply = "You not be wrong, cousin, and my knees be agreein' with you every mornin', but the loa know I can't leave dem fools on dis mountain alone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Sure it is! The other thing the boss taught me is that you can get anything done for a price, so doing it myself means finding the price, see? Anyway, pal, the harpies don't care whose coin it is, and neither should you." } },
       choices = {
-        { text = "Fair work for fair pay. I'll take it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd clear those harpies for nothing. They're a menace.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fair work for fair pay. I'll take it.", next = "BACK", reply = "Now that's a professional, pal, and I like doin' business with professionals. Bring me the proof and I'll count it out right here.", fx = { align = { order = 1 } } },
+        { text = "I'd clear those harpies for nothing. They're a menace.", next = "BACK", reply = "For nothin'? Pal, you're makin' me nervous, because nobody works for free in my experience. I'll pay you anyway, so the books stay balanced.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -136,8 +136,8 @@ P:NPC {
     alliance = {
       lines = { { id = "al_default", text = "Because the Tinkers' Union doesn't take sides, pal, it takes orders and it fills 'em. You get your hands dirty with my harpies, I pay you the same as anybody, and nobody in Orgrimmar has to know who cleared the road." } },
       choices = {
-        { text = "A neutral road helps everyone. I'll do it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take Horde-side coin and enjoy it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A neutral road helps everyone. I'll do it.", next = "BACK", reply = "A neutral road's a profitable road, and you just made my whole week. Go get 'em, pal, and send the bill to me.", fx = { align = { order = 1 } } },
+        { text = "I'll take Horde-side coin and enjoy it.", next = "BACK", reply = "Coin's coin, pal, and it spends the same in Orgrimmar as anywhere else. Enjoy it all you like.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -44,8 +44,8 @@ P:NPC {
       lines = { { id = "pj_xylem_default", text = "To me? Nothing, which is rather the point. Your Circle had the greatest library of magic this world has ever known lying in the rubble of Zin-Azshari, and it chose to grow moss over it and lecture anyone who picked up a page." } },
       choices = {
         { text = "Is there more to it than books, Archmage?", next = "pj_xylem2" },
-        { text = "Some knowledge should stay buried. The Sundering proved that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Knowledge belongs to whoever is bold enough to dig.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some knowledge should stay buried. The Sundering proved that.", next = "BACK", reply = "The Sundering proved that the Highborne were careless, my dear, not that books are dangerous. I'll grant you the difference is subtle for a druid.", fx = { align = { light = 1 } } },
+        { text = "You're right. Knowledge belongs to whoever is bold enough to dig.", next = "BACK", reply = "At last, a visitor with some sense! Bring me your shovel and your curiosity, and leave your Circle's frowns at the bottom of the stairs.", fx = { align = { light = -1 } } },
         { text = "Then let me show you a druid who reads.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_st_default", text = "Grim is a fine word for anywhere trolls and dragons share a cellar. The dragonkin down there guard the Atal'ai's mistakes for their mistress, and I find it fascinating that creatures with so much power choose to spend it as jailers." } },
       choices = {
-        { text = "Guarding a prison is noble work, however dull.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Power wasted on guard duty is power wasted. They should leave.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Guarding a prison is noble work, however dull.", next = "BACK", reply = "Noble, certainly, in the way a door is noble. I'd find it maddening, but then dragons have longer patience than archmages.", fx = { align = { honor = 1 } } },
+        { text = "Power wasted on guard duty is power wasted. They should leave.", next = "BACK", reply = "My thoughts exactly, though I'd never say it to one of them. Dragons take criticism very poorly, and very hotly.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Why did your apprentice go there, Archmage?", next = "xcl_st2" },
       },
     },
@@ -98,8 +98,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I think it is a very useful sort of power for people who don't care to understand how it works, which is to say most people. The Highborne understood magic, and look what became of them, so perhaps ignorance has its virtues, though I shan't be trying it myself." } },
       choices = {
-        { text = "Faith isn't ignorance, Archmage. You'd do well to learn that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. I'd rather understand a thing than pray to it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Faith isn't ignorance, Archmage. You'd do well to learn that.", next = "BACK", reply = "I've learned a great deal in my years, and faith has never once explained a ward to me. But I'll grant it makes you calmer than most.", fx = { align = { light = 1 } } },
+        { text = "You're right. I'd rather understand a thing than pray to it.", next = "BACK", reply = "There, you see, a sensible warrior of the Light. We'll make a scholar of you yet, {class}.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The same use a scholar has for a door, my dear, and a very sturdy one at that. Morphaz is sleeping in the drowned temple with my apprentice in his belly and my shard in his hoard, and I need someone to go and knock." } },
       choices = {
-        { text = "I'll go for your shard, and for the apprentice he ate.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll go for the shard. The apprentice was your problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll go for your shard, and for the apprentice he ate.", next = "BACK", reply = "How very noble of you, and he'd have appreciated the thought, I'm sure. Do bring the shard back first, though.", fx = { align = { light = 1 } } },
+        { text = "I'll go for the shard. The apprentice was your problem.", next = "BACK", reply = "He was, and frankly a disappointing one, but don't let him hear me say so. He's probably still listening, in there.", fx = { align = { light = -1 } } },
         { text = "Something else, Archmage.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} from chewing anything in the tower. The last beast that came up here ate a page of Highborne poetry, and I'm told it hasn't been right since." },
       },
       choices = {
-        { text = "I'll track the beasts carefully and bring every fragment intact.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll kill anything that might have eaten a page. It saves time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll track the beasts carefully and bring every fragment intact.", next = "BACK", reply = "Excellent, and gently, if you please, since half my research is already in pieces. A torn page is a lost spell.", fx = { align = { order = 1 } } },
+        { text = "I'll kill anything that might have eaten a page. It saves time.", next = "BACK", reply = "Efficient, I'll grant, but the dragonflight will notice, and they'll come asking why. Do try to be subtle.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,8 +130,8 @@ P:NPC {
         { id = "wxy_default", text = "Of course they do; you people are always interested in the darker parts, it's practically your entire curriculum. I'll show you nothing that summons anything, because I don't care to have my tower eaten, but you may look at the warding glyphs, from a distance." },
       },
       choices = {
-        { text = "Wards are the useful part. I'll study them.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Wards only teach you what's behind them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Wards are the useful part. I'll study them.", next = "BACK", reply = "A wise choice, and the one I'd have made at your age. Wards are where all the real cleverness lives.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Wards only teach you what's behind them.", next = "BACK", reply = "Precisely why I'll show you nothing else, {class}. Some doors I prefer to leave closed, and locked, and warded.", fx = { align = { light = -1 } } },
       },
     },
     sky_xy = {
@@ -149,8 +149,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Twist them? It overpowered them, my dear shaman, which is rather the point of Highborne magic. The power under this coast still runs hot, and the elements here behave like dogs that have been kicked once too often. I find it fascinating, and I expect you find it sad, which is precisely why one of us lives in a tower." } },
       choices = {
-        { text = "Fascinating is right. I'd study it myself, given the chance.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Magic that cows the elements should be left buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fascinating is right. I'd study it myself, given the chance.", next = "BACK", reply = "Do you, now? I'd never have guessed it of a shaman, but I'll take an apprentice where I find one.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Magic that cows the elements should be left buried.", next = "BACK", reply = "Buried is where it was, and look how well that's turned out. Better I understand it than a satyr does.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,8 +158,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Inelegant but serviceable, rather like a hammer beside a scalpel. The Highborne studied every kind of power on this coast, shadow included, and you can see from the ruins below how well that ended for them." } },
       choices = {
-        { text = "Then I'll keep my power simple, and honest.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Highborne lacked caution. I'll take what they left.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll keep my power simple, and honest.", next = "BACK", reply = "Simple is underrated, and honest even more so. You'll live longer than most of my colleagues.", fx = { align = { honor = 1 } } },
+        { text = "The Highborne lacked caution. I'll take what they left.", next = "BACK", reply = "Then you'll find the ruins very generous, {class}, and very unforgiving. Take carefully.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,8 +167,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because ignorance doesn't keep anyone safe, druid. The Highborne's work lies all along this coast whether I study it or not, and I would rather understand it than let some fool of a satyr stumble onto it first. Your Circle buries what frightens it, and I write it down, and one day you'll be glad someone did." } },
       choices = {
-        { text = "Some things should stay buried. You play with old fire.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Better a scholar holds it than a satyr. Study on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some things should stay buried. You play with old fire.", next = "BACK", reply = "Old fire warms as well as burns, druid, and I've been very careful with my matches. Mostly.", fx = { align = { order = 1 } } },
+        { text = "Better a scholar holds it than a satyr. Study on.", next = "BACK", reply = "Thank you, and I'll quote you to the next druid who comes up those stairs. Better a scholar than a satyr indeed.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -255,8 +255,8 @@ P:NPC {
       lines = { { id = "sd_default", text = "Their appetite broke the world, which is a different thing entirely. A knife cuts bread or throats, and nobody blames the knife; I simply intend to be a better cook than they were." } },
       choices = {
         { text = "What do the Kirin Tor think of your work here?", next = "op_kirintor" },
-        { text = "Knowledge is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { curious = 1 } } },
-        { text = "Some doors should stay shut, Archmage.", next = "BACK", fx = { affinity = -1, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Knowledge is worth the risk.", next = "BACK", reply = "It is, and I've staked my life on it, as you can see from the view. Welcome to the club, {class}.", fx = { affinity = 1, align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Some doors should stay shut, Archmage.", next = "BACK", reply = "And who would decide which, my dear? Not the Circle, I hope, and certainly not you.", fx = { affinity = -1, align = { order = 1 }, trait = { cautious = 1 } } },
       },
     },
     study_found = {
@@ -390,8 +390,8 @@ P:NPC {
       big = true,
       lines = { { id = "ma_default", text = "Then you've come to the right cliff. Prove your skill against the elves' dust and the sirens' coral, and then against something worthy of it, and I'll give you something no library in Stormwind has." } },
       choices = {
-        { text = "Power is what I came for.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, trait = { proud = 1 } } },
-        { text = "I came for understanding, not power.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, trait = { curious = 1 } } },
+        { text = "Power is what I came for.", next = "BACK", reply = "Honest, at least, and power is what most of them come for, though few admit it. Prove yourself and you'll have it.", fx = { affinity = 1, align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "I came for understanding, not power.", next = "BACK", reply = "Understanding, he says, as if the two were different things. Come back when you've learned they're not.", fx = { affinity = 1, align = { light = 1 }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -405,8 +405,8 @@ P:NPC {
     priest = {
       lines = { { id = "pr_default", text = "I calculate up here, which is like praying, except that the answers come back. No offence meant, {class}; I'm sure the Light does wonderful work for those who have the patience to wait for it." } },
       choices = {
-        { text = "The Light answers. You just don't listen.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "I've wondered the same, some nights.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light answers. You just don't listen.", next = "BACK", reply = "Perhaps I don't, and I'm too old to start now. But I'm glad it answers someone.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "I've wondered the same, some nights.", next = "BACK", reply = "Have you, now? Then there's hope for you yet, {class}. Doubt is where all good scholarship begins.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -473,8 +473,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because they interfere with his experiments, or so he claims, and I never second-guess what he commands. If you must pray, do it quietly, and do it outside, because the last paladin who prayed in the tower set off three wards, and I had to clean the scorch marks." } },
       choices = {
-        { text = "I'll keep my prayers to myself, then. It's his tower.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll pray where I like. The Light doesn't ask permission.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my prayers to myself, then. It's his tower.", next = "BACK", reply = "Very sensible of you, and you'll find my master far more pleasant for it. Well, less unpleasant.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pray where I like. The Light doesn't ask permission.", next = "BACK", reply = "The Light may not, but my master certainly does. Pray outside, or I'll be the one asking you to leave.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -482,8 +482,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "My master needs a great many things, and most of them are hit with swords, apparently, which is why you lot keep coming up here. I'd tell you to be polite to him, but warriors never are, so just try not to break the furniture." } },
       choices = {
-        { text = "I'll be polite to the Archmage, which is more than you are.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll be whatever I like to the Archmage. Just send me up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be polite to the Archmage, which is more than you are.", next = "BACK", reply = "Ha! You'll find that I don't need to be, since I'm the one who sends you up. Be polite to him, or don't come back down.", fx = { align = { order = 1 } } },
+        { text = "I'll be whatever I like to the Archmage. Just send me up.", next = "BACK", reply = "Very well, but don't blame me when you come down as a newt. He has a short temper with your sort.", fx = { align = { order = -1 } } },
         { text = "Something else, Sanath.", next = "BACK" },
       },
     },
@@ -494,8 +494,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I suppose {pet} is better company than most of my master's visitors, if only because it doesn't talk." },
       },
       choices = {
-        { text = "Fine. My beast will wait here, as you ask.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My beast goes where I go, servant.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fine. My beast will wait here, as you ask.", next = "BACK", reply = "Thank you, and I'll keep an eye on it, though I'd rather not. Tell it not to shed.", fx = { align = { order = 1 } } },
+        { text = "My beast goes where I go, servant.", next = "BACK", reply = "Not up my master's stairs, it doesn't. Wait down here, then, both of you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -503,8 +503,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Rocks, wind and a very long drop, which I look at every day and care for less each time. The Highborne built all along this coast, and my master says their magic still hums in the stone, though to me it only hums. If your spirits are listening, ask them to carry me somewhere warm." } },
       choices = {
-        { text = "Your master won't notice if you slip off south.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Serve your master well. There's honour even in waiting.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your master won't notice if you slip off south.", next = "BACK", reply = "Don't tempt me, {class}, I've thought of it every day for years. My master would notice, eventually, and very loudly.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Serve your master well. There's honour even in waiting.", next = "BACK", reply = "Honour, waiting, yes, I've heard all about it. I'll let you know when I find any.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -512,8 +512,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Several, and my master turned them into something unpleasant and left them for the drakes. I find it tedious to clean up afterwards, so I'd thank you not to add to my work." } },
       choices = {
-        { text = "I'm not here to steal. Your master's safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Every ward has a weakness, servant.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'm not here to steal. Your master's safe.", next = "BACK", reply = "Good, and I'll take you at your word, since the drakes are full this week. Off you go.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every ward has a weakness, servant.", next = "BACK", reply = "They do, and my master knows every one of them better than you. Please, spare me the cleaning.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep my hands to myself.", next = "BACK" },
       },
     },
@@ -521,8 +521,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "My master studies everything, and nothing he finds is quite as interesting as himself. The Highborne dabbled in the demonic, of course, so there are tablets he keeps locked away, and he never lets me read them." } },
       choices = {
-        { text = "Some knowledge should stay locked away.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'd like to read those tablets myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some knowledge should stay locked away.", next = "BACK", reply = "Wise, and my master would agree, though he'd never say so. He's not always as reckless as he looks.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd like to read those tablets myself.", next = "BACK", reply = "Then you'll have to get past my master, and then past me, and I'm much less pleasant. I'd not try it.", fx = { align = { light = -1 } } },
         { text = "Your master sounds tiresome.", next = "BACK" },
       },
     },
@@ -530,8 +530,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "My master has use for power, and he finds it in his books and in the old Highborne ruins, not in sermons. I'm told the Highborne also thought prayer beneath them, and look how that ended, though you will not repeat that to him." } },
       choices = {
-        { text = "Magic without humility ends in ruin. The Highborne prove it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. The Highborne just lost control of theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Magic without humility ends in ruin. The Highborne prove it.", next = "BACK", reply = "They do prove it, and I've said as much to him, carefully. He doesn't listen, of course.", fx = { align = { light = 1 } } },
+        { text = "Power is power. The Highborne just lost control of theirs.", next = "BACK", reply = "That's my master's view too, and he's very sure of it. I hope you're both right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -539,8 +539,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "My master hates everyone who isn't him, and priests only slightly more, because you insist on being humble. I find humility rather tedious myself, but I suspect it's the only reason your sort survive a visit to the tower." } },
       choices = {
-        { text = "Humility costs nothing, Sanath. Try it sometime.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'm not humble. I'm patient, and I'm watching.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Humility costs nothing, Sanath. Try it sometime.", next = "BACK", reply = "I'll consider it, priest, after I've finished being proud. It's taking a while.", fx = { align = { honor = 1 } } },
+        { text = "I'm not humble. I'm patient, and I'm watching.", next = "BACK", reply = "Watching? Well, so am I, and I'm much better at it, having nothing else to do up here. We'll see who blinks first.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -548,8 +548,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Quiet, mostly, and lonely, with nothing but the wind and the Highborne stones for company. My master's work is dangerous, and I do not always agree with what he digs up, but I gave my word to serve him, and a servant who breaks his word is no better than a thief." } },
       choices = {
-        { text = "Your word holds you. Keep it, even if he's wrong.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If his work endangers the land, walk away. No oath is worth that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your word holds you. Keep it, even if he's wrong.", next = "BACK", reply = "I will, and it's good to hear someone say it. A word is all a servant has.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If his work endangers the land, walk away. No oath is worth that.", next = "BACK", reply = "It's not so simple, druid, but I'll think on it. Perhaps one day I'll walk.", fx = { align = { honor = -1 } } },
         { text = "Something else, Sanath.", next = "BACK" },
       },
     },
@@ -614,8 +614,8 @@ P:NPC {
     toll_price = {
       lines = { { id = "tp2_default", text = "Hippogryph feathers, undamaged ones, which is harder than it sounds when the birds object. I counted them every night, and now I count the days since anyone paid me, which is a much sadder number." } },
       choices = {
-        { text = "That's petty, Sanath.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "A toll's a toll. You were cheated.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "That's petty, Sanath.", next = "BACK", reply = "It is, and I'll own it proudly. Pettiness is all a servant has left.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "A toll's a toll. You were cheated.", next = "BACK", reply = "I was, and thank you for saying so. Nobody else up here ever does.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     master = {

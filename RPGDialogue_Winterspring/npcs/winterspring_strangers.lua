@@ -169,8 +169,8 @@ P:NPC {
       big = true,
       lines = { { id = "ro_default", text = "Through Timbermaw Hold, when the furbolgs are friendly, and over the mountains when they're not. Some say we should buy from the goblins in Everlook instead, but their prices would empty every purse in Starfall." } },
       choices = {
-        { text = "Trust the Timbermaw. Old friends are worth it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Buy wherever it's cheapest. Sentiment won't feed anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Trust the Timbermaw. Old friends are worth it.", next = "BACK", reply = "You have a kind heart, and the Timbermaw remember kindness for longer than goblins remember a debt. When the snows close the passes, it is their paths that keep us fed.", fx = { align = { order = 1 } } },
+        { text = "Buy wherever it's cheapest. Sentiment won't feed anyone.", next = "BACK", reply = "Cheap bread is still bread, I grant you, but the goblins will leave the day the coin runs thin, and the furbolgs will still be here. I would rather owe a friend than a ledger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

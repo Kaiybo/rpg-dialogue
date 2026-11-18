@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "m_default", text = "Mannoroth, the pit lord whose blood bound us to the Legion. Grom drank that blood first, and Grom killed him in the canyon there, and died doing it, and the curse broke with his last breath." } },
       choices = {
-        { text = "Then the Horde has earned its place in Ashenvale.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "warsong" }, opinion = { ashenvale = "necessary" } } },
-        { text = "Grom freed us. That doesn't make the forest ours.", next = "BACK", fx = { align = { order = 1 }, learn = { "warsong" }, opinion = { ashenvale = "wrong" } } },
+        { text = "Then the Horde has earned its place in Ashenvale.", next = "BACK", reply = "Earned it in blood, aye, and Grom paid the largest share. The night elves can hate us for the trees, but they'll not tell me we came here as beggars.", fx = { affinity = 1, align = { order = -1 }, learn = { "warsong" }, opinion = { ashenvale = "necessary" } } },
+        { text = "Grom freed us. That doesn't make the forest ours.", next = "BACK", reply = "You sound like a Warsong scout who's been up on the wall too long. Maybe you're right, but the Horde needs that timber, and the kaldorei have never once asked us nicely.", fx = { align = { order = 1 }, learn = { "warsong" }, opinion = { ashenvale = "wrong" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
       },
     },

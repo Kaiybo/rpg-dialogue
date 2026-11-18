@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "tb_default", text = "Both sides, the middle, and the bleachers, kid. The way I see it, loyalty's just a discount you give somebody for nothin', and I don't do discounts." } },
       choices = {
-        { text = "A man should stand by his side.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Smart. Take everybody's money.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A man should stand by his side.", next = "BACK", reply = "Stand by it all you like, kid, and I'll be standin' right next to you with a repair bill when your side's car blows up.", fx = { align = { honor = 1 } } },
+        { text = "Smart. Take everybody's money.", next = "BACK", reply = "Now you're talkin' like a real professional, kid, and if you ever want to open a stall next to mine, I'll only charge you half the rent.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -174,8 +174,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "Cliffwatcher Longhorn wants patrols, and the braves want to burn the nests. I want my crates back and a quiet night, and I'm not particular about how." } },
       choices = {
-        { text = "Burn the nests. Drive them off for good.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Patrol and guard. No need to burn anything.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn the nests. Drive them off for good.", next = "BACK", reply = "Burn them, and the smoke will reach the Pinnacle by morning, but I'll admit I wouldn't weep for a single nest.", fx = { align = { light = -1 } } },
+        { text = "Patrol and guard. No need to burn anything.", next = "BACK", reply = "That's the sensible way, and I'll tell Longhorn you said so, though the braves won't thank you for it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -240,8 +240,8 @@ P:NPC {
       big = true,
       lines = { { id = "ks_default", text = "That's what Abeqwa said. Some of the orcs at the Crossroads still sell it, though, and say the tauren should get used to it, because meat is meat." } },
       choices = {
-        { text = "Respect their ways. The Horde's built on it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Meat is meat. Sell what people buy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Respect their ways. The Horde's built on it.", next = "BACK", reply = "Respect, aye. My people learned that the hard way, and Cairne's people earned it twice over, so I don't sell kodo here.", fx = { align = { order = 1 } } },
+        { text = "Meat is meat. Sell what people buy.", next = "BACK", reply = "Meat is meat, maybe, but this is Freewind, and I'll not spit on the hosts who let an orc keep a butcher's block on their mesa.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

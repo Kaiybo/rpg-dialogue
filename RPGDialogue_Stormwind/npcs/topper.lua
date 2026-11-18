@@ -203,8 +203,8 @@ P:NPC {
     f_dragon2 = {
       lines = { { id = "fd2_default", text = "Well, it was a very small barn, and the dragon might have been a lightning storm, and the cows might have wandered off to the Saldeans' on their own. But you've got to admit, friend, it's a better story with a dragon in it." } },
       choices = {
-        { text = "A good lie beats a dull truth. I'll allow it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A story told for coin should be an honest one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good lie beats a dull truth. I'll allow it.", next = "BACK", reply = "You're a generous soul, friend, and a rare one in this square. The cows thank you too, wherever they wandered.", fx = { align = { honor = -1 } } },
+        { text = "A story told for coin should be an honest one.", next = "BACK", reply = "Honest? In the Trade District? You'd have me starve by Thursday, friend, but I'll give you a truer one next time for your trouble.", fx = { align = { honor = 1 } } },
         { text = "Something else, Topper.", next = "BACK" },
       },
     },
@@ -220,8 +220,8 @@ P:NPC {
       big = true,
       lines = { { id = "fw2_default", text = "All right, there were no cards. But the lords did leave Westfall to rot when the masons' money went missing, and the masons came back in red masks to take what they were owed, and my farm was standing in between them, so it's true in the way that matters." } },
       choices = {
-        { text = "The masons were cheated. I can't blame them for being angry.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" }, learn = { "defias", "stonemasons" } } },
-        { text = "Being cheated is no excuse for burning farms.", next = "BACK", fx = { align = { order = 1 }, learn = { "defias", "stonemasons" } } },
+        { text = "The masons were cheated. I can't blame them for being angry.", next = "BACK", reply = "Nor can I, most days, though I've the ashes of my own barn to argue with. Anger's a fire, friend, and it doesn't care whose roof it's on.", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" }, learn = { "defias", "stonemasons" } } },
+        { text = "Being cheated is no excuse for burning farms.", next = "BACK", reply = "No, it isn't, and I'd tell VanCleef so to his mask if I saw him. But it's an explanation, friend, and explanations are what keep me up at night.", fx = { align = { order = 1 }, learn = { "defias", "stonemasons" } } },
         { text = "Tell me another version.", next = "BACK", fx = { learn = { "defias" } } },
       },
     },
@@ -356,8 +356,8 @@ P:NPC {
       big = true,
       lines = { { id = "cn_default", text = "A noble once gave me a whole silver, friend, and made his footman hand it over so he wouldn't have to touch my palm. I've never decided whether to be grateful or insulted, so most days I'm both." } },
       choices = {
-        { text = "Charity from a glove is still charity. Be grateful.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Charity that sneers isn't worth taking.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Charity from a glove is still charity. Be grateful.", next = "BACK", reply = "Oh, I was grateful, friend, grateful as a cat, and twice as quick about pocketing it. It's only the glove I've never forgiven.", fx = { align = { light = 1 } } },
+        { text = "Charity that sneers isn't worth taking.", next = "BACK", reply = "Spoken like someone with supper waiting, friend. A silver's a silver, and I've never yet seen a sneer spoil bread.", fx = { align = { light = -1 } } },
       },
     },
     coin_adv = {
@@ -400,8 +400,8 @@ P:NPC {
       big = true,
       lines = { { id = "lbs_default", text = "Is it, though? They give me a copper, they feel blessed, the priest feels holy, and I eat. I'd say that's the most honest bargain struck in the Trade District all week, and I've watched the auction house." } },
       choices = {
-        { text = "Lying for coppers is still lying, Topper.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Everyone walks away happy. That's a fine trick.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Lying for coppers is still lying, Topper.", next = "BACK", reply = "Lying? I prefer to call it theatre, friend, and nobody calls the players at the Gilded Rose liars. Still, I'll take your point under my hat.", fx = { align = { honor = 1 } } },
+        { text = "Everyone walks away happy. That's a fine trick.", next = "BACK", reply = "That's the spirit! You've a beggar's heart under all that gear, friend, and I mean it kindly.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Let's leave it there.", next = "BACK" },
       },
     },
@@ -477,8 +477,8 @@ P:NPC {
       big = true,
       lines = { { id = "lc_default", text = "There's soup in the Cathedral square of an evening, and a bed for the night if you'll sit through a sermon first, which I do in the worst weeks. But a man likes his own bridge, friend, and I'd rather be cold under a roof I picked than warm under one I was given." } },
       choices = {
-        { text = "Pride won't keep you warm. Take the bed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A man should choose his own roof. I understand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Pride won't keep you warm. Take the bed.", next = "BACK", reply = "You're probably right, and my back agrees with you. It's only that the sermon's long, and the Light makes me feel very small.", fx = { align = { order = 1 } } },
+        { text = "A man should choose his own roof. I understand.", next = "BACK", reply = "Thank you, friend, that's a kindness most don't spare. The canal arches aren't much, but they don't ask me to repent.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -497,8 +497,8 @@ P:NPC {
       big = true,
       lines = { { id = "lgs_default", text = "Oh, I do, friend, I respect it a great deal, especially the part where they don't do it very hard. A city needs its guards and it needs its beggars, because otherwise who would the guards have to chase?" } },
       choices = {
-        { text = "Order is what keeps this city standing, Topper.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A city that chases its poor has its priorities wrong.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Order is what keeps this city standing, Topper.", next = "BACK", reply = "It does, and I'd not want them gone, not with what's down in the Stockade. Only I'd like them to remember I'm part of the city too.", fx = { align = { order = 1 } } },
+        { text = "A city that chases its poor has its priorities wrong.", next = "BACK", reply = "That's a sentiment I'll drink to, friend, if you're buying. Not that I'd ask, you understand.", fx = { align = { order = -1 } } },
       },
     },
     lv_stockade = {
@@ -559,8 +559,8 @@ P:NPC {
     s_kobold2 = {
       lines = { { id = "sk2_default", text = "He wanted it more than I did, friend, and he had a pick. I've always thought a lot of trouble in this world would go away if people gave the kobolds their candles and walked home in the dark." } },
       choices = {
-        { text = "Give way to every threat and you'll lose everything.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Sometimes the lantern's not worth the fight. You were wise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Give way to every threat and you'll lose everything.", next = "BACK", reply = "You're likely right, and I've lost a farm and a lantern to prove it. Perhaps I'll stand my ground next time, friend, if the kobold's small.", fx = { align = { honor = 1 } } },
+        { text = "Sometimes the lantern's not worth the fight. You were wise.", next = "BACK", reply = "Thank you, friend! You're the first to say so, and it's the best review that story's ever had.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "kobolds" } } },
       },
     },
@@ -602,8 +602,8 @@ P:NPC {
       big = true,
       lines = { { id = "sl2_default", text = "Tall, friend, and smiling, with a beard like a Westfall hayrick, and kind to a boy with a turnip, which is all I know about kings. Now there's another one off somewhere and a boy on the throne, and I hope somebody's buying that lad turnips." } },
       choices = {
-        { text = "King Varian will come home. Stormwind will be whole again.", next = "BACK", fx = { align = { order = 1 }, opinion = { stormwind_mood = "trust_crown" } } },
-        { text = "Kings come and go. The city looks after itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "King Varian will come home. Stormwind will be whole again.", next = "BACK", reply = "I hope so, friend, truly I do, for the boy's sake as much as anyone's. I'll light a candle for it, if I can find a candle.", fx = { align = { order = 1 }, opinion = { stormwind_mood = "trust_crown" } } },
+        { text = "Kings come and go. The city looks after itself.", next = "BACK", reply = "They do, and the city does, and I suppose I'm part of the looking after. A poor part, but a part.", fx = { align = { order = -1 } } },
         { text = "What do you hear about the king?", next = "n_king" },
       },
     },
@@ -655,8 +655,8 @@ P:NPC {
       big = true,
       lines = { { id = "das_default", text = "Honest, is it? Honest the way a scale is honest, friend, as long as you don't ask who made the weights. I don't begrudge them, mind, they tip better than the nobles." } },
       choices = {
-        { text = "Fair trade needs rules. They keep the market straight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A market with a toll on every coin is a racket.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair trade needs rules. They keep the market straight.", next = "BACK", reply = "They do, friend, and they keep my pockets crooked. Still, I'll grant you the auctioneers don't cheat, they just charge for it.", fx = { align = { order = 1 } } },
+        { text = "A market with a toll on every coin is a racket.", next = "BACK", reply = "That's what I said, friend, though not so loud, because one of them throws me a copper on Fridays.", fx = { align = { order = -1 } } },
       },
     },
     d_rose = {
@@ -687,8 +687,8 @@ P:NPC {
         { id = "dc2_rogue", when = { class = "ROGUE" }, text = "Folk who walk the way you walk, friend, quiet and remembering nothing. Whatever they're buying, it isn't cheddar, and I've decided I'd rather not know, so please don't tell me." },
       },
       choices = {
-        { text = "Wise. Some secrets keep the city safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Secrets in this city usually hide rot.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wise. Some secrets keep the city safe.", next = "BACK", reply = "Wise, aye, and I'll keep my nose out of it, friend. A beggar who sees too much doesn't stay a beggar very long.", fx = { align = { order = 1 } } },
+        { text = "Secrets in this city usually hide rot.", next = "BACK", reply = "They do, friend, they do, but rot's not my business and breathing is. I'll keep my eyes on the cobbles.", fx = { align = { order = -1 } } },
       },
     },
     d_canal = {
@@ -749,8 +749,8 @@ P:NPC {
       big = true,
       lines = { { id = "dos_default", text = "The city should do more for a great many people, friend, and I'm at the end of a long queue. But the little ones ought to be at the front of it, and they're not, and that's the one thing on this step that makes me angry." } },
       choices = {
-        { text = "The Light asks us to care for them. I'll do my part.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The streets make them tough. They'll manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light asks us to care for them. I'll do my part.", next = "BACK", reply = "Bless you for it, friend. The little ones by the canal will be glad of anything, even a kind word.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The streets make them tough. They'll manage.", next = "BACK", reply = "They do manage, friend, the way I manage, which is to say poorly and with a great deal of practice. Spare them a copper anyway.", fx = { align = { light = -1 } } },
       },
     },
     d_gnomes = {
@@ -807,8 +807,8 @@ P:NPC {
       big = true,
       lines = { { id = "nks_default", text = "A good man, yes, and a tired one, friend, and the nobles talk over him in council, or so the footmen tell me when they've had a drink. I'd sooner a tired good man than a rested bad one, but I'd like to see the king home all the same." } },
       choices = {
-        { text = "The Crown will hold. Stormwind always holds.", next = "BACK", fx = { align = { order = 1 }, opinion = { stormwind_mood = "trust_crown" } } },
-        { text = "The nobles are running this city into the ground.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Crown will hold. Stormwind always holds.", next = "BACK", reply = "It always has, friend, though some years it's held by its fingernails. I'll hope with you.", fx = { align = { order = 1 }, opinion = { stormwind_mood = "trust_crown" } } },
+        { text = "The nobles are running this city into the ground.", next = "BACK", reply = "You'll not get an argument from me, friend, though you might from the guard behind you. Mind your voice in the square.", fx = { align = { order = -1 } } },
       },
     },
     n_westfall = {
@@ -818,8 +818,8 @@ P:NPC {
         { id = "nwf_vc", when = { cleared = "The Deadmines" }, text = "Better than it was, friend, now somebody's gone into the Deadmines and pulled the Brotherhood's head off. The farms are still burned and the harvest's still thin, but the families coming up the road this month say the nights are quieter, and that's a start." },
       },
       choices = {
-        { text = "The Crown has abandoned Westfall. It's shameful.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" }, learn = { "westfall", "people_militia" } } },
-        { text = "The Crown has many fires. Westfall must be patient.", next = "BACK", fx = { align = { order = 1 }, opinion = { westfall = "patience" }, learn = { "westfall", "people_militia" } } },
+        { text = "The Crown has abandoned Westfall. It's shameful.", next = "BACK", reply = "It is, and there's a farmer in me who weeps for it. Somebody ought to tell the Keep, and somebody ought to be you, not me.", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" }, learn = { "westfall", "people_militia" } } },
+        { text = "The Crown has many fires. Westfall must be patient.", next = "BACK", reply = "Patient? Westfall's been patient till the corn rotted, friend. But I'll grant the Crown's got a great many buckets and only one well.", fx = { align = { order = 1 }, opinion = { westfall = "patience" }, learn = { "westfall", "people_militia" } } },
         { text = "Would you ever go back?", next = "n_goback" },
       },
     },
@@ -879,8 +879,8 @@ P:NPC {
       big = true,
       lines = { { id = "nms_default", text = "Wronged, aye, and then they wronged me, friend, and the farmers next door, so where does the wronging stop? I've thought about it a great deal under that bridge, and I've never got further than being cold." } },
       choices = {
-        { text = "The nobles started it. The blame is theirs.", next = "BACK", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" }, learn = { "stonemasons", "defias" } } },
-        { text = "Whatever the cause, the Defias are criminals now.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonemasons", "defias" } } },
+        { text = "The nobles started it. The blame is theirs.", next = "BACK", reply = "That's where it started, friend, I'll not argue. I only wish it had ended there instead of at my barn door.", fx = { align = { order = -1 }, opinion = { defias = "masons_wronged" }, learn = { "stonemasons", "defias" } } },
+        { text = "Whatever the cause, the Defias are criminals now.", next = "BACK", reply = "They are, friend, criminals and worse, and they took my land to prove it. But I still remember them as masons buying a round.", fx = { align = { order = 1 }, learn = { "stonemasons", "defias" } } },
       },
     },
     n_masons_knew = {
@@ -941,8 +941,8 @@ P:NPC {
       big = true,
       lines = { { id = "fab_default", text = "Are you, now? Then you're braver than me, friend, and younger, and you've a sword, which helps. Go and take it, and when you've ploughed the first furrow, send word to the step, and I'll know there's hope for an old fool too." } },
       choices = {
-        { text = "Come with me, Topper. Westfall needs its farmers back.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "The Militia will help me. We'll do it properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "people_militia" } } },
+        { text = "Come with me, Topper. Westfall needs its farmers back.", next = "BACK", reply = "Me? Oh, friend, you'll make an old man weep in front of the auction house. Go on ahead, and I'll follow when my knees are braver.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "The Militia will help me. We'll do it properly.", next = "BACK", reply = "Properly, with Gryan's lads, that's the way. Send me word when the first furrow's turned, and I'll drink to it twice.", fx = { affinity = 1, align = { order = 1 }, learn = { "people_militia" } } },
       },
     },
     o_canal = {
@@ -955,16 +955,16 @@ P:NPC {
     o_canal2 = {
       lines = { { id = "oc2_default", text = "Never mind it, friend, I'd have done the same at your age, if I'd been half as quick. Just promise me you're not still at it, because I'd hate to see you in the Stockade, and I'd hate it more to lose my best story." } },
       choices = {
-        { text = "I've left that life behind, Topper.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Old habits. A purse here and there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I've left that life behind, Topper.", next = "BACK", reply = "Good, friend, good. The canal's no place to grow old in, and I should know, because I'm doing it.", fx = { align = { honor = 1 } } },
+        { text = "Old habits. A purse here and there.", next = "BACK", reply = "Then watch your back, friend, and watch the guards, and watch me most of all, because I've nothing worth taking anyway.", fx = { align = { honor = -1 } } },
       },
     },
     o_noble = {
       big = true,
       lines = { { id = "on_default", text = "Does it, now? Then it's possible, friend, that your family's seal is the one the rent man carried, and that the house I left standing belongs to your cousin. I'll not hold it against you, but you might ask them, next time you dine, what happened to the folk who worked it." } },
       choices = {
-        { text = "I'll ask. They should answer for it.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "My family kept its bargains. The land's still theirs.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "I'll ask. They should answer for it.", next = "BACK", reply = "You'd do that for me? Then you're a rarer sort of noble than I've met, friend, and I'll believe it when I see the rent man blush.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "My family kept its bargains. The land's still theirs.", next = "BACK", reply = "I'm sure they kept every bargain they wrote, friend. It's only that they wrote all the bargains.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "What was the seal like?", next = "f_wager_lord" },
       },
     },
@@ -1060,8 +1060,8 @@ P:NPC {
       big = true,
       lines = { { id = "kn2_default", text = "Long ago, eh? Then you'll have had time to get over it, which gives me hope, friend, though I'm told your lot live ten thousand years, and I've only got another twenty in me if the winters are kind." } },
       choices = {
-        { text = "Loss doesn't fade. You carry it, and walk on.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Even long grief heals, given light and time.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Loss doesn't fade. You carry it, and walk on.", next = "BACK", reply = "Aye, that's it, friend, that's exactly it. You've the wisdom of ten thousand years, and I've the wisdom of a turnip.", fx = { align = { light = -1 } } },
+        { text = "Even long grief heals, given light and time.", next = "BACK", reply = "Light and time, eh? I've a fair bit of time and not much light under the bridge, but I'll take your word for it, friend.", fx = { align = { light = 1 } } },
       },
     },
     k_sky = {
@@ -1105,8 +1105,8 @@ P:NPC {
       big = true,
       lines = { { id = "kf2_default", text = "Then we're kin of a sort, friend, two men who lost the ground under them and kept walking about on it anyway. I won't tell the guards you were here, and I'll say a little prayer for whoever you used to be." } },
       choices = {
-        { text = "Keep your prayers. The Light abandoned us.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Thank you. Perhaps someone is still listening.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Keep your prayers. The Light abandoned us.", next = "BACK", reply = "I'm sorry to hear it, friend, truly. I'll keep praying anyway, out of habit, and you needn't take any of it.", fx = { align = { light = -1 } } },
+        { text = "Thank you. Perhaps someone is still listening.", next = "BACK", reply = "Someone is, friend, I'm sure of it. Even an old beggar gets heard now and then.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
     k_vancleef = {
@@ -1133,8 +1133,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Owe me? Nothing, friend, though I'd take a little rain on my old fields if they're handing it out. The war took the men and the bandits took the land, and here I am in the Trade District, and still there's always someone kind passing by." } },
       choices = {
-        { text = "The spirits give to those who honour them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The spirits owe no one anything. Neither does the city.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The spirits give to those who honour them.", next = "BACK", reply = "Then I'll honour them, friend, if they'll tell me how. A little rain on Westfall would make an old farmer weep.", fx = { align = { light = 1 } } },
+        { text = "The spirits owe no one anything. Neither does the city.", next = "BACK", reply = "No, I suppose they don't, and the city's taught me that well enough. Still, a man can ask the sky for rain.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

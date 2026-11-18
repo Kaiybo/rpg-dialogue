@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "kr_default", text = "He kept them in the first months, neat as a quartermaster. Then he burned them in a pot one night and told us the jungle didn't need to know our names, and the men around him cheered, and that's the night I started thinking about leaving." } },
       choices = {
-        { text = "An army without records is a mob. You were right to leave.", next = "BACK", fx = { align = { order = 1 }, learn = { "kurzen" } } },
-        { text = "Maybe he was right. Names are only a leash.", next = "BACK", fx = { align = { order = -1 }, learn = { "kurzen" } } },
+        { text = "An army without records is a mob. You were right to leave.", next = "BACK", reply = "That's what I told myself the night I walked out, and I've kept a roster every day since. A man with a name can be counted, and a man who's counted can be missed.", fx = { align = { order = 1 }, learn = { "kurzen" } } },
+        { text = "Maybe he was right. Names are only a leash.", next = "BACK", reply = "A leash, maybe, but it's also how your mother learns where you're buried. I'll keep writing them down, even if the jungle doesn't care.", fx = { align = { order = -1 }, learn = { "kurzen" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,8 +118,8 @@ P:NPC {
       big = true,
       lines = { { id = "ca_default", text = "Quiet. Too quiet, because everyone's watching everyone and nobody says it. Some of the men want the Lieutenant to line us all up and question us one by one, and some say that's just what Kurzen would do." } },
       choices = {
-        { text = "Question everyone. One traitor can kill the whole camp.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Find the traitor without treating every man like one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Question everyone. One traitor can kill the whole camp.", next = "BACK", reply = "You sound like half the camp, and maybe half the camp is right. But line us up like prisoners and you might lose more good men than one traitor ever could.", fx = { align = { light = -1 } } },
+        { text = "Find the traitor without treating every man like one.", next = "BACK", reply = "That's the hard way and the right one, I think, and the Lieutenant agrees. Keep your eyes open, though, because I can't watch every tent at once.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -223,8 +223,8 @@ P:NPC {
       big = true,
       lines = { { id = "tm_default", text = "Only that he told too many people where he was going and when, and talk travels in a camp like this. I'm not blaming him, mind, but if I'd been the one going in, I'd have kept my mouth shut." } },
       choices = {
-        { text = "Thorsen trusted his comrades. That's no crime.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "He should have trusted no one. That's how spies live.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thorsen trusted his comrades. That's no crime.", next = "BACK", reply = "You're right, and I'd never say different over his grave. He was a good man, and good men trust people, more's the pity.", fx = { align = { honor = 1 } } },
+        { text = "He should have trusted no one. That's how spies live.", next = "BACK", reply = "That's how I'd have done it, but then nobody ever called me a hero. Out here the quiet ones live longest, I reckon.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -318,8 +318,8 @@ P:NPC {
       big = true,
       lines = { { id = "su_default", text = "From the goblins in Booty Bay, mostly, at goblin prices, and from whatever we take off the Colonel's supply runs. The Lieutenant doesn't like that second part, but a man can't eat principles, and Kurzen's crates are full of good Stormwind biscuit." } },
       choices = {
-        { text = "Take what you need from Kurzen. He owes you that much.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Stealing makes you no better than him. Buy what you need.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take what you need from Kurzen. He owes you that much.", next = "BACK", reply = "My thinking exactly, and I've told the Lieutenant as much. Every crate the Colonel loses is one less he can use to keep his deserters fed.", fx = { align = { honor = -1 } } },
+        { text = "Stealing makes you no better than him. Buy what you need.", next = "BACK", reply = "Tell that to the lads with no boots, friend. I'll buy what I can at goblin prices, but the Colonel's stores are closer and a good deal cheaper.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

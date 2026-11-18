@@ -58,8 +58,8 @@ P:NPC {
       big = true,
       lines = { { id = "i_default", text = "Mine, and he's been with me since I first rose, which makes him the longest friend I've had in either life. He bites, he lies and he steals my ink, and I wouldn't trade him for every voidwalker in the Undercity." } },
       choices = {
-        { text = "A demon is no friend. Keep it leashed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Loyalty is loyalty, even from an imp.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A demon is no friend. Keep it leashed.", next = "BACK", reply = "Leashed? He'd chew through a leash before supper, and so would you if you'd spent your life in the Twisting Nether. I keep him close because I trust him exactly as far as I can see him.", fx = { align = { order = 1 } } },
+        { text = "Loyalty is loyalty, even from an imp.", next = "BACK", reply = "There, you see, the imp heard that and he'll be insufferable all evening. Still, you're right, and it's more kindness than I ever got from the priests who buried me.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
       big = true,
       lines = { { id = "s_default", text = "From the Undercity's tailors, mostly, and the rest from what the deathguards bring back off the fields, washed twice and mended once. Some of it belonged to the Scarlets, and I unpick the red before I sell it, which takes longer than you'd think." } },
       choices = {
-        { text = "Spoils of war are fair. I'd wear the red proudly.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather wear something honestly made.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Spoils of war are fair. I'd wear the red proudly.", next = "BACK", reply = "Then you'll be the only one in Deathknell wearing it, and the Scarlets do love a target that announces itself. Wear it proudly, by all means, but walk quickly.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather wear something honestly made.", next = "BACK", reply = "So would I, but the dead are poor weavers and nobody in the Glades has kept sheep since the plague. Everything here is washed and mended, at least, which is more honesty than the Crusade ever wore.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

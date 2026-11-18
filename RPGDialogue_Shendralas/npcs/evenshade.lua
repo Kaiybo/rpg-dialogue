@@ -58,8 +58,8 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "Because your people never trusted mine, and after the Sundering they had reason, and still I resent it. The Highborne who stayed here were scholars, not demon-worshippers, and the kaldorei never troubled to learn the difference." } },
       choices = {
-        { text = "The Highborne nearly ended the world. Caution was wise.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "They should have learned the difference. You were wronged.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Highborne nearly ended the world. Caution was wise.", next = "BACK", reply = "It was, and I will not argue it, but caution that lasts ten thousand years begins to look a great deal like an old grudge dressed in its best robes.", fx = { align = { order = 1 } } },
+        { text = "They should have learned the difference. You were wronged.", next = "BACK", reply = "That is kinder than I expected from anyone wearing Elune's colours, and I will remember it the next time a Sentinel spits at my door.", fx = { align = { order = -1 } } },
         { text = "I'm not my ancestors. Judge me by my own deeds.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "What was Shen'dralas like, before?", next = "prej_why" },
         { text = "Something else, archmage.", next = "BACK" },
@@ -68,8 +68,8 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "Full of lamps and libraries and arguments that ran through the night, and the arguments were the best of it. We thought we were preserving the old learning for a wiser age, and perhaps we were, though the wiser age has been slow to arrive." } },
       choices = {
-        { text = "Then I'll help it arrive. Show me what's left.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Learning without wisdom caused the Sundering. Remember that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll help it arrive. Show me what's left.", next = "BACK", reply = "Then come, and mind the shelves, because what is left is fragile and so am I, and I have not shown these rooms to anyone in a very long time.", fx = { align = { light = 1 } } },
+        { text = "Learning without wisdom caused the Sundering. Remember that.", next = "BACK", reply = "I remember it every night, {class}, and I did not need a reminder from someone who was not there to see the waters rise.", fx = { align = { light = -1 } } },
         { text = "Something else, archmage.", next = "BACK" },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
         { id = "nm_default", text = "I do, when I am among my own, but there are so few of them now. Sometimes I wonder whether I do the city a disservice by keeping its name alive so long after it has fallen, like dressing a corpse in its wedding clothes." },
       },
       choices = {
-        { text = "Eldre'Thalas, then. A name is worth keeping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let it go. Dire Maul is what it is now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Eldre'Thalas, then. A name is worth keeping.", next = "BACK", reply = "Then I will keep saying it, Eldre'Thalas, for your sake as much as mine, and perhaps it will mean a little more now that two of us say it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let it go. Dire Maul is what it is now.", next = "BACK", reply = "Dire Maul, yes, as the ogres and the treasure-hunters call it, and accurate enough I suppose, but I will not say it myself while I still have breath.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,8 +190,8 @@ P:NPC {
       },
       choices = {
         { text = "Something worse must have come after it.", next = "prince" },
-        { text = "Surviving is a victory. You should honor that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some cities deserve to fall.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Surviving is a victory. You should honor that.", next = "BACK", reply = "That is generous of you, and I will try to see it so, though it is hard to feel victorious standing in a library with no one left to read.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some cities deserve to fall.", next = "BACK", reply = "Perhaps some do, and I have wondered whether ours was one, but you will forgive me if I do not enjoy hearing it from a stranger.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
     prince = {
@@ -242,8 +242,8 @@ P:NPC {
         { id = "hk_default", text = "I ask, and I stay, which I suppose makes me no better than they are, only unhappier. Tell me, {class}, what would you do in my place?" },
       },
       choices = {
-        { text = "Leave. No library is worth that bargain.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
-        { text = "Stay, and keep the knowledge safe until it's needed.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Leave. No library is worth that bargain.", next = "BACK", reply = "That is what my heart says on the bad nights, and I listen to it, and then I wake up and I am still here among the books.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Stay, and keep the knowledge safe until it's needed.", next = "BACK", reply = "Then you would be as foolish as I am, {class}, and I find that a strange comfort, because a fool with company is only half a fool.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I couldn't say. It isn't my choice to make.", next = "BACK" },
       },
     },
@@ -374,8 +374,8 @@ P:NPC {
         { id = "gs_default", text = "Celebrating my own life while I look down at a mass grave of my people feels selfish, I am afraid. Perhaps that is a lesson for younger hearts than mine." },
       },
       choices = {
-        { text = "The living owe the dead a full life, archmage.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then keep your grief. It's yours to carry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The living owe the dead a full life, archmage.", next = "BACK", reply = "Perhaps they do, and I have heard it said before, but it is far easier to say over a grave that is not filled with your own people.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then keep your grief. It's yours to carry.", next = "BACK", reply = "I will, and I thank you for not trying to lift it from me, because I think I would only take it back the moment you looked away.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -499,8 +499,8 @@ P:NPC {
         { id = "ap_default", text = "Then you have seen what my Prince became, and what he feeds upon. I do not know whether to thank you or to mourn him, and I suspect I will do both before the night is out." },
       },
       choices = {
-        { text = "He doomed your people. Don't mourn him.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Mourn him. He was still your Prince.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "He doomed your people. Don't mourn him.", next = "BACK", reply = "You are right, and I know it, but I knew him when he was young and brilliant, and that boy is harder to stop mourning than the Prince.", fx = { align = { light = 1 } } },
+        { text = "Mourn him. He was still your Prince.", next = "BACK", reply = "Thank you for that, because I think I needed someone to say it aloud, and I could never have said it myself without feeling a traitor.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -522,8 +522,8 @@ P:NPC {
         { id = "xn2_default", text = "You should not, not on my word alone. But the Prince below still makes the old mistake, and I stand up here instead of beside him, and perhaps that is a beginning, if a small and late one." },
       },
       choices = {
-        { text = "The past is the past. I'll judge you as I find you.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "The law against the arcane exists for good reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The past is the past. I'll judge you as I find you.", next = "BACK", reply = "That is more than I had hoped for from a kaldorei, and I will try to deserve it, though I suspect I will find it harder than you expect.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "The law against the arcane exists for good reason.", next = "BACK", reply = "It does, and I am the proof of it, so I will not argue, though I hope one day your law learns to tell a scholar from a demon-worshipper.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -555,8 +555,8 @@ P:NPC {
         { id = "xsd_default", text = "Neither, to my shame; I kept to the library and told myself scholarship stood above such things. Many of the Prince's critics died in a single night, and I lived because I said nothing, which is a poor kind of survival to confess to a rebel's child." },
       },
       choices = {
-        { text = "Silence kept you alive. There's no shame in that.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "Silence is how tyrants win, archmage.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Silence kept you alive. There's no shame in that.", next = "BACK", reply = "You are kind, but the ones who died that night would tell you otherwise, and they are the only judges I have ever cared about.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Silence is how tyrants win, archmage.", next = "BACK", reply = "Yes, and I have known it every day since, so you may say it as often as you like, but you will never say it as often as I have.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -579,8 +579,8 @@ P:NPC {
         { id = "xm_sky", when = { race = "Skyborne" }, text = "Gladly, child of Eldre'Thalas, though the first lesson is the one our people forgot. Power drawn from something you do not understand will one day draw something from you, and the Prince below is proof enough of that." },
       },
       choices = {
-        { text = "Power belongs to those with the will to use it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then I'll understand it before I use it.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Power belongs to those with the will to use it.", next = "BACK", reply = "That is what my Queen believed, and look where her will has left the world, so be careful whose footsteps you follow, {class}.", fx = { align = { light = -1 } } },
+        { text = "Then I'll understand it before I use it.", next = "BACK", reply = "Then you have learned in an afternoon what my people could not learn in a thousand years, and I would gladly teach you more.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "What did Dalaran's magi learn that you didn't?", next = "xmage_dal" },
       },
     },
@@ -605,8 +605,8 @@ P:NPC {
         { id = "xp2_default", text = "I have not prayed in a very long time, {name}, and I am not sure the words would come. But I would stand beside you while you did, if you would not mind an old elf who has forgotten how." },
       },
       choices = {
-        { text = "The Light welcomes anyone who comes to it honestly.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
-        { text = "Faith can't be borrowed. Find your own again first.", next = "BACK", fx = { align = { light = -1, order = 1 } } },
+        { text = "The Light welcomes anyone who comes to it honestly.", next = "BACK", reply = "Then perhaps I will try, with you beside me, and if the Light finds nothing in me worth answering, at least it will not be for want of asking.", fx = { affinity = 2, align = { light = 2 } } },
+        { text = "Faith can't be borrowed. Find your own again first.", next = "BACK", reply = "That is fair, and probably true, and I will try to find it, though I suspect I left it somewhere in these halls a very long time ago.", fx = { align = { light = -1, order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -616,8 +616,8 @@ P:NPC {
         { id = "xe_default", text = "I like to think so, though the priestesses who served here have been dust for ten thousand years. The moonlight still finds the altar most nights, and I take that as a sign, for whatever an old magus's signs are worth to a priestess." },
       },
       choices = {
-        { text = "Elune forgives those who turn back to her.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Elune's light isn't yours to claim, Highborne.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Elune forgives those who turn back to her.", next = "BACK", reply = "I hope so, priest, more than I can say, and if she does, I would like to think the moonlight on that altar is her way of telling me.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Elune's light isn't yours to claim, Highborne.", next = "BACK", reply = "No, it is not, and I would never claim it, but you will forgive an old magus for sitting in the light of a goddess who has not yet turned him away.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -627,8 +627,8 @@ P:NPC {
         { id = "xl_default", text = "Everything. Our Queen opened the way for the Legion, and the Prince below has a demon in chains to keep himself in power, so forgive me if I look at a warlock and see the next chapter of a very old book." },
       },
       choices = {
-        { text = "I command what I summon. Your Prince did not.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every power has a price. I pay mine willingly.", next = "BACK", fx = { align = { order = -1, light = -1 } } },
+        { text = "I command what I summon. Your Prince did not.", next = "BACK", reply = "That is what they all say, warlock, and the Prince said it once too, before the chains he forged began to bind him as well.", fx = { align = { order = 1 } } },
+        { text = "Every power has a price. I pay mine willingly.", next = "BACK", reply = "Willingly, yes, and that is what frightens me, because my people paid willingly too, and the bill came due for everyone.", fx = { align = { order = -1, light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -638,8 +638,8 @@ P:NPC {
         { id = "xd_default", text = "It has, and I will grant Malfurion that much, though I have not forgiven him. He turned your people from the arcane to the wilds and cast mine out for refusing, and I sometimes wonder which of us had the harder road." },
       },
       choices = {
-        { text = "The wilds don't destroy the world. Magic did.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "There's room for both, if both are kept in check.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The wilds don't destroy the world. Magic did.", next = "BACK", reply = "Perhaps not, but they have their own hungers, druid, and I have seen what an angry forest can do to those who wander into it.", fx = { align = { order = -1 } } },
+        { text = "There's room for both, if both are kept in check.", next = "BACK", reply = "That is wisdom, and rarer than you know, and if Malfurion had said it to us ten thousand years ago, perhaps we would not be strangers now.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -658,8 +658,8 @@ P:NPC {
         { id = "xf2_default", text = "No, I don't suppose they did. Then perhaps you understand the dead below better than I ever will, and I should ask you how to speak to them, instead of the other way around." },
       },
       choices = {
-        { text = "Leave them be. The dead have earned their peace.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "The dead belong to whoever has the will to use them.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "Leave them be. The dead have earned their peace.", next = "BACK", reply = "Then I will leave them be, and gladly, because the dead below have not been at peace for a very long time, and I would like them to be.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The dead belong to whoever has the will to use them.", next = "BACK", reply = "That is what the Prince believes, and you see where it has led him, so I will keep my own will and the dead their rest, if I can.", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -90,8 +90,8 @@ P:NPC {
           text = "There was one, Oben Rageclaw, whose body the furbolg shaman stole while his spirit dreamed. You set him free, I am told, and I owe you for that more than I can say." },
       },
       choices = {
-        { text = "I'll go into the barrow and find out.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If he serves the furbolgs now, he's an enemy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go into the barrow and find out.", next = "BACK", reply = "Then you are braver than any of my brothers who went before you. Go carefully, and bring word back to me if you can.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If he serves the furbolgs now, he's an enemy.", next = "BACK", reply = "If he does, then he is lost to us, and I will grieve him. But be sure before you strike, for he was one of ours once.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
         { id = "gn_default", text = "They were a peaceful tribe once, and they suffered this corruption before, back before Teldrassil was cleansed. That it has returned means the blessing of the aspects did not take root as deeply as we told ourselves." },
       },
       choices = {
-        { text = "Then they're victims. Spare those you can.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Victims or not, they nearly killed you. Cut them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then they're victims. Spare those you can.", next = "BACK", reply = "Thank you for seeing it, friend. Every Gnarlpine you spare is one the forest may yet heal.", fx = { align = { light = 1 } } },
+        { text = "Victims or not, they nearly killed you. Cut them down.", next = "BACK", reply = "They did, and I bear no grudge for your anger on my behalf. Still, I would rather they were healed than slain.", fx = { align = { light = -1 } } },
         { text = "What is making them mad?", next = "gnarlpine_moss" },
       },
     },
@@ -159,8 +159,8 @@ P:NPC {
         { id = "dg_default", text = "Perhaps, if the Circle asks it and you are willing. It is not a rest, whatever the young think, but a long watch in a place where the paths move under your feet." },
       },
       choices = {
-        { text = "I would be honoured to keep that watch.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather walk this world while I can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I would be honoured to keep that watch.", next = "BACK", reply = "Then the Circle would be glad of you, and the Dream will welcome you when the time comes. It is a great honour, and a great burden.", fx = { align = { order = 1 } } },
+        { text = "I'd rather walk this world while I can.", next = "BACK", reply = "Many young druids feel the same, and there is no shame in it. The world has need of watchers on this side too.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

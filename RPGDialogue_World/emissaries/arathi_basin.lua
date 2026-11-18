@@ -266,8 +266,8 @@ P:NPC {
         { id = "kn_default", text = "You've no need to, and I'd not blame you if you stayed home. But the Defilers are spreading their plague across the old forests too, and I'd sooner stop them in a human valley than in your own woods." },
       },
       choices = {
-        { text = "Any land poisoned is a wound to all. I'll come.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then I'll fight there for Ashenvale's sake, not yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Any land poisoned is a wound to all. I'll come.", next = "BACK", reply = "That's a generous thing to say, and I'll not forget it, because few enough have come to Arathi out of anything but duty or plunder, and the League will be glad of you.", fx = { align = { light = 1 } } },
+        { text = "Then I'll fight there for Ashenvale's sake, not yours.", next = "BACK", reply = "I'll take your reasons and gladly, friend, because the Defilers' plague doesn't much care why you're standing in its way, only that you are.", fx = { align = { light = -1 } } },
         { text = "I'll think on it.", next = "BACK" },
       },
     },
@@ -299,8 +299,8 @@ P:NPC {
         { id = "xl_default", text = "The League would take you, I expect, because the League takes anyone who'll stand on the Alliance's side of the field. I'd ask you not to summon anything near the graves, though, because I've had enough of the dead being disturbed." },
       },
       choices = {
-        { text = "I'll respect the graves. They're not mine to use.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "War doesn't stop at a gravestone, emissary.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll respect the graves. They're not mine to use.", next = "BACK", reply = "Thank you, warlock, truly, because half the men in my company buried family in those graves, and they'll fight easier knowing you mean it.", fx = { align = { order = 1 } } },
+        { text = "War doesn't stop at a gravestone, emissary.", next = "BACK", reply = "Maybe not, but my men's grandfathers lie under those stones, and if you raise so much as a whisper there, you'll find the League's swords turned the wrong way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -417,7 +417,7 @@ P:NPC {
       },
       choices = {
         { text = "The Forsaken earned that land with their suffering. Take it.", next = "BACK", fx = { opinion = { forsaken = "deserving" }, align = { order = -1 } } },
-        { text = "Take what the Horde needs, and leave the rest in order.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Take what the Horde needs, and leave the rest in order.", next = "BACK", reply = "Order? There's no order left in Arathi to keep, but I'll leave the farmhouses standing, if only so the League has something to weep over when we've gone.", fx = { align = { order = 1 } } },
         { text = "That's a bitter way to see it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -459,8 +459,8 @@ P:NPC {
         { id = "lh_default", text = "No, it isn't, and that's what makes them dangerous. A man defending his grandfather's grave will hold a flag long after he ought to have run, and I've watched them do it." },
       },
       choices = {
-        { text = "Then they deserve an honorable death in the field.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then strike when they're tired, and strike from behind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then they deserve an honorable death in the field.", next = "BACK", reply = "Honorable death is an orc's notion, but I'll give them a quick one if they ask nicely, which is more than the Scourge gave any of us.", fx = { align = { honor = 1 } } },
+        { text = "Then strike when they're tired, and strike from behind.", next = "BACK", reply = "Now that's the sort of counsel I'd expect from a Forsaken, and I'll tell my deathguards you said so, though the Horde's orcs may like it less.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -596,8 +596,8 @@ P:NPC {
         { id = "xpr_default", text = "Some do, though not to pray, since most of us gave that up when we woke in the earth. The Light still answers some Forsaken, I'm told, and the shadow answers more." },
       },
       choices = {
-        { text = "The Light answers anyone who still asks.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The shadow is more honest with the dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light answers anyone who still asks.", next = "BACK", reply = "Perhaps, though I've not asked in some time, and I'm not sure I'd care to hear what it had to say to a thing like me.", fx = { align = { light = 1 } } },
+        { text = "The shadow is more honest with the dead.", next = "BACK", reply = "It is, and it doesn't flinch at what we've become, which is a courtesy the Light has never once extended to me since I climbed out of my grave.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

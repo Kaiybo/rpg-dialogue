@@ -224,7 +224,7 @@ P:NPC {
         { id = "xli_default", text = "That's what I want to hear. Every grey thing up on that hill wants laying in the ground, and the sooner it's done by someone who knows the right words, the better I'll sleep." },
       },
       choices = {
-        { text = "Every one of them, Hal. That's the Light's work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every one of them, Hal. That's the Light's work.", next = "BACK", reply = "Good, then we're agreed, and I'll not lose a wink over any of them. My father always said the Light keeps no company with the restless dead.", fx = { align = { order = 1 } } },
         { text = "Some might be saved, not burned. I'd ask first.", next = "xlight_ask", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -435,8 +435,8 @@ P:NPC {
         { id = "tk_default", text = "He's grieving for his brothers, and he buys bandages he can't use, and I sell them to him at a fair price. I'll not say more than that; he's an orc, and I've a long memory." },
       },
       choices = {
-        { text = "He's an ally. Treat him as one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep your grudge. It's yours, not the Dark Lady's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "He's an ally. Treat him as one.", next = "BACK", reply = "An ally, is he? The Dark Lady made that bargain, not me, and I'll sell him his bandages honestly, which is all the alliance he'll get from my counter.", fx = { align = { order = 1 } } },
+        { text = "Keep your grudge. It's yours, not the Dark Lady's.", next = "BACK", reply = "That's the truest thing anyone's said to me in this town. She can keep her treaties, and I'll keep my father's memory, and we'll both mind our own business.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -472,7 +472,7 @@ P:NPC {
         { id = "xd_default", text = "Then you know, cousin. We came home and the living barred the doors, and the orcs took us in because they needed our apothecaries. Neither one of them sees us, not really." },
       },
       choices = {
-        { text = "Then we look after our own and no one else.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Then we look after our own and no one else.", next = "BACK", reply = "Aye, cousin, that's the only wisdom the grave ever taught me. The living made their choice, and the orcs made theirs, and now we make ours.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "The orcs took us in. That counts for something.", next = "xdead_counts", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

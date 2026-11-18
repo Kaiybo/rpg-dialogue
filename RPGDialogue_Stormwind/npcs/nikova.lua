@@ -153,8 +153,8 @@ P:NPC {
       },
       choices = {
         { text = "That's decent of him.", next = "BACK" },
-        { text = "Guilt money. He should answer for what happened.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let it lie. He's carrying it too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Guilt money. He should answer for what happened.", next = "BACK", reply = "Answer to whom, the same nobles who never paid the masons? No, but I keep every coin in a jar so he knows I've not spent it.", fx = { align = { honor = 1 } } },
+        { text = "Let it lie. He's carrying it too.", next = "BACK", reply = "Maybe he is, and maybe that's the only thing in this city that's fair. I'll let it lie, but I'll not thank him for it.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     mac_like = {
@@ -194,8 +194,8 @@ P:NPC {
         { id = "df_default", text = "And then what, you'd kill him in his cell? No. I've thought about it, every night, and I'm too old to want another mother's boy dead on my account, even that one's." },
       },
       choices = {
-        { text = "That's a mercy he doesn't deserve.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "That's the bravest thing I've heard in this city.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That's a mercy he doesn't deserve.", next = "BACK", reply = "No, he doesn't, and that's why it's mine to give and not his to earn. Mac would have wanted it that way, soft lad that he was.", fx = { align = { light = -1 } } },
+        { text = "That's the bravest thing I've heard in this city.", next = "BACK", reply = "Brave? It's only tired, dear, but I'll take brave from you if you're offering it. Sit a moment, before you go.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
     death_hungry = {
@@ -224,8 +224,8 @@ P:NPC {
         { id = "bp_default", text = "It changes me. Ten men in that cell will wake up cold and bare-necked and know somebody remembers, and that's as much justice as Stormwind's ever handed an Old Town widow." },
       },
       choices = {
-        { text = "Then I'll take every last rag off them.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "The city owes you more than rags. Make them pay it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll take every last rag off them.", next = "BACK", reply = "Bless you for it. Bring them here and I'll count every one, and I'll think of my boy with each.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The city owes you more than rags. Make them pay it.", next = "BACK", reply = "The city's never paid anyone in Old Town what it owes them, and I'll not hold my breath at my age. The rags will do.", fx = { align = { order = -1 } } },
       },
     },
     defias = {
@@ -234,8 +234,8 @@ P:NPC {
           fx = { learn = { "stonemasons" } } },
       },
       choices = {
-        { text = "The nobles cheated them. That's where the blame starts.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Unpaid or not, they chose the knife.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The nobles cheated them. That's where the blame starts.", next = "BACK", reply = "Aye, that's where it starts, but it's not where it ends. My grandson didn't cheat anybody, and he's still in the ground.", fx = { align = { order = -1 } } },
+        { text = "Unpaid or not, they chose the knife.", next = "BACK", reply = "They did, and I'll never forgive the knife. But I'll not pretend the nobles' hands are clean either, not in this street.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -283,8 +283,8 @@ P:NPC {
         { id = "xm_default", text = "Never meant it? Your guild's men went to Westfall with their hammers and came back with knives. I don't blame you for your father's trade, but don't you dare tell me nobody meant it." },
       },
       choices = {
-        { text = "The nobles robbed us first, Nikova. That much is true.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Whatever they were owed, it didn't buy Mac's life.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The nobles robbed us first, Nikova. That much is true.", next = "BACK", reply = "True, and I've never said otherwise. But Mac was fourteen, and he didn't rob anybody of their wages.", fx = { align = { order = -1 } } },
+        { text = "Whatever they were owed, it didn't buy Mac's life.", next = "BACK", reply = "No, it didn't, and I thank you for saying it plain. Most of your trade look at their boots when I bring it up.", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
 
@@ -293,8 +293,8 @@ P:NPC {
         { id = "xp_default", text = "Pray if you like, and I'll sit here while you do. I stopped asking the Light for things the day they carried him home, but I'll not stop you asking for me." },
       },
       choices = {
-        { text = "The Light was with him at the end. I believe that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then I won't pray. I'll listen instead.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "The Light was with him at the end. I believe that.", next = "BACK", reply = "Then I'll let you believe it for both of us, because I can't anymore. Thank you for coming to an old woman's step to say so.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I won't pray. I'll listen instead.", next = "BACK", reply = "That's kinder than most prayers I've heard. Sit down, then, and I'll tell you what kind of boy he was.", fx = { affinity = 2, align = { light = -1 } } },
       },
     },
 

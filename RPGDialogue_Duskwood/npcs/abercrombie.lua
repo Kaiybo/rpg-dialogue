@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Oh, all the time, friend, all the time. The dead are never very far in Duskwood, are they? I find them quite good company, really, once you get used to the smell." } },
       choices = {
-        { text = "The dead deserve rest, Abercrombie, not company. Let them go.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Every man finds comfort where he can. I won't judge you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dead deserve rest, Abercrombie, not company. Let them go.", next = "BACK", reply = "Let them go? But where would they go, friend, in a wood like this? No, no, I think they're much happier staying near the people who remember them.", fx = { align = { light = 1 } } },
+        { text = "Every man finds comfort where he can. I won't judge you.", next = "BACK", reply = "That's very generous of you, very generous indeed, and you'd be surprised how few people say it. Do mind your health out there, you look a little pale.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -74,24 +74,24 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Trouble me? Oh no, dear, they're quiet company, mostly, though the ghouls do get underfoot. A strong pair of arms like yours could clear a few from the cemetery, and I'd be ever so grateful for the ribs." } },
       choices = {
-        { text = "I'll put the dead back in their graves where they belong.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll cut them down, and I'll not ask what you want with the bones.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll put the dead back in their graves where they belong.", next = "BACK", reply = "Oh, splendid, splendid, though do leave the bodies in one piece if you can manage it. The Watch gets so upset about the mess.", fx = { align = { light = 1 } } },
+        { text = "I'll cut them down, and I'll not ask what you want with the bones.", next = "BACK", reply = "Oh, it's just a hobby of mine, nothing to worry over, dear. You're very understanding for a fighting sort, you really are.", fx = { align = { light = -1 } } },
         { text = "Something else, Abercrombie.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "Locked? Oh, those, they're my late wife's things, and I can't bear to see them, so I keep them shut. You won't need to open them, my friend; there's nothing inside but old dresses and memories." } },
       choices = {
-        { text = "Of course. A man's grief is his own.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then you won't mind if I look later.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Of course. A man's grief is his own.", next = "BACK", reply = "You're very kind, you truly are. Not many people understand grief anymore, not since the wolves took everyone who did.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then you won't mind if I look later.", next = "BACK", reply = "Later? Oh, but there's nothing to see, and I'd be ever so upset, dear. Let's just have some tea instead, shall we?", fx = { align = { honor = -1 } } },
         { text = "Tell me about your wife.", next = "wife" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Is there? I do a bit of alchemy to pass the long nights, and a man forgets how his own house smells after a while. You mages and your noses, you're worse than the Night Watch." } },
       choices = {
-        { text = "Alchemy has rules. I'll trust you follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Brew what you like. It's no business of mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Alchemy has rules. I'll trust you follow them.", next = "BACK", reply = "Oh, I follow all the rules, every one, and a few I've made up besides. You needn't worry about old Abercrombie.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Brew what you like. It's no business of mine.", next = "BACK", reply = "Exactly what I always say, exactly. A man's kitchen is his own, and I keep mine very tidy, mostly.", fx = { align = { order = -1 } } },
         { text = "What sort of alchemy?", next = "alchemy" },
       },
     },
@@ -105,8 +105,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Protecting? Oh, how kind, dear, but nothing up here troubles me, and I trouble nothing back. Do save that hammer for the rude things at the mound, because they took my crate and they've no manners at all." } },
       choices = {
-        { text = "Then I'll leave you in peace. It isn't my place to pry.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll look through those crates of yours before I go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll leave you in peace. It isn't my place to pry.", next = "BACK", reply = "That's very decent of you, very decent. The world needs more people who know how to leave an old man to his hobbies.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look through those crates of yours before I go.", next = "BACK", reply = "Oh, must you? There's only sawdust and old thread, and I'd hate for you to get it on that lovely armor. Do take some tea first.", fx = { align = { honor = -1 } } },
         { text = "Something else, Abercrombie.", next = "BACK" },
       },
     },
@@ -269,8 +269,8 @@ P:NPC {
       },
       choices = {
         { text = "Why can't I see her grave?", next = "priest_grave" },
-        { text = "Then I'll pray for you both.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Then I'll save my prayers for someone who wants them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll pray for you both.", next = "BACK", reply = "Both of us? Oh, she'd like that, I think, though she never was one for prayers. Thank you, dear, you're very kind.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Then I'll save my prayers for someone who wants them.", next = "BACK", reply = "Well, that's fair, and I hardly blame you, though she might have liked one. Do pray for yourself, then, you look a bit peaky.", fx = { align = { light = -1 } } },
       },
     },
     priest_grave = {
@@ -278,8 +278,8 @@ P:NPC {
         { id = "pg_default", text = "Because I asked you nicely, dear, and because you'd only be disappointed. It's a very plain grave, since all the effort went elsewhere." },
       },
       choices = {
-        { text = "The dead should be left to rest.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "The dead don't much care how they're kept.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The dead should be left to rest.", next = "BACK", reply = "Rest is exactly what she's getting, dear, a very long and peaceful rest. I'd never disturb her, never, I promise you.", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "The dead don't much care how they're kept.", next = "BACK", reply = "No, they don't, do they? I've always thought so, though people do get so touchy about it. You and I would get along, I think.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -289,8 +289,8 @@ P:NPC {
         { id = "wl_default", text = "Necromancy? Dear me, such a big word for a little hobby. You'll keep it between us, won't you, one dabbler to another?" },
       },
       choices = {
-        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "The Night Watch will hear of it.", next = "BACK", fx = { affinity = -3, align = { order = 1 } } },
+        { text = "Your secret's safe.", next = "BACK", reply = "Oh, splendid, I knew you'd understand. We dabblers must stick together, mustn't we, since nobody else will have us.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "The Night Watch will hear of it.", next = "BACK", reply = "The Watch? Oh, you wouldn't do that to a lonely old man, would you? Besides, they've so much else to worry about just now.", fx = { affinity = -3, align = { order = 1 } } },
       },
     },
     alchemy = {

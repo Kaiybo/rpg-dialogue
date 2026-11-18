@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "ua_default", text = "Arugal lacked discipline, not courage, and the difference matters. The Forsaken cannot afford Ur's weakness if we are to survive, and if we are to conquer, we cannot afford Arugal's carelessness either." } },
       choices = {
-        { text = "Knowledge with discipline, then. That I can respect.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Ur turned back for good reason. So should you.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Knowledge with discipline, then. That I can respect.", next = "BACK", reply = "Respect is a start, and it is more than most bring to my door. Discipline will take you the rest of the way.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Ur turned back for good reason. So should you.", next = "BACK", reply = "Ur turned back, and Ur is dead. I prefer to keep walking forward, carefully.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

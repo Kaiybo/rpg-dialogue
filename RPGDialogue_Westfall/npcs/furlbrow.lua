@@ -35,8 +35,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I tell Verna we will, and I mostly believe it. The land's still ours in my heart, whatever the thieves think. Maybe the earth remembers whose it was." } },
       choices = {
-        { text = "Hold on to hope, Theodore. The land remembers you.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hold on to hope, Theodore. The land remembers you.", next = "BACK", reply = "I'll try, friend, I will, though hope's a heavy thing to carry with a broken wagon. Verna carries most of it for me.", fx = { align = { light = 1 } } },
+        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", reply = "Somewhere safer, he says, as if there's anywhere in Westfall that fits. I'll think on it, but I'll not like it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -46,8 +46,8 @@ P:NPC {
         { id = "xlock_default", text = "Any means? I've lain awake thinking about that, I'll not lie to you, and some nights I'd have shaken hands with anything that offered. But Verna would know, and she'd never look at me the same, so the farm stays lost until somebody honest fetches it." },
       },
       choices = {
-        { text = "Then I'll leave it to honest hands, Theodore.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Honest hands lost it. Mine could bring it back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll leave it to honest hands, Theodore.", next = "BACK", reply = "That's the right of it, and Verna would thank you for saying so. Somebody honest will come along, I keep telling myself.", fx = { align = { light = 1 } } },
+        { text = "Honest hands lost it. Mine could bring it back.", next = "BACK", reply = "Maybe so, maybe so, and I'll not ask how. Just don't tell Verna it was me who said yes.", fx = { align = { light = -1 } } },
         { text = "Something else, Theodore.", next = "BACK" },
       },
     },
@@ -55,8 +55,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not one, no; there were too many, and they came at night with torches. But a dozen like you might have, and the king sent none, so here we sit, with Blanchy and a broken wagon." } },
       choices = {
-        { text = "I'll help take back what's yours.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "It's gone, old man. Look forward instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll help take back what's yours.", next = "BACK", reply = "You would? Then I'll stop counting the days on the wagon wheel and start counting them toward home.", fx = { align = { honor = 1 } } },
+        { text = "It's gone, old man. Look forward instead.", next = "BACK", reply = "Easy said, friend, but I'm old and forward looks a lot like this wagon. I'll try, for Verna's sake.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -67,24 +67,24 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has the look of a loyal beast. Keep it close; the Defias don't spare animals any more than people." },
       },
       choices = {
-        { text = "I'll keep watch for him, Theodore.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "He's gone. Best not to hope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep watch for him, Theodore.", next = "BACK", reply = "Thank you, friend, that's more than anyone else has offered. He's a brown dog with one floppy ear, if you see him.", fx = { align = { light = 1 } } },
+        { text = "He's gone. Best not to hope.", next = "BACK", reply = "Verna says the same, and you're both right, and I'll hope anyway. A man needs something to whistle for.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "I asked a mage that once, on the road out of Elwynn, and he looked at the axle like I'd asked him to raise the dead. Turns out spells don't come cheap and wheels do, so here we sit." } },
       choices = {
-        { text = "A proper wheelwright beats any spell, Theodore.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Forget the wagon. Take what you need and walk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A proper wheelwright beats any spell, Theodore.", next = "BACK", reply = "That's what I said to Verna, and she laughed at me, so it's nice to be right for once. If you know one, send him our way.", fx = { align = { order = 1 } } },
+        { text = "Forget the wagon. Take what you need and walk.", next = "BACK", reply = "Walk, and leave Blanchy and everything we have left? No, friend, we'll wait for the wheel.", fx = { align = { order = -1 } } },
         { text = "Will you ever go back to the farm?", next = "back" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "Stormwind needed timber to rebuild after the orcs burned it, and Westfall had timber to give. They paid us for it, too, for a while. Now the wind blows straight off the sea, and the topsoil goes with it." } },
       choices = {
-        { text = "Plant a windbreak. I'll show you which saplings will take.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "That's what comes of selling your land to a city.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Plant a windbreak. I'll show you which saplings will take.", next = "BACK", reply = "You'd do that? Then I'll plant them myself, every one, if we ever get the farm back. Show me which ones before you go.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's what comes of selling your land to a city.", next = "BACK", reply = "Aye, it is, and I'm ashamed of it, but we were hungry and they paid well. Nobody thought the wind would come.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every night, and Verna does it twice as often as I do. Nobody's answered with a wheelwright yet, but you came up the road, so maybe somebody's listening after all." } },
       choices = {
-        { text = "Someone is listening, Theodore. Hold on to that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayer won't mend a wagon wheel. Hands will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Someone is listening, Theodore. Hold on to that.", next = "BACK", reply = "I'll try, friend, and I'll tell Verna you said so. She'll be pleased, though she'll pretend she already knew.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer won't mend a wagon wheel. Hands will.", next = "BACK", reply = "They will, if I can find a pair that knows wheels. Mine only know shovels, and they're getting old.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -101,8 +101,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Nobody, I expect. The thieves have the house, Stormwind has its own troubles, and I've a broken wagon and a tired horse, so if there's justice left in this kingdom, it hasn't come down the road to Westfall yet." } },
       choices = {
-        { text = "The law will reach Westfall again. I'll see that it does.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget the law, Theodore. Take your farm back by force.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The law will reach Westfall again. I'll see that it does.", next = "BACK", reply = "Do that, and I'll believe in the king again, and I'll even tell Verna I was wrong. That's a rare thing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the law, Theodore. Take your farm back by force.", next = "BACK", reply = "By force, me? I couldn't take back a hen from a fox, friend. I'll leave that to braver men.", fx = { align = { order = -1 } } },
         { text = "Something else, Theodore.", next = "BACK" },
       },
     },
@@ -159,15 +159,15 @@ P:NPC {
       },
       choices = {
         { text = "You will. Give it time.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "There's no shame in starting over.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { skeptical = 1 } } },
+        { text = "There's no shame in starting over.", next = "BACK", reply = "No, I suppose there isn't, though it feels like there is. Verna will have to be brave enough for both of us again.", fx = { align = { light = -1 }, affinity = 1, trait = { skeptical = 1 } } },
         { text = "What would it take?", next = "back_take" },
       },
     },
     back_take = {
       lines = { { id = "bt_default", text = "The thieves gone and the walking scarecrows gone, and me not jumping every time a crow lands. That last one's the hardest." } },
       choices = {
-        { text = "The first two, I can help with.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Thieves and scarecrows are the militia's problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The first two, I can help with.", next = "BACK", reply = "Then I'll handle the third myself, somehow. Thank you, friend, it means more than I can say.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Thieves and scarecrows are the militia's problem, not mine.", next = "BACK", reply = "Aye, the militia's, and they've got more problems than men. I'll keep jumping at crows, then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -213,8 +213,8 @@ P:NPC {
     forgery = {
       lines = { { id = "fg_default", text = "To copy, the note said. Forge their own and call our farms theirs, all neat and legal. Paper's a weapon too, in the wrong hands." } },
       choices = {
-        { text = "Then the deed's worth fighting for.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Paper's only paper. Hold the land and let them forge all they like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the deed's worth fighting for.", next = "BACK", reply = "It is, and I'll keep it under my shirt where it belongs. Thank you for understanding, friend.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Paper's only paper. Hold the land and let them forge all they like.", next = "BACK", reply = "Easy to say when they haven't forged your name on a deed. I'll keep mine close, all the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -222,22 +222,22 @@ P:NPC {
       big = true,
       lines = { { id = "co_default", text = "Isn't it? It feels like one. A man's supposed to stand in front of his wife, not behind her holding the lamp." } },
       choices = {
-        { text = "You got her out alive, Theodore. Wagons can be mended.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Then stand in front of her next time.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "You got her out alive, Theodore. Wagons can be mended.", next = "BACK", reply = "Aye, I suppose I did, and Blanchy did, too. I'll try to remember that tonight.", fx = { affinity = 3, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Then stand in front of her next time.", next = "BACK", reply = "Next time, aye, if there is one, and I'll not run. I promise you that, and myself.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     pumpkins = {
       lines = { { id = "pu_default", text = "You remember them? Rows and rows of them, orange right up to the hills, and somebody still remembers. Thank you for that." } },
       choices = {
-        { text = "They'll grow again.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "Those fields are gone, friend. Best let them go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They'll grow again.", next = "BACK", reply = "Do you think so? I'd like to see that, just once more before I'm too old to carry them.", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Those fields are gone, friend. Best let them go.", next = "BACK", reply = "I know, friend, I know, but it's a hard thing to let go of a field you planted. Verna's better at it than me.", fx = { align = { light = -1 } } },
       },
     },
     rogue = {
       lines = { { id = "rogue_l", text = "Could you? Quietly, I mean, without anyone getting hurt? Because I've no wish to see another soul die over a piece of paper with my name on it." } },
       choices = {
-        { text = "Quietly. Nobody will even know I was there.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "Not quietly. They should know who took it back.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Quietly. Nobody will even know I was there.", next = "BACK", reply = "Quietly, thank you, that's all I want. Verna doesn't need to hear about blood on her account.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "Not quietly. They should know who took it back.", next = "BACK", reply = "Oh, dear, that sounds like trouble, and they'll come looking. Do it however you must, but mind yourself.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
       },
     },
   },

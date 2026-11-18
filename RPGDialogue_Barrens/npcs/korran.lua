@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "oe_default", text = "Then one day they come up somewhere that ain't empty, mon, and the Crossroads be the closest thing that ain't empty. I would rather we burn the mounds now and look foolish than wait and be right." } },
       choices = {
-        { text = "Then burn the mounds before they spread.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Study them first. Burning teaches us nothing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then burn the mounds before they spread.", next = "BACK", reply = "Dat's de kind of talk Korran likes to hear, mon. Fire be the only thing dem bugs understand, and the spirits won't mind a little smoke.", fx = { align = { order = 1 } } },
+        { text = "Study them first. Burning teaches us nothing.", next = "BACK", reply = "You be braver than me, then, to go poking at dem mounds with a stick and a notebook. Study all you like, but keep a torch close, ya?", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

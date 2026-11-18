@@ -83,8 +83,8 @@ P:NPC {
         { id = "mm_default", text = "Monsters? We're businessmen, pal, and our business happens to be demons, which has very low overhead once you get past the screaming. Everyone in the Steppes is killing somethin', and at least we're doing it for the art and a steady wage." },
       },
       choices = {
-        { text = "Business is business. I don't judge.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Dressing it up as art doesn't make it right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Business is business. I don't judge.", next = "BACK", reply = "Now that's what I call a valued customer, pal, and I'm writin' your name down for the good list. Want a beetle while you think about what else you need?", fx = { align = { light = -1 } } },
+        { text = "Dressing it up as art doesn't make it right.", next = "BACK", reply = "Ooh, a critic, and all the way out here on the mountain! Look, buddy, art is whatever somebody pays for, and the boss pays on time, which is more than the Steppes can say.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
         { id = "jo_default", text = "Only when there's work, and then he's off like a shot and back again when it's done, and he's never once asked for a raise. I think he likes the jar, because it's warm and nobody steps on him." },
       },
       choices = {
-        { text = "That's no life for a creature, even an imp.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Everyone has a place. His is the jar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That's no life for a creature, even an imp.", next = "BACK", reply = "No life? He's got central heating and a lid, pal, which is better than half the goblins I grew up with in Undermine. Ask him yourself, but he bites, so I'd knock first.", fx = { align = { order = -1 } } },
+        { text = "Everyone has a place. His is the jar.", next = "BACK", reply = "Exactly, chum, a place for everything and an imp in every jar! You get it, and that's rarer than a dry match in these parts.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,8 +131,8 @@ P:NPC {
         { id = "xp_default", text = "To walk through Jaedenar in the Shadow Council's own flavor of evil, pal, so you can speak with Lord Banehollow about his stardust. They cost a bit, I'll say that up front, but they're a lot cheaper than being torn apart by satyrs." },
       },
       choices = {
-        { text = "Wearing the Council's evil doesn't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather fight my way through honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wearing the Council's evil doesn't trouble me.", next = "BACK", reply = "Ha, that's the spirit, pal, a customer with no squeamish line items! The satyrs never smell a thing, and you walk out with your skin still attached.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather fight my way through honestly.", next = "BACK", reply = "Honest, sure, real honest, and real expensive in bandages and burial fees. Your call, buddy, but the potion's still here when the satyrs change your mind.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

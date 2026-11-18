@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "sth_default", text = "Would you? His name's Tomas, and he's tall and loud and hopeless at cards, and he'll be wherever the fighting is thickest. People tell me I'm a fool to keep hoping, but I'd sooner be a fool than a widow-in-waiting." } },
       choices = {
-        { text = "Keep hoping. Hope is worth more than odds.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Prepare yourself, Gabrielle. The mountain doesn't give people back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep hoping. Hope is worth more than odds.", next = "BACK", reply = "Bless you for that, love, it's more than most up here will give me. If you see a tall, loud fool losing at cards, tell him his supper's going cold.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Prepare yourself, Gabrielle. The mountain doesn't give people back.", next = "BACK", reply = "I know it, I do, and I've heard it from wiser folk than you. I'll keep the pot on all the same, because the day I stop is the day I've buried him myself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

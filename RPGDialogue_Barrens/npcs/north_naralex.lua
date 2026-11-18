@@ -61,8 +61,8 @@ P:NPC {
     woken = {
       lines = { { id = "w_default", text = "One of us believes so, and he's gone down to try. If someone strong enough walks with him past the Fang and the beasts, he says he can call Naralex back, though I've buried enough hope in those caves not to count on it." } },
       choices = {
-        { text = "Then I'll help him try.", next = "BACK", fx = { align = { light = 1 }, learn = { "naralex" } } },
-        { text = "Some sleepers are better left alone.", next = "BACK", fx = { align = { light = -1 }, learn = { "naralex" } } },
+        { text = "Then I'll help him try.", next = "BACK", reply = "Then go with him, and may the Earth Mother guide your steps through the dark. If you bring Naralex back, I'll dig up all that buried hope and plant it again.", fx = { align = { light = 1 }, learn = { "naralex" } } },
+        { text = "Some sleepers are better left alone.", next = "BACK", reply = "Some are, and I've wondered whether he is one of them. But whatever he dreams is spilling into our world, so leaving him alone has stopped being a choice.", fx = { align = { light = -1 }, learn = { "naralex" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "naralex" } } },
       },
     },
@@ -76,8 +76,8 @@ P:NPC {
     healed = {
       lines = { { id = "hd_default", text = "I tried, for a year, and I lost two friends to it. Whatever the nightmare did to them goes deeper than the flesh, and the kindest thing left is to end them cleanly and give the land back its quiet." } },
       choices = {
-        { text = "A clean end is a mercy. I'll give it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Killing them is giving up. Keep trying.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "A clean end is a mercy. I'll give it.", next = "BACK", reply = "It is, though it took me that whole year to believe it. Be quick with them, friend, and remember they were druids and beasts of the land before the dream twisted them.", fx = { align = { order = 1 } } },
+        { text = "Killing them is giving up. Keep trying.", next = "BACK", reply = "You sound the way I did a year ago, and I wish you better luck than I had. Try if your heart demands it, but don't let the caverns take you while you're trying.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,8 +166,8 @@ P:NPC {
     spread = {
       lines = { { id = "sp_default", text = "It already has. The oases to the south are going bad, and the tauren druids at the Crossroads are seeing the same sickness in the water there, so the caverns aren't keeping their secret to themselves." } },
       choices = {
-        { text = "Then the caverns must be cleansed, whatever it costs.", next = "BACK", fx = { align = { order = -1 }, learn = { "oases" } } },
-        { text = "Study first. Rushing in made all this worse.", next = "BACK", fx = { align = { order = 1 }, learn = { "oases" } } },
+        { text = "Then the caverns must be cleansed, whatever it costs.", next = "BACK", reply = "Whatever it costs is a heavy price to promise in those caves, but someone must pay it. The Barrens can't wait for the sickness to reach every pool and spring.", fx = { align = { order = -1 }, learn = { "oases" } } },
+        { text = "Study first. Rushing in made all this worse.", next = "BACK", reply = "You may be right, and that's why I want these hides, so we stop guessing. Naralex rushed toward a cure, and look what his haste has woken.", fx = { align = { order = 1 }, learn = { "oases" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "oases" } } },
       },
     },
@@ -271,8 +271,8 @@ P:NPC {
     tauren = {
       lines = { { id = "t_default", text = "Some of the elders say a night elf had no right to reshape our land, even to heal it. I say he loved the land as we do and tried too hard, which is a gentler kind of wrong." } },
       choices = {
-        { text = "Good intentions don't excuse the harm done.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "He meant well. That counts for something.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Good intentions don't excuse the harm done.", next = "BACK", reply = "No, they don't, and Naralex would say so himself if he could wake. Still, I'd rather judge his heart kindly and judge his deeds honestly, both at once.", fx = { align = { light = -1 } } },
+        { text = "He meant well. That counts for something.", next = "BACK", reply = "It does, to me, and to the land too, I think. The Earth Mother forgives those who love her clumsily, as long as they keep trying to set it right.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -361,8 +361,8 @@ P:NPC {
     wrong = {
       lines = { { id = "wr_default", text = "The nightmare will fight back, and I don't know what form it will take. Something has fed on his dreams for years, something the Emerald Dream itself should never have held, and it won't like being driven out." } },
       choices = {
-        { text = "Whatever comes, I'll face it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If it gets bad, I'm leaving you.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "Whatever comes, I'll face it.", next = "BACK", reply = "You have courage, and Elune knows I'll need it beside me. Stay close when I begin the ritual, because the dark will come for whoever holds the light.", fx = { align = { honor = 1 } } },
+        { text = "If it gets bad, I'm leaving you.", next = "BACK", reply = "Then at least you've told me plainly, and I'd rather that than a lie. But if you run, the nightmare will follow you out of these caves, and it won't stop at the entrance.", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,8 +376,8 @@ P:NPC {
     blame = {
       lines = { { id = "b_default", text = "I blame what got into them. They went down for love of him, as I did, and the only difference between us is that the dream chose them first." } },
       choices = {
-        { text = "Then they deserve pity.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose to stay. They deserve what's coming.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then they deserve pity.", next = "BACK", reply = "Thank you, friend, because they were my brothers and sisters in the circle. If any part of them is left inside, I hope it finds rest when Naralex wakes.", fx = { align = { light = 1 } } },
+        { text = "They chose to stay. They deserve what's coming.", next = "BACK", reply = "Perhaps they did, at the very end, and perhaps the dream did the choosing for them. Either way, you'll meet them in the dark, so strike as you must and leave the judging to Elune.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

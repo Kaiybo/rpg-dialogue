@@ -83,8 +83,8 @@ P:NPC {
         { id = "c_default", text = "Oh, I'm the wrong one to ask, because I'd choose all of them if they'd let me! Most folk pick a gathering trade to feed a making trade, herbs for alchemy or ore for the forge, but some like the freedom of two gathering trades and selling what they find. What sort are you?" },
       },
       choices = {
-        { text = "A planner. I'll pick two that work together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll take what the road gives me and sell it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A planner. I'll pick two that work together.", next = "BACK", reply = "Oh, splendid, a planner! Herbs and alchemy, or ore and the forge, and you'll never be short of what you need, which is more than I can say for my own scattered workbench.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take what the road gives me and sell it.", next = "BACK", reply = "A wanderer's answer, and a perfectly good one, because the auctioneers in the Undercity are always hungry. Just keep a full pack and a sharp knife, and the road will be generous.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -215,8 +215,8 @@ P:NPC {
         { id = "b_default", text = "The Royal Apothecary Society buys more than anyone, and they don't say what for. Some of what I teach ends up in poultices, and some of it ends up in things I'd rather not think about, so I've learned to teach the picking and leave the rest to the people who use it." },
       },
       choices = {
-        { text = "Then I'll sell where it does the most harm to our enemies.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'd rather my herbs went into poultices, not poisons.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll sell where it does the most harm to our enemies.", next = "BACK", reply = "Then the Society will be glad of you, and I'll try very hard not to ask what you sold them. Pick cleanly, at least, so the roots grow back for next season.", fx = { align = { light = -1 } } },
+        { text = "I'd rather my herbs went into poultices, not poisons.", next = "BACK", reply = "So would I, though once a leaf leaves my hands I've no say in where it goes. Sell to the healers in Brill, then, and you'll sleep a little easier.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -286,8 +286,8 @@ P:NPC {
         { id = "tr_default", text = "Not the skinning, no. What troubles me is waste, a beast killed for sport and left for the crows with its hide spoiling, and I've seen plenty of that from the newly risen. If you take a life, the least you can do is use all of it." },
       },
       choices = {
-        { text = "Agreed. Using all of it is a kind of respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A beast is a resource, Margaret. Nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Agreed. Using all of it is a kind of respect.", next = "BACK", reply = "It is, and I'm glad someone finally said it back to me. Take the hide, the sinew and the fat, and the beast won't have died for nothing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast is a resource, Margaret. Nothing more.", next = "BACK", reply = "Call it what you like, but a resource spoiled in the sun is still a waste, and waste is what offends me. Skin it properly or don't kill it at all.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -374,8 +374,8 @@ P:NPC {
         { id = "by_default", text = "The smiths in Brill and the Undercity, and most of what they make goes to the Deathguard, one way or another. A good share of every vein in Tirisfal ends up on the walls at the Bulwark, so I like to think a miner's doing his part. Others just sell to whoever pays most." },
       },
       choices = {
-        { text = "Arming the Forsaken is good work. That's where mine goes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll sell to whoever pays best, Walter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Arming the Forsaken is good work. That's where mine goes.", next = "BACK", reply = "Good, because the Bulwark eats iron faster than we can dig it. Every bar you bring back is another blade between Brill and the plague.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll sell to whoever pays best, Walter.", next = "BACK", reply = "Plenty do, and I'll not pretend coin doesn't spend. Only remember that the walls at the Bulwark don't hold themselves up when the Scourge comes calling.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

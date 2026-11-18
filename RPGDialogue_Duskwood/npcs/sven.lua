@@ -34,8 +34,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It was green and alive, before the darkness. Nothing matters much now, but your spirits might remember." } },
       choices = {
-        { text = "It can be green again, Sven. Don't lose hope.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It's gone. Accept the darkness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It can be green again, Sven. Don't lose hope.", next = "BACK", reply = "Hope is for younger men, friend, but I'll not mock you for it. If the trees ever turn green again, I'll plant something in your name.", fx = { align = { light = 1 } } },
+        { text = "It's gone. Accept the darkness.", next = "BACK", reply = "I've done nothing else for years, sitting here by this fire. It doesn't get easier, but it gets quieter.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -43,40 +43,40 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Defias, using my barn to hide stolen goods, and they've made themselves very comfortable there. My wife planted the garden behind it, and I'd like to see it again before I die, even if nothing grows." } },
       choices = {
-        { text = "I'll clear them out and give you back your farm, Sven.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your farm's lost. Find somewhere new to live.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll clear them out and give you back your farm, Sven.", next = "BACK", reply = "Do that, and I'll stand in my wife's garden one more time and tell her it's ours again. That's all I want from this life.", fx = { align = { order = 1 } } },
+        { text = "Your farm's lost. Find somewhere new to live.", next = "BACK", reply = "Somewhere new, he says, as if I could plant my memories somewhere else. No, I'll stay here till I'm dust.", fx = { align = { order = -1 } } },
         { text = "Something else, Sven.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "Quietly or loudly, I don't much care how, so long as the Defias in my fields stop sleeping in my bed. I'd do it myself if I were ten years younger and a good deal less tired." } },
       choices = {
-        { text = "Quietly, then. They won't wake up.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll face them, and let them know why.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Quietly, then. They won't wake up.", next = "BACK", reply = "Then let them sleep forever in my bed, and I'll burn the sheets afterward. Just make sure none of them wake up.", fx = { align = { honor = -1 } } },
+        { text = "I'll face them, and let them know why.", next = "BACK", reply = "Let them know, aye, let them know it's for the Yorgens. That's the only thing I want them to hear before the end.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What happened to your family?", next = "family" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Fire takes the rot and the ground with it, and I'd have nothing left to farm but ash. The forest went dark slowly, and I reckon it'll take its time coming back, if it ever does." } },
       choices = {
-        { text = "Patience, then. Some things can't be rushed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Burn it and start fresh, Sven.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience, then. Some things can't be rushed.", next = "BACK", reply = "Patience is all I've got left, and even that's thinning. I'll wait, then, and watch the trees.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn it and start fresh, Sven.", next = "BACK", reply = "Start fresh on ash? My family's buried in that ground, mage. Burn something else.", fx = { align = { order = -1 } } },
         { text = "What was the forest like before?", next = "green" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "Crude or clever, they've kept better folk than you away from him, so I'll not argue craftsmanship with you. If you can break them, break them, and let the Light sort out the rest." } },
       choices = {
-        { text = "I'll break them for your sake, Sven.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Breaking wards teaches me how to build them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll break them for your sake, Sven.", next = "BACK", reply = "For my sake, then, and for the ones who aren't here to ask. I'll not forget it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Breaking wards teaches me how to build them.", next = "BACK", reply = "Learn what you like, so long as you learn it after the wards are broken. I'll not ask what else you mean by it.", fx = { align = { light = -1 } } },
         { text = "What do you know of his wards?", next = "morbent_wards" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "The dead from Raven Hill, and something older too, in the Yorgen farm cellar. I hear things at night that aren't wolves and aren't worgen. I'd sooner face either one than whatever that is." } },
       choices = {
-        { text = "Then I'll go and face it with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Leave the farm. Some ground can't be saved.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll go and face it with you.", next = "BACK", reply = "With me? I've not been back since, and I'm not sure I can. But I'd go with someone who means it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the farm. Some ground can't be saved.", next = "BACK", reply = "Some ground can't, maybe, but my family's in that ground. I'll not leave them to whatever's in the cellar.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Morbent Fel in the ground and his riders after him, and my farm back, which is the part nobody can give me. Justice is a word for people who still have something to lose, and I've only got the fire." } },
       choices = {
-        { text = "Fel will answer for it, by the law and the Light.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then let me be your vengeance, Sven. No law needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fel will answer for it, by the law and the Light.", next = "BACK", reply = "The law and the Light have had years and done nothing. But if you mean it, I'll take your word for it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then let me be your vengeance, Sven. No law needed.", next = "BACK", reply = "That's the first honest offer I've had since the riders came. Bring me back his name, and his head if you can.", fx = { align = { order = -1 } } },
         { text = "Something else, Sven.", next = "BACK" },
       },
     },
@@ -150,7 +150,7 @@ P:NPC {
       choices = {
         { text = "I'm sorry, Sven.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then we find the riders.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 }, learn = { "dark_riders" } } },
-        { text = "Give them the scythe, and maybe they'll leave you be.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Give them the scythe, and maybe they'll leave you be.", next = "BACK", reply = "Give them the scythe, and they'll kill me anyway, the same as they killed my family. No, I'll keep it where they'll never find it.", fx = { align = { honor = -1 } } },
         { text = "Where were you?", next = "family_away" },
       },
     },
@@ -175,7 +175,7 @@ P:NPC {
       lines = { { id = "w_default", text = "A name, and then another, and then whoever's at the top of the list. After that I'll sleep." } },
       choices = {
         { text = "Revenge won't bring them back.", next = "back", fx = { align = { light = 1 } } },
-        { text = "I'll help you get it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll help you get it.", next = "BACK", reply = "Then we'll go together, once I've sharpened something. I've been waiting for someone to say that.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
     back = {
@@ -257,8 +257,8 @@ P:NPC {
         { id = "jp_default", text = "...He wrote that too, and I read it twice. I don't know what to do with it yet, so leave it with me a while." },
       },
       choices = {
-        { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Prayers didn't save her, Sven, so don't let it trouble you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I will.", next = "BACK", reply = "Thank you. I'll read it again tonight, and maybe I'll understand it better in the morning.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Prayers didn't save her, Sven, so don't let it trouble you.", next = "BACK", reply = "It doesn't, much, but it's the first thing anyone's written about her in years. Leave it with me anyway.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -267,8 +267,8 @@ P:NPC {
         { id = "pr_default", text = "Pray, then, and I'll listen. I grieve every night, priest, and in the morning I sharpen things, so the Light can have the nights, but I need the mornings." },
       },
       choices = {
-        { text = "Then I'll pray at night, for you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Hate will hollow you out.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { stern = 1 } } },
+        { text = "Then I'll pray at night, for you.", next = "BACK", reply = "That's more than I've had from anyone in a long while. I'll listen for it, maybe, in the dark.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Hate will hollow you out.", next = "BACK", reply = "It already has, priest, and I'm hollow all the way through. The only thing left in here is the fire.", fx = { affinity = -1, align = { light = 1 }, trait = { stern = 1 } } },
       },
     },
     farmer = {

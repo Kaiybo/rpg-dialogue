@@ -83,8 +83,8 @@ P:NPC {
       big = true,
       lines = { { id = "raf_default", text = "Not even the Alliance. Kings come and go, but a guild that answers to none of them outlasts them all, and the Manor has seen many crowns fall." } },
       choices = {
-        { text = "A guild without a king is just a gang of killers.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Better free than bound to some throne.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A guild without a king is just a gang of killers.", next = "BACK", reply = "Call us what you like; the Manor has heard worse from kings who later hired it. A gang scatters when its leader dies, and Ravenholdt has outlived every one of them.", fx = { align = { order = 1 } } },
+        { text = "Better free than bound to some throne.", next = "BACK", reply = "You understand more than most who stand on these docks. A throne is a fine thing to sit on and a poor thing to be chained to.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

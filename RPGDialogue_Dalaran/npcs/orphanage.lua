@@ -56,8 +56,8 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "Hard, because nobody listens, and Josie says I'm not really in charge, only bossy. Are you supposed to make people listen, or wait till they want to?" } },
       choices = {
-        { text = "Set the rules and make them stick. That's leading.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them choose. People follow who they trust.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Set the rules and make them stick. That's leading.", next = "BACK", reply = "That's what I think too, and I'm going to make a rule about bedtimes first, though Josie will probably say I'm being bossy again.", fx = { align = { order = 1 } } },
+        { text = "Let them choose. People follow who they trust.", next = "BACK", reply = "Oh, I hadn't thought of it like that, so maybe if I'm nicer to Korben he'll stop hiding under the stairs every time I call him.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
       big = true,
       lines = { { id = "ti_default", text = "Paige says they're only rabbits and they don't know they're a Baron or a Countess. But everybody ought to be important to somebody, oughtn't they, even rabbits?" } },
       choices = {
-        { text = "Everyone should. Keep giving them their titles.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Paige is right. They're only rabbits.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Everyone should. Keep giving them their titles.", next = "BACK", reply = "I knew it, and I'm going to tell Paige a real adventurer said so, and then I'm going to tell the Countess, because she worries about things like that.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Paige is right. They're only rabbits.", next = "BACK", reply = "Oh, well, maybe they don't know, but I know, and I think the Baron would be very sad if he heard you, so please don't say it near his cushion.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -182,8 +182,8 @@ P:NPC {
       big = true,
       lines = { { id = "fa_default", text = "Brock says the island's breaking into pieces and it's going to fall right down on top of us. It won't, will it? You'd tell me if it would?" } },
       choices = {
-        { text = "It might, but brave people are working to save it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Never. Nothing could knock that island down.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "It might, but brave people are working to save it.", next = "BACK", reply = "Then I'll think about the brave people instead of the falling, and maybe one day I'll be brave too and fly up there to help them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Never. Nothing could knock that island down.", next = "BACK", reply = "I knew it, I knew Brock was making it up, and I'm going to tell him right now that you said so, and he'll have to say sorry.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -237,8 +237,8 @@ P:NPC {
       lines = { { id = "sn_default", text = "The magic things, the ones that got loose from the tower, because the lamps flickered all one night and nobody would say why. Paige says the magi have it all in hand, but she said it with her cooking face, which is the face she makes when she's worried." },
         { id = "sn_safe", when = { killed = { name = "Shade of the Archmage", min = 1 } }, text = "The lamps stopped flickering a while ago, and Brock says some adventurers went up the tower and stopped whatever it was. I still count the boards, though, just in case." } },
       choices = {
-        { text = "You're safe. The magi guard this city well.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Keep listening. Grown-ups don't always know everything.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "You're safe. The magi guard this city well.", next = "BACK", reply = "Paige said that too, but you said it with your normal face and not your cooking face, so I think maybe I believe you a little bit more.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep listening. Grown-ups don't always know everything.", next = "BACK", reply = "I knew it, and I'm going to keep listening every night, and if the lamps flicker again I'll count every board until somebody tells me why.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

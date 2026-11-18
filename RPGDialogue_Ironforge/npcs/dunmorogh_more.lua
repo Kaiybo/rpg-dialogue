@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "td_default", text = "Two, an' a third who'll never swing a pick again. The League wants me to reopen the quarry once it's clear, an' half my lads say they'll never go down there again, an' the other half want to go down wi' torches an' bury every trogg in the stone they stole." } },
       choices = {
-        { text = "Clear it out and reopen it. The stone's yours.", next = "BACK", fx = { align = { honor = -1 }, learn = { "troggs" } } },
-        { text = "Honor your dead first. The stone can wait.", next = "BACK", fx = { align = { honor = 1 }, learn = { "troggs" } } },
+        { text = "Clear it out and reopen it. The stone's yours.", next = "BACK", reply = "Aye, that's what I say, an' the League will be glad o' it, but I'll be the one tellin' the widows the quarry's open again, an' that's no small thing.", fx = { align = { honor = -1 }, learn = { "troggs" } } },
+        { text = "Honor your dead first. The stone can wait.", next = "BACK", reply = "Ye're right, an' I'm ashamed I needed tellin', so we'll raise a stone for them at the lip o' the quarry before a single pick goes down there again.", fx = { align = { honor = 1 }, learn = { "troggs" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,8 +176,8 @@ P:NPC {
       big = true,
       lines = { { id = "st_default", text = "The ones who stayed got sick, and the sickness changed them, and now they wander the halls and don't remember us. Some say we should leave them be, and some say we should go back and drag them out, and I don't know, I just don't know." } },
       choices = {
-        { text = "Go back for them. No one should be left behind.", next = "BACK", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
-        { text = "They're lost, Felix. Save the living instead.", next = "BACK", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "Go back for them. No one should be left behind.", next = "BACK", reply = "Do you really think so, because I've wanted to hear someone say it, and I'm frightened, but I think I'd go if somebody went with me.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "They're lost, Felix. Save the living instead.", next = "BACK", reply = "Maybe you're right, and I know I should listen, but my own cousin is down there somewhere, and I don't know how to stop looking for him.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

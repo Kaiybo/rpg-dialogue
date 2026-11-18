@@ -69,8 +69,8 @@ P:NPC {
       lines = { { id = "wr_default", text = "Call it what you like. A Blackrock killed a friend of mine at the old farmstead, and the King's law and my own grudge happen to point the same way." },
       },
       choices = {
-        { text = "Fight for the kingdom, not your grudge.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A grudge is as good a reason as any.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Fight for the kingdom, not your grudge.", next = "BACK", reply = "The kingdom and my grudge want the same dead orcs, so I don't see the harm. When the Blackrock are gone from Redridge, you can lecture me about my reasons.", fx = { align = { honor = 1 } } },
+        { text = "A grudge is as good a reason as any.", next = "BACK", reply = "It's kept me standing at this bridge through three winters, so I'd say it's better than most. Just don't let it make you careless up in those hills.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "I'm sorry for your friend.", next = "BACK", fx = { affinity = 1 } },
       },
     },

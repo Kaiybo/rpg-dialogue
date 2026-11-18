@@ -59,8 +59,8 @@ P:NPC {
       big = true,
       lines = { { id = "na_default", text = "Terrified, dear, every night! But they mostly stay out by the wreck and the ruins, and I've rigged the porch with enough blasting powder to make them think twice. Blimo says we should move somewhere safer, and I say there's no such thing." } },
       choices = {
-        { text = "Blimo's right. Move somewhere safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stay. It's your home, so defend it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Blimo's right. Move somewhere safe.", next = "BACK", reply = "Oh, he'd love to hear you say that, dear, and he'll never let me forget it. But I've put too much powder in that porch to leave it now.", fx = { align = { order = 1 } } },
+        { text = "Stay. It's your home, so defend it.", next = "BACK", reply = "That's what I keep telling him, dear, and now I've got a witness! Blasting powder and a stubborn wife, that's the best defence there is.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "I like Jubie, and Jubie likes it here, so I suppose I like it here. Mostly I count the naga on the beach every morning and hope the number doesn't go up. I'd move to Ratchet tomorrow, but she won't hear of it." } },
       choices = {
-        { text = "Tell her you're leaving. Your safety matters too.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Stay with her. That's what marriage is.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Tell her you're leaving. Your safety matters too.", next = "BACK", reply = "I couldn't, not really, she'd be all alone with the naga and her powder. But it's kind of you to think of me.", fx = { align = { honor = -1 } } },
+        { text = "Stay with her. That's what marriage is.", next = "BACK", reply = "That's what I keep telling myself, every morning when I count the naga. It helps, a little.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

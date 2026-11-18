@@ -40,8 +40,8 @@ P:NPC {
       big = true,
       lines = { { id = "prej_gadrin_default", text = "Gadrin do, and it shame him a little. Zalazane take our dead from the burning grounds, put his hex on them and send them walking against their own kin, and they don't know their own names no more. Gadrin know you not the same, but his eyes, they don't listen to his head so good." } },
       choices = {
-        { text = "I'm no puppet. Nobody pulls my strings, old man.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "I serve the Dark Lady. Her will is mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm no puppet. Nobody pulls my strings, old man.", next = "BACK", reply = "No, child, you aren't, and Gadrin be glad of it. Forgive an old man his fears, because they be earned on the burning grounds.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I serve the Dark Lady. Her will is mine.", next = "BACK", reply = "Her will, eh? Then Gadrin pray she use it gentler than Zalazane use his. The loa watch all masters, child.", fx = { align = { order = 1 } } },
         { text = "I'll help you free them, if I can.", next = "prej_gadrin_calm", fx = { affinity = 1 } },
         { text = "Were any of Zalazane's dead people you knew?", next = "prej_gadrin_why" },
       },
@@ -58,8 +58,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead back up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach my students that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
       choices = {
-        { text = "The dead deserve their rest, whoever raised them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If the dead can still fight, it's a waste not to use them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dead deserve their rest, whoever raised them.", next = "BACK", reply = "They do, and Gadrin be glad to hear you say it. Rest be the last gift we give our dead, and Zalazane steal even that.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the dead can still fight, it's a waste not to use them.", next = "BACK", reply = "A waste, you say, like the dead be tools on a shelf. That be how Zalazane talk, child, before he fall.", fx = { align = { light = -1 } } },
         { text = "You must have known the Sandfury witch doctors.", next = "xcl_zf2" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. Zalazane twist the dead on the Echo Isles into his slaves, and you be dead with a power he never touch. Maybe that make you safe, maybe not. The loa decide, and I listen." } },
       choices = {
-        { text = "I'll prove I'm no one's slave, Master.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I serve the Dark Lady and the Horde. Ask no more.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll prove I'm no one's slave, Master.", next = "BACK", reply = "Then prove it, child, and Gadrin will watch with hope instead of fear. The loa love a spirit that chooses itself.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I serve the Dark Lady and the Horde. Ask no more.", next = "BACK", reply = "Fair, child, and Gadrin will ask no more. But the loa ask what they like, and they don't need permission.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "He take what the loa give for healin' and turn it to bindin' his own people, mon. Now the Echo Isles be full of Darkspear with his hex on them, and I wake up some nights thinkin' I should have seen it in him when he was small." } },
       choices = {
-        { text = "Then I'll use the loa's gifts as they were meant.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Power given is power to use as you see fit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll use the loa's gifts as they were meant.", next = "BACK", reply = "That be what they were meant for, healing and helping, not binding. Bless you, child, and may the loa guide your hands.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power given is power to use as you see fit.", next = "BACK", reply = "That be what Zalazane said, word for word, when he was young. Be careful, child, because the loa remember how you use their gifts.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Gently, if you can, and that be what a warrior find hardest. Zalazane's voodoo turn our own people against us, and when the hex break they wake up confused and ashamed, so knock them down if you must, but don't kill a troll who can still come home." } },
       choices = {
-        { text = "I'll spare the hexed ones, Master Gadrin.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A spear in my face is a spear. I'll do what I must.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll spare the hexed ones, Master Gadrin.", next = "BACK", reply = "Good, warrior, and the loa will thank you for every one. They be family under that hex, and they will wake.", fx = { align = { honor = 1 } } },
+        { text = "A spear in my face is a spear. I'll do what I must.", next = "BACK", reply = "Gadrin understand, and he won't blame you for living. But try, warrior, try, because the hex break and they wake up.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,16 +100,16 @@ P:NPC {
         { id = "xrogue_default", text = "Maybe, though Zalazane hides on the Echo Isles behind his voodoo and his hexed Darkspear, and they be our own people under the spell. Cut the witch doctor if you can reach him, but spare the hexed ones, because they be family still." },
       },
       choices = {
-        { text = "I'll spare the hexed. They're Darkspear, after all.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "In a fight, I can't stop to ask who's hexed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll spare the hexed. They're Darkspear, after all.", next = "BACK", reply = "Thank you, child, and the loa see your kindness. Cut the witch doctor, and let the rest of them wake.", fx = { align = { light = 1 } } },
+        { text = "In a fight, I can't stop to ask who's hexed.", next = "BACK", reply = "No, you can't, and Gadrin know it. Strike as you must, but strike the witch doctor first, and the rest might be saved.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "The spirits, yes, once Zalazane be dead and his voodoo with him. The trolls he twisted, I don't know, and I pray to the loa every night that I find out." } },
       choices = {
-        { text = "Then save every troll you can.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "His slaves are lost. End them cleanly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then save every troll you can.", next = "BACK", reply = "Gadrin will try, child, every one he can reach. The loa willing, some of them come home to Sen'jin.", fx = { align = { light = 1 } } },
+        { text = "His slaves are lost. End them cleanly.", next = "BACK", reply = "Maybe some be lost, child, but Gadrin will not give up on them yet. End them cleanly if you must, and pray for their spirits.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -178,8 +178,8 @@ P:NPC {
       },
       choices = {
         { text = "I'm not Zalazane. I command it, not the other way.", next = "warlock_command" },
-        { text = "Then I'll come to you whenever it speaks.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "The power's mine to use, Master, voice or no voice.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Then I'll come to you whenever it speaks.", next = "BACK", reply = "Good, child, and come often, because that voice be patient. Gadrin will listen, and the loa will listen too.", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "The power's mine to use, Master, voice or no voice.", next = "BACK", reply = "That be what he said, child, those exact words. Come back to Gadrin before it be too late to come back at all.", fx = { affinity = -2, align = { light = -1 } } },
       },
     },
     warlock_command = {
@@ -204,14 +204,14 @@ P:NPC {
     mage = {
       lines = { { id = "ma_default", text = "Strange? A little, yes, because the Darkspear got the loa and the witch doctors and never need human books. But a sharp mind be a sharp mind, and Zalazane prove a witch doctor can go wrong too, so I judge the student and not the school." } },
       choices = {
-        { text = "The tribe needs every kind of power it can get.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I'll keep the old ways close, beside the new.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The tribe needs every kind of power it can get.", next = "BACK", reply = "It does, child, and Vol'jin say the same. Learn your books, and bring what you learn home to the tribe.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll keep the old ways close, beside the new.", next = "BACK", reply = "That be wisdom, child, more than most young ones have. The loa will watch over you, books and all.", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
     headhunter = {
       lines = { { id = "hd_default", text = "The old way, eh? That be good to hear, child, so bring the tribe's enemies down clean and give their spirits to the loa proper, and never take a head for pride, because that be how a hunter turns into something else." } },
-      choices = { { text = "Clean, and never for pride.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A head taken for pride still scares the enemy.", next = "BACK", fx = { align = { honor = -1 } } } },
+      choices = { { text = "Clean, and never for pride.", next = "BACK", reply = "Then the loa will be pleased with you, child. Go clean, and come home clean.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A head taken for pride still scares the enemy.", next = "BACK", reply = "It scares them, ya, but it scares the hunter's spirit too, after a while. Be careful, child, because pride be a hungry loa.", fx = { align = { honor = -1 } } } },
     },
     isles = {
       big = true,
@@ -219,8 +219,8 @@ P:NPC {
         { id = "i_default", text = "Zalazane drink deep of power he shouldn't touch, and it drown him. He curse the isles and make our own people his puppets. We leave our home to save the rest." },
       },
       choices = {
-        { text = "We'll take it back.", next = "END", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
-        { text = "Your people matter more than the isles, so let Zalazane keep them.", next = "END", fx = { align = { honor = -1 }, learn = { "echo_isles" } } },
+        { text = "We'll take it back.", next = "END", reply = "Ya, child, one day we take them back, and Gadrin pray he live to see it. Go with the loa.", fx = { affinity = 2, align = { honor = 1 }, learn = { "echo_isles" } } },
+        { text = "Your people matter more than the isles, so let Zalazane keep them.", next = "END", reply = "Maybe you be right, child, and maybe not. Gadrin still dream of the isles every night, and he pray you never lose a home.", fx = { align = { honor = -1 }, learn = { "echo_isles" } } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, learn = { "echo_isles" } } },
       },
     },
@@ -286,8 +286,8 @@ P:NPC {
         { id = "xl_default", text = "Loudly, eh? Then they be laughing at something, because the loa only shout when the joke be on somebody. You tell people what they say, sometimes, and I tell you this as an old man who did the same: the loa's truth be sharp, so you choose who you cut with it." },
       },
       choices = {
-        { text = "I tell what the loa say. Softening it is lying.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 } } },
-        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I tell what the loa say. Softening it is lying.", next = "BACK", reply = "Truth be truth, child, but it can cut both ways. Speak it, then, and be ready for what it cut.", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", reply = "Good, child, you listened. The loa's truth be heavy, and not every shoulder can carry it.", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Who are they laughing at this time?", next = "xloa_who" },
       },
     },

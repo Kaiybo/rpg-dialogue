@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Darkshire cares about one prisoner in that place, and the rest may rot or riot as they please. Ward sold our dead to a necromancer and I sentenced him for it, and the House of Nobles took him from us on a point of law, which I have not forgiven and do not intend to." } },
       choices = {
-        { text = "The law is the law, my lord, even when it's slow.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Darkshire's justice should be Darkshire's, whatever the House says.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The law is the law, my lord, even when it's slow.", next = "BACK", reply = "It is, and I serve it, though my patience grows thin while the House debates. Darkshire is still a loyal town, whatever my mood suggests.", fx = { align = { order = 1 } } },
+        { text = "Darkshire's justice should be Darkshire's, whatever the House says.", next = "BACK", reply = "Careful, friend, such talk has hanged better men than either of us. Though I'll confess I've had the same thought on long nights.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "What would you have done with Ward?", next = "xcl_stocks2" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Rarely, and never with enough. I'm courteous, but desperate. A shaman's help would be welcome." } },
       choices = {
-        { text = "Then I'll help Darkshire, my lord. Count on it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stop waiting on Stormwind. Rule Darkshire yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll help Darkshire, my lord. Count on it.", next = "BACK", reply = "Then I'll count on it, shaman, and gladly. Darkshire has precious few friends it can count on these days.", fx = { align = { order = 1 } } },
+        { text = "Stop waiting on Stormwind. Rule Darkshire yourself.", next = "BACK", reply = "I'd not insult my king by declaring myself his rival, however long he takes to answer. Darkshire is Stormwind's, and so am I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,32 +93,32 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "I begin to doubt it, and I say that as a loyal subject of the crown. Stormwind has its own troubles, I'm told, but the dead don't stop walking because the nobles are busy, so until they come, the Night Watch and warriors like you are all we have." } },
       choices = {
-        { text = "Then I'll fight for Darkshire until Stormwind remembers you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stormwind won't come. You should stop asking and start hiring.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll fight for Darkshire until Stormwind remembers you.", next = "BACK", reply = "That is a loyalty Stormwind hasn't earned, and I'll not forget you offered it. The Night Watch will be glad of you.", fx = { align = { order = 1 } } },
+        { text = "Stormwind won't come. You should stop asking and start hiring.", next = "BACK", reply = "Hiring with what, friend, my letters? I'll keep asking until the crown answers, because I don't know how to stop.", fx = { align = { order = -1 } } },
         { text = "Something else, my lord.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "I've considered every road to Stormwind's ear, including the less respectable ones, and I'm ashamed to say I've written to people I'd never have dined with. If you have such a road, I won't ask what it costs you." } },
       choices = {
-        { text = "I'll use the proper channels, my lord.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Shadows open doors that petitions don't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll use the proper channels, my lord.", next = "BACK", reply = "I'd expect nothing less, and I'm glad of it. The respectable roads are slow, but they're still roads.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Shadows open doors that petitions don't.", next = "BACK", reply = "They do, I suppose, and I've no right to judge after what I've tried. I'll not ask what doors, and I'll be grateful if they open.", fx = { align = { honor = -1 } } },
         { text = "What does Darkshire need from Stormwind?", next = "need" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Medivh's tower has troubled this valley since before my grandfather's time, and some say the forest darkened in the same years his madness grew. I don't know if that's true, mage, but I'd send no one up that pass alone." } },
       choices = {
-        { text = "Such places need the Kirin Tor's oversight.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some towers are best left to the brave and curious.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Such places need the Kirin Tor's oversight.", next = "BACK", reply = "They would be welcome, if Dalaran ever answered my letters either. I've written to them twice.", fx = { align = { order = 1 } } },
+        { text = "Some towers are best left to the brave and curious.", next = "BACK", reply = "The brave and curious seem to go up that pass and stay there. Do come back down, mage, if you can.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Why won't Stormwind send an army?", next = "army" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "My town fears everything, and with good reason, so you'll forgive them if they cross the road. I'm a courteous man and a desperate one, and I'll judge you by whether the wolves are fewer when you leave." } },
       choices = {
-        { text = "Judge me on deeds. I'll earn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Fear is useful. Let them keep it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Judge me on deeds. I'll earn it.", next = "BACK", reply = "Then earn it, and you'll find this town more grateful than it looks. Deeds are all Darkshire can afford to judge by.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fear is useful. Let them keep it.", next = "BACK", reply = "Useful, perhaps, but it keeps my town from sleeping, and they need what sleep they can get. Keep yours where I can't see it.", fx = { align = { honor = -1 } } },
         { text = "Tell me about the Night Watch.", next = "watch" },
       },
     },
@@ -195,7 +195,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help the Night Watch.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { order = 1 } } },
-        { text = "I'd sooner hunt these woods alone than march with the Watch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd sooner hunt these woods alone than march with the Watch.", next = "BACK", reply = "Then hunt them, and I'll not stop you, though the woods have swallowed hunters before you. The Watch would welcome you if you change your mind.", fx = { align = { order = -1 } } },
         { text = "I saw no walls around Darkshire.", next = "need_walls" },
         { text = "Sounds grim.", next = "BACK" },
       },
@@ -306,8 +306,8 @@ P:NPC {
           fx = { learn = { "morbent_fel" } } },
       },
       choices = {
-        { text = "He should have hanged.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Prison is still punishment.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "He should have hanged.", next = "BACK", reply = "Darkshire would agree with you, and I'd sign the order myself. The House of Nobles disagreed, as the House does.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Prison is still punishment.", next = "BACK", reply = "It is, though not the punishment the dead deserve. I'll keep that opinion out of my next letter to the House.", fx = { affinity = -1, align = { light = 1 } } },
       },
     },
 
@@ -326,8 +326,8 @@ P:NPC {
         { id = "eg_default", text = "No one did. You were kind to a lonely old man, and that kindness nearly doomed this town, so let's see what it can do for us now." },
       },
       choices = {
-        { text = "I'll make it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { darkshire = 1 } } },
-        { text = "It wasn't my doing, and I won't carry it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll make it right.", next = "BACK", reply = "Good, because Darkshire needs friends who make things right. Start with the abomination, if you would.", fx = { affinity = 2, align = { honor = 1 }, standing = { darkshire = 1 } } },
+        { text = "It wasn't my doing, and I won't carry it.", next = "BACK", reply = "That's fair, and I'll not ask you to. But the town will remember who helped, whatever started it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -348,8 +348,8 @@ P:NPC {
       },
       choices = {
         { text = "Nobody seems to tend those graves anymore.", next = "priest_graves" },
-        { text = "I'll go at dawn.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darkshire = 1 } } },
-        { text = "Prayers won't keep the dead in the ground, but steel will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll go at dawn.", next = "BACK", reply = "At dawn, then, and may the Light go with you. I'll have the Watch know to expect you on the road.", fx = { affinity = 2, align = { light = 1 }, standing = { darkshire = 1 } } },
+        { text = "Prayers won't keep the dead in the ground, but steel will.", next = "BACK", reply = "Steel has kept them there for a while, priest, until it doesn't. I'll take both, if you're offering.", fx = { align = { light = -1 } } },
       },
     },
     priest_graves = {
@@ -358,8 +358,8 @@ P:NPC {
           fx = { learn = { "ladimore" } } },
       },
       choices = {
-        { text = "Then the graves need a priest more than ever.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Those graves are better left alone now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the graves need a priest more than ever.", next = "BACK", reply = "They do, and you'd be the first priest up there in years. Go carefully, because the knight doesn't care about your robes.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Those graves are better left alone now.", next = "BACK", reply = "Perhaps they are, and that's a grief in itself. The families who loved them can't even visit.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,7 +369,7 @@ P:NPC {
       },
       choices = {
         { text = "They wait for luncheon.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 }, align = { honor = -1 } } },
-        { text = "Some of them listen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some of them listen.", next = "BACK", reply = "Some of them, you say, which is more than I'd hoped. I'll write more letters, then, and perhaps the right ones will listen.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll speak for Darkshire there.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 } },
           journal = { first = "Told Lord Ello Ebonlocke I'd speak for Darkshire in the House of Nobles.",
                       third = "{name} promised the mayor of Darkshire a voice in the House of Nobles." } },

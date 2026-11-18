@@ -90,8 +90,8 @@ P:NPC {
         { id = "df_default", text = "Where we came from, if ye want the League's answer, an' a good deal o' carved stone if ye want mine. The old stories say the mountain made us, an' every ruin in Khaz Modan might say how." },
       },
       choices = {
-        { text = "Some old things are better left buried.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A people should know where they came from.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "explorers_league" } } },
+        { text = "Some old things are better left buried.", next = "BACK", reply = "Ye sound like my mother, an' she was wiser than the whole League. Still, we've dug this far, an' I'd no' stop now if the King himself asked.", fx = { align = { order = -1 } } },
+        { text = "A people should know where they came from.", next = "BACK", reply = "Aye, that's the League's whole heart in one breath. A dwarf who doesnae know his roots is just a beard wi' boots on.", fx = { affinity = 1, align = { order = 1 }, learn = { "explorers_league" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,8 +114,8 @@ P:NPC {
       },
       choices = {
         { text = "Someone on that road must be handling the barrels.", next = "powder_who" },
-        { text = "Count the barrels at both ends from now on.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
-        { text = "Let the dig blow its own walls without powder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Count the barrels at both ends from now on.", next = "BACK", reply = "Both ends, aye, an' the middle too if I can manage it. I'll have a ledger on every cart by the end o' the week.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Let the dig blow its own walls without powder.", next = "BACK", reply = "Ha! Tell that tae Ironband an' watch his face go purple. Without powder, the dig's just a lot o' dwarves wi' sore arms.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,8 +156,8 @@ P:NPC {
         { id = "spy_default", text = "In ink, aye, an' ink shouts louder than ye'd think. I don't mind it, for he cares about the work, an' a dwarf who cares that much is worth a few hot letters." },
       },
       choices = {
-        { text = "A hot letter is still poor leadership.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Loyal of you, Jern. The League's lucky.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A hot letter is still poor leadership.", next = "BACK", reply = "Maybe it is, but I'd rather a leader who shouts than one who doesnae care. Ye've no' met Stormpike, or ye'd see what I mean.", fx = { align = { honor = -1 } } },
+        { text = "Loyal of you, Jern. The League's lucky.", next = "BACK", reply = "Lucky, aye, or foolish, dependin' on who ye ask. I'll take it as kindness, an' thank ye for it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -170,8 +170,8 @@ P:NPC {
           text = "I'll tell ye what I've told nobody else: I wrote tae Ironforge offerin' tae step down over it. Stormpike wrote back one line, which was 'Don't be daft,' an' it's the kindest letter he's ever sent me." },
       },
       choices = {
-        { text = "Anyone can be fooled by a friendly face.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You should have watched him closer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Anyone can be fooled by a friendly face.", next = "BACK", reply = "Aye, they can, an' I was. I'll no' let it make me hard, though, for most smiles in this town are honest ones.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You should have watched him closer.", next = "BACK", reply = "I should have, an' I'll be tellin' myself that for years. Rub it in a wee bit more, if ye like.", fx = { align = { light = -1 } } },
         { text = "Something else, Jern.", next = "BACK" },
       },
     },

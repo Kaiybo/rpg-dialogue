@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "dl_default", text = "I serve the Dark Lady, who chose him to command us, and I find it simplest not to have opinions about her choices. You'd be wise to find it simple too." } },
       choices = {
-        { text = "Loyalty to the Dark Lady is enough for me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll keep my own opinions, and my own counsel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Loyalty to the Dark Lady is enough for me.", next = "BACK", reply = "Then you'll go far among the deathstalkers. Loyalty is the only thing we can't afford to lose.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep my own opinions, and my own counsel.", next = "BACK", reply = "Keep them, then, but keep them very quietly. The Undercity has ears, and some of them are mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

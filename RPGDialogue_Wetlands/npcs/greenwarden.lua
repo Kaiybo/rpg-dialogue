@@ -169,8 +169,8 @@ P:NPC {
         { id = "ws_default", text = "The fen creepers have risen, diseased blisters on the land, and for the fever to break they must be put down and allowed to settle into the mud again. It grieves me, but a wound must be lanced before it can heal." },
       },
       choices = {
-        { text = "Then I'll lance it. The land comes first.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Perhaps the healers could cure them instead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll lance it. The land comes first.", next = "BACK", reply = "You speak as the marsh would speak, if it had a mouth. Go to the creepers, then, and let the mud take back what it gave.", fx = { align = { order = -1 } } },
+        { text = "Perhaps the healers could cure them instead.", next = "BACK", reply = "Your healers mend flesh, small one, and these are not flesh but the marsh's own sickness risen up. I have waited long seasons for a cure that did not come.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,8 +190,8 @@ P:NPC {
         { id = "gk_default", text = "I would have them fewer, and the marsh cannot ask kindly. A forest culls its weak trees with storms, small one, and I have no storms, so I have you." },
       },
       choices = {
-        { text = "Balance is worth the blood. I'll do it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll do it, but I take no joy in it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Balance is worth the blood. I'll do it.", next = "BACK", reply = "Then you understand more than most who pass under my branches. Be the storm, and the marsh will breathe easier when you are done.", fx = { align = { light = -1 } } },
+        { text = "I'll do it, but I take no joy in it.", next = "BACK", reply = "Good, for joy in culling is how a storm becomes a blight. Carry your sorrow with you, small one, and the marsh will know the difference.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
