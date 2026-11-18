@@ -27,3 +27,4 @@ npcs\borook.lua
 npcs\bluff_craftsfolk.lua
 npcs\bluff_callers.lua
 npcs\more_folk.lua
+directions.lua

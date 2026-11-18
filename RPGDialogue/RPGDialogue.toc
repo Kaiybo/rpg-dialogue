@@ -33,6 +33,7 @@ Systems\Towns.lua
 Systems\Kin.lua
 Systems\Disposition.lua
 Systems\Topics.lua
+Systems\Directions.lua
 Systems\Books.lua
 Systems\Insanity.lua
 Systems\Barks.lua

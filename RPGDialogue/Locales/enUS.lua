@@ -134,6 +134,22 @@ L.ASK_KNOWS_ROW_TIP = "They said they know something about this."
 L.ASK_NOTHING_TIP = "You asked; they had nothing to say about it."
 L.KNOWS_TITLE = "What do you know?"
 L.KNOWS_FALLBACK = "Here's what I could tell you about."
+L.ASK_WHERE_TIP = "Ask the way to the inn, the bank, your trainer and the people of this town."
+L.WHERE_TITLE = "Where is...?"
+L.WHERE_LEADIN = "What are you looking for? I know my way around here."
+L.WHERE_LEADIN_NEW = "I'm new here myself, but I'll do my best. What are you after?"
+L.WHERE_NONE = "Couldn't tell you, sorry. I don't know this place well enough to send you anywhere."
+L.WHERE_UNKNOWN = "Couldn't tell you, sorry."
+L.WHERE_SELF = "You've found them already. You're talking to me."
+L.WHERE_MORE = "Somewhere else..."
+L.WHERE_DONE = "That's all I needed."
+L.WHERE_WAYPOINT = "TomTom: waypoint set for %s."
+L.WHERE_VAGUE = {
+  "I think that's somewhere off the main road, but don't hold me to it.",
+  "I've only just got here myself. Ask one of the guards; they'll know.",
+  "Somewhere near the middle of town, I'd guess. I keep getting lost myself.",
+  "I passed it once, I'm sure, but I couldn't tell you where now.",
+}
 
 -- Disposition, approval and checks (0.34.0)
 L.DISP_LABEL = "Disposition: %s"

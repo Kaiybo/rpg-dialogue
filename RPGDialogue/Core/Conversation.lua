@@ -900,6 +900,13 @@ function Conv.Choose(index)
     return
   end
   if entry.view then Conv.SayView(entry.view, entry.topic); return end
+  if entry.where then Conv.AnswerWhere(entry.where); return end
+  if entry.whereMore then Conv.AskWhere((s.wherePage or 0) + 1); return end
+  if entry.whereDone then
+    s.wherePage = nil
+    View(s).SetChoices(Conv.BuildChoices(s.nodeDef, false))
+    return
+  end
   if entry.action then
     -- An answer on one of the game's pages shown in the box (accept, hand in, reward...).
     if entry.action == "handover" then Conv.HandOver(); return end
@@ -1111,10 +1118,69 @@ function Conv.AskKnows()
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 
+-- "Where is...?" (Daggerfall-style): a lead-in, then the town's places and people as
+-- replies, a page at a time. Picking one gives the way there (and a TomTom waypoint when
+-- TomTom is loaded); "That's all I needed." goes back to the conversation.
+function Conv.AskWhere(page)
+  local s = Conv.session
+  if not s then return end
+  local Dir = ns.Directions
+  local _, list = Dir.List(s.info, s.ctx)
+  if not page then
+    ns.Topics.Asked("whereis", s.memKey, #list > 0)
+    local text
+    if #list == 0 then
+      text = L.WHERE_NONE
+    else
+      local w = Engine.PickTopic(s.info, "whereis", s.ctx, s.env)
+      if w and not (type(w.src) == "string" and w.src:find("brushoff")) then
+        Conv.Shown(w)
+        s.lastLine = w.gid
+        text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
+      else
+        text = (s.info.def and s.info.def.newInTown) and L.WHERE_LEADIN_NEW or L.WHERE_LEADIN
+      end
+    end
+    Conv.Log("ask", L.WHERE_TITLE)
+    Conv.Log("npc", text)
+    View(s).ShowAnswer(text, L.WHERE_TITLE)
+    if #list == 0 then
+      if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+      return
+    end
+  end
+  local shown, more, pg = Dir.Page(list, page or 0)
+  s.wherePage = pg
+  s.viewTopic = nil
+  local entries = {}
+  for _, e in ipairs(shown) do entries[#entries + 1] = { choice = { text = e.name }, where = e } end
+  if more then entries[#entries + 1] = { choice = { text = L.WHERE_MORE }, whereMore = true } end
+  entries[#entries + 1] = { choice = { text = L.WHERE_DONE }, whereDone = true }
+  s.choiceEntries = entries
+  local choices = {}
+  for i, entry in ipairs(entries) do
+    choices[i] = { text = entry.choice.text, gap = (entry.whereMore or (entry.whereDone and not more)) and i > 1 or nil }
+  end
+  View(s).SetChoices(choices)
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+function Conv.AnswerWhere(entry)
+  local s = Conv.session
+  if not s then return end
+  local text = ns.Directions.Answer(entry, s.info, s.memKey, (s.env and s.env.seed or 0) + #entry.id)
+  text = Tokens.Render(text, s.ctx, s.env)
+  Conv.Log("you", entry.name)
+  Conv.Log("npc", text)
+  View(s).ShowAnswer(text, entry.name, Conv.Hear(text))
+  ns.Directions.Waypoint(entry, s.info)
+end
+
 function Conv.Ask(topic)
   local s = Conv.session
   if not s or s.mode ~= "full" then return end
   if topic == "knows" then Conv.AskKnows(); return end
+  if topic == "whereis" and ns.Directions then Conv.AskWhere(); return end
   local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
   local brushoff = w == nil or (type(w.src) == "string" and w.src:find("brushoff") ~= nil)
   ns.Topics.Asked(topic, s.memKey, not brushoff)

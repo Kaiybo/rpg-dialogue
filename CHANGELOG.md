@@ -3,6 +3,7 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## Unreleased
+- **"Where is...?"** Anyone can now be asked the way around town, Daggerfall-style: the inn, the bank, the auction house, the flight master, a mailbox, class trainers (yours first), profession trainers and the town's notable people. Seeded for Stormwind, Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity, Goldshire, Razor Hill and the Crossroads. With TomTom installed, the answer also sets a waypoint. **New files: restart the game fully (a /reload won't load them).**
 - **Every quest you finish in a town raises your standing there.** Before, only the quests listed for each town counted. Now any other quest you turn in inside a town gives a smaller boost (+3), the town hears you helped, and its people's disposition toward you rises with it.
 
 ## 0.84.0 (2026-11-18)
