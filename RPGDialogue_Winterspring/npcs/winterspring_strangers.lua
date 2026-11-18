@@ -228,7 +228,7 @@ P:NPC {
     advice = {
       lines = { { id = "ad_default", text = "A warm cloak, more water than you think, because snow won't quench you, and something to eat that doesn't freeze solid in your pack. And keep away from the frostsabers' rock in the far north unless you've business with the riders there; the cats don't care for strangers." } },
       choices = {
-        { text = "Riders? On frostsabers?", next = "advice_riders" },
+        { text = "Riders on frostsabers?", next = "advice_riders" },
         { text = "Something else.", next = "BACK" },
       },
     },

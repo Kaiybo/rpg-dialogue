@@ -125,7 +125,7 @@ P:NPC {
       },
       choices = {
         { text = "They're centaur. I'll kill as many as it takes.", next = "BACK", reply = "Then go, but remember that a Magram bag full of foals will shame you before Warug, and before me.", fx = { align = { light = -1 } } },
-        { text = "I'll kill warriors, not their young.", next = "BACK", reply = "Good. That is the line I would draw too, and I think the Earth Mother draws it there as well.", fx = { align = { light = 1 } } },
+        { text = "I'll kill warriors, not their young.", next = "BACK", reply = "That is the line I would draw too, and I think the Earth Mother draws it there as well.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,7 +346,7 @@ P:NPC {
           text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is plenty. Desolace has little that grows, but plenty that can be taken." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm counting spools." },
+        { id = "h_again", text = "Anything else? I'm counting spools, and I keep losing my place." },
         { id = "h_again2", text = "Ask, then, but quickly. Light's going." },
       },
       choices = {

@@ -121,7 +121,7 @@ P:NPC {
       },
       choices = {
         { text = "The Dark Irons are kin, whatever they've done.", next = "BACK", reply = "Kin, aye, an' they'll be kin right up until they put a knife in yer back. Thaurissan's lot forgot that, so I'll no' remember it for them.", fx = { align = { light = 1 } } },
-        { text = "Good. Kin who betray you are worse than strangers.", next = "BACK", reply = "That's the truth o' it, an' it's why I keep my rifle loaded. A stranger's just a stranger, but a traitor's personal.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Good. Kin who betray you are worse than strangers.", next = "BACK", reply = "That's the truth o' it, an' it's why I keep my rifle loaded. A stranger I can forgive, but a Dark Iron who shares my blood an' still burns my kin, never.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
     },
@@ -277,7 +277,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair enough. Trust should be earned.", next = "BACK", fx = { affinity = 1 },
-          reply = "Aye. Keep earnin' it, then." },
+          reply = "Aye. Keep earnin' it, then, every day ye're here." },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -375,7 +375,7 @@ P:NPC {
         { id = "jf_default", text = "Some nights, aye, for that's where the songs get written. But the Captain says the front's only a front if somebody holds the back, an' I've decided tae believe him." },
       },
       choices = {
-        { text = "The Captain's right. Holding home matters most.", next = "BACK", reply = "I think so too, most days, though it's good tae hear somebody else say it. The back needs holdin' as much as the front.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "The Captain's right. Holding home matters most.", next = "BACK", reply = "I think so too, most days, though it's good tae hear somebody else say it. Somebody has tae mind the gate while the brave ones go chargin' off.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Go where the glory is, lad. Life's short.", next = "BACK", reply = "It is short, aye, an' I've thought about it every night. But the Captain needs me here, an' I'd no' let him down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

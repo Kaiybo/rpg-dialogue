@@ -40,7 +40,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers. Only keep your demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
       choices = {
-        { text = "I'll respect your birds, Shellei. No tricks aboard.", next = "BACK", reply = "Then they'll carry ye gladly, an' I'll sleep easier. A gryphon that trusts its rider is a gryphon that comes home.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll respect your birds, Shellei. No tricks aboard.", next = "BACK", reply = "Then they'll carry ye gladly, an' I'll sleep easier. A gryphon that trusts its rider will bring ye home through any storm off the bay.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your birds will have to get used to me.", next = "BACK", reply = "They'll get used tae ye about as fast as I would tae a fel imp in my bed, which is tae say never. Keep it well away, or walk tae Thelsamar.", fx = { align = { order = -1 } } },
         { text = "Something else, Shellei.", next = "BACK" },
       },
@@ -50,7 +50,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "They can, though they'll complain the whole way to Thelsamar, and so would you if you had to fly in this damp. Sit still, lean forward over the mountains, and don't swing anything near their wings." } },
       choices = {
         { text = "I'll sit still and give the bird no trouble.", next = "BACK", reply = "Good, that's all a gryphon wants of a rider, and you'd be amazed how few manage it. Lean into the climb and you'll be in Thelsamar by supper.", fx = { align = { order = 1 } } },
-        { text = "I'll fly the way I fight, hard and fast.", next = "BACK", reply = "Then you'll fly once and walk the rest of your life, because no bird of mine will take you twice. They're mounts, not battering rams.", fx = { align = { order = -1 } } },
+        { text = "I'll fly the way I fight, hard and fast.", next = "BACK", reply = "Then you'll fly once and walk the rest of your life, because no bird of mine will take you twice. They're gryphons, not battering rams.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -61,7 +61,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They mind everything in this swamp, and a hunter's beast is one more thing to hiss at. {pet} stays on the ground while you fly, though, and it'll be waiting when you land." },
       },
       choices = {
-        { text = "I'll keep my beast well clear of the roost.", next = "BACK", reply = "Thank you, truly, for the birds are skittish enough in this damp without a wolf sniffing at their tails. They'll fly the better for it.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my beast well clear of the roost.", next = "BACK", reply = "Thank you, truly, for the birds are skittish enough in this damp without a wolf sniffing at their tails. Old Stormbeak once dropped a hunter in the bay over less.", fx = { align = { order = 1 } } },
         { text = "My beast goes where I go. The birds will cope.", next = "BACK", reply = "They'll cope by throwing you off over the mountains, most likely. A gryphon doesn't take kindly to a beast it can't see the bottom of.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -90,7 +90,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "When the garrison asks, which is more often since the Dragonmaw came into Algaz. The birds know a hurt rider from a healthy one, and they fly gentler for it." } },
       choices = {
-        { text = "Then I'll see to the wounded before they fly.", next = "BACK", reply = "Bless you for that, for the lads come down from Algaz in a bad way. A rider who's been seen to first holds on better over the mountains.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll see to the wounded before they fly.", next = "BACK", reply = "Bless you for that, for the lads come down from Algaz in a bad way. I've had one faint clean off a bird over Loch Modan, and we never found his boots.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The strong should fly first. The wounded slow them.", next = "BACK", reply = "A wounded rider is exactly who needs a bird most, since he can't walk the road. My gryphons slow for no one, but they carry everyone.", fx = { align = { light = -1 } } },
         { text = "Something else, Shellei.", next = "BACK" },
       },
@@ -100,7 +100,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Safe enough, since the orcs can't reach us that high, though they'll throw things on the way up. It's the dragons over Grim Batol I watch for, and so far they've kept to their own skies." } },
       choices = {
         { text = "If the birds are threatened, I'll set down and fight.", next = "BACK", reply = "Then you'd lose your bird and your fare both, though I'll grant the thought is a brave one. Leave the orcs to the garrison and trust the gryphon.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then I'll fly high and leave the orcs alone.", next = "BACK", reply = "That's what the birds do on their own, and they're wiser than most riders. Up high and away, and nobody has to bleed.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll fly high and leave the orcs alone.", next = "BACK", reply = "That's what the birds do on their own, and they're wiser than most riders. They know exactly how far a Dragonmaw spear can fly.", fx = { align = { honor = -1 } } },
         { text = "Something else, Shellei.", next = "BACK" },
       },
     },
@@ -160,7 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "Someone should drive the Dragonmaw out.", next = "BACK", reply = "Someone should, and the dwarves at Algaz have been saying so for months. Until they manage it, my birds fly the long way round.", fx = { align = { order = 1 }, trait = { brave = 1 }, learn = { "dragonmaw" } } },
-        { text = "Wise birds. Best to avoid a fight you can't win.", next = "BACK", reply = "They are, and wiser than half the soldiers who pass through here. A gryphon knows when to fight and when to be somewhere else.", fx = { align = { order = -1 }, trait = { cautious = 1 }, learn = { "dragonmaw" } } },
+        { text = "Wise birds. Best to avoid a fight you can't win.", next = "BACK", reply = "They are, and wiser than half the soldiers who pass through here. I've seen a gryphon turn tail at a single red wing over Grim Batol, and it was right to.", fx = { align = { order = -1 }, trait = { cautious = 1 }, learn = { "dragonmaw" } } },
       },
     },
 
@@ -264,7 +264,7 @@ P:NPC {
         { id = "xma_gnome", when = { race = "Gnome" }, text = "Fire near my powder, from a gnome? I've heard how Gnomeregan went, an' I'll no' have Menethil go the same way. I'll fight the rust wi' oil an' rags, thank ye." },
       },
       choices = {
-        { text = "Ten paces. Understood.", next = "BACK", reply = "Good. Ye'd no' believe how many mages I've had tae chase out o' here wi' a broom.", fx = { align = { order = 1 } } },
+        { text = "Ten paces back. Understood.", next = "BACK", reply = "Good, for ye'd no' believe how many mages I've had tae chase out o' here wi' a broom.", fx = { align = { order = 1 } } },
         { text = "A little warmth never hurt anyone.", next = "BACK", reply = "It's no' the warmth I mind, it's the bang that comes after! Ten paces, or I'll call the guard.", fx = { align = { order = -1 } } },
         { text = "How do you keep anything dry here?", next = "dry" },
       },
@@ -344,7 +344,7 @@ P:NPC {
         { id = "st_default", text = "Because the garrison needs guns, wi' the Dragonmaw so close an' the Dark Irons on the Thandol Span. A dwarf goes where he's needed, even when it means wet socks for the rest o' his life." },
       },
       choices = {
-        { text = "That's real duty. I respect it.", next = "BACK", reply = "Thank ye, that means more than ye'd think. Duty's a hard comfort in the rain, but it's a comfort all the same.", fx = { align = { honor = 1 }, affinity = 1, learn = { "dragonmaw", "thandol_span" } } },
+        { text = "That's real duty, and I respect it.", next = "BACK", reply = "Thank ye, that means more than ye'd think. I've stood this counter through three floods an' one fire, an' I'd stand it through three more.", fx = { align = { honor = 1 }, affinity = 1, learn = { "dragonmaw", "thandol_span" } } },
         { text = "I'd have left for somewhere drier.", next = "BACK", reply = "So would I, by my beard, if I'd any sense. But the guns are needed here, an' so am I, wet socks or no.", fx = { align = { honor = -1 }, learn = { "dragonmaw", "thandol_span" } } },
       },
     },
@@ -396,7 +396,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Not yet, but I'd stock them if I knew what they were, and a good waterproof cloak seems likely, given the weather. The gnomes passing through keep asking whether your totems could power their gadgets, and I've learned not to answer gnomes' questions." } },
       choices = {
         { text = "Totems aren't gadgets. Tell the gnomes that from me.", next = "BACK", reply = "I'll tell them, for all the good it'll do. Last week one asked me for a totem with a crank on it, and I didn't know what to say.", fx = { align = { honor = 1 } } },
-        { text = "Sell the gnomes whatever they think works, Neal.", next = "BACK", reply = "That's my policy, mostly, and it keeps the shelves moving. They seem happy, and nobody's blown the shop up yet.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Sell the gnomes whatever they think works, Neal.", next = "BACK", reply = "That's my policy, mostly, and it keeps the shelves moving. Nobody's blown the shop up yet, though one of them came close with a teakettle.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -413,7 +413,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whetstones, rope, a spare waterskin, and now and then a stick of blasting powder for a door they'd rather not open. The gnomes tell me that's not what it's for, but it works, so I sell it." } },
       choices = {
-        { text = "Rations and rope will do. I'll leave the powder.", next = "BACK", reply = "A sensible choice, and one my shop will thank you for. Rope and rations, coming right up.", fx = { align = { order = 1 } } },
+        { text = "Rations and rope will do. I'll leave the powder.", next = "BACK", reply = "A sensible choice, and one my shop will thank you for. The last fellow who bought powder in here sneezed on his way out.", fx = { align = { order = 1 } } },
         { text = "Sell me the powder. Doors are slow.", next = "BACK", reply = "You'd be surprised how often I hear that. I'll sell you a stick, but you didn't hear it was for doors from me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -425,7 +425,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Never enough, for the dwarf hunters go through a pouch a day. I've jerky for {pet} too, if it'll eat jerky, which most of them will, given half a chance." },
       },
       choices = {
-        { text = "I'll buy only what I'll use, and leave some for others.", next = "BACK", reply = "That's kind of you, and the dwarves will be grateful. Ammunition's like bread here; everyone needs it and nobody can get enough.", fx = { align = { honor = 1 } } },
+        { text = "I'll buy only what I'll use, and leave some for others.", next = "BACK", reply = "That's kind of you, and the dwarves will be grateful. I can't keep shot on the shelf two days running with the garrison buying.", fx = { align = { honor = 1 } } },
         { text = "I'll take your whole stock and sell it on dear.", next = "BACK", reply = "Sell it on dear? Then you'd have every hunter in the garrison after you, and I'd not blame them. I'll keep a ration on it, thank you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -595,7 +595,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Very little, I'd hope, for your kind can kill a man from across a room without staining your hands. Still, there are folk in Theramore and Stormwind who'd pay well to know what's in a cup before they drink it, and a mage who knew poisons could earn a fine living warding against them." } },
       choices = {
-        { text = "I'd learn your trade only to stop it.", next = "BACK", reply = "Then you'd learn it well, I'm sure, and still never stop it. Poison is as old as wine, and people will always want both.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd learn your trade only to stop it.", next = "BACK", reply = "Then you'd learn it well, I'm sure, and still never stop it. Every lord in Lordaeron kept a taster, and every one of them had a reason.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire or poison, a death is a death.", next = "BACK", reply = "My thoughts exactly, though most of your kind aren't honest enough to say it. You and I should talk more often.", fx = { align = { light = -1 } } },
         { text = "Something else, Samor.", next = "BACK" },
       },
@@ -635,7 +635,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Because the garrison's own scouts buy from me, and they're the ones who keep the Dragonmaw guessing. Report me if you like, but Menethil would be a good deal blinder without me." } },
       choices = {
         { text = "The law is the law. I'll tell Captain Stoutfist.", next = "BACK", reply = "Do, and I'll wave to you from the window when the scouts come up to buy again. The Captain knows exactly what I sell.", fx = { align = { order = 1 } } },
-        { text = "Menethil needs its shadows. I'll keep quiet.", next = "BACK", reply = "You've a wiser head than most of your order, I'll say that. Menethil sleeps better because of what goes on up these stairs.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Menethil needs its shadows. I'll keep quiet.", next = "BACK", reply = "You've a wiser head than most of your order, I'll say that. The harbour sleeps better than it knows because of what goes on up these stairs.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Samor.", next = "BACK" },
       },
     },
@@ -664,7 +664,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sell to those who already know what they need, and if you don't, we'll speak of the weather instead." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Softly, please." },
+        { id = "h_again", text = "Anything else? Speak softly, please." },
         { id = "h_again2", text = "Is there some other small matter I might help with, discreetly?" },
       },
       choices = {
@@ -689,7 +689,7 @@ P:NPC {
         { id = "sh_default", text = "Because it's honest, and honesty is rare in my line of work, so I make a point of it. Everyone in Menethil knows what I sell, and nobody can say I lied to them about it." },
       },
       choices = {
-        { text = "An honest poisoner. That's almost admirable.", next = "BACK", reply = "Almost, yes, and I'll take that as high praise from a stranger. Come back when you need something honest and deadly.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "An honest poisoner? That's almost admirable.", next = "BACK", reply = "Almost, yes, and I'll take that as high praise from a stranger. Come back up the stairs when you need something honest and deadly.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Honesty about poison is still poison.", next = "BACK", reply = "It is, and I've never claimed otherwise. But a liar selling poison is worse, and there are plenty of those in Stormwind.", fx = { align = { honor = -1 } } },
       },
     },

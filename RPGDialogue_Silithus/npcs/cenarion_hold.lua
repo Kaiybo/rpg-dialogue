@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll report to your captain. The Hold needs order, not heroics.", next = "BACK", reply = "Then report to Vish Kozus, and he will be rude to you, which is how you will know he approves.", fx = { align = { order = 1 } } },
-        { text = "I hunt alone and strike wherever I see fit.", next = "BACK", reply = "Then strike well, hunter, but remember that a scout who never returns is a scout who never reports.", fx = { align = { order = -1 } } },
+        { text = "I hunt alone and strike wherever I see fit.", next = "BACK", reply = "Then strike well, hunter, but remember that Vish Kozus cannot plan around numbers you never bring back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -427,7 +427,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll go where you send me, Commander.", next = "BACK", reply = "Then go to Vish Kozus, and he will send you where the line is thinnest, which is everywhere tonight.", fx = { affinity = 2, align = { order = 1 }, standing = { cenarion_hold = 1 } } },
-        { text = "I'll fight where I judge best, Commander.", next = "BACK", reply = "Then judge well, warrior, because the hives do not forgive a misjudgement, and neither do I.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll fight where I judge best, Commander.", next = "BACK", reply = "Then judge well, warrior. I have lost three captains this season who judged badly, and the hives did not give any of them a second chance.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else, Commander.", next = "BACK" },
       },
     },
@@ -693,7 +693,7 @@ P:NPC {
       big = true,
       lines = { { id = "hc_default", text = "Aye, it is, and I've told no one but you. There's a beat under the hum, slow at first, and I've counted it every night for a month; it's quicker now, like something counting down, and I can't prove a word of it to the Commander." } },
       choices = {
-        { text = "Then keep counting. I'll believe you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then keep counting. I believe you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "The Commander should hear this anyway.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1177,7 +1177,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "I don't need to tell you, and I won't. What I will tell you is that I saw you coming from the road, and I can see the scorch marks on your sleeve, so don't waste your time wondering." } },
       choices = {
         { text = "Your secret's yours. I respect that.", next = "BACK", reply = "Good, then we understand each other, and I'll keep listening to your footsteps instead of your secrets.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll figure it out sooner or later.", next = "BACK", reply = "You might, and I'll be listening when you do, so don't think I won't know you've worked it out.", fx = { align = { order = -1 } } },
+        { text = "I'll figure it out sooner or later.", next = "BACK", reply = "You might, and I'll be listening when you do, so don't think I won't know the moment you've worked it out.", fx = { align = { order = -1 } } },
         { text = "Understood, Captain.", next = "BACK" },
       },
     },

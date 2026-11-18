@@ -93,7 +93,7 @@ P:NPC {
     pa_cost = {
       lines = { { id = "pacc_default", text = "Steep? It's an investment, chum, in the future of supernatural engineering, and investments always feel steep until they pay off. Think of the reward I'm handing you as a dividend." } },
       choices = {
-        { text = "Fine. Consider me invested.", next = "BACK", fx = { trait = { generous = 1 } } },
+        { text = "Fine, then. Consider me invested.", next = "BACK", fx = { trait = { generous = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,7 +308,7 @@ P:NPC {
     },
     de_where = {
       lines = { { id = "dew_default", text = "What did I just say about askin'? Fine, the Brotherhood keeps old plans, and old plans sell, and the Brotherhood needs thorium more than it needs secrets. That's all yer gettin'." } },
-      choices = { { text = "Fair. Something else.", next = "BACK" } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
     },
 
     chest = {

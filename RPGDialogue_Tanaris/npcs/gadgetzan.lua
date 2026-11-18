@@ -971,7 +971,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Quietly would be new, pal, because my lads go in loud and come out running, and they drop the expensive gear every time. If you can slip into a bandit camp and slip out again, you'd be the first plan of mine in a month that didn't go wrong." } },
       choices = {
         { text = "Leave the thieves alone. Your gear isn't worth blood.", next = "BACK", reply = "It isn't, friend, but the Cartel will dock it from my wages anyway, so maybe the blood isn't mine to spare either.", fx = { align = { light = 1 } } },
-        { text = "Thieves deserve what's coming to them.", next = "BACK", reply = "Then you're the fellow I've been looking for, pal, and if you can bring back even one of my rods, I'll stand you a drink.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Thieves deserve what's coming to them.", next = "BACK", reply = "Then you're the fellow I've been looking for, pal, and if you can bring back even one of my rods, I'll owe you more than I can afford to say.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -980,7 +980,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Because out here water is gold, pal, and whoever controls the wells controls who lives in Tanaris. The Wastewanderers know that, so they hit the sources first and the caravans second, and I've budgeted for every job to go wrong." } },
       choices = {
         { text = "Water should be shared under law, not seized by bandits.", next = "BACK", reply = "Shared under law, friend, is how it ought to work, and I'll believe it when the Wastewanderers learn to read a contract.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Whoever can hold a well has earned it, I suppose.", next = "BACK", reply = "That's the desert's law, pal, and I don't like it, but I've stopped arguing with it, because it doesn't listen any better than my bosses.", fx = { align = { order = -1 } } },
+        { text = "Whoever can hold a well has earned it, I suppose.", next = "BACK", reply = "That's the desert's law, pal, and I don't like it, but I've stopped arguing with it, because it listens about as well as my bosses do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1993,7 +1993,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "That's what the last one said, right before he asked me where I kept my strongbox. If you're really not from Booty Bay, you'll understand why I keep looking over your shoulder, and you won't take it personally." } },
       choices = {
-        { text = "Pay your debts. You'll sleep better.", next = "BACK", reply = "Sleep? Friend, I haven't slept properly since I signed that first loan, and I don't expect to start now.", fx = { align = { honor = 1 } } },
+        { text = "Pay your debts. You'll sleep better.", next = "BACK", reply = "Sleep? Friend, I haven't slept properly since I signed that first loan, and every time a door creaks I think it's MacKinley's collectors.", fx = { align = { honor = 1 } } },
         { text = "Run further. Booty Bay can't reach everywhere.", next = "BACK", reply = "They've reached here twice already, pal, so I'm starting to think everywhere might be closer than it looks.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -390,7 +390,7 @@ P:NPC {
         { id = "xt_default", text = "No, and mine have none for yours. We drove you from the plains once, before the orcs came, and now the orcs and the tauren drive us. The wheel turns, outsider, and today I need you." },
       },
       choices = {
-        { text = "Today, then. Not tomorrow.", next = "BACK" },
+        { text = "Today, then, not tomorrow.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

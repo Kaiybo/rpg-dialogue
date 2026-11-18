@@ -274,7 +274,7 @@ P:NPC {
       },
       choices = {
         { text = "True enough. I'll see you outside.", next = "BACK" },
-        { text = "Just making sure. Something else.", next = "BACK" },
+        { text = "I was just making sure. Something else.", next = "BACK" },
       },
     },
 
@@ -308,7 +308,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Mind your voice, because the marsh carries it all the way to the Dragonmaw." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Quietly, this time." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Speak quietly this time." },
     { id = "g_rumors", when = { questReady = TODO_QUEST("Dragonmaw Rumors") }, text = "These are the courageous few? Mind your voices, and come down off the skyline." },
     { id = "g_maw", when = { questActive = TODO_QUEST("Open the Maw") }, text = "We're here to get the important job done. If you can help, prove it." },
     { id = "g_after", when = { questDone = TODO_QUEST("Open the Maw") }, text = "And here's my grunt. You haven't talked about the mission, I trust." },
@@ -337,7 +337,7 @@ P:NPC {
           text = "So they hope to appease Rend Blackhand. A fruitless and wasted effort, but valuable knowledge all the same, and the Dark Lady will consider it." },
       },
       again = {
-        { id = "h_again", text = "Something else? Keep it short." },
+        { id = "h_again", text = "Something else? Keep it short, then." },
         { id = "h_again2", text = "Speak, but softly." },
       },
       choices = {
@@ -438,7 +438,7 @@ P:NPC {
       },
       choices = {
         { text = "Thrall deserves the truth, all of it.", next = "BACK", reply = "He will have it, every word, once we know which words are true. Run to Orgrimmar half-informed and you serve your Warchief worse than silence would.", fx = { align = { honor = 1 } } },
-        { text = "Facts first, then. I'll wait.", next = "BACK", reply = "Patience, from the living. How refreshing. Wait in the shadows, and when the facts are ready, you may carry them to your Warchief yourself.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Facts first, then. I'll wait.", next = "BACK", reply = "Patience, from the living? How refreshing. Wait in the shadows, and when the facts are ready, you may carry them to your Warchief yourself.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
   },

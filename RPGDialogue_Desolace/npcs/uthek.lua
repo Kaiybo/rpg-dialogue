@@ -84,7 +84,7 @@ P:NPC {
         { id = "mp_default", text = "Peace? When the Magram bow to our mother, there will be peace, and not before. You are strange, outsider, to ask it while their blood is on you." },
       },
       choices = {
-        { text = "Then the Magram must break. I'll see to it.", next = "BACK", reply = "Then you will be a friend of the Gelkis, outsider, and our mother will remember your name.", fx = { align = { light = -1 }, opinion = { centaur = "divide" } } },
+        { text = "Then the Magram must break. I'll see to it.", next = "BACK", reply = "The Gelkis will call you a friend for it, outsider, and our mother will remember your name.", fx = { align = { light = -1 }, opinion = { centaur = "divide" } } },
         { text = "I fight for you, but I'd rather end this war.", next = "BACK", reply = "You speak strangely for one with Magram blood on your hands, but I hear you, and our mother hears you too.", fx = { align = { light = 1 }, opinion = { centaur = "peace" } } },
         { text = "Something else.", next = "BACK" },
       },

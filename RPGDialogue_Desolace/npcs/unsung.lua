@@ -178,7 +178,7 @@ P:NPC {
         { id = "w_default", text = "Because somebody has to keep an eye on the centaur, and on the demon-worshippers out at Thunder Axe, and the Alliance needs a foothold in this part of Kalimdor. And because I was offered good wages, which I'll admit had something to do with it." },
       },
       choices = {
-        { text = "Duty and wages. A good reason.", next = "BACK", reply = "It is, and I'll admit the wages were most of it, but the duty part has grown on me since.", fx = { align = { order = 1 } } },
+        { text = "Duty and wages. Both good reasons.", next = "BACK", reply = "It is, and I'll admit the wages were most of it, but the duty part has grown on me since.", fx = { align = { order = 1 } } },
         { text = "Wages, mostly, I'd wager.", next = "BACK", reply = "Mostly, but don't tell the Captain, because he thinks we're all here for king and country.", fx = { align = { order = -1 }, trait = { witty = 1 } } },
         { text = "Demon-worshippers?", next = "why_demons" },
       },

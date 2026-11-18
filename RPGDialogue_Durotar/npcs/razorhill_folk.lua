@@ -54,7 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "Why taillasher eggs?", next = "eggs" },
-        { text = "Prickly pears? In Durotar?", next = "pears" },
+        { text = "Prickly pears grow in Durotar?", next = "pears" },
         { text = "Is it hard, feeding the garrison?", next = "garrison" },
         { text = "What do the grunts complain about most?", next = "complaints" },
         { text = "I'm a cook too, Torka.", next = "xcook", when = { profession = "Cooking" } },
@@ -65,7 +65,7 @@ P:NPC {
     eggs = {
       lines = { { id = "eg_default", text = "Because the raptor eggs are big enough to feed a squad, and the chickens in this town are too scrawny to feed a peon. The Bloodtalon taillashers on the Echo Isles guard their nests to the death, so I send you and not me." } },
       choices = {
-        { text = "To the death? Thanks, Torka.", next = "eg_death" },
+        { text = "To the death? You're too kind, Torka.", next = "eg_death" },
         { text = "Where on the isles?", next = "eg_where", fx = { learn = { "echo_isles" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -138,7 +138,7 @@ P:NPC {
       lines = { { id = "xc_default", text = "Then you know the first rule: the fire doesn't care how tired you are. Tell me, what do you put in a boar stew that nobody else does?" } },
       choices = {
         { text = "A little scorpid meat, for the bite.", next = "xcook2", fx = { trait = { curious = 1 } } },
-        { text = "Nothing fancy. Boar, salt, patience.", next = "xcook2", fx = { trait = { practical = 1 } } },
+        { text = "Nothing fancy. Just boar, salt and patience.", next = "xcook2", fx = { trait = { practical = 1 } } },
       },
     },
     xcook2 = {
@@ -373,7 +373,7 @@ P:NPC {
     care = {
       lines = { { id = "ca_default", text = "Feed {pet} what it like, not what be cheap, and talk to it in the evenings even when you be tired. A beast that know your voice will fight for it." } },
       choices = {
-        { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I will. Thank you, truly.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -232,8 +232,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That the chillwind horns hold the cold because the cold is the only thing they know, and anything warm and bright disturbs it. I've no proof yet, and Tinkee in the Burning Steppes is waiting on these, so I'd rather not discover it on her order." } },
       choices = {
-        { text = "A sound precaution. I'll keep my distance from the bench.", next = "BACK", reply = "Very sensible, and I'll mark you down as a cooperative variable. Warm bodies near the bench raise the temperature two degrees at least, and that's enough.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Theories are for testing. I'd hold a horn and see.", next = "BACK", reply = "Absolutely not, no, please, the last one cracked when a paladin breathed on it! Theories are for testing, yes, but under controlled conditions, not by holding.", fx = { align = { order = -1 } } },
+        { text = "A sound precaution. I'll keep my distance from the bench.", next = "BACK", reply = "Very sensible, and I'll mark you down as a cooperative variable. Warm bodies near the bench raise the temperature two degrees at least, and the horns don't like it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Theories are for testing. I'd hold a horn and see.", next = "BACK", reply = "Absolutely not, no, please, the last one cracked when a paladin breathed on it! I test under controlled conditions, friend, and you are not a controlled condition.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -253,7 +253,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because you can bring a chillwind down from a distance and choose where the arrow lands, and the horns stay whole. Keep {pet} off the carcass until you've got them free, though, because teeth on a horn are as bad as an axe." },
       },
       choices = {
-        { text = "A clean shot is the only honest way to bring down a chimaera.", next = "BACK", reply = "Precisely, and I'd write that in the margins of my notes if I had room. A clean shot is worth twelve axe swings, every time.", fx = { align = { honor = 1 } } },
+        { text = "A clean shot is the only honest way to bring down a chimaera.", next = "BACK", reply = "Precisely, and I'd write that in the margins of my notes if I had any margins left. I've had three horns come back split from axe blows this month alone.", fx = { align = { honor = 1 } } },
         { text = "I'll trap them and wait them out. Whatever keeps the horns whole.", next = "BACK", reply = "Oh, that's clever, very clever, and the horns stay ninety-five percent intact by my estimate. Just don't leave the trap where a yeti can step in it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -280,7 +280,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A gnome once tried to walk off with a gyromatic coil, and I caught him because the count was one short. That's the trick with thieves, friend, you don't watch them, you watch your inventory." } },
       choices = {
-        { text = "Smart. Honest folk have nothing to fear from a count.", next = "BACK", reply = "Precisely, and the count never lies, unless I've made a mistake, which I haven't. Honest folk get a smile and a receipt.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Smart. Honest folk have nothing to fear from a count.", next = "BACK", reply = "Precisely, and the count never lies, unless I've made a mistake, which I haven't. I've counted twice already this morning, just to be sure.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A good thief would swap it for a fake.", next = "BACK", reply = "Then I'd count the fakes too, friend, because every fake weighs differently. Forty percent of thieves forget that, and the other sixty forget the count.", fx = { align = { honor = -1 } } },
         { text = "I'll keep my hands where you can see them.", next = "BACK" },
       },
@@ -298,7 +298,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Precise, sure, though I've never seen the schematics. You put your hands on a broken thing and it mends, which is the job I do with a spanner, only slower and with a lot more swearing." } },
       choices = {
-        { text = "Discipline is the heart of both crafts, I think.", next = "BACK", reply = "That's a lovely way of looking at it, and very tidy. A healer with a steady hand is just an engineer without the spanner.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Discipline is the heart of both crafts, I think.", next = "BACK", reply = "That's a lovely way of looking at it, and very tidy. I've always said a healer is just an engineer who works on people instead of gears.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Prayer's no craft, Felnok. It's a gamble, like anything.", next = "BACK", reply = "A gamble? Oh, I don't like gambles, they make my notes untidy. Still, if it works more often than not, I'll call it a well-tested theory.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -378,7 +378,7 @@ P:NPC {
       lines = { { id = "tp_line", text = "Somebody she calls a patron, very important, very rich and very secretive. Tinkee goes pale when she mentions him, so I stopped asking, and I'd advise you to stop as well." } },
       choices = {
         { text = "Someone should find out who he is.", next = "BACK", reply = "I'd advise against it, and very strongly, because Tinkee is not a gnome who frightens easily. Whoever frightens her is someone I'd rather never meet.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
-        { text = "A client's business is his own.", next = "BACK", reply = "Precisely, and I'm glad someone in this town understands discretion. Some secrets come with an invoice nobody can pay.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A client's business is his own.", next = "BACK", reply = "Precisely, and I'm glad someone in this town understands discretion. Ask me about my clients and I'll show you a very boring list of numbers.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -451,7 +451,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "You remind me of everything I lost, and I'm sorry to say it so plainly. My family stayed behind when the plague came, and I've wondered every night whether they rose, and whether the Light would have come back to them the way it came back to you." } },
       choices = {
-        { text = "The Light never abandoned Lordaeron. It still answers.", next = "BACK", reply = "I want to believe that, more than you know, and hearing it from you helps. Maybe it answered for them, too, somewhere.", fx = { align = { light = 1 } } },
+        { text = "The Light never abandoned Lordaeron. It still answers.", next = "BACK", reply = "I want to believe that, more than you know, and hearing it from you helps. Mother used to light a candle in Stratholme's cathedral every Sunday, and I hope somebody heard her.", fx = { align = { light = 1 } } },
         { text = "The Light failed Lordaeron. I serve it for my own reasons.", next = "BACK", reply = "That's a hard thing to hear, and harder to hear from you, of all people. I won't argue, but I hope you find a better reason someday.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -499,7 +499,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not that I know of, but mages travel farther than anyone, so every one who comes through Everlook, I ask whether they've heard any news of the folk from Darrowshire. They all shake their heads, and I keep asking anyway." } },
       choices = {
-        { text = "Don't stop asking. Someone may know.", next = "BACK", reply = "I won't, I promise, and thank you for saying so. Every mage I ask is one more chance, and some days that's enough.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Don't stop asking. Someone may know.", next = "BACK", reply = "I won't, I promise, and thank you for saying so. I've asked every mage who's come through Everlook since spring, and one of them is bound to know something.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They're probably dead. You should let go.", next = "BACK", reply = "Maybe he is, and maybe I'm a fool, but it's a fool's hope that gets me out of bed. Please, just leave me that much.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'm sorry. I've heard nothing of them.", next = "BACK" },
       },
@@ -792,7 +792,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Thaurissan summoned him to win a war against Ironforge, and the Firelord has held the Dark Iron ever since. The Thorium Brotherhood are those of us who chose the forge over the chains, so you will forgive me, ant, if I think little of anyone who bargains with fire for a living." } },
       choices = {
         { text = "Your kin made a bad bargain. I'll make better ones.", next = "BACK", reply = "Every warlock says that, and every one of them is wrong, eventually. My people were proud too, before the fire swallowed them.", fx = { align = { light = -1 } } },
-        { text = "You chose rightly. No power is worth those chains.", next = "BACK", reply = "We did, and it cost us everything else but the hammer. Better a free smith in the snow than a slave in the fire.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You chose rightly. No power is worth those chains.", next = "BACK", reply = "We did, and it cost us everything but the hammer. I'd sooner freeze up here with an honest anvil than sweat down there with Ragnaros breathing on my neck.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll leave you to your forge.", next = "BACK" },
       },
     },
@@ -800,8 +800,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "We could make one that would cut through anything you pointed it at, if you proved worthy of our trust and brought us the ore and the arcanite. Until then, sharpen what you have, and stop dragging it across stone when you sneak." } },
       choices = {
-        { text = "I'll earn your trust, and the blade with it.", next = "BACK", reply = "Earn it, then, and we'll see if your hands are as quick as your tongue. The Brotherhood remembers those who keep faith.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll find a smith who's less particular.", next = "BACK", reply = "Go and find one, then, and you'll find the steel shows it. A particular smith makes particular blades, ant.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll earn your trust, and the blade with it.", next = "BACK", reply = "Earn it, then, and we'll see if your hands are as quick as your tongue. I don't forge for anyone I wouldn't trust at my back, ant.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find a smith who's less particular.", next = "BACK", reply = "Go and find one, then, and you'll find the steel shows it. I've seen what passes for a blade in Gadgetzan, ant, and I wouldn't use it to stir soup.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll sharpen what I have.", next = "BACK" },
       },
     },
@@ -1011,7 +1011,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The great bears here stand taller than a tauren, and the frostsabers strike from the snow before you see them. Your Light will not stop a claw, but a steady heart might, and I have seen that in some of your kind and not in others." } },
       choices = {
-        { text = "I'd stand my ground and give the beast a clean death.", next = "BACK", reply = "That is the way of my people, and the beast will honour you for it in its passing. A clean death is the last gift a hunter gives.", fx = { align = { honor = 1 } } },
+        { text = "I'd stand my ground and give the beast a clean death.", next = "BACK", reply = "That is the way of my people, and the beast will honour you for it in its passing. Thank its spirit after, and the snow will remember you kindly.", fx = { align = { honor = 1 } } },
         { text = "I'd let the Light blind it and strike while it's helpless.", next = "BACK", reply = "That is a cruel road, and you'll learn nothing from the beast but its fear. The Earth Mother does not smile on a blinded kill.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1021,7 +1021,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Because Ursius of the Shardtooth charges like a falling hill, and the warrior who runs to meet him is thrown, while the one who plants both feet and waits is only knocked down. A hunter lets the beast tire itself, but a warrior must take the blow, so take it well." } },
       choices = {
         { text = "Then I'll plant my feet and take the blow, as a warrior should.", next = "BACK", reply = "Good, and you will walk away bruised but standing, which is all a warrior can ask of Ursius. Plant your feet like a tauren and you will not fall.", fx = { align = { order = 1 } } },
-        { text = "I'll meet him at a run. Fury breaks a charge.", next = "BACK", reply = "Many have tried it, and many were thrown into the snow like calves. Fury breaks many things, but it will not break that bear.", fx = { align = { order = -1 } } },
+        { text = "I'll meet him at a run. Fury breaks a charge.", next = "BACK", reply = "Many have tried it, and many were thrown into the snow like calves. I have seen the scars that bear leaves, and they are not the scars of a beast that breaks.", fx = { align = { order = -1 } } },
         { text = "Something else, Storm.", next = "BACK" },
       },
     },
@@ -1033,14 +1033,14 @@ P:NPC {
       },
       choices = {
         { text = "A beast like that deserves to be faced, not trapped.", next = "BACK", reply = "Then we hunt the same way, you and I, and I think you will find her one day, or she will find you. Either way, it will be an honest meeting.", fx = { align = { honor = 1 } } },
-        { text = "Cleverness answers cleverness. I'd bait her out and take her.", next = "BACK", reply = "Bait would be clever, and Shy-Rotam is cleverer still, so I wish you luck. But a matriarch taken by a trick is a hollow trophy.", fx = { align = { honor = -1 } } },
+        { text = "Cleverness answers cleverness. I'd bait her out and take her.", next = "BACK", reply = "Bait would be clever, and Shy-Rotam is cleverer still, so I wish you luck. She has walked around every snare I have ever set and left her tracks beside them, as if laughing.", fx = { align = { honor = -1 } } },
         { text = "Something else, Storm.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "The leaders of the herds and packs, the old chimaera and the great bears the young ones follow. When a leader falls the herd scatters for a season, so I choose carefully and never take more than one a year." } },
       choices = {
-        { text = "That is a fair hunt. The herd grows stronger for it.", next = "BACK", reply = "It does, and you see as the druids see, which I am glad of. The strong are taken so the herd learns to grow stronger.", fx = { align = { honor = 1 } } },
+        { text = "That is a fair hunt. The herd grows stronger for it.", next = "BACK", reply = "It does, and you see as the druids see, which I am glad of. The old and the slow are taken, and the young run faster next spring.", fx = { align = { honor = 1 } } },
         { text = "Why hunt them at all? Let the leaders lead.", next = "BACK", reply = "Because the leaders grow old and the herd grows slow behind them, and the snow does not wait. The Earth Mother made the hunt to keep the herds young.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1050,7 +1050,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "I believe they do. Ursius of the Shardtooth, Brumeran of the Chillwind and Shy-Rotam the frostsaber have lived long enough to grow great, and nothing in this snow grows old without the land's favour. I hunt them with respect and give the spirits thanks after every hunt, because a hunter who forgets his thanks soon stops coming home." } },
       choices = {
         { text = "A hunt given thanks is the only honourable hunt.", next = "BACK", reply = "It is, and the beasts know it, I believe, as they pass into the wind. Walk that way, and the spirits will walk beside you.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The spirits don't choose who's hunted. Strength decides.", next = "BACK", reply = "Strength decides the end of the hunt, perhaps, but not its honour. The spirits watch how a beast is taken, not only whether.", fx = { align = { honor = -1 } } },
+        { text = "The spirits don't choose who's hunted. Strength decides.", next = "BACK", reply = "Strength decides the end of the hunt, perhaps, but not its honour. My father hunted these hills before me, and he never once took a beast he did not thank.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1154,7 +1154,7 @@ P:NPC {
       lines = { { id = "k_default", text = "I have heard this from the night elves before, and I know the frostsabers fought beside your people long ago. I don't hunt Shy-Rotam, their old matriarch, out of disrespect, but because she is the greatest of her kind, and that is the highest honour a hunter can give." } },
       choices = {
         { text = "Then hunt something else, and honour her by letting her live.", next = "BACK", reply = "Then she will live, and I will hunt another, for your people's sake and for hers. The Earth Mother made room enough for both of us.", fx = { affinity = -2, align = { honor = 1 } } },
-        { text = "I understand. The hunt has its own law.", next = "BACK", reply = "It does, and I think we understand each other, elf and tauren both. The snow will judge who is worthy of her.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I understand. The hunt has its own law.", next = "BACK", reply = "It does, and I think we understand each other, elf and tauren both. Walk carefully in the deep snow, and listen for her before you see her.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1220,7 +1220,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The heavy ones make the beast work harder, and the beast lets me know about it all night. But I'll carry a warrior over Felwood gladly, because if a rider comes down among the Deadwood, I want someone on its back who can fight their way out." } },
       choices = {
-        { text = "If we come down, I'll guard the beast before myself.", next = "BACK", reply = "That's the right answer, and the beast will know it. A rider who guards his wind rider flies home again.", fx = { align = { honor = 1 } } },
+        { text = "If we come down, I'll guard the beast before myself.", next = "BACK", reply = "That's the right answer, and the beast will know it. My first wind rider kept me alive through a fall over Ashenvale, and I owe that one every blanket I own.", fx = { align = { honor = 1 } } },
         { text = "If we come down, I'm leaving the beast and running.", next = "BACK", reply = "Then you'll run alone, and the furbolgs will find you before the night's out. Run if you like, but the beast will remember.", fx = { align = { honor = -1 } } },
         { text = "Something else, Yugrek.", next = "BACK" },
       },
@@ -1233,7 +1233,7 @@ P:NPC {
       },
       choices = {
         { text = "Beasts that serve us are owed warmth and care, Yugrek.", next = "BACK", reply = "They are, and I'll keep giving it, stove or no stove. The goblins can keep their quote; my beasts will have my blankets first.", fx = { align = { light = 1 } } },
-        { text = "A beast that can't stand the cold isn't worth keeping up here.", next = "BACK", reply = "Then you've never flown one over Hyjal in a storm. These beasts earn their keep twice over, and they'll have their blankets.", fx = { align = { light = -1 } } },
+        { text = "A beast that can't stand the cold isn't worth keeping up here.", next = "BACK", reply = "Then you've never flown one over Hyjal in a storm. These beasts earn their keep twice over, and they'll have their blankets while I'm roostmaster.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1250,7 +1250,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Harsher, shaman, because it comes down off the peaks all night and drives the snow sideways into the roosts. I've wrapped the riders in blankets and still they shiver. If the air spirits here have a grudge, I'd like to know whose it is, because it isn't mine." } },
       choices = {
         { text = "Leave the wind an offering at the roost, as is proper.", next = "BACK", reply = "I'll do it tonight, shaman, and I thank you. The beasts might sleep for once, and so might I.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The wind answers no one. Your beasts will have to toughen up.", next = "BACK", reply = "My beasts are tough enough, shaman, it's the wind that's crueller than it ought to be. Toughness isn't the same as freezing.", fx = { align = { order = -1 } } },
+        { text = "The wind answers no one. Your beasts will have to toughen up.", next = "BACK", reply = "My beasts are tough enough, shaman, it's the wind that's crueller than it ought to be. Come and feel their ears after a flight before you tell me to toughen them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1258,7 +1258,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They don't refuse, but they grumble and snap, and an angry wind rider over the mountains between here and Felwood is a hard flight. Keep your demon unsummoned until you land and we'll all get along fine." } },
       choices = {
-        { text = "I'll keep my demon away. The beasts come first.", next = "BACK", reply = "Then you'll fly smoother, and so will the beast. Felwood has given them fear enough of anything with fel on it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep my demon away. The beasts come first.", next = "BACK", reply = "Then you'll fly smoother, and so will the beast. They passed over Felwood on the way up here, and they still shy at anything that smells green.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon stays with me. They'll get used to it.", next = "BACK", reply = "They won't, but they'll fly you anyway, and you'll hear every growl of it. Hold tight, warlock.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Fair enough.", next = "BACK" },
       },
@@ -1267,7 +1267,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Badly, and loudly, and I don't blame them, since they come from the hot canyons of the Barrens and Thousand Needles. I warm their feed and wrap their wings at night, and I'd give a month's pay for a mage willing to stand guard over them with a hearth spell." } },
       choices = {
-        { text = "Their care is worth every effort you make.", next = "BACK", reply = "It is, and I'll keep doing it as long as there's breath in me. A rider that dies of cold is a rider that never flew.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their care is worth every effort you make.", next = "BACK", reply = "It is, and I'll keep doing it as long as there's breath in me. I lost two wind riders to the cold my first winter here, and I won't lose a third.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They're beasts. They'll toughen up.", next = "BACK", reply = "They toughen, aye, but they don't stop hurting. Spend a winter in a roost with them before you judge them.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll leave you to your blankets.", next = "BACK" },
       },
@@ -1276,7 +1276,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Because the Horde needs a road to Everlook, and somebody has to stand at the end of it. The goblins keep the peace here, but a wind rider is how word gets back to Orgrimmar before the Alliance's birds reach Darnassus." } },
       choices = {
-        { text = "Then I'll honour that duty, and carry word if asked.", next = "BACK", reply = "Then you're a better Horde than half the ones I fly. Word moves faster with good folk carrying it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll honour that duty, and carry word if asked.", next = "BACK", reply = "Then you're a better Horde than half the ones I fly. Bring word to Orgrimmar as fast as the beast can carry you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Duty's for orcs, Yugrek. I fly where I please.", next = "BACK", reply = "You fly where my beasts take you, priest, and they go where they're told. Duty's what keeps you in the air.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1338,7 +1338,7 @@ P:NPC {
     maethrya = {
       lines = { { id = "m_default", text = "Side by side, and we've never come to blows, though our beasts have. She says nothing to me and I say nothing to her, and in this cold that's as near to friendship as an orc and an elf will get." } },
       choices = {
-        { text = "Maybe one day you'll say more.", next = "BACK", reply = "Perhaps, if the winter goes on long enough. Even an orc and an elf can find something to say about the cold.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe one day you'll say more.", next = "BACK", reply = "Perhaps, if the winter goes on long enough. Even an orc and an elf can find something to say about the cold, though we haven't found it yet.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some enemies are best kept at a distance.", next = "BACK", reply = "She's not an enemy, not up here, and the goblins would make sure of that. But aye, the distance suits us both.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1381,7 +1381,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They are not kind to anything, but my birds ride the wind rather than fight it. Only the goblins think the wind is something to sell, and they would if they could catch it." } },
       choices = {
-        { text = "The wind isn't the goblins' to sell.", next = "BACK", reply = "No, it is not, nor anyone's, and I'm glad you see that. The wind belonged to these hills long before the Cartel came.", fx = { align = { honor = 1 } } },
+        { text = "The wind isn't the goblins' to sell.", next = "BACK", reply = "No, it is not, nor anyone's, and I'm glad you see that. These winds blew over Winterspring when the goblins' grandfathers were still digging in the mud of Undermine.", fx = { align = { honor = 1 } } },
         { text = "If they can catch it, let them profit.", next = "BACK", reply = "And when the wind is bottled and sold, what will the hills breathe? You speak like a merchant, not a shaman.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1390,7 +1390,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They would carry you, because they are well trained, but they would shiver all the way to Talonbranch Glade, and Felwood has taught them to fear the fel. I've watched good birds go sick from that forest, so you'll understand why I'm careful about what comes near them." } },
       choices = {
-        { text = "I'll dismiss my demon. The birds have suffered enough.", next = "BACK", reply = "Thank you, and they'll fly you gently for it, I promise. Felwood took enough from them already.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll dismiss my demon. The birds have suffered enough.", next = "BACK", reply = "Thank you, and they'll fly you gently for it, I promise. The birds that came through Felwood still won't eat if they smell the fel on a traveller.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon is no threat to them. Your fear is misplaced.", next = "BACK", reply = "Perhaps it is not, to you, but they have seen what the fel did to their forest. A bird's fear is older than your demon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1399,8 +1399,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because the glint looks like water to them, and water in the snow is ice, and ice means a hard landing. It's nothing against the Light; they'll warm to you once you've flown with them twice, and I'll ask you to be patient until then." } },
       choices = {
-        { text = "Then I'll be patient. The birds come first.", next = "BACK", reply = "Then you'll be their friend before you know it. A patient rider is worth more to them than a bold one.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They're mounts. They'll learn to carry me or they won't.", next = "BACK", reply = "They will carry you, because I've trained them to, but they will remember how you spoke of them. Elune's creatures always do.", fx = { align = { light = -1 } } },
+        { text = "Then I'll be patient. The birds come first.", next = "BACK", reply = "Then you'll be their friend before you know it. Bring an apple next time, and let them take it from your hand.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're mounts. They'll learn to carry me or they won't.", next = "BACK", reply = "They will carry you, because I've trained them to, but they will remember how you spoke of them. Hippogryphs have long memories, and short tempers in the cold.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1408,8 +1408,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They are proud birds, and they hear a shield struck as a rival's call. Our Sentinels learned long ago to quiet their armour near the roosts, and I've found it calms the goblins too, though I'd never tell them so." } },
       choices = {
-        { text = "I'll keep my steel quiet near the birds. Their peace matters.", next = "BACK", reply = "Then you are wiser than many warriors I've flown, and the birds will thank you in their way. Quiet steel, calm wings.", fx = { align = { order = 1 } } },
-        { text = "A warrior's armour rings. The birds will have to grow used to it.", next = "BACK", reply = "They will, in time, though they may peck at your pauldrons on the way. Patience goes both ways in Winterspring.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my steel quiet near the birds. Their peace matters.", next = "BACK", reply = "Then you are wiser than many warriors I've flown, and the birds will thank you in their way, probably by not biting.", fx = { align = { order = 1 } } },
+        { text = "A warrior's armour rings. The birds will have to grow used to it.", next = "BACK", reply = "They will, in time, though they may peck at your pauldrons on the way. Don't take it personally; they peck at mine too.", fx = { align = { order = -1 } } },
         { text = "Something else, Maethrya.", next = "BACK" },
       },
     },
@@ -1428,7 +1428,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "The Circle at the Emerald Sanctuary believes so, and they're braver than I am for it. I see the forest from above every day, and the rot reaches further each season." } },
       choices = {
-        { text = "It can. Felwood must be cleansed, tree by tree.", next = "BACK", reply = "I pray Elune grants them strength for it, and you too, if you go. Every tree saved is one more the rot can't take.", fx = { align = { light = 1 } } },
+        { text = "It can. Felwood must be cleansed, tree by tree.", next = "BACK", reply = "I pray Elune grants them strength for it, and you too, if you go. I was at Emerald Sanctuary once, and the rot had crept to within a stone's throw of the camp.", fx = { align = { light = 1 } } },
         { text = "Some forests are lost. Burn the worst of it.", next = "BACK", reply = "Fire is how Felwood began its dying, druid, when the Legion came. I would rather the Circle tried longer than burned sooner.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1437,7 +1437,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I trust them to keep their bargains and nothing more, and the Steamwheedle Cartel sells to the Horde as gladly as to us. A quiet ear among their traders would hear more than I can, but that is the Sentinels' business, and not mine." } },
       choices = {
-        { text = "The Cartel keeps the peace. I don't need more.", next = "BACK", reply = "Perhaps not, and I'll not ask more of you. The Cartel's peace is thin, but it holds for now.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Cartel keeps the peace. I don't need more.", next = "BACK", reply = "Perhaps not, and I'll not ask more of you. The Cartel's peace is thin, but it has held for three winters now.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd happily lighten a goblin's purse for the Alliance.", next = "BACK", reply = "I didn't say that, and I'd rather not hear it said near the roost. The Bruisers have very good ears.", fx = { align = { order = -1 } } },
         { text = "I'll keep my ears open.", next = "BACK" },
       },
@@ -1446,8 +1446,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They remember, I think, in the way beasts do, what the Highborne's magic did to this world in the Sundering. Elune's creatures feel the arcane like a storm coming, and Winterspring has old Highborne ruins enough to keep them on edge." } },
       choices = {
-        { text = "Then I'll keep my spells to myself around them.", next = "BACK", reply = "Thank you, and they'll fly calmer for it. The Sundering is long past, but not in their memories.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Beasts shouldn't dictate how I use my power.", next = "BACK", reply = "They don't dictate, they remember, and you might do the same. Power without memory is how the Highborne fell.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Then I'll keep my spells to myself around them.", next = "BACK", reply = "Thank you, and they'll fly calmer for it. Their mothers' mothers remember the night the Well of Eternity tore apart, and they don't forget the smell of wild magic.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts shouldn't dictate how I use my power.", next = "BACK", reply = "They don't dictate, they remember, and you might do the same. My grandmother watched the Highborne say what you've just said, a long time ago.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll keep my hands still.", next = "BACK" },
       },
     },
