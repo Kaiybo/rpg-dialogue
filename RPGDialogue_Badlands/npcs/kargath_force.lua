@@ -413,6 +413,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "You hear the spirits, mon, so you tell me why they go so quiet near dat mountain. I been wonderin' a long time." },
+    { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
+      text = "You look like you been dragged behind a kodo, mon. Sit in the shade before the sun finish what somebody else started." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear! Tell me you smelled the sea on your way here, because I ain't smelled it in a year." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
@@ -421,6 +425,71 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    force = {
+      lines = {
+        { id = "fo_default", text = "Dat's Kargath, mon. Warlord Goretooth give the orders, Lexlort shout them again louder, an' the rest of us go where we pointed. Thunderheart read the land, Galamav shoot what I find, an' Gargal stand in front." },
+      },
+      choices = {
+        { text = "And young Amakkar?", next = "force_amakkar" },
+        { text = "Who looks after the camp itself?", next = "force_camp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    force_amakkar = {
+      lines = {
+        { id = "fa_default", text = "The pup? He got fire in him, an' no sense yet to put around it. I tell the Warlord to let him carry water one more season, 'cause the mountain eat the eager ones first." },
+      },
+      choices = {
+        { text = "He'll thank you for it one day.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    force_camp = {
+      lines = {
+        { id = "fc_default", text = "Shul'kar keep the inn an' the only cold drink for a hundred miles, an' Gorrik keep the wind riders fed. Sranda sell me my leathers, an' she don't haggle, which a troll find very hard to forgive." },
+      },
+      choices = {
+        { text = "No haggling? That's hardly trade at all.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    night = {
+      lines = {
+        { id = "ni_default", text = "Plenty, mon. Dustbelcher ogres at their fires, coyotes an' buzzards after scraps, rock elementals dat walk when the ground shake, an' black whelps over Lethlor Ravine in the east. I go around all of dem." },
+      },
+      choices = {
+        { text = "Dragons, this close to Kargath?", next = "night_dragons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    night_dragons = {
+      lines = {
+        { id = "nd_default", text = "Close enough dat I see dem wheelin' on a clear night. There be an elf camped by the ravine who watch dem too, an' he don't say why. A troll know another watcher when he see one, so I leave him be." },
+      },
+      choices = {
+        { text = "Wise. Watchers have their reasons.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xr_default", text = "Den you know the first rule, mon: the one who come back is the one who go slow. The Dark Irons keep hounds on the ridge road, so I go by the gullies, where the wind carry my scent away from dem." },
+        { id = "xr_pet", when = { pet = { type = "Beast" } }, text = "Den you know the first rule, mon: the one who come back is the one who go slow. Keep {pet} downwind of the ridge road, 'cause the Dark Irons got hounds, an' hounds know a strange beast quick." },
+      },
+      choices = {
+        { text = "By the gullies. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "hm_default", text = "Dat's good to hear, brother, real good. I dream of the salt wind some nights, an' wake up with dust in my teeth. You tell Vol'jin, if you see him, dat Razal'blade still be watchin' where he was sent." },
+      },
+      choices = {
+        { text = "I'll carry the word.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -431,11 +500,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, mon? Ain't nothin' else to do but talk." },
         { id = "h_again2", text = "Go on, ask, before the Warlord find me somethin' to do." },
+        { id = "h_again3", text = "Keep talkin', mon. The sun be up for hours yet, an' I don't walk till dark." },
       },
       choices = {
         { text = "What do you do here?", next = "job" },
         { text = "How does a Darkspear end up in the Badlands?", next = "darkspear" },
         { text = "What do you think of the mountain?", next = "mountain" },
+        { text = "A few tents and a lot of dust, you said.", next = "force" },
+        { text = "What else walks the Badlands at night?", next = "night" },
+        { text = "Night scouting is my trade as well.", next = "xrogue", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "Sen'jin Village still stands, brother.", next = "home", when = { race = "Troll" } },
         { text = "See you around, Razal'blade.", next = "END" },
       },
     },
@@ -624,6 +698,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior with real dents in the armour. I'd trade this whole watch fire for one of those dents, and I mean that." },
+    { id = "n_young", cat = "level", when = { maxLevel = 34 },
+      text = "You look about as green as I am, and they still let you walk the Badlands alone. I'll be telling Gargal about that." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue! Show me how you hold your knife. No, really, I want to know." },
     { id = "n_vet", cat = "level", when = { minLevel = 55 },
@@ -632,6 +710,70 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mountain = {
+      lines = {
+        { id = "mo_default", text = "Every night, from the ridge, with the smoke glowing red underneath like a forge with the door left open. The Dark Irons hold the deeps and the Blackrock orcs hold the spire above, and both of them are enemies of the Warchief." },
+      },
+      choices = {
+        { text = "Orcs holding the spire? Not Thrall's orcs.", next = "mountain_orcs" },
+        { text = "It's an ugly thing to look at every night.", next = "mountain_ugly" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mountain_orcs = {
+      lines = {
+        { id = "mor_default", text = "No, they follow Rend Blackhand, who calls himself Warchief and calls Thrall a pretender. Warlord Goretooth says that's why the Force is here at all, because an orc who denies the Warchief is worse than any dwarf." },
+      },
+      choices = {
+        { text = "Orc against orc. That will be a bitter fight.", next = "BACK", fx = { learn = { "blackrock_orcs" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "blackrock_orcs" } } },
+      },
+    },
+    mountain_ugly = {
+      lines = {
+        { id = "mu_default", text = "It is, and I've stopped noticing, the way you stop noticing a splinter. Razal'blade says the spirits won't go near it, and I've never seen that troll scared of anything else." },
+      },
+      choices = {
+        { text = "Then listen to him before you go running in.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kargath = {
+      lines = {
+        { id = "kg_default", text = "Warlord Goretooth commands, and Lexlort answers to him and does the shouting. Then there's Thunderheart and Galamav and Razal'blade, who've all been inside, and Gargal, who has been inside twice and mentions it daily." },
+      },
+      choices = {
+        { text = "And the two Forsaken with the Force?", next = "kargath_dead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kargath_dead = {
+      lines = {
+        { id = "kd_default", text = "The Shadowmage and the Hierophant. They keep to their own fire and talk about the mountain as if it were a book they mean to finish, and I carry their water too, though they never seem to drink it." },
+      },
+      choices = {
+        { text = "The Horde takes its allies where it finds them.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spar = {
+      lines = {
+        { id = "sp_default", text = "Here, now? Lexlort would have my hide for brawling on watch, and then he'd ask who won. Find me behind Greth's stable when the fires are banked, and bring the blunt side of whatever you carry." },
+      },
+      choices = {
+        { text = "Behind the stable, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elders = {
+      lines = {
+        { id = "el_default", text = "They say the old Horde ruled half the world from that spire, and then they go quiet and look at the fire. I know the demon blood was in it, so I don't ask twice, but I would still like to stand where they stood." },
+      },
+      choices = {
+        { text = "Stand there for Thrall's Horde, and it will mean more.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -642,12 +784,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Ask quick; Gargal says I talk too much, and he's watching." },
         { id = "h_again2", text = "Go on. I've got nothing to do but sharpen this, and it's already sharp." },
+        { id = "h_again3", text = "Still here? Good, because nobody else in this camp lets me finish a sentence." },
       },
       choices = {
         { text = "Why are you so keen to get inside?", next = "keen" },
         { text = "What's an initiate?", next = "initiate" },
         { text = "Gargal says he stands in front of you.", next = "gargal", when = { heardLine = "bl_gargal.pa_default" } },
         { text = "Patience, Amakkar. Your time will come.", next = "patience" },
+        { text = "You can see Blackrock from here, at least.", next = "mountain" },
+        { text = "Who gives the orders in Kargath?", next = "kargath" },
+        { text = "A blade is only sharp if it's used. Spar with me.", next = "spar", when = { class = { "WARRIOR", "ROGUE" } } },
+        { text = "What do the old orcs say of Blackrock, young one?", next = "elders", when = { race = "Orc" } },
         { text = "Good luck, Amakkar.", next = "END" },
       },
     },
@@ -700,6 +847,7 @@ P:NPC {
   },
 
   topics = {
+    blackrock_orcs = { { id = "tp_br", text = "Rend Blackhand's orcs, up in the spire, who never bent the knee to Thrall. Goretooth wants them broken, and I want to be there when it happens." } },
     background = { { id = "tp_bg", text = "I was born in the camps, raised in Durotar and sent out here to fetch water. Glorious, isn't it?" } },
     advice = { { id = "tp_ad", text = "Keep your knife sharp. You never know when someone's going to finally let you use it." } },
     _none = { { id = "tp_none", text = "No idea. Ask Gargal; he doesn't know either, but he'll take longer to say so." } },

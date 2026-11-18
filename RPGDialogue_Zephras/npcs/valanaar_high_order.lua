@@ -738,6 +738,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! The dockmaster says your people hold the rail the whole way up, and I can't say I blame you." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You came by the western dock, then, with the Windshapers. I've wanted to meet a tauren since my cousin first told me about you." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "You're the first orc I've seen up close. You're greener than I expected, and you smile more than the stories said you would." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -746,6 +750,61 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    people = {
+      lines = {
+        { id = "pe_default", text = "Nearly everyone, and what I don't know I ask. Othesia the tailor waves when she passes, Iaadaria the alchemist never does, and poor Dondallion always looks as if he's lost a book and is afraid to say which one." },
+      },
+      choices = {
+        { text = "And the Supreme Magister?", next = "people_magister" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    people_magister = {
+      lines = {
+        { id = "pm_default", text = "He walks past quickly, with his jaw set, and he hasn't smiled since the business at the Shrine. I say good morning anyway, and now and then he says it back, so I shall keep at it." },
+      },
+      choices = {
+        { text = "A good morning costs nothing. Keep at it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    refugees = {
+      lines = {
+        { id = "re_default", text = "They come with whatever they could carry, and Donaal finds them floor when he's out of beds. Nyalah feeds them whether they can pay or not, and half the street has taken to leaving blankets at the inn door." },
+      },
+      choices = {
+        { text = "Do you leave blankets too?", next = "refugees_help" },
+        { text = "A town shows what it is at times like these.", next = "refugees_help" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    refugees_help = {
+      lines = {
+        { id = "rh_default", text = "Blankets, and I sit with the children so their parents can sleep, which is the one useful thing a nosy woman on a step can do. They ask me if the town is safe, and I tell them it's safer than where they were." },
+      },
+      choices = {
+        { text = "That's more useful than you make it sound.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsky = {
+      lines = {
+        { id = "xk_default", text = "Between neighbours? We're frightened, and we're pretending it's only excitement. But I watch our people walk down to those docks every day and step onto the ships anyway, and I think that's rather fine of us." },
+      },
+      choices = {
+        { text = "It is fine of us. I'll remember it below.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xg_default", text = "The young ones do, when they want to complain about the old ones. I'm told there are whole towers of your kind in Dalaran, so perhaps you can tell me whether mages below are as bad at sleeping as ours." },
+      },
+      choices = {
+        { text = "Worse, if anything.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Gelia. I sit here most days because you see everyone from this step: magisters going in and out of the hall, the dockhands coming up from the skycutters, and now mainlanders, which is the best thing that's happened to this town in years." },
@@ -753,12 +812,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've the whole day free." },
         { id = "h_again2", text = "Go on, I love a good question." },
+        { id = "h_again3", text = "Yes? Sit, if you like, the step's wide enough for two." },
       },
       choices = {
         { text = "What have you seen lately?", next = "seen" },
         { text = "What do people in Valanaar make of the mainlanders?", next = "mainlanders" },
         { text = "Will you go below the clouds yourself?", next = "below" },
         { text = "What's Valanaar like, for someone who lives here?", next = "town" },
+        { text = "You must know everyone who climbs these steps.", next = "people" },
+        { text = "You mentioned refugees from the fallen places.", next = "refugees" },
+        { text = "Tell me what a neighbour says of all this, Gelia.", next = "xsky", when = { race = "Skyborne" } },
+        { text = "Do the magisters ever stop to talk to you?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell, Gelia.", next = "END" },
       },
     },
@@ -839,6 +903,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "You'll want the rail on the starboard side, master dwarf. Your people favour it, and it's the sturdier of the two." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "Before you ask: no, you may not see the workings, and yes, the pilot has been asked already today." },
     { id = "n_leaving", cat = "kin", when = { race = "Skyborne", faction = "Alliance", minLevel = 10 },
       text = "You'll be one of the ones going below for good, then. Keep your feet planted when the ship crosses over; it lurches." },
     { id = "n_human", cat = "race", when = { race = "Human" },
@@ -847,6 +915,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    crew = {
+      lines = {
+        { id = "cw_default", text = "It does. The pilot holds the route, the riggers hold the ship, and I hold the dock, and none of us does the others' work. I check the readings before she casts off, and she doesn't cast off until I've signed for them." },
+      },
+      choices = {
+        { text = "Has a pilot ever argued with your readings?", next = "crew_argue" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crew_argue = {
+      lines = {
+        { id = "cg_default", text = "Once, a young one, in a hurry to make Dalaran before dark. I kept the lines fast until he had read the figures aloud to me twice. He thanked me the next morning, though not gracefully." },
+      },
+      choices = {
+        { text = "A grudging thanks still counts.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = {
+        { id = "bf_default", text = "Very quiet. For a long time after the skystreams closed there was nowhere for a skycutter to go, and I kept the planks oiled for ships that never sailed. Now she's out and back every day, and I find I'd missed the noise." },
+      },
+      choices = {
+        { text = "You kept the dock ready all that time?", next = "before_ready" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before_ready = {
+      lines = {
+        { id = "br_default", text = "A dock that isn't kept is only a ledge. Some in the town called it wasted work, and I let them, and when the order needed a ship in the air the dock was fit to send her. I'll own that I enjoyed that morning." },
+      },
+      choices = {
+        { text = "Duty kept in the quiet years is still duty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsky = {
+      lines = {
+        { id = "xs_default", text = "Then stand amidships and watch the horizon, not the drop, and you'll keep your breakfast. Everyone goes quiet when the ground first comes up through the cloud, and there's no shame in it. Come back and tell us what it's like." },
+      },
+      choices = {
+        { text = "I'll come back with stories, Dockmaster.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xm_default", text = "I can tell you how I read them, which is as columns of figures that must agree with yesterday's. How the magisters come by the figures is their craft and not mine, and you'd do better to ask in the hall than on the planks." },
+      },
+      choices = {
+        { text = "I'll ask in the hall, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "This is the High Order's dock. The skycutter that comes in here will take you straight to Dalaran, and from there the Kirin Tor can see you on to Stormwind if you've the need." },
@@ -856,12 +978,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else before the ship comes in?" },
         { id = "h_again2", text = "Ask. I'll keep one eye on the sky." },
+        { id = "h_again3", text = "Go on. She's not due for a while yet." },
       },
       choices = {
         { text = "How does a skycutter cross between worlds?", next = "crossing" },
         { text = "What's Dalaran like?", next = "dalaran" },
         { text = "What about the western dock?", next = "west" },
         { text = "Do many mainlanders come up on your ship?", next = "visitors" },
+        { text = "It must take a steady crew to fly her.", next = "crew" },
+        { text = "This dock was quiet before the mainlanders, I'd guess.", next = "before" },
+        { text = "I'm bound below for the first time, Dockmaster.", next = "xsky", when = { race = "Skyborne" } },
+        { text = "How do your magisters read the safe routes?", next = "xmage", when = { class = "MAGE" } },
         { text = "Thank you, Dockmaster.", next = "END" },
       },
     },

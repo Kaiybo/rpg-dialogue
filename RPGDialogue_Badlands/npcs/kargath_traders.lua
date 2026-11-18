@@ -121,6 +121,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_plate", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "All that plate, in this sun. Drink twice what you think you need, and don't say nobody warned you." },
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You work leather yourself, by your hands. Then you know why I oil mine every morning out here." },
     { id = "n_rogue", cat = "class", when = { class = { "ROGUE", "HUNTER", "DRUID" } },
       text = "Leather, for you, and light, because in this heat you'll want to move. I've got just the thing." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
@@ -129,6 +133,61 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    kargath = {
+      lines = {
+        { id = "ka_default", text = "It's an outpost, not a market, and that suits me, because every soul here needs what I sell. Grawl has the general goods, Greth has the stables, and Shul'kar has the inn, so between us nobody leaves Kargath short." },
+      },
+      choices = {
+        { text = "And the soldiers? Do they buy?", next = "kargath_force" },
+        { text = "Why leave Orgrimmar for this?", next = "kargath_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kargath_force = {
+      lines = {
+        { id = "kf_default", text = "The scouts do. Razal'blade buys my soft leathers and complains I won't bargain, and Galamav wants bowstrings that don't dry out. Gargal buys nothing, because he thinks plate is a point of honour, and he sweats for it." },
+      },
+      choices = {
+        { text = "Let me see what the scouts wear.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kargath_why = {
+      lines = {
+        { id = "kw_default", text = "In the Drag there were six of us selling the same jerkin and cutting each other's prices to the bone. Out here there's one of me, and a war next door. A merchant goes where she's needed, and I'm needed here." },
+      },
+      choices = {
+        { text = "A sharp eye for an opening.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gorge = {
+      lines = {
+        { id = "go_default", text = "A few every week, heading west through the pass with too much on their backs. I tell them all the same thing: the Gorge is hotter than here, the Dark Irons work slaves in the Cauldron, and nobody sells water past the gate." },
+      },
+      choices = {
+        { text = "Do they listen?", next = "gorge_listen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gorge_listen = {
+      lines = {
+        { id = "gl_default", text = "The ones who come back do. The Thorium Brotherhood keeps a camp up at Thorium Point, I hear, and they'll trade with anyone, so there's that much comfort if you get that far." },
+      },
+      choices = {
+        { text = "Then I'll buy light before I go.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xh_default", text = "Then you want horn and sinew, not plain wood, and a string you wax every night. I keep the good ones wrapped in the cellar, because a bow left on the rack here cracks within the month." },
+      },
+      choices = {
+        { text = "Bring one up from the cellar.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -141,6 +200,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? Make it quick; it's hot." },
         { id = "h_again2", text = "Go on, then. I'm listening." },
+        { id = "h_again3", text = "Ask, then, but stand in the shade while you do it." },
       },
       choices = {
         { text = "Show me what you've got.", next = "BUSINESS" },
@@ -148,6 +208,9 @@ P:NPC {
         { text = "Who buys from you?", next = "buyers" },
         { text = "Why don't you haggle?", next = "haggle" },
         { text = "I need something quiet.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Kargath isn't much of a market.", next = "kargath" },
+        { text = "You get travellers bound for the Searing Gorge.", next = "gorge" },
+        { text = "I need a bow that survives this sun.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll be going.", next = "END" },
       },
     },

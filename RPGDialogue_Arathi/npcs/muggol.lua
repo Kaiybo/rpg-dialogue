@@ -32,6 +32,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Kin we are, {g:lad|lass}, an' cousins quarrel worse than strangers, as ye well know. Yer folk kept the mountain an' we kept the sky, an' I'd say we both got the better o' the bargain." },
+      },
+      choices = {
+        { text = "Ever think of coming home to Ironforge?", next = "x_dwarf_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dwarf_home = {
+      lines = {
+        { id = "xdh_default", text = "Home tae a roof o' stone an' a king's council? Nae offence tae Magni, but a Wildhammer under a mountain is a gryphon in a cellar. I'll visit for the ale, an' I'll leave afore the speeches." },
+      },
+      choices = {
+        { text = "The ale's worth the trip, at least.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_alch = {
+      lines = {
+        { id = "xa_default", text = "A clear one, wi' nae grit at the bottom an' nae smell o' swamp, for a start. Our shamans can tell a hurried brew by the taste, an' they'll send it back wi' words I'd no' repeat tae yer mother." },
+      },
+      choices = {
+        { text = "Then they'll get no hurried brews from me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_shaman = {
+      lines = {
+        { id = "xsh_default", text = "Aye, an' the sky answers, which is more than most folk get from it. They read the storms off the peaks an' ask the wind where the trolls are movin', an' I've yet tae see them wrong about the weather." },
+      },
+      choices = {
+        { text = "The wind keeps few secrets from those who listen.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -49,6 +85,9 @@ P:NPC {
         { text = "Why is a Wildhammer in Arathi?", next = "why" },
         { text = "Is it safe out here?", next = "safe" },
         { text = "Tell me about the Wildhammer.", next = "clan" },
+        { text = "A Bronzebeard and a Wildhammer. Are we still kin?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "I brew elixirs myself. What makes a good one?", next = "x_alch", when = { profession = "Alchemy" } },
+        { text = "Your shamans speak to the sky?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "Farewell, Muggol.", next = "END" },
       },
     },

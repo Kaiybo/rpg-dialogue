@@ -21,6 +21,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
+      text = "Ye've the look o' someone who's been arguin' wi' trolls. Sit, an' I'll pour before ye tell me who won." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ye've had a few already, I see, so I'll pour ye a small one an' call it a large one." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -29,6 +31,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    thulfram = {
+      lines = {
+        { id = "tf_default", text = "Oh, he minds, he just minds quietly. He frets about the noise an' the spilled ale an' the riders singin', an' then he counts what the beds bring in when they're too merry tae fly home. We suit each other fine." },
+      },
+      choices = {
+        { text = "Who else keeps you company in here?", next = "thulfram_regulars" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thulfram_regulars = {
+      lines = {
+        { id = "tre_default", text = "Old Howin looks in twice a day an' never drinks, because Claira would know. Killium comes up from the stables smellin' o' wolf, an' Drakk comes tae hide from Nioma when his account's due. I keep a stool for each." },
+      },
+      choices = {
+        { text = "A bartender knows where everyone hides.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    patrols = {
+      lines = {
+        { id = "pt_default", text = "It does. A rider back from Jintha'Alor drinks fast an' says little, an' one back from the coast drinks slow an' complains about the Revantusk. The ones who've flown near Seradane dinnae drink at all, they just sit." },
+      },
+      choices = {
+        { text = "What do they see at Seradane?", next = "patrols_seradane" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    patrols_seradane = {
+      lines = {
+        { id = "ps_default", text = "Green dragons, they say, that used tae sleep an' dinnae any more. One lad swore he nodded off in the saddle over it an' woke wi' the bird halfway down. I gave him a double an' told Talonaxe, an' nobody flies that way alone now." },
+      },
+      choices = {
+        { text = "You did right to tell Talonaxe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "Gladly, cousin! Ours is brewed wi' mountain water an' heather, so it's lighter than yer Ironforge stout an' it'll put ye on yer back twice as fast. Dinnae tell me which is better till ye've finished the mug." },
+      },
+      choices = {
+        { text = "Then fill the mug, and I'll judge fairly.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,12 +85,19 @@ P:NPC {
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome! Stand on the stool, there's a good lad, or lass, an' I'll be able tae see who I'm pourin' for." },
       },
-      again = { { id = "h_again", text = "Another? Or another question, which is cheaper?" } },
+      again = {
+        { id = "h_again", text = "Another? Or another question, which is cheaper?" },
+        { id = "h_again2", text = "Aye? The barrel's no' goin' anywhere, an' neither am I." },
+        { id = "h_again3", text = "Ask away, an' lean on the bar while ye do, it likes the company." },
+      },
       choices = {
         { text = "Pour me something.", next = "BUSINESS" },
         { text = "What's the gossip in the keep?", next = "gossip" },
         { text = "Who drinks the most here?", next = "drinkers" },
         { text = "Is your ale better than Rhapsody's?", next = "rhapsody" },
+        { text = "Thulfram doesn't seem to mind sharing a roof.", next = "thulfram" },
+        { text = "A bar hears where the patrols have been.", next = "patrols" },
+        { text = "Pour for a cousin from Ironforge, and tell me how it compares.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I'll be off, Truk.", next = "END" },
       },
     },
@@ -115,24 +169,81 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "Those are a stitcher's fingers, all pricked an' callused. Good, then ye'll no' need tellin' why a rushed seam is a sin." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Yer straps are near worn through, an' it pains me tae look at them. See tae them before they see tae ye." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter brings the best skins, because ye know where tae aim. Don't spoil a good hide wi' sloppy shots, mind." },
   },
 
   start = "hello",
   nodes = {
+    crafters = {
+      lines = {
+        { id = "cf_default", text = "Harggan has the forge an' sells the smiths their coal, an' Nioma keeps me in thread an' salt an' reminds me what I owe her. Between the three of us we keep the riders shod, strapped an' saddled, an' they thank the gryphons for it." },
+      },
+      choices = {
+        { text = "Nioma says you're slow to pay.", next = "crafters_nioma", when = { heardLine = "nioma.dk_default" } },
+        { text = "Craftsmen rarely get the songs.", next = "crafters_songs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crafters_nioma = {
+      lines = {
+        { id = "cn_default", text = "She told ye that? Well, it's true, an' I'll no' deny it. I pay her the day a piece sells, an' my pieces sell slow because they're dear, an' they're dear because they're good, so really it's a compliment tae us both." },
+      },
+      choices = {
+        { text = "I doubt she sees it that way.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crafters_songs = {
+      lines = {
+        { id = "cs2_default", text = "Never, an' it's a scandal. There's a dozen ballads about Falstad's hammer an' no' one about the strap that kept him in the saddle while he swung it. I've half a mind tae write it myself." },
+      },
+      choices = {
+        { text = "I'd listen to that ballad.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    harness = {
+      lines = {
+        { id = "hn_default", text = "More than ye'd believe. A gryphon in a dive pulls on every buckle at once, an' troll spears dinnae help. Guthrum brings me a heap o' broken tack every week, an' I mend it between the work I'd rather be doin'." },
+      },
+      choices = {
+        { text = "Mending keeps riders alive. That's no small work.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xskin = {
+      lines = {
+        { id = "xs_default", text = "Owlbeast first, an' cut it from the belly so the back stays whole. Silvermane after that, an' I'll take a wildkin hide if ye've the nerve tae get one. Whatever ye bring, tell me how it died, an' dinnae leave out the good parts." },
+      },
+      choices = {
+        { text = "Belly cut, whole back, and the story. Agreed.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Drakk Stonehand, master o' leather for Aerie Peak. Give me a good hide from these hills an' I'll make ye a jerkin the riders will fight over, if folk would only bring the hides tae me instead o' sellin' them in Ironforge." },
       },
-      again = { { id = "h_again", text = "What else? Talk while I stitch." } },
+      again = {
+        { id = "h_again", text = "What else? Talk while I stitch." },
+        { id = "h_again2", text = "Aye? Ask, an' mind the needle, it's sharper than it looks." },
+        { id = "h_again3", text = "Go on. I've a seam tae finish, but my ears are free." },
+      },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Leatherworking" } },
         { text = "What creatures are you talking about?", next = "beasts" },
         { text = "Why do you want tall tales?", next = "tales" },
         { text = "Your hair's black. Aren't Wildhammer usually fair?", next = "hair" },
         { text = "What's the finest thing you ever made?", next = "finest" },
+        { text = "Who else works a craft in this keep?", next = "crafters" },
+        { text = "The riders must wear out a lot of harness.", next = "harness" },
+        { text = "I skin what I hunt. Which pelts do you want?", next = "xskin", when = { profession = "Skinning" } },
         { text = "Good stitching, Drakk.", next = "END" },
       },
     },
@@ -201,26 +312,83 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Salt, thread, dye an' the odd hide. If ye're makin' somethin', I've got what ye need." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more salt? Ye must be skinnin' every beast between here an' the Overlook Cliffs." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker. Good, I've salt an' thread an' dye, an' ye'll know what tae do wi' all three." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're late, but I'm still countin' stock, so ye may as well buy somethin'." },
   },
 
   notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. If ye've pelts tae sell, show Drakk first an' let him get excited, for the price is always better after." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker, an' wi' good habits, by the look o' yer kit. Ye'll be after the heavy thread, then." },
   },
 
   start = "hello",
   nodes = {
+    traders = {
+      lines = {
+        { id = "tr_default", text = "Harggan sells the smiths their coal an' flux across the way, Truk sells the ale, an' Thulfram sells the beds an' a decent stew. There's a gnome wi' a cart on the road east who undercuts the lot of us on thread, an' I've words saved up for her." },
+      },
+      choices = {
+        { text = "A little competition keeps prices honest.", next = "traders_gnome" },
+        { text = "A keep ought to buy from its own.", next = "traders_gnome" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    traders_gnome = {
+      lines = {
+        { id = "tg_default", text = "Hmph. I'll say this for her: she's camped out among the trolls an' the wolves wi' nae wall round her, an' she's still open for business. That's either courage or bad sense, an' in a trader it's hard tae tell them apart." },
+      },
+      choices = {
+        { text = "You sound as if you half admire her.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flying = {
+      lines = {
+        { id = "fy_default", text = "A gryphon carries a rider an' two sacks, an' nae more, an' Guthrum Thunderfist charges me for the bird's supper besides. So everythin' on these shelves has flown further than most folk in the keep, an' it's priced like it." },
+      },
+      choices = {
+        { text = "Why not a wagon up the western road?", next = "flying_road" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flying_road = {
+      lines = {
+        { id = "fr_default", text = "Because the western road comes up out o' the Plaguelands, an' I'll no' sell thread that's sat a night in that air. The gryphons come in clean from the south, an' clean is worth the coin." },
+      },
+      choices = {
+        { text = "Fair. I'd pay for clean, too.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xskin = {
+      lines = {
+        { id = "xs_default", text = "A fair price for whole hides an' nothin' for ragged ones, the same as anywhere. But take the fine pelts tae Drakk an' the plain ones tae me, an' ye'll do better out o' both of us than ye deserve." },
+      },
+      choices = {
+        { text = "Sound advice. Let's see your stock.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Nioma, an' I sell leatherworkin' supplies tae Drakk an' anyone else who can stitch. Half my trade is him, an' the other half is folk he's sent me." },
       },
-      again = { { id = "h_again", text = "Anythin' else? I've stock tae sort." } },
+      again = {
+        { id = "h_again", text = "Anythin' else? I've stock tae sort." },
+        { id = "h_again2", text = "Aye? Ask while I count, I can do both." },
+        { id = "h_again3", text = "Go on, then, but dinnae lean on the salt barrels." },
+      },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You and Drakk work together?", next = "drakk" },
         { text = "Where does your stock come from?", next = "stock" },
         { text = "Do you ever work leather yourself?", next = "craft" },
+        { text = "Who else trades in the keep?", next = "traders" },
+        { text = "Flying goods in must cost you dearly.", next = "flying" },
+        { text = "What would you pay for good hides?", next = "xskin", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "Thank you, Nioma.", next = "END" },
       },
     },
@@ -292,23 +460,80 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "That's a well-kept beast ye've got. {pet} looks me in the eye an' doesnae flinch, an' that tells me all I need about its keeper." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid, is it? The beasts have all turned tae look at ye, every one. I'd give a good deal tae know what they think they're seein'." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter! Ye'll want a stall, then, an' maybe a word about keepin' yer beast clear o' the aviary." },
   },
 
   start = "hello",
   nodes = {
+    aviary = {
+      lines = {
+        { id = "av_default", text = "By my own askin'. Guthrum Thunderfist has the roost an' Talonaxe has the war birds, an' they're welcome tae the noise. Down here it's wolves, cats, boars an' the odd bear, an' not one o' them screams at dawn." },
+      },
+      choices = {
+        { text = "Do you and Talonaxe get on?", next = "aviary_talonaxe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aviary_talonaxe = {
+      lines = {
+        { id = "at_default", text = "Well enough. He thinks anythin' wi'out wings is livestock, an' I think he's been dropped on his head by one bird too many, an' we say so tae each other's faces. He's been poor company since they took Sharpbeak, an' I've let him be." },
+        { id = "at_home", when = { questDone = TODO_QUEST("Saving Sharpbeak") }, text = "Well enough. He thinks anythin' wi'out wings is livestock, an' I tell him he's been dropped on his head by one bird too many. He's been near cheerful since Sharpbeak came home, which is unsettlin' in its own way." },
+      },
+      choices = {
+        { text = "That sounds like friendship, of a kind.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hills = {
+      lines = {
+        { id = "hl_default", text = "Silvermane wolves, mostly, for the hunters love them, an' now an' then a great owl some elf has gentled. The trolls keep razorbeaks an' wolves o' their own, an' I've nursed one or two that came in wi' Witherbark collars on." },
+      },
+      choices = {
+        { text = "You'd tend a troll's beast?", next = "hills_troll" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hills_troll = {
+      lines = {
+        { id = "ht_default", text = "A beast doesnae choose who puts the collar on it. I cut the collar off, feed it up an' find it a hunter wi' patience, an' it's never once thrown a spear at me." },
+      },
+      choices = {
+        { text = "The beast is innocent. You do right by it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpet = {
+      lines = {
+        { id = "xp_default", text = "They all are, the first day. It's the smell o' the gryphons, an' the wind, an' the drop. Leave {pet} wi' me an' I'll bed it down on the low side, away from the roost, an' by mornin' it'll be eatin' again." },
+      },
+      choices = {
+        { text = "Then I'll leave the beast in your hands.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Killium Bouldertoe, stable master. I keep the beasts that aren't gryphons, which up here means the ones everybody forgets about, an' I like it that way." },
       },
-      again = { { id = "h_again", text = "Anythin' else? Be quick, the beasts need feedin' an' they're no' patient about it." } },
+      again = {
+        { id = "h_again", text = "Anythin' else? Be quick, the beasts need feedin' an' they're no' patient about it." },
+        { id = "h_again2", text = "Aye? Ask, but keep yer voice down, there's a cat asleep." },
+        { id = "h_again3", text = "Go on. The feed can wait a moment, if no' two." },
+      },
       choices = {
         { text = "I need the stables.", next = "BUSINESS" },
         { text = "How do beasts cope with the gryphons?", next = "gryphons" },
         { text = "What's the strangest animal you've stabled?", next = "strange" },
         { text = "Do you ever ride the gryphons yourself?", next = "ride" },
+        { text = "You're kept apart from the aviary, I see.", next = "aviary" },
+        { text = "What beasts do the hills send you?", next = "hills" },
+        { text = "My companion's uneasy this high up.", next = "xpet", when = { pet = { type = "Beast" } } },
         { text = "Good day, Killium.", next = "END" },
       },
     },
