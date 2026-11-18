@@ -17,3 +17,18 @@ Braug lives by the tunnel to hear news from both sides; Denni'ka butchered on th
 
 ## Never
 Deathwing/Neltharion as an answer; anything after Year 1.
+
+## Added later (keys: veenix, nizzik)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Veenix <Venture Co. Merchant> (weapons, western edge of Windshear Crag) and Nizzik <Venture Armor Salesman> (far platform of the Cragpool Lake waterwheel); both neutral, trading with Horde and Alliance.
+
+### Their quests
+- none: vendors, built from role and place.
+
+### Voices
+- **Veenix.** Slick, hard Company man; sells to the people killing his loggers and counts it as two transactions.
+- **Nizzik.** Nervous, wheedling; stuck on the wheel after a memo about the mine; wants out and dares not say so.
+
+### Authored, not canon
+Nizzik's memo and his contract; both goblins' envy of Ziz Fizziks standing against the Company.

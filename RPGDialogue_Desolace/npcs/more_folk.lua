@@ -1847,7 +1847,7 @@ P:NPC {
     },
   },
   topics = {
-    centaur = { { id = "tp_car", text = "De Gizelton brothers, Rigger and Cork, dey run de only wagons crazy enough to cross dis land. I pray for dem, mon, mostly for my own sake." } },
+    centaur = { { id = "tp_car", text = "De Gizelton brothers, Rigger and Cork, dey run de only wagons crazy enough to cross Kolkar land. I pray for dem, mon, mostly for my own sake." } },
     background = { { id = "tp_bg", text = "I sold on de Echo Isles, den at Sen'jin, den here. A trader goes where de customers be, even if it's de edge of nowhere." } },
     advice = { { id = "tp_ad", text = "Buy your thread before de caravan's due, mon, not after. After, dere might be no caravan." } },
     _none = { { id = "tp_none", text = "Don't know, mon, and I don't sell what I don't know. Ask Jinar'Zillen." } },

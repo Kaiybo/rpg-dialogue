@@ -24,3 +24,22 @@ Tah's father carved before him; goblin paint runs in the rain. Komin gathered on
 
 ## Never
 Anything after Year 1: no Highmountain feast, no Void, no Baine as High Chieftain.
+
+## Added later (keys: atepa, krumn, stampi, kuruk, tepa, pand)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Atepa <Banker>, Krumn <Guild Master>, Stampi <Auctioneer> (lower rise); Kuruk <General Goods> (High Rise); Tepa <Tailoring Trainer> (middle rise); Pand Stonebinder <First Aid Trainer> (Spirit Rise).
+
+### Their quests
+- none: service NPCs, built from role, place and neighbours.
+
+### Voices
+- **Atepa.** Careful, courteous; a thing left in trust is a promise; not a goblin's bank.
+- **Krumn.** Hearty and formal; a guild is a tribe that chose itself.
+- **Stampi.** Loud, cheerful; the loudest calf in his tribe, now paid for it.
+- **Kuruk.** Easygoing, observant; watches who goes in and out of Cairne's lodge and says little about Magatha.
+- **Tepa.** Gentle, precise; brought cloth to a people of hide; "dear one".
+- **Pand Stonebinder.** Steady, plain-spoken; linen for the day the spirits are slow.
+
+### Authored, not canon
+The goblin who tried to rob the bank; Stampi's path of plainstrider beaks; Hamuul's mantle of Tepa's weaving; Tepa's kodo-rib loom; Pand's lost shaman in the centaur days; Krumn refusing a charter. Sheza Wildmane (Zandalarian Emissary) was left out: her posting belongs to the later Zul'Gurub patch.

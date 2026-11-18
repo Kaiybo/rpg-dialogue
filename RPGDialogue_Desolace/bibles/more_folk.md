@@ -23,3 +23,26 @@ Willow's falling-out with the apothecaries; Aboda's songs; Lui'Mala's daily chan
 
 ## Never
 Willow's true allegiance stated plainly; anything after Year 1 (no Cataclysm Desolace, no Khan Leh'Prah).
+
+## Added later (keys: azore, hornizz, bibbly, narv, lahmawhani, mailahii, wulan)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Azore Aldamort <The Argent Dawn> (human mage, tower at Ethel Rethor; Sceptre of Light, Book of the Ancients). Hornizz Brimbuzzle (goblin, south-west of the Kodo Graveyard; Ghost-o-plasm Round Up; sister Melizza held by the Maraudine). Bibbly F'utzbuckle (goblin at Kormek's Hut; Bone Collector; he dances). Narv Hidecrafter <Leatherworking Trainer> (Ghost Walker Post). Lah'Mawhani <Trade Supplies>, Mai'Lahii <Fishing Supplies>, Wulan <Cooking Supplies> (Shadowprey Village).
+
+### Their quests
+- Azore: Sceptre of Light (from the Burning Blade seer at Thunder Axe Fortress), Book of the Ancients (Lord Kragaru, Ranazjar Isle). His Forever quests are not written here.
+- Hornizz: Ghost-o-plasm Round Up (ghost magnets, Valley of Bones, Magram spectres); ends Get Me Out of Here!.
+- Bibbly: Bone Collector (kodo bones from the graveyard; apparitions).
+- Narv, Lah'Mawhani, Mai'Lahii, Wulan: none.
+
+### Voices
+- **Azore Aldamort.** Learned, guarded, dry; studies the hand as well as the knife.
+- **Hornizz Brimbuzzle.** Goblin patter until his sister comes up, then only frightened.
+- **Bibbly F'utzbuckle.** Jittery, gleeful, dances to drown out the kodo ghosts.
+- **Narv Hidecrafter.** Deliberate, reverent; speaks to each hide; kodo only from Gurda's hand.
+- **Lah'Mawhani.** Sharp, teasing Darkspear trader; bargaining is the fun of it.
+- **Mai'Lahii.** Easy, superstitious; a charm on every line against the naga.
+- **Wulan.** Motherly, firm tauren cook among trolls; rations the pepper.
+
+### Authored, not canon
+Azore's doubts about the Dawn's priorities; Hornizz's skinless kodo; the skull on Bibbly's doorstep; Narv's words over a hide; Mai'Lahii's charms; Wulan's hidden store under the inn and her friendship with Sikewa.

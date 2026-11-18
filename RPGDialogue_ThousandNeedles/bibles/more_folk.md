@@ -14,3 +14,25 @@ She came to study the quilboar and stayed to watch the cult; she has not gone in
 
 ## Never
 Amnennar's name (she only knows "the diplomat"); anything after Year 1.
+
+## Added later (keys: elu, wizlo, moktar, montarr, starn, jawn)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Elu <Wind Rider Apprentice> (Freewind Post; Wind Rider: Highperch wyvern eggs). Wizlo Bearingshiner (goblin at Whitereach Post; Hypercapacitor Gizmo, A Dip in the Moonwell, Testing the Tonic). Moktar Krin (orc at Ironstone Camp; led Belgrom Rockmaul's raid on the Explorers' League dig; The Swarm Grows). Montarr <Lorekeeper> (reagents, Freewind). Starn <Gunsmith & Bowyer>, Jawn Highmesa <General Goods> (Freewind).
+
+### Their quests
+- Elu: Wind Rider (eggs from Highperch to raise as wind riders).
+- Wizlo: Hypercapacitor Gizmo (in a panther's cage), A Dip in the Moonwell (his robot dips at Thalanaar), Testing the Tonic.
+- Moktar: The Swarm Grows (silithid at the Rustmaul Dig Site; proof for Belgrom).
+- Montarr, Starn, Jawn: none (Horn of the Traitor is Cataclysm; not used).
+
+### Voices
+- **Elu.** Eager, anxious, sweeps a great deal; one long nervous sentence at a time.
+- **Wizlo Bearingshiner.** Goblin tinker: everything priced, fast, "pal", casual about what the tonic does.
+- **Moktar Krin.** Grim, watchful, a soldier who followed orders and is uneasy about the result.
+- **Montarr.** Thoughtful, dry; keeps names and where they were last spoken.
+- **Starn.** Terse and exact; respects the bow, sells the gun.
+- **Jawn Highmesa.** Genial, talkative; born on the mesa and counts the lift's trips.
+
+### Authored, not canon
+Elu's mother in Mulgore; Wizlo's robot that cannot turn left; Moktar's private doubt about the raid; Montarr's morning walk and the tale of the quarrelling herd; Starn's painted rock; Jawn's notched posts.

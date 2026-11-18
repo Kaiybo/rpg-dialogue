@@ -22,3 +22,24 @@ Wildrunners guarding Bloodhoof since it was tents; Lanka's teacher buried near R
 
 ## Never
 Anything after Year 1; no Cataclysm Mulgore; nothing about the Skyborne beyond BRIEF.md.
+
+## Added later (keys: ravenfeather, narm, harb, chaw, pyall, wunna)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Seer Ravenfeather (Camp Narache; a shaman seer before the Cataclysm; Call of Earth). Narm Skychaser <Shaman Trainer> (Bloodhoof Village; Call of Fire sends to Kranal Fiss, Call of Water to Islen Waterseer). Harb Clawhoof <Kodo Mounts>, Chaw Stronghide <Leatherworking Trainer>, Pyall Silentstride <Cook>, Wunna Darkmane <Trade Goods> (all Bloodhoof Village).
+
+### Their quests
+- Ravenfeather: Call of Earth (ritual salve from Bristleback shamans; sapta; Kodo Rock).
+- Narm: Call of Fire, Call of Water (sends the shaman on; no detail beyond the names).
+- Harb, Chaw, Pyall, Wunna: none: vendors and trainers, built from role, place and neighbours.
+
+### Voices
+- **Seer Ravenfeather.** Serene, exacting, long pauses; tests stillness where Graytongue tests courage.
+- **Narm Skychaser.** Calm, a little dry; enjoys how far he sends his students.
+- **Harb Clawhoof.** Patient and proud; a kodo is persuaded, never broken; asks the herd's leave.
+- **Chaw Stronghide.** Gruff, exact, sparing with praise; nothing wasted.
+- **Pyall Silentstride.** Quiet, kindly; hands you a spoon before he asks your name.
+- **Wunna Darkmane.** Brisk and shrewd; keeps tally on knotted cord; will not buy from the Venture Company.
+
+### Authored, not canon
+Harb's grey cow and the grass fire; Chaw's crooked straps; Pyall's mother's pot; the Darkmanes as traders between the herds; Wunna's knotted cord.
