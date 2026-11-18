@@ -52,4 +52,7 @@ npcs\stormwind_more.lua
 npcs\park_folk.lua
 npcs\more_folk.lua
 npcs\more_folk2.lua
+npcs\missed_a.lua
+npcs\missed_a2.lua
+npcs\missed_a3.lua
 directions.lua

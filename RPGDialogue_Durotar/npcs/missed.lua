@@ -10,7 +10,7 @@ P:NPC {
   key = "nartok", id = TODO_NPC("Nartok"), name = "Nartok", title = "Warlock Trainer", gender = "male",
   bible = "bibles/missed.md", role = "trainer", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "cold", "watchful" }, values = { "discipline", "power" },
-  notices = { "magic" },
+  notices = { "class" },
   impression = {
     first = "Nartok teaches the Valley's young warlocks in the shade of the Den, and he speaks of demons the way a wolf-handler speaks of a wolf that has bitten him before. The other trainers keep their distance, and he seems to prefer it.",
     third = "{name} met Nartok, who teaches warlocks at the Den in the Valley of Trials.",
@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and with the same eyes you left with. That's a better sign than you know." },
   },
   notice = {
-    { id = "n_shaman", cat = "magic", when = { class = "SHAMAN" },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman, and you look at me the way Shikrik does. I'd rather be watched by honest eyes than trusted by fools, so look all you like." },
   },
   start = "hello",
@@ -185,7 +185,7 @@ P:NPC {
   key = "hraug", id = TODO_NPC("Hraug"), name = "Hraug", title = "Demon Trainer", gender = "male",
   bible = "bibles/missed.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "dry" }, values = { "discipline" },
-  notices = { "magic" },
+  notices = { "class" },
   impression = {
     first = "Hraug keeps a stack of grimoires in the Den and sells them to young warlocks who want their imps to learn new tricks. He handles the books with thick gloves, and he doesn't take them off to shake hands.",
     third = "{name} met Hraug, who sells demon grimoires in the Den.",
@@ -196,8 +196,8 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back at my shelf again. The books haven't changed, though one of them has moved since morning." },
   },
   notice = {
-    { id = "n_pet", cat = "magic", when = { pet = { type = "Imp" } },
-      text = "Your imp is eyeing my shelf as if it could read, and it probably can. Keep it on your side of the table." },
+    { id = "n_pet", cat = "class", when = { pet = { type = "Demon" } },
+      text = "Your demon is eyeing my shelf as if it could read, and it probably can. Keep it on your side of the table." },
   },
   start = "hello",
   nodes = {
@@ -246,7 +246,7 @@ P:NPC {
   key = "huklah", id = TODO_NPC("Huklah"), name = "Huklah", title = "Cloth & Leather Armor Merchant", gender = "male",
   bible = "bibles/missed.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "plain", "patient" }, values = { "thrift" },
-  notices = { "gear" },
+  notices = { "kit" },
   impression = {
     first = "Huklah sells cloth and leather to the Valley's newcomers, most of whom arrive in rags. He can tell at a glance what a recruit has been fighting from where the holes in their shirt are.",
     third = "{name} met Huklah, who sells cloth and leather armor in the Valley of Trials.",
@@ -257,7 +257,7 @@ P:NPC {
     { id = "g_torn", when = { durability = { max = 0.3 } }, text = "You're wearing more holes than cloth, {class}. I sell armor and I don't mend it, but you ought to see someone who does, and soon." },
   },
   notice = {
-    { id = "n_cloth", cat = "gear", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+    { id = "n_cloth", cat = "kit", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
       text = "A robe-wearer. You'll want the cloth, then, and you'll want to stand well behind someone in plate." },
   },
   start = "hello",
@@ -421,7 +421,7 @@ P:NPC {
   key = "ophek", id = TODO_NPC("Ophek"), name = "Ophek", gender = "male",
   bible = "bibles/missed.md", role = "questgiver", tier = "quest",
   communities = { "razor_hill" }, temper = { "uneasy", "wry" }, values = { "duty" },
-  notices = { "magic" },
+  notices = { "class" },
   impression = {
     first = "Ophek waits about in Razor Hill with the look of an orc who has been sent on someone else's errand and would like it finished. He carries messages for Gan'rul Bloodeye, the warlock master in Orgrimmar, and he doesn't enjoy the work.",
     third = "{name} met Ophek in Razor Hill, a messenger for the warlock Gan'rul Bloodeye.",
@@ -432,8 +432,8 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. I'm still here and still waiting, as you can see." },
   },
   notice = {
-    { id = "n_pet", cat = "magic", when = { pet = { type = "Imp" } },
-      text = "Keep your imp where I can see it. The last one I met lit my message pouch on fire, and I had to explain that to Gan'rul." },
+    { id = "n_pet", cat = "class", when = { pet = { type = "Demon" } },
+      text = "Keep your demon where I can see it. The last imp I met lit my message pouch on fire, and I had to explain that to Gan'rul." },
   },
   start = "hello",
   nodes = {
@@ -505,7 +505,7 @@ P:NPC {
   key = "rawrk", id = TODO_NPC("Rawrk"), name = "Rawrk", title = "Bandage Trainer", gender = "male",
   bible = "bibles/missed.md", role = "trainer", tier = "quest",
   communities = { "razor_hill" }, temper = { "gruff", "practical" }, values = { "survival", "duty" },
-  notices = { "wounds" },
+  notices = { "class" },
   impression = {
     first = "Rawrk teaches bandaging in the Razor Hill barracks, with a roll of linen on his belt and old blood under his nails. He has patched more grunts than Gar'Thok has shouted at, and he is no gentler about it.",
     third = "{name} met Rawrk, who teaches first aid in the Razor Hill barracks.",
@@ -516,7 +516,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, which means you listened. Most of them don't." },
   },
   notice = {
-    { id = "n_healer", cat = "wounds", when = { class = { "PRIEST", "SHAMAN", "DRUID" } },
+    { id = "n_healer", cat = "class", when = { class = { "PRIEST", "SHAMAN", "DRUID" } },
       text = "A healer. Learn the bandage anyway, because the day will come when your magic's spent and your friend is still bleeding." },
   },
   start = "hello",
@@ -582,7 +582,7 @@ P:NPC {
   key = "grunt_korja", id = TODO_NPC("Grunt Kor'ja"), name = "Grunt Kor'ja", gender = "female",
   bible = "bibles/missed.md", role = "soldier", tier = "service",
   communities = { "razor_hill" }, temper = { "stubborn", "proud" }, values = { "duty", "honor" },
-  notices = { "healer" },
+  notices = { "class" },
   impression = {
     first = "Grunt Kor'ja holds the road just south of Razor Hill with one arm bound against her side and blood dried down her leg. She took the wounds from Tiragarde's marines, and she plainly intends to go back for more.",
     third = "{name} met Grunt Kor'ja, wounded on the road south of Razor Hill and still at her post.",
@@ -593,7 +593,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. I'm still standing, in case you came to check." },
   },
   notice = {
-    { id = "n_healer", cat = "healer", when = { class = { "SHAMAN", "DRUID" } },
+    { id = "n_healer", cat = "class", when = { class = { "SHAMAN", "DRUID" } },
       text = "You've a healer's look, but Tai'jin said she'd send one of her own, so I'll wait for that. A grunt takes her orders as they're given, even the kind ones." },
   },
   start = "hello",
