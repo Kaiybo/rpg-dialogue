@@ -16,6 +16,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Open: Hemet Nesingwary mixes a burr and plain English (voice decision). Valor's Rest is placed two ways (Zannok: southeast Silithus; `desert.lua`: top of the Un'Goro road).
 
 - Unreleased: gut feelings (DESIGN §3.15; new files `Systems/Insight.lua`, World `gut.lua`, so a full restart). Only `luac -p` run.
+- Unreleased (for the next release): conversation tone, Polite / Normal / Blunt (DESIGN §3.17, CONTENT_GUIDE §7b). Selector on the box's bottom bar and as DialogueUI's last row, `char.tone`, settings `tone`/`toneSelector`, `/rpgd tone`, condition `tone`, reply `text` as `{ normal, polite, blunt }`, disposition "Likes/Dislikes your manner". Worked example: the major NPCs of Elwynn and Orgrimmar. No new files. Only `luac -p` run; not seen in game.
 
 ## Standing decisions (confirm only if the user asks)
 - Lore is Classic-era: no foreshadowing of later expansions (Prestor, Varimathras, Neeru, Lescovar, Longhorn written straight; dramatic irony only).

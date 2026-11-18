@@ -200,6 +200,14 @@ commands.export = function() ns.UI.ExportFrame.Show("export") end
 commands.sheet = function() ns.UI.ExportFrame.Show("sheet") end
 commands.import = function() ns.UI.ExportFrame.Show("import") end
 
+-- /rpgd tone [polite|normal|blunt]: show or set this character's tone (0.85.0).
+commands.tone = function(args)
+  local t = args[1] and args[1]:lower()
+  if t == "polite" or t == "normal" or t == "blunt" then ns.Conversation.SetTone(t) end
+  local cur = ns.Disposition.Tone()
+  ns.Print(L.TONE_LABEL:format(L["TONE_" .. cur:upper()] or cur))
+end
+
 -- /rpgd tts: what text to speech is using, then a line in each voice. Failures are
 -- reported in chat while the test runs.
 commands.tts = function()

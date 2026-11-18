@@ -339,13 +339,28 @@ function Engine.IsExit(nextId) return nextId == nil or EXITS[nextId] == true end
 -- the stances in one node are mutually exclusive. A question never shifts alignment.
 -- Once one stance in a node is taken (opts.stance: its text), the node's other stances are
 -- gone for good with this NPC, and the one taken no longer shifts alignment again.
+-- A reply's text may be a string or tone variants (0.85.0):
+-- { normal = "...", polite = "...", blunt = "..." }; a missing variant falls back to normal.
+function Engine.BaseText(choice)
+  local t = choice and choice.text
+  if type(t) == "table" then return t.normal or t.polite or t.blunt end
+  return t
+end
+
+function Engine.ChoiceText(choice, tone)
+  local t = choice and choice.text
+  if type(t) ~= "table" then return t end
+  if not tone then tone = ns.Disposition and ns.Disposition.Tone() or "normal" end
+  return t[tone] or t.normal or t.polite or t.blunt
+end
+
 function Engine.IsQuestion(text)
   return type(text) == "string" and text:find("%?[\"'%)%s]*$") ~= nil
 end
 
 function Engine.IsStance(choice)
   return type(choice) == "table" and type(choice.fx) == "table" and choice.fx.align ~= nil
-    and not Engine.IsQuestion(choice.text)
+    and not Engine.IsQuestion(Engine.BaseText(choice))
 end
 
 function Engine.Choices(node, ctx, env, opts)
@@ -358,7 +373,7 @@ function Engine.Choices(node, ctx, env, opts)
   for _, choice in ipairs(node and node.choices or {}) do
     local target = choice.next
     local exit = Engine.IsExit(target) or hubs[target]
-    local otherStance = stance and Engine.IsStance(choice) and choice.text ~= stance
+    local otherStance = stance and Engine.IsStance(choice) and Engine.BaseText(choice) ~= stance
     if not otherStance and (exit or choice.repeatable or rotating[target] or not visited[target]) then
       local entry
       if Cond.Eval(choice.when, ctx, env) then

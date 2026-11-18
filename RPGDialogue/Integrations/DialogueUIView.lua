@@ -160,6 +160,12 @@ local function buildRows(p)
   end
   out[#out + 1] = { text = L.GET_ON_WITH_IT, gap = not p.canAsk and not Conv.PersuadeState(),
     onClick = function() Conv.Business() end }
+  -- Tone (0.85.0): the last row; a click moves to the next tone and rewords the replies.
+  if p.tone then
+    local name = L["TONE_" .. p.tone:upper()] or p.tone
+    out[#out + 1] = { text = L.DUI_TONE:format(name), gap = true,
+      onClick = function() Conv.SetTone(ns.Disposition.NextTone(p.tone)) end }
+  end
   return out
 end
 
@@ -225,7 +231,7 @@ function V.Show(v)
   -- Narration (0.85.0): its own paragraph ahead of their words, in a muted colour.
   local text = v.text
   if v.narr and v.narr ~= "" then text = NARR_COLOR .. v.narr .. "|r\n\n" .. (text or "") end
-  page = { text = text, choices = v.choices, canAsk = v.canAsk }
+  page = { text = text, choices = v.choices, canAsk = v.canAsk, tone = v.tone }
   local f = window()
   if f:IsShown() then
     V.Refresh()
@@ -246,6 +252,14 @@ function V.SetChoices(choices)
   if not page then return end
   page.choices, page.asking, page.persuading = choices, nil, nil
   if lastView then lastView.choices = choices end
+  V.Refresh()
+end
+
+-- The tone row's word (0.85.0); nil hides it.
+function V.SetTone(tone)
+  if lastView then lastView.tone = tone end
+  if not page then return end
+  page.tone = tone
   V.Refresh()
 end
 
