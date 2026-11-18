@@ -201,8 +201,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of our own! You must take a little of our flatbread before you go, for you will not have tasted the like since the Bluff." },
-    { id = "n_weary", cat = "weary", when = { rested = false, minLevel = 40 },
-      text = "You have not slept well in some days, by your eyes. The inn is quiet here, and nothing in this glade will wake you before the sun does." },
+    { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
+      text = "Your gear is worn nearly through, and I would guess that you are too. The inn is quiet here, and nothing in this glade will wake you before the sun does." },
   },
   start = "hello",
   nodes = {

@@ -182,6 +182,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I dressed the kills of the Bloodhoof hunt for many years before the elders asked me to teach it instead." } },
     camping = { { id = "tp_camping", text = "Kaga's young campers come to me for the skinner's part of it, and most of them need a sharper knife." } },
     earth_mother = { { id = "tp_em", text = "We thank her and the beast together, with the knife still in its sheath." } },
+    venture_company = { { id = "tp_vc", text = "Their hunters strip the hide and leave the rest to rot, and I have no patience for anyone who learned the knife that way." } },
     advice = { { id = "tp_adv", text = "Hone the knife every evening, whether or not you used it that day." } },
     _none = { { id = "tp_none", text = "I cannot cut to the heart of that one, so ask someone wiser." } },
   },

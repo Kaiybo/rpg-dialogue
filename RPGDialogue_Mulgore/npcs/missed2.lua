@@ -424,6 +424,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a hunter with eyes good enough to earn my name, and I became a gunsmith out of plain curiosity." } },
     thrall = { { id = "tp_th", text = "His warriors brought us many new things, and the gun is only the loudest of them." } },
     centaur = { { id = "tp_ce", text = "They taught us what it costs to be outranged, and I have not forgotten the lesson." } },
+    earth_mother = { { id = "tp_em", text = "I thank her over every kill, whether it fell to an arrow or to shot, and I do not think she counts the difference." } },
     _none = { { id = "tp_none", text = "That is outside my sights, I am afraid." } },
   },
 }
@@ -552,7 +553,7 @@ P:NPC {
       },
     },
     guess = {
-      lines = { { id = "g_default", text = "A tailor touches the cloth, a leatherworker smells the salt, and a cook stands over the spices with half-closed eyes. A warrior looks at none of it and asks me where the weaponsmith is." } },
+      lines = { { id = "gu_default", text = "A tailor touches the cloth, a leatherworker smells the salt, and a cook stands over the spices with half-closed eyes. A warrior looks at none of it and asks me where the weaponsmith is." } },
       choices = {
         { text = "So where is the weaponsmith?", next = "BACK", when = { class = "WARRIOR" }, reply = "Ha! Mahnott Roughwound is just across the village, and I will not take offence at your leaving." },
         { text = "Something else.", next = "BACK" },

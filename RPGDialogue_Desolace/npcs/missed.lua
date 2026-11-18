@@ -615,7 +615,7 @@ P:NPC {
   },
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
-      text = "Ah, a cook, I can tell by how you sniffed before you looked! Now we can talk properly, and not just about what's cheapest." },
+      text = "Ah, a cook! I can tell by how you sniffed before you looked, so now we can talk properly, and not just about what's cheapest." },
   },
   start = "hello",
   nodes = {

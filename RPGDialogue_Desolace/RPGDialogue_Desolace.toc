@@ -27,3 +27,4 @@ npcs\nijels_point_watch.lua
 npcs\cavindra.lua
 npcs\shadowprey.lua
 npcs\more_folk.lua
+npcs\missed.lua
