@@ -1,7 +1,7 @@
 -- More Dun Morogh folk: Beldin Steelgrill and Milli Featherwhistle at Steelgrill's Depot, Tharek Blackstone and
 -- Granis Swiftaxe in Kharanos, and the Anvilmar trainers Thran Khorman, Thorgas Grimson, Bromos Grummner and Solm Hargrin.
 -- Also (added later): Lomac Gearstrip, Hands Springsprocket, Tannok Frosthammer, Mountaineer Barleybrew and seven Ironforge vendors.
--- Also (second pass): the Steelfury, Goldfury and Timberline Arms counters, Longberrys, supply vendors, trainers.
+-- Second pass: Ironforge shopkeepers, supply vendors, profession and class trainers (see bibles/more_folk.md).
 -- Voice: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.ironforge")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
@@ -3540,7 +3540,7 @@ P:NPC {
     },
     gimble_after = {
       big = true,
-      lines = { { id = "ga_default", text = "No. I checked, quietly, with Thief Catcher Shadowdelve. I've never told Gimble, because being watched makes him feel important, and being ignored would break his heart. I do wonder if I ought to." } },
+      lines = { { id = "ga_default", text = "No. I checked, quietly, with Thief Catcher Farmountain. I've never told Gimble, because being watched makes him feel important, and being ignored would break his heart. I do wonder if I ought to." } },
       choices = {
         { text = "Tell him. He deserves to stop being afraid.", next = "BACK", reply = "Perhaps. I'd have to pick a calm day, and I'm not certain he has those.", fx = { align = { honor = 1 } } },
         { text = "Leave it. The fear is half his pride.", next = "BACK", reply = "That's what I've thought. He'd only find a new thing to fear, and the pigeon was hard on us all.", fx = { align = { honor = -1 } } },
