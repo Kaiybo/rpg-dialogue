@@ -184,8 +184,8 @@ P:NPC {
         { id = "da_default", text = "They read it, I'm told. What happens after it's read is above a dwarf lyin' on a rock. I'd like to think somebody's doin' somethin'." },
       },
       choices = {
-        { text = "Somebody should.", next = "BACK", fx = { learn = { "defias" }, align = { order = -1 } } },
-        { text = "These things take time.", next = "BACK", fx = { learn = { "defias" }, align = { order = 1 } } },
+        { text = "Somebody should.", next = "BACK", reply = "Aye, somebody should, an' I'd go myself if my ribs would let me. Maybe it'll be ye.", fx = { learn = { "defias" }, align = { order = -1 } } },
+        { text = "These things take time.", next = "BACK", reply = "Aye, they do, an' I've plenty o' time now tae wait. Still, I'd no' mind if they took a wee bit less.", fx = { learn = { "defias" }, align = { order = 1 } } },
       },
     },
 

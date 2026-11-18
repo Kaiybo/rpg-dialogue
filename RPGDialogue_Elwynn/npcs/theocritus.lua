@@ -196,7 +196,7 @@ P:NPC {
         { id = "d_default", text = "Because I don't care about tax rolls or harvests or who the Regent is dining with. But I know what Morganth is. If I don't care about that, no one competent will." },
       },
       choices = {
-        { text = "Then I'll help.", next = "BACK", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
+        { text = "Then I'll help.", next = "BACK", reply = "Splendid, and do try to be useful rather than merely willing. Redridge is that way.", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
         { text = "Very noble of you.", next = "BACK", reply = "Nobility has nothing to do with it. Somebody must, and I happen to be competent.", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
       },
     },

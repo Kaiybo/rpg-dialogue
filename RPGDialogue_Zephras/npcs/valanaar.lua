@@ -175,8 +175,8 @@ P:NPC {
         { id = "bd_default", text = "I try not to, but it's hard when they rob people who have just as little. The Peacekeepers caught one who'd killed one of their own for windstones, a man whose family escaped Shen'dramar on one of the last skycutters before it broke apart, and they mean to execute him." },
       },
       choices = {
-        { text = "He lost everything. Show him mercy.", next = "BACK", fx = { opinion = { zep_bandit = "mercy" }, affinity = 1, align = { light = 1 } } },
-        { text = "He killed a Peacekeeper. The law must hold.", next = "BACK", fx = { opinion = { zep_bandit = "hang" }, align = { light = -1 } } },
+        { text = "He lost everything. Show him mercy.", next = "BACK", reply = "That's what I'd want, if it were Resaan. But I'm not the one who has to sign it.", fx = { opinion = { zep_bandit = "mercy" }, affinity = 1, align = { light = 1 } } },
+        { text = "He killed a Peacekeeper. The law must hold.", next = "BACK", reply = "It must, I suppose, or there's nothing left holding us together. I only wish it didn't feel so cruel.", fx = { opinion = { zep_bandit = "hang" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -335,8 +335,8 @@ P:NPC {
         { id = "se_default", text = "The High Order and the Windshapers have their skycutters running again, but I'm grounded, and the elders swear nothing's changed. Something has, and if they won't tell us plain folk what it is, then what are they saving us from, eh?" },
       },
       choices = {
-        { text = "People deserve the truth, even frightening truth.", next = "BACK", fx = { opinion = { zep_council = "secretive" }, affinity = 2, align = { order = -1 } } },
-        { text = "The elders know best. Panic helps nobody.", next = "BACK", fx = { opinion = { zep_council = "trust" }, affinity = -1, align = { order = 1 } } },
+        { text = "People deserve the truth, even frightening truth.", next = "BACK", reply = "That's what I've been shouting for a week! Donaal, did you hear? The stranger agrees with me!", fx = { opinion = { zep_council = "secretive" }, affinity = 2, align = { order = -1 } } },
+        { text = "The elders know best. Panic helps nobody.", next = "BACK", reply = "Panic? I'm not panicking, I'm drinking, which is entirely different. Pass the bottle, friend.", fx = { opinion = { zep_council = "trust" }, affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

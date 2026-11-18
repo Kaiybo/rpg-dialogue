@@ -125,8 +125,8 @@ P:NPC {
       lines = { { id = "of_default", text = "I've done my share, in the camps and after, and I found I'd rather raise something than cut it down. Dadanga taught me that, more than any shaman did." } },
       choices = {
         { text = "What do you think of the Warchief, Petra?", next = "op_warchief" },
-        { text = "That's a strength, Petra, not a weakness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "An orc should keep her axe close, all the same.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's a strength, Petra, not a weakness.", next = "BACK", reply = "You sound like Dadanga, if Dadanga could talk, and I think she'd agree with you. It took me a long time to see it that way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "An orc should keep her axe close, all the same.", next = "BACK", reply = "I keep it close, don't worry, and it's sharp. But I'd rather use it on firewood than on anything that breathes.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,8 +166,8 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "Not out here, where the devilsaurs don't care who fought whom. Out there, in the wider world, I know it's more tangled, and I'd like to hear what you think about it." } },
       choices = {
-        { text = "Old wars should stay buried. Work beside whoever's honest.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Loyalty to your own people comes first, Petra.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old wars should stay buried. Work beside whoever's honest.", next = "BACK", reply = "That's how I feel, most days, and it's good to hear someone else say it. The devilsaurs make honest folk of us all.", fx = { align = { order = -1 } } },
+        { text = "Loyalty to your own people comes first, Petra.", next = "BACK", reply = "My people are the ones who stood by me, and out here that's the Marshals. Blood's a fine thing, but the herd you choose is a better one.", fx = { align = { order = 1 } } },
         { text = "I'd rather not say.", next = "BACK" },
       },
     },

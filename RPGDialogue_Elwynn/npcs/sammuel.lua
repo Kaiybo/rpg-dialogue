@@ -226,7 +226,7 @@ P:NPC {
         { id = "ah_default", text = "It broke in the north, with Lordaeron, but not here. Oaths outlast orders if you keep them, and I keep mine every morning on this floor." },
       },
       choices = {
-        { text = "Then I'll keep my oath the same way.", next = "BACK", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } },
+        { text = "Then I'll keep my oath the same way.", next = "BACK", reply = "Then you'll be in good company on this floor, and I'll be glad of it. Every morning, mind.", fx = { learn = { "northshire_abbey" }, align = { order = 1 } } },
         { text = "An oath to a broken order seems a waste to me.", next = "BACK", reply = "An oath isn't kept for the order, it's kept for the people the order swore to protect. They're still here, and so am I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

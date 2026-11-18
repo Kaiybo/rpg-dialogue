@@ -208,7 +208,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Sacks get lighter if you set them down.", next = "BACK", fx = { trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Sacks get lighter if you set them down.", next = "BACK", reply = "They do, dear, and I've set a few down already. The rest I'm keeping for my own reasons.", fx = { trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Some grudges are worth keeping, Gramma.", next = "BACK", reply = "I'd have said so too, once. Come back and tell me that when you're my age.", fx = { align = { light = -1 } } },
         { text = "You can set a little of it down here, Gramma.", tag = "Persuade", next = "why_sack",
           check = { pass = { any = { { disposition = { min = 68 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("The Escape") } } } },

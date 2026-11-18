@@ -36,8 +36,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I hold it against the knights who carried it over the camps, and none of them were you. Cairne gave me Sun Rock to hold, and I hold it for the Horde. Hold it with me, and I won't care what you pray to." } },
       choices = {
-        { text = "Then I'll hold Sun Rock with you, Maggran.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I hold the Light, not your rock.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll hold Sun Rock with you, Maggran.", next = "BACK", reply = "Then we'll hold it together, and the harpies will learn to fear us both. Welcome to Sun Rock, paladin.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I hold the Light, not your rock.", next = "BACK", reply = "Hold what you like, but you'll stand on my rock while you do it. The harpies won't ask what you pray to before they dive.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -45,8 +45,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Sun Rock stands against them every day, though I have only so many braves and the goblins have more saws than I have spears. I was gentle once, and I would have waited for the Earth Mother to drive them out, but these days I would rather drive them out myself." } },
       choices = {
-        { text = "Drive them out, but spare the workers who surrender.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "No quarter. Every goblin holding a saw is an enemy.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Drive them out, but spare the workers who surrender.", next = "BACK", reply = "That is what my younger self would have said, and he'd be glad to hear it. Spare those who drop their saws, then, and break the rest.", fx = { align = { honor = 1 } } },
+        { text = "No quarter. Every goblin holding a saw is an enemy.", next = "BACK", reply = "I've felt that way on the worst days, and I'll not pretend otherwise. But a brave who kills a kneeling goblin brings shame on Sun Rock.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -57,8 +57,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a steady eye, {class}, and I trust a beast that does not flinch from the wind. It will serve you well on these cliffs." },
       },
       choices = {
-        { text = "I'll guard Sun Rock's herds from the wyverns.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll hunt the harpies. The herds can guard themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll guard Sun Rock's herds from the wyverns.", next = "BACK", reply = "Then the herders will bless your name, and so will I. A kodo calf is worth more to Sun Rock than a dozen harpy feathers.", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt the harpies. The herds can guard themselves.", next = "BACK", reply = "The herds can't guard themselves against wings, but the harpies need killing too. Go, then, and I'll find someone else to watch the calves.", fx = { align = { honor = -1 } } },
         { text = "Something else, Maggran.", next = "BACK" },
       },
     },
@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd send you down into the Charred Vale ahead of the braves, because the Bloodfuries scatter when they see spears coming and stand when they don't. Find where the Ripper roosts and come back to tell me, and leave the killing to whoever I send after you." } },
       choices = {
-        { text = "I'll bring you her roost, and the braves can finish it openly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If she sleeps when I find her, she won't wake again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring you her roost, and the braves can finish it openly.", next = "BACK", reply = "That is the way I'd have it done, and the braves will be glad of the honour. Bring me the roost, and we'll take her in daylight.", fx = { align = { honor = 1 } } },
+        { text = "If she sleeps when I find her, she won't wake again.", next = "BACK", reply = "I'll not stop you, but I'll not ask it of you either. If you do it, be sure it's her and not a scout.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "No, I blame the hands that lit it and the greed that fed it, though fire never cared much whose hands those were. If you fight the harpies with flame, fight them on the bare rock, so whatever's growing back in the vale keeps growing." } },
       choices = {
-        { text = "I'll keep my fire off the green ground.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Harpies first. The vale will grow back either way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my fire off the green ground.", next = "BACK", reply = "Thank you, because Tammra's shoots are fragile, and so is my temper about them. Fight on the bare rock, and let the vale grow.", fx = { align = { light = 1 } } },
+        { text = "Harpies first. The vale will grow back either way.", next = "BACK", reply = "Either way, maybe, but slower every time. Kill the harpies, but think of the ones who'll walk the vale after us.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." } },
       choices = {
-        { text = "Fair. My servant will keep well away from your braves.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My servant goes where I send it, Maggran.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair. My servant will keep well away from your braves.", next = "BACK", reply = "Then we'll get along, warlock, and the braves will sleep easier. Thin the Bloodfuries, and I'll remember it.", fx = { align = { order = 1 } } },
+        { text = "My servant goes where I send it, Maggran.", next = "BACK", reply = "Then send it far from my fires, or you'll be sending it home in pieces. I meant what I said.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,8 +96,8 @@ P:NPC {
           text = "A Razor Hill grunt, a long way up a mountain. Orgrimmar trains its grunts to hold a gate; up here there are no gates, only cliffs, and the harpies come at you from every one of them." },
       },
       choices = {
-        { text = "The big ones, then. I'll start with the Ripper.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
-        { text = "I'll pick them off where they're weakest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The big ones, then. I'll start with the Ripper.", next = "BACK", reply = "Then go, and may the Earth Mother guide your axe. Bring me the Ripper's head, and the braves will sing your name.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "I'll pick them off where they're weakest.", next = "BACK", reply = "That's a hunter's way, not a warrior's, but I'll take it. The weak ones die just as dead.", fx = { align = { honor = -1 } } },
       },
     },
     shaman_mg = {
@@ -116,8 +116,8 @@ P:NPC {
         { id = "smg2_default", text = "The Venture Company's saws and the goblins' fires, most likely, and the harpies on top of it. If you can soothe what's angry up here, do it; I'd sooner have the spirits on our side than one more brave." },
       },
       choices = {
-        { text = "The spirits ask for balance, not for sides.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Then I'll ask them to stand with Sun Rock.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "The spirits ask for balance, not for sides.", next = "BACK", reply = "The spirits may ask it, but the goblins don't. Still, I'll take balance over another angry storm.", fx = { align = { order = -1 } } },
+        { text = "Then I'll ask them to stand with Sun Rock.", next = "BACK", reply = "Then do it, shaman, and I'll owe you more than I can say. One more spirit on our side is worth a dozen braves.", fx = { align = { order = 1 }, affinity = 2 } },
       },
     },
     forsaken_mg = {
@@ -126,8 +126,8 @@ P:NPC {
         { id = "fmg_default", text = "Then you and I have both lost something we can't get back, though I'd say you lost more of it. Cairne sent me here to heal; I don't know who sends your kind anywhere to heal, or whether you would go." },
       },
       choices = {
-        { text = "Some of us would. If there were anywhere.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Healing's for the living. I want my due.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of us would. If there were anywhere.", next = "BACK", reply = "There may be, one day, and I'd be glad to see it. The Earth Mother is patient even with the dead, I think.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Healing's for the living. I want my due.", next = "BACK", reply = "Then take it from the harpies, and I'll not ask what you mean by it. Sun Rock has its own debts to collect.", fx = { align = { light = -1 } } },
       },
     },
     xhpriest = {
@@ -136,8 +136,8 @@ P:NPC {
         { id = "xhpriest_default", text = "It needs more than one, because the Grimtotem took Camp Aparaje and the Bloodfury harpies take whatever else they can reach. I was gentle once, before the years took it from me, so heal my braves the way I would have tried to, and don't ask me to watch." },
       },
       choices = {
-        { text = "I'll heal every brave you send me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll heal the ones who can still fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll heal every brave you send me.", next = "BACK", reply = "Then you'll be the most welcome face on this rock. The braves will come to you bloody, and they'll leave grateful.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll heal the ones who can still fight.", next = "BACK", reply = "A brave who can't fight still has a family waiting in Thunder Bluff. Heal them all, if you can, and let the Earth Mother sort the rest.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -178,7 +178,7 @@ P:NPC {
         { text = "What does Sun Rock do up here?", next = "work" },
         { text = "The Ripper is dead. How do you feel?", next = "after", when = { questDone = TODO_QUEST("Bloodfury Bloodline") } },
         { text = "Cairne sent you here. Why?", next = "cairne", when = { race = "Tauren" } },
-        { text = "I'll help hold Sun Rock.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll help hold Sun Rock.", next = "END", reply = "Then the Earth Mother has sent you, and I'll be glad of the help. Walk well on the mountain, and may An'she light your road.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I'm a warrior. Put me where the harpies hit hardest.", next = "warrior_mg", when = { class = "WARRIOR" } },
         { text = "Do the spirits of this mountain speak to you?", next = "shaman_mg", when = { class = "SHAMAN" } },
         { text = "I was gentle once too, before I died.", next = "forsaken_mg", when = { race = "Scourge" } },
@@ -190,7 +190,7 @@ P:NPC {
         { text = "Sun Rock must need a healer, Maggran.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you hold the Light against me, Maggran?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been replanting the stumps below Sun Rock, Maggran.", next = "xorig_regrow", when = { origin = "tauren_stonetalon_regrower" } },
-        { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "Sun Rock can hold itself. I have my own road.", next = "END", reply = "Then walk it, and may it be kinder than the mountain has been to us. The rock will still be here if you change your mind.", fx = { align = { honor = -1 } } },
       },
     },
     xorig_regrow = {
@@ -398,8 +398,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I don't know, but I'd like to find out. Every mountain heals given time and stubbornness, and the dead have a great deal of both, I imagine. Kneel here a while, and we'll see if anything grows near you." } },
       choices = {
-        { text = "I'll kneel and try, Tammra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'm no gardener. Find someone else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll kneel and try, Tammra.", next = "BACK", reply = "Then kneel here, beside the rows, and we'll see together. I've a feeling the soil won't mind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm no gardener. Find someone else.", next = "BACK", reply = "You'd be surprised who turns out to be a gardener. But I'll not push, and the mountain will manage with what it has.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -407,8 +407,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Given time and stubbornness, yes, and I have plenty of both. What I don't have is peace, because the Venture Company's machines still grind at the edge of the vale, and every shoot I coax up they'd cut down again." } },
       choices = {
-        { text = "I'll guard your rows. Let the vale have its peace.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Planting won't stop goblins. I'd rather break their machines.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll guard your rows. Let the vale have its peace.", next = "BACK", reply = "Thank you, and the vale will be grateful even if it never says so. Stand watch, and I'll keep planting.", fx = { align = { honor = 1 } } },
+        { text = "Planting won't stop goblins. I'd rather break their machines.", next = "BACK", reply = "Then break them, and I'll plant twice as fast behind you. The goblins can't cut what they can't reach.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tammra.", next = "BACK" },
       },
     },
@@ -419,8 +419,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my seedlings, {class}, and I don't mind, because it'll be the first of its kind to walk through them." },
       },
       choices = {
-        { text = "I'll take only the old and the sick.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll take what I find. The land will manage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take only the old and the sick.", next = "BACK", reply = "Thank you, and the deer will come back sooner for it. That's how a land mends.", fx = { align = { honor = 1 } } },
+        { text = "I'll take what I find. The land will manage.", next = "BACK", reply = "It will, slowly, but slower with every greedy hunt. Take what you need, and leave the young to grow.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tammra.", next = "BACK" },
       },
     },
@@ -428,8 +428,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "They could, because the Venture Company still sends men into the Charred Vale to cut whatever has the nerve to grow back. If you could learn which of their foremen gives those orders, I'd know who to plead with, or who to send Maggran after." } },
       choices = {
-        { text = "I'll learn his name, and you can plead with him first.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Pleading's wasted on goblins. I'll deal with him quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll learn his name, and you can plead with him first.", next = "BACK", reply = "Thank you, and I'll plead first, because I'd rather they left on their own. If they won't listen, then Maggran can have him.", fx = { align = { honor = 1 } } },
+        { text = "Pleading's wasted on goblins. I'll deal with him quietly.", next = "BACK", reply = "I'd rather you didn't, but I won't pretend I'll weep. Just don't let it bring more fire into the vale.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -437,8 +437,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." } },
       choices = {
-        { text = "Then I'll keep my craft well away from your garden.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll keep my craft well away from your garden.", next = "BACK", reply = "Thank you, and the shoots thank you too. I don't know what your power touches, but I'd rather not find out here.", fx = { align = { light = 1 } } },
+        { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", reply = "Perhaps they will, but I've buried too many shoots to take that chance. Keep it away from my rows.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -457,8 +457,8 @@ P:NPC {
         { id = "xhpriest_default", text = "Not the soil, but the people who work it, because my helpers come back burned and cut from the Charred Vale and I can't plant and bandage at the same time. Stay a night and look after them, and I'll count it with the shoots, five living against two dead." },
       },
       choices = {
-        { text = "I'll tend your helpers, Tammra.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your helpers knew the risks. I've other work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll tend your helpers, Tammra.", next = "BACK", reply = "Thank you, and I'll count it twice, once for each of them. They'll be grateful, even if they're too tired to say it.", fx = { align = { light = 1 } } },
+        { text = "Your helpers knew the risks. I've other work.", next = "BACK", reply = "They did, and they came anyway, which is more than most would. Go to your work, then, and I'll find bandages somewhere.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -468,8 +468,8 @@ P:NPC {
         { id = "xmage_default", text = "I fear any fire on this mountain, because the Charred Vale burned and I'm still trying to bring it back. Your frost would be welcome, though, on the harpies in the cliffs, because they dig up my shoots out of spite." },
       },
       choices = {
-        { text = "I'll keep my fire away from your shoots.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fire's the quickest answer to harpies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my fire away from your shoots.", next = "BACK", reply = "Thank you, because one stray spark could undo a season of work. Freeze the harpies, and I'll be glad of it.", fx = { align = { light = 1 } } },
+        { text = "Fire's the quickest answer to harpies.", next = "BACK", reply = "Quickest, maybe, but it burned the vale once already. Use your frost on them, I beg you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -523,8 +523,8 @@ P:NPC {
       },
       choices = {
         { text = "Who burned it?", next = "venture" },
-        { text = "I'll help it remember.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Burned ground is just ground. Let the goblins have it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help it remember.", next = "BACK", reply = "Then you're a friend of the mountain, and it will remember you. Help it remember, and so will I.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Burned ground is just ground. Let the goblins have it.", next = "BACK", reply = "The goblins would cut it bare again in a season. I'll not give them that, not while I can still dig.", fx = { align = { light = -1 } } },
       },
     },
     venture = {
@@ -569,8 +569,8 @@ P:NPC {
       },
       choices = {
         { text = "You must have some way to make it right.", next = "blessing" },
-        { text = "I'm glad it's you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Let the mountain mend itself. It isn't your burden.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm glad it's you.", next = "BACK", reply = "Thank you, though it's only stubbornness that keeps me at it. Come back when the trees are taller, and see what grew.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Let the mountain mend itself. It isn't your burden.", next = "BACK", reply = "Maybe it would, given a thousand years. I'd rather it mended in my lifetime, and so I'll keep at it.", fx = { align = { light = -1 } } },
       },
     },
     blessing = {
@@ -605,7 +605,7 @@ P:NPC {
         { id = "k_default", text = "Safe with her father, my brother-in-law Makaba, and that's all I'll ask of the world this year. The Grimtotem took her from Camp Aparaje and kept her at their post, and I still can't think of it without shaking." },
       },
       choices = {
-        { text = "She's home with Makaba. Revenge can wait.", next = "BACK", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
+        { text = "She's home with Makaba. Revenge can wait.", next = "BACK", reply = "It can, and it will, because she's safe and that's all that matters. Thank you for bringing her home.", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
         { text = "The Grimtotem will answer for it.", next = "BACK", fx = { affinity = 1, learn = { "grimtotem" }, align = { honor = 1 } } },
       },
     },
@@ -615,7 +615,7 @@ P:NPC {
       },
       choices = {
         { text = "(Kneel and lay a hand on the shoots.)", next = "BACK", fx = { affinity = 2, standing = { sun_rock = 1 }, align = { order = 1 } } },
-        { text = "They'll grow wild and strong without my coaxing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They'll grow wild and strong without my coaxing.", next = "BACK", reply = "Maybe so, and maybe that's better. I'll trust you, because you know them better than I do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -625,8 +625,8 @@ P:NPC {
         { id = "f_default", text = "They took, and they're strong, holding back the corruption and making a foothold for everything else. In time the goblins will give up and go, the fire spirits will settle, and the new trees will crowd the harpies off their roosts, and on that day I'll sleep through till noon." },
       },
       choices = {
-        { text = "I hope I see it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The goblins won't give up. They never do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hope I see it.", next = "BACK", reply = "So do I, and I'll plant for it every day until I do. Come and see it with me, if you're still around.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The goblins won't give up. They never do.", next = "BACK", reply = "They never do, but the trees are more stubborn than goblins. Wait and see who's still here in fifty years.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -675,8 +675,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They hate anything they can't control, and the Light isn't theirs. Neither is my fire. I don't love paladins, since the Silver Hand never liked mages who didn't bow, but an enemy of the Talon Den is a friend of mine." } },
       choices = {
-        { text = "I'll stand against the Talon Den beside you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I'll not make enemies of druids for your grudge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll stand against the Talon Den beside you.", next = "BACK", reply = "Good, then we're allies, and I value my allies. Stand with me against the Den.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll not make enemies of druids for your grudge.", next = "BACK", reply = "My grudge, is it? You'll see soon enough that the druids make enemies on their own. I'll not ask again.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -684,8 +684,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Stand between me and their claws while I work, and don't ask too many questions about what I'm working on. The druids hate anything arcane, so they'll come for me first, and you'll get your chance to swing." } },
       choices = {
-        { text = "I'll guard you, but I want to know what you're doing.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll guard you. Your business is your own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll guard you, but I want to know what you're doing.", next = "BACK", reply = "You'll know what you need to know, and not one word more. Guard me well, and I'll make it worth your while.", fx = { align = { order = 1 } } },
+        { text = "I'll guard you. Your business is your own.", next = "BACK", reply = "Now that's the kind of help I like. Stand between me and the claws, and keep your eyes on the trees.", fx = { align = { order = -1 } } },
         { text = "Something else, Braelyn.", next = "BACK" },
       },
     },
@@ -696,8 +696,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would know the difference, {class}, and that's more than I can say for most people who've walked into the Talon Den." },
       },
       choices = {
-        { text = "I'll tell you what I find, but I won't murder for you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Point me at them. A druid in fur is fair game.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll tell you what I find, but I won't murder for you.", next = "BACK", reply = "Murder is such an ugly word, and I've never asked anyone to do it. Bring me what you find, and I'll handle the rest.", fx = { align = { honor = 1 } } },
+        { text = "Point me at them. A druid in fur is fair game.", next = "BACK", reply = "Good, you understand. Point your bow at the bear, and keep it there.", fx = { align = { honor = -1 } } },
         { text = "Something else, Braelyn.", next = "BACK" },
       },
     },
@@ -708,8 +708,8 @@ P:NPC {
           text = "An apprentice of the Violet Citadel, walking about with a jaw that doesn't quite close. The Kirin Tor would have you burned, and I would have you help me, which is the better offer." },
       },
       choices = {
-        { text = "Magic should flow freely. I'll help you.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
-        { text = "The druids have their reasons. I won't kill them for it.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Magic should flow freely. I'll help you.", next = "BACK", reply = "Then you understand me better than anyone on this mountain. Help me, and you'll feel it come back.", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "The druids have their reasons. I won't kill them for it.", next = "BACK", reply = "They have their reasons, and I have mine, and only one of us will be proved right. I'll not ask again.", fx = { align = { order = 1 }, affinity = -1 } },
       },
     },
     hello = {
@@ -810,7 +810,7 @@ P:NPC {
       },
       choices = {
         { text = "Some would call that hunger.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = 1 }, opinion = { arcane_magic = "dangerous" } } },
-        { text = "I know the feeling.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
+        { text = "I know the feeling.", next = "BACK", reply = "Then you're one of the few, and I'm glad of it. The druids never will be.", fx = { affinity = 1, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
       },
     },
     temple = {
@@ -836,8 +836,8 @@ P:NPC {
         { id = "co_default", text = "You've a good memory and a loose tongue, warlock, and only one of those will serve you well. Keep the name of that place out of Maggran's hearing, and we'll get along." },
       },
       choices = {
-        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "We'll see.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Your secret's safe with me.", next = "BACK", reply = "Good, and I'll remember it. A loose tongue can be very expensive up here.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "We'll see.", next = "BACK", reply = "We will, and I'll be watching. Choose your words carefully around Maggran.", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     mage = {
@@ -845,8 +845,8 @@ P:NPC {
         { id = "mg_default", text = "Then you know what I mean by the bucket full of holes. Help me break the druids' grip on the peak, and you'll feel the flood come back, sweet as anything." },
       },
       choices = {
-        { text = "I'll consider it.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
-        { text = "Not at that price.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "I'll consider it.", next = "BACK", reply = "Consider it, but don't consider it too long. The druids won't wait for you to decide.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Not at that price.", next = "BACK", reply = "Then you'll never know what you're missing. Pity.", fx = { affinity = -1, align = { light = 1 } } },
       },
     },
     ordanus = {
@@ -874,8 +874,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "I want them to stop pretending that magic is a sickness in the land, because my magic kept this outpost warm all last winter. If they ever cared to ask me, I'd tell them so, but they never ask, and I've stopped waiting." } },
       choices = {
-        { text = "Then take your power back. Don't wait for permission.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Their ways are old. You could try to understand them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then take your power back. Don't wait for permission.", next = "BACK", reply = "That's what I've been doing all along. I'm glad someone finally understands.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Their ways are old. You could try to understand them.", next = "BACK", reply = "I've tried, and they've given me nothing but scorn. Understand them yourself, if you have the patience.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -883,8 +883,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhrogue_default", text = "That's the question, isn't it, and I'd rather not tell you how I know they have any. They keep to their den more than they used to, and whatever they're planning, I'd like to hear it before the Horde has to." } },
       choices = {
-        { text = "I'll get you whatever they're hiding. Your grudge is yours.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll listen, but I won't rob druids for your grudge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll get you whatever they're hiding. Your grudge is yours.", next = "BACK", reply = "Good, then we understand each other. Bring me what they're planning, and I'll take it from there.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll listen, but I won't rob druids for your grudge.", next = "BACK", reply = "Then listen well, and tell me what you hear. That's all I've ever asked.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -892,8 +892,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "A little more, because your elements are honest about being powerful, and the druids pretend their power is humble. They'd strip this land bare of magic and call it peace, and I'd rather deal with a fire elemental that admits it wants to burn." } },
       choices = {
-        { text = "Power should be used openly, without false modesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Hidden power is safer power. The druids are wise to stay quiet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Power should be used openly, without false modesty.", next = "BACK", reply = "Exactly, and I'm glad someone sees it. False modesty is the druids' favourite lie.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hidden power is safer power. The druids are wise to stay quiet.", next = "BACK", reply = "Safer for them, perhaps, but not for the rest of us. Hidden power always surprises someone eventually.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -942,8 +942,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. The dead be dangerous, and the Light be dangerous, and you be both, mon. But you be Horde, and I be Horde, and if you ever need a cage for somethin', I got plenty empty ones. Most." } },
       choices = {
-        { text = "I'll not be needing your cages, Jin'Zil.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Keep a cage ready. I may bring you something.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll not be needing your cages, Jin'Zil.", next = "BACK", reply = "Dat be fine, mon, Jin'Zil got plenty of customers anyway. But the offer stand, if you change your mind.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep a cage ready. I may bring you something.", next = "BACK", reply = "Ha! Dat be the spirit, mon, and Jin'Zil keep one dusted for you. Bring him somethin' interesting.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -951,8 +951,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Nothing dat would be bothering a druid, mon, mostly. A few forest spirits who got too curious, and Jin'Zil be letting dem go once dey tell him what he want to know." } },
       choices = {
-        { text = "Let them go now. Spirits shouldn't be kept in cages.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your business is yours. Learn what you can from them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let them go now. Spirits shouldn't be kept in cages.", next = "BACK", reply = "Dey be goin' soon enough, mon, when dey stop bein' useful. Jin'Zil not cruel to spirits, only curious.", fx = { align = { honor = 1 } } },
+        { text = "Your business is yours. Learn what you can from them.", next = "BACK", reply = "Dat be the right answer, mon, and Jin'Zil like you better already. The forest got plenty more to teach.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -960,8 +960,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Da Venture goblins and dem night elves both be pokin' round Jin'Zil's cave, mon, and Jin'Zil be too busy stirrin' to chase dem off. You stand at da door with dat axe, and Jin'Zil cook you somethin' special, maybe." } },
       choices = {
-        { text = "I'll guard your cave, Jin'Zil. Fair is fair.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll guard it, but I'm not eating your cooking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll guard your cave, Jin'Zil. Fair is fair.", next = "BACK", reply = "Fair be fair, mon, and Jin'Zil cook you somethin' special when you done. Maybe with fewer eyes in it.", fx = { align = { honor = 1 } } },
+        { text = "I'll guard it, but I'm not eating your cooking.", next = "BACK", reply = "Ha! Smart, mon, very smart, and Jin'Zil won't be offended. Most who eat his cooking don't say much after.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jin'Zil.", next = "BACK" },
       },
     },
@@ -972,8 +972,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ah, your {pet} be a fine beast, mon, and Jin'Zil promise not to put it in da pot, at least not today." },
       },
       choices = {
-        { text = "I'll hunt for you, but only what we need.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll bring you anything. Fill every cage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt for you, but only what we need.", next = "BACK", reply = "Dat be fine, mon, Jin'Zil only need what he need anyway. Bring da venom and da feathers first.", fx = { align = { honor = 1 } } },
+        { text = "I'll bring you anything. Fill every cage.", next = "BACK", reply = "Now dat be my kind of hunter, mon! Jin'Zil got cages to spare, and Darsok gonna be so jealous.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jin'Zil.", next = "BACK" },
       },
     },
@@ -981,8 +981,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A few quiet friends, mon, who walk up by da peak at night while da Sentinels be watching da wrong path. Jin'Zil could use one more pair of quiet feet, if you don't mind da sound of cages rattlin'." } },
       choices = {
-        { text = "I'll fight the elves, but I won't catch them for your pot.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Show me the path. The rattling won't bother me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll fight the elves, but I won't catch them for your pot.", next = "BACK", reply = "Fair enough, mon, Jin'Zil catch his own. You fight the elves, and Jin'Zil take care of the rest.", fx = { align = { light = 1 } } },
+        { text = "Show me the path. The rattling won't bother me.", next = "BACK", reply = "Good, mon, dat be what Jin'Zil like to hear. Follow da quiet path, and mind the Sentinels.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -990,8 +990,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Very different, mon, because you pull your magic out of books and Jin'Zil pull his out of da forest and da loa. Da elves up by da peak say your kind of magic broke da whole world once, and for once Jin'Zil think dey might be right." } },
       choices = {
-        { text = "The arcane is a tool, and I use it carefully.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If it broke the world once, it can break the Alliance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The arcane is a tool, and I use it carefully.", next = "BACK", reply = "Carefully be the only way, mon, and Jin'Zil glad to hear it. The forest remember the careless.", fx = { align = { light = 1 } } },
+        { text = "If it broke the world once, it can break the Alliance.", next = "BACK", reply = "Ha! Dat be a dangerous thought, mon, and maybe a good one. Just don't break the Horde while you do it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1003,8 +1003,8 @@ P:NPC {
           text = "Dat other voice been with you since you were small, eh? Some witch doctors say send it back, some say make it work for you, and Jin'Zil say find out what it want before it find out what you want." },
       },
       choices = {
-        { text = "The loa had their chance. I'll use what answers.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll keep the voice on a short leash.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The loa had their chance. I'll use what answers.", next = "BACK", reply = "Dat be your choice, mon, and Jin'Zil won't stop you. But the loa remember, and dey wait a long time.", fx = { align = { light = -1 } } },
+        { text = "I'll keep the voice on a short leash.", next = "BACK", reply = "Good, mon, a short leash and a long memory. Dat be how you live long in this trade.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1014,8 +1014,8 @@ P:NPC {
         { id = "xhpriest_default", text = "Priests heal, witch doctors heal, and Jin'Zil heal best, mon, ask anybody but Darsok. I could use a priest's steady hands with my brews, because some of them be for the healing too, and some of them, well, you ask me about the cages later." },
       },
       choices = {
-        { text = "I'll help with your brews, if they're for healing.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll help, whatever the brews are for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help with your brews, if they're for healing.", next = "BACK", reply = "Dat be fine, mon, Jin'Zil got plenty of healing ones. We start with dose, and you don't ask about da others.", fx = { align = { light = 1 } } },
+        { text = "I'll help, whatever the brews are for.", next = "BACK", reply = "Ha! Now dat be a priest Jin'Zil can work with, mon. Don't ask questions, and Jin'Zil won't tell lies.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1077,8 +1077,8 @@ P:NPC {
       },
       choices = {
         { text = "What's in the brew?", next = "brew" },
-        { text = "That's cruel, even for war.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Let the elves taste their own magic, then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's cruel, even for war.", next = "BACK", reply = "Cruel? Mon, dey cage our spirits with their forests every day. Jin'Zil only return the favour.", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Let the elves taste their own magic, then.", next = "BACK", reply = "Dat be the spirit, mon, and Jin'Zil knew you understand. Dey gonna feel right at home.", fx = { align = { light = -1 } } },
       },
     },
     brew = {
@@ -1086,8 +1086,8 @@ P:NPC {
         { id = "b_default", text = "Stonetalon sap, whiskers off dem twilight runners, a fey dragon's scale, and eyes, lots of courser eyes, because you can never have enough eyes. All of it from da peak, mon, so da elves be gettin' a little bit of home." },
       },
       choices = {
-        { text = "I'll fetch it.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
-        { text = "I won't help you poison anyone, Jin'Zil.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll fetch it.", next = "BACK", reply = "Good, mon, and bring plenty of eyes. Jin'Zil always run short of eyes.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "I won't help you poison anyone, Jin'Zil.", next = "BACK", reply = "Poison be a strong word, mon, but fine, Jin'Zil find another pair of hands. Off with you, then.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

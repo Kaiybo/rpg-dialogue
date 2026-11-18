@@ -355,7 +355,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll watch for it.", next = "BACK", reply = "Watch for it every day, then, because it's patient. The flattering ones always are.", fx = { align = { order = 1 }, trait = { cautious = 1 }, affinity = 1 } },
-        { text = "I'll take the risk.", next = "BACK", fx = { trait = { brave = 1 }, align = { order = -1 } } },
+        { text = "I'll take the risk.", next = "BACK", reply = "They all say that, and the clever ones say it loudest. I'll be here when you need someone to tell you the truth.", fx = { trait = { brave = 1 }, align = { order = -1 } } },
       },
     },
     library = {

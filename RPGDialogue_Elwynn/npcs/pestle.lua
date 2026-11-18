@@ -184,7 +184,7 @@ P:NPC {
       choices = {
         { text = "You seem keen to help them.", next = "lovers_why" },
         { text = "How does an invisibility liquor work?", next = "lovers_potion" },
-        { text = "Love will find a way.", next = "BACK", fx = { trait = { kind = 1 }, align = { order = -1 }, opinion = { maybell_tommy = "romantic" } } },
+        { text = "Love will find a way.", next = "BACK", reply = "It always does, and sometimes it needs a little help from a bottle. I'll keep my shelves stocked for them.", fx = { trait = { kind = 1 }, align = { order = -1 }, opinion = { maybell_tommy = "romantic" } } },
         { text = "They should listen to their families.", next = "BACK", reply = "They should, maybe, and I'll not argue with you. But I'll still brew for them if they ask.", fx = { align = { order = 2 }, opinion = { maybell_tommy = "dutiful" } } },
       },
     },

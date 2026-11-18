@@ -255,7 +255,7 @@ P:NPC {
       },
       choices = {
         { text = "Understood, Marshal.", next = "BACK", reply = "Good. Off you go, then.", fx = { align = { order = 1 } } },
-        { text = "Someone in the city should hear about this.", next = "BACK", fx = { trait = { stern = 1 }, align = { order = -1 } } },
+        { text = "Someone in the city should hear about this.", next = "BACK", reply = "They should, and you're welcome to be the one who tells them. Mind you go through the proper channels, recruit.", fx = { trait = { stern = 1 }, align = { order = -1 } } },
         { text = "You've already asked the Keep, haven't you, Marshal?", tag = "Persuade", next = "garrison_letters",
           check = { pass = { any = { { disposition = { min = 65 } }, { origin = "human_abbey_novice" }, { questDone = TODO_QUEST("Skirmish at Echo Ridge") } } } },
           fail = { next = "garrison_drop", fx = { affinity = -1 } } },
@@ -449,7 +449,7 @@ P:NPC {
       lines = { { id = "hunter_l", text = "So I see. Keep it off the Abbey's flowerbeds and away from the brothers' chickens, and it can hunt every kobold and wolf in the valley for all I care." } },
       choices = {
         { text = "It only hunts what I point it at.", next = "BACK", reply = "Then point it at the kobolds and not the chickens. I'll be watching.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No promises about the chickens.", next = "BACK", fx = { trait = { witty = 1 }, align = { order = -1 } } },
+        { text = "No promises about the chickens.", next = "BACK", reply = "Then it'll answer to Brother Danil, and you'll answer to me. Off you go.", fx = { trait = { witty = 1 }, align = { order = -1 } } },
       },
     },
     shaman = {

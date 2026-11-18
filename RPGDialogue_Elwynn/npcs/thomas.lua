@@ -171,8 +171,8 @@ P:NPC {
       choices = {
         { text = "What were they like?", next = "men_who" },
         { text = "I could say words over their names.", next = "men_priest", when = { class = "PRIEST" } },
-        { text = "They'd be proud you remember them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "Then make sure it wasn't for nothing.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 }, align = { order = 1 } } },
+        { text = "They'd be proud you remember them.", next = "BACK", reply = "They would, I think, and that helps more than you'd guess. Rolf always said I worried too much over the roster.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Then make sure it wasn't for nothing.", next = "BACK", reply = "I mean to, and every report I send up the road is for them. If somebody in Stormwind reads one, it'll be worth it.", fx = { affinity = 1, trait = { stern = 1 }, align = { order = 1 } } },
       },
     },
     men_who = {

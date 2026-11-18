@@ -174,8 +174,8 @@ P:NPC {
         { id = "cw_default", text = "Because they are shen'dorei, child, the same as you and I, and many of them only joined because they were frightened. It's a hard thing to draw a blade on your own cousins, and I'd hoped the fear would pass before the blades were needed." },
       },
       choices = {
-        { text = "They're still our people. Turn them back where you can.", next = "BACK", fx = { opinion = { zep_alaketh = "redeemable" }, affinity = 1, align = { light = 1 } } },
-        { text = "They chose the grey robes. Cut them down.", next = "BACK", fx = { opinion = { zep_alaketh = "hate" }, align = { light = -1 } } },
+        { text = "They're still our people. Turn them back where you can.", next = "BACK", reply = "That is my hope as well, child, and I'll be glad to see you try. Mercy first, blade last.", fx = { opinion = { zep_alaketh = "redeemable" }, affinity = 1, align = { light = 1 } } },
+        { text = "They chose the grey robes. Cut them down.", next = "BACK", reply = "Some of them did choose, and I'll not argue that. But some are children, and I'd ask you to remember it.", fx = { opinion = { zep_alaketh = "hate" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -416,8 +416,8 @@ P:NPC {
         { id = "sg_default", text = "Nobody knows, and I've no patience for anyone who claims otherwise. He spent his last years among us tending our bond with the wind spirits, and now he is gone and so are they, and the Council must manage without either." },
       },
       choices = {
-        { text = "A council of many is safer than one ruler.", next = "BACK", fx = { opinion = { zep_council = "trust" }, affinity = 1, align = { order = 1 }, learn = { "shal_nan" } } },
-        { text = "In a crisis, one strong leader would serve better.", next = "BACK", fx = { opinion = { zep_council = "weak" }, align = { order = -1 }, learn = { "shal_nan" } } },
+        { text = "A council of many is safer than one ruler.", next = "BACK", reply = "Perhaps it is, and the Council has done well enough. I only wish it argued less.", fx = { opinion = { zep_council = "trust" }, affinity = 1, align = { order = 1 }, learn = { "shal_nan" } } },
+        { text = "In a crisis, one strong leader would serve better.", next = "BACK", reply = "Perhaps, and some on the Council would agree. I'd want to know who first, and so would you.", fx = { opinion = { zep_council = "weak" }, align = { order = -1 }, learn = { "shal_nan" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "shal_nan" } } },
       },
     },
