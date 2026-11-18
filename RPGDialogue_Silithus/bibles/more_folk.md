@@ -1,4 +1,4 @@
-# More of Silithus  (keys: torrig, bloodfist, raloshan)
+# More of Silithus  (keys: torrig, bloodfist, raloshan, garon, shai)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Rifleman_Torrig (dwarf, Ironforge Brigade, at Cenarion Hold; Report to Marshal Bluewall; Patch 1.12.0)
@@ -22,3 +22,22 @@
 
 ## What they notice
 - Torrig: dwarves, Alliance warriors. Bloodfist: orcs, Horde warriors. Ralo'shan: night elves, priests.
+
+## Missed folk, added later
+### Sources
+- https://warcraft.wiki.gg/wiki/Garon_Hutchins (human, general goods, Cenarion Hold)
+- https://warcraft.wiki.gg/wiki/Shadow_Priestess_Shai (jungle troll, Orgrimmar Legion camp by Hive'Regal; The Orgrimmar Legion Needs Mojo!)
+
+### Their quests
+- Shai: The Orgrimmar Legion Needs Mojo! (quest ender). She needs mojo for wards and healing.
+- Garon: none.
+
+### Never
+- The opened gates, the war effort, the Ahn'Qiraj crafters (Yessendra, Keyl Swiftclaw, Warden Haro are left out for that reason). Garon's wiki family note is not used.
+
+### Voices (authored, not canon)
+- Garon: plain, tired Stormwind shopkeeper who followed the wage; Calandrath feeds him, Vargus mends his cart. Honor stance on profiting from a war.
+- Shai: Darkspear lilt; sings the Legion's dead home so the desert doesn't keep them; won't listen to the voice under the sand. Order stance on standing with the Circle.
+
+### What they notice
+- Garon: the weary, humans, light purses. Shai: priests and shamans, trolls, warlocks.

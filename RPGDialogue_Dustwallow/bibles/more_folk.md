@@ -1,4 +1,4 @@
-# More of Dustwallow Marsh  (keys: stinky, balos, groy, macvince, michael_stable, zulrg)
+# More of Dustwallow Marsh  (keys: stinky, balos, groy, macvince, michael_stable, zulrg, byron, evencane, karman, narett, jasperbloom, lillian, balai, krak, zanara)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/%22Stinky%22_Ignatz (human, north of North Point Tower among raptors, gathering bogbean leaves for Morgan Stern)
@@ -28,3 +28,31 @@
 
 ## What they notice
 - Stinky: weary, pets. Balos: soldiers, paladins. Groy: purse, rogues. MacVince: mounts, humans. Michael: pets. Zulrg: warriors, tauren.
+
+## Missed folk, added later
+### Sources
+- https://warcraft.wiki.gg/wiki/Guard_Byron (Theramore; They Call Him Smiling Jim), https://warcraft.wiki.gg/wiki/They_Call_Him_Smiling_Jim
+- https://warcraft.wiki.gg/wiki/Captain_Evencane (warrior trainer, Foothold Citadel), https://warcraft.wiki.gg/wiki/Brother_Karman (paladin trainer, by the training dummies outside the citadel)
+- https://warcraft.wiki.gg/wiki/Alchemist_Narett (alchemy trainer), https://warcraft.wiki.gg/wiki/Brant_Jasperbloom (herbalism trainer), https://warcraft.wiki.gg/wiki/Bartender_Lillian (drinks, Theramore inn)
+- https://warcraft.wiki.gg/wiki/Balai_Lok%27Wein (troll, potions and reagents), https://warcraft.wiki.gg/wiki/Krak (ogre armorer), https://warcraft.wiki.gg/wiki/Zanara (orc bowyer): Brackenwall Village
+
+### Their quests
+- Byron: They Call Him Smiling Jim (sends the player to Clerk Lendry for James Hyal's story). Kind, plain, won't blame the Horde without proof.
+- The rest: none; written from role, place and neighbours.
+
+### Never
+- The 2.3 additions (Tabetha's Farm, Smiling Jim's ending, the Theramore spy quests). Byron only sends the player to the clerk.
+
+### Voices (authored, not canon)
+- Byron: town-beat guard, ex-farmhand from near Andorhal; walks Jim home. Order stance on waiting for proof.
+- Evencane: stern drillmaster; recruits drill in the shallows. Order stance on drill versus instinct.
+- Karman: grave, kind; eleven who keep the oath; a corner of the drill yard. Light stance on why Lordaeron fell.
+- Narett: fussy Dalaran-trained alchemist; "regrettable afternoons" of self-testing. Order stance on rules versus experiment.
+- Jasperbloom: gentle gatherer who goes out alone; every third plant. Light stance on draining the marsh.
+- Lillian: brisk barkeep; believes the quiet tables; never charges Jim. Order stance on reporting a deserter.
+- Balai: sly Darkspear among ogres; won't sleep facing Witch Hill. Light stance on the spirits.
+- Krak: jolly ogre who names himself; tests armor with a club; "wear the hat". Order stance on armor versus fists.
+- Zanara: blunt orc soldier with an old wound; likes the ogres, not their Overlord. Honor stance on the bow.
+
+### What they notice
+- Byron: priests, paladins, night elves. Evencane: warriors, rogues and hunters. Karman: paladins, priests, warlocks. Narett: alchemists, herbalists, mages. Jasperbloom: herbalists, the weary. Lillian: dwarves, rogues. Balai: shamans, priests, trolls. Krak: plate and mail wearers, orcs. Zanara: hunters, melee fighters.

@@ -1,4 +1,4 @@
-# Gadgetzan, more of the town  (keys: mux, shreev, derotain, nixx, jhordy)
+# Gadgetzan, more of the town  (keys: mux, shreev, derotain, nixx, jhordy, wrinkle, qizzik, gikkix, yorba)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Mux_Manascrambler (Classic: The Ectoplasmic Distiller, Hunting for Ectoplasm, A Portable Power Source, A Shifty Merchant; gossip about ectoplasmic capacitors)
@@ -19,3 +19,23 @@
 - Shreev: eighteen dead Raceway drivers and a yearly memorial with fireworks; started in an Undermine rocket shop.
 - Derotain on Thaurissan and Shadowforge enmity; names Lokhtos as the Brotherhood's dealer.
 - Jhordy's transporter chicken side effect "everyone's turned back so far".
+
+## Missed folk, added later
+### Sources
+- https://warcraft.wiki.gg/wiki/Wrinkle_Goodsteel (goblin, superior armor, Gadgetzan; relative of Krinkle Goodsteel)
+- https://warcraft.wiki.gg/wiki/Qizzik (goblin banker, Gadgetzan)
+- https://warcraft.wiki.gg/wiki/Gikkix (goblin fisherman, fish and drink, Steamwheedle Port)
+- https://warcraft.wiki.gg/wiki/Yorba_Screwspigot (goblin, Steamwheedle Port; brother Ribbly, sister Yuka; quest Yuka Screwspigot)
+
+### Their quests
+- Yorba: Yuka Screwspigot (go to her sister at Flame Crest in the Burning Steppes; the family is hunting Ribbly, who drinks their money under Blackrock Mountain). Exasperated; family as a bad investment.
+- Wrinkle, Qizzik, Gikkix: none.
+
+### Identity (authored, not canon)
+- Wrinkle: smooth salesman; he and Krinkle sell both sides of every fight; wool linings against the heat; a crate of seconds he "can't count". Light stance on charity versus margin. The mother with a smithy in Ratchet is authored.
+- Qizzik: precise, wary banker; "valued customer"; checks Gimblethorn's sums nightly. Order stance on idle gold.
+- Gikkix: the least hurried goblin on the coast; sells the toothy fish to Dirge Quikcleave; a customer in a hat rows up at night. Order stance on selling to pirates.
+- Yorba: sharp and worn down; hides from creditors on the pier where collectors aren't allowed; Jabbey gives her credit. Light stance on sparing Ribbly.
+
+### What they notice
+- Wrinkle: plate wearers, light purses, cloth wearers. Qizzik: heavy and light purses, rogues. Gikkix: fishers, the worn out. Yorba: dwarves, rogues and hunters.

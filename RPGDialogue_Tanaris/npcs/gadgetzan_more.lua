@@ -962,7 +962,7 @@ P:NPC {
   key = "gikkix", id = TODO_NPC("Gikkix"), name = "Gikkix", title = "Fisherman",
   bible = "bibles/gadgetzan_more.md", role = "vendor", tier = "service",
   communities = { "steamwheedle_port" }, temper = { "laid-back", "sly" }, values = { "patient", "practical" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger" , "race" },
   impression = {
     first = "Gikkix sells fish and drink on the Steamwheedle Port dock and is the least hurried goblin on the coast. He claims that fishing is the only business where waiting counts as work.",
     third = "{name} met Gikkix, the fisherman of Steamwheedle Port.",
@@ -976,6 +976,8 @@ P:NPC {
       text = "Is that a rod on your back? Then you already know the secret, buddy, which is that the fish don't care how busy ya are." },
     { id = "n_2", cat = "hunger", when = { durability = { max = 0.3 } },
       text = "You look like the desert wrung ya out, pal. Eat a fish and drink something wet, and we'll put it on a real small tab." },
+    { id = "n_b1", cat = "race", when = { race = "Troll" },
+      text = "A troll, huh? I hear your folks fish with spears, pal, which seems like a lot of effort when a worm'll do it for ya." },
   },
   start = "hello",
   nodes = {
@@ -995,6 +997,7 @@ P:NPC {
         { text = "The Southsea pirates must be bad for business.", next = "pirates" },
         { text = "Sitting on a dock isn't what I'd call work.", next = "work" },
         { text = "Where do the stonescale eels run?", next = "eels", when = { profession = { "Fishing", "Cooking" } } },
+        { text = "Who else lives at this port?", next = "port" },
         { text = "Tight lines, Gikkix.", next = "END" },
       },
     },
@@ -1063,12 +1066,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    port = {
+      lines = {
+        { id = "b_port_default", text = "There's Jabbey with the general store, pal, and the Haughty Modiste selling hats to folks who are about to get sand in 'em. And the Security Chief, who walks up and down the pier like it owes him money." },
+      },
+      choices = {
+        { text = "Does anyone here get along?", next = "port_along" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    port_along = {
+      lines = {
+        { id = "b_port_along_default", text = "Sure, pal, at a distance. Stoley waters the rum and Jabbey waters the prices and I don't water nothing, and we all nod real polite. That's what passes for friendship in a Cartel town." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "Used to run cargo out of Booty Bay, pal, till I worked out that the fish swimming under the boat were worth more than the freight on top." } },
     advice = { { id = "tp_advice", text = "Fish at dawn or dusk. At noon the only thing biting out here is the sun." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel don't tax what it can't count, friend, and nobody's ever counted fish. That's my whole business plan." } },
     rumors = { { id = "tp_rumors", text = "Folks say something big's been bumping the pilings at night. I say it's the tide, pal, and I've stopped night fishing off the end of the dock anyhow." } },
+    booty_bay = { { id = "tp_b_booty_bay", text = "I got a cousin there who says the fishing's better. He also says the Bloodsail shot his boat out from under him, so I'm staying put." } },
+    gadgetzan = { { id = "tp_b_gadgetzan", text = "It's a half day inland and there ain't one fish in it. I send 'em mine and they send me coin, pal, and neither of us has to visit." } },
     _none = { { id = "tp_none", text = "Couldn't tell ya, pal. If it's got fins, try me again." } },
   },
 }
