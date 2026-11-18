@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Buying or browsing? If it's browsing, browse quickly, because the light's going and I can't see the thread." },
     { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing" } }, text = "A crafter. Good, you'll know what things cost and you won't faint at my prices." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away, and prices went up in the meantime. Don't look at me like that, I don't set the bat fares." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and prices went up in the meantime. Don't look at me like that, because I don't set the cart fares." },
   },
   notice = {
     { id = "n_purse", cat = "purse", when = { money = { max = 200 } },
@@ -42,7 +42,7 @@ P:NPC {
       },
     },
     buyers = {
-      lines = { { id = "b_default", text = "The apothecaries, for vials, by the crate, and then the tailors, for thread, and Renee at the inn, for salt, since she cooks for the living as well as us. Nobody buys dye, which I find depressing; the dead could stand a little colour." } },
+      lines = { { id = "b_default", text = "The apothecaries, for vials, by the crate, and then the tailors, for thread, and Innkeeper Renee at the tavern, for salt, since she cooks for the living as well as us. Nobody buys dye, which I find depressing; the dead could stand a little colour." } },
       choices = {
         { text = "Why so many vials?", next = "buyers_vials" },
         { text = "Something else.", next = "BACK" },
@@ -62,7 +62,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
     },
     before = {
-      lines = { { id = "bf_default", text = "Bits of it. I think I sold cloth then too, in a shop with a green door, though I couldn't tell you which house it was now. Sometimes I walk past the old buildings and one of them feels like it should know me." } },
+      lines = { { id = "bf_default", text = "I remember bits of it. I think I sold cloth then too, in a shop with a green door, though I couldn't tell you which house it was now. Sometimes I walk past the old buildings and one of them feels like it should know me." } },
       choices = {
         { text = "Have you looked for it?", next = "before_look" },
         { text = "Something else.", next = "BACK" },
@@ -78,7 +78,7 @@ P:NPC {
   },
   topics = {
     trade = { { id = "tp_trade", text = "Vials sell, thread sells, dye doesn't. That's Brill's whole market." } },
-    _none = { { id = "tp_none", text = "I sell supplies, not answers. Try Renee." } },
+    _none = { { id = "tp_none", text = "I sell supplies, not answers. Try Innkeeper Renee at the tavern." } },
   },
 }
 
@@ -143,7 +143,7 @@ P:NPC {
     },
     why_stance = {
       big = true,
-      lines = { { id = "ws_default", text = "Some do, and some say we should stop pretending to be the living and be what we are. I say I'd rather pretend a little and be pleasant than give up and be dreadful, and I've told Gretchen Dedmar as much." } },
+      lines = { { id = "ws_default", text = "Some do, and some say we should stop pretending to be the living and be what we are. I say I'd rather pretend a little and be pleasant than give up and be dreadful, and I've told Gretchen Dedmar, who sulks by the tavern fire, as much." } },
       choices = {
         { text = "Hold on to the old ways. They matter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "We're something new now. Let the old ways go.", next = "BACK", fx = { align = { order = -1 } } },
@@ -156,7 +156,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Oh, I wouldn't know, dear. Ask Renee; she knows everything." } },
+    _none = { { id = "tp_none", text = "Oh, I wouldn't know, dear. Ask Innkeeper Renee at the tavern; she knows everything." } },
   },
 }
 
@@ -198,11 +198,11 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "Badly, at first. They smell the grave on us and shy away, but after a few days of being fed by the same hands they stop caring, which is more than I can say for most people." } },
+      lines = { { id = "b_default", text = "Badly, at first, because they smell the grave on us and shy away, but after a few days of being fed by the same hands they stop caring, which is more than I can say for most people." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     horses = {
-      lines = { { id = "h_horses", text = "Zachariah Post sells them, and Velma Warnam teaches you to sit them. They don't eat and they don't tire, and they don't love you either, which is the part nobody warns you about." } },
+      lines = { { id = "h_horses", text = "Zachariah Post sells them here in Brill, and Velma Warnam teaches you to sit them. They don't eat and they don't tire, and they don't love you either, which is the part nobody warns you about." } },
       choices = {
         { text = "Would you rather a living horse?", next = "horses_stance" },
         { text = "Something else.", next = "BACK" },

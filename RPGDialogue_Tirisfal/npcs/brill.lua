@@ -116,7 +116,7 @@ P:NPC {
           text = "Another of your look reported to me, {alt}, and fought the Scarlet Crusade across Tirisfal without being told twice. If you are of their blood, living or dead, I expect the same discipline." },
         { id = "h_alt_living", tags = { "news" }, when = { race = "Scourge", alt = { notKin = true } },
           text = "A living {altclass} called {alt} came through Brill before you and fought beside my Deathguard against the Crusade. I don't trust the living easily, but that one earned a measure of it." },
-        { id = "o_sydistrust", tags = { "news" }, when = { gossip = { topic = "sylvanas", stance = { "distrust", "fear" } } }, text = "Renee says you've your doubts about the Dark Lady. I'll hear them once, here, and then I'll not hear them again." },
+        { id = "o_sydistrust", tags = { "news" }, when = { gossip = { topic = "sylvanas", stance = { "distrust", "fear" } } }, text = "Innkeeper Renee says you've your doubts about the Dark Lady. I'll hear them once, here, and then I'll not hear them again." },
         { id = "h_default", key = true,
           text = "Executor Zygand, commander of the Deathguard in Tirisfal. The Crusade means to burn this land clean of us, and it will not go the way they hope." },
         { id = "h_war", tags = { "news" }, when = { questActive = TODO_QUEST("At War With The Scarlet Crusade") },
@@ -124,7 +124,7 @@ P:NPC {
         { id = "h_maggot", when = { questActive = TODO_QUEST("Wanted: Maggot Eye") },
           text = "Maggot Eye is a gnoll who robs our graves. Bring me his paw, and the dead of Brill can rest." },
         { id = "h_intel", when = { questActive = TODO_QUEST("Vital Intelligence") },
-          text = "Arren sent you with what the Crusade's runners carried? Let me see... yes, this will do nicely." },
+          text = "Executor Arren sent you from Deathknell with what the Crusade's runners carried? Let me see... yes, this will do nicely." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of the Warchief's lands and into my fields. The Crusade burns anything it can't explain, so they'll aim at you before they aim at me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Crusade's scouts creep through the woods north of Brill, and I would rather they were tracked than merely counted." },
@@ -139,7 +139,7 @@ P:NPC {
         { text = "Will the Deathguard fight beside the elements, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there work here for a druid, Executor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Scarlet Crusade seem to hate us above all others.", next = "crusade" },
-        { text = "I held a line once, for Lordaeron. Put me on yours.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I can hold a line, Executor. Put me on yours.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can reach their camps unseen, Executor.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I carry the Light, Executor. That must trouble you.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "My spells are at the Deathguard's service.", next = "mage", when = { class = "MAGE" } },
@@ -168,7 +168,7 @@ P:NPC {
     warrior = {
       big = true,
       lines = {
-        { id = "wa_default", text = "Your old line broke, as all of Lordaeron's did, and you woke on the wrong side of it. The Deathguard is the line now, and it doesn't break, because there's nothing left in us that the Scourge can frighten." },
+        { id = "wa_default", text = "Every line Lordaeron held broke in the end, and its dead woke on the wrong side of them. The Deathguard is the line now, and it doesn't break, because there's nothing left in us that the Scourge can frighten." },
         { id = "wa_soldier", when = { origin = "forsaken_lordaeron_soldier" },
           text = "Lordaeron's army, then. Some of the Crusaders in those fields wore the same tabard you did, and they'll call you traitor before they swing. Answer them with steel, not words." },
       },
@@ -204,7 +204,7 @@ P:NPC {
     crusade = {
       big = true,
       lines = {
-        { id = "c_default", text = "The living who survived the plague and learned only hatred from it. They call us abominations and burn whatever they can't understand. They mistake cruelty for purity." },
+        { id = "c_default", text = "They're the living who survived the plague and learned only hatred from it. They call us abominations and burn whatever they can't understand, and they mistake cruelty for purity." },
       },
       choices = {
         { text = "Then we'll end them.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 }, learn = { "scarlet_crusade" } } },
@@ -289,7 +289,7 @@ P:NPC {
     lordaeron = { { id = "tp_lordaeron", text = "The kingdom died, and its capital is a ruin above our heads. What lives beneath that ruin now belongs to the Dark Lady, and we will not hand it back to anyone." } },
     argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the Scourge in the east and asks fewer questions about our flesh than I expected. I don't trust them, but I don't need to, as long as they keep killing the same enemy." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme is where the prince put his own people to the sword, and the Scourge holds the city still. The Crusade squabbles with the dead for its streets, which suits me, since every one of them that dies there is one I won't meet in Tirisfal." } },
-    _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
+    _none = { { id = "tp_none", text = "Ask Magistrate Sevren; administration is his burden, not mine." } },
   },
 }
 
@@ -335,7 +335,7 @@ P:NPC {
       choices = { { text = "Something else, Magistrate.", next = "BACK" } },
     },
     op_humans_r2 = {
-      lines = { { id = "ophu_r2", text = "I'd not put it so bluntly in front of Renee, but the deed to the town hall does carry my seal now, and not theirs." } },
+      lines = { { id = "ophu_r2", text = "I'd not put it so bluntly in front of Innkeeper Renee, but the deed to the town hall does carry my seal now, and not theirs." } },
       choices = { { text = "Something else, Magistrate.", next = "BACK" } },
     },
     op_humans_r3 = {
@@ -364,7 +364,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Darkhounds trouble the farms and the duskbats trouble everyone, though the gnolls at the graveyard trouble me most of all. Thin any of them and I'll note it in the town's accounts, which is more thanks than most people get from me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on the far side of the ledgers, please. Our Darkhounds trouble the outlying farms, and if yours could thin them out, I'd note it in the town's accounts." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Darkhounds trouble our outlying farms, and if your {pet} could thin them out, I'd note it in the town's accounts. Do keep it on the far side of the ledgers, please." },
       },
       choices = {
         { text = "Then note it. Brill should know who keeps its roads.", next = "BACK", fx = { align = { order = 1 } } },
@@ -374,7 +374,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_hdwary", tags = { "news" }, when = { gossip = { topic = "horde", stance = "wary" } }, text = "The Executor tells me you think the Horde will drop us once the Scourge is beaten. I've filed that under 'probably', which is where I keep most things." },
+        { id = "o_hdwary", tags = { "news" }, when = { gossip = { topic = "horde", stance = "wary" } }, text = "Executor Zygand tells me you think the Horde will drop us once the Scourge is beaten. I've filed that under 'probably', which is where I keep most things." },
         { id = "h_default", key = true,
           text = "You're speaking to Magistrate Sevren. When we took Brill back it was a plague town full of the mindless; now it's a Forsaken town, and that's my doing." },
         { id = "h_grave", tags = { "news" }, when = { questActive = TODO_QUEST("Graverobbers") },
@@ -432,7 +432,7 @@ P:NPC {
       },
     },
     brill = {
-      lines = { { id = "b_default", text = "One street at a time. The Deathguard cleared it; I counted what was left and put it to work. A town needs both sorts." } },
+      lines = { { id = "b_default", text = "One street at a time. The Deathguard cleared it, and I counted what was left and put it to work, because a town needs both sorts." } },
       choices = { { text = "Impressive.", next = "BACK", fx = { affinity = 2 } } },
     },
     xhsham = {
@@ -480,7 +480,7 @@ P:NPC {
   },
 
   topics = {
-    scarlet_crusade = { { id = "tp_crusade", text = "That's Zygand's department. I sign the orders, and he carries them out with alarming enthusiasm." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "That's Executor Zygand's department. I sign the orders, and he carries them out with alarming enthusiasm." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are citizens of a nation now, with laws and a magistrate and all the dull business that keeps a town from falling down. You would be surprised how much of the Dark Lady's war is paperwork." } },
     lordaeron = { { id = "tp_lordaeron", text = "Brill was a market town of Lordaeron, with fairs in the autumn and quarrels over boundary stones. We took it back from the mindless dead, and I mean to make it a proper town again, even if it's a colder one." } },
     scourge = { { id = "tp_scourge", text = "When I came back to Brill, the Scourge's mindless filled every house and the inn, and we cleared them room by room. I keep the ledger of what we lost in my desk, and I don't care to open it often." } },
@@ -550,7 +550,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Whether it can be poisoned, quite simply, because the Scourge bound our souls once and a cure for that would make a plague look like a head cold. Bring me your thoughts on it, and perhaps a hair or two, and I'll write your name very small in the margin of my notes." } },
+      lines = { { id = "xhpriest_default", text = "Whether it can be poisoned, quite simply. The Scourge bound our souls once, and if a soul can be poisoned, perhaps it can be protected, which would be worth more than any plague. Bring me your thoughts on it, and perhaps a hair or two, and I'll write your name very small in the margin of my notes." } },
       choices = {
         { text = "A cure for binding souls is worth the work. I'll help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Leave my soul out of your bottles, Johaan.", next = "BACK", fx = { align = { light = -1 } } },
@@ -572,7 +572,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Apothecary Johaan, of the Royal Apothecary Society. Our work here matters more than you'd guess from the smell." },
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A New Plague") },
-          text = "A new plague, ours this time, made by our own hands. I need ingredients from the creatures of the glades, so bring them to me." },
+          text = "I'm making a new plague, ours this time, made by our own hands. I need ingredients from the creatures of the glades, so bring them to me." },
         { id = "h_grief", when = { questActive = TODO_QUEST("Fields of Grief") },
           text = "The pumpkins in the old fields grew in plague-soaked earth. That makes them very useful to me." },
         { id = "h_silverpine", when = { questActive = TODO_QUEST("Delivery to Silverpine Forest") },
@@ -605,7 +605,7 @@ P:NPC {
     warlock = {
       big = true,
       lines = {
-        { id = "wl_default", text = "Do you? Then you'll know this is nothing like theirs, and you'll stop looking at my bottles like that. The Cult made a plague to serve a master; the Society makes one to destroy him. Different hands, different ends." },
+        { id = "wl_default", text = "Do you? Then you'll know this is nothing like theirs, and you'll stop looking at my bottles like that. The Cult made a plague to serve a master, and the Society makes one to destroy him, so the hands and the ends are both different." },
         { id = "wl_cult", when = { origin = "forsaken_cult_remnant" },
           text = "You were one of Kel'Thuzad's faithful, before? Then you've seen the grain wagons and the cauldrons. Help me, and you'll be undoing a little of what you helped do." },
       },
@@ -622,7 +622,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhhunt_default", text = "A hunter who brings back what I ask for, intact and unchewed, is worth three of the usual errand-runners. The duskbats and the Darkhound packs both carry things the Royal Apothecaries want catalogued." },
-        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} from chewing on the samples, I beg you. The duskbats and Darkhounds are no use to the Royal Apothecaries with bite marks in them, and I've had to explain that to hunters before." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "I do, from the duskbats and the Darkhounds both, but keep {pet} from chewing on them, I beg you. They're no use to the Royal Apothecaries with bite marks in them, and I've had to explain that to hunters before." },
       },
       choices = {
         { text = "Write me a list. I'll bring back exactly that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -727,7 +727,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If you like, though I'll admit I've a soft spot for them, since they've never once asked me to die for their property. They're lean and quick and they run in pairs out there, so watch the one you're not shooting at." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} looks like it would give a Darkhound a fair fight, which is fairer than the Agamands ever gave us. They run in pairs near the mills, so watch the one you're not shooting at." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If you like, and {pet} looks like it would give a Darkhound a fair fight, which is fairer than the Agamands ever gave us. They run in pairs near the mills, so watch the one you're not shooting at." },
       },
       choices = {
         { text = "I'll hunt them fairly, and let the ones that flee go.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -740,7 +740,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Coleman Farthing, at your service. When the Scourge came, the Agamands asked us mill hands to stay and defend their property, and most of us died for it. I'd like to return the favor." },
         { id = "h_deaths", tags = { "news" }, when = { questActive = TODO_QUEST("Deaths in the Family") },
-          text = "The Agamands walk the mills now, as undead as I am and twice as foul. Bring me what's left of them, and I'll see they rest. Eventually." },
+          text = "The Agamands walk the mills now, as undead as I am and twice as foul. Bring me what's left of them, and I'll see they rest, eventually." },
         { id = "h_mills", when = { questActive = TODO_QUEST("The Haunted Mills") },
           text = "The mills are haunted, and of course they're haunted; everyone who died there had a reason to stay angry." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Gallows' End! Sit down, friend; the ale's thin, but I'm told the spirits are generous, and I mean the other kind." },
@@ -846,7 +846,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_tavern", text = "Cold tonight, though it's always cold, now. You stop noticing, and then one day you notice again." },
+    { id = "g_tavern", text = "It's meant to be cold tonight, they tell me, though I can't feel it any more. You stop noticing, and then one day you notice that you've stopped." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed outside Brill, didn't you? I remember the barley carts coming in at harvest, and I remember the year the grain went grey, and I think about both more than I'd like." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, haven't you? I noticed, which surprised me, since I don't notice much any more." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the tavern said you were kind to them. It's been a long while since I heard anyone in Brill say that about anyone." },
@@ -870,7 +870,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "I'd ask it to make me cold again, because I can't feel it warm me and I can't feel the night without it either. The old priest in Brill used to tell us the Light was a fire that never went out, and I sit here hoping some of it is in this hearth after all." } },
+      lines = { { id = "xhpriest_default", text = "I'd ask it to let me feel something again, even the cold, because I can't feel its warmth and I can't feel the night's chill either. The old priest in Brill used to tell us the Light was a fire that never went out, and I sit here hoping some of it is in this hearth after all." } },
       choices = {
         { text = "Some warmth is still in you, Gretchen. Keep sitting by it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light lied to you, Gretchen. Find something truer.", next = "BACK", fx = { align = { light = -1 } } },
@@ -881,7 +881,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, would you? I remember the first frost on Brightwater Lake and the way the reeds went stiff and white, but I can't remember the cold itself anymore. Tell it slowly, dear, and I'll hold my tea and pretend." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like the cold, dear? Tell me how its breath steams on a frosty morning, because I've forgotten what that looks like, and I'd like to remember." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, would you? And does {pet} like the cold, dear? Tell me how its breath steams on a frosty morning, because I've forgotten what that looks like, and I'd like to remember." },
       },
       choices = {
         { text = "I'll tell it true, Gretchen, cold and all.", next = "BACK", fx = { align = { light = 1 } } },
@@ -894,7 +894,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Gretchen Dedmar. I sit in the tavern because it's warm, not because I can feel it; habit is a comfort, even dead." },
         { id = "h_chill", tags = { "news" }, when = { questActive = TODO_QUEST("The Chill of Death") },
-          text = "The chill of death never quite leaves you, but I've found a way to keep it at bay for a while, if you'll fetch what I asked for." },
+          text = "Death leaves a numbness in you that never quite goes, but I've found a way to keep it at bay for a while, if you'll fetch what I asked for." },
         { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea, though I can't taste it, and I hold it until it goes cold. Some habits are worth the coin." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I've heard your sort can call down frost, and I'd give a good deal to feel a shiver again." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, sitting with me by the fire? I'm told your sort can go about in a bear's fur, and I'll wager that's warm." },
@@ -930,7 +930,7 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "That's kind of you, though the trouble in my fields mostly comes on six legs and doesn't fear an axe. Still, a warrior standing at the fence does wonders for my nerves." } },
+      lines = { { id = "xhwar_default", text = "That's kind of you, though the trouble on my old farm comes on six legs, beetles mostly, and they don't fear an axe. Still, a warrior standing at the fence does wonders for my nerves." } },
       choices = {
         { text = "Then I'll stand there a while, for your nerves.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll clear the beetles if the work's worth my time.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -938,7 +938,7 @@ P:NPC {
     },
     miss = {
       lines = {
-        { id = "m_warm", text = "Being cold, isn't that strange? I sit by the fire because I remember wanting to, but now I don't feel either. I'd give a great deal to shiver again." },
+        { id = "m_warm", text = "Being cold, isn't that strange? I sit by the fire because I remember wanting to, but now I don't feel the warmth or the cold. I'd give a great deal to shiver again." },
       },
       choices = { { text = "I'm sorry.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -975,7 +975,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "That's kind, but I've sat beside every fire in this tavern and none of them reach me, and I doubt a demon's would be any different. Keep your little friend away from the hearth, please; Renee has only just got the soot off the stones." },
+        { id = "xwarlock_default", text = "That's kind, but I've sat beside every fire in this tavern and none of them reach me, and I doubt a demon's would be any different. Keep your little friend away from the hearth, please; Innkeeper Renee has only just got the soot off the stones." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a girl from Brill who went off with the Cult and came back talking about the Nether as if it were a sweetheart, and then I never saw her again. You seem steadier than she was, so mind you stay that way." },
       },
       choices = {
@@ -992,7 +992,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge took our village in a single week, and I don't remember much of the week, which is a mercy I suppose. Leave it there, dear." } },
     sylvanas = { { id = "tp_sylvanas", text = "She saved us from being nothing at all, and I'm grateful for it. I just wish she'd also found a way to keep us warm." } },
     everlook = { { id = "tp_everlook", text = "I've heard there's a goblin town up in the snow where folk have to bundle up against the cold. Imagine having the luxury of shivering." } },
-    _none = { { id = "tp_none", text = "Couldn't say, dear. Ask Renee; she listens to everyone." } },
+    _none = { { id = "tp_none", text = "Couldn't say, dear. Ask Innkeeper Renee; she listens to everyone." } },
   },
 }
 
@@ -1073,7 +1073,7 @@ P:NPC {
           text = "You've a look of {alt} about you, who sat by my fire and tried to remember a song from before. If you were neighbours in life, you might finish it for them, because the poor thing only had the first line." },
         { id = "h_alt_living", tags = { "news" }, when = { alt = { race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
           text = "We had a {altrace} called {alt} in the tavern not long ago, warm-blooded and very polite about the smell. I hope you've the same good manners, because the regulars notice." },
-        { id = "o_npwrong", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } }, text = "Johaan came in muttering that you don't trust his bottles. Neither do I, love, but I'd never say so where he can hear." },
+        { id = "o_npwrong", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } }, text = "Apothecary Johaan came in muttering that you don't trust his bottles. Neither do I, love, but I'd never say so where he can hear." },
         { id = "h_default", key = true,
           text = "I'm Renee, and I keep the tavern. Somebody has to look after people, even dead ones, and especially dead ones." },
         { id = "h_rogue", when = { questActive = TODO_QUEST("A Rogue's Deal") },
@@ -1141,7 +1141,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Up by Brightwater Lake, love, where the plague didn't settle so thick, and there are still a few apple trees behind the old farms that nobody's burned. I walk up there sometimes, though I can't smell the blossom anymore, because I like to know it's there." } },
+      lines = { { id = "dq_default", text = "There's some, love, up by Brightwater Lake, where the plague didn't settle so thick, and there are still a few apple trees behind the old farms that nobody's burned. I walk up there sometimes, though I can't smell the blossom anymore, because I like to know it's there." } },
       choices = {
         { text = "Then I'll guard those trees from the Crusade's torches.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A few apple trees won't win this war, Renee.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1163,7 +1163,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "I'll serve anyone who pays and keeps their demons off the tables, and Rupert Boch's students are mostly good about that. I did worse things than summon imps when I was alive, so I'm not about to lecture you." },
+        { id = "xwarlock_default", text = "I'll serve anyone who pays and keeps their demons off the tables, and the students of Rupert Boch, who teaches warlocks here, are mostly good about that. I did worse things than summon imps when I was alive, so I'm not about to lecture you." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I served a cause once that told me any means were fine so long as the end was holy, and I hurt people for it. Whatever you call up out of the dark, make sure it's you doing the deciding, because nothing else ever should." },
       },
       choices = {
@@ -1264,7 +1264,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Eleanor Shackleton. I travel, and where I stop, I camp, and if you'd like to learn how, I'm a patient teacher." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "The Executor sent you to look me over, I expect. Look all you like, and then let me show you something useful." },
+          text = "Executor Arren sent you to look me over, I expect. Look all you like, and then let me show you something useful." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire until you feel rested, properly rested; you'll know it when it comes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out on the Tirisfal road! You'll know more about fire than I do, I expect, though I'd still like to see how you build one." },
@@ -1281,7 +1281,7 @@ P:NPC {
         { text = "Why stay in a dead land, Eleanor, when the world is wide?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You'd be warmer in an inn than out here.", next = "why" },
         { text = "I don't sleep, Eleanor. What's a camp for, then?", next = "forsaken", when = { race = "Scourge" } },
-        { text = "I'm a long way from the Barrens, and this damp gets into everything.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'm a long way from home, and this damp gets into everything.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "You notice a great deal for a traveller, Eleanor.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could light your fire with a word, Eleanor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How does a warrior keep a camp safe, Eleanor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -1299,11 +1299,11 @@ P:NPC {
       choices = { { text = "Things we used to have.", next = "BACK", fx = { affinity = 2 } } },
     },
     living = {
-      lines = { { id = "lv_default", text = "Dry wood off the ground, and plenty of it, because Tirisfal never stops dripping. And sleep with your back to the fire, not to the trees; the things in these woods aren't all as friendly as the Forsaken." } },
+      lines = { { id = "lv_default", text = "Then gather dry wood off the ground, and plenty of it, because Tirisfal never stops dripping, and sleep with your back to the fire, not to the trees; the things in these woods aren't all as friendly as the Forsaken." } },
       choices = { { text = "Back to the fire. Thank you.", next = "BACK", fx = { affinity = 1 } } },
     },
     why = {
-      lines = { { id = "w_default", text = "Inns are where the roads end. Camps are where they keep going. And anyone passing can share your fire, which is half the point." } },
+      lines = { { id = "w_default", text = "Inns are where the roads end, and camps are where they keep going. Besides, anyone passing can share your fire, which is half the point." } },
       choices = { { text = "I'd like to learn.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
     },
     xhsham = {
@@ -1351,7 +1351,7 @@ P:NPC {
   },
 
   topics = {
-    camping = { { id = "tp_camping", text = "A fire first, then whatever your trade can add to it, whether you cook, work leather or fish. A camp is everyone's work." } },
+    camping = { { id = "tp_camping", text = "A camp starts with a fire, and then whatever your trade can add to it, whether you cook, work leather or fish. A camp is everyone's work." } },
     lordaeron = { { id = "tp_lordaeron", text = "I knew Lordaeron when it was green and the roads were safe for a woman walking alone. They aren't now, and that's why I teach people to build a fire properly." } },
     scourge = { { id = "tp_scourge", text = "The Scourge doesn't fear much, but it doesn't care for a good fire either. Keep one lit and keep your back to something solid, and you'll see more mornings than most." } },
     forsaken = { { id = "tp_forsaken", text = "I don't mind the Forsaken, so long as they don't mind me. We've reached an understanding here in Brill, and I won't spoil it by asking too many questions." } },

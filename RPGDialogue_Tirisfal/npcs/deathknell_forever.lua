@@ -23,7 +23,7 @@ P:NPC {
     { id = "n_green", cat = "greenness", when = { maxLevel = 3 },
       text = "You've only just climbed out of the ground, haven't you? Don't worry, because nobody expects you to choose a trade today, and you can always come back to me." },
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
-      text = "I can smell the peacebloom on you from here, or I could if I could still smell. Florence will be pleased; she says nobody picks properly anymore." },
+      text = "I can smell the peacebloom on you from here, or I could if I could still smell. Florence Nightshade, our herbalism trainer, will be pleased; she says nobody picks properly anymore." },
   },
 
   start = "hello",
@@ -70,7 +70,7 @@ P:NPC {
     },
     kinds = {
       lines = {
-        { id = "k_default", text = "There are primary trades and secondary ones. You can only keep two primary trades at a time, and if you drop one you lose everything you learned of it, so choose with some care; the secondary ones like cooking and fishing and first aid have no limit at all, and they'll keep you alive more often than they'll make you rich." },
+        { id = "k_default", text = "There are primary trades and secondary ones. You can only keep two primary trades at a time, and if you drop one you lose everything you learned of it, so choose with some care. The secondary ones, like cooking and fishing and first aid, have no limit at all, and they'll keep you alive more often than they'll make you rich." },
       },
       choices = {
         { text = "Which two would you choose?", next = "choose" },
@@ -301,7 +301,7 @@ P:NPC {
     },
     salt = {
       lines = {
-        { id = "s_default", text = "Curing. A raw hide goes bad quickly, even in this damp, and salt draws the water out so the leatherworkers have something to work with. You'd think the dead would have lost the habit of keeping things from rotting, but it turns out we're rather good at it." },
+        { id = "s_default", text = "It's for curing. A raw hide goes bad quickly, even in this damp, and salt draws the water out so the leatherworkers have something to work with. You'd think the dead would have lost the habit of keeping things from rotting, but it turns out we're rather good at it." },
       },
       choices = {
         { text = "That's a grim joke, Margaret.", next = "BACK", fx = { affinity = 1 } },
@@ -371,7 +371,7 @@ P:NPC {
     buyers = {
       big = true,
       lines = {
-        { id = "by_default", text = "The smiths in Brill and the Undercity, and most of what they make goes to the Deathguard, one way or another. A good share of every vein in Tirisfal ends up on the walls at the Bulwark, so I like to think a miner's doing his part. Others just sell to whoever pays most." },
+        { id = "by_default", text = "The smiths in Brill and the Undercity, and most of what they make goes to the Deathguard, one way or another. A good share of every vein in Tirisfal ends up on the walls at the Bulwark, so I like to think a miner's doing his part, though others just sell to whoever pays most." },
       },
       choices = {
         { text = "Arming the Forsaken is good work. That's where mine goes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

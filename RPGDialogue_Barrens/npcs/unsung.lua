@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They'd like to, and I've caught more than one diving at a zhevra herd on the way to Ratchet. I feed them well enough that they shouldn't need to, but a wind rider is a hunter at heart, same as you, and the Barrens is a long way to fly past a meal." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} by your side near the roost. My wind riders know a hunter's beast from a meal, mostly, but I'd not test it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd count your {pet} as fair game if it wandered off. Keep it by your side near the roost, because my wind riders know a hunter's beast from a meal, mostly." },
       },
       choices = {
         { text = "A hunter at heart deserves respect, beast or rider.", next = "BACK", fx = { align = { order = 1 } } },
@@ -147,7 +147,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? The beasts are restless, and so am I." } },
     },
     riders = {
-      lines = { { id = "r_default", text = "Proud beasts with a lion's body and a bat's wings, and they bite if you don't respect them. The Horde has ridden them since we came to Kalimdor, because nothing else crosses all this empty land as fast." } },
+      lines = { { id = "r_default", text = "They're proud beasts with a lion's body and a bat's wings, and they bite if you don't respect them. The Horde has ridden them since we came to Kalimdor, because nothing else crosses all this empty land as fast." } },
       choices = { { text = "How do you train them?", next = "riders_train" } },
     },
     riders_train = {
@@ -159,7 +159,7 @@ P:NPC {
       },
     },
     safe = {
-      lines = { { id = "s_default", text = "Safer than walking, because the centaur and the quilboar can't reach you up there. The harpies of the Dreadmist Peak are another matter, but my riders know how to fly high over them." } },
+      lines = { { id = "s_default", text = "Safer than walking, because the centaur and the quilboar can't reach you up there. The harpies around Dreadmist Peak are another matter, but my riders know how to fly high over them." } },
       choices = { { text = "Good to know. Something else.", next = "BACK" } },
     },
   },
@@ -167,7 +167,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know the skies, not that. Ask Thork; he knows the ground, and he likes reminding me of it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief rides wolves, but I've flown him once, and he held on like a recruit. Don't tell him I said so." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar shoot at my riders from the ground, and the riders shoot back from the sky, so it's an argument we usually win. Still, I keep the routes off their camps when I can." } },
-    ratchet = { { id = "tp_ratchet", text = "Bragok runs the birds down at Ratchet, and he complains about the goblins every time I see him. I've never once disagreed with him." } },
+    ratchet = { { id = "tp_ratchet", text = "Bragok keeps the wind riders down at Ratchet, and he complains about the goblins every time I see him. I've never once disagreed with him." } },
     quilboar = { { id = "tp_quilboar", text = "The Razormane can't shoot worth anything, so they're the least of my worries in the sky. It's what they do to the caravans that keeps me up." } },
   },
 }
@@ -223,7 +223,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "For the beast, aye, because a thirsty companion is a slow one, and a slow one gets you killed. The oases are fouled more often than not these days, so carry clean water from here and share it with whatever walks at your side." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks parched already. Give it water first, before anything else, and it'll carry you through the Barrens." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "For the beast, aye, and your {pet} looks parched already. Give it water before anything else, and it'll carry you through the Barrens." },
       },
       choices = {
         { text = "My beast drinks before I do.", next = "BACK", fx = { align = { light = 1 } } },
@@ -263,7 +263,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because conjured water keeps you alive and nothing else does, and the Barrens takes more than water out of you. You'll want bread, thread and a pack that won't split, and you'll want to share that water with the grunts on the road, because they can't make their own." },
+        { id = "xmage_default", text = "Because conjured water only keeps off thirst, and the Barrens takes more than water out of you. You'll want bread, thread and a pack that won't split, and you'll want to share that water with the grunts on the road, because they can't make their own." },
       },
       choices = {
         { text = "I'll share my water with anyone who needs it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -382,7 +382,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The smart ones do, mon, because they walk past peacebloom and earthroot every day and never think to bend down. Bring me what you find around the oases, and the mages and the shaman of the Crossroads be grateful, even if they never know your name." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keep sniffin' at my jars, mon. Some of them herbs make a beast sleepy, so keep it close." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The smart ones do, mon, and your {pet} keep sniffin' at my jars like it want to help. Keep it close, though, because some of them herbs make a beast sleepy." },
       },
       choices = {
         { text = "I'll gather for the healers of the Crossroads.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -486,7 +486,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Hula'mahi not know that, mon. Ask Sergra; she know everything about this place." } },
+    _none = { { id = "tp_none", text = "Hula'mahi not know that, mon. Ask Sergra Darkthorn; she know everything about this place." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear came over the sea with Thrall, and we been his people ever since. I sell to orc and tauren both now, but I still miss the sound of the waves." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin keeps the Darkspear proud even out here in the dust, mon. I pray he takes back the Echo Isles before I get too old to go home." } },
     the_elements = { { id = "tp_the_elements", text = "The shaman buy my herbs to speak with the spirits, and the spirits seem to like them well enough. I never ask what they say about me." } },
@@ -544,7 +544,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Range, mostly, because out here you'll see your target long before it sees you. A bow strung with zhevra gut holds well in the heat, and a gun needs keeping clean of the dust, so whatever you carry, clean it every night." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could use some exercise. Take it out to the plains and let it run, and your aim will thank you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A string of zhevra gut, because it holds in the heat. And let your {pet} run on the plains while you practise, because a restless beast spoils your aim." },
       },
       choices = {
         { text = "I'll keep my weapon clean every night.", next = "BACK", fx = { align = { order = 1 } } },
@@ -554,7 +554,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "A bullet, every time, because I can count on it. Lightning hits harder when it lands, I'll give you that, but I've watched a shaman's bolt crackle off a Kolkar stormer like rain off a roof, and the Kolkar didn't wait for a second try." } },
+      lines = { { id = "xhsham_default", text = "A bullet, every time, because I can count on it. Lightning hits harder when it lands, I'll give you that, but I've watched a shaman's bolt crackle off a Kolkar stormseer like rain off a roof, and the Kolkar didn't wait for a second try." } },
       choices = {
         { text = "I'll trust the spirits over a goblin's gunpowder.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Trust whatever kills fastest. Nothing else matters.", next = "BACK", fx = { align = { order = -1 } } },
@@ -649,14 +649,14 @@ P:NPC {
       choices = { { text = "What's at Bael Modan?", next = "guns_bael" } },
     },
     guns_bael = {
-      lines = { { id = "gb_default", text = "Dwarves digging in the south of the Barrens, past Camp Taurajo, with guns and steam machines. The tauren there hate them, and I don't blame them." } },
+      lines = { { id = "gb_default", text = "A dwarf dig in the south of the Barrens, past Camp Taurajo, full of guns and steam machines. The tauren there hate them, and I don't blame them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
     _none = { { id = "tp_none", text = "I couldn't tell you, grunt, so ask Thork or Sergra; they run this place." } },
     centaur = { { id = "tp_centaur", text = "Centaur are fast, but an arrow is faster, and a bullet's faster still. That's why I sell both, and I'll tell you which to buy." } },
-    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, which is why I sell bandages next door." } },
+    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, which is why Barg sells bandages next door." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins make good guns and charge like they're made of gold. Mine are plainer, and they shoot where you point them." } },
     second_war = { { id = "tp_second_war", text = "The old Horde didn't trust guns, and we lost to dwarves who did. I learned that lesson on a battlefield, and I've been selling it ever since." } },
   },
@@ -716,7 +716,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the quilboar and the dwarves have driven off the zhevra, and the lions must eat something. A hunter who thins them carefully keeps the camp safe, but a hunter who takes too many leaves the plains to the quilboar, and that is worse." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would be a fine sight from the air. My wind riders always notice the beasts that walk beside a hunter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The quilboar and the dwarves have driven off the zhevra, so the lions have little to eat, and your {pet} should stay close to you out there. My wind riders spot a hungry lion long before you would." },
       },
       choices = {
         { text = "I'll thin them carefully and leave the rest.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -726,7 +726,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Old earth, older than the tauren, and the herders say the ground there groans at night. The dwarves dig for treasure and the quilboar dig for their god, and between them the land south of Taurajo has no peace." } },
+      lines = { { id = "xhsham_default", text = "They are digging into old earth, older than the tauren, and the herders say the ground there groans at night. The dwarves dig for treasure and the quilboar dig for their god, and between them the land south of Taurajo has no peace." } },
       choices = {
         { text = "The land deserves defending from both of them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let the dwarves and quilboar weaken each other first.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -747,7 +747,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, as the Warchief's own warlocks do." },
+        { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, the same as for the Warchief's own warlocks." },
       },
       choices = {
         { text = "It can stay behind. Your riders deserve calm skies.", next = "BACK", fx = { align = { light = 1 } } },
@@ -870,7 +870,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crocolisks in the shallows, raptors up in the hills and the odd shark the fishermen drag in, though you'll have to fight the goblins for that one. The goblins pay well for crocolisk hides, so a hunter who comes through my roost rarely leaves empty-handed." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it wants to go after the gulls on the docks. Let it, if you like; the goblins hate those gulls more than anything." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's crocolisk in the shallows, and your {pet} looks like it wants the gulls on the docks too. Let it, if you like; the goblins hate those gulls more than anything." },
       },
       choices = {
         { text = "I'll hunt only what keeps Ratchet's roads safe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -969,7 +969,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Ask it quick, because the beasts are getting restless." } },
     },
     ratchet = {
-      lines = { { id = "r_default", text = "Too loud, too salty and too many goblins. They'll sell you your own boots if you stand still long enough, so keep walking." } },
+      lines = { { id = "r_default", text = "It's too loud, too salty and too full of goblins. They'll sell you your own boots if you stand still long enough, so keep walking." } },
       choices = { { text = "Why stay, then?", next = "ratchet_why" } },
     },
     ratchet_why = {
@@ -990,7 +990,7 @@ P:NPC {
     ratchet = { { id = "tp_ratchet", text = "Ratchet's full of goblins who'd sell you your own boots back, and I'm the only one here who doesn't charge for advice. You're welcome." } },
     booty_bay = { { id = "tp_booty_bay", text = "The boat goes to Booty Bay, and the goblins on the other end are no better than the ones here. At least the beasts don't care where you're going." } },
     thrall = { { id = "tp_thrall", text = "The Warchief gave the goblins this town because he owed Gazlowe for Orgrimmar. Some days I think he should have given them the bill instead." } },
-    bloodsail = { { id = "tp_bloodsail", text = "They're pirates off the coast, with red sails and bad manners, and my riders spot them from the cliffs, and Gazlowe doesn't pay me extra for it." } },
+    bloodsail = { { id = "tp_bloodsail", text = "They're pirates off the coast, with red sails and bad manners. My riders spot them from the cliffs, and Gazlowe doesn't pay me extra for it." } },
   },
 }
 
@@ -1043,8 +1043,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "From the Southsea pirates and the Venture Company lads, if you're not squeamish about where it came from. The silk's what fetches the coin, mind, and the spiders in the hills spin a fine thread, if you can stand to collect it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep that {pet} of yours away from my thread, would you? The last beast in here tangled itself in a whole bolt of linen." },
+        { id = "xhuntcl_default", text = "There is, off the Southsea pirates and the Venture Company lads, if you're not squeamish about where it came from. The silk's what fetches the coin, mind, and the spiders in the hills spin a fine thread, if you can stand to collect it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's linen to be had off the bandits, but keep that {pet} of yours away from my thread, would you? The last beast in here tangled itself in a whole bolt of linen." },
       },
       choices = {
         { text = "I'll take the cloth fairly, from bandits only.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1174,7 +1174,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Belonged to a knight of the Silver Hand, back before the plague, or so the seller told me. Now it can belong to a dead knight with the Light, which is poetic, and poetry costs extra. Interested?" } },
+      lines = { { id = "xfpala_default", text = "It belonged to a knight of the Silver Hand, back before the plague, or so the seller told me. Now it can belong to a dead knight with the Light, which is poetic, and poetry costs extra. Interested?" } },
       choices = {
         { text = "No. A dead knight's hammer belongs in his grave.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll take it, but I'm not paying for the poetry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1203,7 +1203,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plenty, pal, though they always want the lightest weapons, so they can run. I've got a few short swords and axes that weigh next to nothing, which is perfect for when your pet's busy and something big is chewing on your boot." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks like a good customer, pal. Shame it can't hold a sword, because I'd sell it one in a heartbeat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plenty, pal, and that {pet} of yours looks like a good customer too. Shame it can't hold a sword, because I'd sell it one in a heartbeat." },
       },
       choices = {
         { text = "I'll buy something sturdy and fight beside my beast.", next = "BACK", fx = { align = { honor = 1 } } },

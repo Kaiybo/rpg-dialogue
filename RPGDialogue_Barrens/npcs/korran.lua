@@ -15,10 +15,10 @@ P:NPC {
 
   greetings = {
     { id = "g_watch", text = "Easy, mon. I be watching the south road, and you be standing in the way of it." },
-    { id = "g_eggs", when = { questActive = TODO_QUEST("Egg Hunt") }, text = "The mounds in the Field of Giants, mon. Use the claw, and don't stay long by any one of them." },
+    { id = "g_eggs", when = { questActive = TODO_QUEST("Egg Hunt") }, text = "The eggs be in the mounds in the Field of Giants, mon. Dig with the claw I gave you, and don't stay long by any one mound." },
     { id = "g_note", when = { questActive = TODO_QUEST("The Swarm Grows") }, text = "Belgrom be outside the warriors' hall in Orgrimmar. Put the note in his hand, not his guard's." },
-    { id = "g_parts", when = { questActive = TODO_QUEST("Parts of the Swarm") }, text = "Carapace, talon, heart. Everything you bring me, I learn a little more, and I don't like most of it." },
-    { id = "g_away", when = { away = 14 }, text = "You been gone {away}, mon, and the mounds in the south grew while you were away. I measure them." },
+    { id = "g_parts", when = { questActive = TODO_QUEST("Parts of the Swarm") }, text = "Bring me carapace, talon and heart from those bugs, mon. Every piece teach me a little more, and I don't like most of it." },
+    { id = "g_away", when = { away = 14 }, text = "You been gone {away}, mon, and the mounds in the south grew while you were away. I know, because I measure them." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You got stronger since you carried my eggs, mon. Good, because the bugs got stronger too." },
   },
 
@@ -37,11 +37,11 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Egg Hunt") },
           text = "There be creatures in the Field of Giants to the south, mon, insects big as raptors, coming up out of mounds in the earth. Take this digging claw and bring me some of their eggs, because I want to know what hatch from them before they hatch here." },
         { id = "h_eggs_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Egg Hunt"), days = 3 } },
-          text = "Good eggs, mon, and heavy. I been opening them carefully, and what be inside look like it know it be being watched." },
+          text = "Good eggs, mon, and heavy. I been opening them carefully, and what be inside look like it know I be watching it." },
         { id = "h_swarm_before", when = { questBefore = TODO_QUEST("The Swarm Grows") },
           text = "Many travelers help me gather eggs, mon, and they all tell the same stories of how deadly these creatures be. I heard enough to think they a much larger threat than my masters believe, and Belgrom needs to hear it." },
         { id = "h_parts_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Parts of the Swarm"), days = 3 } },
-          text = "The parts you brought from the Needles match the ones from the Field of Giants, mon. Same creatures, two places, far apart, and that mean they be spreading, or they be everywhere already." },
+          text = "The parts you brought from Thousand Needles match the ones from the Field of Giants, mon. Same creatures, two places, far apart, and that mean they be spreading, or they be everywhere already." },
       },
       again = {
         { id = "h_again", text = "What else, mon? The bugs don't mind waiting." },
@@ -88,13 +88,13 @@ P:NPC {
       },
     },
     loyal = {
-      lines = { { id = "lo_default", text = "He be loud, mon, and proud, and he trust the wrong elf once. But he listen when it count, and he never left one of his own out in the cold, so yes, he get my loyalty." } },
+      lines = { { id = "lo_default", text = "He be loud, mon, and proud, and he make his mistakes. But he listen when it count, and he never left one of his own out in the cold, so yes, he get my loyalty." } },
       choices = { { text = "Loyalty earned, then. Something else.", next = "BACK" } },
     },
     moktar = {
       lines = { { id = "m_default", text = "Moktar Krin always look out for me, mon. He be in Thousand Needles now, at the Rustmaul Dig Site, fighting the dwarves for Belgrom, and he say the same bugs crawl up out of the ground there too." } },
       choices = {
-        { text = "The same insects, so far apart?", next = "BACK", fx = { learn = { "silithid" } } },
+        { text = "Then they're spreading farther than anyone thinks.", next = "BACK", fx = { learn = { "silithid" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

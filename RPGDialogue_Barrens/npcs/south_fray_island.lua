@@ -205,7 +205,7 @@ P:NPC {
     },
     myodds = {
       lines = {
-        { id = "my_default", text = "You? Let me look at you, pal, and squint a little, and I'd put you at four to one against, which is generous, because you've still got all your teeth. Win and I'll shorten 'em, and lose and I'll write you a lovely eulogy." },
+        { id = "my_default", text = "You? Let me look at you, pal, and squint a little, and I'd put you at four to one against, which is generous, because you've still got all your teeth. Win and I'll shorten your odds, and lose and I'll write you a lovely eulogy." },
         { id = "my_tauren", when = { race = "Tauren" }, text = "A tauren? Even money, pal, and I hate it, because nobody bets against a tauren and nobody gets rich betting on one." },
       },
       choices = {

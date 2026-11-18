@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Come closer to the fire, {class}, unless you're afraid of it. Most people are, and they're right to be." },
-    { id = "g_shaman", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Fire") }, text = "Searn sent you, or Xanis, did he? Then you're ready for the next sapta, the sapta of fire, and I can see the wanting in your eyes already." },
+    { id = "g_shaman", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Fire") }, text = "Your trainer sent you out to me, did he? Then you're ready for the next sapta, the sapta of fire, and I can see the wanting in your eyes already." },
   },
 
   notice = {
@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kranal Fiss, and I keep the fire for the young shaman of the Horde, the ones strong enough in the ways of earth to want more. You've tasted power, some of you, and now you're hungry for it, and fire answers hunger better than any other element." },
+        { id = "h_default", key = true, text = "Kranal Fiss, and I keep the fire for the young shaman of the Horde, the ones strong enough in the ways of earth to want more. You've tasted the earth's power already, and now you're hungry for more, and fire answers hunger better than any other element." },
         { id = "h_torch", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Fire"), minLevel = 13 },
           text = "Your spirit burns brighter than any torch I've ever seen, and you should be proud of it. Go on down this path, and the elements will be yours to command, and the Horde will look to you for guidance." },
       },
@@ -65,14 +65,14 @@ P:NPC {
       },
     },
     telf = {
-      lines = { { id = "te_default", text = "Along the Southfury River in Durotar, before the Great Sea, there's a hidden trail to one of the highest peaks in that land. At the top is the Shrine of the Dormant Flame, and Telf Joolam watches over it, so take him the torch I give you." } },
+      lines = { { id = "te_default", text = "Along the Southfury River in Durotar there's a hidden trail up one of the highest peaks in that land. At the top is the Shrine of the Dormant Flame, and Telf Joolam watches over it, so take him the torch I give you." } },
       choices = {
         { text = "What will Telf ask of me?", next = "telf2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     telf2 = {
-      lines = { { id = "t2_default", text = "Fire tar from the Razormane spellcasters in the east of the Barrens, and a pouch of reagents, so he can make the sapta. Then you'll face the manifestation of fire on that mountaintop, and you'll strike quickly, because it only grows the longer you take." } },
+      lines = { { id = "t2_default", text = "He'll want fire tar from the Razormane spellcasters in the east of the Barrens, and a pouch of reagents, so he can make the sapta. Then you'll face the manifestation of fire on that mountaintop, and you'll strike quickly, because it only grows the longer you take." } },
       choices = { { text = "Something else, Kranal.", next = "BACK" } },
     },
     hills = {

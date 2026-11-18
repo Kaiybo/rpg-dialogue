@@ -17,9 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Yes? Be quick about it; I've a circle drawn and it doesn't like to wait." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "A young warlock. Good; you look like you'd rather command something than be commanded, which is the first lesson, and you've learned it already." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Piercing the Veil") }, text = "Three skulls from the Rattlecages by the old smithy. Not two, not four, and not cracked, please." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Piercing the Veil") }, text = "Bring me three skulls from the Rattlecages by the old smithy, not two and not four, and not cracked, please." },
     { id = "g_done", when = { questDone = TODO_QUEST("Piercing the Veil") }, text = "How is your imp? Still sulking, I expect. They always sulk the first week." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you come back still in one piece. Your imp must be keeping you alive, or keeping you amused." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you come back still in one piece. Your imp must be keeping you alive, or keeping you amused." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your power's grown since Deathknell. I can feel the things that listen to you now, and there are more of them than there were." },
   },
 
@@ -150,8 +150,8 @@ P:NPC {
   },
 
   topics = {
-    burning_legion = { { id = "tp_legion", text = "The masters of the things I bind. Fear them, study them, and never once believe a word they say." } },
-    _none = { { id = "tp_none", text = "Not in my books, and I've read a great many. Ask Sarvis; he likes to talk." } },
+    burning_legion = { { id = "tp_legion", text = "The Legion are the masters of the things I bind. Fear them, study them, and never once believe a word they say." } },
+    _none = { { id = "tp_none", text = "Not in my books, and I've read a great many. Ask Shadow Priest Sarvis; he likes to talk." } },
   },
 }
 
@@ -212,12 +212,12 @@ P:NPC {
       },
     },
     after = {
-      lines = { { id = "a_default", text = "Brill, where Marion Call will teach you more than I can, and then the Undercity, where the deathstalkers will decide whether you're worth their time. Keep your hands clean of the Deathguard's purses, because they're the ones who decide whether you hang." } },
+      lines = { { id = "a_default", text = "Brill, where Marion Call at the tavern will teach you more than I can, and then the Undercity, where the deathstalkers will decide whether you're worth their time. Keep your hands clean of the Deathguard's purses, because they're the ones who decide whether you hang." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Not my business, and I make a point of knowing whose business things are. Ask Arren." } },
+    _none = { { id = "tp_none", text = "Not my business, and I make a point of knowing whose business things are. Ask Executor Arren." } },
   },
 }
 

@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Brave, and stubborn, and very sure of themselves until the plague came and there was nothing left to be sure of. Some went to the Crusade and some went into the ground, and you're the first I've met who went into the ground and came back with the Light still in hand." } },
+      lines = { { id = "xfpala_default", text = "I did, and they were brave and stubborn and very sure of themselves until the plague came and there was nothing left to be sure of. Some went to the Crusade and some went into the ground, and you're the first I've met who went into the ground and came back with the Light still in hand." } },
       choices = {
         { text = "Then I'll carry their courage with me.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Their certainty failed them. I'll trust my own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -84,7 +84,7 @@ P:NPC {
       },
       choices = {
         { text = "Did the old army's priests ever fight beside you, Dannal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "It matters, Dannal. Do you hold the old war against us?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you hold the old war against my people, Dannal?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a beast's strength worth less than a sword's, Dannal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "You have the bearing of an old soldier.", next = "past" },
@@ -103,7 +103,7 @@ P:NPC {
       },
     },
     past = {
-      lines = { { id = "p_default", text = "A soldier of Lordaeron, and not a remarkable one. I remember the drills and the cold mornings on the walls, but I do not remember the faces of the men beside me, and I have decided that is a mercy." } },
+      lines = { { id = "p_default", text = "I was a soldier of Lordaeron, and not a remarkable one. I remember the drills and the cold mornings on the walls, but I do not remember the faces of the men beside me, and I have decided that is a mercy." } },
       choices = { { text = "Do you miss that life?", next = "past_miss" } },
     },
     past_miss = {
@@ -155,7 +155,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "It wouldn't hurt, since a spell takes a breath to cast and a Scarlet initiate needs only half that to reach you. Keep a staff in your hands and learn to swing it like you mean it, and you'll outlast the mages who don't." },
+        { id = "xmage_default", text = "A weapon wouldn't hurt, since a spell takes a breath to cast and a Scarlet initiate needs only half that to reach you. Keep a staff in your hands and learn to swing it like you mean it, and you'll outlast the mages who don't." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "Half the mages who fell in Lordaeron fell because a ghoul got close while they were still muttering, and I watched it happen more than once. Learn to step back as you cast, and you'll do better than they did." },
       },
       choices = {
@@ -192,7 +192,7 @@ P:NPC {
   },
   notice = {
     { id = "n_paladin", cat = "light", when = { class = "PALADIN" },
-      text = "The Light still clings to you, and I can smell it on you like smoke. Aramis may tell you it makes you strong, but I would say it is a chain you have not yet seen." },
+      text = "The Light still clings to you, and I can smell it on you like smoke. Aramis Hammerhand may tell you it makes you strong, but I would say it is a chain you have not yet seen." },
   },
   start = "hello",
   nodes = {
@@ -208,8 +208,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Perhaps, if you make it one, though most hunters I've known put their trust in the arrow and not in the sky. That is the right order of things, and the Light never understood it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Perhaps, and your {pet} trusts you the way the faithful trust their gods. Be worthier of it than the Light was of us, and you'll have built a faith of your own." },
+        { id = "xhuntcl_default", text = "Some do, though most hunters I've known put their trust in the arrow and not in the sky. That is the right order of things, and the Light never understood it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and your {pet} trusts you the way the faithful trust their gods, so be worthier of it than the Light was of us, and you'll have built a faith of your own." },
       },
       choices = {
         { text = "The hunt is sacred, Cleric. There's more to it than aim.", next = "BACK", fx = { align = { light = 1 } } },
@@ -381,7 +381,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I'd like to, but most of my customers can't stomach fresh meat yet, and the ones who can prefer it baked into something. Living travellers do pass through now and then, though not often enough to keep a butcher's counter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, which is more than I can say for my customers. I don't buy meat, I'm afraid, because most of the freshly risen can't stomach it yet, though I'd wager your beast could." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I don't, I'm afraid, because most of the freshly risen can't stomach fresh meat yet, though your {pet} looks like it could. It's better fed than my customers, I'll say that." },
       },
       choices = {
         { text = "Then I'll share my catch with whoever's hungry.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -455,7 +455,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "A window box, three streets from the capital's market, with thyme and a sad little rosemary in it. I tried to grow the rosemary again here, and the soil killed it in a week, which I took rather personally." } },
+      lines = { { id = "dq_default", text = "Only a window box, three streets from the capital's market, with thyme and a sad little rosemary in it. I tried to grow the rosemary again here, and the soil killed it in a week, which I took rather personally." } },
       choices = {
         { text = "Try again. I'll find you soil that isn't poisoned.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let it go, Kien. Dead men don't need rosemary.", next = "BACK", fx = { align = { light = -1 } } },
@@ -550,8 +550,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than either of us would admit in polite company, since both would eat their master if the bond ever slipped. The difference is that your beast wants to stay, and mine are counting the days." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than you'd think, though {pet} looks far happier with its arrangement than my imp ever has. Both would eat their masters if the bond slipped, but yours wants to stay, and mine are counting the days." },
+        { id = "xhuntcl_default", text = "They're more alike than either of us would admit in polite company, since both would eat their master if the bond ever slipped. The difference is that your beast wants to stay, and mine are counting the days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They're more alike than you'd think, though {pet} looks far happier with its arrangement than my imp ever has. Both would eat their masters if the bond slipped, but yours wants to stay, and mine are counting the days." },
       },
       choices = {
         { text = "My beast stays because it wants to. No chain needed.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -649,7 +649,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge is a dreadful bore, all moaning and grasping and no conversation. Demons are at least interesting to talk to, even if they lie constantly." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken use whatever tools are at hand, and a warlock's demon is a very good tool indeed. The Dark Lady appreciates practicality, and so do I." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad made a deal with powers he didn't understand and lost his kingdom for it. I always tell my students to read the contract twice." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know, and I'm rarely afraid. Ask the magistrate." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know, and I'm rarely afraid. Ask Magistrate Sevren." } },
   },
 }
 

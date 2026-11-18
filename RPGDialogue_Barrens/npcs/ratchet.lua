@@ -96,7 +96,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Good hunting? Pal, there's crocolisks in the water, raptors in the hills and pirates on the beach, and I'd pay good coin to see fewer of all three. Crocolisk hides sell nice down at the docks, too, so if you're out there anyway, you might as well turn a profit, right?" },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks hungry, pal, and I know that look, because I see it on my dockhands every payday. Feed it before it comes down to the fish market and starts runnin' up a tab, alright?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Good hunting? Crocolisks, raptors and pirates, pal, and that {pet} of yours looks hungry enough for all three. Feed it before it comes down to the fish market and starts runnin' up a tab, alright?" },
       },
       choices = {
         { text = "I'll hunt to keep the roads safe, Gazlowe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -192,7 +192,7 @@ P:NPC {
         { text = "A goblin town staying neutral can't be easy.", next = "neutral", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
         { text = "Your docks leak cargo. I could find out who's helping it along.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Need a mage for anything? I'm told I'm expensive.", next = "xmage", when = { class = "MAGE" } },
-        { text = "What kind of work, Gazlowe?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Got any work for a warrior, Gazlowe?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is there good hunting near Ratchet, Gazlowe?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "A warlock walks into Ratchet. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Would Ratchet pay for a priest, Gazlowe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -309,7 +309,7 @@ P:NPC {
     },
     c_race = {
       lines = {
-        { id = "crc_default", text = "Down at the Shimmering Flats, the Cartel's racing team and the gnomes blow each other up for the honor of going fastest, and I've lost good money betting on both. I find parts for our boys, I used to work on a rig myself, and I owe 'em a prototype fuel regulator, which I'll get to just as soon as somebody stops shooting at my boats." },
+        { id = "crc_default", text = "Down at the Shimmering Flats, the Cartel's racing team and the gnomes blow each other up for the honor of going fastest, and I've lost good money betting on both. I find parts for our boys, and I owe 'em a prototype fuel regulator, which I'll get to just as soon as somebody stops shooting at my boats." },
         { id = "crc_gnome", when = { race = "Gnome" }, text = "Your people and mine race rockets across the salt down at the Shimmering Flats, and lately your team's been getting faster with the same designs, which I'll only admit because you'll hear it anyway. I find parts for our boys, and I owe 'em a fuel regulator I haven't built yet, so don't tell 'em you saw me." },
       },
       choices = {
@@ -330,7 +330,7 @@ P:NPC {
       choices = {
         { text = "Smart. Never tie your purse to a banner.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Pick a side and stand by it, or you stand for nothing.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Doesn't Thrall mind you trading with Theramore?", next = "b_theramore" },
+        { text = "And what about Theramore, across the water?", next = "b_theramore" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -450,11 +450,11 @@ P:NPC {
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's our sister port across the sea, and the boats run between us twice a day if the pirates don't get frisky. Baron Revilgaz runs it tight, and I'd say tighter than me, but I'd be lying." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Southsea pirates on my coast are bad enough, but the Bloodsail are worse, and they don't even pay to dock. Every ship they sink is a hole in my ledger the size of a cannonball." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's the Cartel, and Ratchet's one of its four jewels, if you count Booty Bay, Gadgetzan and Everlook, which I do. We sell to everybody, and that's what keeps the place neutral." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's way down south in Tanaris, sand in your boots and Noggenfogger in charge. Good town, and they've got water rights that'd make you weep." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's way down south in Tanaris, where you get sand in your boots and Noggenfogger runs the show. It's a good town, and they've got water rights that'd make you weep." } },
     theramore = { { id = "tp_theramore", text = "Theramore's just up the coast, and Lady Proudmoore's folk buy as much as anyone. Northwatch Hold, though, that's her soldiers pointing cannons at my cousins, and that's bad for business." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture Company's a bunch of thugs with a mining permit nobody gave 'em. They give honest goblins a bad name, and I'd know about honest goblins, because I'm one." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's mine, pal, built from the docks up, and it's the only proper port on the Barrens coast. If it ships, it comes through here, and if it comes through here, I get a cut." } },
-    everlook = { { id = "tp_everlook", text = "Everlook's way up in Winterspring, colder than a pirate's heart. Great market, terrible weather, and they charge for the blankets." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's way up in Winterspring, colder than a pirate's heart. It's a great market with terrible weather, and they charge for the blankets." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if I haven't heard of it, it isn't making anybody a single copper." } },
   },
 }
@@ -508,7 +508,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Troubled them? A raptor ate a whole fuel regulator last month, pal, and it was the only one I had, and do you know what those cost from Booty Bay? The beasts of the Barrens chew on anything that rattles, so if you see something out there that looks like a bit of a machine, it's probably mine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from my workbench, please, pal. I'm sure it's lovely, but the last beast that sniffed it set off a very small explosion, and I'm still paying for the window." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Trouble them? A raptor ate my only fuel regulator last month, pal, so keep your {pet} away from my workbench. The last beast that sniffed it set off a very small explosion, and I'm still paying for the window." },
       },
       choices = {
         { text = "I'll bring back any of your parts I find.", next = "BACK", fx = { align = { order = 1 } } },
@@ -646,7 +646,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Rage tonic, courage brew and something I call Mebok's Battle Breakfast, though you'll want to drink that one standing up. They're mostly harmless and occasionally helpful, which is more than you can say for most of what the Southsea pirates sell." } },
+      lines = { { id = "xwarcl_default", text = "I've got rage tonic, courage brew and something I call Mebok's Battle Breakfast, though you'll want to drink that one standing up. They're mostly harmless and occasionally helpful, which is more than you can say for most of what the Southsea pirates sell." } },
       choices = {
         { text = "I'll fight on my own strength, Mebok, not your tonics.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If it helps me fight harder, I'll drink anything.", next = "BACK", fx = { align = { order = -1 } } },
@@ -657,7 +657,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crocolisk eyes, zhevra hooves and the odd plainstrider gizzard, if you're not too squeamish. The beasts of the Barrens are full of useful things, as long as somebody else does the collecting, and that somebody could be you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could sniff out a good ingredient, chum. I don't suppose it'd take a job on commission? No, I didn't think so, they never read the contract." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Crocolisk eyes and zhevra hooves, chum, and your {pet} looks like it could sniff out both. I don't suppose it'd take a job on commission?" },
       },
       choices = {
         { text = "I'll only take what the beast can spare.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -781,7 +781,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Can't say I know it, friend, but if it sells, Mebok will learn it quick and charge you double for the lesson." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where half my ingredients end up and half my customers come from, and the boat's cheap if you don't mind the smell. Ask for the Salty Sailor and tell 'em Mebok sent you, for all the good it'll do." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got Noggenfogger and his elixirs, and between you and me, I like my drinks better. More flavour, fewer side effects, mostly." } },
-    centaur = { { id = "tp_centaur", text = "Centaur hooves, centaur hair, I've had some interesting orders lately. The Kolkar don't sell, though, so you'll have to negotiate with an axe." } },
+    centaur = { { id = "tp_centaur", text = "I've had some interesting orders lately for centaur hooves and centaur hair. The Kolkar don't sell, though, so you'll have to negotiate with an axe." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "Trolls in Zul'Farrak sit on more old gold than a trade prince, so I hear. I'm a businessman, not a fool, so I'm staying right here and buying your loot after." } },
   },
 }
@@ -831,7 +831,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hides and teeth go to Booty Bay, pal, and the crocolisk skins fetch the best prices, though the pirates like 'em too. Keep your crates labelled and your manifest honest, and I'll see your goods reach the boat, or at least I'll know who took 'em and what they owe." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} isn't going on any boat without a proper manifest and a passage fee, before you ask. I had to write up a monkey once, and the customs paperwork wasn't pretty." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides and teeth sell well in Booty Bay, pal, but your {pet} isn't going on any boat without a proper manifest and a passage fee. I had to write up a monkey once, and the customs paperwork wasn't pretty." },
       },
       choices = {
         { text = "I'll keep my manifest honest, wharfmaster.", next = "BACK", fx = { align = { order = 1 } } },
@@ -957,7 +957,7 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "If it isn't in my ledger, pal, it doesn't exist and it doesn't pay tolls, so as far as I'm concerned it can stay that way." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's on the other end of the route, and every crate leaves my dock with a mark and arrives with one fewer. Somebody over there can't count, and I'm starting to think it's on purpose." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's on the other end of the route, and every crate leaves my dock counted and arrives a little lighter. Somebody over there can't count, and I'm starting to think it's on purpose." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sink a ship a month, and I write down every crate of it, down to the last bottle. One day I'm going to send them the invoice, and I'm going to send it by cannon." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel keeps neutral and keeps ledgers, and I keep ledgers for the Cartel. That's the closest thing to a religion this town has." } },
     theramore = { { id = "tp_theramore", text = "Theramore ships come in regular, and their wharfmasters sign everything twice. I like them better than most of my own cousins, and you can quote me." } },

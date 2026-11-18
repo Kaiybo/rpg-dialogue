@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Come and sit by the water, {class}. The tide is turning, and it's a good hour for talking." },
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "I felt you coming along the shore, little one. The water always tells me when a shaman is near." },
-    { id = "g_felwood", when = { questActive = TODO_QUEST("Seeking Spiritual Aid") }, text = "You carry water from a moonwell, and it is sick. Greta sent you, didn't she? Give it to me gently." },
+    { id = "g_felwood", when = { questActive = TODO_QUEST("Seeking Spiritual Aid") }, text = "You carry water from a moonwell, and it is sick. Greta Mosshoof sent you from Felwood, didn't she? Give it to me gently." },
   },
 
   notice = {
@@ -35,7 +35,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Islen Waterseer, and I listen to the spirits of water, which is a slower conversation than most people have patience for. I live out here because the sea is the oldest voice in Kalimdor, and the Barrens are very dry." },
         { id = "h_call", when = { class = "SHAMAN", questActive = TODO_QUEST("Call of Water") },
-          text = "Xanis sent you, or Searn, and either way it is time you learned about water. Water means rebirth, little one, but only when it is pure, and polluted water can devastate everything it touches." },
+          text = "Searn Firewarder sent you, or Xanis Flameweaver, and either way it is time you learned about water. Water means rebirth, little one, but only when it is pure, and polluted water can devastate everything it touches." },
         { id = "h_totem", when = { class = "SHAMAN", questDone = TODO_QUEST("Call of Water") },
           text = "You carry your water totem now, and you've seen what corruption does to a sacred pool. Pure water gives life back to those who are dying, so use it well." },
       },
@@ -48,12 +48,12 @@ P:NPC {
         { text = "Aren't you afraid out here, among the humans?", next = "humans" },
         { text = "Who is Brine?", next = "brine", when = { class = "SHAMAN" } },
         { text = "Can you cleanse Felwood's water?", next = "felwood", when = { questActive = TODO_QUEST("Seeking Spiritual Aid") } },
-        { text = "How do you know Xanis Flameweaver?", next = "xanis" },
+        { text = "How do you know Xanis Flameweaver of Thunder Bluff?", next = "xanis" },
         { text = "I'll leave you to the tide.", next = "END" },
       },
     },
     water = {
-      lines = { { id = "wa_default", text = "That it flows, it erodes, and it makes clean all manner of things, and that its power to heal and replenish has no equal. Learn that water poisoned can ruin a land, and you'll understand why it must be guarded." } },
+      lines = { { id = "wa_default", text = "That it flows, it erodes, and it makes clean all manner of things, and that its power to heal and replenish has no equal. Learn too that poisoned water can ruin a land, and you'll understand why it must be guarded." } },
       choices = {
         { text = "Guarded from whom?", next = "purity" },
         { text = "Something else.", next = "BACK" },
@@ -127,11 +127,11 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Mahren Skyseer, and I hunt where the land ends and the deep water begins. My brother Jorn teaches the hunters of the Crossroads, and I teach the few who are willing to get wet." },
+        { id = "h_default", key = true, text = "I am Mahren Skyseer, and I hunt where the land ends and the deep water begins. My brother Jorn teaches the young hunters at Camp Taurajo, and I teach the few who are willing to get wet." },
         { id = "h_hunter", when = { class = "HUNTER", questDone = TODO_QUEST("Mahren Skyseer") },
-          text = "A true hunter can stalk prey down any path, and mountains and swamps don't sway one, and neither does the sea. Are you ready to tread farther down the hunter's path?" },
+          text = "A true hunter can stalk prey down any path, over mountains, through swamps and into the sea. Are you ready to tread farther down the hunter's path?" },
         { id = "h_heart", when = { questDone = TODO_QUEST("Isha Awak") },
-          text = "Isha Awak's heart beat for you, and now something of him stays with you. I can see him behind your eyes, and one day, if you're patient, they'll learn to see as he did." },
+          text = "Isha Awak's heart beat for you, and now something of him stays with you. I can see him behind your eyes, and one day, if you're patient, your eyes will learn to see as his did." },
       },
       again = {
         { id = "h_again", text = "Ask, but keep your voice low. The sea carries sound." },
@@ -146,7 +146,7 @@ P:NPC {
       },
     },
     isha = {
-      lines = { { id = "is_default", text = "Isha Awak, the Deep Doom, the great beast who is lord of these waters, and strong, and solemnly proud. The humans on the coast fear him, because he has eaten many of them, but I'm grateful that he's here." } },
+      lines = { { id = "is_default", text = "Isha Awak, the Deep Doom, is the great beast who rules these waters, strong and solemnly proud. The humans on the coast fear him, because he has eaten many of them, but I'm grateful that he's here." } },
       choices = {
         { text = "Grateful? He's a man-eater.", next = "prey" },
         { text = "Something else.", next = "BACK" },
@@ -184,7 +184,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Jorn and I were raised by a hunter who taught us both, and we each went where our prey led us." } },
-    advice = { { id = "tp_ad", text = "Never turn your back on the sea, {class}. It has never once turned its back on you." } },
+    advice = { { id = "tp_ad", text = "Never turn your back on the sea, {class}, because it never takes its eyes off you." } },
     _none = { { id = "tp_none", text = "I don't know. Ask Jorn, he likes answering questions more than I do." } },
   },
 }

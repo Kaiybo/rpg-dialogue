@@ -22,7 +22,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Stand straight when you pass the town hall, {class}. The Dark Lady's lieutenant has eyes in Brill, and I am one pair of them." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I hope your pockets clink, because I've an empty box waiting for Scarlet rings." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Crusade spent every day of it marching about in our fields. I trust you've been killing some of them somewhere else." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade spent every day of it marching about in our fields. I trust you've been killing some of them somewhere else." },
   },
 
   notice = {
@@ -138,7 +138,7 @@ P:NPC {
 
     -- Brill
     watch = {
-      lines = { { id = "w_default", text = "Brill is quiet by day and quieter at night, apart from the bats and Gordo dragging his feet past the tavern. The trouble always comes in from the fields, so I stand by the town hall and watch the road, and I send people like you to do the walking." } },
+      lines = { { id = "w_default", text = "Brill is quiet by day and quieter at night, apart from the bats and Gordo the abomination dragging his feet past the tavern. The trouble always comes in from the fields, so I stand by the town hall and watch the road, and I send people like you to do the walking." } },
       choices = {
         { text = "Who else should I know in Brill?", next = "watch_town" },
         { text = "Something else.", next = "BACK" },
@@ -200,7 +200,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Velma Warnam. I teach the riding of the dead horses that Zachariah sells, which is nothing like riding the live sort, and I'll thank you not to tell me how your uncle did it." },
+        { id = "h_default", key = true, text = "Velma Warnam. I teach the riding of the dead horses that Zachariah Post sells, which is nothing like riding the live sort, and I'll thank you not to tell me how your uncle did it." },
         { id = "h_ready", when = { minLevel = 40 }, text = "You're seasoned enough to sit a horse now, I think, and the road to the Bulwark is a long walk on dead feet. Shall we begin?" },
         { id = "h_young", when = { maxLevel = 39 }, text = "You're young yet for a saddle, {class}. Come back when you've seen more of the world, and the horses will still be here, since they don't age either." },
       },
@@ -240,6 +240,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I know horses, and very little else. Ask Zachariah, or ask the Magistrate." } },
+    _none = { { id = "tp_none", text = "I know horses, and very little else. Ask Zachariah Post, or ask Magistrate Sevren." } },
   },
 }

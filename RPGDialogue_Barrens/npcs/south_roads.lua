@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "One of us, and a long way from your masters. You've come about the orb, I expect, or you will once you've heard of it." },
         { id = "h_orb", when = { questActive = TODO_QUEST("The Orb of Soran'ruk") },
-          text = "Three of the small fragments from the Twilight acolytes in Blackfathom Deeps, and the large one from the voidwalkers in Shadowfang Keep. Bring them all, and I will bind them into something worth carrying." },
+          text = "I need three small fragments from the Twilight acolytes in Blackfathom Deeps, and the large one from the voidwalkers in Shadowfang Keep. Bring them all, and I will bind them into something worth carrying." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren at my fire. Your people look at me the way they'd look at a sick kodo, with pity and a long way off, so say what you came to say." },
       },
@@ -172,7 +172,7 @@ P:NPC {
       },
     },
     circle = {
-      lines = { { id = "ci_default", text = "A binding circle, freshly drawn, and the only reason the thing I spoke with last night went home again. Step around it, not over it, and we'll both sleep easier." } },
+      lines = { { id = "ci_default", text = "It's a binding circle, freshly drawn, and it's the only reason the thing I spoke with last night went home again. Step around it, not over it, and we'll both sleep easier." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fragments = {

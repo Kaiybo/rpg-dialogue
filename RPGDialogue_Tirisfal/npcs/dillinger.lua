@@ -16,9 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "Stay off the graves, and keep your eyes on the west road. That's where the trouble comes from." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; the west road hasn't gone quiet while you were away." },
-    { id = "g_claws", when = { questActive = TODO_QUEST("A Putrid Task") }, text = "The claws, {class}. The rotting ones won't hand them over, so don't wait for them to." },
-    { id = "g_mills", when = { questActive = TODO_QUEST("The Mills Overrun") }, text = "Ribs and skulls from the Mills. Follow the road west, take the north fork, and look for the windmills." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Scourge kept coming the whole time. Pick up where you left off, and somebody take that leg off the fence post, because it isn't mine." },
+    { id = "g_claws", when = { questActive = TODO_QUEST("A Putrid Task") }, text = "Bring me those claws, {class}. The rotting dead won't hand them over, so don't wait for them to." },
+    { id = "g_mills", when = { questActive = TODO_QUEST("The Mills Overrun") }, text = "Bring me ribs and skulls from Agamand Mills. Follow the road west, take the north fork, and look for the windmills." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Scourge kept coming the whole time, so pick up where you left off." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were a fresh corpse with a rusty blade when you first stood here, and now you look like something the Scourge should worry about. Good." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word along the street is that you've been useful in Brill. I don't hand out praise, but I'm told others do." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word is you put someone's back up in town. Save the bad temper for the Scourge, because they've earned it and Brill hasn't." },
@@ -51,7 +51,7 @@ P:NPC {
         { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } },
           text = "One of the Warchief's people, out among our graves. The Scourge can't tell the living from the dead until they bite, so stay close to the road." },
         { id = "h_warrior", when = { class = "WARRIOR", race = "Scourge" },
-          text = "A warrior, and one of ours. I've a task that's waited a long while for someone with a steady arm, if Austil thinks you're ready." },
+          text = "A warrior, and one of ours. I've a task that's waited a long while for someone with a steady arm, if Austil de Mon thinks you're ready." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, because my eyes belong on that road." },
@@ -152,7 +152,7 @@ P:NPC {
     },
 
     living = {
-      lines = { { id = "li_default", text = "Not from me. Some in town look at you the way a starving man looks at bread, and I'd be lying if I said they're only joking, so keep your business on the main street." } },
+      lines = { { id = "li_default", text = "Not from me, but some in town look at you the way a starving man looks at bread, and I'd be lying if I said they're only joking, so keep your business on the main street." } },
       choices = {
         { text = "I'll keep my axe close and my business short.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -171,11 +171,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a soldier before, and I'm a soldier now. What happened in between isn't worth the telling." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a corpse until you've seen it fall over twice, because in Tirisfal once is a habit, not a promise." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "Zygand worries about the Crusade, and he's right to. I worry about the Scourge, because they never stop coming and they never get tired." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "Executor Zygand worries about the Crusade, and he's right to. I worry about the Scourge, because they never stop coming and they never get tired." } },
     scourge = { { id = "tp_scourge", text = "The mindless shamble up this road every few nights, and I cut them down like a farmer cuts wheat. It would be good to fight something that fought back properly, now and then." } },
     forsaken = { { id = "tp_forsaken", text = "We're the Dark Lady's soldiers, and we do our duty without being thanked for it. If you want thanks, go join the Alliance and polish something." } },
     sylvanas = { { id = "tp_sylvanas", text = "I'd die for the Dark Lady again, and I'd do it on a bloodier road than this one, if she'd only send me there." } },
     stratholme = { { id = "tp_stratholme", text = "That's where the real fighting is, in Stratholme and the lands east of it. I've asked twice to be sent, and twice I've been told the west road needs me more." } },
-    _none = { { id = "tp_none", text = "Ask someone who isn't watching a road. Renee at the inn hears more than I do." } },
+    _none = { { id = "tp_none", text = "Ask someone who isn't watching a road. Innkeeper Renee at the tavern hears more than I do." } },
   },
 }

@@ -7,19 +7,19 @@ P:Pool {
   barks = {
     { id = "b_dust", text = "There's dust on the north road. Could be riders, could be just the wind, or could be that blasted plainstrider again." },
     { id = "b_quilboar", text = "Smells like quilboar, but then everything smells like quilboar out here, including my bedroll." },
-    { id = "b_hero", when = { townStanding = { town = "crossroads", min = 30 } }, text = "That one's done more for the Crossroads than half the garrison." },
+    { id = "b_hero", when = { townStanding = { town = "crossroads", min = 30 } }, text = "You've done more for the Crossroads than half the garrison, and we all know it." },
   },
   greetings = {
     { id = "g_cross", text = "Lok'tar, and welcome to the Crossroads. The water's at the well, and the trouble's everywhere else." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Inside the walls after dark. Centaur ride at night, and they don't stop to ask whose side you're on." },
     { id = "g_liked", when = { townStanding = { town = "crossroads", min = 30 } }, text = "Pass, friend of the Crossroads, and be welcome; that name counts for something here." },
-    { id = "g_distrust", when = { townStanding = { town = "crossroads", max = -20 } }, text = "Thork knows your name, stranger, so mind yourself while you're inside these walls." },
+    { id = "g_distrust", when = { townStanding = { town = "crossroads", max = -20 } }, text = "Thork, who keeps the Crossroads for the Warchief, knows your name, stranger, so mind yourself while you're inside these walls." },
   },
   notice = {
     { id = "n_xbeast", cat = "origin", when = { origin = "orc_barrens_beastmaster" },
-      text = "You hunt the old way, beside a beast you tamed yourself. Sergra sends her best out past the walls like that, so I'll not ask you to leash it inside the gate." },
+      text = "You hunt the old way, beside a beast you tamed yourself. Sergra Darkthorn sends her best hunters out past the walls like that, so I'll not ask you to leash it inside the gate." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "The Barrens has been chewing on you. Traugh can stitch that up, though the Barrens will only open you again, and she's not gentle with the needle." },
+      text = "The Barrens has been chewing on you. Traugh at the forge can mend that, though the Barrens will only tear it open again." },
     { id = "n_alliance", cat = "race", when = { faction = "Alliance" },
       text = "You're a long way from your walls, outsider. Keep walking and keep your hands empty." },
   },
@@ -30,7 +30,7 @@ P:Pool {
   },
   choices = { { text = "Lok'tar.", next = "END", fx = { standing = { crossroads = 1 } } } },
   topics = {
-    wailing_caverns = { { id = "t_caverns", text = "Ask Tonga. All I know is the water tastes wrong near there, and the druids who went in came out strange." } },
-    _none = { { id = "t_none", text = "Ask Thork. He's up on the tower, glaring at the horizon as usual, and I think the horizon's started to glare back." } },
+    wailing_caverns = { { id = "t_caverns", text = "Ask Tonga Runetotem, the tauren druid here. All I know is that the water tastes wrong near those caves, and the druids who went in came out strange." } },
+    _none = { { id = "t_none", text = "Ask Thork, who keeps the Crossroads for the Warchief. He's up on the tower, glaring at the horizon as usual." } },
   },
 }

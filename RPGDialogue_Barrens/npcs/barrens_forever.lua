@@ -312,7 +312,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I set bones in life and I set them in death. The work hasn't changed much; the patients have." } },
-    advice = { { id = "tp_ad", text = "Keep your knees bent and your head down. That's what most breaks come from." } },
+    advice = { { id = "tp_ad", text = "Keep your knees bent when you land and your head tucked when you fall. Most of the breaks I see come from forgetting one or the other." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid. Bones I understand; most other things baffle me." } },
   },
 }
@@ -504,7 +504,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I'm from Taurajo, and I walk the plains looking for good grazing. Usually from the ground." } },
+    background = { { id = "tp_bg", text = "I'm from Taurajo, and I walk the plains looking for good grazing, usually from the ground." } },
     advice = { { id = "tp_ad", text = "Never walk through long grass alone. Trust me on this one." } },
     _none = { { id = "tp_none", text = "I don't know, friend. I've been up a tree; the news hasn't reached me." } },
   },

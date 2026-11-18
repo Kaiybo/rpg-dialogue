@@ -15,8 +15,8 @@ P:NPC {
 
   greetings = {
     { id = "g_rampart", text = "What is it, {class}? Speak quickly. The forest is listening." },
-    { id = "g_reports", when = { questActive = TODO_QUEST("The Warsong Reports") }, text = "Zoram'gar, Splintertree, and the road toward Azshara. Three scouts, three reports, and don't lose any of them." },
-    { id = "g_presence", when = { questActive = TODO_QUEST("Horde Presence") }, text = "The Talon Den, on Stonetalon Peak. Kill the dryad, and plant the flag where they'll all see it." },
+    { id = "g_reports", when = { questActive = TODO_QUEST("The Warsong Reports") }, text = "My scouts are at Zoram'gar, at Splintertree, and on the road toward Azshara. Bring me all three reports, and don't lose any of them." },
+    { id = "g_presence", when = { questActive = TODO_QUEST("Horde Presence") }, text = "Rynthariel keeps the Talon Den on Stonetalon Peak. Kill her, and plant our flag where every elf there will see it." },
     { id = "g_flag", when = { questDone = TODO_QUEST("Horde Presence") }, text = "The flag still flies in the Talon Den, my scouts say. Good. Let them look at it every morning." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? The rampart held without you, but barely, so don't make a habit of it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you ran my reports. The Warsong could use more like you in Ashenvale." },
@@ -40,15 +40,15 @@ P:NPC {
         { id = "h_op_ashen", when = { opinion = { topic = "ashenvale", stance = "wrong" } },
           text = "I'm told you think the Horde has no business in Ashenvale. Then you can tell my dead scouts so yourself, because I'm tired of carrying their names." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Kadrak") },
-          text = "Thork sent you up here? Good, because I've more work than runners. Catch your breath, and then listen." },
+          text = "Thork sent you up from the Crossroads? Good, because I've more work than runners. Catch your breath, and then listen." },
         { id = "h_reports_before", when = { questBefore = TODO_QUEST("The Warsong Reports") },
           text = "I've deployed scouts into Ashenvale, and I need a runner to take them their orders and bring back what they've seen. Zoram'gar Outpost on the coast to the west, Splintertree Post to the north, and a scout on the road east toward Azshara." },
         { id = "h_reports_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Warsong Reports"), days = 3 } },
           text = "You're one who can be counted on. These reports are what we need to push deeper into Ashenvale, and now we can plan our next move." },
         { id = "h_scroll", when = { questActive = TODO_QUEST("The Runed Scroll") },
-          text = "Where did you find this? Elf runes, and a silver ribbon, and an outrunner carrying it through my lands. Let me read it." },
+          text = "Where did you find this? It's written in elf runes and tied with a silver ribbon, and an outrunner was carrying it through my lands, so let me read it." },
         { id = "h_presence_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Horde Presence"), days = 3 } },
-          text = "You're a tough one! Rynthariel is dead and the Talon Den will be slow to regroup, so there'll be fewer Alliance runners crossing the Barrens for a while." },
+          text = "You're a tough one! Rynthariel the Keymaster is dead and the Talon Den will be slow to regroup, so there'll be fewer Alliance runners crossing the Barrens for a while." },
       },
       again = {
         { id = "h_again", text = "What else? The forest won't watch itself." },
@@ -103,7 +103,7 @@ P:NPC {
       },
     },
     grom_op = {
-      lines = { { id = "go_default", text = "Some say it, and they're not wrong about who drank first. But he drank last too, in a manner of speaking, and paid for all of us with his own life, so you tell me, {class}: what do you make of Grom Hellscream?" } },
+      lines = { { id = "go_default", text = "Some say it, and they're not wrong about who drank first. But he paid for all of us with his own life when he killed Mannoroth, so you tell me, {class}: what do you make of Grom Hellscream?" } },
       choices = {
         { text = "He died breaking the curse. He's our greatest hero.", next = "go_hero", fx = { affinity = 2, align = { honor = 1 }, opinion = { grom = "hero", warsong = "admire" } } },
         { text = "He doomed us first. Dying doesn't wash that away.", next = "go_blame", fx = { affinity = -2, align = { honor = -1 }, opinion = { grom = "blame" } } },
@@ -133,7 +133,7 @@ P:NPC {
       choices = { { text = "Then you keep it well. Something else.", next = "BACK", fx = { affinity = 1, learn = { "warsong" } } } },
     },
     elves = {
-      lines = { { id = "e_default", text = "Quiet, quick, and patient. Their Sentinels can sit in a tree for a day waiting for one runner, and their dryads and wisps fight like the forest itself hates us, which it might." } },
+      lines = { { id = "e_default", text = "They're quiet, quick, and patient. Their Sentinels can sit in a tree for a day waiting for one runner, and their dryads and wisps fight like the forest itself hates us, which it might." } },
       choices = {
         { text = "They sound like worthy enemies.", next = "BACK", fx = { learn = { "sentinels" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
@@ -156,9 +156,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Warsong, born and bred. I came to Kalimdor with Grom and I've been fighting for this land ever since." } },
     advice = { { id = "tp_ad", text = "In Ashenvale, look up. The elves are never where you expect them, and usually they're above you." } },
     warsong = { { id = "tp_ws", text = "My clan. We're the Horde's spearhead in Ashenvale, and we're proud of it.", next = "warsong" } },
-    sentinels = { { id = "tp_sent", text = "The night elves' warriors. Women, mostly, with glaives and owls and a talent for being patient. Don't underestimate them." } },
+    sentinels = { { id = "tp_sent", text = "The Sentinels are the night elves' warriors, mostly women, armed with glaives and owls and endless patience. Don't underestimate them." } },
     thrall = { { id = "tp_thrall", text = "Thrall is the son of Durotan, and he carries Doomhammer's hammer and Grom's trust both. When he speaks, the Warsong listen, and that isn't something I'd say of any other chieftain." } },
-    tyrande = { { id = "tp_tyrande", text = "Tyrande is the night elves' priestess queen, and she sits high in her tree while her Sentinels kill my scouts, and I'd sooner meet her across a battlefield than across a table." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande is the night elves' priestess queen, and she sits high in her tree while her Sentinels kill my scouts. I'd sooner meet her across a battlefield than across a table." } },
     second_war = { { id = "tp_second_war", text = "I was too young to ride against Lordaeron, and I'm glad, because the old Horde fought for demons and didn't know it. Ashenvale is my war, and at least I know who I'm fighting for." } },
     burning_legion = { { id = "tp_burning_legion", fx = { learn = { "dark_portal" } }, text = "The Legion poured their blood into us and made us into what we were, and Grom killed Mannoroth and broke their hold, and I will not hear anyone call that a small thing." } },
     blackfathom = { { id = "tp_blackfathom", text = "There are ruins sunk in the lake on Ashenvale's coast, and the scouts say cultists have moved in beside the naga. The Warsong want nothing to do with them, and the elves seem to want nothing to do with them either." } },

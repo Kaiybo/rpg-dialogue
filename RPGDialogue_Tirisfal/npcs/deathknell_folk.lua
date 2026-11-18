@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kayla Smithe. I teach your demons what Maximillion teaches you, which is how to be more useful and less trouble, and the second lesson always takes longer." },
+        { id = "h_default", key = true, text = "Kayla Smithe. I teach your demons what Maximillion Crowe, the warlock trainer, teaches you, which is how to be more useful and less trouble, and the second lesson always takes longer." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, before he finds my ink again." },
@@ -126,7 +126,7 @@ P:NPC {
       },
     },
     look2 = {
-      lines = { { id = "l2_default", text = "In most of them, yes, and it's the ones who stop caring how they look that I worry about. Novice Elreth sends me the ones who've gone quiet, and I find them a hat, and sometimes that's enough to start them talking again." } },
+      lines = { { id = "l2_default", text = "In most of them, yes, and it's the ones who stop caring how they look that I worry about. Novice Elreth at the chapel sends me the ones who've gone quiet, and I find them a hat, and sometimes that's enough to start them talking again." } },
       choices = { { text = "That's kind of you, Kava.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
   },

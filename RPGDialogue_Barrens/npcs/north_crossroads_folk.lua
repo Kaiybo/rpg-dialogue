@@ -45,7 +45,7 @@ P:NPC {
       },
     },
     source = {
-      lines = { { id = "s_default", text = "Orgrimmar's forges, mostly, carried down by kodo caravan, and some from Ratchet when the goblins have something worth buying. Their steel's good, but they charge for the shipping as if they'd carried it on their backs." } },
+      lines = { { id = "s_default", text = "Orgrimmar's forges, mostly, carried down by kodo caravan, and some from Ratchet when the goblins have something worth buying. The goblins' steel is good, but they charge for the shipping as if they'd carried it on their backs." } },
       choices = {
         { text = "Goblin steel's worth the price if it holds.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Horde steel from Horde forges. That's how it should be.", next = "BACK", fx = { align = { order = 1 } } },
@@ -118,7 +118,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces, and please don't call them skins, because a skin is what a beast wears and leather is what a tanner earns. Zhevra hide is tough and thin, which is why the hunters here chase them, and why the zhevra kick so hard when they're caught; the Earth Mother made them proud." } },
+      lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces. Zhevra hide is tough and thin, which is why the hunters here chase them, and why the zhevra kick so hard when they're caught." } },
       choices = {
         { text = "You look like you've hunted them yourself.", next = "hunt" },
         { text = "Something else.", next = "BACK" },
@@ -212,7 +212,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "fussy" }, values = { "practical" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Wrahk sells thread, dye and cloth at the Crossroads, complains about the dust getting into all of it, and brushes the counter between sentences. Fussy and quick, with a sharp eye for a badly stitched hem.",
+    first = "Wrahk sells thread, dye and cloth at the Crossroads, complains about the dust getting into all of it, and brushes the counter between sentences. Wrahk is fussy and quick, with a sharp eye for a badly stitched hem.",
     third = "{name} met Wrahk, who sells tailoring supplies at the Crossroads.",
   },
   greetings = {
@@ -382,7 +382,7 @@ P:NPC {
       },
     },
     raid = {
-      lines = { { id = "r_default", text = "Sergra sends soldiers after them, and they come back with the grain more often than not. I'd rather the Kolkar learned to farm, but I don't think they're interested." } },
+      lines = { { id = "r_default", text = "Sergra Darkthorn sends soldiers after them, and they come back with the grain more often than not. I'd rather the Kolkar learned to farm, but I don't think they're interested." } },
       choices = {
         { text = "Give them seed instead of swords, and see.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Raiders understand swords better than seed.", next = "BACK", fx = { align = { light = -1 } } },
@@ -554,7 +554,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
-        { text = "What do you think of the commander here?", next = "sergra" },
+        { text = "What do you think of Sergra Darkthorn?", next = "sergra" },
         { text = "There must be a story behind your name.", next = "name" },
         { text = "Do you ever lose a haggle?", next = "haggle" },
         { text = "What about the goblin selling blades on the road?", next = "lizzarik" },
@@ -564,14 +564,14 @@ P:NPC {
       },
     },
     sergra = {
-      lines = { { id = "s_default", text = "Best commander this outpost could have, and the only one who'd have kept it standing through the first Kolkar summer. Half the grunts grumble that a woman commands them, and the other half have the sense to shut up and follow her." } },
+      lines = { { id = "s_default", text = "She's the best war leader this outpost has, and the one who kept it standing through the first Kolkar summer. Half the grunts grumble about taking orders from a woman, and the other half have the sense to shut up and follow her." } },
       choices = {
         { text = "Did anyone else want her post?", next = "kargal" },
         { text = "Something else.", next = "BACK" },
       },
     },
     kargal = {
-      lines = { { id = "k_default", text = "That old boar sulks on his hill because the Warchief didn't give him the Crossroads. He's a fine soldier, I'll grant him that, but he's never forgiven her for being better at it." } },
+      lines = { { id = "k_default", text = "Kargal Battlescar did, and that old boar sulks in his watchtower up north because the Warchief favored her. He's a fine soldier, I'll grant him that, but he's never forgiven her for being better at it." } },
       choices = {
         { text = "Command should go to whoever earns it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Seniority should count for something.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -579,7 +579,7 @@ P:NPC {
       },
     },
     name = {
-      lines = { { id = "n_default", text = "A burst vessel in my eye from the time I carried a crate up the Crossroads tower on my own, because the peons were too slow. It never cleared up, and now nobody tries to haggle me down." } },
+      lines = { { id = "n_default", text = "It's from a burst vessel in my eye, from the time I carried a crate up the Crossroads tower on my own, because the peons were too slow. It never cleared up, and now nobody tries to haggle me down." } },
       choices = {
         { text = "It suits you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -614,7 +614,7 @@ P:NPC {
     },
     lizzarik = {
       big = true,
-      lines = { { id = "li_default", text = "Lizzarik, with his cart and his two hired lumps? He sets up on the road, out of sight of the tower, and sells the same caravan steel as Nargal without paying a copper to keep the walls up, so every blade he sells is a blade Sergra's levy never sees." } },
+      lines = { { id = "li_default", text = "Lizzarik, with his cart and his two hired lumps? He sets up on the road, out of sight of the tower, and sells the same caravan steel as Nargal without paying a copper to keep the walls up, so every blade he sells is a blade the Crossroads levy never sees." } },
       choices = {
         { text = "Then he should pay what the rest of you pay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The road's free. Let the better trader win.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -624,7 +624,7 @@ P:NPC {
     goblin = {
       lines = { { id = "go_default", text = "Harder? Goblins drive longer bargains, and they talk until you agree just to make them stop. An orc tells you the price once, and if you don't like it, you can carry your own crate up the tower." } },
       choices = {
-        { text = "Then let's see you haggle with one.", next = "haggle_try" },
+        { text = "Then haggle with me, and we'll see.", next = "haggle_try" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -637,7 +637,7 @@ P:NPC {
     },
   },
   topics = {
-    sergra = { { id = "tp_sergra", text = "The best commander in the Barrens, and you can tell Kargal I said so.", next = "sergra" } },
+    sergra = { { id = "tp_sergra", text = "Sergra Darkthorn is the best war leader in the Barrens, and you can tell Kargal Battlescar I said so.", next = "sergra" } },
     _none = { { id = "tp_none", text = "No idea. Ask me about prices, and I'll answer loud enough for the whole Crossroads to hear." } },
   },
 }
@@ -689,7 +689,7 @@ P:NPC {
       },
     },
     guards = {
-      lines = { { id = "g2_default", text = "Bodyguards, hired by the month, with a bonus for every raider they scare off and a penalty clause for every crate they drop. Cheaper than a caravan, cheaper than an army, and they don't ask for days off." } },
+      lines = { { id = "g2_default", text = "Bodyguards, hired by the month, with a bonus for every raider they scare off and a penalty clause for every crate they drop. They're cheaper than a caravan and cheaper than an army, and they don't ask for days off." } },
       choices = {
         { text = "They look like they've never had to fight.", next = "fight" },
         { text = "Something else.", next = "BACK" },
@@ -732,7 +732,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rivals = {
-      lines = { { id = "rv_default", text = "And pay for a roof, a wall, a guard tower and Sergra's levy on top of the steel, like Nargal and that loud one, Halga? I sell blades off the same caravans, and the only overhead I carry is two bodyguards and a wheel that squeaks." } },
+      lines = { { id = "rv_default", text = "And pay for a roof, a wall, a guard tower and the Crossroads levy on top of the steel, like Nargal and that loud one, Halga? I sell blades off the same caravans, and the only overhead I carry is two bodyguards and a wheel that squeaks." } },
       choices = {
         { text = "Doesn't the Crossroads keep the road safe for you?", next = "rivals_safe" },
         { text = "Something else.", next = "BACK" },
