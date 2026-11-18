@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.82.0 (2026-11-18)
+Paladin trainers have a lot more to say (World 1.37.0). No new files; a /reload is enough.
+- Ask what to practise and get a whole lesson: blessings, seals and judgement, auras, the undead, Redemption (level 12+) and the warhorse (level 30+).
+- Ask what's left of the Silver Hand: Uther and his tomb, how Arthas fell, the Scarlet Crusade, the Argent Dawn, and (Forsaken) whether the living knights will have you, pointing to Bandarion Keep.
+- The trainer asks why you took up the hammer: protection, justice, vengeance or bread, each a stance.
+- Replies for each paladin origin (a squire who never took the oath can swear it now), plus branches for priests and for other classes curious about the Light.
+- New greetings and notices (a female squire, late at night, fresh from the spirit healer, many deaths, Scarlet blood on your gauntlets) and answers on the Silver Hand, the Scarlets, the Argent Dawn, Stratholme, the Forsaken and the Tome of Divinity.
+
 ## 0.81.0 (2026-11-17)
 Everything from the parallel 0.80 work in one release. **New files: restart the game fully (a /reload won't load them).** Most packs got a minor version bump.
 
