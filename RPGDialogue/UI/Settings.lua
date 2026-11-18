@@ -326,6 +326,9 @@ local function build()
   checkbox(L.OPT_HINTS, "alignHints")
   checkbox(L.OPT_TOPIC_LINKS, "topicLinks")
   checkbox(L.OPT_DISPOSITION, "showDisposition")
+  cycle(L.OPT_TONE, "tone", { "polite", "normal", "blunt" }, { L.TONE_POLITE, L.TONE_NORMAL, L.TONE_BLUNT },
+    { onChange = function(v) if ns.Disposition then ns.Disposition.SetTone(v) end end })
+  checkbox(L.OPT_TONE_SELECTOR, "toneSelector")
   checkbox(L.OPT_APPROVAL, "approval")
   checkbox(L.OPT_CHECK_RESULTS, "checkResults")
 

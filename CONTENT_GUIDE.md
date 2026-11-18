@@ -130,6 +130,25 @@ Reputation counts as who the player is too: `reputation = { faction = "Stormwind
 - **Keep the rules in sections 2 and 5.** One or two things about the player per line; 1–3 whole sentences per line, never stacked fragments; replies 15 words or fewer. Depth comes from more nodes, not longer lines.
 - Lore discipline doesn't loosen with depth. A minor NPC with three branches talks about their work, their place and their neighbours; they don't grow an invented life story (section 1). If there isn't enough source for a fourth branch, write three good ones.
 
+## 7b. Tone: Polite, Normal, Blunt (0.85.0)
+
+The player picks a tone (DESIGN §3.15). A reply can carry all three:
+
+```lua
+{ text = { normal = "What brings the Brotherhood's trouble this far east?",
+           polite = "If I may ask, sir, what brings this trouble so far east?",
+           blunt  = "So why are the Defias out here, then?" }, next = "defias" },
+```
+
+- **Same meaning, different manner.** All three ask the same thing, take the same stance and lead to the same answer. Never let the tone change what the player is saying, or the NPC's reply won't fit.
+- **Normal** is the reply as it would have been written anyway, and it is required; a missing polite or blunt falls back to it.
+- **Polite** is courteous, not grovelling: "if I may", "sir", "my lady", "would you", a thank-you. One courtesy per line, never "humbly beg" or three titles in a row. Address fits the listener: "sir" to a marshal, "elder" to a tauren, "Father" to a priest.
+- **Blunt** is plain and short, never cruel or insulting: drop the softeners, say it straight. "So why are the Defias out here?" is blunt; "Quit wasting my time, old man" is not, it's a different stance. An orc or a dwarf should hear it as respect.
+- **Fifteen words per variant**, whole sentences, the character's own race voice (§2) in all three.
+- Give variants to the **hub replies** first (the ones every player sees); deep-branch replies can stay plain.
+- **Lines that react.** A line with `when = { tone = "polite" }` (or `"blunt"`) lets the NPC notice the manner: a soldier waving off the "sir", a noble pleased by it, an orc grinning at plain talk. One or two per major NPC, usually on the hub or an `again` line, never a lecture.
+- **Who likes what** comes from the NPC's role, temper, values and `race`, or `likesTone`. Set `likesTone` only when the character plainly cares and the defaults get it wrong.
+
 ## 8. Agendas, claims and unreliable narrators
 
 - People have agendas, grudges and blind spots: **bias** (honest but one-sided), **mistakes**, **half-truths**, **lies**, **manipulation**.

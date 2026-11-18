@@ -348,6 +348,24 @@ local function create()
   frame.disp:SetScript("OnLeave", function() GameTooltip:Hide() end)
   frame.disp:Hide()
 
+  -- Tone (0.85.0): Polite / Normal / Blunt; a click moves to the next one.
+  frame.tone = CreateFrame("Button", nil, frame)
+  frame.tone:SetSize(110, 18)
+  frame.tone.label = frame.tone:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  frame.tone.label:SetPoint("LEFT")
+  frame.tone.label:SetJustifyH("LEFT")
+  frame.tone:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+  frame.tone:SetScript("OnClick", function(self, button)
+    local cur = self.value or "normal"
+    local nxt = ns.Disposition.NextTone(cur)
+    if button == "RightButton" then nxt = ns.Disposition.NextTone(nxt) end
+    ns.Conversation.SetTone(nxt)
+    if GameTooltip:IsOwned(self) then D.ToneTooltip(self) end
+  end)
+  frame.tone:SetScript("OnEnter", function(self) D.ToneTooltip(self) end)
+  frame.tone:SetScript("OnLeave", function() GameTooltip:Hide() end)
+  frame.tone:Hide()
+
   frame.flagBox = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.flagBox:SetSize(WOOD_WIDTH - 2 * PAD - 120, 20)
   frame.flagBox:SetAutoFocus(false)
@@ -399,6 +417,7 @@ local function placeParts(game)
   frame.textBtn:ClearAllPoints()
   frame.ask:ClearAllPoints()
   frame.disp:ClearAllPoints()
+  frame.tone:ClearAllPoints()
   frame.flagBox:ClearAllPoints()
   frame.flagHint:ClearAllPoints()
   frame.rule:ClearAllPoints()
@@ -494,6 +513,9 @@ function D.Style()
   Theme.SetFont(frame.disp.label, "body", size - 2)
   Theme.Shadow(frame.disp.label, false)
   Theme.TextColor(frame.disp.label, "header")
+  Theme.SetFont(frame.tone.label, "body", size - 2)
+  Theme.Shadow(frame.tone.label, false)
+  Theme.TextColor(frame.tone.label, "header")
   frame.text:SetSpacing(settings().lineSpacing or 3)
   frame.reaction:SetSpacing(settings().lineSpacing or 3)
   Theme.TextColor(frame.name, "title")
@@ -574,7 +596,16 @@ function D.Layout()
     end
   end
   frame.disp:SetShown(frame.disp.value ~= nil and not frame.flagBox:IsShown())
-  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown()
+  frame.tone:SetShown(frame.tone.value ~= nil and not frame.flagBox:IsShown())
+  if frame.tone:IsShown() then
+    frame.tone:ClearAllPoints()
+    if frame.disp:IsShown() then
+      frame.tone:SetPoint("LEFT", frame.disp, "RIGHT", 14, 0)
+    else
+      frame.tone:SetPoint("BOTTOMLEFT", game and 12 or (PAD + 6), game and 6 or 16)
+    end
+  end
+  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown() or frame.tone:IsShown()
   if game then
     local bottom = barShown and GAME_BAR or 4
     -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
@@ -648,6 +679,7 @@ function D.Show(v)
   frame.ask:SetShown(v.canAsk == true)
   frame.ask:SetText((v.askCount and v.askCount > 0) and L.ASK_BUTTON_N:format(v.askCount) or L.ASK_BUTTON)
   D.SetDisposition(v.disposition, true)
+  D.SetTone(v.tone, true)
   D.Style()   -- also builds the current look's parts, the round portrait among them
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
@@ -830,7 +862,34 @@ function D.SetDisposition(d, noLayout)
   if not noLayout then D.Layout() end
 end
 
-local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE" }
+-- tone: "polite" / "normal" / "blunt", or nil (selector off, or a game page).
+function D.SetTone(tone, noLayout)
+  if not frame then return end
+  frame.tone.value = tone
+  if tone then
+    local name = L["TONE_" .. tone:upper()] or tone
+    frame.tone.label:SetText(L.TONE_LABEL:format(Theme.Hex("title") .. name .. "|r"))
+    frame.tone:SetWidth(math.max(60, (frame.tone.label:GetStringWidth() or 90) + 4))
+  else
+    frame.tone.label:SetText("")
+  end
+  if not noLayout then D.Layout() end
+end
+
+function D.ToneTooltip(owner)
+  GameTooltip:SetOwner(owner, "ANCHOR_TOP")
+  GameTooltip:SetText(L.TONE_TITLE)
+  GameTooltip:AddLine(L.TONE_TIP, 1, 1, 1, true)
+  local cur = frame.tone.value
+  for _, t in ipairs(ns.Disposition.TONES) do
+    local on = t == cur
+    GameTooltip:AddLine((on and "> " or "   ") .. (L["TONE_" .. t:upper()] or t), on and 1 or 0.7, on and 0.82 or 0.7, on and 0 or 0.7)
+  end
+  GameTooltip:Show()
+end
+
+local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE",
+  ["tone:likes"] = "DISP_WHY_TONE_LIKES", ["tone:dislikes"] = "DISP_WHY_TONE_DISLIKES" }
 
 function D.DispositionTooltip(owner)
   local d = frame.disp.value

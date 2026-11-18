@@ -666,7 +666,8 @@ end
 
 local function choiceLabel(entry)
   local choice = entry.choice
-  local text = choice.text or "..."
+  local s0 = Conv.session
+  local text = Engine.ChoiceText(choice, ns.Disposition and ns.Disposition.Tone(s0 and s0.ctx)) or "..."
   local tags = ns.db.settings.tags
   if choice.tag and tags ~= "never" and (tags == "always" or not entry.locked) and not text:find("^%[") then
     text = "[" .. choice.tag .. "] " .. text
@@ -713,7 +714,7 @@ function Conv.ShowReplyEnd(text)
     text = text, linkedText = linked, choices = { { text = L.FAREWELL } },
     said = (ns.db.settings.echoReply ~= false) and said or nil,
     canAsk = ns.Topics and ns.Topics.Any(), askCount = ns.Topics and ns.Topics.Count(),
-    disposition = Conv.DispositionView(s),
+    disposition = Conv.DispositionView(s), tone = Conv.ToneView(s),
   })
   if ns.db.settings.tts then Conv.Speak(s, text) end
 end
@@ -805,6 +806,7 @@ function Conv.ShowNode(nodeId, reply)
     said = (ns.db.settings.echoReply ~= false) and said or nil,
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
     askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
+    tone = Conv.ToneView(s),
   })
   if ns.db.settings.tts then Conv.Speak(s, body) end
 end
@@ -858,8 +860,14 @@ function Conv.BuildChoices(node, isStart)
     entries[#entries + 1] = e
   end
   s.choiceEntries = entries
+  return Conv.LabelChoices(s)
+end
+
+-- The box's rows for the session's current entries (again after a tone change, 0.85.0).
+function Conv.LabelChoices(s)
+  local ctx, env = s.ctx, s.env
   local choices = {}
-  for i, entry in ipairs(entries) do
+  for i, entry in ipairs(s.choiceEntries or {}) do
     if entry.game then
       choices[i] = { text = entry.choice.text, game = true, gap = entry.firstGame and i > 1, icon = entry.choice.icon }
     else
@@ -958,10 +966,11 @@ function Conv.Choose(index)
       for k, v in pairs(fx) do if k ~= "align" then copy[k] = v end end
       fx = copy
     end
-    if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or choice.text end
+    if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or Engine.BaseText(choice) end
   end
   local dispBefore = ns.Disposition and ns.Disposition.For(env, ctx)
-  env.said = ((choice.text or ""):gsub("^%[[^%]]*%]%s*", ""))   -- kept with an opinion for the journal (0.80.0)
+  local spoken = Engine.ChoiceText(choice, ns.Disposition and ns.Disposition.Tone(ctx)) or ""
+  env.said = ((spoken):gsub("^%[[^%]]*%]%s*", ""))   -- kept with an opinion for the journal (0.80.0)
   Effects.Apply(fx, env)
   env.said = nil
   Effects.Journal(journal, ctx, env)
@@ -980,12 +989,12 @@ function Conv.Choose(index)
     end
   end
   -- What you said, shown quietly above their answer (authored [tags] left off).
-  s.said = (choice.text or ""):gsub("^%[[^%]]*%]%s*", "")
+  s.said = spoken:gsub("^%[[^%]]*%]%s*", "")
   Conv.Log("you", s.said)
 
   if nextId == "BUSINESS" then
     s.pendingNote = nil
-    Conv.Business(choice.text)
+    Conv.Business(spoken)
   elseif nextId == "BACK" then
     Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello", Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
@@ -1055,6 +1064,25 @@ function Conv.DispositionView(s)
   if not s or not ns.Disposition or ns.db.settings.showDisposition == false then return nil end
   local value, why = ns.Disposition.Compute(s.info, s.mem, s.ctx)
   return { value = value, name = ns.Disposition.TierName(value), why = why }
+end
+
+-- Tone for the box's selector (0.85.0): "polite" / "normal" / "blunt", or nil when hidden.
+function Conv.ToneView(s)
+  if not s or not ns.Disposition or ns.db.settings.toneSelector == false then return nil end
+  return ns.Disposition.Tone(s.ctx)
+end
+
+-- The selector was clicked (or /rpgd tone): the new tone, the replies reworded to match,
+-- and the disposition again, since some people care how they're spoken to.
+function Conv.SetTone(t)
+  if not ns.Disposition then return end
+  ns.Disposition.SetTone(t)
+  local s = Conv.session
+  if not s or s.mode ~= "full" then return end
+  local v = View(s)
+  if s.choiceEntries and v.SetChoices then v.SetChoices(Conv.LabelChoices(s)) end
+  if v.SetDisposition then v.SetDisposition(Conv.DispositionView(s)) end
+  if v.SetTone then v.SetTone(Conv.ToneView(s)) end
 end
 
 -- "Ask about...": the NPC's own take, then their community's, their role's, then a brush-off.

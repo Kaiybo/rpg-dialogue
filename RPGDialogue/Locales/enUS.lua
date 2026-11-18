@@ -20,6 +20,7 @@ L.HELP_LINES = {
   "version - show which version of RPG Dialogue you're running",
   "kin - your other characters the addon remembers, and how many people each has met",
   "talk - talk to your target",
+  "tone [polite|normal|blunt] - show or set how you speak (some people care)",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",
   "capture zone - what's captured here, and NPCs you've talked to with no content yet",
@@ -158,6 +159,16 @@ L.RIVAL_HEARS = "%s will hear of this."
 L.WORD_SPREADS = "Word of this will get around %s."
 L.DISP_WHY_UNFRIENDLY = "They're unfriendly to your kind"
 L.DISP_WHY_PREJUDICE = "What they hold against your kind"
+L.DISP_WHY_TONE_LIKES = "Likes your manner"
+L.DISP_WHY_TONE_DISLIKES = "Dislikes your manner"
+-- Tone (0.85.0)
+L.TONE_LABEL = "Tone: %s"
+L.TONE_POLITE = "Polite"
+L.TONE_NORMAL = "Normal"
+L.TONE_BLUNT = "Blunt"
+L.TONE_TITLE = "Your tone"
+L.TONE_TIP = "How you speak: Polite, Normal or Blunt. Click to change. Some people like courtesy, others plain speaking, and your replies change to match."
+L.DUI_TONE = "Tone: %s (click to change)"
 L.DISP_NOW = "Disposition now %s."
 L.APPROVE = "%s approves."
 L.APPROVE_MUCH = "%s approves greatly."
@@ -170,6 +181,8 @@ L.TAG_INTIMIDATE = "Intimidate"
 L.TAG_DECEIVE = "Deceive"
 L.OPT_IDENTITY_TAGS = "Tag replies that come from who you are, like [Priest]"
 L.OPT_DISPOSITION = "Show each person's disposition toward you"
+L.OPT_TONE = "Your tone (this character)"
+L.OPT_TONE_SELECTOR = "Show the tone selector in the conversation box"
 L.OPT_APPROVAL = "Say when someone approves or disapproves"
 L.OPT_CHECK_RESULTS = "Say whether a Persuade, Intimidate or Deceive worked"
 
