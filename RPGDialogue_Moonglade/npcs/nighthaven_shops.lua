@@ -71,8 +71,8 @@ P:NPC {
         { id = "yw_default", text = "Most do, and the ones who don't usually do the second time. I've seen a tauren calf come back from the lake in tears and walk out a week later with Dendrite's nod, and I gave her a cloak for free, which I'd ask you not to repeat." },
       },
       choices = {
-        { text = "That was kind. Every young druid deserves help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Coddling them won't make them stronger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That was kind. Every young druid deserves help.", next = "BACK", reply = "I thought so too, and the calf brought me a carved stag the next spring that sits on my counter still. Kindness costs nothing in Moonglade.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Coddling them won't make them stronger.", next = "BACK", reply = "Perhaps not, but a little help never weakened anyone who was already willing to try. The lake does the testing, I only lend a cloak.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -249,8 +249,8 @@ P:NPC {
         { id = "b_default", text = "Sometimes, when I see a blade I made leave with someone I wouldn't trust with a kitchen knife. But a sword at someone's side keeps a good many fights from starting, and I've decided I'm in the business of keeping the peace, from a distance." },
       },
       choices = {
-        { text = "A good blade in good hands keeps the peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Blades make fights. Don't fool yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A good blade in good hands keeps the peace.", next = "BACK", reply = "That's what I tell myself, and on most days I believe it. The rest of the time I hope the Keeper is watching.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Blades make fights. Don't fool yourself.", next = "BACK", reply = "Maybe so, but a fight will start whether I sell the blade or not. At least mine are well made, and they end things quickly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,8 +380,8 @@ P:NPC {
         { id = "m_default", text = "Some do and some don't, and you'd be surprised how heated a dinner gets over it. A druid who spends half his life as a bear finds it hard to say no to fish, and a druid who spends it as a stag finds that hard to watch." },
       },
       choices = {
-        { text = "Take only what you need from the wild.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A meal is a meal. Nature eats nature.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Take only what you need from the wild.", next = "BACK", reply = "That's the druid way, or so they keep telling me over supper. I just make sure there's enough of both on the table.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A meal is a meal. Nature eats nature.", next = "BACK", reply = "You'd fit right in at my table, then, though I'd sit you between the bears and the vegetarians. That always livens things up.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -537,8 +537,8 @@ P:NPC {
         { id = "r_default", text = "He wore it anyway, all through his trials, and passed each one, and now the young druids all want red. I don't know whether I've done the Circle a great service or a great wrong, but I've sold a lot of red dye." },
       },
       choices = {
-        { text = "Good for him. The young should find their own colours.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Traditions exist for reasons. Green suits a druid.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good for him. The young should find their own colours.", next = "BACK", reply = "That's what I told myself when I sold him the cloth. Still, I'll not be dyeing anything purple, no matter who asks.", fx = { align = { order = -1 } } },
+        { text = "Traditions exist for reasons. Green suits a druid.", next = "BACK", reply = "They do, and I've no quarrel with green, it's served the Circle well for ten thousand years. But the young never listen to tradition until they're old themselves.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

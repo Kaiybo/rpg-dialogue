@@ -81,8 +81,8 @@ P:NPC {
       lines = { { id = "sr_default", text = "He wants a name, and I think he wants the man behind it dead. I've told him it won't bring them back, and he looks at me like I've said something stupid. What do you think?" },
       },
       choices = {
-        { text = "Justice, not revenge. Let the Watch handle it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "He's earned his revenge, and you should help him get it.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Justice, not revenge. Let the Watch handle it.", next = "BACK", reply = "That's what I keep telling him, though the Watch has its hands full just holding Darkshire. Maybe if he hears it from you, he'll stop looking at me like I'm daft.", fx = { align = { order = 1 } } },
+        { text = "He's earned his revenge, and you should help him get it.", next = "BACK", reply = "Ha, you sound like him on a bad night. I'll stand by him, I always have, but I'd rather he lived long enough to enjoy whatever he finds.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "I don't know, Lars.", next = "BACK" },
       },
     },

@@ -77,8 +77,8 @@ P:NPC {
     dig_left = {
       lines = { { id = "dl_default", text = "I begged him to come, I did, and he told me to fetch more brushes while I was in town. I'm no fighter, and one more dead dwarf in that trench wouldn't have helped him a bit." } },
       choices = {
-        { text = "You did right. Running for help took sense.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Running saves your skin. Don't dress it up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You did right. Running for help took sense.", next = "BACK", reply = "Thank ye, that's what I keep tellin' myself, and it's nice to hear it from someone else. One more dead dwarf in a hole wouldn't help him.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Running saves your skin. Don't dress it up.", next = "BACK", reply = "Aye, fair, and I'll not pretend I wasn't scared. But I came for help, didn't I, and here ye are.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
     rem_absent = {
       lines = { { id = "ra_default", text = "He once dated a pot shard while standing in the cook fire, and he only noticed when his trousers did. If the golems ever get him, he'll go on describing the craftsmanship of the fist all the way down." } },
       choices = {
-        { text = "Genius is worth a little danger.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A leader who ignores danger gets his people killed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Genius is worth a little danger.", next = "BACK", reply = "It is, and he'd say so himself, if he could stop talking about pots long enough. I'd still like him to keep his trousers.", fx = { align = { order = -1 } } },
+        { text = "A leader who ignores danger gets his people killed.", next = "BACK", reply = "Aye, and that's what keeps me up at night, if I'm honest. He's a genius, but he's a genius who forgets things.", fx = { align = { order = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -122,8 +122,8 @@ P:NPC {
     league_waste = {
       lines = { { id = "lw_default", text = "That's what my father said, and he's never once wondered why the oldest halls under Ironforge are cut so straight. You can mine iron anywhere, but you only get one chance to find out who you are." } },
       choices = {
-        { text = "The past should be remembered. Keep digging.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The past is dead. Leave it buried.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The past should be remembered. Keep digging.", next = "BACK", reply = "Aye, and I will, whatever my father says. The past has more to tell us than he knows.", fx = { align = { order = 1 } } },
+        { text = "The past is dead. Leave it buried.", next = "BACK", reply = "That's what my father says, and he's wrong, and so are ye, if ye don't mind me saying. The past is never dead.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -137,8 +137,8 @@ P:NPC {
     elves_mind = {
       lines = { { id = "em_default", text = "We don't touch the elf ruins, that was the bargain, and the dig is on older ground besides. Even so, a Sentinel comes by the camp now and then and counts our shovels, as if we'd steal a hillside." } },
       choices = {
-        { text = "Their land, their rules. They're right to watch.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Nobody owns the past. Dig where you please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Their land, their rules. They're right to watch.", next = "BACK", reply = "Aye, and I don't begrudge them. A Sentinel by the camp keeps the golems honest, too.", fx = { align = { light = 1 } } },
+        { text = "Nobody owns the past. Dig where you please.", next = "BACK", reply = "That's what the League says, but the Sentinels say otherwise, and they've the arrows. I'll stick to the bargain.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -235,8 +235,8 @@ P:NPC {
     stems_grim = {
       lines = { { id = "sg_default", text = "It is, and I sleep poorly because of it. But someone in Auberdine must look closely at the ugly things, or one day they'll be at our gates and we'll have no idea what they once were." } },
       choices = {
-        { text = "Knowing the enemy is worth any cost.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some knowledge stains whoever gathers it. Be careful.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowing the enemy is worth any cost.", next = "BACK", reply = "It is, and I would pay it again. But I sleep poorly all the same.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge stains whoever gathers it. Be careful.", next = "BACK", reply = "I know, and I am careful, as careful as anyone can be. That is why I sleep so poorly.", fx = { align = { light = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -252,8 +252,8 @@ P:NPC {
     fear_cousins = {
       lines = { { id = "fc_default", text = "I don't know it, and that is why I study rather than simply preach. But Azshara's court was full of clever, proud people who were certain they knew their own limits, and look at the sea where they used to live." } },
       choices = {
-        { text = "Then warn them, before it's too late.", next = "BACK", fx = { align = { light = 1 }, learn = { "highborne" } } },
-        { text = "They made their choice. Let them pay for it.", next = "BACK", fx = { align = { light = -1 }, learn = { "highborne" } } },
+        { text = "Then warn them, before it's too late.", next = "BACK", reply = "I have tried, and they laugh, the way Azshara's court laughed. I will keep trying.", fx = { align = { light = 1 }, learn = { "highborne" } } },
+        { text = "They made their choice. Let them pay for it.", next = "BACK", reply = "They will, and so will everyone near them. That is what frightens me.", fx = { align = { light = -1 }, learn = { "highborne" } } },
       },
     },
     fear_care = {
@@ -284,8 +284,8 @@ P:NPC {
     xlock = {
       lines = { { id = "xl_default", text = "Every satyr in Ashenvale once believed the same thing, {class}, and they were not weak; they were the finest minds of their age. I'd take more care with that belief than you're taking now." } },
       choices = {
-        { text = "I'll master it, not the other way round.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "You may be right. I'll keep watch on myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll master it, not the other way round.", next = "BACK", reply = "So did they, {class}, every one of them. I hope you are the first to succeed.", fx = { align = { light = -1 } } },
+        { text = "You may be right. I'll keep watch on myself.", next = "BACK", reply = "Then you are wiser than most who carry it. Watch closely, and come back if you need help.", fx = { align = { light = 1 } } },
       },
     },
   },
@@ -371,8 +371,8 @@ P:NPC {
     ashen_stance = {
       lines = { { id = "ast_default", text = "Some say that, and some say we'll never be rid of them and should hold what we can. My mistress says only that the forest must outlast them, however long that takes." } },
       choices = {
-        { text = "Strike hard. Show them the forest has teeth.", next = "BACK", fx = { align = { light = -1 }, learn = { "warsong" } } },
-        { text = "Protect what's left. Heal it first.", next = "BACK", fx = { align = { light = 1 }, learn = { "warsong" } } },
+        { text = "Strike hard. Show them the forest has teeth.", next = "BACK", reply = "Hard, yes, and the forest has sharp teeth. My mistress would agree with you on some days.", fx = { align = { light = -1 }, learn = { "warsong" } } },
+        { text = "Protect what's left. Heal it first.", next = "BACK", reply = "That is what my mistress says, and I think she is right. The forest heals slowly.", fx = { align = { light = 1 }, learn = { "warsong" } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -400,8 +400,8 @@ P:NPC {
     xorcs = {
       lines = { { id = "xo_default", text = "Perhaps not, {class}, though the forest is patient and orcs are not. I've heard some of them are only cutting wood to build their new homes, and I've heard others boast of the demigod they killed there, so I can't tell you which kind will stay." } },
       choices = {
-        { text = "An orc with an axe in our forest is an enemy.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some might be bargained with. Worth trying.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An orc with an axe in our forest is an enemy.", next = "BACK", reply = "It is, and I have fought many of them. But some are only cutting wood to keep warm.", fx = { align = { honor = 1 } } },
+        { text = "Some might be bargained with. Worth trying.", next = "BACK", reply = "Perhaps, and I have heard of it, though I have never seen it. I would be glad to be proven wrong.", fx = { align = { honor = -1 } } },
       },
     },
   },
@@ -463,8 +463,8 @@ P:NPC {
     danger = {
       lines = { { id = "da_default", text = "There are things under the Great Sea that could swallow a ship whole, and every sailor here has seen a shadow pass under the hull that was longer than the hull. They've never come up for the Bravery, and I say a word to Elune each time she leaves, just to keep it that way." } },
       choices = {
-        { text = "Elune keeps the ships. That's good enough for me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Prayers don't patch hulls. I'll trust the carpenters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Elune keeps the ships. That's good enough for me.", next = "BACK", reply = "It is good enough for me, too, and for every sailor on this dock. Elune has never failed us yet.", fx = { align = { order = 1 } } },
+        { text = "Prayers don't patch hulls. I'll trust the carpenters.", next = "BACK", reply = "They do not, I know, and the carpenters are very good. But I pray anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -553,8 +553,8 @@ P:NPC {
     ore_trees = {
       lines = { { id = "ot_default", text = "Aye, that's the trick of it, and the rule I give every student. Some of them listen and some of them get a Sentinel's arrow in the dirt between their boots." } },
       choices = {
-        { text = "Their forest, their rules. I'll mind the trees.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Ore is ore. A tree can grow back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Their forest, their rules. I'll mind the trees.", next = "BACK", reply = "Good on ye, and ye'll keep yer hide that way. The Sentinels shoot first.", fx = { align = { order = 1 } } },
+        { text = "Ore is ore. A tree can grow back.", next = "BACK", reply = "Aye, in a hundred years, and the Sentinels will put an arrow in ye before then. Mind the trees, friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -700,8 +700,8 @@ P:NPC {
     gnomeregan = {
       lines = { { id = "gn_default", text = "The High Tinker says so, and I want to believe him. But the radiation and the troggs are still down there, and every month I tell myself next year." } },
       choices = {
-        { text = "It will be taken back. Hold on to that.", next = "BACK", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
-        { text = "Build a new home. That city is gone.", next = "BACK", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+        { text = "It will be taken back. Hold on to that.", next = "BACK", reply = "I will, and I do, every day. Thank you for saying it.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "Build a new home. That city is gone.", next = "BACK", reply = "Perhaps, and I have thought of it. But Gnomeregan was home, and I am not ready to give up on it.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
         { text = "Who let the troggs in?", next = "gnomeregan_who" },
         { text = "Something else.", next = "BACK" },
       },

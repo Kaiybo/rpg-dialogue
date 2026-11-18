@@ -280,8 +280,8 @@ P:NPC {
         { id = "mp_default", text = "Sound enough to keep the roofs up, and not one bit sounder. The Kirin Tor build wards the way poets write sonnets, all elegance, and nobody can repair them afterwards." },
       },
       choices = {
-        { text = "Leave the old wards be. Tinkering invites disaster.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then the Kirin Tor should learn from gnomes.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave the old wards be. Tinkering invites disaster.", next = "BACK", reply = "Oh, you sound exactly like the council, and they'll love you for it, right up until the roof caves in on someone because nobody dared touch the old runes.", fx = { align = { order = 1 } } },
+        { text = "Then the Kirin Tor should learn from gnomes.", next = "BACK", reply = "Ha, I've said that to their faces at three separate council meetings, and they gave me a commendation each time and then ignored every word of it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -377,8 +377,8 @@ P:NPC {
         { id = "sc_default", text = "Nine of them are crooked, and I've reported every one to the council, who sent it to the masons, who sent it back to me. I've started to wonder whether a few crooked stones are simply what a city looks like when it's lived in again." },
       },
       choices = {
-        { text = "Leave them crooked. A living street needn't be perfect.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Keep reporting them. Rebuild it properly or not at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave them crooked. A living street needn't be perfect.", next = "BACK", reply = "That's what I've started to think too, and Zara agrees, though she agrees with anything that lets her sleep on the warm stones.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep reporting them. Rebuild it properly or not at all.", next = "BACK", reply = "You'd get along with the masons, then, though I'm not sure they'd get along with you, because properly is a word they've grown tired of hearing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

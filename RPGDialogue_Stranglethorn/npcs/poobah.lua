@@ -67,8 +67,8 @@ P:NPC {
         { id = "ph_default", text = "Whatever you believe, I'm the one in the cage with the good manners, and he's the one eating fruit with his feet. That's what royalty comes down to, in the end." },
       },
       choices = {
-        { text = "Titles matter. You should be treated as one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Titles mean nothing on an island like this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Titles matter. You should be treated as one.", next = "BACK", reply = "You're kind to say it, and my mother would agree with you. Mukla, sadly, does not, and he has the key and the bigger arms.", fx = { align = { order = 1 } } },
+        { text = "Titles mean nothing on an island like this.", next = "BACK", reply = "Perhaps not, but they're all I have left out here besides a cage and a bottle, so I'll thank you to let me keep mine. The Earth Mother made me a princess and I intend to stay one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,8 +87,8 @@ P:NPC {
         { id = "mw_default", text = "Company, I think, and an audience, and someone to scream at when the bananas are bad. He's never hurt me, I'll give him that, but a kind jailer is still a jailer." },
       },
       choices = {
-        { text = "Then he'll pay for keeping you.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "If he's never hurt you, perhaps I can drive him off instead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then he'll pay for keeping you.", next = "BACK", reply = "Mind his teeth if you go, because he bites when he's sulking. I won't weep for him, but I'd rather the one who frees me came back in one piece.", fx = { align = { light = -1 } } },
+        { text = "If he's never hurt you, perhaps I can drive him off instead.", next = "BACK", reply = "That's gentler than I'd have asked for, and gentler than he deserves, I think. Still, the Earth Mother would like it better, and so would I if it works.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "xt_default", text = "It is, and I miss the grass and the wind and the good honest smell of kodo. Promise me you won't tell anyone in Thunder Bluff how I ended up here, because I'd never hear the end of it." },
       },
       choices = {
-        { text = "Your secret's safe. The Earth Mother hears all, though.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "It's too good a story not to tell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your secret's safe. The Earth Mother hears all, though.", next = "BACK", reply = "The Earth Mother may hear it, but she's never been one to gossip, and I'm trusting you'll be the same. Thank you, truly.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It's too good a story not to tell.", next = "BACK", reply = "Then at least tell it well, and make me braver than I was, and make Mukla much uglier. If I'm to be laughed at in Thunder Bluff I want it to be a good story.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

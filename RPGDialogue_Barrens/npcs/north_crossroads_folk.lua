@@ -52,8 +52,8 @@ P:NPC {
     source = {
       lines = { { id = "s_default", text = "Orgrimmar's forges, mostly, carried down by kodo caravan, and some from Ratchet when the goblins have something worth buying. The goblins' steel is good, but they charge for the shipping as if they'd carried it on their backs." } },
       choices = {
-        { text = "Goblin steel's worth the price if it holds.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Horde steel from Horde forges. That's how it should be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Goblin steel's worth the price if it holds.", next = "BACK", reply = "If it holds, aye, and most of it does, though I've snapped a goblin axe on a quilboar's skull before now. Test the edge before you pay, whatever the label says.", fx = { align = { order = -1 } } },
+        { text = "Horde steel from Horde forges. That's how it should be.", next = "BACK", reply = "That's how it should be, and someday it will be, when Orgrimmar's forges can feed every post from here to Taurajo. Until then I buy where the steel is.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -210,8 +210,8 @@ P:NPC {
     hunt = {
       lines = { { id = "hu_default", text = "I did, when I was young and quick. Now I buy from the hunters who come through, and I don't buy from the ones who leave carcasses rotting in the grass." } },
       choices = {
-        { text = "Waste dishonors the hunt.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A dead beast doesn't care what happens to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Waste dishonors the hunt.", next = "BACK", reply = "It does, and you'd be surprised how many young hunters have never been taught it. The Earth Mother gives us the beast, and we owe her every part of it back.", fx = { align = { light = 1 } } },
+        { text = "A dead beast doesn't care what happens to it.", next = "BACK", reply = "The beast may not care, but the land does, and so do I. Bring me your hides when you've learned that, and we'll talk about leather then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,8 +268,8 @@ P:NPC {
       big = true,
       lines = { { id = "hh_default", text = "Perhaps, friend, but first tell me what you left behind on the plain. I buy from hunters who take the meat and the sinew as well as the hide, and I've turned away finer leather than mine from those who don't." } },
       choices = {
-        { text = "Every part gets used. Nothing's left to rot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I take the hide and move on. Scavengers eat too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every part gets used. Nothing's left to rot.", next = "BACK", reply = "Then you hunt the way my father taught me, and I'm glad to see it. Show me what you've brought, friend, and we'll speak as hunters do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I take the hide and move on. Scavengers eat too.", next = "BACK", reply = "The vultures thank you, I'm sure, but I won't. Come back when you've learned to honor the whole beast, and I'll look at your hides then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -348,8 +348,8 @@ P:NPC {
     dye = {
       lines = { { id = "dy_default", text = "Orgrimmar for the reds, the tauren of Mulgore for the earth colors, and goblins in Ratchet for anything bright, at goblin prices. I'd rather pay the goblins than go without blue." } },
       choices = {
-        { text = "Fair trade with goblins is still fair trade.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Horde should make its own dyes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair trade with goblins is still fair trade.", next = "BACK", reply = "It is, and the goblins know it too, which is why they keep coming back. I'd rather have honest prices from a greedy goblin than no blue at all.", fx = { align = { order = -1 } } },
+        { text = "The Horde should make its own dyes.", next = "BACK", reply = "It should, and one day it will, when someone finds blue in Durotar's red dirt. Until then, the goblins have the indigo, and I have to swallow my pride.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -467,8 +467,8 @@ P:NPC {
     raid = {
       lines = { { id = "r_default", text = "Sergra Darkthorn sends soldiers after them, and they come back with the grain more often than not. I'd rather the Kolkar learned to farm, but I don't think they're interested." } },
       choices = {
-        { text = "Give them seed instead of swords, and see.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Raiders understand swords better than seed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Give them seed instead of swords, and see.", next = "BACK", reply = "You have a tauren's heart, and I'd try it gladly if the Kolkar would sit still long enough. The Earth Mother gives seed to anyone, but not everyone wants to plant it.", fx = { align = { light = 1 } } },
+        { text = "Raiders understand swords better than seed.", next = "BACK", reply = "Perhaps they do, and Sergra's soldiers would agree with you. I only bake the bread, so I'll leave the swords to those who carry them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -573,8 +573,8 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because the Horde's got beasts and I've got a shovel and a ledger, so it's a natural partnership, see? The Steamwheedle Cartel don't mind who I work for, as long as the books balance at the end of the month." } },
       choices = {
-        { text = "A neutral trader is a useful thing.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Pick a side, goblin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A neutral trader is a useful thing.", next = "BACK", reply = "Useful? Pal, I'm indispensable, and the Cartel prints that right on my contract. Your wolf don't care whose side I'm on, so long as the hay's fresh.", fx = { align = { order = -1 } } },
+        { text = "Pick a side, goblin.", next = "BACK", reply = "Pick a side? I did, friend, the side that pays on time, and right now that's you. Cartel rules, pal, so don't take it personal.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -714,8 +714,8 @@ P:NPC {
     kargal = {
       lines = { { id = "k_default", text = "Kargal Battlescar did, and that old boar sulks in his watchtower up north because the Warchief favored her. He's a fine soldier, I'll grant him that, but he's never forgiven her for being better at it." } },
       choices = {
-        { text = "Command should go to whoever earns it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Seniority should count for something.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Command should go to whoever earns it.", next = "BACK", reply = "That's what Sergra did, and that's what galls him. He'd rather lose to an older orc than a better one, and the whole post knows it.", fx = { align = { honor = 1 } } },
+        { text = "Seniority should count for something.", next = "BACK", reply = "Count for something, aye, but not for everything. Kargal's old enough to know a war isn't won by whoever's been waiting longest.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -757,8 +757,8 @@ P:NPC {
       big = true,
       lines = { { id = "li_default", text = "Lizzarik, with his cart and his two hired lumps? He sets up on the road, out of sight of the tower, and sells the same caravan steel as Nargal without paying a copper to keep the walls up, so every blade he sells is a blade the Crossroads levy never sees." } },
       choices = {
-        { text = "Then he should pay what the rest of you pay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The road's free. Let the better trader win.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Then he should pay what the rest of you pay.", next = "BACK", reply = "That's what I've been saying since the day he rolled up. Every coin he skims off this road is a coin out of Sergra's walls, and someday a Kolkar arrow will remind him.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The road's free. Let the better trader win.", next = "BACK", reply = "Free, is it? Then let him sleep on it too, the next time the centaur come at night. He sells cheap because we pay for the walls he hides behind.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -839,8 +839,8 @@ P:NPC {
     fight = {
       lines = { { id = "f_default", text = "Once, against Kolkar, and they did fine, though one of 'em lost a tooth and billed me for it. I paid, because a bodyguard with a grudge is the worst kind of liability, and now I call him Discount, which he hates even more than the Kolkar." } },
       choices = {
-        { text = "Pay your people well. It's only fair.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd have docked his wages for losing the tooth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Pay your people well. It's only fair.", next = "BACK", reply = "And I do, pal, right down to the dental plan, which I invented on the spot. Happy muscle stands closer to the cart, and that's good business.", fx = { align = { honor = 1 } } },
+        { text = "I'd have docked his wages for losing the tooth.", next = "BACK", reply = "Ha! I thought about it, believe me, but have you seen the size of him? Some savings cost more than they're worth, friend.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -883,8 +883,8 @@ P:NPC {
       big = true,
       lines = { { id = "rs_default", text = "Sure, and I tip my hat to every grunt I pass, which is my contribution to the war effort. But a levy's a levy, pal, and I never paid for anything I could get by standin' a little further down the road." } },
       choices = {
-        { text = "If the Horde guards the road, you should pay your share.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Smart. Why pay for walls you don't sleep behind?", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "If the Horde guards the road, you should pay your share.", next = "BACK", reply = "My share? Pal, I tip the hat and I don't cause trouble, which is more than the Kolkar can say. You want me payin' levies, you'll have to catch me standin' still first.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Smart. Why pay for walls you don't sleep behind?", next = "BACK", reply = "Exactly, friend, and I'd hire you for my accounts department if I had one. Walls are for folks who plan on stayin' put.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -892,8 +892,8 @@ P:NPC {
       big = true,
       lines = { { id = "ro_default", text = "Two reasons, pal, and they're both standin' right behind you. Besides, I've already priced the theft into everybody else's blades, so if you rob me, you're really robbin' the next customer, and that's on your conscience." } },
       choices = {
-        { text = "I'd never steal from an honest trader.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your boys look slow. I'm not.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'd never steal from an honest trader.", next = "BACK", reply = "Honest? Pal, I'm touched, really, and I'll write that on the sign. You've got a good face for business, so come back when you need a blade.", fx = { align = { honor = 1 } } },
+        { text = "Your boys look slow. I'm not.", next = "BACK", reply = "Slow, maybe, but they hit like falling crates, and I'm not the one who has to outrun 'em. Try it if you like, pal, and I'll sell the story to the next customer.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

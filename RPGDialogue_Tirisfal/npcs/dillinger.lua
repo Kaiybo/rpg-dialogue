@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "wr_default", text = "It does, and so does every claw and skull you bring back from it. The Scourge counts its dead and so do we, and I mean for our count to be the bigger one." } },
       choices = {
-        { text = "Then I'll keep the count running in our favor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Counting's for clerks. I'll fight where the fighting's good.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep the count running in our favor.", next = "BACK", reply = "Good, because the Scourge never stops counting, and neither do I. Bring me the tallies and I'll see they go to the Undercity with your name beside them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Counting's for clerks. I'll fight where the fighting's good.", next = "BACK", reply = "Clerks keep Brill standing, so mind how you sneer at them. Fight where you like, but the Deathguard only remember what's written down.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -138,8 +138,8 @@ P:NPC {
       big = true,
       lines = { { id = "ud_default", text = "Every one of us woke up the same way he did, and some of us were lucky. I don't like knowing how thin that line is, and I like even less that the cure for it is a sword." } },
       choices = {
-        { text = "Then killing him is a mercy. I'll give it cleanly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He's Scourge. Mercy has nothing to do with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then killing him is a mercy. I'll give it cleanly.", next = "BACK", reply = "A mercy, then, and a clean one, which is more than the Scourge ever gave him. Do it quickly and don't stop to look at his face, because you'll only remember it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He's Scourge. Mercy has nothing to do with it.", next = "BACK", reply = "You sound like the Dark Lady's orders, and perhaps that's the right way to sound. I only wish I could believe it as easily as you do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

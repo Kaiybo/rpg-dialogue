@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "md_default", text = "Gordo does not know what Gordo deserves. Us was put together to carry things and smash things, and now us carries weeds, which is nicer." } },
       choices = {
-        { text = "Then thank you, Gordo. For the weeds, and for trying.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You were made to work. Work is what you're for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then thank you, Gordo. For the weeds, and for trying.", next = "BACK", reply = "Nobody ever thanks Gordo before. Gordo will carry the weeds very carefully now, so none of them get squished.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You were made to work. Work is what you're for.", next = "BACK", reply = "Yes, Gordo is for work, and Gordo works. But Gordo thinks maybe work can be the nice kind sometimes, like weeds.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

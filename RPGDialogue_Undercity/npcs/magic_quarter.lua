@@ -79,8 +79,8 @@ P:NPC {
         { id = "vf_living", when = { ["not"] = { race = "Scourge" } }, text = "Fear is for things that can still take something from you, and you, living one, have rather a lot left to take. I'd keep that in mind before you pick up any chalk." },
       },
       choices = {
-        { text = "A demon on a leash is a demon used well.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some doors are better left shut, Halgar.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A demon on a leash is a demon used well.", next = "BACK", reply = "Used well, aye, and kept well too. A demon that's well fed is a demon that doesn't look for other food.", fx = { align = { light = -1 } } },
+        { text = "Some doors are better left shut, Halgar.", next = "BACK", reply = "Better shut, perhaps, but some of them knock very loudly. I'd rather be holding the key.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,8 +96,8 @@ P:NPC {
       big = true,
       lines = { { id = "aa_default", text = "They approve of results, which I provide, and they borrow my circles now and then for work they don't explain. We nod to one another across the canal, and that's all the approval anyone in this city expects." } },
       choices = {
-        { text = "Whatever wins the war is worth using.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Some weapons cost more than they're worth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever wins the war is worth using.", next = "BACK", reply = "That's the Society's view, too, and I find I agree with them on very little else. Results, as I said.", fx = { align = { honor = -1 } } },
+        { text = "Some weapons cost more than they're worth.", next = "BACK", reply = "Some do, and they'll learn the cost soon enough. I keep my circles clean and my accounts paid.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
         { id = "bi_active", when = { questActive = TODO_QUEST("The Binding") }, text = "Take the glyphs to the circle, speak the words the way I taught you, and when the voidwalker rises, beat it down until it understands. It respects nothing else, and nor should you." },
       },
       choices = {
-        { text = "I'll be its master, not its partner.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather earn its loyalty than beat it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be its master, not its partner.", next = "BACK", reply = "Good. It will test you anyway, so start as you mean to go on.", fx = { align = { order = 1 } } },
+        { text = "I'd rather earn its loyalty than beat it.", next = "BACK", reply = "Earn its loyalty? A demon's loyalty is a knife pointed at your back, waiting. I'd beat it first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -189,8 +189,8 @@ P:NPC {
     careful = {
       lines = { { id = "ca_default", text = "Because every spell we cast is a contract, and the other party reads the small print far more closely than we do. I've seen a warlock lose his voice for a year over one misplaced syllable." } },
       choices = {
-        { text = "Then the rules are worth keeping exactly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Rules are for those without the will to bend them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the rules are worth keeping exactly.", next = "BACK", reply = "Exactly, and I'll make a warlock of you yet. Read every syllable twice.", fx = { align = { order = 1 } } },
+        { text = "Rules are for those without the will to bend them.", next = "BACK", reply = "Then I'll remember your name when you lose your voice, and I'll write it on my list of cautionary tales.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -204,8 +204,8 @@ P:NPC {
     before_miss = {
       lines = { { id = "bm_default", text = "I try not to wonder where they are, because the answer is either the Plaguelands or somewhere I'll never be welcome again. Neither is a thought worth keeping, so I keep chalk instead." } },
       choices = {
-        { text = "Remembering them is worth the ache.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Best to bury it, Kerwin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Remembering them is worth the ache.", next = "BACK", reply = "Perhaps it is, for some. For me it's an ache I can't afford, so I keep the chalk.", fx = { align = { light = 1 } } },
+        { text = "Best to bury it, Kerwin.", next = "BACK", reply = "That's what I keep telling myself, and the chalk agrees. Thank you for not making it harder.", fx = { align = { light = -1 } } },
       },
     },
     imp = {
@@ -327,16 +327,16 @@ P:NPC {
       big = true,
       lines = { { id = "ns_default", text = "Buried, with the bread and the wife and the little shop by the gate. Overseer Bauhaus has it in his census, I expect, and he's welcome to keep it there." } },
       choices = {
-        { text = "The man you were deserves remembering.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Good. A new name for a new life.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The man you were deserves remembering.", next = "BACK", reply = "Remembering is for Bauhaus and his census. I'll leave that man in his grave with the bread.", fx = { align = { light = 1 } } },
+        { text = "Good. A new name for a new life.", next = "BACK", reply = "A new life, yes, and a new trade, and I'm rather better at this one. Shall we begin?", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     shards = {
       lines = { { id = "sh_default", text = "Fuel and coin and leash, all at once. You tear a sliver from a dying enemy and keep it in a bag, and if that turns your stomach, you're in the wrong quarter of the wrong city." } },
       choices = {
-        { text = "Our enemies forfeited their souls. I'll take them.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll use them, but I won't enjoy it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Our enemies forfeited their souls. I'll take them.", next = "BACK", reply = "There's a warlock with sense. They gave them up the moment they raised a sword against us.", fx = { align = { honor = -1 } } },
+        { text = "I'll use them, but I won't enjoy it.", next = "BACK", reply = "Enjoyment comes later, if you're any good. For now, keep the bag closed and your stomach steady.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -459,8 +459,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "I'm not living on anything, so the question doesn't trouble me. Revenge gets me out of bed in the evening, and I've yet to find anything else in the Undercity that does." } },
       choices = {
-        { text = "Then let them pay for what they did.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Dalaran's mages bled too. Spare the innocent ones.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then let them pay for what they did.", next = "BACK", reply = "Pay they shall, and I'll be there to see the accounts settled. Dalaran has a long debt to us.", fx = { align = { honor = -1 } } },
+        { text = "Dalaran's mages bled too. Spare the innocent ones.", next = "BACK", reply = "Innocent? There's no such thing in Dalaran's halls, only those who were quicker to run. I'll consider your mercy and discard it.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -595,8 +595,8 @@ P:NPC {
       big = true,
       lines = { { id = "ss_default", text = "That's kind of you, though I'm not sure the dead are owed sorrow. I keep the school key on a string around my neck, and some evenings I can't decide whether that's devotion or just a bad habit." } },
       choices = {
-        { text = "Keep the key. Some things should be kept.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Throw it in the canal and teach here instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep the key. Some things should be kept.", next = "BACK", reply = "I think I shall, and I'm glad to have someone else say it. Devotion or habit, it's mine.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Throw it in the canal and teach here instead.", next = "BACK", reply = "I do teach here, and I'll teach better for keeping it. The canal can have something else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -718,8 +718,8 @@ P:NPC {
     artisan = {
       lines = { { id = "ar_default", text = "Patience, mostly, and an eye for which dust is worth keeping. Anyone can break a sword into powder, but it takes years to learn which swords deserve it." } },
       choices = {
-        { text = "Every craft needs a master's standards.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Results matter more than standards, Gregorian.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every craft needs a master's standards.", next = "BACK", reply = "It does, and I'm pleased to hear it said. Come to my bench when you're ready to learn which swords deserve it.", fx = { align = { order = 1 } } },
+        { text = "Results matter more than standards, Gregorian.", next = "BACK", reply = "Results, he says, as though a fine sword ground to dust were a result. Go and break things elsewhere.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -770,8 +770,8 @@ P:NPC {
     everything = {
       lines = { { id = "ev_default", text = "Everything? You break good steel and bad steel alike and call it efficiency? That is the habit of a quarry, not a craftsman, and I'll ask you to say it more quietly near my bench." } },
       choices = {
-        { text = "Quick work keeps the Scourge back. That's what counts.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You're right. I'll learn to choose with care.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Quick work keeps the Scourge back. That's what counts.", next = "BACK", reply = "Then go and keep it back, and leave my bench in peace. Craft can wait for the end of the war, I suppose.", fx = { align = { order = -1 } } },
+        { text = "You're right. I'll learn to choose with care.", next = "BACK", reply = "Splendid, then we'll make an enchanter of you yet. Bring me a sword you think deserves it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -830,8 +830,8 @@ P:NPC {
     customers = {
       lines = { { id = "cu_default", text = "The warlocks buy the most, because they spend souls like the living spend pennies. The mages complain the most, and the priests say thank you, which I've come to value more than either." } },
       choices = {
-        { text = "Manners still matter, even here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Coin talks louder than thank you, Hannah.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Manners still matter, even here.", next = "BACK", reply = "They do, and they're rarer than anything I sell. Thank you for remembering.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Coin talks louder than thank you, Hannah.", next = "BACK", reply = "Louder, perhaps, but it's the thank you I remember at night. Spend your coin, dear, and mind your manners.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

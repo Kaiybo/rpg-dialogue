@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "sv_default", text = "If you find him, and if there's nothing left of him to save, don't make him linger. And if you find Vishas, I'll not tell you what to do, but I'll not weep either." } },
       choices = {
-        { text = "Vishas will answer for it, by my hand.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll bring Vorrel peace. Revenge won't help either of you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Vishas will answer for it, by my hand.", next = "BACK", reply = "By your hand, then, and I'll not stop you. I only hope it brings you more peace than it would bring me.", fx = { align = { light = -1 } } },
+        { text = "I'll bring Vorrel peace. Revenge won't help either of you.", next = "BACK", reply = "Peace for Vorrel is all I wanted, and I'm glad you see it that way. Vishas can rot in the Monastery for all I care.", fx = { align = { light = 1 } } },
       },
     },
 
@@ -93,8 +93,8 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "Badly, and without sleep, since we don't. The others tell me the dead should let go of the living's habits, and that loving a husband is one of them." } },
       choices = {
-        { text = "Keep the habit. It's what makes you yourself.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "They're right. The Forsaken must leave the old life behind.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep the habit. It's what makes you yourself.", next = "BACK", reply = "I think I will, then, whatever the others say. A dead wife who still loves her husband is no stranger than the rest of us.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "They're right. The Forsaken must leave the old life behind.", next = "BACK", reply = "Perhaps they are, and perhaps one day I'll agree with them. Not today, though, and not while he might still be out there.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -180,8 +180,8 @@ P:NPC {
       big = true,
       lines = { { id = "pl_default", text = "I've thought of it, but if I found them dead and walking I'd not know what to do. I'd rather believe they ran south and are eating some farmer's oats in Southshore." } },
       choices = {
-        { text = "Look. The truth is better than a comfort.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Keep believing it. Some comforts are worth a lie.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Look. The truth is better than a comfort.", next = "BACK", reply = "You're braver than me, then, or harder. If I do go looking, I'll tell you what I find, though I may not thank you for the advice.", fx = { align = { honor = 1 } } },
+        { text = "Keep believing it. Some comforts are worth a lie.", next = "BACK", reply = "That's kind of you. Let me have my oats and my Southshore farmer, then, at least until the truth comes knocking on its own.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     fear = {
@@ -255,8 +255,8 @@ P:NPC {
       big = true,
       lines = { { id = "fo_default", text = "They fight well and they never complain about the food. But the apothecaries' cellars smell of something that isn't medicine, and the Warchief should know about it." } },
       choices = {
-        { text = "Tell him. The Horde can't hide such things.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Keep quiet. Allies don't spy on each other.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tell him. The Horde can't hide such things.", next = "BACK", reply = "I will, when he next sends a rider. A Horde that keeps secrets from itself will rot from the inside like an old tusk.", fx = { align = { order = -1 } } },
+        { text = "Keep quiet. Allies don't spy on each other.", next = "BACK", reply = "Spying? I only have a nose, and it tells me what it tells me. Still, I hear you, and I'll keep my mouth shut until I know more.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -316,8 +316,8 @@ P:NPC {
       big = true,
       lines = { { id = "no_default", text = "Bats from Tarren Mill. The Forsaken ride them over the hills, and twice now they've come close enough to spook my birds. Marshal Redpath says to shoot at anything with leather wings, and I'm not sure he's wrong." } },
       choices = {
-        { text = "He's right. Shoot first, here.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some riders are only couriers. Hold your fire.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He's right. Shoot first, here.", next = "BACK", reply = "I'm glad someone agrees with the Marshal, because I've had my bow strung since dawn and I'll not hesitate now.", fx = { align = { light = -1 } } },
+        { text = "Some riders are only couriers. Hold your fire.", next = "BACK", reply = "Couriers, is it? Couriers for what, I'd like to know, though I'll mind my aim until one of them gives me cause.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -388,8 +388,8 @@ P:NPC {
       big = true,
       lines = { { id = "ja_default", text = "No, or yes, I don't know. Everyone says the Forsaken aren't the people they were, and I'd like to believe it, because otherwise she's up there and she hasn't come to see me." } },
       choices = {
-        { text = "They aren't who they were. Let her go.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some of them remember. Don't give up on her.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "They aren't who they were. Let her go.", next = "BACK", reply = "Let her go? I don't know if I can, but I suppose I'll have to try. It's just hard when you know she's only over the hill.", fx = { align = { order = 1 } } },
+        { text = "Some of them remember. Don't give up on her.", next = "BACK", reply = "You really think so? Then I'll keep waiting, and maybe one day she'll come down the road and say my name.", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
     job = {
@@ -459,8 +459,8 @@ P:NPC {
       big = true,
       lines = { { id = "gb_default", text = "Nobody knows, love, and the Marshal won't say. Some want him to march on the Mill tonight, and the rest want to wait and see, and they argue about it over my tables until closing." } },
       choices = {
-        { text = "Wait and see. A march could start a war.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "March tonight. Waiting is how towns die.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wait and see. A march could start a war.", next = "BACK", reply = "That's what I keep telling them, and they never listen to a barmaid. One wrong step and we'll all be burying sons again.", fx = { align = { order = 1 } } },
+        { text = "March tonight. Waiting is how towns die.", next = "BACK", reply = "You'll get half my tables cheering and the other half shouting, love, so mind you don't say it too loud in here.", fx = { align = { order = -1 } } },
       },
     },
     work = {

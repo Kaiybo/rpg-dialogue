@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "sth_default", text = "No, because I remember, and the memory is worse than any mirror. Some nights I think I should beg one of you to end me properly, and some nights I think I'd rather haunt this house forever than lose what little of me is left." } },
       choices = {
-        { text = "You deserve rest. The Light could give it to you.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then stay. Your memory is yours to keep.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You deserve rest. The Light could give it to you.", next = "BACK", reply = "The Light, for something like me? You're kind to say it, but I'm afraid of what it would find, and more afraid it would take my memories with the rest.", fx = { align = { light = 1 } } },
+        { text = "Then stay. Your memory is yours to keep.", next = "BACK", reply = "Then I'll keep them, and comb my hair, and remember the girl I was. Only don't look at me as you go, I beg you, not even once.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -85,8 +85,8 @@ P:NPC {
         { id = "et_default", text = "And then I find the one who made them and I end him, so that no one is foolish enough to try it again. The Sentinels can't guard every lake, but they can make an example." },
       },
       choices = {
-        { text = "An example is exactly what's needed.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Justice, yes, but not a show of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "An example is exactly what's needed.", next = "BACK", reply = "Good. You understand what the Sentinels are for, which is more than most outsiders do.", fx = { align = { light = -1 } } },
+        { text = "Justice, yes, but not a show of it.", next = "BACK", reply = "A show is what keeps the next fool at home, outsider. I'll make it quick, but I'll make it seen.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +106,8 @@ P:NPC {
         { id = "sw_default", text = "To vex us, I think, or to see if he could. I have had enough of his idiocy, and we must show him what happens to those who annoy the Sentinels." },
       },
       choices = {
-        { text = "Then he'll learn, and I'll teach him.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Going into the Barrens risks open war.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then he'll learn, and I'll teach him.", next = "BACK", reply = "Good. Then go, and make sure he remembers who sent you.", fx = { align = { order = -1 } } },
+        { text = "Going into the Barrens risks open war.", next = "BACK", reply = "It risks a great deal, and I've weighed it. Sarilus has risked more by vexing us, and he'll learn it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

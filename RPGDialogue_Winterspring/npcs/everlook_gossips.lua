@@ -110,8 +110,8 @@ P:NPC {
         { id = "fd_default", text = "Dangerous? Maybe, though she seemed mostly interested in the forest, and in what it does to things. Felwood's poison, pal, and she's got a gleam about it like a goblin looking at an unclaimed mine, and I'm still not sure if that's science or madness." },
       },
       choices = {
-        { text = "Someone has to study the poison. Good for her.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Some things shouldn't be meddled with.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Someone has to study the poison. Good for her.", next = "BACK", reply = "That's what I told my cousin, pal, because somebody's got to know what's in that muck before it crawls up here. Better a curious scholar than a surprised town.", fx = { align = { order = -1 } } },
+        { text = "Some things shouldn't be meddled with.", next = "BACK", reply = "You sound like my mother, and she was right about most things, except the rocket. Still, I'd keep clear of anyone who smiles at a poisoned forest like that.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
         { id = "es_default", text = "Sell it? I give it away, mostly, which is a terrible way for a goblin to do business, and believe me, I've done the sums. My cousins say I'm a disgrace to the Cartel, pal, but news is more fun when it's moving." },
       },
       choices = {
-        { text = "Secrets should cost something. Charge for them.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Good news should be free. Keep giving it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Secrets should cost something. Charge for them.", next = "BACK", reply = "Don't you start, pal, I get enough of that at family dinners. The trouble is, once I put a price on a rumour, everybody stops tellin' me the good ones.", fx = { align = { honor = -1 } } },
+        { text = "Good news should be free. Keep giving it.", next = "BACK", reply = "See, you get it! Gossip's like a fire in the inn, chum, because it's only worth anything if everybody gets to stand around it and warm up.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -262,8 +262,8 @@ P:NPC {
         { id = "dg_default", text = "Good! Watch the furbolgs, though, because they're not themselves. Donova will tell you they can be helped, and maybe she's right, but they'll still bite while she's working it out." },
       },
       choices = {
-        { text = "If they can be saved, I'll try to save them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If they bite, they'll be put down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If they can be saved, I'll try to save them.", next = "BACK", reply = "That's the spirit, and Donova will be glad of you, because she says each one saved is a cub that grows up remembering. Just keep your hands where their teeth can't reach.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they bite, they'll be put down.", next = "BACK", reply = "Hmph, well, you're not wrong that they bite, and I've got the scar to prove it. Only be sure it's really needed before you do it, because Donova will ask.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

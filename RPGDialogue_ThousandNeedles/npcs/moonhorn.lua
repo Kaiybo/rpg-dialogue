@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "Maybe. But Freewind can't wait to find out, so Longhorn has to get my message and decide. If they're hungry, we hold, and if they're being pushed, we need to know who's doing the pushing." } },
       choices = {
-        { text = "Hold the line. Let Longhorn decide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Don't wait for orders. Strike them first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold the line. Let Longhorn decide.", next = "BACK", reply = "Then I will hold, and I will carry the message, and may the Earth Mother make Longhorn wise and quick.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait for orders. Strike them first.", next = "BACK", reply = "My heart wants it too, but a brave who strikes without orders can start a war, and Freewind has enough of those already.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
     kin = {
       lines = { { id = "k_default", text = "Because they don't think like us anymore. Cairne brought the tribes together, and the Grimtotem came because they had to, and they've been waiting ever since for a reason to leave." } },
       choices = {
-        { text = "The tribes should stay united.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "grimtotem" } } },
-        { text = "Let them go, if they want to.", next = "BACK", fx = { align = { light = -1 }, learn = { "grimtotem" } } },
+        { text = "The tribes should stay united.", next = "BACK", reply = "That is what Cairne wants, and I want it too, though I fear the Grimtotem have never truly wanted it at all.", fx = { affinity = 1, align = { light = 1 }, learn = { "grimtotem" } } },
+        { text = "Let them go, if they want to.", next = "BACK", reply = "Perhaps it would be better, but if they leave, they will not leave quietly, and the plains will bleed for it.", fx = { align = { light = -1 }, learn = { "grimtotem" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },

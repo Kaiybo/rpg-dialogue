@@ -38,8 +38,8 @@ P:NPC {
       lines = { { id = "pj_torek_default", text = "Plainly, then. An orc fights to be remembered, and every scar is a story his children will tell, but you dead fight like you're clearing a field, with no joy in it at all. And the grunts say the apothecaries brew things under your city that a warrior shouldn't touch." } },
       choices = {
         { text = "What have the grunts heard about the apothecaries?", next = "pj_torek2" },
-        { text = "A fight's a fight. I'll earn your respect on the field.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Joy doesn't win wars, orc. Patience and poison do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A fight's a fight. I'll earn your respect on the field.", next = "BACK", reply = "Hah! Now that's an answer I can respect. Show me on the field, and I'll eat my words with a smile.", fx = { align = { honor = 1 } } },
+        { text = "Joy doesn't win wars, orc. Patience and poison do.", next = "BACK", reply = "Maybe they do, dead one, but they don't make songs either. I'll take my scars and my stories, thank you.", fx = { align = { honor = -1 } } },
         { text = "I see why we unsettle you. Give it time.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -125,8 +125,8 @@ P:NPC {
         { id = "wf_default", text = "Maybe not, but the Horde needs timber and the elves won't sell it, so here we are. I didn't start this, {class}; I just mean to finish my part of it well." },
       },
       choices = {
-        { text = "Then we'll finish it together.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "There must be another way than burning their homes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we'll finish it together.", next = "BACK", reply = "Together, then, and we'll make a song of it. Lok'tar, {class}.", fx = { align = { light = -1 } } },
+        { text = "There must be another way than burning their homes.", next = "BACK", reply = "Maybe there is, and if you find it, tell the Warchief. Until then, I've got trees to guard.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,8 +146,8 @@ P:NPC {
         { id = "dr_default", text = "Course I do. Only a fool sneers at someone who can put an arrow through his eye at a hundred paces, and I've buried fools." },
       },
       choices = {
-        { text = "Respect your enemy, and fight them fairly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Respect gets you killed. Hit them while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Respect your enemy, and fight them fairly.", next = "BACK", reply = "Aye, and that's the orc way, the old way. Duriel would agree, I think, if she didn't want me dead.", fx = { align = { honor = 1 } } },
+        { text = "Respect gets you killed. Hit them while they sleep.", next = "BACK", reply = "It gets you killed slower than a sentinel's arrow, I'll grant. But I'd rather die knowing I fought well.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

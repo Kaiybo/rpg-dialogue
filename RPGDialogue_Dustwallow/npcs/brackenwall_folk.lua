@@ -78,8 +78,8 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "Overlord says yes, and some young ogres say the Stonemaul should go back to the old village alone and smash the dragons themselves. Logok just cooks, but Logok listens. What does small friend think?" } },
       choices = {
-        { text = "Stay with the Horde. Stronger together.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The Stonemaul should stand on their own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stay with the Horde. Stronger together.", next = "BACK", reply = "Logok thinks so too, because Horde brings meat and Logok cooks it. Overlord will be glad small friend says so.", fx = { align = { order = 1 } } },
+        { text = "The Stonemaul should stand on their own.", next = "BACK", reply = "Young ogres would like small friend very much, Logok thinks. But dragons are big, and Logok would rather cook for many than bury a few.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,8 +200,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "I trust Thrall, and Thrall trusts the human woman. Some of the grunts here say she's just buying time to build up her walls." } },
       choices = {
-        { text = "Trust the Warchief. The peace is real.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The grunts are right. Be ready for her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Trust the Warchief. The peace is real.", next = "BACK", reply = "Then I'll hold my tongue at the fire, though it won't be easy. Thrall's never led us wrong yet, and I'd sooner be wrong trusting him than right doubting him.", fx = { align = { light = 1 } } },
+        { text = "The grunts are right. Be ready for her.", next = "BACK", reply = "I keep my axe by my bunk either way, so nobody needs tell me twice. If she means it, it costs me nothing, and if she doesn't, I'm ready.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

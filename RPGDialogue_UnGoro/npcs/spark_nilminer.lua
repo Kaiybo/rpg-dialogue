@@ -121,8 +121,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "Wil and Hol want to study the crater's history, pal, and a bone's a bone to a scholar. They won't care whether it's from an ancient stegodon or one that tried to eat us last Tuesday, and the Expedition pays the same either way." } },
       choices = {
-        { text = "Fair trade. Those beasts would eat you.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Lying to your own leaders is shameful, Spark.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair trade. Those beasts would eat you.", next = "BACK", reply = "See? You get it, pal! A bone's a bone, and a goblin who gets eaten for authenticity doesn't get paid at all.", fx = { align = { honor = -1 } } },
+        { text = "Lying to your own leaders is shameful, Spark.", next = "BACK", reply = "Shameful, sure, but shame doesn't have teeth, pal, and the devilsaurs do. I'll feel bad about it later, from somewhere far away.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,8 +152,8 @@ P:NPC {
       big = true,
       lines = { { id = "os_default", text = "Look, pal, I like the Marshals fine, but liking somebody isn't a reason to get eaten next to 'em. My contract says chief digger, not chief martyr, and I've read the small print twice." } },
       choices = {
-        { text = "You signed on. See the job through.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair. Nobody's owed your life for a wage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You signed on. See the job through.", next = "BACK", reply = "See it through? Pal, the job's gonna see me through a raptor's gullet if I stay. I'll think about it, but I'm keepin' my bags packed.", fx = { align = { honor = 1 } } },
+        { text = "Fair. Nobody's owed your life for a wage.", next = "BACK", reply = "Finally, somebody with a head for contracts! My life's not on the payroll, pal, and I've read the fine print twice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

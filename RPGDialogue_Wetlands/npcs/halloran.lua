@@ -91,8 +91,8 @@ P:NPC {
           text = "Which one? I've had three, and two went home to their mothers. The current lad's keen, I'll give him that, though keen and careful are different words." },
       },
       choices = {
-        { text = "A keen boy shouldn't be sent after crocs alone.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Hard trade, hard lessons. He'll be better for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A keen boy shouldn't be sent after crocs alone.", next = "BACK", reply = "Don't you think I've told myself that every night since? I sent him because I'd done it at his age, and I forgot how lucky I was.", fx = { align = { light = 1 } } },
+        { text = "Hard trade, hard lessons. He'll be better for it.", next = "BACK", reply = "That's what my old master told me, and he was right, though I'd rather the lesson hadn't come with quite so many teeth in it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
         { id = "tf_default", text = "Cursed ships and murlocs on the beach, and now the dragons over the hills to boot. A merchant learns to price in trouble, or he learns another trade." },
       },
       choices = {
-        { text = "Someone should clear the bay for honest traders.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Trouble's good for prices. You'll do fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Someone should clear the bay for honest traders.", next = "BACK", reply = "Someone should, and the harbour's been waiting on that someone for years. If it turns out to be you, the first good hide off the next boat has your name on it in spirit.", fx = { align = { order = 1 } } },
+        { text = "Trouble's good for prices. You'll do fine.", next = "BACK", reply = "Ha! You've a merchant's heart under that armour. Mind, high prices don't do me much good if the ship carrying them sinks off the Baradin.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "third_fleet" } } },
       },
     },

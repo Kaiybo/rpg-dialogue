@@ -66,8 +66,8 @@ P:NPC {
         { id = "wf_default", text = "Whoever owes me a favour, and a lot of deathguards owe me favours. The gnolls in the south like to hide in the same groves I want, though, so every staves-run turns into a skirmish, and I've lost more good wood to blood than to rot." },
       },
       choices = {
-        { text = "Then I'll keep the gnolls off your groves.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Cut where the gnolls aren't. It's not worth the blood.", next = "BACK", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
+        { text = "Then I'll keep the gnolls off your groves.", next = "BACK", reply = "Would you? The deathguards will be jealous, and I'll have yew enough for a month of bows.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cut where the gnolls aren't. It's not worth the blood.", next = "BACK", reply = "Sensible, if a little timid. The good yew grows where the gnolls are, but I'll make do.", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
         { id = "wg_pet", when = { pet = { type = "Beast" } }, text = "Something heavy, with broad heads, because a worgen will shrug off a narrow arrow and keep coming. Put two in it before it closes, and then let {pet} have it, which I suspect {pet} would enjoy." },
       },
       choices = {
-        { text = "A clean kill from range is the right way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Whatever brings it down. I'll poison the heads too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A clean kill from range is the right way.", next = "BACK", reply = "It is, and the only one I'd trust against a worgen. Get close and you'll learn why.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever brings it down. I'll poison the heads too.", next = "BACK", reply = "Poison and broadheads together, yes, Patrice will be delighted. Just don't nick your own fingers.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

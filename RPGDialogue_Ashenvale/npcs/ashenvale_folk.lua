@@ -71,8 +71,8 @@ P:NPC {
     romantic = {
       lines = { { id = "ro_default", text = "Then you can wait for him next time, and I'll go to the inn at Astranaar. No, I don't mean that, or not entirely, because I'd wait another thousand years if he asked me to, though I'd complain about it." } },
       choices = {
-        { text = "Love that waits is worth more than gold.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Life is short. Go and drag him here yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Love that waits is worth more than gold.", next = "BACK", reply = "It is, and I'll remind myself of that the next time he oversleeps by a century. You're kind to say it.", fx = { align = { order = 1 } } },
+        { text = "Life is short. Go and drag him here yourself.", next = "BACK", reply = "Ha! If I could drag a druid out of the Dream, I'd have done it long ago. But I like the way you think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,8 +96,8 @@ P:NPC {
     dream_danger = {
       lines = { { id = "dd_default", text = "He says it's beautiful and he won't say more, and when I ask, he goes quiet in a way I don't like. I think he saw something there that frightened him, and I think he's sleeping to look at it again." } },
       choices = {
-        { text = "Trust him. He'll tell you when he's ready.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Make him tell you. You've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Trust him. He'll tell you when he's ready.", next = "BACK", reply = "I will, I suppose, because I've always trusted him. It's just hard to wait when he looks like that.", fx = { align = { honor = 1 } } },
+        { text = "Make him tell you. You've earned it.", next = "BACK", reply = "I've earned it, haven't I? Perhaps you're right, and I'll ask him again, gently.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -197,8 +197,8 @@ P:NPC {
     rod_should = {
       lines = { { id = "rs_default", text = "I asked myself that too, all night by the well. But Raene's people are dying out there, and a tool that lets them walk where they couldn't before might save some of them, so I decided yes." } },
       choices = {
-        { text = "Dartol's friends hid it for a reason. Be careful.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A tool that saves lives should be used.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Dartol's friends hid it for a reason. Be careful.", next = "BACK", reply = "I will, I promise, and I'll watch it closely. Dartol's friends weren't fools.", fx = { align = { order = 1 } } },
+        { text = "A tool that saves lives should be used.", next = "BACK", reply = "That's what I keep telling myself, and it helps to hear it from someone else. Raene's people need every chance.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,8 +217,8 @@ P:NPC {
     treants_gentle = {
       lines = { { id = "tg_default", text = "That's kind of you, and a bit silly, because they won't be gentle with you. But thank you anyway, because nobody else has said it." } },
       choices = {
-        { text = "They were good once. They deserve mercy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "What they were doesn't matter. They're dangerous now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They were good once. They deserve mercy.", next = "BACK", reply = "They were, and I'm so glad you remember it. Be gentle, if you can, and safe, if you can't.", fx = { align = { light = 1 } } },
+        { text = "What they were doesn't matter. They're dangerous now.", next = "BACK", reply = "I know, and I won't ask you to stand still for them. Just, please, don't hate them for it.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -316,8 +316,8 @@ P:NPC {
     help = {
       lines = { { id = "he_default", text = "I don't know. But every satyr that falls is one fewer that can do to someone else what was done to her, and that has to count for something, doesn't it?" } },
       choices = {
-        { text = "It counts. Every one stopped saves a life.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Revenge won't heal you. Mourn her instead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It counts. Every one stopped saves a life.", next = "BACK", reply = "It does, doesn't it? Thank you, I needed to hear someone say it.", fx = { align = { light = -1 } } },
+        { text = "Revenge won't heal you. Mourn her instead.", next = "BACK", reply = "I know, and I'll mourn her too, I promise. But I can't sit still while the satyrs are out there.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -400,8 +400,8 @@ P:NPC {
     st_stance = {
       lines = { { id = "sts_default", text = "You sound like my mother, and like every Sentinel who's walked past my camp. But nobody learns anything by leaving locks alone." } },
       choices = {
-        { text = "Leave the Highborne's secrets drowned.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Open it. Knowledge belongs to whoever finds it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave the Highborne's secrets drowned.", next = "BACK", reply = "There, you sound like my mother too, now. Well, it's too late, because I've already started.", fx = { align = { order = 1 } } },
+        { text = "Open it. Knowledge belongs to whoever finds it.", next = "BACK", reply = "Exactly, exactly, and you're the first person who's said so! I'll write your name in my notes.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -492,8 +492,8 @@ P:NPC {
     good = {
       lines = { { id = "go_default", text = "One who thinks of the beast as a companion and not a weapon. You can tell the difference in the way they call them back; one sort calls, the other sort commands." } },
       choices = {
-        { text = "A companion is an equal. I call mine.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A beast needs a firm hand. I command.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A companion is an equal. I call mine.", next = "BACK", reply = "Then your beast is lucky, and you'll find it comes back gladly. That's how it should be.", fx = { align = { order = -1 } } },
+        { text = "A beast needs a firm hand. I command.", next = "BACK", reply = "Then it will obey, and you'll never know what it might have given you freely. Think on that.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

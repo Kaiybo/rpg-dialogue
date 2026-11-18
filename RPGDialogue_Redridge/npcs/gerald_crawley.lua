@@ -124,8 +124,8 @@ P:NPC {
       lines = { { id = "h2_default", text = "Honour is a fine thing to carry into a fight, and a heavy thing to carry out of one. The Blackrock don't care how you kill them, and neither do the widows of the men they killed." },
       },
       choices = {
-        { text = "A fair fight still matters, even against orcs.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Win first. Worry about honour afterward.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "A fair fight still matters, even against orcs.", next = "BACK", reply = "Then I hope you live long enough to keep believing it, friend. I'll still sell you the vials, of course, and you may decide later what you think of them.", fx = { align = { honor = 1 } } },
+        { text = "Win first. Worry about honour afterward.", next = "BACK", reply = "A practical outlook, and one my customers tend to share. The ones who worry about honour first rarely come back to buy a second time.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

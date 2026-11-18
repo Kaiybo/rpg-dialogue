@@ -100,8 +100,8 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "The Horde has always fought beside wolves, and the wolves have never complained, but I've buried enough of them to wonder. A beast follows because it trusts you, and that trust is a heavy thing to spend." } },
       choices = {
-        { text = "A beast that trusts you deserves to be kept from harm.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A beast is a weapon. Weapons get used.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A beast that trusts you deserves to be kept from harm.", next = "BACK", reply = "It does, and I've tried to keep them so. You speak like someone who has had a beast of their own.", fx = { align = { light = 1 } } },
+        { text = "A beast is a weapon. Weapons get used.", next = "BACK", reply = "A weapon, yes, until it looks at you the morning before a battle. Then tell me it's only a weapon.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -187,8 +187,8 @@ P:NPC {
       big = true,
       lines = { { id = "ro_default", text = "Rogvar is the finest alchemist in Stonard and the messiest, and he'll tell you the mess is where the discoveries live. I sweep up after him and say nothing, mostly, though I do keep a count of the scorch marks." } },
       choices = {
-        { text = "Discoveries need a little chaos. Let him work.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Careful work saves lives. You're right to keep count.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Discoveries need a little chaos. Let him work.", next = "BACK", reply = "Let him, I do, and I sweep. But somebody has to count what he's broken before it breaks someone.", fx = { align = { order = -1 } } },
+        { text = "Careful work saves lives. You're right to keep count.", next = "BACK", reply = "Someone agrees with me at last! Don't tell Rogvar, or he'll sulk in the fumes for a week.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -296,8 +296,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Because the thread came across the sea, down the coast, through the jungle and up the swamp road, and every one of those legs had a toll on it. I could sell cheaper, I suppose, if I didn't want to eat." } },
       choices = {
-        { text = "A merchant has a right to his margin. Charge what you must.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "The Horde's soldiers shouldn't pay a merchant's margin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A merchant has a right to his margin. Charge what you must.", next = "BACK", reply = "Thank you. You'd be amazed how many grunts think thread grows on trees in the swamp.", fx = { align = { honor = -1 } } },
+        { text = "The Horde's soldiers shouldn't pay a merchant's margin.", next = "BACK", reply = "They shouldn't, and I'd lower it if the tolls came down. Take it up with the trolls on the coast, not me.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -379,8 +379,8 @@ P:NPC {
       big = true,
       lines = { { id = "or_default", text = "From the caravans, mostly, though there's iron in the hills to the south, under Dreadmaul ground. The Commander won't send miners there, and I don't blame him, though it galls me to buy ore from goblins when there's ore a day's walk away." } },
       choices = {
-        { text = "Send the miners in with guards. Take what's yours.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Commander's right to keep them safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Send the miners in with guards. Take what's yours.", next = "BACK", reply = "With guards, aye, and that's what I keep telling the Commander. He keeps saying no, and I keep running short.", fx = { align = { order = -1 } } },
+        { text = "The Commander's right to keep them safe.", next = "BACK", reply = "Safe and poor, aye, and that's Stonard. I'll keep working with what the caravans bring.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

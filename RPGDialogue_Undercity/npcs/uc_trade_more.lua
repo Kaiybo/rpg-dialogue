@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "ba_default", text = "They eat, they sleep upside down, and the rest is not fit for polite company, all day and all night, and I have to sweep up after the lot of them. A Garrett was made for better things, and I'll have them yet." } },
       choices = {
-        { text = "Honest work is nothing to be ashamed of.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You deserve better. Reach for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Honest work is nothing to be ashamed of.", next = "BACK", reply = "It isn't, I suppose, but it's beneath a Garrett all the same. Tell the bats that, if you see them.", fx = { align = { order = 1 } } },
+        { text = "You deserve better. Reach for it.", next = "BACK", reply = "I shall, and I'll remember you said so when I'm out of this tower. Every Garrett deserves better than guano.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -157,8 +157,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Grief is for the living, who can still be hurt by what they've lost. Revenge is simpler, because it only needs to know who did it, and I know exactly who did it." } },
       choices = {
-        { text = "Then he should pay for what he did.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Revenge won't give you anything back. Let it go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then he should pay for what he did.", next = "BACK", reply = "He will, and I'll be the one to serve it to him. Cold, as revenge should be.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Revenge won't give you anything back. Let it go.", next = "BACK", reply = "Nothing gives anything back, friend, not to the dead. Revenge at least gives me something to do.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

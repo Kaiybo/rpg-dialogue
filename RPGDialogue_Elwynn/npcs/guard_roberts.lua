@@ -79,8 +79,8 @@ P:NPC {
       lines = { { id = "ht_default", text = "If I tell Marshal Dughan it was the Defias, he sends men to look for them. If I tell him I fell in the lake, the barracks never let me forget it. What would you tell him?" },
       },
       choices = {
-        { text = "The truth. Don't send men chasing ghosts.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Say it was the Defias. Pride's worth a small lie.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The truth. Don't send men chasing ghosts.", next = "BACK", reply = "The truth, then, and I'll take the barracks' jokes on the chin. Better they laugh at me than some poor lads go tramping round the hills after bandits who were never there.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Say it was the Defias. Pride's worth a small lie.", next = "BACK", reply = "That's what I was hoping you'd say, and I'll thank you not to tell Dughan otherwise. A man's got to keep some dignity when he's been beaten by a lake.", fx = { align = { honor = -1 } } },
         { text = "I'd rather not get involved.", next = "BACK" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
         { id = "he_shaman", when = { class = "SHAMAN" }, text = "Spirits, is it? I've never been healed by a spirit. Well, go on, I'm too sore to be particular." },
       },
       choices = {
-        { text = "The Light asks nothing of you. Just breathe.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "It'll hurt. Pain means you're still alive.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "The Light asks nothing of you. Just breathe.", next = "BACK", reply = "Breathing I can manage, mostly, though the ribs have opinions about it. Go on, then, and I'll try not to flinch where you can see.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "It'll hurt. Pain means you're still alive.", next = "BACK", reply = "Then I must be very much alive right now, thank you kindly. Get on with it before I lose my nerve and my breakfast both.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Maybe later.", next = "BACK" },
       },
     },

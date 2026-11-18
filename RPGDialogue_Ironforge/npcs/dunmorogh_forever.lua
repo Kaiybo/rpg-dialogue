@@ -124,8 +124,8 @@ P:NPC {
         { id = "sw_default", text = "The troggs, the cold, the folk in Ironforge who sigh when they see another gnome comin' up the road. Everybody, I suppose, an' a gnome who's lost everythin' is entitled tae want tae show everybody." },
       },
       choices = {
-        { text = "A weapon won't give him back his home.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Good. Let him make the troggs pay.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A weapon won't give him back his home.", next = "BACK", reply = "No, it willnae, an' I've told him so, but it gives him a reason tae get out o' bed in the mornin', an' that's a start for a lad who's lost everythin'.", fx = { align = { honor = 1 } } },
+        { text = "Good. Let him make the troggs pay.", next = "BACK", reply = "That's what he says, near enough, an' I'll no' stop him, but I'd like tae see him build somethin' that isnae meant tae kill, one o' these days.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -278,8 +278,8 @@ P:NPC {
         { id = "gf_default", text = "Every gnome who ran out of Gnomeregan with nothing in their hands. Next time something comes up out of the dark at us, I'd like us to have something in our pockets besides spanners." },
       },
       choices = {
-        { text = "Next time, you'll be ready.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Guns won't keep your people safe. Each other will.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Next time, you'll be ready.", next = "BACK", reply = "You think so, really, because I've drawn the barrel seven times and I think the eighth will finally fire without catching my eyebrows alight.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Guns won't keep your people safe. Each other will.", next = "BACK", reply = "That's what Grund says, and I believe him, I do, but I'd still feel a great deal safer with each other and a very loud gun in my pocket.", fx = { align = { light = 1 } } },
       },
     },
 
@@ -392,8 +392,8 @@ P:NPC {
         { id = "dk_default", text = "Cousins, aye, but they ain't family, an' that's the truth of it. Thaurissan's folk threw their lot in wi' fire an' worse, an' I shed no tears for those that stray too far from that accursed mountain o' theirs." },
       },
       choices = {
-        { text = "Cousins can still come home, Earthseer.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose fire. Let them burn in it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Cousins can still come home, Earthseer.", next = "BACK", reply = "Ye've a gentle heart, an' I'll no' laugh at it, but I've watched Dark Irons burn too many villages tae leave the door open for them.", fx = { align = { light = 1 } } },
+        { text = "They chose fire. Let them burn in it.", next = "BACK", reply = "Aye, an' I'll no' weep when they do, though I'll say a word tae the winds for the bairns among them who never got tae choose.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -422,8 +422,8 @@ P:NPC {
         { id = "wc_default", text = "Better than we did, which isnae sayin' much. We left for the Hinterlands after the war an' we liked the sky better than the stone, an' some in Ironforge never forgave us for it." },
       },
       choices = {
-        { text = "The clans should stand together. Old wars are over.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every clan should go its own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The clans should stand together. Old wars are over.", next = "BACK", reply = "That's what the King says, an' he means it, an' I'll drink to it at his table, but there's grudges in that city older than me granddad.", fx = { align = { order = 1 } } },
+        { text = "Every clan should go its own way.", next = "BACK", reply = "Spoken like a Wildhammer, an' maybe ye've a bit o' the sky in ye after all, because it's the stone-bound lot who cannae bear to let us go.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -488,8 +488,8 @@ P:NPC {
         { id = "xs_default", text = "Sit wi' me an' put yer hand flat on the rock. Feel that, the wee trembling? That's diggin', far below, an' the earth doesnae like bein' dug at by folk who hate it." },
       },
       choices = {
-        { text = "The earth will help us drive them out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The earth can complain. I'll do the fighting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The earth will help us drive them out.", next = "BACK", reply = "Aye, it will, if ye ask it right, an' it's angry enough tae listen, so we'll go down there together an' let the stone do some o' the shoutin'.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The earth can complain. I'll do the fighting.", next = "BACK", reply = "Ha, ye sound like a Bronzebeard, but the earth doesnae take kindly tae bein' ignored, so dinnae be surprised if it shakes under yer boots.", fx = { align = { light = -1 } } },
       },
     },
     xwild = {

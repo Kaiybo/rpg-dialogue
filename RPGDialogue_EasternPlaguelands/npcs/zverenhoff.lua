@@ -38,8 +38,8 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "I do, and I'm sorry for it. I lost a brother and two cousins in Stratholme, and the last time I saw them they were walking, so when one of your people walks into the chapel, my heart sees them before my head can argue." } },
       choices = {
-        { text = "I'm not your brother, and I'm not the Lich King's.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some Forsaken would deserve that look. Keep it handy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm not your brother, and I'm not the Lich King's.", next = "BACK", reply = "No, you're not, and I'll remind myself of that each time you walk in. Forgive an old man his eyes.", fx = { align = { honor = 1 } } },
+        { text = "Some Forsaken would deserve that look. Keep it handy.", next = "BACK", reply = "Some would, and I'll keep it, but I'll try to aim it more carefully. Thank you for your honesty.", fx = { align = { honor = -1 } } },
         { text = "Your head will win the argument. Give it time.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "Have you looked for them among the Forsaken?", next = "prej_why" },
         { text = "Something else, Duke.", next = "BACK" },
@@ -48,8 +48,8 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "Once, in the Undercity, with a translator and a borrowed tabard. I found no one I knew, and I was glad and sorry at once, which is a thing I hadn't known a man could be." } },
       choices = {
-        { text = "Maybe they found rest. That's a mercy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Maybe they're still out there, in the Plaguelands.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe they found rest. That's a mercy.", next = "BACK", reply = "I hope so, truly. A mercy would be more than Stratholme ever gave them.", fx = { align = { light = 1 } } },
+        { text = "Maybe they're still out there, in the Plaguelands.", next = "BACK", reply = "Perhaps they are, and that's what keeps me up at night. If you find them, give them rest.", fx = { align = { light = -1 } } },
         { text = "Something else, Duke.", next = "BACK" },
       },
     },
@@ -150,8 +150,8 @@ P:NPC {
       big = true,
       lines = { { id = "cf_default", text = "They do, and bravely; I'll give them that much. But a sword that cuts the Scourge and the farmer behind it is not a weapon I'd want in the Dawn's hands, however sharp it is." } },
       choices = {
-        { text = "Then the Crusade has to be stopped too.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "We need every sword. Work with them where we can.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then the Crusade has to be stopped too.", next = "BACK", reply = "Stopped, or turned, if any of them can still be turned. I'd rather the second, but I'll accept the first.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "We need every sword. Work with them where we can.", next = "BACK", reply = "Where we can, aye, and carefully, with one hand on the hilt. I'll not trust them further than that.", fx = { align = { order = 1 } } },
         { text = "Can the Crusade be brought back to its senses?", next = "op_scarlet_crusade" },
         { text = "Something else.", next = "BACK" },
       },
@@ -184,8 +184,8 @@ P:NPC {
       big = true,
       lines = { { id = "bb_default", text = "Some will, and those are the ones worth saving, if the Crusade's ranks break. The rest will call it a lie of the Dawn's and burn the messenger. Should we reach out to the ones who doubt, do you think, or simply let the Crusade rot?" } },
       choices = {
-        { text = "Reach out. Frightened men can still be redeemed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let it rot. They chose their masters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Reach out. Frightened men can still be redeemed.", next = "BACK", reply = "Then we'll reach out, and some will take our hand. The rest we'll grieve for later.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let it rot. They chose their masters.", next = "BACK", reply = "Some did, and some were led there blind. I'd rather we found out which before we let it rot.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -223,8 +223,8 @@ P:NPC {
       big = true,
       lines = { { id = "hy_default", text = "I've read your histories, which few of my peers ever bothered to do, and I find the Horde no more alarming than Lordaeron's own nobility. Tell me plainly, though: do you trust us?" } },
       choices = {
-        { text = "I trust anyone who bleeds against the Scourge.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "No. I'll use the Dawn while it serves my people.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I trust anyone who bleeds against the Scourge.", next = "BACK", reply = "A fair answer, and the Dawn's own creed. Welcome, then.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "No. I'll use the Dawn while it serves my people.", next = "BACK", reply = "Honest, at least, and that's worth something. Serve your people, and we'll serve the living with you.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

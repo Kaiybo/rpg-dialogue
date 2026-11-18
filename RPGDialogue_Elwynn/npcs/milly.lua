@@ -31,8 +31,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They've taken weeks of bread's worth, because every grape they take is bread we don't eat. Your spirits would be welcome to help us take it back." } },
       choices = {
-        { text = "I'll help take back your vineyard, Milly. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The vineyard's lost. Plant somewhere else.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll help take back your vineyard, Milly. That's a promise.", next = "BACK", reply = "I'll hold you to that, and I'll have a basket waiting when you do. Bless you.", fx = { align = { honor = 1 } } },
+        { text = "The vineyard's lost. Plant somewhere else.", next = "BACK", reply = "Plant somewhere else? These vines are older than I am, and the soil's in my bones. I'll not be leaving.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -40,8 +40,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "You could, if you can tell a grape from a bandit when they're all in the same row. The Defias have my crates in their camp, and I want each crate back, so freeze the thieves and leave the fruit alone." } },
       choices = {
-        { text = "I'll bring back every crate, Milly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll clear the bandits first. The grapes come second.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring back every crate, Milly.", next = "BACK", reply = "Every one, and I'll count them twice when you do. Thank you, truly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll clear the bandits first. The grapes come second.", next = "BACK", reply = "Clear them however you like, so long as the crates come back in one piece. I've a winter to feed.", fx = { align = { honor = -1 } } },
         { text = "Something else, Milly.", next = "BACK" },
       },
     },
@@ -49,8 +49,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They trampled the north rows and cut whole branches for kindling, the brutes, because they couldn't be bothered to find dead wood. Vines that old take years to come back, and I'll be counting every lost branch." } },
       choices = {
-        { text = "Then they'll answer for every vine, by the Marshal's law.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then I'll drive them out myself, and the Marshal can wait.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Then they'll answer for every vine, by the Marshal's law.", next = "BACK", reply = "They should, though the Marshal's got his hands full. I'll be glad of any justice going.", fx = { align = { order = 1 } } },
+        { text = "Then I'll drive them out myself, and the Marshal can wait.", next = "BACK", reply = "I'll not stop you, and I'll not tell the Marshal either. Just mind the north rows, they've suffered enough.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -58,8 +58,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many to count from the fence, and they've set a camp right on my grapes. They're not soldiers, but they've knives and they don't fight fair, so watch the ones you can't see." } },
       choices = {
-        { text = "I'll take my harvest back, row by row.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll burn their camp out, grapes and all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take my harvest back, row by row.", next = "BACK", reply = "That's the spirit, and I'll be behind you with a basket. Watch the ones in the shadows.", fx = { align = { honor = 1 } } },
+        { text = "I'll burn their camp out, grapes and all.", next = "BACK", reply = "Burn my grapes? You'll do no such thing, not after all the work they took. Find another way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -70,8 +70,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Through the north rows, where the vines are thickest, because they watch the road and not the grapes. Bring your {pet} too, and if it barks, they'll think it's a stray and won't look twice." },
       },
       choices = {
-        { text = "I'll go quietly and take back only your crates.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll go quietly and leave nobody standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll go quietly and take back only your crates.", next = "BACK", reply = "Thank you, and keep low in the north rows. They never look at the vines.", fx = { align = { honor = 1 } } },
+        { text = "I'll go quietly and leave nobody standing.", next = "BACK", reply = "I'll not ask what you mean by that. Just bring my crates back.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A rogue could slip into their camp and take back what's mine without the whole vineyard catching fire, which is more than the guards can promise. I don't care how it's done, so long as my grapes come home." } },
       choices = {
-        { text = "I'll bring back your grapes, Milly, and take nothing else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll bring back your grapes and whatever else they have.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring back your grapes, Milly, and take nothing else.", next = "BACK", reply = "That's all I ask, and you'll have my thanks and a basket of the best. Go quietly.", fx = { align = { honor = 1 } } },
+        { text = "I'll bring back your grapes and whatever else they have.", next = "BACK", reply = "Whatever else they have came from some other poor soul, I'd wager. Bring it to the Marshal, at least.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -88,8 +88,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." } },
       choices = {
-        { text = "Trust carefully, Milly. I'll earn yours fairly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Desperate folk can't be choosy. Take whatever help comes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Trust carefully, Milly. I'll earn yours fairly.", next = "BACK", reply = "I'll hold you to that, and I'll count my fingers anyway. It's nothing personal.", fx = { align = { light = 1 } } },
+        { text = "Desperate folk can't be choosy. Take whatever help comes.", next = "BACK", reply = "That's what I told myself, and here you are. Bring my grapes home and I'll not ask questions.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -208,8 +208,8 @@ P:NPC {
     bless = {
       lines = { { id = "b_default", text = "Ask it to watch the pickers, not the vines. Vines are tougher than we are." } },
       choices = {
-        { text = "The pickers, then.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "I'll leave the praying to the Abbey, Milly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The pickers, then.", next = "BACK", reply = "Bless you, and I'll tell them you said so. They'll pick faster for it.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll leave the praying to the Abbey, Milly.", next = "BACK", reply = "That's fair, I suppose, and the Brothers do enough of it. I'll say a word myself tonight.", fx = { align = { light = -1 } } },
         { text = "Tougher how?", next = "bless_root" },
       },
     },

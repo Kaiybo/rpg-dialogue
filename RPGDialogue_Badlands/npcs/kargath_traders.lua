@@ -66,8 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "wad_default", text = "Then the beasts go first, back to Orgrimmar, because I won't watch them die of thirst for the sake of a flag. The Warlord might keep the grunts here, but he'll be keeping them without wolves." } },
       choices = {
-        { text = "The beasts come first. You're right, Greth.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The outpost comes first. The beasts can suffer with us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The beasts come first. You're right, Greth.", next = "BACK", reply = "At least someone sees sense. The Warlord will curse me for it, but a dead wolf carries no grunt to Orgrimmar.", fx = { align = { light = 1 } } },
+        { text = "The outpost comes first. The beasts can suffer with us.", next = "BACK", reply = "Then you can carry the packs yourself when the beasts drop, outsider. I'll not watch them die for a flag.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,8 +173,8 @@ P:NPC {
       big = true,
       lines = { { id = "ha_default", text = "Because haggling's a game, and I've no time for games in a place where people die if they're slow. I set a fair price, and if you don't like it, there's no other merchant for a day in any direction." } },
       choices = {
-        { text = "A fair price for everyone. That's honest trade.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "No other merchant? Then you could charge double.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A fair price for everyone. That's honest trade.", next = "BACK", reply = "It is, and you'd be surprised how few people see it that way. Buy what you need and keep your coin for the road.", fx = { align = { honor = 1 } } },
+        { text = "No other merchant? Then you could charge double.", next = "BACK", reply = "I could, and then nobody would trust my prices again. A fair price is how I stay in business when the road gets dangerous.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

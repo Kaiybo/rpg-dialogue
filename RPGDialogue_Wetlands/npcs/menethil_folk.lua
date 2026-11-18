@@ -94,8 +94,8 @@ P:NPC {
       choices = {
         { text = "You sold out your king for silver.", next = "confess_king" },
         { text = "Who else was in on it?", next = "confess_who" },
-        { text = "You told the truth in the end. That counts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You'll hang for this, Slim, and you've earned it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You told the truth in the end. That counts.", next = "BACK", reply = "Does it? I'd like to think so, friend, but I don't sleep any better for it. Every ship that leaves this harbour looks like his ship to me now.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You'll hang for this, Slim, and you've earned it.", next = "BACK", reply = "Maybe I will, and maybe I have. But if they hang me, they hang the only man who can tell them who paid, so think on that before you call the guard.", fx = { align = { light = -1 } } },
       },
     },
     confess_king = {
@@ -141,8 +141,8 @@ P:NPC {
       big = true,
       lines = { { id = "tr_default", text = "Small jobs, friend, carrying a letter, losing a crate, finding a berth for somebody who'd rather not be asked his name. Never anything that ends up in Stormwind's ears, or so I thought." } },
       choices = {
-        { text = "Even a rogue needs lines he won't cross.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every job's just a job. Your mistake was getting caught.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Even a rogue needs lines he won't cross.", next = "BACK", reply = "I had them, friend, I swear I did, and I'd have sworn I'd never cross them. Turns out a line's hard to see when somebody's waving a fat purse in front of it.", fx = { align = { honor = 1 } } },
+        { text = "Every job's just a job. Your mistake was getting caught.", next = "BACK", reply = "That's a cold way to see it, though I'll admit I thought the same a month ago. Getting caught isn't what keeps me up at night, though.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,8 +216,8 @@ P:NPC {
       big = true,
       lines = { { id = "pm_default", text = "Some days, but nobody ever thanked me for a better gear. They thank me for the bandage, every time, even the ones who can't say it out loud yet." } },
       choices = {
-        { text = "Then healing was your real gift all along.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Don't give up on the gears. Gnomes need inventors.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then healing was your real gift all along.", next = "BACK", reply = "That's very kind, and my old instructors in Gnomeregan would be furious to hear it! Still, I'll take a living patient over a working prototype any day of the week.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't give up on the gears. Gnomes need inventors.", next = "BACK", reply = "Oh, I haven't, not entirely! There's a self-rolling bandage dispenser sketched in my notebook, and it only catches fire about thirty percent of the time.", fx = { align = { order = -1 } } },
       },
     },
     wounds = {
@@ -295,8 +295,8 @@ P:NPC {
       big = true,
       lines = { { id = "wd_default", text = "Loudly, and kindly, and with barrels of ale I do not drink. They dig the earth open for metal and wonder why I wince, but they have never once told me to leave." } },
       choices = {
-        { text = "The earth gives freely. Digging is no crime.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right to wince. They take too much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The earth gives freely. Digging is no crime.", next = "BACK", reply = "Perhaps not, to a people who have lived a few centuries. When you have watched a mountain bleed for ten thousand years, young one, you learn to wince.", fx = { align = { order = 1 } } },
+        { text = "You're right to wince. They take too much.", next = "BACK", reply = "They do, and yet they would share their last loaf with me without a second thought. Elune asks me to see both, and I try, though it is not always easy.", fx = { align = { order = -1 } } },
       },
     },
     herbs = {
@@ -366,8 +366,8 @@ P:NPC {
       big = true,
       lines = { { id = "ds_default", text = "Because the harbor needs a stable, an' nobody else wanted it. Somebody has tae do the work that nobody thanks ye for, an' I'd rather it was someone who knows what she's doin'." } },
       choices = {
-        { text = "Somebody has to. Good on you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Charge more. Nobody else will do it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Somebody has to. Good on you.", next = "BACK", reply = "Thank ye kindly, that's more than most say on their way past. Now mind that ram's back end, for he kicks harder than he looks.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Charge more. Nobody else will do it.", next = "BACK", reply = "Ha! An' have the guard ridin' mules tae save a copper? Nae, I'll charge what's fair an' sleep easy, an' ye can keep yer clever advice.", fx = { align = { honor = -1 } } },
       },
     },
     trouble = {
@@ -444,8 +444,8 @@ P:NPC {
       big = true,
       lines = { { id = "ww_default", text = "Drowned sailors, they say, still walking the hulls. I've hooked a boot or two out there and thrown them straight back, because whoever owned them might want them." } },
       choices = {
-        { text = "Let the dead rest. Fish elsewhere.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The dead don't need the fish. Cast away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let the dead rest. Fish elsewhere.", next = "BACK", reply = "That's my thinking most days, and the fish are kinder closer in anyhow. It's only when the catch is thin that I start eyeing those wrecks again.", fx = { align = { light = 1 } } },
+        { text = "The dead don't need the fish. Cast away.", next = "BACK", reply = "You say that, but you've not felt a line go tight and wondered what's on the other end. You go and fish the wrecks, friend, and tell me how it goes.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -508,8 +508,8 @@ P:NPC {
       big = true,
       lines = { { id = "bu_default", text = "The harbor guard, the Mountaineers passin' through tae Dun Algaz, an' fools headed tae Grim Batol wi' more courage than sense. I sell tae all of them, an' I worry about the last lot." } },
       choices = {
-        { text = "Sell them your best. Courage deserves good mail.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fools pay full price. Sell them whatever's on the rack.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Sell them your best. Courage deserves good mail.", next = "BACK", reply = "Aye, that's how I see it too, an' I'll fit it maself so the straps dinnae fail. If they're goin' tae Grim Batol, they'll need every link.", fx = { align = { honor = 1 } } },
+        { text = "Fools pay full price. Sell them whatever's on the rack.", next = "BACK", reply = "That's a merchant's answer, an' a cold one. I'll no' send a dwarf intae Grim Batol in shoddy mail just tae make a quick coin.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grim_batol" } } },
       },
     },

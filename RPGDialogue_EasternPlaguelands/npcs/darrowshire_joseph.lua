@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "ps_default", text = "For as long as the Light lets me, and then I'll take her wherever we go next, by the hand, so she's not frightened. Do you think that's selfish, keeping her here a little longer when she ought to be at rest?" } },
       choices = {
-        { text = "Stay with her. She's waited long enough for her father.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Let her go on. Holding her here is for your sake, not hers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Stay with her. She's waited long enough for her father.", next = "BACK", reply = "Thank you, friend. I'll hold her hand a little longer, and we'll go together when it's time.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Let her go on. Holding her here is for your sake, not hers.", next = "BACK", reply = "You may be right, and it's a hard thing to hear. I'll think on it, while she sleeps.", fx = { align = { light = -1 } } },
         { text = "That's not for me to say, Joseph.", next = "BACK" },
       },
     },
@@ -102,9 +102,9 @@ P:NPC {
       big = true,
       lines = { { id = "br_default", text = "Pieces, like a fever dream, and I'd give them all back if I could. The Scourge didn't care who I'd been, only what I could do for it, and it used me hard. Tell me true, friend: is a man to blame for what his body does when he's gone?" } },
       choices = {
-        { text = "No. The Scourge did those things, not you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Blame or not, you carry it. That's what honor asks.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "It's done, Joseph. Weighing it changes nothing now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "No. The Scourge did those things, not you.", next = "BACK", reply = "Thank you. I've wanted someone to say that for a very long time.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Blame or not, you carry it. That's what honor asks.", next = "BACK", reply = "It is, and I'll carry it, as long as I have arms to carry anything. That's fair.", fx = { align = { honor = 1 } } },
+        { text = "It's done, Joseph. Weighing it changes nothing now.", next = "BACK", reply = "No, it doesn't, and I suppose I knew that. Thank you for saying it plainly.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -159,8 +159,8 @@ P:NPC {
       big = true,
       lines = { { id = "tr_default", text = "Not by me, and not soon, but I'd like to think the land remembers how to grow. What do you think, friend? Should someone come back here one day and plant, or should it be left to the dead?" } },
       choices = {
-        { text = "Someone should plant here again. The living reclaim what was theirs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Leave it be. Some places should stay as they fell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Someone should plant here again. The living reclaim what was theirs.", next = "BACK", reply = "I'd like that, very much. Plant something green in the square, if you ever can.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave it be. Some places should stay as they fell.", next = "BACK", reply = "Perhaps you're right, and it would make a fine grave for those who fell. Let it stay, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

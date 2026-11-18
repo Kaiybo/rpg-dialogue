@@ -93,8 +93,8 @@ P:NPC {
       lines = { { id = "gb_default", text = "Everyone asks that, and Ozzie won't hear a word against the High Tinker. I say the plan was sound and the radiation simply got away from us, but I've been wrong about bigger things than that." },
       },
       choices = {
-        { text = "Mekkatorque did what he had to. Stand by him.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Someone should answer for it, High Tinker or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Mekkatorque did what he had to. Stand by him.", next = "BACK", reply = "Oh, I do stand by him, completely, at least ninety-four percent of the time, and the other six percent I keep to myself, which I think is very loyal.", fx = { align = { order = 1 } } },
+        { text = "Someone should answer for it, High Tinker or not.", next = "BACK", reply = "Maybe someone should, but I don't think it should be him alone, and if we started handing out blame for Gnomeregan, I'm not sure any of us would come out clean.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
       lines = { { id = "sv_default", text = "I have to think so, or I'd stop working, and if I stop working I'll start remembering. So yes, they can be saved, and we'll be the ones to do it." },
       },
       choices = {
-        { text = "Then we'll save them together.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Some of them may be past saving. Be ready for that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then we'll save them together.", next = "BACK", reply = "Together, yes, that's exactly the right word, and I'll put your name on the schematic right beside mine, because a cure always works better with two signatures.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Some of them may be past saving. Be ready for that.", next = "BACK", reply = "I know, I know, and I've done the sums, but if I let myself believe it I'd put down my tools, and then where would any of us be?", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

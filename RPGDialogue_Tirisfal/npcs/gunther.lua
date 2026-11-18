@@ -109,8 +109,8 @@ P:NPC {
       big = true,
       lines = { { id = "ac_default", text = "A city of free dead, under a queen who was a ranger. Bethor writes of it as though it were perfectly ordinary, and I'm still trying to decide whether it's the best news I've ever heard or the most frightening." } },
       choices = {
-        { text = "It's both. Come and see it for yourself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stay on your island. Queens make poor masters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It's both. Come and see it for yourself.", next = "BACK", reply = "Perhaps I shall, once I'm certain Bethor's letters aren't the cheerful ravings of a man who's been dead too long. Even so, you make it sound almost like an invitation, and I've not had one of those in years.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stay on your island. Queens make poor masters.", next = "BACK", reply = "That's exactly the sort of thing I tell myself at night, and it sounds wiser coming from you than it does from me. All the same, an island makes a lonely kingdom.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,8 +133,8 @@ P:NPC {
       big = true,
       lines = { { id = "tf_default", text = "I'd like to say yes, and I'd like to mean it. But I remember him laughing at Bethor's terrible jokes, and I don't know what I'd do with a memory like that in the middle of a duel." } },
       choices = {
-        { text = "Then let someone else do it. Old friends shouldn't.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He chose the Scourge. Remember that, not the jokes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let someone else do it. Old friends shouldn't.", next = "BACK", reply = "That's kind, and I suspect it's sensible, but I'd never forgive myself for leaving it to a stranger. If anyone puts him down, it ought to be someone who remembers him laughing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He chose the Scourge. Remember that, not the jokes.", next = "BACK", reply = "I'll try, but you're asking a mage to forget something, and we're dreadful at it. Still, you're right that the man who laughed isn't the one in that tower anymore.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_lbrs_default", text = "Bleeding isn't beaten, and they've more warriors in that mountain than Lakeshire has people, so I'll keep my guard on the bridge all the same. Still, every orc who dies at home is one who never comes down the Burning Steppes road, and that's a thing I can put in my report." } },
       choices = {
-        { text = "Hold the line here, Marshal. Lakeshire comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Stop guarding bridges. Take the fight back to the mountain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold the line here, Marshal. Lakeshire comes first.", next = "BACK", reply = "That's my thinking, and I'm glad to hear it from someone outside my office. The bridge holds, and so does Lakeshire.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop guarding bridges. Take the fight back to the mountain.", next = "BACK", reply = "With what, the cook and the stable girl? Bring me two hundred soldiers and I'll take the fight to the mountain gladly.", fx = { align = { order = -1 } } },
         { text = "Who commands the orcs inside the Spire?", next = "xcl_lbrs2" },
       },
     },
@@ -84,40 +84,40 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "If I had the men, yes, so give me numbers, shaman. Your spirits won't win this alone, but they might help." } },
       choices = {
-        { text = "Then count me among your numbers, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Numbers don't win. Courage does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then count me among your numbers, Marshal.", next = "BACK", reply = "Then you're one more than I had this morning. Report to the barracks, and I'll find a place for you.", fx = { align = { order = 1 } } },
+        { text = "Numbers don't win. Courage does.", next = "BACK", reply = "Courage gets men killed, shaman, and I've buried plenty of brave ones. Numbers keep the rest of us alive.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "Then do it, and bring me numbers, not stories, because numbers are what I'm short of. How many orcs, how many shadowcasters and where Gath'Ilzogg sleeps, and I'll do the rest with the soldiers I've got." } },
       choices = {
-        { text = "And if I can reach Gath'Ilzogg, I'll finish him.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Numbers only, Marshal. I'll report straight back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "And if I can reach Gath'Ilzogg, I'll finish him.", next = "BACK", reply = "If you can, then I'll not stop you, though I'd rather have the numbers first. Don't die making a point.", fx = { align = { honor = -1 } } },
+        { text = "Numbers only, Marshal. I'll report straight back.", next = "BACK", reply = "Good, that's exactly what I need from you. A clear count is worth ten heroes to me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What happened at Stonewatch?", next = "stonewatch" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "One mage can hold a bridge, true enough, until the mana runs dry and the orcs don't. I want you where the Blackrock least expect you, which is wherever I tell you to be." } },
       choices = {
-        { text = "Put me where you need me, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll hold wherever I think best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Put me where you need me, Marshal.", next = "BACK", reply = "Then you'll be worth your weight in iron, mage. I'll have orders for you by morning.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hold wherever I think best.", next = "BACK", reply = "Then you'll be holding it alone, and I'll not send anyone to pull you out. Think on that before you go wandering.", fx = { align = { order = -1 } } },
         { text = "Where should I start?", next = "start" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "No, they won't, and I'll admit I'm glad of it, though I'd not say so in front of the Magistrate. Keep your creature out of the barracks and keep it pointed east." } },
       choices = {
-        { text = "East it is. Let them taste their own magic.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll call on it sparingly, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "East it is. Let them taste their own magic.", next = "BACK", reply = "East it is, then, and let the Blackrock find out what their shadowcasters have been teaching. I'll be glad to read that report.", fx = { align = { light = -1 } } },
+        { text = "I'll call on it sparingly, Marshal.", next = "BACK", reply = "Sparingly suits me fine, and I'll trust your judgment on it. Keep it out of sight of the Magistrate.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Who leads the orc raiders?", next = "tharil" },
       },
     },
     druid_talk = {
       lines = { { id = "dt_default", text = "Hungry or not, they burn farms and carry off livestock. If there's something pushing them, it'll be the Blackrock orcs, and that only makes it worse. Find out for me, and don't come back with a story about poor misunderstood gnolls." } },
       choices = {
-        { text = "Then I'll find what drives them and end it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then they'll answer for the farms, hungry or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll find what drives them and end it.", next = "BACK", reply = "Good, and don't come back with a sad tale, come back with facts. The farms need it ended.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then they'll answer for the farms, hungry or not.", next = "BACK", reply = "That's the soldier's answer, and it's the one I want. Any gnoll near a farm answers for it, whatever's pushing it.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -125,8 +125,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Their friends, when we can bring them home, and the hills, when we can't. I write to every family myself, and I've stopped counting the letters, because the number started keeping me awake." } },
       choices = {
-        { text = "Then let me go with the next burial detail, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The dead can wait, Marshal. The orcs won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let me go with the next burial detail, Marshal.", next = "BACK", reply = "You'd do that? Then I'll put you down for the next one, and I'll be grateful for the company. The lads deserve better than me alone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead can wait, Marshal. The orcs won't.", next = "BACK", reply = "You're right, though it doesn't make the letters any easier to write. Go east, then, and keep my count down.", fx = { align = { light = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -134,8 +134,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Hold the walls, because I can't take a keep with the men I've got, and every guard I lose on an assault is a gate left open. But the longer we wait, the deeper the Blackrock dig in, so I need people like you to bleed them in the valley first." } },
       choices = {
-        { text = "Then I'll hold the walls, as you command, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Waiting is how keeps fall. I'll strike Stonewatch myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll hold the walls, as you command, Marshal.", next = "BACK", reply = "Good, because every guard on that wall is someone's son. Hold, and we'll bleed them slowly.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting is how keeps fall. I'll strike Stonewatch myself.", next = "BACK", reply = "If you can, I'll not stop you, but I won't send men after you either. Bring me news of Stonewatch, and I'll be in your debt.", fx = { align = { order = -1 } } },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -196,8 +196,8 @@ P:NPC {
         { id = "sw_default", text = "We held the Keep with a platoon, and they came with an army. Good soldiers died on those walls, and the rest of us fell back to the lake." },
       },
       choices = {
-        { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
-        { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we take it back.", next = "BACK", reply = "That's what I tell myself every morning when I look up at those walls, and I mean to see it done. Help me thin the orcs out first, though, because a platoon won't retake what an army holds.", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", reply = "Easy to say for someone who didn't watch it burn. I'll hold the lake, aye, but I'll not let it go.", fx = { align = { honor = -1 } } },
         { text = "You did what you could.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "You must have lost good soldiers there.", next = "stonewatch_lost" },
       },
@@ -209,8 +209,8 @@ P:NPC {
           text = "Keeshan came off the missing list, thanks to you. The rest of that list hasn't moved." },
       },
       choices = {
-        { text = "I'll bring him home.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I won't risk my neck for one missing corporal.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll bring him home.", next = "BACK", reply = "Then you'll have my thanks and the town's, and his mother's most of all. Bring him back alive if you can.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't risk my neck for one missing corporal.", next = "BACK", reply = "That's your right, and I'll not order a stranger into the hills. But someone has to, and I'd hoped it would be you.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,8 +248,8 @@ P:NPC {
     orbs_priest = {
       lines = { { id = "op_default", text = "You'd know better than a soldier. Fine: the Light first, then the hammer. My men won't touch them either way." } },
       choices = {
-        { text = "The Light first. Always.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Smash them first, and the prayers can come after.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light first. Always.", next = "BACK", reply = "Then do it that way, and I'll keep my men well clear. They've no desire to be close to whatever's in those orbs.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Smash them first, and the prayers can come after.", next = "BACK", reply = "A soldier's answer, and I'd usually agree. But if the priests want it the other way, I'll not argue with them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

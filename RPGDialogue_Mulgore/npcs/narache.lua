@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "She would have been curious, and not afraid. She taught that every creature walks the path the Earth Mother gave it, even those whose path was broken. Yours was broken by death, and still you walk it, straighter than some of the living." } },
       choices = {
-        { text = "Then I'll walk it straight, Chief.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My path is my own, Chief, not the Earth Mother's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll walk it straight, Chief.", next = "BACK", reply = "Then my mother would have been glad to meet you. Walk it straight, and Narache will know you for a friend.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My path is my own, Chief, not the Earth Mother's.", next = "BACK", reply = "Perhaps it is, and I will not argue with the dead about their roads. Still, she gave every road its grass, even the ones that wander far from her.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "My people have sung her to the Earth Mother already, but a prayer from a stranger would honour her too, because she always said the Horde would teach us new ways of honouring the dead. Say it standing straight, and she will hear it." } },
       choices = {
-        { text = "I'll say it gladly, Chief, standing straight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your rites are enough. She has no need of mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll say it gladly, Chief, standing straight.", next = "BACK", reply = "Thank you, stranger, and she thanks you too, I think. The Horde has already taught us one new way, and it sounds like yours.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your rites are enough. She has no need of mine.", next = "BACK", reply = "Then I'll not press you, and she'll not miss it. Our songs carried her well enough, though I would have welcomed yours.", fx = { align = { light = -1 } } },
         { text = "Something else, Chief.", next = "BACK" },
       },
     },
@@ -101,8 +101,8 @@ P:NPC {
         { id = "xrogue_default", text = "Then they'll know how my mother felt when they came for her. I want them to suffer, I'll not deny it, but a tauren grieves standing up, so do your work in Brambleblade Ravine and let the camp see you come back with your head high." },
       },
       choices = {
-        { text = "I'll come back with my head high, Chief.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Grief can wait. The quilboar die first, unseen.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll come back with my head high, Chief.", next = "BACK", reply = "Then the camp will see it, and they'll stand a little taller for it. Go, and come back to us whole.", fx = { align = { honor = 1 } } },
+        { text = "Grief can wait. The quilboar die first, unseen.", next = "BACK", reply = "Grief doesn't wait, I've learned, it only hides. Kill them unseen if you must, but come back and stand where my people can see you.", fx = { align = { honor = -1 } } },
         { text = "What was the Greatmother like?", next = "greatmother" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "xmage_default", text = "Nothing would have saved her that night but more spears and better luck. The arcane is a strange power to my people, and I'll not curse it, but I'll not wish it here either, because Narache is a place for the young to learn the old ways first." },
       },
       choices = {
-        { text = "The old ways first. I understand, Chief.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your young would be safer if they learned new ways.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old ways first. I understand, Chief.", next = "BACK", reply = "Thank you, for that is all I ask. When they're grown, they may learn whatever they like, but they start with the earth beneath them.", fx = { align = { order = 1 } } },
+        { text = "Your young would be safer if they learned new ways.", next = "BACK", reply = "Maybe they would, and maybe they'll learn them in time. But a calf learns to walk before it learns to run, and Narache is where they learn to walk.", fx = { align = { order = -1 } } },
         { text = "Will you tell me about the Greatmother?", next = "greatmother" },
       },
     },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "xwarlock_default", text = "I'll trust what you do, not what you carry, because my mother taught me that much before the Bristleback took her. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and if you serve something else, I'll remember that too." },
       },
       choices = {
-        { text = "I serve the Horde, Chief, and I'll show it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I serve my own path. Judge me by my deeds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I serve the Horde, Chief, and I'll show it.", next = "BACK", reply = "Then show it, and I'll be the first to say so at the fire. Deeds are what the dead remember, and the living too.", fx = { align = { order = 1 } } },
+        { text = "I serve my own path. Judge me by my deeds.", next = "BACK", reply = "That is what I said, and I meant it. Walk carefully, though, because a path of your own is a lonely one out here.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,8 +176,8 @@ P:NPC {
       big = true,
       lines = { { id = "wa_default", text = "Are you? The rite doesn't ask how hard you hit; it asks whether you'll keep going when the boars hit back. My mother fell to the Bristleback, and this tribe honors her by standing up again each morning; that is the strength the rite looks for." } },
       choices = {
-        { text = "Then I'll stand as she stood.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I'd rather live to fight again than fall like that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand as she stood.", next = "BACK", reply = "Then she would be proud, and so would I. Go to the ravine, and stand up again each time they knock you down.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'd rather live to fight again than fall like that.", next = "BACK", reply = "Living to fight again is no shame, and she would not want you dead for her sake. But the rite will ask you to stand, and it will not ask twice.", fx = { align = { honor = -1 } } },
       },
     },
     hunter = {
@@ -195,8 +195,8 @@ P:NPC {
     grimtotem = {
       lines = { { id = "gt_default", text = "I know. The braves told me before you'd reached the fire. Your birth isn't your fault, and your choice is to your credit, but the Grimtotem don't forgive those who leave them, so watch your back on the bluffs." } },
       choices = {
-        { text = "My tribe is the Bloodhoof now.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "The Grimtotem aren't all wrong, Chief.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "My tribe is the Bloodhoof now.", next = "BACK", reply = "Then you have chosen well, and the Bloodhoof will stand by you. Still, keep watching your back, because the Grimtotem remember.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The Grimtotem aren't all wrong, Chief.", next = "BACK", reply = "Some of what they say rings true, I'll grant, and that is what makes them dangerous. Listen to their words if you must, but watch their spears more closely.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     xmother = {
@@ -205,8 +205,8 @@ P:NPC {
         { id = "xmo_default", text = "She did, and she never once came home without saying the words over what she'd taken, even in the lean years when the braves were too hungry to wait. Some of the young ones skip the thanks now, because the Bristleback keep them in a hurry, so tell me, do you still say them?" },
       },
       choices = {
-        { text = "Every time. She'd haunt me if I didn't.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "When there's time. A hungry camp can't wait on prayers.", next = "BACK", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Every time. She'd haunt me if I didn't.", next = "BACK", reply = "Ha, she would, and she'd be right to. Keep saying them, and the young ones will learn by watching you.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "When there's time. A hungry camp can't wait on prayers.", next = "BACK", reply = "I understand it, and I have skipped them myself in hard years. But the hunger passes, and the habit of forgetting stays.", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "What would she say about the Bristleback?", next = "xmother_boar" },
       },
     },
@@ -234,8 +234,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "She did, and the elements answered her more readily than they answer most elders on the bluffs. When the Bristleback came, she called on the earth against them, and it was not enough, so learn faster than she was given time to." } },
       choices = {
-        { text = "I'll learn the rites properly, step by step, as she did.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then I'll find my own way to strength, and quicker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn the rites properly, step by step, as she did.", next = "BACK", reply = "Good, then she'd be proud of you, and so would the elders. Step by step is slower, but it doesn't break when the boars come.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll find my own way to strength, and quicker.", next = "BACK", reply = "Quicker is not always stronger, and she learned that too late. Find your way, but don't skip the steps she was never given time to finish.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I would, if you could keep pace. The Bristleback are cunning, and the Light might frighten them out of their dens. My father says I'm too eager, but I'd like to see what you can do against the quilboar." } },
       choices = {
-        { text = "Then let's hunt them together, Grull.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll hunt them myself. You'll slow me down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then let's hunt them together, Grull.", next = "BACK", reply = "Ha, now we're talking! Keep up, though, because I don't wait for anyone once the boars break cover.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hunt them myself. You'll slow me down.", next = "BACK", reply = "My father would say the same thing about me, so I'll not take it to heart. Go, then, and tell me how many you get, and I'll try to beat it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,8 +293,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "If you can keep up! The Bristleback lurk in Brambleblade Ravine, and the plainstriders kick like a falling rock, so a healer at my back would let me run straight at them. My father says a leader should know when to call for help, and I'm learning." } },
       choices = {
-        { text = "I'll keep you standing, Grull. Run as far as you like.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Learn to hunt without a healer, or don't hunt.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep you standing, Grull. Run as far as you like.", next = "BACK", reply = "Then I'll run straight at them and trust you to keep up. My father will scold me, but it'll be worth it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Learn to hunt without a healer, or don't hunt.", next = "BACK", reply = "My father says much the same, and he's usually right. Still, a brave with a healer comes home more often, and I'd like to come home.", fx = { align = { light = -1 } } },
         { text = "Something else, Grull.", next = "BACK" },
       },
     },
@@ -302,8 +302,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "That you face the quilboar of Brambleblade Ravine and come back with your strength proven. My father led the hunts before me, and one day I'll lead this camp, so I watch every warrior who walks up that ravine to see what kind of brave they'll become." } },
       choices = {
-        { text = "I'll face the Rite with honour, Grull.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Rites are old customs. Strength speaks for itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll face the Rite with honour, Grull.", next = "BACK", reply = "Good, that's what the camp needs, and what my father always hoped for. I'll be watching, and I'll be cheering.", fx = { align = { order = 1 } } },
+        { text = "Rites are old customs. Strength speaks for itself.", next = "BACK", reply = "It does, once you've shown it, and the rite is how we see it. Go up the ravine and let it speak, and we'll listen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -313,8 +313,8 @@ P:NPC {
         { id = "xrogue_default", text = "You could, because the plainstriders spook at every tauren hoof and you'd get close enough to count them. Watch the Bristleback camps for me too, because they've been bold since they killed my grandmother, and I want to know where they sleep." },
       },
       choices = {
-        { text = "I'll scout, and let your hunters take the kill fairly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Scouting's a waste. I'd rather cut them down asleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll scout, and let your hunters take the kill fairly.", next = "BACK", reply = "Then my hunters will thank you, and so will I. Bring me their numbers and I'll bring the spears.", fx = { align = { honor = 1 } } },
+        { text = "Scouting's a waste. I'd rather cut them down asleep.", next = "BACK", reply = "That's a quilboar's trick, and I'll not have it in my camp. We fight them in the open, so they know who killed them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -324,8 +324,8 @@ P:NPC {
         { id = "xmage_default", text = "Welcome, but not with fire, because the grass of Red Cloud Mesa burns and so would all of us. Bring your frost and slow the plainstriders for my braves, and you'll eat first at the feast." },
       },
       choices = {
-        { text = "I'll follow your lead on the hunt, Grull.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll hunt my own way, frost or fire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll follow your lead on the hunt, Grull.", next = "BACK", reply = "Good, and I'll lead it straight at the plainstriders. Slow them for me, and you'll eat first, I promise.", fx = { align = { order = 1 } } },
+        { text = "I'll hunt my own way, frost or fire.", next = "BACK", reply = "Then keep your fire off the mesa, or my father will have both our heads. Frost, please, I'm begging you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -335,8 +335,8 @@ P:NPC {
         { id = "xwarlock_default", text = "He doesn't trust anything that might bite the hand that feeds it, and the orcs say demons always do. I'm curious, though, so if you and your demon hunt the Bristleback with my braves, I'll judge you by what you bring home." },
       },
       choices = {
-        { text = "Then I'll hunt beside your braves and honor your father's camp.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your father's trust isn't something I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll hunt beside your braves and honor your father's camp.", next = "BACK", reply = "Then you'll eat with us, and my father will see what kind of hunter you are. I'm curious, as I said, and I'm patient.", fx = { align = { order = 1 } } },
+        { text = "Your father's trust isn't something I need.", next = "BACK", reply = "Maybe not, but you'll find it easier to hunt here with it. I'll judge you myself, then, and he'll listen to me eventually.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -390,16 +390,16 @@ P:NPC {
     lead = {
       lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's wrong, the tribe can tell me so." } },
       choices = {
-        { text = "I believe you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "A wise chief leads from where the spears can't reach.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I believe you.", next = "BACK", reply = "Thank you, I'll try to deserve it. My grandmother would have liked to hear it too.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A wise chief leads from where the spears can't reach.", next = "BACK", reply = "Then he's no chief of mine, and no Hawkwind either. I'll lead from the front, and if I fall, the next will lead from the front too.", fx = { align = { honor = -1 } } },
       },
     },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Both, if you ask me, and nobody ever does. A shaman who sits by the fire knows less about plainstriders than one who's chased them, and the Bristleback won't wait for a blessing before they raid." } },
       choices = {
-        { text = "I'll hunt beside the braves and earn my place there.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the spirits strike from afar. I won't risk my own hide.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt beside the braves and earn my place there.", next = "BACK", reply = "Good, then come chase plainstriders with me, and you'll learn more than any fire could teach. The braves will be glad of you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the spirits strike from afar. I won't risk my own hide.", next = "BACK", reply = "Strike from afar, then, and keep your hide whole, but don't expect a song about it. The braves sing about the ones who run with them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -100,8 +100,8 @@ P:NPC {
         { id = "ds_default", text = "Proud, aye, and a little frightening, for if the titans made us once they might come back to look at their work. Feranor used to say a good smith is proud of a blade but still checks it for flaws, and I'd guess the titans are no different." },
       },
       choices = {
-        { text = "Whatever we were, we chose what we became.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "If we were made for a purpose, we should honour it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Whatever we were, we chose what we became.", next = "BACK", reply = "Aye, that's what Feranor would say too, an' I like it better than the alternative. We're dwarves, whoever made us.", fx = { align = { order = -1 } } },
+        { text = "If we were made for a purpose, we should honour it.", next = "BACK", reply = "Honour it, aye, but how, when nobody knows what the purpose was? I'll keep tae smithin' till someone tells me.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,8 +131,8 @@ P:NPC {
         { id = "fg_default", text = "Grim, aye, but black drakes aren't pets, and the whelps in Lethlor Ravine grow into the sort of thing that burns camps like this one. I'd rather their fire went into an honest blade than into our tents." },
       },
       choices = {
-        { text = "Better their fire in our steel than our homes.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Killing whelps sits poorly with me, whatever they'd become.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better their fire in our steel than our homes.", next = "BACK", reply = "That's how I see it, an' how Feranor would put it too. Black scales make good steel, an' better steel keeps camps safe.", fx = { align = { light = -1 } } },
+        { text = "Killing whelps sits poorly with me, whatever they'd become.", next = "BACK", reply = "It sits poorly wi' me too, if I'm honest. But I've seen what they grow into, an' I'd rather fight them small.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
         { id = "xs_default", text = "A fellow smith! Here's one Feranor gave me: listen to the steel when you quench it, because a good blade hisses and a bad one screams. Too many smiths in Ironforge stopped listening years ago, an' ye can hear it in their blades." },
       },
       choices = {
-        { text = "The old ways are best. I'll listen.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'll find my own way to the forge, thanks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old ways are best. I'll listen.", next = "BACK", reply = "Good, an' Feranor would be proud tae hear it. Listen close the next time ye quench, an' ye'll hear the difference.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll find my own way to the forge, thanks.", next = "BACK", reply = "Suit yerself, but ye'll hear a blade scream someday, an' ye'll remember me. Every smith finds the old ways eventually.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
         { id = "xh_default", text = "Would you? There's buzzards and coyotes about, though the coyotes are mostly bone and the buzzards taste like old boots. Still, after this week I'd eat an old boot and thank ye for it." },
       },
       choices = {
-        { text = "I'll bring you something, no payment needed.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Hunting's work. I'll expect something for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring you something, no payment needed.", next = "BACK", reply = "No payment? Bless ye, then, an' I'll take the boots-flavoured buzzard gladly. I'll owe ye a good edge on yer blade.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Hunting's work. I'll expect something for it.", next = "BACK", reply = "Fair enough, for it's work, an' I'll pay ye what I can. That isnae much, mind, but my sharpenin's free.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

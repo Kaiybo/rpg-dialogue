@@ -30,8 +30,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "No, it was just the two of us an' a lot o' bad luck. A mage would've been handy, though, for the Defias don't care for fire an' they care even less for bein' frozen where they stand, an' I'd have liked tae see that." } },
       choices = {
-        { text = "Next time, take a mage with you, Henze.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Two men alone did more than an army. Keep it that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Next time, take a mage with you, Henze.", next = "BACK", reply = "I'll do that, an' I'll buy the mage a drink after for the trouble. Next time's a long way off, I hope.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Two men alone did more than an army. Keep it that way.", next = "BACK", reply = "Did more, maybe, an' one o' them ended up dead for it, so I'd no' recommend it. Next time I'm bringin' friends.", fx = { align = { order = -1 } } },
         { text = "Something else, Henze.", next = "BACK" },
       },
     },
@@ -39,8 +39,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, I reckon one o' yer beast shapes could've sniffed me out in an hour, an' I'd have been a deal less dead for it. Gazin did his best, but Gazin couldn't smell a fire in a hayloft." } },
       choices = {
-        { text = "A friend who comes for you matters more than any nose.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Gazin should've left you. Two dead men help nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A friend who comes for you matters more than any nose.", next = "BACK", reply = "Aye, that's true, an' I'll no' forget he came. Gazin's a fool, but he's my fool.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Gazin should've left you. Two dead men help nobody.", next = "BACK", reply = "He'd no' have left me, an' I'd no' have left him. That's what friends are, an' I'll hear nae different.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -48,8 +48,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "I went in alone and quiet, which is fine for a rogue an' daft for a dwarf. If I'd had a warrior at my back, makin' noise at the front door, I'd have walked out the back with Gazin an' all." } },
       choices = {
-        { text = "Next time, call for help before you go in.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Alone was brave, Henze. That counts for something.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Next time, call for help before you go in.", next = "BACK", reply = "Aye, I've learned that lesson the hard way. Dead's a terrible teacher, but a memorable one.", fx = { align = { order = 1 } } },
+        { text = "Alone was brave, Henze. That counts for something.", next = "BACK", reply = "Brave an' daft are close cousins, an' I've met them both. Kind of ye tae say so all the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -60,8 +60,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, easily, for I left boot prints like a ram on a snowfield. Is that your {pet}? Grand beast, so keep it close, for the Defias don't play fair with animals either." },
       },
       choices = {
-        { text = "I'd have come for you, Henze, Defias or not.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd have let Gazin sort out his own mess.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd have come for you, Henze, Defias or not.", next = "BACK", reply = "That's kindly said, an' I believe ye. I'll mind my boot prints next time.", fx = { align = { honor = 1 } } },
+        { text = "I'd have let Gazin sort out his own mess.", next = "BACK", reply = "Ha, ye'd have left me lyin' there? Well, I'll no' share my ale wi' ye, then.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Cold, an' boring, an' then suddenly very warm an' very loud, which is how I ended up lyin' here. The Defias have folk watchin' the watchers, so if ye ever do that work, look behind ye more than ye look ahead." } },
       choices = {
-        { text = "I'd serve the king's eyes proudly, Henze.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd never spy for nobles. The work's thankless and deadly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd serve the king's eyes proudly, Henze.", next = "BACK", reply = "Aye, an' they'd be glad o' ye, I'd wager. Just mind what I said about watchin' behind.", fx = { align = { order = 1 } } },
+        { text = "I'd never spy for nobles. The work's thankless and deadly.", next = "BACK", reply = "Thankless an' deadly, aye, an' ye've just described my last job. I'll no' argue.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -78,8 +78,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. If there's somethin' waitin' on the other side wi' horns like yer friend there, I'm glad I didnae stay long enough tae meet it." } },
       choices = {
-        { text = "The dead deserve their peace. I'll not disturb it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Death's just a door. Some of us go through on purpose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dead deserve their peace. I'll not disturb it.", next = "BACK", reply = "Good, because I'd like tae keep mine, now I've seen how quiet it is. Keep yer friend away from it too.", fx = { align = { light = 1 } } },
+        { text = "Death's just a door. Some of us go through on purpose.", next = "BACK", reply = "Aye, it is, but some doors ye go through only once, an' ye'd be wise tae remember it. Mind yerself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,8 +87,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Aye, if Gazin needed me, though my knees say otherwise. The Defias have men in every hollow from here tae Westfall, an' they don't take prisoners; they take what's in yer pockets an' leave ye for the crows." } },
       choices = {
-        { text = "Then I'll go in with you next time, Henze.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Leave the Defias to the army. You've done enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll go in with you next time, Henze.", next = "BACK", reply = "Ye'd do that? Then I'll go, knees an' all, an' we'll see what the Defias make o' a paladin.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the Defias to the army. You've done enough.", next = "BACK", reply = "Aye, maybe, but the army's no' here an' Gazin is. I'll sit tight till he's back on his feet.", fx = { align = { honor = -1 } } },
         { text = "Something else, Henze.", next = "BACK" },
       },
     },
@@ -146,8 +146,8 @@ P:NPC {
       },
       choices = {
         { text = "The priests say the Light waits there.", next = "dead_priest", when = { class = "PRIEST" } },
-        { text = "I'm glad you're back.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That's oddly comforting.", next = "BACK", fx = { align = { light = -1 }, trait = { curious = 1 } } },
+        { text = "I'm glad you're back.", next = "BACK", reply = "So am I, mostly, an' Gazin's even gladder. Pull up a stone.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That's oddly comforting.", next = "BACK", reply = "Aye, I suppose it is, an' I'd no' have said so till I'd been there. Strange, the things ye learn.", fx = { align = { light = -1 }, trait = { curious = 1 } } },
       },
     },
     dead_priest = {
@@ -155,8 +155,8 @@ P:NPC {
         { id = "dp_default", text = "Maybe it does, but I didnae see it, an' maybe I wasnae far enough in. Don't go tellin' the Cathedral I said so." },
       },
       choices = {
-        { text = "Your secret's safe. The Light knows anyway.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Maybe there's nothing waiting there at all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your secret's safe. The Light knows anyway.", next = "BACK", reply = "Thank ye, an' I'll no' tell them ye said that either. We'll keep each other's secrets.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Maybe there's nothing waiting there at all.", next = "BACK", reply = "Maybe there isnae, an' that's no' as frightenin' as it sounds once ye've seen it. I'll take quiet over somethin' worse.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
         { id = "da_default", text = "They read it, I'm told. What happens after it's read is above a dwarf lyin' on a rock. I'd like to think somebody's doin' somethin'." },
       },
       choices = {
-        { text = "Somebody should.", next = "BACK", fx = { learn = { "defias" }, align = { order = -1 } } },
-        { text = "These things take time.", next = "BACK", fx = { learn = { "defias" }, align = { order = 1 } } },
+        { text = "Somebody should.", next = "BACK", reply = "Aye, somebody should, an' I'd go myself if my ribs would let me. Maybe it'll be ye.", fx = { learn = { "defias" }, align = { order = -1 } } },
+        { text = "These things take time.", next = "BACK", reply = "Aye, they do, an' I've plenty o' time now tae wait. Still, I'd no' mind if they took a wee bit less.", fx = { learn = { "defias" }, align = { order = 1 } } },
       },
     },
 
@@ -217,8 +217,8 @@ P:NPC {
         { id = "he_default", text = "Kind of ye. The paladin who raised me did the big work, so yours can do the small, an' my ribs'll thank ye loudly." },
       },
       choices = {
-        { text = "Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Rest will mend your ribs better than my prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hold still.", next = "BACK", reply = "Holdin' still, though my ribs are complainin' about it. Go on, then.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Rest will mend your ribs better than my prayers.", next = "BACK", reply = "Aye, maybe, but rest is slow an' ye're right here. Suit yerself, then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

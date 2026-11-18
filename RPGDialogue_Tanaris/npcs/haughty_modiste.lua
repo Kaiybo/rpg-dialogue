@@ -70,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "Stolen is such an ugly word, sweetie. The pirates stole everything they own, I'm simply returning a little of it to polite society, with a markup for my trouble, a generous one." } },
       choices = {
-        { text = "Fair. Pirates have no claim on anything.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Profiting from the dead is low, even for you.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Fair. Pirates have no claim on anything.", next = "BACK", reply = "Finally, someone with taste and sense both, sweetie, and you'd look divine in that feathered number from the Wavestrider haul.", fx = { align = { honor = -1 } } },
+        { text = "Profiting from the dead is low, even for you.", next = "BACK", reply = "Low? Darling, I prefer the word thrifty, and the dead aren't complaining about their hats, so I don't see why you should.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

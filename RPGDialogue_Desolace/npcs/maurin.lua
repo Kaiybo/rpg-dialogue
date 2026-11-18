@@ -87,8 +87,8 @@ P:NPC {
         { id = "bl2_default", text = "In death, and in the Undercity's libraries afterwards, and that is all you will hear of it. Knowledge does not care where it was found, {class}, only how it is used." },
       },
       choices = {
-        { text = "Some knowledge is too dangerous to keep.", next = "BACK", fx = { align = { light = 1 }, opinion = { necromancy = "dangerous" } } },
-        { text = "Any weapon is worth having against our enemies.", next = "BACK", fx = { align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "Some knowledge is too dangerous to keep.", next = "BACK", reply = "Then you have not been dead long enough to know what is dangerous, and I will leave it at that.", fx = { align = { light = 1 }, opinion = { necromancy = "dangerous" } } },
+        { text = "Any weapon is worth having against our enemies.", next = "BACK", reply = "Precisely, and if more of the living understood that, there would be fewer of us needed to remind them.", fx = { align = { light = -1 }, opinion = { necromancy = "useful" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "gk_default", text = "I dispose of them properly, which is a phrase I chose with care. Do not ask me what properly means, because you would not like the answer, and it would not change your work." },
       },
       choices = {
-        { text = "I don't need to know. The cult dies either way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather know what I'm helping you do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I don't need to know. The cult dies either way.", next = "BACK", reply = "A practical answer, and the only one I would accept, so go and kill them, and leave the rest to me.", fx = { align = { order = 1 } } },
+        { text = "I'd rather know what I'm helping you do.", next = "BACK", reply = "You would not, and I will not tell you, so let us both be satisfied with the cult dying.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

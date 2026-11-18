@@ -83,8 +83,8 @@ P:NPC {
         { id = "eh_default", text = "If Jammal'an were gone, I might stand a chance of returning, and of freeing my people from Hakkar's grip. If not, then I have made my peace with being Atal'ai no longer, though the peace is thin." },
       },
       choices = {
-        { text = "Then let me end Jammal'an. Vengeance is owed.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Go back and reason with them. Blood won't free them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let me end Jammal'an. Vengeance is owed.", next = "BACK", reply = "You would do this for a stranger, for an exile? Then the loa have not forgotten me entirely, and I will pray they guide your blade.", fx = { align = { light = -1 } } },
+        { text = "Go back and reason with them. Blood won't free them.", next = "BACK", reply = "Reason with them? They would feed me to the Soulflayer before I finished my first word. You do not know the Atal'ai.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
         { id = "ha_default", text = "The Soulflayer, the blood god, whom the Atal'ai worshipped long ago until his hunger nearly devoured them. The other tribes drove them out for it, and when they raised a temple in the swamp to call him back, the green dragons drowned it, and still they pray." },
       },
       choices = {
-        { text = "Some gods should stay drowned.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Power is power. Perhaps they'll master him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some gods should stay drowned.", next = "BACK", reply = "Yes, drowned and forgotten, as the other tribes wished. If only my people had listened.", fx = { align = { order = 1 } } },
+        { text = "Power is power. Perhaps they'll master him.", next = "BACK", reply = "Master him? No one masters Hakkar, stranger; he masters you, and then he eats you. Do not wish for it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

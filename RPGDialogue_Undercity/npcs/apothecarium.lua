@@ -60,8 +60,8 @@ P:NPC {
       big = true,
       lines = { { id = "pc_default", text = "For what? There's nobody left of mine to cure. The Society studies sickness from the other end now, and I've made my peace with it, mostly." } },
       choices = {
-        { text = "A healer should still heal, Doctor.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Knowing a sickness is power. Use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A healer should still heal, Doctor.", next = "BACK", reply = "A healer heals, aye, but my patients are all dead now. I'll heal what the Society lets me, and study the rest.", fx = { align = { light = 1 } } },
+        { text = "Knowing a sickness is power. Use it.", next = "BACK", reply = "It is, and the Society knows it better than anyone. Still, I'd rather not think of my old patients that way.", fx = { align = { light = -1 } } },
       },
     },
     society = {
@@ -177,8 +177,8 @@ P:NPC {
     peacebloom = {
       lines = { { id = "pe_default", text = "There's a grate over it that lets in an hour of light at noon, if the clouds are kind. I sing to it, which the apothecaries find very funny, but it's still alive and theirs aren't." } },
       choices = {
-        { text = "Keep singing. It's working.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Plants don't care about songs, Martha.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep singing. It's working.", next = "BACK", reply = "I shall, and I'll sing a little louder now that someone's on my side. It's the only green thing in the Undercity.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Plants don't care about songs, Martha.", next = "BACK", reply = "Perhaps not, but they care about light, and my song lasts longer than the noon hour. Leave me my silly habit.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

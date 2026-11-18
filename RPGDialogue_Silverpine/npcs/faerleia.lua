@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "cf_default", text = "That's the idea. Some of them were good townsfolk once, I don't doubt, but Lady Sylvanas has no use for a village that howls at the Sepulcher's door every night." } },
       choices = {
-        { text = "Then it's a mercy to end it quickly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Mercy doesn't come into it. They chose Arugal.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then it's a mercy to end it quickly.", next = "BACK", reply = "Quickly, yes, and without speeches. The Dark Lady prefers her mercy brief and her villages empty.", fx = { align = { light = 1 } } },
+        { text = "Mercy doesn't come into it. They chose Arugal.", next = "BACK", reply = "They did, every one of them, when they barred their doors to us and opened them to him. I'll waste no tears on Pyrewood.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

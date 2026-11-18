@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "ls_default", text = "No, it shouldn't. There isn't time to send word to Darnassus and wait, but some here say we should, rather than send more brave souls after the first two." } },
       choices = {
-        { text = "Don't wait. Strike the crone now.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Send word to Darnassus first. Do it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Don't wait. Strike the crone now.", next = "BACK", reply = "That is my heart's answer too, and I will find the arrows for whoever is willing, though I fear for them.", fx = { align = { order = -1 } } },
+        { text = "Send word to Darnassus first. Do it properly.", next = "BACK", reply = "You are right, and it is the proper way, but the crone will not wait for a reply from Darnassus.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -189,8 +189,8 @@ P:NPC {
       big = true,
       lines = { { id = "cw_default", text = "Power, Kindal thinks, or spite against the forest that won't bow to them. I don't care why anymore. Some of my sisters say we should try to reason with their elders; I say an arrow is the only reason they'll hear." } },
       choices = {
-        { text = "Then let arrows do the talking.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Try to reason first. Not all of them choose this.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let arrows do the talking.", next = "BACK", reply = "Then you and I agree, and Kindal can keep his patience while we keep our bows strung.", fx = { align = { light = -1 } } },
+        { text = "Try to reason first. Not all of them choose this.", next = "BACK", reply = "Kindal would like you, and perhaps he is right, but I have seen the cages, and I have run out of reasons to talk.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

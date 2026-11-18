@@ -100,8 +100,8 @@ P:NPC {
         { id = "gn_default", text = "Then it lives out its days at the Peak, fed an' free, an' I'll no' force it under a saddle. Some o' the riders call that wasteful, but a bird that's forced will drop ye in the first storm." },
       },
       choices = {
-        { text = "Right. A beast's choice should be respected.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A bird that won't serve is a burden. Train it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Right. A beast's choice should be respected.", next = "BACK", reply = "Aye, that's how I see it, an' it's good tae hear someone else say so. The bird knows its own heart better than I do.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A bird that won't serve is a burden. Train it.", next = "BACK", reply = "Train it, ye say? Ye cannae train a gryphon that's decided against ye, an' I'll no' try. Let it be.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

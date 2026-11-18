@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "pc_default", text = "Don't spread that around, it'll ruin my reputation. Somebody's got to toss them in, and it ought to be someone who minds." } },
       choices = {
-        { text = "Then the dead are in good hands. Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the dead are in good hands. Thank you.", next = "BACK", reply = "Shh, I said not to spread it. But thank you, all the same.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "They're just bodies, Alen. Stop thinking about it.", next = "BACK", reply = "I try, believe me, and it never works. Somebody has to mind, and I drew the short straw.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

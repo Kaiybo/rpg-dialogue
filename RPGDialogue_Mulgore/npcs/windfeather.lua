@@ -106,8 +106,8 @@ P:NPC {
       big = true,
       lines = { { id = "oe_default", text = "One walks with a limp now, and the other won't go near the ravine. I don't blame him, but I won't be him, and I won't let this road belong to Sharptusk." } },
       choices = {
-        { text = "There's no shame in fear. He did his part.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A brave who won't fight isn't a brave.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "There's no shame in fear. He did his part.", next = "BACK", reply = "He did, and I've told him so, though he doesn't hear it yet. Maybe someday he'll walk the ravine road again, and I'll be glad to walk it with him.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A brave who won't fight isn't a brave.", next = "BACK", reply = "Don't say that where he can hear it, please. He fought, and he bled for it, and the fear he carries now was earned the hard way.", fx = { align = { light = -1 } } },
         { text = "Something else, Windfeather.", next = "BACK" },
       },
     },
@@ -115,8 +115,8 @@ P:NPC {
       lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and each was paid for with someone's life." } },
       choices = {
         { text = "What do you think should be done about the quilboar?", next = "op_quilboar" },
-        { text = "Then the land is yours by right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The quilboar have a claim to this land too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the land is yours by right.", next = "BACK", reply = "By right and by blood both, and I'll hold it the same way. The Earth Mother gave it to us after a long walk, and I won't give it up to Sharptusk.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The quilboar have a claim to this land too.", next = "BACK", reply = "Maybe they did once, but they gave it up when they took up with the dead. Let them claim it peacefully, and maybe the elders would listen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

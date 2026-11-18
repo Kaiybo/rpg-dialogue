@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "gs_default", text = "Study it first, then sell it, naturally! A scientist who can't fund his own expeditions ends up stuck in a desert with a broken zeppelin, pal, and I should know, because I'm the one stuck." } },
       choices = {
-        { text = "Knowledge first. The money will follow.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sell it now, while it's still a mystery.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Knowledge first. The money will follow.", next = "BACK", reply = "Spoken like somebody who's never had to pay a zeppelin mechanic, friend, but I like the optimism, and I'll put it on my tab.", fx = { align = { order = 1 } } },
+        { text = "Sell it now, while it's still a mystery.", next = "BACK", reply = "Ooh, you've got the instinct, pal, because a mystery fetches more than an answer ever does, right up until somebody else figures it out first.", fx = { align = { order = -1 } } },
         { text = "Something else, Marvon.", next = "BACK" },
       },
     },
@@ -105,8 +105,8 @@ P:NPC {
       big = true,
       lines = { { id = "ts_default", text = "That's the question, isn't it? I found a stone with the same serpent mark on it, and the scientist in me says find out, the businessman in me says it'd fetch a fortune, and every sensible bone in me says run." } },
       choices = {
-        { text = "Leave some doors shut, Marvon.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fortune favors whoever opens the door first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave some doors shut, Marvon.", next = "BACK", reply = "You sound like my mother, and she was right about most things, so maybe I'll keep that stone wrapped up in a sock for a while longer.", fx = { align = { light = 1 } } },
+        { text = "Fortune favors whoever opens the door first.", next = "BACK", reply = "That's what worries me, friend, because whoever opens it first might also be the first one eaten, and I've got a lot of plans for this face.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -75,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "ed_default", text = "Once her diggers had what they wanted, she turned her spells on my warriors, and the survivors at Valormok are counting graves. I want her dead, {name}, and I want it before the whole Valley knows how badly she played me." } },
       choices = {
-        { text = "Those warriors deserve justice, not your reputation.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, learn = { "rimtori" } } },
-        { text = "Vengeance is vengeance. I'll see her dead.", next = "BACK", fx = { affinity = 1, align = { honor = -1 }, learn = { "rimtori" } } },
+        { text = "Those warriors deserve justice, not your reputation.", next = "BACK", reply = "They do, and I'll not pretend my pride isn't in it too. But dead is dead, and justice and my name both end at her throat.", fx = { affinity = -1, align = { honor = 1 }, learn = { "rimtori" } } },
+        { text = "Vengeance is vengeance. I'll see her dead.", next = "BACK", reply = "Good, that's the answer I wanted. Bring me proof she's gone, and Valormok will have its graves avenged.", fx = { affinity = 1, align = { honor = -1 }, learn = { "rimtori" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "rimtori" } } },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
     tell = {
       lines = { { id = "te_default", text = "And have him think I can't judge a mage from a merchant? No. When the elf's dead, I'll tell him the whole story, and it'll end with her head, which makes it a much better story." } },
       choices = {
-        { text = "Hiding a mistake from your Warchief isn't honest.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Wise. Tell him when it's finished, not before.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Hiding a mistake from your Warchief isn't honest.", next = "BACK", reply = "Honest, no, but a commander learns which truths to carry and when. He'll have the whole of it, I swear, once there's an ending worth telling.", fx = { align = { order = 1 } } },
+        { text = "Wise. Tell him when it's finished, not before.", next = "BACK", reply = "You understand command, then. A story told half-done is a weakness, and a story told finished is a victory.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

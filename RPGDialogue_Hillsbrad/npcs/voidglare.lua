@@ -89,8 +89,8 @@ P:NPC {
         { id = "dn_default", text = "Something went wrong in their Violet Citadel, and the wards are failing, and the proud Kirin Tor are too busy holding their city together to guard the gate. If Dalaran falls, it takes everything with it, but if it stands, it ought to stand open." },
       },
       choices = {
-        { text = "Then help them hold it. A catastrophe helps no one.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Their trouble is our opportunity. Take what we can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then help them hold it. A catastrophe helps no one.", next = "BACK", reply = "Help the Kirin Tor? They locked their doors on half of Lordaeron and called it prudence, so forgive me if I find your charity a little naive.", fx = { align = { order = 1 } } },
+        { text = "Their trouble is our opportunity. Take what we can.", next = "BACK", reply = "Now you sound like someone worth talking to. A wounded city guards its pantry and forgets its library, and I intend to be standing at the library door.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "tw_default", text = "Fear, I imagine, of what the apothecaries meant to do with them, or greed, or some misplaced longing for the living. Whatever their reasons, they betrayed the Dark Lady, and that admits no defence." },
       },
       choices = {
-        { text = "Betrayal is betrayal. They earned their end.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Fear of the apothecaries sounds reasonable to me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Betrayal is betrayal. They earned their end.", next = "BACK", reply = "Quite so, and the Dark Lady does not forgive, which is precisely why the rest of us are still standing in her good graces.", fx = { align = { light = -1 } } },
+        { text = "Fear of the apothecaries sounds reasonable to me.", next = "BACK", reply = "Reasonable, perhaps, but reason is not loyalty, and I would keep that thought behind your teeth if I were you; the Mill has ears.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,8 +139,8 @@ P:NPC {
         { id = "mo_default", text = "Bargain with it, of course. They'll surely give anything to get it back, and what I want is a seat at their table, or at least a key to their library." },
       },
       choices = {
-        { text = "Hold the mote hostage? That's beneath us.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Squeeze them hard. They owe us.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Hold the mote hostage? That's beneath us.", next = "BACK", reply = "Beneath us? We are dead, my friend, and the dead have very little left beneath them, so spare me the scruples and fetch me results.", fx = { align = { honor = 1 } } },
+        { text = "Squeeze them hard. They owe us.", next = "BACK", reply = "At last, someone who understands negotiation. Every lesson the Kirin Tor never taught me, they will now pay for in books.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -238,8 +238,8 @@ P:NPC {
         { id = "bc_default", text = "I've wondered, though the Magus says elementals don't feel as we do. Then again, people said the same about us, once, and they were wrong." },
       },
       choices = {
-        { text = "Then free them when you've learned the trick.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A servant's a servant. Bind away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then free them when you've learned the trick.", next = "BACK", reply = "Free them? Perhaps, once I understand what I'm freeing, though I doubt the Magus would thank me for emptying his workshop.", fx = { align = { light = 1 } } },
+        { text = "A servant's a servant. Bind away.", next = "BACK", reply = "You sound like the Magus, which I suppose is meant as a compliment. Still, I'll keep wondering, quietly, when he isn't listening.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

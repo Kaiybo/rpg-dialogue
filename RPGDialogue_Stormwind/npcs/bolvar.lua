@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_bolvar_default", text = "More than the army would like to admit. The regulars hold the roads and the walls, but it's companies like yours that go into the Deadmines and the Stockade and come back with what we needed to know, and half my reports these days are written by people who never swore an oath to anyone." } },
       choices = {
-        { text = "Then the Crown should bring free companies under its banner.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "We fight better without the Crown's leash, Highlord.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the Crown should bring free companies under its banner.", next = "BACK", reply = "I've argued for it at council, and the House of Nobles argued back about the cost. Until they relent, the Crown will pay you in thanks and bounties.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We fight better without the Crown's leash, Highlord.", next = "BACK", reply = "Perhaps you do, and I'll not pretend the army could do your work. Only remember whose roads you walk on, and whose people you're protecting.", fx = { align = { order = -1 } } },
         { text = "Who were the companies you remember from the Second War?", next = "xpt_bolvar2" },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_bwl_default", text = "The Blackrock orcs have lost their master, and the Dark Irons below them have lost an ally, so for a season the Burning Steppes may be quieter than they've been since the Second War. I'd send men to hold the passes if I had them, but the honest answer is that I'll send letters and hope Lakeshire holds." } },
       choices = {
-        { text = "Hold the passes with what you have. The kingdom mustn't overreach.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Forget the passes. Let free blades clean out the mountain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold the passes with what you have. The kingdom mustn't overreach.", next = "BACK", reply = "That's the counsel I'd give myself, and the one I'll likely follow. A kingdom that overreaches gives the Horde nothing to do but wait.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the passes. Let free blades clean out the mountain.", next = "BACK", reply = "Free blades are welcome to try, and I'll gladly sign the bounties. But I've buried enough brave fools in the Steppes to know the mountain fights back.", fx = { align = { order = -1 } } },
         { text = "What was Nefarian building up there?", next = "xcl_bwl2" },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_onyxia_default", text = "Then you saw an end I couldn't see coming for years, though I sat in the same chamber every day. I've ordered every decree she touched read again, and I'll answer for each one I signed, because the boy will ask me one day and he deserves the truth." } },
       choices = {
-        { text = "Answer for it openly, Highlord. The people deserve the whole truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Read the old decrees quietly. Shame weakens a throne more than dragons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Answer for it openly, Highlord. The people deserve the whole truth.", next = "BACK", reply = "You're right, and it will cost me, and I'll pay it. A regent who hides his mistakes teaches a boy king to hide his.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Read the old decrees quietly. Shame weakens a throne more than dragons.", next = "BACK", reply = "There's sense in that, and the court would thank you for it. But I'll not have Anduin learn that a throne survives on silence.", fx = { align = { honor = -1 } } },
         { text = "How did no one at court see it?", next = "xcl_onyxia2" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "It does, so long as I hold this seat, though the House of Nobles asks what the Alliance owes a people it barely knows. Darnassus answered when we called, and I mean to answer when they do." } },
       choices = {
-        { text = "Then I'll hold you to it, Highlord, and so will my people.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My people stood alone for ages. We need nobody's oath.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll hold you to it, Highlord, and so will my people.", next = "BACK", reply = "Do, and I'll be glad of it. A promise that nobody holds you to is only a pleasant sound in a council chamber.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My people stood alone for ages. We need nobody's oath.", next = "BACK", reply = "I know, and I respect it, and I'll keep my oath all the same. Darnassus may never need us, but it will never find us absent.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,8 +128,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I trust Mathias Shaw, which isn't the same thing, and I've signed orders I'd sooner not have read twice. A kingdom with its king missing can't afford clean hands everywhere, though I pray it keeps them where it can." } },
       choices = {
-        { text = "The crown's work should still be honest work, Highlord.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Clean hands don't keep a kingdom, Highlord, and Shaw knows it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The crown's work should still be honest work, Highlord.", next = "BACK", reply = "It should, and most of it is. The rest I carry, and I'll answer for it when the king comes home to ask.", fx = { align = { honor = 1 } } },
+        { text = "Clean hands don't keep a kingdom, Highlord, and Shaw knows it.", next = "BACK", reply = "Shaw would say so too, and he'd be right more often than I'd like. That's exactly why I read every order twice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,8 +137,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because driving them out would only drive them deeper, where I can't see them, and SI:7 would rather they stayed in a cellar it already watches. Don't mistake that for approval, because the Second War taught every man in this hall what fel magic costs." } },
       choices = {
-        { text = "I'll keep my binding to the battlefield, Highlord, and nowhere else.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fel magic won the orcs a war, Highlord, and Stormwind could use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my binding to the battlefield, Highlord, and nowhere else.", next = "BACK", reply = "See that you do. If what you call ever turns on this city, I'll not ask SI:7 to watch the cellar; I'll ask it to close it.", fx = { align = { light = 1 } } },
+        { text = "Fel magic won the orcs a war, Highlord, and Stormwind could use it.", next = "BACK", reply = "It also cost them their homeland and nearly their souls, and I watched what it did to them at Blackrock. Stormwind will win its wars without it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Redridge and Duskwood, if you ask me plainly. That {pet} of yours looks keen enough to follow a worg into Duskwood. Keep it fed and keep it close, and the Light will watch over you both." },
       },
       choices = {
-        { text = "I'll go where the roads are worst, Highlord.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I hunt for my own reasons, not the crown's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll go where the roads are worst, Highlord.", next = "BACK", reply = "Then the kingdom owes you, and so do I. Tell Magistrate Solomon in Lakeshire I sent you, and he'll point you at the worst of it.", fx = { align = { order = 1 } } },
+        { text = "I hunt for my own reasons, not the crown's.", next = "BACK", reply = "That's your right, and I'll not ask more. But if your reasons take you to Redridge, the people there won't ask what they were.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,8 +158,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Less than I should, and mostly at night, when the petitions stop. I pray for King Varian's return and for the strength to carry the boy's crown until then, and some nights I'm not sure which prayer I need more." } },
       choices = {
-        { text = "A tired man's prayer is heard as well as any, Highlord.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Prayers won't bring the king home. Soldiers and searching will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A tired man's prayer is heard as well as any, Highlord.", next = "BACK", reply = "I hope so, for I've little else to give at that hour. Thank you; I'll remember it tonight.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't bring the king home. Soldiers and searching will.", next = "BACK", reply = "I've sent both, and I'll keep sending them. But I'll keep praying too, because a regent who stops hoping has no business sitting here.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,8 +167,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Every day I sit in this hall, though I'd never say so before the court. A paladin is meant to stand between the weak and the dark, and instead I stand between the nobles and the treasury, which is a darker place than it sounds." } },
       choices = {
-        { text = "The kingdom needs a steady hand here more than another sword.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the court squabble. A paladin belongs where the fighting is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The kingdom needs a steady hand here more than another sword.", next = "BACK", reply = "That's what I tell myself each morning, and some mornings I believe it. Thank you for saying it aloud.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the court squabble. A paladin belongs where the fighting is.", next = "BACK", reply = "You speak for my heart, and the oath I took when I first held a hammer. But a boy needs a regent more than the field needs one more paladin.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,8 +176,8 @@ P:NPC {
       big = true,
       lines = { { id = "xalt_bolvar_default", text = "A {altrace} {altclass} called {alt}, who gave me a plain answer on a day when the court had given me nothing else. I keep a short list of people I'd trust with a hard errand, and that name is on it, so you'll forgive me for hoping you're cut from the same cloth." } },
       choices = {
-        { text = "Then I'll try to deserve a place on that list.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A borrowed reputation still opens doors. I'll use it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll try to deserve a place on that list.", next = "BACK", reply = "You've made a good start by asking. Go and keep making it; the list is short, and I'd like it longer.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A borrowed reputation still opens doors. I'll use it.", next = "BACK", reply = "That's honest, at least. Mind you don't spend it faster than you earn your own, because names wear thin.", fx = { align = { honor = -1 } } },
         { text = "Something else, Highlord.", next = "BACK" },
       },
     },
@@ -266,7 +266,7 @@ P:NPC {
       },
       choices = {
         { text = "Then send them help.", next = "help", fx = { opinion = { westfall = "abandoned" }, align = { honor = 1 } } },
-        { text = "Patience is wise.", next = "BACK", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
+        { text = "Patience is wise.", next = "BACK", reply = "It is, so my councillors keep telling me, and I know a kingdom cannot spend what it does not have. Still, patience comes easier in a palace than on a burning farm, and I try never to forget that.", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
       },
     },
     help = {
@@ -290,8 +290,8 @@ P:NPC {
         { id = "b_default", text = "I bear it by not acting on suspicion, and not breaking faith with the people who serve. Some days that's all a regent has, and it has to be enough." },
       },
       choices = {
-        { text = "It's more than most have.", next = "BACK", fx = { affinity = 2, align = { order = 1, light = 1 } } },
-        { text = "Faith alone won't stop a knife in the dark, my lord.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It's more than most have.", next = "BACK", reply = "Perhaps it is. I'll take that, and hold to it on the hard days.", fx = { affinity = 2, align = { order = 1, light = 1 } } },
+        { text = "Faith alone won't stop a knife in the dark, my lord.", next = "BACK", reply = "No, and I've guards at every door for that reason. But a regent who trusts nobody will soon have nobody left to trust him.", fx = { align = { light = -1 } } },
         { text = "Sometimes suspicion is enough.", next = "suspicion", fx = { trait = { skeptical = 1 } } },
         { text = "You can tell me what it really costs you, Highlord.", tag = "Persuade", next = "bear_true",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { townStanding = { town = "stormwind", min = 55 } } } } },
@@ -333,8 +333,8 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king, both of them, if you would." } },
       choices = {
-        { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Prayers won't bring a king home, my lord.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I pray for them every day.", next = "BACK", reply = "Then you're doing more for them than half this court. Thank you, and the Light keep you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Prayers won't bring a king home, my lord.", next = "BACK", reply = "No, but they keep me on my feet while the searching goes on. I'll not apologise for leaning on them.", fx = { align = { light = -1 } } },
         { text = "Pray for the people outside the walls too.", next = "church_outside" },
       },
     },
@@ -359,8 +359,8 @@ P:NPC {
       },
       choices = {
         { text = "Then send me where the hole is worst.", next = "soldier_where" },
-        { text = "I'll go where the crown sends me, Highlord.", next = "BACK", fx = { affinity = 2, align = { order = 2 } } },
-        { text = "I'll go where people need me, orders or not.", next = "BACK", fx = { align = { order = -2 } } },
+        { text = "I'll go where the crown sends me, Highlord.", next = "BACK", reply = "Good. Report to the barracks, and I'll make sure the orders are worth following.", fx = { affinity = 2, align = { order = 2 } } },
+        { text = "I'll go where people need me, orders or not.", next = "BACK", reply = "I'd rather you did both, but I'll not fault you for that. Just remember that orders are often how the people who need you get help at all.", fx = { align = { order = -2 } } },
         { text = "Something else, Highlord.", next = "BACK" },
       },
     },
@@ -377,8 +377,8 @@ P:NPC {
       choices = {
         { text = "And Theramore? Does Lady Proudmoore keep faith with Stormwind?", next = "op_jaina" },
         { text = "What did it cost us?", next = "ironforge_cost" },
-        { text = "An alliance is only worth the oaths kept in it.", next = "BACK", fx = { affinity = 1, align = { honor = 2 } } },
-        { text = "Ironforge keeps faith, but it minds its own halls first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "An alliance is only worth the oaths kept in it.", next = "BACK", reply = "Exactly so, and Ironforge has kept every one. I'll not forget it while I sit in this hall.", fx = { affinity = 1, align = { honor = 2 } } },
+        { text = "Ironforge keeps faith, but it minds its own halls first.", next = "BACK", reply = "Their own halls first, and then ours, and that's more than most kingdoms managed. I'll take that bargain gladly.", fx = { align = { honor = -1 } } },
       },
     },
     ironforge_cost = {
@@ -395,8 +395,8 @@ P:NPC {
     gnomeregan_alone = {
       lines = { { id = "ga_default", text = "If any people could, it's yours. When the day comes, tell Mekkatorque Stormwind will send what it can, and I'll make sure that's more than a letter." } },
       choices = {
-        { text = "I'll hold the kingdom to that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "We'll manage without Stormwind's letters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll hold the kingdom to that.", next = "BACK", reply = "Please do, and loudly, at every council you can. I'd rather be reminded than forgetful.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We'll manage without Stormwind's letters.", next = "BACK", reply = "That I believe, and I admire it. But the offer stands, and it'll stand whether you take it or not.", fx = { align = { order = -1 } } },
       },
     },
     kaldorei = {
@@ -404,8 +404,8 @@ P:NPC {
       lines = { { id = "ka_default", text = "You shouldn't, not yet, not on my word alone. Your people bled at Mount Hyjal beside ours, and since then we've sent letters to Darnassus and very little else; I'd rather you judged us by what we do in Ashenvale than by anything I say in this hall." } },
       choices = {
         { text = "Then do something in Ashenvale.", next = "kaldorei_ash" },
-        { text = "Hyjal was enough. I'll trust you.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'll trust Stormwind when it earns it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hyjal was enough. I'll trust you.", next = "BACK", reply = "Then I'll work to deserve it. Tell your people Stormwind remembers Hyjal, even if our letters have been few.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll trust Stormwind when it earns it.", next = "BACK", reply = "That's fair, and I'd say the same in your place. We'll try to earn it, one honest letter at a time.", fx = { align = { order = -1 } } },
       },
     },
     kaldorei_ash = {
@@ -422,8 +422,8 @@ P:NPC {
     highorder_ask = {
       lines = { { id = "hoa_default", text = "Only what you'd tell a friend: whether your people came to us out of need or out of choice. I ask because Stormwind has been both kinds of ally, and the second kind lasts longer." } },
       choices = {
-        { text = "Need brought us. Choice will keep us.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Need, plainly. We go where we must.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Need brought us. Choice will keep us.", next = "BACK", reply = "That's the best answer I've heard in a year of asking. Choice is what makes an ally a friend.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Need, plainly. We go where we must.", next = "BACK", reply = "Honest, and I thank you for it. Need is a sound foundation, if we build on it carefully.", fx = { align = { honor = -1 } } },
       },
     },
     dalaran = {
@@ -436,8 +436,8 @@ P:NPC {
     dalaran_doors = {
       lines = { { id = "dd_default", text = "Perhaps. They opened them once, to the Scourge, without meaning to, and I can't blame them for being careful now. Can you?" } },
       choices = {
-        { text = "Caution is how a kingdom survives.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Caution is how a kingdom dwindles.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Caution is how a kingdom survives.", next = "BACK", reply = "It is, and I learned that the hard way at Lordaeron. Dalaran has earned its caution.", fx = { align = { order = 1 } } },
+        { text = "Caution is how a kingdom dwindles.", next = "BACK", reply = "Sometimes, and I fear for theirs. But better a smaller Dalaran than another Scourge in its halls.", fx = { align = { order = -1 } } },
       },
     },
     shaman = {

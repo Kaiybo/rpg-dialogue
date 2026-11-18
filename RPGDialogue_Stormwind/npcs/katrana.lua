@@ -70,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_katrana_default", text = "The court is grateful, of course, in the way one is grateful for rain: it's useful, and nobody wants to see it indoors. Some lords would rather the Crown paid soldiers, and some would rather it paid nothing at all, but they all agree that armed wanderers make them nervous." } },
       choices = {
-        { text = "We serve the Crown, my lady, and gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let them be nervous. We answer to our own consciences.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "We serve the Crown, my lady, and gladly.", next = "BACK", reply = "Gladly, how sweet. Do keep that gladness about you, darling; the court finds it so very reassuring in its servants.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them be nervous. We answer to our own consciences.", next = "BACK", reply = "Consciences, how quaint. I'm sure yours will be an enormous comfort to you, little one, when the court stops being grateful.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The court trusts what serves the kingdom. Spirits and totems are such orcish things, don't you agree? One wonders where your loyalties lie." } },
       choices = {
-        { text = "My loyalty is to the Alliance, my lady, and it stays there.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The court's trust isn't worth chasing. I'll go my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My loyalty is to the Alliance, my lady, and it stays there.", next = "BACK", reply = "How reassuring to hear it said so firmly. One does wonder, of course, why it needed saying at all.", fx = { align = { order = 1 } } },
+        { text = "The court's trust isn't worth chasing. I'll go my own way.", next = "BACK", reply = "Then go, by all means, and do try not to trip on anything important on your way out of the kingdom.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -88,8 +88,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The court thinks very little of anything it can't tax or marry, darling, and your people are neither. I find the kaldorei rather charming myself, the way one finds old ruins charming, so long as one isn't asked to live in them." } },
       choices = {
-        { text = "My people are no ruin, my lady, and we'll stand by the Alliance.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then my people needn't trouble themselves with this court at all.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "My people are no ruin, my lady, and we'll stand by the Alliance.", next = "BACK", reply = "Stand by it, then, darling, and we'll see how long the Alliance remembers to stand by you. These things are never quite even.", fx = { align = { honor = 1 } } },
+        { text = "Then my people needn't trouble themselves with this court at all.", next = "BACK", reply = "Exactly so, and I'm delighted we agree. The court will scarcely notice the absence, I promise you.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -97,8 +97,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The court has a use for everyone, little one, which is the whole art of governing. A mage who keeps to the Sanctum and minds the Regent's business will find me very patient, though I've noticed that clever people rarely manage either." } },
       choices = {
-        { text = "Magic should serve the crown, my lady.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My magic answers to me, not to the court.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Magic should serve the crown, my lady.", next = "BACK", reply = "What a sensible little thing you are. Keep thinking that way, and the court will find you very useful indeed.", fx = { align = { order = 1 } } },
+        { text = "My magic answers to me, not to the court.", next = "BACK", reply = "How charming, and how very dangerous for you. Do let me know how that goes, little one; I'll be watching with interest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,8 +106,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Enormously, little one, in the way one values a good hound: we feed them, we praise them, and we send them where we please. The clever ones understand the arrangement, and the rest simply die more nobly." } },
       choices = {
-        { text = "I serve the kingdom, my lady, not the court.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then point me where the pay is best, my lady.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I serve the kingdom, my lady, not the court.", next = "BACK", reply = "A distinction only the very young believe in, darling. The kingdom is the court, as you'll learn soon enough.", fx = { align = { honor = 1 } } },
+        { text = "Then point me where the pay is best, my lady.", next = "BACK", reply = "Now that is a refreshingly honest answer. You'll go far, little one, though perhaps not anywhere you'd choose.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,8 +118,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In my own way, little one, though I've never had much patience for the chase itself. What a devoted creature your {pet} is. It reminds me of a great many people in this hall, though it has better manners than most of them." },
       },
       choices = {
-        { text = "A hunter should respect the quarry, my lady.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The chase is nothing. All that matters is the kill.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A hunter should respect the quarry, my lady.", next = "BACK", reply = "Respect, how touching. The quarry rarely returns the courtesy, darling, as you'll find one day.", fx = { align = { honor = 1 } } },
+        { text = "The chase is nothing. All that matters is the kill.", next = "BACK", reply = "Oh, you're rather sweet when you're ruthless. I could almost like you for it, little one.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -127,8 +127,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The court values the Church's congregation, which is rather a different thing, and the Archbishop has been reminded of the distinction more than once. Faith is a fine thing for a kingdom, darling, in moderation, like wine." } },
       choices = {
-        { text = "Faith isn't wine, my lady. The kingdom needs more of it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Moderation is wise, my lady. Zeal does as much harm as good.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Faith isn't wine, my lady. The kingdom needs more of it.", next = "BACK", reply = "More of it, how charming. Do tell the Archbishop; he'll be so pleased to hear someone agrees with him.", fx = { align = { light = 1 } } },
+        { text = "Moderation is wise, my lady. Zeal does as much harm as good.", next = "BACK", reply = "Finally, someone in this hall with a little sense. Zeal is so very tiresome, and so very expensive to bury.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -136,8 +136,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "A noble order, darling, and noble orders are very expensive. The Silver Hand marched to Lordaeron and lost it all the same, and the kingdom still pays for its pride, so I do think it fair to ask what we're buying." } },
       choices = {
-        { text = "Honour can't be priced, my lady. You'd do well to remember it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A fair question, my lady. Every order should prove its worth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Honour can't be priced, my lady. You'd do well to remember it.", next = "BACK", reply = "I remember everything, darling, it's something of a gift. And I've never once seen honour pay for its own bread.", fx = { align = { honor = 1 } } },
+        { text = "A fair question, my lady. Every order should prove its worth.", next = "BACK", reply = "You learn quickly. How rare, and how refreshing in someone who carries a hammer.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -208,7 +208,7 @@ P:NPC {
       },
       choices = {
         { text = "People are dying while you wait.", next = "dying", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "I see your point.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1, opinion = { westfall = "patience" } } },
+        { text = "I see your point.", next = "BACK", reply = "I thought you might, given time. Patience is a virtue the Church is always praising, after all.", fx = { align = { honor = -1 }, affinity = 1, opinion = { westfall = "patience" } } },
       },
     },
     dying = {
@@ -221,8 +221,8 @@ P:NPC {
       big = true,
       lines = { { id = "m_default", text = "The Church says a great many lovely things, little priest, but it does not balance the treasury, raise the levies, or count the graves, and I do all three. Go and pray; it suits you." } },
       choices = {
-        { text = "Someone has to remind you of the people.", next = "BACK", fx = { affinity = -2, align = { light = 2, honor = 1 } } },
-        { text = "You're right; prayer doesn't balance a treasury.", next = "BACK", fx = { align = { order = 1, light = -1 } } },
+        { text = "Someone has to remind you of the people.", next = "BACK", reply = "And who reminds the people of the price of their reminders? Run along to your Cathedral, little priest, and pray for my soul.", fx = { affinity = -2, align = { light = 2, honor = 1 } } },
+        { text = "You're right; prayer doesn't balance a treasury.", next = "BACK", reply = "There, you see? Even the Light's own servants come round in the end, given a little arithmetic.", fx = { align = { order = 1, light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -258,8 +258,8 @@ P:NPC {
         { id = "a_default", text = "I advise strength and order, and not wasting either on causes that cannot repay them. The Regent finds that cold, but the Regent also sleeps very well." },
       },
       choices = {
-        { text = "Wise counsel.", next = "BACK", fx = { affinity = 1, align = { order = 1, light = -1 } } },
-        { text = "It sounds cold.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Wise counsel.", next = "BACK", reply = "Of course it is. Do repeat it to the Regent, darling; he does so love to hear my name praised.", fx = { affinity = 1, align = { order = 1, light = -1 } } },
+        { text = "It sounds cold.", next = "BACK", reply = "Cold keeps things from spoiling, little one. You'd be surprised what I've kept fresh that way.", fx = { align = { light = 1 }, affinity = -1 } },
         { text = "You must find this court tiresome, my lady.", tag = "Persuade", next = "advise_true",
           check = { pass = { any = { { disposition = { min = 65 } }, { alignment = { axis = "honor", max = -30 } }, { minLevel = 55 } } } },
           fail = { next = "advise_shut", fx = { affinity = -1 } } },
@@ -342,8 +342,8 @@ P:NPC {
       lines = { { id = "dw_default", text = "And Ironforge reminds us of it at every council, in that charming burr. King Magni's friendship is very valuable to the crown, which is precisely why it should never be taken for granted, by either side." } },
       choices = {
         { text = "Is that a warning, my lady?", next = "dwarf_warn" },
-        { text = "Ironforge doesn't sell its friendship.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Everything has a price, even friendship.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Ironforge doesn't sell its friendship.", next = "BACK", reply = "Everything has a price, darling, even when it's paid in ale and toasts. The question is only who's keeping the ledger.", fx = { align = { honor = 1 } } },
+        { text = "Everything has a price, even friendship.", next = "BACK", reply = "Ah, a pupil after my own heart. Remember that, little one, and you'll do very well in this city.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
     dwarf_warn = {

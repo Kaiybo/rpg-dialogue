@@ -120,8 +120,8 @@ P:NPC {
         { id = "nh_default", text = "That's Zoram'gar, a little outpost on the strand, mostly trolls. They fight the naga as we do, which makes them neither friends nor quite enemies, and I don't know what to call that." },
       },
       choices = {
-        { text = "An enemy of my enemy is still an enemy.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If they fight the naga, let them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An enemy of my enemy is still an enemy.", next = "BACK", reply = "You speak as many Sentinels speak, and I can't fault you for it. Still, I'll be glad of any blade the naga have to face that isn't mine.", fx = { align = { order = 1 } } },
+        { text = "If they fight the naga, let them be.", next = "BACK", reply = "That's my own leaning, most days, though I'd not say it too loudly in Astranaar. Let the naga have two enemies instead of one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,8 +141,8 @@ P:NPC {
         { id = "hs_default", text = "Because Darnassus has not given that order, and because open war would cost us more than we can spare. So we deny them what we can, quietly, as they do to us." },
       },
       choices = {
-        { text = "Quiet war is still war. I'll do my part.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather face them openly, blade to blade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet war is still war. I'll do my part.", next = "BACK", reply = "Then Elune keep you in the shadows, friend. Quiet war is the only kind we can afford.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face them openly, blade to blade.", next = "BACK", reply = "So would I, and so would every Sentinel I know. But Darnassus decides, and we wait.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -73,8 +73,8 @@ P:NPC {
         { id = "fi_default", text = "Karna did not build me to fight. She built me to watch and to be a good companion, and a good companion does not hurt the family it is visiting, even when the family is rude." },
       },
       choices = {
-        { text = "That was kind of you, A-Me. Gentleness is strength.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Next time, hit back. Kindness got you dented.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That was kind of you, A-Me. Gentleness is strength.", next = "BACK", reply = "Thank you. Karna said gentleness takes more strength than a fist, and I think she was right, though my dents disagree.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Next time, hit back. Kindness got you dented.", next = "BACK", reply = "Perhaps I should, but then I would not be the companion Karna built. I would rather be dented and kind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -111,8 +111,8 @@ P:NPC {
         { id = "ac_default", text = "One young ape shared a mushroom with me, before the alpha came. I could not eat it, but I held it for a long time, and I think that was the best thing I recorded in Un'Goro." },
       },
       choices = {
-        { text = "Then it was worth it. You made a friend.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Wild things should be left wild. The alpha was right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then it was worth it. You made a friend.", next = "BACK", reply = "A friend. I like that word, and I will keep it the way I kept the mushroom, carefully and for a long time.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Wild things should be left wild. The alpha was right.", next = "BACK", reply = "Perhaps the alpha was right, and I was only a guest who stayed too long. I will try to remember that, though I still have the mushroom.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,8 +131,8 @@ P:NPC {
         { id = "tm_default", text = "It matters to me, I think, but I am not sure I am allowed to have things matter to me. Karna would say that a good question is better than a quick answer, and then she would hit something with a hammer." },
       },
       choices = {
-        { text = "If you miss her, you're more than a machine.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You're a fine machine. Don't trouble yourself with more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If you miss her, you're more than a machine.", next = "BACK", reply = "More than a machine? That is a very large thought, and I will need to sit by the waterfall a long time with it. Thank you for giving it to me.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You're a fine machine. Don't trouble yourself with more.", next = "BACK", reply = "Thank you, I will try not to trouble myself. But the question keeps coming back, like the young ape with the mushroom.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,8 +151,8 @@ P:NPC {
         { id = "xm_default", text = "You are one of the risen dead, I think; Karna told me about your people. If someone made you again after you ended, then perhaps we are alike, and perhaps we both get to decide what to do with what we were given." },
       },
       choices = {
-        { text = "We choose our own path, whoever made us.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "We serve the ones who raised us. That's our purpose.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We choose our own path, whoever made us.", next = "BACK", reply = "Then perhaps I can choose too. That is a frightening thought, but a good one, and I will tell Karna about it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "We serve the ones who raised us. That's our purpose.", next = "BACK", reply = "Then I will serve Karna, as I always have. It is good to know that you understand, even if you are not sure you are happy.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

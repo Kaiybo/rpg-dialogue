@@ -33,8 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I sent two of them north along the river, and they never came back, so I'll take any help, even from spirits." } },
       choices = {
-        { text = "I'll find them, Thomas. That's a promise.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "They're probably dead. Don't hope too much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll find them, Thomas. That's a promise.", next = "BACK", reply = "I'll hold you to that, and I'll be waiting at this bridge for whatever news you bring. Go carefully, because whatever took two soldiers won't think twice about you.", fx = { align = { order = 1 } } },
+        { text = "They're probably dead. Don't hope too much.", next = "BACK", reply = "I know the odds as well as you do, but a man who stops hoping for his own soldiers has no business giving them orders. I'll keep hoping until somebody proves me wrong.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -42,8 +42,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." } },
       choices = {
-        { text = "I'll find them, Thomas, and bring you the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll look, but I'll do it my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find them, Thomas, and bring you the truth.", next = "BACK", reply = "The truth's all I'm asking, however hard it is. Go north along the water, and come back and tell me what you find.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look, but I'll do it my own way.", next = "BACK", reply = "Your way's your business, so long as you look. I've no time to be particular about who does the searching.", fx = { align = { honor = -1 } } },
         { text = "Something else, Thomas.", next = "BACK" },
       },
     },
@@ -51,8 +51,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Murlocs along the river and wolves in the thickets, and the two men I sent north along the water never came back. Your kind might find it peaceful, but I've stopped going in without good reason." } },
       choices = {
-        { text = "Then I'll look for your men and see what the river knows.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Men who go missing in the woods made their own choice.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll look for your men and see what the river knows.", next = "BACK", reply = "If the river talks to you, then you hear more than I do. Ask it about Rolf and Malakai, and tell me what it says.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Men who go missing in the woods made their own choice.", next = "BACK", reply = "They went because I sent them, so their choice was mine. Don't put it on them, because I'll not let you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -63,8 +63,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has a nose for water, I'd guess. If it shies at the shore, believe it, and pull back." },
       },
       choices = {
-        { text = "I'll follow the tracks and find your men.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll follow them, but I'll not risk my beast.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll follow the tracks and find your men.", next = "BACK", reply = "Good, and you'll have better eyes for it than any guard I've got. Follow the prints to the water and see where they lead.", fx = { align = { honor = 1 } } },
+        { text = "I'll follow them, but I'll not risk my beast.", next = "BACK", reply = "Your beast, your choice, and I'll not argue with it. Just look as far as you're willing, because every bit helps.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Murlocs by the lake, bandits in the hills and wolves everywhere else, and I've lost two good men to it already. If you've a quiet step, use it to look for Rolf Hartford, one of my men, because he's still out there somewhere." } },
       choices = {
-        { text = "I'll look for Rolf, guard. He deserves to come home.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Rolf's likely dead. I'll look after myself first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll look for Rolf, guard. He deserves to come home.", next = "BACK", reply = "Thank you for that, I mean it. He's a good lad with a wife in Goldshire, and she's asked me about him every day since.", fx = { align = { honor = 1 } } },
+        { text = "Rolf's likely dead. I'll look after myself first.", next = "BACK", reply = "Then we've nothing more to say, you and I. I'll find someone who still thinks my men are worth a look.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Once, on the road to Redridge, and she cleared a pack of wolves faster than I could draw my sword. I didn't like being shown up, but I liked being alive, so I didn't complain." } },
       choices = {
-        { text = "You'd have done the same for me, guard. We fight together.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Next time, stand behind me. I'll handle the wolves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You'd have done the same for me, guard. We fight together.", next = "BACK", reply = "That's true enough, and I'd not forget it. All the same, it does a guardsman's pride no good to be rescued by a robe.", fx = { align = { honor = 1 } } },
+        { text = "Next time, stand behind me. I'll handle the wolves.", next = "BACK", reply = "You've a high opinion of yourself, friend, and I've been on this bridge long enough to know where that ends. Still, I'll not say no to the help.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every night, and more since I sent Rolf and Malakai north along the river, because a man can't sleep easy after a thing like that. Nothing's answered me yet, but I keep asking, which is all a guardsman knows how to do." } },
       choices = {
-        { text = "Keep asking. Prayers for the lost are never wasted.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You did your duty, Thomas. Don't carry their fate as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep asking. Prayers for the lost are never wasted.", next = "BACK", reply = "I'll keep at it, then, as long as I've breath for it. Thank you, because it's good to hear that from somebody who knows prayers better than I do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You did your duty, Thomas. Don't carry their fate as well.", next = "BACK", reply = "I gave the order, so their fate's mine to carry whether I like it or not. Kind of you to try and lift it, though.", fx = { align = { light = -1 } } },
         { text = "Something else, Thomas.", next = "BACK" },
       },
     },
@@ -99,8 +99,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Find my men, if you can, or find what took them, because there's something in the water east of here that the Army doesn't want to hear about. And if it's murlocs, like Remy at the inn says, bring back enough proof that nobody in Goldshire laughs at me again." } },
       choices = {
-        { text = "I'll find your men and bring them home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your men are likely gone. I'll look after the living.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find your men and bring them home.", next = "BACK", reply = "That's all I'm asking, and more than the Army's offered. Go north along the river, and may the Light walk with you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your men are likely gone. I'll look after the living.", next = "BACK", reply = "Maybe they are, but I'll not stop hoping on your say-so. If you won't look, then go and look after your living, and I'll keep looking for my dead.", fx = { align = { honor = -1 } } },
         { text = "Something else, Thomas.", next = "BACK" },
       },
     },
@@ -171,8 +171,8 @@ P:NPC {
       choices = {
         { text = "What were they like?", next = "men_who" },
         { text = "I could say words over their names.", next = "men_priest", when = { class = "PRIEST" } },
-        { text = "They'd be proud you remember them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "Then make sure it wasn't for nothing.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 }, align = { order = 1 } } },
+        { text = "They'd be proud you remember them.", next = "BACK", reply = "They would, I think, and that helps more than you'd guess. Rolf always said I worried too much over the roster.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Then make sure it wasn't for nothing.", next = "BACK", reply = "I mean to, and every report I send up the road is for them. If somebody in Stormwind reads one, it'll be worth it.", fx = { affinity = 1, trait = { stern = 1 }, align = { order = 1 } } },
       },
     },
     men_who = {
@@ -189,10 +189,10 @@ P:NPC {
         { id = "mp_default", text = "There's no grave; the lake has them, or what's left of them. Say the words here at the bridge, then, and I'll stand for it." },
       },
       choices = {
-        { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
+        { text = "Rolf Hartford. Malakai Stone. Light keep them.", next = "BACK", reply = "Thank you for saying their names aloud. I've not been able to, not since the lake took them.", fx = { affinity = 3, align = { light = 2 }, standing = { eastvale = 2 }, learn = { "lost_footmen" } },
           journal = { first = "Said the names of Rolf Hartford and Malakai Stone at the Eastvale bridge. Guard Thomas stood at attention the whole time.",
                       third = "{name} prayed over Guard Thomas' lost footmen at the Eastvale bridge." } },
-        { text = "Words won't bring them back from the lake, Thomas.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Words won't bring them back from the lake, Thomas.", next = "BACK", reply = "No, they won't, and I'd not hoped they would. I only wanted somebody to say the words over them, but I'll not beg you for it.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -250,8 +250,8 @@ P:NPC {
         { id = "aa_default", text = "Anger isn't in my orders, but worry is. I write it down and send it to the Marshal, he sends it up, and somewhere along the way it stops." },
       },
       choices = {
-        { text = "That's no way to run a kingdom.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
-        { text = "Orders are orders.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "That's no way to run a kingdom.", next = "BACK", reply = "No, it isn't, but I'd lose my post for saying so, and you can say it louder than I can. Tell it to somebody in Stormwind, if they'll listen.", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
+        { text = "Orders are orders.", next = "BACK", reply = "They are, and I follow them, though it gets harder with every report that goes nowhere. Somebody has to hold this bridge, and it's me.", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
     army_westfall = {
@@ -266,8 +266,8 @@ P:NPC {
         { id = "fh_default", text = "I know it, and I'd have held one if I'd been sent. That's no comfort to you, and I'm not offering it as one." },
       },
       choices = {
-        { text = "It's something, coming from a soldier.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
-        { text = "Someone should answer for it.", next = "BACK", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
+        { text = "It's something, coming from a soldier.", next = "BACK", reply = "It's all a soldier's got to give, I'm afraid. Westfall deserved better than us, and I'll not pretend otherwise.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Someone should answer for it.", next = "BACK", reply = "Someone should, and I'll not argue the point. Take it up the road to Stormwind, because it's beyond what one guard on a bridge can answer for.", fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
       },
     },
     warrior = {

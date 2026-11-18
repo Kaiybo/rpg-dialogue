@@ -87,8 +87,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Then the Kolkar either stop their advance or they lash out at us in a foolish strike, and I hope it's the second. A centaur who charges my bunkers is a centaur I don't have to chase across the Barrens." } },
       choices = {
-        { text = "Better they stop. Fewer graves on both sides.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Let them charge. We'll break them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Better they stop. Fewer graves on both sides.", next = "BACK", reply = "Fewer graves for us, maybe, but the Kolkar don't count graves the way we do. Still, if they pull back from the oases, I'll take the quiet and keep my blade sharp for when it ends.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Let them charge. We'll break them.", next = "BACK", reply = "That's the answer I wanted from you, {class}. Let them hit my bunkers head-on, and we'll stack their bracers higher than the pig pens.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

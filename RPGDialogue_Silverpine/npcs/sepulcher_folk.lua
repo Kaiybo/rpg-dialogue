@@ -48,8 +48,8 @@ P:NPC {
       big = true,
       lines = { { id = "a_default", text = "Oh, they mind terribly, because they think anyone who mixes a poison outside the Apothecarium is a dabbler and a danger. I think a poison that drops one worgen at a time is a good deal tidier than some of what goes into their cauldrons, but nobody asked me." } },
       choices = {
-        { text = "Poison is a coward's weapon, whoever brews it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Poison wins fights. Pride loses them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Poison is a coward's weapon, whoever brews it.", next = "BACK", reply = "A coward's weapon wins wars, my dear, and the Scourge are not owed a fair duel. Buy a vial or move along.", fx = { align = { honor = 1 } } },
+        { text = "Poison wins fights. Pride loses them.", next = "BACK", reply = "Exactly, and the Apothecarium has more pride than the rest of the Undercity put together. Come back when you need a refill.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -188,8 +188,8 @@ P:NPC {
       big = true,
       lines = { { id = "p_default", text = "I dug silver in the hills north of the capital for twenty years, and the plague found me underground, which was a poor joke on its part. When I woke, the first thing I asked for was a pick, and the Dark Lady's people were good enough to give me one." } },
       choices = {
-        { text = "Honest work is what keeps us whole.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Twenty years underground? I'd want something new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Honest work is what keeps us whole.", next = "BACK", reply = "It does, I think. A pick in the hand reminds me I'm still a miner, and not just something the plague left behind.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Twenty years underground? I'd want something new.", next = "BACK", reply = "New? I'm dead, friend, and the dead don't get much new. The tunnels are the one place that still feels like mine.", fx = { align = { order = -1 } } },
         { text = "The plague found you underground?", next = "past2" },
       },
     },

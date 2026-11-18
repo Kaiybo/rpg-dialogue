@@ -84,8 +84,8 @@ P:NPC {
         { id = "pb_default", text = "Rarely, and never for long. I've seen an orc and a night elf glare at each other across this water for an hour and then walk away, and I respected them both more for the walking than I would have for the fight." },
       },
       choices = {
-        { text = "Neutral ground matters. Keep it sacred.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Peace imposed by blades isn't really peace.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Neutral ground matters. Keep it sacred.", next = "BACK", reply = "It is sacred, and the Keeper would say so more gently than I do. Every quarrel left at that water's edge is one less grave in Ashenvale.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Peace imposed by blades isn't really peace.", next = "BACK", reply = "Perhaps it isn't, but I've never had to draw my blade here, and that's the point of carrying it. A peace that holds is worth more than one that's pure.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,8 +114,8 @@ P:NPC {
         { id = "f_default", text = "Many, and many went back in and succeeded, and those are the ones I remember best. A few never came back to try again, and I don't think less of them; the lake isn't for everyone, even among druids." },
       },
       choices = {
-        { text = "The trial should be hard. That's its worth.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd find a shortcut, if one existed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The trial should be hard. That's its worth.", next = "BACK", reply = "It should, and that's why the ones who come back with Dendrite's nod walk differently. A trial you can't fail teaches nothing.", fx = { align = { honor = 1 } } },
+        { text = "I'd find a shortcut, if one existed.", next = "BACK", reply = "There isn't, and the lake has seen every young druid try to find one. The only way across is through, and the water knows it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,8 +152,8 @@ P:NPC {
         { id = "r_default", text = "On cold mornings, a little, when the Sentinels pass on their way to Ashenvale and I wonder what it would be like to go with them. Then a young druid comes up the path shaking with nerves, and I remember why I stay." },
       },
       choices = {
-        { text = "Your oath is your honor. Hold to it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "You've paid enough. Go see the world, Tajarri.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your oath is your honor. Hold to it.", next = "BACK", reply = "I will, and you're kind to say so. Elune gave me this post, and I'd sooner keep it than see the world without it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You've paid enough. Go see the world, Tajarri.", next = "BACK", reply = "It's a kind thought, and some mornings I'm tempted to take it. But the shrine would miss me, I think, and I'd miss it more.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,8 +181,8 @@ P:NPC {
         { id = "xl_default", text = "You may, quietly, though you won't find your Light named anywhere on these stones. The Circle prays to the wild and to Elune, and I've never seen why a prayer to one should offend the other, but some of the older druids do." },
       },
       choices = {
-        { text = "All prayer is welcome where there's reverence.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll keep my faith to myself here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "All prayer is welcome where there's reverence.", next = "BACK", reply = "I've always thought so, and I'm glad to hear it from you. Pray as you like here, and the stones will listen.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep my faith to myself here.", next = "BACK", reply = "You needn't, though I understand it. The shrine has heard stranger prayers than yours and never minded.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

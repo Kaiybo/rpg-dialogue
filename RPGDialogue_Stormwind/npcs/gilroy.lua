@@ -129,8 +129,8 @@ P:NPC {
         { id = "mr_default", text = "Neither, which is why the suppers have gone on for nineteen years. He came to me once for a scroll of Protection of his own, sheepish as a boy, the night the Defias were rumoured in the Keep. I've never let him forget it." },
       },
       choices = {
-        { text = "Milton's right. Books belong on shelves.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Learning is for living people.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Milton's right. Books belong on shelves.", next = "BACK", reply = "He'll be delighted to hear it, and insufferable at supper. Do me the kindness of not telling him which of us you sided with.", fx = { align = { order = 1 } } },
+        { text = "You're right. Learning is for living people.", next = "BACK", reply = "Thank you, and I'll quote you at Milton next week, though he'll only say the living ought to read more carefully before they cast.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -192,8 +192,8 @@ P:NPC {
         { id = "st_default", text = "Every word but the upside down. He read it right way up; he was simply that sort of man already. I tell it the other way because it's better for business." },
       },
       choices = {
-        { text = "A good lie never hurt anyone.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You shouldn't tell customers stories like that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good lie never hurt anyone.", next = "BACK", reply = "I wouldn't go so far as that, but a good story has sold more Intellect scrolls than any honest description ever has, and the scrolls do work.", fx = { align = { honor = -1 } } },
+        { text = "You shouldn't tell customers stories like that.", next = "BACK", reply = "Perhaps not, and my mother would agree with you. But nobody ever bought a scroll of Intellect because it was described accurately.", fx = { align = { honor = 1 } } },
       },
     },
 
@@ -313,8 +313,8 @@ P:NPC {
         { id = "xw_default", text = "No. Not for any price. A scroll holds a spell, and I've no wish to hold one of yours in my hands for a whole evening while I seal it. Buy your Intellect like everybody else." },
       },
       choices = {
-        { text = "That's wise of you. Some things shouldn't be copied.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your loss. Power's only dangerous in weak hands.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "That's wise of you. Some things shouldn't be copied.", next = "BACK", reply = "Precisely, and I'm glad someone in this Quarter understands it. Go to the trainer for your Intellect, and leave my wax and quills clean.", fx = { align = { light = 1 } } },
+        { text = "Your loss. Power's only dangerous in weak hands.", next = "BACK", reply = "Then you'll forgive me if I'm not willing to bet my own hands on yours being the strong ones. Good evening.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
   },

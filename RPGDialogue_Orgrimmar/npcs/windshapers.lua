@@ -128,8 +128,8 @@ P:NPC {
         { id = "sg_default", text = "They did, and some of our young ones say a debt to someone who abandons you is no debt at all. I don't believe that, but I'll admit it's harder to teach than it used to be. What do you say?" },
       },
       choices = {
-        { text = "A debt is a debt. Honor it, whether they return or not.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "They left. Your people owe them nothing now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A debt is a debt. Honor it, whether they return or not.", next = "BACK", reply = "That is what I believe, and it heartens me to hear it from you. A debt kept is a promise to whoever comes after.", fx = { align = { honor = 1 } } },
+        { text = "They left. Your people owe them nothing now.", next = "BACK", reply = "Many of our young ones would agree, and I can't fault their hurt. But I'll keep my debts, all the same.", fx = { align = { honor = -1 } } },
         { text = "Perhaps they had their reasons for leaving.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
         { id = "op_default", text = "Some in the camp say the dead must be answered before anyone speaks of peace. Others say we are too few to keep killing each other on a world this large. I serve the Horde now, so tell me how a member of the Horde would see it." },
       },
       choices = {
-        { text = "Old grudges help no one. Seek peace with your kin.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose the Alliance. They are enemies now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Old grudges help no one. Seek peace with your kin.", next = "BACK", reply = "That is my hope, and I'm glad to hear it from a member of the Horde. Perhaps there's room for peace after all.", fx = { align = { light = 1 } } },
+        { text = "They chose the Alliance. They are enemies now.", next = "BACK", reply = "That is the hard answer, and many in the camp would give it. I'll carry it to them, though it weighs on me.", fx = { align = { light = -1 } } },
         { text = "That's for your people to decide, not me.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -293,8 +293,8 @@ P:NPC {
         { id = "st_default", text = "Corswyn says we must build a home here and stop looking up. Others at the camp say our place is with the spirits, wherever they've gone, and that we should keep searching until we find them. Which would you choose?" },
       },
       choices = {
-        { text = "Build here. The Horde is your home now.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep searching. A people shouldn't forget the sky.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Build here. The Horde is your home now.", next = "BACK", reply = "Corswyn will be pleased to hear it, and perhaps I should be too. The Horde has been kind to us.", fx = { align = { order = 1 } } },
+        { text = "Keep searching. A people shouldn't forget the sky.", next = "BACK", reply = "That's what my heart says, though Corswyn would disagree. The sky is still ours, wherever the spirits went.", fx = { align = { order = -1 } } },
         { text = "I think you'll have to decide that yourself.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -385,8 +385,8 @@ P:NPC {
         { id = "ww_default", text = "I don't know, and that's why I watch. Corswyn says a guest should keep her eyes on her own business, and perhaps she's right, but I'd rather be rude than be too late a second time. Would you watch, or would you act?" },
       },
       choices = {
-        { text = "Watch, learn, and strike when you're certain.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Take your worries to the Warchief openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Watch, learn, and strike when you're certain.", next = "BACK", reply = "That's what I'm trying to do, and it's a comfort to hear it called wise. Corswyn may yet forgive my rudeness.", fx = { align = { honor = -1 } } },
+        { text = "Take your worries to the Warchief openly.", next = "BACK", reply = "Openly? That takes more courage than I have, but perhaps you're right. I'll think on it.", fx = { align = { honor = 1 } } },
         { text = "I'd mind my own business, like Corswyn says.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },

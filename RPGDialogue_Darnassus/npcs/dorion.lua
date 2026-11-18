@@ -89,8 +89,8 @@ P:NPC {
         { id = "hu_default", text = "Patience, mostly, and respect for what you kill. The forest feeds the hunter who takes what he needs, and it starves the one who takes for pride." },
       },
       choices = {
-        { text = "I hunt only what I need.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The strong hunt as they please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hunt only what I need.", next = "BACK", reply = "Then the forest will feed you for as long as you walk in it. That is the oldest bargain the kaldorei know, and the only one worth keeping.", fx = { align = { light = 1 } } },
+        { text = "The strong hunt as they please.", next = "BACK", reply = "They do, until the herds are gone and the strong go hungry like everyone else. The forest has outlived many proud hunters, and it will outlive you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

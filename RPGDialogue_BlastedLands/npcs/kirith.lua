@@ -106,8 +106,8 @@ P:NPC {
         { id = "ap_default", text = "From their corpses, yes, and it won't be as simple as freeing one damned soldier. Take friends you trust, and don't let Lady Sevine speak to you for long, for she lies better than Allistarj tortures." },
       },
       choices = {
-        { text = "Strike them one at a time, quiet and quick.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'll face each of them openly, as a soldier would.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strike them one at a time, quiet and quick.", next = "BACK", reply = "A wise choice, and the one I'd have made in life. Shadow fights shadow best, but strike true, because they won't give you a second chance.", fx = { align = { honor = -1 } } },
+        { text = "I'll face each of them openly, as a soldier would.", next = "BACK", reply = "Then you have a soldier's heart, and I honour it. Go openly, but go with friends at your back, as I wish I had.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
       big = true,
       lines = { { id = "rr_default", text = "My captain, and that's all I know of, though there may be others bound in the stones who'd thank you for breaking them. We waited a long time for orders from Stonard, and they never came, and I've stopped asking why." } },
       choices = {
-        { text = "Someone failed you. Those orders should have reached you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Soldiers hold without orders. You did your duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Someone failed you. Those orders should have reached you.", next = "BACK", reply = "Perhaps they should have, and I've had long enough in the stone to think on it. But blame is a poor thing for a spirit to carry.", fx = { align = { order = -1 } } },
+        { text = "Soldiers hold without orders. You did your duty.", next = "BACK", reply = "We did, and it cost us everything, but we held. It is good to hear a living voice call it duty and not folly.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -171,8 +171,8 @@ P:NPC {
         { id = "xp_default", text = "Not yet, healer, not while Razelikh still walks these lands. Let me linger a little longer and be some use, and when it's done, say whatever words you like over the place I stood." },
       },
       choices = {
-        { text = "The dead deserve rest, not more duty.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A soldier's duty doesn't end. I understand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The dead deserve rest, not more duty.", next = "BACK", reply = "Rest will come, healer, and I'll welcome it when it does. But not while Razelikh still breathes and my brothers stay bound.", fx = { align = { order = -1 } } },
+        { text = "A soldier's duty doesn't end. I understand.", next = "BACK", reply = "You understand, then, and that is a comfort to an old soldier. Thank you, healer.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

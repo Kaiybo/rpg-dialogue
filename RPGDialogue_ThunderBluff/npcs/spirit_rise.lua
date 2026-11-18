@@ -79,8 +79,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "Never, not even when the need is great. Others on this rise would argue with me, but I've seen what an angry spirit does to a careless shaman, and I'd not wish it on anyone." } },
       choices = {
-        { text = "Never. The spirits must be asked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "In great need, I'd compel them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Never. The spirits must be asked.", next = "BACK", reply = "Good, then the spirits will hear you when you need them most. A shaman who asks has many friends, and one who commands has only servants waiting for a chance.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "In great need, I'd compel them.", next = "BACK", reply = "Then pray your need is never great, young one. The spirits remember every chain you put on them, and they are patient in a way we are not.", fx = { align = { order = -1 } } },
       },
     },
     tribe = {
@@ -190,8 +190,8 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "It's both, and anyone who tells you otherwise has never been in a real fight. The spirits will answer a reverent shaman, but they can't help one who's already dead." } },
       choices = {
-        { text = "Reverence comes first. Tactics follow.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Use what works. The spirits will understand.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Reverence comes first. Tactics follow.", next = "BACK", reply = "Fine words, and true enough in the lodge. Let's see if they hold up when a quillboar is charging you and your totem's still in your pack.", fx = { align = { order = 1 } } },
+        { text = "Use what works. The spirits will understand.", next = "BACK", reply = "They'll understand, mostly, if you thank them afterward. Just don't let it become a habit, or one day they'll stop picking up when you call.", fx = { affinity = 1, align = { order = -1 } } },
       },
     },
     tigor = {
@@ -299,8 +299,8 @@ P:NPC {
       big = true,
       lines = { { id = "be_default", text = "They're uneasy, but they haven't left, and I take that as a good sign. Tigor says the Forsaken shouldn't be so close to the pools, and I think the spirits are more patient than he is." } },
       choices = {
-        { text = "The spirits are wise. Let the Forsaken stay.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Tigor's right. The dead don't belong there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The spirits are wise. Let the Forsaken stay.", next = "BACK", reply = "I think so too, though don't tell Tigor I said that loudly. The spirits have stayed, and they're older and wiser than all three of us.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tigor's right. The dead don't belong there.", next = "BACK", reply = "Maybe he is, and he's certainly older than me. But the pools haven't gone dark yet, and I'd rather watch and learn than shout and guess.", fx = { align = { light = -1 } } },
       },
     },
     wind = {
@@ -465,8 +465,8 @@ P:NPC {
       big = true,
       lines = { { id = "be_default", text = "Power should be kept from fools, and most people are fools about magic. Dalaran believed that too, and look what became of Lordaeron while it was busy being careful." } },
       choices = {
-        { text = "Then guard it closely. Fools burn kingdoms.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Knowledge hoarded is knowledge wasted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then guard it closely. Fools burn kingdoms.", next = "BACK", reply = "At last, someone in this city with sense. Most of the living would hand a fireball to a child and call it fair.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge hoarded is knowledge wasted.", next = "BACK", reply = "A charming idea, if you enjoy watching villages burn. Lordaeron hoarded nothing in the end, and you see how well that turned out for all of us.", fx = { align = { order = -1 } } },
       },
     },
   },
@@ -572,8 +572,8 @@ P:NPC {
       big = true,
       lines = { { id = "de_default", text = "They'd never let me, and I'm not sure I'd want to see what it's become. The Dark Lady gave us something to do with our second lives, and I think I'd rather look forward than back." } },
       choices = {
-        { text = "Look forward. The past is dead.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Remember the past. It made you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Look forward. The past is dead.", next = "BACK", reply = "That's my thinking, mostly, though it comes back to me on quiet nights. The Violet Citadel is gone to me either way, so I may as well study here.", fx = { align = { order = -1 } } },
+        { text = "Remember the past. It made you.", next = "BACK", reply = "It did, and I suppose it made me rather good at mathematics. I'll remember it, then, but gently, the way you remember a house you can't go back to.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
     o_dal = {
@@ -686,8 +686,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "Oh, plenty, if I let it. Some of us went bitter and some of us went cold, and I decided to be kind, because it was the one thing the Scourge never made us do." } },
       choices = {
-        { text = "Kindness is a good choice, Thurston.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Bitterness is more honest, I think.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Kindness is a good choice, Thurston.", next = "BACK", reply = "Thank you, that's kind of you to say, and I'll keep choosing it. It's a much nicer view from up here than from the bottom of a grave.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bitterness is more honest, I think.", next = "BACK", reply = "Oh, it's honest enough, but so is a corpse, and look how much fun those are. I'll take kindness, thank you, it suits my complexion.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -807,8 +807,8 @@ P:NPC {
       big = true,
       lines = { { id = "le_default", text = "Perhaps it is, for some of you. I've no quarrel with priests who still pray to it, but I'll not go back to a door that was closed on me." } },
       choices = {
-        { text = "The Light forgives. Don't give up on it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Use what answers you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light forgives. Don't give up on it.", next = "BACK", reply = "For some, perhaps, and I wish them well of it. But it didn't forgive me when I woke in the dirt, and I've stopped knocking on that door.", fx = { align = { light = 1 } } },
+        { text = "You're right. Use what answers you.", next = "BACK", reply = "You understand it, then, which is more than most of the living ever do. Power answers the one who calls it, and the shadow always answers.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
   },
@@ -919,8 +919,8 @@ P:NPC {
       big = true,
       lines = { { id = "le_default", text = "They'd say it is, and the Light doesn't argue with them. When it starts striking down the zealots who use it, I'll reconsider." } },
       choices = {
-        { text = "The Light is more than its worst followers.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A faith is judged by those who carry it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light is more than its worst followers.", next = "BACK", reply = "Than its followers? Then where has it been hiding while they burned our villages? Show me that Light, and I'll gladly bow to it.", fx = { align = { light = 1 } } },
+        { text = "A faith is judged by those who carry it.", next = "BACK", reply = "Exactly, and you can see what the Scarlet Crusade carries. A faith is a tool in a hand, and too many of those hands are covered in blood.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
   },
@@ -1031,8 +1031,8 @@ P:NPC {
       big = true,
       lines = { { id = "pe_default", text = "I like to think so, child. The tauren pray to their Earth Mother up above us, and she seems a gentle sort, so perhaps there's room for an old priest to hope." } },
       choices = {
-        { text = "Keep hoping, Father. It's worth it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Hope is a luxury for the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep hoping, Father. It's worth it.", next = "BACK", reply = "Bless you, child, I think I will. It's an old habit, and I'd rather keep that one than any of the others I brought back.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hope is a luxury for the living.", next = "BACK", reply = "Perhaps it is, and I've heard it said in the caves more than once. But I was a priest before I was dead, and hope is the one thing I refused to bury.", fx = { align = { light = -1 } } },
       },
     },
   },

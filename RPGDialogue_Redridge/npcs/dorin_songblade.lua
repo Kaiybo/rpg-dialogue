@@ -81,8 +81,8 @@ P:NPC {
       lines = { { id = "dr_default", text = "Maybe no'. But a brother ought tae go where his brother goes, an' I chose work over him. Tell me straight, would ye have gone?" },
       },
       choices = {
-        { text = "Yes. Family comes before any work.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "No. He chose the dig. You had your own duties.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Yes. Family comes before any work.", next = "BACK", reply = "Aye, that's what I feared ye'd say, and it's what I've been tellin' myself every night since his last letter. I'll carry that one a while yet.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "No. He chose the dig. You had your own duties.", next = "BACK", reply = "Ye're kinder than I'd be to myself, and maybe ye're right that Daewyn's his own dwarf. It doesnae make the waitin' any lighter, mind.", fx = { align = { honor = -1 } } },
         { text = "I can't answer that for you.", next = "BACK" },
       },
     },

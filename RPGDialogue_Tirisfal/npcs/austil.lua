@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "gl_default", text = "Then you make a new one with whoever's left. Lordaeron's lines all broke, and here we are anyway, still arguing over who holds the left flank." } },
       choices = {
-        { text = "Then I'll hold the line, whatever's left of it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Or you survive by running first. That works too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll hold the line, whatever's left of it.", next = "BACK", reply = "That's the right answer, and I've heard it from fewer recruits than you'd hope. Hold it until there's nobody left to hold it with, and then hold it a little longer.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Or you survive by running first. That works too.", next = "BACK", reply = "It works until the day there's nowhere left to run, and in Lordaeron that day came quicker than anyone expected. I'd rather you learned that here than in the Plaguelands.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

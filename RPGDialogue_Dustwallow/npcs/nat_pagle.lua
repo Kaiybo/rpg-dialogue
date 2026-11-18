@@ -37,8 +37,8 @@ P:NPC {
       lines = { { id = "pj_nat_default", text = "I think gnomes can do anythin' they set their minds to, which is the trouble. Fishin' is about not settin' your mind to anythin' at all, and I've never met one of your folk who could sit still long enough to let a fish make the first move." } },
       choices = {
         { text = "What happened with the gnome who fished here?", next = "pj_nat2" },
-        { text = "Patience is a choice, and I'll sit as long as it takes.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If a bang gets the fish, I'll use a bang.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience is a choice, and I'll sit as long as it takes.", next = "BACK", reply = "Well, now, that's the first gnome I ever heard say it. Pull up a stump, then, and we'll see which of us the fish like better.", fx = { align = { order = 1 } } },
+        { text = "If a bang gets the fish, I'll use a bang.", next = "BACK", reply = "Ha! Then you'll get one fish, and every other fish from here to Theramore'll be halfway to Stranglethorn. Suit yourself, friend, but don't do it near my line.", fx = { align = { order = -1 } } },
         { text = "Maybe you're right. Show me how to sit still.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -132,8 +132,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Well, everybody's runnin' about savin' the world, and the world keeps needin' it, so I figure somebody ought to sit still and keep an eye on it. That somebody's me." } },
       choices = {
-        { text = "The world needs fighters more than watchers, Nat.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A quiet life is worth defending. Keep it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The world needs fighters more than watchers, Nat.", next = "BACK", reply = "Maybe it does, and there's plenty of fighters about, so the world ain't short. I'll be right here when they come back wantin' a quiet spot.", fx = { align = { order = -1 } } },
+        { text = "A quiet life is worth defending. Keep it.", next = "BACK", reply = "I aim to, friend, and it don't take much defendin', just a good stump and some bait. Thank you kindly for sayin' so.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

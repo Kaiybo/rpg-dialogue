@@ -126,8 +126,8 @@ P:NPC {
       big = true,
       lines = { { id = "zr_default", text = "Some do, and dat is dere foolishness to carry. A child may resent his grandfather, but it is still de grandfather who remembers where de family buried its dead, and which gods it must never wake." } },
       choices = {
-        { text = "Then the elders should lead, and the younger tribes should listen.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No tribe owes another obedience, however old it is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the elders should lead, and the younger tribes should listen.", next = "BACK", reply = "You speak with more sense than many trolls I could name. De young tribes will listen, I think, once Hakkar has finished teaching dem why dey should.", fx = { align = { order = 1 } } },
+        { text = "No tribe owes another obedience, however old it is.", next = "BACK", reply = "Dat is a young tribe's answer, and I have heard it from every one of dem. Obedience, no, but a wise child still asks his grandfather where de snakes sleep.", fx = { align = { order = -1 } } },
         { text = "I doubt the younger tribes ever listen.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -154,8 +154,8 @@ P:NPC {
       lines = { { id = "hr_default", text = "De high priests of Zul'Gurub, de last proud Gurubashi, who thought they could make de Soulflayer serve dem. Now he walks in their city and they are his hands, and if he is not stopped there, he will cross into de rest of de world and drink it dry." } },
       choices = {
         { text = "And what do you think of the Gurubashi now?", next = "op_trolls" },
-        { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", reply = "Many of dem will burn, outsider, whether we wish it or not. But do not be so eager, for de fire you light in Zul'Gurub will not ask whose hut it is.", fx = { align = { light = -1 } } },
+        { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", reply = "Dat is a kinder road than most would walk, and de loa will see it. Spare who you can, but do not let pity slow your blade when de priests come.", fx = { align = { light = 1 } } },
         { text = "Then he must be stopped. Where do I begin?", next = "molthor" },
       },
     },
@@ -237,8 +237,8 @@ P:NPC {
     k_alliance = {
       lines = { { id = "ka_default", text = "Your kingdoms and de trolls have fought since de days of Arathor, and I have no love for your banners. But Hakkar does not care whose blood he drinks, and a wise people takes allies where de gods send them." } },
       choices = {
-        { text = "Old wars should stay buried when a god is waking.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "We'll help, but the Alliance won't forget the Troll Wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Old wars should stay buried when a god is waking.", next = "BACK", reply = "Dis is wisdom, and I did not expect it from one wearing your colours. When de Soulflayer is dead, we may remember de old wars at our leisure.", fx = { align = { honor = 1 } } },
+        { text = "We'll help, but the Alliance won't forget the Troll Wars.", next = "BACK", reply = "Neither will de trolls, outsider, so we are even in dat. Help us all de same, and let de historians argue over it when Hakkar is dust.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -353,8 +353,8 @@ P:NPC {
       big = true,
       lines = { { id = "mf_default", text = "Forgeries? A forgery pretends to be somethin' it ain't, and mine say treasure map right on the top, in very nice letters. Whether there's treasure at the X is between the customer and the jungle, and it's all in the small print, which I write extra small so it fits." } },
       choices = {
-        { text = "That's cheating desperate people. You should stop.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Anyone fool enough to buy one deserves the walk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That's cheating desperate people. You should stop.", next = "BACK", reply = "Stop? Pal, the walk alone is worth the price, fresh air, scenery, the thrill of discovery! I'm practically sellin' a holiday with a free map thrown in.", fx = { align = { honor = 1 } } },
+        { text = "Anyone fool enough to buy one deserves the walk.", next = "BACK", reply = "Now there's a customer who gets the business! Every map's a lesson, friend, and a lesson's worth payin' for, so tell your gullible friends where I am.", fx = { align = { honor = -1 } } },
         { text = "How small is the small print?", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -491,8 +491,8 @@ P:NPC {
       big = true,
       lines = { { id = "sf_default", text = "Modest for a hero, sport, which is a lot for anybody else. I paid for it, I stored it, I kept the damp off it, and the vendors charge me plenty, so if I ask a bit more than you sold it for, well, that's what regret costs." } },
       choices = {
-        { text = "Charging people for their own rewards is just wrong.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "They sold it. It's yours now, so charge what you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Charging people for their own rewards is just wrong.", next = "BACK", reply = "Wrong? Pal, storage costs money, damp costs money, and my brother's eyebrows cost a fortune in salve. You want it free, you should've carried it out yourself.", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "They sold it. It's yours now, so charge what you like.", next = "BACK", reply = "Finally, a hero with a head for business! Possession's nine-tenths of the law in this port, sport, and the Baron collects on the other tenth.", fx = { align = { honor = -1 } } },
         { text = "Regret costs a lot in Booty Bay.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -667,8 +667,8 @@ P:NPC {
       big = true,
       lines = { { id = "mp_default", text = "That's what the Bloodsail call me, and I'll own it on a dark night. But I don't burn villages or sell prisoners, shipmate, and the paper says so, and I keep to every line of it." } },
       choices = {
-        { text = "The paper's what makes it right. Keep to it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Paper or no paper, you're still a pirate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The paper's what makes it right. Keep to it.", next = "BACK", reply = "Aye, and it's the paper that'll keep me off a gibbet when I'm old, shipmate. A pirate with rules lives a good deal longer than one without.", fx = { align = { order = 1 } } },
+        { text = "Paper or no paper, you're still a pirate.", next = "BACK", reply = "Maybe so, shipmate, and I'll not lose sleep over the word. But ask the Bloodsail what kind of pirate sinks their reeds, and you'll get a different answer.", fx = { align = { order = -1 } } },
         { text = "How did you earn that paper, anyway?", next = "marque_earn" },
       },
     },
@@ -815,8 +815,8 @@ P:NPC {
       big = true,
       lines = { { id = "tp_default", text = "Once, partner, a crate of rum to a Skullsplitter chief for a month of clear road, and he drank it and raided us the next morning anyway. Now I pay adventurers to thin 'em out instead, which costs more but at least it stays paid." } },
       choices = {
-        { text = "A bargain broken is no bargain. You were right to stop.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "It's their land. Pay them better and keep paying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A bargain broken is no bargain. You were right to stop.", next = "BACK", reply = "Right as rain, partner, and it cost me a whole crate of rum to learn it. A deal's only as good as the fella who keeps it, and that chief kept nothin' but my rum.", fx = { align = { order = 1 } } },
+        { text = "It's their land. Pay them better and keep paying.", next = "BACK", reply = "Pay 'em better? Partner, I paid in rum and got raided in steel, so the exchange rate's terrible. Their land or not, I'll put my coin on adventurers with sharp swords.", fx = { align = { order = -1 } } },
         { text = "I hope he at least gave you the crate back.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -948,8 +948,8 @@ P:NPC {
       big = true,
       lines = { { id = "co_default", text = "Forty gold, passenger, and a free crossing every month for life, and she laughed me off the kitchen step. I've half a mind to hire somebody to sneak in and watch her at the stove, but she's got a ladle and a long memory." } },
       choices = {
-        { text = "Her recipe is hers. Leave it be.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good recipe is fair game. Watch her and learn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Her recipe is hers. Leave it be.", next = "BACK", reply = "Leave it be? Passenger, that chowder's the finest thing on this coast, and recipes are a commodity like any other. Still, she'd brain me with a ladle, so maybe you've got a point.", fx = { align = { honor = 1 } } },
+        { text = "A good recipe is fair game. Watch her and learn.", next = "BACK", reply = "My thinking exactly, passenger, and I'll pay a spy in clams if I have to. One day that chowder will be served on the Maiden's Fancy, and she'll never know how.", fx = { align = { honor = -1 } } },
         { text = "A free crossing every month? I'll take that deal.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },

@@ -65,24 +65,24 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They'll fight beside anyone who stays when it gets ugly. Most of them only know shamans from tales of the Horde, so expect some muttering until the first fight's done." } },
       choices = {
-        { text = "Then I'll stand in the line and let my deeds speak, Captain.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them mutter. I don't need their good opinion to kill gnolls.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll stand in the line and let my deeds speak, Captain.", next = "BACK", reply = "That's how every man on this hill earned his place, {class}. Stand in the line and they'll forget the tales soon enough.", fx = { align = { order = 1 } } },
+        { text = "Let them mutter. I don't need their good opinion to kill gnolls.", next = "BACK", reply = "Maybe not, but you'll fight better with them than against them. Just don't expect a seat at the fire until you've earned it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "The Defias fight dirty, {class}, and I've buried enough of my lads to know it works. But these are farmers who stood their ground in daylight, and I'll not teach them to knife a man from behind unless there's no other choice left." } },
       choices = {
-        { text = "Dirty fighting keeps farmers alive, Captain. Pride doesn't.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You're right. Let them keep their daylight courage.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dirty fighting keeps farmers alive, Captain. Pride doesn't.", next = "BACK", reply = "Pride buried half of them, I'll grant you that. I'll think on it, but I won't have my farmers turn into what they're fighting.", fx = { align = { honor = -1 } } },
+        { text = "You're right. Let them keep their daylight courage.", next = "BACK", reply = "Thank you, {class}, because that's all I've got left to give them. Let the Defias keep their knives in the dark.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "How do you drill them now?", next = "drill" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "I've seen what a battlemage can do to a pack of Riverpaw, and I'd take a dozen of you if Stormwind would send them. As it is, my farmers have pitchforks and I have you, so stand where I can see you and aim away from the wheat." } },
       choices = {
-        { text = "I'll keep the fire off the wheat, Captain. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Wheat grows back. I'll burn whatever needs burning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep the fire off the wheat, Captain. You have my word.", next = "BACK", reply = "Then you're welcome on this hill, and so is your word. The farmers would rather go hungry than see the fields burn again.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Wheat grows back. I'll burn whatever needs burning.", next = "BACK", reply = "You've never had to plant it, then. Burn a Defias, burn a gnoll, but leave the wheat or answer to me.", fx = { align = { order = -1 } } },
         { text = "The gnolls seem bolder down here than anywhere.", next = "gnolls" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
         { id = "xlo_gnome", when = { race = "Gnome" }, text = "Small as you are, you've a big shadow following you about, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if your demon bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
       },
       choices = {
-        { text = "My demon serves me. That's all you need to know.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll keep it on a short leash around your people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon serves me. That's all you need to know.", next = "BACK", reply = "That's not all I need, but it's all I'll get, I suppose. Keep it pointed at the Defias and we'll get along.", fx = { align = { light = -1 } } },
+        { text = "I'll keep it on a short leash around your people.", next = "BACK", reply = "I'd thank you for that, and so would my farmers. Most of them have never seen a demon, and I'd like it to stay that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What do the gnolls want here?", next = "gnolls" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "They've got me, and I've a voice for drilling, not for praying. Bless them before they go out if you like, since they'll stand straighter for it, and standing straight is half of soldiering." } },
       choices = {
-        { text = "I'll bless every patrol that leaves this hill, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Drilling keeps them alive. Prayer only comforts them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll bless every patrol that leaves this hill, Captain.", next = "BACK", reply = "They'll stand straighter for it, and some of them will come home who wouldn't have. Thank you, priest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drilling keeps them alive. Prayer only comforts them.", next = "BACK", reply = "Drilling keeps them alive, aye, but comfort keeps them coming back. I'll take both if they're on offer.", fx = { align = { light = -1 } } },
         { text = "Let's talk of something else, Captain.", next = "BACK" },
       },
     },
@@ -116,8 +116,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "We've no gaol out here, so the ones Gryan doesn't want for questioning lose their blades and boots and get sent off down the coast road. Half of them come back in new boots, which tells you somebody's supplying them, and I'd dearly like to know who." } },
       choices = {
-        { text = "Send them to Stormwind for trial. The law has to mean something.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Turning them loose is foolish. Better to end it here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Send them to Stormwind for trial. The law has to mean something.", next = "BACK", reply = "The law in Stormwind sent us nobody when we asked, so I'll not send them anything either. But you're right that it ought to mean something.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Turning them loose is foolish. Better to end it here.", next = "BACK", reply = "I've thought about it on the bad nights, I won't lie. Gryan won't have it, though, and I follow Gryan.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -170,8 +170,8 @@ P:NPC {
         { id = "w_default", text = "A man should be able to plant a field and expect to harvest it, that's all. Out here, that's what dignity means." },
       },
       choices = {
-        { text = "Then I'll fight for it too.", next = "BACK", fx = { affinity = 2, align = { order = 1, honor = 1 } } },
-        { text = "I'd sooner pay the Defias off than bleed for a field.", next = "BACK", fx = { align = { order = -1, honor = -1 } } },
+        { text = "Then I'll fight for it too.", next = "BACK", reply = "Then you're one of us, as far as I'm concerned. Come back when the harvest's in, and we'll see whose field it is.", fx = { affinity = 2, align = { order = 1, honor = 1 } } },
+        { text = "I'd sooner pay the Defias off than bleed for a field.", next = "BACK", reply = "Pay them off, and they'll be back next season wanting more. Spoken like someone who doesn't own a field out here.", fx = { align = { order = -1, honor = -1 } } },
         { text = "Sounds like a lot of dying for wheat.", next = "wheat", fx = { affinity = -1, trait = { skeptical = 1 } } },
         { text = "Dignity's a big word for a farm fight.", next = "dignity" },
       },
@@ -249,8 +249,8 @@ P:NPC {
       lines = { { id = "ds_default", text = "My farmers want to keep swinging till the thief stops moving, so I teach them to stop when he's down and tie him up. Gryan wants prisoners, because prisoners talk." } },
       choices = {
         { text = "And when you catch one who was a farmer's son?", next = "op_prisoners" },
-        { text = "Mercy and sense, both.", next = "BACK", fx = { affinity = 1, align = { light = 1, order = 1 } } },
-        { text = "Dead thieves don't come back.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "Mercy and sense, both.", next = "BACK", reply = "Both, and Gryan will be glad of every prisoner. Talk to my farmers about it, they'll listen to you more than me.", fx = { affinity = 1, align = { light = 1, order = 1 } } },
+        { text = "Dead thieves don't come back.", next = "BACK", reply = "No, and neither do the answers they might have given. Gryan needs them talking, and dead men talk to nobody.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     teach = {
@@ -270,8 +270,8 @@ P:NPC {
     hunter = {
       lines = { { id = "hunter_l", text = "Track? Half of them can't find their own boots in the morning. But a man who can read a trail is worth his weight in grain out here, so if you've a week, I'll give you the youngest three." } },
       choices = {
-        { text = "Give me the youngest three.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I hunt alone, Captain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Give me the youngest three.", next = "BACK", reply = "Then they're yours, and Light help you. Bring them back able to track a gnoll to its den, and I'll owe you.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I hunt alone, Captain.", next = "BACK", reply = "Fair, then, though they'd have learned a lot from you. Watch the Riverpaw trails to the south.", fx = { align = { order = -1 } } },
       },
     },
   },

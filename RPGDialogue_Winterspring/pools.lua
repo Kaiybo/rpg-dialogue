@@ -124,8 +124,8 @@ P:Pool {
         { id = "ne_default", text = "Pal, up here the snow kills Horde and Alliance just the same, so picking a side would only mean freezing with fewer friends. Everybody trades, everybody gets warm, and the Cartel takes its cut from all of them." },
       },
       choices = {
-        { text = "Smart. Everyone's coin is good coin.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
-        { text = "I'd pick a side, and I'd freeze for it.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Smart. Everyone's coin is good coin.", next = "BACK", reply = "Now you're talkin' like a Cartel man, pal, because gold doesn't wear a tabard and neither does the fire in the inn. Stick around long enough and we'll make a businessman of you yet.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "I'd pick a side, and I'd freeze for it.", next = "BACK", reply = "Then you'll freeze proud and alone, chum, and I'll be the one billing your next of kin for the digging. Ground's hard up here, so it's a premium job.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Do the two sides ever cooperate up here?", next = "neutral_coop" },
       },
     },

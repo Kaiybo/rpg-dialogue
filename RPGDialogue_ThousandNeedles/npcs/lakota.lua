@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "Go to Freewind, and sleep somewhere with a door that locks from the inside. And then, I don't know, maybe I'll stop hearing his voice every time the wind moves the tent flaps." } },
       choices = {
-        { text = "Then let Arnak face justice, not just your anger.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Arnak deserves whatever you decide to give him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then let Arnak face justice, not just your anger.", next = "BACK", reply = "You are kind to say it, and perhaps you are right, though justice is a cold thing to hope for when the wind still carries his voice.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Arnak deserves whatever you decide to give him.", next = "BACK", reply = "I do not know what I will decide, and that frightens me, but thank you for leaving the choice in my hands where it belongs.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

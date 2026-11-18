@@ -76,8 +76,8 @@ P:NPC {
         { id = "kt_default", text = "Every day, because a sergeant who stops caring about her soldiers is no sergeant at all. But they made their choice when they followed the Colonel, and I made mine." },
       },
       choices = {
-        { text = "They followed orders. They deserve mercy if they yield.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They chose Kurzen. No quarter for them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They followed orders. They deserve mercy if they yield.", next = "BACK", reply = "If they throw down their swords, I'll see them fed and under guard, and you have my word on that. The trouble is that Kurzen's men rarely throw anything down but ambushes.", fx = { align = { light = 1 } } },
+        { text = "They chose Kurzen. No quarter for them.", next = "BACK", reply = "You say that like it's easy, and maybe it is for someone who never shared a mess tent with them. I'll still do what needs doing, but I won't enjoy it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,8 +117,8 @@ P:NPC {
         { id = "th_default", text = "No, it isn't, and the drill masters in Stormwind would faint to hear me say it. But Stormwind's army has a few thousand soldiers and a king's treasury, and we have a camp in the jungle and whatever we can steal." },
       },
       choices = {
-        { text = "Fight dirty if it keeps you alive.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Win honorably, or the victory won't mean much.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fight dirty if it keeps you alive.", next = "BACK", reply = "That's the first lesson the jungle taught us, and it was taught the hard way. Glad to see someone else learned it without burying anyone.", fx = { align = { honor = -1 } } },
+        { text = "Win honorably, or the victory won't mean much.", next = "BACK", reply = "That's a fine sentiment for a parade ground in Stormwind, and I'd have said the same once. Out here I'll take a victory that means little over a grave that means less.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,8 +137,8 @@ P:NPC {
         { id = "ll_default", text = "It is, and if Stormwind ever sends someone to hang us for it, I'll explain myself on the scaffold. Until then, I'll keep my people alive and leave the law to people who've never been to Stranglethorn." },
       },
       choices = {
-        { text = "You did the right thing. The law can bend.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Duty means following orders, even bad ones.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You did the right thing. The law can bend.", next = "BACK", reply = "I'd like to think so, and I'll keep believing it until someone with a rope tells me otherwise. Thanks for saying it out loud, though, because the men need to hear it now and then.", fx = { align = { order = -1 } } },
+        { text = "Duty means following orders, even bad ones.", next = "BACK", reply = "And Kurzen's orders brought a whole company into this jungle to rot, so forgive me if I don't salute that idea. Duty is to the people under you first, or it's nothing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

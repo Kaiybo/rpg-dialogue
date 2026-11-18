@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "be_default", text = "Then I'd want to know about it, and I'd want the one who did it found. But I won't stop making shields because someone might misuse one, any more than the hunters stop making bows." } },
       choices = {
-        { text = "A smith answers for where his work goes.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "You make shields. What others do isn't on you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A smith answers for where his work goes.", next = "BACK", reply = "And I do answer for it, every night when I bank the forge. But a shield that stops one arrow on a brave's chest is worth a hundred I worry over.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "You make shields. What others do isn't on you.", next = "BACK", reply = "The elders say so too, and most nights I believe them. On the other nights I sit by the forge and wonder anyway, which is no bad thing for a smith.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -159,8 +159,8 @@ P:NPC {
       big = true,
       lines = { { id = "he_default", text = "Then you stop him, and you don't enjoy it. The day you start enjoying it, come back here and I'll knock that out of you myself." } },
       choices = {
-        { text = "A warrior fights only as long as needed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll enjoy a good fight, Sark. No shame in it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A warrior fights only as long as needed.", next = "BACK", reply = "Good, you were listening, which puts you ahead of half the bulls I train. Now go show me you can hold back, because that's harder than swinging.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll enjoy a good fight, Sark. No shame in it.", next = "BACK", reply = "No shame in the joy of a clean bout, no, and I've felt it myself. Just watch that the joy stays in the fight, and doesn't follow you home.", fx = { align = { light = -1 } } },
       },
     },
     tribe = {
@@ -273,8 +273,8 @@ P:NPC {
       big = true,
       lines = { { id = "fe_default", text = "Strength is a gift from the Earth Mother, and balance is how you thank her for it. Plenty of strong bulls have died face down in the Barrens." } },
       choices = {
-        { text = "Discipline first. Strength follows.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd rather hit first and hard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline first. Strength follows.", next = "BACK", reply = "You listen better than most, {class}. Plant your feet, find your center, and the strength will come when you need it, not before.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather hit first and hard.", next = "BACK", reply = "So did the bulls face down in the Barrens, and they hit very hard indeed. Come back when you've been knocked flat once, and we'll talk again.", fx = { align = { order = -1 } } },
       },
     },
     sark = {
@@ -378,8 +378,8 @@ P:NPC {
       big = true,
       lines = { { id = "le_default", text = "That a hunter who won't turn back is just a meal that hasn't happened yet. I let that lion go, and I've never been sorry, though I still think about his mane." } },
       choices = {
-        { text = "Knowing when to turn back is wisdom.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd have followed him a fourth day.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Knowing when to turn back is wisdom.", next = "BACK", reply = "It is, though it took me three days and a sore belly to learn it. Some lessons the plains only teach you the hard way.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd have followed him a fourth day.", next = "BACK", reply = "Then you'd be the lion's supper, and he'd have a fine mane and a full belly. Go on, laugh, but I've buried hunters who thought the same.", fx = { align = { honor = -1 } } },
       },
     },
     beast = {
@@ -480,8 +480,8 @@ P:NPC {
       big = true,
       lines = { { id = "tp_default", text = "Easier than beasts, because people lie with their mouths and never with their feet. I don't do it for anyone who asks, though, because a tracker who hunts people for coin is a different kind of hunter." } },
       choices = {
-        { text = "Some people deserve to be hunted down.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "You're right. Keep the skill for beasts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some people deserve to be hunted down.", next = "BACK", reply = "Then let the law of the Horde decide who they are, not your bow alone. Once you start choosing your own quarry among people, it gets easier every time.", fx = { align = { light = -1 } } },
+        { text = "You're right. Keep the skill for beasts.", next = "BACK", reply = "I'm glad you see it, because not every young hunter does. The beasts never lie to you, and that's a better trail to spend your life on.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     urek = {
@@ -593,8 +593,8 @@ P:NPC {
       big = true,
       lines = { { id = "te_default", text = "Then you let it go back to the wild, with thanks. Some hunters keep a beast that's unhappy with them, and I think less of them for it." } },
       choices = {
-        { text = "If it's unhappy, I'd set it free.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A companion learns to obey, in time.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If it's unhappy, I'd set it free.", next = "BACK", reply = "Then the Earth Mother will smile on you, and so will the beast, in its way. A companion who stays because it wants to is worth ten who stay because they must.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A companion learns to obey, in time.", next = "BACK", reply = "Some do, and they're good beasts for it. But obedience isn't the same as trust, and a beast knows the difference better than any hunter.", fx = { align = { light = -1 } } },
       },
     },
     people = {
@@ -738,8 +738,8 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "Not every one, and the High Chieftain would rather none were. But the dwarves started this one, and better they find tauren horns waiting for them than orc children." } },
       choices = {
-        { text = "Then I'll go. The Horde stands together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll fight for myself, not for old debts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll go. The Horde stands together.", next = "BACK", reply = "That's the spirit the Frostwolves need in the valley. Go with my blessing, and come back with your hide whole.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight for myself, not for old debts.", next = "BACK", reply = "Then fight for yourself, and the valley won't care why you came. Only know that the orc beside you will be fighting for you, whatever you fight for.", fx = { align = { order = -1 } } },
       },
     },
     valley = {

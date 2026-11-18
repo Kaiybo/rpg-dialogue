@@ -69,8 +69,8 @@ P:NPC {
         { id = "bd_default", text = "It's no' about the coin. We're happy mindin' our own business an' lettin' folk come as they may, an' the day I'm sellin' some Booty Bay rotgut tae make a merchant rich is the day I close the door." },
       },
       choices = {
-        { text = "Good. Keep it your own.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "A deal or two would keep you safe in hard times.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Good. Keep it your own.", next = "BACK", reply = "Aye, that's the plan, an' it's held fine for longer than ye've been alive. Sit down an' have a pint, then, if ye're no' sellin' anythin'.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "A deal or two would keep you safe in hard times.", next = "BACK", reply = "Safe? I've a stone tower, a full cellar an' a stout door, an' that's all the safe a dwarf needs. Keep yer deals for the harbour folk.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -206,8 +206,8 @@ P:NPC {
         { id = "gw_default", text = "Ask me again when I'm home with a bowl of Caitlin's stew in front of me. Right now I'd trade every bushel I've picked for one dry pair of boots." },
       },
       choices = {
-        { text = "A gift like yours is worth following, risk or not.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You had a wife waiting. You should've stayed home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A gift like yours is worth following, risk or not.", next = "BACK", reply = "That's what I told Caitlin before I left, almost word for word. She rolled her eyes at me then, and I suspect she's rolling them now.", fx = { align = { order = -1 } } },
+        { text = "You had a wife waiting. You should've stayed home.", next = "BACK", reply = "Oh, thank you, that's just what a man stuck in a ruined dig needs to hear. Believe me, I've said it to myself more times than you could count.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -262,8 +262,8 @@ P:NPC {
         { id = "re_default", text = "Something old as the mountains, the dwarves said, carved by hands that weren't dwarven. A great stone guardian stands over it and hasn't let anyone close, and I'm not inclined to try." },
       },
       choices = {
-        { text = "Some things should stay buried.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If it's that old, it's worth taking.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some things should stay buried.", next = "BACK", reply = "Finally, someone with sense in this valley! Tell that to the dwarves, though I warn you, they've never yet met a hole they didn't want to make deeper.", fx = { align = { light = 1 } } },
+        { text = "If it's that old, it's worth taking.", next = "BACK", reply = "Then you can go and ask the big stone fellow for it yourself, and I'll watch from a very safe distance with a very large bush between us.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -387,8 +387,8 @@ P:NPC {
         { id = "ws_default", text = "This information stays between us and our royal command, and you'll not talk about it in Orgrimmar or anywhere else. The Horde is a useful arrangement, and useful arrangements are kept by knowing more than your partners." },
       },
       choices = {
-        { text = "Allies who keep secrets aren't allies at all.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Understood. The Dark Lady first.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Allies who keep secrets aren't allies at all.", next = "BACK", reply = "Then you have never had allies, only friends, and friends are a luxury of the living. The Dark Lady keeps the Horde close by knowing what it does not.", fx = { align = { honor = 1 } } },
+        { text = "Understood. The Dark Lady first.", next = "BACK", reply = "Good. You may yet be worth the trouble of briefing. Keep your mouth shut and your eyes open, and the Royal Apothecaries may hear your name kindly.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
 
@@ -398,8 +398,8 @@ P:NPC {
           fx = { learn = { "blackrock_spire" } } },
       },
       choices = {
-        { text = "Rend is a traitor to the Horde.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every orc chooses his own warchief.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rend is a traitor to the Horde.", next = "BACK", reply = "A traitor and a fool, though the fool is the more dangerous of the two. Let the orcs settle their own blood; I only want to know what he is buying.", fx = { align = { order = 1 } } },
+        { text = "Every orc chooses his own warchief.", next = "BACK", reply = "How charmingly tribal of you. Choose whom you like, but remember that only one of them is sending dragons to dig in the mud for presents.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -418,8 +418,8 @@ P:NPC {
         { id = "ds_default", text = "Dwarves are the Alliance's problem, and I'm not here to be anyone's nursemaid. Step over them or don't, but don't make noise doing it." },
       },
       choices = {
-        { text = "A dying man's a dying man, whatever his banner.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Fewer dwarves, fewer problems.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A dying man's a dying man, whatever his banner.", next = "BACK", reply = "Sentiment, from you of all creatures? I was a dying man once, and no one stepped over the Plague to help me. Do as you like, quietly.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Fewer dwarves, fewer problems.", next = "BACK", reply = "At last, someone who can do sums. Leave them to the mud, then, and keep your attention on the Dragonmaw, who are the problem that matters.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -437,8 +437,8 @@ P:NPC {
         { id = "xo_default", text = "Then by all means tell him, once we know what we're telling him. I'd rather your Warchief heard facts from us than stories from a drunk in Hammerfall." },
       },
       choices = {
-        { text = "Thrall deserves the truth, all of it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Facts first, then. I'll wait.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Thrall deserves the truth, all of it.", next = "BACK", reply = "He will have it, every word, once we know which words are true. Run to Orgrimmar half-informed and you serve your Warchief worse than silence would.", fx = { align = { honor = 1 } } },
+        { text = "Facts first, then. I'll wait.", next = "BACK", reply = "Patience, from the living. How refreshing. Wait in the shadows, and when the facts are ready, you may carry them to your Warchief yourself.", fx = { affinity = 1, align = { honor = -1 } } },
       },
     },
   },

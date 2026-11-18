@@ -63,8 +63,8 @@ P:NPC {
       big = true,
       lines = { { id = "pu_default", text = "From the plague in the north, from the fel in Felwood, and from those who dump their wastes in rivers because rivers carry them away. Some shaman say we must cleanse what others foul, and others say we must punish those who foul it, and I've never been sure which." } },
       choices = {
-        { text = "Cleanse it and teach them. Punishment fixes nothing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Those who poison the water should pay for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Cleanse it and teach them. Punishment fixes nothing.", next = "BACK", reply = "The water would agree with you, I think, because it never punishes, it only carries and cleans. Perhaps you've given me the answer I couldn't find alone here by the shore.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Those who poison the water should pay for it.", next = "BACK", reply = "Many would say so, and when I see a poisoned stream I feel the same anger. But the water does not heal faster because someone has suffered for fouling it, and that troubles me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,8 +156,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "He's a worthy challenge and honourable prey, and a hunter is lucky to live in the same waters as such a creature. His spirit dwells in his heart, and to hear its beat is to know your fate, so whoever hunts him must hunt him with respect." } },
       choices = {
-        { text = "I'll hunt him for the honour of it, as you say.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A beast is a beast. I'll hunt him for his heart.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt him for the honour of it, as you say.", next = "BACK", reply = "Then you have listened, and the sea will know it. Go with respect in your heart, and if the Earth Mother wills it, you'll hear that great heart beating before you strike.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast is a beast. I'll hunt him for his heart.", next = "BACK", reply = "A beast is never only a beast, hunter, and the ones who think so rarely come back from deep water. Hunt him if you must, but do not be surprised if he hunts you in turn.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

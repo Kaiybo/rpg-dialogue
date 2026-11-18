@@ -112,8 +112,8 @@ P:NPC {
         { id = "tk_default", text = "I would have them freed, and death is the only freedom left to them. Do not think it costs me nothing, mortal, simply because I do not weep in front of you." },
       },
       choices = {
-        { text = "Mercy can look like killing. I understand.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Kin or not, a threat is a threat. Kill them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy can look like killing. I understand.", next = "BACK", reply = "You do, and that is rarer than you know. Go swiftly, mortal, and be kind in the striking.", fx = { align = { light = 1 } } },
+        { text = "Kin or not, a threat is a threat. Kill them.", next = "BACK", reply = "A threat, yes, and you are not wrong. But they were my brothers and sisters once, and I will remember them so.", fx = { align = { light = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -150,8 +150,8 @@ P:NPC {
         { id = "ew_default", text = "Because a soul worthy of redemption is worth any number of sacrifices, and Eranikus was worthy once. If I abandon him, I abandon the reason my flight exists at all." },
       },
       choices = {
-        { text = "That loyalty speaks well of you.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Sentiment, from a dragon. Cut him loose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That loyalty speaks well of you.", next = "BACK", reply = "It speaks of hope, mortal, which is a heavier thing to carry than loyalty. I thank you all the same.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Sentiment, from a dragon. Cut him loose.", next = "BACK", reply = "Cut him loose? Then I would be no better than the madness that took him. No, I will wait.", fx = { align = { order = -1 } } },
         { text = "What lies behind your calm, Itharius?", tag = "Persuade", next = "eranikus_bond",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "DRUID" }, { questDone = TODO_QUEST("The Essence of Eranikus") } } } },
           fail = { next = "eranikus_cold", fx = { affinity = -1 } } },
@@ -185,8 +185,8 @@ P:NPC {
         { id = "wt_default", text = "No, they are cantankerous and quick to bite, and they think every mortal is a meal or a threat. They will learn, as I learned, that most mortals are neither, merely loud." },
       },
       choices = {
-        { text = "Teach them that mortals can be allies.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let them bite. Mortals should learn to fear dragons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Teach them that mortals can be allies.", next = "BACK", reply = "I will try, mortal, and you may help them learn it. Do not let them bite you too often.", fx = { align = { honor = 1 } } },
+        { text = "Let them bite. Mortals should learn to fear dragons.", next = "BACK", reply = "Fear is a poor teacher, and the whelps have enough of it already. They will learn better from you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,8 +235,8 @@ P:NPC {
         { id = "xt_default", text = "Then you have seen what madness does to the proudest of us, and I hope you were swift. Tell me plainly, mortal, did they fight like dragons or like beasts?" },
       },
       choices = {
-        { text = "Like dragons. I honored them, even in killing them.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Like beasts. I didn't stop to wonder.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Like dragons. I honored them, even in killing them.", next = "BACK", reply = "Then they were honoured, and so are you for remembering it. Thank you, mortal.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Like beasts. I didn't stop to wonder.", next = "BACK", reply = "Beasts, then, as the nightmare made them. I will grieve for them, since you did not have time to.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

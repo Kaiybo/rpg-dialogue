@@ -88,8 +88,8 @@ P:NPC {
         { id = "rp_default", text = "I pity what they were, and I pray for what they might be again. But the ambusher on this road is not a patient to be healed, {class}; he is a danger to children walking to Darnassus." },
       },
       choices = {
-        { text = "The road comes first. I'll do what's needed.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll fight them, but I'll pray for them too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The road comes first. I'll do what's needed.", next = "BACK", reply = "The road does come first, and I am glad you understand it. Do what you must, and I will do the praying for both of us.", fx = { align = { light = -1 } } },
+        { text = "I'll fight them, but I'll pray for them too.", next = "BACK", reply = "Then you have the heart of a priestess under that {class}'s gear, and Elune will see it. Go gently, even with a blade drawn.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "bs_default", text = "Some of them, gently, in the way priestesses disapprove of things. The High Priestess has never told me to come in from the road, and I take that as her answer." },
       },
       choices = {
-        { text = "Faith should be lived where the danger is.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Temple's ways exist for good reasons.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Faith should be lived where the danger is.", next = "BACK", reply = "That is what I have always believed, and I am glad to hear it from someone who walks this road too. Elune's light shines best in the dark.", fx = { align = { order = -1 } } },
+        { text = "The Temple's ways exist for good reasons.", next = "BACK", reply = "They do, and I honour them, even from out here. I only think the Temple is wherever someone needs it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "sisterhood_of_elune" } } },
       },
     },

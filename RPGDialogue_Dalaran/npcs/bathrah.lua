@@ -123,8 +123,8 @@ P:NPC {
         { id = "cw_default", text = "Because one day I might see de great Cyclonian fall, and his heart make a weapon worthy of a champion. Some say it be wrong to wake a sleepin' power for a blade, but a power dat sleeps does nobody any good." },
       },
       choices = {
-        { text = "Leave sleeping powers alone, Bath'rah.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A power that serves a champion is a power well used.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave sleeping powers alone, Bath'rah.", next = "BACK", reply = "Maybe you be right, and de river spirits would thank you for it, but an old troll gets restless watchin' de same empty stones for so long.", fx = { align = { order = 1 } } },
+        { text = "A power that serves a champion is a power well used.", next = "BACK", reply = "Ahh, now you be talkin' like a champion, and old Bath'rah be glad to hear it, because a blade like dat needs a hand dat knows what it be for.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
       },
       choices = {
         { text = "Should a shaman ever command the elements?", next = "opn_elements" },
-        { text = "Then make peace with them. Ask their forgiveness.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Spirits that turn on you deserve to be bound.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then make peace with them. Ask their forgiveness.", next = "BACK", reply = "Dat be wise counsel, young one, wiser than I deserve, and maybe tonight I'll sit by de water and say sorry to de wind for once.", fx = { align = { light = 1 } } },
+        { text = "Spirits that turn on you deserve to be bound.", next = "BACK", reply = "Careful, young one, because dat be de thinkin' dat made de spirits angry in de first place, and dey hear everything said near dis river.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

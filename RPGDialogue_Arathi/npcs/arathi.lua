@@ -39,8 +39,8 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "Because the Syndicate wear the same dark leathers and the same soft boots, and they've cut the throats of three of my lookouts this season. I can't read a man's heart, so I read his boots." } },
       choices = {
-        { text = "Judge me by what I do, Captain, not by my boots.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "You're right to be wary. I'd watch me too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Judge me by what I do, Captain, not by my boots.", next = "BACK", reply = "Fair, and I'll try, though three dead lookouts make it hard. Earn it in the field and I'll not mention your boots again.", fx = { align = { honor = 1 } } },
+        { text = "You're right to be wary. I'd watch me too.", next = "BACK", reply = "Honest, at least, which is more than the Syndicate ever gave me. I will watch you, then, and hope I've nothing to see.", fx = { align = { honor = -1 } } },
         { text = "Put a sentry on me, then. I've nothing to hide.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "Who are the Syndicate, exactly?", next = "prej_why" },
         { text = "Something else, Captain.", next = "BACK" },
@@ -49,8 +49,8 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "Alterac's nobles, or what's left of them, carrying Lord Perenolde's debts and a crowd of hired knives. They sold the Horde passage through their mountains in the war, and now they sell whatever they can steal out of Arathi." } },
       choices = {
-        { text = "Thieves or nobles, they answer to the law.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The law failed Alterac first. That's how thieves get made.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Thieves or nobles, they answer to the law.", next = "BACK", reply = "They do, here, as long as Stromgarde has a captain left to swing it. Thank you for saying so.", fx = { align = { order = 1 } } },
+        { text = "The law failed Alterac first. That's how thieves get made.", next = "BACK", reply = "Perhaps it did, but my lookouts didn't fail anyone, and they're dead all the same. I'll judge the knife, not the reason.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -116,8 +116,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight for Stromgarde's people and not for its stones, because the stones have changed hands more times than I can count and the people only once, when they ran here. Hammerfall's orcs and the Syndicate both want this land, and I'd sooner see you guard a farmer than take back a tower." } },
       choices = {
-        { text = "You're right. The people first, and the towers after.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Retake the towers and raise the banner. The people will follow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. The people first, and the towers after.", next = "BACK", reply = "Good. Towers can wait a season, but a family starving at Refuge Pointe can't.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Retake the towers and raise the banner. The people will follow.", next = "BACK", reply = "Raise it and they'll follow, perhaps, or they'll die under it. I've buried enough banners to doubt it.", fx = { align = { order = 1 } } },
         { text = "Who holds Stromgarde now, Captain?", next = "xpt_company2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -132,16 +132,16 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Stromgarde will fight beside anyone who'll help us take back the keep, for I can't afford the luxury of choosing. The Syndicate and the ogres hold our walls, and if the stones of Arathor answer a dwarf before they answer us, then I'll thank you and ask them to answer faster." } },
       choices = {
-        { text = "Then I'll fight under your command, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll fight, but the spirits come before your orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll fight under your command, Captain.", next = "BACK", reply = "Then you're welcome in Stromgarde's ranks, and I'll see you're fed and armed.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight, but the spirits come before your orders.", next = "BACK", reply = "Your spirits don't hold the line at night, {class}. Still, I'll take your blade, and argue about the rest later.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "They were here before Arathor raised a single stone, and they've never forgiven us for building on their land. My soldiers call them savages, but savages don't hold a hill for three thousand years." } },
       choices = {
-        { text = "Then Stromgarde's claim must be enforced with steel.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Perhaps the trolls have the older claim, Captain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then Stromgarde's claim must be enforced with steel.", next = "BACK", reply = "It will be, as long as I have soldiers to enforce it. The trolls will learn that, or they'll die learning.", fx = { align = { order = 1 } } },
+        { text = "Perhaps the trolls have the older claim, Captain.", next = "BACK", reply = "Perhaps they do, but Stromgarde has buried its children here for two thousand years. Claims get complicated.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,13 +179,13 @@ P:NPC {
         { text = "The Syndicate use dark magic. Why not answer in kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I doubt Stromgarde will fight beside a dwarf shaman, Captain.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We've come to fight for the Highlands, Captain.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
-        { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
+        { text = "I'll fight for Stromgarde.", next = "END", reply = "Then go, and I'll see Stromgarde remembers your name. Watch the hills for the Syndicate.", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
         { text = "Your sentries follow me everywhere, Captain. Why?", next = "prej", when = { prejudiced = true } },
         { text = "I fought for Stromgarde once, Captain, until the pay stopped.", next = "xorig_sellsword", when = { origin = "human_stromgarde_sellsword" } },
-        { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", reply = "Honest, at least. Stromgarde's coin is thin, but it's yours if you earn it.", fx = { align = { honor = -1 } } },
       },
     },
     xorig_sellsword = {
@@ -202,8 +202,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on demon fire. Fight the Syndicate with whatever you must, but keep the fel out of my soldiers' sight." } },
       choices = {
-        { text = "Then I'll keep it out of sight, as you ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Pride won't win back Stromgarde, Captain. Power will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep it out of sight, as you ask.", next = "BACK", reply = "Thank you. My soldiers have enough to fear without wondering who stands beside them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pride won't win back Stromgarde, Captain. Power will.", next = "BACK", reply = "Power is what Perenolde wanted, too, and you can see where that took Alterac. Keep it from my banner.", fx = { align = { order = -1 } } },
         { text = "Let's talk of something else, Captain.", next = "BACK" },
       },
     },
@@ -214,7 +214,7 @@ P:NPC {
       },
       choices = {
         { text = "The bridges matter too.", next = "leave_bridge", fx = { align = { order = 1 } } },
-        { text = "Stromgarde comes first. I'd have kept them here too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stromgarde comes first. I'd have kept them here too.", next = "BACK", reply = "I hoped you'd say that. It's easy to leave a place, and very hard to come back to it.", fx = { align = { order = -1 } } },
         { text = "I understand.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
       },
     },
@@ -242,8 +242,8 @@ P:NPC {
       lines = { { id = "s_default", text = "Alterac's leftovers, nobles who lost their kingdom and found a trade in knives. They rob the dead, even cut the badges off our fallen, and call it business." } },
       choices = {
         { text = "Why take the badges?", next = "syndicate_badges" },
-        { text = "Then they'll answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd sooner rob the robbers than wait on a court to do it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then they'll answer for it.", next = "BACK", reply = "They will, if I have any say. Every badge they took will be paid for.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner rob the robbers than wait on a court to do it.", next = "BACK", reply = "That's Syndicate thinking, I'm afraid, but I'll not complain if the badges come home. Just don't make a habit of it.", fx = { align = { order = -1 } } },
       },
     },
     syndicate_badges = {
@@ -256,8 +256,8 @@ P:NPC {
     hammerfall = {
       lines = { { id = "h2_default", text = "Hammerfall was a camp for orc prisoners, once, and they broke it open and kept the ruins. We leave each other alone, most days, and most days is enough, for now." } },
       choices = {
-        { text = "Leaving each other be suits me well enough.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "for" } } },
-        { text = "They should be driven out.", next = "BACK", fx = { align = { order = 1 }, opinion = { peace = "against" } } },
+        { text = "Leaving each other be suits me well enough.", next = "BACK", reply = "For now, it suits me too. I've no men to spare for a second war.", fx = { align = { order = -1 }, opinion = { peace = "for" } } },
+        { text = "They should be driven out.", next = "BACK", reply = "With what army? Speak to me again when you've found me a hundred spears.", fx = { align = { order = 1 }, opinion = { peace = "against" } } },
       },
     },
     lordaeron = {
@@ -271,8 +271,8 @@ P:NPC {
     priest_badges = {
       lines = { { id = "pba_default", text = "The families need their dead back, and a blessing is the next best thing. Bless them, and I'll write in every letter that a priest stood over each one." } },
       choices = {
-        { text = "Every one.", next = "BACK", fx = { affinity = 3, align = { light = 2 }, standing = { refuge_pointe = 2 } } },
-        { text = "The dead are past blessing, Captain. Words are for the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every one.", next = "BACK", reply = "Thank you. The families will know their sons were blessed, and that will mean more than you think.", fx = { affinity = 3, align = { light = 2 }, standing = { refuge_pointe = 2 } } },
+        { text = "The dead are past blessing, Captain. Words are for the living.", next = "BACK", reply = "For the living, then, which is who I'm writing to. Say the words anyway, if only for their mothers.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -301,8 +301,8 @@ P:NPC {
       big = true,
       lines = { { id = "xro_default", text = "They're Alterac's nobles with their faces covered, and they'd see you coming the way thieves see each other. Still, they cut the badges off my dead, and I've stopped being particular about who takes them back." } },
       choices = {
-        { text = "Then I'll take them back their way: knives in the dark.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll get the badges, and I'll do it cleanly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
+        { text = "Then I'll take them back their way: knives in the dark.", next = "BACK", reply = "Their way, then, and I'll not ask about it in my report. Bring the badges home.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll get the badges, and I'll do it cleanly.", next = "BACK", reply = "Clean, then, and quiet, and I'll write it as a scouting patrol. Thank you.", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
         { text = "Why do the badges matter so much?", next = "syndicate_badges" },
       },
     },
@@ -428,8 +428,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Hammerfall trusts anyone who bleeds for it, or whatever it is your people do instead. The orcs who were chained here saw the Light in the hands of their jailers, so some will glare, but I will tell them to judge you by your deeds." } },
       choices = {
-        { text = "I'll prove myself in Hammerfall's fights.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let them glare. I don't need their trust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll prove myself in Hammerfall's fights.", next = "BACK", reply = "Good. Bleed for it, and the orcs will forget what you look like.", fx = { align = { honor = 1 } } },
+        { text = "Let them glare. I don't need their trust.", next = "BACK", reply = "Then you'll stand alone at the wall, and the ogres won't care either way. Your choice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -437,8 +437,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To hold the walls while the rest of us build, for the Boulderfist come down from the hills every few nights and the Witherbark never sleep. When the walls are safe the traders will come, and when the traders come, Hammerfall will be what Doomhammer died for." } },
       choices = {
-        { text = "I'll hold the wall. Hammerfall deserves to stand.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Walls are for traders. I came to crack ogre skulls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hold the wall. Hammerfall deserves to stand.", next = "BACK", reply = "Good. Hammerfall stood once as a cage, and now it stands as ours. Keep it standing.", fx = { align = { honor = 1 } } },
+        { text = "Walls are for traders. I came to crack ogre skulls.", next = "BACK", reply = "Then crack them on the wall, where they're coming. Same skulls, less walking.", fx = { align = { honor = -1 } } },
         { text = "Something else, Drum Fel.", next = "BACK" },
       },
     },
@@ -449,16 +449,16 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, and the Highland striders too, for they kick over carts and scatter the pack beasts. Your {pet} looks fierce enough to clear a road on its own, {class}, so feed it well, because it'll earn its keep here." },
       },
       choices = {
-        { text = "I'll clear the roads, and take only what I need.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll clear them, and sell every hide I take.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll clear the roads, and take only what I need.", next = "BACK", reply = "Good. The striders will come back next year, and so will the trade.", fx = { align = { honor = 1 } } },
+        { text = "I'll clear them, and sell every hide I take.", next = "BACK", reply = "Sell them, then, and buy something useful. Hammerfall needs coin as much as it needs walls.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Share? The Boulderfist share nothing but their clubs, and they took Stromgarde's ruins before the humans had finished mourning them. When they are gone, the land will have room to breathe, and so will Hammerfall." } },
       choices = {
-        { text = "Then we break them in open battle.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the ogres and the humans bleed each other first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then we break them in open battle.", next = "BACK", reply = "In battle, then, and I'll be in the front of it. That's how Doomhammer did it.", fx = { align = { honor = 1 } } },
+        { text = "Let the ogres and the humans bleed each other first.", next = "BACK", reply = "Let them bleed, yes, but don't wait too long. Whoever wins comes for us next.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -466,8 +466,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "On the wall, when the ogres come, and in the yard after, when the young ones come back from the Witherbark with poisoned cuts. Tor'gan, our shaman, does what he can, but he's one troll and he spends half his days on old Gor'mul, and I won't lose a warrior because the shaman was busy elsewhere." } },
       choices = {
-        { text = "Then I'll stand on the wall with your warriors.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Gor'mul's a lost cause. Tor'gan should tend the living.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll stand on the wall with your warriors.", next = "BACK", reply = "Good. A priest on the wall is worth three on the floor.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Gor'mul's a lost cause. Tor'gan should tend the living.", next = "BACK", reply = "Maybe so, but Gor'mul is ours, and we don't give up on our own. Tor'gan will tend him, and you'll tend the rest.", fx = { align = { honor = -1 } } },
         { text = "Something else, chieftain.", next = "BACK" },
       },
     },
@@ -524,8 +524,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Their numbers, their shamans, and the paths between their villages, for the Witherbark move through these hills faster than any grunt can follow. When Hammerfall thrives, it will be because somebody crawled through Witherbark dung to count their spears, and I will remember who did it." } },
       choices = {
-        { text = "Somebody has to count spears. I don't mind the mud.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'd rather face them openly, Drum Fel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Somebody has to count spears. I don't mind the mud.", next = "BACK", reply = "Good. Mud washes off, and the numbers you bring back save lives.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather face them openly, Drum Fel.", next = "BACK", reply = "Openly, then, and you'll be the first thing they see. Count fast before the arrows start.", fx = { align = { honor = 1 } } },
         { text = "Something else, Drum Fel.", next = "BACK" },
       },
     },
@@ -533,8 +533,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Ogres fear little and understand less, but their ogre-mages know enough to be dangerous, and they hide behind the brutes. Burn the mages first and the rest will stand around wondering who to follow, which is how ogres spend most of their lives." } },
       choices = {
-        { text = "Burning their mages from cover is the smart way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll meet their champions face to face, not hide.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Burning their mages from cover is the smart way.", next = "BACK", reply = "Smart, and quick, and the brutes won't know what's happened. Good.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll meet their champions face to face, not hide.", next = "BACK", reply = "Face to face, then, like an orc. I'll respect it, though their champions won't.", fx = { align = { honor = 1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -547,8 +547,8 @@ P:NPC {
       choices = {
         { text = "Who lives here now?", next = "history_refuge" },
         { text = "The old camps must still haunt you.", next = "history_camps" },
-        { text = "Lok'tar ogar.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Doomhammer's way got him killed. I'd rather live to fight again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Lok'tar ogar.", next = "BACK", reply = "Lok'tar ogar. Doomhammer would have liked you.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Doomhammer's way got him killed. I'd rather live to fight again.", next = "BACK", reply = "Maybe it did, and maybe living is the smarter road. But don't speak ill of him on these stones.", fx = { align = { honor = -1 } } },
       },
     },
     history_refuge = {
@@ -646,8 +646,8 @@ P:NPC {
       lines = { { id = "xwl_default", fx = { learn = { "burning_blade" } },
         text = "It troubles me more than any ogre, and I'll tell you why: I've seen the Burning Blade, and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but I'll be watching where you point it." } },
       choices = {
-        { text = "Watch, then. It points at the Horde's enemies.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Power is power. Hammerfall needs mine.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Watch, then. It points at the Horde's enemies.", next = "BACK", reply = "Good. As long as it keeps pointing that way, we have no quarrel.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Power is power. Hammerfall needs mine.", next = "BACK", reply = "Hammerfall needs every arm, and I'll take yours. But the orcs here remember Gul'dan, so don't forget it.", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
     xforsaken = {
@@ -703,8 +703,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "It be the best joke of all, mon, because the humans called on the Light against the Amani and called us beasts. Now it fight on our side, and the spirits must be laughin' themselves sick." } },
       choices = {
-        { text = "The Light was never theirs to own. It serves the just.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It's a weapon, Zengu, and now it's ours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light was never theirs to own. It serves the just.", next = "BACK", reply = "Ya, that be the best answer, mon, and Zengu like it. The Light find a strange home, but a good one.", fx = { align = { light = 1 } } },
+        { text = "It's a weapon, Zengu, and now it's ours.", next = "BACK", reply = "A weapon, ya, and now it point the other way. That be the joke Zengu like best.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -712,8 +712,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Trol'kalar was made to kill trolls, and Vol'jin say we turn it on the Gurubashi, who be worse than any human. I think there be justice in that, even if the sword don't care which troll it cut." } },
       choices = {
-        { text = "Justice is justice. Use the sword against the Gurubashi.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A weapon made for slaughter should be broken.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Justice is justice. Use the sword against the Gurubashi.", next = "BACK", reply = "Ya, justice for the Gurubashi, and a good laugh for the loa. You got the right idea, mon.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A weapon made for slaughter should be broken.", next = "BACK", reply = "Broken? Maybe one day, mon, after it finish with the Gurubashi. Then we see.", fx = { align = { light = 1 } } },
         { text = "Something else, mon.", next = "BACK" },
       },
     },
@@ -721,8 +721,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Zengu trust you to carry it back here and nothin' more, mon. That blade been killin' trolls since the days of Arathor, and Zengu want to see it turned on the Gurubashi, which be the best joke in the whole Highlands." } },
       choices = {
-        { text = "I'll fight Stromgarde's guards openly for it, not creep in.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Steal it, turn it, whatever works. It's a good joke.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight Stromgarde's guards openly for it, not creep in.", next = "BACK", reply = "Openly, mon? Brave, and maybe foolish, but Zengu not tell you how to die.", fx = { align = { honor = 1 } } },
+        { text = "Steal it, turn it, whatever works. It's a good joke.", next = "BACK", reply = "Ha! You see the joke too! Zengu like you more every minute.", fx = { align = { honor = -1 } } },
         { text = "Something else, Zengu.", next = "BACK" },
       },
     },
@@ -730,8 +730,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "The humans lock it with the sigil, and that be magic of a sort, mon, old Arathor magic. The witch doctors say a tomb like that got a chill on it too, the kind a dead king leave behind when he still be angry, so walk soft in there." } },
       choices = {
-        { text = "Respect the dead king. Take the sword and nothing else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A dead human king can stay angry. I'll take what I like.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Respect the dead king. Take the sword and nothing else.", next = "BACK", reply = "Respect, ya, and a quick hand. Old kings get angry slow, and you be gone by then.", fx = { align = { honor = 1 } } },
+        { text = "A dead human king can stay angry. I'll take what I like.", next = "BACK", reply = "Then you be the one he come lookin' for, mon, not Zengu. Remember that when the candles go out.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -739,8 +739,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The spirits don't care much who made the sword, mon, they care who swing it. Trol'kalar been sleepin' in Trollbane's tomb a long time, dreamin' of troll blood, so maybe we ask the ancestors to cool its temper before Vol'jin pick it up." } },
       choices = {
-        { text = "Cleanse it first. A cursed blade shames whoever wields it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let it stay angry. The Gurubashi earned every drop.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Cleanse it first. A cursed blade shames whoever wields it.", next = "BACK", reply = "Cleanse it, ya, and the witch doctors will bless it after. That be wisdom, mon.", fx = { align = { honor = 1 } } },
+        { text = "Let it stay angry. The Gurubashi earned every drop.", next = "BACK", reply = "Ya, every drop, mon, and then some. Let the blade remember what it was made for.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -794,8 +794,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a sword made to kill trolls know where a troll keep his heart, and the Gurubashi got plenty of hearts. Takin' it from Stromgarde be easy enough, mon; the hard part be keepin' Trol'kalar from turnin' on the hand that hold it." } },
       choices = {
-        { text = "Using the enemy's own weapon is clever. I like it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Stolen blades bring bad luck. Forge your own.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Using the enemy's own weapon is clever. I like it.", next = "BACK", reply = "Ya, it be clever, and Zengu wish it be his own idea. Maybe it was, mon.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Stolen blades bring bad luck. Forge your own.", next = "BACK", reply = "Bad luck for the Gurubashi, maybe. Zengu take his chances, mon.", fx = { align = { honor = 1 } } },
         { text = "Something else, mon.", next = "BACK" },
       },
     },
@@ -803,8 +803,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Darkspear trust whoever Vol'jin trust, and Vol'jin trust the Warchief, so here we be. Some of the young ones at Sen'jin learnin' fire now, and the old ones grumble, but the old ones always grumble." } },
       choices = {
-        { text = "Old ways should make room for new ones.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "The old ones grumble for a reason. Listen to them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old ways should make room for new ones.", next = "BACK", reply = "Ya, that be what Vol'jin say too, and Zengu listen to Vol'jin. The old ones will learn.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The old ones grumble for a reason. Listen to them.", next = "BACK", reply = "They do, mon, and Zengu listen to them too. But the world change faster than they do.", fx = { align = { order = 1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -860,8 +860,8 @@ P:NPC {
         { id = "sg_default", text = "He sit in a chapel deep in the militia's part of the keep, well guarded, and he be no slouch with a blade. The line of Trollbane hunt my people for ages, mon, so Zengu don't weep for it." },
       },
       choices = {
-        { text = "That's cold.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "After what Trollbane's line did to your people, I wouldn't weep either.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's cold.", next = "BACK", reply = "Cold, ya, and Zengu not sorry. Trollbane's line been cold to us for two thousand years.", fx = { align = { light = 1 } } },
+        { text = "After what Trollbane's line did to your people, I wouldn't weep either.", next = "BACK", reply = "Zengu not weep either, mon. Zengu laugh, maybe, and say a word to Bwonsamdi.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -884,8 +884,8 @@ P:NPC {
         { id = "tr_default", text = "The same thing he need from Zengu: the sword, in our hands, so our fight in the jungle stop crawling and start running. Every Darkspear who help with this be helping Vol'jin himself." },
       },
       choices = {
-        { text = "Then I'll help.", next = "BACK", fx = { affinity = 3, align = { order = 1 } } },
-        { text = "I'll help, but for the Darkspear, not because Vol'jin says so.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll help.", next = "BACK", reply = "Good, mon, then the jungle fight start running soon. Zengu thank you.", fx = { affinity = 3, align = { order = 1 } } },
+        { text = "I'll help, but for the Darkspear, not because Vol'jin says so.", next = "BACK", reply = "Ya, for the Darkspear, and that be the best reason of all, mon.", fx = { align = { order = -1 } } },
       },
     },
     nimboya = {
@@ -898,8 +898,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwl_default", text = "Zengu hear that about some Darkspear, mon, and Zengu don't like it. The Gurubashi listen to voices too, and look where it got them, all bowing to a blood god in the jungle." } },
       choices = {
-        { text = "I listen, but I don't bow.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "You're right. I'll be careful with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I listen, but I don't bow.", next = "BACK", reply = "Good, mon. Listen, but don't bow, and you be fine.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're right. I'll be careful with them.", next = "BACK", reply = "Ya, be careful, mon. Voices that whisper sweet be the ones that bite.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What would Vol'jin say?", next = "xwarlock_voljin" },
       },
     },
@@ -961,8 +961,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "My people give thanks to the Earth Mother for the sun on the grass, and I wonder sometimes whether your Light is only that same warmth by another name. I am an innkeeper, not an elder, so I keep a fire, and I do not mind what anyone calls it." } },
       choices = {
-        { text = "Perhaps it is, Adegwa. Warmth is warmth, for living or dead.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Light is nothing like your Earth Mother's warmth. It burns.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Perhaps it is, Adegwa. Warmth is warmth, for living or dead.", next = "BACK", reply = "Perhaps it is, and that thought brings me some peace. The sun warms all who stand in it.", fx = { align = { light = 1 } } },
+        { text = "The Light is nothing like your Earth Mother's warmth. It burns.", next = "BACK", reply = "Then I am sorry for it, child. The Earth Mother's warmth never burns those who ask.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -970,8 +970,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They come in angry and they leave tired, which I count as rest. The orcs here fight with a fury the Earth Mother would not recognise, and I think some of them no longer know how to stop." } },
       choices = {
-        { text = "A warrior must master his fury, or it masters him.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fury is strength. The Highlands need it more than calm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A warrior must master his fury, or it masters him.", next = "BACK", reply = "That is the old wisdom, and you speak it well. I will remember that you said it.", fx = { align = { order = 1 } } },
+        { text = "Fury is strength. The Highlands need it more than calm.", next = "BACK", reply = "Perhaps, for a while, but fury is a fire that eats the grass it stands on. I hope it serves you better than it served the orcs.", fx = { align = { order = -1 } } },
         { text = "Something else, Adegwa.", next = "BACK" },
       },
     },
@@ -982,8 +982,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Few, for the Highlands are strange to us, all stone and wet wind instead of grass. Let {pet} lie by the fire, {class}, because it has walked as far as you have to get here." },
       },
       choices = {
-        { text = "Hunt with respect, as the Earth Mother taught. Take only what you need.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The Earth Mother is far away. Here, we take what keeps us alive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hunt with respect, as the Earth Mother taught. Take only what you need.", next = "BACK", reply = "That is the Earth Mother's way, and you honour her by it. May the hunt be kind to you.", fx = { align = { light = 1 } } },
+        { text = "The Earth Mother is far away. Here, we take what keeps us alive.", next = "BACK", reply = "She is never far, child, even under these hard stones. But I understand, and I will not judge you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -991,8 +991,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "The Witherbark, mostly, because their witch doctors chant from the hills at night and the grunts swear the chanting gives them nightmares. If you could quiet those voices, I'd sleep better, and so would every soldier in this fort." } },
       choices = {
-        { text = "I'll face those witch doctors and drive them off.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll turn their own curses back on them, quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face those witch doctors and drive them off.", next = "BACK", reply = "Then go with my blessing, and come back to rest. The grunts will sleep easier for it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll turn their own curses back on them, quietly.", next = "BACK", reply = "Quietly, then, and the grunts will never know what saved them. Be careful; curses have long memories.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1000,16 +1000,16 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Angry and grieving both, I think, because men have fought over these hills longer than any tauren can remember. The grunts say elementals walk inside the old stone circles out in the Highlands, so I leave a cup of water by the door at night, in case the gentler spirits come calling." } },
       choices = {
-        { text = "I'll soothe them where I can, as the Earth Mother would ask.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Grieving spirits make dangerous neighbors. I'll put them down if I must.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll soothe them where I can, as the Earth Mother would ask.", next = "BACK", reply = "Then you walk the Earth Mother's road, and these hills will thank you in time.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grieving spirits make dangerous neighbors. I'll put them down if I must.", next = "BACK", reply = "If you must, then do it gently, as one would put down a wounded kodo. They were once like us.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Every morning, when I wake to stone and orc voices instead of wind in the grass. But the Earth Mother is under these hills too, and somebody must keep a fire burning for the warriors who walk them." } },
       choices = {
-        { text = "Our people belong wherever the Horde needs them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A tauren belongs on the open plains, not in a fort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Our people belong wherever the Horde needs them.", next = "BACK", reply = "Then I will try to belong here too, for a while. Thank you, child.", fx = { align = { order = 1 } } },
+        { text = "A tauren belongs on the open plains, not in a fort.", next = "BACK", reply = "You speak my heart, but the Horde needs us here. When the war is done, I will go home to the grass.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1057,8 +1057,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "More than the grunts notice, for a fort on the edge of the Highlands draws those who watch and those who are watched. I give them all the same bread and ask nothing, because a hearth that asks questions soon loses its guests." } },
       choices = {
-        { text = "Asking nothing is the kind thing to do.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Some guests ought to be questioned, innkeeper.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Asking nothing is the kind thing to do.", next = "BACK", reply = "I think so too, and the Earth Mother would agree. A tired traveller needs rest, not questions.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some guests ought to be questioned, innkeeper.", next = "BACK", reply = "Perhaps, but not by me. I keep the hearth, and let the warriors keep the questions.", fx = { align = { order = 1 } } },
         { text = "Something else, Adegwa.", next = "BACK" },
       },
     },
@@ -1066,8 +1066,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Some of the elders frown on it, for the Earth Mother gives freely and the arcane, they say, takes without asking. I keep my own counsel, since a fire is warm whether a shaman or a mage kindles it, and the cold does not care." } },
       choices = {
-        { text = "Taking without asking worries me too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Power is there to be used. The elders are wrong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Taking without asking worries me too.", next = "BACK", reply = "You are not alone in that, and I am glad. The Earth Mother gives; we should give back.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is there to be used. The elders are wrong.", next = "BACK", reply = "They may be, and they may not. The winds will tell us, in time.", fx = { align = { light = -1 } } },
         { text = "Let's talk of something gentler.", next = "BACK" },
       },
     },
@@ -1075,8 +1075,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "The Earth Mother turns no child away, but the things you bargain with have no mother, and they want to be fed. Take care what you feed them, {class}, for a hungry thing grows." } },
       choices = {
-        { text = "I feed it only what I choose. I'm careful.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let it grow. A strong demon serves me better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I feed it only what I choose. I'm careful.", next = "BACK", reply = "Then be careful always, child. Even a careful hand can be bitten.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let it grow. A strong demon serves me better.", next = "BACK", reply = "A strong demon is a hungry one. I will pray to the Earth Mother for you.", fx = { align = { light = -1 } } },
         { text = "Something else, Adegwa.", next = "BACK" },
       },
     },

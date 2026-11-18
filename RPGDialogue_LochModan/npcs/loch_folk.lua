@@ -77,8 +77,8 @@ P:NPC {
       lines = { { id = "ev_default", text = "I like the sound o' that. Ironband says if it comes tae it, I'm tae save the powder first, an' I've been wonderin' all mornin' whether he meant it." },
       },
       choices = {
-        { text = "You come first, Miran. Powder can be bought again.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "He meant it. The dig matters more than either of us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You come first, Miran. Powder can be bought again.", next = "BACK", reply = "That's kind o' ye, an' I hope Ironband never hears ye say it. I'll keep my head down an' my hands on the reins, then.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "He meant it. The dig matters more than either of us.", next = "BACK", reply = "Aye, ye might be right, an' it's a cold thing tae hear. I'll do my job, but I'll no' pretend I'm happy about it.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -96,8 +96,8 @@ P:NPC {
       lines = { { id = "sh_default", text = "I want tae, an' then I tie a load the way he showed me an' I cannae quite manage it. Huldar says I'm soft, an' maybe I am, but I keep wonderin' what they promised him." },
       },
       choices = {
-        { text = "Hate him. He'd have watched you die.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Wondering why isn't soft. It's how you stay decent.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hate him. He'd have watched you die.", next = "BACK", reply = "He would have, I know it, an' I've told myself so a hundred times. I'll try, but it doesnae come as easy as Huldar thinks.", fx = { align = { light = -1 } } },
+        { text = "Wondering why isn't soft. It's how you stay decent.", next = "BACK", reply = "Is it? I hope ye're right, for I'd rather be decent than hard. Thank ye for that.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     saean_fate = {
@@ -214,8 +214,8 @@ P:NPC {
       lines = { { id = "fm_default", text = "Not a bit, for animals don't complain about the beer or try tae pay in IOUs. Though there's a dwarf from the dam owes me three weeks' stablin', an' I've half a mind tae keep his ram." },
       },
       choices = {
-        { text = "Keep the ram. A debt's a debt.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Give him a fair warning first.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Keep the ram. A debt's a debt.", next = "BACK", reply = "A debt's a debt, an' the ram's eatin' my oats. I'll keep it, an' he can come an' argue wi' me if he likes.", fx = { align = { honor = -1 } } },
+        { text = "Give him a fair warning first.", next = "BACK", reply = "Fair warnin', aye, I'll give him that much. He's had three weeks, though, so the warnin' willnae be gentle.", fx = { align = { honor = 1 }, affinity = 1 } },
       },
     },
     rams = {

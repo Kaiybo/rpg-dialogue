@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_default", text = "Good for the spirit, if not the aim, and a grunt with a full belly and a warm head fights for something worth coming home to. Mind, I've seen good warriors drown in it, too, so not every mug is medicine, whatever I'd like to tell you." } },
       choices = {
-        { text = "A warrior needs his ale. It's earned.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "A clear head keeps you alive. I'll pass.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior needs his ale. It's earned.", next = "BACK", reply = "Earned and then some, and I'll pour it for you myself when you've the coin. Just come back for the second mug on your own two feet, warrior, not carried.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A clear head keeps you alive. I'll pass.", next = "BACK", reply = "There's wisdom in that, and I won't sneer at it, though it does nothing for my trade. Keep your head clear, then, and come back when the fighting's done and you've earned a pint.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,8 +165,8 @@ P:NPC {
       big = true,
       lines = { { id = "ga_default", text = "Not yet, and if you're a friend of mine, he won't. I'm not askin' ya to lie, exactly, I'm just askin' ya to not mention it, which is a completely different line on the ledger." } },
       choices = {
-        { text = "Tell him yourself. He'll respect the honesty.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your secret's safe. Get the port back first.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Tell him yourself. He'll respect the honesty.", next = "BACK", reply = "Respect? Pal, Gazlowe respects a balanced ledger and nothin' else, and mine's got a whole cargo hold missin' from it. I'll tell him, sure, right after I've fixed it, which is a very honest kind of later.", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe. Get the port back first.", next = "BACK", reply = "Now that's what I call a valued customer, friend, and I'll remember it when the next crate falls. Give me a week and that port'll run so smooth he'll never think to ask.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,8 +248,8 @@ P:NPC {
       big = true,
       lines = { { id = "sh_default", text = "They knew the risks, pal, and they'd have been very rich if they'd come back, which is the whole point of risk. I don't push anybody aboard, I just make it worth their while to climb." } },
       choices = {
-        { text = "Risk is the price of profit. That's fair.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "You're spending lives to fill your pockets.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Risk is the price of profit. That's fair.", next = "BACK", reply = "Finally, somebody who reads the small print before they sign. You'd do fine aboard that ship, pal, and I'd put you on the best terms I've got.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're spending lives to fill your pockets.", next = "BACK", reply = "Lives, pockets, they both go down with the tide eventually, sweetheart. Nobody climbs that rope at knifepoint, and every one of 'em went up grinning about the gold.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

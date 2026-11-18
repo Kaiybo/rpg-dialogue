@@ -64,8 +64,8 @@ P:NPC {
       big = true,
       lines = { { id = "sr_default", text = "It's reason enough in a war, recruit. Whatever the Horde gathers, they'll use against us, and if it turns out the crystals are worthless, then we've wasted some sweat and they've wasted a good deal more." } },
       choices = {
-        { text = "Then we gather it all. Deny them everything.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fighting over crystals nobody understands is folly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we gather it all. Deny them everything.", next = "BACK", reply = "Aye, that's the spirit, recruit, every crystal in our sacks is one they'll never carry home, so get out there and fill yours.", fx = { align = { order = 1 } } },
+        { text = "Fighting over crystals nobody understands is folly.", next = "BACK", reply = "Folly or not, the Horde's out there gathering, and I'll not be the dwarf who sat on his hands while they stripped the dunes bare.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,8 +158,8 @@ P:NPC {
       big = true,
       lines = { { id = "hw_default", text = "Drones, soldiers, things with too many legs and no names yet. I lost two good footmen last week to something I never saw clearly. The druids want us to leave the hives alone until they understand them, and I'd like to understand them from the far side of a cannon." } },
       choices = {
-        { text = "Burn the hive out before it grows.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Hold the line and wait for the Circle's word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn the hive out before it grows.", next = "BACK", reply = "By my beard, I'd like nothing better, and if the druids ever turn their backs for a day, I'll have the torches lit before supper.", fx = { align = { order = -1 } } },
+        { text = "Hold the line and wait for the Circle's word.", next = "BACK", reply = "Aye, that's the sensible answer, and I'll hold it, though it galls me tae sit still while those things breed under our boots.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

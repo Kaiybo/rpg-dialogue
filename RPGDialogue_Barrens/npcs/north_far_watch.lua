@@ -41,9 +41,9 @@ P:NPC {
       big = true,
       lines = { { id = "prej_kargal_default", text = "Course I have. I've watched this border since the Horde came to Durotar, and I know every face that crosses it, and then one day your people turn up out of the clouds with no warning and a lot of questions. A watchman doesn't like surprises, and you're a big one." } },
       choices = {
-        { text = "We came in good faith. Your suspicion insults the Horde.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Good. A watchman who trusts strangers dies young.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Nobody needs your permission to cross the sky, old orc.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "We came in good faith. Your suspicion insults the Horde.", next = "BACK", reply = "Insult or not, I'll keep watching, because that's what a watchman's for. Show me good faith with your deeds, and I'll stop counting your steps.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Good. A watchman who trusts strangers dies young.", next = "BACK", reply = "Ha! At last, someone who understands what a border is for. You can stay a while, then, and I'll only watch you with one eye.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nobody needs your permission to cross the sky, old orc.", next = "BACK", reply = "Nobody needs it, no, but anyone who lands at my post gets looked at hard. Mind your tongue, stranger, because I've been sour since before you were born.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Ask what you like. I'll answer straight.", next = "prej_kargal_calm", fx = { affinity = 1 } },
         { text = "Has anyone from the sky caused you trouble?", next = "prej_kargal_why" },
       },
@@ -88,8 +88,8 @@ P:NPC {
     tried = {
       lines = { { id = "t_default", text = "Kolkar, mostly, and once a band of Razormane who thought the river was shallower than it is. We pulled a few of them out downstream and sent them home to Thorn Hill with their tusks tied together, which I'm told caused some talk among the quilboar." } },
       choices = {
-        { text = "Sending them home was a mercy worth giving.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You should have left them in the river.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Sending them home was a mercy worth giving.", next = "BACK", reply = "Mercy or a warning, it did the same job, and the Razormane haven't tried the river since. Sometimes a laugh at the enemy's expense is worth more than a body.", fx = { align = { light = 1 } } },
+        { text = "You should have left them in the river.", next = "BACK", reply = "We thought about it, believe me, and one grunt argued it all night. But a drowned boar teaches nobody anything, and a humiliated one teaches the whole tribe.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -104,8 +104,8 @@ P:NPC {
     job = {
       lines = { { id = "j_default", text = "No, curse her, she's good at it, and that's what sticks in my teeth. She keeps the caravans moving and the Kolkar nervous, and if she'd only stop reminding every male grunt in the Barrens that she outranks him, I'd drink to her." } },
       choices = {
-        { text = "Then drink to her. Pride's no reason to hold a grudge.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "She earned it. You'd better earn yours back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then drink to her. Pride's no reason to hold a grudge.", next = "BACK", reply = "Maybe I will, one day, when I've had enough grog to forget the promotion. You speak like a peacemaker, {class}, and I'm still deciding whether that's a compliment.", fx = { align = { order = 1 } } },
+        { text = "She earned it. You'd better earn yours back.", next = "BACK", reply = "Earn it back, from a watchtower nobody visits? That's harsh, though maybe you're not wrong, and that's the part I hate.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -157,8 +157,8 @@ P:NPC {
     women = {
       lines = { { id = "w_default", text = "I know it, and I've never said otherwise. My quarrel is with one woman and one promotion, and if the whole Barrens wants to make it into more than that, they can do it without my help." } },
       choices = {
-        { text = "Then keep the quarrel small and fair.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then say it to her face, not to strangers.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "Then keep the quarrel small and fair.", next = "BACK", reply = "Small and fair is how I've kept it, whatever the gossip says. If you hear different at the Crossroads, tell them Kargal said so himself.", fx = { align = { honor = 1 } } },
+        { text = "Then say it to her face, not to strangers.", next = "BACK", reply = "I have, and she laughed, and then she gave me Far Watch. Maybe she had the right of it, but I'll grumble to whoever I like.", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,8 +232,8 @@ P:NPC {
     calling = {
       lines = { { id = "c_default", text = "Small things for now, imps mostly, because they lack the strength for more. But the old Horde started small too, and I was there to see how quickly small became Mannoroth." } },
       choices = {
-        { text = "Then it ends with that stone.", next = "BACK", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
-        { text = "Power is power. Let them draw it, and we'll take it.", next = "BACK", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
+        { text = "Then it ends with that stone.", next = "BACK", reply = "Then make sure it does, because I'll not live through that again. Bring me that stone, and we'll cut off the next Mannoroth before he's even a whisper.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "Power is power. Let them draw it, and we'll take it.", next = "BACK", reply = "That's what we said in the Shadow Council days, word for word, and look where it got us. If you believe that, stay away from me and my fire.", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } },
       },
     },
@@ -250,8 +250,8 @@ P:NPC {
         { id = "w_orc", when = { race = "Orc" }, text = "I was a warlock of the old Horde, and you of all people know how many of us were. Thrall gave us a clean start, and I spend mine undoing those who refused theirs." },
       },
       choices = {
-        { text = "A clean start is worth honoring. I believe you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Nobody comes clean from that. I'll keep my distance.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "A clean start is worth honoring. I believe you.", next = "BACK", reply = "That means more than you know, coming from a stranger. I'll prove you right by what I do to the Burning Blade, and that's the only proof I've got.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Nobody comes clean from that. I'll keep my distance.", next = "BACK", reply = "Keep it, then, and I won't blame you, because I keep my distance from myself some days. Just don't keep so far off that you miss what I can teach you about them.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -265,8 +265,8 @@ P:NPC {
     turned = {
       lines = { { id = "t_default", text = "A few, if someone reaches them before their first summoning. After that, the Nether has their scent and they have its taste, and I've never seen one of those come back." } },
       choices = {
-        { text = "Then I'll spare the young where I can.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A cultist is a cultist. They all answer for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll spare the young where I can.", next = "BACK", reply = "Good. Every one you spare before the first summoning is one less I'll have to kill after it.", fx = { align = { order = -1 } } },
+        { text = "A cultist is a cultist. They all answer for it.", next = "BACK", reply = "They will answer, every one, but some of them are still children playing with a forbidden flame. I'd rather you knew which ones before you struck.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,8 +350,8 @@ P:NPC {
     danger = {
       lines = { { id = "d_default", text = "It is, and so is every element worth knowing. The warlocks of the old Horde thought they could command the fire without asking, and the Barrens is still paying for their arrogance, so I ask every morning." } },
       choices = {
-        { text = "Then the elements deserve to be asked.", next = "BACK", fx = { align = { order = 1 }, learn = { "elements" } } },
-        { text = "Asking is for the weak. The strong command.", next = "BACK", fx = { align = { order = -1 }, learn = { "elements" } } },
+        { text = "Then the elements deserve to be asked.", next = "BACK", reply = "You understand already, and that's half the lesson. Come back with that same humility when the fire answers you, because it will test it.", fx = { align = { order = 1 }, learn = { "elements" } } },
+        { text = "Asking is for the weak. The strong command.", next = "BACK", reply = "Then you'll learn what the old Horde learned, and I hope you learn it more cheaply. The fire bows to no one, young one, and it never forgets an insult.", fx = { align = { order = -1 }, learn = { "elements" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "elements" } } },
       },
     },
@@ -379,8 +379,8 @@ P:NPC {
     blade = {
       lines = { { id = "b_default", text = "They make me ashamed to be an orc who works with fire. They light their braziers on Dreadmist Peak with fel flame, and the spirits of fire in these hills scream every time, and I hear it from here." } },
       choices = {
-        { text = "Then they should be stopped.", next = "BACK", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
-        { text = "Fire is fire. The spirits will get over it.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, learn = { "burning_blade" } } },
+        { text = "Then they should be stopped.", next = "BACK", reply = "They will be, if I have any say in it, and I'll need strong hands to do it. Go to Dreadmist, and let the fire spirits there know someone heard them.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "Fire is fire. The spirits will get over it.", next = "BACK", reply = "They won't, and neither will I. You speak like the warlocks who burned our home, and I'd advise you not to say it again near my fire.", fx = { align = { light = -1 }, affinity = -1, learn = { "burning_blade" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -457,8 +457,8 @@ P:NPC {
     first = {
       lines = { { id = "f_default", text = "Against a farmer, maybe. Against a soldier who knows his business, you'll strike first and he'll strike last, and you'll learn the difference lying on your back." } },
       choices = {
-        { text = "Then I'll learn patience.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take my chances with speed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll learn patience.", next = "BACK", reply = "Good, because patience is the hardest thing a warrior learns and the last thing he forgets. Stand your ground, let them come, and break them when they've spent themselves.", fx = { align = { order = 1 } } },
+        { text = "I'll take my chances with speed.", next = "BACK", reply = "Then you'll find your back in the dirt soon enough, and I'll be standing over you. Come and see me when you're ready to learn the hard way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -475,8 +475,8 @@ P:NPC {
         { id = "c_forsaken", when = { race = "Scourge" }, text = "The knights rode them down in the open. For all I know, one of those knights is standing in front of me, wearing a different face, and if so, you rode well." },
       },
       choices = {
-        { text = "Their bravery still deserves honor.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Bravery that loses a war is just foolishness.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Their bravery still deserves honor.", next = "BACK", reply = "It does, and I'd never say otherwise, because I stood beside some of them. But I'd rather honor you living than carve your name on a stone, young one.", fx = { align = { honor = 1 } } },
+        { text = "Bravery that loses a war is just foolishness.", next = "BACK", reply = "A hard thing to say about orcs who died beside me, but you're not wrong about the result. Learn from them, then, and don't become one of them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

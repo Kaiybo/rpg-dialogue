@@ -113,8 +113,8 @@ P:NPC {
         { id = "pr_default", text = "Simple enough: you came to pick over my city while it was weak, and I'll let you in to do something useful instead. Help me put down the disruption, and I'll forget I ever found a Horde key in my sewers. Will the Horde keep its side of that bargain?" },
       },
       choices = {
-        { text = "We'll keep it. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "We'll keep it as long as it serves us.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "We'll keep it. You have my word.", next = "BACK", reply = "Your word, from a Horde adventurer in my ruins. Strange times, but I'll take it, and I'll remember it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We'll keep it as long as it serves us.", next = "BACK", reply = "Then we understand each other perfectly, and I'll keep it for exactly as long as it serves me too.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -168,8 +168,8 @@ P:NPC {
         { id = "co_default", text = "The high council ordered us to keep the matter private, so as not to shame the Kirin Tor, and I understand why. But we can't keep up the charade forever while the city is overrun, so I sent Jacques out for help and came out here myself, and I'll answer to the Six afterward. Do you think me a traitor to my order for it?" },
       },
       choices = {
-        { text = "No. Your city comes before your council's pride.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Orders exist for a reason. You should have obeyed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No. Your city comes before your council's pride.", next = "BACK", reply = "You sound like my own conscience, and it's been saying the same for months. I'll carry that, whatever comes.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Orders exist for a reason. You should have obeyed.", next = "BACK", reply = "I did obey, and look where obedience has left me, an image guarding a broken door. Perhaps you're right, but I doubt it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,8 +181,8 @@ P:NPC {
           text = "Because your queen's people were already at my door, and I'd do anything to protect my city, even consort with the likes of you. Better you inside on my terms than outside on yours. So tell me, undead, and don't dress it up: why does the Undercity want in?" },
       },
       choices = {
-        { text = "I will be honest. We want what your city knows.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Horde's reasons are the Horde's business, Archmage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I will be honest. We want what your city knows.", next = "BACK", reply = "Honesty, at last, and from the Horde of all places. Then we both know what we're bargaining over.", fx = { align = { honor = 1 } } },
+        { text = "The Horde's reasons are the Horde's business, Archmage.", next = "BACK", reply = "Then keep them, and I'll keep mine. We needn't like each other to be useful to each other.", fx = { align = { honor = -1 } } },
         { text = "I'm here to help. A broken Dalaran helps no one.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },

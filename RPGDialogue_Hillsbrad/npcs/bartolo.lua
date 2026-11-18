@@ -95,8 +95,8 @@ P:NPC {
         { id = "yc_default", text = "Cruel? The yetis come down to the farms in hard winters and take sheep, and sometimes shepherds. Bartolo turns them into warmth, which is more than they ever did for anyone." },
       },
       choices = {
-        { text = "Fair. Better a cloak than a dead shepherd.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "They're only hungry beasts, Bartolo.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair. Better a cloak than a dead shepherd.", next = "BACK", reply = "You see it as Bartolo sees it, and that is a rare thing. A shepherd's widow does not weep for the yeti, I promise you.", fx = { align = { light = -1 } } },
+        { text = "They're only hungry beasts, Bartolo.", next = "BACK", reply = "Hungry, yes, and so are the shepherds' children when the flock is gone. Bartolo feels for the beasts, truly, but he feels more for the children.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,8 +118,8 @@ P:NPC {
           text = "Until then, Bartolo talks very loudly so that nobody notices how small his shop is. You understand, yes? You will not tell anyone this." },
       },
       choices = {
-        { text = "Dream big, Bartolo. You'll get there.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "A good craftsman needs no fame. Be content.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dream big, Bartolo. You'll get there.", next = "BACK", reply = "Ah, you have the eye for greatness, my friend! One day the lords of Stormwind will ask whose cloak that is, and they will hear the name Ginsetti.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "A good craftsman needs no fame. Be content.", next = "BACK", reply = "Content? Bartolo was born in Alterac with needles in his fingers, and contentment is for men who stitch sacks. Still, you mean it kindly, so he forgives you.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

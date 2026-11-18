@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "la_default", text = "Stromgarde left the Alliance after the Second War, and Stormwind has a long memory for slights. I'd not say it so plainly in Stormwind, but in Refuge Pointe we say it every night over supper." } },
       choices = {
-        { text = "The Alliance owes Stromgarde. It should have come.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Stromgarde walked away. The Alliance kept its word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Alliance owes Stromgarde. It should have come.", next = "BACK", reply = "It should have, and I'll go on saying so in every letter I send. Thank you for agreeing.", fx = { align = { order = -1 } } },
+        { text = "Stromgarde walked away. The Alliance kept its word.", next = "BACK", reply = "We did, and we've paid for it with every farm in the Highlands. Perhaps you're right, but it's a hard truth to swallow.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
       big = true,
       lines = { { id = "bf_default", text = "Fast and bloody and never finished, because a base held at dawn is lost by noon. Some of my officers say we should burn what we can't hold, and I've not yet decided if they're wise or only tired." } },
       choices = {
-        { text = "Burn nothing. We're fighting to take it back whole.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Burn it. Better ash than a Forsaken granary.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Burn nothing. We're fighting to take it back whole.", next = "BACK", reply = "That's my view as well, and I'll keep my officers to it. Arathor deserves to be retaken, not razed.", fx = { align = { light = 1 } } },
+        { text = "Burn it. Better ash than a Forsaken granary.", next = "BACK", reply = "Some of my officers would cheer you, and I'm not sure they're wrong. I'll take it under advisement.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -209,8 +209,8 @@ P:NPC {
       big = true,
       lines = { { id = "wf_default", text = "There are none, only League soldiers in farmers' coats. Those who stay and lay down their arms may live, I suppose, though Undercity would find a use for them either way." } },
       choices = {
-        { text = "Spare those who surrender. We're not the Scourge.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A use either way. That's the Dark Lady's mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Spare those who surrender. We're not the Scourge.", next = "BACK", reply = "We are not, and we do not pretend to be. Spare them, then, and I'll put them to work in the stables.", fx = { align = { light = 1 } } },
+        { text = "A use either way. That's the Dark Lady's mercy.", next = "BACK", reply = "You understand her mercy precisely. The Undercity's needs are many, and their deaths are not wasted.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -237,8 +237,8 @@ P:NPC {
       big = true,
       lines = { { id = "bh_default", text = "Hurt is a word for the living. I feel something when I see the old farm wall by the stables, and I've decided it's anger, because anger is useful." } },
       choices = {
-        { text = "Anger is useful. Keep it close.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Put it down. Duty serves the Dark Lady better.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Anger is useful. Keep it close.", next = "BACK", reply = "I intend to, and to aim it at the League's farms. They took mine first.", fx = { align = { order = -1 } } },
+        { text = "Put it down. Duty serves the Dark Lady better.", next = "BACK", reply = "Duty, then, and the anger can wait. It waits better than I do.", fx = { align = { order = 1 } } },
       },
     },
 
@@ -326,8 +326,8 @@ P:NPC {
       big = true,
       lines = { { id = "er_default", text = "Real enough to bleed, and the ones you don't reach in time will not get up again. Some of my students think that's cruel, and I think a doctor who has never lost a patient isn't a doctor yet." } },
       choices = {
-        { text = "You're right. Better to learn it here.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "That's cruel, Doctor. There must be a better way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. Better to learn it here.", next = "BACK", reply = "It is, and the ones who learn it here live longer in the field. You'll do well in my class.", fx = { align = { order = 1 } } },
+        { text = "That's cruel, Doctor. There must be a better way.", next = "BACK", reply = "There is a better way, and it's called being quick. Learn it, and nobody dies on my table.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -416,8 +416,8 @@ P:NPC {
       big = true,
       lines = { { id = "so_default", text = "Not as well as they should. The League pays me late, an' the soldiers eat on credit, an' I've stopped keepin' count o' who owes me what." } },
       choices = {
-        { text = "Keep counting. A debt should be paid.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Good. Men holding the line shouldn't owe for supper.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep counting. A debt should be paid.", next = "BACK", reply = "I'd like to, but every time I do, I end up feelin' worse. I'll keep a rough tally, at least.", fx = { align = { honor = -1 } } },
+        { text = "Good. Men holding the line shouldn't owe for supper.", next = "BACK", reply = "That's what I keep sayin' tae the League, an' they keep payin' late. Well, I'll keep feedin' them.", fx = { affinity = 1, align = { honor = 1 } } },
       },
     },
   },
@@ -480,8 +480,8 @@ P:NPC {
       big = true,
       lines = { { id = "ha_default", text = "This was a camp where the humans kept our people in cages, and Doomhammer died breaking them open. I keep my wolves where the cages stood, so that every morning something free wakes up there." } },
       choices = {
-        { text = "That's fitting. The past should be remembered.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Tear it all down. Nothing of the camps should remain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's fitting. The past should be remembered.", next = "BACK", reply = "It is. My wolves sleep where the cages stood, and they're free, and so are we.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Tear it all down. Nothing of the camps should remain.", next = "BACK", reply = "And forget why we fight? No, young one. The camp stays, so our children know what Thrall freed us from.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -543,8 +543,8 @@ P:NPC {
       big = true,
       lines = { { id = "bu_default", text = "The Forsaken buy salt by the barrel, and I don't ask what for. Their coin is good, and my grandmother would have said a trader who asks questions starves." } },
       choices = {
-        { text = "Your grandmother was right. Coin is coin.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Ask. You should know what you're selling into.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your grandmother was right. Coin is coin.", next = "BACK", reply = "She was a wise woman, and so am I. The coin buys bread for Hammerfall.", fx = { align = { light = -1 } } },
+        { text = "Ask. You should know what you're selling into.", next = "BACK", reply = "And what would I do with the answer? I'd still need the coin. Better not to know, I think.", fx = { align = { light = 1 } } },
       },
     },
   },

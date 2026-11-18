@@ -56,8 +56,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They take every scrap, so I've a hot forge and no iron, and only my horses to listen to me grumble." } },
       choices = {
-        { text = "The Guard needs it, Verner. Be patient.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Take some back. You've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Guard needs it, Verner. Be patient.", next = "BACK", reply = "I am patient, friend, I'm patient as an anvil. But patience doesn't shoe a horse, and the gnolls aren't waiting on anybody.", fx = { align = { honor = 1 } } },
+        { text = "Take some back. You've earned it.", next = "BACK", reply = "Don't tempt me, because I've thought about it more than once. Marris would have my apron for it, though, and he'd be right to.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -68,32 +68,32 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not unless you've seen it lying about in the hills, so bring me any scrap you find on the gnolls. Your {pet} has better claws than my best horseshoe nails, {class}, and I'm a little jealous of it." },
       },
       choices = {
-        { text = "I'll bring you every scrap I find.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll keep what I find. Iron's worth coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring you every scrap I find.", next = "BACK", reply = "That's a kindness, and the horses will thank you, or the smith will anyway. Even a rusted gnoll's blade is better than nothing in this forge.", fx = { align = { honor = 1 } } },
+        { text = "I'll keep what I find. Iron's worth coin.", next = "BACK", reply = "Suit yourself, though iron's worth more on a soldier than in a purse. Sell it to someone who'll turn it into gnoll-killers, at least.", fx = { align = { honor = -1 } } },
         { text = "Something else, Verner.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "If it's Guard iron, I'll know it by the stamp, and I'll not touch it, because Marris needs every scrap. But if it came off a Blackrock camp, I'll ask no questions and work it gladly." } },
       choices = {
-        { text = "Orc iron only. Nothing from the Guard.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Iron is iron, Verner. Don't fuss.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Orc iron only. Nothing from the Guard.", next = "BACK", reply = "That's the right answer, and I'll take Blackrock iron any day of the week. Bring me their axes and I'll make horseshoes of them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Iron is iron, Verner. Don't fuss.", next = "BACK", reply = "It's not fussing when the Guard's lives hang off every nail. Bring me what you like, but anything with the stamp goes straight back.", fx = { align = { honor = -1 } } },
         { text = "Why is iron so short?", next = "iron_short" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "The forge is hot enough, friend; it's the anvil that's cold for want of iron. You'd do better bringing me ore than fire." } },
       choices = {
-        { text = "Then ore it is. A proper forge needs proper stock.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll melt down whatever I find, then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then ore it is. A proper forge needs proper stock.", next = "BACK", reply = "Now you're talking a smith's language. Ore from the hills above Lakeshire, if the gnolls haven't dug it all up.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll melt down whatever I find, then.", next = "BACK", reply = "Melt whatever you like, but don't come complaining when the steel's as brittle as burnt bread. Bring it to me and I'll do it right.", fx = { align = { order = -1 } } },
         { text = "What do you need most?", next = "iron" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "I've heard that, and I've melted Blackrock blades that hissed in the quench like a cat in a bath. Bring me their steel if you like, but I'll be the one deciding what goes in the fire." } },
       choices = {
-        { text = "Burn the curse out and make it clean steel.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Keep the hiss. A cursed edge bites deeper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Burn the curse out and make it clean steel.", next = "BACK", reply = "That's what I meant to do, and it's good to hear a warlock say it, strangely enough. Clean steel goes to Lakeshire's guards and nobody else.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep the hiss. A cursed edge bites deeper.", next = "BACK", reply = "Then you'll not get it from my forge, and I'll thank you not to suggest it again. I've a clean anvil and I mean to keep it.", fx = { align = { light = -1 } } },
         { text = "How long have you been smithing?", next = "smith" },
       },
     },
@@ -107,8 +107,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "You can, if you think it'll reach them, though I'd sooner you prayed the gnolls choke. I named every foal until the third one went up the hill, and since then I just call them all lad." } },
       choices = {
-        { text = "Every creature deserves a prayer. I'll say one for them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Better to pray the gnolls choke, as you say.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Every creature deserves a prayer. I'll say one for them.", next = "BACK", reply = "That's a kinder thought than I've managed lately. Say one for the foals, and I'll say one for the gnolls, and we'll see whose is answered.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to pray the gnolls choke, as you say.", next = "BACK", reply = "Now there's a prayer I can get behind. Put a word in for my fences while you're at it.", fx = { align = { light = -1 } } },
         { text = "Something else, Verner.", next = "BACK" },
       },
     },
@@ -116,8 +116,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "With a hammer, and a forge, and the good sense to stay behind the stable door. If the gnolls come down for the horses while I'm here, they'll find a smith's arm is as good as a guard's, and angrier." } },
       choices = {
-        { text = "I'll drive the gnolls off your hill myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your horses, your trouble, Verner. Build a better fence.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll drive the gnolls off your hill myself.", next = "BACK", reply = "Do that, and I'll sing your praises to every horse in Lakeshire, and the folk besides. The foals have had enough of being dinner.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your horses, your trouble, Verner. Build a better fence.", next = "BACK", reply = "A better fence, says the stranger, while the Guard takes every nail I make. I'll build it from wishes, then.", fx = { align = { honor = -1 } } },
         { text = "Something else, Verner.", next = "BACK" },
       },
     },
@@ -235,8 +235,8 @@ P:NPC {
       },
       choices = {
         { text = "That must leave the town short.", next = "iron_short" },
-        { text = "The Guard needs it more.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "The town's horses matter as much as the Guard's boots.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Guard needs it more.", next = "BACK", reply = "I know, I know, and I tell myself that every morning. It'd go down easier if the Guard said thank you once in a while.", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "The town's horses matter as much as the Guard's boots.", next = "BACK", reply = "That's what I keep saying, and nobody ever listens to a smith. If you see the Marshal, tell him the horses want their shoes back.", fx = { align = { order = -1 } } },
       },
     },
     iron_short = {
@@ -257,8 +257,8 @@ P:NPC {
       lines = { { id = "wr_default", text = "That animal came out of thin air, and it'll go back into it. It can find its own shoes. Mine are for horses that eat hay." } },
       choices = {
         { text = "Hay-eaters only. I'll tell the horse.", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "It's a gift of the Light, smith.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
-        { text = "Then it can go unshod, for all I care.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "It's a gift of the Light, smith.", next = "BACK", reply = "Then the Light can shoe it, friend. I've got real horses with real hooves going lame in the stable.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Then it can go unshod, for all I care.", next = "BACK", reply = "That's the spirit, and the horse won't mind, I expect, since it's not really there. My nails are for the living.", fx = { align = { light = -1 } } },
       },
     },
     warrior = {

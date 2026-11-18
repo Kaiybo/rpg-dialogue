@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "l_default", text = "That knowing a thing and respecting it be two different kinds of knowing, mon. I'll study every beast I hunt from now on, even the ones that look easy, especially those." } },
       choices = {
-        { text = "Respect for the prey keeps you alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Or strike faster next time. Study wastes time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Respect for the prey keeps you alive.", next = "BACK", reply = "It does, mon, and I learn it with a scar to remind me. The beasts be wiser than we think, and the wise hunter knows it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Or strike faster next time. Study wastes time.", next = "BACK", reply = "Faster, maybe, but faster be what got me hurt. I'll study the next one, mon, and strike after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

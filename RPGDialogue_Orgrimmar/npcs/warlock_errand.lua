@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "Because when the Alliance comes over the hills, the Warchief wants every weapon he has, and we are a weapon that never tires. The shaman think we're a stain on the Horde, and perhaps we are, but a stain that keeps you alive is easy to forgive." } },
       choices = {
-        { text = "Power is power. The Horde should use all of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "The shaman are right. Fel nearly destroyed us once.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The Horde should use all of it.", next = "BACK", reply = "Good, you understand the Horde as the Warchief does. Every weapon, warlock, and we're the sharpest.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The shaman are right. Fel nearly destroyed us once.", next = "BACK", reply = "They were right about the old Horde, and I won't deny it. But we've learned since, and the Horde needs us anyway.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
       big = true,
       lines = { { id = "za_default", text = "I'll tell her that Dogran died bravely fighting the quilboar, which is how he wanted it told, and soon enough it will be true. She's young, and grief will pass faster than a lifetime spent nursing a broken mate." } },
       choices = {
-        { text = "That's a kindness. Let her grieve and move on.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "She deserves the truth, whatever he asked.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "That's a kindness. Let her grieve and move on.", next = "BACK", reply = "It is, and I'm glad you see it. She'll mourn, and then she'll live, and that's better than what he'd leave her.", fx = { align = { honor = -1 } } },
+        { text = "She deserves the truth, whatever he asked.", next = "BACK", reply = "The truth would chain her to a dying grunt for years. I'll tell her what she needs to hear, and you'll keep quiet.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,8 +162,8 @@ P:NPC {
       big = true,
       lines = { { id = "pr_default", text = "Every spell you take from the Nether is paid for in something, warlock, whether it's your health, your sleep, or someone else's happiness. The fools pretend there is no bill, and the wise decide in advance who will pay it." } },
       choices = {
-        { text = "Then I'll pay it myself, and no one else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let others pay. That's what the wise do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'll pay it myself, and no one else.", next = "BACK", reply = "Then you're wiser than most who come to me, and braver. Pay it yourself, and pay it gladly.", fx = { align = { honor = 1 } } },
+        { text = "Let others pay. That's what the wise do.", next = "BACK", reply = "That's what the wise do, and it's what the fools do too. The difference is whether the bill ever comes back to you.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -256,8 +256,8 @@ P:NPC {
       big = true,
       lines = { { id = "ba_default", text = "The Barrens are more dangerous than the city, and everyone knows it, with the centaur and the quilboar and the Alliance in Northwatch. I keep telling myself he's a grunt and this is what grunts do, but it doesn't help as much as it should." } },
       choices = {
-        { text = "Grunts serve where they're sent. He'd want you proud.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No promotion is worth leaving you alone up here.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Grunts serve where they're sent. He'd want you proud.", next = "BACK", reply = "He would, wouldn't he, and I'm trying to be. Thank you for saying it.", fx = { align = { order = 1 } } },
+        { text = "No promotion is worth leaving you alone up here.", next = "BACK", reply = "That's what I keep thinking, and I hate myself for it. He'd be ashamed to hear me say so.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

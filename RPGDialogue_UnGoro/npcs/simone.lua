@@ -188,8 +188,8 @@ P:NPC {
       big = true,
       lines = { { id = "wls_default", text = "Waiting for a hunter, darling, the way a lure waits for a fish. You bind our kind and make us fetch for you, so tell me what you think: are we servants, or are we only biding our time?" } },
       choices = {
-        { text = "Servants. A demon is a tool, and I hold the leash.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Biding your time. Every binding breaks eventually.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Servants. A demon is a tool, and I hold the leash.", next = "BACK", reply = "A tool, darling? Then you'd better hope your leash is stronger than mine. I've slipped more collars than you've worn.", fx = { align = { order = 1 } } },
+        { text = "Biding your time. Every binding breaks eventually.", next = "BACK", reply = "Ooh, clever, darling, and you're quite right. Every binding breaks, and when yours does, I'll be the first to say hello.", fx = { align = { order = -1 } } },
         { text = "I'll leave you to your fishing.", next = "BACK" },
       },
     },
@@ -228,8 +228,8 @@ P:NPC {
         { id = "rs_pet", when = { pet = { type = "Beast" } }, text = "Say goodbye to {pet} nicely, darling, in case Precious is hungrier than you are. And make your last words pretty, I collect them." },
       },
       choices = {
-        { text = "A demon among the living things here. I'll end it cleanly.", next = "END", fx = { align = { honor = 1 } } },
-        { text = "I'll use every trap and trick I have. Fairness is for prey.", next = "END", fx = { align = { honor = -1 } } },
+        { text = "A demon among the living things here. I'll end it cleanly.", next = "END", reply = "Cleanly? Oh, darling, nothing about me is clean. Come on, then, and let's see if you can finish what you've started.", fx = { align = { honor = 1 } } },
+        { text = "I'll use every trap and trick I have. Fairness is for prey.", next = "END", reply = "Now that's the spirit I like, darling, a hunter who plays dirty! Let's see whose trap snaps first.", fx = { align = { honor = -1 } } },
         { text = "No words. Just the hunt.", next = "END", fx = { trait = { brave = 1 } } },
       },
     },

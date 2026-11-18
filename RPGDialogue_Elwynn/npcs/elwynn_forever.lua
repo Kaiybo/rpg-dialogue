@@ -90,8 +90,8 @@ P:NPC {
         { id = "gn_default", text = "They are! The farmers say they used to keep to the hills, and now they're down by the lake and the road like they own it. With the soldiers off in Westfall and Redridge, there's nobody left to tell them otherwise." },
       },
       choices = {
-        { text = "Stormwind should send soldiers back to guard its roads.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Folk out here should arm themselves, not wait for Stormwind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stormwind should send soldiers back to guard its roads.", next = "BACK", reply = "Oh, I'd like that very much, and so would every farmer between here and the lake. Somebody ought to write to the King, though I suppose the King is ten years old and busy.", fx = { align = { order = 1 } } },
+        { text = "Folk out here should arm themselves, not wait for Stormwind.", next = "BACK", reply = "Arm themselves with what, though? Pitchforks against gnolls is roughly forty percent better than nothing, by my count, but I wouldn't want to be the one holding the fork.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,8 +100,8 @@ P:NPC {
         { id = "ar_default", text = "That's what I keep telling myself! A gnome against five gnolls isn't a battle, it's a snack. Still, I keep thinking a braver servant would have held on to the parcel." },
       },
       choices = {
-        { text = "A braver servant would be dead. You're alive.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
-        { text = "You were trusted with it. You should have held on.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "A braver servant would be dead. You're alive.", next = "BACK", reply = "That's a very kind way of putting it, and I'm going to write it down so I can read it to myself later. Alive is good, alive I can work with!", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "You were trusted with it. You should have held on.", next = "BACK", reply = "I know, I know, and you needn't say it twice because I've said it to myself about a hundred times since. Master Theocritus will say it too, only louder and with sparks.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
 
@@ -120,8 +120,8 @@ P:NPC {
         { id = "ec_default", text = "Oh, it's not cruel exactly, it's just very, very messy. Sheep can't hold their dinners in, and neither can frogs, and a pig once got into the flour store and there was no saving the flour." },
       },
       choices = {
-        { text = "A master who'd punish you that way doesn't deserve you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Mistakes cost something. That's how the tower runs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A master who'd punish you that way doesn't deserve you.", next = "BACK", reply = "Oh, he doesn't punish me, not on purpose, it's just that the mess has to go somewhere and I'm the one with the mop. Still, it's nice of you to take my side.", fx = { align = { order = -1 } } },
+        { text = "Mistakes cost something. That's how the tower runs.", next = "BACK", reply = "That's exactly what Master Theocritus says, almost word for word, and he usually says it while I'm mopping. I suppose you'd fit right in at the tower.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,8 +179,8 @@ P:NPC {
         { id = "gb_default", text = "When, you say, and not if. I like that. I think I'd go back the very day they open the gates, even if it meant scrubbing the whole city clean with my own toothbrush." },
       },
       choices = {
-        { text = "Gnomeregan will be yours again. I'm sure of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some places are lost for good. Make your home here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gnomeregan will be yours again. I'm sure of it.", next = "BACK", reply = "Oh, you've got me all misty now, and gnomes don't do misty, we do steam. When the gates open, I'll save you a spot on the first tram down.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some places are lost for good. Make your home here.", next = "BACK", reply = "I know you mean it kindly, but a gnome without Gnomeregan is like a cog without a gear. I'll make do here, and I'll keep the toothbrush ready all the same.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -303,8 +303,8 @@ P:NPC {
         { id = "tt_default", text = "Then you weren't ready, and you'll have learned something the hard way, as most of us do. Every hunter I know has a scar from that lesson, and I've two." },
       },
       choices = {
-        { text = "I'll take the risk. Fear never trained anything.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "I'll go carefully and do it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take the risk. Fear never trained anything.", next = "BACK", reply = "Brave words, and I've heard them from every recruit who ever lost a finger. Go on, then, but don't come crying to me with your arm in a sling.", fx = { align = { order = -1 } } },
+        { text = "I'll go carefully and do it your way.", next = "BACK", reply = "Good, that's the most sense I've heard at this door all week. Watch the beast's ears and tail before you move, and you'll keep all your fingers.", fx = { affinity = 1, align = { order = 1 } } },
       },
     },
 
@@ -322,8 +322,8 @@ P:NPC {
         { id = "hr_default", text = "It is, and I'll not apologise. Hunting badly gets people hurt, and a little rudeness at my door costs nobody anything but their pride." },
       },
       choices = {
-        { text = "Being plain with people is a kindness.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A little courtesy would cost you nothing either.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Being plain with people is a kindness.", next = "BACK", reply = "Finally, somebody who understands. I'd sooner hurt a recruit's feelings than watch a boar open up their leg because I was too polite to correct them.", fx = { align = { honor = 1 } } },
+        { text = "A little courtesy would cost you nothing either.", next = "BACK", reply = "It might not, but I've buried a few people who were treated too gently. You'll get my courtesy when you've earned my respect, and not before.", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
 
@@ -485,8 +485,8 @@ P:NPC {
         { id = "bd_default", text = "Because I'll not have my guns pointed at the folk who buy my guns, that's why. Business is business, but a dwarf has his limits, an' I'll not arm bandits." },
       },
       choices = {
-        { text = "Some of them are just hungry men.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Bandits are bandits. You chose well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of them are just hungry men.", next = "BACK", reply = "Hungry men can buy bread, an' I'll not sell a hungry man a rifle so he can rob the baker. Pity's fine, but it doesnae belong behind a trigger.", fx = { align = { light = 1 } } },
+        { text = "Bandits are bandits. You chose well.", next = "BACK", reply = "Aye, I'll sleep sound on that, so long as nobody tells me otherwise. A gun's an honest tool in honest hands, an' that's the only kind I sell to.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -570,8 +570,8 @@ P:NPC {
         { id = "kw_default", text = "I wish I knew. They pick at the walls like they're after something, but they've no idea what copper's worth. If you ask me, they just like being underground and hate anybody else being there." },
       },
       choices = {
-        { text = "Then they've as much right to the dark as anyone.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Vermin don't get rights. Clear them out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then they've as much right to the dark as anyone.", next = "BACK", reply = "Rights? They've been trying to cave in my head with a rusty pick all spring. They can have the dark when they give me back my mine.", fx = { align = { light = 1 } } },
+        { text = "Vermin don't get rights. Clear them out.", next = "BACK", reply = "Now that's talk I can get behind. Bring me a few dozen candles off their heads and I'll call it a fair start on the job.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -618,8 +618,8 @@ P:NPC {
         { id = "tra_default", text = "Every day. Teaching's good work, but there's nothing like the sound of a pick biting into a fresh seam. One day I'll have this mine back and I'll do both." },
       },
       choices = {
-        { text = "Teaching others matters more than digging yourself.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Go dig, then. Let someone else teach.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Teaching others matters more than digging yourself.", next = "BACK", reply = "Maybe so, and I tell myself that every time a new apprentice swings a pick into their own foot. Still, somebody's got to show them how before they lose a toe.", fx = { align = { order = 1 } } },
+        { text = "Go dig, then. Let someone else teach.", next = "BACK", reply = "Ha, if only it were that easy! There's nobody else who'll teach out here with kobolds at the door, so it's me or nobody, and I'll not leave them to nobody.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -940,8 +940,8 @@ P:NPC {
         { id = "dh_default", text = "Good folk, mostly, if a bit soft an' loud. They pray more than they drink, which is backwards, but they stood with us in the war, an' a dwarf doesnae forget that." },
       },
       choices = {
-        { text = "Humans and dwarves should stand together always.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every people should look after their own first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Humans and dwarves should stand together always.", next = "BACK", reply = "Aye, that's my thinkin' too, an' it's why I'm out here teachin' human lads to shoot straight. Ironforge an' Stormwind are stronger together, an' the Horde knows it.", fx = { align = { order = 1 } } },
+        { text = "Every people should look after their own first.", next = "BACK", reply = "That's how ye lose wars, friend. If the Alliance had looked after its own first, there'd be orcs drinkin' in Ironforge right now, an' I'd rather not picture it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -961,8 +961,8 @@ P:NPC {
         { id = "qf_default", text = "Aye, an' that's the whole lesson. Patience gets ye more than an arrow ever will, an' if ye can follow a kobold without bein' seen, ye can follow anythin'." },
       },
       choices = {
-        { text = "Patience wins the hunt.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Patience is fine. Speed wins more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience wins the hunt.", next = "BACK", reply = "Ye're learnin' faster than most of the lads I get, an' that's the truth. Keep that in yer head an' ye'll come home from more hunts than ye don't.", fx = { align = { order = 1 } } },
+        { text = "Patience is fine. Speed wins more.", next = "BACK", reply = "Speed gets ye a fine view o' the beast's backside as it runs off. Come back an' tell me that after ye've chased a stag through a whole forest.", fx = { align = { order = -1 } } },
       },
     },
     quiet_kill = {
@@ -998,8 +998,8 @@ P:NPC {
         { id = "ko_default", text = "Vermin, but clever vermin. They've candles on their heads an' no sense in them, but they dig like miners an' they'll defend a tunnel to the last rat. I've seen worse foes, but not many more stubborn.", fx = { learn = { "kobolds" } } },
       },
       choices = {
-        { text = "They're only trying to survive, same as us.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Vermin is vermin. Clear them out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're only trying to survive, same as us.", next = "BACK", reply = "Aye, an' so's a wolf, but I'll still not let a wolf into the pen. They chose to fight for that mine, an' the miners have bairns to feed.", fx = { align = { light = 1 } } },
+        { text = "Vermin is vermin. Clear them out.", next = "BACK", reply = "That's the job, but don't go in thinkin' it'll be easy. Clever vermin have killed better hunters than you, so mind yer back in them tunnels.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1119,8 +1119,8 @@ P:NPC {
         { id = "rm_default", text = "Nobody knows. The farmers say they've always been in the lake, but they never came this far before. Some say they've been pushed out by something worse, and I don't like to think what." },
       },
       choices = {
-        { text = "Someone should drive them back to the lake.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Leave them be. They were here first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Someone should drive them back to the lake.", next = "BACK", reply = "I'd be grateful, honestly, and so would my horse. Every crossing past that river feels like I'm daring them to come up out of the reeds.", fx = { align = { light = -1 } } },
+        { text = "Leave them be. They were here first.", next = "BACK", reply = "Here first or not, they took my wagon and every crate on it. It's easy to be generous when it's somebody else's flour at the bottom of the river.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1158,8 +1158,8 @@ P:NPC {
         { id = "pr_default", text = "More than it used to be. There's wolves and gnolls, and the odd fellow in a red bandana watching from the trees. I keep my head down and my horse moving, and most days that's enough." },
       },
       choices = {
-        { text = "Stormwind should patrol these roads.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Carry a weapon. Don't wait for the guard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stormwind should patrol these roads.", next = "BACK", reply = "They should, and I'll say so to anybody who'll listen. A few more guards on the road would do more good than all the posters in Goldshire.", fx = { align = { order = 1 } } },
+        { text = "Carry a weapon. Don't wait for the guard.", next = "BACK", reply = "I've a cudgel under the seat for that very reason, though I've never had the stomach to swing it. Still, maybe the next fellow in a bandana won't know that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

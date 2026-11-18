@@ -64,8 +64,8 @@ P:NPC {
       big = true,
       lines = { { id = "ls_default", text = "It be the best way to live, mon! Everybody gets what they want: you get fish, I get shellfish, and nobody gets wet that don't want to. Drulzegar down the dock says I be shameful, but Drulzegar don't smile." } },
       choices = {
-        { text = "A man should earn his own bread.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You've got it figured out, Jinar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A man should earn his own bread.", next = "BACK", reply = "Earn it? Mon, I do earn it, by bein' smart enough not to work, and dat takes a lot of thinkin'.", fx = { align = { order = 1 } } },
+        { text = "You've got it figured out, Jinar.", next = "BACK", reply = "Ya, mon, finally somebody sees it, and you can tell Drulzegar dat next time he frowns at me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

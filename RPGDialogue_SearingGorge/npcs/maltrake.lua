@@ -71,8 +71,8 @@ P:NPC {
         { id = "st_default", text = "He has never lied to me, I said, and I chose my words carefully. What he tells others is his own business, and a squire who asks about his lord's business is a squire who's looking for a new lord." },
       },
       choices = {
-        { text = "Loyalty like that is rare.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Blind loyalty is just another word for slavery.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Loyalty like that is rare.", next = "BACK", reply = "It is, and it's the only thing I have to give him. Go and do his errand, and you'll understand.", fx = { align = { order = 1 } } },
+        { text = "Blind loyalty is just another word for slavery.", next = "BACK", reply = "Call it what you like, and I'll call it service. Slaves don't choose their masters, and I chose mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
         { id = "fl_default", text = "A story, and a good one, and the Dark Iron deserved every bit of what it bought them. You burned their towers and broke their sentries, and the gorge is safer for it, so tell me what harm was done." },
       },
       choices = {
-        { text = "The Dark Iron had it coming. I don't regret it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I was used. That's harm enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Dark Iron had it coming. I don't regret it.", next = "BACK", reply = "Good, that's the spirit he hoped for in you. The gorge is better without them, whoever lit the torch.", fx = { align = { honor = -1 } } },
+        { text = "I was used. That's harm enough.", next = "BACK", reply = "Used, is it? Then so was every soldier who ever followed an order, and I don't hear them complaining.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,8 +153,8 @@ P:NPC {
         { id = "xp_default", text = "None of us are what we seem, holy one, and you'd do well to remember it before you cast stones. Do his work and take his gift, and leave the rest to wiser heads than yours." },
       },
       choices = {
-        { text = "I'll find out what he is, with or without you.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If his work hurts the Dark Iron, I'll ask no more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll find out what he is, with or without you.", next = "BACK", reply = "Then you'll find nothing but my master's goodwill, and you'll waste your time doing it. Go carefully, holy one.", fx = { align = { light = 1 } } },
+        { text = "If his work hurts the Dark Iron, I'll ask no more.", next = "BACK", reply = "Now that's wisdom, and rarer than you'd think in a paladin. The Dark Iron are hurt, and that's what matters.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

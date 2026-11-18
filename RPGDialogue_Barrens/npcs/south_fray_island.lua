@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "fa_default", text = "Both, on the same grate, though never on the same day, because Twiggy says the crowd turns ugly. A good fighter is a good fighter whatever banner they march under, and the sea doesn't care either way." } },
       choices = {
-        { text = "A fighter's worth has nothing to do with banners.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "My banner comes first, arena or no arena.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A fighter's worth has nothing to do with banners.", next = "BACK", reply = "That's the spirit this grate was built for, and it's rarer than you'd think on this island. Step up when you're ready, and the crowd will judge you by your blade alone.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "My banner comes first, arena or no arena.", next = "BACK", reply = "Then fight for your banner, and fight hard, but leave the grudges outside the ring. In there, the only side you're on is your own, and the other fellow's swinging just as hard.", fx = { align = { order = 1 } } },
         { text = "Something else, Klannoc.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
       big = true,
       lines = { { id = "fi2_default", text = "He said a fighter who steps on that grate is risking his neck, and a goblin who fixes the fight is stealing the neck right off him. He's a sentimental man, pal, and he's bigger than me, so I listened." } },
       choices = {
-        { text = "He's right. A fixed fight insults every fighter.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Shame he caught you. A little fixing hurts nobody.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "He's right. A fixed fight insults every fighter.", next = "BACK", reply = "You sound just like him, and I'll tell you what I told him, which is that I'm reformed now. Mostly reformed, anyway, and entirely reformed while Klannoc's watching, pal.", fx = { align = { honor = 1 } } },
+        { text = "Shame he caught you. A little fixing hurts nobody.", next = "BACK", reply = "Ha! Now you're talkin' my language, friend, but keep your voice down because Klannoc has ears like a bat. A little fixing never hurt anybody who wasn't standing on the grate.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else, Twiggy.", next = "BACK" },
       },
     },

@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "ho_default", text = "Because the one who wears the helm should know that strength sometimes means ending pain, not causing it. The matriarch suffers every day the Vale burns, and killing her is the kindest thing anyone will do for her." } },
       choices = {
-        { text = "Then I'll end it cleanly, as a mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A kill is a kill. I'll do it for the helm.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll end it cleanly, as a mercy.", next = "BACK", reply = "Then you understand what the helm is for, and it will sit well on you. Go quickly, and let her rest under the Earth Mother at last.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A kill is a kill. I'll do it for the helm.", next = "BACK", reply = "A kill is never only a kill, young one, and the helm will remember it even if you don't. Bring me the horn, but think on what I said while you ride.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
       big = true,
       lines = { { id = "el_default", text = "I think the Earth Mother gave us the iron, so she must want it used. But I make my apprentices thank the ore before they melt it, all the same, because the old ways cost nothing to keep." } },
       choices = {
-        { text = "The old ways matter. Keep them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "New skills keep the people strong. Let them change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old ways matter. Keep them.", next = "BACK", reply = "I will, and my apprentices will grumble about it as they always do. A little grumbling never hurt the old ways, so long as the thanks still get said.", fx = { align = { order = 1 } } },
+        { text = "New skills keep the people strong. Let them change.", next = "BACK", reply = "Change, yes, but not forgetting, and those are different beasts. A smith who forgets where the iron came from soon forgets who he makes it for.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -257,8 +257,8 @@ P:NPC {
       big = true,
       lines = { { id = "hu_default", text = "Not any longer, my knees won't allow it, so I buy from the hunters and I thank each beast as I cut. Some say a tauren should only wear what he has hunted himself, but I think the hide doesn't care whose hands it passes through." } },
       choices = {
-        { text = "The old way is better. Hunt what you wear.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Trade lets everyone do what they do best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The old way is better. Hunt what you wear.", next = "BACK", reply = "Then you can tell the hunters to bring me more, and I'll stitch whatever they carry in. My knees and I will stay here and thank the beasts from a stool.", fx = { align = { order = 1 } } },
+        { text = "Trade lets everyone do what they do best.", next = "BACK", reply = "That's how I see it too, and it keeps my old knees off the plains. The hunter hunts, I cut and stitch, and the beast is thanked twice over.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -363,8 +363,8 @@ P:NPC {
       big = true,
       lines = { { id = "pl_default", text = "Every morning, when I look down at Mulgore and see the herds moving. Some of the elders say the bluff made us forget how to wander, and I think on bad mornings they may be right." } },
       choices = {
-        { text = "A home on the bluffs keeps the people safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then go wander. The beasts can come with you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A home on the bluffs keeps the people safe.", next = "BACK", reply = "Safe, yes, and I'm grateful for it every winter when the wind comes off the plains. Still, safety and freedom don't always graze the same grass.", fx = { align = { order = 1 } } },
+        { text = "Then go wander. The beasts can come with you.", next = "BACK", reply = "Ha, the kodo would like that more than you know, and so might I. But somebody has to keep the stables, and the plains will still be there tomorrow.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

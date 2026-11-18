@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_rall_default", text = "Because pride tells you to stand in front of every blow, and the Light has no need of your pride. A company where one person insists on bearing everything loses that person first, and then everyone else after." } },
       choices = {
-        { text = "We each bear our share, as a company should.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'd take every blow myself, whatever anyone says.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "We each bear our share, as a company should.", next = "BACK", reply = "Good. Remember that when you're bleeding and someone else steps forward, because letting them is its own kind of courage.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd take every blow myself, whatever anyone says.", next = "BACK", reply = "Then you'll die young, and some squire will carry your shield home. Think on that before you take your next blow alone.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Service without reward. If your spirits demand the same, we may be closer than either of us thinks." } },
       choices = {
-        { text = "Service without reward is the truest kind, Duthorian.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Even spirits expect something back. Nothing's free.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Service without reward is the truest kind, Duthorian.", next = "BACK", reply = "We may be closer than I thought, then. Go well, and serve your spirits as honestly as I try to serve the Light.", fx = { align = { light = 1 } } },
+        { text = "Even spirits expect something back. Nothing's free.", next = "BACK", reply = "Then your spirits and I disagree, and I'll leave you to settle that with them. The Light asks nothing, and that is its hardest demand.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,8 +82,8 @@ P:NPC {
         { id = "xmage_default", text = "The Light tests everyone who walks the world, and paladins only differ in that we ask for it to be done in public. A mage is tested every time he chooses who to raise his hand against and who to spare, and some of the finest people I've known passed that test without ever setting foot in a cathedral." },
       },
       choices = {
-        { text = "Then I'll choose carefully, Rall.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I choose by what works, Rall, not by tests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll choose carefully, Rall.", next = "BACK", reply = "Do. The choosing is the test, and it never ends, not for a mage and not for me.", fx = { align = { light = 1 } } },
+        { text = "I choose by what works, Rall, not by tests.", next = "BACK", reply = "Everything works, for a while. It's what happens after that I'd have you think about.", fx = { align = { light = -1 } } },
         { text = "Something else, Rall.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I think every gift asks a debt, and yours is heavier than many, because you're given the strength of the wild and must answer to the wild for how you use it. I'd not want to be tested by a forest, I'll tell you that." } },
       choices = {
-        { text = "Every gift is a debt, and I mean to repay mine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My gifts are mine. I owe nobody for them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every gift is a debt, and I mean to repay mine.", next = "BACK", reply = "Then you've answered better than most paladins I've trained. Go and pay it in the open.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My gifts are mine. I owe nobody for them.", next = "BACK", reply = "Mine, you say? I've heard paladins say the same of the Light, and none of them kept it long.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,8 +100,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The Light has a use for anyone willing to stand where they're needed, and some of the bravest people I've known worked in the dark. It asks you the same thing it asks a paladin, which is who your work protects." } },
       choices = {
-        { text = "My work protects people who can't protect themselves.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "My work protects me, Rall. That's enough for now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My work protects people who can't protect themselves.", next = "BACK", reply = "Then you and I serve the same thing, whatever we call it. I'll not ask you how.", fx = { align = { honor = 1 } } },
+        { text = "My work protects me, Rall. That's enough for now.", next = "BACK", reply = "For now, perhaps. Come back when it isn't enough, and we'll talk again.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -109,8 +109,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I'd test anyone who asked, though I doubt you'd enjoy it, because my tests are about what you give away and yours is a path of taking. Still, I've seen stranger roads lead back to the Light, and I won't say yours can't." } },
       choices = {
-        { text = "Maybe one day I'll take your test, Rall.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll keep my road, and you can keep your tests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Maybe one day I'll take your test, Rall.", next = "BACK", reply = "My door is open, and the tome is on the shelf. I won't hold my breath, but I won't bar it either.", fx = { align = { light = 1 } } },
+        { text = "I'll keep my road, and you can keep your tests.", next = "BACK", reply = "Fair. I'll pray for you all the same, and you needn't thank me for it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,8 +118,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not courage, and not skill, but what you lean on when both run out. A paladin can call on the Light, and a warrior can only call on the person beside him, and that's how warriors become the most loyal comrades I've ever known." } },
       choices = {
-        { text = "Then I'll be the comrade others lean on.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I lean on no one. My strength is my own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll be the comrade others lean on.", next = "BACK", reply = "That's the answer I'd hope for from a paladin. Hold to it when the line breaks.", fx = { align = { honor = 1 } } },
+        { text = "I lean on no one. My strength is my own.", next = "BACK", reply = "Then you'll stand alone when it runs out. I'd sooner you didn't, but that's your choice to make.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,8 +130,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Patience, and how to look at a thing before you charge it, which is the hardest lesson for a paladin. Your {pet} has a calm about it that I'd like to see in my students. You must be a patient master to raise a creature so steady." },
       },
       choices = {
-        { text = "Patience is a virtue anyone can learn.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Paladins should learn from their own mistakes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Patience is a virtue anyone can learn.", next = "BACK", reply = "It is, and it's the hardest one to teach a young knight. You'd make a fine example for my squires.", fx = { align = { honor = 1 } } },
+        { text = "Paladins should learn from their own mistakes.", next = "BACK", reply = "They do, and some of them don't live to learn from them. I'd spare them that if a hunter could.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,8 +200,8 @@ P:NPC {
         { id = "a_default", text = "Compassion, patience and bravery, in that order. Anyone can be made brave, but the other two have to be chosen, every single day." },
       },
       choices = {
-        { text = "Then I choose them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
-        { text = "Patience is for priests. I'll take bravery and leave the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I choose them.", next = "BACK", reply = "Choose them again tomorrow, then, and every day after. That is all I ever ask.", fx = { affinity = 2, align = { light = 2 }, trait = { pious = 1 } } },
+        { text = "Patience is for priests. I'll take bravery and leave the rest.", next = "BACK", reply = "Then you'll be brave for a short while. I've buried many who said the same.", fx = { align = { light = -1 } } },
         { text = "Bravery should come first.", next = "brave", fx = { trait = { brave = 1 } } },
       },
     },
@@ -209,16 +209,16 @@ P:NPC {
       lines = { { id = "b_default", text = "Brave without patience is a dead knight. Brave without compassion is something worse. Think on it." } },
       choices = {
         { text = "Worse than dead?", next = "brave_worse" },
-        { text = "I will.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Bravery's served me well enough so far.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I will.", next = "BACK", reply = "Good. Come back when you've thought on it, and we'll see whether you agree with me.", fx = { align = { light = 1 } } },
+        { text = "Bravery's served me well enough so far.", next = "BACK", reply = "So far. The road is long, and courage runs out sooner than you'd expect.", fx = { align = { light = -1 } } },
       },
     },
     brave_worse = {
       lines = { { id = "bw_default", text = "Brave men without compassion are how good orders become cruel ones. You've heard what the Scarlet Crusade does in the north, I take it.",
         fx = { learn = { "scarlet_crusade" } } } },
       choices = {
-        { text = "I've heard.", next = "BACK", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
-        { text = "Someone has to burn out the plague, compassion or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I've heard.", next = "BACK", reply = "Then you understand why I ask. Never let the Light become an excuse for cruelty.", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Someone has to burn out the plague, compassion or not.", next = "BACK", reply = "That is precisely what they say, and that is why I fear them. Watch yourself, and remember why you took up the hammer.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -235,8 +235,8 @@ P:NPC {
       lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left tests me. I keep count of them, and it's a short list, but I'd like it shorter." } },
       choices = {
         { text = "Is the Silver Hand still what it was?", next = "op_silverhand" },
-        { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "The field changes everyone, so I won't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I won't be on it.", next = "BACK", reply = "See that you aren't. I'll be watching, and praying, in that order.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The field changes everyone, so I won't promise anything.", next = "BACK", reply = "Honest, at least. Promise me only that you'll try, and that you'll come back to tell me.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -273,8 +273,8 @@ P:NPC {
     squire = {
       lines = { { id = "sq_default", text = "Your training stopped, but your oaths didn't, so finish it here. The Order broke; the Light didn't." } },
       choices = {
-        { text = "I'm ready.", next = "BACK", fx = { affinity = 3, align = { light = 1, order = 1 } } },
-        { text = "My oaths broke with the Order, and I'll go my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm ready.", next = "BACK", reply = "Then kneel, and we'll begin where your old masters left off. The Light remembers your oaths even if Lordaeron doesn't.", fx = { affinity = 3, align = { light = 1, order = 1 } } },
+        { text = "My oaths broke with the Order, and I'll go my own way.", next = "BACK", reply = "The Order broke, but the Light didn't, and I'll pray you find that out before your road ends. Go carefully.", fx = { align = { order = -1 } } },
       },
     },
 

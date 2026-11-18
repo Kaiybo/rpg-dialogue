@@ -140,8 +140,8 @@ P:NPC {
         { id = "sf_default", text = "Then Khaz Modan's cut off from the north, an' every caravan for Arathi an' Lordaeron goes by sea or no' at all. The Dark Irons know it too, so they're still squattin' on it." },
       },
       choices = {
-        { text = "Then the Dark Irons must be crushed, every one.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Guard the bridge first. Vengeance can wait.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then the Dark Irons must be crushed, every one.", next = "BACK", reply = "Aye, an' I'd swing the hammer maself if I had the dwarves for it. But crushin' takes an army, an' all Longbraid's got is the few o' us left standin' here.", fx = { align = { order = -1 } } },
+        { text = "Guard the bridge first. Vengeance can wait.", next = "BACK", reply = "Spoken like ye've stood a watch or two. The Span's the throat o' Khaz Modan, an' I'll no' leave it open just tae feel better about the dead.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
         { id = "rm_default", text = "Kind o' ye. If he's fallen, we cannae spare the dwarves tae bring him home, an' that sits worse wi' me than the dyin'." },
       },
       choices = {
-        { text = "A soldier's body matters less than the bridge.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "When the bridge is safe, bring him home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A soldier's body matters less than the bridge.", next = "BACK", reply = "Ye're right, an' that's the worst o' it. Rustlocke would've said the same, the stubborn fool, an' it doesnae make it any easier tae hear.", fx = { align = { light = -1 } } },
+        { text = "When the bridge is safe, bring him home.", next = "BACK", reply = "That's a promise I made him over his own cairn o' stones, an' I'll keep it. Thank ye for sayin' it, for there's few here who'll speak his name.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else, Rhag.", next = "BACK" },
       },
     },

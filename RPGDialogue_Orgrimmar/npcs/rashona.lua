@@ -69,8 +69,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "They will, in time, and plenty already have. But you don't teach a cold orc to sew by leaving him cold, so I give him a shirt first and a needle second." } },
       choices = {
-        { text = "A shirt first. That's the right order.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Charity makes people soft. A needle first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A shirt first. That's the right order.", next = "BACK", reply = "You understand it, then, and that's rarer than good wool in this city. Warm hands learn faster than cold ones, every time.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Charity makes people soft. A needle first.", next = "BACK", reply = "Soft? I've seen what cold does to an orc who came out of the camps, and soft is the least of it. Give me a shirt first, and I'll show you how hard they work after.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
     donors = {
       lines = { { id = "d_default", text = "Recognition, mostly, and I make sure the city knows whose cloth it was. Orgrimmar remembers the ones who gave, and it remembers the ones who could have and didn't." } },
       choices = {
-        { text = "I'd give without anyone knowing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If I give, I want it known.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd give without anyone knowing.", next = "BACK", reply = "Then you've a better heart than most who come to my door. I'll keep your name to myself, if that's what you want.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If I give, I want it known.", next = "BACK", reply = "Then give, and I'll see that Orgrimmar knows it. Pride's a fine reason to clothe a cold orc.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

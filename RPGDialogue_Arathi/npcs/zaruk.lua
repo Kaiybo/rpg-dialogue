@@ -123,8 +123,8 @@ P:NPC {
         { id = "lw_default", text = "Because she is greater than they are, and the lesser always chain the greater when they can. When she is free, she will confront her captors, and they will regret their wardship of her." },
       },
       choices = {
-        { text = "Some prisons exist for good reason, Zaruk.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No power should stay chained. Free her.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some prisons exist for good reason, Zaruk.", next = "BACK", reply = "For the lesser, perhaps, who fear what they can't measure. I would not expect you to understand yet; few do.", fx = { align = { order = 1 } } },
+        { text = "No power should stay chained. Free her.", next = "BACK", reply = "You see it, then. When the chains break, she will remember who wished her free, and I will tell her your name.", fx = { align = { order = -1 } } },
         { text = "And what happens to us when she's free?", next = "lady_after" },
       },
     },
@@ -150,8 +150,8 @@ P:NPC {
         { id = "he_default", text = "Because it is coming whether we welcome it or not, and the old powers under the world are stirring. Better to kneel before them early than be crushed when they wake." },
       },
       choices = {
-        { text = "I'd rather fight the end than kneel to it.", next = "BACK", fx = { align = { light = 1 }, opinion = { twilights_hammer = "defy" } } },
-        { text = "There's sense in choosing the winning side.", next = "BACK", fx = { align = { light = -1 }, learn = { "twilights_hammer" }, opinion = { twilights_hammer = "sympathize" } } },
+        { text = "I'd rather fight the end than kneel to it.", next = "BACK", reply = "Fight it, then, and see how long a blade lasts against the ending of the world. I will pray for you, in my way.", fx = { align = { light = 1 }, opinion = { twilights_hammer = "defy" } } },
+        { text = "There's sense in choosing the winning side.", next = "BACK", reply = "There is, and you are wiser than most who wear the Horde's colours. Kneel early, and you will be standing when the others are dust.", fx = { align = { light = -1 }, learn = { "twilights_hammer" }, opinion = { twilights_hammer = "sympathize" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,8 +179,8 @@ P:NPC {
           text = "He suspects, I think, and his wife Korin Fel suspects more. But Hammerfall needs every blade it has, and so they let me be, and I let them be, and the Lady waits." },
       },
       choices = {
-        { text = "I should tell him.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your prayers are your own business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I should tell him.", next = "BACK", reply = "Tell him, and he will laugh, because he does not believe in anything he cannot strike with an axe. Go, if you must.", fx = { align = { honor = 1 } } },
+        { text = "Your prayers are your own business.", next = "BACK", reply = "They are, and I am glad you see it. Drum Fel's war is his, and mine is older.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -191,8 +191,8 @@ P:NPC {
       },
       choices = {
         { text = "What do you think the elements are, Zaruk?", next = "opn_elements" },
-        { text = "The spirits are right. Leave it buried.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Perhaps the spirits fear what they can't control.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The spirits are right. Leave it buried.", next = "BACK", reply = "Buried, she will only grow angrier, and the spirits know it. They are frightened, and frightened things say foolish things.", fx = { align = { order = 1 } } },
+        { text = "Perhaps the spirits fear what they can't control.", next = "BACK", reply = "You understand them better than they understand themselves. The spirits are small, and what sleeps below is not.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

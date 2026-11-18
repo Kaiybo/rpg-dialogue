@@ -65,8 +65,8 @@ P:NPC {
     honor = {
       lines = { { id = "ho_default", text = "It's what you do when the fight's already lost and nobody's watching. Anyone can be brave in front of an army; a warrior is the one who's brave alone, and keeps faith with the dead." } },
       choices = {
-        { text = "Honor is everything. I'll fight by it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Honor is fine. Winning is better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honor is everything. I'll fight by it.", next = "BACK", reply = "Then fight by it when no one is looking, and I will believe you. Every recruit says it in the training yard, and very few say it at the end.", fx = { align = { honor = 1 } } },
+        { text = "Honor is fine. Winning is better.", next = "BACK", reply = "Winning is fine, until you see what some will do to win. I have fought the ones who stopped caring about honour, and they did not stop anywhere.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
     ghost_orc = {
       lines = { { id = "go_default", text = "So he is, and he still died well, and so may you, one day. Go and hear him, then tell me whether you still think it's that simple." } },
       choices = {
-        { text = "Respect for a worthy foe costs nothing. I'll go.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll go, but I'll keep my blade ready.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Respect for a worthy foe costs nothing. I'll go.", next = "BACK", reply = "Good, and listen more than you speak while you are there. An enemy who died well has things to teach that no trainer can.", fx = { align = { light = 1 } } },
+        { text = "I'll go, but I'll keep my blade ready.", next = "BACK", reply = "Keep it ready, then, and keep your ears open as well. A ghost cannot hurt you, but what he says just might.", fx = { align = { light = -1 } } },
       },
     },
 
@@ -173,8 +173,8 @@ P:NPC {
     friend = {
       lines = { { id = "fr_default", text = "Whichever you make of it, and it will make the same of you. I've seen hunters lose a companion and grieve like a sister, and I've seen others buy a new one the same afternoon." } },
       choices = {
-        { text = "A friend. I'd grieve mine.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A tool, and a good one. Tools can be replaced.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A friend. I'd grieve mine.", next = "BACK", reply = "Then you have already chosen well, and your companion will know it before you do. A beast that is grieved for fights like ten.", fx = { align = { light = 1 } } },
+        { text = "A tool, and a good one. Tools can be replaced.", next = "BACK", reply = "Many hunters think so, until the day they cannot replace one. I hope you never learn it the way they did.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -274,8 +274,8 @@ P:NPC {
     druids = {
       lines = { { id = "dr_default", text = "When they're not arguing about something in the Arch Druid's tree, yes. A druid in cat's shape can calm a nervous saber faster than I can, and I'm not too proud to ask." } },
       choices = {
-        { text = "The druids' wisdom keeps this city whole.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A good stable master needs no druid's help.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The druids' wisdom keeps this city whole.", next = "BACK", reply = "They do, though they would be the first to remind you of it. Even so, the city stands on their patience as much as on its roots.", fx = { align = { order = 1 } } },
+        { text = "A good stable master needs no druid's help.", next = "BACK", reply = "Pride is a poor saddle, friend, and I have been thrown from it before. I will take help from anyone who can calm a frightened cat.", fx = { align = { order = -1 } } },
         { text = "What do they argue about?", next = "druids_argue" },
         { text = "Something else.", next = "BACK" },
       },
@@ -402,8 +402,8 @@ P:NPC {
     elves = {
       lines = { { id = "el_default", text = "Politely, and with great care, the way you'd treat a guest who's brought a lit torch to a library. After what their own mages did to them long ago, I can't really blame them." } },
       choices = {
-        { text = "They're right to be wary of the arcane.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The arcane is a tool. Their fear is old superstition.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They're right to be wary of the arcane.", next = "BACK", reply = "I am glad someone understands. I came here to learn the gateways, not to repeat my forebears' arrogance, and they remember far better than I do.", fx = { align = { order = 1 } } },
+        { text = "The arcane is a tool. Their fear is old superstition.", next = "BACK", reply = "Careful saying that too loudly in this city. Their fear has ten thousand years behind it and a whole sunken continent to show for it.", fx = { align = { order = -1 } } },
         { text = "What did their mages do?", next = "elves_highborne" },
         { text = "Something else.", next = "BACK" },
       },
@@ -516,8 +516,8 @@ P:NPC {
     keep = {
       lines = { { id = "ke_default", text = "Less gold than the humans do, and more memories: a letter from someone lost at Hyjal, a glaive from the War of the Ancients, seeds from a tree that no longer grows. Those are the things I'm most careful with." } },
       choices = {
-        { text = "Memories are worth more than gold.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Gold buys new memories. I'll keep the coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Memories are worth more than gold.", next = "BACK", reply = "Then you understand my trade better than most who come to my counter. I will keep yours as carefully as my own.", fx = { align = { light = 1 } } },
+        { text = "Gold buys new memories. I'll keep the coin.", next = "BACK", reply = "As you wish, and your coin will be safe with me. Only do not be surprised one day when you find you wish you had kept something else.", fx = { align = { light = -1 } } },
         { text = "Do the owners ever come back for them?", next = "keep_return" },
         { text = "Something else.", next = "BACK" },
       },
@@ -655,8 +655,8 @@ P:NPC {
     guns = {
       lines = { { id = "gu_default", text = "Ask a dwarf and you'll hear one answer, ask me and you'll hear another. A gun is loud and a bow is quiet, and in a forest at war, quiet keeps you alive." } },
       choices = {
-        { text = "A bow, then. Silence is a weapon.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Give me the gun. Let them hear me coming.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A bow, then. Silence is a weapon.", next = "BACK", reply = "Then you have a Sentinel's sense, and I will see you fitted with a bow worth trusting. Let the enemy wonder where the arrows come from.", fx = { align = { order = 1 } } },
+        { text = "Give me the gun. Let them hear me coming.", next = "BACK", reply = "Then you will need to be quick as well as loud, friend. In Ashenvale, whatever hears you coming usually gets there first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

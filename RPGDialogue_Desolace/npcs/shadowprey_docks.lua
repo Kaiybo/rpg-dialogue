@@ -83,8 +83,8 @@ P:NPC {
         { id = "mj_default", text = "Maybe, but anyone wasn't de one who lived. A Darkspear be supposed to stand by his crew, and I didn't, and now I pay strangers to do de standin' for me." },
       },
       choices = {
-        { text = "Living isn't a crime. You survived to remember them.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Then stand now. Take up a spear yourself.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Living isn't a crime. You survived to remember them.", next = "BACK", reply = "Ya, maybe, mon, and I tell myself dat every mornin', but it don't stop me hearin' dem in de waves.", fx = { align = { honor = -1 } } },
+        { text = "Then stand now. Take up a spear yourself.", next = "BACK", reply = "You think I haven't tried, mon? Every time I pick one up, me hands shake like de boat did dat night.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,8 +133,8 @@ P:NPC {
         { id = "he_default", text = "I've paid a lot of strangers to kill a lot of naga, mon, and some of dem never came back, and it never be enough. But I don't know what else to do with me hands, now dat dey don't hold nets no more." },
       },
       choices = {
-        { text = "Vengeance is owed. Every naga pays.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "This won't heal you. Mourn them instead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Vengeance is owed. Every naga pays.", next = "BACK", reply = "Ya, mon, every one, and I'll keep payin' till de sea runs out of dem or I run out of coin.", fx = { align = { light = -1 } } },
+        { text = "This won't heal you. Mourn them instead.", next = "BACK", reply = "Mourn dem? Mon, I been mournin' for a year, and it don't make de naga any fewer.", fx = { align = { light = 1 } } },
         { text = "The naga I killed. Did it help at all?", next = "after", when = { questDone = TODO_QUEST("Other Fish to Fry") } },
         { text = "Something else.", next = "BACK" },
       },
@@ -241,8 +241,8 @@ P:NPC {
         { id = "ta_default", text = "Mostly. The trolls think we're slow, and we think they're reckless, and both of us are a little right. But when the naga came up the beach last spring, nobody asked who was tauren and who was troll." },
       },
       choices = {
-        { text = "That's what the Horde should be.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every people should keep to its own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's what the Horde should be.", next = "BACK", reply = "I think so too, and I wish more of the Horde would come to Shadowprey and see it for themselves.", fx = { align = { order = 1 } } },
+        { text = "Every people should keep to its own.", next = "BACK", reply = "Perhaps, but the naga did not keep to their own, and I would rather have a troll beside me than no one.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -343,8 +343,8 @@ P:NPC {
         { id = "dn_default", text = "Once a naga came up out of the water under the dock at night, and the riders woke the whole village. Some of the trolls want me to move the riders inland where they're safe, and I say a rider that's afraid of the sea is no use on this coast." },
       },
       choices = {
-        { text = "Move them inland. Safety first.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Keep them on the dock. Fear can't rule you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Move them inland. Safety first.", next = "BACK", reply = "Perhaps you are right, and the trolls would thank you, but the riders would miss the sea wind.", fx = { align = { honor = -1 } } },
+        { text = "Keep them on the dock. Fear can't rule you.", next = "BACK", reply = "That is what I tell myself, and the riders seem to agree, because they sleep soundly on the dock now.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

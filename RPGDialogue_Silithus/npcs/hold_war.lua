@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "dw_default", text = "The soldiers always say combat, and the quartermasters always say logistics, and the truth is that a war is lost the moment either one runs out. Still, I've seen more brave fools than good haulers come through this hold." } },
       choices = {
-        { text = "Then I'll haul. Somebody has to keep the line fed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Hauling is for others. Send me where the fighting is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll haul. Somebody has to keep the line fed.", next = "BACK", reply = "You have the patience of the old Sentinels, and the line will be grateful for it long after the brave fools have been buried.", fx = { align = { order = 1 } } },
+        { text = "Hauling is for others. Send me where the fighting is.", next = "BACK", reply = "Then I will send you, but remember that a soldier with no water is a soldier lying in the sand, and someone has to carry it to you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -299,8 +299,8 @@ P:NPC {
       lines = { { id = "hi_default", text = "Scorpid shell, sand worm hide if you're very brave, and the odd silithid plate, which won't take a stitch to save your life. Some of the Circle druids don't like me buying from the hives at all. They say it only teaches hunters to go back for more." },
       },
       choices = {
-        { text = "Hunt the hives dry. They'd do it to us.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The druids are right. Take only what you need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunt the hives dry. They'd do it to us.", next = "BACK", reply = "They would, and they do, so I'll not argue, but bring me hides with fewer holes in them, because the holes don't sell.", fx = { align = { light = -1 } } },
+        { text = "The druids are right. Take only what you need.", next = "BACK", reply = "Maybe so, and I'll buy what I need and grumble about the rest, which is the only thing in Silithus I never run short of.", fx = { align = { light = 1 } } },
         { text = "Sand worm hide? How big are these worms?", next = "worms" },
         { text = "Something else.", next = "BACK" },
       },

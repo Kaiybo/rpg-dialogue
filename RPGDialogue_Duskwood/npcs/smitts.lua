@@ -67,8 +67,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing, and I write them all down so it can't." } },
       choices = {
-        { text = "Keep the room warm, Smitts. People need it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Forget it all. Remembering hurts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep the room warm, Smitts. People need it.", next = "BACK", reply = "I will, as long as there's wood for the fire and ale in the cellar. It's not much of a light in this wood, but it's what we have.", fx = { align = { honor = 1 } } },
+        { text = "Forget it all. Remembering hurts.", next = "BACK", reply = "Maybe it does, but forgetting is how this town lets things happen twice. Someone has to keep the names, and I'm stubborn enough.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The ones who didn't come back, mostly, and the ones who might not tomorrow. I keep a record of every name, because somebody should, and a warrior who drinks with them might keep a few names off my list." } },
       choices = {
-        { text = "Then I'll patrol with them, and keep your list short.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I drink to forget, Smitts. Not to remember.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll patrol with them, and keep your list short.", next = "BACK", reply = "Then I'll raise a cup tonight and drink to an empty list. That'd be a sight worth seeing in this tavern.", fx = { align = { light = 1 } } },
+        { text = "I drink to forget, Smitts. Not to remember.", next = "BACK", reply = "You're in the wrong town for that, friend. Duskwood remembers whether you want it to or not.", fx = { align = { light = -1 } } },
         { text = "Something else, Smitts.", next = "BACK" },
       },
     },
@@ -88,24 +88,24 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every night, and some of the tales of cart-sized worgs and horse-swallowing spiders are true, which is the worst part. Your {pet} looks steadier than most of my customers, {class}, and it doesn't ask for credit, which makes it my favourite already." },
       },
       choices = {
-        { text = "I'll tell only what's true. The town's frightened enough.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good tale's worth a drink, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll tell only what's true. The town's frightened enough.", next = "BACK", reply = "Then you're the rarest thing that's ever sat at my bar, a hunter who doesn't stretch the tale. The regulars will be disappointed.", fx = { align = { honor = 1 } } },
+        { text = "A good tale's worth a drink, true or not.", next = "BACK", reply = "Ha, you'll fit in at my bar, then, and I'll start the bidding. Just don't tell them the spider was any bigger than a horse.", fx = { align = { honor = -1 } } },
         { text = "Something else, Smitts.", next = "BACK" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "Not much, since the last one through here asked about Karazhan and went up the pass, and nobody's seen him since. Drink your juice and don't follow him, and you'll be my favourite sort of mage." } },
       choices = {
-        { text = "I'll not chase ghosts without good reason.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Karazhan's secrets are worth the risk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll not chase ghosts without good reason.", next = "BACK", reply = "Good, then you'll live to be my favourite sort of mage. That pass has eaten wiser heads than yours.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Karazhan's secrets are worth the risk.", next = "BACK", reply = "They were worth it to the last one, too, and we never found his boots. I'll put your name next to his, just in case.", fx = { align = { order = -1 } } },
         { text = "What's the darkest story in your record, Smitts?", next = "murders" },
       },
     },
     xlock = {
       lines = { { id = "xlo_default", text = "Morbent Fel's name gets whispered at the bar more nights than not, and I pour a little faster when it does. If you're asking because you mean to stop him, I'll tell you what I hear, and if you're asking for another reason, I'll pour you a juice." } },
       choices = {
-        { text = "To stop him. Fel's work ends here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "To learn from him, before he's gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "To stop him. Fel's work ends here.", next = "BACK", reply = "Then I'll tell you everything I've heard, and pour it neat. Fel's name has been spoken too long at this bar.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "To learn from him, before he's gone.", next = "BACK", reply = "I'll pour you a juice, then, and I'll not say another word. Some knowledge stays in Duskwood for good reason.", fx = { align = { light = -1 } } },
         { text = "What rumours are going round?", next = "rumors" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I want an answer, and I've stopped being sure that's the same thing. Haggard, who ran the Guard back then, thought justice would let us both sleep, but whoever did it is long gone, and I still don't sleep." } },
       choices = {
-        { text = "Then I'll find you the truth and face whoever it names.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Some truths are better left buried, Smitts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll find you the truth and face whoever it names.", next = "BACK", reply = "Do that, and I'll know whether I've been right all these years or just stubborn. Either way, I'll owe you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some truths are better left buried, Smitts.", next = "BACK", reply = "Maybe, but they've been buried long enough and I still don't sleep. I'd rather know, whatever it costs me.", fx = { align = { honor = -1 } } },
         { text = "Something else, Smitts.", next = "BACK" },
       },
     },
@@ -122,8 +122,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Who went in and who came back, and what they said they saw, even when it makes no sense. Someday somebody in Stormwind will want to know how this wood went wrong, and I mean to have the answer in my book." } },
       choices = {
-        { text = "Keep writing. Someone must remember what happened here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Some things are better forgotten, Smitts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep writing. Someone must remember what happened here.", next = "BACK", reply = "I will, as long as I've ink and breath. Someday someone will read it and understand what we went through.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things are better forgotten, Smitts.", next = "BACK", reply = "They are, for those who can manage it. I can't, so I write it down instead and pour the drinks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,8 +300,8 @@ P:NPC {
         { id = "pr_default", text = "They could. Look at them. Bless the room if you like, but quietly, because some of them lost friends up at Raven Hill and haven't said a word since." },
       },
       choices = {
-        { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
-        { text = "They don't need prayers; they need Raven Hill burned clean.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", reply = "Do that, and keep it short and kind, because they've had their fill of long speeches. I'll put a bowl of stew in front of each of them afterward, and maybe between the two they'll sleep.", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
+        { text = "They don't need prayers; they need Raven Hill burned clean.", next = "BACK", reply = "Burned clean, maybe, and I'd hand you the torch myself. But mind these folk tonight, they're not ready to hear it.", fx = { align = { light = -1 } } },
         { text = "Who did they lose?", next = "priest_lost" },
       },
     },
@@ -311,8 +311,8 @@ P:NPC {
           fx = { learn = { "ladimore" } } },
       },
       choices = {
-        { text = "Then I'll say the names for them.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Let them forget the names, because remembering won't help them fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll say the names for them.", next = "BACK", reply = "That'd be a kindness, and I'll not forget it. Say them softly, though, so they can join in when they're ready.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Let them forget the names, because remembering won't help them fight.", next = "BACK", reply = "Maybe it helps them fight, but it won't help them live with themselves after. I'll keep the names for them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -343,8 +343,8 @@ P:NPC {
       lines = { { id = "ro_default", text = "That's a trade question, and I'll give you a trade answer: the regulars all talk about the wolves and none of them talk about the Mistmantle manor. Haggard said that was the first thing a sharp eye should notice." } },
       choices = {
         { text = "Then I'll go and look at the manor.", next = "rumors_manor" },
-        { text = "Secrets are coin. I'd sell yours to the highest bidder.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "I'll keep what you tell me to myself.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Secrets are coin. I'd sell yours to the highest bidder.", next = "BACK", reply = "Then I'll keep my secrets behind the bar where they belong. You're welcome to drink, friend, just not to listen.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll keep what you tell me to myself.", next = "BACK", reply = "Then you're welcome to more of them, and I'll trust you as far as the door. Watch the Mistmantle manor, like Haggard said.", fx = { affinity = 2, align = { honor = 1 } } },
       },
     },
     dwarf = {

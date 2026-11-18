@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "te_default", text = "Trade is a good thing, and I would not end it. But no bargain is worth a mountain that hates us, and the goblins of the Venture Company answer to no one but their own purses." } },
       choices = {
-        { text = "The land comes before any bargain.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "The Horde needs what the goblins bring. Be practical.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land comes before any bargain.", next = "BACK", reply = "It does, and I'm glad to hear a young voice say it. The mountain remembers every tree, and it will remember who spoke for them.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde needs what the goblins bring. Be practical.", next = "BACK", reply = "Practical is what the goblins call it, too, right before the hills burn. I'll not forbid trade, but I'll not forget the cost.", fx = { align = { order = 1 } } },
         { text = "Something else, Far Seer.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "aw_default", text = "Because the Warchief seeks peace with some of them, and peace is built on knowing what the other side fears. A warrior learns his enemy's sword arm, and a far seer learns his enemy's heart." } },
       choices = {
-        { text = "Knowing them may yet save lives.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Their hearts don't matter. Their walls do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Knowing them may yet save lives.", next = "BACK", reply = "They may, and that is the hope I carry into every council. A heart understood is a war that may never need fighting.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their hearts don't matter. Their walls do.", next = "BACK", reply = "Walls fall, and hearts remain, young one. Learn both, and you'll see further than most warriors ever do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

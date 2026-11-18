@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "cu_default", text = "Cursed! Uldaman killed him, and anyone who's been down there will tell you it doesn't need help from a necklace. I've half a mind to start a rumour of my own about my competitor's rings, and see how he likes it." } },
       choices = {
-        { text = "Don't stoop to his level. Let the truth clear you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Do it. Fight a rumour with a better rumour.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Don't stoop to his level. Let the truth clear you.", next = "BACK", reply = "The truth, my friend, is a very slow horse, and rumour has already lapped it twice around Ironforge, but very well, I shall try to be dignified about it.", fx = { align = { honor = 1 } } },
+        { text = "Do it. Fight a rumour with a better rumour.", next = "BACK", reply = "Oh, I like you, and I've a few lovely little whispers already drafted about his rings, though I suppose a jeweler of my standing should hesitate a moment.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -188,8 +188,8 @@ P:NPC {
       big = true,
       lines = { { id = "da_default", text = "Aye, it is. The elves who wrote these runes thought magic was as holy as their moon goddess, an' look what became of their land. Some o' my friends say I should burn the rubbin's an' study somethin' safe, like rocks, but ye cannae learn from a mistake ye refuse to read." } },
       choices = {
-        { text = "Some knowledge is better left buried. Burn them.", next = "BACK", fx = { align = { order = 1 }, learn = { "highborne" } } },
-        { text = "Read everything. Ignorance is the real danger.", next = "BACK", fx = { align = { order = -1 }, learn = { "highborne" } } },
+        { text = "Some knowledge is better left buried. Burn them.", next = "BACK", reply = "Ye sound like my friends, an' they mean well, but burnin' them wouldnae make the danger go away, it would only make sure we didnae know it was comin'.", fx = { align = { order = 1 }, learn = { "highborne" } } },
+        { text = "Read everything. Ignorance is the real danger.", next = "BACK", reply = "That's what I keep sayin', an' it's good tae hear it from somebody who's seen the world, so I'll keep rubbin' runes until my fingers turn black.", fx = { align = { order = -1 }, learn = { "highborne" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

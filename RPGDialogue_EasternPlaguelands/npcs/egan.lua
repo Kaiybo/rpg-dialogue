@@ -88,8 +88,8 @@ P:NPC {
       big = true,
       lines = { { id = "hm_default", text = "Every soul I free might be her, or might be somebody else's mother, and either way it's worth doing. The hate gets me out of bed, but it's the other thing that sends me down the road." } },
       choices = {
-        { text = "Hold on to the other thing. It's what matters.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Hate's served you well. Keep it sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hold on to the other thing. It's what matters.", next = "BACK", reply = "I'll try, {g:lad|lass}. Some days it's the only thing that keeps the hate honest.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Hate's served you well. Keep it sharp.", next = "BACK", reply = "It has, and it will, but I'd not want it to be all that's left of me. Keep it sharp, aye, but keep the other thing too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
       big = true,
       lines = { { id = "ss_default", text = "An army in those streets would trample the very souls I'm trying to save, and the Crusade would be glad of the chaos. What would you do with Stratholme, if it were yours to decide?" } },
       choices = {
-        { text = "Go in quietly, a few at a time, and free who we can.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "March the whole Dawn in and end it in one blow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go in quietly, a few at a time, and free who we can.", next = "BACK", reply = "Aye, that's my thinking exactly, {g:lad|lass}. Quiet and careful, and every soul freed is one fewer screaming.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "March the whole Dawn in and end it in one blow.", next = "BACK", reply = "And trample half the souls I'm trying to save? No, {g:lad|lass}, that's the Crusade's way, not ours.", fx = { align = { order = 1 } } },
         { text = "I'd rather not decide that, Egan.", next = "BACK" },
       },
     },

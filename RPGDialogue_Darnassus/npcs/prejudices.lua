@@ -97,8 +97,8 @@ P:NPC {
         { id = "bw_default", text = "Because the Alliance is the humans' table, and if we don't sit at it, they'll carve the meal without us. So I send my best to sit there, and I tell each one to smile and to count the spoons." },
       },
       choices = {
-        { text = "That's wise. Watch your allies as closely as your enemies.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "If you can't trust your allies, you don't have an alliance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "That's wise. Watch your allies as closely as your enemies.", next = "BACK", reply = "Now you're thinking like one of mine. Smile at the table, count the knives on it, and never sit with your back to the door.", fx = { align = { honor = -1 } } },
+        { text = "If you can't trust your allies, you don't have an alliance.", next = "BACK", reply = "Then perhaps we don't have one, only a long truce with good manners. I would sooner know that now than learn it at Hyjal again.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -122,8 +122,8 @@ P:NPC {
       },
       choices = {
         { text = "What made you so certain of it?", next = "humans_why" },
-        { text = "Those are a few kings. Judge each person by their own deeds.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Their history speaks for itself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Those are a few kings. Judge each person by their own deeds.", next = "BACK", reply = "A pleasant idea for someone with a lifetime to judge in. I have watched too many of their lifetimes to keep starting fresh with each one.", fx = { align = { light = 1 } } },
+        { text = "You're right. Their history speaks for itself.", next = "BACK", reply = "It does, and loudly, though most of them would rather you didn't read it aloud. Remember that when they ask you for something.", fx = { align = { light = -1 } } },
       },
     },
     humans_why = {
@@ -143,8 +143,8 @@ P:NPC {
           text = "Alive, and home, with a scar she won't speak of. And I hear you were the one in Stormwind who dragged Lord Lescovar's dealings with the Defias into the light, so you've seen how high their rot climbs." },
       },
       choices = {
-        { text = "One traitor doesn't excuse distrusting them all.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then lie to them first, before they lie to you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "One traitor doesn't excuse distrusting them all.", next = "BACK", reply = "Perhaps not, but it taught me what to look for. One traitor is all it takes when he sits close enough to the king.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then lie to them first, before they lie to you.", next = "BACK", reply = "Careful, that's the kind of lesson that makes a rogue clever and a people friendless. I teach caution, not treachery, whatever they say of me.", fx = { align = { honor = -1 } } },
         { text = "I'm sorry about Ithrenil.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -163,8 +163,8 @@ P:NPC {
         { id = "tl_default", text = "Everyone, though I'll not pretend I give the humans on the terraces the same ear as the rest. Their envoys smile at Tyrande's Sentinels all day and write long letters home every night, and I would dearly like to read those letters." },
       },
       choices = {
-        { text = "Spying on your allies breeds the very betrayal you fear.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Read them. An ally's letters are worth more than an enemy's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Spying on your allies breeds the very betrayal you fear.", next = "BACK", reply = "Maybe it does, and maybe I'm only reading what was already written. I'd still rather know the betrayal than be surprised by it.", fx = { align = { order = 1 } } },
+        { text = "Read them. An ally's letters are worth more than an enemy's.", next = "BACK", reply = "You learn quickly, and that worries me a little. An enemy's letter tells you what he wants, but an ally's tells you what he's hiding.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -224,8 +224,8 @@ P:NPC {
         { id = "xn_default", text = "Between us, I trust them the way a Sentinel trusts a frozen lake: I'll cross it when I must, and I'll listen for the crack. They came to Hyjal with Jaina Proudmoore and fought well, I'll grant them, but they had already lost their own kingdom to the Scourge by then." },
       },
       choices = {
-        { text = "They bled beside us at Hyjal. That has earned some trust.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep listening for the crack. They've broken every pact so far.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They bled beside us at Hyjal. That has earned some trust.", next = "BACK", reply = "Some, yes, and I've not forgotten those who fell beside us. But a debt paid in blood can be called in by the wrong king later.", fx = { align = { light = 1 } } },
+        { text = "Keep listening for the crack. They've broken every pact so far.", next = "BACK", reply = "I always do, and it's kept my students alive longer than trust ever has. Just don't let them see you listening.", fx = { align = { light = -1 } } },
         { text = "And the Highborne, Erion? Were they so trustworthy?", next = "xnelf_highborne" },
       },
     },
@@ -245,8 +245,8 @@ P:NPC {
         { id = "xr_default", text = "You'll hear it anyway, because it is the training. Trust the coin you can see, the door you've checked yourself, and the friend you've watched for a year, in that order, and humans most of all." },
       },
       choices = {
-        { text = "Even a rogue needs friends he can't watch.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Coin, door, friend. I'll remember the order.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Even a rogue needs friends he can't watch.", next = "BACK", reply = "He does, and that's the hardest lesson of all for us. Find one or two, and guard them more closely than your purse.", fx = { align = { honor = 1 } } },
+        { text = "Coin, door, friend. I'll remember the order.", next = "BACK", reply = "See that you do, and in that order. The ones who forget it usually learn it in a gutter somewhere in Stormwind.", fx = { align = { honor = -1 } } },
         { text = "Train me, then.", next = "BUSINESS" },
       },
     },
@@ -363,8 +363,8 @@ P:NPC {
         { id = "cd_default", text = "I take one root and leave the plant beside it to seed the next, and I fill the hole behind me. That is not the same as tearing open a hillside to see what my ancestors left in it, whatever you're about to say." },
       },
       choices = {
-        { text = "You take only what you need. That's the difference.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A hole is a hole, Firodren, whoever digs it.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "You take only what you need. That's the difference.", next = "BACK", reply = "It is the whole difference, and I'm glad someone outside the Enclave can see it. The earth forgives a borrowing but never a theft.", fx = { align = { order = -1 } } },
+        { text = "A hole is a hole, Firodren, whoever digs it.", next = "BACK", reply = "It is not, and I will not have that said in my garden. A hole you fill is a wound that heals, while theirs only ever gets deeper.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,8 +376,8 @@ P:NPC {
       },
       choices = {
         { text = "What did they do to you?", next = "dwarves_grove" },
-        { text = "They're our allies. You'd do well to remember it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The land should come before any alliance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They're our allies. You'd do well to remember it.", next = "BACK", reply = "I remember it every time I see their lanterns in Darkshore. Remembering it does not mean I have to like what they do with their spades.", fx = { align = { order = 1 } } },
+        { text = "The land should come before any alliance.", next = "BACK", reply = "Then you understand what Tyrande sometimes forgets in the war council. Alliances end, but the land is still there after them.", fx = { align = { order = -1 } } },
       },
     },
     dwarves_grove = {
@@ -394,8 +394,8 @@ P:NPC {
         { id = "dt_default", text = "I told them, standing in the stumps. A young one with a lantern took his cap off and said he was sorry and hadn't known, and I didn't believe him, and I've never quite decided whether that was wise of me." },
       },
       choices = {
-        { text = "He meant it. You should have believed him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Sorry costs nothing. You were right not to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He meant it. You should have believed him.", next = "BACK", reply = "Perhaps he did, and that is what keeps me up some nights. Still, sorry does not put a single tree back in the ground.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sorry costs nothing. You were right not to.", next = "BACK", reply = "That is what I told myself on the walk home, though it does not feel as righteous as it did. Leave it there, if you would.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -417,8 +417,8 @@ P:NPC {
         { id = "tp2_default", text = "That is a cruel question, and I'd like to tell you it's a foolish one. We grew a tree and the dwarves dug a hole, and I've told myself those are different things, but the tree is sick and the hole is only a hole." },
       },
       choices = {
-        { text = "Every people wounds the land. Yours too.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your people made a living tree. Dwarves only make holes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every people wounds the land. Yours too.", next = "BACK", reply = "Mine too, and I hate that you are right. We grew Teldrassil in a hurry and in pride, and the roots remember it even if we would rather not.", fx = { align = { order = 1 } } },
+        { text = "Your people made a living tree. Dwarves only make holes.", next = "BACK", reply = "That is what I want to believe, and you say it more kindly than it deserves. Ask the druids how whole this tree truly is before you are sure.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -431,8 +431,8 @@ P:NPC {
       },
       choices = {
         { text = "He seems harmless, and a little lonely.", next = "greywhisker_lonely" },
-        { text = "He's a scholar, not a looter. Leave him be.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep an eye on him. Scholars dig too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He's a scholar, not a looter. Leave him be.", next = "BACK", reply = "I leave him be, mostly, because the High Priestess wishes it. I only wish he would stop asking the priestesses where the old walls are.", fx = { align = { light = 1 } } },
+        { text = "Keep an eye on him. Scholars dig too.", next = "BACK", reply = "Oh, I do, and so do the Sentinels at the Temple doors. A scholar with a shovel is still a man with a shovel.", fx = { align = { light = -1 } } },
       },
     },
     greywhisker_lonely = {
@@ -500,8 +500,8 @@ P:NPC {
         { id = "xn_default", text = "Not every race, no. The humans burn forests, but mostly by accident, and the gnomes poisoned their own city before they ever touched ours. It's the dwarves who come here on purpose, with shovels, to see what we left behind." },
       },
       choices = {
-        { text = "The dwarves fight beside us. That should count for something.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Our ruins are ours, not theirs to dig.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dwarves fight beside us. That should count for something.", next = "BACK", reply = "It counts for much on the battlefield, and I will not insult their dead. It counts for less in Ameth'Aran, where their crates go out full.", fx = { align = { light = 1 } } },
+        { text = "You're right. Our ruins are ours, not theirs to dig.", next = "BACK", reply = "Ours, and our dead's, and not a curiosity for the Explorers' League. It is a comfort to hear someone say it plainly.", fx = { align = { light = -1 } } },
         { text = "And Teldrassil, Firodren? Did we ask anyone before we grew it?", next = "tree_pride" },
       },
     },

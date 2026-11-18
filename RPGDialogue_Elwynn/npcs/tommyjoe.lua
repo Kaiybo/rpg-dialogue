@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I am, honest! Well, and maybe at someone across it, but don't tell Ma, or Maybell's pa." } },
       choices = {
-        { text = "Tell your family the truth, Tommy Joe. It's the brave way.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Keep it secret. Love's worth a little sneaking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell your family the truth, Tommy Joe. It's the brave way.", next = "BACK", reply = "Brave, maybe, but Ma would have me mucking the pigs till I'm forty. I'll tell them one day, honest I will, when I've worked up the nerve.", fx = { align = { honor = 1 } } },
+        { text = "Keep it secret. Love's worth a little sneaking.", next = "BACK", reply = "Oh, thank you, I knew you'd understand! I'm getting rather good at sneaking, if I say so myself, though the herons keep giving me away.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -41,8 +41,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Nobody! Just a friend, who has a friend, on the other side, and their families don't speak. If you could conjure a bridge, or a boat, or a very thick fog, I'd be ever so grateful, and so would my friend." } },
       choices = {
-        { text = "Love will find its way, Tommy Joe. Go to her.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Your family's feud deserves more respect than that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Love will find its way, Tommy Joe. Go to her.", next = "BACK", reply = "Her? I never said her! Oh, well, never mind, you've worked it out, and I'll go as soon as the coast's clear.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your family's feud deserves more respect than that.", next = "BACK", reply = "Respect? Nobody even remembers what it was about, only that we're meant to hate each other. I'd sooner respect Maybell.", fx = { align = { order = 1 } } },
         { text = "Something else, Tommy Joe.", next = "BACK" },
       },
     },
@@ -50,8 +50,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Better than my family does, because the water doesn't run home and tell Ma everything it sees. I've told it a good few things this spring, and it hasn't once called me a fool." } },
       choices = {
-        { text = "Tell your family, Tommy Joe. Hiding only feeds the feud.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Love needs nobody's blessing. Keep meeting her by the river.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Tell your family, Tommy Joe. Hiding only feeds the feud.", next = "BACK", reply = "You sound like the river, only it's never said that to me. I'll think on it, I promise, but not today.", fx = { align = { order = 1 } } },
+        { text = "Love needs nobody's blessing. Keep meeting her by the river.", next = "BACK", reply = "That's what I keep telling myself, and it's lovely to hear somebody else say it. I'll see her at dusk, same as always.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -59,8 +59,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because of Maybell Maclure, of course, and because half the valley thinks a Stonefield and a Maclure is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
       choices = {
-        { text = "Then fight for her, Tommy Joe. She's worth it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Mend your fences and leave her be.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then fight for her, Tommy Joe. She's worth it.", next = "BACK", reply = "She is, every bit, and I'd fight the whole valley if it came to it. I'd just rather it didn't.", fx = { align = { honor = 1 } } },
+        { text = "Mend your fences and leave her be.", next = "BACK", reply = "Leave her be? I couldn't, not if you paid me. You've clearly never met Maybell.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To meet Maybell Maclure by the river, of course, without the whole family knowing. That {pet} of yours could keep watch by the river for me, and if it growled, I'd know someone was coming." },
       },
       choices = {
-        { text = "I'll not help you hide from your family.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep low and use the reeds. They'll never see you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll not help you hide from your family.", next = "BACK", reply = "That's fair, and I'll not ask you to. I'll just keep slipping along the bank as I always have.", fx = { align = { order = 1 } } },
+        { text = "Keep low and use the reeds. They'll never see you.", next = "BACK", reply = "The reeds, of course! Why didn't I think of that? You've done this before, haven't you?", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." } },
       choices = {
-        { text = "Gramma's stories are worth heeding. I'll be careful.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Gramma's stories are for children. Bargains make power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gramma's stories are worth heeding. I'll be careful.", next = "BACK", reply = "Good, because I'd hate for Gramma to be right and you to be the proof. She'd never let me hear the end of it.", fx = { align = { light = 1 } } },
+        { text = "Gramma's stories are for children. Bargains make power.", next = "BACK", reply = "Don't let Gramma hear you say that, or she'll have a new story by supper, and you'll be in it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "One day, I swear it, when I've saved enough to buy a plot of my own and nobody can tell me where to stand. Until then I'm careful, because a Stonefield who loves a Maclure is a Stonefield who sleeps in the barn." } },
       choices = {
-        { text = "Waiting is wise. Do it properly, not rashly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Love shouldn't wait on coin. Tell them now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Waiting is wise. Do it properly, not rashly.", next = "BACK", reply = "That's what I keep telling myself, and it's good to hear a paladin say it too. I'll keep saving.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Love shouldn't wait on coin. Tell them now.", next = "BACK", reply = "Now? Oh, I'd love to, but Ma would skin me and Pa Maclure would finish the job. Give me a little longer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,8 +156,8 @@ P:NPC {
         { id = "md_default", text = "Anything that doesn't start a war between the farms, and maybe one or two things that do." },
       },
       choices = {
-        { text = "Careful, Tommy Joe.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
-        { text = "That's the spirit.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "maybell_tommy" } } },
+        { text = "Careful, Tommy Joe.", next = "BACK", reply = "I will, I promise, mostly. Maybell's the careful one, anyway.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "That's the spirit.", next = "BACK", reply = "Ha! I knew you'd understand. Don't tell Ma I said that, though.", fx = { affinity = 1, align = { order = -1 }, learn = { "maybell_tommy" } } },
       },
     },
 
@@ -235,8 +235,8 @@ P:NPC {
         { id = "p_default", text = "A wedding? Say that again, slowly... no, don't, or I'll start grinning, and Ma will ask why, and I'm a terrible liar." },
       },
       choices = {
-        { text = "The offer stands.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, opinion = { maybell_tommy = "romantic" } } },
-        { text = "First the families have to agree.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The offer stands.", next = "BACK", reply = "I'll hold you to it, I swear I will. Now I'd better stop grinning before I walk home.", fx = { affinity = 3, align = { light = 1 }, opinion = { maybell_tommy = "romantic" } } },
+        { text = "First the families have to agree.", next = "BACK", reply = "They'll come round, won't they? I've got to believe they will, or I'd go mad waiting.", fx = { align = { order = 1 } } },
       },
     },
     farmhand = {
@@ -251,8 +251,8 @@ P:NPC {
     rogue = {
       lines = { { id = "rogue_l", text = "Could you really? Ma reads everything that comes up the lane, and Maybell's pa watches the river like a hawk. You wouldn't read them, would you?" } },
       choices = {
-        { text = "Never. A courier's word is everything.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "Only the interesting parts.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Never. A courier's word is everything.", next = "BACK", reply = "I knew it, I knew I could trust you! I'll have a letter ready by tomorrow.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Only the interesting parts.", next = "BACK", reply = "The interesting parts are all of them! Oh, don't, please, or I'll never write another word.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
       },
     },
   },

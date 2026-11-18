@@ -63,8 +63,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's worth a footnote. The arcane is the true discipline; your spirits are a curiosity. Do mind the stairs on your way out." } },
       choices = {
-        { text = "Discipline has its place, Theocritus. I respect your study.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Footnotes, is it? My spirits have answered when your arcane failed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Discipline has its place, Theocritus. I respect your study.", next = "BACK", reply = "How gracious, and quite unexpected. I'll amend the footnote to a short paragraph.", fx = { align = { order = 1 } } },
+        { text = "Footnotes, is it? My spirits have answered when your arcane failed.", next = "BACK", reply = "When it failed in someone else's hands, perhaps. Mine are rather more reliable. Do mind the stairs.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sometimes a problem needs only to be hit, and I am too busy to hit it myself. Morganth's gnolls in Redridge are such a problem, and you are, I suppose, such a solution." } },
       choices = {
-        { text = "I'll solve your problem, and gladly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Find someone else to hit things for you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll solve your problem, and gladly.", next = "BACK", reply = "Splendid, and do try to be quick about it. Morganth won't wait on your convenience.", fx = { align = { order = 1 } } },
+        { text = "Find someone else to hit things for you.", next = "BACK", reply = "I have, and you're what turned up. Do close the door on your way out.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunted, no; watched, perhaps, for Morganth's Shadowhide gnolls range far beyond Redridge. And your {pet}, I see, is sniffing my gnome, so do call it off; they are not hounds, and they are not food." },
       },
       choices = {
-        { text = "I'll watch and report what I see.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll take my own counsel on what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll watch and report what I see.", next = "BACK", reply = "Precisely what I need, and nothing more. The Eye will be grateful.", fx = { align = { order = 1 } } },
+        { text = "I'll take my own counsel on what I find.", next = "BACK", reply = "Then take it somewhere else, and do close the door. I've no use for a scout who keeps secrets.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,16 +93,16 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I fear nothing, but I'm careful, because Morganth has sent spies into this tower before, and some of them came in as quietly as you did. The gnomes caught the last one and he's still apologizing." } },
       choices = {
-        { text = "I'm no spy for Morganth. You can trust me, Theocritus.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your gnomes won't catch me. I'd be careful, mage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm no spy for Morganth. You can trust me, Theocritus.", next = "BACK", reply = "Trust is a luxury in this tower, but I'll consider it. The gnomes will be watching.", fx = { align = { order = 1 } } },
+        { text = "Your gnomes won't catch me. I'd be careful, mage.", next = "BACK", reply = "They caught the last one who said that, and he's still apologizing. Do see yourself out.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Because it can't be measured, only felt. A spell should be precise, and I've never yet met a druid who could tell me how a thing works, only that it does." } },
       choices = {
-        { text = "Not everything must be measured to be true.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You're right. Magic should be understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Not everything must be measured to be true.", next = "BACK", reply = "And yet the thing still works, which is infuriating. I'll grant you that much.", fx = { align = { order = -1 } } },
+        { text = "You're right. Magic should be understood.", next = "BACK", reply = "At last, someone sensible! You may stay a moment longer.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Studied it, yes, and given it up, because it refuses to be measured and I refuse to work with anything I can't measure. The priests at the Cathedral find this terribly sad, and I find their certainty terribly convenient, so we're even." } },
       choices = {
-        { text = "Some things aren't meant to be measured, Theocritus.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then you're wise. Faith without proof is a crutch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some things aren't meant to be measured, Theocritus.", next = "BACK", reply = "Perhaps not, but they're terribly inconvenient for a man of my habits. I'll leave them to the Cathedral.", fx = { align = { light = 1 } } },
+        { text = "Then you're wise. Faith without proof is a crutch.", next = "BACK", reply = "A sensible view, and rarely heard in this kingdom. You may tell the priests I agree.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not today, but Morganth was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
       choices = {
-        { text = "Then he must be stopped before anyone else pays.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then he must be stopped before anyone else pays.", next = "BACK", reply = "Precisely, and that is why I watch. Go to Redridge, and do be thorough.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", reply = "Walls held against the orcs too, until they didn't. Do try to think beyond the gate.", fx = { align = { light = -1 } } },
         { text = "Something else, Theocritus.", next = "BACK" },
       },
     },
@@ -196,8 +196,8 @@ P:NPC {
         { id = "d_default", text = "Because I care nothing for tax rolls or harvests or who the Regent is dining with, but I know what Morganth is, and if I don't stop him, no one competent will." },
       },
       choices = {
-        { text = "Then I'll help.", next = "BACK", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
-        { text = "Very noble of you.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
+        { text = "Then I'll help.", next = "BACK", reply = "Splendid, and do try to be useful rather than merely willing. Redridge is that way.", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
+        { text = "Very noble of you.", next = "BACK", reply = "Nobility has nothing to do with it. Somebody must, and I happen to be competent.", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
       },
     },
     morganth_want = {
@@ -272,8 +272,8 @@ P:NPC {
         { id = "ep_default", text = "Then help them, and I'll be up here making sure there's a kingdom left for them to suffer in. We both have our work." },
       },
       choices = {
-        { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "That's a convenient view from a tower.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "That's fair.", next = "BACK", reply = "Good, we understand each other. Go and help them, then.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "That's a convenient view from a tower.", next = "BACK", reply = "It is, and the view is the point. I see Morganth coming, and you don't.", fx = { align = { order = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
 
@@ -293,8 +293,8 @@ P:NPC {
         { id = "ma_default", text = "I'm not a trainer, but here is one thing for free: Ur's work is sealed for a reason, so if anyone offers you a look inside, refuse, loudly." },
       },
       choices = {
-        { text = "I'll refuse.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'll decide for myself what I read.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll refuse.", next = "BACK", reply = "Good, and loudly, as I said. You may thank me later.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll decide for myself what I read.", next = "BACK", reply = "Then decide carefully, because some pages read you back. I'll not warn you twice.", fx = { align = { order = -1 } } },
         { text = "Knowledge shouldn't be locked away.", next = "mage_knowledge", fx = { trait = { curious = 1 } } },
       },
     },
@@ -309,8 +309,8 @@ P:NPC {
         { id = "wl_default", text = "Nobody is Morganth until they are. He began as a student with good intentions. Keep yours where I can see them." },
       },
       choices = {
-        { text = "You'll see them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My power is my business.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "You'll see them.", next = "BACK", reply = "Good, and I'll be watching. Do keep them in sight.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My power is my business.", next = "BACK", reply = "It's mine too, the moment it comes near this tower. Remember that.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     priest = {
@@ -318,8 +318,8 @@ P:NPC {
         { id = "pr_default", text = "A priest who knows shadow? Then you know it's a road that narrows the further you walk it. Morganth walked it to the end, so don't." },
       },
       choices = {
-        { text = "I walk it carefully.", next = "BACK", fx = { align = { light = -1 }, affinity = 1, trait = { cautious = 1 } } },
-        { text = "The Light walks with me.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
+        { text = "I walk it carefully.", next = "BACK", reply = "Good, and keep it that way. The road is very easy to follow too far.", fx = { align = { light = -1 }, affinity = 1, trait = { cautious = 1 } } },
+        { text = "The Light walks with me.", next = "BACK", reply = "Morganth was quite certain of his company too, once. Do mind your step.", fx = { affinity = 1, align = { light = 2 } } },
       },
     },
     gnome = {

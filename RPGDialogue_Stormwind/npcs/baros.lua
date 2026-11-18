@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'm not sure I would. Half these walls were raised by men we never paid, and if the stone remembers that, it has better manners than they do." } },
       choices = {
-        { text = "The stone holds the city up. Trust what was built properly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The stone remembers the debt. Pay the masons and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The stone holds the city up. Trust what was built properly.", next = "BACK", reply = "It was built properly, every course of it, and I made sure of that myself. The stone's never been the problem; the ledgers were.", fx = { align = { order = 1 } } },
+        { text = "The stone remembers the debt. Pay the masons and be done with it.", next = "BACK", reply = "If only it were that simple, friend. I've said it to the House a dozen times, and they nod and send for the next petition.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -76,8 +76,8 @@ P:NPC {
         { id = "xlock_default", text = "Older cellars than anyone admits to, cut before the city was rebuilt, and the Lamb's crypt is the deepest of them. I drew new streets over half of Stormwind after the Horde burned it, but the Quarter's masters wouldn't let my men dig below a certain line, and I've learned not to ask builders' questions of people who answer with fire." },
       },
       choices = {
-        { text = "Then the plans stay closed, as they should.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Show me the old plans. I'll find out myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the plans stay closed, as they should.", next = "BACK", reply = "They do, and I'll sleep easier for it. There are doors down there that I'd rather nobody remembered, even me.", fx = { align = { order = 1 } } },
+        { text = "Show me the old plans. I'll find out myself.", next = "BACK", reply = "You'll not find them in this office, and if you go poking under the Lamb, you'll be on your own when the floor gives.", fx = { align = { order = -1 } } },
         { text = "Something else, Baros.", next = "BACK" },
       },
     },
@@ -85,8 +85,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The Park, and precious little else, because the nobles wanted halls and the masons gave them halls. I grew up on a Westfall farm, and some nights I think I built a city that has forgotten where its bread comes from." } },
       choices = {
-        { text = "Stone and law keep people safe. The fields can look after themselves.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then tear up a street or two and let the land back in.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stone and law keep people safe. The fields can look after themselves.", next = "BACK", reply = "That's what the House told me when they cut the gardens from my drawings. I suppose I lost that argument too.", fx = { align = { order = 1 } } },
+        { text = "Then tear up a street or two and let the land back in.", next = "BACK", reply = "Ha! I'd love to, and the nobles would hang me from my own scaffolding before the first cobble came up.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -94,8 +94,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Edwin did, and every mason who walked out with him, and they took the plans in their heads, so the Defias come and go under this city as they please. I gave SI:7 copies of the old plans, though I suspect Shaw had them before I did." } },
       choices = {
-        { text = "Then the plans should be locked away, and the drains watched.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Every city needs back doors. Leave some of them open.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the plans should be locked away, and the drains watched.", next = "BACK", reply = "They are, as well as I can manage. Edwin knows those tunnels better than any guard, though, because he dug half of them.", fx = { align = { order = 1 } } },
+        { text = "Every city needs back doors. Leave some of them open.", next = "BACK", reply = "Edwin would agree with you, and look what he does with the ones he kept. I'll keep mine shut, thank you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Spilled reagents, mostly, and whatever the apprentices pour down the gutters when their masters aren't looking. The stone was laid for rain, not arcane runoff, though nobody on the council wants to pay for the difference." } },
       choices = {
-        { text = "The Quarter should answer to the city's rules like anyone else.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Mages have better things to worry about than mortar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Quarter should answer to the city's rules like anyone else.", next = "BACK", reply = "They should, and I've the petitions to prove I've asked. The Sanctum sends back very polite notes that say nothing at all.", fx = { align = { order = 1 } } },
+        { text = "Mages have better things to worry about than mortar.", next = "BACK", reply = "Until their tower leans, and then it's my fault for the mortar. Mark my words, they'll be in this office within the year.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The gates, always, because every wall I've drawn means nothing if the gate gives. The old city fell from the inside, though, so I check every street I lay out for where a mob could gather." } },
       choices = {
-        { text = "A gate is only as good as the soldier standing in it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stone does the work. Soldiers just fill the gaps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A gate is only as good as the soldier standing in it.", next = "BACK", reply = "Aye, that's so, and the best gate in the world won't hold if the man behind it doesn't. Still, I'd rather give him good stone to stand behind.", fx = { align = { order = 1 } } },
+        { text = "Stone does the work. Soldiers just fill the gaps.", next = "BACK", reply = "Spoken like a mason's son, and I'll not argue. Just don't say it in front of the Stormwind Guard; they're touchy about it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,8 +124,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Room is the one thing I never have enough of, friend. I'd sooner the beasts had the hills than the alleys, but {pet} looks better kept than most of my masons. Mind it doesn't chew the scaffolding; the masons have enough to complain about without that." },
       },
       choices = {
-        { text = "A city should make room for the ones who keep its roads safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Beasts belong outside the walls. Mine waits by the gate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A city should make room for the ones who keep its roads safe.", next = "BACK", reply = "That's what I keep telling the House, and they keep telling me wolves stain the cobbles. I'll keep trying, for what it's worth.", fx = { align = { order = 1 } } },
+        { text = "Beasts belong outside the walls. Mine waits by the gate.", next = "BACK", reply = "You'd make my life a great deal easier if every hunter in this city thought the same. The stable master would thank you too.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -133,8 +133,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not often, though I drew half its buttresses myself. Every stone in it was set by a man still waiting for his wages, and I find it hard to kneel on something that was never paid for." } },
       choices = {
-        { text = "The faith in those stones is real, whoever paid for them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then it's a monument to a lie, and I won't pray there either.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The faith in those stones is real, whoever paid for them.", next = "BACK", reply = "That's a kinder thought than I can manage, and maybe a truer one. I'll think on it, though I still won't kneel there.", fx = { align = { light = 1 } } },
+        { text = "Then it's a monument to a lie, and I won't pray there either.", next = "BACK", reply = "I didn't say it was a lie, only that it's unpaid. The masons' work was honest, even if the House wasn't. Still, I take your meaning.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,8 +142,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Wages paid, and a word from the House admitting the masons were wronged, and neither will ever happen. Instead the masons took to the hills of Westfall, and now the crown calls them bandits and sends soldiers after them." } },
       choices = {
-        { text = "The law must deal with the Defias, whatever the House owes.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "When the law cheats men, they've a right to take what's theirs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The law must deal with the Defias, whatever the House owes.", next = "BACK", reply = "It must, and I'll not pretend otherwise, for they've killed men who had nothing to do with the debt. But the House made them, all the same.", fx = { align = { order = 1 } } },
+        { text = "When the law cheats men, they've a right to take what's theirs.", next = "BACK", reply = "That's Edwin's own argument, word for word, and it's led to Moonbrook and blood on the road. Be careful whose words you borrow.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -217,7 +217,7 @@ P:NPC {
         { id = "e_default", key = true, text = "We rebuilt this city together, and the nobles wouldn't pay. Edwin raised his voice and got a riot. I kept my head down and got this office." },
       },
       choices = {
-        { text = "You made the right choice.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "You made the right choice.", next = "BACK", reply = "I'd like to believe it. Most nights I do, and the other nights I sit here and draw walls I'll never build.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "He had a point about the nobles.", next = "point", fx = { align = { honor = 1, order = -1 } } },
       },
     },
@@ -284,8 +284,8 @@ P:NPC {
     noble = {
       lines = { { id = "n_default", text = "Then your family's House voted not to pay mine. Don't apologise; you weren't there. Just remember it, next time they vote." } },
       choices = {
-        { text = "I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My family's votes are their business, not my debt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll remember.", next = "BACK", reply = "Thank you. That's all I ask of anyone, and more than most will give.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My family's votes are their business, not my debt.", next = "BACK", reply = "Maybe so. But a House that never feels its debts is how we got Westfall, and I'd hoped for better from you.", fx = { align = { honor = -1 } } },
       },
     },
     dwarf_stone = {
@@ -303,8 +303,8 @@ P:NPC {
       big = true,
       lines = { { id = "mason_child_l", text = "Then I knew him, likely, and I'm sorry, and I'm the man who took a salary from the same House that robbed him. Say it, if you want to; your father would have." } },
       choices = {
-        { text = "You took the post. He'd have called you a traitor.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "Someone had to keep building. He'd understand.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "You took the post. He'd have called you a traitor.", next = "BACK", reply = "He would, and he'd have said it to my face, which is more than most do. I hear it in my own head every morning, friend.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Someone had to keep building. He'd understand.", next = "BACK", reply = "I'd like to think so, but I knew your father, and he was a harder man than that. Still, I'm grateful you'd say it.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Would you know his work, if I told you his name?", next = "mason_name" },
       },
     },

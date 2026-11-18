@@ -70,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "ua_default", text = "He did, and Uther knew him from a boy. I've never decided whether that makes his death more terrible or more holy, for he stood against what his pupil had become, and he didn't step aside." } },
       choices = {
-        { text = "Holy. He kept faith to the end.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Terrible. Faith didn't save him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Holy. He kept faith to the end.", next = "BACK", reply = "I've come to think so too, on the better days. Kneel a moment, if you like, and he'll have one more visitor.", fx = { align = { light = 1 } } },
+        { text = "Terrible. Faith didn't save him.", next = "BACK", reply = "It didn't save him, no, but it kept him standing to the last. I think that's what faith was for, in the end.", fx = { align = { light = -1 } } },
         { text = "Which do you believe, High Priest?", next = "uther_arthas2" },
       },
     },
@@ -125,8 +125,8 @@ P:NPC {
       big = true,
       lines = { { id = "sv_default", text = "You're not wrong, and I tend them too, when they come up the hill hungry or hurt. But a people who forget their heroes' graves will soon forget why they had heroes at all, and I'll not be the one to let that happen." } },
       choices = {
-        { text = "Then keep the grave. Someone must remember.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the dead go. The living need you more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then keep the grave. Someone must remember.", next = "BACK", reply = "Then I'll keep it, gladly, and sweep the steps tomorrow as I did today. Thank you for understanding.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the dead go. The living need you more.", next = "BACK", reply = "They do, and I won't turn them away, not ever. But I'll not let Uther be forgotten while I can still lift a broom.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

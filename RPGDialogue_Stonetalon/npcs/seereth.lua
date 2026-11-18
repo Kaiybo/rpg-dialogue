@@ -88,8 +88,8 @@ P:NPC {
         { id = "sa_default", text = "Because the Horde has many fights and few shaman, and someone had to come. I asked for help when I got here, and I'm not ashamed of it; there's no dishonor in knowing your own strength." },
       },
       choices = {
-        { text = "Asking for help is wisdom, not weakness.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Orgrimmar should have sent more. That's their duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Asking for help is wisdom, not weakness.", next = "BACK", reply = "It is, and I'm glad to hear a young one say it without being taught. The spirits answer the humble more readily than the proud.", fx = { align = { order = -1 } } },
+        { text = "Orgrimmar should have sent more. That's their duty.", next = "BACK", reply = "Perhaps they should, but Orgrimmar has a whole Horde to look after. I'd rather do what I can here than wait for help that may not come.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,8 +100,8 @@ P:NPC {
         { id = "ve_default", text = "Wood, and whatever lies under the wood, and they don't care what dies to get at it. They're not Alliance or Horde, only greed with a hard hat on, and they have no more honor than a kobold." },
       },
       choices = {
-        { text = "Then they get no mercy from me.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Drive them out, but the hired hands just want wages.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then they get no mercy from me.", next = "BACK", reply = "Then the spirits of these hills will be glad of you. The Venture Company has cut too deep to be forgiven.", fx = { align = { light = -1 } } },
+        { text = "Drive them out, but the hired hands just want wages.", next = "BACK", reply = "That's a kinder heart than mine, and maybe a wiser one. Spare the ones who run, then, but break the machines.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },
     },

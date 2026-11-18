@@ -20,8 +20,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've seen gnolls, kobolds, bandits, and a murloc that stole my boot. Your spirits might warn you, but I'll do it cheaper." } },
       choices = {
-        { text = "A wise traveller listens. Tell me everything, Antonio.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll find the dangers myself. That's adventure.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A wise traveller listens. Tell me everything, Antonio.", next = "BACK", reply = "Now there's a customer after my own heart! Sit a moment and I'll tell you about the murloc, the boot, and the long chase that followed, free of charge.", fx = { align = { order = 1 } } },
+        { text = "I'll find the dangers myself. That's adventure.", next = "BACK", reply = "Adventure, is it? That's what the last fellow called it, right before he came back without his eyebrows and bought a hat from me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -29,8 +29,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The wolves follow me some evenings, and I throw them a strip of jerky to keep them friendly, which is probably bad for business. The bears I give a wide berth, because no amount of jerky has ever made a bear friendly." } },
       choices = {
-        { text = "Don't feed wild wolves. It makes them bold with others.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep it up. A friendly wolf beats a hungry one.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Don't feed wild wolves. It makes them bold with others.", next = "BACK", reply = "You're likely right, and I know it, but they look at me with those big sad eyes and my hand goes into the pack before my head can stop it.", fx = { align = { order = 1 } } },
+        { text = "Keep it up. A friendly wolf beats a hungry one.", next = "BACK", reply = "That's my thinking exactly, and it's cheaper than a sword besides. A strip of jerky a night is the best insurance a traveling man can buy.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -38,8 +38,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "It came from a dwarf, and the dwarf came from Ironforge, and that's close enough for a traveling man. It sharpens, it hasn't snapped on anybody yet, and I'll not charge you Ironforge prices for it." } },
       choices = {
-        { text = "I'll take it, and I'll take your word.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll take it, but I don't believe a word of that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take it, and I'll take your word.", next = "BACK", reply = "A customer who trusts a salesman, now there's a rare beast on these roads! You'll not regret it, and if you do, I'll be three towns away by then.", fx = { align = { honor = 1 } } },
+        { text = "I'll take it, but I don't believe a word of that.", next = "BACK", reply = "Doubt all you like, friend, so long as the coin's good. A blade doesn't care whether you believe in it, only whether you keep it sharp.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -50,8 +50,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It brought wolves only the once, and the man who carved it swore that was coincidence, so I've decided to believe him. Your {pet} perked its ears at the call, though, so either it knows the tune or it's as alarmed as I was." },
       },
       choices = {
-        { text = "I'll hunt without tricks, thank you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A call that brings wolves? I'll take two.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt without tricks, thank you.", next = "BACK", reply = "Suit yourself, friend, though honest hunting never sold a single whistle. If you change your mind, I'll be on this road till winter.", fx = { align = { honor = 1 } } },
+        { text = "A call that brings wolves? I'll take two.", next = "BACK", reply = "Two, is it? I knew I liked you the moment you walked up. Only mind you don't blow them both at once, or I'll not answer for the consequences.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -59,8 +59,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "A fellow in Darkshire sold it to me for a pair of boots, and he seemed very glad to be rid of it, which I'll admit was a bad sign. I've carried it since, and it hasn't done anything strange yet, except the humming." } },
       choices = {
-        { text = "Best to leave a strange crystal alone, Antonio.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A humming crystal is worth studying. I'll take a closer look.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Best to leave a strange crystal alone, Antonio.", next = "BACK", reply = "You sound like my mother, and she was right about most things, though she never knew a bargain when she saw one. I'll keep it wrapped in a sock for now.", fx = { align = { light = 1 } } },
+        { text = "A humming crystal is worth studying. I'll take a closer look.", next = "BACK", reply = "Now that's the spirit, and if you work out what it does, you'll tell me first so I can raise the price. Just keep it away from your ears.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -68,8 +68,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Afraid's a strong word, but I've never sold anything to a demon, and I've no wish to start, because I don't know what they pay in. I'll stick to customers with honest coins, if you don't mind." } },
       choices = {
-        { text = "My demon will stay back. You'll deal only with me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Demons pay in power, Antonio. You'd be surprised.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "My demon will stay back. You'll deal only with me.", next = "BACK", reply = "That's very decent of you, and I'll be glad of it. I'm sure your little friend is a credit to his kind, but I'd still rather he stayed where I can see him.", fx = { align = { light = 1 } } },
+        { text = "Demons pay in power, Antonio. You'd be surprised.", next = "BACK", reply = "Power doesn't buy bread in Goldshire, friend, and I've a feeling the change comes back in a currency I'd not want in my purse. Copper and silver will do me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Fair, fair, what's fair on a road this long, friend? I'll admit I've sold a loaf to a Westfall widow for a copper and charged the next gentleman three, and I sleep well enough, so heaven must be happy with the average." } },
       choices = {
-        { text = "A fair price is the same price for everyone, Antonio.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Charge what each can pay. That's sense, not sin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A fair price is the same price for everyone, Antonio.", next = "BACK", reply = "It's a lovely idea, and I'm sure it works fine in the Cathedral, where nobody has to haul their stock over the hills. Out here, a man prices by the purse he's looking at.", fx = { align = { order = 1 } } },
+        { text = "Charge what each can pay. That's sense, not sin.", next = "BACK", reply = "You understand trade better than half the priests I've met, friend. The widow eats, the gentleman pays a little more, and the Light can sort out the rest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -86,8 +86,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Safe enough if you smile at everyone and carry nothing worth stealing, which is a hard trick for a salesman. The Defias let me pass since I sold one of them a fine pair of boots, and I'll not apologize for it, because a man must eat." } },
       choices = {
-        { text = "Selling to the Defias aids them, Antonio. It must stop.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A man must eat. I won't judge you for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Selling to the Defias aids them, Antonio. It must stop.", next = "BACK", reply = "Stop, is it? And who'll keep the bandits from slitting my purse when I stop? I'll think on it, but a peddler can't afford enemies on both sides of the road.", fx = { align = { order = 1 } } },
+        { text = "A man must eat. I won't judge you for it.", next = "BACK", reply = "That's kinder than I expected from somebody in plate. I'll not forget it, and I'll not sell them anything sharper than boots, I promise you that much.", fx = { align = { order = -1 } } },
         { text = "Something else, Antonio.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
     danger_guard = {
       lines = { { id = "dg_default", text = "With what, my good looks? A guard costs more than I make, and the marshals have their hands full already. I trust the Light and my legs." } },
       choices = {
-        { text = "The marshals should patrol the roads properly.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A man's safety is his own business.", next = "BACK", fx = { align = { order = -1 }, trait = { independent = 1 } } },
+        { text = "The marshals should patrol the roads properly.", next = "BACK", reply = "They should, and you're welcome to tell them so, because they don't listen to peddlers. Until they do, I'll keep my legs in good working order.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A man's safety is his own business.", next = "BACK", reply = "That's how I've always lived, and it's kept me breathing this long. Mind you, a little help from a passing hero wouldn't go amiss either.", fx = { align = { order = -1 }, trait = { independent = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

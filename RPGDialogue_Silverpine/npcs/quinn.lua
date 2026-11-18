@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "il_default", text = "Enough to know it's his farm, and not enough to know he's dead. Some nights I wonder how close I came to the same, and then I stop wondering, because it doesn't help my leg." } },
       choices = {
-        { text = "He deserves to be put to rest, not hunted.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "He's a ghoul. Hunt him and be done.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "He deserves to be put to rest, not hunted.", next = "BACK", reply = "Put to rest, yes, that's the kinder word for it. I'd like to think someone would do the same for me.", fx = { align = { light = 1 } } },
+        { text = "He's a ghoul. Hunt him and be done.", next = "BACK", reply = "Hunt him, then, and don't tell me how it went. I knew him when he still had a face.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

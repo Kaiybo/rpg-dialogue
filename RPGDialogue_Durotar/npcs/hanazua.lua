@@ -63,8 +63,8 @@ P:NPC {
     fight = {
       lines = { { id = "f_default", text = "I see him on the plateau, bigger than any scorpid in the valley, and I think he be my first great kill. I throw myself at him and crack his claw, but the claw close on my leg, and then the stinger come down into my chest before I even see it move." } },
       choices = {
-        { text = "You were brave to face it alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "You were foolish to rush it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You were brave to face it alone.", next = "BACK", reply = "Brave, ya, and alone, and that be the part I keep thinkin' about at night. Next time I bring a friend, mon, and we both come home.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You were foolish to rush it.", next = "BACK", reply = "Foolish, sure, the loa been laughing at me ever since. A scar on the chest be a loud teacher, and I be listening now.", fx = { align = { honor = -1 } } },
         { text = "Where exactly did you leave him?", next = "plateau" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
     list_end = {
       lines = { { id = "le_default", text = "Maybe so, mon. If the loa give me a next time, I be watching the tail first, and I be telling the young ones to do the same, because a tail in the face kill more young fools than any claw." } },
       choices = {
-        { text = "Teaching them would be a fine thing to be remembered for.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Only the kill is remembered. Get the next one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teaching them would be a fine thing to be remembered for.", next = "BACK", reply = "You think so, mon? Then maybe this scar be good for somethin' after all, if it keep some young fool breathin'.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Only the kill is remembered. Get the next one.", next = "BACK", reply = "You sound like me before the stinger, mon. I'll get the next one, sure, but I be watching the tail this time.", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -126,8 +126,8 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "Pride, mon, the same way every young hunter get caught. I watch the claw because the claw be the big thing, and I forget a scorpid got a second weapon over its back." } },
       choices = {
-        { text = "Patience wins the hunt. Pride loses it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Pride got you a mark on the beast. That counts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience wins the hunt. Pride loses it.", next = "BACK", reply = "Dat be the truth, and I learn it the hard way. Next hunt, I be the patient one, and the scorpid be the proud one.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pride got you a mark on the beast. That counts.", next = "BACK", reply = "Ha! A mark on the beast and a bigger one on me, mon. I don't think the loa be counting it my way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

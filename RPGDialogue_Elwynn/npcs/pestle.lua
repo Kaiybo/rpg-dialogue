@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some of them are, which is why I warn people away from my bottles. Gramma Stonefield calls me slow, but I'm careful, and I'm alive." } },
       choices = {
-        { text = "Careful is wise, William. Slow and alive beats quick and dead.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A little danger never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Careful is wise, William. Slow and alive beats quick and dead.", next = "BACK", reply = "Thank you, and I'll tell Gramma Stonefield you said so, though she'll only snort at me. Slow has kept all my fingers on.", fx = { align = { order = 1 } } },
+        { text = "A little danger never hurt anyone.", next = "BACK", reply = "Tell that to the last fellow who uncorked one of my bottles to sniff it. He's fine now, mostly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -41,8 +41,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and better I sell them a decent one than have them making their own from who knows what." } },
       choices = {
-        { text = "Better your candles than theirs. You're doing good.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You shouldn't wonder, William. It's not your business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Better your candles than theirs. You're doing good.", next = "BACK", reply = "I like to think so, and it helps me sleep, a little. A decent candle's a decent candle.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You shouldn't wonder, William. It's not your business.", next = "BACK", reply = "You're probably right, and I'll try to stop. It's hard not to wonder, with all that chanting.", fx = { align = { light = -1 } } },
         { text = "Something else, William.", next = "BACK" },
       },
     },
@@ -50,8 +50,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Willow bark and a little peacebloom, steeped strong, though it tastes like a boot. Most warriors would sooner limp than drink it, and that's warriors for you." } },
       choices = {
-        { text = "I'll drink it, taste and all.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll limp, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll drink it, taste and all.", next = "BACK", reply = "Then you're braver than most warriors I've met. Hold your nose and swallow fast.", fx = { align = { order = 1 } } },
+        { text = "I'll limp, thank you.", next = "BACK", reply = "Most do, and I'll not take it personally. The bottle will be here when the limp gets worse.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -62,8 +62,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A salve for paws, made with tallow and a bit of herb, which I first made for Farley's dog. Let me see {pet}'s paws, if it'll let me, because those roads are hard on a creature that doesn't wear boots." },
       },
       choices = {
-        { text = "I'll look after its paws, then. Thank you.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "It's a beast. It'll toughen up on its own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll look after its paws, then. Thank you.", next = "BACK", reply = "You're welcome, and I'll throw in a little extra for the dog's sake. Look at the pads every evening.", fx = { align = { light = 1 } } },
+        { text = "It's a beast. It'll toughen up on its own.", next = "BACK", reply = "It'll toughen up limping, and then you'll wonder why it's slow. The salve's cheap, friend.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,16 +71,16 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Tinctures for sleeping and salves for climbing, mostly, which is all I'll admit to with the Guard so thin on the ground. I sell them to anyone who asks, but I'd like to think they're used on Defias rather than farmers." } },
       choices = {
-        { text = "They'll only be used on the Defias, Pestle.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Use is the buyer's business, not the seller's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "They'll only be used on the Defias, Pestle.", next = "BACK", reply = "I'll hold you to that, and I'll sleep better for it. Use them well.", fx = { align = { honor = 1 } } },
+        { text = "Use is the buyer's business, not the seller's.", next = "BACK", reply = "That's what the Defias say, I expect, and I'd rather not be in their company. I'll keep asking anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "Peacebloom and silverleaf, mostly, though I've heard of a kaldorei herb that only grows under moonlight. I'd give a month's takings for a single leaf." } },
       choices = {
-        { text = "The forest gives freely if you ask well.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Pick what you can. The forest won't miss it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The forest gives freely if you ask well.", next = "BACK", reply = "That's what I've always heard, and I'll try asking more nicely. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "Pick what you can. The forest won't miss it.", next = "BACK", reply = "It'll miss it in a few years, if everybody thinks that way. I'll pick carefully, at least.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -88,8 +88,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Honest enough, and kind, which matters more to me than honest. It's for two young people in love whose families are at war, and if a little potion helps one of them cross a river unseen, I'll answer for it to whoever asks." } },
       choices = {
-        { text = "Kindness doesn't excuse deceit, William.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then you've done right. Love deserves the help.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Kindness doesn't excuse deceit, William.", next = "BACK", reply = "It doesn't, I know, and I'll answer for that too. But I'd rather be kind and wrong than right and cold.", fx = { align = { honor = 1 } } },
+        { text = "Then you've done right. Love deserves the help.", next = "BACK", reply = "Thank you, it's good to hear somebody say so. I'll keep brewing for them.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
       choices = {
         { text = "You seem keen to help them.", next = "lovers_why" },
         { text = "How does an invisibility liquor work?", next = "lovers_potion" },
-        { text = "Love will find a way.", next = "BACK", fx = { trait = { kind = 1 }, align = { order = -1 }, opinion = { maybell_tommy = "romantic" } } },
-        { text = "They should listen to their families.", next = "BACK", fx = { align = { order = 2 }, opinion = { maybell_tommy = "dutiful" } } },
+        { text = "Love will find a way.", next = "BACK", reply = "It always does, and sometimes it needs a little help from a bottle. I'll keep my shelves stocked for them.", fx = { trait = { kind = 1 }, align = { order = -1 }, opinion = { maybell_tommy = "romantic" } } },
+        { text = "They should listen to their families.", next = "BACK", reply = "They should, maybe, and I'll not argue with you. But I'll still brew for them if they ask.", fx = { align = { order = 2 }, opinion = { maybell_tommy = "dutiful" } } },
       },
     },
     lovers_why = {
@@ -236,8 +236,8 @@ P:NPC {
         { id = "pr_default", text = "Sometimes. Prayer's quicker, but potions keep, and the Light's never been sold in a bottle, more's the pity, or I'd stock it." },
       },
       choices = {
-        { text = "Some things shouldn't be sold.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You'd make a fortune.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 } } },
+        { text = "Some things shouldn't be sold.", next = "BACK", reply = "No, I suppose they shouldn't, and I'm glad the Light can't be bottled. I'd only spill it.", fx = { align = { light = 1 } } },
+        { text = "You'd make a fortune.", next = "BACK", reply = "I would, and I'd buy a proper shop in the Trade District. Ah, well, a man can dream.", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
     mage = {

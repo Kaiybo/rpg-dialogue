@@ -57,8 +57,8 @@ P:NPC {
       big = true,
       lines = { { id = "an_default", text = "Before they crossed the sea to found Quel'Thalas, yes. The kaldorei call them exiles and the Highborne call them fools, and I call them the reason I exist. Some of my people would rather forget this place, and I think forgetting is how you lose things." } },
       choices = {
-        { text = "Some history is best left buried.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Dig it all up. Knowledge belongs to everyone.", next = "BACK", fx = { align = { order = -1 }, learn = { "highborne" } } },
+        { text = "Some history is best left buried.", next = "BACK", reply = "Spoken like a kaldorei, and I've heard it a hundred times. My ancestors were buried quite enough by everyone else, thank you.", fx = { align = { order = 1 } } },
+        { text = "Dig it all up. Knowledge belongs to everyone.", next = "BACK", reply = "At last, someone with sense, and you're not even one of us. I'll dig, and I'll write it all down, and Quel'Thalas can thank me later.", fx = { align = { order = -1 }, learn = { "highborne" } } },
         { text = "Why did they cross the sea at all?", next = "exile" },
         { text = "Something else.", next = "BACK" },
       },
@@ -228,8 +228,8 @@ P:NPC {
       big = true,
       lines = { { id = "da_default", text = "Very. The Spitelash on the coast, the satyrs in the old courts, and the blue dragon in the south, though he mostly ignores us. Joy wants to go deeper into Eldarath next month, and I want to go home with what we have." } },
       choices = {
-        { text = "Go home. Your copies are worth more than a risk.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Go deeper. You came all this way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Go home. Your copies are worth more than a risk.", next = "BACK", reply = "They are, and I've told her the same a dozen times. Perhaps she'll listen if it comes from someone else.", fx = { align = { order = 1 } } },
+        { text = "Go deeper. You came all this way.", next = "BACK", reply = "That's what Joy says, and she'll be delighted to hear it from you. I'll be the one packing the bandages.", fx = { align = { order = -1 } } },
         { text = "A blue dragon ignores you?", next = "dragon" },
         { text = "Something else.", next = "BACK" },
       },
@@ -341,8 +341,8 @@ P:NPC {
       big = true,
       lines = { { id = "az_default", text = "Old forests and bad magic, and satyrs where elves once lived. Some Timbermaw want to close this gate forever with stone, so nothing from Azshara can come in. Rageroar thinks a closed gate is a weak gate, because nobody watches it." } },
       choices = {
-        { text = "Seal it. Some doors should stay shut.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep it open and watched. Rageroar is right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Seal it. Some doors should stay shut.", next = "BACK", reply = "Rageroar hears you, and some of the elders would agree. But a sealed door forgets what's behind it, and Rageroar does not want to forget.", fx = { align = { order = 1 } } },
+        { text = "Keep it open and watched. Rageroar is right.", next = "BACK", reply = "Rageroar thanks you, outsider, and the elders will hear of it. A watched door is safer than a forgotten one.", fx = { align = { order = -1 } } },
         { text = "Who wants to seal it?", next = "azshara_elders" },
         { text = "Something else.", next = "BACK" },
       },

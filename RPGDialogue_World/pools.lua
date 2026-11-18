@@ -309,8 +309,8 @@ P:Pool {
         { id = "tp_default", text = "What it cost me, what it cost to get here, and a bit on top so my children eat. When the roads are bad the middle part goes up, and between us, the bit on top sometimes sneaks up with it." },
       },
       choices = {
-        { text = "A fair price is the only kind worth charging.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Charge what folk will pay; that's what trade is.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "A fair price is the only kind worth charging.", next = "BACK", reply = "Fair to you and fair to me aren't always the same number, friend, but I take your meaning, and I'll try not to let the roads be my excuse too often.", fx = { align = { honor = 1 } } },
+        { text = "Charge what folk will pay; that's what trade is.", next = "BACK", reply = "Spoken like someone who's stood behind a counter, and you're right that nobody pays more than they think a thing is worth, though they'll remember if you made them feel cheated.", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -434,8 +434,8 @@ P:Pool {
         { id = "w_paladin", when = { class = { "PALADIN", "PRIEST" } }, text = "You'll want me to say I only sell to the righteous, I expect. I sell to whoever's at the counter, and I trust the Light to sort them out afterwards." },
       },
       choices = {
-        { text = "Coin is coin, whoever's holding it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Your own people should always come first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Coin is coin, whoever's holding it.", next = "BACK", reply = "That's how I've always seen it, and my purse agrees, though I'd still not turn my back on some of the coin that comes through that door.", fx = { align = { order = -1 } } },
+        { text = "Your own people should always come first.", next = "BACK", reply = "Maybe they should, and I'll not pretend there isn't a pull in that, but my own people don't always have the coin, and a stall can't live on loyalty alone.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

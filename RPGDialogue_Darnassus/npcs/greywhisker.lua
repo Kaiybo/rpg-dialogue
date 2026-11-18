@@ -123,8 +123,8 @@ P:NPC {
         { id = "ce_default", text = "Mind it? Some of them would sooner I filled in every hole and went home. The priestesses are polite about it, which is somehow worse than shouting." },
       },
       choices = {
-        { text = "It's their land. Ask before you dig.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "History belongs to everyone. Dig on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It's their land. Ask before you dig.", next = "BACK", reply = "Aye, and I do ask, {g:lad|lass}, every single time, though I'll grant a dwarf's asking can sound a wee bit like telling. I'll mind my manners better for hearing you say it.", fx = { align = { order = 1 } } },
+        { text = "History belongs to everyone. Dig on.", next = "BACK", reply = "Ha! That's what I keep telling the priestesses, and they keep smiling at me like I'm a child with a muddy spade. Still, it warms an old digger's heart to hear it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

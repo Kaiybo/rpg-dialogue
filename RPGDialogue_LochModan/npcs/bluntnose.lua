@@ -130,8 +130,8 @@ P:NPC {
       },
       choices = {
         { text = "Then Ironforge is failing you.", next = "ironforge_more" },
-        { text = "The King has a whole kingdom to guard. Be patient.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then hire your own and stop asking.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The King has a whole kingdom to guard. Be patient.", next = "BACK", reply = "Patient? I've been patient since the last harvest, an' patience doesnae mend a wall. But aye, the King's got troubles enough, I'll grant ye.", fx = { align = { order = 1 } } },
+        { text = "Then hire your own and stop asking.", next = "BACK", reply = "Wi' what? The town's coffers wouldnae hire a goat. If ye know a guard who works for porridge, send him tae me.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,8 +190,8 @@ P:NPC {
         { id = "tm_default", text = "The Stonewrought Dam. Troggs an' ogres kill a farmer here an' there, which is bad enough, but if the dam goes, Thelsamar goes wi' it, an' half the Wetlands after." },
       },
       choices = {
-        { text = "Then guard the dam above all else.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Hunt the spy first. A dead spy guards the dam best.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then guard the dam above all else.", next = "BACK", reply = "Aye, that's my thinkin' an' always has been. Stand on Stonewrought an' look down, an' ye'll understand why I cannae sleep.", fx = { align = { honor = 1 } } },
+        { text = "Hunt the spy first. A dead spy guards the dam best.", next = "BACK", reply = "A dead spy, aye, if ye can find the beggar. But dinnae leave the dam bare while ye're lookin', or there'll be nothin' left tae guard.", fx = { align = { honor = -1 } } },
         { text = "Who guards the dam now?", next = "dam" },
       },
     },

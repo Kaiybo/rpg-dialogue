@@ -90,8 +90,8 @@ P:NPC {
         { id = "ef_default", text = "Of course it can! A shredder cuts a forest down; a better machine could plant one, or put out a fire, or knock a goblin into a lake. It's all in who's holding the wrench." },
       },
       choices = {
-        { text = "The forest should be left to the druids.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "If machines can help, use every one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The forest should be left to the druids.", next = "BACK", reply = "The druids are doing their best, but they can't plant faster than a shredder can cut! A little engineering never hurt a forest that wasn't already on fire.", fx = { align = { order = 1 } } },
+        { text = "If machines can help, use every one.", next = "BACK", reply = "Exactly, that's what I keep telling Kaela! Every machine has a good use in it somewhere, you just have to find the right lever.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
         { id = "bo_default", text = "With explosives, carefully placed! Along the mountains' edges, I can herd the goblins back with a few key detonations, and the trees don't mind as long as I aim at the cliffs. Don't worry, they're not as dangerous as everyone thinks." },
       },
       choices = {
-        { text = "Blow them all off the mountain.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Scare them off, but don't kill if you can help it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blow them all off the mountain.", next = "BACK", reply = "Well, I did say carefully placed, and I meant it, mostly. A goblin who flies off a cliff makes his own choices, I suppose.", fx = { align = { light = -1 } } },
+        { text = "Scare them off, but don't kill if you can help it.", next = "BACK", reply = "That's the plan exactly, a big bang and a lot of running goblins. Kaela will be so relieved you said that.", fx = { align = { light = 1 } } },
         { text = "How dangerous are they, exactly?", next = "boom_how" },
       },
     },
@@ -250,8 +250,8 @@ P:NPC {
         { id = "vs_default", text = "Yes, though they're only doing what fire does, and the goblins are the ones who set it loose. Sometimes I'd rather hunt the men with the torches than the flames." },
       },
       choices = {
-        { text = "Then hunt the goblins too. They earned it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Mend the land first. Vengeance can wait.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then hunt the goblins too. They earned it.", next = "BACK", reply = "They earned it, and I've been tempted more nights than I'd admit. But the Sentinels need me with the trees, not chasing torches.", fx = { align = { light = -1 } } },
+        { text = "Mend the land first. Vengeance can wait.", next = "BACK", reply = "That's what I tell myself every morning, and I'm glad to hear it from someone else. The land first, and the goblins after.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -271,8 +271,8 @@ P:NPC {
         { id = "gk_default", text = "I'm sure he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
       },
       choices = {
-        { text = "His way works. Let him blast the goblins out.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You should keep him on a short leash.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "His way works. Let him blast the goblins out.", next = "BACK", reply = "It works, and that's what frightens me about it. Fine, I'll let him blast, but I'll be standing well back.", fx = { align = { order = -1 } } },
+        { text = "You should keep him on a short leash.", next = "BACK", reply = "A short leash on Gaxim? I'd need one made of mithril, and he'd only blow it up. I'll keep an eye on him, at least.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

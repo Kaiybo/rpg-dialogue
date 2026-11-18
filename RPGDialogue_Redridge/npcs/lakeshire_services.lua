@@ -84,8 +84,8 @@ P:NPC {
       big = true,
       lines = { { id = "or_default", text = "The horses can smell the Blackrock on the wind, and they kick their stalls at night. I sing to them, and I keep a pitchfork by the door, and between the two we get by." } },
       choices = {
-        { text = "The orcs should be driven out of Redridge.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The orcs are here to stay. Learn to live with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The orcs should be driven out of Redridge.", next = "BACK", reply = "You tell that to the Marshal, and then go up into the hills and do it yourself, because the horses and I can't sleep much longer.", fx = { align = { light = 1 } } },
+        { text = "The orcs are here to stay. Learn to live with it.", next = "BACK", reply = "Easy for you to say when you're riding off in the morning. My horses don't learn to live with anything that smells of blood, and frankly, neither do I.", fx = { align = { light = -1 } } },
         { text = "What do you sing to them?", next = "or_song" },
         { text = "Something else.", next = "BACK" },
       },
@@ -321,8 +321,8 @@ P:NPC {
       big = true,
       lines = { { id = "dic_default", text = "Every harvest fair, and she wins every time, because she cooks for soldiers and I cook for my mother. She keeps her recipe secret, too, and I can't decide whether a cook ought to share hers or keep it." } },
       choices = {
-        { text = "Share your recipes. Everyone eats better.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep your secrets. They're your living.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Share your recipes. Everyone eats better.", next = "BACK", reply = "Oh, that's a lovely thought, and you sound like my mother. Still, if I gave her my secrets I'd never win a ribbon in my life, so you'll forgive me if I keep the best one.", fx = { align = { order = 1 } } },
+        { text = "Keep your secrets. They're your living.", next = "BACK", reply = "Exactly, and thank you for saying so, because nobody else in Lakeshire will. A cook without a secret is just someone who boils things.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -501,8 +501,8 @@ P:NPC {
       big = true,
       lines = { { id = "sa_default", text = "Safe as anywhere in Redridge, which isn't very. The Blackrock leave me alone because I've nothing they want, and the gnolls leave me alone because I've skinned a few of their dogs." } },
       choices = {
-        { text = "You should come back to town, where it's safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Good. Don't let anyone drive you off your land.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You should come back to town, where it's safe.", next = "BACK", reply = "Safe in town, is it, with the bridge broken and the orcs on the ridge? I'll stay with my hides, thank you, where the only one who bothers me is you.", fx = { align = { order = 1 } } },
+        { text = "Good. Don't let anyone drive you off your land.", next = "BACK", reply = "That's the first sensible thing anyone's said to me this season. The gnolls tried once, and now I've got a very nice dog-hide rug.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

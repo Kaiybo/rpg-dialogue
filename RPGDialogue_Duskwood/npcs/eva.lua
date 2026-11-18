@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A blade raised against a thing with many faces, and a choice about whether to strike or to wait. The cards don't say which is right, only that you'll have to make it, and soon." } },
       choices = {
-        { text = "I'll strike when the time comes. Hesitation kills.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll wait and watch. The cards don't decide for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll strike when the time comes. Hesitation kills.", next = "BACK", reply = "Then strike true, warrior, and strike only once, for the thing with many faces will show you a kind one first.", fx = { align = { order = 1 } } },
+        { text = "I'll wait and watch. The cards don't decide for me.", next = "BACK", reply = "No, they never do, and I'm glad you know it. Watch closely, though, because waiting too long is a choice as well.", fx = { align = { order = -1 } } },
         { text = "Something else, Madame.", next = "BACK" },
       },
     },
@@ -88,24 +88,24 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something with a hunger older than the forest, and with a man's face it no longer remembers, though the cards turned dark when I looked further. Your {pet} has a fate of its own, {class}, tangled with yours, and it will stand beside you longer than you might think." },
       },
       choices = {
-        { text = "I'll face whatever the cards foretold. Fate won't scare me.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Cards are cards. I make my own fate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll face whatever the cards foretold. Fate won't scare me.", next = "BACK", reply = "Brave words, and the cards have heard brave words before. Carry them up into the dark with you, hunter, and see whether they still sound brave there.", fx = { align = { order = 1 } } },
+        { text = "Cards are cards. I make my own fate.", next = "BACK", reply = "Many have told me so, and many come back to my table when their own fate runs short. The door will be open when you do.", fx = { align = { order = -1 } } },
         { text = "Something else, Madame.", next = "BACK" },
       },
     },
     xrogue = {
       lines = { { id = "xro_default", text = "They saw a shadow with a purse that wasn't its own, dearie, and then they saw a choice. I don't tell people which choice they make, because that spoils the cards." } },
       choices = {
-        { text = "Then I'll choose the honest road.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Purses don't choose; I do, and gladly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll choose the honest road.", next = "BACK", reply = "The honest road through Duskwood is a long and dark one, dearie, but the cards smiled a little when you said it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Purses don't choose; I do, and gladly.", next = "BACK", reply = "Then the cards were right about you, and I'll keep my own purse close while you're on my stairs.", fx = { align = { honor = -1 } } },
         { text = "Read my cards, then.", next = "cards" },
       },
     },
     xmage = {
       lines = { { id = "xma_default", text = "And frost bolts are only cold air with ambition, by that reckoning. You could study in Stormwind for twenty years, child, and still not know what I know about the next soul to walk up my stairs." } },
       choices = {
-        { text = "Real magic has rules. Yours doesn't.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair. Some things books can't teach.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Real magic has rules. Yours doesn't.", next = "BACK", reply = "Rules, yes, written by men who never sat with the dead. Go back to your books, child, and tell me how they answer what's coming up the road.", fx = { align = { order = 1 } } },
+        { text = "Fair. Some things books can't teach.", next = "BACK", reply = "Now there is a mage with some sense, and the cards like you better for it. Sit a little longer, if you wish.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "What do the cards mean?", next = "mean" },
       },
     },
@@ -119,8 +119,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "That he walks into the dark carrying his own light, and that the light flickers whenever he is tempted to show mercy. The cards don't say whether he should, child, only that he will have to choose." } },
       choices = {
-        { text = "Then I'll choose mercy, whenever I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Justice comes first. Mercy is for those who earn it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll choose mercy, whenever I can.", next = "BACK", reply = "Mercy will cost you, child, and you'll pay it gladly or you'll pay it bitterly. The cards will be watching which.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Justice comes first. Mercy is for those who earn it.", next = "BACK", reply = "That is the road most paladins take, and it is a straight one. Mind it doesn't run straight past someone who needed you.", fx = { align = { light = -1 } } },
         { text = "Something else, madame.", next = "BACK" },
       },
     },
@@ -322,8 +322,8 @@ P:NPC {
       },
       choices = {
         { text = "I'd guess she doesn't know.", next = "granddaughter_know" },
-        { text = "I'll find him.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
-        { text = "I won't hunt a man down on the word of a card.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll find him.", next = "BACK", reply = "I knew you would, before you came up the stairs. Go carefully, for Stalvan has been waiting far longer than you have been looking.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I won't hunt a man down on the word of a card.", next = "BACK", reply = "Then don't hunt him on my word; hunt him on what you find in the old pages of Darkshire. The cards are patient, and so am I.", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
     granddaughter_know = {
@@ -371,8 +371,8 @@ P:NPC {
         { id = "wl_default", text = "I would rather not. Your cards come up the same every time: a door left open, and something beyond it that knows your name." },
       },
       choices = {
-        { text = "It does know my name.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It does know my name.", next = "BACK", reply = "Then mind you don't answer every time it calls, child. A door like that is easier opened than closed.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Whatever's beyond that door, I keep it shut.", next = "BACK", reply = "For now, perhaps, and I hope for always. The cards are seldom wrong, but I've seen them surprised once or twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

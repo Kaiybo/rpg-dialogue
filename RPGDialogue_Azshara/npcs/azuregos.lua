@@ -96,8 +96,8 @@ P:NPC {
       big = true,
       lines = { { id = "gt_default", key = true, text = "Very well, since you ask so sensibly. The Highborne left more than broken towers when the sea took their city: focusing stones, half-cast wards, things that hum in the dark under the water. None of it is safe, and all of it is fascinating, and I confess I'd guard it for the fascination alone." } },
       choices = {
-        { text = "Then destroy it. No one should have that power.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Keep it guarded, then. That's wiser than destroying it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then destroy it. No one should have that power.", next = "BACK", reply = "Destroy it? Spoken like a mortal who has never tried to break a Highborne ward, which tends to break you first. I'll keep it, thank you, and keep it quiet.", fx = { align = { order = -1 } } },
+        { text = "Keep it guarded, then. That's wiser than destroying it.", next = "BACK", reply = "Finally, a mortal who understands the virtue of a good lock. You'd make a passable dragon, if you were taller and considerably older.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,8 +149,8 @@ P:NPC {
       lines = { { id = "m_default", text = "Mortals and magic are like children and knives: occasionally useful, mostly bloody, and someone always has to clean up afterwards. Usually that someone is a dragon." } },
       choices = {
         { text = "Should mortals have magic at all, then?", next = "op_arcane" },
-        { text = "Magic belongs to whoever is bold enough to learn it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Then guard it well. Some power needs keepers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic belongs to whoever is bold enough to learn it.", next = "BACK", reply = "Bold, yes, and bold mortals make the most interesting craters. I'll be sure to tidy yours up afterwards.", fx = { align = { order = -1 } } },
+        { text = "Then guard it well. Some power needs keepers.", next = "BACK", reply = "Precisely, and that is why I'm here, being dreadfully patient with all of you. Thank you for noticing.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

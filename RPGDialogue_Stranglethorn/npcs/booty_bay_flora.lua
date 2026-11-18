@@ -117,8 +117,8 @@ P:NPC {
       big = true,
       lines = { { id = "dgr_default", text = "The Venture Company's crews tear up whole hillsides and leave the dirt bare behind them, and some of the gatherers who sell on the docks are no better. In a few seasons the Steelbloom near their camps won't come back at all, and then they'll move on and do the same to the next valley." } },
       choices = {
-        { text = "Take only what grows back. The jungle's no one's to strip.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "If I don't pick it, someone else will. That's the jungle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Take only what grows back. The jungle's no one's to strip.", next = "BACK", reply = "That's what my mother taught me in the Mage Quarter gardens, and I'm glad someone still says it. Leave the roots, and the jungle will feed you for years.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "If I don't pick it, someone else will. That's the jungle.", next = "BACK", reply = "That's what everyone tells themselves, love, and that's exactly how hillsides go bare. I'll buy your herbs all the same, but I'd sleep easier if you'd thought twice.", fx = { align = { order = -1 } } },
         { text = "Has anyone tried to stop the Venture Company?", next = "danger_venture" },
       },
     },
@@ -142,8 +142,8 @@ P:NPC {
       big = true,
       lines = { { id = "wg_default", text = "Better than I feared, because a goblin will tell you exactly what he wants from you, and my old neighbours in the Trade District never once managed that. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed all these stairs to ask after me, though I suspect they were checking on their orders." } },
       choices = {
-        { text = "Honest dealing's honest dealing, whoever does it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A goblin's honesty only lasts until the price changes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Honest dealing's honest dealing, whoever does it.", next = "BACK", reply = "My thoughts exactly, and it's a lesson Stormwind could stand to learn. I've had fairer bargains on this dock than I ever had in the Trade District.", fx = { align = { honor = 1 } } },
+        { text = "A goblin's honesty only lasts until the price changes.", next = "BACK", reply = "Oh, it lasts a little longer than that, if you're a steady customer. But you're not wrong, and I keep my receipts the same as anyone in this town.", fx = { align = { honor = -1 } } },
         { text = "Three goblins, worried about you? That's almost touching.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },

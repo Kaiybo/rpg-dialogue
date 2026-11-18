@@ -85,8 +85,8 @@ P:NPC {
         { id = "hwi_default", text = "Thank you. Ma used to say a Blump who can't sit still ain't a Blump, and I sat still a whole lot, so I guess I'm a real good Blump." },
       },
       choices = {
-        { text = "Patience beats strength most days.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather go and find the fish myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience beats strength most days.", next = "BACK", reply = "That's what Ma always said, and Ma was right about most things except the weather. I'll tell her you said it, if she ever asks.", fx = { align = { order = 1 } } },
+        { text = "I'd rather go and find the fish myself.", next = "BACK", reply = "You can, I guess, but the fish don't like being found, they like coming to you. You'll see, after you've chased them a while.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "mu_default", text = "Them mean old murlocs moved into the water and started tipping boats, and now nobody'll go out. I bet they been eating up all the grouper too, which ain't fair, 'cause they don't even cook 'em." },
       },
       choices = {
-        { text = "I'll clear out the murlocs for you.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "They're only hungry, same as you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll clear out the murlocs for you.", next = "BACK", reply = "You would? Gosh, that'd be the best thing to happen at this dock all year, and I'd catch you the biggest fish I could, for luck.", fx = { align = { light = -1 } } },
+        { text = "They're only hungry, same as you.", next = "BACK", reply = "I guess they are, but they don't have to tip my boat over to eat, do they? I never tipped nobody's boat when I was hungry.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

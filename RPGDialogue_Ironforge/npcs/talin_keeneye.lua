@@ -84,8 +84,8 @@ P:NPC {
       lines = { { id = "bb_default", text = "That's the hunter's way o' thinkin', an' I like ye fer it. Take the boars that are too many an' leave the rest, an' in a year or two the valley sorts itself out." },
       },
       choices = {
-        { text = "Take only what's needed. The land will thank you.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "A boar's a boar. I'll take every one I see.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Take only what's needed. The land will thank you.", next = "BACK", reply = "That's it exactly, an' the valley will thank ye with fat boars for years tae come, which is the best thanks a hunter could ask for.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A boar's a boar. I'll take every one I see.", next = "BACK", reply = "Steady on, there's a difference between a hunter an' a famine, an' I'd rather have boars tae hunt next winter than a valley full o' empty snow.", fx = { align = { light = -1 } } },
         { text = "Something else, Talin.", next = "BACK" },
       },
     },
@@ -121,8 +121,8 @@ P:NPC {
         { id = "hu_pet", when = { pet = { type = "Beast" } }, text = "Watch the snow, no' the beast, for a boar in a hurry is a boar that's already seen ye. An' let yer {pet} do the flushin'; that's what it's for, an' it'll enjoy it more than ye will." },
       },
       choices = {
-        { text = "Patience, then. I can learn that.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'd rather trust my instincts than the snow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Patience, then. I can learn that.", next = "BACK", reply = "Good, because patience is half the huntin', an' the other half is bein' cold an' hungry an' no' complainin' about it, which takes longer tae learn.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'd rather trust my instincts than the snow.", next = "BACK", reply = "Ha, so did I at yer age, an' I came home wi' no boar an' a bruise the size o' my fist, so trust the snow until yer instincts earn it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -52,8 +52,8 @@ P:NPC {
       big = true,
       lines = { { id = "bv_default", text = "Their business, and they pay promptly, which is more than the Deathguard do. If the Society wants to bottle the whole Glades, I'll sell them the bottles and keep my opinions in the back room with the spare flux." } },
       choices = {
-        { text = "Wise woman. Coin is coin.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "You ought to know what your goods are used for.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wise woman. Coin is coin.", next = "BACK", reply = "Coin is coin, and the Society's coin spends just as well as anyone's in Brill. Whatever they're brewing up there, I'd rather be the one selling the bottles than the one standing downwind.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "You ought to know what your goods are used for.", next = "BACK", reply = "I know what my vials are used for, thank you; I simply choose not to dwell on it. Dwelling is a luxury for the living, and I've a shop to keep.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,8 +145,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "Some do, and some say we should stop pretending to be the living and be what we are. I say I'd rather pretend a little and be pleasant than give up and be dreadful, and I've told Gretchen Dedmar, who sulks by the tavern fire, as much." } },
       choices = {
-        { text = "Hold on to the old ways. They matter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "We're something new now. Let the old ways go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold on to the old ways. They matter.", next = "BACK", reply = "It's nice to hear somebody say so, dear. I keep a teapot I can't drink from, and I polish it every morning, and I don't care one bit who thinks that's foolish.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We're something new now. Let the old ways go.", next = "BACK", reply = "Something new, is it? You sound like Gretchen, and she's never once looked happier for having let go of anything. I'll keep my teapot and my manners, thank you kindly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,8 +216,8 @@ P:NPC {
       big = true,
       lines = { { id = "hs_default", text = "I would, if I'm honest. A living horse knows your voice, and a dead one only knows the reins, and I miss being known." } },
       choices = {
-        { text = "A loyal beast is worth more than a tireless one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A horse that never tires is all I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A loyal beast is worth more than a tireless one.", next = "BACK", reply = "Now there's somebody who's sat a good horse in their time. I'll groom these ones all the same, though they can't feel it, because I'd hate to forget how.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A horse that never tires is all I need.", next = "BACK", reply = "Then you'll be well served, and you'll never have to feed one or walk it cool after a hard ride. I only hope you never find out what you're missing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

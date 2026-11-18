@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "sb_default", text = "The humans say orcs burned it, and Krog says no orc did, and Do'gol believes Krog. Ogres do not burn inns, because ogres would eat what was inside first." } },
       choices = {
-        { text = "Then the truth should be found, whoever it hurts.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the humans think what they like. It's no matter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then the truth should be found, whoever it hurts.", next = "BACK", reply = "Do'gol thinks so too, but Do'gol is not good at finding things that are not food. Maybe small friend can find it, and Do'gol will carry anything heavy.", fx = { align = { order = 1 } } },
+        { text = "Let the humans think what they like. It's no matter.", next = "BACK", reply = "Is matter to Krog, because humans look at Krog like Krog burned their beds. Do'gol does not like when humans look at Krog that way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -72,8 +72,8 @@ P:NPC {
       big = true,
       lines = { { id = "po_default", text = "We possessed their chieftain, which is far more efficient than persuading two hundred ogres one at a time. The living use whips and coin to make others serve them, and we use what we have." } },
       choices = {
-        { text = "Bending the will of brutes serves the Dark Lady well.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Possession is a cruelty, even done to ogres.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Bending the will of brutes serves the Dark Lady well.", next = "BACK", reply = "It does, and the ogres have never been more useful. The Dark Lady rewards results, and that was a very good result.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Possession is a cruelty, even done to ogres.", next = "BACK", reply = "Perhaps it is, but so was the plague, and nobody offered us a choice in it either. I'll not lose sleep over ogres.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,8 +81,8 @@ P:NPC {
       big = true,
       lines = { { id = "co_default", text = "I listen, and I watch the faces of those who come before her, and later I tell her which of them lied. She trusts few people, and she is right not to, and I count it an honour that I'm one of them." } },
       choices = {
-        { text = "Loyalty like that is rare. She's lucky to have it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Someone should be watching your face too, Sharlindra.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Loyalty like that is rare. She's lucky to have it.", next = "BACK", reply = "She is, and she knows it, which is why I'm still standing beside her. Mind your own face when you go before her.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Someone should be watching your face too, Sharlindra.", next = "BACK", reply = "Someone does, every day, and she's very good at it. I've nothing to hide from my queen.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -161,8 +161,8 @@ P:NPC {
       big = true,
       lines = { { id = "bo_default", text = "I'd trade every map in this shop for one book on the rise of necromancy, or a true account of the Dark Lady's triumphs. The Society keeps its texts to itself, and the living burned most of the rest." } },
       choices = {
-        { text = "Necromancy's history should be studied, not hidden.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Some books deserved burning, Jorah.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Necromancy's history should be studied, not hidden.", next = "BACK", reply = "At last, a customer with taste. If you ever find such a book, bring it here before the Society hears of it.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some books deserved burning, Jorah.", next = "BACK", reply = "Some did, and the living burned them anyway, along with a great many that didn't. I'll mourn the rest without you.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

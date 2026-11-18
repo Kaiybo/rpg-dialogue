@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "I don't know, friend, and I've stopped caring which. A sunk ship is a sunk ship, and someone will answer for it, whether by order of Lady Proudmoore or in spite of her." } },
       choices = {
-        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust" } } },
-        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", fx = { align = { order = 1 }, opinion = { jaina = "trust" } } },
+        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", reply = "I'd like to believe that, friend, though I've heard brave promises at sea before. If you bring me a name from Northwatch, I'll drink to you whether or not the Horde approves.", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust" } } },
+        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", reply = "Jaina Proudmoore is a fair woman, but she can't be everywhere at once. I'll write to her, and you may carry the letter if you like, though I doubt the answer will raise my ship.", fx = { align = { order = 1 }, opinion = { jaina = "trust" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,8 +137,8 @@ P:NPC {
     alliance = {
       lines = { { id = "al_default", text = "Then I'll not ask you to sail against them, friend. I'll not hold Northwatch's guns against everyone who wears the same tabard, but I'll not pretend they didn't sink my ship, either." } },
       choices = {
-        { text = "Some of our soldiers forget whose peace they keep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A ship from a Horde port takes its chances.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Some of our soldiers forget whose peace they keep.", next = "BACK", reply = "That's a generous thing to admit, and you're the first in that tabard to say it to me. Perhaps the peace is worth more than I've been giving it credit for.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A ship from a Horde port takes its chances.", next = "BACK", reply = "Spoken like someone who's never watched cannon fire take a hull to pieces. My crew weren't soldiers, friend, and they took no chances but the sea's.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

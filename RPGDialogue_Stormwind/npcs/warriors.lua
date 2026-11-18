@@ -33,8 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Where your feet are decides whether you live, and why you fight decides whether you stand. Your spirits must teach the same." } },
       choices = {
-        { text = "Never forget why you fight. Well said, Wu Shen.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Why I fight doesn't matter. Winning does.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never forget why you fight. Well said, Wu Shen.", next = "BACK", reply = "Then you already know half of what I teach, and the other half is only practice. Come back when your feet are ready.", fx = { align = { honor = 1 } } },
+        { text = "Why I fight doesn't matter. Winning does.", next = "BACK", reply = "Winning without a reason is how men end up fighting for whoever pays most. I have buried a few of them, and I would rather not bury you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -44,8 +44,8 @@ P:NPC {
         { id = "xlock_default", text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not. I've seen warlocks fall because they forgot they had legs, and I'd teach you to use yours, if you can bear to hear the same lesson twenty times." },
       },
       choices = {
-        { text = "Then teach me, Master Shen, twenty times if needed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My demon does the standing, Master Shen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then teach me, Master Shen, twenty times if needed.", next = "BACK", reply = "Twenty times, then forty, and you will curse me for every one. That is how I know it is working.", fx = { align = { order = 1 } } },
+        { text = "My demon does the standing, Master Shen.", next = "BACK", reply = "Until your demon is banished, and then you will be standing on nothing at all. Come back when you understand that.", fx = { align = { order = -1 } } },
         { text = "Something else, Master Shen.", next = "BACK" },
       },
     },
@@ -53,8 +53,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Lightly, and ready to become something else, but never so ready that you forget the shape you are in. Many of your people fight as if they are already the bear, and the bear does not come in time." } },
       choices = {
-        { text = "Master each shape fully before reaching for the next.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Instinct is faster than any lesson, Wu Shen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Master each shape fully before reaching for the next.", next = "BACK", reply = "Yes, that is the way. A bear with a cat's balance is no bear at all, and the enemy will find the difference.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Instinct is faster than any lesson, Wu Shen.", next = "BACK", reply = "Faster, yes, and sometimes wrong, which is why the best druids I have known still practise. Think on it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Nothing, until the day you must stand, and on that day your feet will not know how. Every rogue I have watched die died running, because he had never learned the stance that would have saved him." } },
       choices = {
-        { text = "Then I'll learn to stand when it matters.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Running has saved me more often than standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll learn to stand when it matters.", next = "BACK", reply = "Good. That day will come for you, as it comes for everyone, and I would like your feet to know what to do.", fx = { align = { honor = 1 } } },
+        { text = "Running has saved me more often than standing.", next = "BACK", reply = "It has, until it hasn't, and every rogue I buried said the same thing to me once. I hope you are luckier than they were.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because a spell cast from a fallen body goes nowhere, and every mage I have trained in footwork has outlived the ones who laughed at me. The Sanctum teaches the mind, and I teach the ground beneath it." } },
       choices = {
-        { text = "Then I'll learn footwork too. Discipline in everything.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My spells keep enemies at bay. My feet don't matter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll learn footwork too. Discipline in everything.", next = "BACK", reply = "Discipline in everything, yes. You may be the first mage this year to say so without being made to.", fx = { align = { order = 1 } } },
+        { text = "My spells keep enemies at bay. My feet don't matter.", next = "BACK", reply = "Then you will stand still while they reach you, and your spells will go into the ceiling. I have seen it more than once.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where to put your feet when the beast gets past the arrows, which it will. Your {pet} has better footing than most of my recruits, I'll tell you that. Watch how it moves, and learn." },
       },
       choices = {
-        { text = "I'll learn the footwork. It might save my life.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I don't plan to let anything get that close.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll learn the footwork. It might save my life.", next = "BACK", reply = "It might, and in my experience it will, on the day you least expect it. Come and practise with me before then.", fx = { align = { order = 1 } } },
+        { text = "I don't plan to let anything get that close.", next = "BACK", reply = "Nobody plans it, hunter. The beast that gets close is always the one you didn't plan for.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Everyone should know where their feet are, priest or warrior, because the ground does not care what you believe. Stand well, and your prayers will have time to work." } },
       choices = {
-        { text = "Then I'll learn to stand well, and pray steady.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My faith keeps me upright, Wu Shen, not my feet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll learn to stand well, and pray steady.", next = "BACK", reply = "Steady prayer from a steady stance is a strong thing. You will find the Light easier to hold with your feet under you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My faith keeps me upright, Wu Shen, not my feet.", next = "BACK", reply = "Faith is a fine thing, but the ground is very hard, and it will still be hard when you fall. I would teach you anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,8 +101,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Both, but the training first, because the Light will help you, but it won't stand for you. I've seen paladins fall because they believed they couldn't." } },
       choices = {
-        { text = "Then I'll train as hard as I pray.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The Light is all I need, Wu Shen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll train as hard as I pray.", next = "BACK", reply = "Then you will outlive most paladins I have known, and I mean that as a compliment. Come to the yard early.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light is all I need, Wu Shen.", next = "BACK", reply = "The Light may be enough, but your legs are not, and they will be the first to fail. Train anyway, for my sake.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -215,8 +215,8 @@ P:NPC {
     army_nobles = {
       lines = { { id = "an_default", text = "They should, and they don't, and saying so in Old Town costs nothing, which is exactly what it buys. Train hard instead; you're cheaper than a regiment." } },
       choices = {
-        { text = "The crown should make them pay.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then the people should stop waiting on nobles.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The crown should make them pay.", next = "BACK", reply = "They should, and it will be a long day before they do. Until then, every recruit I train is one less soldier the crown has to pay for.", fx = { align = { order = 1 } } },
+        { text = "Then the people should stop waiting on nobles.", next = "BACK", reply = "That is the bravest kind of thinking, and the most tiring. Train hard, and you will be part of what the people do instead.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -256,8 +256,8 @@ P:NPC {
     empyrean_guard = {
       lines = { { id = "eg_default", text = "Then they were guards first and fighters second, which is the right order. You've no one to guard now, I take it; Stormwind has more people needing it than it has guards, if you're looking." } },
       choices = {
-        { text = "Then I'll guard what I can here.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "I'll choose what I guard, not Stormwind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll guard what I can here.", next = "BACK", reply = "That is the right answer, and Stormwind has more than enough to keep your blade busy. Welcome.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll choose what I guard, not Stormwind.", next = "BACK", reply = "Then choose carefully, because the choosing is the guard's whole duty. A blade that guards nothing is only a blade.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -319,8 +319,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "More than anything. A shaman recruit would be a first. Come back and I'll see what you're made of." } },
       choices = {
-        { text = "I'll train honestly and fight fairly, Ilsa.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll fight however wins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll train honestly and fight fairly, Ilsa.", next = "BACK", reply = "Honest and fair, eh? Then you'll fit right in with Ander, and I'll try not to hold it against you.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight however wins.", next = "BACK", reply = "Ha! Now that's the spirit I like to see. Come back and we'll find out whether you mean it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -328,8 +328,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I think it's furious, and you've been keeping it on a leash because somebody told you balance was everything. Let it out once in a while, recruit, and see how much better you feel afterwards." } },
       choices = {
-        { text = "Balance keeps the bear from hurting the wrong people.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Sometimes the bear should run loose.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Balance keeps the bear from hurting the wrong people.", next = "BACK", reply = "Fair point, and Ander would agree with you, which annoys me. Just don't keep it so tight the bear forgets how to bite.", fx = { align = { order = 1 } } },
+        { text = "You're right. Sometimes the bear should run loose.", next = "BACK", reply = "There we go! Let it out, recruit, and see how fast your enemies remember what a bear is.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -337,8 +337,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Anger, love, the honest kind they train you to bottle up in the Sanctum. A mage who's never been angry casts like a clerk, but one who knows how to use it casts like a storm, and I know which I'd rather stand beside." } },
       choices = {
-        { text = "I'll keep my anger in check. Control is everything.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then I'll let it out, and let them feel it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my anger in check. Control is everything.", next = "BACK", reply = "Control, is it? You sound just like the Sanctum, and I'll wager you cast like a clerk, too. Come back when you're angry.", fx = { align = { order = 1 } } },
+        { text = "Then I'll let it out, and let them feel it.", next = "BACK", reply = "Now we're talking! A mage who's angry is the most dangerous thing in this city, short of a goblin with a fuse.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,8 +346,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. I'd say the same to you, except that your anger has a voice of its own, and it talks back." } },
       choices = {
-        { text = "Then I'll aim it, and never let it rule me.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My anger and I get along well enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll aim it, and never let it rule me.", next = "BACK", reply = "Good, because if it does rule you, it won't be your anger anymore, it'll be the thing at your heel. Aim well.", fx = { align = { light = 1 } } },
+        { text = "My anger and I get along well enough.", next = "BACK", reply = "That's what they all say, right up until it starts talking back. Keep an eye on each other, then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -358,8 +358,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every fighter does, and hunters hide theirs best, behind patience and a steady aim. Your {pet} is the leash on your anger, I think, and the reason for it too. Keep it close, and keep it safe." },
       },
       choices = {
-        { text = "I keep my anger under control. That's discipline.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Anger has its uses. I let it out when needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I keep my anger under control. That's discipline.", next = "BACK", reply = "Oh, I'm sure you do, until the day something happens to that beast of yours. Then we'll talk.", fx = { align = { order = 1 } } },
+        { text = "Anger has its uses. I let it out when needed.", next = "BACK", reply = "Good! Hunters are the worst for bottling it, and you're the first one I've heard admit it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -367,8 +367,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Everyone does, and priests most of all, because they spend all day watching people die and smiling through it. You need somewhere to put it, and a sword's as good a place as any." } },
       choices = {
-        { text = "Anger can be healed, Ilsa, not just swung.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Maybe you're right. Anger needs somewhere to go.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Anger can be healed, Ilsa, not just swung.", next = "BACK", reply = "Healed, aye, and I'll let you try on me once I've had a bad day. But I'll still keep my sword handy, priest.", fx = { align = { light = 1 } } },
+        { text = "Maybe you're right. Anger needs somewhere to go.", next = "BACK", reply = "Maybe I'm more than a big mouth, then. Come by the yard sometime and I'll show you where to put it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,8 +376,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Only in what you call it, recruit. Anger is anger, and the Light just gives it a better excuse." } },
       choices = {
-        { text = "Righteous anger is the Light's fire. It's different.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Anger is anger, whatever we call it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Righteous anger is the Light's fire. It's different.", next = "BACK", reply = "That's what every paladin says, and every one of them swings just as hard as I do. Different excuse, same arm.", fx = { align = { light = 1 } } },
+        { text = "You're right. Anger is anger, whatever we call it.", next = "BACK", reply = "Now that's something I've never heard a paladin say. Come back sometime, and I'll buy you a drink at the Pig.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -466,8 +466,8 @@ P:NPC {
       big = true,
       lines = { { id = "b_default", text = "The blade, obviously, though Ander will tell you otherwise and he's not entirely a fool. A shield keeps you alive, and a greatsword makes sure the other fellow isn't, so you tell me which sounds like more fun." } },
       choices = {
-        { text = "The shield. Someone has to hold the line.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The blade. End it fast.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The shield. Someone has to hold the line.", next = "BACK", reply = "Spoken like one of Ander's lot, and I'll tell him you said so, though I'll tease him about it after.", fx = { align = { honor = 1 } } },
+        { text = "The blade. End it fast.", next = "BACK", reply = "Now that's a recruit after my own heart! End it fast, and nobody has to hold anything.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I could carry both, one at a time.", next = "blade_both" },
       },
     },
@@ -544,8 +544,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The line is thin in Westfall, thinner in Redridge, and thinnest of all in Duskwood. A shaman's spirits would be welcome." } },
       choices = {
-        { text = "Hold the line, Ander. The kingdom needs it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The provinces can hold themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold the line, Ander. The kingdom needs it.", next = "BACK", reply = "It does, and I'll hold my piece of it. Bring that conviction to the yard, and we'll make you part of it.", fx = { align = { order = 1 } } },
+        { text = "The provinces can hold themselves.", next = "BACK", reply = "Tell that to Stoutmantle's farmers, and see how long they listen. The provinces are Stormwind, whatever the nobles think.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -555,8 +555,8 @@ P:NPC {
         { id = "xlock_default", text = "I trust anyone who stays where they're put and doesn't run when it goes badly, and some warlocks do, and some don't. The provinces need every hand they can get, so I'll take yours, but if your demon breaks the line, I'll hold you to account for it." },
       },
       choices = {
-        { text = "Hold me to account, then. I'll keep it in line.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My demon holds lines better than your recruits.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold me to account, then. I'll keep it in line.", next = "BACK", reply = "I will, and I'll be watching, but I'll take your word for now. Every hand matters out there.", fx = { align = { order = 1 } } },
+        { text = "My demon holds lines better than your recruits.", next = "BACK", reply = "Maybe so, until it holds the line pointed at my recruits. Then we'll be having a very different conversation.", fx = { align = { order = -1 } } },
         { text = "Something else, Ander.", next = "BACK" },
       },
     },
@@ -564,8 +564,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Wherever the line was about to break, I expect, because a bear that can heal itself holds a gap better than three recruits. But you'd have to stay there, and not wander off after something in the trees." } },
       choices = {
-        { text = "I'd hold the line wherever you put me, Ander.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If the forest calls, I'll go, line or no line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd hold the line wherever you put me, Ander.", next = "BACK", reply = "That's what I like to hear. I'll find a gap that needs a bear, and they're never in short supply.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the forest calls, I'll go, line or no line.", next = "BACK", reply = "And the line will close up behind you, as best it can. Just tell us before you go, so we don't leave a hole.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -573,8 +573,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Not in a line, but beside one, because the man with the shield holds while the man with the knife finds the gap. I've seen SI:7's people work beside a shield wall, and the good ones never forgot who was holding the front." } },
       choices = {
-        { text = "I'd never leave the shield-bearer to fall alone.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The shield-bearer's job is to hold. Mine is to win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd never leave the shield-bearer to fall alone.", next = "BACK", reply = "Good. A blade that stays beside the shield is worth ten that run off to be clever.", fx = { align = { honor = 1 } } },
+        { text = "The shield-bearer's job is to hold. Mine is to win.", next = "BACK", reply = "That's true, until the shield breaks, and then the knife's alone. Remember who covered your back.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -582,8 +582,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I trust the ones who tell me before they cast, and I don't stand in front of the others twice. A line is only as strong as the trust behind it, and that goes for the ones throwing fire as well as the ones holding shields." } },
       choices = {
-        { text = "I'll always warn the line before I cast.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The line can watch out for itself, Ander.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll always warn the line before I cast.", next = "BACK", reply = "Then I'll stand in front of you without a second thought. That's how trust is built.", fx = { align = { honor = 1 } } },
+        { text = "The line can watch out for itself, Ander.", next = "BACK", reply = "Then the line won't stand in front of you twice. Remember that the next time you need it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -591,8 +591,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "By staying behind it and keeping it standing, and by never stepping forward when you're needed back. The line holds because everyone knows their place in it." } },
       choices = {
-        { text = "Then I'll keep my place and keep them standing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If someone's falling, I'll step forward. Lines can bend.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep my place and keep them standing.", next = "BACK", reply = "That's the right answer, and the hardest to keep when someone's screaming. Keep it anyway.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If someone's falling, I'll step forward. Lines can bend.", next = "BACK", reply = "Lines can bend, aye, but they break more easily than you'd think. Step forward if you must, but know who's behind you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -600,8 +600,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not always, because a line that never bends will break. But a paladin stepping back is a signal to everyone else, and they'll follow you, so you'd better be right." } },
       choices = {
-        { text = "I'll hold the line until the end, Ander.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll step back when it saves lives, whatever it signals.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll hold the line until the end, Ander.", next = "BACK", reply = "Good, though I'd rather you held it and lived. Stubborn ends are still ends, whatever the songs say.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll step back when it saves lives, whatever it signals.", next = "BACK", reply = "That's the wiser answer, and the harder one. If your people trust you, they'll understand.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -684,8 +684,8 @@ P:NPC {
     line_westfall = {
       lines = { { id = "lw_default", text = "Especially them. Stoutmantle holds Westfall with men the crown forgot, and I think about that every time I see the House of Nobles' carriages roll past.", fx = { learn = { "westfall" } } } },
       choices = {
-        { text = "The crown should send soldiers.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The farmers are better off without the crown.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The crown should send soldiers.", next = "BACK", reply = "They should, and they won't, not until the nobles feel it in their own purses. Until then, Stoutmantle holds.", fx = { align = { order = 1 } } },
+        { text = "The farmers are better off without the crown.", next = "BACK", reply = "That's a dangerous thing to say in Old Town, and maybe a true one. Gryan Stoutmantle certainly seems to think so.", fx = { align = { order = -1 } } },
       },
     },
 
@@ -727,8 +727,8 @@ P:NPC {
     guard = {
       lines = { { id = "gu_default", text = "I thought so; you still look at the rooftops before the street. The Watch is a good school and a poor posting, and I'm glad you left it for somewhere you're needed." } },
       choices = {
-        { text = "The Watch needed me too.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The Watch only needed someone to stand there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Watch needed me too.", next = "BACK", reply = "It did, and it'll miss you. But a guard can do more good out in the provinces than on a corner.", fx = { align = { order = 1 } } },
+        { text = "The Watch only needed someone to stand there.", next = "BACK", reply = "Too right, and I've stood there myself in the rain. You'll find more to do out here.", fx = { align = { order = -1 } } },
       },
     },
   },

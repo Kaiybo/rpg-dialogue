@@ -73,8 +73,8 @@ P:NPC {
         { id = "cp_default", text = "Boil the meat off, dry the claw in the sun for three days, then grind the inside edge on beach stone till it bites your thumb. I've become quick at it, so your weapon won't take long once you bring the claws." },
       },
       choices = {
-        { text = "Using every part of the kill is good sense.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Seems a lot of work. Steel's simpler.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Using every part of the kill is good sense.", next = "BACK", reply = "It is, and every orc of the old clans knew it. The swamp gives little enough; waste nothing it gives.", fx = { align = { order = 1 } } },
+        { text = "Seems a lot of work. Steel's simpler.", next = "BACK", reply = "Simpler, aye, until the steel rusts in a week. A claw doesn't rust, and a murloc knows the shape of it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,8 +113,8 @@ P:NPC {
         { id = "ck_default", text = "I asked once and he looked at me so long I burned the stew. Whatever the sea did to him, it was a long time ago, and he's been paying it back one fish man at a time ever since." },
       },
       choices = {
-        { text = "Some grudges should be let go.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A grudge that kills murlocs is a useful grudge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some grudges should be let go.", next = "BACK", reply = "Some should, aye, and I've told him so. He only looked at me longer, and I burned another stew.", fx = { align = { light = 1 } } },
+        { text = "A grudge that kills murlocs is a useful grudge.", next = "BACK", reply = "Useful, aye, and the camp's alive because of it. I'll not argue with what keeps the murlocs off the beach.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,8 +147,8 @@ P:NPC {
         { id = "xs_default", text = "A smith! Then look here: you grind the claw from the inside, never the outside, or the edge splits along the grain. Stonard's smiths laughed at me for using claws until they saw what they could do." },
       },
       choices = {
-        { text = "Good craft is good craft, whatever it's made from.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "I'll stick to proper steel, thanks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good craft is good craft, whatever it's made from.", next = "BACK", reply = "It is, and you're the first smith who's said so without laughing. Come back and I'll show you the grinding.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I'll stick to proper steel, thanks.", next = "BACK", reply = "Suit yourself, but steel rusts on this beach before supper. Come back when your blade's orange.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

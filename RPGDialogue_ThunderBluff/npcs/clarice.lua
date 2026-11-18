@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "Don't. I don't talk about them, not to strangers and not to myself. Ask me about Yuriv; that anger at least I can stand to hold." } },
       choices = {
-        { text = "I'm sorry. I won't ask again.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "You can't run from them forever, Clarice.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'm sorry. I won't ask again.", next = "BACK", reply = "Good. You'd be surprised how few of the living can manage that much, they always want to see the wound. Ask about Yuriv, if you must ask anything.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "You can't run from them forever, Clarice.", next = "BACK", reply = "I can run as long as I like, I've no breath to lose. Leave it, or leave me, and I'd honestly prefer the second.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Then tell me more about Yuriv.", next = "fool" },
       },
     },
@@ -92,8 +92,8 @@ P:NPC {
     alive = {
       lines = { { id = "a_default", text = "Some of it, the way you remember a dream after waking. I remember the kitchen and the smell of bread, and I remember being angry, and the anger came through death better than the bread did." } },
       choices = {
-        { text = "Maybe you could let the anger go.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Keep the anger. It's yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Maybe you could let the anger go.", next = "BACK", reply = "And keep what, then, the bread? The bread is gone, darling, and the anger is all that stayed loyal to me.", fx = { align = { order = 1 } } },
+        { text = "Keep the anger. It's yours.", next = "BACK", reply = "Finally, someone who doesn't want to save me. It's mine, and it's earned, and Yuriv can feel it from whatever crusade he's still marching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

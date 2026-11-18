@@ -93,8 +93,8 @@ P:NPC {
         { id = "cs_default", text = "I did, and I will not pretend otherwise. You are an adventurer, and I am a potion-maker who would be killed by the first thing that looked at him, and Auberdine needs to know what is in that cave." },
       },
       choices = {
-        { text = "You did right. Someone had to look.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You should have warned me plainly first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You did right. Someone had to look.", next = "BACK", reply = "Thank you, though it does not make me feel much better about sending you. I am glad you came back to say so.", fx = { align = { honor = -1 } } },
+        { text = "You should have warned me plainly first.", next = "BACK", reply = "Perhaps I should have, and I am sorry for it. Fear makes poor manners of us all, and mine were very poor.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "na_default", text = "Naga, behind our own falls? Then the Ancients were right to be afraid, and so am I. Whatever they are doing in there, the water runs down from that cave to every stream on this coast." },
       },
       choices = {
-        { text = "Then we drive them out before it spreads.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Let Onu advise us before anyone acts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we drive them out before it spreads.", next = "BACK", reply = "Then let it be done soon, and quietly, before the sickness reaches the deer at the shore. I will brew what I can for whoever goes.", fx = { align = { light = -1 } } },
+        { text = "Let Onu advise us before anyone acts.", next = "BACK", reply = "Onu is wise, and he is old, and he will take his time about it. I pray the water waits for him.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

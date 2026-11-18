@@ -77,8 +77,8 @@ P:NPC {
       big = true,
       lines = { { id = "hb_default", text = "Every evening, I think, though it's hard to tell evenings apart now. If I had asked, I'd have been dismissed and my questions forgotten, and if I hadn't asked, well, here we are." } },
       choices = {
-        { text = "It wasn't your place. You did your duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "You should have asked. Duty isn't an excuse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It wasn't your place. You did your duty.", next = "BACK", reply = "That is what I told myself, for a great many years. It is a comfort to hear someone else say it, though I'm not sure it's true.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You should have asked. Duty isn't an excuse.", next = "BACK", reply = "Perhaps I should have. I'll carry that answer with me, as I carry the rest.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

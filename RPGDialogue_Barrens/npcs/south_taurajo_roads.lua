@@ -62,8 +62,8 @@ P:NPC {
       big = true,
       lines = { { id = "gu_default", text = "I left him there, yes, and I tell myself it was the right call, because moving him would have killed him. Some nights I believe it, and some nights I lie awake and count the steps back to that camp." } },
       choices = {
-        { text = "You did what had to be done. Let it rest.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "A grunt doesn't leave his own behind. Ever.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You did what had to be done. Let it rest.", next = "BACK", reply = "Easy for you to say, and maybe I'll learn to say it myself one day. Until then I'll keep counting those steps, because somebody ought to remember the one I left.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A grunt doesn't leave his own behind. Ever.", next = "BACK", reply = "Don't you think I know that, grunt? I've told myself the same every night since, and it cuts just as deep coming from you.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -154,8 +154,8 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "Zankaja won't spend her life feeding a cripple, not if I can help it, so I'll find one last fight and die in it standing. Take the pendant, and don't tell her any of this, because I won't have her carrying the guilt." } },
       choices = {
-        { text = "Live, Dogran. Let her decide what she can bear.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A warrior's death is your right. I'll honour it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Live, Dogran. Let her decide what she can bear.", next = "BACK", reply = "She'd decide to keep me, that's the trouble, and she'd wear herself down to bone doing it. Still, you speak like someone who's lost people, and I'll think on what you've said.", fx = { align = { honor = -1 } } },
+        { text = "A warrior's death is your right. I'll honour it.", next = "BACK", reply = "Thank you, {class}, because that's more than most would give a broken grunt. Carry that pendant to her, and let her remember me as I was before this camp.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,8 +232,8 @@ P:NPC {
       big = true,
       lines = { { id = "ta_default", text = "I walked into their camp with my hands open and asked them to leave the burial hills alone, and their prospector laughed and offered to sell me a map of my own land. That was the last time I walked in with my hands open." } },
       choices = {
-        { text = "Then they've earned what comes. Drive them out.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Try once more, with the Horde behind you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then they've earned what comes. Drive them out.", next = "BACK", reply = "They have, and the spirits of my ancestors will not rest until the hills are quiet again. Walk with me in this, and the Venture Company will learn what the Earth Mother's anger looks like.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Try once more, with the Horde behind you.", next = "BACK", reply = "The Horde stands behind me already, and the goblins still laughed. I respect a peaceful heart, young one, but some ground has been walked over too many times to forgive.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -245,8 +245,8 @@ P:NPC {
       big = true,
       lines = { { id = "bl_default", text = "I would. Their own plans call for nitroglycerin, wood pulp and sodium nitrate, and their soldiers carry all of it. The flying machine is the heart of that place and an insult to the memory of my tribe, and I want it burning." } },
       choices = {
-        { text = "Fire for fire. They started it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fire for fire. They started it.", next = "BACK", reply = "They did, with dynamite on sacred ground, and the earth has not forgotten. Bring fire to their machine, and let the smoke carry my tribe's memory to the sky.", fx = { align = { honor = -1 } } },
+        { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", reply = "You have a gentle spirit, and the Earth Mother loves those who spare where they can. Burn the machine, then, and let the diggers run home and tell their masters what they saw.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

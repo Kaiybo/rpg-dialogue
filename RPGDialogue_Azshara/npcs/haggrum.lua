@@ -70,8 +70,8 @@ P:NPC {
       big = true,
       lines = { { id = "ss_default", text = "Some days it is pretending, and I pretend until it isn't. The grunts need one orc in this camp who believes we'll all go home, and it isn't going to be Ag'tor." } },
       choices = {
-        { text = "Hope is a weapon too. Keep it sharp.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "False hope gets orcs killed, Haggrum.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Hope is a weapon too. Keep it sharp.", next = "BACK", reply = "Hah! That it is, and I keep it sharper than my axe. The grunts will go home, or I'll carry them myself.", fx = { align = { light = 1 } } },
+        { text = "False hope gets orcs killed, Haggrum.", next = "BACK", reply = "Maybe so, but no hope at all gets them killed faster. I'll keep smiling, and you keep your eyes open.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,8 @@ P:NPC {
       big = true,
       lines = { { id = "bb_default", text = "Belgrom thought the elves' magic could serve the Horde, and the Warchief allowed it, so who am I to say? But I've not trusted a robe since, and I don't think I ever will." } },
       choices = {
-        { text = "Belgrom was wrong. Some allies aren't worth having.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Orders are orders. The Horde must take its chances.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Belgrom was wrong. Some allies aren't worth having.", next = "BACK", reply = "Aye, and I'll not argue it, though I'll not say it near the Warchief's ears either. Some lessons cost more than they're worth.", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. The Horde must take its chances.", next = "BACK", reply = "Orders are orders, and I follow them like any grunt. But I'll keep one eye on every robe in this camp.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

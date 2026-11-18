@@ -72,8 +72,8 @@ P:NPC {
       lines = { { id = "jh_default", text = "A kind word, mostly, or an extra night off when I can wangle one. Some officers say a firm hand does it better, and I'll admit they're not always wrong." },
       },
       choices = {
-        { text = "Kindness first. Frightened men break faster.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "A firm hand. Soft treatment makes soft soldiers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Kindness first. Frightened men break faster.", next = "BACK", reply = "That's my thinking, and I've seen it borne out more nights than I can count. A man who knows somebody's on his side holds a gate longer.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A firm hand. Soft treatment makes soft soldiers.", next = "BACK", reply = "You'd get on with half the officers in Stormwind, then. I'll keep my cask and my kind words, and we'll see whose men are still standing in spring.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

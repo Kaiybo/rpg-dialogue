@@ -85,8 +85,8 @@ P:NPC {
         { id = "re_default", text = "Yes, and Athridas in Dolanaar suspects the same, so tell him what you saw here. As for the shaman, they are only fools holding a knife someone else sharpened." },
       },
       choices = {
-        { text = "Fools with knives still need stopping.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Then I'll spare the shaman I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fools with knives still need stopping.", next = "BACK", reply = "They do, and I will not ask you to stay your hand when the knives come out. Only remember that their madness was put upon them.", fx = { align = { light = -1 } } },
+        { text = "Then I'll spare the shaman I can.", next = "BACK", reply = "Then you carry more mercy than I could, after what they did to me. The Gnarlpine that live may yet remember who they were.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "bo_default", text = "I do, and I have thought on it longer than you would think. A body that hurts the people I swore to protect is not mine any longer, whatever face it wears." },
       },
       choices = {
-        { text = "Then I'll do it quickly, and with respect.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A body's a body. It won't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll do it quickly, and with respect.", next = "BACK", reply = "Thank you, friend, truly. It is the last kindness anyone can do for me, and I am glad it will be you.", fx = { align = { honor = 1 } } },
+        { text = "A body's a body. It won't trouble me.", next = "BACK", reply = "Then let it not trouble you, and let that be my gift to you. Only be quick about it, for the thing it has become is not me.", fx = { align = { honor = -1 } } },
         { text = "There must be some other way.", next = "body_other" },
       },
     },
