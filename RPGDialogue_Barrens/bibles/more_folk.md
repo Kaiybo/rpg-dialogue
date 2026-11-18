@@ -53,3 +53,42 @@ Sources: warcraft.wiki.gg pages for Menara Voidrender (human warlock tutor, Ratc
 ### Deepened (same pass)
 - Halija (her mother's carrying-loom, authored), Kalyimah (the boots from the Wailing Caverns), Larhka (the too-green oases). Elsewhere: Nalpak, Falla and the Disciple (north_naralex.lua), Bigglefuzz and Wrenix (south_ratchet_more.lua), Logmar and Dogran (south_taurajo_roads.lua); each got class or race replies and a third level on its main branch. Nalpak's race is still unconfirmed, so his new lines do not state it.
 
+
+## Added later (second pass of missed NPCs)
+Sources: warcraft.wiki.gg pages for Hraq, Kil'hala, Tari'qa (Crossroads), Kelsuwa, Yonada, Sanuye Runetotem, Dranh, Mahani, Gahroot (Camp Taurajo), Zikkel, Ranik, Vexspindle, Zizzek, Gagsprocket, Vazario Linkgrease, Acolyte Fenrick, Acolyte Magaz, Acolyte Wytula (Ratchet), Waldor and Kalldan Felmoon (cave above the Wailing Caverns), Feegly the Exiled (Bael Modan). All pre-Cataclysm placements.
+
+### Their quests
+- Feegly the Exiled: The Tear of the Moons (the gem from General Twinbraid's strongbox in Bael'dun Keep); the lead-in quest Feegly the Exiled gets a greeting. He dug it up, the dwarves took it and drove him out. The later claim that he was once a dwarf is not used.
+- Acolyte Magaz: Shard of an Infernal; Acolyte Wytula: Shard of a Felhound. Both are parts of Strahad's Components for the Enchanted Gold Bloodrobe (warlocks only). Where the demons are found is left to Strahad, since the zone is unconfirmed.
+- Vazario Linkgrease: Membership Card Renewal (one greeting).
+- Kil'hala: the wiki lists Laughing Sisters and Nether-lace Garment; not written (era unconfirmed).
+- Everyone else: none: vendors, trainers, a banker, a stable master and an acolyte, built from role, place and neighbours.
+
+### Never
+- Cataclysm and later: Taurajo burned (Yonada and Dranh as spirits, Kelsuwa and Gahroot at Una'fe, Sanuye and Mahani at Vendetta Point), the Legion invasions (Zikkel and Zizzek rescued, Gagsprocket's dynamite and his fondness for Liv Rizzlefix), Ranik's move to the smithy, Feegly as a transformed dwarf.
+
+### Voices (authored, not canon)
+- Hraq: shrewd, unbothered; one cart in four is lost and the price says so (light stance); shouts at Traugh by day and shares his fire by night.
+- Kil'hala: particular Darkspear tailor; lined Sergra's cloak in red (authored); finery in a town under threat (order stance).
+- Tari'qa: watchful, dry; reads the war from what is bought; grunts buying road supplies quietly (order stance).
+- Kelsuwa: gentle, slow; listens to the beasts; kept a whipped lion from its hunter (authored; order stance).
+- Yonada: warm, practical; sends raptor leather north; whether to share the caravans' losses (light stance); the oasis bark dyes wrong.
+- Sanuye Runetotem: thoughtful; knows each hide's hunter; lets orcs think the rite is a craft secret (honor stance); Tonga is of his tribe, no closer kinship claimed.
+- Dranh: quiet, exact; clean knife and a moment of quiet, or learn elsewhere (honor stance).
+- Mahani: cheerful weaver among hide workers; teaching the tribe's patterns to orcs (light stance).
+- Gahroot: hearty; the old and the young eat first (light stance); no kodo on his block.
+- Zikkel: fussy, nervous second banker; wants customers searched (order stance); a boat under the pier.
+- Ranik: glib, ambitious; rents a corner from Jazzik and eyes a better spot (honor stance).
+- Vexspindle: smooth, vain; hates the name Plate-n-Chain; the sign under his bed (honor stance).
+- Zizzek: the goblin who has enough; quit the docks for a chair by the tavern (order stance).
+- Gagsprocket: jumpy, friendly; the red shelf; Venture Company powder on consignment (order stance); lost part of an ear to a short fuse (authored).
+- Vazario Linkgrease: loud, proud, half deaf; an apprentice lost two fingers (authored; light stance); cards from Nixx Sprocketspring in Gadgetzan.
+- Acolyte Fenrick: earnest, anxious young human; kin letters from Northwatch (authored; order stance).
+- Acolyte Magaz: fierce, guarded; studies infernals to turn the weapon (light stance); left Gan'rul's teaching (authored).
+- Acolyte Wytula: dry, cold; felhounds against the Scourge and the Scarlet Crusade (light stance); a schoolmistress in life (authored).
+- Waldor: calm, curious; works deviate scale while Ebru calls it the skin of a sickness (light stance).
+- Kalldan Felmoon: reserved, exacting night elf; came south after Naralex's followers (authored); whether Naralex was wrong to try (order stance). Sells to both factions.
+- Feegly: sly, wheedling trogg in the third person, but in whole joined sentences; finder keeps (order stance).
+
+### What they notice
+- Hraq: miners, thin purses. Kil'hala: worn gear, hide workers. Tari'qa: tauren, cooks. Kelsuwa: hunters without a beast, great cats. Yonada: orcs, skinners. Sanuye: hunters and rogues, tauren. Dranh: leatherworkers, beast pets. Mahani: trolls, hide workers. Gahroot: the young, hunters. Zikkel: heavy and light purses. Ranik: heavy purses, tailors. Vexspindle: worn gear, plate wearers. Zizzek: cooks, the night. Gagsprocket: mages, miners. Vazario: seasoned engineers, dwarves. Fenrick: humans, a warlock's demon. Magaz: orcs, shaman. Wytula: Forsaken, felhunters. Waldor: skinners, druids. Kalldan: orcs, leatherworkers. Feegly: miners, tauren.
