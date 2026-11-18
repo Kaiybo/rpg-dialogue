@@ -24,7 +24,7 @@ Never says: the pilot's name (he forgot it)
 One last discovery, then retire with his head high.
 
 ## Secrets
-Authored, not canon: blames himself for the pilot's fall; "fifty years" with the League.
+Authored, not canon: blames himself for the pilot's fall; "fifty years" with the League. After Rhapsody's Tale he remembers the name and debates sending Rhapsody a cask; lives in Stormwind so Ironforge remembers him young (the tram home); his Zul'Farrak rubbing in the Hall of Explorers; Uldaman's stone dwarves told as a find; his view on the Atal'ai Tablets (copy them, bury the stones); the Dwarven District given after the rebuilding. Hakkar/Atal'ai/green-dragon sinking told as legend.
 
 ## Reliability
 Honest; memory failing.

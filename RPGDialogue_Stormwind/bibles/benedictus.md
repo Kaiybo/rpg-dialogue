@@ -39,3 +39,12 @@ tome_of_divinity, northshire_abbey, defias
 ## 0.34.0
 - Benedictus (Persuade, `masons_ledger`): he asked the crown once to pay the masons, was told 'in the spring', and let it drop; the masons' foreman left him a tally of unpaid days, still in his desk, read every riot anniversary.
 - Laurena (Persuade, `lessons_own`): the Light showed her pride in her own sermons, so she stopped preaching and started teaching; when she catches herself enjoying it, she sits with the sick at the doors.
+
+# Brother Joshua  (key: joshua, in npcs/cathedral.lua)
+
+Priest trainer by the altar at the back of the Cathedral of Light (warcraft.wiki.gg/wiki/Brother_Joshua). No Classic quests (his wiki quests are later). Gentle, patient, keeps dawn hours.
+
+## Authored, not canon
+- Taught at Northshire Abbey as a boy who'd rather fish; watches first light through the east window daily, sleeps afternoons.
+- Teaches "look at the face, not the wound", then "rest"; a student who lost her prayer at Andorhal now tends the side-chapel candles.
+- Visited a Canals widow when her name "came to him" in prayer; uneasy about Brother Crowley's Crusade; sees Benedictus as kind and tired.

@@ -93,6 +93,7 @@ P:NPC {
       },
     },
     hello = {
+      hub = true,
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my shop! You'll not lift anything here, I'd wager, but if you've come to bless the blades, I won't turn you away." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now here's someone who'll appreciate a proper two-hander, and I've a hammer in the back that's waited a long while for a worthy arm." },
@@ -108,11 +109,20 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, friend?" },
         { id = "h_again2", text = "Go on, I've nothing to do but polish." },
+        { id = "h_again3", text = "Anything else on your mind? Talk while I oil this blade; it's good company for both of us." },
       },
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why only two-handed weapons?", next = "why" },
         { text = "I'd guess all sorts buy blades from you.", next = "buyers" },
+        { text = "What's the finest piece in the shop?", next = "finest" },
+        { text = "How did you come by a shop like this?", next = "shop" },
+        { text = "What's Old Town like, for those who live here?", next = "oldtown" },
+        { text = "Those hands have swung a few of these themselves.", next = "hands" },
+        { text = "Dwarven steel would put half these blades to shame.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "I served in the city guard before this.", next = "xguard", when = { origin = "human_city_guard" } },
+        { text = "I sold my sword arm in Stromgarde for years.", next = "xsellsword", when = { origin = "human_stromgarde_sellsword" } },
+        { text = "The heaviest thing I ever swung was a Westfall scythe.", next = "xfarmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Has anyone ever tried to steal a greatsword?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why choose a two-handed weapon, Gerik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I doubt hunters have much use for polearms, Gerik.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -140,7 +150,133 @@ P:NPC {
     },
     buyers = {
       lines = { { id = "b_default", text = "Warriors from the hall across the way, paladins from the Cathedral, and any soldier home from Redridge who's decided a sword wasn't enough. They come in tired and go out grinning." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What's happening in Redridge, that soldiers come home so tired?", next = "buyers_redridge" },
+        { text = "Do they ever come back?", next = "buyers_story" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_redridge = {
+      lines = { { id = "br_default", text = "Orcs, friend, Blackrock orcs coming down out of the mountains, and gnolls in the hills besides. The lads tell me Lakeshire's holding, but only just, and the bridge has been half-built for longer than I've had this shop.",
+          fx = { learn = { "blackrock", "redridge_gnolls" } } } },
+      choices = {
+        { text = "The crown should send more soldiers to Lakeshire.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_story = {
+      lines = { { id = "bs_default", text = "Some come back to have their blade sharpened and tell me what it did, which I like. One came back last spring to sell me the sword I'd sold him, because he'd lost the arm that swung it, and he said he wanted it to go to someone who could use it properly." } },
+      choices = {
+        { text = "Did you take it back?", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The finest piece
+    finest = {
+      lines = { { id = "f_default", text = "That one, over the counter, the claymore with the blue steel. Dwarven work from Ironforge, heavier than anything else in the shop, and four strong men have tried it and put it down again with a polite cough." } },
+      choices = {
+        { text = "Why keep a sword nobody can swing?", next = "finest_story" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    finest_story = {
+      lines = { { id = "fs_default", text = "Because one day someone will walk in who can, and I want to see their face when they lift it. A weapon like that is waiting for its owner, and it's not my place to hurry it." },
+        { id = "fs_strong", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 40 }, text = "Because one day someone will walk in who can, and I'll be honest, friend, you've the look of it. Lift it if you like; if you put it down with a cough, I'll not tell a soul." },
+      },
+      choices = {
+        { text = "Maybe one day it'll be me.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The shop and Old Town
+    shop = {
+      lines = { { id = "sh_default", text = "My father kept a forge on this street before the First War, and when the city came back up out of the ashes, I came back with it. I can't forge to save my life, so I sell what better men make, and I've never once been ashamed of it." } },
+      choices = {
+        { text = "Who makes your steel, then?", next = "shop_smith" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop_smith = {
+      big = true,
+      lines = { { id = "ss_default", text = "Dwarves, mostly, from the District and from Ironforge, because nobody folds steel like a dwarf. A few pieces come from Stormwind's own smiths, and they're honest work, though I've had customers turn their noses up at anything that wasn't made under a mountain." } },
+      choices = {
+        { text = "Stormwind should arm its own soldiers with Stormwind steel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Buy the best steel, whoever forged it. Pride's no edge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldtown = {
+      lines = { { id = "o_default", text = "Loud, crowded and honest, mostly, with the barracks at one end and the Pig and Whistle in the middle. There's a building round the corner full of very quiet people who never buy anything, and I've learned not to ask who they are." } },
+      choices = {
+        { text = "Quiet people? Who are they?", next = "oldtown_si7" },
+        { text = "What's the Pig and Whistle like?", next = "oldtown_pig" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldtown_si7 = {
+      big = true,
+      lines = { { id = "os_default", text = "The crown's own eyes and ears, they say, though nobody says it loudly. They keep the city safe, I'm sure, and they know what every man on this street had for breakfast, and I can't decide whether that comforts me or not." } },
+      choices = {
+        { text = "A kingdom needs its spies. Better they watch than we burn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Honest folk shouldn't be watched by their own crown.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldtown_pig = {
+      lines = { { id = "op_default", text = "Full of soldiers and cooks and soldiers who think they're cooks, and the ale's honest even if the stew isn't. Kendor upstairs sells recipes, and he'll talk your ear off about pies if you let him." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- An observation
+    hands = {
+      lines = { { id = "ha_default", text = "A few, aye, in the Second War, in the pike line when the Horde came up through Hillsbrad. I carried a shield then, a good one, and an orc's axe split it like kindling, and the man beside me with a greatsword is the only reason I'm here selling them." } },
+      choices = {
+        { text = "So that's why you've no love for shields.", next = "hands_war" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hands_war = {
+      big = true,
+      lines = { { id = "hw_default", text = "That's the whole of it, and I know it's not fair to every shield in the world. The orcs are in the camps now, those that lived, and I walk past the guards' talk of them every morning and never know what I think." } },
+      choices = {
+        { text = "After what they did, the camps are too kind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The war's over. Keeping them caged forever isn't justice.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Who the player is
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Half of them are dwarven steel, friend, so you're shaming your own cousins. I'll not argue the point; the best piece in this shop came from a forge in Ironforge, and I tell everyone so." } },
+      choices = {
+        { text = "Then you've good taste, for a human.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Show me the dwarven pieces, then.", next = "finest" },
+      },
+    },
+    xguard = {
+      lines = { { id = "xg_default", text = "Then you'll have carried one of my halberds on the gate, I'd wager, because the barracks buys them from me by the dozen. Heavy on a long watch, aren't they? Every guard says so, and every guard comes back for another." } },
+      choices = {
+        { text = "Heavy as sin. I'd not have traded it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsellsword = {
+      lines = { { id = "xs_default", text = "Stromgarde, where they swing greatswords like other folk swing walking sticks! I've heard the old kingdom's in a bad way now, with ogres and the Syndicate in the hills, and the men you fought beside scattered." } },
+      choices = {
+        { text = "Scattered, or dead. I came south for honest work.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfarmhand = {
+      lines = { { id = "xf_default", text = "Ha! Then you've a better swing than half the recruits I see, because a scythe's no toy and a harvest's a long day. I'm sorry for Westfall, friend, truly; I hear there's more swinging out there now than any harvest needs." } },
+      choices = {
+        { text = "The Defias swing for nothing but themselves.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -329,7 +465,7 @@ P:NPC {
   key = "jillian_tanner", id = TODO_NPC("Jillian Tanner"), name = "Jillian Tanner", title = "Leatherworking Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "firm" }, values = { "honest", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "class" },
   impression = {
     first = "Jillian Tanner sells thread, dye and salt at the Protective Hide, and she told me straight away that her prices were set and haggling was for goblins. I found that rather restful.",
     third = "{name} met Jillian Tanner, who sells leatherworking supplies at the Protective Hide.",
@@ -422,6 +558,7 @@ P:NPC {
       },
     },
     hello = {
+      hub = true,
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Prices are set, haggling is for goblins, and I'll not be shamed into charity, so we understand each other." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My prices are fair and fixed, {class}, so I'll trust you not to haggle, since your order's supposed to be honest." },
@@ -439,11 +576,18 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else?" },
         { id = "h_again2", text = "Anything more? Prices still haven't moved, mind." },
+        { id = "h_again3", text = "Go on, then. Talking's free, which is the only thing in this shop that is." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why won't you haggle?", next = "haggle" },
         { text = "You and Simon must be related.", next = "simon" },
+        { text = "What does a leatherworker run short of most?", next = "supplies" },
+        { text = "Who else works here at the Protective Hide?", next = "hide" },
+        { text = "Your hands are stained right up to the wrist.", next = "hands" },
+        { text = "I've seen what your trade does to the beasts.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I work leather myself. Any advice for a fellow crafter?", next = "xlw", when = { profession = "Leatherworking" } },
+        { text = "My family's steward would have haggled you down, surely.", next = "xnoble", when = { origin = "human_minor_noble" } },
         { text = "You'd sell to a thief knowingly, then, Jillian.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Warriors can't use much leather, Jillian.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How much salt does a hunter need, Jillian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -460,6 +604,22 @@ P:NPC {
       choices = {
         { text = "That's fair, if everyone pays the same.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "A good bargain is half the fun of buying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where did you learn to price like that?", next = "haggle_mother" },
+        { text = "Has anyone ever talked you down?", next = "haggle_goblin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    haggle_mother = {
+      lines = { { id = "hm_default", text = "From my mother, who sold hides in the Elwynn markets and was haggled down to nothing by every noble's steward who passed her stall. She'd come home with half what the hides were worth and a headache, and I swore I'd never let anyone do that to me." } },
+      choices = {
+        { text = "She'd be proud of the price tags, I think.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    haggle_goblin = {
+      lines = { { id = "hg_default", text = "Never, though a goblin from Gadgetzan gave it a very good try, with charts. He talked for the better part of an hour about markets and margins, and I said the price is on the tag, and he went away looking like a man who'd lost a fight to a wall." } },
+      choices = {
+        { text = "I'd have paid to watch that.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -467,12 +627,109 @@ P:NPC {
       lines = { { id = "s_default", text = "We share a name and a shop, and that's all you need to know. People ask, and it amuses me to let them wonder." } },
       choices = {
         { text = "Then who's Randal?", next = "randal" },
+        { text = "Sister, then. You've the same frown.", next = "simon_guess" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    simon_guess = {
+      lines = { { id = "sg_default", text = "Sister, wife, cousin, I've heard every guess there is, and I've a jar under the counter where I put a copper each time someone tries. It's very nearly full, and when it is, I'm buying myself a new pair of boots." } },
+      choices = {
+        { text = "Then here's another guess for the jar.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     randal = {
       lines = { { id = "r_default", text = "Randal Worth, Simon's apprentice, who spends half his day looking at himself in the polished buckles. He's good with a needle, though, so we keep him." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    -- Supplies
+    supplies = {
+      lines = { { id = "su_default", text = "Thread, always, because every leatherworker thinks they've enough until the last stitch of a pair of boots. After that it's salt for curing and dye for the vain, and I sell a great deal more dye than anyone admits to buying." } },
+      choices = {
+        { text = "Where does all your salt come from?", next = "supplies_salt" },
+        { text = "Who buys all that dye, then?", next = "supplies_dye" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supplies_salt = {
+      big = true,
+      lines = { { id = "ss_default", text = "From the coast past Westfall, by cart, and these days one cart in three arrives, because the Defias have taken a liking to anything that moves on that road. I've had to put my salt up twice this year, and I hated doing it.",
+          fx = { learn = { "defias", "westfall" } } } },
+      choices = {
+        { text = "The crown should guard the Westfall road properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The crown made Westfall what it is. Don't expect help.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supplies_dye = {
+      lines = { { id = "sd_default", text = "Soldiers who want their jerkins to match their captain's, ladies who want their gloves to match their shoes, and rogues who want everything to match the dark. Black outsells every other colour three to one, and I don't ask why." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- The shop
+    hide = {
+      lines = { { id = "hd_default", text = "Maris Granger teaches skinning and hasn't a kind word for anyone, Seoman Griffith makes the armour, and Alyssa Griffith sells the bags, and she'll talk you into one whether you need it or not. Simon teaches the craft, and Randal stands about looking handsome." } },
+      choices = {
+        { text = "Maris doesn't seem to like anyone.", next = "hide_maris" },
+        { text = "Alyssa talked me into a bag already.", next = "hide_alyssa" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hide_maris = {
+      lines = { { id = "hma_default", text = "She doesn't, but she likes a clean pelt, and that's nearly the same thing with Maris. She grew up skinning on an Elwynn farm and she's no patience for anyone who learned it from a book." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hide_alyssa = {
+      lines = { { id = "hal_default", text = "Of course she did; she's the only one of us who could sell water to a murloc. She'll tell you some story about a soldier and a healing potion, and the trouble is, it's true." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- An observation
+    hands = {
+      lines = { { id = "ha_default", text = "Dye doesn't wash out and tannin doesn't either, so I've had brown hands since I was twelve. My mother had them too, and I used to think they were the finest hands in Elwynn." } },
+      choices = {
+        { text = "Did you ever work in a tannery?", next = "hands_tannery" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hands_tannery = {
+      lines = { { id = "ht_default", text = "Two years by the canals, before they moved the tanneries downstream because the nobles complained of the smell. I can still tell you which week of curing a hide's in by sniffing it, which is a gift nobody has ever once envied." } },
+      choices = {
+        { text = "That's a useful nose, honestly.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Who the player is
+    xdruid = {
+      big = true,
+      lines = { { id = "xd_default", text = "Then you've seen what hunger does to them too, and what wolves do to a sheepfold. Every hide in here was a beast someone ate or a beast that would have eaten someone, and we waste none of it." } },
+      choices = {
+        { text = "Using all of it honours the beast. I can accept that.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The wild owes your trade nothing. Hunt less.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlw = {
+      lines = { { id = "xl_default", text = "Buy more thread than you think, salt the hide the day it's off the beast, and never let Randal near your work with a mirror in reach. Simon will tell you the rest, at length, and most of it's true." } },
+      choices = {
+        { text = "Thank you, Jillian. That's useful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnoble = {
+      lines = { { id = "xn_default", text = "He'd have tried, and he'd have paid the price on the tag in the end, same as the farmer before him. I've turned stewards away for asking twice, and I'd turn your father away too, with respect." } },
+      choices = {
+        { text = "My father would have deserved it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

@@ -60,6 +60,12 @@ P:NPC {
         { text = "Ryan's last thoughts were of you, Abigail.", next = "last", when = { questActive = TODO_QUEST("Delivering Closure") } },
         { text = "How are you holding up?", next = "after", when = { questDone = TODO_QUEST("Delivering Closure") } },
         { text = "I have something for you.", next = "BUSINESS", when = { questActive = TODO_QUEST("Delivering Closure") } },
+        { text = "Your parents must worry about you, sitting out here.", next = "family" },
+        { text = "I've been to Farholde Keep, in the Riverglades.", next = "farholde", when = { minLevel = 36 } },
+        { text = "I trained as a squire. I'd have ridden out with him.", next = "xsquire", when = { origin = "human_paladin_squire" } },
+        { text = "I lost my own family to the war, up north.", next = "xrefugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I'm a priest. I could sit with you a while.", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What will you do now?", next = "future", when = { questDone = TODO_QUEST("Delivering Closure") } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -72,6 +78,7 @@ P:NPC {
       choices = {
         { text = "Why did he go?", next = "ryan_why" },
         { text = "What's the Brotherhood of the Horse?", next = "brotherhood" },
+        { text = "How did the two of you meet?", next = "ryan_meet" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,6 +155,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll be careful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Would you ever go out there, to see where he fell?", next = "demar_grave" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -158,6 +166,7 @@ P:NPC {
       },
       choices = {
         { text = "You're not a widow yet.", next = "square_widow", when = { ["not"] = { questDone = TODO_QUEST("Delivering Closure") } } },
+        { text = "Do you still pray, in there?", next = "prayer" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -204,6 +213,154 @@ P:NPC {
       },
       choices = {
         { text = "Grief takes its own time.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    ryan_meet = {
+      lines = {
+        { id = "rm_default", text = "He came to the city to beg the House of Nobles for soldiers, and he stood in this very square shouting about it to anyone who'd listen. I told him he was frightening the pigeons, and he laughed, and I think that was the only time I ever heard him laugh properly." },
+      },
+      choices = {
+        { text = "What did the nobles say to him?", next = "ryan_nobles" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    ryan_nobles = {
+      lines = {
+        { id = "rn_default", text = "They gave him a supper and a speech and not a single soldier, because the Riverglades were written off as lost before either of us was grown. I thought he'd give up after that, and instead he gave up on Stormwind." },
+        { id = "rn_noble", when = { origin = "human_minor_noble" }, text = "Your sort gave him a supper and a speech and not one soldier, begging your pardon, because the Riverglades were written off long ago. I thought he'd give up after that, and instead he gave up on Stormwind." },
+      },
+      choices = {
+        { text = "The crown can't defend every lost valley. It chose rightly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The crown abandoned its own people out there.", next = "BACK", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned_its_own" } } },
+        { text = "Did you agree with him, about the nobles?", next = "ryan_agree" },
+      },
+    },
+    ryan_agree = {
+      lines = {
+        { id = "rag_default", text = "About the nobles, yes, and I'd say so to their faces at any supper they cared to invite me to. Where we parted was what came after, because I thought a man could be angry at the crown and still come home in the evening." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
+    family = {
+      lines = {
+        { id = "fa_default", text = "My mother means well, and my father says nothing at all, which is his way of meaning well. They lost my brother when the orcs burned the city, so they know a little about waiting for someone who isn't coming back." },
+      },
+      choices = {
+        { text = "Your brother died when Stormwind fell?", next = "family_brother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family_brother = {
+      lines = {
+        { id = "fb_default", text = "He was nineteen and in the city watch, on the gate the morning the Horde came through it. We never found him, so my mother kept his room just as it was for ten years, and I swore I'd never keep a room for anyone." },
+      },
+      choices = {
+        { text = "So that's why you wouldn't follow Ryan east.", next = "family_why" },
+        { text = "I'm sorry, Abigail.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    family_why = {
+      lines = {
+        { id = "fw_default", text = "Yes, if you want it put plainly. I wasn't going to stand on a wall and watch another man I loved run at the orcs, so I stayed, and he ran at them anyway, and now I keep a room after all." },
+      },
+      choices = {
+        { text = "Staying was the braver choice.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Love means going where they go, whatever it costs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    prayer = {
+      lines = {
+        { id = "pr_default", text = "Every morning, on the same pew, which the sexton has started dusting for me. I used to pray he'd come home, and then that he'd write, and now I just sit and let the Light look at me, because I've run out of things to ask it for." },
+        { id = "pr_priest", when = { class = "PRIEST" }, text = "Every morning, on the same pew, and you'd know better than I whether what I do there counts as praying. I used to ask for things, and now I just sit and let the Light look at me, because I've run out of asking." },
+      },
+      choices = {
+        { text = "The Light hears you, even when you ask for nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light didn't bring him home. Don't waste your mornings.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    demar_grave = {
+      lines = {
+        { id = "dg_default", text = "And stand in the mud looking at a stone with his name on it, while Demar Brant tells me he died bravely? I've his crest, and that's as near to the Riverglades as I ever mean to get." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+
+    farholde = {
+      lines = {
+        { id = "fh_default", text = "Have you? Then don't tell me it's beautiful, because he wrote that once, and it's the only line of any letter of his I ever burned. Tell me instead whether they're still holding, or whether it's only pride keeping the gates shut." },
+      },
+      choices = {
+        { text = "They hold because they swore to. That counts for something.", next = "farholde_hold", fx = { align = { honor = 1 } } },
+        { text = "It's pride. They should give that valley up.", next = "farholde_hold", fx = { align = { honor = -1 } } },
+        { text = "Both, I think. And they're short of everything.", next = "farholde_hold", fx = { learn = { "siege_of_farholde" } } },
+      },
+    },
+    farholde_hold = {
+      lines = {
+        { id = "fhh_default", text = "Then it's what it always was with him, a little honour and a great deal of stubbornness. I'll not wish them ill, whatever I say about Demar; I only wish they'd stop sending letters home in other people's hands." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xsquire = {
+      lines = {
+        { id = "xs_default", text = "Of course you would; you've the same light in your eye he had at twenty, the one that thinks a cause is a kind of family. If someone you love ever asks you to come home, promise me you'll at least think before you say no." },
+      },
+      choices = {
+        { text = "Duty comes first. He knew that, and so do I.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd come home. No cause is worth that.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I'll think about it. I promise.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+
+    xrefugee = {
+      lines = {
+        { id = "xr_default", text = "Then you know the shape of it, the way it sits in your chest when you're trying to eat your supper. Did it make you hate them, the way it did Ryan, or did you find something else to carry?" },
+      },
+      choices = {
+        { text = "I hate them still. I won't pretend otherwise.", next = "xrefugee_after", fx = { align = { light = -1 } } },
+        { text = "I put it down. I had to, to go on living.", next = "xrefugee_after", fx = { align = { light = 1 } } },
+        { text = "I don't know yet.", next = "xrefugee_after" },
+      },
+    },
+    xrefugee_after = {
+      lines = {
+        { id = "xra_default", text = "That's more honest than most people manage. Ryan never once in his life said he didn't know something, and I've come to think it was the one thing he most needed to say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xpriest = {
+      lines = {
+        { id = "xp_default", text = "Sit, if you like, but don't pray at me, because I get enough of that from my mother. You can tell me instead whether the Light minds a woman calling a dead man an idiot every night, since I've been wondering." },
+      },
+      choices = {
+        { text = "The Light minds very little that's honest.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "He was an idiot. The Light agrees.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    future = {
+      lines = {
+        { id = "fu_default", text = "The Matron has asked me to help with the orphans three mornings a week, and I've said yes, mostly to get out of the house. It turns out I'm good with children who shout, which my mother finds very funny indeed." },
+      },
+      choices = {
+        { text = "That's a fine use for a sharp tongue.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,6 +425,14 @@ P:NPC {
         { text = "What do you make of the new harbor?", next = "harbor" },
         { text = "What's this job of yours?", next = "job", when = { ["not"] = { questDone = TODO_QUEST("Fishin' Time") } } },
         { text = "I'll do your job.", next = "BUSINESS", when = { any = { { questBefore = TODO_QUEST("Fishin' Time") }, { questActive = TODO_QUEST("Fishin' Time") } } } },
+        { text = "You talk to the fish, don't you?", next = "talk" },
+        { text = "You don't think much of Arnold Leland.", next = "arnold" },
+        { text = "I'm a fisher myself, when I get the chance.", next = "xfisher", when = { profession = "Fishing" } },
+        { text = "I'm from Lordaeron. We came south after the plague.", next = "xrefugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I grew up in the canals. Never caught a thing.", next = "xcanals", when = { origin = "human_canal_pickpocket" } },
+        { text = "We do fish with spears, sometimes.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Loch Modan has fish as long as your arm.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "How's the catch been, since?", next = "partner", when = { questDone = TODO_QUEST("Fishin' Time") } },
         { text = "Good fishing, Gilbert.", next = "END" },
       },
     },
@@ -278,6 +443,7 @@ P:NPC {
       },
       choices = {
         { text = "Any secrets to catching them?", next = "fish_secret" },
+        { text = "What sort of fish come in with the tide?", next = "fish_kinds" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -307,6 +473,7 @@ P:NPC {
       },
       choices = {
         { text = "That's a stubborn way to live.", next = "BACK" },
+        { text = "What was the voyage north like?", next = "years_voyage" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,6 +484,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you like having the elves here?", next = "harbor_elves" },
+        { text = "Fellows in uniforms? The harbor guards?", next = "harbor_guards" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -337,6 +505,7 @@ P:NPC {
       },
       choices = {
         { text = "Why not hire a dockhand?", next = "job_dock" },
+        { text = "What exactly needs catching?", next = "job_what" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,6 +515,185 @@ P:NPC {
       },
       choices = {
         { text = "Then I'm your fisher.", next = "BUSINESS", when = { questBefore = TODO_QUEST("Fishin' Time") } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    fish_kinds = {
+      lines = {
+        { id = "fk_default", text = "Mackerel, mostly, and little silver smallfish that aren't worth the bread, and once a year, if I'm lucky, something big enough to argue with. I had a sea turtle on the line one spring that towed me half the length of this pier before I let him go." },
+      },
+      choices = {
+        { text = "You let a catch like that go?", next = "fish_turtle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fish_turtle = {
+      lines = {
+        { id = "ft_default", text = "He'd lived longer than me, by the look of his shell, and it seemed a poor way to thank him for the exercise. The lads on the docks still call me the turtle man, and I've decided to take it kindly." },
+      },
+      choices = {
+        { text = "A fish that fights that hard has earned its freedom.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A catch is a catch. That was a week of suppers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    talk = {
+      lines = {
+        { id = "tk_default", text = "Only the ones that answer back, and those are usually crabs. My wife used to say I'd talk to a bucket if it sat still long enough, and she wasn't wrong, rest her." },
+      },
+      choices = {
+        { text = "You lost your wife?", next = "wife" },
+        { text = "Crabs are good listeners.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    wife = {
+      lines = {
+        { id = "wi_default", text = "Eight winters ago, a fever, quick and quiet the way she was. She never liked fish, not once in forty years, which I've always thought was the cruellest joke the Light ever played on a fisherman's wife." },
+      },
+      choices = {
+        { text = "I'm sorry, Gilbert.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What did she cook, then, if not fish?", next = "wife_cook" },
+      },
+    },
+    wife_cook = {
+      lines = {
+        { id = "wc_default", text = "Mutton pie, every night she could get mutton, and she'd make me a plate of fish on the side with a face like she was handling a dead rat. I'd give my rod and my pier for one more of those faces, and that's the truth." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    arnold = {
+      lines = {
+        { id = "an_default", text = "Oh, I think plenty of him; he's a fine teacher and a terrible fisherman, and we've been arguing about bait for longer than I'd care to count. He says I'm a stubborn old fool, which is true, and I say he talks the fish to sleep, which is also true." },
+      },
+      choices = {
+        { text = "A proper teacher beats learning by luck.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Nobody can teach patience. You learn it or you don't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    years_voyage = {
+      lines = {
+        { id = "yv_default", text = "Cold, and crowded, and half the boat crying for people left on the docks. Lothar's men kept order with a word and a look, and I gutted fish for three hundred people with a knife I've still got, that one there on the crate." },
+      },
+      choices = {
+        { text = "And Lordaeron, when you got there?", next = "years_lordaeron" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    years_lordaeron = {
+      lines = {
+        { id = "yl_default", text = "Kind enough at first, and less kind every year the war went on. They fed us and put us in camps along the coast, and I fished their waters until a Lordaeron fisherman threw my rod in the sea, and I threw him in after it." },
+        { id = "yl_refugee", when = { origin = "human_lordaeron_refugee" }, text = "Your folk took us in, and fed us, and put us in camps along the coast, and I'll not forget it. I'll not forget the fellow who threw my rod in the sea, either, but I threw him in after it, so we're square." },
+      },
+      choices = {
+        { text = "They had a right to their own waters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You'd lost everything. They should have shared.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    harbor_guards = {
+      lines = {
+        { id = "hg_default", text = "The harbor watch, and the dockmaster's men, and the navy lads off the warships. They're all very proud of the new piers, and they all walk right past me as though I were part of them, which after all these years I suppose I am." },
+      },
+      choices = {
+        { text = "The guards keep the harbor safe. Let them fuss.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A man should fish his own pier in peace.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    job_what = {
+      lines = {
+        { id = "jw_default", text = "Whatever's biting off the end of the pier, and a good few of them, enough for my supper and the neighbours'. My hands shake a bit in the cold now, and a fish that feels a shaking line won't stay on it." },
+      },
+      choices = {
+        { text = "You feed your neighbours, too?", next = "job_neighbours" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    job_neighbours = {
+      lines = {
+        { id = "jn_default", text = "The widow two doors down and her three boys, and the old sailor upstairs who can't manage the stairs anymore. They've never asked, mind, but they've never said no to a fish either." },
+      },
+      choices = {
+        { text = "Feeding others before yourself is a good man's work.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "They should look after themselves. You're getting old.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll help, then.", next = "BUSINESS", when = { questBefore = TODO_QUEST("Fishin' Time") } },
+      },
+    },
+
+    xfisher = {
+      lines = {
+        { id = "xf_default", text = "Then you know what I mean about the float. Tell me where the best water you've cast in is, and don't say the canals, because I'll know you're lying." },
+      },
+      choices = {
+        { text = "The lakes of Elwynn, just at dawn.", next = "xfisher_spot" },
+        { text = "Off the coast of Westfall, past the lighthouse.", next = "xfisher_spot" },
+        { text = "Somewhere I'm keeping to myself.", next = "xfisher_spot", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    xfisher_spot = {
+      lines = {
+        { id = "xfs_default", text = "Good answer, whatever it was; a fisher who keeps a spot or two quiet is a fisher I can trust. Arnold Leland would tell the whole city his best water for a silver, which is why there's nothing left in it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xrefugee = {
+      lines = {
+        { id = "xr_default", text = "Did you, now? Then it's turned round, hasn't it, because your lot fed mine once, and now we're the ones with the bread. Sit down, and I'll tell you which bakers in the Trade District give honest weight, since it's the least I owe Lordaeron." },
+      },
+      choices = {
+        { text = "Thank you, Gilbert. That's kind.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xcanals = {
+      lines = {
+        { id = "xc_default", text = "In the canals? Of course you didn't, because there's nothing in there but old boots and cutpurses. I'll teach you, if you like, though I'll keep one eye on my coin purse while I'm doing it." },
+      },
+      choices = {
+        { text = "Wise of you. Old habits.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I've put all that behind me.", next = "BACK" },
+      },
+    },
+
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "I knew it! I told the dockmaster and he laughed at me for a week. I'd dearly love to see it done, though I'd want to know where I'm meant to stand so I don't end up on the end of one." },
+      },
+      choices = {
+        { text = "Behind me, and very still.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "So I've heard: a whole lake up in the mountains and a great dam holding it in, and fish that fight like dwarves. If I were twenty years younger I'd walk there just to see whether you're telling the truth or just telling it loudly." },
+      },
+      choices = {
+        { text = "Both. That's how dwarves tell everything.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    partner = {
+      lines = {
+        { id = "pa_default", text = "Better, thanks to you, and I've had my supper off it every night this week, and so has the widow two doors down. You've a share in every fish I land now, by my reckoning, which comes to about half a mackerel." },
+      },
+      choices = {
+        { text = "Keep my half. You've earned it.", next = "BACK", fx = { affinity = 1, trait = { generous = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -402,6 +750,14 @@ P:NPC {
         { text = "What do you make of Stormwind?", next = "city" },
         { text = "Why would humans go to your lands?", next = "why" },
         { text = "When does the boat leave?", next = "boat" },
+        { text = "Why were you chosen to keep this dock?", next = "self" },
+        { text = "I stood watch at Auberdine before I came here.", next = "xwatch", when = { origin = "nightelf_auberdine_watch" } },
+        { text = "I've run cargo through Auberdine. Not all of it declared.", next = "xsmuggle", when = { origin = "nightelf_auberdine_smuggler" } },
+        { text = "Do you miss home, among all this stone?", next = "xhome", when = { race = "NightElf" } },
+        { text = "Would a human be welcome in Darnassus?", next = "xhuman", when = { race = "Human" } },
+        { text = "Is there work for a dwarf in Darkshore?", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Is there good hunting in Darkshore?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Would Elune's priestesses speak with a priest of the Light?", next = "xpriest", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "Thank you, Idrieth.", next = "END" },
       },
     },
@@ -412,6 +768,7 @@ P:NPC {
       },
       choices = {
         { text = "Is Darkshore safe?", next = "auberdine_safe" },
+        { text = "Who should I look for in Auberdine?", next = "auberdine_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -420,6 +777,8 @@ P:NPC {
         { id = "as_default", text = "Safer than Elwynn's roads, perhaps, but not safe. There are furbolgs gone wild in the hills, and strange things washing up from the sea, and the Sentinels have more work than they can do. Hands willing to help are welcome." },
       },
       choices = {
+        { text = "Why have the furbolgs gone wild?", next = "furbolg" },
+        { text = "What washes up from the sea?", next = "auberdine_sea" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -429,6 +788,7 @@ P:NPC {
         { id = "ci_default", text = "Loud, and stone, and very young. Your people build quickly and forget quickly, I think, but they are brave, and generous to strangers, and that matters more than walls." },
       },
       choices = {
+        { text = "What has surprised you most about humans?", next = "city_humans" },
         { text = "Humans can learn much from the kaldorei.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Stormwind's walls have earned their place.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -440,6 +800,7 @@ P:NPC {
         { id = "wy_default", text = "To trade, to learn, to help, as the Alliance helps us. Our lands are old and full of troubles, and we have learned that we cannot face them all alone, though some of my people are slow to say so." },
       },
       choices = {
+        { text = "Some of your people don't want us there, then.", next = "why_slow" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -447,6 +808,166 @@ P:NPC {
     boat = {
       lines = {
         { id = "bo_default", text = "It arrives often, and does not wait long, so stay near the end of the pier. If you miss it, there is always the next one, and the harbor is a pleasant place to wait." },
+      },
+      choices = {
+        { text = "Is the crossing a rough one?", next = "boat_crossing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    auberdine_who = {
+      lines = {
+        { id = "aw_default", text = "Gershala Nightwhisper, who studies the corruption, and the Sentinels at the watch, and Caylais Moonfeather, who keeps the hippogryphs if you would fly south to Ashenvale. Gershala's brother Argos waits here in the city's Park, I am told, so carry his greetings if you go." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    furbolg = {
+      lines = {
+        { id = "fu_default", text = "Something sickens them, the Blackwood tribe most of all, and a people who once traded honey and furs with us now fall on anyone who walks the road. It grieves the druids, who remember the furbolgs as friends.", fx = { learn = { "furbolgs" } } },
+      },
+      choices = {
+        { text = "They can still be saved. Someone should find the cause.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they attack travellers, they must be put down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    auberdine_sea = {
+      lines = {
+        { id = "se_default", text = "Great beasts of the deep, dead on the sand with no wound anyone can find, and murlocs along every beach, and now and then a piece of something carved that is older than Auberdine. The sea remembers more than we would like." },
+      },
+      choices = {
+        { text = "Older than Auberdine? From before the Sundering?", next = "sundering" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sundering = {
+      lines = {
+        { id = "su_default", text = "From when the Well of Eternity tore itself apart ten thousand years ago and took our old capital down with it. Some of my people speak of it as a punishment for the Highborne's pride, some as a warning, and a few, still, as a wound.", fx = { learn = { "highborne" } } },
+      },
+      choices = {
+        { text = "Power like that should never be trusted again.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Power isn't evil. Only those who misused it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    city_humans = {
+      lines = {
+        { id = "chu_default", text = "That they do so much in so short a life, and that they laugh at funerals. I attended one here, by invitation, and the widow told a story about her husband that made the whole room laugh, and I have thought about it ever since." },
+      },
+      choices = {
+        { text = "Laughing is how we bear it.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    why_slow = {
+      lines = {
+        { id = "ws_default", text = "Some of our elders believe the kaldorei should keep to our forests and trust no one who builds in stone, after what the Highborne built. They are not wrong to be wary, but I think they mistake wariness for wisdom." },
+      },
+      choices = {
+        { text = "Your elders are right to be careful with outsiders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hiding in the forest won't keep the world out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    boat_crossing = {
+      lines = {
+        { id = "bc_default", text = "Long and grey, and rough at the turning of the seasons, for the crew keep well wide of the Maelstrom, where the sea still churns from the Sundering. Bring something warm, and do not lean over the rail at night to look for lights in the water." },
+      },
+      choices = {
+        { text = "Lights in the water?", next = "sundering" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    self = {
+      lines = {
+        { id = "sf_default", text = "I asked for it, which surprised my family. I wanted to understand the people who stood beside us at Mount Hyjal against the Legion, and Stormwind seemed the place to begin." },
+      },
+      choices = {
+        { text = "Have you found what you were looking for?", next = "self_found" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    self_found = {
+      lines = {
+        { id = "sff_default", text = "Some of it. Humans are brave the way a spark is bright, briefly and all at once, and whatever they touch catches; I have not yet decided whether that is a gift or a danger." },
+      },
+      choices = {
+        { text = "A gift. A spark is how every fire starts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A danger. Sparks burn down forests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xwatch = {
+      lines = {
+        { id = "xw_default", text = "Then you know its harbor better than I do, and you may correct me if I describe it wrongly to the humans. Tell me, does the old sentinel on the north tower still sing to the moon each night?" },
+      },
+      choices = {
+        { text = "She does, and still badly.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Not anymore. The watch has changed.", next = "BACK" },
+      },
+    },
+
+    xsmuggle = {
+      lines = {
+        { id = "xsm_default", text = "I will pretend I did not hear that, since I keep a dock and not a ledger. But the Sentinels have long memories, so if you return, come by the front of the pier, as everyone else does." },
+      },
+      choices = {
+        { text = "I'll keep it honest from now on.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What the Sentinels don't see harms no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xhome = {
+      lines = {
+        { id = "xh_default", text = "Every evening, when the moon rises over stone instead of leaves. But I have learned to find her face in the harbor water, between the ships, and most nights that is enough.", fx = { learn = { "elune" } } },
+      },
+      choices = {
+        { text = "Elune shines on stone as well as leaves.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xhuman = {
+      lines = {
+        { id = "xhu_default", text = "Welcome, yes, though you may find it quiet, and the Sentinels will watch you closely until they decide you mean no harm to the trees. Speak softly, cut nothing that grows, and you will be well received." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "Your Explorers' League already digs among our old ruins along the coast, and argues with the Sentinels about what may be carried off. If you go, perhaps you can remind them that some things are better left where they were buried." },
+      },
+      choices = {
+        { text = "Knowledge belongs to whoever digs it up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "It's your land. The kaldorei should decide what leaves it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xhunter = {
+      lines = {
+        { id = "xhn_default", text = "Moonstalkers in the hills and thistle bears in the forest, though many of the bears are sick and savage now. Take only what you need, {class}, because the forest is hurting enough already." },
+      },
+      choices = {
+        { text = "I always do.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xpriest = {
+      lines = {
+        { id = "xpr_default", text = "The Sisterhood of Elune welcomes any who honour the Mother Moon, though I think they would find your Light a curious thing. Ask at the Temple of the Moon in Darnassus, and go with questions rather than answers.", fx = { learn = { "sisterhood_of_elune" } } },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -512,6 +1033,14 @@ P:NPC {
         { text = "Where do you get your books?", next = "books" },
         { text = "What's this errand?", next = "errand", when = { questBefore = TODO_QUEST("Reading Room") } },
         { text = "About your errand.", next = "BUSINESS", when = { any = { { questBefore = TODO_QUEST("Reading Room") }, { questActive = TODO_QUEST("Shelf Picked") } } } },
+        { text = "Your wife sounds like a patient woman.", next = "wife" },
+        { text = "What do you do, when you're not reading?", next = "work" },
+        { text = "The Mage Quarter has libraries. Have you tried there?", next = "xmage", when = { any = { { class = "MAGE" }, { origin = "human_mage_quarter" } } } },
+        { text = "I learned my letters at Northshire Abbey.", next = "xabbey", when = { origin = "human_abbey_novice" } },
+        { text = "Gnomeregan had banned books. I read a few.", next = "xgnome", when = { origin = "gnome_forbidden_texts" } },
+        { text = "My family keeps a library. A large one.", next = "xnoble", when = { origin = "human_minor_noble" } },
+        { text = "I read some unusual books myself.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is the reading room what you hoped?", next = "after", when = { questDone = TODO_QUEST("Shelf Picked") } },
         { text = "Enjoy your book, Roy.", next = "END" },
       },
     },
@@ -533,6 +1062,8 @@ P:NPC {
       },
       choices = {
         { text = "What else do you read?", next = "reading_else" },
+        { text = "Who wrote this history of yours?", next = "reading_author" },
+        { text = "He's rude about dwarves? What does he say?", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -541,6 +1072,7 @@ P:NPC {
         { id = "re_default", text = "Anything with words in it! Histories, travels, a dreadful romance about a knight and a dragon. I'll read the labels on the jars at Pestle's shop if I've nothing else." },
       },
       choices = {
+        { text = "A knight and a dragon? Go on.", next = "romance" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -559,6 +1091,7 @@ P:NPC {
         { id = "pe_default", text = "Now and then. The druid who teaches here, Sheldras, once told me a story about the trees in his homeland that took him most of an afternoon. I've never been happier." },
       },
       choices = {
+        { text = "What was the story about?", next = "park_story" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -578,6 +1111,7 @@ P:NPC {
         { id = "bf_default", text = "Well, I suppose there's something to be said for both. Old Milton Sheaf up at the Royal Library would rather die than lend a book, but he'd also die before he let one come to harm." },
       },
       choices = {
+        { text = "You've met Milton Sheaf, then?", next = "milton" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -588,6 +1122,170 @@ P:NPC {
       },
       choices = {
         { text = "I'll help.", next = "BUSINESS" },
+        { text = "Why can't you manage it alone?", next = "errand_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    errand_why = {
+      lines = {
+        { id = "ew_default", text = "Because I'm a clerk, and anything that needs doing away from a desk frightens the life out of me. I tried once, and walked round the Trade District three times, and came home without having asked anyone anything." },
+      },
+      choices = {
+        { text = "Then I'll do the asking.", next = "BUSINESS", when = { questBefore = TODO_QUEST("Reading Room") } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    wife = {
+      lines = {
+        { id = "wf_default", text = "The most patient woman in Stormwind, and she reads the last page of every book first, which I have never quite forgiven. She says I'd have married a book if it could cook, and I tell her I married her because she reads aloud better than anyone alive." },
+      },
+      choices = {
+        { text = "She reads the ending first? That's a crime.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Reading the ending first spares a lot of worry.", next = "BACK", fx = { trait = { practical = 1 } } },
+      },
+    },
+
+    work = {
+      lines = {
+        { id = "wk_default", text = "I'm a clerk for a grain merchant in the Trade District, copying out bills of sale, which is reading of a sort, though nobody's ever wept over a bill of sale. Well, the merchant has, once or twice, around tax time." },
+      },
+      choices = {
+        { text = "Do you like the work?", next = "work_like" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    work_like = {
+      lines = {
+        { id = "wl_default", text = "I like that it finishes at four bells and leaves me the rest of the light. The merchant says I've a fine hand and no ambition, and he's right on both counts, and I sleep very well." },
+      },
+      choices = {
+        { text = "Honest work is worth doing, even dull work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Life's too short to copy other men's ledgers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    reading_author = {
+      lines = {
+        { id = "ra_default", text = "A captain from Lordaeron who rode with the Alliance through Khaz Modan, and he signs himself only as a soldier of King Terenas. He spends a whole chapter complaining about dwarven ale and another praising his horse, Buttercup.", fx = { learn = { "second_war" } } },
+      },
+      choices = {
+        { text = "An honest man signs his own name.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "He was wise. Truth travels safer without a name.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Buttercup?", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "That dwarves fight like badgers and drink like drains, and that they saved his life in the passes of Khaz Modan, which he admits through gritted teeth on page three hundred. I think he liked you all very much and simply couldn't bear to say so." },
+      },
+      choices = {
+        { text = "That sounds about right, aye.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    romance = {
+      lines = {
+        { id = "ro_default", text = "Sir Somebody rides out to slay a red dragon, and the dragon turns out to be the only sensible character in the book, and by chapter twenty I didn't know who to root for. Don't tell my wife I enjoyed it; she thinks I only read improving books." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    park_story = {
+      lines = {
+        { id = "ps_default", text = "A tree in Ashenvale that grew round a sword someone had left leaning against it, until the blade was in the heart of the trunk and the tree stood taller than the Cathedral. He said the tree didn't mind, which I think was the point, though I'm still not entirely sure what the point was." },
+      },
+      choices = {
+        { text = "The point is that time heals what war leaves behind.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The point is the sword's still in there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    milton = {
+      lines = {
+        { id = "mi_default", text = "The Royal Librarian, in the Keep, a man with a voice like a door closing. I once asked whether I might read there on my half-days, and he looked at my boots for so long that I went home and cleaned them." },
+      },
+      choices = {
+        { text = "Did he let you in, after?", next = "milton_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    milton_after = {
+      lines = {
+        { id = "ma_default", text = "Twice, under supervision, and he stood behind my chair the whole time, breathing. It was the best afternoon of my life and the most frightening, both at once." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xmage = {
+      lines = {
+        { id = "xm_default", text = "I have, and a very polite apprentice told me the books there bite, and I've never been sure if he was joking. Do they, {class}? You can tell me; I'm braver than I look, though not by much." },
+      },
+      choices = {
+        { text = "Some of them do. Really.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "No. He was teasing you.", next = "BACK", fx = { trait = { honest = 1 } } },
+      },
+    },
+
+    xabbey = {
+      lines = {
+        { id = "xa_default", text = "Did you? The brothers there copy the most beautiful books, all gold leaf in the margins. I walked out to Northshire once just to see the scriptorium, and Brother Neals gave me a cup of something and the worst directions home I've ever had." },
+      },
+      choices = {
+        { text = "That sounds like Brother Neals.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "Banned? Oh, I'd have given my right arm to see Gnomeregan's libraries before what happened there. What were they banned for, if you don't mind my asking, and were they any good?" },
+      },
+      choices = {
+        { text = "Some knowledge is dangerous. Banning them was right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Nothing should be banned. Readers can judge for themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They were very good. That was the trouble.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    xnoble = {
+      lines = {
+        { id = "xn_default", text = "Has it? I don't suppose... no, I shouldn't ask. Well, if your family ever wanted someone to dust the shelves for nothing but the chance to read them, I'd come with my own rag." },
+      },
+      choices = {
+        { text = "I'll ask them. Books should be read.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A family's library isn't for strangers, I'm afraid.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xlock = {
+      lines = {
+        { id = "xl_default", text = "Do you? I've an idea what sort, and I'll not ask, because I'd want to read them and then I'd regret it. My wife says curiosity is a door, and I should mind which side of it I'm standing on." },
+      },
+      choices = {
+        { text = "There are no wicked books. Only timid readers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your wife's right. Some books should stay shut.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    after = {
+      lines = {
+        { id = "af_default", text = "Better than I hoped, and nobody's moved a thing since. I sit there an hour after work and read until the lamps want lighting, and I'm a happier man than I was." },
+      },
+      choices = {
+        { text = "Then it was worth it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -641,6 +1339,14 @@ P:NPC {
         { text = "Who are these statues?", next = "statues" },
         { text = "Why does a druid care about statues?", next = "why" },
         { text = "What do you think of Stormwind?", next = "city" },
+        { text = "What is the Cenarion Circle?", next = "circle" },
+        { text = "We make statues because we have so little time.", next = "xhuman", when = { race = "Human" } },
+        { text = "Kurdran Wildhammer was lord of my clan.", next = "xwildhammer", when = { origin = "dwarf_wildhammer_kin" } },
+        { text = "I'm a druid too. Which forms do you favour?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I was an initiate in Shadowglen, under Mardant.", next = "xinitiate", when = { origin = "nightelf_druid_initiate" } },
+        { text = "My kin still sleep in the Dream.", next = "xdreamer", when = { origin = "nightelf_dreamer_kin" } },
+        { text = "Turalyon was a paladin. So am I.", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "Khadgar was a mage. So am I.", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell, Aendaril.", next = "END" },
       },
     },
@@ -651,6 +1357,10 @@ P:NPC {
       },
       choices = {
         { text = "Do you think they're dead?", next = "statues_dead" },
+        { text = "Tell me about Turalyon.", next = "st_turalyon" },
+        { text = "Tell me about Khadgar.", next = "st_khadgar" },
+        { text = "And the dwarf, and the other man?", next = "st_others" },
+        { text = "An elf among them? Alleria?", next = "st_alleria" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -659,6 +1369,7 @@ P:NPC {
         { id = "sd_default", text = "I do not know. My teachers slept for centuries in the Emerald Dream while the world went on without them, so I have learned not to call anyone dead until I see the grave." },
       },
       choices = {
+        { text = "Your teachers slept in the Dream?", next = "dream" },
         { text = "Hope keeps the living going. Keep hoping.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Better to mourn them and move on.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -670,6 +1381,7 @@ P:NPC {
         { id = "wy_default", text = "Because memory is a kind of growth. The kaldorei remember everything, and we are slow to change because of it. Humans forget quickly, and so they build, and I want to understand which of us is wiser." },
       },
       choices = {
+        { text = "Which do you think is wiser?", next = "why_wiser" },
         { text = "Remembering everything keeps you trapped.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Memory keeps a people from repeating mistakes.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -681,6 +1393,183 @@ P:NPC {
         { id = "ci_default", text = "Loud and young and very busy, like a sapling that has not yet learned it will be a tree. There is a Park with trees in it, which is kind, but the earth under the stones is restless." },
       },
       choices = {
+        { text = "Restless? How so?", next = "city_earth" },
+        { text = "Do you spend much time in the Park?", next = "city_park" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    st_turalyon = {
+      lines = {
+        { id = "stt_default", text = "A paladin of Lordaeron, who led the Alliance after Lothar fell, and then led it through the Dark Portal to end the orcs' war at its root. I have noticed that the humans who pass bow their heads at this statue more often than at the others.", fx = { learn = { "dark_portal" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    st_khadgar = {
+      lines = {
+        { id = "stk_default", text = "The young mage who served Medivh, the Guardian, and helped bring him down when the Guardian's mind was no longer his own. The stories call him young, yet the carver has made him old, and no one here has been able to tell me why.", fx = { learn = { "khadgar" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    st_others = {
+      lines = {
+        { id = "sto_default", text = "Kurdran Wildhammer, who flew a gryphon into the orcs' own skies, and Danath Trollbane of Stromgarde, who led that kingdom's soldiers through the Portal. Two peoples who rarely agree on anything, side by side in stone, which may be the wisest thing in this valley.", fx = { learn = { "wildhammer" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    st_alleria = {
+      lines = {
+        { id = "sta_default", text = "A ranger of Quel'Thalas, a high elf, and kin to my people ten thousand years removed. The kaldorei do not speak much of the quel'dorei, for we parted badly long ago, but I cannot look at her stone face without feeling something I have no name for.", fx = { learn = { "highborne" } } },
+      },
+      choices = {
+        { text = "Kin is kin. The old quarrel should be let go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your people parted from them for good reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dream = {
+      lines = {
+        { id = "dr_default", text = "The druids slept for centuries in the Emerald Dream, walking in the world as it might have been, while their bodies lay in the barrow dens. Malfurion sleeps there still, and the Circle keeps his body and waits.", fx = { learn = { "emerald_dream", "malfurion" } } },
+      },
+      choices = {
+        { text = "Will he wake?", next = "dream_wake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dream_wake = {
+      lines = {
+        { id = "dw_default", text = "When the world needs him most, they say in Darnassus. I only hope the world does not need him too badly before he hears it calling." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    why_wiser = {
+      lines = {
+        { id = "ww_default", text = "I have not decided, which is why I am still standing here. The kaldorei remembered so well that we let ten thousand years pass without changing, and humans forget so fast that they build new walls where their grandfathers burned." },
+      },
+      choices = {
+        { text = "Change is how a people survives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tradition is how a people stays itself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    city_earth = {
+      lines = {
+        { id = "ce_default", text = "It is old ground, burned once and built over quickly, and it has not forgotten the fire. A druid feels such things the way you feel weather in a healed bone: it is not a danger, only an ache." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    city_park = {
+      lines = {
+        { id = "cp_default", text = "Often, and Sheldras Moontree, who teaches the druids there, and I sometimes sit together and say nothing for an hour. The humans who pass think we are meditating, and we let them think so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    circle = {
+      lines = {
+        { id = "cc_default", text = "The druids who follow Malfurion Stormrage and keep the balance of the wild, from Moonglade to the farthest groves. Most of us are kaldorei, though some of the tauren walk with us too, which surprises those who think the Circle takes sides in your wars.", fx = { learn = { "cenarion_circle" } } },
+      },
+      choices = {
+        { text = "Tauren? The Horde's tauren?", next = "circle_tauren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle_tauren = {
+      lines = {
+        { id = "ct_default", text = "Yes, the Horde's tauren, and some of them are wiser than I am. The wild wears no tabard, and the Circle tries not to wear one either, though that is harder to keep to than it sounds." },
+      },
+      choices = {
+        { text = "The Alliance must come first, even for druids.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wild matters more than any banner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xhuman = {
+      lines = {
+        { id = "xh_default", text = "Perhaps that is it. A tree takes a hundred years to remember anything, and you have not got a hundred years, so you carve your memory into stone and hope it holds." },
+      },
+      choices = {
+        { text = "Stone or tree, remembering them is what matters.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Statues are for the living. The dead don't care.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xwildhammer = {
+      lines = {
+        { id = "xwh_default", text = "Then you have a better claim to grieve here than I do. Tell me, do the Wildhammer carve statues of their dead, or do they remember them some other way?" },
+      },
+      choices = {
+        { text = "We sing of them over ale in Aerie Peak.", next = "BACK", fx = { affinity = 1 } },
+        { text = "We don't call him dead. Not yet.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+
+    xdruid = {
+      lines = {
+        { id = "xdr_default", text = "The bear, when I must, and the cat when I wish to be left alone, which in Stormwind is often. The guards do not know what to make of a nightsaber walking through the Trade District, so I have stopped doing it." },
+      },
+      choices = {
+        { text = "Let them stare. We are what we are.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Better to respect their customs while we're here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xinitiate = {
+      lines = {
+        { id = "xi_default", text = "Mardant Strongoak is a patient teacher, and you must have tried that patience, if you were anything like I was. I learned under him too, long before your time, and I still hear his voice whenever I lose my temper." },
+      },
+      choices = {
+        { text = "He still says the same things, I expect.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xdreamer = {
+      lines = {
+        { id = "xdm_default", text = "Then you know the waiting better than these humans know their statues. Do you still visit the barrow dens, or have you stopped?" },
+      },
+      choices = {
+        { text = "I still visit, when I'm home.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I've stopped. It hurts too much.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+
+    xpaladin = {
+      lines = {
+        { id = "xpa_default", text = "Then perhaps you can tell me what he would make of all this stone. Would he be pleased to see his face here, or embarrassed, the way the humble ones always seem to be?" },
+      },
+      choices = {
+        { text = "Embarrassed. A true paladin seeks no glory.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pleased. Heroes should be remembered loudly, to inspire others.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "So I am told. My people distrust the arcane, after what it did to us at the Well of Eternity, so I stand longest at his statue, trying to understand a mage that humans call a hero." },
+      },
+      choices = {
+        { text = "Magic is a tool. It's only as good as its wielder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your people are right to fear it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -733,6 +1622,16 @@ P:NPC {
         { text = "How does it work?", next = "how" },
         { text = "Why would anyone want this?", next = "why" },
         { text = "What brings you to Stormwind?", next = "here" },
+        { text = "Where did a kaldorei learn a craft like this?", next = "teacher" },
+        { text = "I need discretion more than style.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "My armour's dented. Can you hide that?", next = "xplate", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Can a priest's robes be glamoured?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "You know I could do this myself, with a spell.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does the glamour survive shapeshifting?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Could you glamour my pet?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "I'm not wearing much. Can you work with it?", next = "xnaked", when = { nearlyNaked = true } },
+        { text = "My family's tailors would hate you.", next = "xnoble", when = { origin = "human_minor_noble" } },
+        { text = "Our people would call this frivolous.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I'd like to change my look.", next = "BUSINESS" },
         { text = "Not today.", next = "END" },
       },
@@ -744,6 +1643,7 @@ P:NPC {
       },
       choices = {
         { text = "It's a kind of lie, then.", next = "how_lie" },
+        { text = "Can anything be made to look like anything?", next = "how_limits" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -763,6 +1663,8 @@ P:NPC {
         { id = "wy_default", text = "Because adventurers wear whatever they last pulled off a dead ogre, and most of it clashes terribly. Some want to look like a hero they admire, and some just want to stop being laughed at in the tavern." },
       },
       choices = {
+        { text = "What do most people ask for?", next = "why_asks" },
+        { text = "What's the strangest thing anyone's asked for?", next = "why_strange" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -772,6 +1674,175 @@ P:NPC {
         { id = "hr_default", text = "There are more adventurers in this city than in all of Darnassus, and more of them badly dressed. A weaver goes where the work is." },
       },
       choices = {
+        { text = "Do you miss Darnassus?", next = "here_miss" },
+        { text = "How do the humans treat you?", next = "here_humans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    how_limits = {
+      lines = {
+        { id = "hli_default", text = "Only like over like: a robe over a robe, a blade over a blade of the same kind, and nothing over a shield that was never a shield. The weave remembers the shape beneath it, and if I stretch it too far it tears like old silk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    teacher = {
+      lines = {
+        { id = "le_default", text = "From a teacher in Darnassus who learned it from her own teacher, who learned it, she always said, by watching the court of Queen Azshara from the servants' stair. The Highborne wore glamours the way others wear perfume, and only the smallest, safest corner of that art survived.", fx = { learn = { "queen_azshara" } } },
+      },
+      choices = {
+        { text = "Is that allowed, in Darnassus?", next = "teacher_law" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teacher_law = {
+      lines = {
+        { id = "ll_default", text = "I call it a weaving, not a spell, and I touch nothing that the old law forbids, which the Sentinels accept and the priestesses do not. It is one of the reasons I find Stormwind's air agrees with me." },
+      },
+      choices = {
+        { text = "If it harms no one, the law shouldn't touch it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your people's law exists for good reason. Be careful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    why_asks = {
+      lines = {
+        { id = "wa_default", text = "Warriors want to look like their captains, mages want to look like their teachers, and paladins want to look like Uther, every one of them, in white and gold with a hammer. I have made a great many Uthers." },
+      },
+      choices = {
+        { text = "And the rogues?", next = "why_rogues" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_rogues = {
+      lines = {
+        { id = "wr_default", text = "The rogues want to look like nothing at all, which is the hardest look there is: black on black, and no buckle that catches the light. They pay promptly, too, which I appreciate more than I can say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_strange = {
+      lines = {
+        { id = "wst_default", text = "A dwarf who wanted his plate to look like a dress, a fine blue one with lace at the collar, for his wife's birthday. I asked no questions, and he wore it home very proudly, and I hear she laughed for a week." },
+      },
+      choices = {
+        { text = "That's the best thing I've heard all day.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    here_miss = {
+      lines = {
+        { id = "hm_default", text = "I miss the quiet, and I miss being the strange one only now and then instead of all day long. But in Darnassus everyone wears the same green and silver, so a weaver there is a little like a singer in a house of the deaf." },
+      },
+      choices = {
+        { text = "Your people could stand to dress more boldly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "There's a beauty in a people who dress alike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    here_humans = {
+      lines = {
+        { id = "hh_default", text = "Politely, and with enormous curiosity, and one of the guards once asked whether I was a witch. I told him yes, and that he would wake up wearing a pink tabard, and he has been very polite ever since." },
+      },
+      choices = {
+        { text = "Remind me never to annoy you.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xrogue = {
+      lines = {
+        { id = "xr_default", text = "Of course. I do not ask what you are hiding from, and I do not remember the faces I dress, which is a lie but a comforting one. Only do not come back next week looking like the drawing on a wanted poster." },
+      },
+      choices = {
+        { text = "I won't use it to fool anyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A new look is a rogue's best tool.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xplate = {
+      lines = {
+        { id = "xp_default", text = "I could, but I would rather not. A dent is a story, {class}, and some of the best-dressed warriors I know keep theirs on purpose." },
+      },
+      choices = {
+        { text = "Let them see the dents. I earned every one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Hide them. Nobody needs to see where I was hit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xpriest = {
+      lines = {
+        { id = "xpr_default", text = "Robes are the easiest of all, and priests the hardest customers, because every one of them insists they do not care how they look and then asks for gold trim on the hem." },
+      },
+      choices = {
+        { text = "Just a little gold trim.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I truly don't care how I look.", next = "BACK" },
+      },
+    },
+
+    xmage = {
+      lines = {
+        { id = "xm_default", text = "You could try, and many of your kind have, and they come to me afterwards with robes that flicker like a candle in a draught. A glamour wants patience more than power, which is why mages are so bad at it." },
+      },
+      choices = {
+        { text = "That's fair. I'll leave it to you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll get it right eventually.", next = "BACK", fx = { trait = { proud = 1 } } },
+      },
+    },
+
+    xdruid = {
+      lines = {
+        { id = "xd_default", text = "It sleeps while you wear the bear or the cat, and wakes when you return, the way a cloak waits on its hook. One druid asked me to glamour her bear, and I told her the forest had already done better work than I ever could." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xhunter = {
+      lines = {
+        { id = "xh_default", text = "No, and please do not ask again, because the last hunter who asked brought me a wolf that ate a whole bolt of silk. Your companion is beautiful exactly as it is, and it would tell you so if it could." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xnaked = {
+      lines = {
+        { id = "xn_default", text = "I can glamour a belt and a pair of boots, which is not what anyone would call an outfit. Go and buy a shirt, {class}, and come back when there is a canvas." },
+      },
+      choices = {
+        { text = "Fair. I'll be back.", next = "END" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xnoble = {
+      lines = {
+        { id = "xno_default", text = "Your family's tailors have already been to see me, twice, to ask how it is done and to complain that I have stolen their customers. I have, and I sleep very well." },
+      },
+      choices = {
+        { text = "Good. They overcharge terribly.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xnelf = {
+      lines = {
+        { id = "xne_default", text = "Our people call everything since the Sundering frivolous, {g:brother|sister}, and yet even Tyrande's Sentinels polish their glaives until they shine. Beauty is not vanity, if it is done with care." },
+      },
+      choices = {
+        { text = "The old ways keep us humble. Don't forget them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We spent too long hiding from beauty.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

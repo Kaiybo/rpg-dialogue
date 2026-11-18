@@ -32,6 +32,7 @@ local function create()
   frame.edit = CreateFrame("EditBox", nil, frame.scroll)
   frame.edit:SetFontObject("ChatFontNormal")   -- an EditBox needs a font before any text
   frame.edit:SetMultiLine(true)
+  frame.edit:SetMaxLetters(0)
   frame.edit:SetAutoFocus(false)
   frame.edit:SetWidth(400)
   frame.edit:SetFontObject(GameFontHighlightSmall)
@@ -90,7 +91,13 @@ function X.Show(m)
   Theme.TextColor(frame.title, game and "title" or "name")
   Theme.SetFont(frame.hint, "body", 12)
   Theme.TextColor(frame.hint, "text")
-  if m == "export" then
+  if m == "sheet" then
+    frame.title:SetText(L.SHEET_TITLE)
+    frame.hint:SetText(L.SHEET_HINT)
+    frame.edit:SetText(ns.Export.Sheet())
+    frame.edit:HighlightText()
+    frame.edit:SetFocus()
+  elseif m == "export" then
     frame.title:SetText(L.EXPORT_TITLE)
     frame.hint:SetText(L.EXPORT_HINT)
     frame.edit:SetText(ns.Export.Build())

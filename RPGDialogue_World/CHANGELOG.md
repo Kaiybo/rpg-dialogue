@@ -2,6 +2,15 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.37.0 (2026-11-18)
+- Speak your mind: views (things you can say back) for every "Ask about" topic, plus the "ask anyone" topics and a fallback set (`views.lua`, `views_1.lua` to `views_5.lua`). New files: restart the game fully (a /reload won't load them).
+- Paladin trainers have a lot more to say:
+- Ask what to practise and get a whole lesson: blessings, seals and judgement, auras, the undead, Redemption (level 12+) and the warhorse (level 30+).
+- Ask what's left of the Silver Hand: Uther and his tomb, how Arthas fell, the Scarlet Crusade, the Argent Dawn, and (Forsaken) whether the living knights will have you, pointing to Bandarion Keep.
+- The trainer asks why you took up the hammer: protection, justice, vengeance or bread, each a stance.
+- Replies for each paladin origin (a squire who never took the oath can swear it now), plus branches for priests and for other classes curious about the Light.
+- New greetings and notices (a female squire, late at night, fresh from the spirit healer, many deaths, Scarlet blood on your gauntlets) and answers on the Silver Hand, the Scarlets, the Argent Dawn, Stratholme, the Forsaken and the Tome of Divinity.
+
 ## 1.36.1 (2026-11-17)
 - Pools answer the 52 new "Ask about" topics: role pools for everyone, town pools for local takes, neutral goblin answers in Booty Bay, Gadgetzan, Ratchet and Everlook. Adds the 52 new topics (the Scourge, the Forsaken, Thrall, Sylvanas, Onyxia, Booty Bay, Dalaran, the Holy Light and more).
 - Twelve new Stories (journal: Stories page): the Echo Isles, Zul'Gurub, the Hinterlands, Felwood, the Winterfall, Teldrassil and Darkshore, Gnomeregan, the Dark Portal, the Blackrock over Redridge, Gadgetzan's water, Desolace's clans and Feralas. New files: restart the game fully (a /reload won't load them).

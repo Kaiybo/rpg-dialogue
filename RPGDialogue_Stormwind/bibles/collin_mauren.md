@@ -23,7 +23,7 @@ Never says: anything from later expansions
 Small, honest spells.
 
 ## Secrets
-Authored, not canon: his "ask where your power comes from" principle; he has never been to Stonetalon himself.
+Authored, not canon: his "ask where your power comes from" principle; he has never been to Stonetalon himself. How he met Gaxim (a reagent-sorting device); he gave Gaxim a wind-carried messaging spell rather than a fuse and keeps it from the Keep; three theories of the Charred Vale fire; one season at Dalaran, the Academy before it; failed reagents (Duskwood fog, murloc scales, kobold candle wax, Redridge chimney ash); basilisk-stained fingers; seasick to Auberdine; a Mage Quarter child who threw pebbles at his wards.
 
 ## Reliability
 Honest.

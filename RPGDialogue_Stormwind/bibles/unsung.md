@@ -36,6 +36,10 @@ Keys: olivia_burnside, newton_burnside, john_burnside, auctioneer_chilton, aucti
 ## Authored, not canon
 - The bank: a would-be thief last winter in the Stockade; nobles keep the largest boxes; stonemasons closed their accounts; unclaimed boxes sealed a year, then to the crown; John's grandfather carried the ledgers out when the city was sacked.
 - Chilton started as a clerk; Fitch was a scribe in the House of Nobles; Jaxon's old soldier who bids a silver and a copper.
+- Fitch (expanded): saw the stonemasons' debts struck through in the House's ledgers and kept quiet (his guilt); forty-one volumes since the hall reopened, the finished ones in a Burnside box at the bank; the knocking Duskwood jar; Defias loot sold through the hall; a share of the cut to the crown; notes Gnomeregan refugees' lots.
+- Kyra (expanded): Morgan Pestle quiet, hates the cat in the mandrake; Kyra's copper-free tease about Keldric; reads trades by smell (thunderstorm, candle wax, cut grass); watches refugees from the door and keeps hand-drawn maps to the Cathedral; runes scarcer since Dalaran fell; the dwarf with arcane powder in his beard; a portal into the Canals.
+- Gerik (expanded): his father's forge on the street before the First War; Second War pike line in Hillsbrad, shield split by an orc axe (why he dislikes shields); a dwarven blue-steel claymore nobody can lift; a one-armed soldier who sold back his sword; halberds sold to the barracks; the quiet building round the corner (SI:7, never named).
+- Jillian (expanded): her mother sold hides in Elwynn markets and was haggled to nothing (why she won't haggle); a jar of coppers for every Simon guess; two years in a canal tannery; salt from the coast past Westfall, one cart in three arrives; black dye outsells all.
 - Aldwin's Lordaeron refugee crest (white tower on grey); he was a herald's clerk.
 - Woo Ping once trained the city's recruits; his weapon list (swords, staves, daggers, polearms, crossbows) and "axes, maces, guns in Ironforge, bows in Darnassus" are from memory of Classic.
 - Keldric studied alchemy; Ironforge glass. Kyra calls Keldric "kin" (shared name only).

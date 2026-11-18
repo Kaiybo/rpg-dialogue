@@ -43,6 +43,7 @@ L.HELP_LINES = {
   "errands - errands you've taken",
   "insanity <0-100> - set the insanity level (testing)",
   "export | import - save or restore this character's story as text",
+  "sheet - your whole character (stats, gear, talents, skills, reputation, journal) as text to copy",
   "dev on|off - developer messages",
   "reset - wipe this character's RPG Dialogue memory (asks first)",
 }
@@ -347,6 +348,9 @@ L.ERRANDS_NONE = "No errands."
 -- Export / import
 L.EXPORT_TITLE = "Export your story"
 L.EXPORT_HINT = "Press Ctrl+C to copy. Keep it somewhere safe; /rpgd import restores it."
+L.SHEET_TITLE = "Character sheet"
+L.SHEET_HINT = "Everything about this character as plain text. Press Ctrl+C to copy. (Read-only: /rpgd export makes a restorable save.)"
+L.J_EXPORT_SHEET = "Export sheet"
 L.IMPORT_TITLE = "Import a story"
 L.IMPORT_HINT = "Paste an export string (Ctrl+V), then Check. Nothing changes until you confirm."
 L.IMPORT_CHECK = "Check"
@@ -465,12 +469,17 @@ L.HISTORY_TITLE = "This conversation"
 L.HISTORY_EMPTY = "Nothing said yet."
 L.HISTORY_ASKED = "You asked about %s."
 L.OPT_ECHO = "Show what you said above their answer"
+L.OPT_VIEWS = "Say what you think after they answer a question"
 L.OPT_RESET_POS_LABEL = "Conversation box position"
 L.OPT_RESET_POS = "Reset to default"
 L.QUICK_FONT_TEXT = "Text font"
 L.QUICK_FONT_NAME = "Name font"
 L.QUICK_MORE = "Everything else: /rpgd settings"
 L.OPT_TEXT_SIZE = "Text size"
+L.OPT_LARGE_BOX = "Large dialogue box (bigger box and text, easier to read)"
+L.QUICK_BOX = "Box size"
+L.BOX_NORMAL = "Normal"
+L.BOX_LARGE = "Large"
 L.OPT_SPACING = "Line spacing"
 L.OPT_FONT_TEXT = "Font for what people say"
 L.OPT_FONT_NAME = "Font for names"

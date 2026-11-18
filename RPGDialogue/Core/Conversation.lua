@@ -640,13 +640,49 @@ local function choiceLabel(entry)
   return text
 end
 
-function Conv.ShowNode(nodeId)
+-- A reply's own answer from the NPC (choice.reply, 0.82.0): a string, or a list of
+-- { text, when } where the first whose conditions pass is said.
+function Conv.ReplyText(choice, ctx, env)
+  local r = choice and choice.reply
+  if type(r) == "string" then return Tokens.Render(r, ctx, env) end
+  if type(r) == "table" then
+    for _, line in ipairs(r) do
+      if type(line) == "table" and line.text and (not line.when or Cond.Eval(line.when, ctx, env)) then
+        return Tokens.Render(line.text, ctx, env, line.when)
+      end
+    end
+  end
+  return nil
+end
+
+-- The NPC answers a reply that ends the visit: their answer, then a single farewell.
+function Conv.ShowReplyEnd(text)
+  local s = Conv.session
+  if not s then return end
+  local info = s.info
+  local linked = Conv.Hear(text)
+  Conv.Log("npc", text)
+  local said = s.said
+  s.said = nil
+  s.choiceEntries = { { choice = { text = L.FAREWELL, next = "END" } } }
+  present(s, {
+    name = info.name, subtitle = info.subtitle, unit = s.unit,
+    text = text, linkedText = linked, choices = { { text = L.FAREWELL } },
+    said = (ns.db.settings.echoReply ~= false) and said or nil,
+    canAsk = ns.Topics and ns.Topics.Any(), askCount = ns.Topics and ns.Topics.Count(),
+    disposition = Conv.DispositionView(s),
+  })
+  if ns.db.settings.tts then Conv.Speak(s, text) end
+end
+
+function Conv.ShowNode(nodeId, reply)
   local s = Conv.session
   if not s then return end
   local info, ctx, env = s.info, s.ctx, s.env
   local node = Conv.Node(info, nodeId, ctx)
   s.node = nodeId
   s.nodeDef = node
+  s.viewTopic = nil
   s.visited = s.visited or {}
   local returning = s.visited[nodeId]
   s.visited[nodeId] = true
@@ -660,12 +696,15 @@ function Conv.ShowNode(nodeId)
 
   local winner
   -- A rotating node (a story told, a question asked) draws a fresh line every visit.
-  if returning and not node.rotating then
+  if reply and returning then
+    winner = nil   -- their answer to your reply stands in for the "anything else?" line
+  elseif returning and not node.rotating then
     winner = Engine.PickAgain(info, nodeId, ctx, env)
   else
     winner = Engine.PickLine(info, nodeId, ctx, env, node.big)
   end
   local main = winner and Tokens.Render(winner.line.text, ctx, env, winner.line.when) or L.FALLBACK_LINE
+  if reply then main = winner and (reply .. "\n\n" .. main) or reply end
   Conv.Shown(winner)
   s.lastLine = winner and winner.gid or s.lastLine
 
@@ -741,6 +780,12 @@ function Conv.BuildChoices(node, isStart)
   local s = Conv.session
   local ctx, env = s.ctx, s.env
   local entries = {}
+  -- Just answered something: what the player can say back comes first (0.82.0).
+  if s.viewTopic then
+    for _, v in ipairs(Engine.ViewsFor(s.info, s.viewTopic, ctx, env)) do
+      entries[#entries + 1] = { choice = v, view = v, topic = s.viewTopic }
+    end
+  end
   if isStart and ns.Errands then
     for _, e in ipairs(ns.Errands.ChoicesFor(s.info, ctx, env)) do
       entries[#entries + 1] = { choice = { text = e.text }, errand = e.errand, action = e.action }
@@ -778,7 +823,7 @@ function Conv.BuildChoices(node, isStart)
       choices[i] = {
         text = Conv.Slur(choiceLabel(entry), ctx.drunk, env.seed + i),
         locked = entry.locked, special = entry.choice and Engine.IsSpecial(entry.choice),
-        explored = entry.explored,
+        explored = entry.explored, view = entry.view and true or nil,
       }
     end
   end
@@ -811,6 +856,7 @@ function Conv.Choose(index)
     View(s).ShowAnswer(L.INSANITY_RESPONSE)
     return
   end
+  if entry.view then Conv.SayView(entry.view, entry.topic); return end
   if entry.action then
     -- An answer on one of the game's pages shown in the box (accept, hand in, reward...).
     if entry.action == "handover" then Conv.HandOver(); return end
@@ -898,13 +944,19 @@ function Conv.Choose(index)
     s.pendingNote = nil
     Conv.Business(choice.text)
   elseif nextId == "BACK" then
-    Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello")
+    Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello", Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
   elseif nextId == nil or nextId == "END" then
-    s.pendingNote = nil
-    Conv.End()
+    local answer = Conv.ReplyText(choice, ctx, env)
+    if answer then
+      Conv.ShowReplyEnd(answer)
+      Conv.ShowPendingNote()
+    else
+      s.pendingNote = nil
+      Conv.End()
+    end
   else
-    Conv.ShowNode(nextId)
+    Conv.ShowNode(nextId, Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
   end
 end
@@ -1043,8 +1095,80 @@ function Conv.Ask(topic)
     s.visited[nextId] = true
     if s.mem then s.mem.nodes = s.mem.nodes or {}; s.mem.nodes[nextId] = true end
     if node.hub then s.hub = nextId end
+    s.viewTopic = nil
     View(s).SetChoices(Conv.BuildChoices(node, false))
+  elseif w and not brushoff and ns.db.settings.views ~= false and s.nodeDef then
+    -- Speak your mind (0.82.0): a few things to say back to what they just told you.
+    s.viewTopic = topic
+    Conv.OfferChoices(s)
+  elseif s.viewTopic and s.nodeDef then
+    s.viewTopic = nil
+    Conv.OfferChoices(s)
   end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- The replies for the current node (plus any views on offer). Inside DialogueUI the topic
+-- list stays open and the views are listed above it.
+function Conv.OfferChoices(s)
+  local choices = Conv.BuildChoices(s.nodeDef, false)
+  local v = View(s)
+  if v.ShowViews then v.ShowViews(choices) else v.SetChoices(choices) end
+end
+
+-- The player says what they think of a topic (0.82.0). A view is a statement, so it may
+-- carry alignment (once per topic with each person, like a stance); the NPC answers it, and
+-- their answer's fx (usually affinity) apply too. The other views on it are gone for good
+-- with this NPC.
+function Conv.SayView(view, topic)
+  local s = Conv.session
+  if not s then return end
+  local env, ctx = s.env, s.ctx
+  local fx = view.fx
+  s.mem.views = s.mem.views or {}
+  local key = "view:" .. topic
+  if type(fx) == "table" and fx.align then
+    local stances = s.mem.stances or {}
+    s.mem.stances = stances
+    if not Engine.IsStance(view) or stances[key] then
+      local copy = {}
+      for k, v in pairs(fx) do if k ~= "align" then copy[k] = v end end
+      fx = copy
+    end
+    if Engine.IsStance(view) then stances[key] = stances[key] or view.text end
+  end
+  s.mem.views[topic] = view.id or view.text
+  local dispBefore = ns.Disposition and ns.Disposition.For(env, ctx)
+  local said = ((view.text or ""):gsub("^%[[^%]]*%]%s*", ""))
+  env.said = said
+  Effects.Apply(fx, env)
+  env.said = nil
+  Effects.Journal(view.journal, ctx, env)
+  Conv.Log("you", said)
+
+  local w = Engine.PickViewReply(s.info, view, ctx, env)
+  local text = L.FALLBACK_LINE
+  local total = {}
+  if type(fx) == "table" then for k, v in pairs(fx) do total[k] = v end end
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, ctx, env, w.line.when)
+    local rfx = w.line.fx
+    if type(rfx) == "table" and rfx.affinity then total.affinity = (total.affinity or 0) + rfx.affinity end
+  end
+  s.pendingNote = Conv.ChoiceNote(view, nil, total, dispBefore)
+  local town = s.info and s.info.communities and s.info.communities[1]
+  local kind = ns.Towns and town and ns.Towns.WordKind(view, nil, total)
+  if kind then ns.Towns.Word(town, kind, s.info, env.now or C.Now()) end
+  local linked = Conv.Hear(text, topic)
+  Conv.Log("npc", text)
+  local tdef = ns.Data.topics[topic]
+  local v = View(s)
+  v.ShowAnswer(text, tdef and tdef.name or topic, linked, ns.db.settings.echoReply ~= false and said or nil)
+  s.viewTopic = nil
+  Conv.OfferChoices(s)
+  Conv.ShowPendingNote()
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 

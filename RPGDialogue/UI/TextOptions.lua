@@ -31,6 +31,12 @@ function T.Step(key, delta)
   apply()
 end
 
+-- The large dialogue box, on or off.
+function T.SetLarge(on)
+  settings().largeBox = on and true or false
+  apply()
+end
+
 -- Fonts: the next or previous one in the same list as the settings panel's.
 function T.CycleFont(key, delta)
   local kind = key == "fontName" and "name" or "body"
@@ -77,7 +83,7 @@ end
 
 local function create(box)
   panel = CreateFrame("Frame", nil, box)
-  panel:SetSize(WIDTH, 12 + 4 * ROW_H + 26)
+  panel:SetSize(WIDTH, 12 + 5 * ROW_H + 26)
   panel:SetFrameLevel(box:GetFrameLevel() + 30)
   panel:EnableMouse(true)
   panel:Hide()
@@ -87,6 +93,7 @@ local function create(box)
     spacing = row(2, L.OPT_SPACING, function() T.Step("lineSpacing", -1) end, function() T.Step("lineSpacing", 1) end, "-", "+"),
     body = row(3, L.QUICK_FONT_TEXT, function() T.CycleFont("fontBody", -1) end, function() T.CycleFont("fontBody", 1) end),
     name = row(4, L.QUICK_FONT_NAME, function() T.CycleFont("fontName", -1) end, function() T.CycleFont("fontName", 1) end),
+    box = row(5, L.QUICK_BOX, function() T.SetLarge(false) end, function() T.SetLarge(true) end, "-", "+"),
   }
   panel.more = panel:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   panel.more:SetPoint("BOTTOMLEFT", 12, 10)
@@ -113,6 +120,8 @@ function T.Refresh()
   r.body.value:SetText(shortLabel("fontBody"))
   Theme.SetFont(r.name.value, "name", 12)
   r.name.value:SetText(shortLabel("fontName"))
+  Theme.SetFont(r.box.value, "body", 12)
+  r.box.value:SetText(s.largeBox and L.BOX_LARGE or L.BOX_NORMAL)
   Theme.SetFont(panel.more, "body", 10)
   Theme.TextColor(panel.more, "dim")
 end

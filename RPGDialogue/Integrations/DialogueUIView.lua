@@ -88,6 +88,10 @@ local function buildRows(p)
   local out = {}
   local Conv = ns.Conversation
   if p.asking then
+    -- What the player can say back to the last answer (0.82.0), above the list.
+    for i, c in ipairs(p.choices or {}) do
+      if c.view then out[#out + 1] = { text = c.text, onClick = function() Conv.Choose(i) end } end
+    end
     -- Every topic, a page at a time: "ask anyone" first, then what this person said they
     -- know about, then the rest, newest first.
     local s = Conv.session
@@ -215,6 +219,15 @@ end
 function V.SetChoices(choices)
   if not page then return end
   page.choices, page.asking = choices, nil
+  if lastView then lastView.choices = choices end
+  V.Refresh()
+end
+
+-- After an answer, what the player can say back (0.82.0): the replies change, and while
+-- the topic list is open the views are listed above it.
+function V.ShowViews(choices)
+  if not page then return end
+  page.choices = choices
   if lastView then lastView.choices = choices end
   V.Refresh()
 end
