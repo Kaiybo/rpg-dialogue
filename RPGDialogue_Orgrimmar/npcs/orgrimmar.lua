@@ -182,6 +182,8 @@ P:NPC {
           text = "You travel with one of Sylvanas's people, I see. Some of my warriors still make the sign against the dead when the Forsaken pass, and I would rather they learned better by watching the two of you than by hearing it from me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Darkspear brought their healers across the sea with them, and now the Forsaken bring theirs from Lordaeron, and I am still learning what each of them prays to." },
         { id = "h_default", key = true,
+          narr = { { text = "He leans forward on the high seat of Grommash Hold, and the brazier light runs along the black plate of his shoulders as he looks you over, one orc to another.", when = { race = "Orc" } },
+                   { text = "He sits forward on the high seat of Grommash Hold with the Doomhammer resting against his knee, and studies you without any hurry at all." } },
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
         { id = "h_op_jaina", when = { gossip = { topic = "jaina", stance = "distrust" } },
           text = "Eitrigg tells me you doubt Lady Proudmoore. Many in this city do, and I don't ask you to love her, only to remember that she has never once broken her word to me." },
@@ -235,7 +237,7 @@ P:NPC {
         { text = "Tell me about the peoples of the Horde, Warchief.", next = "peoples" },
         { text = "How does a slave become Warchief?", next = "past" },
         { text = "What would you ask of me, Warchief?", next = "ask_me" },
-        { text = "For the Horde.", next = "END", reply = "For the Horde, and may the spirits guide your hand. Lok'tar ogar, {name}.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "For the Horde.", next = "END", narr = "He lifts the Doomhammer a hand's width from the floor and lets it fall, and the sound rolls out through the hold.", reply = "For the Horde, and may the spirits guide your hand. Lok'tar ogar, {name}.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", reply = "Then I hope you'll find, in time, that the Horde looks after those who look after it. Go well.", fx = { align = { honor = -1 } } },
       },
       again = {
@@ -310,6 +312,7 @@ P:NPC {
     },
     horde = {
       big = true,
+      narr = "He takes the Doomhammer from where it leans against the throne and turns it once in his hands before he answers.",
       lines = {
         { id = "hd_default", text = "Once it stood for conquest. The demons made us into a weapon and pointed us at the world. Now it stands for survival, and for honour, and for each other. I mean to keep it that way." },
       },
@@ -535,6 +538,7 @@ P:NPC {
     },
     plague_word = {
       big = true,
+      narr = "He waves the waiting messenger out of the throne room and does not speak again until the doors have closed behind him.",
       lines = { { id = "pw_default", text = "Then tell me plainly, and don't soften it for my sake. I get courtiers' answers from Lordaeron by every rider, and I'd like one from someone who walked through the place." } },
       choices = {
         { text = "It's aimed at the Scourge, Warchief. They've earned that weapon.", next = "plague_trust",
@@ -578,6 +582,7 @@ P:NPC {
     },
     peace = {
       big = true,
+      narr = "He looks past you to the great doors, where the dust of the Valley of Strength hangs in the light, and is quiet a moment before he speaks.",
       lines = { { id = "pc_default", text = "It holds because neither of us lets it break, and there are men in Theramore and orcs in Razor Hill who'd break it tomorrow if we turned our backs. Every Kul Tiran soldier at Tiragarde Keep makes my chieftains ask why we don't strike first, so tell me, would you?" } },
       choices = {
         { text = "Keep the peace, Warchief. Your word to Jaina binds us.", next = "BACK", reply = "It does, and I'll keep it. Say that again where my chieftains can hear you, would you?", fx = { affinity = 1, align = { honor = 1 }, opinion = { peace = "for" } } },
@@ -611,7 +616,7 @@ P:NPC {
     },
     taretha = {
       lines = {
-        { id = "ta_default", text = "One did, a girl named Taretha Foxton who passed me letters and books when no one was looking, and she helped me escape when I was grown. Blackmoore had her killed for it, and I've carried her with me ever since, because she's the reason I know a human heart can be as good as any orc's." },
+        { id = "ta_default", narr = "For a moment he looks past you at the far wall of the hall, and his thick fingers close slowly around the haft of the hammer.", text = "One did, a girl named Taretha Foxton who passed me letters and books when no one was looking, and she helped me escape when I was grown. Blackmoore had her killed for it, and I've carried her with me ever since, because she's the reason I know a human heart can be as good as any orc's." },
         { id = "ta_warm", when = { disposition = { min = 65 } }, text = "One did, a girl named Taretha Foxton who passed me letters when no one was looking and helped me escape, and Blackmoore had her killed for it. I've told very few people what she was to me, so hear it plainly: she was my friend when I had no one, and I've never stopped wishing I could repay her." },
       },
       choices = {
@@ -650,7 +655,7 @@ P:NPC {
       },
     },
     durotan2 = {
-      lines = { { id = "d2_default", text = "I wonder about it more often than I'd admit to my advisors. I'd have been a Frostwolf, I think, raised in the snow with a wolf and a clan and no notion of Warchiefs, and some part of me envies that orc very much, so don't repeat it in the Drag, because my people need a Warchief and not a son still missing his father." } },
+      lines = { { id = "d2_default", narr = "He glances toward Eitrigg at the foot of the throne and waits until the old orc turns away before he answers.", text = "I wonder about it more often than I'd admit to my advisors. I'd have been a Frostwolf, I think, raised in the snow with a wolf and a clan and no notion of Warchiefs, and some part of me envies that orc very much, so don't repeat it in the Drag, because my people need a Warchief and not a son still missing his father." } },
       choices = { { text = "It stays between us, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } } },
     },
     doomhammer = {
@@ -684,7 +689,7 @@ P:NPC {
     burden = {
       big = true,
       lines = {
-        { id = "bu_default", text = "Everything weighs on me, and nothing so much as the fear that I'll become what I fought, a master who thinks he knows what's best for orcs who never asked him. The Horde follows me because I freed it, and I'm not sure gratitude is a good enough reason for anyone to follow anyone, so tell me, should a Warchief rule alone?" },
+        { id = "bu_default", narr = "He rolls one armoured shoulder as if the black plate sits badly on it, and lowers his voice so it carries no farther than you.", text = "Everything weighs on me, and nothing so much as the fear that I'll become what I fought, a master who thinks he knows what's best for orcs who never asked him. The Horde follows me because I freed it, and I'm not sure gratitude is a good enough reason for anyone to follow anyone, so tell me, should a Warchief rule alone?" },
         { id = "bu_warm", when = { disposition = { min = 65 } }, text = "I'll tell you what I don't tell my chieftains: some mornings I put on Doomhammer's armour and it feels like another set of chains, and the only thing that gets me through the gate is knowing the peons in the Valley of Strength never chose their burdens either. So tell me, should a Warchief carry it all alone?" },
         { id = "bu_cold", when = { disposition = { max = 34 } }, text = "A Warchief's burdens are his own to carry, though I'll ask you one thing about them, since you asked me. Should a Warchief rule alone, or share the weight?" },
       },
