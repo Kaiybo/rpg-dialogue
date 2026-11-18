@@ -43,6 +43,7 @@ L.HELP_LINES = {
   "errands - errands you've taken",
   "insanity <0-100> - set the insanity level (testing)",
   "export | import - save or restore this character's story as text",
+  "sheet - your whole character (stats, gear, talents, skills, reputation, journal) as text to copy",
   "dev on|off - developer messages",
   "reset - wipe this character's RPG Dialogue memory (asks first)",
 }
@@ -347,6 +348,9 @@ L.ERRANDS_NONE = "No errands."
 -- Export / import
 L.EXPORT_TITLE = "Export your story"
 L.EXPORT_HINT = "Press Ctrl+C to copy. Keep it somewhere safe; /rpgd import restores it."
+L.SHEET_TITLE = "Character sheet"
+L.SHEET_HINT = "Everything about this character as plain text. Press Ctrl+C to copy. (Read-only: /rpgd export makes a restorable save.)"
+L.J_EXPORT_SHEET = "Export sheet"
 L.IMPORT_TITLE = "Import a story"
 L.IMPORT_HINT = "Paste an export string (Ctrl+V), then Check. Nothing changes until you confirm."
 L.IMPORT_CHECK = "Check"

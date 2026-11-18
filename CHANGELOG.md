@@ -19,6 +19,10 @@ Paladin trainers have a lot more to say (World 1.37.0). No new files; a /reload 
 - The trainer asks why you took up the hammer: protection, justice, vengeance or bread, each a stance.
 - Replies for each paladin origin (a squire who never took the oath can swear it now), plus branches for priests and for other classes curious about the Light.
 - New greetings and notices (a female squire, late at night, fresh from the spirit healer, many deaths, Scarlet blood on your gauntlets) and answers on the Silver Hand, the Scarlets, the Argent Dawn, Stratholme, the Forsaken and the Tome of Divinity.
+### Export your character sheet.
+- New **Export sheet** button on the journal's Myself page (or `/rpgd sheet`) opens your whole character as plain text to copy: name, realm, level, race, class, sex, faction, guild, location, hearthstone, money, experience; attributes, armor, resistances, attack power and crit/dodge/parry/block; every equipped item with quality and item level; talents by tree with every point spent; skills and professions; reputations; your alignment, traits, insanity, conversations and deaths as numbers; then every journal page (Myself, Stories, People, Heard of, Diary) and your notes.
+- It's for reading and sharing (a forum post, a roleplay profile). `/rpgd export` is still the string that restores a story.
+- No new files: a /reload is enough.
 
 ## 0.81.0 (2026-11-17)
 Everything from the parallel 0.80 work in one release. **New files: restart the game fully (a /reload won't load them).** Most packs got a minor version bump.

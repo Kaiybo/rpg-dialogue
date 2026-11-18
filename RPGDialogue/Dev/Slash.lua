@@ -197,6 +197,7 @@ commands.insanity = function(args)
   ns.Print(L.INSANITY_SET:format(ns.Insanity.Level()))
 end
 commands.export = function() ns.UI.ExportFrame.Show("export") end
+commands.sheet = function() ns.UI.ExportFrame.Show("sheet") end
 commands.import = function() ns.UI.ExportFrame.Show("import") end
 
 -- /rpgd tts: what text to speech is using, then a line in each voice. Failures are
