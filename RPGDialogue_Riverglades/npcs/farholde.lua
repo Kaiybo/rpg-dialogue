@@ -6,6 +6,7 @@ P:NPC {
   key = "demar", id = TODO_NPC("Demar Brant"), name = "Demar Brant", title = "Knight Commander",
   bible = "bibles/riverglades.md", role = "soldier", tier = "major",
   communities = { "farholde", "brotherhood_horse" }, temper = { "proud", "steady" }, values = { "loyal", "brave", "stern" },
+  likesTone = "blunt",
   notices = { "class", "stormwind", "kit" },
 
   impression = {
@@ -449,6 +450,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "The Brotherhood doesn't hear much of that from outside these walls, and I'll pass it on to the riders, who earned it. You've better eyes than most of Stormwind's court." },
+        { id = "s2", text = "Twenty years I've held this keep, and I can count on one hand the visitors who've said as much. I thank you for it, and I don't thank people lightly." },
+      },
+      fail = {
+        { id = "f1", text = "Stormwind sends me fine words every season in place of steel, so I've had my fill of them. If you think well of Farholde, show it on the wall." },
+        { id = "f2", text = "I'm too old a soldier to be flattered into anything, and it irritates me to watch someone try. Say your business." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah! My riders used to talk to me that way, before twenty years of funerals made them careful. I can use someone who isn't afraid to speak up in my hall." },
+        { id = "s2", text = "You've gall, I'll grant you, and gall holds a gate better than good manners ever did. Very well, you have my attention." },
+      },
+      fail = {
+        { id = "f1", text = "There are better men and women than you under the stones in that hall, and you'll not make sport of what they died holding. Guard your tongue in my keep." },
+        { id = "f2", text = "That's the sort of talk I'd expect from a Stormwind courtier who's never smelled a battlefield. I had thought better of you, and I'll not make that mistake twice." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Stand down; you've made your point. I can see you'd follow through, and I haven't the riders to spare on a brawl in my own hall, so speak." },
+        { id = "s2", text = "There's something in your eye I last saw across a battlefield, and I've learned to take it seriously. I'll hear you, though I'll remember how you asked." },
+      },
+      fail = {
+        { id = "f1", text = "The Horde came to this gate with an army and the Hammer came with worse, and Farholde is still standing. You're one {class} in my hall with my sentries at your back, so think again." },
+        { id = "f2", text = "I don't frighten, and I don't bargain with those who try it. One more word in that tone and you'll finish this talk from outside the gate." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every report from the glades crosses my table before it reaches anyone else. Ask, and I'll tell you what's worth knowing." },
@@ -478,6 +511,10 @@ P:NPC {
       { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "A paladin in the Riverglades is worth ten soldiers who stayed home in Stormwind. Stand with my riders, and the Light will have more to do here than it's ever had." },
     },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hold the mountain to the west, and they've no love for anyone. I keep a watch on that side, though they haven't troubled us yet." } },
+    _gated = {
+      { id = "gt1", text = "That's Brotherhood business, and you've not yet stood a watch on my wall. Ask me again when you have." },
+      { id = "gt2", text = "I don't discuss that with those I haven't taken the measure of, and I'm still taking yours." },
+    },
     _none = { { id = "tp_none", text = "If it isn't in the Riverglades, it isn't my concern. Ask Ashe; she reads." } },
   },
 }
@@ -486,6 +523,7 @@ P:NPC {
   key = "ashe", id = TODO_NPC("Ashe Amberhall"), name = "Ashe Amberhall",
   bible = "bibles/riverglades.md", role = "scholar", tier = "major",
   communities = { "farholde", "brotherhood_horse" }, temper = { "sharp", "chatty" }, values = { "curious", "loyal" },
+  likesTone = "polite",
   notices = { "arcane", "curse" },
 
   impression = {
@@ -842,6 +880,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh! Well, that's very kind, and nobody here says things like that, they mostly say 'Ashe, not now', so thank you. I'm going to be insufferable about it all afternoon, I'm afraid." },
+        { id = "s2", text = "You really think so? My father would have told me not to let it go to my head, and then he'd have been quietly pleased for a week, and I believe I'll do the same." },
+      },
+      fail = {
+        { id = "f1", text = "That's very smooth, and I've read enough letters from Stormwind's court to know what smooth is usually for. I'm sorry, that was sharp of me, but I'd honestly rather you just asked." },
+        { id = "f2", text = "Hm, no, I don't think you mean that, and I'd know, because people are forever saying nice things to me in the hope that I'll stop talking. What is it you actually want?" },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Yes, I babble, and I know I babble, and Riftan says the very same thing with a good deal more swearing. You're quick, though, and I've missed arguing with someone quick." },
+        { id = "s2", text = "Oh, that's good, I'm writing that one down, and then I'll think of a better answer in about an hour and be furious. Do stay, because hardly anyone here gives as good as they get." },
+      },
+      fail = {
+        { id = "f1", text = "That wasn't clever, it was only unkind, and I do know the difference. I'm sorry, but I've work to do, and I'd thank you to be civil while I do it." },
+        { id = "f2", text = "I've been laughed at by knights who can't spell their own horses' names, so I'm quite used to it, thank you. It never makes me think any better of the person laughing." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Please don't do that. I've seen what it looks like when something truly means harm, and you look rather too much like it, so I'll tell you whatever I can if you'll only step back." },
+        { id = "s2", text = "All right, yes, you've frightened me, and I'm talking faster, which is what I do when I'm frightened. Ask your question, and please keep your hands where I can see them." },
+      },
+      fail = {
+        { id = "f1", text = "I've held relics of the Hammer that whispered worse things than that to me, in a far nastier voice, and I catalogued them anyway. The Knight Commander's sentries are just outside that door, if you'd like to try it on them." },
+        { id = "f2", text = "No, I don't think so. I came home alone from the expedition west, and after that there isn't a great deal a raised voice among my books can do to me." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Oh, I know all sorts, and I'm out of practice at keeping any of it to myself. Ask, and stop me if I go on." },
@@ -865,6 +935,10 @@ P:NPC {
     },
     blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs were the Horde's iron fist in the old war, and the histories say they came this way more than once. I keep wondering whether any of them stayed in the mountains." } },
     theramore = { { id = "tp_theramore", text = "Lady Proudmoore's Theramore is the only Alliance city that's made peace with the orcs, and I think it's very brave of her. Demar thinks it's very foolish, so I don't mention it." } },
+    _gated = {
+      { id = "gt1", text = "Oh, I'd rather not go into that, not yet, if you don't mind. I know I talk about everything, but there are one or two things I keep for people I know well." },
+      { id = "gt2", text = "That one I don't share with visitors, I'm sorry. Ask me again when you've been around Farholde a while longer." },
+    },
     _none = { { id = "tp_none", text = "I don't know! I'd love to, though, so write it down for me, would you? I'll look into it." } },
   },
 }

@@ -202,7 +202,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, now. Nobody compliments the vulture, little meat, because they save all that for the stag and the pretty birds, so I shall enjoy this for at least a century." },
+        { id = "s2", text = "How very unexpected, and how agreeable. You have a kind word for the one who cleans up after everybody else, and I find my opinion of the living has improved by a feather." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery, at a graveyard, to a vulture. I have watched a great many creatures try to talk their way out of being eaten, little meat, and it has never once worked." },
+        { id = "f2", text = "You needn't butter yourself on my account, because I shall get to you in the end whatever you say. Until then, I would prefer honest conversation." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Rude, and still warm, which is a combination I rarely get to enjoy. You have more gristle in you than most who climb up here, and I mean that kindly." },
+        { id = "s2", text = "Oh, I like that. The dead never answer back and the pretty gods never stoop to it, so you have no idea how long I have waited for a proper insult." },
+      },
+      fail = {
+        { id = "f1", text = "I have been called a carrion bird since before your kingdoms had names, little meat, and it has always been true. You will have to find something that stings." },
+        { id = "f2", text = "Mock away, and I shall wait. That is the whole of my craft, you see, and everything that has ever laughed at me has ended up as lunch." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Now that is interesting. I am the thing that comes after the frightening is done, little meat, and yet you made my feathers lift, so I shall hop back a step and reconsider you." },
+        { id = "s2", text = "You have the look of something that makes a great many corpses, and I have a professional respect for that. Very well, I'll mind my manners, since you are clearly good for business." },
+      },
+      fail = {
+        { id = "f1", text = "You are threatening death's own housekeeper, little meat, and I find it rather sweet. What exactly do you imagine you could do to me that the mountain hasn't tried?" },
+        { id = "f2", text = "I have perched over every battle this mountain ever saw, the last one included, and I ate well after all of them. Shout if you like, since I'm told it works up an appetite." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "No, little meat, I shan't tell you that. I keep some things in my crop for those I have grown fond of, and you aren't there yet." },
+      { id = "gt2", text = "That is not for you, not yet. Go on breathing in my direction a while longer, and I may change my mind." },
+    },
     knows = {
       { id = "tp_knows", text = "I know what dies on this mountain and where it falls. Ask me about that, and I will tell you more than you want." },
     },

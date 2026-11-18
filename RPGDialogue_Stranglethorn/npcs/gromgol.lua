@@ -6,6 +6,7 @@ P:NPC {
   key = "aggrogosh", id = TODO_NPC("Commander Aggro'gosh"), name = "Commander Aggro'gosh",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "gromgol" }, temper = { "blunt" }, values = { "dutiful", "stern" },
+  race = "Orc", likesTone = "blunt",
   notices = { "kit", "race" },
 
   impression = {
@@ -336,6 +337,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hmph. I don't hear much praise in this camp, because I don't give much, but I'll take yours for the grunts who earned it. Grom'gol stands because they do." },
+        { id = "s2", text = "You see what this camp costs to hold, and most who pass through see only mud and crates. That is worth something to me, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "Soft words don't mend walls or guard caravans, and I have no use for anything that does neither. If you want my good opinion, pick up a crate." },
+        { id = "f2", text = "I've had peons flatter me to get out of hauling timber, and they hauled double for it. Don't make me find you a log." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You have fire in your belly, and you're not afraid to show it to a commander. The Horde was built by those who talked like that and then backed it up." },
+        { id = "s2", text = "Good. I was beginning to think everyone who came down the Stonard road had left their spine behind them. Keep that edge, and take it out to the Bloodscalp." },
+      },
+      fail = {
+        { id = "f1", text = "You mock the commander of Grom'gol inside his own walls, in front of his grunts? Watch your mouth, or you'll spend the night digging latrines with the peons." },
+        { id = "f2", text = "I've heard braver insults from ogres, and they at least were trying to kill me when they said them. Talk is cheap in this camp, so go and do something." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Hm. There is real blood behind that look, and I've led enough warriors to know it from bluster. I won't waste a fighter like you on a quarrel, so say what you want." },
+        { id = "s2", text = "Enough. I'd sooner have that anger pointed over the wall than at me, and I can see that you mean it, so I'll hear you." },
+      },
+      fail = {
+        { id = "f1", text = "I hold this camp against ogres and trolls with the jungle at my back, and you think a snarl will move me? Stand down, before I have you thrown in the river." },
+        { id = "f2", text = "My grandfather died with green skin and a demon's rage in him, and I learned young what real menace looks like. Yours falls well short of it." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "My scouts report everything that moves on the Stonard road. Ask what you need, and don't waste my time." },
@@ -357,6 +390,10 @@ P:NPC {
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "My grunts go to the Arena to blow off steam, and I let them, because it keeps them sharp and keeps them out of Booty Bay's taverns. Most of them come back." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War, on the other side of this coast, and I remember the jungle then too. It hasn't gotten any friendlier." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Forsaken have joined the Horde, and the Warchief says that's good enough for him. I'll take a dead soldier who holds the line over a living one who runs." } },
+    _gated = {
+      { id = "gt1", text = "That is not talk for someone who hasn't yet sweated for this camp. Work for Grom'gol, and then I may answer." },
+      { id = "gt2", text = "I don't speak of that with every stranger who walks through my gate, so ask me something else or get back to work." },
+    },
     _none = { { id = "tp_none", text = "That's not my problem, and I don't waste breath on what isn't. Find someone with time to talk." } },
   },
 }

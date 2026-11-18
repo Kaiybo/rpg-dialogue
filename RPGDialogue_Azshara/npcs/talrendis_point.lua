@@ -392,7 +392,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Those are warm words, friend, and I have had few of them since I came to the border. May the Earthmother return the kindness to you on your road." },
+        { id = "s2", text = "You honour an old bull more than he has earned, and still I find I am glad to hear it. I will tell the Sentinels that not every traveller arrives with a hard face." },
+        { id = "s3", when = { race = "Tauren" }, text = "It does my heart good to hear such words in the voice of the plains, cousin. I have missed Mulgore more than I say, and you have brought a little of it with you." },
+      },
+      fail = {
+        { id = "f1", text = "You are generous, friend, but I have lived long enough among watchful people to know when words are being spent to buy something. Ask plainly, and I will answer you plainly." },
+        { id = "f2", text = "I am a guest here, and I own nothing worth flattering me for. Let us speak as honest travellers do, and leave the sweet grass off the top." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you have some of the bull in you, friend, to prod an old one and stand there smiling. I take no hurt from it, and I think the Sentinels could do with being teased so now and then." },
+        { id = "s2", text = "I have been called worse across this fire, and by people with bows in their hands. You have spirit, and the Earthmother made room in the world for that as well." },
+      },
+      fail = {
+        { id = "f1", text = "I made a promise to bring no trouble to this camp, friend, and I will not break it to answer you. I would ask that you speak more gently, because the Sentinels are listening to us both." },
+        { id = "f2", text = "That was not well said, and I think you know it. I will let it pass like wind over the grass, but I will remember which way it blew." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Peace, friend, peace. I can see that you are not one to be crossed, and I have no wish to cross you, here of all places, where I live on my good behaviour." },
+        { id = "s2", text = "You stand very heavily on the earth just now, and I feel it. I will give way, because I promised these people no trouble, though I hope you will set that weight down before you go among them." },
+      },
+      fail = {
+        { id = "f1", text = "I am a guest among archers who watch my every step, friend, and I have learned not to startle easily. Put your anger away, before the Sentinels decide it is their business." },
+        { id = "f2", text = "The Earthmother's children are slow to anger and slower to fear, and I am older than I look. Sit, and breathe, and tell me what truly troubles you." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "Forgive me, friend, but I do not speak of that with those I hardly know. A guest must be careful what he says, and to whom." },
+      { id = "gt2", text = "I would rather keep that to myself for now. When we know each other better, ask me again, and I will not turn you away." },
+    },
     knows = {
       { id = "tp_knows", text = "I know a little of this land, mostly from walking it and listening. Ask what you will, and you will have it plainly, as I learned it." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, friend, I will tell everything I know, and say plainly where my knowing runs out." },

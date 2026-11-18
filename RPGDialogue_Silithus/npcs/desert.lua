@@ -6,6 +6,7 @@ P:NPC {
   key = "layo", id = TODO_NPC("Layo Starstrike"), name = "Layo Starstrike", title = "The Cenarion Circle",
   bible = "bibles/silithus.md", role = "questgiver", tier = "major",
   communities = { "valors_rest" }, temper = { "gentle", "steady" }, values = { "kind", "wise", "devout" },
+  likesTone = "polite",
   notices = { "class", "race", "status" },
 
   impression = {
@@ -335,6 +336,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That is kindly said, and kind words are rare visitors at Valor's Rest. I'll carry them with me when I walk the graves tonight, and I thank you." },
+        { id = "s2", text = "I only keep watch, friend, and it's the ones beneath these stones who earned the praise, but I'm glad that someone sees the keeping is worth doing." },
+      },
+      fail = {
+        { id = "f1", text = "You needn't flatter me, for I'm only a young druid with a great many graves to tend, and I know it well. Speak simply here, and the dead and I will both think better of you." },
+        { id = "f2", text = "Those are pretty words, though I think they were meant to open a door and not to be true. I'd ask you to leave such things outside the graveyard." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you sound like Umber when the wind has kept him awake, and I'm fonder of that than I should be. It does me good to be laughed at, for the dead never manage it." },
+        { id = "s2", text = "You're bold, to jest among the graves, yet I think the soldiers lying here would have liked you for it. They were not solemn people, if the old songs are true." },
+      },
+      fail = {
+        { id = "f1", text = "I'll bear a jest at my own expense, but not here, where the fallen of the wastes lie listening. Lower your voice, friend, and remember where you stand." },
+        { id = "f2", text = "That was unkind, and it gained you nothing with me. I've sat through more nights of silithid hum than I can count without losing my temper, so a sharp tongue won't do it." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Peace, I beg you. There's enough violence sleeping under this sand already, and I'll not have more of it woken over a quarrel with me. Ask what you came to ask." },
+        { id = "s2", text = "You frighten me, and I won't pretend otherwise, for I'm a keeper of graves and no warrior. Let us speak quietly, then, and I'll help you as far as I'm able." },
+      },
+      fail = {
+        { id = "f1", text = "I walk Southwind's ruins alone at night with the dead weeping around me, so forgive me if a living {class} with a hard voice doesn't turn me pale. Put your anger away." },
+        { id = "f2", text = "Elune watches this place, and so do those who fell holding it, and none of us is moved by threats. You shame yourself here, and not me." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I know the graves, the ruins and the roads between them. Ask about any of these." },
@@ -349,6 +382,10 @@ P:NPC {
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives were here when the old war began, and they were here when it ended, and they'll be here when I'm laid beside my soldiers. I pray they won't outlast the living." } },
     elune = { { id = "tp_elune", text = "Elune keeps watch over the dead at Valor's Rest, and I keep watch with her. It's quiet company, and I've grown used to it." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess remembers the war that was fought here, and so does Fandral, who lost his son Valstann to it. I tend the graves of that war, and I think of them both when I do." } },
+    _gated = {
+      { id = "gt1", text = "That is something I keep close, and I don't yet know you well enough to lay it in your hands. Give me time, friend." },
+      { id = "gt2", text = "Forgive me, but I'd rather not speak of that with someone I've only just met. Ask me of the graves or the roads instead." },
+    },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Cenarion Hold might; it's down the road, in the heart of the desert, and the moon will light your way there." } },
   },
 }
@@ -357,6 +394,7 @@ P:NPC {
   key = "ortell", id = TODO_NPC("Hermit Ortell"), name = "Hermit Ortell",
   bible = "bibles/silithus.md", role = "questgiver", tier = "major",
   temper = { "cowardly", "sharp" }, values = { "cunning", "curious" },
+  private = { "dalaran" },
   notices = { "class", "race" },
 
   impression = {
@@ -632,6 +670,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, yes, it was rather clever of me, wasn't it? Nobody ever says so, on account of nobody knowing I'm here, so do go on, only quietly." },
+        { id = "s2", text = "Oh, I like you. A whole cult full of fanatics couldn't outwit one frightened man in a cave, and it's high time somebody appreciated the craftsmanship in that." },
+      },
+      fail = {
+        { id = "f1", text = "The recruiters talked to me like that, you know, all warm words about how special I was, and then they handed me a robe. So you'll forgive me if compliments make my skin crawl." },
+        { id = "f2", text = "What do you want? People are only ever that nice to me right before they ask for something dangerous, and I'm fresh out of courage this week." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Yes, all right, a coward in a hole, and I've called myself worse before breakfast. At least you say it to my face, which is more honesty than I ever got from the Hammer." },
+        { id = "s2", text = "Oh, very good, very sharp, and here I thought the desert had cooked everyone's wits but mine. I'd forgotten what it's like to trade barbs with someone who isn't chanting." },
+      },
+      fail = {
+        { id = "f1", text = "Laugh all you like, but I'm alive and a good many braver fools than me are under the sand, so who's the clever one? And keep your voice down while you're mocking me, for pity's sake." },
+        { id = "f2", text = "That's easy to say for someone the cult isn't hunting like a beast. Come back when you've spent a month listening for footsteps, and we'll see how funny you are." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, all right! There's no need for that, I'm on your side, I'm on anybody's side who isn't wearing a Twilight robe. Just tell me what you want, and don't stand between me and the way out.", narr = "Ortell backs against the cave wall with both hands raised." },
+        { id = "s2", text = "Stars above, don't look at me like that, I've had quite enough of that look from men with knives. I'll talk, I'll talk, only stop looming." },
+      },
+      fail = {
+        { id = "f1", text = "You'll have to do better, because I've watched what the Hammer does to its own, and nothing you can think of comes close. Fear and I have shared this cave for a long while now." },
+        { id = "f2", text = "Oh, go ahead and shout, and bring every cultist in the hills down on the pair of us. I'm frightened of them, friend, and next to them you barely rate." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I know the cult from the inside, which is more than anyone else in this desert can say. Ask, and keep your voice down." },
@@ -646,6 +716,10 @@ P:NPC {
     silithid_hives = { { id = "tp_silithid_hives", text = "The cult feeds the hives, did you know that? They think the bugs are their friends, and the bugs think the cult is lunch, which I'd call justice." } },
     westfall = { { id = "tp_westfall", text = "I told the cult I was going to Westfall, and they believed me, because they're cultists. Ever been to Westfall? Neither have I, which is why it's such a good lie." } },
     dalaran = { { id = "tp_dalaran", text = "I studied a bit in Dalaran before I went wrong, and I'd go back if they'd let me in. They won't, which I quite understand." } },
+    _gated = {
+      { id = "gt1", text = "Oh no, I'm not telling you that, not yet. For all I know you'll be repeating it in a cult camp by nightfall, so let me get the measure of you first." },
+      { id = "gt2", text = "That stays in my head, where it's safe, until I'm a good deal surer of you than I am now." },
+    },
     _none = { { id = "tp_none", text = "Never heard of it, and I make a point of hearing about everything." } },
   },
 }

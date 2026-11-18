@@ -423,7 +423,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's kindly said, and I hear so little of it from the Council that I'd forgotten the sound. Winds be with you for it, because you've lightened an elder's afternoon." },
+        { id = "s2", text = "I didn't want this office and I've never thought I did it well, so you'll understand that I don't quite know where to put a compliment. I'll keep it all the same, and thank you." },
+        { id = "s3", when = { race = "Skyborne" }, text = "It does me good to hear that from one of our own young, child, when both orders spend their days telling me what I've got wrong. Don't let the isle wear that kindness out of you." },
+      },
+      fail = {
+        { id = "f1", text = "I've sat through enough Council sessions to know the sound of someone softening me before they ask for something. Ask it plainly, and you'll find I answer better." },
+        { id = "f2", text = "You're courteous, but I'd be a poor High Elder if pretty words moved me. Tell me something true instead, even if it's unwelcome." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've more cheek than both orders together, and I confess it's a relief to be spoken to as a person instead of an office. Go on, because I can bear it." },
+        { id = "s2", text = "Well, that's put more plainly than anything I've heard in the Council this year. I'd not have chosen your words, but I'll not pretend they missed." },
+      },
+      fail = {
+        { id = "f1", text = "I've been High Elder long enough to have been insulted by experts, and most of them at least had a grievance. I don't see what yours is, and I'd ask you to mind your tongue in Valanaar." },
+        { id = "f2", text = "That was unworthy of a guest, and I think you know it. I'll not quarrel with you, but I'll remember it when you next want the Council's ear." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I see. I'm not easily leaned on, but I've a whole isle to think of and no wish to find out how far you'd go. You have my attention, and I'd ask you to use it gently." },
+        { id = "s2", text = "This isle has greater things than you to fear, and still I find you give me pause. Very well, say what you want of me, and let's have no one hurt over it." },
+      },
+      fail = {
+        { id = "f1", text = "I've stood on this isle while the wards came down and the sky itself turned against us. You'll forgive me if one angry visitor doesn't make me tremble." },
+        { id = "f2", text = "The Peacekeepers are within call, and I'd rather not call them. Lower your voice, and remember you're among a people who've had their fill of threats." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a matter I keep for those the isle has reason to trust, and I don't yet know you well enough. Give it time, and ask me again." },
+      { id = "gt2", text = "I'll not speak of that yet. I'm honest about what I know, and I'm equally honest that I choose who hears it." },
+    },
     knows = {
       { id = "tp_knows", text = "The Council brings me every worry on this isle, so I know a little about a great many things. Ask me about any of these, and I'll tell you only what's true." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've been honest with me, so I'll be as honest as I'm able, which is honest about what nobody knows. Here is what I can speak to." },

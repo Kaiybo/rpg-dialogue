@@ -6,6 +6,7 @@ P:NPC {
   key = "maralith", id = TODO_NPC("Commander Mar'alith"), name = "Commander Mar'alith",
   bible = "bibles/silithus.md", role = "soldier", tier = "major",
   communities = { "cenarion_hold" }, temper = { "steady", "proud" }, values = { "dutiful", "loyal", "kind" },
+  likesTone = "polite",
   notices = { "class", "race", "form" },
 
   impression = {
@@ -444,6 +445,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You are generous, and I thank you, though the praise belongs to the Sentinels and druids who hold these walls with me. I will see that it reaches them, for they hear little enough of it." },
+        { id = "s2", text = "It has been some time since anyone spoke to me of anything but casualties and supply. Your words are kindly meant, and I find I am glad of them." },
+      },
+      fail = {
+        { id = "f1", text = "I have commanded soldiers for a very long time, and I know the sound of a compliment that has an errand behind it. Speak to me plainly, for the Hold has no hours to spare." },
+        { id = "f2", text = "Forgive me, but fine words fall strangely on my ears of late, and I cannot find it in me to answer them. If you have need of something, ask it." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah. It has been long since anyone dared speak to me so, and I had grown too grave for my own good without it. You have spirit, and this Hold has need of spirit." },
+        { id = "s2", text = "You are bold, to prod at a commander in his own hall, and yet I would sooner have boldness than the frightened silence most bring back from the hives. Very well, you have my ear." },
+      },
+      fail = {
+        { id = "f1", text = "I have borne a great deal these past weeks, and I will not add mockery to it. Remember that you stand in Cenarion Hold as a guest, and conduct yourself as one." },
+        { id = "f2", text = "There are soldiers dying in the sand a short ride from this hall, and you would spend your wit on me. I think less of you for it, {class}." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Stay your hand. I see that you would carry this through, and I will not have blood spilled inside these walls while the swarm waits outside them. Tell me what it is you want of me." },
+        { id = "s2", text = "You have the bearing of one who has done terrible things and would do them again, and I have learned not to dismiss that. Let us speak as allies, then, since the Hold can afford no other kind." },
+      },
+      fail = {
+        { id = "f1", text = "I listen every night to the hives humming beneath the moon, and I have not left my post. You will find there is very little left in me to frighten." },
+        { id = "f2", text = "My people stood against the Legion when the world was young, and I stand now within sight of the Scarab Wall. Put away your threats, for they are small beside what I already fear." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every scout's report crosses my table before it goes to Moonglade. I'll tell you what I can of any of these." },
@@ -470,6 +503,10 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Natalia used to say Elune hears everything, even in the desert. I hope she is right, because I have been saying a great deal." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids of the Circle walk in the Dream, and some of them say the Dream is uneasy. I have no time for dreams, not while my wife is missing." } },
     thrall = { { id = "tp_thrall", text = "The Horde sends its warriors here as the Alliance does, and they fight beside us against the swarm. I am grateful, and I keep them on opposite sides of the Hold." } },
+    _gated = {
+      { id = "gt1", text = "That is not a matter I will speak of with one I scarcely know, and I ask that you not press me. Perhaps in time." },
+      { id = "gt2", text = "Forgive me, but I keep that to myself, and to those who have earned this Hold's trust. You have not yet had the chance." },
+    },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my reports. Larksbane or the Wildmanes might know, Elune willing." } },
   },
 }
@@ -478,6 +515,7 @@ P:NPC {
   key = "larksbane", id = TODO_NPC("Geologist Larksbane"), name = "Geologist Larksbane",
   bible = "bibles/silithus.md", role = "scholar", tier = "major",
   communities = { "cenarion_hold" }, temper = { "steady", "gentle" }, values = { "curious", "patient", "honest" },
+  race = "Dwarf", likesTone = "polite",
   notices = { "race", "class", "craft" },
 
   impression = {
@@ -809,6 +847,39 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh, go on with ye! The elves are very polite, but not a one of them has ever said a kind word about my rocks, so I'll treasure that." },
+        { id = "s2", text = "That's good of ye tae say, an' I'll admit a dwarf likes tae hear her work's been noticed. Come an' look at this sample, since ye clearly have an eye." },
+        { id = "s3", when = { race = "Dwarf" }, text = "Now that's praise from someone who knows granite from gravel, so I'll take it at full weight. It's a rare treat tae hear it in a proper accent, too." },
+      },
+      fail = {
+        { id = "f1", text = "Ye needn't polish me like a gemstone, friend, for I've sorted true ore from fool's gold all my life an' I can tell which one that was. Just ask me straight." },
+        { id = "f2", text = "That's kindly put, but I'm a geologist, an' I only trust what rings true when I tap it. That one rang a wee bit hollow." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Aye, I'm a daft dwarf who talks tae rocks, an' I've heard it from half the Hold, though none said it wi' yer nerve. Ye'd do well in an Ironforge tavern." },
+        { id = "s2", text = "Cheeky, aren't ye? Good, because I've been starved for a proper argument since I left the mountain, an' the druids only ever sigh at me." },
+      },
+      fail = {
+        { id = "f1", text = "Laugh if ye like, but the stones under yer boots are hummin' louder every day, an' I'm the only one here countin'. I've no patience for folk who mock what they haven't bothered tae listen to." },
+        { id = "f2", text = "I've a rock hammer in my hand an' a long day behind me, so that was poorly timed. Mind yer tongue around my samples." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy, now, there's no call for that. I'm a geologist an' not a soldier, an' I've enough keepin' me awake at night without ye addin' tae it, so tell me what ye're after." },
+        { id = "s2", text = "All right, ye've made my hands shake, an' they're the steadiest hands in the Hold. I'll not argue wi' ye, so ask yer question an' let me get back tae my crates." },
+      },
+      fail = {
+        { id = "f1", text = "I sat a week beside Hive'Ashi wi' naught but a listenin' rod for company, so ye'll understand that a scowl doesnae rattle me. Away wi' ye until ye can be civil." },
+        { id = "f2", text = "Dwarves are made o' the same stuff as the mountain, friend, an' ye can lean on a mountain all day long. Ye'll only tire yerself out." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Rocks, bugs and cultists, in about that order of how much I like them. Ask away." },
@@ -825,6 +896,10 @@ P:NPC {
     bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The old stories say the bronze dragons sealed the city in the south with a scepter. I'm a geologist, so I don't believe stories, but I'd like to see the scepter." } },
     magni = { { id = "tp_magni", text = "Magni would want to know what I'm finding here, and I'd tell him if I could get a letter out of this desert. The post comes once a fortnight, if the wind riders aren't eaten." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman's stones hum too, in a different key, older and calmer. I spent a season there, and I'd give anything to have it back instead of this." } },
+    _gated = {
+      { id = "gt1", text = "I'll keep that tae myself for now, if it's all the same tae ye. I don't share such things wi' folk I've only just met." },
+      { id = "gt2", text = "That's not somethin' I talk about wi' strangers, friend. Come back when we know each other better, an' I might." },
+    },
     _none = { { id = "tp_none", text = "If it isn't a rock, I'm the wrong dwarf to ask, and that's the long and short of it." } },
   },
 }
