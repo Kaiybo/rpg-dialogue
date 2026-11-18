@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite living visitor. You spelled your name the same way twice, which in my office counts as a kind of friendship." },
     { id = "g_census", text = "The census office. Do state your business, preferably in fewer words than I would use." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I trust this isn't another inquiry about whether somebody's dead." },
-    { id = "g_jeremiah", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "Payson, near the bank, under one of the walkways. Follow the smell of cockroaches, which in this city narrows it down very little." },
+    { id = "g_jeremiah", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "If it's Payson you want with that parcel, he's near the bank, under one of the walkways. Follow the smell of cockroaches, which in this city narrows it down very little." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the census has grown by forty-three names in your absence. Not that you asked." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your reputation has preceded you into my office, which is more than most people's do. I've made a note of it." },
   },
@@ -107,7 +107,7 @@ P:NPC {
     census = {
       lines = { { id = "ce_default", text = "Because a city that doesn't know who lives in it, in whatever sense, is not a city but a crowd. The Dark Lady wishes to rule a people, and a people must first be counted." } },
       choices = {
-        { text = "Counting people who don't want to be found must be hard.", next = "census_hidden" },
+        { text = "How do you count people who don't want to be found?", next = "census_hidden" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,7 +129,7 @@ P:NPC {
     },
 
     names = {
-      lines = { { id = "na_default", text = "Often. Some can't bear to answer to the name their mothers used, and some would rather their old debts not find them. The census records both names and judges neither." } },
+      lines = { { id = "na_default", text = "Oh, they do, and often. Some can't bear to answer to the name their mothers used, and some would rather their old debts not find them. The census records both names and judges neither." } },
       choices = {
         { text = "Did you change yours?", next = "names_own" },
         { text = "Do you count the Forsaken as Lordaeron's people, Overseer?", next = "op_forsaken" },

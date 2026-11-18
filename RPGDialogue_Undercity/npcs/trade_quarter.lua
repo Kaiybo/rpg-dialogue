@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_default", text = "What? You want a roach or not? I haven't got all night, and neither have they." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did the last roach die? They don't, usually; they're tougher than you." },
     { id = "g_blues", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "Who sent you? Bauhaus? That census-counting busybody needs to keep my old name out of his mouth." },
-    { id = "g_charm", when = { questActive = TODO_QUEST("Good Luck Charm") }, text = "Did you find it yet? Then why are you standing here looking at me?" },
+    { id = "g_charm", when = { questActive = TODO_QUEST("Good Luck Charm") }, text = "Did you get my good luck charm back from Janice's farm yet? Then why are you standing here looking at me?" },
   },
 
   notice = {
@@ -37,9 +37,9 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Jeremiah Payson, and I sell cockroaches. Good ones, healthy ones, the kind that'll follow you about and won't bite more than twice." },
         { id = "h_blues_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Jeremiah Blues"), days = 3 } },
-          text = "So Janice sent a parcel, years late, and you went to the trouble of finding me. I suppose I owe you something for that, though I'd rather not think about how much." },
+          text = "So my sister Janice sent a parcel, years late, and you went to the trouble of finding me. I suppose I owe you something for that, though I'd rather not think about how much." },
         { id = "h_charm_done", tags = { "news" }, when = { questDone = TODO_QUEST("Good Luck Charm") },
-          text = "You saw her, then, out at the farm. Don't tell me how she looked. I've decided to remember her the way she was, and that's my right." },
+          text = "You saw Janice, then, out at the farm. Don't tell me how she looked. I've decided to remember her the way she was, and that's my right." },
         { id = "h_scourge", when = { race = "Scourge", ["not"] = { questDone = TODO_QUEST("The Jeremiah Blues") } },
           text = "You're dead like me, so you'll understand when I say I don't want to talk about before. Buy a roach or move along." },
       },
@@ -377,7 +377,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've got a fuse burning, but it's a long one." },
-        { id = "h_again2", text = "Go on, ask! That's a two-second fuse of a question on your face, I can tell." },
+        { id = "h_again2", text = "Go on, ask! I can see a question burning on your face like a short fuse." },
         { id = "h_again3", text = "Where was I? Oh, yes, you were asking things, and I was answering them. Carry on!" },
       },
       choices = {
@@ -391,7 +391,7 @@ P:NPC {
       },
     },
     fingers = {
-      lines = { { id = "fi_default", text = "A clockwork dragonling I was building for a nephew, before the plague. It worked, for a moment, and then it worked rather too well, and I've been trying to build a better one ever since." } },
+      lines = { { id = "fi_default", text = "Once, with a clockwork dragonling I was building for a nephew before the plague, and it cost me two fingers. It worked, for a moment, and then it worked rather too well, and I've been trying to build a better one ever since." } },
       choices = {
         { text = "How is the new one coming along?", next = "dragonling" },
         { text = "Some things are worth losing a finger for.", next = "BACK", fx = { align = { order = -1 } } },
@@ -416,7 +416,7 @@ P:NPC {
       },
     },
     bang_toward = {
-      lines = { { id = "bt_default", text = "Wonderful! Then you're welcome at my bench any time, though I'll ask you to sign something first for Franklin's peace of mind. He keeps a wall about people like us." } },
+      lines = { { id = "bt_default", text = "Wonderful! Then you're welcome at my bench any time, though I'll ask you to sign something first for Franklin's peace of mind. He keeps a tally on his wall of people like us." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bang_away = {
@@ -471,7 +471,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Blasting powder, bolts, copper tubes. Whatever you're building, I hope it works better than Graham's." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Still in one piece, I see, which puts you ahead of most of my customers." },
-    { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again, and all your fingers, too. I may have to stop keeping a space for you on the wall." },
+    { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again, and with all your fingers, too. I may stop saving you a space on my wall of customers who never came back." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Yes, I'm open. Explosions don't keep shop hours, so I gave up keeping them myself." },
   },
 

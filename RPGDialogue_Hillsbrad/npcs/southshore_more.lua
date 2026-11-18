@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Well met, traveller. I wish I came to Southshore bearing better news." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; there are fewer of you willing to listen than I'd hoped." },
-    { id = "g_sent", when = { questDone = TODO_QUEST("An Alarming Request") }, text = "Modera tells me you answered. The Kirin Tor won't say thank you aloud, so I'll say it for them." },
+    { id = "g_sent", when = { questDone = TODO_QUEST("An Alarming Request") }, text = "Archmage Modera tells me you answered her call. The Kirin Tor won't say thank you aloud, so I'll say it for them." },
   },
 
   notice = {
@@ -61,7 +61,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If you find him, or what's left of him, I'd be grateful, though I fear the Syndicate found him first. He carried letters for the Magistrate, and if those letters reached Durnholde, someone there knows more about Dalaran's plans than I do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine nose, I imagine, and it might find a trail where an apprentice with a map would not. Please be careful, though, because the Syndicate shoot animals for sport." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If you find him, I'd be grateful, and your {pet} has a fine nose that might find a trail where an apprentice with a map would not. Please be careful, though, because the Syndicate shoot animals for sport." },
       },
       choices = {
         { text = "If he's alive, I'll bring him home. He comes first.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -296,7 +296,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the lions came down out of Alterac after the war, when the ogres drove them from the high meadows, and the farmers have hated them ever since. Before that, my grandfather wrote, a wolf was the worst thing in the hills, and now it's barely worth a line." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you mind if I wrote down {pet}'s name? A hunter's companion in Southshore during the Forsaken troubles is exactly the sort of detail historians a hundred years from now will thank me for." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the lions came down out of Alterac after the war, mostly, but would you mind if I wrote down {pet}'s name? A hunter's companion in Southshore during the Forsaken troubles is exactly the sort of detail historians a hundred years from now will thank me for." },
       },
       choices = {
         { text = "Record it all. Someone should keep the town's memory straight.", next = "BACK", fx = { align = { order = 1 } } },
@@ -392,7 +392,7 @@ P:NPC {
 
     history = {
       lines = {
-        { id = "hi_default", text = "A fishing village, until the boats came from Stormwind full of refugees, with Lothar and his young mage on the first one. A seaport in the Second War, and now one of the last human towns standing in Lordaeron." },
+        { id = "hi_default", text = "It was a fishing village until the boats came from Stormwind full of refugees, with Lothar and his young mage on the first one. It became a seaport in the Second War, and now it's one of the last human towns standing in Lordaeron." },
       },
       choices = {
         { text = "Who remembers the boats?", next = "history_boats" },
@@ -408,7 +408,7 @@ P:NPC {
 
     strahnbrad = {
       lines = {
-        { id = "st_default", text = "A town in the Alterac foothills, once, and now a nest of the Syndicate, who are Alterac's old nobility gone to banditry. Whatever's turned up there, I want to know about it, and I'll pay in gratitude." },
+        { id = "st_default", text = "Strahnbrad was a town in the Alterac foothills once, and now it's a nest of the Syndicate, who are Alterac's old nobility gone to banditry. Whatever's turned up there, I want to know about it, and I'll pay in gratitude." },
         { id = "st_done", when = { questDone = TODO_QUEST("Strahnbrad Mystery") },
           text = "You know as much about it now as I do, and you were there, which is more than I'll ever manage. I'm writing it up as we speak." },
       },
@@ -461,7 +461,7 @@ P:NPC {
       },
       choices = {
         { text = "Ironforge fought here too. Write that down.", next = "BACK", fx = { trait = { stern = 1 } } },
-        { text = "Tell me the Second War here.", next = "history" },
+        { text = "Tell me Southshore's history, then.", next = "history" },
       },
     },
   },
@@ -470,8 +470,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know a great deal that nobody's asked about in years. Please, ask about any of it." } },
     background = { { id = "tp_bg", text = "I write down Southshore; that's the whole of it, and more interesting than it sounds." } },
     advice = { { id = "tp_ad", text = "Keep a journal. Nobody remembers anything properly, least of all heroes." } },
-    alterac = { { id = "tp_alterac", text = "A kingdom undone by its own king. I've three shelves on it and none of them are cheerful.", next = "alterac" } },
-    syndicate = { { id = "tp_syndicate", text = "Nobles in masks. They have long family trees and short tempers." } },
+    alterac = { { id = "tp_alterac", text = "Alterac was a kingdom undone by its own king, and I've three shelves on it and none of them are cheerful.", next = "alterac" } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are nobles in masks, with long family trees and short tempers." } },
     lordaeron = { { id = "tp_lordaeron", text = "I wrote the history of Lordaeron's fall as it happened, from refugee reports and old soldiers' tales. It is the saddest book I've ever written, and I'm not finished yet." } },
     second_war = { { id = "tp_second_war", text = "The Horde came over these hills in the Second War, and Southshore held, barely. I've written that chapter so many times I can recite it, and I'll do so if you're not careful." } },
     internment = { { id = "tp_internment", text = "The internment camp at Durnholde was ten miles from here, and the young orc who broke it out now leads the Horde. History has a sense of humour, and it isn't a kind one." } },
@@ -540,8 +540,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the lions are bolder, the Syndicate are hungrier, and something's been dragging sheep from the farms near Durnholde and leaving tracks nobody can name. Malvew swears it's a lion, but Malvew swears everything's a lion." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And what's {pet} drinking? I'm joking, of course, though the last hunter's cat lapped up half a mug of Bilger's stout and slept under the Lieutenant's chair, which is a story I still tell." },
+        { id = "xhuntcl_default", text = "That the lions are bolder, the Syndicate are hungrier, and something's been dragging sheep from the farms near Durnholde and leaving tracks nobody can name. Farmer Malvew swears it's a lion, but Malvew swears everything's a lion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the lions are bolder and the Syndicate hungrier, mostly. And what's {pet} drinking? I'm joking, of course, though the last hunter's cat lapped up half a mug of Bilger's stout and slept under the Lieutenant's chair, which is a story I still tell." },
       },
       choices = {
         { text = "I'll tell you only what I've seen, not what I've guessed.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -638,7 +638,7 @@ P:NPC {
     },
     gossip_mill = {
       lines = {
-        { id = "gm_default", text = "Only that the Forsaken are up to something with all those herbs and frogs. Phin Odelic's been asking about strange beasts, and Phin doesn't ask about anything without a reason." },
+        { id = "gm_default", text = "Only that the Forsaken are up to something with all those herbs and frogs. Phin Odelic, the old Kirin Tor mage, has been asking about strange beasts, and Phin doesn't ask about anything without a reason." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "new_plague" } } } },
     },
@@ -681,7 +681,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "You've come to the right man; I hear everything said in this town, eventually. What do you want to know?" } },
     background = { { id = "tp_bg", text = "I've poured drinks in Southshore longer than I'll admit, and I've no plans to stop." } },
     advice = { { id = "tp_ad", text = "Lock up your horse at night. The Syndicate love a good horse more than they love money." } },
-    syndicate = { { id = "tp_syndicate", text = "Nobles in masks, thieving horses and murdering magistrates. They don't drink here, or if they do, they tip badly." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are nobles in masks, thieving horses and murdering magistrates. They don't drink here, or if they do, they tip badly." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill drink nothing, but they do talk, and I hear more from their scouts than I'd like. They want Southshore, and they're patient about it." } },
     ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt's people drink here now and then, and they pay well, and they tip better. I don't ask, and they don't tell, and the beer flows." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's rumors come in with the sailors, and they're all about pirates and gold and goblins who'll cut your throat for a copper. Most of them are true." } },
@@ -703,7 +703,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hail, and well met. Got a moment for a man who sees plots in dead dogs?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Any news of my troublemakers?" },
-    { id = "g_active", when = { questActive = TODO_QUEST("Hints of a New Plague?") }, text = "Quae and Kinelory, Go'Shek Farm, Arathi. Please hurry; it's been days." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Hints of a New Plague?") }, text = "My friends Quae and Kinelory went to Go'Shek Farm in Arathi, and it's been days, so please hurry." },
   },
 
   notice = {
@@ -746,7 +746,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dead animals in places where nothing killed them, mainly, and water the deer won't drink. The apothecaries test their brews on whatever wanders past, and the beasts always know before we do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I'd rather not lose anyone's companion to the Forsaken's experiments." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dead animals and fouled water, mostly, so watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I'd rather not lose anyone's companion to the Forsaken's experiments." },
       },
       choices = {
         { text = "The Forsaken must be stopped before their plague spreads.", next = "BACK", fx = { align = { light = 1 } } },
@@ -852,7 +852,7 @@ P:NPC {
       lines = {
         { id = "f_default", text = "Two of my best, gone to the Go'Shek Farm in the Arathi Highlands to watch the orcs and anything the Forsaken bring them. They haven't checked in for days, and they always check in, if only to complain." },
         { id = "f_done", when = { questDone = TODO_QUEST("Hints of a New Plague?") },
-          text = "Staying on at the farm a while longer, in case of reprisals, and sending me notes. Kinelory looks worse after a night in the tavern, Quae says, which I'll take as good news." },
+          text = "They're staying on at the farm a while longer, in case of reprisals, and sending me notes. Kinelory looks worse after a night in the tavern, Quae says, which I'll take as good news." },
       },
       choices = {
         { text = "I'll find them.", next = "BACK", when = { questBefore = TODO_QUEST("Hints of a New Plague?") }, fx = { affinity = 2, trait = { brave = 1 } } },
@@ -864,7 +864,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "p_default", fx = { learn = { "new_plague" } },
-          text = "Making a new plague, their own, to finish what the Scourge started. I've no proof yet, only a giant dog and a farm in Arathi where orcs and Forsaken keep strange company, but I'd stake my old robes on it." },
+          text = "I think they're making a new plague of their own, to finish what the Scourge started. I've no proof yet, only a giant dog and a farm in Arathi where orcs and Forsaken keep strange company, but I'd stake my old robes on it." },
       },
       choices = {
         { text = "Then strike Tarren Mill before it's finished.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
@@ -951,7 +951,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I've one or two big enough, though I'll not part with 'em lightly, 'cause plate an' a heavy rider wear a horse down quicker than anythin'. Merideth's the one who sells, an' she'll want to know you'll treat the beast right before she even names a price." } },
+      lines = { { id = "xwarcl_default", text = "I've one or two big enough, though I'll not part with 'em lightly, 'cause plate an' a heavy rider wear a horse down quicker than anythin'. Merideth Carlson, who breeds 'em, is the one who sells, an' she'll want to know you'll treat the beast right before she even names a price." } },
       choices = {
         { text = "A good horse deserves care. I'd tend it like a comrade.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A horse is a tool. I'll ride it as hard as I need.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1019,7 +1019,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Darren Malvew, stablehand. Ain't nothin' irks me more than losin' these beautiful horses, and we've lost a heap to the undead, the Syndicate and every scoundrel in the hills. But the mountain lions are worse than all of 'em." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Costly Menace"), days = 5 } },
-          text = "Now ain't that fine news! Should've found me a proper war hero from the start, and saved myself a dozen good horses." },
+          text = "Now ain't that fine news about them lions! Should've found me a proper war hero from the start, and saved myself a dozen good horses." },
         { id = "h_later", when = { questDone = TODO_QUEST("Costly Menace") },
           text = "Ain't lost a single foal since you went up them hills. The horses are sleepin' easier, and so am I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Now don't you go eyein' my horses, friend, 'cause I count 'em every night an' I'd know if one went missin'." },
@@ -1111,7 +1111,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know horses and the things that take 'em, and that's about it, friend. What you want?" } },
     background = { { id = "tp_bg", text = "I brush horses in Southshore and swear at lions; my granddaddy did the same." } },
     advice = { { id = "tp_ad", text = "Don't leave your horse tied by the road overnight, not round here." } },
-    syndicate = { { id = "tp_syndicate", text = "Horse thieves with fancy names. I'd as soon see 'em eaten by lions." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are horse thieves with fancy names, an' I'd as soon see 'em eaten by lions." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill ride skeletal horses, and it breaks my heart every time I see one. A horse deserves to rest, even when its rider doesn't." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got horses that do tricks, and I've told Silas Darkmoon himself that his horses are underfed. He didn't listen, but he did buy me a drink." } },
     scourge = { { id = "tp_scourge", text = "I heard the Scourge eat horses, or worse, raise them. I keep my best ones in the stable at night, and I sleep there too, if I'm honest." } },
@@ -1163,7 +1163,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Meat, and plenty of it, and a good thick stew with bread to wipe the bowl. The soldiers who march to Tarren Mill on my cooking come back, and the ones who march on Anderson's porridge come back grumbling, if they come back at all." } },
+      lines = { { id = "xwarcl_default", text = "Meat, and plenty of it, and a good thick stew with bread to wipe the bowl. The soldiers who march to Tarren Mill on my cooking come back, and the ones who march on Innkeeper Anderson's porridge come back grumbling, if they come back at all." } },
       choices = {
         { text = "Feed the men who fight before anyone else, Chef.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll pay for the best cut. The rest can have porridge.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1219,7 +1219,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I don't suppose you can ask the sea to send the turtles back, {class}, because my bisque hasn't been the same since the murlocs took the shore." },
         { id = "h_default", key = true,
-          text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof; folk used to come all the way from Darkshire for it. Or they did, when I could make it." },
+          text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof, since folk came all the way from Darkshire for it, back when I could still make it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Soothing Turtle Bisque"), days = 5 } },
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in my kitchen? Fine, but if you're after the turtle bisque recipe, it's in my head, and I don't sleep with my mouth open." },
@@ -1267,7 +1267,7 @@ P:NPC {
 
     recipe = {
       lines = {
-        { id = "r_default", text = "Turtle, and the rest is a secret I'll take to my grave. I'll tell you this much: it's soothing, it's in the name, and a bowl of it makes even Farren stop complaining for a quarter hour." },
+        { id = "r_default", text = "Turtle, and the rest is a secret I'll take to my grave. I'll tell you this much: it's soothing, it's in the name, and a bowl of it makes even Lieutenant Farren stop complaining for a quarter hour." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -1328,7 +1328,7 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A PALADIN. Of course. Come to call me mad as well, have you?" },
+      text = "A paladin. Of course. Come to call me mad as well, have you?" },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Hm, that beast you're riding could use a good feed and a better rider. Well, the feed I can help with." },
   },
@@ -1366,7 +1366,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A horse is bred for trust over generations, and your beast is wild trust given once and kept, which I'll admit is rarer. The Silver Hand never understood either kind, and they rode my horses as if a horse were a cart with legs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} hasn't spooked a single horse in the paddock, and that's a beast that's been well loved. I'd sell to you on the strength of that alone, if you were buying." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Different, but no worse, since {pet} hasn't spooked a single horse in the paddock, and that's a beast that's been well loved. I'd sell to you on the strength of that alone, if you were buying." },
       },
       choices = {
         { text = "Breeding and training make a sound animal. That's the right way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1482,7 +1482,7 @@ P:NPC {
 
     feed = {
       lines = {
-        { id = "f_default", text = "Oh, so NOW the Silver Hand needs me? Bring me twenty enriched manna biscuits from the Argent Dawn, and gold, a good deal of it, for my ruffled feelings. Show me the sacrifice you all talk about so much." },
+        { id = "f_default", text = "Oh, so now the Silver Hand needs me? Bring me twenty enriched manna biscuits from the Argent Dawn, and gold, a good deal of it, for my ruffled feelings. Show me the sacrifice you all talk about so much." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "silver_hand" } } } },
     },
@@ -1511,7 +1511,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Horses, feed, and the faults of the Silver Hand; I know them all very well. Which?" } },
     background = { { id = "tp_bg", text = "I breed horses, and I was right about the feed, and those are the important things." } },
     advice = { { id = "tp_ad", text = "Never buy a horse that won't look you in the eye." } },
-    silver_hand = { { id = "tp_silverhand", text = "Laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
+    silver_hand = { { id = "tp_silverhand", text = "They laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
     scourge = { { id = "tp_scourge", text = "The Scourge took good horses from the north, and turned them into something I won't describe. I'd breed them all again, if I could, just to spite the plague." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken ride dead horses, and I've seen them up close, and I'd rather not again. A horse deserves better than that." } },
     holy_light = { { id = "tp_holy_light", text = "The Light called me mad once, through the mouths of the Silver Hand, and I've not forgiven it. I believe in my horses now, and they've never once let me down." } },
@@ -1564,7 +1564,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not so different, except the fish can't see you coming and the lions can. Hunters make fine anglers, in my experience, though they keep looking over their shoulders, as if a trout might sneak up on them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps eyeing my bucket, and I'll let it have the small ones, since the bay gives more than I need. Don't tell Lindea, though, because she counts the bait." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not so different, and your {pet} keeps eyeing my bucket, and I'll let it have the small ones, since the bay gives more than I need. Don't tell Lindea, though, because she counts the bait." },
       },
       choices = {
         { text = "Take only what you need, from the bay or the hills.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1667,7 +1667,7 @@ P:NPC {
 
     bay = {
       lines = {
-        { id = "b_default", text = "Good, if you stay close in. Murlocs further down the strand, naga out past the point, and ships that come in looking ragged. The fish don't care about any of it, which I admire." },
+        { id = "b_default", text = "It's good, if you stay close in. There are murlocs further down the strand, naga out past the point and ships that come in looking ragged. The fish don't care about any of it, which I admire." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

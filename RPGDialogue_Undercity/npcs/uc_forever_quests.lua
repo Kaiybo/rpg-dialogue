@@ -22,7 +22,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Do you require training in the ways of the Light? It still answers here, whatever they say up in the Monastery." },
+    { id = "g_default", text = "Do you require training in the ways of the Light? It still answers here, whatever the Scarlets in their Monastery say." },
     { id = "g_notpal", when = { ["not"] = { class = "PALADIN" } }, text = "You may not be a paladin, but you may yet find solace in the Light, should you ever go looking for it." },
     { id = "g_back", when = { metBefore = true, class = "PALADIN" }, text = "Back again. Show me your stance, and then tell me what the Light has cost you since we last spoke." },
   },
@@ -144,7 +144,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "That's right, pal, you're lookin' at Glix Xizzix, the famous trader who kept the, uh, hungry little ones of the Undercity fed through the whole Scourge war, and the genius who put weapons in the Dark Lady's hands when she needed 'em most. I sign autographs too, for a modest fee." },
+        { id = "h_default", key = true, text = "That's right, pal, you're lookin' at Glix Xizzix, the famous trader who kept this city supplied through the whole Scourge war, and the genius who put weapons in the Dark Lady's hands when she needed 'em most. I sign autographs too, for a modest fee." },
         { id = "h_letter_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Leonid's Letter"), days = 3 } },
           text = "Leonid's letter, huh? He wants a favour, of course, because nobody writes to a goblin to say hello, and he told you I'd tip you, which I never agreed to. Still, you did the walking, so I'll call it even, kid." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren in my chair would break the chair, buddy, so let's talk business standing up. You want a horn polish? I could do a horn polish." },
@@ -399,7 +399,7 @@ P:NPC {
     },
 
     after = {
-      lines = { { id = "af_default", text = "Now you go back to whoever sent you and tell them I'm grateful, because I am, and to them too. I don't know why you'd go out of your way for me, but I'll not forget it." } },
+      lines = { { id = "af_default", text = "Go back to Danitha Morr and tell her I'm grateful, to her and to you both. I don't know why you'd go out of your way for me, but I'll not forget it." } },
       choices = {
         { text = "It was the right thing to do.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -430,8 +430,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Stand straight in the Royal Quarter, {class}. The Dark Lady's eyes are on all of us here, and on my kind most of all." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; the work above us isn't done, and won't be for some time." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Light's Justice") }, text = "What remains of the invading Scourge? Have you found suitable replacement parts for our kin?" },
-    { id = "g_done", when = { questDone = TODO_QUEST("Light's Justice") }, text = "You do Captain Bandarion proud, and I'll tell anyone at the keep who asks." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Light's Justice") }, text = "Have you taken those limbs from the Scourge in the ruins above? Our kin need replacement parts." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Light's Justice") }, text = "Captain Bandarion would be proud of what you did, and I'll tell anyone at the keep who asks." },
   },
 
   notice = {

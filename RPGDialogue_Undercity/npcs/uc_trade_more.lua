@@ -101,7 +101,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "If you're looking for a cook, I'm no longer one. Try the inn." },
-    { id = "g_ring", when = { questActive = TODO_QUEST("Raleigh and the Undercity") }, text = "That ring in your hand, let me see it. Yes, I know it." },
+    { id = "g_ring", when = { questActive = TODO_QUEST("Raleigh and the Undercity") }, text = "That ring you're carrying, let me see it. Yes, I know it, because I gave it to my wife." },
   },
 
   notice = {
@@ -139,7 +139,7 @@ P:NPC {
       },
     },
     ring = {
-      lines = { { id = "ri_default", text = "I gave it to her the summer I was made head cook at a lord's table in Lordaeron, and I meant every word I said that day. Take it back, if you want it, because it's a bauble now, and the hands are all I care to keep." } },
+      lines = { { id = "ri_default", text = "I gave it to her the summer I was made head cook at a lord's table in Lordaeron, and I meant every word I said that day. Keep it, if you want it, because it's a bauble now, and the hands are all I care to keep." } },
       choices = { { text = "Something else, Raleigh.", next = "BACK" } },
     },
     valdred = {
@@ -206,7 +206,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Velora Nitely, armorsmith, and I used to be the best in Lordaeron, or so the lords told me when they wanted a discount. These days I don't care much for my craft, but it beats being a mindless minion of the Scourge, I suppose." },
         { id = "h_brutal", when = { questActive = TODO_QUEST("Velora Nitely and the Brutal Legguards") },
-          text = "Thun'grim sent you for the brutal legguards, did he? I can make them, but I'll need materials, and the materials are attached to some rather angry orcs in the Wetlands." },
+          text = "Thun'grim in the Barrens sent you for the brutal legguards, did he? I can make them, but I'll need materials, and the materials are attached to some rather angry orcs in the Wetlands." },
         { id = "h_done", when = { questDone = TODO_QUEST("Brutal Legguards") },
           text = "How do the legguards fit? Let me know if you need any changes, I aim to please, or at least I used to aim to please." },
       },
@@ -225,9 +225,9 @@ P:NPC {
     },
     jokes = {
       big = true,
-      lines = { { id = "jo_default", text = "Because I used to be funny, everyone said so, and I keep hoping that one day a joke will come out the way it used to. How did those orcs mind you taking their shins, by the way? Complain much? You're not laughing, are you?" } },
+      lines = { { id = "jo_default", text = "Because I used to be funny, everyone said so, and I keep hoping that one day a joke will come out the way it used to. Here's one: a Dragonmaw orc walks into my forge and limps out without his shins. You're not laughing, are you?" } },
       choices = {
-        { text = "Laugh anyway, to be kind.", next = "jokes_kind", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll laugh anyway, to be kind.", next = "jokes_kind", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "No. But keep trying. It'll come back.", next = "jokes_honest", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -50,7 +50,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Heavy ones, and fidgety, because they don't like sitting still while something else does the work. Hold the harness, keep your shield off the bat's wing, and you'll reach the Sepulcher with your dignity and most of your armour." } },
+      lines = { { id = "xwarcl_default", text = "Heavy riders, and fidgety ones, because they don't like sitting still while something else does the work. Hold the harness, keep your shield off the bat's wing, and you'll reach the Sepulcher with your dignity and most of your armour." } },
       choices = {
         { text = "I'll sit still and trust the bat, Garrett.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd rather walk. I like my feet on the ground.", next = "BACK", fx = { align = { order = -1 } } },
@@ -82,7 +82,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_peacepc", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } }, text = "Norman says you're for peace with the humans. My bats won't carry you to Southshore all the same, so don't get your hopes up." },
+        { id = "o_peacepc", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } }, text = "Innkeeper Norman says you're for peace with the humans. My bats won't carry you to Southshore all the same, so don't get your hopes up." },
         { id = "h_default", key = true,
           text = "Michael Garrett, bat handler to the Dark Lady's city. The bats carry riders to Tarren Mill and the Sepulcher and wherever else the Forsaken have planted a flag, and they don't mind the dead on their backs, which is more than horses can say." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats don't like the smell of lightning, so mind what you're carrying before you climb on." },
@@ -229,7 +229,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "The Light was, certainly, because it promised everything and explained nothing, and then it let us die. The shadow priests at least talk of will and discipline, which is closer to a method, and I'll grant them that much grudgingly." } },
+      lines = { { id = "xhpriest_default", text = "The Light certainly was imprecise, because it promised everything and explained nothing, and then it let us die. The shadow priests at least talk of will and discipline, which is closer to a method, and I'll grant them that much grudgingly." } },
       choices = {
         { text = "Faith isn't a method, Anastasia. It's something more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Will and discipline are what matter. I agree.", next = "BACK", fx = { align = { light = -1 } } },
@@ -433,7 +433,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "It did, or something in the room did, and the priest who said it swore it was coincidence. I've kept the vial and labelled it, and one day I'll know which of us was right, though I suspect neither of us will like the answer." } },
+      lines = { { id = "xhpriest_default", text = "It did, or something in the room did, and the priest who blessed it swore it was coincidence. I've kept the vial and labelled it, and one day I'll know which of us was right, though I suspect neither of us will like the answer." } },
       choices = {
         { text = "Some things aren't meant to be measured, Zinge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Test it properly, Zinge. Faith can bear scrutiny.", next = "BACK", fx = { align = { light = -1 } } },

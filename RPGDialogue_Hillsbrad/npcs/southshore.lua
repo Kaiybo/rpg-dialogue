@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     opn_hand = {
       lines = {
-        { id = "opn_hand_q", text = "Raised by whom? The best of them died with Uther, the angriest went off to the Crusade, and the rest drink quietly in Anderson's taproom and don't wear the tabard. I hear talk of it, though, every time a paladin rides through. What do you think?" },
+        { id = "opn_hand_q", text = "Raised by whom? The best of them died with Uther, the angriest went off to the Crusade, and the rest drink quietly in Innkeeper Anderson's taproom and don't wear the tabard. I hear talk of it, though, every time a paladin rides through. What do you think?" },
       },
       choices = {
         { text = "Yes. Lordaeron needs the Hand more than ever.", next = "opn_hand_r_restore", fx = { affinity = 1, align = { order = 1 }, opinion = { silver_hand = "restore" } } },
@@ -63,7 +63,7 @@ P:NPC {
     },
     opn_hand_r_let_rest = {
       lines = {
-        { id = "opn_hand_r_rest", text = "That's Raleigh's view, more or less, and he'd know better than either of us. I'd still rather have the Hand than the Crusade, given the choice." },
+        { id = "opn_hand_r_rest", text = "That's the view of Raleigh the Devout, up at the inn, more or less, and he'd know better than either of us. I'd still rather have the Hand than the Crusade, given the choice." },
       },
       choices = {
         { text = "Something else, Marshal.", next = "BACK" },
@@ -71,7 +71,7 @@ P:NPC {
     },
     opn_hand_r_replaced = {
       lines = {
-        { id = "opn_hand_r_replaced", text = "The Argent Dawn. I've heard of them, out at the Plaguelands' edge. If they're half what the Hand was, I'll take them, and gladly." },
+        { id = "opn_hand_r_replaced", text = "The Argent Dawn, you mean. I've heard of them, out at the Plaguelands' edge. If they're half what the Hand was, I'll take them, and gladly." },
       },
       choices = {
         { text = "Something else, Marshal.", next = "BACK" },
@@ -87,7 +87,7 @@ P:NPC {
     },
     xpt_company = {
       big = true,
-      lines = { { id = "xpt_company_default", text = "I'd send the lot of you at the Mill tomorrow if the Magistrate would sign for it, but Maleb counts coin before he counts graves. Still, a company that holds together does more good on the Hillsbrad road than any order I could write, and the farmers notice." } },
+      lines = { { id = "xpt_company_default", text = "I'd send the lot of you at the Mill tomorrow if Magistrate Maleb would sign for it, but he counts coin before he counts graves. Still, a company that holds together does more good on the Hillsbrad road than any order I could write, and the farmers notice." } },
       choices = {
         { text = "Then we'll go to Tarren Mill, whether the Magistrate signs or not.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "We'll wait for proper orders. A town needs its law.", next = "BACK", fx = { align = { order = 1 } } },
@@ -106,7 +106,7 @@ P:NPC {
       lines = { { id = "xcl_sm_default", text = "When the plague came, the Crusade marched through Hillsbrad promising to burn the dead out of Lordaeron, and some of our own lads went north with them. A few came home and couldn't say what they'd seen, and the rest never came home at all, so I'll thank you for whatever justice you carried in there." } },
       choices = {
         { text = "They'll answer to the Alliance's law, as every army should.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Law never stopped a Syndicate knife, but a sword did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Law never stopped an inquisitor's torch, but a sword did.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Did any of those lads ever say why they left?", next = "xcl_sm2" },
       },
     },
@@ -144,7 +144,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'd like to think so, but the Kirin Tor keep to their half-built city while the Syndicate takes the hills around it. Jacques is down here asking for aid, and I keep wondering why a city full of archmages needs a fishing town's help." } },
+      lines = { { id = "xmage_default", text = "I'd like to think so, but the Kirin Tor keep to their half-built city while the Syndicate takes the hills around it. Emissary Jacques of the Kirin Tor is down here asking for aid, and I keep wondering why a city full of archmages needs a fishing town's help." } },
       choices = {
         { text = "Dalaran stood against the Scourge. It deserves the Alliance's aid.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the Kirin Tor look after themselves for once.", next = "BACK", fx = { align = { order = -1 } } },
@@ -166,7 +166,7 @@ P:NPC {
           text = "Five of you, armed and fed and walking in step, and you've no idea how good that looks from my wall. If you're heading up toward Tarren Mill, I'd ask you to come back the same number you left with." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on the storm, the guards tell me. Dun Garok's lot pray to their stone and their forefathers, {class}, and I never heard of one talking to the wind before today." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
-          text = "The Magistrate says you've been a great help with his papers. Good, somebody has to read them, while the rest of us stand on the road where the Syndicate actually is." },
+          text = "Magistrate Maleb says you've been a great help with his papers. Good, somebody has to read them, while the rest of us stand on the road where the Syndicate actually is." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "Maleb says you weren't much use to him, which is about the best reference a soldier can get in Southshore. What do you need?" },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -176,19 +176,19 @@ P:NPC {
         { id = "h_crushridge", tags = { "news" }, when = { questActive = TODO_QUEST("Crushridge Bounty") },
           text = "The Crushridge ogres come down out of Alterac and take whatever's loose, people included. Thin them out, and the hills will breathe easier." },
         { id = "h_farren", when = { heardLine = "farren.h_default" },
-          text = "Farren told you how much he hates it here? He tells everyone. I gave him the murlocs, and he gave them to you, I suppose." },
+          text = "Lieutenant Farren told you how much he hates it here? He tells everyone. I gave him the murlocs, and he gave them to you, I suppose." },
         { id = "h_warmongers", tags = { "news" }, when = { questActive = TODO_QUEST("Crushridge Warmongers") },
           text = "The Warmongers are the ones who lead the raids. Cut down enough of them and the rest will remember where Alliance land starts." },
         { id = "h_refugee", when = { origin = "human_lordaeron_refugee" },
           text = "Another one out of the north, then. Southshore was taking in people with nothing long before you got here, and you're welcome." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Night's when the horses go missing, so I keep a lantern lit by the stables, not that the dead need the light." },
+          text = "Night's when the horses go missing, so I keep a lantern lit by the stables, though the dead who take them hardly need the light." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and I'd rather have that on my side than on theirs, so welcome to Southshore." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Southshore. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like your little friend, so keep it on a short leash." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the trampled ashes are full of boot prints about your size. Southshore owes you for that, and I won't forget it." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Alliance" },
-          text = "Word's come down the north road that someone went into the Scarlet Monastery and walked back out again, and Raleigh up at the inn hasn't stopped pacing since. If that was you, I'd like a word before the rumours get here first." },
+          text = "Word's come down the north road that someone went into the Scarlet Monastery and walked back out again, and Raleigh the Devout up at the inn hasn't stopped pacing since. If that was you, I'd like a word before the rumours get here first." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
@@ -236,7 +236,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "b_default", key = true,
-          text = "Lothar came off the lead ship, with a young mage called Khadgar. I sent Willem, my fastest rider, to King Terenas that hour. He rode like the dead were after him." },
+          text = "Sir Anduin Lothar came off the lead ship with a young mage called Khadgar, and I sent Willem, my fastest rider, to King Terenas that hour. He rode like the dead were after him." },
       },
       choices = {
         { text = "You met Lothar?", next = "lothar" },
@@ -256,7 +256,7 @@ P:NPC {
     },
 
     threats = {
-      lines = { { id = "t_default", text = "Murlocs on the coast, naga past them, ogres in the hills. The Syndicate at Durnholde. And the dead in Tarren Mill, who'd like the whole valley." } },
+      lines = { { id = "t_default", text = "Murlocs on the coast, naga past them, ogres in the hills and the Syndicate at Durnholde. Worst of all are the dead in Tarren Mill, who'd like the whole valley." } },
       choices = {
         { text = "Tell me about the ogres.", next = "crushridge" },
         { text = "Who are the Syndicate?", next = "syndicate" },
@@ -274,7 +274,7 @@ P:NPC {
     },
     syndicate = {
       lines = {
-        { id = "sy_default", text = "Thieves with old names, out of Alterac. They hold the ruins of Durnholde and take our horses and our shipments, and while the Magistrate keeps their papers, I keep the road." },
+        { id = "sy_default", text = "They're thieves with old names, out of Alterac. They hold the ruins of Durnholde and take our horses and our shipments, and while Magistrate Maleb keeps their papers, I keep the road." },
       },
       choices = {
         { text = "Durnholde? The old keep?", next = "durnholde" },
@@ -283,7 +283,7 @@ P:NPC {
     },
     durnholde = {
       lines = {
-        { id = "du_default", text = "Where they held the captured orcs after the Second War. One of those orcs came back with an army and pulled the keep down around its lord. Now the Syndicate squat in the rubble." },
+        { id = "du_default", text = "It's where they held the captured orcs after the Second War. One of those orcs came back with an army and pulled the keep down around its lord. Now the Syndicate squat in the rubble." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -299,7 +299,7 @@ P:NPC {
     },
     tarren_people = {
       lines = {
-        { id = "tpe_default", text = "So were the farmers they've killed. I don't hate them, mind. I just don't let them near the horses." },
+        { id = "tpe_default", text = "So were the farmers they've killed. I don't hate them, mind, I just don't let them near the horses." },
       },
       choices = {
         { text = "That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -342,7 +342,7 @@ P:NPC {
     refugee = {
       big = true,
       lines = {
-        { id = "rf_default", text = "There's room; there's always room, because that's what this town is for. It was for the Stormwind folk once, so tell Anderson at the inn I said so." },
+        { id = "rf_default", text = "There's room; there's always room, because that's what this town is for. It was for the Stormwind folk once, so tell Innkeeper Anderson at the inn I said so." },
       },
       choices = {
         { text = "Thank you, Marshal.", next = "BACK", fx = { affinity = 3, standing = { southshore = 2 } } },
@@ -351,7 +351,7 @@ P:NPC {
     },
     paladin = {
       lines = {
-        { id = "pa_default", text = "Some still live here, quieter than they were. When Uther fell, the Hand came apart, and some of the men in it came apart too. Be kind to them." },
+        { id = "pa_default", text = "Some came, and a few still live here, quieter than they were. When Uther fell, the Hand came apart, and some of the men in it came apart too. Be kind to them." },
       },
       choices = {
         { text = "Should the Silver Hand be raised again?", next = "opn_hand" },
@@ -362,7 +362,7 @@ P:NPC {
     priest = {
       big = true,
       lines = {
-        { id = "pr_default", text = "We bury our dead with the old words. Then we watch the grave for a few nights, to be sure. That's what Lordaeron is now." },
+        { id = "pr_default", text = "We bury our dead with the old words, and then we watch the grave for a few nights, to be sure. That's what Lordaeron is now." },
       },
       choices = {
         { text = "Then I'll say the words with them.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, standing = { southshore = 1 } } },
@@ -385,13 +385,13 @@ P:NPC {
     },
     errand = {
       lines = {
-        { id = "er_default", text = "Farren's errand-runner, are you? Thank you, then. Southshore needs people who'll do the work, whoever ends up taking the credit." },
+        { id = "er_default", text = "Lieutenant Farren's errand-runner, are you? Thank you, then. Southshore needs people who'll do the work, whoever ends up taking the credit." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, standing = { southshore = 1 } } } },
     },
     lantern = {
       lines = {
-        { id = "la_default", text = "That Southshore goes the way of Tarren Mill. I knew folk there, we fished the same river, and one season they were neighbours and the next they were the reason I keep a lantern lit by the stables all night, and most nights I'm the one holding it while the town thinks I'm seeing to the horses." },
+        { id = "la_default", text = "That Southshore goes the way of Tarren Mill. I knew folk there and fished the same river, and now they're the reason I keep a lantern lit by the stables all night. Most nights I'm the one holding it, while the town thinks I'm seeing to the horses." },
         { id = "la_priest", when = { class = "PRIEST" },
           text = "You've the look of someone people confess to, so here it is. I'm afraid Southshore will go the way of Tarren Mill, and most nights I'm the one by the stables with the lantern, watching the hill road, while the town thinks I'm seeing to the horses." },
       },
@@ -430,12 +430,12 @@ P:NPC {
     },
     xhunter = {
       lines = {
-        { id = "xhu_default", text = "Then you've seen the Crushridge fires and you've had the sense to stay downwind of them. Ogres I can hold off, but the lions keep taking Malvew's horses, and he'll talk your ear off about it." },
+        { id = "xhu_default", text = "Then you've seen the Crushridge fires and you've had the sense to stay downwind of them. Ogres I can hold off, but the lions keep taking horses from Farmer Malvew up the valley, and he'll talk your ear off about it." },
         { id = "xhu_human", when = { race = "Human" },
           text = "A Stormwind {g:lad|lass} with a bow and a beast at heel; my grandfather would have called you a ranger and asked where your elves were. Times change, and you're welcome to the hills." },
       },
       choices = {
-        { text = "Who's Malvew?", next = "town_people" },
+        { text = "Who else lives around Southshore?", next = "town_people" },
         { text = "I'll thin the lions.", next = "BACK", fx = { affinity = 1, standing = { southshore = 1 } } },
       },
     },
@@ -474,7 +474,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The orc warchief broke out of Durnholde not ten miles from here, and Southshore remembers that night. He's built a kingdom across the sea now, and I'll thank him to stay there." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme was the jewel of the north, and Prince Arthas burned it to the ground. I've heard the Argent Dawn's tales of what's there now, and I'll not repeat them in front of children." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady, they call her up the hill, and she's turned the Undercity into a nest of the walking dead. I'd not trust her as far as I could throw her, and I'd not want to touch her to try." } },
-    _none = { { id = "tp_none", text = "Ask the Magistrate; he's paid to know things, and I'm paid to stand here." } },
+    _none = { { id = "tp_none", text = "Ask Magistrate Maleb; he's paid to know things, and I'm paid to stand here." } },
   },
 }
 
@@ -603,7 +603,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Desperately, and the farmers want it more, but it feels odd to put a bounty on an animal for doing what animals do. The Syndicate, at least, know they're breaking the law, which makes the paperwork so much simpler." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? It's very handsome, and it's staring at my inkpot, and I'd be grateful if you'd ask it not to, because these reports took me three nights." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Desperately, and is that {pet}? It's very handsome, and it's staring at my inkpot, and I'd be grateful if you'd ask it not to, because these reports took me three nights." },
       },
       choices = {
         { text = "Beasts that raid farms should be culled. The town comes first.", next = "BACK", fx = { align = { order = 1 } } },
@@ -644,20 +644,20 @@ P:NPC {
           text = "You travel with {companion}, I see, and I'd know that soft step anywhere. I've nothing against rogues as such, but I keep the town's ledgers locked whenever one comes into my hall, and I'd thank you not to take it personally." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I'm afraid I've no form for this, {class}, and I've a form for nearly everything, so you'll forgive me if I stare a little." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
-          text = "Redpath tells me you've been out on the road with his men. Good work, I'm sure, but the Syndicate is beaten in my ledgers as much as on the road, and the Marshal never quite believes that." },
+          text = "Marshal Redpath tells me you've been out on the road with his men. Good work, I'm sure, but the Syndicate is beaten in my ledgers as much as on the road, and the Marshal never quite believes that." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "The Marshal had harsh words about you, I gather. Redpath has harsh words for anyone who isn't holding a sword, so I shouldn't let it trouble you." },
         { id = "h_default", key = true,
           text = "Henry Maleb, Magistrate of Southshore. I was thrilled to be given the post so young. Some evenings I wonder if I'd have done better as a clerk in Stormwind." },
         { id = "h_assassins", tags = { "news" }, when = { questActive = TODO_QUEST("Syndicate Assassins") },
-          text = "Syndicate assassins, paid killers, in the hills above town. Someone's paying them and I want to know who, so start by finding out what they carry." },
+          text = "There are Syndicate assassins, paid killers, in the hills above town. Someone's paying them and I want to know who, so start by finding out what they carry." },
         { id = "h_plans", when = { questActive = TODO_QUEST("Foreboding Plans") },
-          text = "These plans name names, and old ones at that. Alterac's nobility never died; it just learned to hire better." },
+          text = "Those plans you found name names, and old ones at that. Alterac's nobility never died; it just learned to hire better." },
         { id = "h_council", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Council") },
           text = "Whoever pulls these strings meets somewhere up in the mountains. Break them, and you'll do more for Southshore than ten years of my letters." },
         { id = "h_papers", when = { metBefore = true }, text = "I signed forty documents before breakfast and read most of them... some of them, at least the important ones, I hope." },
         { id = "h_rings", when = { questActive = TODO_QUEST("Noble Deaths") },
-          text = "Signet rings. The nobles hide among their cutthroats, but they can't bear to take the rings off. Bring me the rings, and we'll know who's left." },
+          text = "I want their signet rings. The nobles hide among their cutthroats, but they can't bear to take the rings off. Bring me the rings, and we'll know who's left." },
         { id = "h_contract", tags = { "news" }, when = { questActive = TODO_QUEST("Baron's Demise") },
           text = "Baron Vardus signed my death in red wax, and he's cold, cruel, and an Alterac lord to his boots. Find him in the mountains and bring him to justice." },
         { id = "h_vardus_done", when = { questDone = TODO_QUEST("Baron's Demise") },
@@ -708,7 +708,7 @@ P:NPC {
     },
     nobles = {
       lines = {
-        { id = "no_default", text = "Old Alterac names, hiding among the footpads. You can tell a noble by his signet ring; they never take them off. Strahnbrad, up in the mountains, is their den." },
+        { id = "no_default", text = "They're old Alterac names, hiding among the footpads. You can tell a noble by his signet ring; they never take them off. Strahnbrad, up in the mountains, is their den." },
       },
       choices = {
         { text = "What do they want with Southshore?", next = "plans" },
@@ -789,7 +789,7 @@ P:NPC {
     },
     vardus = {
       lines = {
-        { id = "va_default", text = "Then the last magistrate is paid for, or near enough, and I thank you. I may even open a shutter tonight." },
+        { id = "va_default", text = "Then my predecessor is avenged, or near enough, and I thank you. I may even open a shutter tonight." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { southshore = 2 } } } },
     },
@@ -816,7 +816,7 @@ P:NPC {
     alterac = { { id = "tp_alterac", text = "Half my docket is Syndicate, and the Syndicate are all Alterac's old nobility, and they still think they can't be hanged. I'd like to prove them wrong, once the paperwork's done." } },
     ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt doesn't exist, officially, and I've been told so by people who should know. Unofficially, I lock my door at night." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon wrote to me once, to thank Southshore for taking Stormwind's refugees. I've framed it, though I'd not tell him so." } },
-    _none = { { id = "tp_none", text = "Not before the court. Ask Redpath; he knows the ground." } },
+    _none = { { id = "tp_none", text = "Not before the court. Ask Marshal Redpath; he knows the ground." } },
   },
 }
 
@@ -864,7 +864,7 @@ P:NPC {
     },
     opn_varian_r_alive = {
       lines = {
-        { id = "opn_varian_r_alive", text = "Ha! There, finally, someone who isn't from the Keep and still says it. I'll write that to Samuelson tonight, along with my transfer request." },
+        { id = "opn_varian_r_alive", text = "Ha! There, finally, someone who isn't from the Keep and still says it. I'll write that to Major Samuelson tonight, along with my transfer request." },
       },
       choices = {
         { text = "Something else, Lieutenant.", next = "BACK" },
@@ -915,7 +915,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I'd never ask you to do my duty for me, of course, but if you happened to be tracking along the shore and happened to thin them out a bit, I'd mention it in my report. Favourably, and in some detail, since the Magistrate likes detail." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} could help, couldn't it? I've seen murlocs flee from a barking dog, so I imagine they'd do the same for something with proper teeth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd never ask you to do my duty, of course, but {pet} could help, couldn't it? I've seen murlocs flee from a barking dog, so I imagine they'd do the same for something with proper teeth." },
       },
       choices = {
         { text = "It's your duty, Lieutenant. You should lead the hunt yourself.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -977,14 +977,14 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Lieutenant Farren Orinelle, late of the Stormwind City Guard. Now I'm in charge of murlocs, and naga too, apparently, in a fishing town, at the end of the world. I'm told it builds character." },
         { id = "h_proof", tags = { "news" }, when = { questActive = TODO_QUEST("Farren's Proof") },
-          text = "Redpath wants proof the murlocs are being dealt with. Deal with them, bring me proof, and I'll pass it up as if I'd been out there. Everyone wins." },
+          text = "Marshal Redpath wants proof the murlocs are being dealt with. Deal with them, bring me proof, and I'll pass it up as if I'd been out there. Everyone wins." },
         { id = "h_stormwind", when = { questActive = TODO_QUEST("Stormwind Ho!") },
           text = "If I can show the city I've cleaned up this coast, they'll have to call me home, so please, I'm begging you, in a dignified way." },
         { id = "h_reassign", when = { questDone = TODO_QUEST("Reassignment") },
           text = "Still waiting on the reply, any day now, any day. I've packed; I've been packed for a month." },
         { id = "h_chair", when = { metBefore = true }, text = "Same chair, same murlocs, same sea. If you've come to tell me I've been recalled to Stormwind, I'll kiss you. If not, sit." },
         { id = "h_coast", tags = { "news" }, when = { questActive = TODO_QUEST("Down the Coast") },
-          text = "Torn Fin murlocs, down the Western Strand. Kill a few for me, then a few more for Redpath. Then we'll both have something to talk about." },
+          text = "The Torn Fin murlocs are down the Western Strand, so kill a few for me, then a few more for Marshal Redpath, and we'll both have something to talk about." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Another evening in Southshore, and the gulls have gone to bed. I envy the gulls." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You crept up on me, and I was watching for murlocs, so either you're very good or I'm very tired, and I'd honestly accept either answer." },
@@ -1046,7 +1046,7 @@ P:NPC {
     },
     murlocs = {
       lines = {
-        { id = "mu_default", text = "Torn Fins, on the Western Strand: fish that grew legs and opinions. I've stopped eating fish, and in Southshore that's close to fasting." },
+        { id = "mu_default", text = "They're Torn Fins, down on the Western Strand, fish that grew legs and opinions. I've stopped eating fish, and in Southshore that's close to fasting." },
       },
       choices = {
         { text = "Why not fight them yourself?", next = "fight" },
@@ -1083,7 +1083,7 @@ P:NPC {
     naga = {
       big = true,
       lines = {
-        { id = "na_default", text = "Redpath wants them dealt with, and High Command wants them dealt with too, says my old mentor. Which means the man who deals with them gets noticed, by Stormwind." },
+        { id = "na_default", text = "Marshal Redpath wants them dealt with, and so does High Command, according to my old mentor Major Samuelson. That means the man who deals with them gets noticed in Stormwind." },
       },
       choices = {
         { text = "So you'll fight the naga yourself, then.", next = "naga_deal" },
@@ -1157,7 +1157,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've picked up a few things, mostly by accident, from sitting in this chair. Ask, if you must." },
     },
-    background = { { id = "tp_bg", text = "Stormwind City Guard, temporarily posted elsewhere. Very temporarily, I'm told.", next = "guard" } },
+    background = { { id = "tp_bg", text = "I'm Stormwind City Guard, temporarily posted elsewhere, very temporarily, I'm told.", next = "guard" } },
     advice = { { id = "tp_ad", text = "Never volunteer, because that's how I ended up here." } },
     scourge = { { id = "tp_scourge", text = "I'd rather fight the Scourge than murlocs, honestly, since at least the dead don't smell of fish. I've told the Marshal so, and he's told me to be careful what I wish for." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill are pushing into our farms one field at a time, and I'm stuck down here fighting fish. I'd swap my post for theirs in a heartbeat." } },
@@ -1220,8 +1220,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Jessen does the cookin', but I do the tastin', an' boar from the Alterac foothills goes down grand with a dark ale. Mind the Crushridge, though, because the ogres think the boar are theirs, an' they've no sense o' humour about it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' who's this, then, {pet}? Fine beast, but it'll get no ale from me, hic, for the last dog I gave a sip to tried to fight the cellar door." },
+        { id = "xhuntcl_default", text = "Aye, I do! Jessen in the kitchen does the cookin', but I do the tastin', an' boar from the Alterac foothills goes down grand with a dark ale. Mind the Crushridge, though, because the ogres think the boar are theirs, an' they've no sense o' humour about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, I do! An' who's this, then, {pet}? Fine beast, but it'll get no ale from me, hic, for the last dog I gave a sip to tried to fight the cellar door." },
       },
       choices = {
         { text = "Give thanks for the hunt, Bilger. That's the old way.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1260,14 +1260,14 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to storms instead o' the Light, hic! The old Hand would've had a fit, {class}, but I'm not the Hand anymore, so come an' tell me what the spirits think o' my stout." },
         { id = "h_default", key = true,
-          text = "Bilger, brewmeister, hic. Used to be a knight o' the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin', mostly Foggy MacKreel's moonshine." },
+          text = "I'm Bilger, the brewmeister, hic. I used to be a knight o' the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin', mostly Foggy MacKreel's moonshine." },
         { id = "h_moonshine", tags = { "news" }, when = { questActive = TODO_QUEST("MacKreel's Moonshine") },
           text = "MacKreel's moonshine! Now that's a brew, hic. Get me a jug an' I'll tell ye a story about Uther that'll curl yer hair." },
         { id = "h_brew", when = { metBefore = true }, text = "New batch, hic, an' smoother than the last. The old Hand would've had me flogged for it, but the old Hand's gone an' the batch is here." },
         { id = "h_paid", when = { questDone = TODO_QUEST("MacKreel's Moonshine") },
-          text = "Foggy paid up, hic! In moonshine, which is the only coin he's got, an' the best one." },
+          text = "Foggy paid up, hic, in moonshine, which is the only coin he's got, an' the best one." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Night shift in the cellar, hic. The casks talk at night, ye know, an' mostly they say 'more'." },
+          text = "It's the night shift in the cellar, hic. The casks talk at night, ye know, an' mostly they say 'more'." },
         { id = "h_xsilverhand", when = { origin = "dwarf_silver_hand" },
           text = "Ye've the look o' a dwarf who knelt before Uther, same as I did, hic, an' ye're still sober, which is more than I can say. Sit doon, brother, an' don't tell the others what I used to be." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, hic! Ye wouldn't be able to chill a keg, would ye? The cellar gets warm in summer, an' warm ale is a sin even I won't forgive." },
@@ -1338,7 +1338,7 @@ P:NPC {
     },
     foggy = {
       lines = {
-        { id = "fg_default", text = "Foggy MacKreel, one o' Longbraid's lads, up on the broken Thandol Span. He owes me money an' pays in moonshine when he remembers, which is less often than ye'd hope." },
+        { id = "fg_default", text = "Foggy MacKreel, one o' Longbraid the Grim's lads, up on the broken Thandol Span. He owes me money an' pays in moonshine when he remembers, which is less often than ye'd hope." },
       },
       choices = {
         { text = "Is his moonshine any good?", next = "moonshine" },
@@ -1464,7 +1464,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A surprising amount, since the old Alterac nobles loved their hunts more than their kingdom and wrote down every stag like a battle won. I found a hunting ledger last month that listed more kills than the treasury listed coins, which tells you something about how Alterac was run." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} trained not to chew paper? I ask because the last hunter's dog ate the third chapter of a treatise on Strom's founding, and I still dream about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A surprising amount, but first, is {pet} trained not to chew paper? I ask because the last hunter's dog ate the third chapter of a treatise on Strom's founding, and I still dream about it." },
       },
       choices = {
         { text = "That ledger belongs in a proper library, kept and catalogued.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1513,14 +1513,14 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, of all things? I've three books on Ironforge's lore and not one of them mentions you, {class}, which means either the books are wrong or you're about to be very interesting." },
         { id = "h_default", text = "I'm Dibbs. I collect what's left of the old kingdom's knowledge before the ogres finish using it to start their fires, and it's slow work, for they're quick readers, in their way." },
         { id = "h_milton", when = { heardLine = "milton.h_default" },
-          text = "Milton Sheaf sent you? Of course he did, bless him. Tell him I've three crates of Alterac's records waiting, and one of them is mostly soot." },
+          text = "Milton Sheaf, in Ironforge, sent you? Of course he did, bless him. Tell him I've three crates of Alterac's records waiting, and one of them is mostly soot." },
         { id = "h_preserve", tags = { "news" }, when = { questActive = TODO_QUEST("Preserving Knowledge") },
           text = "Books still lie in the ruins of Alterac, and the ogres have been at them. Bring me whatever you can save, and handle it gently." },
         { id = "h_parchment", when = { questActive = TODO_QUEST("The Ensorcelled Parchment") },
           text = "This parchment has magic woven through it, so don't fold it and don't read it aloud... actually, don't read it at all." },
-        { id = "h_page", when = { metBefore = true }, text = "I saved three whole pages from an ogre's cookfire yesterday, and they turned out to be a treatise on beekeeping. Not what I'd hoped, but it's knowledge all the same." },
+        { id = "h_page", when = { metBefore = true }, text = "I saved three whole pages from an ogre's cookfire yesterday, and they turned out to be a treatise on beekeeping. It's not what I'd hoped, but it's knowledge all the same." },
         { id = "h_stormpike", when = { questActive = TODO_QUEST("Letter to Stormpike") },
-          text = "Stormpike will crow about this cipher for a month, and I'll let him, since he'll actually read it, which is more than the last cipher got." },
+          text = "Prospector Stormpike in Ironforge will crow about this cipher for a month, and I'll let him, since he'll actually read it, which is more than the last cipher got." },
         { id = "h_milton_done", when = { questDone = TODO_QUEST("Return to Milton") },
           text = "Milton wrote to thank me, three pages of it, and two of them were about the bindings." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have very careful hands, which is a fine quality in someone who handles old books, though I'll ask you to keep them off the ones I haven't catalogued yet." },
@@ -1535,7 +1535,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Another question? Good, for questions are the only thing I collect faster than books." },
-        { id = "h_again2", text = "Go on, I'll mark my place. With a herring, apparently, since someone's been using my bookmarks for kindling." },
+        { id = "h_again2", text = "Go on, I'll mark my place with a herring, apparently, since someone's been using my bookmarks for kindling." },
       },
       choices = {
         { text = "I'd guess the ogres weren't kind to your books.", next = "ogres" },
@@ -1556,7 +1556,7 @@ P:NPC {
       },
     },
     ogres = {
-      lines = { { id = "o_default", text = "Burned some, sat on others, and used a history of the Alterac succession to prop up a table. The table's never stood steadier, and the history deserved it." } },
+      lines = { { id = "o_default", text = "They burned some, sat on others, and used a history of the Alterac succession to prop up a table. The table's never stood steadier, and the history deserved it." } },
       choices = {
         { text = "These books seem to matter a great deal to you.", next = "why_books" },
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
@@ -1607,7 +1607,7 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "ma_default", text = "Could you? Then please don't read anything aloud. Their mages weave spells into the very ink, and I'd like to keep my eyebrows." },
+        { id = "ma_default", text = "Could you? Then please don't read anything aloud. Alterac's mages wove spells into the very ink, and I'd like to keep my eyebrows." },
       },
       choices = { { text = "No promises.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
@@ -1632,15 +1632,15 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've catalogued a great deal of what this valley used to know. Ask about any of it, and I'll tell you what survived the ogres." },
     },
-    alterac = { { id = "tp_alterac", text = "A whole library, lost under ogres. I could weep, and I have.", next = "why_books" } },
-    background = { { id = "tp_bg", text = "I gather what Alterac left behind, for Milton and the Royal Library. Before that I read, and I still do.", next = "grilek" } },
-    advice = { { id = "tp_ad", text = "Wash your hands before you touch a book, and after you touch an ogre. Ideally twice." } },
-    seven_kingdoms = { { id = "tp_seven", text = "Seven, until Alterac sold itself to the Horde and stopped being one. The books remember, though the ogres are working on that." } },
+    alterac = { { id = "tp_alterac", text = "Alterac had a whole library, and it's lost under ogres now. I could weep, and I have.", next = "why_books" } },
+    background = { { id = "tp_bg", text = "I gather what Alterac left behind, for Milton Sheaf and the Royal Library in Ironforge. Before that I read, and I still do.", next = "grilek" } },
+    advice = { { id = "tp_ad", text = "Wash your hands before you touch a book, and after you touch an ogre, ideally twice." } },
+    seven_kingdoms = { { id = "tp_seven", text = "There were seven, until Alterac sold itself to the Horde and stopped being one. The books remember, though the ogres are working on that." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's histories burned with its cities, and I'm saving what I can from the ogres' cookfires. Every book I pull out of Alterac is a little piece of the old kingdom that didn't die." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's libraries were the greatest in the world, and Archimonde burned most of them. The Kirin Tor are rebuilding, and I'd give my left hand to see what they saved." } },
     second_war = { { id = "tp_second_war", text = "The Second War was fought right over these hills, and the Horde came close to taking Southshore. I've a book of the fighting that I'll lend to anyone who'll bring it back." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme had a library to rival Dalaran's, before the prince put it to the torch. Somebody in the Argent Dawn tells me some of the shelves still stand, and I don't sleep for thinking about it." } },
-    _none = { { id = "tp_none", text = "Not in anything I've saved. Which isn't to say it isn't in something I haven't." } },
+    _none = { { id = "tp_none", text = "It's not in anything I've saved, which isn't to say it isn't in something I haven't." } },
   },
 }
 
@@ -1659,7 +1659,7 @@ P:NPC {
     { id = "o_hand_keep", tags = { "news" }, when = { gossip = { topic = "silver_hand", stance = { "keep", "restore" } } },
       text = "The Marshal says you'd see the Silver Hand raised again. The old knights in the corner heard it too, and two of them have polished their gauntlets since, which they haven't done in years." },
     { id = "o_varian_dead", tags = { "news" }, when = { gossip = { topic = "varian", stance = "dead" } },
-      text = "Orinelle's been sulking worse than usual since you told him King Varian's dead and gone. I'd go easy on him for a day or two; he's a Stormwind lad, after all." },
+      text = "Lieutenant Orinelle's been sulking worse than usual since you told him King Varian's dead and gone. I'd go easy on him for a day or two; he's a Stormwind lad, after all." },
     { id = "g_inn", text = "Shut the door, the rain gets in. Is it a bed, food or both? Both, by the look of you." },
     { id = "g_home", when = { homeInn = { "Southshore" } }, text = "Your room's dry, mostly, though the corner leaks. All the corners leak, and the ceiling's starting to think about it." },
     { id = "g_away", when = { away = 14 }, text = "Come in and shut the door, because it's been {away} and the rain hasn't stopped once in all that time. Your room's still there, and so is the leak." },
@@ -1714,7 +1714,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I'd buy anything that isn't fish, since the guests have started complaining that they can taste the bay in the bread. Bear from the foothills, perhaps, if you can bring it down without bringing a Syndicate patrol back with you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can sleep by the hearth if it likes, since it's the one dry spot in the house. Just don't let it near the lieutenant's chair, or he'll file a complaint, and he files them very slowly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd buy anything that isn't fish, and your {pet} can sleep by the hearth between hunts, since it's the one dry spot in the house. Just don't let it near the lieutenant's chair, or he'll file a complaint, and he files them very slowly." },
       },
       choices = {
         { text = "Pay hunters a fair price. They keep this town fed.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1775,10 +1775,10 @@ P:NPC {
         { id = "h_default", text = "Anderson's the name, and I keep the inn: fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
         { id = "h_bilger", when = { heardLine = "bilger.h_default" },
           text = "Bilger told you he was a paladin? He was, and a good one, folk here say. I keep the cellar unlocked for him, because somebody should be kind to him." },
-        { id = "h_chair", when = { metBefore = true }, text = "The lieutenant asked for his usual, and I didn't have to ask what. That's either a good inn or a sad story, or both, maybe." },
+        { id = "h_chair", when = { metBefore = true }, text = "Lieutenant Farren asked for his usual, and I didn't have to ask what. That's either a good inn or a sad story, or both, maybe." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Fishermen come in at this hour smelling of the bay, so I keep the windows open, out of habit more than anything." },
         { id = "h_refugee", when = { origin = "human_lordaeron_refugee" },
-          text = "Up from the north? There's a bed for you, and you can pay when you can; Redpath would have my hide if I turned you away." },
+          text = "Up from the north? There's a bed for you, and you can pay when you can; Marshal Redpath would have my hide if I turned you away." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came in without the door creaking, and that door creaks for everybody, so I'll guess you're the quiet sort with quiet business. Just pay for your room and we'll get on." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't suppose you could do something about the leaks? Every corner drips when it rains, and it always rains in Hillsbrad." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -1788,7 +1788,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and dripping on my floor like everyone else. Hang that mail by the fire, will you, because rust and rain are the two things Southshore has more of than fish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you've brought in more mud than the rain did. Wipe your boots, and tell me what's out in the hills, because nobody else will." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Most night elves who come through just want a room and a quiet corner, and you look like you'd sooner sleep under a tree." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? I'll rent you a bed like anyone else, but I'll ask you to keep whatever you've got on a leash off the stairs, because the last time a guest's pet got loose, Kelly didn't sleep for a week." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? I'll rent you a bed like anyone else, but I'll ask you to keep whatever you've got on a leash off the stairs, because the last time a guest's pet got loose, Barkeep Kelly didn't sleep for a week." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stew's hot and the chairs are dry, mostly." },
@@ -1813,7 +1813,7 @@ P:NPC {
     },
     regulars = {
       lines = {
-        { id = "rg_default", text = "Fishermen, Redpath's guards off duty, the lieutenant in his chair, and Bilger down in the cellar. They all pay, though Bilger pays in brew." },
+        { id = "rg_default", text = "Fishermen, Marshal Redpath's guards off duty, the lieutenant in his chair, and Bilger down in the cellar. They all pay, though Bilger pays in brew." },
       },
       choices = {
         { text = "What's the lieutenant's usual?", next = "farren" },
@@ -1828,7 +1828,7 @@ P:NPC {
     },
     news = {
       lines = {
-        { id = "nw_default", text = "Horses going missing from the stables again. Some say the Syndicate, some say Tarren Mill, some say lions down from Alterac. Probably all three." },
+        { id = "nw_default", text = "Horses are going missing from the stables again. Some say the Syndicate, some say Tarren Mill and some say lions down from Alterac, and it's probably all three." },
       },
       choices = {
         { text = "I can't see why the Forsaken would steal horses.", next = "news_horses" },
@@ -1853,6 +1853,6 @@ P:NPC {
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill drink nothing and eat nothing and pay for nothing, so they're no use to me. I'd still rather have them in Tarren Mill than here." } },
     scourge = { { id = "tp_scourge", text = "Refugees from the north stopped in my inn on their way to Stormwind, and they all had the same look in their eyes. I gave them beds and didn't ask." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum comes through Southshore now and then, and it's not as good as they say. I sell it anyway, for the sailors." } },
-    _none = { { id = "tp_none", text = "Ask the Marshal. He knows everyone in town by name and most of their grandparents." } },
+    _none = { { id = "tp_none", text = "Ask Marshal Redpath. He knows everyone in town by name and most of their grandparents." } },
   },
 }

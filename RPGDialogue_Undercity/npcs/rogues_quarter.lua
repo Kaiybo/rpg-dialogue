@@ -57,7 +57,7 @@ P:NPC {
       },
     },
     purse = {
-      lines = { { id = "pu_default", text = "The best in the Merchants' Row, if I say so myself, and I do. The watch caught me twice in ten years, and the second time I'd already spent the money." } },
+      lines = { { id = "pu_default", text = "I was, and the best in the Merchants' Row, if I say so myself, and I do. The watch caught me twice in ten years, and the second time I'd already spent the money." } },
       choices = {
         { text = "Do you regret it?", next = "purse_regret" },
         { text = "Something else.", next = "BACK" },
@@ -110,7 +110,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gregory Charles. I train rogues for the Dark Lady's service, and before the plague I kept a nobleman of Lordaeron alive, which was the harder task by far." },
-        { id = "h_deathstalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "Mennet's recruit. He tells me you have promise, and I've learned to doubt everything Mennet tells me, so you'll forgive me if I wait to see it." },
+        { id = "h_deathstalker", when = { origin = "forsaken_deathstalker_recruit" }, text = "So you're Mennet Carkad's recruit. He tells me you have promise, and I've learned to doubt everything Mennet tells me, so you'll forgive me if I wait to see it." },
         { id = "h_party", when = { party = true }, text = "You've brought company, I see, and you let them walk behind you. I'd not have kept my post a week with habits like that." },
       },
       again = {
@@ -128,7 +128,7 @@ P:NPC {
       },
     },
     noble = {
-      lines = { { id = "no_default", text = "A lord with lands near Andorhal, who paid well and trusted me completely. When the grain came, he ate the bread like everyone else, and there was no blade I could put between him and that." } },
+      lines = { { id = "no_default", text = "A lord with lands near Andorhal, who paid well and trusted me completely. When the plagued grain came, he ate the bread like everyone else, and there was no blade I could put between him and that." } },
       choices = {
         { text = "That wasn't your failing.", next = "noble_fail" },
         { text = "Something else.", next = "BACK" },

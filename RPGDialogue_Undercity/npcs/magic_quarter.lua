@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_lock", when = { class = "WARLOCK", race = "Scourge" },
           text = "One of ours. The plague took your heartbeat, so you've already lost the thing most demons want to frighten out of you, and that's a head start." },
         { id = "h_lock_living", when = { class = "WARLOCK", race = { "Orc", "Troll" } },
-          text = "An orc warlock, or near enough, in the Dark Lady's quarter. Your people learned this art from worse teachers than me, and paid a good deal more for the lessons." },
+          text = "A warlock of the Horde, in the Dark Lady's quarter. Your people learned this art from worse teachers than me, and paid a good deal more for the lessons." },
         { id = "h_notlock", when = { ["not"] = { class = "WARLOCK" } },
           text = "You're not one of mine, so keep your hands out of the circles. I'll answer a question or two, though, since the curious are often the next to come asking for lessons." },
       },
@@ -68,7 +68,7 @@ P:NPC {
     void_slip = {
       lines = { { id = "vs_default", text = "Then it stops serving and starts feeding, and someone like me is sent to tidy up what's left. I've tidied up three students so far, and I keep their chalk in a box by the door." } },
       choices = {
-        { text = "Holding them like that would frighten me.", next = "void_fear" },
+        { text = "Keeping something like that on a leash would frighten me.", next = "void_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -241,7 +241,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Kaal Soulreaper, and I teach the darker arts to those of the Dark Lady's people who would wield them. Speak, and choose your words as carefully as you'd choose your pacts." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "A warlock, and not yet devoured. Your souls are your currency, so spend them well, and never on anything that smiles at you." },
-        { id = "h_mage", when = { class = "MAGE" }, text = "A mage, slumming among the warlocks. Hartwell's students always come to look at us sooner or later, the way children look at a fire." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "A mage, slumming among the warlocks. Anastasia Hartwell's students always come to look at us sooner or later, the way children look at a fire." },
       },
       again = {
         { id = "h_again", text = "Speak again, if you must. The dark is patient, and so, tonight, am I." },
@@ -263,7 +263,7 @@ P:NPC {
     },
     name_soft = {
       big = true,
-      lines = { { id = "ns_default", text = "Buried, with the bread and the wife and the little shop by the gate. Bauhaus has it in his census, I expect, and he's welcome to keep it there." } },
+      lines = { { id = "ns_default", text = "Buried, with the bread and the wife and the little shop by the gate. Overseer Bauhaus has it in his census, I expect, and he's welcome to keep it there." } },
       choices = {
         { text = "The man you were deserves remembering.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Good. A new name for a new life.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -352,7 +352,7 @@ P:NPC {
 
   topics = {
     dalaran = { { id = "tp_dal", text = "A violet tower full of cowards. I'll see it again one day, and they won't enjoy the visit." } },
-    _none = { { id = "tp_none", text = "Ask Bethor Iceshard. He has the patience for questions; I have only the time for answers." } },
+    _none = { { id = "tp_none", text = "Ask Bethor Iceshard, down the hall. He has the patience for questions; I have only the time for answers." } },
   },
 }
 

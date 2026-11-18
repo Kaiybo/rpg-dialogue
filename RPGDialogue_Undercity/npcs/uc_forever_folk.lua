@@ -450,7 +450,7 @@ P:NPC {
     },
 
     argue = {
-      lines = { { id = "ar_default", text = "Names, and whether the dead should keep them, and demons, and whether a mage who calls one up is clever or just impatient. He studies the warlocks' books in the Rogues' Quarter, and I study the old Dalaran texts, and neither of us will give an inch." } },
+      lines = { { id = "ar_default", text = "Names, and whether the dead should keep them, and demons, and whether a mage who calls one up is clever or just impatient. He studies the warlocks' books in the Magic Quarter, and I study the old Dalaran texts, and neither of us will give an inch." } },
       choices = {
         { text = "Who's winning?", next = "argue_win" },
         { text = "Something else.", next = "BACK" },
@@ -522,7 +522,7 @@ P:NPC {
     },
 
     name = {
-      lines = { { id = "na_default", text = "Because the man who had the old one died screaming in a farmhouse while the grain rotted, and I see no reason to drag his name about with me. Whoever woke up in that ditch was someone new, so I named him something that doesn't flinch." } },
+      lines = { { id = "na_default", text = "Because the man who had the old one died screaming in a farmhouse while the grain rotted, and I see no reason to drag his name about with me. Whoever woke up afterwards was someone new, so I named him something that doesn't flinch." } },
       choices = {
         { text = "Faith thinks you're wrong about that.", next = "faith" },
         { text = "Something else.", next = "BACK" },
@@ -530,7 +530,7 @@ P:NPC {
     },
 
     study = {
-      lines = { { id = "st_default", text = "Binding, mostly, and the circles the warlocks in the Rogues' Quarter use to call their imps and their felhounds. I don't call anything myself, not yet, because I'd like to understand the leash before I hold one." } },
+      lines = { { id = "st_default", text = "Binding, mostly, and the circles the warlocks in the Magic Quarter use to call their imps and their felhounds. I don't call anything myself, not yet, because I'd like to understand the leash before I hold one." } },
       choices = {
         { text = "Is that sort of power worth the risk?", next = "power" },
         { text = "Something else.", next = "BACK" },
@@ -732,7 +732,7 @@ P:NPC {
 }
 
 ---------------------------------------------------------------------------
--- Zeglo Kruptorr: a warlock's acolyte in the Rogues' Quarter, who feeds the trainers' imps and resents it.
+-- Zeglo Kruptorr: a warlock's acolyte in the Magic Quarter, who feeds the trainers' imps and resents it.
 ---------------------------------------------------------------------------
 P:NPC {
   key = "uc_zeglo", id = TODO_NPC("Zeglo Kruptorr"), name = "Zeglo Kruptorr",
@@ -740,8 +740,8 @@ P:NPC {
   communities = { "undercity" }, temper = { "sour", "ambitious" }, values = { "ambitious", "cunning" },
   notices = { "class", "pet" },
   impression = {
-    first = "Zeglo Kruptorr is a warlock's acolyte in the Rogues' Quarter who spends his nights feeding other people's imps and resenting every minute of it. He is sure he is meant for greater things and keeps a list of the people who disagree.",
-    third = "{name} met Zeglo Kruptorr, an ambitious warlock's acolyte in the Rogues' Quarter.",
+    first = "Zeglo Kruptorr is a warlock's acolyte in the Magic Quarter who spends his nights feeding other people's imps and resenting every minute of it. He is sure he is meant for greater things and keeps a list of the people who disagree.",
+    third = "{name} met Zeglo Kruptorr, an ambitious warlock's acolyte in the Magic Quarter.",
   },
 
   greetings = {
@@ -789,7 +789,7 @@ P:NPC {
     },
     pact_wait = {
       big = true,
-      lines = { { id = "pw_default", text = "Right? The Scourge is a day's walk from here and the Scarlets are closer than that, and the trainers want me sweeping. A demon on a leash is a demon fighting for us, and every night I wait is a night we're weaker." } },
+      lines = { { id = "pw_default", text = "Right to make me wait? The Scourge is a day's walk from here and the Scarlets are closer than that, and the trainers want me sweeping. A demon on a leash is a demon fighting for us, and every night I wait is a night we're weaker." } },
       choices = {
         { text = "Power taken in a hurry will take you back.", next = "pact_after", fx = { align = { order = 1 } } },
         { text = "Then stop waiting and take what you're owed.", next = "pact_after", fx = { align = { order = -1 } } },
@@ -808,7 +808,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I was nobody in life, and I'll be somebody in death. That's all the background you need." } },
-    advice = { { id = "tp_ad", text = "Never let an imp near your sleeves. Or your notes. Or your hair, if you've any left." } },
+    advice = { { id = "tp_ad", text = "Never let an imp near your sleeves, your notes or your hair, if you've any left." } },
     _none = { { id = "tp_none", text = "I don't know, and I've no time to find out. Ask a master; they've time for everything except teaching me." } },
   },
 }

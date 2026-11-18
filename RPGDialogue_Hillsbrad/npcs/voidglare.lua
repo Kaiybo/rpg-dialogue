@@ -21,8 +21,8 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and Dalaran has not crumbled in your absence, much to my disappointment. What have you brought me?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have become rather more capable. I suppose I should take some credit for that." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Mill speaks well of you, which is unusual for the Mill. Don't let it go to your head; heads are hard to replace here." },
-    { id = "g_patrols", when = { questActive = TODO_QUEST("Dalaran Patrols") }, text = "Summoners and their elemental slaves. Thin them, and the ruins are mine to search." },
-    { id = "g_key", when = { questActive = TODO_QUEST("Key to the City") }, text = "Something that opens a door unnoticed. The internment camp is full of careless wizards; search them." },
+    { id = "g_patrols", when = { questActive = TODO_QUEST("Dalaran Patrols") }, text = "Dalaran's summoners and their elemental slaves still patrol the ruins. Thin them, and the ruins are mine to search." },
+    { id = "g_key", when = { questActive = TODO_QUEST("Key to the City") }, text = "I need something that opens one of Dalaran's doors unnoticed, and the internment camp is full of careless wizards, so search them." },
   },
 
   notice = {
@@ -150,7 +150,7 @@ P:NPC {
         { id = "ap_default", text = "Did you, now? Then you know the halls I'm trying to get into, and you know how they look at the likes of us now. Tell me everything you remember, slowly, and leave nothing out." },
       },
       choices = {
-        { text = "I remember the libraries. And the locks.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I remember the libraries, and the locks on them.", next = "BACK", fx = { affinity = 2 } },
         { text = "Some memories I'd rather keep, Magus.", next = "BACK" },
       },
     },
@@ -184,8 +184,8 @@ P:NPC {
     { id = "g_default", text = "Hello, {name}. The Magus is busy, which means I'm busy, which means you're probably about to be busy." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I'd say I missed you, but I've been told I've lost the knack for sincerity." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. The Magus asked after you twice, which for him is practically a love letter." },
-    { id = "g_tokens", when = { questActive = TODO_QUEST("Stone Tokens") }, text = "Ten worn tokens, from Dalaran's people west of here. The internment camp is safer than the city." },
-    { id = "g_bracers", when = { questActive = TODO_QUEST("Bracers of Binding") }, text = "Bracers of earth binding, off the elementals in the ruins. They're tough quarry, but I know you're up to it." },
+    { id = "g_tokens", when = { questActive = TODO_QUEST("Stone Tokens") }, text = "I need ten worn stone tokens from Dalaran's wizards west of here, and the internment camp is safer hunting than the city." },
+    { id = "g_bracers", when = { questActive = TODO_QUEST("Bracers of Binding") }, text = "I need the bracers of earth binding worn by the elementals in the ruins. They're tough quarry, but I know you're up to it." },
   },
 
   notice = {
@@ -246,7 +246,7 @@ P:NPC {
 
     magus = {
       lines = {
-        { id = "ma_default", text = "Educational, and very quiet, for he talks mostly to his notes. He's brilliant, and he'd tell you so, and he'd be about half right, which is better than most." },
+        { id = "ma_default", text = "It's educational, and very quiet, for he talks mostly to his notes. He's brilliant, and he'd tell you so, and he'd be about half right, which is better than most." },
       },
       choices = {
         { text = "What does he really want?", next = "magus_want" },
@@ -255,7 +255,7 @@ P:NPC {
     },
     magus_want = {
       lines = {
-        { id = "mw_default", text = "Into Dalaran, and not as a thief, though he'll be one if he must. He wants them to look at him as one of their own, and I don't think he knows that's what he wants." },
+        { id = "mw_default", text = "He wants into Dalaran, and not as a thief, though he'll be one if he must. He wants them to look at him as one of their own, and I don't think he knows that's what he wants." },
       },
       choices = { { text = "Something else, Keeper.", next = "BACK" } },
     },

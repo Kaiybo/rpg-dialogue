@@ -94,7 +94,7 @@ P:NPC {
     },
     xcl_strat = {
       big = true,
-      lines = { { id = "xcl_strat_default", text = "Then the Baron has rejoined his master's servants in the only way left to him, and the city where Arthas began has one less of his creatures in it. I take no joy in ruins, but I take a great deal in seeing his work undone, one stone at a time." } },
+      lines = { { id = "xcl_strat_default", text = "Then Baron Rivendare is dead at last, and the city where Arthas began has one less of his creatures in it. I take no joy in ruins, but I take a great deal in seeing his work undone, one stone at a time." } },
       choices = {
         { text = "I serve your vengeance, my lady, and I'll serve it again.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I did it for my own reasons, not for your vengeance.", next = "BACK", fx = { align = { order = -1 } } },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme", faction = "Horde" },
           text = "Stratholme's masters have fallen, and my rangers tell me you walked out of its gates when others did not. Arthas began his crimes in that city, and I am glad to hear it has finally been made to answer." },
         { id = "h_zygand", when = { heardLine = "zygand.h_default" },
-          text = "Zygand holds Tirisfal against the Crusade, and good; the zealots should learn that the dead have long memories." },
+          text = "Executor Zygand holds Brill against the Crusade, and good; the zealots should learn that the dead have long memories." },
         { id = "h_hamuul", when = { heardLine = "hamuul.h_default" },
           text = "The tauren Arch Druid spoke for the Forsaken before the Horde, when the orcs would have turned us away. Remember that, when you hear the tauren speak of balance." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's people speak of spirits and of balance, and I have heard enough of spirits to last me the rest of my long existence." },
@@ -182,9 +182,9 @@ P:NPC {
     paladin = {
       big = true,
       lines = {
-        { id = "pa_default", text = "So I'm told. The Light that let Arthas march into Quel'Thalas with a paladin's hammer, and now it answers to my people too. I find that more amusing than holy, but if it burns the Scourge, carry it, and let it hurt." },
+        { id = "pa_default", text = "So I'm told. The same Light let Arthas march into Quel'Thalas with a paladin's hammer, and now it answers to my people too. I find that more amusing than holy, but if it burns the Scourge, carry it, and let it hurt." },
         { id = "pa_knight", when = { origin = "forsaken_risen_knight" },
-          text = "Silver Hand. Arthas wore your order's colours when he came for my people, and you wore them when he came for you. Remember that, every time it burns." },
+          text = "You were Silver Hand, then. Arthas wore your order's colours when he came for my people, and you wore them when he came for you. Remember that, every time it burns." },
       },
       choices = {
         { text = "The Light is mine, not his. I'll prove it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -239,7 +239,7 @@ P:NPC {
     want = {
       big = true,
       lines = {
-        { id = "w_default", text = "A home no one can take from us, and freedom from the Lich King's voice. And his ruin, slowly, piece by piece. Is that so much, after what was done to us?" },
+        { id = "w_default", text = "A home no one can take from us, freedom from the Lich King's voice, and his ruin, slowly, piece by piece. Is that so much, after what was done to us?" },
       },
       choices = {
         { text = "It isn't.", next = "BACK", fx = { affinity = 2 } },
@@ -251,7 +251,7 @@ P:NPC {
       choices = { { text = "...", next = "END" } },
     },
     arthas = {
-      lines = { { id = "ar_default", text = "He burned my people's forests and murdered them in their homes, and then he made me watch, as this. I'll say no more of it, not to you and not to anyone." } },
+      lines = { { id = "ar_default", text = "He burned my people's forests and murdered them in their homes, and then he made me into this and made me watch. I'll say no more of it, not to you and not to anyone." } },
       choices = {
         { text = "...", next = "END" },
         { text = "What do you remember of Quel'Thalas?", tag = "Persuade", next = "quelthalas",
@@ -279,7 +279,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I was one, for a time, bound and wailing at Arthas's heel, and nothing about that time was balanced. Turn your elements on the Scourge and I will call you an ally, but do not speak to me of harmony with the dead, because the dead in this city have had their fill of other people's harmony." } },
+      lines = { { id = "xhsham_default", text = "I was a spirit myself for a time, bound and wailing at Arthas's heel, and nothing about that time was balanced. Turn your elements on the Scourge and I will call you an ally, but do not speak to me of harmony with the dead, because the dead in this city have had their fill of other people's harmony." } },
       choices = {
         { text = "The Scourge, then. My elements will answer for your people.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Balance is the Horde's way, my lady, whether it suits you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -429,7 +429,7 @@ P:NPC {
     freedom = {
       lines = {
         { id = "fr_default", text = "His power waned for reasons I have never learned, and the chains slackened, and I was the first to slip them because I had been waiting for nothing else. I gathered every one of the dead who woke beside me with their own minds again, and I named them the Forsaken, because that is what the world had made of us." },
-        { id = "fr_scourge", when = { origin = "forsaken_scourge_remembered" }, text = "You remember the time before, as I do, every village and every face, so I'll tell you what I tell myself. His power waned and the chains slackened, and the hand that did those things was yours, but the will was his, and he will answer for both." },
+        { id = "fr_scourge", when = { origin = "forsaken_scourge_remembered" }, text = "You remember your time under him, as I do, every village and every face, so I'll tell you what I tell myself: the hand that did those things was yours, but the will was his, and he will answer for both." },
       },
       choices = {
         { text = "Waking must have been strange.", next = "freedom2" },
@@ -730,9 +730,9 @@ P:NPC {
         { id = "h_deathstalkers", tags = { "news" }, when = { questActive = TODO_QUEST("The Deathstalkers") },
           text = "The Deathstalkers are the Dark Lady's eyes and blades. Go where they send you and do what they ask, and then tell me what they tell you." },
         { id = "h_hillsbrad", when = { questActive = TODO_QUEST("Battle of Hillsbrad") },
-          text = "The living cling to Hillsbrad like rats to a ship. Help Darthalia sink it." },
+          text = "The living cling to Hillsbrad like rats to a ship. Help High Executor Darthalia sink it." },
         { id = "h_alliance", when = { questActive = TODO_QUEST("An Unholy Alliance") },
-          text = "An alliance between our enemies? How very unholy. Break it before it learns to stand." },
+          text = "An alliance between the Scourge and the quilboar of Razorfen? How very unholy. Break it before it learns to stand." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Royal Quarter. Your people knelt to my kind once and then changed their minds, which I have always found rather ungrateful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You smell of grass and wet fur, which is a novelty down here, though not one I'd ask you to repeat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I have watched a great many mortal hunters stalk their prey, {class}, and I confess I still find it charming." },
@@ -744,9 +744,9 @@ P:NPC {
       choices = {
         { text = "You've been keeping notes on someone I know?", next = "xalt_varimathras", when = { alt = true } },
         { text = "What do you think of mortal priests, Varimathras?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do you miss your hold on my people, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you miss your hold on the orcs, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does a dreadlord make of the Emerald Dream?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Your guards are dreadlords, Varimathras. Mine is a shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "You have your guards, Varimathras. I have my shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "A dreadlord serving the Dark Lady seems unlikely.", next = "serve" },
         { text = "I command demons too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The Light answers me. That must trouble you.", next = "paladin", when = { class = "PALADIN" } },
@@ -810,7 +810,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Miss it? My dear shaman, I serve the Dark Lady now, faithfully and gladly, and the Legion's affairs are no concern of mine. Still, I do remember how eagerly your fathers drank, and I wonder now and then how thirsty their children are." } },
+      lines = { { id = "xhsham_default", text = "Miss it? My dear shaman, I serve the Dark Lady now, faithfully and gladly, and the Legion's affairs are no concern of mine. Still, I do remember how eagerly the orcs drank, and I wonder now and then how thirsty their children are." } },
       choices = {
         { text = "We'll never drink again, dreadlord. Not one drop.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A strong people takes power wherever it finds it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -974,7 +974,7 @@ P:NPC {
           text = "You've the same build as {alt}, who carried a crate of my reagents across the Quarter without dropping a single vial! Is it family, or has the Society finally learned to breed reliable couriers?" },
         { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
           text = "One of our own, {alt}, was down here only recently, and between you and me, they asked to see the testing cages and didn't even blanch. If you know them, do tell them the Society has a long memory for steady stomachs." },
-        { id = "o_ktadmire", tags = { "news" }, when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Bethor says you'd go running back to Dalaran if they'd have you. I'd advise against it, because I've seen what the Kirin Tor do with specimens." },
+        { id = "o_ktadmire", tags = { "news" }, when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Bethor Iceshard says you'd go running back to Dalaran if they'd have you. I'd advise against it, because I've seen what the Kirin Tor do with specimens." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
           text = "Your companion is a priest, I think, from the way they keep looking at my jars. Tell {companion} that I'm still measuring whether faith slows the decay of the dead, and I'd welcome a priest's help with the trial, so long as they don't mind the smell." },
         { id = "h_default", key = true,
@@ -984,7 +984,7 @@ P:NPC {
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
           text = "You've been to the Monastery, haven't you? You've the look of someone who's seen zealots up close, which is a very particular look. I've been hoping someone would bring me news from inside!" },
         { id = "h_agony", when = { questActive = TODO_QUEST("Elixir of Agony") },
-          text = "Lydon's colloid, applied correctly, and then a few reagents to wake the mixture! Don't sniff it, though; Lydon sniffed it, and Lydon has been melancholy ever since." },
+          text = "Apothecary Lydon's colloid from Tarren Mill, applied correctly, and then a few reagents to wake the mixture! Don't sniff it, though; Lydon sniffed it, and Lydon has been melancholy ever since." },
         { id = "h_lydon", when = { heardLine = "lydon.h_default" },
           text = "Lydon, in Tarren Mill? Yes, yes, a brilliant mind and terrible company. He named his frog, and I told him not to name the frog!" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, how marvellous, you put your hands into lightning and come out the other side, and I'd simply adore a sample of whatever's left in your blood afterwards." },
@@ -1016,7 +1016,7 @@ P:NPC {
     },
     rogue = {
       lines = {
-        { id = "ro_default", text = "Help? My dear, the Society practically invented half the poisons on your belt! Crippling, mind-numbing, the deadly ones, all far too crude, of course. Bring me spider venom from Silverpine and I'll show you what a real toxin looks like." },
+        { id = "ro_default", text = "Help? My dear, the Society practically invented half the poisons on your belt! Crippling, mind-numbing and deadly, all of them far too crude, of course. Bring me spider venom from Silverpine and I'll show you what a real toxin looks like." },
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "A deathstalker! My favourite customers; you always bring the bottles back empty. Do tell your captains the new batch is ready, and that it was very nearly an accident." },
       },
@@ -1060,9 +1060,9 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "More than you'd guess, though fewer than I'd like. A warrior with a few of my tonics fights longer and heals faster, and if the work goes well, the Scourge will one day have none of either." } },
+      lines = { { id = "xhwar_default", text = "More than you'd guess, though fewer than I'd like. A warrior with a few of my tonics fights longer and heals faster, and if the plague we're brewing works, the Scourge won't be fighting at all." } },
       choices = {
-        { text = "Poison is a coward's weapon. I'll keep my axe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A plague is a coward's weapon. I'll keep my axe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your plague will end the Scourge. I'll fight beside it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
@@ -1094,7 +1094,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
     },
-    wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd give a great deal for a sample. Helbrim is being very slow about it." } },
+    wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd give a great deal for a sample. Apothecary Helbrim at the Crossroads is being very slow about it." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's plague is a marvel of crude engineering, and I have the deepest admiration for its efficiency! Of course, we mean to do better, purely for use against the Scourge." } },
     new_plague = { { id = "tp_new_plague", when = { race = "Scourge" }, text = "You're one of us, so I'll tell you that it's coming along splendidly, and that you mustn't breathe near the vats. Our enemies will never know what hit them." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are the finest scholars in the world, because we've already conquered death and can now focus on more interesting problems. The Royal Apothecary Society is proof of that!" } },
@@ -1170,7 +1170,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "My oath did not, and Thule's certainly didn't, so I have reason to be cold about it. But if the Light still answers you after everything Lordaeron's dead have suffered, then perhaps loyalty is something we choose, rather than something we're owed." } },
+      lines = { { id = "xfpala_default", text = "My oath didn't keep faith with me, and Thule certainly didn't, so I have reason to be cold about it. But if the Light still answers you after everything Lordaeron's dead have suffered, then perhaps loyalty is something we choose, rather than something we're owed." } },
       choices = {
         { text = "Loyalty is a choice. I chose the Light again.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Nothing keeps faith. I hold the Light because it's useful.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1202,7 +1202,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "My name is Bethor Iceshard. I studied at Dalaran with two friends, and we crossed our wands as apprentices and swore we'd always stand together. One of them sold his soul to the Lich King, and his name was Thule Ravenclaw." },
         { id = "h_renferrel", when = { heardLine = "renferrel.h_default" },
-          text = "Renferrel's work in Silverpine keeps turning up my old friend's name. I'd rather it didn't, but I'd rather know than not." },
+          text = "Apothecary Renferrel's work at the Sepulcher keeps turning up my old friend's name. I'd rather it didn't, but I'd rather know than not." },
         { id = "h_prodigal", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich") },
           text = "Somewhere out there, a lich calls himself by an old friend's name. Find out if it's true, though I'd rather it weren't." },
         { id = "h_returns", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich Returns") },
@@ -1246,7 +1246,7 @@ P:NPC {
       },
     },
     orcmage = {
-      lines = { { id = "om_default", text = "That Dalaran spent a war telling us orcs couldn't learn anything but the axe and the fel, and here you are, proving us wrong in the Undercity of all places. Learn carefully; the arcane rewards patience, and it punishes hunger." } },
+      lines = { { id = "om_default", text = "That Dalaran spent a war teaching that orcs could learn nothing but the axe and the fel, and here you are, proving it wrong in the Undercity of all places. Learn carefully; the arcane rewards patience, and it punishes hunger." } },
       choices = { { text = "Patience, not hunger. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
     },
     warlock = {
@@ -1299,7 +1299,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Once, in Dalaran, when a friend's notes went missing and I paid a boy to find them, and I've regretted ever since not asking what else he found. Thule Ravenclaw keeps his secrets at Fenris Keep now, and I'd dearly like a thief in his study." },
+        { id = "xrogue_default", text = "I needed one once, in Dalaran, when a friend's notes went missing and I paid a boy to find them, and I've regretted ever since not asking what else he found. Thule Ravenclaw keeps his secrets at Fenris Keep now, and I'd dearly like a thief in his study." },
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "Dalaran had its thieves like any city, though the Kirin Tor liked to pretend otherwise, and some of them were cleverer than the apprentices. If you were one of them, you'll know how to get past a ward that thinks itself clever." },
       },
       choices = {
@@ -1314,7 +1314,7 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "I swore an oath in Dalaran as an apprentice, with friends who swore it beside me, and I still carry the wand. The city is rising again, but it isn't my city anymore, and I doubt it would have me." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me everything I know, and then they watched the plague take Lordaeron and did nothing useful about it. I've grown cold, and they deserve most of the credit." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad walked the halls of the Violet Citadel when I was young, and the masters thought him a genius. They were right, and that's the terrible part." } },
-    scholomance = { { id = "tp_scholomance", text = "One of the friends who swore the apprentice's oath beside me sold himself to the Lich King, and the school at Caer Darrow is where such men go. I don't speak his name." } },
+    scholomance = { { id = "tp_scholomance", text = "One of the friends who swore the apprentice's oath beside me sold himself to the Lich King, and the school at Caer Darrow is where such men go. I'd rather not say more." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken have use for a mage who remembers Dalaran's secrets. I give the Dark Lady what I know, and she gives me a purpose, and I'd call that a fair trade." } },
     _none = { { id = "tp_none", text = "Research it; that's what we do here." } },
   },
@@ -1425,7 +1425,7 @@ P:NPC {
           text = "Funny, you put me in mind of {alt}, who took the corner chair and sat there a day and a half without a word. Some of us knew each other before, and some of us only think we did, so I never ask." },
         { id = "h_alt_living", tags = { "news" }, when = { alt = { notKin = true, race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
           text = "We had a {altclass} named {alt} in here not long ago, one of the living, and they didn't even ask whether the food was safe. I liked them for it, and I'd like you for the same." },
-        { id = "o_npdanger", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "dangerous" } }, text = "One of Zinge's lot was in here grumbling that you think the plague will get loose. Keep your voice down about that in my common room, if you would, because the Deathguard drink here." },
+        { id = "o_npdanger", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "dangerous" } }, text = "One of Apothecary Zinge's lot was in here grumbling that you think the plague will get loose. Keep your voice down about that in my common room, if you would, because the Deathguard drink here." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "You've a Forsaken friend with you, so I'll not have to explain the rooms twice. {companion} will know they're for resting the bones rather than sleeping, and the living among you can sleep wherever you like, as long as it's quietly." },
         { id = "h_default", text = "Name's Norman, and I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours, and that's what I sell, really." },
@@ -1510,7 +1510,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "A fire would suit the room and nobody in it, since the dead can't feel it and the living don't stay long. I keep the lamps low on purpose, because my guests have had enough brightness for one lifetime." },
+        { id = "xmage_default", text = "A fire would suit the room, but not the people in it, since the dead can't feel it and the living don't stay long. I keep the lamps low on purpose, because my guests have had enough brightness for one lifetime." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "You'd have sat by a proper hearth in Dalaran, I expect, and I'm sorry I can't give you one. I keep the lamps low on purpose, because most of my guests have had enough brightness for one lifetime." },
       },
       choices = {

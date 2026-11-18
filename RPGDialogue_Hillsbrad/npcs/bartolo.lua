@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Ah, you return to bask in the greatness of Bartolo! Wise, very wise." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and still you come back to Bartolo. They always come back to Bartolo." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown more impressive, almost impressive enough to wear a Ginsetti cloak without shaming it." },
-    { id = "g_cloak", when = { questActive = TODO_QUEST("Bartolo's Yeti Fur Cloak") }, text = "Wool, thread, a Hillman's cloak and yeti fur, of course! Bring them, and witness genius." },
+    { id = "g_cloak", when = { questActive = TODO_QUEST("Bartolo's Yeti Fur Cloak") }, text = "For your cloak, Bartolo needs wool, thread, a Hillman's cloak and yeti fur, of course! Bring them, and witness genius." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Southshore says you have done good deeds, and Bartolo approves. Not as much as he approves of Bartolo, but still." },
   },
 
@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Bartolo Ginsetti, and I make the world-famous, Alliance-renowned yeti fur cloak! Travel the planet and find yourself a better cloak, I dare you, but you will come back, for there is none, as Bartolo always says." },
+          text = "I am Bartolo Ginsetti, and I make the world-famous, Alliance-renowned yeti fur cloak! Travel the world and find yourself a better cloak, I dare you, but you will come back, for there is none, as Bartolo always says." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Bartolo's Yeti Fur Cloak") },
           text = "Bring Bartolo a bolt of wool, fine thread, a Hillman's cloak and ten clumps of yeti fur, and you shall be a happy customer. The yetis are in Alterac, and they do not give their fur willingly, but that is your concern and not mine." },
         { id = "h_ready", tags = { "news" }, when = { questReady = TODO_QUEST("Bartolo's Yeti Fur Cloak") },
@@ -149,7 +149,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Bartolo knows fabric, fur and the hearts of customers. Ask, and be dazzled." } },
     background = { { id = "tp_bg", text = "Born in Lordaeron, gifted at birth, and making cloaks since my hands could hold a needle." } },
     advice = { { id = "tp_ad", text = "Never wear wet wool in the hills. Wear Bartolo's cloak instead." } },
-    alterac = { { id = "tp_alterac", text = "Snow, yetis, ogres and bandits. Bartolo goes there only in his thoughts." } },
+    alterac = { { id = "tp_alterac", text = "Alterac is all snow, yetis, ogres and bandits, so Bartolo goes there only in his thoughts." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's strongman challenged Bartolo to a contest of strength, and Bartolo won, naturally. The Faire did not invite Bartolo back, which Bartolo considers a compliment." } },
     forsaken = { { id = "tp_forsaken", text = "The dead men up the hill buy no cloaks, because they do not feel the cold, which is a tragedy for Bartolo's business. Bartolo pities them a little, and fears them a great deal more." } },
     scourge = { { id = "tp_scourge", text = "Bartolo has never met the Scourge and intends never to meet them, since Bartolo is far too handsome to rot. Southshore's guards tell stories that make Bartolo hold his cloak a little tighter." } },

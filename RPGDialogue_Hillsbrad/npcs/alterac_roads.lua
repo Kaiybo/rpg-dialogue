@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We keep a few, and they're trained to follow the Syndicate's trail rather than a stag's. A hunter who can read the Alterac snow is worth more to this house than a dozen soft-footed apprentices, though I'd ask you not to tell them so." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has been watching my steward since you arrived, and my steward has been watching {pet}. I think they've both concluded the other is dangerous, which makes them the two wisest creatures in the hall." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We keep a few, and {pet} has been watching my steward since you arrived while my steward watches {pet}. I think they've both concluded the other is dangerous, which makes them the two wisest creatures in the hall." },
       },
       choices = {
         { text = "I hunt the Syndicate in daylight, where they can see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -259,14 +259,14 @@ P:NPC {
   },
 
   topics = {
-    syndicate = { { id = "tp_syndicate", text = "Hired knives with a noble's crest stitched on. Cut away the crest and they are only thugs." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are hired knives with a noble's crest stitched on. Cut away the crest and they are only thugs." } },
     ravenholdt = { { id = "tp_ravenholdt", text = "You are standing in it, which tells me someone thought you worth the directions. Ravenholdt has outlived kings and kingdoms by being exactly as visible as it wishes to be." } },
     alterac = { { id = "tp_alterac", text = "Alterac was a kingdom of proud fools who sold their neighbours to the Horde and then wondered why the Alliance dissolved them. Its heirs now play at banditry in the hills, and badly, which is why we watch them." } },
     scourge = { { id = "tp_scourge", text = "The dead have no purses, no secrets and no fear of a knife in the dark, so they are of very little interest to my house. That they are also of very great danger to everyone else is a matter I leave to paladins." } },
     prestor = { { id = "tp_prestor", text = "A lady of very sudden consequence in Stormwind, whose family seat is a place I cannot quite find on any map. I find that interesting, and I do not find many things interesting." } },
     varian = { { id = "tp_varian", text = "A king does not vanish on a short road without someone having been paid to look the other way. I have my suspicions about who did the paying, and I am choosing, for now, to keep them." } },
     booty_bay = { { id = "tp_booty_bay", text = "A port where every guest is a thief and every host a goblin, which makes it the most honest town in the world. Several of my people keep rooms there." } },
-    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor have reopened their gates a little, and they have closed their eyes a little less than before. Mages and my house have always had an arrangement of mutual polite indifference." } },
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor have opened their gates a little, and they watch these hills more closely than before. Mages and my house have always had an arrangement of mutual polite indifference." } },
     _none = { { id = "tp_none", text = "That is a question for someone who answers questions. I am not that person." } },
   },
 }
@@ -332,7 +332,7 @@ P:NPC {
     },
     opn_kirintor_r_watched = {
       lines = {
-        { id = "opn_kirintor_r_watched", text = "The Kirin Tor watching itself has a mixed record, I'll grant you. Perhaps Modera would agree, though she would say it in a footnote." },
+        { id = "opn_kirintor_r_watched", text = "The Kirin Tor watching itself has a mixed record, I'll grant you. Perhaps Archmage Modera would agree, though she would say it in a footnote." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },
@@ -340,7 +340,7 @@ P:NPC {
     },
     opn_kirintor_r_reform = {
       lines = {
-        { id = "opn_kirintor_r_reform", text = "Openly. The old masters would faint at the word, and the masters in Stormwind would say they do it already. Perhaps you're right, but not this century." },
+        { id = "opn_kirintor_r_reform", text = "Openly, you say? The old masters would faint at the word, and the masters in Stormwind would say they do it already. Perhaps you're right, but not this century." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },
@@ -392,7 +392,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bears, wolves and Syndicate scouts, in about that order of good manners. The Crushridge ogres have pushed the game down from the high meadows, and I'm told the deer now graze within sight of the dome, which they never dared before the war." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your companion, {pet}, has been staring at the towers since you arrived, which is more sense than many of my apprentices show. Animals can feel the wards, I think, and they don't care for them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bears, wolves and Syndicate scouts, mostly, and your companion, {pet}, has been staring at the towers since you arrived, which is more sense than many of my apprentices show. Animals can feel the wards, I think, and they don't care for them." },
       },
       choices = {
         { text = "These hills should be cleared and brought back under Dalaran's law.", next = "BACK", fx = { align = { order = 1 } } },
@@ -538,7 +538,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Worse than one, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make every one of them regret it." } },
+      lines = { { id = "xdruid_default", text = "Worse than an animal, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make every one of them regret it." } },
       choices = {
         { text = "Take your revenge. They've earned every bit of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Get home safe first. Revenge can wait, or end.", next = "BACK", fx = { align = { light = 1 } } },
@@ -547,7 +547,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "With nets and arrows from the trees, the way cowards always fight. I killed two of them with my hands bound, and they've moved me from camp to camp ever since, because no guard wants to be the one I remember." } },
+      lines = { { id = "xwarcl_default", text = "It took a dozen of them, with nets and arrows from the trees, the way cowards always fight. I killed two of them with my hands bound, and they've moved me from camp to camp ever since, because no guard wants to be the one I remember." } },
       choices = {
         { text = "Then we'll face them in the open and make them answer for it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Nets work. I'll turn their own tricks against them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -557,8 +557,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Mangy hounds, starved half to death so they'll bite anything that runs. I've called to them at night with the hunting calls my father taught me, and I think one of them would follow me out if the door were open." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a better coat and a fuller belly than any beast in these camps. Keep it close when you open my door, because the Syndicate's hounds will smell a free animal and lose their minds." },
+        { id = "xhuntcl_default", text = "They do, mangy hounds starved half to death so they'll bite anything that runs. I've called to them at night with the hunting calls my father taught me, and I think one of them would follow me out if the door were open." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, and your {pet} has a better coat and a fuller belly than any of them. Keep it close when you open my door, because the Syndicate's hounds will smell a free animal and lose their minds." },
       },
       choices = {
         { text = "The hounds aren't to blame. I'll spare them if I can.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -672,7 +672,7 @@ P:NPC {
   },
 
   topics = {
-    syndicate = { { id = "tp_syndicate", text = "Cowards in black who beat chained men. I have long memory for their faces." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are cowards in black who beat chained men, and I have a long memory for their faces." } },
     thrall = { { id = "tp_thrall", text = "The Warchief freed my people from the camps, and one day his warriors will free me from these chains. Until then I wait, and I remember every face that held the whip." } },
     internment = { { id = "tp_internment", text = "I was in Durnholde's camp before Thrall broke it, and the Syndicate put me back in chains as if nothing had changed. Humans are very fond of locks, and I am very tired of them." } },
     alterac = { { id = "tp_alterac", text = "Alterac's nobles keep me in their hills like a prize ram, moving me from camp to camp. Their grandfathers sold their own people to the Horde, and now they sell orcs to anyone who'll pay." } },
@@ -731,8 +731,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Oils, mostly, and a draught that lets a Deathguard smell a living man at fifty paces, which he'd otherwise have forgotten how to do. The spider venom goes to Lydon, who has grander plans for it than I do, and I try not to ask what they are." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the bench, please, because half these jars smell like supper to a beast and none of them are. I'd hate to explain a dead companion to a hunter who only came for oils." },
+        { id = "xhuntcl_default", text = "Oils, mostly, and a draught that lets a Deathguard smell a living man at fifty paces, which he'd otherwise have forgotten how to do. The spider venom goes to Apothecary Lydon, who has grander plans for it than I do, and I try not to ask what they are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oils, mostly, and keep {pet} away from the bench, please, because half these jars smell like supper to a beast and none of them are. I'd hate to explain a dead companion to a hunter who only came for oils." },
       },
       choices = {
         { text = "Oils, fine, but I won't feed beasts to a plague.", next = "BACK", fx = { align = { light = 1 } } },
@@ -769,7 +769,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control, and the Dreadlords make the Society nervous. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." } },
+      lines = { { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." } },
       choices = {
         { text = "Control is everything. Keep your cupboards locked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Society is too cautious. Push the work further.", next = "BACK", fx = { align = { order = -1 } } },
@@ -812,7 +812,7 @@ P:NPC {
     },
     brews = {
       lines = {
-        { id = "br_default", text = "Remedies for the deathguards, mostly, and tonics for the living Horde who pass through and catch every cold in Hillsbrad. The more famous things I leave to Lydon, who enjoys them more than I do." },
+        { id = "br_default", text = "Remedies for the deathguards, mostly, and tonics for the living Horde who pass through and catch every cold in Hillsbrad. The plagues and poisons I leave to Apothecary Lydon, who enjoys them more than I do." },
       },
       choices = {
         { text = "Making weapons of sickness is beneath an alchemist.", next = "BACK", fx = { align = { light = 1 } } },

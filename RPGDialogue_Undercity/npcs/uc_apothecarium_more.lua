@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the bucket, she's been ill again. Now, what can I do for you?" },
+    { id = "g_hi", text = "Mind the bucket, my patient's been ill again. Now, what can I do for you?" },
     { id = "g_vials", when = { questActive = TODO_QUEST("Seeping Corruption") }, text = "Have you filled the vials? Thersa's colour is going from grey to green, and I'd like the samples before she reaches blue." },
   },
 
@@ -53,12 +53,12 @@ P:NPC {
     thersa = {
       lines = { { id = "th_default", text = "Nausea, fever, a greenish tint, and she's been sick three or four times on my floor today, which is quite a lot for one tauren. Whatever's in those tide pools came from the naga's ruins, and I suspect it's been seeping into the sea for a very long time." } },
       choices = {
-        { text = "Will your elixir cure her?", next = "elixir" },
+        { text = "Can you cure her?", next = "elixir" },
         { text = "Something else.", next = "BACK" },
       },
     },
     elixir = {
-      lines = { { id = "el_default", text = "Perhaps it will cure her, and perhaps not, and we won't know until after she drinks it. That's rather the exciting part, isn't it?" } },
+      lines = { { id = "el_default", text = "I'm brewing an elixir that may cure her or may not, and we won't know until she drinks it. That's rather the exciting part, isn't it?" } },
       choices = {
         { text = "That's no way to treat a patient.", next = "patient" },
         { text = "Something else.", next = "BACK" },
@@ -147,7 +147,7 @@ P:NPC {
       },
     },
     felwood = {
-      lines = { { id = "fe_default", text = "Infernals, demons and the Scourge, and the slimes there supposedly crept up through the earth during the attacks, around pools touched by fel. Bring me samples and use the testing equipment beside me, and we'll have a control group against everything else." } },
+      lines = { { id = "fe_default", text = "Infernals, demons and the Scourge, and the slimes there supposedly crept up through the earth during the attacks, around pools touched by fel. Bring me samples, test them on the equipment beside me, and we'll learn which are the most corrupt." } },
       choices = {
         { text = "And then?", next = "ungoro" },
         { text = "Something else.", next = "BACK" },
@@ -213,9 +213,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Parqual Fintallas, historian, though there's very little history in this city that anyone wants recorded. I knew all there was to know about Lordaeron once, and I'm still learning, though of a different nature now." },
+        { id = "h_default", key = true, text = "Parqual Fintallas, historian, though there's very little history in this city that anyone wants recorded. I knew all there was to know about Lordaeron once, and now I'm learning a darker sort of history." },
         { id = "h_braug", when = { questActive = TODO_QUEST("Test of Lore") },
-          text = "Braug sent you? You braved Dor'Danil, took a leap of faith, and overpowered an elemental, did you? You're probably some adventurer who overheard it in a tavern, but so be it, I'll set you my task." },
+          text = "Braug Dimspirit sent you? You braved Dor'Danil, took a leap of faith, and overpowered an elemental, did you? You're probably some adventurer who overheard it in a tavern, but so be it, I'll set you my task." },
         { id = "h_passed", when = { questDone = TODO_QUEST("Final Passage") },
           text = "You passed, and I'll admit I had my doubts whether you'd studied that book. Knowledge outlasts strength, {name}, and it seems you have some of both." },
       },
@@ -245,7 +245,7 @@ P:NPC {
     },
     knowledge = {
       big = true,
-      lines = { { id = "kn_default", text = "Because even as others pass you by in strength, your knowledge of the world goes on being useful long after your arm gives out. Every fool with a sword in Lordaeron died just as quickly as the scholars did, and the scholars at least understood why." } },
+      lines = { { id = "kn_default", text = "Because your arm will give out in time, and what you know of the world stays useful long after. Every fool with a sword in Lordaeron died just as quickly as the scholars did, and the scholars at least understood why." } },
       choices = {
         { text = "Understanding why didn't save anyone, Parqual.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Then I'll learn the history before I swing again.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
