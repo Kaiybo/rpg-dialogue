@@ -8,7 +8,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "dry" }, values = { "curious", "ambitious" },
   notices = { "race" },
   impression = {
-    first = "Apothecary Zamah works for the Royal Apothecary Society in the Pools of Vision beneath Spirit Rise, a Forsaken among tauren who seems to enjoy their unease. She wants serpentbloom and other samples, and she is politely vague about why.",
+    first = "She wants serpentbloom, and she is politely vague about why.",
     third = "{name} met Apothecary Zamah, the Forsaken apothecary beneath Thunder Bluff's Spirit Rise.",
   },
   greetings = {
@@ -274,7 +274,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "patient", "wise" },
   notices = { "class" },
   impression = {
-    first = "Holt Thunderhorn trains hunters on Hunter Rise, a patient elder whose family is known across Mulgore for its archers.",
+    first = "His family is known across Mulgore for its archers.",
     third = "{name} met Holt Thunderhorn, the hunter trainer on Thunder Bluff's Hunter Rise.",
   },
   greetings = {
@@ -432,7 +432,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "firm" }, values = { "brave", "honorable" },
   notices = { "class" },
   impression = {
-    first = "Ker Ragetotem trains the warriors of Thunder Bluff, a broad, stern tauren who reminds every student that strength is for protecting the herd.",
+    first = "He reminds every student that strength is for protecting the herd.",
     third = "{name} met Ker Ragetotem, the warrior trainer in Thunder Bluff.",
   },
   greetings = {

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "arcane" },
 
   impression = {
-    first = "Kania sells enchanting supplies from a quiet corner upstairs in the inn at Cenarion Hold, away from the sand. She keeps her formulae wrapped in cloth and speaks about them like rare plants.",
+    first = "She speaks about her formulae like rare plants.",
     third = "{name} met Kania, who sells enchanting supplies upstairs at the inn in Cenarion Hold.",
   },
 
@@ -178,7 +178,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Khur Hornstriker sells reagents and poisons at Cenarion Hold and handles both with the same unhurried care. He finds it no stranger for a tauren of the Circle to sell poison than to sell herbs.",
+    first = "Selling poison seems no stranger to him than selling herbs.",
     third = "{name} met Khur Hornstriker, the tauren who sells reagents and poisons at Cenarion Hold.",
   },
 
@@ -347,7 +347,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Squire Leoren Mal'derath keeps the stables at Cenarion Hold and takes the title of squire very seriously. He's earnest and a little young, and he treats every boarded beast as a soldier in his charge.",
+    first = "He treats every boarded beast as a soldier in his charge.",
     third = "{name} met Squire Leoren Mal'derath, the young night elf who keeps the stables at Cenarion Hold.",
   },
 

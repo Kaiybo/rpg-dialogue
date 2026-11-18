@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "soldier" },
 
   impression = {
-    first = "Guard Howe talks about the Blackrock the way a preacher talks about sin. He wants them gone from Redridge, every one, and I don't think he'd rest even then.",
+    first = "He talks about the Blackrock the way a preacher talks about sin.",
     third = "{name} met Guard Howe by the Lakeshire bridge, who wants the Blackrock clan driven out of the King's lands for good.",
   },
 

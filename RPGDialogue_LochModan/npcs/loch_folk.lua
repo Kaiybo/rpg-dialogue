@@ -18,7 +18,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Miran is a young, sturdy hauler with powder burns on his sleeves and the nervous habit of counting his barrels under his breath. He wants very badly to be brave about the road ahead, and he's honest enough to admit he isn't yet.",
+    first = "He wants badly to be brave, and admits he isn't yet.",
     third = "{name} met Miran, the young hauler who had to carry Ironband's powder to the dig after his partner Saean sold them out to the Dark Irons.",
   },
 
@@ -162,7 +162,7 @@ P:NPC {
   notices = { "pet", "race" },
 
   impression = {
-    first = "Lina Hearthstove keeps the stables outside the Stoutlager Inn, a round, red-cheeked dwarf with straw in her braids and a feed bucket never far from her hand. She talks to the animals first and their owners second.",
+    first = "She talks to the animals first and their owners second.",
     third = "{name} met Lina Hearthstove, Thelsamar's stable master and one of the Hearthstove family who keep the Stoutlager Inn.",
   },
 

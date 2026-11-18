@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Kizz Bluntstrike sells maces in Booty Bay and talks about them the way a poet talks about roses. The sales pitch never stops, and the maces never bend.",
+    first = "The sales pitch never stops, and the maces never bend.",
     third = "{name} met Kizz Bluntstrike, who sells maces on the boardwalks of Booty Bay.",
   },
 
@@ -219,7 +219,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Rikqiz sells dyes, thread and salt in Booty Bay, and pays sharp attention to what everyone carries in from the jungle. Every hide that walks past the shop has a price already worked out.",
+    first = "Every hide that walks past already has a price worked out.",
     third = "{name} met Rikqiz, who sells leatherworking supplies in Booty Bay.",
   },
 
@@ -403,7 +403,7 @@ P:NPC {
   notices = { "craft", "drink" },
 
   impression = {
-    first = "Glyx Brewright sells vials and reagents in Booty Bay and treats a dusty bottle as a personal insult. For a goblin in a pirate town, Glyx is remarkably particular about cleanliness.",
+    first = "A dusty bottle is taken as a personal insult here.",
     third = "{name} met Glyx Brewright, who sells alchemy supplies in Booty Bay.",
   },
 
@@ -622,7 +622,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jansen Underwood sells coal, flux and iron in Booty Bay and speaks plainly, without a goblin's flourishes. He seemed like a man who came south for work and simply never left.",
+    first = "He seems to have come south for work and never left.",
     third = "{name} met Jansen Underwood, a human trader in blacksmithing supplies in Booty Bay.",
   },
 
@@ -838,7 +838,7 @@ P:NPC {
   notices = { "purse", "stealth" },
 
   impression = {
-    first = "Rickle Goldgrubber counts everything twice and smiles only when the totals match. In a town full of pirates, the banker seemed more worried about the vault than about the customers.",
+    first = "The totals get counted twice, and only a match earns a smile.",
     third = "{name} met Rickle Goldgrubber, one of the Steamwheedle bankers of Booty Bay.",
   },
 
@@ -1022,7 +1022,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Qixdi Goodstitch sells robes and cloth armor in Booty Bay and has firm opinions about what spellcasters should wear in the jungle. Most of them involve less wool.",
+    first = "Spellcasters in the jungle should wear less wool, I am firmly told.",
     third = "{name} met Qixdi Goodstitch, who sells cloth armor in Booty Bay.",
   },
 
@@ -1227,7 +1227,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Jaquilina Dramet sells axes from a tent at Nesingwary's camp and judges customers by how they hold the haft. She has no patience for hunters who think a bow solves everything.",
+    first = "She has no patience for hunters who think a bow solves everything.",
     third = "{name} met Jaquilina Dramet, the axe trader at Nesingwary's Expedition.",
   },
 
@@ -1415,7 +1415,7 @@ P:NPC {
   notices = { "craft", "hunger" },
 
   impression = {
-    first = "Kelsey Yance sells cooking supplies and recipes in Booty Bay and believes any fish can be made delicious with enough pepper. The talk was mostly about clams, and it was surprisingly persuasive.",
+    first = "Any fish can be made delicious with enough pepper, I am told.",
     third = "{name} met Kelsey Yance, a cook who sells recipes in Booty Bay.",
   },
 
@@ -1623,7 +1623,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Gnaz Blunderflame sells engineering supplies in Booty Bay and has the singed eyebrows to prove a long career in the trade. The shop smells of black powder and confidence.",
+    first = "The shop smells of black powder and confidence.",
     third = "{name} met Gnaz Blunderflame, who sells engineering supplies in Booty Bay.",
   },
 

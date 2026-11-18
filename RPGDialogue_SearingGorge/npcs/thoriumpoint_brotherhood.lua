@@ -17,7 +17,7 @@ P:NPC {
   notices = { "race", "purse" },
 
   impression = {
-    first = "Evonice Sootsmoker is a Dark Iron of the Thorium Brotherhood who left the Depths, she says, to explore the world, though the word she started to say was 'exploit'. She is friendly, quick and keeps a very sharp eye on what everyone is carrying.",
+    first = "She keeps a very sharp eye on what everyone is carrying.",
     third = "{name} met Evonice Sootsmoker, a cheerful and slightly mercenary Dark Iron at Thorium Point.",
   },
 

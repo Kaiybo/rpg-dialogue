@@ -6,10 +6,11 @@ P:NPC {
   key = "maxwell", id = TODO_NPC("Marshal Maxwell"), name = "Marshal Maxwell",
   bible = "bibles/burningsteppes.md", role = "soldier", tier = "major",
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "dutiful", "loyal" },
+  likesTone = "blunt",
   notices = { "class", "race", "deputy" },
 
   impression = {
-    first = "Marshal Maxwell writes reports nobody reads and keeps his camp together anyway. He's tired, and bitter about Stormwind's silence, but the kindness hasn't gone out of him yet.",
+    first = "He is tired and bitter, but the kindness hasn't left him yet.",
     third = "{name} met Marshal Maxwell, who commands what is left of Stormwind's presence at Morgan's Vigil.",
   },
 
@@ -437,6 +438,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's more thanks than Stormwind has sent me in a year, and you didn't even need a courier. I'll tell the men, because they could do with hearing it." },
+        { id = "s2", text = "Well, I'll be. Kind words in the Burning Steppes, and nobody asking me for rations afterwards. You've done my week some good, friend." },
+      },
+      fail = {
+        { id = "f1", text = "I get fine words from the court every season, and never a single soldier with them. Forgive me if I've lost my taste for the stuff." },
+        { id = "f2", text = "You don't need to butter me up, friend. If you'll fight the Blackrock, you've already got everything I can give you, which is a crate to sit on." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! That's the first honest laugh I've had since Windsor went into the mountain. You're right, it's a sorry little camp, but it's mine." },
+        { id = "s2", text = "You've got some cheek, and I'd take cheek over despair any day up here. Keep it coming, because it reminds the men they're still alive." },
+      },
+      fail = {
+        { id = "f1", text = "My soldiers sleep in the ash and write home to a city that's forgotten them. I won't have them laughed at, so pick another subject." },
+        { id = "f2", text = "I've had about all the contempt I can stand from Stormwind without getting it from you as well. Mind your mouth, or go and make jokes at the orcs." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, all right. You've got the look of someone who gets what they came for, and I'm too short of soldiers to make an enemy of one." },
+        { id = "s2", text = "I've seen that look on Blackrock raiders, and I didn't much care for it then either. You've made your point, so let's talk like reasonable people." },
+      },
+      fail = {
+        { id = "f1", text = "There's a mountain full of orcs and dragons at my back, and I sleep under it every night. You're going to have to try a good deal harder than that." },
+        { id = "f2", text = "Threatening a Marshal of Stormwind in his own camp won't get you anything but a night in irons. I'll put it down to the heat, this once." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every report from this ridge passes across my crate, deputy, and I read them even if Stormwind doesn't. Ask me about any of these." },
@@ -464,6 +497,10 @@ P:NPC {
       { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You serve the Light as I do, so you know it doesn't always answer how we'd like. Keep faith, and keep your shield up." },
     },
     _none = { { id = "tp_none", text = "Not my department, deputy. Ask Helendis; he knows a little of everything." } },
+    _gated = {
+      { id = "gt1", text = "I don't hand that out to someone I've only just met, not with the way things are at court. Earn the camp's trust, and I'll tell you." },
+      { id = "gt2", text = "That's between me and the people I know I can rely on. Do some work against the Blackrock first, and ask me again." },
+    },
   },
 }
 
@@ -471,10 +508,11 @@ P:NPC {
   key = "helendis", id = TODO_NPC("Helendis Riverhorn"), name = "Helendis Riverhorn",
   bible = "bibles/burningsteppes.md", role = "scholar", tier = "major",
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "wise", "curious" },
+  likesTone = "polite",
   notices = { "race", "class", "form", "pet" },
 
   impression = {
-    first = "Helendis Riverhorn watches the mountain as if it were a page he means to finish reading. He speaks slowly and seems to weigh every person who climbs the ridge.",
+    first = "He watches the mountain like a page he means to finish reading.",
     third = "{name} met Helendis Riverhorn, the night elf sent from Darnassus to learn what stirs in the Burning Steppes.",
   },
 
@@ -830,6 +868,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak graciously, and I hear little of that under this smoke. I thank you, for it is good to be reminded that courtesy survives the climb." },
+        { id = "s2", text = "They would say in Darnassus that I have grown too fond of my own reading, and you have just made it worse. Still, the words are welcome." },
+      },
+      fail = {
+        { id = "f1", text = "I have had ten thousand years to learn the sound of praise that wants something. Ask your question plainly, and leave the garland off it." },
+        { id = "f2", text = "You are generous with your words, and I think careless with them as well. I weigh those who climb this ridge by what they see, not by what they say of me." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You have a sharper eye than I gave you credit for, and a sharper tongue besides. An old reader of ruins ought to be laughed at now and then." },
+        { id = "s2", text = "Few would dare speak so to one of the kaldorei on so short an acquaintance, and I find it refreshing. You are not easily awed, which will serve you well near that mountain." },
+      },
+      fail = {
+        { id = "f1", text = "I have watched empires rise and burn, and your mockery is a very small fire beside them. Take care that it does not cost you a friend on this ridge." },
+        { id = "f2", text = "That was unworthy of you, and I had weighed you higher. I will return to my reading of the smoke until you have something better to offer." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is a storm in you, and I am not so proud that I cannot see it. Very well, I will choose my words with care, and you will have them." },
+        { id = "s2", text = "You press hard, and with more strength than I had weighed in you. I will not quarrel on the edge of a ridge, so speak, and I will answer." },
+      },
+      fail = {
+        { id = "f1", text = "I have stood in the shadow of dragons, and they did not need to shout. Lower your voice, for it carries to the mountain." },
+        { id = "f2", text = "You mistake stillness for weakness, as the hasty often do. I will not be hurried or frightened by you." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I have read these mountains for a long while, and they have told me a good deal. Ask me about any of these, and I'll tell you what I can prove." },
@@ -847,6 +917,10 @@ P:NPC {
     tyrande = { { id = "tp_tyrande", text = "Tyrande sent me to read the old places, and I've read many of them. This one is the hardest." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil still stands on Hyjal, wounded, and the Circle tends it. We gave up our immortality to save the world, and here in the smoke I feel every year of it." } },
     _none = { { id = "tp_none", text = "I know the land, not that. Marshal Maxwell may know, or he will pretend to, which is nearly as useful." } },
+    _gated = {
+      { id = "gt1", text = "That is knowledge I share only with those I have come to trust, and I do not know you well enough. Give it time." },
+      { id = "gt2", text = "I will not speak of that yet. I have weighed you, and the scales have not settled." },
+    },
   },
 }
 
@@ -857,7 +931,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Oralius barks orders like a field marshal and argues with a pirate named Captain Winky whom I never quite saw. His enthusiasm for the war is boundless, and a little alarming.",
+    first = "He argues with a pirate named Captain Winky whom I never saw.",
     third = "{name} met Oralius of Morgan's Vigil, who plans grand campaigns against the Firegut ogres of Dreadmaul Rock.",
   },
 
@@ -1117,7 +1191,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Jalinda Sprig jumps at every noise, and on a ridge where everything is on fire I can't really blame her. She leads her expedition anyway, and she worries over her mages like a mother.",
+    first = "She jumps at every noise and leads her expedition anyway.",
     third = "{name} met Jalinda Sprig, the jumpy leader of the expedition trying to reach Blackrock Depths.",
   },
 
@@ -1323,7 +1397,7 @@ P:NPC {
   notices = { "class", "origin" },
 
   impression = {
-    first = "Mayara Brightwing catalogues old treasures for a Stormwind count and treats the Dark Irons' ruins like a market stall. She is sharp, proud and plainly enjoying herself.",
+    first = "She treats the Dark Irons' ruins like a market stall.",
     third = "{name} met Mayara Brightwing, who collects relics at Morgan's Vigil on behalf of Count Remington Ridgewell.",
   },
 
@@ -1556,7 +1630,7 @@ P:NPC {
   notices = { "race", "mount" },
 
   impression = {
-    first = "Borgus Stoutarm fusses over his gryphons and their sooty feathers more than over any traveler. He knows which bird is in a good mood, and he tells me so whether I ask or not.",
+    first = "He tells me each gryphon's mood whether I ask or not.",
     third = "{name} met Borgus Stoutarm, the dwarf who keeps the gryphons of Morgan's Vigil.",
   },
 

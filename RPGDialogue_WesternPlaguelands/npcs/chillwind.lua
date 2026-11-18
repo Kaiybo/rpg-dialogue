@@ -6,10 +6,11 @@ P:NPC {
   key = "valorfist", id = TODO_NPC("Commander Ashlam Valorfist"), name = "Commander Ashlam Valorfist",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "major",
   communities = { "chillwind_camp" }, temper = { "steady", "proud" }, values = { "dutiful", "brave" },
+  likesTone = "blunt",
   notices = { "class", "kit" },
 
   impression = {
-    first = "Commander Valorfist counts his soldiers out of the gate and counts them back in, and he writes the letters himself on days the numbers don't match. He has very little, and spends it carefully.",
+    first = "He writes the letters himself when a soldier doesn't come back.",
     third = "{name} met Commander Ashlam Valorfist, who holds Chillwind Camp for Stormwind against the dead of Andorhal.",
   },
 
@@ -352,6 +353,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's good of you to say, soldier. The men will hear it at muster, because it's them who've earned it, and precious few come up here to tell them so." },
+        { id = "s2", text = "Stormwind sends me orders and not much else, so I'll gladly take a kind word in place of the wagons. Thank you, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "I've no time for a silver tongue, soldier, since I've letters to write to families tonight. If you need something from Chillwind, ask it straight." },
+        { id = "f2", text = "Praise is cheap this far from the fighting and worth less in it. Go out past the farms and come back, and then I'll listen to what you think of this camp." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You'd have fit in well with my old company, who never let an officer get comfortable. A bit of cheek keeps the cold out, so I'll allow it." },
+        { id = "s2", text = "You've a mouth on you, and the nerve to use it on a commander. I'd rather have ten like that than a hundred who salute and run." },
+      },
+      fail = {
+        { id = "f1", text = "I counted eleven out of that gate yesterday and nine back in, so I'm in no mood to be made sport of. Watch your tongue in my camp." },
+        { id = "f2", text = "There are men buried behind those tents who'd have had words with you for that. Show some respect for the post, or take the road south." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've a hard way about you, and I'd guess the Scourge has learned it already. I'll not quarrel with someone I'd rather have beside me, so go on." },
+        { id = "s2", text = "Easy, now. I can see you're not someone to be put off, and I've no wish to try it, so you'll have your answer." },
+      },
+      fail = {
+        { id = "f1", text = "I look out at the smoke of Andorhal every morning, soldier, and you're a good deal less frightening than what waits under it. Stand easy, before I have you stood down." },
+        { id = "f2", text = "Threatening an officer of Stormwind in his own camp is a flogging offence, and I've a sergeant who'd enjoy it. I'll forget it once, and only once." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "A commander hears everything that comes through his gate, whether he wants to or not. Ask me about any of this and you'll get it straight." },
@@ -373,6 +406,10 @@ P:NPC {
     stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's heart in Lordaeron, and the Crusade throws itself at the gates like a man throwing stones at a mountain. I've no soldiers to spare for that." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen holds the old capital and calls it her kingdom. She hates the Scourge as much as we do, and I'm told that's the only thing we have in common." } },
     _none = { { id = "tp_none", text = "If it isn't a threat to this camp, it isn't on my desk. Try Pureheart, who has more patience than I do." } },
+    _gated = {
+      { id = "gt1", text = "That's not something I'll discuss with a soldier I've barely counted through the gate. Do some good out in the farms first, and then we'll talk." },
+      { id = "gt2", text = "I keep that for those who've stood a watch or two for Chillwind. You've not earned it yet, and I'll say no more." },
+    },
   },
 }
 
@@ -383,7 +420,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "High Priestess MacDonnell speaks of the plague cauldrons with real appetite, as if each one were a personal insult. Her Light is the kind that burns, and she said so cheerfully.",
+    first = "Her Light is the kind that burns, and she says so cheerfully.",
     third = "{name} met High Priestess MacDonnell at Chillwind Camp, who means to give the Scourge a dose of its own plague.",
   },
 
@@ -693,7 +730,7 @@ P:NPC {
   notices = { "craft", "greenness" },
 
   impression = {
-    first = "Alchemist Arbington asked me to stand still, keep my elbows in and touch nothing, all in one anxious breath. Frightened as he is, he keeps working, and I respect that more than I expected.",
+    first = "Frightened as he is, he keeps working, and I respect that.",
     third = "{name} met Alchemist Arbington, Chillwind Camp's nervous alchemist and reluctant student of the Scholomance.",
   },
 
@@ -937,7 +974,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Weldon Barov sleeps with a sword under his blanket and talks about his brother's death as an inheritance matter. Fear and greed have been sharing his face for a long time.",
+    first = "Fear and greed have been sharing his face for a long time.",
     third = "{name} met Weldon Barov, the last living Barov, hiding from his brother's assassins at Chillwind Camp.",
   },
 
@@ -1259,7 +1296,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. She laughs easily, and the burn scar up her sword arm suggests she's earned the right.",
+    first = "Nobody draws steel at her table, whatever colors they wear.",
     third = "{name} met Argent Officer Pureheart, who speaks for the Argent Dawn at Chillwind Camp.",
   },
 
@@ -1551,7 +1588,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Nathaniel Dumah came back to the Plaguelands for his father's mill, which says a good deal about him. He talks easily, and asks after Northridge like a man asking after family.",
+    first = "He asks after Northridge like a man asking after family.",
     third = "{name} met Nathaniel Dumah at Chillwind Camp, who wants his family's Northridge mill back from the Scarlet Crusade.",
   },
 
@@ -1774,7 +1811,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Bibilfaz Featherwhistle chatters to his gryphons at night about Ironforge pastries. He is the cheeriest thing in the Plaguelands, and I suspect he's working very hard at it.",
+    first = "I suspect he works very hard at being so cheery.",
     third = "{name} met Bibilfaz Featherwhistle, the gnomish gryphon master at Chillwind Camp.",
   },
 

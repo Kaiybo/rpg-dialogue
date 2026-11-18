@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Auctioneer Grizzlin runs Everlook's auction house with gloves on and an ear for every bid. Grizzlin sells to Horde and Alliance alike and finds the cold good for business, since nobody stands about in the snow to haggle.",
+    first = "The cold is good for business, since nobody lingers to haggle.",
     third = "{name} met Auctioneer Grizzlin, who runs the neutral auction house in Everlook.",
   },
 
@@ -203,7 +203,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Wixxrak sells blades and guns in Everlook and swears every one of them works in the cold, which is apparently a real concern. He takes more pride in his gun oil than seems reasonable.",
+    first = "He takes more pride in his gun oil than seems reasonable.",
     third = "{name} met Wixxrak, who sells weapons and guns in Everlook.",
   },
 
@@ -412,7 +412,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Qia sells trade supplies in Everlook from the building that holds the bank, and she knows to the copper what every tailor in town is short of. She treats thread as a serious matter, and she's probably right.",
+    first = "She treats thread as a serious matter, and she's probably right.",
     third = "{name} met Qia, who sells trade supplies in Everlook.",
   },
 
@@ -589,7 +589,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Azzleby keeps the stables by Everlook's gate, where the animals sleep warmer than most of the travelers. He seems to like the beasts far more than their owners, and he doesn't hide it.",
+    first = "He likes the beasts better than their owners and doesn't hide it.",
     third = "{name} met Azzleby, the goblin stable master by Everlook's gate.",
   },
 
@@ -752,7 +752,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Evie Whirlbrew sells alchemy supplies in Everlook and keeps her bottles packed in straw so the cold won't crack them. She seems delighted by every herb that grows in the snow.",
+    first = "She seems delighted by every herb that grows in the snow.",
     third = "{name} met Evie Whirlbrew, who sells alchemy supplies in Everlook.",
   },
 

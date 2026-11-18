@@ -10,7 +10,7 @@ P:NPC {
   communities = { "eastvale" }, temper = { "sharp" }, values = { "lawful", "ambitious" },
   notices = { "idle", "build" },
   impression = {
-    first = "Supervisor Raelen measures the world in bundles and deadlines, and I fell short on both before I'd said a word. She will never say thank you, but I think she keeps count.",
+    first = "She will never say thank you, but I think she keeps count.",
     third = "{name} met Supervisor Raelen of the Eastvale Logging Camp, for whom the lumber order comes before everything.",
   },
 

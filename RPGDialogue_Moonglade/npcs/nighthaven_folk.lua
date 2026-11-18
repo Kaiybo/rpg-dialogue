@@ -14,7 +14,7 @@ P:NPC {
   notices = { "weary", "race" },
 
   impression = {
-    first = "Umber is the Cenarion Circle's archivist, a human among druids, who loses a book every few minutes and finds two others while looking. The druids call him brilliant, and he agrees with them.",
+    first = "The druids call him brilliant, and he agrees with them.",
     third = "{name} met Umber, the scatterbrained and brilliant human archivist of the Cenarion Circle in Nighthaven.",
   },
 
@@ -201,7 +201,7 @@ P:NPC {
   notices = { "race", "level" },
 
   impression = {
-    first = "Valadar Starsong welcomes the whole world to Nighthaven for the Lunar Festival, and he means it. He speaks of honoring elders as if it were the simplest and most important thing anyone could do.",
+    first = "He speaks of honoring elders as the simplest, most important thing.",
     third = "{name} met Valadar Starsong, who hosts the Lunar Festival in Nighthaven with his sister Fariel.",
   },
 
@@ -394,7 +394,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Sindrayl keeps the Alliance's hippogryphs at the edge of Moonglade, where the birds can see the lake. She treats the glade's peace like something fragile she has been asked to carry.",
+    first = "She treats the glade's peace like something fragile she must carry.",
     third = "{name} met Sindrayl, the hippogryph master who flies the Alliance out of Moonglade.",
   },
 
@@ -593,7 +593,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Faustron keeps the Horde's wind riders on the western edge of Moonglade and plainly feels the eyes of the druids on his back. He minds his manners here, and he wants it noticed.",
+    first = "He minds his manners among the druids, and wants it noticed.",
     third = "{name} met Faustron, the orc wind rider master who flies the Horde out of Moonglade.",
   },
 

@@ -13,7 +13,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "grim", "dry" }, values = { "loyal", "vengeful" },
   notices = { "class", "race" },
   impression = {
-    first = "Deathstalker Adamant spent too long in a worgen's cell and came out of it sharper rather than broken. He talks about his dead partner Vincent the way other people grip a knife.",
+    first = "He talks about his dead partner the way others grip a knife.",
     third = "{name} freed Deathstalker Adamant from the cells of Shadowfang Keep.",
   },
 
@@ -234,7 +234,7 @@ P:NPC {
   temper = { "anxious", "earnest" }, values = { "learned", "proud" },
   notices = { "class", "race" },
   impression = {
-    first = "Sorcerer Ashcrombe is a Dalaran mage who came looking for answers about Arugal and found a cell instead. He is proud, nervous and very grateful, and he talks like a man making up for a month of silence.",
+    first = "He talks like a man making up for a month of silence.",
     third = "{name} freed Sorcerer Ashcrombe, a mage of Dalaran, from the cells of Shadowfang Keep.",
   },
 

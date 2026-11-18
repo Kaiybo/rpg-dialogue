@@ -13,7 +13,7 @@ P:NPC {
   communities = { "cenarion_hold", "ironforge_brigade" }, temper = { "dry", "gruff" }, values = { "duty", "loyal" },
   notices = { "race", "soldier" },
   impression = {
-    first = "Rifleman Torrig stands at Cenarion Hold waiting for recruits to send down to Marshal Bluewall, and his idea of encouragement is telling them how many good soldiers the desert has already eaten. I think it's meant as a joke.",
+    first = "His encouragement is counting the good soldiers the desert has eaten.",
     third = "{name} met Rifleman Torrig, the dwarf who sends Alliance recruits from Cenarion Hold to the Ironforge Brigade's camp.",
   },
   greetings = {
@@ -108,7 +108,7 @@ P:NPC {
   communities = { "cenarion_hold", "orgrimmar_legion" }, temper = { "blunt", "fierce" }, values = { "duty", "proud" },
   notices = { "race", "soldier" },
   impression = {
-    first = "Scout Bloodfist waits at Cenarion Hold for anyone of the Horde willing to report to General Kirika, and he sizes up every recruit as though measuring them for the desert. He does not waste words, and he doesn't waste water either.",
+    first = "He doesn't waste words, and he doesn't waste water either.",
     third = "{name} met Scout Bloodfist, the orc who sends Horde recruits from Cenarion Hold to the Orgrimmar Legion's camp.",
   },
   greetings = {
@@ -193,7 +193,7 @@ P:NPC {
   communities = { "silithus_wilds" }, temper = { "grave", "calm" }, values = { "duty", "wise" },
   notices = { "race", "priest" , "class" },
   impression = {
-    first = "Ralo'shan stands watch at Staghelm Point, where the Qiraji first marched a thousand years ago, and she says she has been slain a hundred times and always wakes here. She did not sound proud of it, only tired.",
+    first = "She has been slain a hundred times and always wakes here.",
     third = "{name} met Ralo'shan the Eternal Watcher, the night elf bound to Staghelm Point.",
   },
   greetings = {

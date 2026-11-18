@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Malygen sells bread, bags and firewood at Talonbranch Glade, and every one of them has come a long way. He speaks of clean water the way other people speak of gold.",
+    first = "He speaks of clean water the way other people speak of gold.",
     third = "{name} met Malygen, the night elf who keeps the general goods at Talonbranch Glade in northern Felwood.",
   },
 
@@ -127,7 +127,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Mylini Frostmoon sells blades at Talonbranch Glade and judges a customer by the state of the weapon at their hip. She thinks Felwood is hard on steel and harder on the people holding it.",
+    first = "She thinks Felwood is hard on steel and harder on its holders.",
     third = "{name} met Mylini Frostmoon, the sharp-eyed weapon merchant of Talonbranch Glade.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "kit", "race" },
 
   impression = {
-    first = "Quartermaster Lungertz runs Nethergarde from a desk piled with ledgers, counting every crate that makes it down the road from Darkshire. He's cheerful about it, the way people are when the alternative is despair.",
+    first = "He is cheerful the way people are when the alternative is despair.",
     third = "{name} met Quartermaster Lungertz, who keeps Nethergarde Keep fed and supplied from the far end of a very dangerous road.",
   },
 
@@ -359,6 +359,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's going in the ledger, friend, under one kind word, received undamaged. It's the first thing to arrive in good order all month." },
+        { id = "s2", text = "You've noticed that someone keeps this keep fed and shod, and that puts you ahead of every mage upstairs. I'm obliged to you, truly." },
+      },
+      fail = {
+        { id = "f1", text = "Ah, now, I know that tune, because it's what the sergeant whistles just before he asks for extra boots. The stores are counted, friend, and compliments don't change the count." },
+        { id = "f2", text = "Kind of you, but I've been sweet-talked by teamsters, recruits and one very determined gnome, and none of them got anything out of me either." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! A clerk with an inkpot at the edge of the world, aye, I know how it looks. Laugh all you like, because it beats what the mages do for amusement." },
+        { id = "s2", text = "Oh, that's good, and I'll be using it on the sergeant. It's a fine thing to meet someone with a sense of humour who isn't losing at dice." },
+      },
+      fail = {
+        { id = "f1", text = "It's easy to laugh at the man with the ledger until the arrows run out, friend. I've seen it happen, and nobody was laughing then." },
+        { id = "f2", text = "I've had a long day of short wagons, and I don't much care to be the joke at the end of it. Mind the crates on your way out." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He sets down his quill and leans away from the desk.", text = "Now, now, there's no need for that, I'm only the fellow who counts things. You'll get no argument from me, and I'd thank you to step back from the desk." },
+        { id = "s2", text = "All right, friend, you've made yourself very clear, and I'd rather face a short wagon than you. Ask what you came to ask." },
+      },
+      fail = {
+        { id = "f1", text = "The Dreadmaul come at these walls regular as the tides, and you're a good deal smaller than they are. Try that on a recruit, because it's wasted on me." },
+        { id = "f2", text = "You can glare all you like, but the guard post is ten paces behind you, and those lads are bored. I'd think again." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Everything that comes into this keep crosses my desk, and most of the gossip with it. Pick something and I'll tell you what the ledgers say." },
@@ -382,6 +414,10 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge took the north, and every soldier Stormwind sends there is one it can't send here. I understand it, but my ledger doesn't." } },
     khadgar = { { id = "tp_khadgar", text = "Archmage Khadgar founded this keep, and he left orders so thorough I'm still finding them in the drawers. I'd have liked to meet him, if only to ask what he meant by half of them." } },
     _none = { { id = "tp_none", text = "If it doesn't come in a crate, it isn't in my ledgers. Try the Watcher upstairs; he keeps notes on things I can't even spell." } },
+    _gated = {
+      { id = "gt1", text = "That's keep business, friend, and I don't write strangers into it. Come back when I know your name as well as I know my crates." },
+      { id = "gt2", text = "I'd sooner not say, not to someone I've only just met. Give it a while, and we'll see." },
+    },
   },
 }
 
@@ -389,10 +425,11 @@ P:NPC {
   key = "mahar_ba", id = TODO_NPC("Watcher Mahar Ba"), name = "Watcher Mahar Ba",
   bible = "bibles/blastedlands.md", role = "scholar", tier = "major",
   communities = { "nethergarde" }, temper = { "eager" }, values = { "curious", "wise" },
+  likesTone = "polite",
   notices = { "class", "race" },
 
   impression = {
-    first = "Watcher Mahar Ba studies the Dark Portal the way some men pray, and talks about Khadgar as if he'd only stepped out of the room. He is earnest, overworked and a little lonely.",
+    first = "He speaks of Khadgar as if he'd only left the room.",
     third = "{name} met Watcher Mahar Ba, a mage of Nethergarde who studies the Dark Portal and everything Khadgar left behind.",
   },
 
@@ -728,6 +765,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh! Well, that's very kind, and rather unexpected, since nobody here reads my reports, let alone praises them. I shall be insufferable about it for the rest of the day." },
+        { id = "s2", text = "Do you really think so? Archmage Khadgar's notes deserve the credit, of course, but I won't pretend I'm not pleased. Thank you, truly." },
+      },
+      fail = {
+        { id = "f1", text = "That's kind, I suppose, though I'm not sure you know what it is you're praising. I've spent years on this work, and I'd rather have one good question than a compliment." },
+        { id = "f2", text = "They taught us in Dalaran to be wary of visitors who admire the instruments too warmly, since something usually goes missing afterwards." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Yes, I know, a grown man who talks to rocks and waits on a dead door. It's quite all right, because I'd laugh at me too." },
+        { id = "s2", text = "Oh, very good, I hadn't heard that one, and I've heard most of them from the garrison. You're sharper than the soldiers, I'll give you that." },
+      },
+      fail = {
+        { id = "f1", text = "I watch the Dark Portal so that you may sleep at night without ever thinking of it. I don't ask for thanks, but I'd prefer not to be sneered at for it." },
+        { id = "f2", text = "That wasn't called for, and I've too much work to stand here being mocked. Mind the instruments as you leave, please." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Goodness, please, there's really no need for that! I'm a scholar and no soldier, so do ask your question, only come away from the instruments first." },
+        { id = "s2", text = "Yes, yes, all right, you've quite convinced me. I measure dangerous things for a living, and I know when one has walked into the room." },
+      },
+      fail = {
+        { id = "f1", text = "I have looked into the Tainted Scar through a scrying glass, and what looked back was a good deal worse than you. I'm sorry, but I'm simply not frightened." },
+        { id = "f2", text = "You're threatening a Watcher of Nethergarde in a keep full of mages, which seems poorly reasoned. I'd ask you to stop before the guards take an interest." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I've spent years reading about this land and a few more measuring it, so I'll answer what I can. Choose, and I'll try to keep it short." },
@@ -748,6 +817,10 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge is the work of a necromancer from Dalaran, and the Kirin Tor have never forgiven themselves for Kel'Thuzad. Neither have I, and I never met him." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor, a scholar like me, and he turned to necromancy and gave the north to the dead. When I read too late into the night, I think about him." } },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my studies. The Quartermaster hears everything, though; try him, and bring him something to count." } },
+    _gated = {
+      { id = "gt1", text = "I'm afraid that isn't something I can share with a visitor I've only just met. Come by a few more times, and I expect I'll tell you all of it." },
+      { id = "gt2", text = "I'd rather not, not yet. Forgive me, but the Kirin Tor are particular about whom we confide in." },
+    },
   },
 }
 
@@ -755,10 +828,11 @@ P:NPC {
   key = "thadius", id = TODO_NPC("Thadius Grimshade"), name = "Thadius Grimshade",
   bible = "bibles/blastedlands.md", role = "scholar", tier = "major",
   communities = { "nethergarde" }, temper = { "sharp" }, values = { "curious", "ambitious" },
+  race = "Dwarf", likesTone = "blunt",
   notices = { "race", "class" },
 
   impression = {
-    first = "Thadius Grimshade is a Wildhammer who traded the open sky for a tower full of strange books, and he doesn't apologise for it. He drives a hard bargain, but he lit up when the gryphons were mentioned.",
+    first = "He drives a hard bargain but lights up at talk of gryphons.",
     third = "{name} met Thadius Grimshade, a Wildhammer diviner who left Aerie Peak to study darker things in Nethergarde's mage tower.",
   },
 
@@ -1057,6 +1131,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, now, that's a rare thing tae hear in a keep full o' mages, who'd choke before they praised a dwarf. I'll take it, an' gladly." },
+        { id = "s2", text = "Ye've an eye for good work, an' no' many do. That circle took me all mornin', an' ye're the first tae notice it's true." },
+      },
+      fail = {
+        { id = "f1", text = "Aye, an' what'll that cost me? I've haggled wi' goblins, so I know when a compliment's only the first offer." },
+        { id = "f2", text = "Save yer breath. The mages o' Dalaran flattered me right up until they wanted my notes, an' I've been deaf tae it ever since." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! A Wildhammer wi' his nose in a book, aye, my own kin said worse an' said it louder. Ye've a tongue on ye, an' I like that." },
+        { id = "s2", text = "Ye're a cheeky one, are ye no'? Good, for I've had my fill o' folk who tiptoe round me as if I'd hex them." },
+      },
+      fail = {
+        { id = "f1", text = "Mind yerself. I may read for a livin', but I was bred at Aerie Peak, an' I've a stormhammer under the bench that still knows its work." },
+        { id = "f2", text = "I've been laughed at by mages an' by my own clan, an' ye're no' as good at it as either. Away wi' ye, for I've scryin' tae do." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy, there. I can see ye're no' one tae be trifled wi', an' I'd as soon no' have blood on my chalk. Say what ye want." },
+        { id = "s2", text = "Aye, well, ye've a look on ye I've only seen on a gryphon before it strikes. I'll no' argue the point." },
+      },
+      fail = {
+        { id = "f1", text = "Ye'd threaten a dwarf who scries the Blasted Lands at night? {g:Laddie|Lassie}, I've seen things in that bowl that would turn yer hair white, an' ye're no' one o' them." },
+        { id = "f2", text = "Step off my circle before ye smudge it, an' take yer scowl wi' ye. It doesn't frighten me, an' it's blockin' the light." },
+      },
+    },
+  },
   topics = {
     knows = { { id = "tp_knows", text = "I know a deal o' things most folk would rather I didnae. Which o' these d'ye want?" } },
     background = {
@@ -1073,6 +1179,10 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "Dalaran's mages taught me what I know, an' they never let me forget I was a dwarf. I learned anyway, an' by the end I could out-cast most o' their journeymen." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres are thick as stone an' twice as stubborn, an' they've no business near the Portal. I'd like them gone, an' I'd pay to see it." } },
     _none = { { id = "tp_none", text = "That's no' somethin' I've ever cared tae look for. Ask the Watcher; he cares about everythin'." } },
+    _gated = {
+      { id = "gt1", text = "That'll stay under my hat till I know ye better. I don't hand my business tae every stranger who knocks at the door." },
+      { id = "gt2", text = "No, I'll no' be tellin' ye that yet. Come back when we've done a bit o' honest tradin', an' we'll see." },
+    },
   },
 }
 
@@ -1080,10 +1190,11 @@ P:NPC {
   key = "ardalan", id = TODO_NPC("Ambassador Ardalan"), name = "Ambassador Ardalan",
   bible = "bibles/blastedlands.md", role = "noble", tier = "major",
   communities = { "nethergarde" }, temper = { "proud" }, values = { "wise", "practical" },
+  likesTone = "polite", private = { "arthas" },
   notices = { "race", "class" },
 
   impression = {
-    first = "Ambassador Ardalan is an elf who speaks very politely about very unwelcome ideas, chiefly that the Alliance should stop fighting the Horde. He never quite says whom he speaks for.",
+    first = "He never quite says whom he speaks for.",
     third = "{name} met Ambassador Ardalan, an elven envoy at Nethergarde Keep who urges Alliance and Horde to stand together against the Burning Legion.",
   },
 
@@ -1391,6 +1502,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "How gracious, and how unlike this garrison. I had begun to think that courtesy had been left off Nethergarde's supply list entirely." },
+        { id = "s2", text = "You flatter me, and you do it with some skill, which I may say as one who has practised the art in a great many halls. I am obliged to you." },
+      },
+      fail = {
+        { id = "f1", text = "I have been flattered by kings who meant to refuse me before the wine was poured. You will forgive me if I recognise the opening." },
+        { id = "f2", text = "A diplomat is paid to notice when sweet words arrive ahead of a request. Let us dispense with the first and proceed to the second." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ah, a little wit at the ambassador's expense. Do continue, for it is a good deal more civil than what the soldiers say behind my back, and rather cleverer." },
+        { id = "s2", text = "You are impertinent, and I find that I prefer it to the scowling. One learns to value an honest barb in a keep full of silent contempt." },
+      },
+      fail = {
+        { id = "f1", text = "I have been insulted in Stormwind, in Ironforge and in the ruins of my own city, and by people with far greater gifts for it. You may stop." },
+        { id = "f2", text = "How disappointing. I had taken you for one who came to listen, and instead you are merely another jeer among the many." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is no need for that, I assure you. I am a diplomat, and I know very well when the other party holds the stronger hand." },
+        { id = "s2", text = "You make your position admirably clear, and I am not so proud as to ignore it. Very well; ask, and I shall be candid." },
+      },
+      fail = {
+        { id = "f1", text = "I watched the Scourge march through the gates of Silvermoon. After that, I regret to say, there is very little that a raised voice can do to me." },
+        { id = "f2", text = "Threats are what remain when argument has failed, and I am sorry to see you reach them so quickly. I shall wait until you find your manners again." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Diplomats hear everything, mostly from people who don't think we're listening. Pick a subject." },
@@ -1413,6 +1556,10 @@ P:NPC {
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron fell because its people would not believe what was coming until it was at their gates. I fear the same lesson is being forgotten in Stormwind." } },
     thrall = { { id = "tp_thrall", text = "The Warchief of the Horde has made peace with Theramore, and I think that wiser than most in Stormwind will admit. I say so quietly, and only to those who ask." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beneath an ambassador's notice. Or above it; I can never remember which." } },
+    _gated = {
+      { id = "gt1", text = "That is a confidence, and I extend my confidences sparingly. Perhaps I shall, when we know each other better." },
+      { id = "gt2", text = "I must decline to speak of that for the present. You have not yet given me cause to trust you with it." },
+    },
   },
 }
 
@@ -1423,7 +1570,7 @@ P:NPC {
   notices = { "race", "drunk" },
 
   impression = {
-    first = "Enohar Thunderbrew is a dwarf who serves her watch at Nethergarde with a mug never far from her hand. Mention her family's ale and she bristles like a cat; mention home and she goes quiet.",
+    first = "Mention her family's ale and she bristles, mention home and she quiets.",
     third = "{name} met Enohar Thunderbrew, a dwarf of the famous brewing family serving at Nethergarde Keep.",
   },
 
@@ -1680,7 +1827,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Alexandra Constantine keeps Nethergarde's gryphons alive in a land that seems built to kill them. She speaks of her birds the way other people speak of their children.",
+    first = "She speaks of her gryphons the way others speak of their children.",
     third = "{name} met Alexandra Constantine, the gryphon master of Nethergarde Keep.",
   },
 
@@ -1874,7 +2021,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Bernie Heisten feeds Nethergarde from whatever the caravans bring, and talks the whole time he does it. He knows every soldier's order and most of their troubles.",
+    first = "He knows every soldier's order and most of their troubles.",
     third = "{name} met Bernie Heisten, who sells food and drink to the garrison at Nethergarde Keep.",
   },
 
@@ -2071,7 +2218,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Strumner Flintheel says as little as a dwarf can and still do business, and his hammer does the rest of the talking. He is, by his own reckoning, the only honest repair for leagues.",
+    first = "He reckons himself the only honest repair for leagues.",
     third = "{name} met Strumner Flintheel, the armorer at Nethergarde Keep.",
   },
 

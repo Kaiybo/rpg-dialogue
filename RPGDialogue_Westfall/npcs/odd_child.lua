@@ -13,7 +13,7 @@ P:NPC {
   communities = {}, temper = { "eager" }, values = { "curious", "stubborn" },
   notices = { "craft", "race", "class" },
   impression = {
-    first = "A little girl hides in a barn in Moonbrook, in the middle of bandit country, and wants more than anything to be an alchemist like her daddy. She never gave her name, and she mixes murloc eyes into potions with alarming enthusiasm.",
+    first = "She mixes murloc eyes into potions with alarming enthusiasm.",
     third = "{name} met a strange little girl hiding in a Moonbrook barn, who dreams of being an alchemist.",
   },
 

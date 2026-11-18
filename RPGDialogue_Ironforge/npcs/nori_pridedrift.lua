@@ -10,7 +10,7 @@ P:NPC {
   notices = { "speed", "cold" },
 
   impression = {
-    first = "Nori Pridedrift sells a scalding morning brew to half of Coldridge and is always a few minutes late with it. He worries about his mugs more than his customers, and I liked him for it.",
+    first = "He worries about his mugs more than his customers.",
     third = "{name} met Nori Pridedrift, who carries hot Scalding Mornbrew around Coldridge Valley and counts every one of his mugs.",
   },
 

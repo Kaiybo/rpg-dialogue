@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/road_peddler.md", role = "vendor", tier = "service",
   communities = {}, temper = { "cheerful" }, values = { "practical", "freedom" },
   impression = {
-    first = "Antonio Perelli sells odds and ends from a pack on his back and talks the whole time he does it. He seems to know every road in Elwynn and every danger on it.",
+    first = "He knows every road in Elwynn and every danger on it.",
     third = "{name} met Antonio Perelli, a talkative peddler who walks Elwynn's roads.",
   },
   greetings = {

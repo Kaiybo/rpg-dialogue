@@ -13,7 +13,7 @@ P:NPC {
   notices = { "engineer" },
 
   impression = {
-    first = "Jubie Gadgetspring sells engineering supplies from a two-story house on a lonely Azshara beach, and she seems delighted that anyone found it. She talks about her husband Blimo with fond exasperation.",
+    first = "She talks about her husband Blimo with fond exasperation.",
     third = "{name} met Jubie Gadgetspring, the gnome who sells engineering supplies on the beach of the Ruined Reaches.",
   },
 
@@ -137,7 +137,7 @@ P:NPC {
   communities = { "ruined_reaches" }, temper = { "nervous", "gentle" }, values = { "careful", "kind" },
 
   impression = {
-    first = "Blimo Gadgetspring sells trade supplies downstairs from his wife's workshop, and he jumps at every bang from the floor above. He'd rather be anywhere quieter, and says so politely.",
+    first = "He jumps at every bang from his wife's workshop upstairs.",
     third = "{name} met Blimo Gadgetspring, who sells trade supplies in a beach house in Azshara.",
   },
 

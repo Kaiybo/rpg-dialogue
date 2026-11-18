@@ -7,10 +7,11 @@ P:NPC {
   bible = "bibles/azshara.md", role = "scholar", tier = "major",
   prejudice = { class = "DRUID", amount = 10, why = "a human archmage who thinks the Circle squandered the Highborne's knowledge and lectures anyone who studies it" },
   communities = { "xylems_tower" }, temper = { "proud", "sharp" }, values = { "curious", "proud" },
+  likesTone = "polite",
   notices = { "class", "race", "arcane" },
 
   impression = {
-    first = "Archmage Xylem lives in a tower no one can climb, surrounded by Highborne relics and his own opinions. He talks about a drake that ate his apprentice, and seems to mourn the shard more than the student.",
+    first = "He mourns the shard more than the apprentice a drake ate.",
     third = "{name} met Archmage Xylem in his tower above the Highborne ruins of Azshara.",
   },
 
@@ -419,7 +420,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, at last, a visitor with a sense of proportion! I have been saying as much to Sanath for years, and he only grunts, so do sit down and tell me more." },
+        { id = "s2", text = "You're entirely right, of course, and it is such a relief to hear it from someone who climbed all this way to say so. I shall think of you fondly the next time Dalaran forgets to write." },
+        { id = "s3", when = { class = "MAGE" }, text = "Praise from a fellow mage is worth ten from the laity, because you know precisely how difficult it is to be me. You may consider yourself my favourite colleague on this coast, which I admit is a short list." },
+      },
+      fail = {
+        { id = "f1", text = "My dear, half of Dalaran flattered me whenever it wanted my vote, and it was considerably better at it. Do tell me what you're after, and spare us both the preamble." },
+        { id = "f2", text = "How charming, and how transparent. I keep a tower full of things people want, so you'll forgive me if I count the relics before I blush." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Oh, very good! Nobody has been rude to me in this tower since my apprentice was eaten, and I've rather missed the exercise. Do go on, because I'm sharpening a reply." },
+        { id = "s2", text = "You've a wicked tongue, and I approve of it, because a mind that can't sting usually can't think either. I shall have to be on my best form with you." },
+      },
+      fail = {
+        { id = "f1", text = "I've been insulted in four languages by people who could read all of them. Yours was a very ordinary effort, and I'm afraid I can't give it marks." },
+        { id = "f2", text = "I see. Well, the way out is behind you, and Sanath will be delighted to explain how the cliff works if you can't manage the stairs I haven't got." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Now, now, there's no call for that sort of thing among civilised people. I'm an archmage, not a duellist, and I should much prefer to keep all my shelves upright, so let us say you've made your point." },
+        { id = "s2", text = "Goodness. You're rather more alarming than you looked on the way in, and I'm standing next to several things that explode. Very well, you have my full and careful attention." },
+      },
+      fail = {
+        { id = "f1", text = "You are threatening a man who lives on top of a ley line, in a room full of Highborne wards he wrote the notes on. I'd advise against it, purely as a matter of scholarship." },
+        { id = "f2", text = "My dear, a green drake ate my apprentice, and I was back at my desk the same afternoon. You'll find I'm not easily put off my work." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is research in progress, and I don't discuss my research with people I've barely met. Come back when I've some reason to think you'd understand it." },
+      { id = "gt2", text = "No, I think not. The contents of this tower are for my friends and my betters, and so far you're neither." },
+    },
     knows = {
       { id = "tp_knows", text = "I know a great deal about nearly everything, and everything about a few things. Choose carefully, or we'll be here until supper." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, {name}, I'll even explain the hard parts. Pick a subject." },
@@ -448,7 +487,7 @@ P:NPC {
   notices = { "race", "class", "kit" },
 
   impression = {
-    first = "Sanath Lim-yo guards the way up to Xylem's tower and hates every minute of it. He insulted my clothes, my face and my reasons for coming, and then got bored of insulting me.",
+    first = "He insulted my clothes, face and reasons, then got bored of it.",
     third = "{name} met Sanath Lim-yo, who sends visitors up to Archmage Xylem's tower and despises each of them.",
   },
 

@@ -7,7 +7,7 @@ local U = ns.Util
 local SD = {}
 ns.SavedData = SD
 
-SD.SCHEMA = 6
+SD.SCHEMA = 7
 
 SD.ACCOUNT_DEFAULTS = {
   schema = SD.SCHEMA,
@@ -58,8 +58,6 @@ SD.ACCOUNT_DEFAULTS = {
     pagesInBox = true,          -- the game's next gossip page and quest pages stay in the box
     fontBody = "friz",          -- see Theme.FONT_LIST ("lsm:<name>" for SharedMedia fonts)
     fontName = "auto",          -- "auto" (the window's own) | "same" (as the text) | a font
-    textSpeed = 70,             -- characters per second
-    instantText = false,
     autoAdvance = false,
     autoDelay = 4,
     reduceMotion = false,
@@ -150,6 +148,35 @@ end
 -- Schema 6: the default text size is the game's quest font size, 13 (was 14).
 SD.MIGRATIONS.account[6] = function(db)
   if type(db.settings) == "table" and db.settings.textSize == 14 then db.settings.textSize = 13 end
+end
+
+-- Schema 7 (0.86.0): the diary keeps events only. The note written about every person met
+-- (it stays on the People page) and the word-for-word copy of each story beat (it stays on
+-- the Stories page) are taken out of diaries written before.
+SD.MIGRATIONS.char[7] = function(char)
+  local journal, npcs = char.journal, char.npc
+  if type(journal) ~= "table" then return end
+  local drop = {}
+  if type(npcs) == "table" then
+    -- The note was the last entry of the first conversation with that person.
+    local lastFor = {}
+    for i, e in ipairs(journal) do
+      local m = type(e) == "table" and e.key and npcs[e.key]
+      local at = type(m) == "table" and tonumber(m.impressed)
+      local t = type(e) == "table" and tonumber(e.t)
+      if at and t and t <= at and t >= at - 7200 then lastFor[e.key] = i end
+    end
+    for _, i in pairs(lastFor) do drop[i] = true end
+  end
+  for i, e in ipairs(journal) do
+    if type(e) == "table" and type(e.text) == "string" and e.text:find('^[^"]- told [^"]-: ".*"$') then drop[i] = true end
+  end
+  if not next(drop) then return end
+  local kept = {}
+  for i, e in ipairs(journal) do if not drop[i] then kept[#kept + 1] = e end end
+  for i = #journal, 1, -1 do journal[i] = nil end
+  for i, e in ipairs(kept) do journal[i] = e end
+  if type(char.journalRead) == "number" then char.journalRead = math.min(char.journalRead, #journal) end
 end
 
 SD.LIMITS = { seen = 1500, journal = 2000, deaths = 500, debug = 300, flagged = 500 }

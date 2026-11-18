@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "hearty" }, values = { "craft", "loyal" },
   notices = { "class", "race" },
   impression = {
-    first = "Karrina Mekenda trains hunters' beasts in the Dwarven District, and she greets the animal before she greets its owner. She has a laugh that carries down the whole street.",
+    first = "She greets the animal before she greets its owner.",
     third = "{name} met Karrina Mekenda, the dwarf who trains hunters' pets in Stormwind's Dwarven District.",
   },
   greetings = {
@@ -130,7 +130,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "craft", "practical" },
   notices = { "class", "craft" },
   impression = {
-    first = "Thulman Flintcrag sells guns in the Dwarven District and talks about them like a father about his sons. He'd sell a rifle to a priest if he could find the right argument.",
+    first = "He would sell a rifle to a priest with the right argument.",
     third = "{name} met Thulman Flintcrag, the dwarf gun seller in Stormwind's Dwarven District.",
   },
   greetings = {
@@ -257,7 +257,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "smooth" }, values = { "practical" },
   notices = { "drink", "arcane" },
   impression = {
-    first = "Joachim Brenlow keeps the bar at the Blue Recluse, and he pours as if every glass were a secret he's agreed to keep. The mages drink here, and he knows all their orders.",
+    first = "He pours every glass like a secret he has agreed to keep.",
     third = "{name} met Joachim Brenlow, who pours at the Blue Recluse in the Mage Quarter.",
   },
   greetings = {
@@ -372,7 +372,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "craft" },
   notices = { "class", "status" },
   impression = {
-    first = "Evan Larson sells hats and helms in the Mage Quarter, near Wynne Larson's cloth, and he has an opinion about everyone's head. He measures by eye and is rarely wrong.",
+    first = "He has an opinion about everyone's head and is rarely wrong.",
     third = "{name} met Evan Larson, the hatter of Stormwind's Mage Quarter.",
   },
   greetings = {
@@ -490,7 +490,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "dry" }, values = { "craft", "practical" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Heinrich Stone sells swords in Old Town, close by the barracks, and most of his customers are soldiers spending their first pay. He tests every edge on his thumb and has the scars to show for it.",
+    first = "He tests every edge on his thumb and has the scars.",
     third = "{name} met Heinrich Stone, the blade merchant of Old Town.",
   },
   greetings = {
@@ -613,7 +613,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "practical", "loyal" },
   notices = { "drink", "light" },
   impression = {
-    first = "Julia Gallina sells wine at the counter of the Gallina Winery on the canals, while Suzetta keeps the tally and Roberto keeps the cellar. She smiles easily and charges full price.",
+    first = "She smiles easily and charges full price.",
     third = "{name} met Julia Gallina, who sells wine at the Gallina Winery's counter.",
   },
   greetings = {
@@ -735,7 +735,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "wry" }, values = { "practical" },
   notices = { "purse" },
   impression = {
-    first = "Ol' Beasley begs in Old Town near the barracks, and he watches the street with an eye sharper than most guards'. He asks for coin politely, and he takes a refusal with good grace.",
+    first = "He watches the street with a sharper eye than most guards.",
     third = "{name} met Ol' Beasley, a beggar of Old Town.",
   },
   greetings = {

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "The Zandalarian Emissary stands in Booty Bay like a temple stands in a marketplace, tall and patient and not quite part of it. He spoke of Hakkar the way other people speak of a coming storm.",
+    first = "He speaks of Hakkar the way others speak of a coming storm.",
     third = "{name} met the Zandalarian Emissary in Booty Bay, an envoy of the Zandalar Tribe calling for heroes to march on Zul'Gurub.",
   },
 
@@ -273,7 +273,7 @@ P:NPC {
   notices = { "class", "purse" },
 
   impression = {
-    first = "Dudd Fizzlescroll sells scrolls and maps from a stall that smells of ink and lamp oil, and he calls everyone scholar whether they can read or not. Some of his treasure maps are certainly forgeries, and he seems proud of the penmanship.",
+    first = "His treasure maps are partly forgeries, and he's proud of the penmanship.",
     third = "{name} met Dudd Fizzlescroll, a goblin scroll-seller in Booty Bay who used to copy bills of lading for the Steamwheedle Cartel.",
   },
 
@@ -430,7 +430,7 @@ P:NPC {
   notices = { "purse", "race" },
 
   impression = {
-    first = "Rix Xizzix runs a Lost and Found that sells adventurers their own lost treasures back at a handsome price. His eyebrows are only half grown back, and he still talks about rockets as if he might build one any minute.",
+    first = "He sells adventurers their own lost treasures back at a handsome price.",
     third = "{name} met Rix Xizzix, Pix's brother, who worked off a stolen fortune hauling crates and now runs Booty Bay's Lost and Found.",
   },
 
@@ -586,7 +586,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Privateer Bloads is a broad, sunburnt human who sails against the Bloodsail under a Booty Bay letter of marque and laughs at his own name before anyone else can. He wants reeds, of all things, and a great many of them.",
+    first = "He laughs at his own name before anyone else can.",
     third = "{name} met Privateer Bloads, a human privateer in Booty Bay who hunts the Bloodsail under the Baron's commission and buys Akiris reed by the bundle.",
   },
 
@@ -736,7 +736,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Caravaneer Ruzzgot is a scarred, dusty goblin who runs Steamwheedle caravans along the jungle road and prices every danger on it to the copper. He talked about raptors and trolls the way a shopkeeper talks about the weather.",
+    first = "He prices every danger on the jungle road to the copper.",
     third = "{name} met Caravaneer Ruzzgot, a goblin caravan boss in Booty Bay who has driven the Steamwheedle's wagons through Stranglethorn for longer than most of its bandits have been alive.",
   },
 
@@ -889,7 +889,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Grizzlowe keeps the berth for the Maiden's Fancy and would rather talk about Booty Bay's clam chowder than his ship. He calls everyone passenger, as if he's already sold them a ticket.",
+    first = "He calls everyone passenger, as if the ticket were already sold.",
     third = "{name} met Grizzlowe, the goblin shipmaster who keeps the Maiden's Fancy's berth in Booty Bay and swears by the port's clam chowder.",
   },
 

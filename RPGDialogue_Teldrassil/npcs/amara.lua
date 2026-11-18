@@ -9,7 +9,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "stern", "watchful" }, values = { "devout", "dutiful" },
   notices = { "mount", "class" },
   impression = {
-    first = "Moon Priestess Amara rides the road to Darnassus as if it were a temple floor that needs keeping clean. She salutes like a Sentinel and blesses like a priestess, and she means both.",
+    first = "She salutes like a Sentinel and blesses like a priestess.",
     third = "{name} met Moon Priestess Amara, who keeps the road between Dolanaar and Darnassus clear of Gnarlpine ambushers.",
   },
 

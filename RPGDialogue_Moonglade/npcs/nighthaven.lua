@@ -7,10 +7,11 @@ P:NPC {
   key = "remulos", id = TODO_NPC("Keeper Remulos"), name = "Keeper Remulos",
   bible = "bibles/nighthaven.md", role = "noble", tier = "major",
   communities = { "nighthaven" }, temper = { "serene" }, values = { "protective", "firm" },
+  likesTone = "polite",
   spiritSensitive = true,
   notices = { "form", "fel", "race" },
   impression = {
-    first = "Keeper Remulos speaks to every visitor as if they were a guest in his own grove, which I suppose they are. When he asks about the new tree on Teldrassil, a quiet sadness creeps into his voice.",
+    first = "A quiet sadness creeps in when he asks about Teldrassil's new tree.",
     third = "{name} met Keeper Remulos, son of Cenarius, who guards Moonglade for every druid whatever banner they fly.",
   },
 
@@ -513,7 +514,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak gently, little one, and the glade hears it as I do. It is a rare gift to give kindness to one who asks nothing, and I thank you for it." },
+        { id = "s2", text = "My father held that praise freely given was a kind of blessing, and he would have smiled to hear you. I receive your words in his name, and gladly." },
+        { id = "s3", when = { class = "DRUID" }, text = "It gladdens me to hear that from a child of the Circle, for you know what the keeping of this place asks. Walk here as often as you wish, and the glade will always have room for you." },
+      },
+      fail = {
+        { id = "f1", text = "The trees do not grow taller for being praised, little one, and I am much the same. Tell me what weighs on you instead, for I think that is why you speak so sweetly." },
+        { id = "f2", text = "I have heard the courtesies of ten thousand years, and I have learned to love plain speech best. Let us set the fine words aside and talk as friends do." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You are bold, to tease a keeper in his own grove, and I find there is no malice in it. The young of every forest test the old ones so, and I would not have it otherwise." },
+        { id = "s2", text = "Ha. It has been long since anyone dared to speak to me so lightly, little one, and the glade is not offended. There is good spirit in you, and it does an old keeper good to meet it." },
+      },
+      fail = {
+        { id = "f1", text = "Moonglade is a place of peace, little one, and that peace is kept in words as well as in deeds. I ask you to speak more gently while you stand beneath these boughs." },
+        { id = "f2", text = "I will not answer mockery in kind, for nothing grows from it. But the glade has heard you, and it remembers longer than you might wish." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "Remulos regards you gravely, and the grove around him grows very still.", text = "There is strength in you that even the trees have marked, little one. I am not moved to fear, yet I will own that few mortals have made me weigh my words as you have just done." },
+        { id = "s2", text = "You press hard, and with more force than I had looked for in a mortal. I will give you the answer you seek, for I see you will not be turned, and I do not wish this glade troubled." },
+      },
+      fail = {
+        { id = "f1", text = "I am a son of Cenarius, and I have stood before the Legion in its strength. Put aside your threats, little one, for they have no place here and no power over me." },
+        { id = "f2", text = "No blade is drawn in Moonglade and no hand is raised, and that law binds you as it binds every creature here. Remember it, or the glade's wardens will remind you." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That I will keep a while longer, little one. Walk gently in the glade and let me come to know you, and then ask me again." },
+      { id = "gt2", text = "I do not speak of such things to those I have only lately met. The glade is patient, and I ask you to be patient also." },
+    },
     knows = {
       { id = "tp_knows", text = "The glade hears much, and the trees tell me what they hear. Ask, little one, and I will answer as I can." },
       { id = "tp_knows_warm", when = { disposition = { min = 75 } },
@@ -550,7 +589,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "grave" }, values = { "careful", "loyal" },
   notices = { "lore", "form" },
   impression = {
-    first = "Rabine Saturna keeps the Keeper's house in order so the Keeper need not think about it. He does not believe in chance, and he looked at me as though weighing what my coming here meant.",
+    first = "He does not believe in chance, and weighed what my coming meant.",
     third = "{name} met Rabine Saturna, majordomo to Keeper Remulos, who watches over everything in Nighthaven the Keeper does not.",
   },
 
@@ -891,7 +930,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "formal" }, values = { "balance", "dutiful" },
   notices = { "form", "class" },
   impression = {
-    first = "Formal as Dendrite Starblaze is about the Circle's trials, there is a dry humour hiding under it. Anyone not here for the trials is told the village is lovely this time of year.",
+    first = "There is a dry humour hiding under all that formality.",
     third = "{name} met Dendrite Starblaze, who guides young druids through the Cenarion Circle's first trials in Moonglade.",
   },
 
@@ -1169,7 +1208,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "calm" }, values = { "balance", "kind" },
   notices = { "class" },
   impression = {
-    first = "Balance, says Loganaar, is something you carry, not somewhere you go. He suggested I sit a while for no reason at all, and it was better advice than it sounded.",
+    first = "Balance, he says, is something you carry, not somewhere you go.",
     third = "{name} met Loganaar, the calm druid trainer of Nighthaven, who teaches that balance begins within.",
   },
 
@@ -1373,7 +1412,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "form" },
   impression = {
-    first = "The Great Bear Spirit speaks in a voice felt in the chest more than heard with the ears. It told me that strength that cannot wait is only noise, and I keep turning that over.",
+    first = "It says strength that cannot wait is only noise.",
     third = "{name} sat before the Great Bear Spirit in Moonglade, an ancient presence that teaches patience as the root of strength.",
   },
 
@@ -1598,7 +1637,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "warm" }, values = { "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Silva Fil'naveth keeps the Circle's hippogryphs, and her oldest will not fly until she says its name politely. She turns away anyone who is not a druid, but so kindly that nobody can stay cross with her.",
+    first = "She turns non-druids away so kindly that nobody stays cross.",
     third = "{name} met Silva Fil'naveth, keeper of the Cenarion Circle's hippogryphs at Nighthaven.",
   },
 
@@ -1772,7 +1811,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "class" },
   impression = {
-    first = "For a keeper of wind riders, Bunthen Plainswind is a gentle and patient sort, and he admits he misses the wind on the Bluff. He seemed glad of a little conversation, since his riders offer so little.",
+    first = "He admits he misses the wind on the Bluff.",
     third = "{name} met Bunthen Plainswind, who keeps the Cenarion Circle's wind riders for druids flying home to Thunder Bluff.",
   },
 

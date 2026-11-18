@@ -9,7 +9,7 @@ P:NPC {
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "hunger", "craft" },
   impression = {
-    first = "Salma Saldean keeps a pot on the stove for anyone who comes to the door hungry, and that is the rule of her house. She'll put murloc eyes in it if she must, and she won't apologise.",
+    first = "Nobody leaves her door hungry, even if it takes murloc eyes.",
     third = "{name} met Salma Saldean, a Westfall cook who believes no visitor should leave her kitchen hungry.",
   },
 

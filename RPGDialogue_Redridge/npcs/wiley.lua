@@ -10,7 +10,7 @@ P:NPC {
   notices = { "stealth", "watch" },
 
   impression = {
-    first = "Wiley the Black sits in his corner and shares what he knows only with those he decides deserve it. He told me I was in his light, which I gather is how he says hello.",
+    first = "Telling me I'm in his light is how he says hello.",
     third = "{name} found Wiley the Black in his corner of Lakeshire, a man who knows things and does not share them with just anybody.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Kurll sells food and drink at Valormok, which in his camp means milk, fruit juice and no grog at all. He knows exactly how unpopular that makes him and doesn't care one bit.",
+    first = "He serves no grog, knows it's unpopular and doesn't care one bit.",
     third = "{name} met Kurll, the orc who sells food and drink at Valormok, and nothing stronger than milk.",
   },
 
@@ -202,7 +202,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Gruul Darkblade sells and mends weapons at Valormok and judges every warrior by the edge on their blade. He has a short temper and a long grudge against the Thalassian elves who killed his camp's warriors.",
+    first = "He has a short temper and a long grudge against Thalassian elves.",
     third = "{name} met Gruul Darkblade, the orc weaponsmith at Valormok.",
   },
 

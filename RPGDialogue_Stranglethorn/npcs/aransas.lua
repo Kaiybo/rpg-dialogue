@@ -12,7 +12,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Captain Aransas wished me good day like she was weighing whether I'd be any use on a rope. She's a plain-spoken woman with salt in her hair and a crew she plainly loves.",
+    first = "She weighs whether you would be any use on a rope.",
     third = "{name} met Captain Aransas, a human ship's captain who sails out of Booty Bay alongside the Blackwater Raiders and worries over her crew like a hen.",
   },
 

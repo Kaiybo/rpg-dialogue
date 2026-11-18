@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Witch Doctor Unbagwa talks about himself by name and about gorillas with real affection, and he wanted me standing between him and the apes before he'd start calling them. I liked him, though I wouldn't stand too near his cave.",
+    first = "I like him, though I would not stand too near his cave.",
     third = "{name} met Witch Doctor Unbagwa, a jungle troll who speaks with the gorilla spirits in Mistvale Valley.",
   },
 

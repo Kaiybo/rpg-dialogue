@@ -10,10 +10,11 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "major",
   communities = { "darnassus" }, temper = { "calm", "formal" }, values = { "devout", "wise", "loyal" },
+  likesTone = "polite",
   notices = { "class", "race", "arcane" },
 
   impression = {
-    first = "Priestess Alathea praised Elune and the Light in the same breath, and meant both. She is gracious until arcane magic comes up, and then something old and wary looks out of her eyes.",
+    first = "She is gracious until arcane magic comes up, then turns wary.",
     third = "{name} met Priestess Alathea, who trains the priests of the Temple of the Moon, and some of the Light's as well.",
   },
 
@@ -385,7 +386,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You are kind to say so, and I receive it in the spirit it was offered. A teacher seldom hears whether her lessons have reached anyone." },
+        { id = "s2", text = "That was gracefully said, and I think sincerely. The moon has taught you courtesy, wherever you learned the rest." },
+      },
+      fail = {
+        { id = "f1", text = "I thank you, but praise is a thing we are taught to set down at the Temple door. I would rather you brought me a question than a compliment." },
+        { id = "f2", text = "You speak sweetly, and I hear the purpose beneath it. Elune's priestesses are not won that way, though you are not the first to try." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Oh, you have a quick tongue. My novices would be scandalized, but I confess the Temple has been very solemn of late, and I do not mind a little mischief in it." },
+        { id = "s2", text = "You test me the way I test my students, and I can hardly object to my own methods. That was well struck, and I shall be readier next time." },
+      },
+      fail = {
+        { id = "f1", text = "That was beneath you, and it was certainly beneath this place. I will ask you to speak more gently while you stand in Elune's light." },
+        { id = "f2", text = "I have taught the proud and the foolish for a very long time, so mockery is nothing new to me. I find it only disappointing." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "She glances toward the moonwell and draws her hands into her sleeves.", text = "Please, lower your voice, for there are sisters at prayer. I have no wish to quarrel, and if the matter means so much to you, then I will yield it." },
+        { id = "s2", text = "You frighten me a little, and I will not pretend otherwise, for I am a healer and my hands were never trained to the glaive. Tell me what you need, and I will hear it." },
+      },
+      fail = {
+        { id = "f1", text = "You stand in the Temple of the Moon, where the High Priestess herself keeps watch. I would think carefully before raising a hand or a voice here." },
+        { id = "f2", text = "Anger like yours is a wound, and I have tended many. It will not move me, though I will gladly sit with you once it has cooled." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is not something I would share with one who is still a stranger to this Temple. Come to me again when we know one another better." },
+      { id = "gt2", text = "I must keep my own counsel on that for the present. A priestess learns which things are spoken only among those she trusts." },
+    },
     knows = { { id = "tp_knows", text = "A teacher in this Temple hears much from the young priests who pass through it. Ask, and I'll tell you what I can in good conscience." } },
     background = { { id = "tp_bg", text = "I teach Elune's priests, and some of the Light's, when Laurena sends them. Mostly it means teaching young priests not to fidget through the long hymns." } },
     advice = { { id = "tp_ad", text = "Heal the one in front of you before you worry about the one across the sea. Prayer can wait a breath; bleeding can't." } },
@@ -412,7 +449,7 @@ P:NPC {
   notices = { "class", "light", "origin" },
 
   impression = {
-    first = "Astarii Starseeker believes no soul is too far gone for Elune to hear, not even one that served the Twilight's Hammer. She says it gently, and she plainly means it.",
+    first = "She believes no soul is too far gone for Elune to hear.",
     third = "{name} met Astarii Starseeker, a priestess of the Temple of the Moon who believes in second chances.",
   },
 
@@ -637,7 +674,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Jandria treats prayer as a craft to be practised, like archery or bandaging. She has little patience for grand speeches and a great deal for anyone willing to work.",
+    first = "She treats prayer as a craft and has no patience for speeches.",
     third = "{name} met Jandria, a no-nonsense priest trainer of the Temple of the Moon.",
   },
 
@@ -824,7 +861,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Lariia notices everything and says about half of it. She told me the Temple's pool shows the moon even on cloudy nights, and I still don't know whether she was teasing.",
+    first = "She notices everything and says about half of it.",
     third = "{name} met Lariia, a quiet priest trainer who keeps watch over the Temple of the Moon's pool.",
   },
 
@@ -1008,7 +1045,7 @@ P:NPC {
   notices = { "class", "greenness" },
 
   impression = {
-    first = "Sister Aquinne is still studying at the Temple and takes every task the priestesses give her as a sacred trust. She spoke of Lady Sathrah as if mourning someone she had known.",
+    first = "She speaks of Lady Sathrah like someone she knew and mourns.",
     third = "{name} met Sister Aquinne, a young sister of the Temple of the Moon who spends her days weeding the Temple Gardens.",
   },
 
@@ -1262,7 +1299,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Idriana keeps the Bank of Darnassus with perfect courtesy and an even more perfect memory for who owns which box. Nothing leaves her vault without a reason she can write down.",
+    first = "Nothing leaves her vault without a reason she can write down.",
     third = "{name} met Idriana, the courteous banker of the Bank of Darnassus in the Temple Gardens.",
   },
 

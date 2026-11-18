@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "stranger" },
 
   impression = {
-    first = "Lolo the Lookout is an ogre who sails with the Blackwater Raiders and talks about himself as though Lolo were somebody standing next to him. He's proud of his eyes, fond of his captain and frightened of the water.",
+    first = "He talks about Lolo as though Lolo stood next to him.",
     third = "{name} met Lolo the Lookout, the cheerful ogre who keeps watch over the stranded Blackwater Raiders at Faldir's Cove.",
   },
 
@@ -223,7 +223,7 @@ P:NPC {
   notices = { "gnome", "kit" },
 
   impression = {
-    first = "Doctor Draxlegauge is a gnome who builds things for the Blackwater Raiders and is plainly very clever and plainly very scared of deep water. He calls it scientific business on dry land, and he almost believes it.",
+    first = "He calls it scientific business on dry land and almost believes it.",
     third = "{name} met Doctor Draxlegauge, the gnome tinker who made the Raiders' gem-hunting goggles at Faldir's Cove.",
   },
 
@@ -400,7 +400,7 @@ P:NPC {
   notices = { "soldier", "pvp" },
 
   impression = {
-    first = "Sergeant Maclear runs the League of Arathor's supplies at Refuge Pointe and thinks most wars are lost in the larder before the field. She talked about lumber and grain the way other soldiers talk about glory.",
+    first = "She thinks wars are lost in the larder before the field.",
     third = "{name} met Sergeant Maclear, who gathers Arathi Basin's resources for the League of Arathor at Refuge Pointe.",
   },
 
@@ -549,7 +549,7 @@ P:NPC {
   notices = { "race", "pvp" },
 
   impression = {
-    first = "Deathstalker Mortis wants the League of Arathor starved rather than beaten, and he says so as calmly as a clerk. He doesn't care for Hammerfall's orcs, but he cares even less for Refuge Pointe.",
+    first = "He wants the League starved rather than beaten, and says so calmly.",
     third = "{name} met Deathstalker Mortis, who wants the League of Arathor's supply lines cut and keeps watch for the Defilers at Hammerfall.",
   },
 
@@ -715,7 +715,7 @@ P:NPC {
   notices = { "reputation", "pvp" },
 
   impression = {
-    first = "Samuel Hawke hands out the League of Arathor's armour and arms to those who've fought for it in the Basin, and he reckons a soldier's worth by the marks they bring. Fair, if not generous.",
+    first = "He reckons a soldier's worth by marks, fair if not generous.",
     third = "{name} met Samuel Hawke, the League of Arathor's supply officer at Refuge Pointe.",
   },
 
@@ -891,7 +891,7 @@ P:NPC {
   notices = { "reputation", "pvp" },
 
   impression = {
-    first = "Rutherford Twing hands out the Defilers' gear at Hammerfall with the air of a clerk who was once a better-paid clerk. He counts marks twice and seems to enjoy it.",
+    first = "He counts marks twice and seems to enjoy it.",
     third = "{name} met Rutherford Twing, supply officer to the Forsaken Defilers at Hammerfall.",
   },
 
@@ -1047,7 +1047,7 @@ P:NPC {
   notices = { "craft", "hunger" },
 
   impression = {
-    first = "Slagg teaches cooking at Hammerfall and calls himself a superior butcher, and his buzzard wings argue that he's right. He thinks a warrior who can't cook is only half a warrior.",
+    first = "He thinks a warrior who can't cook is only half a warrior.",
     third = "{name} met Slagg, Hammerfall's butcher and cooking teacher.",
   },
 
@@ -1202,7 +1202,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Uttnar sells meat at Hammerfall and doesn't waste words over it. He thinks Slagg fusses too much and says so, though he buys Slagg's sauce.",
+    first = "He says Slagg fusses too much, yet he buys Slagg's sauce.",
     third = "{name} met Uttnar, who sells meat to Hammerfall's warriors.",
   },
 

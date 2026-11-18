@@ -9,7 +9,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "simple", "cheerful" }, values = { "family", "fishing" },
   notices = { "craft", "race" },
   impression = {
-    first = "Gubber Blump loves fishing, his family and crab, and he will tell you so in that order and then start again. There's no guile in him at all, and he seemed happier on that beach than anyone I've met.",
+    first = "There is no guile in him, and I've met nobody happier.",
     third = "{name} met Gubber Blump, a dwarf fisherman on the beach at Auberdine who is very fond of crab.",
   },
 

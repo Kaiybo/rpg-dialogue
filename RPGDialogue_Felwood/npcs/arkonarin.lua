@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Arko'narin was caged in the dark beneath Jaedenar, bruised and furious, and still more worried about her friend's sword than her own skin. She will not let anyone see her break.",
+    first = "She will not let anyone see her break.",
     third = "{name} found Arko'narin caged by the Shadow Council in Shadow Hold, still fighting.",
   },
 

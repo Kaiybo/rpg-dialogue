@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Galen Goodward is a human trader stuck in a cage at the Fallow Sanctuary, and he talks faster than any prisoner I've met. He wants out, and he wants his strongbox, and I'm not sure which he wants more.",
+    first = "I am not sure whether he wants freedom or his strongbox more.",
     third = "{name} found Galen Goodward caged at the Fallow Sanctuary in the Swamp of Sorrows.",
   },
 
@@ -255,7 +255,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "The Fallen Hero of the Horde is an orc spirit by the road to the Blasted Lands, the last of a regiment called Thrall's Grasp. He blames orders that never came, and he blames himself more.",
+    first = "He blames orders that never came, and he blames himself more.",
     third = "{name} met the Fallen Hero of the Horde, an orc spirit in the Swamp of Sorrows near the Blasted Lands.",
   },
 

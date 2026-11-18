@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "level" },
 
   impression = {
-    first = "Yanni Stoutheart sells the plain things a traveller forgets until it's too late: rope, flasks, thread and the like. She sizes up a customer's pack at a glance and is usually right about what's missing.",
+    first = "She can tell at a glance what is missing from a pack.",
     third = "{name} met Yanni Stoutheart, who sells general supplies at Thelsamar's Stoutlager Inn.",
   },
 
@@ -115,7 +115,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Drac Roughcut sells trade goods out of the Stoutlager Inn: vials, spices, flux and the other small things a craftsman can't work without. He is gruff, short with chatter, and quietly helpful once he decides a customer is serious.",
+    first = "He is gruff until he decides a customer is serious.",
     third = "{name} met Drac Roughcut, the tradesman at Thelsamar's Stoutlager Inn.",
   },
 
@@ -238,7 +238,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Vrok Blunderblast sells guns and shot in Thelsamar, and he talks about blunderbusses the way some dwarves talk about their children. He is loud, cheerful and very fond of the word 'boom'.",
+    first = "He is loud, cheerful and very fond of the word 'boom'.",
     third = "{name} met Vrok Blunderblast, Thelsamar's gunsmith.",
   },
 
@@ -344,7 +344,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Rann Flamespinner sells thread, dye and patterns in Thelsamar, a quiet dwarf in a town of loud ones. He notices what people wear and is too polite to say most of what he thinks about it.",
+    first = "He is too polite to say what he thinks of your clothes.",
     third = "{name} met Rann Flamespinner, who sells tailoring supplies in Thelsamar.",
   },
 

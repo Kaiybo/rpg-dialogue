@@ -8,7 +8,7 @@ P:NPC {
   communities = { "quel_danil" }, temper = { "wary" }, values = { "cunning", "proud" },
   notices = { "race" },
   impression = {
-    first = "Rin'ji is a troll in an elven cage, which is an old story in these hills, and he tells it with more bitterness than surprise. He'd like out, and he'll pay in secrets.",
+    first = "He'd like out of his cage, and he'll pay in secrets.",
     third = "{name} met Rin'ji, a troll held captive by the high elves of Quel'Danil Lodge.",
   },
 

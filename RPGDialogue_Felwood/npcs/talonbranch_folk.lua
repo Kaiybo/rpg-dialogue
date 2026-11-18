@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Taronn Redfeather watches the wildkin of Winterspring the way other scholars watch the stars, with patience and a little awe. He worries that the creatures have gone mad from what they guard.",
+    first = "He fears the wildkin have gone mad from what they guard.",
     third = "{name} met Taronn Redfeather, a night elf at Talonbranch Glade who studies the wildkin.",
   },
 
@@ -213,7 +213,7 @@ P:NPC {
   notices = { "pet", "hunter" },
 
   impression = {
-    first = "Kaerbrus trains hunters at Talonbranch Glade with his nightsaber Shi'alune lying at his feet. He looks at your pet before he looks at you.",
+    first = "He looks at your pet before he looks at you.",
     third = "{name} met Kaerbrus, the night elf hunter trainer at Talonbranch Glade, and his cat Shi'alune.",
   },
 

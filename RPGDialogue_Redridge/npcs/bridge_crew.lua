@@ -10,7 +10,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "calm" }, values = { "craft", "cautious" },
   notices = { "craft" },
   impression = {
-    first = "Bridge Worker Dmitri measures twice before he lifts anything, and he has opinions about every stone in the Everstill Bridge. The younger men on the crew tease him and listen to him anyway.",
+    first = "The younger men tease him and listen to him anyway.",
     third = "{name} met Bridge Worker Dmitri, the careful old hand on Foreman Oslow's bridge crew.",
   },
   greetings = {
@@ -195,7 +195,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "eager" }, values = { "loyal", "hardworking" },
   notices = { "class" },
   impression = {
-    first = "Bridge Worker Jess is the youngest on Oslow's crew and talks as fast as he works, which is very fast. He seems to think adventurers are the most exciting thing ever to cross the Everstill.",
+    first = "He talks as fast as he works, which is very fast.",
     third = "{name} met Bridge Worker Jess, the youngest of Foreman Oslow's bridge crew.",
   },
   greetings = {

@@ -10,10 +10,11 @@ P:NPC {
   rivals = { "fandral" },
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
+  likesTone = "blunt", private = { "malfurion" },
   spiritSensitive = true,
   notices = { "fel", "race", "class", "form" },
   impression = {
-    first = "High Priestess Tyrande Whisperwind speaks as though Elune is listening, and perhaps she is. Leading her people alone shows only in how little time she spares for idle words.",
+    first = "She speaks as though Elune is listening, and perhaps she is.",
     third = "{name} stood before Tyrande Whisperwind, High Priestess of Elune, in the Temple of the Moon.",
   },
 
@@ -553,7 +554,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak with more grace than most who come before me, and I do not think it is empty. I thank you, and I shall remember that you offered it." },
+        { id = "s2", text = "Ten thousand years have taught me to tell honest regard from a courtier's habit, and yours is honest. Elune's light be on you for it." },
+      },
+      fail = {
+        { id = "f1", text = "I have been praised by kings and by demons, and both wanted something from me. Say what you came to say, and leave the garlands at the door." },
+        { id = "f2", text = "Flattery is a poor offering to bring into the Temple of the Moon. The Goddess is not moved by it, and neither is her priestess." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You are bold, to speak so to me beneath Elune's own gaze. I find I do not mind it, for I was a soldier long before I led this Temple, and soldiers speak as you do." },
+        { id = "s2", text = "Few have dared that in a very long time, and fewer have made me smile at it. You have courage, and I have always had a use for courage." },
+      },
+      fail = {
+        { id = "f1", text = "I have buried sisters who earned the right to speak to me so, and you are not among them. Mind your tongue while you stand in this Temple." },
+        { id = "f2", text = "You mistake insolence for strength, as the young often do. I have neither the time nor the patience to teach you the difference today." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You press hard, and I will not pretend I do not feel the weight of it. Very well, I grant your point, though I grant it because it is just and not because you raised your voice." },
+        { id = "s2", text = "There is iron in you, and I would sooner have it beside my Sentinels than set against them. I will give ground on this, so do not make me regret it." },
+      },
+      fail = {
+        { id = "f1", narr = "She does not raise her voice, and the Sentinels at the door turn their heads.", text = "I stood against Archimonde beneath the boughs of the World Tree. You would do well to remember where you are, and who is listening." },
+        { id = "f2", text = "You bring threats into Elune's own house? I have slain greater things than you for less, so be grateful that the Goddess counsels mercy." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is not something I will speak of to one I scarcely know. Earn the trust of my people, and perhaps you will earn mine." },
+      { id = "gt2", text = "I know the answer, and I choose to keep it. There are matters the High Priestess shares only with those who have proven themselves to the kaldorei." },
+    },
     knows = {
       { id = "tp_knows", text = "Ask, and I will answer what is mine to answer. The rest belongs to Elune, and she is far less talkative than I am." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -603,9 +640,10 @@ P:NPC {
   rivals = { "tyrande" },
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "abrasive" }, values = { "proud", "ambitious" },
+  likesTone = "polite",
   notices = { "race", "class" },
   impression = {
-    first = "Pride sits on Arch Druid Fandral Staghelm like a mantle, pride in Teldrassil and in having led his people out of the darkness, as he tells it. He wanted me brief, and I was glad to oblige.",
+    first = "Pride sits on him like a mantle, so I keep it brief.",
     third = "{name} met Arch Druid Fandral Staghelm, who leads the Cenarion Circle from the Enclave and suffers no doubts about it.",
   },
 
@@ -1036,7 +1074,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "At last, someone in this city who sees what was done here and who did it. You have better judgment than I expected, and I'll allow that it's pleasant to hear." },
+        { id = "s2", text = "Hm. You are perceptive, which is rarer among visitors than you might think. The Temple could learn something from your manners." },
+      },
+      fail = {
+        { id = "f1", text = "I have no use for flatterers, because the Enclave is already full of saplings who bow and agree with me. If you want something of the Arch Druid, earn it." },
+        { id = "f2", text = "You praise what you do not understand, and it shows. I raised Teldrassil from the sea, and I do not need a stranger to tell me whether it was well done." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You have teeth, at least, which is more than I can say for the druids who tiptoe around me all day. Very well, you may keep them, so long as you bite something useful." },
+        { id = "s2", text = "You are insolent and not entirely wrong, which is an irritating combination. I had forgotten what it was like to be argued with by someone who meant it." },
+      },
+      fail = {
+        { id = "f1", text = "I led armies in the War of the Shifting Sands, long before you drew breath. You will not sneer at me in my own Enclave and be welcome here afterward." },
+        { id = "f2", text = "Is that the best wit you can manage? Take it to the Temple, where they have patience for children." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You make your point forcefully, I will say that. I've no wish to waste the day quarreling with you, so have it your way and let us be done." },
+        { id = "s2", text = "Hmph. There is more to you than I judged, and I do not often misjudge. Speak, then, and I will listen more carefully than I meant to." },
+      },
+      fail = {
+        { id = "f1", text = "You threaten the Arch Druid of the Cenarion Circle, with every root of this tree under my hand? Leave my sight before I decide you are worth the effort." },
+        { id = "f2", text = "I have faced the silithid in their own tunnels, and they did not trouble to threaten before they killed. You are a loud voice in a quiet glade, and nothing more than that." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is the Circle's business, and you have given me no reason to make it yours. Prove you are worth my time, and then ask again." },
+      { id = "gt2", text = "I do not discuss such things with every wanderer who climbs to the Enclave. You will have to stand a good deal higher in my regard first." },
+    },
     knows = {
       { id = "tp_knows", text = "There is little on this tree I do not know, and less that I have not had to mend myself. Ask, but be quick about it." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } },
@@ -1072,7 +1146,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
   notices = { "form", "class" },
   impression = {
-    first = "Mathrengyl Bearwalker has the calm of someone who once stood beside power and found he preferred teaching. Every question gets a patient answer from him, even the foolish ones.",
+    first = "Every question gets a patient answer from him, even the foolish ones.",
     third = "{name} met Mathrengyl Bearwalker, the dignified trainer of druids in the Cenarion Enclave.",
   },
 
@@ -1403,7 +1477,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
   notices = { "class", "death", "origin" },
   impression = {
-    first = "Priestess A'moora called me 'little star' as if she had known me for years. Most come to her tired, she says, and I did leave the Temple pool lighter than I arrived.",
+    first = "She calls me 'little star' as if she'd known me for years.",
     third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
   },
 
@@ -1679,7 +1753,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "intent" }, values = { "curious", "devout" },
   notices = { "lore", "trophy" },
   impression = {
-    first = "Some of Gracina Spiritmight's specimens are only mostly dead, and she wants to hear about every creature I have ever seen. Something in the southern deserts frightens her badly, and she does not strike me as easily frightened.",
+    first = "Something in the southern deserts frightens her, and she doesn't frighten easily.",
     third = "{name} met Gracina Spiritmight, the priestess and scholar of the Temple of the Moon whose study of insects has led her somewhere troubling.",
   },
 
@@ -1915,7 +1989,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary", "race" },
   impression = {
-    first = "Innkeeper Saelienne warned me not to look down from the terrace, which of course made me do it. Her inn rocks gently with the branches at night, and she swears most guests find it soothing.",
+    first = "She warned me not to look down, so of course I did.",
     third = "{name} found rest at Innkeeper Saelienne's inn on the Craftsmen's Terrace, high in the branches of Darnassus.",
   },
 

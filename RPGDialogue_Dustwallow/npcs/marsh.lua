@@ -6,7 +6,7 @@ P:NPC {
   key = "tabetha", id = TODO_NPC("Tabetha"), name = "Tabetha",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Tabetha lives alone in a hut deep in the southern marsh, a mage who chose the swamp over Theramore's towers and doesn't regret it.",
+    first = "She chose the swamp over Theramore's towers and doesn't regret it.",
     third = "{name} met Tabetha, a reclusive mage living in the southern marshes of Dustwallow.",
   },
   greetings = {
@@ -183,7 +183,7 @@ P:NPC {
   key = "jarl", id = TODO_NPC("\"Swamp Eye\" Jarl"), name = "\"Swamp Eye\" Jarl",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "\"Swamp Eye\" Jarl lives in a ramshackle house in the marsh and has a lot to say about who's been sneaking through it.",
+    first = "He has a lot to say about who sneaks through the marsh.",
     third = "{name} met \"Swamp Eye\" Jarl at his house in the Dustwallow marsh.",
   },
   greetings = {
@@ -374,7 +374,7 @@ P:NPC {
   key = "ogron", id = TODO_NPC("Ogron"), name = "Ogron",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Ogron is an ogre who has left his clan's ways behind and wanders the marsh near the Shady Rest, offering his help to Theramore's investigators.",
+    first = "He has left his clan's ways behind and offers Theramore his help.",
     third = "{name} met Ogron, a peaceful ogre in the Dustwallow marsh.",
   },
   greetings = {
@@ -554,7 +554,7 @@ P:NPC {
   key = "hendel", id = TODO_NPC("Private Hendel"), name = "Private Hendel",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Private Hendel keeps the post at Sentry Point, the lonely watchtower where Theramore's road meets the northern marsh.",
+    first = "His is a lonely watch at the edge of the marsh.",
     third = "{name} met Private Hendel at Sentry Point in Dustwallow Marsh.",
   },
   greetings = {
@@ -717,7 +717,7 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   prejudice = { race = "Orc", amount = 10, why = "orc bosses call ogres stupid behind their hands; he tolerates them because the Stonemaul need Brackenwall" },
   impression = {
-    first = "Overlord Mok'Morokk rules the ogres of Brackenwall Village with a heavy hand and a heavier appetite.",
+    first = "He rules with a heavy hand and a heavier appetite.",
     third = "{name} met Overlord Mok'Morokk, the ogre leader of Brackenwall Village in Dustwallow Marsh.",
   },
   greetings = {
@@ -940,7 +940,7 @@ P:NPC {
   key = "drazzilb", id = TODO_NPC("Draz'Zilb"), name = "Draz'Zilb",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Draz'Zilb is the cunning ogre advisor of Brackenwall Village, a mage whose quiet words carry more weight than his overlord's shouts.",
+    first = "His quiet words carry more weight than his overlord's shouts.",
     third = "{name} met Draz'Zilb, the ogre mage advisor at Brackenwall Village.",
   },
   greetings = {

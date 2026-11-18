@@ -9,7 +9,7 @@ P:NPC {
   communities = { "narache" }, temper = { "earnest" }, values = { "brave", "protective" },
   notices = { "class", "kit" },
   impression = {
-    first = "Brave Windfeather walks the road on Red Cloud Mesa with a spear and no patience left for Chief Sharptusk. She speaks plainly about the price the tauren paid for their home and means to see it paid back.",
+    first = "She has no patience left for Chief Sharptusk.",
     third = "{name} met Brave Windfeather on the road through Red Cloud Mesa, a young brave who wanted Chief Sharptusk Thornmantle's head.",
   },
 

@@ -13,10 +13,11 @@ P:NPC {
   key = "zep_elaadrin", id = TODO_NPC("Elaadrin Evengale"), name = "Elaadrin Evengale", title = "Supreme Magister of The High Order",
   bible = "bibles/zep_high_order.md", role = "noble", tier = "major",
   communities = { "zephras_isle" }, temper = { "proud", "sharp" }, values = { "ambitious", "curious" },
+  likesTone = "polite",
   notices = { "kin", "race", "class", "origin" },
 
   impression = {
-    first = "Elaadrin Evengale, Supreme Magister of the High Order, talks of Highborne magic as if it were a debt the world still owes his people. He is proud and quick, and under it he is angrier about the dead than he lets his face show.",
+    first = "He is angrier about the dead than he lets his face show.",
     third = "{name} met Elaadrin Evengale, Supreme Magister of the High Order, who means to save Zephras with the lost arcane knowledge of the Highborne.",
   },
 
@@ -269,7 +270,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You have a clear eye, and I'll not be falsely modest about it. The High Order has waited a very long time for anyone to notice what it kept alive, so I thank you for noticing." },
+        { id = "s2", text = "Well said, and better said than I hear it in my own hall. If more people on this isle thought as you do, I'd have saved Zephras by now." },
+        { id = "s3", when = { class = "MAGE" }, text = "From one who knows the arcane, that is praise worth having. You understand what it costs to hold a spell together when the whole world would rather it failed." },
+      },
+      fail = {
+        { id = "f1", text = "I am Supreme Magister, and I'm flattered daily by scholars who want a larger study. You'll have to bring me something more useful than compliments." },
+        { id = "f2", text = "That is the sort of thing people say before they ask for the Order's secrets. I'd advise you to save your breath and earn them instead." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hm. You've a sharper tongue than most of my magisters, and a good deal more nerve. I can use people who aren't afraid to tell me I'm wrong, though I rarely am." },
+        { id = "s2", text = "Insolent, and quick about it. I was much the same before they hung a title on me, so I'll let it pass, and I may even enjoy it." },
+      },
+      fail = {
+        { id = "f1", text = "I have buried one of my own magisters, and I've no patience left for being baited. Mind how you speak in the High Order's hall." },
+        { id = "f2", text = "You mistake my attention for tolerance. I gave you the first freely, and you are spending the second very fast." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You make yourself plain, and I'm not fool enough to pretend I didn't feel it. Our powers aren't what they were, as I've admitted before, so I'll hear you out with care." },
+        { id = "s2", text = "I've seen what happens to those who misjudge a threat, and I'll not misjudge yours. Speak, and you'll find me more accommodating than my pride would like." },
+      },
+      fail = {
+        { id = "f1", text = "The Windlord's own servants have threatened this isle, and I have not given them an inch. You are a good deal smaller than they are, and you won't move me by glowering." },
+        { id = "f2", text = "You threaten the Supreme Magister in his own hall, with every ward in Valanaar listening. I suggest you think again, and think quickly." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "The Order's business is not for every visitor who walks into my hall. Prove your worth to Zephras, and I may speak more freely." },
+      { id = "gt2", text = "I'll not discuss that with you yet. Knowledge is the one treasure we have left, and I'm careful whom I hand it to." },
+    },
     knows = { { id = "tp_knows", text = "I know a good deal about the High Order, the Kirin Tor and the cult that nearly finished us all. Ask what you need to." } },
     advice = { { id = "tp_ad", text = "Learn everything you can, and bring it home. Knowledge is the one thing nobody can take from us." } },
     two_orders = { { id = "tp_orders", text = "We would save Zephras ourselves; they would wait for the spirits to do it. I know which I'd rather stake my people on.", next = "windshapers" } },
@@ -291,7 +330,7 @@ P:NPC {
   notices = { "race", "class", "kin" },
 
   impression = {
-    first = "Dondallion Whisperwind of the High Order keeps his ink close and his worry closer. One of the order's scholars has gone missing, and he talks about it as if he had misplaced a friend.",
+    first = "He talks of the missing scholar as if he'd misplaced a friend.",
     third = "{name} met Dondallion Whisperwind, a High Order scholar in Valanaar troubled by a colleague who never came home.",
   },
 
@@ -455,7 +494,7 @@ P:NPC {
   notices = { "craft", "class", "race" },
 
   impression = {
-    first = "Iaadaria Bitterwind of the High Order teaches alchemy and resents every minute spent away from her vials. She's exact, short with fools, and secretly delighted when someone asks a good question.",
+    first = "She is secretly delighted when someone asks a good question.",
     third = "{name} met Iaadaria Bitterwind, the High Order's alchemist in Valanaar, who sells vials and teaches the craft.",
   },
 
@@ -616,7 +655,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Othesia Evengale teaches tailoring from her own home in Valanaar, with thread and dye on every surface. She makes cloth that moves like the wind and gets visibly tired whenever anyone mentions her surname.",
+    first = "She gets visibly tired whenever anyone mentions her surname.",
     third = "{name} met Othesia Evengale, a tailor of Valanaar who works out of her home.",
   },
 
@@ -728,7 +767,7 @@ P:NPC {
   notices = { "race", "stranger" },
 
   impression = {
-    first = "Gelia Shardsong spends her days on a step near the High Order's hall in Valanaar, watching everyone who passes and asking the strangers more questions than they can answer.",
+    first = "She asks strangers more questions than they can answer.",
     third = "{name} met Gelia Shardsong, a curious woman of Valanaar who keeps an eye on everything that happens near the High Order's hall.",
   },
 
@@ -893,7 +932,7 @@ P:NPC {
   notices = { "race", "kin" },
 
   impression = {
-    first = "The High Order's dockmaster keeps the eastern skydock in Valanaar and talks about the Dalaran skycutter the way a proud father talks about a clever child.",
+    first = "The Dalaran skycutter is spoken of here like a clever child.",
     third = "{name} met the High Order Dockmaster on Valanaar's eastern skydock, where the skycutter leaves for Dalaran.",
   },
 

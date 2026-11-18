@@ -10,7 +10,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "brisk" }, values = { "dutiful" },
   notices = { "soldier", "drink" },
   impression = {
-    first = "Guard Adams walks the ring around the Lakeshire Inn, and she knows every drunk in town by his boots. She'd rather be watching the hills for gnolls, and she says so.",
+    first = "She knows every drunk in town by his boots.",
     third = "{name} met Guard Adams, who keeps the peace around the Lakeshire Inn.",
   },
   greetings = {
@@ -123,7 +123,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "dutiful", "loyal" },
   notices = { "soldier" },
   impression = {
-    first = "Guard Clarke walks the streets of Lakeshire with her hand on her sword and her eyes on the rooftops. She talks about the town as if she were responsible for every brick.",
+    first = "She talks as if she were responsible for every brick in town.",
     third = "{name} met Guard Clarke, who patrols the streets of Lakeshire.",
   },
   greetings = {
@@ -236,7 +236,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "dry" }, values = { "dutiful" },
   notices = { "travel" },
   impression = {
-    first = "Guard Pearce stands at the Lakeshire end of the bridge, where the gryphon riders come and go, and watches every face that crosses. He talks very little, and every word is weighed.",
+    first = "He says very little, and every word is weighed.",
     third = "{name} met Guard Pearce, who stands at the Lakeshire bridge.",
   },
   greetings = {
@@ -349,7 +349,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "quiet" }, values = { "craft" },
   notices = { "craft" },
   impression = {
-    first = "Bridge Worker Alex hauls stone on the Everstill Bridge and talks only when he has to. He'd sooner show you a good joint in the masonry than tell you about it.",
+    first = "He'd sooner show you good masonry than tell you about it.",
     third = "{name} met Bridge Worker Alex, one of the quieter hands on Foreman Oslow's crew.",
   },
   greetings = {
@@ -463,7 +463,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "dour" }, values = { "practical" },
   notices = { "craft" },
   impression = {
-    first = "Bridge Worker Matthew mixes the mortar for the Everstill Bridge and keeps an eye on the sky for rain. He is the crew's pessimist, and he's usually right.",
+    first = "He is the crew's pessimist, and he's usually right.",
     third = "{name} met Bridge Worker Matthew, who mixes the mortar on the Everstill Bridge.",
   },
   greetings = {

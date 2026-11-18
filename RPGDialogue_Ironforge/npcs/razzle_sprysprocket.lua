@@ -10,7 +10,7 @@ P:NPC {
   notices = { "gnome", "craft" },
 
   impression = {
-    first = "Razzle Sprysprocket talks about curing the leper gnomes the way some people talk about the weather tomorrow: certain it will come. Underneath the jargon I think he is grieving, and building is how he does it.",
+    first = "I think he is grieving, and building is how he does it.",
     third = "{name} met Razzle Sprysprocket in Kharanos, a gnome tinker building a machine to restore the gnomes ruined at Gnomeregan.",
   },
 

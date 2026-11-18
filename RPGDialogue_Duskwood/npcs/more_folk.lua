@@ -10,7 +10,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "pompous" }, values = { "order", "status" },
   notices = { "status", "kin" },
   impression = {
-    first = "Ambassador Berrybuck sits on the Council of Darkshire and speaks for the town to Stormwind, or tries to; Stormwind rarely answers. He wears his best coat in a town where nobody else bothers.",
+    first = "He wears his best coat in a town where nobody else bothers.",
     third = "{name} met Ambassador Berrybuck of the Council of Darkshire.",
   },
   greetings = {
@@ -127,7 +127,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "cheerful" }, values = { "practical" },
   notices = { "craft" },
   impression = {
-    first = "Scott Carevin sells mushrooms in Darkshire, and he's the only person in town who seems pleased by the dark and the damp. He says the forest gives him a good crop, whatever else it gives.",
+    first = "He is the only one in town pleased by dark and damp.",
     third = "{name} met Scott Carevin, who sells mushrooms in Darkshire.",
   },
   greetings = {
@@ -241,7 +241,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "wry" }, values = { "dutiful" },
   notices = { "watch" },
   impression = {
-    first = "Watcher Callahan stands on the road north of Darkshire, near Kzixx's wagon, and he's not sure whether he's guarding the road or the goblin. He suspects the goblin pays better.",
+    first = "He isn't sure whether he guards the road or the goblin.",
     third = "{name} met Watcher Callahan of the Night Watch, posted on the road north of Darkshire.",
   },
   greetings = {
@@ -350,7 +350,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "earnest" }, values = { "dutiful", "loyal" },
   notices = { "watch" },
   impression = {
-    first = "Watcher Brownell is young for the Night Watch and very serious about it. She asks after Watcher Backus on the western road more often than duty strictly requires.",
+    first = "She asks after Watcher Backus more often than duty strictly requires.",
     third = "{name} met Watcher Brownell, a young watcher of Darkshire.",
   },
   greetings = {
@@ -465,7 +465,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "gruff" }, values = { "dutiful" },
   notices = { "watch" },
   impression = {
-    first = "Watcher Keefer is one of the older hands in the Night Watch, and he's buried more friends than he cares to count. He's tired, and he does his duty anyway.",
+    first = "He has buried more friends than he cares to count.",
     third = "{name} met Watcher Keefer, an old hand of the Night Watch in Darkshire.",
   },
   greetings = {
@@ -576,7 +576,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "nervous" }, values = { "dutiful" },
   notices = { "watch" },
   impression = {
-    first = "Watcher Mocarski guards Darkshire's southern entrance and jumps at every sound from the trees. He holds his post anyway, which is the part that counts.",
+    first = "Every sound from the trees startles him, and he holds his post.",
     third = "{name} met Watcher Mocarski, who guards Darkshire's southern entrance.",
   },
   greetings = {
@@ -684,7 +684,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "wry" }, values = { "loyal" },
   notices = { "watch" },
   impression = {
-    first = "Watcher Royce makes jokes on watch, because, he says, somebody has to. The other watchers groan at them, but they'd miss them if he stopped.",
+    first = "He jokes on watch because, he says, somebody has to.",
     third = "{name} met Watcher Royce, the Night Watch's joker.",
   },
   greetings = {
@@ -797,7 +797,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "steady" }, values = { "devout", "dutiful" },
   notices = { "light" },
   impression = {
-    first = "Watcher Hartin prays on his rounds, quietly, under his breath, and he believes the Light walks the streets of Darkshire with the Watch. He says it without a shred of doubt.",
+    first = "He believes the Light walks Darkshire's streets with the Watch.",
     third = "{name} met Watcher Hartin, a devout watcher of Darkshire.",
   },
   greetings = {

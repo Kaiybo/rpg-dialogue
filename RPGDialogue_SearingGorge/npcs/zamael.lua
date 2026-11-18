@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "priest" },
 
   impression = {
-    first = "Zamael Lunthistle is a night elf ghost in a cultist's cage on Firewatch Ridge, and he asked for nothing for himself. He wants his prayer heard, and he says absolution is the last thing he expects.",
+    first = "He wants his prayer heard and expects no absolution.",
     third = "{name} met the ghost of Zamael Lunthistle, a night elf once of the Twilight's Hammer, caged on Firewatch Ridge in the Searing Gorge.",
   },
 

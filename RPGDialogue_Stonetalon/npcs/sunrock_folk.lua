@@ -12,7 +12,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "gruff", "proud" }, values = { "loyal", "practical" },
   notices = { "race", "weary" },
   impression = {
-    first = "Tharm keeps the wind riders on Sun Rock and talks about the wild wyverns on the ridges as if they were rivals he means to beat. He is gruff with people and patient with beasts, and he does not pretend otherwise.",
+    first = "He is gruff with people and patient with beasts.",
     third = "{name} met Tharm, the orc who keeps the wind riders at Sun Rock Retreat.",
   },
 
@@ -180,7 +180,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "gentle", "slow" }, values = { "nature", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Gereck keeps the beasts at Sun Rock and speaks of every animal in his care as if it had a name and a mother waiting for it. He is slow to speak, and gentle in a way that makes the stables quiet.",
+    first = "He is gentle in a way that makes the stables quiet.",
     third = "{name} met Gereck, the tauren stable master at Sun Rock Retreat.",
   },
 

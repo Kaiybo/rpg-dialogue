@@ -12,7 +12,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "curious", "careful", "loyal" },
   notices = { "race", "dungeon", "lore" },
   impression = {
-    first = "Sage Truthseeker reads the Bluff's politics the way other sages read old hides, looking for whoever is whispering to the Elder Council. She trusts Cairne completely and the Forsaken not at all.",
+    first = "She trusts Cairne completely and the Forsaken not at all.",
     third = "{name} met Sage Truthseeker, a scholar of Thunder Bluff who gathers knowledge to advise the High Chieftain.",
   },
 
@@ -256,7 +256,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's a well-made compliment, and I can find no hook hidden in it, though I did look. Thank you." },
+        { id = "s2", text = "You've noticed the work and not just the title, which is more than the council manages. I'll admit that pleases me." },
+      },
+      fail = {
+        { id = "f1", text = "When someone praises me that warmly, I start asking what they're hoping I won't ask about. So tell me, what is it?" },
+        { id = "f2", text = "I weigh words for a living, and those were light ones. Bring me something true, and I'll like you better for it." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, now that was sharp, and it was aimed well. I spend all day among elders who never say what they mean, so you're a pleasant change." },
+        { id = "s2", text = "You've caught me fairly, and I'll not pretend otherwise. Anyone who can find the soft spot in a sage that quickly is worth talking to." },
+      },
+      fail = {
+        { id = "f1", text = "That was a guess dressed up as wit, and I've no time for guesses. Lower your voice, and try thinking before the next one." },
+        { id = "f2", text = "Mockery is what people reach for when they've run out of questions. I'd hoped you had a few more in you." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You needn't loom, because I've understood you perfectly well. I've read enough about people like you to know when to take them seriously." },
+        { id = "s2", text = "Well. I make a study of dangerous things, and it seems one has sat down beside me. You have my full attention." },
+      },
+      fail = {
+        { id = "f1", text = "I've had threats from Grimtotem who meant them, and I wrote every one down with the date. Yours will go at the bottom of the page." },
+        { id = "f2", text = "Fear only works on those who don't know what's behind it, and finding out what's behind things is my whole trade. Sit down, and stop making a scene on the rise." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I know the answer, but I'm careful about whom I hand my findings to, and I don't know you well enough yet." },
+      { id = "gt2", text = "That one stays in my notes for now. Give me cause to trust you with it, and I'll tell you all of it." },
+    },
     knows = { { id = "tp_knows", text = "I know a little about a great many things, and rather more about the people who wish I didn't. Pick one." } },
     background = { { id = "tp_bg", text = "I was raised by a grandmother who asked why at every campfire, and I never learned to stop. The High Chieftain finds it useful, and the council finds it tiresome." } },
     advice = { { id = "tp_ad", text = "When someone tells you a story that flatters them, ask who else was there. Then go and find that person." } },
@@ -276,7 +312,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout", "patient", "proud" },
   notices = { "kin", "trophy" },
   impression = {
-    first = "Eyahn Eagletalon prepares the ceremonies on the lower rise, fussing over feathers and beadwork as though the Earth Mother would notice a crooked stitch. He is very proud of his brother Ruul, and tries not to show it.",
+    first = "He is very proud of his brother Ruul and hides it badly.",
     third = "{name} met Eyahn Eagletalon, who keeps the ceremonies of Thunder Bluff and is brother to Ruul of Bloodhoof Village.",
   },
 
@@ -381,7 +417,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "proud", "loyal" },
   notices = { "dungeon", "class" },
   impression = {
-    first = "Auld Stonespire is an old shaman and one of the last of his tribe, driven out of the holy lands of the southern Barrens. He has not forgiven it, and he does not think he should have to.",
+    first = "He has not forgiven being driven from the southern Barrens.",
     third = "{name} met Auld Stonespire, an old shaman of the scattered Stonespire tribe who wants Charlga Razorflank dead.",
   },
 
@@ -521,7 +557,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "practical", "craft" },
   notices = { "profession" },
   impression = {
-    first = "Veren Tallstrider gathers leather on the middle rise and sends the young out to learn skinning and to stitch their first kodo hide bags. He talks about hides the way other people talk about family.",
+    first = "He talks about hides the way other people talk about family.",
     third = "{name} met Veren Tallstrider, who gathers leather in Thunder Bluff and teaches the young their first stitches.",
   },
 

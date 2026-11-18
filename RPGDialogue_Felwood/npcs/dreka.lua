@@ -9,7 +9,7 @@ P:NPC {
   notices = { "trophy", "race" },
 
   impression = {
-    first = "Dreka'Sur lost her husband somewhere in the south of Felwood and wants the claw of the beast that took him. Her grief comes out as anger, and she isn't sorry for it.",
+    first = "Her grief comes out as anger, and she isn't sorry for it.",
     third = "{name} met Dreka'Sur, an orc widow at Bloodvenom Post who wants her husband's killer to pay.",
   },
 

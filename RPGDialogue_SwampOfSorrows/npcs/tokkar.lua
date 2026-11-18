@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "drink" },
 
   impression = {
-    first = "Tok'Kar runs the cookpot and the forge at Misty Reed Post and complains about both without stopping work. He makes good weapons and better stew, and he'd want me to write that down.",
+    first = "He makes good weapons and better stew, and wants that written down.",
     third = "{name} met Tok'Kar, the cook and weaponsmith of Misty Reed Post on the Swamp of Sorrows' eastern beach.",
   },
 

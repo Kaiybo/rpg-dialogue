@@ -2,6 +2,31 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.88.0 (2026-11-18)
+**New file in the Orgrimmar pack: restart the game fully (a /reload won't load it).**
+- **47 more people to talk to in Orgrimmar, Ironforge and Dun Morogh**: Orgrimmar's remaining class and craft trainers, its banker, two auctioneers and the Drag's shopkeepers; Kharanos, Anvilmar, Gol'Bolar Quarry and Amberstill Ranch folk who had nothing to say.
+- Not seen in game yet.
+
+## 0.87.0 (2026-11-18)
+Six pieces of work in one release. **New files in most zone packs: restart the game fully (a /reload won't load them).**
+- **Hundreds more people to talk to**: named NPCs the earlier passes missed (trainers, vendors, guards, quest givers) across nearly every zone pack, and thin NPCs with more to say. Wenna Silkbeard now sells in Menethil Harbor, where she belongs.
+- **Major NPCs answer Admire, Taunt and Intimidate in their own voice**, and when they won't share a secret yet, they turn you down in their own words. Some, like Jaina, Tyrande and Vol'jin, keep personal matters until they trust you.
+- **No more typewriter effect**: text always appears in full. The text speed slider and the instant text option are gone.
+- **The Transcript keeps your last 20 conversations** instead of clearing each time you talk to the same person again.
+- **Pet trainers**: "Train me." no longer picks "I wish to untrain my pet".
+- Not seen in game yet.
+
+## 0.86.0 (2026-11-18)
+Seven pieces of work in one release. **New file (`RPGDialogue_World/persuade_say.lua`): restart the game fully (a /reload won't load it).**
+- **You say something when you Admire, Taunt or Intimidate**: a real line picked from a large set (race, class and role-specific), instead of "[Admire]".
+- **New action: Joke.** Once a day per person. The merry laugh; the grim and formal don't, and a flat joke costs little. About 190 jokes, including ones meant for a single named NPC who answers it in their own way.
+- **Tone removed** (Polite / Normal / Blunt): everyone speaks Normal.
+- **Tidier bottom bar**: the four actions sit on their own row above it, with icons and names, so nothing overlaps Disposition or "Ask about...". The "Ask about..." topic list fills the panel to the bottom in the game look.
+- **Journal**: a new Transcript page with each whole conversation word for word. The Diary keeps events only; each person's note on People is one short sentence; old per-person diary paragraphs are tidied once on login.
+- **Letters** show the sender's name even when their zone pack isn't loaded.
+- **Deeper NPCs**: thin NPCs across most zone packs have more to say, and missed NPCs were added.
+- Not seen in game yet.
+
 ## 0.85.0 (2026-11-18)
 Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 

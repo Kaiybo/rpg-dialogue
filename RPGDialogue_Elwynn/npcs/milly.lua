@@ -8,7 +8,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "steady" },
   notices = { "drink", "farmhand" },
   impression = {
-    first = "Milly Osworth works the Abbey's vineyard with sticky hands and a short temper for the Defias who took it over. She counts her lost harvest in weeks of bread.",
+    first = "She counts the harvest the Defias cost her in weeks of bread.",
     third = "{name} met Milly Osworth, whose harvest for Northshire Abbey was carried off by the Defias.",
   },
 

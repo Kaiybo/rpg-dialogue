@@ -10,7 +10,7 @@ P:NPC {
   notices = { "crafter", "dwarf", "horde" },
 
   impression = {
-    first = "Muggol Breezebeard is a Wildhammer camped out in the Arathi Highlands, buying finished goods from anyone who'll fill his writs. He laughs loud, pays fair and doesn't much care whose banner the seller flies.",
+    first = "He pays fair and doesn't care whose banner the seller flies.",
     third = "{name} met Muggol Breezebeard, a Wildhammer who takes craftsmen's writs in the Arathi Highlands.",
   },
 

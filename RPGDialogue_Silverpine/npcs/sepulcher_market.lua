@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "proud", "dry" }, values = { "craft", "proud" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Alexandre Lefevre sells leather armor in the Sepulcher and judges every stitch on a customer's back. He is vain about his craft and quietly firm about the one hide he will never work.",
+    first = "There is one hide he will never work.",
     third = "{name} met Alexandre Lefevre, who sells and mends leather armor at the Sepulcher.",
   },
   greetings = {
@@ -105,7 +105,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "blunt", "dry" }, values = { "practical", "craft" },
   notices = { "class", "pet" },
   impression = {
-    first = "Nadia Vernon makes bows from wood she complains about and sells them to people she complains about too. She is blunt, practical and quietly pleased whenever a hunter handles her work properly.",
+    first = "She is quietly pleased when a hunter handles her work properly.",
     third = "{name} met Nadia Vernon, the bowyer of the Sepulcher.",
   },
   greetings = {
@@ -238,7 +238,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "gruff" }, values = { "practical", "dutiful" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Sebastian Meloche hammers dents out of Deathguard plate all day and talks about it as if the metal had personally wronged him. Under the grumbling he is careful and honest about what he will and won't sell.",
+    first = "He talks about dented plate as if it had personally wronged him.",
     third = "{name} met Sebastian Meloche, the Sepulcher's armorer.",
   },
   greetings = {
@@ -363,7 +363,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "chatty", "cheerful" }, values = { "practical", "profit" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Andrew Hilbert sells thread, flux and empty vials at the Sepulcher and talks the whole time he does it. He is cheerful in a way that sits oddly on a dead man, and he knows exactly who buys what.",
+    first = "His cheer sits oddly on a dead man.",
     third = "{name} met Andrew Hilbert, who sells trade supplies at the Sepulcher.",
   },
   greetings = {
@@ -479,7 +479,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "gentle", "steady" }, values = { "kind", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Sarah Goode keeps the Sepulcher's stables and has the patience of someone animals still trust, which is rare among the dead. She talks to the beasts more kindly than to most people, and doesn't seem to mind who notices.",
+    first = "Animals still trust her, which is rare among the dead.",
     third = "{name} met Sarah Goode, the Sepulcher's stable master.",
   },
   greetings = {

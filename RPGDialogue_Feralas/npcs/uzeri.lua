@@ -9,7 +9,7 @@ P:NPC {
   communities = { "mojache" }, temper = { "sly", "eager" }, values = { "cunning", "ambitious" },
   notices = { "class", "pet" },
   impression = {
-    first = "Witch Doctor Uzer'i catches the spirits of slain beasts in little vessels and means to bind them into weapons for the Horde. He talks about it with a grin, and he once paid for herbs with a dwarf's shrunken head.",
+    first = "He once paid for herbs with a dwarf's shrunken head.",
     third = "{name} met Witch Doctor Uzer'i, the Darkspear witch doctor at Camp Mojache who binds the muisek of beasts.",
   },
 

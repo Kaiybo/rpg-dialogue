@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Mardant Strongoak teaches young druids inside Aldrassil and speaks slowly, as if he were translating from a language only trees speak. He wants his students to listen to the spirits before they ever try to command them.",
+    first = "He wants the spirits listened to before anyone tries to command them.",
     third = "{name} met Mardant Strongoak, the druid trainer in Aldrassil.",
   },
 
@@ -145,7 +145,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Alyissia trains Shadowglen's young warriors with a short temper and a long memory for mistakes. She has seen real war and isn't shy about saying so.",
+    first = "She has seen real war and isn't shy about saying so.",
     third = "{name} met Alyissia, the warrior trainer in Aldrassil.",
   },
 
@@ -272,7 +272,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Frahun Shadewhisper keeps to the shadowed side of Aldrassil and seems faintly amused that anyone found him at all. He teaches young rogues to be quiet, and he is very good at it himself.",
+    first = "He seemed faintly amused that anyone found him at all.",
     third = "{name} met Frahun Shadewhisper, the rogue trainer in Aldrassil.",
   },
 
@@ -399,7 +399,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Ayanna Everstride trains young hunters at the top of Aldrassil, where she can see the whole glade below. She talks about animals with affection and about the hunt with a careful kind of respect.",
+    first = "She speaks of animals with affection and the hunt with careful respect.",
     third = "{name} met Ayanna Everstride, the hunter trainer at the top of Aldrassil.",
   },
 
@@ -520,7 +520,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Shanda teaches Elune's young priests in Aldrassil, softly spoken and very sure of the Mother Moon. She sends her students on to Dolanaar with real fondness.",
+    first = "She is softly spoken and very sure of the Mother Moon.",
     third = "{name} met Shanda, who trains the priests of Elune in Aldrassil.",
   },
 

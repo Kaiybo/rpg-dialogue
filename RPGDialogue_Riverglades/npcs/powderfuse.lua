@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "purse", "race" },
 
   impression = {
-    first = "According to Melbin Powderfuse, every plank in Powderfuse Port is his, and so is every nail. He watched my hands the whole time, as if I might carry off a wall.",
+    first = "He watches my hands as if I might carry off a wall.",
     third = "{name} met Melbin Powderfuse, Master Goblin Engineer, who claims to have built Powderfuse Port from nothing but sand.",
   },
 
@@ -297,6 +297,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Now you're talkin', pal! Every plank and every nail, built from nothin' by yours truly, and it's about time somebody walked in here and appreciated the workmanship. You've got taste, kid, and taste is rare inventory." },
+        { id = "s2", text = "Say that again a little louder, kid, so the rest of the port can hear it, because those ingrates never do. I like you, pal, and I don't usually like anybody before they've paid." },
+      },
+      fail = {
+        { id = "f1", text = "Nice try, pal, but I've been softened up by Cartel auditors with better patter than that, and they left with nothin' too. Compliments aren't currency in my port." },
+        { id = "f2", text = "You're butterin' me up, kid, and butter costs money, so what's the angle? Nobody admires a goblin's walls unless they're figurin' on walkin' off with one." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got a mouth on you, kid, and a mouth like that could sell sand on a beach, which I happen to know somethin' about. I oughta charge you for the entertainment, but I'll waive it." },
+        { id = "s2", text = "Oh, a wise guy, in MY port! I love it, pal, because nobody around here has the nerve to rib the landlord anymore, and it's been bad for my reflexes." },
+      },
+      fail = {
+        { id = "f1", text = "Watch it, pal. You're standin' on my dock, breathin' my air and insultin' my port, and all three of those are billable." },
+        { id = "f2", text = "I built this place out of nothin' while smarter mouths than yours were laughin', and now I own it and they don't. So laugh it up, kid, somewhere that isn't mine." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Whoa, easy, pal, easy! I'm lookin' at you and I'm lookin' at the repair bill if this goes badly, and the repair bill wins. Let's keep the port in one piece and talk like business people." },
+        { id = "s2", text = "All right, kid, I can do sums, and you plus my walls plus a bad mood comes out to a loss on my side of the page. You've got my attention, so say your piece." },
+      },
+      fail = {
+        { id = "f1", text = "You're threatenin' a master goblin engineer in a port he wired himself, pal, and you've got no idea which planks you shouldn't be standin' on. Take a nice slow step back." },
+        { id = "f2", text = "Kid, I've had the Venture Company lean on me with lawyers and dynamite both, and it's still my name on the sign. You don't even make the top ten." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Information's like timber, pal: it floats down to me eventually, and I sell it on at a markup. Ask, and we'll talk terms later." },
@@ -311,6 +343,10 @@ P:NPC {
     venture_company = { { id = "tp_venture_company", text = "The Venture Company would love to get its hands on Powderfuse Port, and it never will. I'll burn the place to the waterline before I let those clowns have it." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's a nice little port on the Barrens coast, and it does a fair trade. Not as fair as mine, pal, but fair." } },
     thrall = { { id = "tp_thrall", text = "The Horde pays in gold like anybody else, and I'm happy to take it. The Brotherhood too, pal, gold is gold." } },
+    _gated = {
+      { id = "gt1", text = "That's proprietary, pal, and I don't hand out proprietary to somebody who hasn't done a lick of business in my port. Get on my good side first, and it's a real small side." },
+      { id = "gt2", text = "Nope, not for you, kid, not yet. Some information I keep locked up with the good tools, and you haven't earned the key." },
+    },
     _none = { { id = "tp_none", text = "Is it for sale? If it isn't, kid, I haven't got an opinion, and if it is, it's probably mine." } },
   },
 }
@@ -322,7 +358,7 @@ P:NPC {
   notices = { "guest", "drink" },
 
   impression = {
-    first = "Innkeeper Zizplink calls everyone an explorer and seems to mean it kindly. Her inn smells of the sea, and she hears every rumor that comes off the Tanaris boat.",
+    first = "She hears every rumor that comes off the Tanaris boat.",
     third = "{name} met Innkeeper Zizplink, the cheerful goblin who keeps the inn at Powderfuse Port.",
   },
 
@@ -549,7 +585,7 @@ P:NPC {
   notices = { "standing", "drink" },
 
   impression = {
-    first = "Gray Dawnbright was rude to me before I had said a word, and I suspect he is rude to everyone. Something is eating at him that drink isn't fixing.",
+    first = "Something is eating at him that drink isn't fixing.",
     third = "{name} met Gray Dawnbright, a sour Brotherhood rider drinking away his leave at Powderfuse Port.",
   },
 
@@ -851,7 +887,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Jazzle Cheapshot owns an arena with no fights in it yet, and that doesn't dent his enthusiasm one bit. He looked me over like a poster he hadn't painted.",
+    first = "He looks me over like a poster he hasn't painted yet.",
     third = "{name} met Jazzle Cheapshot, who runs an empty arena at Powderfuse Port and dreams of filling it.",
   },
 
@@ -1017,7 +1053,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Fimbo Greasemitz cooks boar and fish every single day and suffers loudly over it. Give him one new ingredient, I think, and he'd weep with joy.",
+    first = "One new ingredient would make him weep with joy.",
     third = "{name} met Fimbo Greasemitz, who keeps a cafe on the water at Powderfuse Port and is bored of his own menu.",
   },
 
@@ -1221,7 +1257,7 @@ P:NPC {
   notices = { "drink", "craft" },
 
   impression = {
-    first = "Argo Brinewhistle hiccups through every sentence and calls his boat the finest in the port, sea monster and all. Drunk or not, there's a real sailor's nerve in him.",
+    first = "Drunk or not, there is a real sailor's nerve in him.",
     third = "{name} met Argo Brinewhistle, a hard-drinking captain at Powderfuse Port with a sea monster problem.",
   },
 
@@ -1410,7 +1446,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Gritta Chumwater sells chum, lures, fish and advice, and only the advice comes free. She says what she thinks and doesn't waste breath dressing it up.",
+    first = "Only her advice comes free, and she doesn't dress it up.",
     third = "{name} met Gritta Chumwater, the blunt goblin who sells fishing supplies at Powderfuse Port.",
   },
 

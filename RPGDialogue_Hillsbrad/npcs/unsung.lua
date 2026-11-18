@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "weary" },
 
   impression = {
-    first = "Lindea Rabonne sells hooks and line on the Southshore docks and keeps a straight face better than anyone in Hillsbrad. Whatever she and Donald are to each other, she enjoys keeping it secret.",
+    first = "Whatever she and Donald are to each other, she enjoys the secret.",
     third = "{name} met Lindea Rabonne, who sells fishing supplies on the docks of Southshore.",
   },
 
@@ -227,7 +227,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Nandar Branson sells vials and reagents in Southshore and worries aloud about what the Forsaken are brewing up the hill. He seemed like a man who reads every label twice and still doesn't sleep.",
+    first = "He reads every label twice and still doesn't sleep.",
     third = "{name} met Nandar Branson, who sells alchemy supplies in Southshore.",
   },
 
@@ -418,7 +418,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Micha Yance keeps Southshore's crafters in thread, flux and dye, and knows what everyone in town is working on. Talking to Micha felt like hearing the town's business told through what it buys.",
+    first = "Micha tells the town's business through what it buys.",
     third = "{name} met Micha Yance, who sells trade supplies in Southshore.",
   },
 
@@ -618,7 +618,7 @@ P:NPC {
   notices = { "purse", "race" },
 
   impression = {
-    first = "Zixil peddles odd goods along the road between Southshore and Tarren Mill, guarded by a pair of clanking robots. The goblin sells to both sides of the war and finds the whole arrangement very funny.",
+    first = "The goblin sells to both sides of the war and laughs.",
     third = "{name} met Zixil, the goblin peddler who walks the road between Southshore and Tarren Mill.",
   },
 

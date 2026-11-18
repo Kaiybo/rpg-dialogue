@@ -9,7 +9,7 @@ P:NPC {
   communities = { "light_hope" }, temper = { "gruff" }, values = { "practical", "kind" },
   notices = { "drink", "kit" },
   impression = {
-    first = "Caretaker Alen tosses the dead into the pit at Light's Hope and complains about his wages to anyone in earshot. Under the grumbling, he worries about the souls left wandering Stratholme more than he lets on.",
+    first = "Under the grumbling, he worries about the souls left wandering Stratholme.",
     third = "{name} met Caretaker Alen, who keeps the corpse pit and sells supplies at Light's Hope Chapel.",
   },
 

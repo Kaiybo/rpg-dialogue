@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-18)
+- More named NPCs the earlier passes missed now have conversations, and thin ones have more to say. New files: restart the game fully.
+- Major NPCs answer Admire, Taunt and Intimidate in their own voice, and turn you down in their own words when they won't talk.
+
+## 1.25.0 (2026-11-18)
+- Thin NPCs deepened with more to say, and NPCs that were missed added.
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.24.0 (2026-11-18)
 - New NPCs from the Classic-era roster (`npcs/more_folk.lua`). New files: restart the game fully.
 - NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.

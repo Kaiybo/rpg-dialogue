@@ -10,7 +10,7 @@ P:NPC {
   communities = { "brill" }, temper = { "brisk", "sharp" }, values = { "practical", "profit" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Abigail Shiel sells thread, flux and salt in Brill and haggles with the patience of someone who no longer needs to sleep. She is brisk, sharp and fair, and she disapproves of almost everyone's needlework.",
+    first = "She disapproves of almost everyone's needlework.",
     third = "{name} met Abigail Shiel, who sells trade supplies in Brill.",
   },
   greetings = {
@@ -135,7 +135,7 @@ P:NPC {
   communities = { "brill" }, temper = { "warm", "chatty" }, values = { "kind", "practical" },
   notices = { "kit", "hunger", "race" },
   impression = {
-    first = "Mrs. Winters keeps Brill's general store and fusses over customers as if they were all her grandchildren, dead or not. She is warm and talkative, and she has decided that manners are worth keeping after the grave.",
+    first = "She has decided that manners are worth keeping after the grave.",
     third = "{name} met Mrs. Winters, who keeps the general store in Brill.",
   },
   greetings = {
@@ -260,7 +260,7 @@ P:NPC {
   communities = { "brill" }, temper = { "gruff", "steady" }, values = { "practical", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Morganus keeps the stables in Brill and seems to like the beasts in them more than anyone who comes to collect them. He is gruff and unhurried, and the animals settle when he talks to them.",
+    first = "The animals settle when he talks to them.",
     third = "{name} met Morganus, Brill's stable master.",
   },
   greetings = {

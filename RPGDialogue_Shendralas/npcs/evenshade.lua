@@ -10,11 +10,12 @@ P:NPC {
   title = "The Highborne",
   bible = "bibles/shendralas.md", role = "questgiver", tier = "major",
   communities = { "shendralas", "shendralar" }, temper = { "proud", "sharp" }, values = { "learned", "honest", "kind" },
+  likesTone = "polite", private = { "queen_azshara", "satyrs" },
   prejudice = { race = "NightElf", amount = 8, why = "An old Highborne wound: the kaldorei who distrusted and drove out his people." },
   notices = { "race", "class", "carry" },
 
   impression = {
-    first = "Archmage Mordent Evenshade keeps a lonely watch over the ruins of Shen'dralas, a Highborne who has outlived his city and most of his grief, though not all of it. He speaks like a scholar and mourns like a man who was there.",
+    first = "He speaks like a scholar and mourns like one who was there.",
     third = "{name} met Archmage Mordent Evenshade of the Shen'dralar, who watches over the ruins of Shen'dralas from Evenshade Overlook.",
   },
 
@@ -697,7 +698,46 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You are gracious, and it has been a very long time since anyone was gracious to a Highborne. I had thought myself past caring for such things, and I discover that I am not." },
+        { id = "s2", text = "Kind words carry a long way up this hill, where I hear mostly the wind and the Magram at their work. I thank you, and I shall turn them over this evening as I would a good page." },
+        { id = "s3", when = { class = "MAGE" }, text = "A fellow student of the arcane, and a courteous one. In Eldre'Thalas we held that manners and magic were learned together, and you would have done well in our halls." },
+      },
+      fail = {
+        { id = "f1", text = "I served at a court where flattery was a finer art than sorcery, and I watched it lead my people into the sea. You will forgive me if I have lost my taste for it." },
+        { id = "f2", text = "You are polite, but I have lived long enough to hear the request waiting behind a compliment. Ask it honestly, and I will think the better of you." },
+        { id = "f3", when = { race = "NightElf" }, text = "Those are soft words, from one of the kaldorei to one of mine. I would like to trust them, but your people have taught me to listen for what follows." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. No one has dared to be impertinent with me since the library, where it was considered a sign of promise. You remind me of better arguments than I have had in an age." },
+        { id = "s2", text = "That stung a little, and I find I am grateful for it, since one who is only ever pitied forgets that he is still alive. You have a quick mind behind that tongue." },
+      },
+      fail = {
+        { id = "f1", text = "I have outlived my city, my Prince's good name and nearly everyone I ever cared for. Whatever you hoped to wound, I assure you it was buried long ago." },
+        { id = "f2", text = "That was beneath you, and it was certainly beneath this place. You are standing above a mass grave, so I would ask you to choose your words with more care." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I see that you are not to be trifled with, and I am too old and too tired to make the experiment. You shall have your way, though I confess I had hoped for gentler company." },
+        { id = "s2", text = "There is a force in you that I have felt only in the presence of great power, and I learned long ago to respect that. Very well, I yield the point, with what dignity a ruin's keeper has left." },
+      },
+      fail = {
+        { id = "f1", text = "I stood in Eldre'Thalas when the world broke in half, and I did not look away. You will pardon me if a raised voice on a hilltop does not undo me." },
+        { id = "f2", text = "You threaten someone who has nothing left to take but his books and his regrets. I would give you the regrets gladly, and the books are not here." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is a private matter, and I do not open such things to those I scarcely know. Perhaps when we are better acquainted, I shall." },
+      { id = "gt2", text = "I would rather not speak of it to you, not yet. A Highborne learns slowly whom he may trust, and I have had ten thousand years to grow slower." },
+    },
     highborne = { { id = "tp_highborne", text = "We were the nobility of the empire and the keepers of its magic, and we were wrong about almost everything that mattered. Those of us in Eldre'Thalas have had ten thousand years to learn that lesson, and some of us still have not." } },
     queen_azshara = { { id = "tp_azshara", text = "Our Light of Lights, they called her, and I called her that too. I would rather not speak her name on this hill, if you will forgive me." } },
     shal_nan = { { id = "tp_shalnan", text = "The Veiled One, who wore a golden mask and led the rebels against the Prince. I never knew whose face was under it, and in all these years I have never stopped wondering." } },

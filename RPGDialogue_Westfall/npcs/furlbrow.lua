@@ -9,7 +9,7 @@ P:NPC {
   communities = { "westfall_farms" }, temper = { "cowardly" }, values = { "honest" },
   notices = { "startle", "mount" },
   impression = {
-    first = "Theodore Furlbrow lost his farm to thieves and now waits beside a broken wagon with his wife. He insists they're only minding this place for now, as if saying so might make it true.",
+    first = "He insists they're only minding the place for now.",
     third = "{name} met Farmer Furlbrow, driven from his pumpkin farm by thieves, who still hopes to go home.",
   },
 

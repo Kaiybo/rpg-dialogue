@@ -9,7 +9,7 @@ P:NPC {
   notices = { "trophy", "race", "class" },
 
   impression = {
-    first = "Gorn One Eye is an old Timbermaw furbolg who watches the hold's tunnels with his one good eye and weighs every outsider slowly. He speaks of the corrupted tribes as lost family, not as beasts.",
+    first = "He speaks of the corrupted tribes as lost family, not beasts.",
     third = "{name} met Gorn One Eye, an elder of the Timbermaw who keeps watch inside Timbermaw Hold.",
   },
 
@@ -269,7 +269,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Kernda studies the ritual totems the corrupted furbolgs carve, turning them over by the fire as if they might confess. Kernda always seems to know my trade before I say it.",
+    first = "Kernda always seems to know my trade before I say it.",
     third = "{name} met Kernda, the Timbermaw who reads the tainted ritual totems of the Deadwood and the Winterfall.",
   },
 
@@ -438,7 +438,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Meilosh keeps the Timbermaw's best goods for proven friends and says so to anyone who asks. Proving yourself to him is slow, and he seems to think that's the point.",
+    first = "Proving yourself to him is slow, and he thinks that's the point.",
     third = "{name} met Meilosh, who trades the Timbermaw's best goods only to friends of the hold.",
   },
 

@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Quintis Jonespyre is a druid who lives in a little tree-house above the stronghold and studies curses for pleasure. He is dry, clever, and a terrible card player, and he knows all three things about himself.",
+    first = "He is a terrible card player, and he knows it.",
     third = "{name} met Quintis Jonespyre, the druid of Feathermoon Stronghold who reads an object's history by touch and keeps an eye on Darnassus's morrowgrain.",
   },
 
@@ -158,7 +158,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Ginro Hearthkindle runs the stronghold's dispatches and has the steady calm of a man used to waiting for bad news. He has been waiting a week for the courier Raschal, and it shows in the way he keeps glancing at the jetty.",
+    first = "He keeps glancing at the jetty for a courier a week overdue.",
     third = "{name} met Ginro Hearthkindle, who keeps Feathermoon's dispatches and is searching for the missing courier Raschal.",
   },
 

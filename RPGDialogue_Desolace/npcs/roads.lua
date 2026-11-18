@@ -6,7 +6,7 @@ P:NPC {
   key = "cork_gizelton", id = TODO_NPC("Cork Gizelton"), name = "Cork Gizelton",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Cork Gizelton runs the Gizelton caravan's kodos up and down the Desolace road, and he talks about bandits the way other folk talk about weather.",
+    first = "He talks about bandits the way other folk talk about weather.",
     third = "{name} met Cork Gizelton of the Gizelton caravan on the road through Desolace.",
   },
   greetings = {
@@ -166,7 +166,7 @@ P:NPC {
   key = "rigger_gizelton", id = TODO_NPC("Rigger Gizelton"), name = "Rigger Gizelton",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Rigger Gizelton minds the back of his family's caravan with a ledger in one hand and a crossbow within reach of the other.",
+    first = "He keeps a ledger in one hand and a crossbow within reach.",
     third = "{name} met Rigger Gizelton at the rear of the Gizelton caravan in Desolace.",
   },
   greetings = {
@@ -348,7 +348,7 @@ P:NPC {
   key = "smeed", id = TODO_NPC("Smeed Scrabblescrew"), name = "Smeed Scrabblescrew",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Smeed Scrabblescrew runs a goblin camp at the edge of the Kodo Graveyard and wants live kodos rounded up, preferably by somebody else.",
+    first = "He wants live kodos rounded up, preferably by somebody else.",
     third = "{name} met the goblin Smeed Scrabblescrew at his camp near the Kodo Graveyard in Desolace.",
   },
   greetings = {
@@ -531,7 +531,7 @@ P:NPC {
   key = "dalinda", id = TODO_NPC("Dalinda Malem"), name = "Dalinda Malem",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Dalinda Malem was held prisoner in Thunder Axe Fortress and needed a strong arm to walk her out of the Burning Blade's reach.",
+    first = "She was a prisoner of the Burning Blade in Thunder Axe Fortress.",
     third = "{name} met Dalinda Malem, a captive of the Burning Blade at Thunder Axe Fortress in Desolace.",
   },
   greetings = {
@@ -680,7 +680,7 @@ P:NPC {
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   prejudice = { class = "WARLOCK", amount = 15, why = "years on the Burning Blade's trail; every cultist she caught began by calling the demon a tool" },
   impression = {
-    first = "Vahlarriel Demonslayer keeps her watch at Nijel's Point with the stillness of a hunter who has been tracking the same prey for years.",
+    first = "She has the stillness of a hunter long on the same trail.",
     third = "{name} met Vahlarriel Demonslayer, a night elf demon hunter of the Burning Blade's trail, at Nijel's Point.",
   },
   greetings = {
@@ -860,8 +860,9 @@ P:NPC {
   key = "rexxar", id = TODO_NPC("Rexxar"), name = "Rexxar",
   bible = "bibles/desolace.md", role = "citizen", tier = "major",
   temper = { "gruff" }, values = { "honest", "brave" },
+  likesTone = "blunt",
   impression = {
-    first = "Rexxar walks the roads of Desolace with his bear Misha at his side, and he looks at strangers as though weighing whether they're worth the trouble.",
+    first = "He looks at strangers as though weighing whether they're worth the trouble.",
     third = "{name} met Rexxar, the half-ogre beastmaster, on the roads of Desolace.",
   },
   greetings = {
@@ -1203,7 +1204,43 @@ P:NPC {
       },
     },
   },
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I don't hear that often, mostly because I don't stay anywhere long enough. Misha seems to think you meant it, so I'll take it." },
+        { id = "s2", text = "Kind words don't weigh much to carry, and I travel light. I'll keep those, stranger." },
+      },
+      fail = {
+        { id = "f1", text = "I left the cities to get away from that kind of talk, and Misha doesn't like it any better than I do." },
+        { id = "f2", text = "Flattery is what people use when they want something they haven't earned. Say what you want, or leave us to the road." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. Not many will bait a man with a bear at his side, and fewer still make me laugh doing it. You've got some nerve, and I like nerve.", narr = "Misha huffs, and Rexxar very nearly smiles." },
+        { id = "s2", text = "You've a wild streak, and you don't hide it behind manners. That's the first thing about you I've liked." },
+      },
+      fail = {
+        { id = "f1", text = "Misha has stopped watching the road and started watching you. I'd choose my next words with care." },
+        { id = "f2", text = "I've been called a half-breed and worse by better than you, and I outlived most of them. Walk on." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've hunted long enough to know a predator when one stands in front of me. I'll not turn my back on you, and I mean that as respect." },
+        { id = "s2", text = "Even Misha's gone quiet, and she's hard to impress. All right, you've made yourself understood." },
+      },
+      fail = {
+        { id = "f1", text = "I've stood alone against things that would swallow you whole, and I didn't flinch then either. Put your hackles down." },
+        { id = "f2", text = "A beast that snarls that loudly is usually afraid, and Misha knows it as well as I do." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's mine to keep, and I don't share it with someone I've known for the length of one conversation." },
+      { id = "gt2", text = "I'll not speak of that. Earn Misha's trust first, and mine may follow." },
+    },
     knows = {
       { id = "tp_knows", text = "I hear things on the road, mostly from people who don't know I'm listening. Ask, and I'll tell you what I know." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Misha doesn't trust you yet, so neither do I, but I'll answer a question or two if you keep it short." },

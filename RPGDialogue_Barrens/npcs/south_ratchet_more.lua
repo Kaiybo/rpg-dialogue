@@ -13,7 +13,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "cheerful", "warm" }, values = { "loyal", "honest" },
   notices = { "drink", "race" },
   impression = {
-    first = "Brewmaster Drohn sits outside his house in Ratchet with a mug in his fist and a barrel at his back, an orc brewer who learned his craft from a master who learned it from a pandaren. He grows misty about old brews the way other people do about old friends.",
+    first = "He grows misty about old brews the way others do about friends.",
     third = "{name} met Brewmaster Drohn, an orc brewer in Ratchet who keeps Chen Stormstout's recipe.",
   },
 
@@ -104,7 +104,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "anxious", "cheerful" }, values = { "greedy", "loyal" },
   notices = { "class", "kit" },
   impression = {
-    first = "Crane Operator Bigglefuzz runs the big cargo crane on Ratchet's docks, and the pile of smashed crates beside it is his fault. He talks very fast, says \"I say\" a great deal, and is terrified that Gazlowe will find out exactly what went missing.",
+    first = "He is terrified Gazlowe will learn exactly what went missing.",
     third = "{name} met Crane Operator Bigglefuzz, the goblin who runs Ratchet's dockside crane.",
   },
 
@@ -253,7 +253,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "smooth", "cheerful" }, values = { "greedy", "cunning" },
   notices = { "stealth", "class" },
   impression = {
-    first = "Wrenix the Wretched stands beside his Gizmotronic Apparatus in Ratchet and hires thieves to rob pirates, which he describes as a public service with a modest commission. He is unbothered that most of his thieves don't come back.",
+    first = "He is unbothered that most of his thieves don't come back.",
     third = "{name} met Wrenix the Wretched, a goblin in Ratchet who sends thieves after Southsea pirate treasure.",
   },
 

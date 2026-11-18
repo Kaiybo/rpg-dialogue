@@ -8,10 +8,11 @@ P:NPC {
   key = "magni", id = TODO_NPC("King Magni Bronzebeard"), name = "King Magni Bronzebeard",
   bible = "bibles/magni.md", role = "noble", tier = "major",
   communities = { "ironforge" }, temper = { "proud" }, values = { "brave", "honest", "lawful" },
+  likesTone = "blunt", race = "Dwarf",
   notices = { "fel", "kin" },
 
   impression = {
-    first = "King Magni Bronzebeard has a voice made for being heard over forges and a laugh made for being heard over that. He is every inch a king, and he hasn't forgotten how to be a dwarf.",
+    first = "Every inch a king, he hasn't forgotten how to be a dwarf.",
     third = "{name} stood before King Magni Bronzebeard in the High Seat of Ironforge.",
   },
 
@@ -594,7 +595,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Ha! Well, I'll no' pretend a king minds hearin' it, though I've a court full o' folk paid tae say the same. Ye said it like ye meant it, an' that I'll take." },
+        { id = "s2", text = "That's kindly spoken, an' it sits better comin' from someone who's walked the roads than from a courtier. Ye've a good eye an' good manners both." },
+        { id = "s3", when = { race = "Dwarf" }, text = "A kind word from one o' my own is worth more tae me than a chest o' Stormwind gold. Ye do yer clan credit." },
+      },
+      fail = {
+        { id = "f1", text = "I've a hall full o' flatterers already, an' I didnae think ye were one o' them. Speak tae me plain or no' at all, for I've nae patience for honey." },
+        { id = "f2", text = "Those are pretty words, an' I can smell the askin' behind them from here. If ye want somethin' from the throne, say so straight, the way a dwarf would." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! By my beard, there's nae many will cheek the King tae his face in his own hall, an' fewer I'd thank for it. I've missed that since my brothers went off, so ye've earned a grin." },
+        { id = "s2", text = "Ye've a bold tongue, an' I'd rather that than a bowed head any day o' the week. Come on, then, for I can give as good as I get." },
+      },
+      fail = {
+        { id = "f1", text = "Mind yerself. I'll take a jest as well as any dwarf alive, but I'll no' be mocked in the High Seat wi' my guard lookin' on." },
+        { id = "f2", text = "That wasnae cheek, that was plain disrespect, an' I know the difference well enough. A guest in Ironforge keeps a civil tongue, or finds the gates." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Ye've iron in ye, I'll grant that, an' ye're no' wrong tae press me. A king who cannae be pushed on a hard matter is nae king worth the seat, so I'll hear ye out." },
+        { id = "s2", text = "There's few who'd square up tae me like that, an' it's given me pause, I'll admit it. Very well, ye've made yer point, an' I'll no' pretend otherwise." },
+      },
+      fail = {
+        { id = "f1", narr = "He rests one hand on the haft of his hammer and does not rise.", text = "I've stood against the Horde an' the Dark Iron both, an' I'm still sittin' here. Ye'll need a good deal more than a hard stare tae move the King o' Ironforge." },
+        { id = "f2", text = "Threaten me in my own mountain again an' ye'll learn how deep it goes. I'll let it pass the once, because I'd like tae think ye're only foolish." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a matter I keep close, an' I'll no' open it tae someone I've barely shared a word wi'. Prove yerself a friend tae Ironforge first, an' then we'll see." },
+      { id = "gt2", text = "Aye, I've thoughts on it, an' they're nae for a stranger's ears. A king learns early which doors stay shut, an' this is one o' them for now." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report from Dun Morogh tae the Badlands comes up these steps sooner or later, an' I read the lot. Ask me about any o' this." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll set the Senate's papers aside a while. Ask me about any o' this, an' I'll gie ye a straight answer." },

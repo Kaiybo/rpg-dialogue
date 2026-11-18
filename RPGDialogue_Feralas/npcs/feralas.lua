@@ -7,10 +7,11 @@ P:NPC {
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
   prejudice = { { class = "WARLOCK", amount = 15, why = "the Legion's tools; her family died in the War of the Ancients" }, { class = "MAGE", amount = 8, why = "the Highborne's arcane hunger brought the Legion" } },
   communities = { "feathermoon" }, temper = { "intent" }, values = { "loyal", "dutiful", "brave" },
+  likesTone = "blunt",
   notices = { "class", "race" },
 
   impression = {
-    first = "Shandris Feathermoon watches the water around Sardor Isle as though it might betray her at any moment. Her loyalty to the High Priestess runs deeper than duty, and it shows in every word.",
+    first = "Her loyalty to the High Priestess runs deeper than duty.",
     third = "{name} met Shandris Feathermoon, General of the Sentinels, who holds Feathermoon Stronghold for the High Priestess.",
   },
 
@@ -386,7 +387,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "The Sentinels don't serve for praise, but I won't pretend it's unwelcome after a long watch. I'll pass it on to the sisters on the wall, who have earned it more than I have." },
+        { id = "s2", text = "That's well said, and I thank you for it. The High Priestess taught me to accept an honest word plainly, so I do." },
+      },
+      fail = {
+        { id = "f1", text = "I've commanded Sentinels for longer than you would believe, and I know when I'm being softened. If you want something of Feathermoon, ask me straight." },
+        { id = "f2", text = "Save the fine words for Darnassus, where they have time for them. Out here I measure people by what they do when the naga come ashore." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've a bold mouth, and you kept your feet while you used it. I've made officers out of less, so I'll take it as spirit and not as insolence." },
+        { id = "s2", text = "Ha. My own recruits used to try me like that, and the ones who did it best are captains now. Bring that nerve to the Gordunni, and we'll get along." },
+      },
+      fail = {
+        { id = "f1", text = "I am General of the Sentinels, and you're standing in my stronghold. Speak to me like that once more, and you'll finish this conversation from the dock." },
+        { id = "f2", text = "I've no time for sparring with words while there are naga on my shore. Mind your tongue, or find another island." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've faced worse than you and didn't step back, but I know a dangerous thing when I see one. You have my attention, and I give that only to what I take seriously." },
+        { id = "s2", text = "There's weight behind that, and I'd be a poor general if I ignored it. I won't yield my post to anyone, but I'll hear you out, and carefully." },
+      },
+      fail = {
+        { id = "f1", text = "I was a child when the Legion burned Kalimdor, and nothing has frightened me as much since. You're a long way short of that, and every bow on this isle is strung." },
+        { id = "f2", text = "Threaten me again on Sardor Isle and my sisters will settle it before I've raised a hand. Stand down, and I'll forget that you tried." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That isn't something I discuss with those I haven't measured yet. Serve the stronghold well, and ask me again." },
+      { id = "gt2", text = "No. A Sentinel tells a stranger what they need to know and nothing beyond it, and you're still a stranger to me." },
+    },
     knows = {
       { id = "tp_knows", text = "My scouts cover every road and shore in Feralas, and each reports to me by moonrise. Ask what you need." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -419,7 +457,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Pratt McGrubben calls himself mostly retired from paladin work and fully busy with leather. He has an old soldier's patience and a friendly word for whoever wanders up to his bench.",
+    first = "He calls himself mostly retired from paladin work and busy with leather.",
     third = "{name} met Pratt McGrubben, a genial semi-retired paladin who works leather at Feathermoon Stronghold.",
   },
 
@@ -652,7 +690,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Shyria keeps the kettle on for Sentinels coming in from the rain at every hour. She has a gentle way about her that makes the island feel safer than it is.",
+    first = "Her gentle way makes the island feel safer than it is.",
     third = "{name} met Innkeeper Shyria, who shelters the Sentinels of Feathermoon Stronghold beneath her roof.",
   },
 
@@ -840,10 +878,11 @@ P:NPC {
   key = "rokorhan", id = TODO_NPC("Rok Orhan"), name = "Rok Orhan",
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
   communities = { "mojache" }, temper = { "fierce" }, values = { "loyal", "stern" },
+  likesTone = "blunt", race = "Orc",
   notices = { "class", "kit" },
 
   impression = {
-    first = "Rok Orhan has one answer for most problems in Feralas, and it involves killing ogres. Still, he spoke of the land healing someday, which I didn't expect from him.",
+    first = "His one answer for most problems in Feralas is killing ogres.",
     third = "{name} met Rok Orhan, who leads the Horde's fight against the Gordunni ogres from Camp Mojache.",
   },
 
@@ -1173,7 +1212,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Ha! You've got a good eye, and I'll not argue with it. Say it louder so the camp can hear, and then go kill an ogre to prove you meant it." },
+        { id = "s2", text = "Good words, and I'll take them. A warrior doesn't hear many out here, between the rain and the Gordunni, so I'm glad you spent some on me." },
+      },
+      fail = {
+        { id = "f1", text = "I didn't come to Feralas to be sweet-talked, and the ogres won't die of it. Keep your breath for swinging your weapon." },
+        { id = "f2", text = "Pah, you sound like a goblin selling me a wagon. If you think well of me, show it with Gordunni ears and not with talk." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah! Now that's how an orc likes to be spoken to, straight in the teeth. You've got a spine, and I've got ogres that need it." },
+        { id = "s2", text = "You'd say that to my face, with my axe this close? Good, I like you, and I don't like many. Lok'tar!" },
+      },
+      fail = {
+        { id = "f1", text = "Watch your mouth. I've split ogre skulls for less than that, and you're a lot smaller than an ogre." },
+        { id = "f2", text = "You've got a loud tongue for somebody who hasn't bled for this camp yet. Earn the right to talk to me that way, or keep quiet." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Hrm. You've got the look of somebody who means it, and I've seen enough fights to know when not to start one. All right, you've made me listen." },
+        { id = "s2", text = "I'm not afraid of you, but I'm no fool, and I'd rather have you swinging beside me than at me. Say what you want, and I'll hear it." },
+      },
+      fail = {
+        { id = "f1", text = "You think you're frightening? I fight things twice my height before breakfast, and some of them have two heads to shout with. Stand down." },
+        { id = "f2", text = "Try that again in my camp and I'll put you on your back in front of everyone. Save it for the Gordunni, because it won't work on me." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "I don't talk about that with somebody who hasn't proved a thing to me. Kill some ogres for the camp, and then ask." },
+      { id = "gt2", text = "No. That's for warriors I trust, and I don't trust you yet." },
+    },
     knows = {
       { id = "tp_knows", text = "I know these ogres and this land better than I'd like. Ask, and be brief." },
     },
@@ -1197,7 +1273,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Orwin Gizzmick keeps a sack of rocks under his bed that might be a fortune, and he can't stop talking about them. Half scholar, half salesman, and both halves are hungry.",
+    first = "He keeps a sack of rocks that might be a fortune.",
     third = "{name} met Orwin Gizzmick, a goblin at Camp Mojache who wants to know what the Gordunni cobalt is worth.",
   },
 
@@ -1419,7 +1495,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Greul made me feel welcome before I'd shaken the rain off. In a land so full of teeth, her fire feels like the safest spot in Feralas.",
+    first = "Her fire feels like the safest spot in Feralas.",
     third = "{name} met Innkeeper Greul, the hospitable tauren who keeps the fire at Camp Mojache.",
   },
 

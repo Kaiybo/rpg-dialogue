@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Silithus |cff8a8a8a1.20.0|r
+## Title: RPG Dialogue: Silithus |cff8a8a8a1.22.0|r
 ## Notes: Cenarion Hold, where a commander waits for word of his wife, druids watch a cult and a geologist listens to humming crystals; Valor's Rest and the dead of Southwind; a deserter hiding from the Twilight's Hammer; two dwarves and a monkey at Bronzebeard's camp.
 ## Author: RPG Dialogue
-## Version: 1.20.0
+## Version: 1.22.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.silithus
@@ -25,3 +25,4 @@ npcs\hold_war.lua
 npcs\war_camps.lua
 npcs\demitrian.lua
 npcs\more_folk.lua
+npcs\missed.lua

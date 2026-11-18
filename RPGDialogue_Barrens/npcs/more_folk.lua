@@ -18,7 +18,7 @@ P:NPC {
   temper = { "gruff", "proud" }, values = { "loyal", "dutiful" },
   notices = { "class", "race", "reputation" },
   impression = {
-    first = "Kelm Hargunth supplies the Warsong Outriders from his post in the northern Barrens, on the road toward Warsong Gulch. He's a Warsong orc down to his boots, and he measures everyone by what they've done against the night elves.",
+    first = "He measures everyone by what they've done against the night elves.",
     third = "{name} met Kelm Hargunth, the Warsong Outriders' supply officer in the northern Barrens.",
   },
   greetings = {
@@ -109,7 +109,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "gentle" }, values = { "craft", "kind" },
   notices = { "class", "kit" },
   impression = {
-    first = "Halija Whitestrider sells cloth armor at the Crossroads, a gentle tauren who seems to think every traveler on the road needs something warmer. Her stall smells of wool and Mulgore grass.",
+    first = "Her stall smells of wool and Mulgore grass.",
     third = "{name} met Halija Whitestrider, the tauren clothier at the Crossroads.",
   },
   greetings = {
@@ -235,7 +235,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "chatty" }, values = { "practical", "trade" },
   notices = { "kit", "race" },
   impression = {
-    first = "Kalyimah Stormcloud sells bags and sacks at the Crossroads, a chatty Darkspear troll who seems to know everything that passes through town. Every traveler needs a bag, and he knows it.",
+    first = "He seems to know everything that passes through town.",
     third = "{name} met Kalyimah Stormcloud, the troll who sells bags at the Crossroads.",
   },
   greetings = {
@@ -360,7 +360,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "jovial" }, values = { "practical" },
   notices = { "drink", "race" },
   impression = {
-    first = "Larhka sells drink at the Crossroads, from plain water to stuff that might strip paint. He seems to think a thirsty traveler is the best kind of customer, and in the Barrens that's every traveler.",
+    first = "Some of what he pours might strip paint.",
     third = "{name} met Larhka, who sells drink at the Crossroads.",
   },
   greetings = {

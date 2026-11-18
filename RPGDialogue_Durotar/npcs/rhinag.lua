@@ -9,7 +9,7 @@ P:NPC {
   temper = { "dry" }, values = { "practical", "loyal" },
   notices = { "class", "weary" },
   impression = {
-    first = "Rhinag was stung by a venomtail near Rocktusk Farm and joked about it while the poison worked on him. He trusts his teacher Kor'ghan to save him, and dreads the lessons that will follow if he does.",
+    first = "He trusts his teacher to save him and dreads the lessons after.",
     third = "{name} met Rhinag at Rocktusk Farm, a poisoned Darkspear who needed Kor'ghan's venomtail antidote within the hour.",
   },
 

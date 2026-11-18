@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Mountaineer Kadrell pointed me straight to the bounty poster by the League's door. He watches Thelsamar's road with a cheerful readiness for whatever crawls out of the hills next.",
+    first = "He seems cheerfully ready for whatever crawls out of the hills next.",
     third = "{name} met Mountaineer Kadrell, who keeps watch over the road through Thelsamar for the King of Ironforge.",
   },
 
@@ -368,7 +368,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Prospector Ironband admits his dig is slow and insists it will pick up any day now. He has the stubborn patience of someone who has been saying that for a while.",
+    first = "He insists his slow dig will pick up any day now.",
     third = "{name} visited Prospector Ironband's excavation in Loch Modan, where the Explorers' League dig goes slowly but steadily.",
   },
 
@@ -738,7 +738,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Hearthstove claims the Stoutlager pours the best ale between Ironforge and the Wetlands, and he'll fight anyone who disagrees once they've paid. I didn't disagree.",
+    first = "He will fight anyone who doubts his ale, once they've paid.",
     third = "{name} drank at the Stoutlager Inn in Thelsamar, where Innkeeper Hearthstove pours what he calls the best ale in Loch Modan.",
   },
 
@@ -1011,7 +1011,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Vidra Hearthstove ran me out of her kitchen unless I'd brought something to cook. Her blood sausages are famous, she says, at least in Thelsamar.",
+    first = "She runs anyone out of her kitchen who brings nothing to cook.",
     third = "{name} met Vidra Hearthstove, who cooks Thelsamar's famous blood sausages in the Stoutlager's kitchen.",
   },
 
@@ -1214,7 +1214,7 @@ P:NPC {
   notices = { "soldier" },
 
   impression = {
-    first = "Captain Rugelfuss told me ceremony could wait until the troggs did. He has the worn calm of an officer who's been fighting the same fight from the same hill for too long.",
+    first = "He has fought the same fight from the same hill too long.",
     third = "{name} met Captain Rugelfuss, who holds the Valley of Kings against troggs rising from under the hills.",
   },
 
@@ -1557,7 +1557,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Chief Engineer Hinderweir VII begged me to hold the rail on a walkway he swore was perfectly safe. He has six forebears glaring down from their portraits and one great dam dripping on his head.",
+    first = "He begged me to hold the rail on his perfectly safe walkway.",
     third = "{name} met Chief Engineer Hinderweir VII, seventh of his name to tend the Stonewrought Dam in Loch Modan.",
   },
 

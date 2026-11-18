@@ -6,7 +6,7 @@ P:NPC {
   key = "ironboot", id = TODO_NPC("Prospector Ironboot"), name = "Prospector Ironboot",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Prospector Ironboot is a dwarf at Steamwheedle Port who came to Tanaris for its buried treasures and stayed for the sand in his beard.",
+    first = "He came for treasure and stayed for the sand in his beard.",
     third = "{name} met Prospector Ironboot at Steamwheedle Port in Tanaris.",
   },
   greetings = {
@@ -206,7 +206,7 @@ P:NPC {
   key = "tooga", id = TODO_NPC("Tooga"), name = "Tooga",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Tooga is an old turtle wandering the Tanaris sands, lost and very far from the friend who's waiting for him in Feralas.",
+    first = "He is lost, far from the friend waiting for him in Feralas.",
     third = "{name} met Tooga, a wandering turtle in the deserts of Tanaris.",
   },
   greetings = {
@@ -361,7 +361,7 @@ P:NPC {
   key = "curgle", id = TODO_NPC("Curgle Cranklehop"), name = "Curgle Cranklehop",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Curgle Cranklehop is a gnome in Gadgetzan with a scholar's curiosity and a habit of finishing other people's sentences.",
+    first = "He has a habit of finishing other people's sentences.",
     third = "{name} met Curgle Cranklehop, a gnome in Gadgetzan.",
   },
   greetings = {
@@ -534,7 +534,7 @@ P:NPC {
   key = "jabbey", id = TODO_NPC("Jabbey"), name = "Jabbey",
   bible = "bibles/tanaris.md", role = "vendor", tier = "service",
   impression = {
-    first = "Jabbey sells odds and ends from a stall in Gadgetzan, and each trinket, he swears, is a bargain.",
+    first = "He swears each of his trinkets is a bargain.",
     third = "{name} met Jabbey, a vendor in Gadgetzan.",
   },
   greetings = {
@@ -705,7 +705,7 @@ P:NPC {
   key = "vizzklick", id = TODO_NPC("Vizzklick"), name = "Vizzklick",
   bible = "bibles/tanaris.md", role = "vendor", tier = "service",
   impression = {
-    first = "Vizzklick sells cloth and tailoring supplies in Gadgetzan, and she thinks most adventurers dress, as though they lost a fight with a sandstorm.",
+    first = "She thinks most adventurers dress like they lost to a sandstorm.",
     third = "{name} met Vizzklick, the cloth vendor in Gadgetzan.",
   },
   greetings = {

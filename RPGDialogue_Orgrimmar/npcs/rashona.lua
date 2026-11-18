@@ -9,7 +9,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "practical", "generous" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Rashona Straglash collects cloth on the Drag for bandages and garments, and she keeps careful count of every bolt. She thinks of the wounded and the poor first and of the donors a distant second.",
+    first = "She thinks of the wounded and the poor before the donors.",
     third = "{name} met Rashona Straglash, the Horde's cloth quartermaster on the Drag, who gathers cloth for bandages and for Orgrimmar's needy.",
   },
 

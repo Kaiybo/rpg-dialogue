@@ -9,7 +9,7 @@ P:NPC {
   communities = { "maraudon" }, temper = { "fragile", "gentle" }, values = { "family", "nature" },
   notices = { "race", "class", "fel" },
   impression = {
-    first = "Cavindra is a dryad hiding in a pool at the mouth of Maraudon, shaking from what she saw inside. She escaped when her brother Celebras did not, and every word she says circles back to him.",
+    first = "She escaped when her brother Celebras did not, and it haunts her.",
     third = "{name} met Cavindra, the dryad outside Maraudon who begs for help for her cursed brother Celebras.",
   },
 

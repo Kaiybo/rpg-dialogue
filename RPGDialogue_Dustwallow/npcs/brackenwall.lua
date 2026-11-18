@@ -6,10 +6,11 @@ P:NPC {
   key = "krog", id = TODO_NPC("Krog"), name = "Krog",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "major",
   communities = { "brackenwall" }, temper = { "blunt" }, values = { "loyal", "dutiful" },
+  likesTone = "blunt", race = "Orc",
   notices = { "race", "kit" },
 
   impression = {
-    first = "Krog wants to know who burned that inn because someone made a liar of his Warchief, and he takes that personally. He doesn't waste a word, and he doesn't trust the easy answer.",
+    first = "Someone made a liar of his Warchief, and he takes it personally.",
     third = "{name} met Krog, the orc who commands Brackenwall Village and investigates the burning of the Shady Rest Inn.",
   },
 
@@ -378,7 +379,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I don't hear much praise in this swamp, and I didn't think I wanted any, but that was well said. You see clearly." },
+        { id = "s2", text = "You honor me, and you do it without groveling, which I respect. The Warchief chose well if you are the kind he sends." },
+      },
+      fail = {
+        { id = "f1", text = "Save your soft words for the ogres, who are easy to please. An orc shows respect with deeds, and I have seen none from you yet." },
+        { id = "f2", text = "I am not a goblin to be buttered before a bargain. Say what you want, plainly, or leave my watch." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You have tusks, whether I can see them or not. I would rather be challenged by a bold tongue than bowed to by a coward, so I'll let that one stand." },
+        { id = "s2", text = "You've got nerve, speaking to me like that in a village full of ogres who answer to me. Good, because I need people with nerve in this marsh." },
+      },
+      fail = {
+        { id = "f1", text = "Watch your mouth. I answer to the Warchief, and I won't be mocked by someone who has done nothing for the Horde in my sight." },
+        { id = "f2", text = "In the old days an orc would have answered that with an axe. I am more patient than that, but not by much." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You don't back down, and I can respect that. I've no wish to spill Horde blood in Brackenwall over this, so I'll hear what you want." },
+        { id = "s2", text = "Hm. There is real strength behind that, and I'm not too proud to see it. You have my attention, so use it." },
+      },
+      fail = {
+        { id = "f1", narr = "He steps close enough that you can smell the marsh on his armor.", text = "I have fought humans, demons and worse, and I did not blink then. If you want to test me, draw your weapon and we will settle it the honest way." },
+        { id = "f2", text = "You growl like a pup. Every ogre in this village obeys me, so think about what your threat is worth here." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is not for you to hear yet. Prove your worth to the Horde in this marsh, and then I will speak of it." },
+      { id = "gt2", text = "I know the answer, and I don't give it to those I haven't measured. Come back when you've shown me what you are." },
+    },
     knows = {
       { id = "tp_knows", text = "The scouts bring me word from every corner of this marsh. Ask, and I'll tell you straight." },
     },
@@ -403,7 +440,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Nazeer Bloodpike counts the Alliance's smiles and the knives behind them, and I suspect he counts mine too. He trusts paper peace about as far as the marsh lets it stay dry.",
+    first = "He trusts paper peace about as far as the marsh stays dry.",
     third = "{name} met Nazeer Bloodpike, the suspicious orc spymaster who watches Theramore from Brackenwall.",
   },
 

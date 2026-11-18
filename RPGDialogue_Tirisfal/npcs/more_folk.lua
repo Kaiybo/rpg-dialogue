@@ -11,7 +11,7 @@ P:NPC {
   communities = { "brill" }, temper = { "cold", "proud" }, values = { "family", "practical" },
   notices = { "race" },
   impression = {
-    first = "Yvette Farthing keeps to a corner of the Gallows' End near her father and speaks of her old life as if it belonged to someone she once knew slightly. Agamand Mills is a name she would rather not hear.",
+    first = "Agamand Mills is a name she would rather not hear.",
     third = "{name} met Yvette Farthing, Coleman Farthing's daughter, in the Gallows' End Tavern in Brill.",
   },
 
@@ -131,7 +131,7 @@ P:NPC {
   communities = { "brill" }, temper = { "dry", "precise" }, values = { "knowledge", "control" },
   notices = { "class", "pet" },
   impression = {
-    first = "Ageron Kargal sells grimoires to the warlocks of Brill, books that teach a summoned demon what its master can't be bothered to. He talks about imps the way a kennel master talks about hounds.",
+    first = "He talks about imps the way a kennel master talks about hounds.",
     third = "{name} met Ageron Kargal, the demon trainer who keeps his books in the Gallows' End Tavern.",
   },
 
@@ -259,7 +259,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "solemn", "odd" }, values = { "dutiful", "free_will" },
   notices = { "greenness" },
   impression = {
-    first = "Caretaker Caice stands guard over a crypt in Deathknell that nobody seems to go into, and he talks to the newly risen about freedom as if it were a thing you could hold. It is hard to tell what he actually takes care of.",
+    first = "It is hard to tell what he actually takes care of.",
     third = "{name} met Caretaker Caice, who keeps a sealed crypt in the graveyard at Deathknell.",
   },
 
@@ -393,7 +393,7 @@ P:NPC {
   communities = { "brill" }, temper = { "wary", "dry" }, values = { "dutiful", "loyal" },
   notices = { "race", "greenness" },
   impression = {
-    first = "Deathguard Terrence walks the road between Brill and the Undercity and watches every traveller on it as if they owed him an explanation. He doesn't trust strangers in Tirisfal, even helpful ones, even dead ones.",
+    first = "He doesn't trust strangers, even helpful ones, even dead ones.",
     third = "{name} met Deathguard Terrence, who patrols the road between Brill and the Undercity.",
   },
 
@@ -501,7 +501,7 @@ P:NPC {
   communities = { "brill" }, temper = { "stiff", "proper" }, values = { "dutiful", "order" },
   notices = { "race" },
   impression = {
-    first = "Deathguard Cyrus gives directions around Brill as if reciting from a manual, and he seems quietly proud that he has never once been late to his post. He would make a fine clerk, if Brill still had any.",
+    first = "He would make a fine clerk, if Brill still had any.",
     third = "{name} met Deathguard Cyrus, one of the guards who keeps watch in Brill.",
   },
 
@@ -628,7 +628,7 @@ P:NPC {
   communities = { "brill" }, temper = { "grumbling", "dry" }, values = { "comfort", "survival" },
   notices = { "race" },
   impression = {
-    first = "Deathguard Lawrence keeps watch in Brill mostly by leaning on whatever is nearest, and he has a long list of complaints about the Executor. He knows the town well, which he says is only because he has nothing else to look at.",
+    first = "He has a long list of complaints about the Executor.",
     third = "{name} met Deathguard Lawrence, a weary guard who keeps watch in Brill.",
   },
 
@@ -750,7 +750,7 @@ P:NPC {
   communities = { "brill" }, temper = { "gloomy", "quiet" }, values = { "solitude", "dutiful" },
   notices = { "race" },
   impression = {
-    first = "Deathguard Mort keeps watch from an upstairs room in Brill, where he can see the road toward Garren's Haunt without anyone seeing much of him. He talks like someone who has had a great deal of time to think and didn't enjoy it.",
+    first = "He has had far too much time to think and hated it.",
     third = "{name} met Deathguard Mort, who keeps watch from upstairs in Brill.",
   },
 
@@ -874,7 +874,7 @@ P:NPC {
   communities = { "brill" }, temper = { "sardonic", "watchful" }, values = { "dutiful", "order" },
   notices = { "race", "class" },
   impression = {
-    first = "Deathguard Royann keeps watch over the cellar of the Gallows' End, and she has a sharp word for anyone who wanders down the stairs looking for a quieter place to drink. She seems to think the tavern needs guarding from its customers more than from the Crusade.",
+    first = "She guards the tavern from its customers more than from the Crusade.",
     third = "{name} met Deathguard Royann, who guards the cellar of the Gallows' End Tavern in Brill.",
   },
 
@@ -998,7 +998,7 @@ P:NPC {
   communities = { "brill" }, temper = { "brisk", "dry" }, values = { "practical", "craft" },
   notices = { "class", "kit" },
   impression = {
-    first = "Eliza Callen sells leather armor in Brill and judges every customer by the state of their boots. She has no patience for the newly risen who show up in grave rags and expect to be told they look fine.",
+    first = "She judges every customer by the state of their boots.",
     third = "{name} met Eliza Callen, who sells leather armor in Brill.",
   },
 
@@ -1118,7 +1118,7 @@ P:NPC {
   communities = { "brill" }, temper = { "earnest", "dry" }, values = { "craft", "ambitious" },
   notices = { "class" },
   impression = {
-    first = "Oliver Dwor sells plain, sturdy weapons in Brill and calls himself an apprentice without any sign of embarrassment. He says he means to be a master one day, and that being dead has given him plenty of time to practise.",
+    first = "He says being dead has given him plenty of time to practise.",
     third = "{name} met Oliver Dwor, the apprentice weaponsmith in Brill.",
   },
 
@@ -1237,7 +1237,7 @@ P:NPC {
   communities = { "brill" }, temper = { "cheerful", "rambling" }, values = { "craft", "community" },
   notices = { "race" },
   impression = {
-    first = "Hamlin Atkins wanders Brill with a basket of mushrooms and talks about them the way other farmers talk about wheat. He was a farmer before the Plague, and he seems pleased to have found a crop that likes the dark as much as he now does.",
+    first = "His mushrooms like the dark as much as he now does.",
     third = "{name} met Hamlin Atkins, who grows and sells mushrooms around Brill.",
   },
 
@@ -1356,7 +1356,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "gruff", "steady" }, values = { "craft", "practical" },
   notices = { "greenness", "kit" },
   impression = {
-    first = "Blacksmith Rand sells simple armor in Deathknell to the newly risen, most of whom have never worn any. He fits them out with the patience of someone who has done it a hundred times and expects to do it a hundred more.",
+    first = "He has armored a hundred of the newly risen and expects more.",
     third = "{name} met Blacksmith Rand, who sells armor to the newly risen in Deathknell.",
   },
 
@@ -1473,7 +1473,7 @@ P:NPC {
   communities = { "brill" }, temper = { "mild", "dry" }, values = { "family", "craft" },
   notices = { "kit" },
   impression = {
-    first = "Abe Winters sells armor in Brill, a few doors from his wife's general goods, and seems to have made peace with being an apprentice at an age when most men are long past it. He speaks of Mrs. Winters with a fondness that surprises even him.",
+    first = "He speaks of Mrs. Winters with a fondness that surprises even him.",
     third = "{name} met Abe Winters, who sells armor in Brill and is married to Mrs. Winters of the general store.",
   },
 

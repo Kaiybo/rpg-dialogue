@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class", "kills" },
 
   impression = {
-    first = "Krueg Skullsplitter is an orc who lives up to his name in conversation as well as battle. He wants Grimtotem horns, piles of them, and when I asked why, he looked at me as if I'd asked why water was wet.",
+    first = "He wants Grimtotem horns in piles, and thinks the reason obvious.",
     third = "{name} met Krueg Skullsplitter, an orc at Camp Mojache collecting Belgrom Rockmaul's bounty on the Grimtotem.",
   },
 
@@ -145,7 +145,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Sage Korolusk is an old tauren scholar surrounded by notes he has carried across half the world. He speaks of a lost elf named Telmius Dreamseeker as if the elf were an old friend he had simply mislaid.",
+    first = "He speaks of a lost elf like an old friend he mislaid.",
     third = "{name} met Sage Korolusk at Camp Mojache, who has followed the trail of the elven master Telmius Dreamseeker all the way to Dire Maul.",
   },
 
@@ -325,7 +325,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Shyn is a tauren woman with wind-burned cheeks who loves her wind riders and the rain of Feralas in equal measure. She talked while she saddled, and the saddle was finished before the sentence was.",
+    first = "She finished saddling before she finished her sentence.",
     third = "{name} met Shyn, the wind rider master of Camp Mojache.",
   },
 

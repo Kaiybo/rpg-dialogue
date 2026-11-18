@@ -19,7 +19,7 @@ P:NPC {
   },
 
   impression = {
-    first = "Topper McNabb was a farmer once and begs in the Trade District now, and he has a generous word for every passer-by. He told me I have a generous face, and I suspect he tells everyone, though he told it very well.",
+    first = "He says I have a generous face, and likely tells everyone.",
     third = "{name} met Topper McNabb, a cheerful beggar of the Trade District who used to work a farm and tells the story of losing it a different way every time.",
   },
 
@@ -1259,7 +1259,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh, friend, you'll make an old farmer weep, and I've a reputation on this step to keep up. Nobody's said a thing so kind to me since the harvest fair, and that was a good many harvests ago." },
+        { id = "s2", text = "Did you hear that, Stormwind? A person of quality, speaking well of Topper McNabb in broad daylight! I'll be dining on that for a week, which is as well, since I've little else." },
+      },
+      fail = {
+        { id = "f1", text = "Now, friend, flattery's my own trade, and you're working my corner with it. I know a soft soaping when I hear one, having given so many." },
+        { id = "f2", text = "That's very pretty, but I've been told I've a noble brow by people who then stepped over me. I'll believe the kind words when the kindness turns up with them." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Oh, that's good, that's better than the guards manage, and they've had years of practice on me. You've a wicked tongue, friend, and I like you the more for it." },
+        { id = "s2", text = "You wound me, friend, you truly do, and I've not enjoyed a wounding so much since I lost the farm. Come and sit on the step, for there's room for another wit." },
+      },
+      fail = {
+        { id = "f1", text = "There's no sport in kicking a man who's already sitting in the gutter, friend. The Defias took my farm, and I'd thought the city folk might leave me my pride." },
+        { id = "f2", text = "I've been laughed at by half of Stormwind, and most of them at least tossed a copper after. You've given me the insult and kept the coin, which is the worst of both." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He pulls his blanket up to his chin and edges along the step.", text = "Easy, friend, easy! I'm only a poor farmer with nothing worth the taking, and I'll tell you whatever you like if you'll stop looming over me." },
+        { id = "s2", text = "There's no need for that, none at all! I bruise easy and I talk easier, so ask your question and you'll have your answer." },
+      },
+      fail = {
+        { id = "f1", text = "Friend, I've slept under a bridge through three winters and been moved along by every guard in the city. You'll need something worse than a scowl to frighten Topper McNabb." },
+        { id = "f2", text = "Go on and shout, then, with the whole street watching you bully a beggar. I've nothing left to lose, and you've a good name that you're spending." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "Ah, now, that's a tale I keep for my true friends, and we're not quite there yet, are we? Come by the step a few more times." },
+      { id = "gt2", text = "I'll not be telling that one to just anybody, friend. Even a beggar's got a thing or two he doesn't give away." },
+    },
     holy_light = { { id = "tp_holy_light", text = "The Light's been kind to me, friend, even if the world hasn't. I get soup from the Cathedral, and a smile from the priests, and I'll take both." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias took my farm, and now they're hiding in the old Moonbrook mines, they say. I'd go and ask for it back if I thought they'd listen." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire comes to Goldshire every so often, and I go and watch the lights from the road. I've never had the copper to go in, but the lights are free." } },

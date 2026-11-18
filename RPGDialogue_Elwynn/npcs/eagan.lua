@@ -8,7 +8,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "steady" },
   notices = { "beast", "form", "skinner" },
   impression = {
-    first = "Eagan Peltskinner walks his trap lines like a man who knows where every snare is buried, and he'd much rather I stepped where he stepped. He looks at every creature as a coat first.",
+    first = "He looks at every creature as a coat first.",
     third = "{name} met Eagan Peltskinner, the Northshire trapper who judges every creature by the quality of its pelt.",
   },
 

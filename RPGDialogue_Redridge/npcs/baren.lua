@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "swim" },
 
   impression = {
-    first = "Dockmaster Baren counts the boats out and back, and now he counts murlocs as well. He warned me about the loose planks like a man who's fallen through every one.",
+    first = "He warns about loose planks like a man who has fallen through.",
     third = "{name} met Dockmaster Baren on the Lakeshire docks, where murlocs have been fouling the nets and outnumbering the boats.",
   },
 

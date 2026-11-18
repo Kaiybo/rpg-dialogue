@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Liladris Moonriver keeps her eyes on the northern road from Maestra's Post, waiting for a druid who should have arrived a season ago. She is fond of him and exasperated with him in about equal measure.",
+    first = "She is as fond of her overdue druid as she is exasperated.",
     third = "{name} met Liladris Moonriver at Maestra's Post, who waits for her beloved Kerlonian Evershade to wake up and come home.",
   },
 
@@ -142,7 +142,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Shael'dryn is a dryad who tends a moonwell in the hills of Ashenvale, quick to laugh and quicker to grieve when she talks about the treants gone wrong. She knows the pieces of Dartol's Rod and where they were hidden.",
+    first = "She knows where the pieces of Dartol's Rod were hidden.",
     third = "{name} met Shael'dryn, a dryad of Ashenvale who helped rebuild Dartol's Rod for Raene Wolfrunner.",
   },
 
@@ -285,7 +285,7 @@ P:NPC {
   notices = { "class", "fel" },
 
   impression = {
-    first = "Illiyana is a dryad at the Shrine of Aessina, grieving her friend Anilia and furious at the satyr who killed her. Her grief comes out as a hunger for horns, which she doesn't seem to find strange.",
+    first = "Her grief for Anilia comes out as a hunger for satyr horns.",
     third = "{name} met Illiyana, a dryad of the Shrine of Aessina who mourns her friend Anilia and wants the satyr punished.",
   },
 
@@ -384,7 +384,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Talen camps on the edge of the Zoram Strand with a few salvaged supplies and the look of a man who was nearly eaten very recently. He is still more interested in the drowned city than in his own skin.",
+    first = "Nearly eaten, and he still cares more for the drowned city.",
     third = "{name} met Talen, a night elf scholar camped near the Zoram Strand who lost his ancient statuette to a naga ambush.",
   },
 
@@ -525,7 +525,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Maluressian keeps Astranaar's stables and talks to the animals in his care in a low voice, as if they were patients. He has opinions about how hunters treat their companions and doesn't hide them.",
+    first = "He has opinions on how hunters treat their companions and shares them.",
     third = "{name} met Maluressian, Astranaar's stable master.",
   },
 

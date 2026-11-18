@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Orgrimmar |cff8a8a8a1.26.0|r
+## Title: RPG Dialogue: Orgrimmar |cff8a8a8a1.29.0|r
 ## Notes: The Warchief's city: Thrall, the Broken Tusk and its regulars, and a warlock in the Cleft of Shadow who is not what he seems.
 ## Author: RPG Dialogue
-## Version: 1.26.0
+## Version: 1.29.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.orgrimmar
@@ -32,4 +32,11 @@ npcs\warlock_errand.lua
 npcs\drag_and_honor.lua
 npcs\more_folk.lua
 npcs\more_folk2.lua
+npcs\missed_b.lua
+npcs\missed_b2.lua
+npcs\missed_b3.lua
+npcs\missed_a.lua
+npcs\missed_a2.lua
+npcs\missed_a3.lua
+npcs\missed_c.lua
 directions.lua

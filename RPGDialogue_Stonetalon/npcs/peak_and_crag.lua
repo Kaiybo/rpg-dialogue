@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stonetalon_peak" }, temper = { "brisk", "kind" }, values = { "duty", "nature" },
   notices = { "race", "purse", "weary" },
   impression = {
-    first = "Chylina keeps the general supplies on Stonetalon Peak and treats every traveller who reaches the top as someone who has done something slightly foolish. She is brisk about it, and kind underneath.",
+    first = "She treats anyone who climbs this high as slightly foolish.",
     third = "{name} met Chylina, who sells supplies to the druids and travellers on Stonetalon Peak.",
   },
 
@@ -132,7 +132,7 @@ P:NPC {
   communities = { "stonetalon_peak" }, temper = { "wry", "precise" }, values = { "craft", "beauty" },
   notices = { "class", "craft", "kit" },
   impression = {
-    first = "Illyanie sells padded and woven cloth on Stonetalon Peak and looks at people's clothes before their faces. She is wry about the druids, wry about the climb, and quietly proud of her stitching.",
+    first = "She looks at people's clothes before their faces.",
     third = "{name} met Illyanie, who sells cloth armour on Stonetalon Peak.",
   },
 
@@ -240,7 +240,7 @@ P:NPC {
   communities = { "windshear_crag" }, temper = { "jumpy", "bitter" }, values = { "ambitious", "loyal" },
   notices = { "race", "class", "stealth" },
   impression = {
-    first = "Piznik used to be the second most important goblin at Windshear Crag, and now he swings a pick in the mine and spies for the boss who got fired. He talks fast, looks over his shoulder, and resents Gerenzo with his whole heart.",
+    first = "He resents Gerenzo with his whole heart.",
     third = "{name} met Piznik, a demoted Venture Company goblin mining in Windshear and spying for Ziz Fizziks.",
   },
 

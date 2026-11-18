@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "form" },
 
   impression = {
-    first = "Fyldren Moonfeather keeps the hippogryphs of Feathermoon and speaks to them more gently than to any visitor. The birds are the isle's only quick road to the rest of Kalimdor, and Fyldren guards that road closely.",
+    first = "The hippogryphs get gentler words than any visitor does.",
     third = "{name} met Fyldren Moonfeather, the hippogryph master of Feathermoon Stronghold.",
   },
 
@@ -218,7 +218,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Vivianna keeps Feathermoon stocked with thread, salt and dye, and counts every bolt that comes off the boats. She speaks softly, but nothing on her shelves goes unrecorded.",
+    first = "She speaks softly, but nothing on her shelves goes unrecorded.",
     third = "{name} met Vivianna, who sells trade supplies at Feathermoon Stronghold.",
   },
 
@@ -418,7 +418,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Ruw teaches herbalism at Camp Mojache and speaks of every plant as a gift from the Earth Mother. The lessons come slowly and patiently, the way roots grow.",
+    first = "The lessons come slowly and patiently, the way roots grow.",
     third = "{name} met Ruw, the herbalism trainer of Camp Mojache.",
   },
 
@@ -619,7 +619,7 @@ P:NPC {
   notices = { "craft", "pet" },
 
   impression = {
-    first = "Kulleg Stonehorn teaches skinning at Camp Mojache and has no patience for waste. He believes a beast's death must be made worth something, and says so plainly.",
+    first = "He believes a beast's death must be made worth something.",
     third = "{name} met Kulleg Stonehorn, the skinning trainer of Camp Mojache.",
   },
 
@@ -797,7 +797,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Sheendra Tallgrass sells trade supplies at Camp Mojache and keeps a sharp eye on every caravan that comes in. She talks of the long road from Thunder Bluff the way others talk of old enemies.",
+    first = "She talks of the road from Thunder Bluff like an old enemy.",
     third = "{name} met Sheendra Tallgrass, who sells trade supplies at Camp Mojache.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   notices = { "skyborne", "class" },
 
   impression = {
-    first = "Kae'la Brightsong of the High Order reads everything Azeroth has ever written down, and wants to talk about all of it at once. Her friends roll their eyes at her; she doesn't seem to notice.",
+    first = "Her friends roll their eyes at her, and she never notices.",
     third = "{name} met Kae'la Brightsong, a young High Order scholar reading her way through Tempered Tomes in Dalaran.",
   },
 
@@ -171,7 +171,7 @@ P:NPC {
   notices = { "skyborne", "class" },
 
   impression = {
-    first = "La'tanja Brightgale keeps the High Order's list of what to find in Dalaran's books and crosses things off it like a soldier counting arrows. She is polite to the Kirin Tor and watches them closely.",
+    first = "She is polite to the Kirin Tor and watches them closely.",
     third = "{name} met La'tanja Brightgale, a High Order scholar at Tempered Tomes in Dalaran.",
   },
 
@@ -330,7 +330,7 @@ P:NPC {
   notices = { "skyborne", "race" },
 
   impression = {
-    first = "Ysa'bel Brightwind reads about the Highborne the way some people read old family letters, slowly and a little afraid of what she'll find. She speaks softly and listens even more carefully.",
+    first = "She reads of the Highborne like old family letters, a little afraid.",
     third = "{name} met Ysa'bel Brightwind, a High Order scholar studying her people's Highborne past at Tempered Tomes in Dalaran.",
   },
 

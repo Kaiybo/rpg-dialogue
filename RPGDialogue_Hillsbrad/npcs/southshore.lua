@@ -7,10 +7,11 @@ P:NPC {
   rivals = { "maleb" },
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "southshore" }, temper = { "steady" }, values = { "dutiful", "protective" },
+  likesTone = "blunt",
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Marshal Redpath was headman when Southshore took in Stormwind's refugees, and now the town is full of their children. He's small-town stubborn and proud of it.",
+    first = "He's small-town stubborn and proud of it.",
     third = "{name} met Marshal Redpath, who has watched over Southshore since the first refugee boats came from Stormwind.",
   },
 
@@ -467,7 +468,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's decent of you. Southshore doesn't get much thanks for staying put, and I'll pass it on to the militia." },
+        { id = "s2", text = "I'll take that kindly. It's good to know someone from outside sees what this town's worth." },
+      },
+      fail = {
+        { id = "f1", text = "I was a headman before I was a marshal, and I've had every fishmonger in town try to sweeten me. Tell me straight what you're after." },
+        { id = "f2", text = "Fine words don't hold a line. If you think well of Southshore, there's a watch tonight that's short of men." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've a mouth on you, and I've known good soldiers who were the same. I can take a ribbing, so long as you'll stand a watch afterwards." },
+        { id = "s2", text = "Fair enough, that one landed. We're a stubborn lot down here, and I suppose we can stand being laughed at now and then." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried too many neighbors this year to find that funny. Keep a civil tongue while you're in my town." },
+        { id = "f2", text = "That's cheap talk from someone who hasn't stood on our line, and I don't care for it. Mind yourself." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy, now. You've made your point, and I've no men to spare for a quarrel inside the town, so I'll let you have it." },
+        { id = "s2", text = "You've a hard look, and I've learned to take those seriously. Go on and say what you want." },
+      },
+      fail = {
+        { id = "f1", text = "I've got the Forsaken across the fields and ogres in the hills, so you're a long way down my list of worries. Don't try that in Southshore again." },
+        { id = "f2", text = "I've faced things that were already dead and still coming, friend. You don't frighten me, and you've only made me trust you less." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's the town's business, and I don't know you well enough to share it. Do right by Southshore and ask me again." },
+      { id = "gt2", text = "I know, and I'm not saying, not to someone who only just walked in. We've learned to be careful about who hears what." },
+    },
     knows = {
       { id = "tp_knows", text = "I've stood on this wall long enough to hear about most things in the valley. Ask me, and I'll give it to you straight." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -498,7 +535,7 @@ P:NPC {
   notices = { "status" },
 
   impression = {
-    first = "Magistrate Henry Maleb is young for the post and buried in papers about the Syndicate. He was pleased to see me, and a little too honest about wishing he were a clerk somewhere safer.",
+    first = "He is too honest about wishing he were a clerk somewhere safer.",
     third = "{name} met Magistrate Henry Maleb, Southshore's young magistrate, whose desk is buried in reports about the Syndicate.",
   },
 
@@ -841,7 +878,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Lieutenant Farren Orinelle claims every chair in the inn and has apparently been in charge of murlocs since last spring. He calls it building character, and he doesn't look convinced.",
+    first = "He calls commanding murlocs building character, and he doesn't look convinced.",
     third = "{name} met Lieutenant Farren Orinelle, late of the Stormwind City Guard, now charged with Southshore's murloc troubles.",
   },
 
@@ -1189,7 +1226,7 @@ P:NPC {
   notices = { "paladin", "drink" },
 
   impression = {
-    first = "Brewmeister Bilger was a knight of the Silver Hand once and never touched a drop. He has made up for it since, and he tells the story without a trace of shame.",
+    first = "He never drank as a knight, and has made up for it.",
     third = "{name} met Brewmeister Bilger in the Southshore cellar, a former knight of the Silver Hand who turned to brewing.",
   },
 
@@ -1435,7 +1472,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Loremaster Dibbs is saving what's left of the old kingdom's books from ogre cookfires. He talks about them the way other people talk about lost friends.",
+    first = "He talks about the old kingdom's books like lost friends.",
     third = "{name} met Loremaster Dibbs, who collects the scattered knowledge of the old kingdom in Southshore.",
   },
 
@@ -1671,7 +1708,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Anderson told me to shut the door against the rain and then admitted every corner leaks. Honest about his roof is honest enough for me.",
+    first = "He admits every corner of his roof leaks, which is honest enough.",
     third = "{name} took shelter at the Southshore inn, kept by Innkeeper Anderson, where the rain finds every corner.",
   },
 

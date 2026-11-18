@@ -7,9 +7,10 @@ P:NPC {
   prejudice = { class = "MAGE", amount = 8, why = "Dalaran's mages are one of his four enemies; any mage reminds him of Arugal and the Kirin Tor's meddling in Silverpine." },
   bible = "bibles/silverpine.md", role = "soldier", tier = "major",
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
+  likesTone = "blunt",
   notices = { "kit", "race" },
   impression = {
-    first = "High Executor Hadrec holds the Sepulcher against the worgen, the Scourge, the gnolls and Dalaran's mages all at once, and he recites the list without a flicker of worry.",
+    first = "He lists all his enemies without a flicker of worry.",
     third = "{name} met High Executor Hadrec, who holds the Sepulcher and Silverpine Forest for the Dark Lady.",
   },
 
@@ -236,6 +237,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "The Sepulcher doesn't hear much praise, since most who come here want something or are fleeing something. I'll take it, and I'll pass it down the line to the Deathguard." },
+        { id = "s2", text = "You've seen what we hold this place against, then, and you understand what it costs. That's well said, and it's rarer here than reinforcements." },
+      },
+      fail = {
+        { id = "f1", text = "I've four enemies in this forest and no time for a fifth who talks sweetly. Save the compliments for the court in the Undercity, where they've a use for them." },
+        { id = "f2", text = "Fine words won't hold a wall, and I've nothing to give you in exchange for them. Make your report or move along." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've more spine than the last three the Undercity sent me, and they were armed. I can use someone who isn't afraid to speak, so long as you fight as well." },
+        { id = "s2", text = "The worgen howl worse than that at my gates every night, though I'll admit you put more thought into it. You'll do." },
+      },
+      fail = {
+        { id = "f1", text = "I've lost good Deathstalkers this month, and I'm in no humour to be mocked by someone who hasn't walked my forest. Hold your tongue, or take it to Pyrewood and see how they like it there." },
+        { id = "f2", text = "Insolence is a luxury for garrisons with fewer enemies than mine. Speak to me like that again and you'll be scrubbing the crypts until the gnolls come for you." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've the look of something Arugal's wolves would think twice about. I don't scare, but I know a dangerous creature when one stands before me, and I'd sooner have you on my side of the wall." },
+        { id = "s2", text = "That's a hard stare, and I've seen few harder outside the Scourge. Very well, you've made your point, and I'll hear the rest of it." },
+      },
+      fail = {
+        { id = "f1", text = "Worgen, Scourge, gnolls and Dalaran's mages all want this place, and none of them has shifted me yet. You're welcome to join the queue." },
+        { id = "f2", text = "You threaten the High Executor inside his own Sepulcher, with the Deathguard listening. I'd call that the worst plan anyone has brought me this week, and I've heard several." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every deathstalker report in Silverpine ends on my desk. Ask what you need to know, and I'll tell you what they found." },
@@ -254,6 +287,10 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief's people come through Silverpine now and then, on their way somewhere else. They fight well enough, and I'm glad of any blade that points at my enemies." } },
     lordaeron = { { id = "tp_lordaeron", text = "Silverpine was Lordaeron's western forest, and its people fled or died when the plague came. The forest has forgotten them, but I haven't." } },
     _none = { { id = "tp_none", text = "Ask Shadow Priest Allister; information is his business, not mine." } },
+    _gated = {
+      { id = "gt1", text = "That's not for your ears until I know more of what you're worth. Do some work in Silverpine first, and then ask." },
+      { id = "gt2", text = "I don't share that with every blade that passes through. Prove yourself against my enemies, and I may think again." },
+    },
   },
 }
 
@@ -263,7 +300,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "focused" }, values = { "ambitious", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Apothecary Renferrel works far from the Undercity's eyes and nose, and he takes Silverpine's damp as a personal insult. He calls his work improving on a recipe for death without a hint of irony.",
+    first = "He takes Silverpine's damp as a personal insult.",
     third = "{name} met Apothecary Renferrel of the Royal Apothecary Society, who pursues his studies in the damp crypts of the Sepulcher.",
   },
 
@@ -458,7 +495,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "proud" }, values = { "sharp", "proud" },
   notices = { "class" },
   impression = {
-    first = "Dalar Dawnweaver would still like to be called Archmage, and thinks the Kirin Tor rude for stopping when he died. He warned Dalaran once and nobody listened, and he has not let it go.",
+    first = "He warned Dalaran once, nobody listened, and he hasn't let it go.",
     third = "{name} met Dalar Dawnweaver, a former archmage of the Kirin Tor who now watches Dalaran's mages from the Sepulcher.",
   },
 
@@ -691,7 +728,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "smooth" }, values = { "cunning", "loyal" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Shadow Priest Allister had heard I was coming before I arrived, and he wanted me to know it. He keeps watchers in every corner of Lordaeron and trades in whatever they bring him.",
+    first = "He keeps watchers in every corner of Lordaeron.",
     third = "{name} met Shadow Priest Allister, the Sepulcher's spymaster, who learns of everything that moves in Silverpine.",
   },
 
@@ -947,7 +984,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "hospitable" }, values = { "generous" },
   notices = { "weary" },
   impression = {
-    first = "Innkeeper Bates runs an inn in a crypt and keeps calling the beds slabs out of habit. He has come to an arrangement with the spiders, and he can tell the worgen apart by their howls.",
+    first = "He keeps calling the beds slabs out of habit.",
     third = "{name} rested at Innkeeper Bates's crypt of an inn at the Sepulcher, where the roof at least keeps the worgen out.",
   },
 

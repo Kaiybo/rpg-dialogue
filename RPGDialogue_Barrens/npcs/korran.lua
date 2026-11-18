@@ -9,7 +9,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "calm" }, values = { "curious", "loyal" },
   notices = { "class", "trophy" },
   impression = {
-    first = "Korran watches the Barrens for Belgrom Rockmaul and has spent his days studying the insects of the Field of Giants. He talks about them calmly, but he has stopped calling them beetles.",
+    first = "He has stopped calling the insects beetles.",
     third = "{name} met Korran at the Crossroads, a Darkspear watcher who studies the silithid of the Field of Giants for Belgrom Rockmaul.",
   },
 

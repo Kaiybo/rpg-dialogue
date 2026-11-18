@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "cheerful", "precise" }, values = { "curious", "loyal" },
   notices = { "race", "craft" },
   impression = {
-    first = "Chemist Cuely works beside his brother in the Apothecarium and studies a sick tauren named Thersa Windsong as if she were the most interesting thing in Lordaeron. He's very helpful, which somehow makes it worse.",
+    first = "He is very helpful, which somehow makes it worse.",
     third = "{name} met Chemist Cuely, an apothecary studying the illness of Thersa Windsong in the Undercity.",
   },
 
@@ -103,7 +103,7 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "cheerful", "grim" }, values = { "loyal", "curious" },
   notices = { "race", "craft" },
   impression = {
-    first = "Chemist Fuely studies slimes and oozes at the bench beside his brother Cuely, and speaks of Lady Sylvanas the way a lost man speaks of a lighthouse. He smiles a great deal, and none of it reaches his eyes.",
+    first = "He smiles a great deal, and none of it reaches his eyes.",
     third = "{name} met Chemist Fuely, an apothecary in the Undercity studying oozes for Lady Sylvanas.",
   },
 
@@ -240,7 +240,7 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "sharp", "proud" }, values = { "curious", "honest" },
   notices = { "race", "class" },
   impression = {
-    first = "Parqual Fintallas was a great historian of Lordaeron before the plague took him, and he still knows more of the kingdom's past than anyone else in the Undercity. He is sceptical of everyone, scornful of brawn, and quietly starved for books.",
+    first = "He is scornful of brawn and quietly starved for books.",
     third = "{name} met Parqual Fintallas, a Forsaken historian in the Apothecarium who sets the Test of Lore's question.",
   },
 

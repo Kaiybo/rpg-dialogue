@@ -12,7 +12,7 @@ P:NPC {
   notices = { "kit", "stealth" },
 
   impression = {
-    first = "Kris Legace sells leather armour from a hiding spot behind Durnholde's keep, with the Syndicate on one side and their prisoners on the other. She sells to anyone and seems proud of answering to no one.",
+    first = "She sells to anyone and seems proud of answering to no one.",
     third = "{name} met Kris Legace, a freewheeling trader who sells leather armour in the ruins of Durnholde Keep.",
   },
 
@@ -167,7 +167,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Mallen Swain sells thread and dye at Tarren Mill and stitches his own fraying skin with the same patience he gives a hem. He seems to think a well-made seam is the last dignity the dead have.",
+    first = "He thinks a well-made seam is the last dignity the dead have.",
     third = "{name} met Mallen Swain, the Forsaken tailoring supplier at Tarren Mill.",
   },
 
@@ -321,7 +321,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Jason Lemieux sells mushrooms at Tarren Mill and is the most cheerful Forsaken I've met, which says more about the Forsaken than about him. He grows half of them in a cellar he won't describe.",
+    first = "He grows half his mushrooms in a cellar he won't describe.",
     third = "{name} met Jason Lemieux, who sells mushrooms at Tarren Mill.",
   },
 

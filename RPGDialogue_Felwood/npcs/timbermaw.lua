@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "timbermaw_felwood" }, temper = { "wary" }, values = { "loyal", "protective" },
   impression = {
-    first = "Grazle is a Timbermaw furbolg who waits outside the tunnels of Timbermaw Hold, testing outsiders before they are let near his people. He is slow to trust and clear about why.",
+    first = "He is slow to trust outsiders and clear about why.",
     third = "{name} met Grazle, the Timbermaw furbolg who guards the way to Timbermaw Hold in Felwood.",
   },
 
@@ -237,7 +237,7 @@ P:NPC {
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "timbermaw_felwood" }, temper = { "grim" }, values = { "practical", "loyal" },
   impression = {
-    first = "Nafien is a Timbermaw furbolg who hunts the Deadwood and asks outsiders to help him do it. He takes no joy in it, but he doesn't flinch from it either.",
+    first = "He takes no joy in hunting the Deadwood, but he doesn't flinch.",
     third = "{name} met Nafien, a Timbermaw furbolg fighting the corrupted Deadwood in northern Felwood.",
   },
 
@@ -442,7 +442,7 @@ P:NPC {
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "felwood_wilds" }, temper = { "pompous" }, values = { "ambitious", "proud" },
   impression = {
-    first = "Niby the Almighty is an imp with a very large name, camped out in Felwood among old fel ruins with another imp who does his errands. He is extremely sure of his own importance.",
+    first = "He is extremely sure of his own importance.",
     third = "{name} met Niby the Almighty, a self-important imp camped in the wilds of Felwood.",
   },
 

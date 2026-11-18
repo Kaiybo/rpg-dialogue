@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Krusk is an orc warrior sent by Thrall to Hillsbrad, who lost his companions to a Syndicate ambush at Durnholde and escaped alone. He's sharing a town with the dead and makes no secret that he'd rather be anywhere else.",
+    first = "He shares a town with the dead and would rather not.",
     third = "{name} met Krusk, an orc of Thrall's sent to Hillsbrad, who is trying to free his captured comrades from the Syndicate.",
   },
 
@@ -220,7 +220,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Novice Thaivand is the necromancer Helcular's apprentice, and he means to raise his master against Southshore. He speaks of the lynch mob that killed Helcular with a fury that hasn't cooled in all the years since.",
+    first = "His fury at the mob that killed his master has never cooled.",
     third = "{name} met Novice Thaivand, Helcular's apprentice, who plans to unleash his dead master on Southshore.",
   },
 
@@ -387,7 +387,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Deathguard Humbert lost his gear to dwarven scouts from Dun Garok and has been embarrassed about it ever since. He's a Deathguard without a sword, and he knows how that looks.",
+    first = "He's a Deathguard without a sword, and he knows how that looks.",
     third = "{name} met Deathguard Humbert of Tarren Mill, whose sword was stolen by dwarves from Dun Garok.",
   },
 
@@ -565,7 +565,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Deathguard Samsa is stuck on guard duty while others fight Hillsbrad's humans, and he collects their skulls to feel included. He seems cheerful about it, which is worse.",
+    first = "He collects human skulls to feel included, and cheerfully, which is worse.",
     third = "{name} met Deathguard Samsa of Tarren Mill, who collects human skulls from Hillsbrad's battles.",
   },
 
@@ -743,7 +743,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Tallow is a Forsaken warrior who looked me over and found me wanting. He's been asked to send help to Hammerfall and doesn't seem to care much whether the help survives.",
+    first = "He doesn't much care whether the help he sends survives.",
     third = "{name} met Tallow, a scornful Forsaken warrior at Tarren Mill who sends fighters to Hammerfall.",
   },
 
@@ -910,7 +910,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Zarise handles the bats at Tarren Mill and finds the living's fear of them amusing.",
+    first = "The living's fear of the bats gets nothing but amusement here.",
     third = "{name} met Zarise, the bat handler at Tarren Mill.",
   },
 
@@ -1075,7 +1075,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Kayren Soothallow sells general goods in Tarren Mill and keeps a separate shelf of food for the living allies, kept well apart from the rest.",
+    first = "Food for living allies sits on a shelf well apart.",
     third = "{name} met Kayren Soothallow, who sells general goods in Tarren Mill.",
   },
 

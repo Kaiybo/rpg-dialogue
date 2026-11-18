@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Tiev Mordune is a Darkspear shaman who finished his trial of water on the Silverpine coast and then stayed, in case anyone else needed help with theirs. He talks about himself in the third person and laughs easily.",
+    first = "He finished his trial of water and stayed to help with others'.",
     third = "{name} met Tiev Mordune, a troll shaman who waits by the water shrine at North Tide's Run to help others through their trial.",
   },
 

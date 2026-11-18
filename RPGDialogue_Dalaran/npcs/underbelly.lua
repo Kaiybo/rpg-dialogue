@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Rexxie Copperclutch passes herself off as a Dalaranian in a borrowed robe and fools nobody, least of all herself. She's a thief with a salesman's grin, and oddly likeable for it.",
+    first = "She is a thief with a salesman's grin, and oddly likeable.",
     third = "{name} met Rexxie Copperclutch, a goblin picking through Dalaran's troubles for anything worth selling.",
   },
 

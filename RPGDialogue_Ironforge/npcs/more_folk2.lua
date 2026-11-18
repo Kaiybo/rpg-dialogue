@@ -15,7 +15,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "proud", "busy" }, values = { "craft", "practical" },
   notices = { "race", "craft" },
   impression = {
-    first = "Beldin Steelgrill calls himself the finest siege engine technician in Khaz Modan, and his depot full of half-built war machines makes a fair case for it. He goes through tools faster than anyone can make them, and he knows it.",
+    first = "He goes through tools faster than anyone can make them.",
     third = "{name} met Beldin Steelgrill, the siege engine technician who runs Steelgrill's Depot outside Kharanos.",
   },
   greetings = {
@@ -111,7 +111,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "weary", "grumbling" }, values = { "craft", "honest" },
   notices = { "craft", "class" },
   impression = {
-    first = "Tharek Blackstone is a toolsmith in Kharanos with soot to his elbows and a perpetual look of a man three orders behind. He grumbles about Beldin Steelgrill constantly and would be lost without the work.",
+    first = "He grumbles about Steelgrill constantly and would be lost without the work.",
     third = "{name} met Tharek Blackstone, an overworked toolsmith in Kharanos who makes most of Steelgrill's Depot's tools.",
   },
   greetings = {
@@ -219,7 +219,7 @@ P:NPC {
   communities = { "dunmorogh", "gnomeregan" }, temper = { "cheerful", "proud" }, values = { "craft", "gnomeregan" },
   notices = { "race", "craft" },
   impression = {
-    first = "Milli Featherwhistle builds every mechanostrider in her pen herself, and she can tell you the gear ratio of each one. She only sells to gnomes or to those the gnomes trust, and she isn't apologetic about it.",
+    first = "She only sells to gnomes or those the gnomes trust.",
     third = "{name} met Milli Featherwhistle, the gnome who builds and sells mechanostriders at Steelgrill's Depot.",
   },
   greetings = {
@@ -320,7 +320,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "blunt", "hearty" }, values = { "brave", "honest" },
   notices = { "class", "drunk", "race" },
   impression = {
-    first = "Granis Swiftaxe trains warriors in the back of the Thunderbrew Distillery, and the smell of ale doesn't slow him down. He's quick with an axe and quicker with a joke, and sends his best students to Ironforge.",
+    first = "He is quick with an axe and quicker with a joke.",
     third = "{name} met Granis Swiftaxe, the warrior trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
@@ -418,7 +418,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "gruff", "patient" }, values = { "duty", "brave" },
   notices = { "class" },
   impression = {
-    first = "Thran Khorman is the first warrior trainer most Coldridge recruits ever meet, and he treats every one like they might be the next hero of Ironforge or the next to fall. He's gruff, but he's patient.",
+    first = "He is gruff with recruits, but he is patient.",
     third = "{name} met Thran Khorman, the warrior trainer at Anvilmar.",
   },
   greetings = {
@@ -519,7 +519,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "laconic", "wise" }, values = { "nature", "patient" },
   notices = { "class" },
   impression = {
-    first = "Thorgas Grimson's accent is so thick that other dwarves ask him to repeat himself. He believes the best training is in the field, and sends his hunters into the snow as soon as they can hold a gun.",
+    first = "His accent is so thick other dwarves ask him to repeat himself.",
     third = "{name} met Thorgas Grimson, the hunter trainer at Anvilmar.",
   },
   greetings = {
@@ -622,7 +622,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "confident", "warm" }, values = { "faith", "alliance" },
   notices = { "class", "race" },
   impression = {
-    first = "Bromos Grummner trains young paladins at Anvilmar and speaks of the Silver Hand as a bond between dwarves and humans that no war can break. He's confident, warm, and a little too fond of speeches.",
+    first = "He is confident, warm, and a little too fond of speeches.",
     third = "{name} met Bromos Grummner, the paladin trainer at Anvilmar.",
   },
   greetings = {
@@ -724,7 +724,7 @@ P:NPC {
   communities = { "dunmorogh" }, temper = { "sly", "principled" }, values = { "honor", "loyal" },
   notices = { "class" },
   impression = {
-    first = "Solm Hargrin trains rogues in a shadowy corner of Anvilmar and insists there's honour among thieves, though I'm not sure whether he's joking. He says Ironforge needs quiet blades more than ever.",
+    first = "He insists there's honour among thieves, and he may be joking.",
     third = "{name} met Solm Hargrin, the rogue trainer at Anvilmar.",
   },
   greetings = {

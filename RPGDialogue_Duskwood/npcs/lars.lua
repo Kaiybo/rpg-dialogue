@@ -10,7 +10,7 @@ P:NPC {
   notices = { "animal", "hunger" },
 
   impression = {
-    first = "Lars hunts for Sven's lonely camp and gets chased home by wolves for his trouble. He jokes about it, and stays, and I think the staying is the part that matters.",
+    first = "Wolves chase him home, and he jokes about it and stays.",
     third = "{name} met Lars, who hunts for Sven Yorgen's camp on Duskwood's western edge and is forever being chased home by dire wolves.",
   },
 

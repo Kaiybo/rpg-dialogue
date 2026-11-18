@@ -9,7 +9,7 @@ P:NPC {
   communities = { "mojache" }, temper = { "grave", "patient" }, values = { "wise", "proud" },
   notices = { "class", "trophy" },
   impression = {
-    first = "Talo Thornhoof was a great hunter until the Northspring harpies caught him alone, and he still hears their cries. He tells his stories slowly and asks others to settle the debt he can't.",
+    first = "He still hears the cries of the harpies who caught him alone.",
     third = "{name} met Talo Thornhoof, an elder tauren hunter at Camp Mojache who carries an old grudge against the Northspring harpies.",
   },
 

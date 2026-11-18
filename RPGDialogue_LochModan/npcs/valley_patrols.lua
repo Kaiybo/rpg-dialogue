@@ -11,7 +11,7 @@ P:NPC {
   notices = { "soldier", "class" },
 
   impression = {
-    first = "Mountaineer Wallbang talks at the volume of a rifle shot and laughs at the same pitch. He loves his patrol, his gun and the sound of a trogg running away, in roughly that order.",
+    first = "He talks at the volume of a rifle shot.",
     third = "{name} met Mountaineer Wallbang, a loud and cheerful rifleman who patrols the Valley of Kings.",
   },
 
@@ -194,7 +194,7 @@ P:NPC {
   notices = { "stealth", "kit" },
 
   impression = {
-    first = "Mountaineer Langarr says little and notices a great deal, and he seemed faintly disappointed that I hadn't arrived as a trogg. He keeps his patrol the way a priest keeps vigil.",
+    first = "He seemed faintly disappointed that I hadn't arrived as a trogg.",
     third = "{name} met Mountaineer Langarr, a dour and watchful Mountaineer of the Valley of Kings.",
   },
 
@@ -337,7 +337,7 @@ P:NPC {
   notices = { "greenness", "race" },
 
   impression = {
-    first = "Mountaineer Gwarth is new to the patrol and still polishes his buttons, and he talks about the older Mountaineers as if they were heroes out of a ballad. He's braver than he is careful.",
+    first = "He still polishes his buttons, and he's braver than he is careful.",
     third = "{name} met Mountaineer Gwarth, the youngest Mountaineer on the Valley of Kings patrol.",
   },
 

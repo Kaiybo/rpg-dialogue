@@ -10,7 +10,7 @@ P:NPC {
   notices = { "beard", "markings", "weathered" },
 
   impression = {
-    first = "Teuren Vineshade cuts hair, trims beards and inks kaldorei markings in Darnassus, and he studies every face that comes through his door as if it were a garden he'd been asked to tend.",
+    first = "He studies every face like a garden he's been asked to tend.",
     third = "{name} met Teuren Vineshade, the barber of Darnassus.",
   },
 

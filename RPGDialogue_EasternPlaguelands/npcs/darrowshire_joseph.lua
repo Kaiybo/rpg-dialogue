@@ -9,7 +9,7 @@ P:NPC {
   communities = { "darrowshire" }, temper = { "warm", "weary" }, values = { "loyal", "brave", "kind" },
   notices = { "class", "race" },
   impression = {
-    first = "Joseph Redpath held Darrowshire's square until he fell, and something cruel wore him for years afterward. Freed at last, he asked about his daughter before he asked about anything else.",
+    first = "He asked about his daughter before he asked about anything else.",
     third = "{name} spoke with the freed spirit of Joseph Redpath, the captain who died defending Darrowshire.",
   },
 

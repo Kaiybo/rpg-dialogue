@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "banker", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "honest", "patient" },
   impression = {
-    first = "Chesmu keeps Thunder Bluff's vaults and still counts wealth the way the tauren did when they wandered, in herds and in friends. The coins are kept carefully all the same.",
+    first = "He still counts wealth in herds and in friends.",
     third = "{name} met Chesmu, a banker of Thunder Bluff who remembers when the tauren kept their wealth on the hoof.",
   },
 
@@ -187,7 +187,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "patient" },
   notices = { "mount", "form" },
   impression = {
-    first = "Tal keeps the wind riders at the top of Thunder Bluff's tower and speaks of the sky the way other tauren speak of the plains. He is unhurried, and he trusts the wind more than any map.",
+    first = "He trusts the wind more than any map.",
     third = "{name} met Tal, the wind rider master of Thunder Bluff.",
   },
 
@@ -381,7 +381,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "disciplined", "honorable" },
   notices = { "class" },
   impression = {
-    first = "Ansekhwa teaches weapons on Thunder Bluff with the calm of someone who has never needed to raise his voice. He treats every blade and staff as a promise to protect someone.",
+    first = "He treats every blade and staff as a promise to protect someone.",
     third = "{name} met Ansekhwa, the weapon master of Thunder Bluff.",
   },
 
@@ -540,7 +540,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "vendor", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "diligent", "proud" },
   impression = {
-    first = "Kuna Thunderhorn makes and sells bows on Hunter Rise and speaks of good wood the way others speak of old friends. There's a family pride in every bow on the rack.",
+    first = "She speaks of good wood the way others speak of old friends.",
     third = "{name} met Kuna Thunderhorn, the bowyer of Thunder Bluff's Hunter Rise.",
   },
 
@@ -714,7 +714,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "patient" },
   notices = { "profession" },
   impression = {
-    first = "Kah Mistrunner teaches fishing on a mesa high above any water, and finds that more amusing than inconvenient. He is easy company, slow to hurry, and quick to laugh.",
+    first = "He teaches fishing high above any water and finds that amusing.",
     third = "{name} shared a laugh with Kah Mistrunner, who teaches the tauren to fish from a mesa nowhere near any water.",
   },
 
@@ -893,7 +893,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "practical" },
   notices = { "profession" },
   impression = {
-    first = "Aska Mistrunner teaches cooking in Thunder Bluff and treats every visitor as someone who hasn't eaten properly in weeks. She is warm, bossy, and usually right.",
+    first = "She is warm, bossy, and usually right.",
     third = "{name} was fussed over by Aska Mistrunner, who teaches cooking on Thunder Bluff and believes nobody eats enough.",
   },
 
@@ -1103,7 +1103,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "precise", "devout" },
   notices = { "profession", "race" },
   impression = {
-    first = "Bena Winterhoof teaches alchemy as a way of mending, not of making poisons, and says so firmly. She has strong opinions about the Forsaken apothecaries on Spirit Rise and shares them readily.",
+    first = "She has strong opinions about the Forsaken apothecaries and shares them readily.",
     third = "{name} heard Bena Winterhoof, alchemist of Thunder Bluff, insist that potions are for mending and not for poisons.",
   },
 
@@ -1332,7 +1332,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gentle" }, values = { "patient", "devout" },
   notices = { "profession", "form" },
   impression = {
-    first = "Nida Winterhoof teaches herbalism and smells of crushed leaves and earth. She talks about plants as gifts that must be thanked for, and seems to mean it every time.",
+    first = "She talks about plants as gifts that must be thanked for.",
     third = "{name} learned from Nida Winterhoof that every herb taken from Mulgore should be thanked for.",
   },
 
@@ -1500,7 +1500,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "practical", "devout" },
   notices = { "profession" },
   impression = {
-    first = "Una teaches leatherworking in Thunder Bluff and insists that a hide is a gift from the beast that gave it. Her hands never stop working while she talks.",
+    first = "Her hands never stop working while she talks.",
     third = "{name} met Una, the leatherworking trainer of Thunder Bluff.",
   },
 

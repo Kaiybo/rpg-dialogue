@@ -14,7 +14,7 @@ P:NPC {
   communities = { "lochmodan" }, temper = { "grim", "loyal" }, values = { "loyal", "brave" },
   notices = { "race", "class" },
   impression = {
-    first = "Pilot Hammerfoot watches the hills from the North Gate Outpost as if waiting for a gyrocopter that won't come. A fellow pilot went down out there, and Hammerfoot wants to know what happened, then wants it dead.",
+    first = "A fellow pilot went down in the hills, and he wants answers.",
     third = "{name} met Pilot Hammerfoot at the North Gate Outpost, a dwarf pilot grieving a lost comrade.",
   },
   greetings = {
@@ -99,7 +99,7 @@ P:NPC {
   communities = { "lochmodan" }, temper = { "steady", "dry" }, values = { "patient", "nature" },
   notices = { "class" },
   impression = {
-    first = "Dargh Trueaim trains hunters at the Farstrider Lodge, and he's earned his name. He speaks slowly, aims carefully, and seems to measure people the way he'd measure the wind before a long shot.",
+    first = "He measures people like the wind before a long shot.",
     third = "{name} met Dargh Trueaim, the hunter trainer at the Farstrider Lodge.",
   },
   greetings = {
@@ -203,7 +203,7 @@ P:NPC {
   communities = { "lochmodan", "gnomeregan" }, temper = { "eager", "talkative" }, values = { "craft", "curious" },
   notices = { "craft", "race" },
   impression = {
-    first = "Deek Fizzlebizz teaches engineering on the Stonewrought Dam and can't stop talking about it. He's a gnome who loves the dam's sluices and gears almost as much as he loves explosions.",
+    first = "He loves the dam's gears almost as much as explosions.",
     third = "{name} met Deek Fizzlebizz, a gnome engineering trainer on the Stonewrought Dam.",
   },
   greetings = {
@@ -311,7 +311,7 @@ P:NPC {
   communities = { "lochmodan" }, temper = { "cheerful", "chatty" }, values = { "practical", "community" },
   notices = { "hunger", "craft", "race" },
   impression = {
-    first = "Greishan Ironstove walks the road between the Valley of Kings and Dun Algaz with a pack full of bread, and he knows every guard post and every hungry mountaineer along the way. He's cheerful, chatty, and never seems to tire.",
+    first = "He knows every hungry mountaineer along the road.",
     third = "{name} met Greishan Ironstove, a travelling bread merchant on the roads of Loch Modan.",
   },
   greetings = {

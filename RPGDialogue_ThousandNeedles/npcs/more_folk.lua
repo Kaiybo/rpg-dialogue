@@ -9,7 +9,7 @@ P:NPC {
   communities = {}, temper = { "watchful", "grave" }, values = { "duty", "balance" },
   notices = { "race", "class" },
   impression = {
-    first = "Myriam Moonsinger keeps watch on a hill outside the Razorfen Downs, studying the quilboar and the cold stranger they have begun to worship. She is calm and careful, and certain the Scourge has reached the Barrens' edge.",
+    first = "She is certain the Scourge has reached the Barrens' edge.",
     third = "{name} met Myriam Moonsinger, a night elf watching the Razorfen Downs for signs of the Scourge.",
   },
   greetings = {

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "drink", "race" },
 
   impression = {
-    first = "Truk Wildbeard tends the bar at Wildhammer Keep and has an opinion on every rider who drinks there. He pours as if every mug were a toast, and most of them are.",
+    first = "He pours as if every mug were a toast, and most are.",
     third = "{name} drank at Truk Wildbeard's bar in Wildhammer Keep, Aerie Peak.",
   },
 
@@ -158,7 +158,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Drakk Stonehand teaches leatherworking at Aerie Peak and would rather hear about the beast than see the hide. He's one of the few Wildhammer with black hair, and he's tired of hearing about it.",
+    first = "He's tired of hearing about his black hair.",
     third = "{name} met Drakk Stonehand, the master leatherworker of Wildhammer Keep.",
   },
 
@@ -305,7 +305,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Nioma sells leatherworking supplies at Wildhammer Keep and keeps Drakk Stonehand in salt and thread. She has strong views on owlbeast hides and stronger ones on Drakk.",
+    first = "She has strong views on owlbeast hides and stronger ones on Drakk.",
     third = "{name} bought supplies from Nioma at Wildhammer Keep.",
   },
 
@@ -449,7 +449,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Killium Bouldertoe keeps the stables at Wildhammer Keep, where every animal has to get used to living beside gryphons. He talks to the beasts more than to their owners.",
+    first = "He talks to the beasts more than to their owners.",
     third = "{name} met Killium Bouldertoe, the stable master of Wildhammer Keep.",
   },
 

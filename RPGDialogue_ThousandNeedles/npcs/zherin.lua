@@ -9,7 +9,7 @@ P:NPC {
   communities = { "mirage_raceway" }, temper = { "dry" }, values = { "practical", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Trackmaster Zherin is a tauren tracker hired to keep the Mirage Raceway's track clear of basilisks. He finds the racers baffling, the salt flats fascinating, and the cleanup afterward the worst part of the job.",
+    first = "He finds the racers baffling and the salt flats fascinating.",
     third = "{name} met Trackmaster Zherin at the Mirage Raceway, the tauren tracker who keeps basilisks off the racing course.",
   },
 

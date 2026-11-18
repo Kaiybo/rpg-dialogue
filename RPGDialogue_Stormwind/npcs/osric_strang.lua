@@ -12,10 +12,11 @@ P:NPC {
   key = "osric_strang", id = TODO_NPC("Osric Strang"), name = "Osric Strang",
   bible = "bibles/osric_strang.md", role = "vendor", tier = "major",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "loyal", "practical", "proud" },
+  likesTone = "blunt",
   notices = { "soldier", "elf", "gear" },
 
   impression = {
-    first = "Osric Strang sells armor in Old Town and talks about the war as if it ended last week. He hates orcs with a soldier's patience, and he isn't much fonder of the night elves.",
+    first = "He talks about the war as if it ended last week.",
     third = "{name} bought nothing from Osric Strang, Old Town's armorer, but heard a good deal about orcs.",
   },
 
@@ -347,7 +348,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's decently said, and I'll not pretend an old armorer doesn't like to hear it. Every plate on that wall was hammered to keep some soldier breathing, and it's good when folk see that." },
+        { id = "s2", narr = "lass}.", text = "You know good plate when you see it, then, which is more than most who come through that door. I'll take the word kindly, {g:lad" },
+      },
+      fail = {
+        { id = "f1", text = "I've been buttered up by quartermasters from here to Lordaeron, and it never once knocked a copper off the steel. Say what you need and say it plainly." },
+        { id = "f2", text = "Fine words don't turn a blade, and I've no patience for them. If you like the armor so well, wear it somewhere it'll get dented." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah! You've a mouth like my old sergeant, and he was the only man in the company worth listening to. Aye, I'm old and sour, and the plate's still the best in Old Town." },
+        { id = "s2", text = "That's cheek, and I've not had proper cheek in this shop since the young ones marched off to Westfall. Go on, then, for I can take a knock as well as my breastplates can." },
+      },
+      fail = {
+        { id = "f1", text = "I stood the line while better folk than you died beside me, and I'll not be laughed at in my own shop for it. Mind the stand on your way out." },
+        { id = "f2", text = "You'd not have lasted a week in my company with a tongue like that and nothing behind it. I've work on the anvil, so take your jokes elsewhere." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, all right, there's no need for that in here. I've seen that look on soldiers before a charge, and I know when one means it, so say your piece." },
+        { id = "s2", text = "You've iron in you, I'll grant that, and I'm too old to go to the floor over a few words. Have it your way this once." },
+      },
+      fail = {
+        { id = "f1", text = "I guarded orcs in the camps for three years, and they glared at me harder than that every morning. Put your shoulders down before you hurt yourself." },
+        { id = "f2", text = "There's a hammer under this counter that's flattened better plate than you're wearing. Try me again and you'll see how an Old Town man settles it." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's my own business, and I don't hand it to folk I've no reason to trust. Come back when you've given me one." },
+      { id = "gt2", text = "I'll not talk about that with you, not yet. A man's allowed to keep a few things behind the counter." },
+    },
     knows = {
       { id = "tp_knows", text = "I know armor, and I know the war, and I know Old Town better than most. Ask, and I'll tell you what I think, which isn't always what you'll want to hear." },
     },

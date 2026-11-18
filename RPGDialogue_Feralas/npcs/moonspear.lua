@@ -9,7 +9,7 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "brisk", "stern" }, values = { "dutiful", "loyal" },
   notices = { "soldier", "kit" },
   impression = {
-    first = "Latronicus Moonspear runs Feathermoon's war on the naga for General Feathermoon, and has no patience for chatter. Under the brusque manner he is fond of his wife and proud of his island.",
+    first = "Under the brusque manner he is fond of his wife.",
     third = "{name} met Latronicus Moonspear, Shandris Feathermoon's second, who leads Feathermoon's fight against the Hatecrest naga.",
   },
 
@@ -188,7 +188,7 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "warm", "precise" }, values = { "curious", "kind" },
   notices = { "lore", "priest" },
   impression = {
-    first = "Vestia Moonspear is a priestess and scholar who studies whatever strange things her husband brings back from the naga ruins. She is warm, quick, and blushes a little when she calls him Latro.",
+    first = "She blushes a little when she calls her husband Latro.",
     third = "{name} met Vestia Moonspear, a priestess and scholar of Feathermoon Stronghold and Latronicus Moonspear's wife.",
   },
 

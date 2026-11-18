@@ -6,9 +6,10 @@ P:NPC {
   key = "baine", id = TODO_NPC("Baine Bloodhoof"), name = "Baine Bloodhoof",
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "bloodhoof" }, temper = { "calm" }, values = { "wise", "loyal", "kind" },
+  likesTone = "polite",
   notices = { "race", "form" },
   impression = {
-    first = "Baine Bloodhoof would rather talk the goblins, gnolls and dwarves down than fight them, and he means it. He walks the village every evening and admits he is still learning a few of its faces.",
+    first = "He would rather talk his enemies down than fight them.",
     third = "{name} met Baine Bloodhoof, Cairne's son, who keeps Bloodhoof Village and the plains below the bluffs.",
   },
 
@@ -390,7 +391,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's generously said, and I'll try to deserve it. My father taught me that praise is a debt, so I'll repay it in how I keep these plains." },
+        { id = "s2", text = "You honor me, and through me the village, and I thank you for both. May the Earth Mother smile on a generous tongue." },
+      },
+      fail = {
+        { id = "f1", text = "I'm the High Chieftain's son, so I've been flattered since I was a calf, and I learned early what it's worth. Speak to me as you would to any brave." },
+        { id = "f2", text = "Those words are bigger than anything I've yet done. Keep them until I've earned them, and tell me honestly what you need." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! The braves here are too mindful of whose son I am to speak to me like that, and I've missed it. You're welcome at my fire." },
+        { id = "s2", text = "You've a quick tongue and a brave heart to aim it at me. My father says a chief who can't be teased can't be trusted, and I think he's right." },
+      },
+      fail = {
+        { id = "f1", text = "I'll bear a jest gladly, but that one had a barb in it and no warmth. I'd ask you to show the village more respect than that." },
+        { id = "f2", text = "Mock me if you must, but don't expect me to think better of you for it. There are Bristleback in the ravines who'd make a worthier target." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I see the strength in you, and I'll not pretend it doesn't give me pause. I'd far rather have it beside my people than set against them." },
+        { id = "s2", text = "My father taught me to know when a greater weight has entered the tent, and I feel it now. Speak freely, and I'll hear you out." },
+      },
+      fail = {
+        { id = "f1", text = "I was raised on stories of the centaur wars, and I've stood my own watches against the Palemane since. You'll need more than a hard word to move a Bloodhoof." },
+        { id = "f2", text = "This is a peaceful village, and I mean to keep it so, even from our own guests. Lower your voice, friend." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's something I'd share with a friend of the village, and I hope you'll become one. For now I'll keep it to myself." },
+      { id = "gt2", text = "Forgive me, but I'll not speak of that yet. I owe my people some care in what I tell to those I've only just met." },
+    },
     knows = {
       { id = "tp_knows", text = "The plains bring news to Bloodhoof from every road, and I try to hear all of it. Ask me about these, and I'll tell you what I know." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit with me, friend; you've earned the long answers, and the village can spare me a while." },
@@ -420,7 +457,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "serene" }, values = { "wise", "patient" },
   notices = { "class", "affliction" },
   impression = {
-    first = "As Baine tends the people of Bloodhoof, Zarlman Two-Moons tends its spirits. He speaks of them as if they were restless children, which may be exactly what they are.",
+    first = "He speaks of the spirits as if they were restless children.",
     third = "{name} met Zarlman Two-Moons, spiritual leader of Bloodhoof Village and keeper of the rite of vision.",
   },
 
@@ -602,7 +639,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
   notices = { "class" },
   impression = {
-    first = "Harken Windtotem watches the sky over Mulgore out of a habit left from the wandering years. He reads the weather from his aching knees and calls it progress with a perfectly straight face.",
+    first = "He reads the weather from his aching knees and calls it progress.",
     third = "{name} met Harken Windtotem, who keeps watch over what flies above Mulgore, which lately means far too many swoops.",
   },
 
@@ -785,7 +822,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "solemn" }, values = { "brave" },
   notices = { "kit" },
   impression = {
-    first = "Rain followed every camp Maur Raincaller made on the long walk to Mulgore, and the name stuck. He tracks a beast the young hunters only whisper about, and he means to see its hide.",
+    first = "He tracks a beast the young hunters only whisper about.",
     third = "{name} met Maur Raincaller, a solemn tauren hunter on the trail of the great beast Mazzranache.",
   },
 
@@ -958,7 +995,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "worried" }, values = { "devout", "protective" },
   notices = { "race" },
   impression = {
-    first = "Mull Thunderhorn walks to every sacred well each morning and finds the water no better each time. His worry is plain, but so is his stubbornness, and he will walk again tomorrow.",
+    first = "He finds the wells no better each morning, and walks again tomorrow.",
     third = "{name} met Mull Thunderhorn, who grieves for the sacred wells of Mulgore poisoned by the Venture Company's machines.",
   },
 
@@ -1122,7 +1159,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "anxious" }, values = { "kind" },
   notices = { "pet" },
   impression = {
-    first = "Ahab Wheathoof cannot go two sentences without asking after his dog Kyle. It is plain the scruffy creature is his best friend in all the world.",
+    first = "He cannot go two sentences without asking after his dog Kyle.",
     third = "{name} met Ahab Wheathoof, a kindly rancher by the lake near Bloodhoof whose dog Kyle has a habit of running off.",
   },
 
@@ -1291,7 +1328,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary", "drink" },
   impression = {
-    first = "No traveller leaves Innkeeper Kauth's inn unfed, and he keeps bringing Mull stew that goes uneaten. He swears the bluff folk come down for his stew, not the view.",
+    first = "He swears folk come down from the bluff for his stew.",
     third = "{name} rested at Innkeeper Kauth's inn in Bloodhoof Village, where nobody leaves without a bowl of stew.",
   },
 
@@ -1523,7 +1560,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "brave" },
   notices = { "craft" },
   impression = {
-    first = "Kaga Wildhoof wanders and camps and comes home to Mulgore when the wind turns. She has met more friends at campfires than in any town, she says, and after sitting at hers I can see why.",
+    first = "She has met more friends at campfires than in any town.",
     third = "{name} shared a fire with Kaga Wildhoof, a wandering tauren camped outside Bloodhoof who teaches the art of a good camp.",
   },
 

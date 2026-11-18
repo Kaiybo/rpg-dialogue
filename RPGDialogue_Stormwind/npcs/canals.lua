@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "practical", "loyal" },
   notices = { "light", "kin", "drink" },
   impression = {
-    first = "Suzetta Gallina runs the Gallina Winery and keeps a tally of every free bottle her brother promises the city. She pours them anyway, with a sigh that is mostly for show.",
+    first = "She tallies every free bottle her brother promises, then pours them anyway.",
     third = "{name} met Suzetta Gallina, who runs her family's winery on the Stormwind canals.",
   },
 
@@ -217,7 +217,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "prickly" }, values = { "stubborn", "loyal" },
   notices = { "light", "kin", "refugee" },
   impression = {
-    first = "Ol' Emma carries water across the canals all day and talks to herself because, she says, nobody else in the city makes decent conversation. There's grief under the grumbling, and she doesn't want it noticed.",
+    first = "There's grief under her grumbling, and she doesn't want it noticed.",
     third = "{name} met Ol' Emma, the grumbling water carrier of the canals, who came south from Lordaeron long ago.",
   },
 
@@ -483,7 +483,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "hardworking" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Rema Schneider sews for most of the Trade District's merchant families from her shop by the canal bridge, and she worries aloud about why everyone suddenly wants sturdy clothes. She suspects the nobles know something the rest of us don't.",
+    first = "She suspects the nobles know something the rest of us don't.",
     third = "{name} met Rema Schneider, the tailor of the Canal Tailor and Fit Shop by the bridge to Cathedral Square.",
   },
 
@@ -684,7 +684,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
   notices = { "light", "kin", "craft" },
   impression = {
-    first = "Arnold Leland teaches fishing on the canals as though there were no hurry anywhere in the world. Talking to him slowed my pulse a little, which may be the point of fishing.",
+    first = "Talking to him slows my pulse a little.",
     third = "{name} met Arnold Leland, who teaches fishing on the Stormwind canals beside Catherine Leland's supply stall.",
   },
 
@@ -863,7 +863,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "cunning" },
   notices = { "light", "kin", "purse" },
   impression = {
-    first = "Morris Lawry begs on the canal bridges and tells two different stories about how he lost his farm, depending on who's listening. I couldn't tell whether either was true, and I suspect he's forgotten.",
+    first = "He tells two different stories about how he lost his farm.",
     third = "{name} met Morris Lawry, a canal beggar with a story for every passer-by.",
   },
 
@@ -1059,7 +1059,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious" },
   notices = { "light", "kin", "wonder" },
   impression = {
-    first = "Billy fishes the canals with his friend Adam and catches mostly boots, though to hear him tell it he once landed a fish bigger than himself. I believed every word while he was talking.",
+    first = "He catches mostly boots and swears he once landed a giant.",
     third = "{name} met Billy, a boy on the Stormwind canals with a fish story for every occasion.",
   },
 
@@ -1241,7 +1241,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk" }, values = { "dutiful", "practical" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Manifest Clerk Philmor keeps Stormwind's harbor running on too few dockhands and too many ledgers. He told me the work was open to anyone and my safety was my own affair, and he meant both.",
+    first = "He says the work is open to all and safety is mine.",
     third = "{name} met Manifest Clerk Philmor, who keeps the cargo manifests at Stormwind Harbor.",
   },
 

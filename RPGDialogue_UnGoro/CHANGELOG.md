@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-18)
+- More named NPCs the earlier passes missed now have conversations, and thin ones have more to say. New files: restart the game fully.
+
+## 1.23.0 (2026-11-18)
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.22.0 (2026-11-18)
 - NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.
 - Writing pass: stance replies end on something concrete, fewer echoes and stock phrases.

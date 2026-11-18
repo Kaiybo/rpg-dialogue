@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "weary" },
 
   impression = {
-    first = "Eric Brighthammer has slept under more stars than roofs and plainly prefers it that way. He waved me to his fire like we'd known each other for years.",
+    first = "He has slept under more stars than roofs and prefers it.",
     third = "{name} warmed up at Eric Brighthammer's fire in Dun Morogh, where he teaches anyone who asks how to sleep out in the cold.",
   },
 
@@ -229,7 +229,7 @@ P:NPC {
   notices = { "greenness", "race" },
 
   impression = {
-    first = "Sten Stoutarm runs Anvilmar's post and complains that all he ever gets is green recruits. He gave me work anyway, and I think that was a compliment.",
+    first = "He complains about green recruits, then gives them work anyway.",
     third = "{name} met Sten Stoutarm, who runs the post at Anvilmar and is always short of sturdy help.",
   },
 
@@ -438,7 +438,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Grelin Whitebeard feels trouble in his beard and blames most of it on his apprentice. Under the grumbling he's a careful envoy, and loyal to the King down to the bone.",
+    first = "He feels trouble in his beard and blames his apprentice.",
     third = "{name} met Grelin Whitebeard, the Senate's envoy sent to learn what the Frostmane trolls are planning.",
   },
 
@@ -663,7 +663,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Senir Whitebeard offered me his sympathy for having met his brother, and he was only half joking. He's the steadier of the two, I think.",
+    first = "He offered his sympathy for my having met his brother.",
     third = "{name} met Senir Whitebeard in Kharanos, an envoy of the Senate who watches the Frostmane trolls in their hold.",
   },
 
@@ -889,7 +889,7 @@ P:NPC {
   notices = { "drink", "craft" },
 
   impression = {
-    first = "Ragnar Thunderbrew is prepared to fight anyone who doubts his ale, though politely. He's short a meat supplier and very long on opinions about ribs.",
+    first = "He will fight anyone who doubts his ale, though politely.",
     third = "{name} met Ragnar Thunderbrew, part owner of the Thunderbrew Distillery, who now buys his meat from hunters.",
   },
 
@@ -1231,7 +1231,7 @@ P:NPC {
   notices = { "weary", "race" },
 
   impression = {
-    first = "Innkeeper Belm put a mug in my hand before I'd asked for one and told me I'd earned it, whatever it was. I'd like more people to work that way.",
+    first = "He put a mug in my hand before I'd asked.",
     third = "{name} rested at Innkeeper Belm's in Kharanos, where there are beds upstairs and Thunderbrew ale downstairs.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Thrall carries Orgrim Doomhammer's hammer and spends every day trying to deserve it. He listens like a shaman and speaks like a chieftain, and he has plainly never forgotten what it was to be a slave.",
+    first = "He carries Doomhammer's hammer and spends every day trying to deserve it.",
     third = "{name} stood before Thrall, Warchief of the Horde, in Grommash Hold in Orgrimmar.",
   },
 
@@ -746,7 +746,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Those are generous words, and I can hear that you mean them. Whatever I've built here was built by many hands, but I'll accept the praise on behalf of all of them." },
+        { id = "s2", text = "I was raised by a man who praised me only when he wanted something, so I've learned to tell the difference. Yours is honestly given, and I thank you for it." },
+        { id = "s3", when = { class = "SHAMAN" }, text = "From one who also listens to the elements, that means a great deal. The spirits don't flatter, and I don't think you do either." },
+      },
+      fail = {
+        { id = "f1", text = "I was taught to read flattery by a master of it, in the pits of Durnholde, and I've no love for the lesson. Speak to me as one of the Horde and not as a courtier." },
+        { id = "f2", text = "The Horde doesn't need a Warchief who grows fat on compliments. If you've something true to say, say it, and leave the rest outside my hall." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! There aren't many who'd speak to their Warchief that way, and fewer still that I'd thank for it. A Horde that can't laugh at its leader is no better than the one we left behind." },
+        { id = "s2", text = "You've got fire in you, and you aren't afraid to turn it on me. Good, because I'd sooner have ten who challenge me than a hundred who only nod." },
+      },
+      fail = {
+        { id = "f1", text = "I've been mocked by men who held my chains, and I answered them when the time came. You're not my jailer, {class}, so I'll simply tell you that you've misjudged this hall." },
+        { id = "f2", text = "There's a difference between speaking freely and speaking like a fool, and you've just crossed it. I'll hear every voice of the Horde, but I don't have to respect every one." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I don't frighten, but I do recognize strength when it stands in front of me, and yours is real. I'm glad it stands with the Horde and not against it.", narr = "Thrall studies you for a long moment, and then inclines his head." },
+        { id = "s2", text = "There's a weight to you that I've seen in very few, and it would be foolish of me to ignore it. Speak, then, and know that the Warchief is listening closely." },
+      },
+      fail = {
+        { id = "f1", text = "I stood beside Grom Hellscream against Mannoroth, and I faced Admiral Proudmoore's guns after that, so you'll forgive me if I don't tremble. Remember where you stand, and who stands around you." },
+        { id = "f2", text = "Blackmoore tried for years to rule me with fear, and he is dead while I am Warchief. Don't try it again in my hall." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I'll speak of with one I hardly know. Serve the Horde well, and there'll come a day when I'll tell you gladly." },
+      { id = "gt2", text = "A Warchief must choose who hears what, and for now I choose to keep that to myself. Take it as a reason to prove yourself, and not as an insult." },
+    },
     knows = {
       { id = "tp_knows", text = "The Warchief hears from every corner of the Horde, though not always the truth. Ask me about these, and I'll tell you what I believe." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've earned straight answers from me, and I'll give you as many as I have." },
@@ -789,11 +826,12 @@ P:NPC {
   key = "voljin", id = TODO_NPC("Vol'jin"), name = "Vol'jin",
   bible = "bibles/orgrimmar.md", role = "noble", tier = "major",
   communities = { "orgrimmar" }, temper = { "wry" }, values = { "cunning", "loyal", "wise" },
+  private = { "yenniku" },
   race = "Troll", likesTone = "blunt",
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Vol'jin only talks to the interesting ones, he says, and he watched me the whole time as if deciding which I was. His humour is sly, but his debt to Thrall runs deeper than any joke.",
+    first = "He only talks to the interesting ones, and was deciding about me.",
     third = "{name} met Vol'jin, chief of the Darkspear trolls, who stands at the Warchief's side in Orgrimmar.",
   },
 
@@ -1100,7 +1138,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Heh, you got a sweet tongue, and for once Vol'jin don't mind it. The Darkspear been called many things, mon, so it be nice to hear a kind one." },
+        { id = "s2", text = "Vol'jin hear plenty of flattery in dis hall, and most of it smell like old fish. Yours smell honest, so I be keeping it." },
+      },
+      fail = {
+        { id = "f1", text = "My father taught me to watch the hands of anyone who talk too sweet, and I be watching yours now. Try again without the honey, mon." },
+        { id = "f2", text = "You be laying it on thick as swamp mud, and Vol'jin was not born yesterday. A shadow hunter see what hide behind the words." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You got teeth, and you not afraid to show them to a chieftain. Vol'jin like dat, because the loa got no love for the meek." },
+        { id = "s2", text = "Now dat be the kind of cheek the Darkspear trade round the fire in Sen'jin, and I been missing it up here among all dis stone. You be one of the interesting ones after all." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, mon, because Vol'jin laugh easy but he don't forget easy. The last ones who mocked the Darkspear be feeding the crabs off the coast." },
+        { id = "f2", text = "You be thinking you clever, and maybe you be, but dat was not it. Go and sharpen your tongue somewhere else before you cut yourself." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Vol'jin seen sea witches and worse, and he know real danger when it walk into the room. You got it on you like a shadow, so I be speaking to you with care." },
+        { id = "s2", text = "Hm. The spirits round you gone very quiet, mon, and dat only happen near someone they respect. All right, you got my ear." },
+      },
+      fail = {
+        { id = "f1", text = "You try to scare a shadow hunter who walk with the loa of the dead every night? I seen things in the dark dat would turn your hair white, and none of them be you." },
+        { id = "f2", text = "The Darkspear been hunted by murlocs, humans and a sea witch, and we still be here. You gonna need more than a hard look, mon." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "Dat be a thing Vol'jin keep close, and you not be close enough yet. Do right by the Darkspear, and maybe one day I be telling you." },
+      { id = "gt2", text = "No, mon, Vol'jin not be speaking of dat with you, not today. Some words be only for those who earned them." },
+    },
     knows = {
       { id = "tp_knows", text = "Vol'jin hear plenty, mon: from the Warchief, from the spirits, and from the trolls who whisper in the corners. Ask me about these." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You be a friend now, so I tell you straight, with no riddles, or not many." },
@@ -1132,7 +1206,7 @@ P:NPC {
   race = "Orc", likesTone = "polite",
   notices = { "class", "fel" },
   impression = {
-    first = "Smooth-spoken Neeru Fireblade calls himself a loyal servant of the Warchief, which may well be true. He watches the Horde's fire-worshippers very closely, and I cannot quite tell how he feels about what he sees.",
+    first = "I cannot tell how he feels about the fire-worshippers he watches.",
     third = "{name} met Neeru Fireblade in the Cleft of Shadow, who claims to keep watch over those in the Horde who still play with fire.",
   },
 
@@ -1415,7 +1489,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "How very gracious of you, and how rare it is to meet good manners in this city of axes. I shall remember that you troubled to be courteous." },
+        { id = "s2", text = "You have a discerning eye, friend, and I do so enjoy the company of the discerning. The Cleft is a kinder place for those who appreciate it." },
+      },
+      fail = {
+        { id = "f1", text = "Ah, but I have used that very approach myself, and rather more gracefully. Do come back when you've practised." },
+        { id = "f2", text = "Flattery is a tool, my friend, and you are holding it by the wrong end. I'd prefer that you simply told me what you want." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Oh, very good! So few in Orgrimmar have any wit at all, and you have chosen to spend yours on me, so I am almost flattered." },
+        { id = "s2", text = "You have a wicked tongue, and I find I cannot bring myself to mind. Boldness of that kind opens doors in the Cleft of Shadow." },
+      },
+      fail = {
+        { id = "f1", text = "How tiresome. I had hoped you were one of the clever ones, but I see you are merely one of the loud ones." },
+        { id = "f2", text = "I have been insulted by shamans, grunts and the Warchief's own guards, and all of them did it better. Do mind your manners in my tent." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is no need for any of that between friends, truly there isn't. You've made yourself quite clear, and I am listening most attentively.", narr = "Neeru folds his hands together, a little too carefully." },
+        { id = "s2", text = "Well, well, there is steel in you after all, and I confess I felt it. Let us go on politely, since I should hate to see where the other road leads." },
+      },
+      fail = {
+        { id = "f1", text = "You are standing in the Cleft of Shadow, friend, among a great many warlocks who owe me favours. I would think very carefully about your tone." },
+        { id = "f2", text = "I have studied things that would unmake you with a glance, so a raised voice does very little for me. Sit down, and let us pretend this never happened." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is a conversation for friends, and we are not yet quite friends, are we? Prove yourself useful, and I may find I have more to say." },
+      { id = "gt2", text = "I think I shall keep that to myself for the present. One doesn't hand one's confidences to every {class} who wanders in out of the sun." },
+    },
     knows = {
       { id = "tp_knows", text = "Oh, I hear all sorts of things down here in the Cleft, and I'm generous with most of them. Ask about whatever catches your eye." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "For a friend as capable as you, I'll share everything I know, or nearly everything; one must keep a little back." },
@@ -1436,7 +1546,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
   notices = { "weary", "hunger" },
   impression = {
-    first = "Innkeeper Gryshka insists on meat first and stories after, and nobody leaves the Broken Tusk hungry. Mention Zargh, though, and she grows flustered, which is the most charming thing I have seen in Orgrimmar.",
+    first = "Mention Zargh and she grows flustered, which is charming.",
     third = "{name} found a seat at the Broken Tusk, where Innkeeper Gryshka feeds Orgrimmar's warriors and keeps the inn loud.",
   },
 
@@ -1717,7 +1827,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "resigned" }, values = { "patient" },
   notices = { "class", "drink" },
   impression = {
-    first = "Gamon was a warrior once and now spends most days on the inn floor, knocked down by whoever wants an easy fight. He always gets back up, which is the saddest and bravest thing about him.",
+    first = "He always gets back up, which is the saddest and bravest thing.",
     third = "{name} met Gamon, a weary tauren in Orgrimmar who has been knocked down so often he no longer asks why.",
   },
 

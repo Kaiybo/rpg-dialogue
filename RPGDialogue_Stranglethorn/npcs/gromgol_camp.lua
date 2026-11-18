@@ -15,7 +15,7 @@ P:NPC {
   notices = { "pet", "race" },
 
   impression = {
-    first = "Durik keeps the beasts of Grom'gol behind a fence of sharpened stakes, and he spoke more gently to a raptor while we talked than he ever did to me.",
+    first = "He speaks more gently to a raptor than to me.",
     third = "{name} met Durik, the orc who stables hunters' beasts at Grom'gol and keeps the raptors fed.",
   },
 
@@ -136,7 +136,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Squibby Overspeck runs the zeppelin from Grom'gol to Tirisfal, and he talks about the Undercity the way a goblin talks about a customer who pays on time but never smiles.",
+    first = "He says the Undercity pays on time but never smiles.",
     third = "{name} met Squibby Overspeck, the goblin who sends the zeppelin north from Grom'gol to the Undercity.",
   },
 
@@ -278,7 +278,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Vharr sells weapons out of a tent in Grom'gol and tested the edge of every one on his own thumb while he told me what each was for. His thumb has more scars than mine.",
+    first = "His thumb has more scars than mine from testing edges.",
     third = "{name} met Vharr, the orc who sells blades and axes to the soldiers at Grom'gol.",
   },
 
@@ -424,7 +424,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Mudduk cooks for all of Grom'gol over one great iron pot, and he pressed a bowl of something spiced into my hands before he would tell me his name.",
+    first = "He hands you a spiced bowl before he tells you his name.",
     third = "{name} ate from Mudduk's pot at Grom'gol, where the orc cook teaches anyone who will stand still long enough.",
   },
 
@@ -550,7 +550,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Nerrist keeps Grom'gol's trade goods in crates stacked so square you could build a wall from them, and she knew to the last spool what was in each one.",
+    first = "She knows to the last spool what is in each crate.",
     third = "{name} bought from Nerrist, the orc who keeps the trade goods at Grom'gol in good order.",
   },
 

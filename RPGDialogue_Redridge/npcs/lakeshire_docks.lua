@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Arantir is a night elf rogue who stands on the Lakeshire docks beside Lucius and watches the mountains as if they owed him something. He's searched across continents and oceans for the Horns of Nez'ra, and he's finally found out who has them.",
+    first = "He has crossed oceans hunting the Horns of Nez'ra.",
     third = "{name} met Arantir, the night elf of Ravenholdt who hunts the stolen Horns of Nez'ra among the Blackrock orcs of Redridge.",
   },
 
@@ -141,7 +141,7 @@ P:NPC {
   notices = { "pet", "race" },
 
   impression = {
-    first = "Hilary is a little girl on the Lakeshire docks who dropped the necklace her father gave her into the lake. She's sure he'll be cross, and her cat Effsee is no help at all.",
+    first = "She dropped her father's necklace in the lake and dreads telling him.",
     third = "{name} met Hilary, a little girl in Lakeshire who lost her necklace in Lake Everstill.",
   },
 
@@ -304,7 +304,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Zem Leeward fishes off the Lakeshire docks all day and catches almost nothing. He's sure the fish are just about to bite, and he's been sure of it for years.",
+    first = "He has been sure the fish are about to bite for years.",
     third = "{name} met Zem Leeward, who fishes off a Lakeshire dock with endless patience and very little success.",
   },
 

@@ -13,7 +13,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "sharp", "gruff" }, values = { "ambitious", "cunning" },
   notices = { "purse", "dungeon" },
   impression = {
-    first = "Dran Droffers runs a salvage shop on the Drag with his son, and he seems to believe everything in the world is either his or about to be. He is rude, quick and very hard to win an argument with.",
+    first = "He believes everything in the world is his or about to be.",
     third = "{name} met Dran Droffers, the goblin who runs Droffers and Son Salvage on Orgrimmar's Drag.",
   },
 
@@ -131,7 +131,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "generous", "practical" },
   notices = { "purse" },
   impression = {
-    first = "Malton Droffers works the counter at his father's salvage shop on the Drag. He is as friendly as his father is rude, and probably just as good at business.",
+    first = "He is as friendly as his father is rude.",
     third = "{name} met Malton Droffers, the friendly half of Droffers and Son Salvage on Orgrimmar's Drag.",
   },
   greetings = {
@@ -256,7 +256,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "diligent", "patient" },
   notices = { "craft" },
   impression = {
-    first = "Magar runs Magar's Cloth Goods on the Drag and teaches tailoring to anyone with steady hands. Magar measures everything twice, looks at your seams before your face, and speaks about cloth with real affection.",
+    first = "Your seams get looked at before your face does.",
     third = "{name} met Magar, the tailoring trainer who owns Magar's Cloth Goods on Orgrimmar's Drag.",
   },
   greetings = {
@@ -385,7 +385,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "curious", "diligent" },
   notices = { "craft" },
   impression = {
-    first = "Yelmak teaches alchemy on the Drag in a shop that always smells of something burning. Yelmak talks fast, sniffs everything before touching it and gets excited about strange ingredients.",
+    first = "Everything gets sniffed before it gets touched in that shop.",
     third = "{name} met Yelmak, the alchemy trainer on Orgrimmar's Drag.",
   },
   greetings = {
@@ -500,7 +500,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "honest" },
   notices = { "craft", "class" },
   impression = {
-    first = "Karolek teaches leatherworking on the Drag and has hands as hard as the hides he works. He says little, looks at your boots before your face, and what he does say is about the work.",
+    first = "His hands are as hard as the hides he works.",
     third = "{name} met Karolek, the leatherworking trainer on Orgrimmar's Drag.",
   },
   greetings = {
@@ -632,7 +632,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "practical" },
   notices = { "craft" },
   impression = {
-    first = "Felika sells thread, flux, vials and every other small thing a crafter runs out of, and she knows exactly what each customer forgot to buy last time. Nothing annoys her more than someone buying just one of anything.",
+    first = "Nothing annoys her more than someone buying just one of anything.",
     third = "{name} met Felika, who sells trade supplies on Orgrimmar's Drag.",
   },
   greetings = {

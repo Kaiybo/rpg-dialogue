@@ -10,7 +10,7 @@ P:NPC {
   communities = { "gadgetzan" }, temper = { "cheerful", "eager" }, values = { "dutiful", "profit" },
   notices = { "weary", "craft" },
   impression = {
-    first = "Spigot Operator Luglunket of the Gadgetzan Water Company says huzzah without irony and means every word of the company slogan. He buys back stolen water pouches as if each one were the town's last.",
+    first = "He says huzzah without irony and means every word of it.",
     third = "{name} met Spigot Operator Luglunket of the Gadgetzan Water Company, who pays for water pouches taken back from the Wastewanderers.",
   },
 

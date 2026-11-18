@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "wry" }, values = { "practical", "craft" },
   notices = { "craft" },
   impression = {
-    first = "Christopher Hewen sells thread, dye and flux to whoever on Sentinel Hill still makes things, and he reckons the hill's health by how much thread it buys. Lately, he says, it's mending more than it's making.",
+    first = "He says the hill is mending more than it's making lately.",
     third = "{name} met Christopher Hewen, who sells trade goods on Sentinel Hill and keeps an eye on what the militia mends.",
   },
   greetings = {
@@ -196,7 +196,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "brisk" }, values = { "practical", "family" },
   notices = { "craft", "hunger" },
   impression = {
-    first = "Gina MacGregor drives a hard bargain and doesn't apologise for it, since every spool on her table came down a road full of thieves. She seems to think Christopher Hewen undercharges, and she wasn't shy in saying so.",
+    first = "She drives a hard bargain and doesn't apologise for it.",
     third = "{name} met Gina MacGregor, who sells trade goods on Sentinel Hill and drives a hard bargain for them.",
   },
   greetings = {
@@ -368,7 +368,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "calm" }, values = { "kind", "patient" },
   notices = { "pet" },
   impression = {
-    first = "Kirk Maxwell keeps the stables on Sentinel Hill and talks to the animals in a low, even voice, as if they were the only sensible folk in Westfall. He may be right.",
+    first = "He thinks the animals are the only sensible folk in Westfall.",
     third = "{name} met Kirk Maxwell, the stable master of Sentinel Hill, who keeps hunters' beasts safe while the hill fights.",
   },
   greetings = {
@@ -532,7 +532,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "rueful" }, values = { "kind", "practical" },
   notices = { "hunger" },
   impression = {
-    first = "Mike Miller sells bread on Sentinel Hill, baked from Elwynn flour, in what used to be the breadbasket of the kingdom. The irony isn't lost on him, and he mentions it before you can.",
+    first = "He bakes with Elwynn flour, and the irony isn't lost on him.",
     third = "{name} met Mike Miller, who sells bread on Sentinel Hill from flour that has to come all the way from Elwynn.",
   },
   greetings = {

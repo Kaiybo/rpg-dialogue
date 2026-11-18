@@ -15,7 +15,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm", "dry" }, values = { "craft", "tradition" },
   notices = { "race", "class" },
   impression = {
-    first = "Tah Winterhoof carves and paints totems in the Winterhoof shop on the High Rise, and he talks about colour the way a hunter talks about tracks. His own paint pots were nearly empty, and that seemed to trouble him more than anything else.",
+    first = "His nearly empty paint pots troubled him more than anything else.",
     third = "{name} met Tah Winterhoof, who carves and paints totems at Winterhoof Totems on the High Rise.",
   },
   greetings = {
@@ -142,7 +142,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gentle", "patient" }, values = { "nature", "craft" },
   notices = { "craft", "class" },
   impression = {
-    first = "Komin Winterhoof teaches herbalism at Holistic Herbalism on the middle rise, where the air is thick with drying leaves. He speaks slowly and thanks every herb he handles, out loud, without any embarrassment at all.",
+    first = "He thanks every herb he handles, out loud, without any embarrassment.",
     third = "{name} met Komin Winterhoof, the patient herbalism trainer of Thunder Bluff.",
   },
   greetings = {
@@ -231,7 +231,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff", "steady" }, values = { "craft", "family" },
   notices = { "craft", "race" },
   impression = {
-    first = "Brek Stonehoof teaches mining at Stonehoof Geology on the lower rise, and he knocks on the stone of the bluff as he talks, as if to check it is still sound. He has the Stonehoof stubbornness, and he seems proud of it.",
+    first = "He knocks on the stone as he talks, checking it is sound.",
     third = "{name} met Brek Stonehoof, the mining trainer at Stonehoof Geology in Thunder Bluff.",
   },
   greetings = {
@@ -375,7 +375,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "blunt", "warm" }, values = { "respect", "craft" },
   notices = { "class", "craft" },
   impression = {
-    first = "Mooranta teaches skinning on the middle rise and wastes nothing, not a hide, not a sinew and not a word. She says every beast gives itself twice, once to the hunter and once to the skinner, and she expects the skinner to be worthy of it.",
+    first = "She wastes nothing, not a hide, not a sinew, not a word.",
     third = "{name} met Mooranta, the blunt and careful skinning trainer of Thunder Bluff.",
   },
   greetings = {
@@ -525,7 +525,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "cheerful", "chatty" }, values = { "community", "trade" },
   notices = { "race", "class" },
   impression = {
-    first = "Netali Proudwind sells general goods on Spirit Rise, where the shamans and priests come and go, and she knows all of them by what they buy. She is cheerful company and doesn't seem to mind the Forsaken in the pools below as much as some.",
+    first = "She knows every shaman and priest by what they buy.",
     third = "{name} met Netali Proudwind, who sells general goods on Spirit Rise.",
   },
   greetings = {
@@ -673,7 +673,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "proud", "dry" }, values = { "tribe", "craft" },
   notices = { "class" },
   impression = {
-    first = "Sunn Ragetotem sells staves on the High Rise under a sign that promises rainsticks, and she shakes one at every customer so they can hear the rain inside. She is a Ragetotem, and she makes sure you know it.",
+    first = "She is a Ragetotem, and she makes sure you know it.",
     third = "{name} met Sunn Ragetotem, who sells staves and rainsticks on the High Rise.",
   },
   greetings = {
@@ -816,7 +816,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "brisk", "sharp" }, values = { "craft", "family" },
   notices = { "class" },
   impression = {
-    first = "Jyn Stonehoof sells weapons on the lower rise, mostly forged by her own Stonehoof kin, and she will tell you the weight and balance of every one before you ask. She has no patience for anyone who buys a blade for its looks.",
+    first = "She has no patience for anyone buying a blade for its looks.",
     third = "{name} met Jyn Stonehoof, the weapons merchant of Thunder Bluff's lower rise.",
   },
   greetings = {
@@ -960,7 +960,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm", "gentle" }, values = { "community", "hospitality" },
   notices = { "race" },
   impression = {
-    first = "Fyr Mistrunner sells bread at Breads and Grains on the lower rise, and the whole shop smells of warm corn and oat. She is gentle and slow-spoken, and she pressed a crust on me before I had decided to buy anything.",
+    first = "She pressed a crust on me before I had decided to buy.",
     third = "{name} met Fyr Mistrunner, who bakes and sells bread at Breads and Grains in Thunder Bluff.",
   },
   greetings = {

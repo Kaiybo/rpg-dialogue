@@ -11,7 +11,7 @@ P:NPC {
   notices = { "stealth", "class" },
 
   impression = {
-    first = "Gerald Crawley sells poison supplies in a lakeside town and talks about them as if they were spices. He asks no questions and expects none, which is somehow more unsettling than a threat.",
+    first = "He talks about his poisons as if they were spices.",
     third = "{name} met Gerald Crawley, Lakeshire's discreet supplier of poisons and their ingredients.",
   },
 

@@ -8,7 +8,7 @@ P:NPC {
   communities = { "light_hope", "argent_dawn" }, temper = { "weary" }, values = { "loyal", "kind" },
   notices = { "class" },
   impression = {
-    first = "Carlin Redpath survived Darrowshire, and he has never quite forgiven himself for it. He speaks of his brother Joseph as if Joseph might walk in at any moment.",
+    first = "He has never quite forgiven himself for surviving Darrowshire.",
     third = "{name} met Carlin Redpath at Light's Hope Chapel, a survivor of the fall of Darrowshire.",
   },
 
@@ -243,7 +243,7 @@ P:NPC {
   communities = { "darrowshire" }, temper = { "childlike" }, values = { "kind", "lonely" },
   notices = { "race" },
   impression = {
-    first = "Pamela Redpath is a little girl, or the ghost of one, playing alone in the ruins of Darrowshire. She doesn't seem to know she's dead, or she knows and has decided not to mind.",
+    first = "She doesn't seem to know she's dead, or doesn't mind.",
     third = "{name} met the ghost of Pamela Redpath in the ruins of Darrowshire, where she still waits for her family.",
   },
 
@@ -426,7 +426,7 @@ P:NPC {
   communities = { "light_hope", "argent_dawn" }, temper = { "gruff" }, values = { "practical", "stubborn" },
   notices = { "race" },
   impression = {
-    first = "Smokey LaRue is a dwarf of the Argent Dawn who smells of pipe smoke and something worse. He wants Scourge parts, and he does not much care how you feel about collecting them.",
+    first = "He wants Scourge parts and doesn't care how you feel about it.",
     third = "{name} met Smokey LaRue, an ill-tempered dwarf working for the Argent Dawn at Light's Hope Chapel.",
   },
 
@@ -624,7 +624,7 @@ P:NPC {
   communities = { "light_hope", "argent_dawn" }, temper = { "bright" }, values = { "clever", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Betina Bigglezink is a gnome of the Argent Dawn with a contraption for every problem and a very large problem in Scholomance. She talks about it cheerfully, which makes it sound worse.",
+    first = "She talks about Scholomance cheerfully, which makes it sound worse.",
     third = "{name} met Betina Bigglezink of the Argent Dawn at Light's Hope Chapel, who is building something meant for Scholomance.",
   },
 

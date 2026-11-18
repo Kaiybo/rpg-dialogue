@@ -7,10 +7,11 @@ P:NPC {
   key = "bolvar", id = TODO_NPC("Highlord Bolvar Fordragon"), name = "Highlord Bolvar Fordragon",
   bible = "bibles/bolvar.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "lawful", "brave", "honest" },
+  likesTone = "blunt",
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
   impression = {
-    first = "Highlord Bolvar Fordragon holds the kingdom for a boy and an absent king, and he looks tired in the way only honest men get tired. He asked me to speak plainly, and he meant it.",
+    first = "He looks tired in the way only honest men get tired.",
     third = "{name} stood before Highlord Bolvar Fordragon, Regent of Stormwind, who keeps the throne for a king who never came home.",
   },
 
@@ -461,7 +462,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "I've had little thanks since I took the regency and less that I believed, so I'll take yours as honestly meant. It belongs to the men on the walls as much as to me." },
+        { id = "s2", text = "That's kindly said, and plainly, which is rarer in this hall than you'd think. I'll remember who said it when the petitions pile up." },
+        { id = "s3", narr = "sister}. I thank you for it.", text = "Praise from one who carries the Light's hammer weighs more with me than the whole court's applause, {g:brother" },
+      },
+      fail = {
+        { id = "f1", text = "I hear a dozen speeches like that before noon, and every one of them ends in a request for land or a title. Spare me the rest and tell me what you came for." },
+        { id = "f2", text = "Save the fine words for the House of Nobles, who feed on them. A regent who believes his flatterers will lose the kingdom he's keeping, and I don't mean to lose this one." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah! It's been a long year since anyone in this keep dared speak to me like a sergeant in the mess tent, and I'd forgotten how much I missed it. You've nerve, and Stormwind has need of nerve." },
+        { id = "s2", text = "You've a soldier's tongue, and I was a soldier long before I was a regent, so I'll not pretend it stings. Stand closer and say the rest, because it's the first honest thing I've heard today." },
+      },
+      fail = {
+        { id = "f1", text = "You mistake my patience for softness, and men have made that mistake on the field and not lived to correct it. Mind your tongue before the king, {class}." },
+        { id = "f2", text = "I hold this throne for a boy who's lost his father, and I'll not have it mocked in front of him. Say something worth my time or leave the hall." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You press hard, and I'll grant there's weight behind it. I'll not yield the point, but I'll hear it argued, which is more than I meant to give you when you walked in." },
+        { id = "s2", text = "I've stood against worse than you, though I'll own that few of them looked me in the eye while they did it. Very well, you have my attention, so use it carefully." },
+      },
+      fail = {
+        { id = "f1", text = "I fought the Horde through the Second War, and I've buried better threats than yours. Take your hand from your weapon, or the royal guard will take it for you." },
+        { id = "f2", text = "Whoever threatens the regent in the king's own hall is a fool or an assassin, and I've no time for the one and a cell in the Stockade for the other. Decide which you are, and quickly." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a matter of state, and I don't discuss matters of state with those I've no cause yet to trust. Serve the kingdom a while and ask me again." },
+      { id = "gt2", text = "I'll not speak of that to you, {class}. My trust is earned in the field, and it isn't to be had for the asking in a throne room." },
+    },
     varian = {
       { id = "tp_varian", text = "Varian set out for Theramore to speak of peace, and his ship never made port. I hold this throne for his son, and I'll hold it until the day he walks back through that door, however long it takes." },
       { id = "tp_varian2", when = { disposition = { min = 65 } }, text = "Some nights I think he's dead and some nights I'm sure he isn't, and I can't decide which hurts more. The boy asks me every morning, and I've run out of new ways to say I don't know." },

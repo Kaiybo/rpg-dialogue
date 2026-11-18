@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "cool", "sharp" }, values = { "loyal", "cunning" },
   notices = { "stealth", "form" },
   impression = {
-    first = "Deathstalker Faerleia waits in the Pyrewood town hall like a drawn knife in a drawer. She is calm, patient and certain that killing the village council will turn Arugal's wolves against him.",
+    first = "She waits like a drawn knife in a drawer.",
     third = "{name} met Deathstalker Faerleia, who lay in ambush for the Pyrewood Council on Lady Sylvanas's orders.",
   },
 

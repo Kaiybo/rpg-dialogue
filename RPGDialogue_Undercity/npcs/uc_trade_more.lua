@@ -13,7 +13,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "proud", "cheerful" }, values = { "ambitious", "loyal" },
   notices = { "class", "kit", "race" },
   impression = {
-    first = "Patrick Garrett sweeps the bat pens by the Undercity's flight master and makes it perfectly clear that the work is beneath a Garrett. He speaks like a lord fallen on hard times and holds his broom like a sceptre.",
+    first = "He holds his broom like a sceptre.",
     third = "{name} met Patrick Garrett, a proud Forsaken who sweeps the bat pens in the Trade Quarter.",
   },
 
@@ -154,7 +154,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "grim", "calm" }, values = { "vengeful" },
   notices = { "race", "class" },
   impression = {
-    first = "Raleigh Andrean was a chef once, and his wife Deliah was murdered by his closest friend. He says plainly that he can no longer grieve for her, but the wish for revenge still burns in him, and it's the only warm thing about him.",
+    first = "Revenge for his murdered wife is the only warm thing about him.",
     third = "{name} met Raleigh Andrean, a Forsaken ex-chef in the Trade Quarter who wanted revenge for his wife's murder.",
   },
 
@@ -289,7 +289,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cheerful", "grim" }, values = { "honest", "practical" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Velora Nitely was one of the finest armorsmiths in Lordaeron, they say, and she still works the anvil in the Trade Quarter. She tells jokes out of old habit, and they fall flat, and she notices every time.",
+    first = "Her jokes fall flat, and she notices every time.",
     third = "{name} met Velora Nitely, a Forsaken armorsmith in the Trade Quarter who makes brutal legguards.",
   },
 

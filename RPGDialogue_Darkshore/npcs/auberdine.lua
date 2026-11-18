@@ -9,10 +9,11 @@ P:NPC {
   key = "thundris", id = TODO_NPC("Thundris Windweaver"), name = "Thundris Windweaver",
   bible = "bibles/auberdine.md", role = "noble", tier = "major",
   communities = { "auberdine" }, temper = { "steady" }, values = { "fair", "wise" },
+  likesTone = "polite",
   spiritSensitive = true,
   notices = { "class", "race" },
   impression = {
-    first = "Thundris Windweaver sees to Auberdine's daily needs, which lately means seeing to its fears. He listens far more than he speaks, and his lamps burn late because he sleeps so little.",
+    first = "His lamps burn late because he sleeps so little.",
     third = "{name} met Thundris Windweaver, the steady elder of Auberdine, who means to learn why Darkshore is sickening.",
   },
 
@@ -346,7 +347,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You are gracious to an old elf, and I thank you for it. Auberdine hears so little kindness from the road these days that I had almost forgotten the sound." },
+        { id = "s2", text = "That was well spoken, traveller. I can tell honest regard when I hear it, and it gladdens me that the village has made a friend." },
+      },
+      fail = {
+        { id = "f1", text = "You are generous with your words, but an elder hears many fair speeches from those who want a favor. I would sooner you spoke to me plainly." },
+        { id = "f2", text = "Kind words do not mend the troubles on this coast, I fear. Set them aside, and tell me what you actually came for." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you have a sharp wit under that road dust! It does an old elf good to be prodded, for the villagers are much too respectful to try it." },
+        { id = "s2", text = "You are bolder than the tide, and I cannot say I mind. Very well, you have had your sport with me, and I am smiling in spite of myself." },
+      },
+      fail = {
+        { id = "f1", text = "I have given you welcome and a place to rest, and that is how you answer it. Auberdine deserves better manners from its guests." },
+        { id = "f2", text = "I am too old to be stung by that, though I am not too old to remember who said it. Mind how you speak to the folk here, for they have lost a great deal." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is no call for that, traveller. I am an elder and not a Sentinel, and I will not quarrel with you over it, so let it be as you say." },
+        { id = "s2", text = "You have unsettled me, and I admit it freely. I see you are not one to be put off, so speak your need and I will do what I fairly can." },
+      },
+      fail = {
+        { id = "f1", text = "I have stood on this shore through storms that tore the docks from their pilings. A raised voice will not move me, and it will not win you a single friend in Auberdine." },
+        { id = "f2", text = "Threats are for the naga and the Twilight's Hammer, and we have quite enough of those already. If you mean to behave as they do, the Sentinels will treat you as they do." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is a matter I keep for those who have earned Auberdine's trust, and you are still new to us. Help the village a while, and ask me again." },
+      { id = "gt2", text = "I know something of it, but I am not ready to share it with you. An elder must be careful about whom he confides in." },
+    },
     knows = {
       { id = "tp_knows", text = "An elder hears a little of everything, and Auberdine has plenty to say these days. Ask me of any of these, and I will tell you what I can." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -377,7 +414,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "intent" }, values = { "determined", "curious" },
   notices = { "form", "class" },
   impression = {
-    first = "Whatever Fel Moss Terenthis burns grows back, and he means to keep burning it all the same. He insists the furbolgs are sick rather than evil, and he seems to need someone to believe it with him.",
+    first = "He insists the furbolgs are sick rather than evil.",
     third = "{name} met Terenthis, a druid come to Darkshore to learn how far the Fel Moss has spread and how to end it.",
   },
 
@@ -587,7 +624,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "gentle" }, values = { "devout", "curious" },
   notices = { "class" },
   impression = {
-    first = "The Temple of the Moon sent Gwennyth to tend Auberdine's people, and she found the beach strewn with dead sea creatures instead. She keeps one eye on the tide, as if expecting another.",
+    first = "She keeps one eye on the tide, expecting more dead things.",
     third = "{name} met Gwennyth Bly'Leggonde of the Sisterhood, who wants to know why the sea keeps giving up its dead on Darkshore's shore.",
   },
 
@@ -784,7 +821,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit" },
   impression = {
-    first = "Sentinel Glynda Nal'Shea walks the beach every morning counting murloc sign. She told me plainly that the Sentinels watch everyone, and I decided not to take it personally.",
+    first = "The Sentinels watch everyone, she says, and I try not to mind.",
     third = "{name} met Sentinel Glynda Nal'Shea, who holds back murlocs on Auberdine's beaches and corruption in its groves.",
   },
 
@@ -1060,7 +1097,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
   notices = { "class" },
   impression = {
-    first = "On the Auberdine dock, Cerellean Whiteclaw watches the water as though someone might walk out of it. He slept for thousands of years dreaming of Anaya, and he has never stopped grieving her.",
+    first = "He slept thousands of years dreaming of Anaya and grieves her still.",
     third = "{name} met Cerellean Whiteclaw, who has mourned his beloved Anaya of Ameth'Aran since the Sundering.",
   },
 
@@ -1250,7 +1287,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "warm" }, values = { "kind", "devout" },
   notices = { "weary" },
   impression = {
-    first = "Innkeeper Shaussiy brings tea to everyone, even to those who forget to drink it. She claims the waves will sing me to sleep after a night or two, and she listens for storms in the floorboards.",
+    first = "She listens for storms in the floorboards.",
     third = "{name} found a bed at Innkeeper Shaussiy's inn by the Auberdine docks, where nearly every guest arrives seasick.",
   },
 

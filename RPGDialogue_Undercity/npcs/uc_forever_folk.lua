@@ -15,7 +15,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "odd", "calm" }, values = { "practical" },
   notices = { "race", "rogue", "profession" },
   impression = {
-    first = "Alyz sits by the green water in the Canals and fishes out what the city drops into it. She keeps every button and ring in a sack, and she talks about the slime as if it were a neighbour.",
+    first = "She talks about the canal slime as if it were a neighbour.",
     third = "{name} met Alyz, a Forsaken woman who scavenges the Undercity canals for lost things.",
   },
 
@@ -173,7 +173,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "brisk", "proud" }, values = { "practical", "craft" },
   notices = { "race", "class", "profession" },
   impression = {
-    first = "Barrelmaker Ishtar builds casks in the Canals and seals them with a little magic of her own. She is proud of her joints and her hoops, and very careful not to know what the apothecaries put inside them.",
+    first = "She is very careful not to know what goes in her casks.",
     third = "{name} met Barrelmaker Ishtar, a Forsaken cooper who makes sealed casks for the Undercity.",
   },
 
@@ -316,7 +316,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "dour", "steady" }, values = { "loyal", "order" },
   notices = { "soldier", "class" },
   impression = {
-    first = "Malus walks a round from the Canals to the War Quarter and back, and never stops for long. He walked a watchman's beat in the capital before the plague, and his feet have not forgotten it.",
+    first = "His feet have not forgotten the watchman's beat he walked in life.",
     third = "{name} met Malus, a Forsaken who walks the old watch round through the Undercity.",
   },
 
@@ -466,7 +466,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "prim", "dry" }, values = { "craft", "practical" },
   notices = { "profession", "class" },
   impression = {
-    first = "Angela Ward sells tailoring patterns in the Magic Quarter, reagent bags mostly, and has firm opinions about stitching. She is Victor Ward's sister and would like that mentioned less often.",
+    first = "She would like her brother Victor mentioned less often.",
     third = "{name} met Angela Ward, who sells tailoring patterns in the Undercity's Magic Quarter.",
   },
 
@@ -587,7 +587,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "wry", "warm" }, values = { "curious", "loyal" },
   notices = { "class", "origin" },
   impression = {
-    first = "Faith Duggins is a Forsaken mage who kept the name her mother gave her and finds the joke in it before anyone else can. She and Rakkamar stand together in the Magic Quarter and argue about names, the dead and the dark.",
+    first = "She finds the joke in her own name before anyone else can.",
     third = "{name} met Faith Duggins, a Forsaken mage in the Magic Quarter who kept her living name.",
   },
 
@@ -738,7 +738,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "proud" }, values = { "ambitious", "practical" },
   notices = { "class", "race" },
   impression = {
-    first = "Rakkamar is a Forsaken caster who took a hard new name when he woke and will not say what the old one was. He reads the warlocks' books and treats Faith Duggins's teasing as a storm to be waited out.",
+    first = "He will not say what his name was before he woke.",
     third = "{name} met Rakkamar, a Forsaken caster in the Magic Quarter who refuses to speak his living name.",
   },
 
@@ -876,7 +876,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "guarded", "brisk" }, values = { "loyal", "discreet" },
   notices = { "rogue", "race", "class" },
   impression = {
-    first = "Anya Rince walks between the Apothecarium and the throne room with sealed papers under her arm and never says what is in them. She is polite in the way of someone who has been trained not to be interesting.",
+    first = "She is polite like someone trained not to be interesting.",
     third = "{name} met Anya Rince, who carries sealed papers between the Apothecarium and the Royal Quarter.",
   },
 
@@ -1008,7 +1008,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "formal", "dry" }, values = { "order", "loyal" },
   notices = { "gear", "race", "class" },
   impression = {
-    first = "Chadsworth was a valet to a noble house in Lordaeron and has carried his manners into the grave and out again. He keeps the War Quarter officers' boots and buckles in order and judges everyone's polish.",
+    first = "He carried a valet's manners into the grave and out again.",
     third = "{name} met Chadsworth, a Forsaken valet who keeps the War Quarter's officers turned out properly.",
   },
 
@@ -1143,7 +1143,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "sour", "ambitious" }, values = { "ambitious", "cunning" },
   notices = { "class", "pet", "profession" },
   impression = {
-    first = "Zeglo Kruptorr is a warlock's acolyte in the Magic Quarter who spends his nights feeding other people's imps and resenting every minute of it. He is sure he is meant for greater things and keeps a list of the people who disagree.",
+    first = "He keeps a list of people who doubt his greatness.",
     third = "{name} met Zeglo Kruptorr, an ambitious warlock's acolyte in the Magic Quarter.",
   },
 

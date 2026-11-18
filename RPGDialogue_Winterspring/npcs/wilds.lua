@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "frostsaber_rock" }, temper = { "reserved" }, values = { "patient", "proud" },
   impression = {
-    first = "Rivern Frostwind raises the white frostsabers of Winterspring, the finest mounts the Kaldorei know. She expects a rider to earn one with seasons of work, and she means seasons.",
+    first = "She expects a rider to earn a frostsaber with seasons of work.",
     third = "{name} met Rivern Frostwind of the Wintersaber Trainers in Winterspring.",
   },
 
@@ -219,7 +219,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "timbermaw_winterspring" }, temper = { "steady" }, values = { "loyal", "protective" },
   impression = {
-    first = "Salfa guards the Winterspring end of Timbermaw Hold's tunnels. Like the rest of his tribe he is wary of outsiders, and he's fair about it.",
+    first = "He is wary of outsiders, and he's fair about it.",
     third = "{name} met Salfa, the Timbermaw furbolg who guards the Winterspring mouth of Timbermaw Hold.",
   },
 
@@ -444,7 +444,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "earnest" }, values = { "devout", "brave" },
   impression = {
-    first = "Ranshalla is a priestess of Elune who means to relight the old altars of Winterspring, whatever waits around them. She is braver than she is careful.",
+    first = "She is braver than she is careful.",
     third = "{name} met Ranshalla, a priestess of Elune seeking the old altars of Winterspring.",
   },
 
@@ -637,7 +637,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "mazthoril" }, temper = { "cold" }, values = { "wise", "proud" },
   impression = {
-    first = "Haleh is a blue dragon who keeps watch in the icy caves of Mazthoril. She speaks to mortals as if she is not sure they deserve it, and she is fairly sure they don't.",
+    first = "She is fairly sure mortals don't deserve her words.",
     third = "{name} met Haleh, a blue dragon who keeps watch in Mazthoril in Winterspring.",
   },
 
@@ -818,7 +818,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "bitter" }, values = { "regretful", "cunning" },
   impression = {
-    first = "Lorax is a satyr living alone in Winterspring, cast out or fled from his own kind, and full of regret for the bargain that made him what he is. He has a tale to tell, and wants a hero to finish it.",
+    first = "He regrets his bargain and wants a hero to finish his tale.",
     third = "{name} met Lorax, a lonely satyr in Winterspring with a tale of a demon's bargain.",
   },
 
@@ -1000,7 +1000,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   communities = { "everlook" }, temper = { "cheerful" }, values = { "comfort", "practical" },
   impression = {
-    first = "Himmik is a goblin who sells hot food and drink in Everlook, which in Winterspring is the next best thing to sunshine. He talks up his soup like it's a war hero.",
+    first = "He talks up his soup like it's a war hero.",
     third = "{name} met Himmik, the goblin food vendor in Everlook.",
   },
 

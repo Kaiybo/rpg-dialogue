@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "sour" }, values = { "dutiful", "skeptical" },
   notices = { "class", "kit" },
   impression = {
-    first = "Deathguard Baldren has opinions about lost causes, paladins and elves, and none of them are generous. Still, he tells you exactly what he saw on patrol, and he seems to have been paying attention.",
+    first = "His opinions are ungenerous, but his patrol reports are exact.",
     third = "{name} met Deathguard Baldren at the Sepulcher, a sour patrolman who watches the shore toward Fenris Isle.",
   },
 
@@ -206,7 +206,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "gentle" }, values = { "loyal", "kind" },
   notices = { "weary", "race" },
   impression = {
-    first = "Tabitha Heartweaver kneels by a gravestone in the Sepulcher and seems surprised that anyone would come to speak with her. Her grief is quiet and very old, and her kindness has somehow outlasted it.",
+    first = "Her grief is quiet and very old, and her kindness outlasted it.",
     third = "{name} met Tabitha Heartweaver at the Sepulcher, whose husband Edward went searching the ruins of Lordaeron for their lost son.",
   },
 
@@ -380,7 +380,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "wry" }, values = { "practical", "devout" },
   notices = { "class", "kit" },
   impression = {
-    first = "Trevan Rol keeps the Light and a very sturdy mace in roughly equal regard. He is Bandarion Keep's eyes in the Sepulcher, wry and sharp, and he notices more than people expect a paladin to.",
+    first = "He holds the Light and a sturdy mace in roughly equal regard.",
     third = "{name} met Trevan Rol, a Forsaken paladin of Bandarion Keep who keeps watch in the Sepulcher for Danitha Morr.",
   },
 
@@ -588,7 +588,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "fierce" }, values = { "loyal", "honest" },
   notices = { "class", "kin" },
   impression = {
-    first = "Lumina Windsinger is a Skyborne Windshaper, sky-touched and sharp-tongued, who has seen more horror in a week on Azeroth than she expected in a lifetime. She speaks of debts as if they were sacred, and she means to pay hers.",
+    first = "She speaks of debts as sacred, and she means to pay hers.",
     third = "{name} met Lumina Windsinger, a Skyborne Windshaper and guest of the Earthen Ring, who survived Fenris Keep and swore to avenge her companion Banon.",
   },
 

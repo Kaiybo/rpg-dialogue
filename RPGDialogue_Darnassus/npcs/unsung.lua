@@ -12,7 +12,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "dry", "precise" }, values = { "order", "patience" },
   notices = { "class" },
   impression = {
-    first = "Garryeth keeps the vaults in the Temple Gardens and counts coin as carefully as a priestess counts prayers. He is dry company, but I would trust him with anything I owned.",
+    first = "He is dry company, but I'd trust him with anything I own.",
     third = "{name} met Garryeth, a careful banker of Darnassus who keeps his vaults under the Temple's shadow.",
   },
 
@@ -199,7 +199,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "brisk", "blunt" }, values = { "discipline", "courage" },
   notices = { "class", "race" },
   impression = {
-    first = "Sildanair trains warriors on the Warrior's Terrace and talks like she is still calling out drills. She has no patience for excuses, but she listened when I answered her straight.",
+    first = "She has no patience for excuses, but she listens to straight answers.",
     third = "{name} met Sildanair, a blunt warrior trainer of Darnassus.",
   },
 
@@ -390,7 +390,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "cheerful", "proud" }, values = { "craft", "honesty" },
   notices = { "class" },
   impression = {
-    first = "Ariyell Skyshadow sells blades on the Warrior's Terrace and talks about balance and grip the way others talk about family. She tried to talk me out of a weapon that was wrong for me.",
+    first = "She tried to talk me out of a weapon wrong for me.",
     third = "{name} met Ariyell Skyshadow, who sells weapons on the Warrior's Terrace and cares where they end up.",
   },
 
@@ -573,7 +573,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "warm", "protective" }, values = { "nature", "loyalty" },
   notices = { "race", "mount" },
   impression = {
-    first = "Lelanai raises the city's nightsabers and speaks of them as though each one were her own child. She will sell one only to someone she believes will treat it as a companion.",
+    first = "She only sells a nightsaber to someone who'll be its companion.",
     third = "{name} met Lelanai, the saber handler of the Cenarion Enclave, who loves her cats more than her customers.",
   },
 
@@ -771,7 +771,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "easygoing", "wry" }, values = { "patience", "humor" },
   notices = { "level" },
   impression = {
-    first = "Jartsam teaches riders at the Cenarion Enclave and finds every student's first fall far funnier than they do. Underneath the jokes he plainly knows his work.",
+    first = "He finds every student's first fall far funnier than they do.",
     third = "{name} met Jartsam, a good-humored riding trainer who works beside Lelanai's sabers.",
   },
 
@@ -947,7 +947,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "formal", "thoughtful" }, values = { "fellowship", "order" },
   notices = { "class" },
   impression = {
-    first = "Lysheana registers the guilds of Darnassus and asks more questions about their purpose than their names. She seems to think a band of companions is a serious promise.",
+    first = "She thinks a band of companions is a serious promise.",
     third = "{name} met Lysheana, the guild master of Darnassus, who weighs every charter like an oath.",
   },
 
@@ -1141,7 +1141,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fussy", "enthusiastic" }, values = { "beauty", "craft" },
   notices = { "class" },
   impression = {
-    first = "Shalumon designs guild tabards and holds firm opinions on every color and emblem. He clearly loves the work and gets a little hurt when anyone rushes it.",
+    first = "It hurts him a little when anyone rushes his work.",
     third = "{name} met Shalumon, Darnassus' particular and enthusiastic tabard maker.",
   },
 
@@ -1313,7 +1313,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "brisk", "practical" }, values = { "honesty", "hard work" },
   notices = { "class" },
   impression = {
-    first = "Jaeana sells meat on the Tradesmen's Terrace and has no patience for people who think night elves live on moonlight and berries. She is brisk, honest and very proud of her venison.",
+    first = "She scorns the notion that night elves live on moonlight and berries.",
     third = "{name} met Jaeana, who sells meat on the Tradesmen's Terrace and won't hear a word against it.",
   },
 
@@ -1490,7 +1490,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "gentle", "earnest" }, values = { "compassion", "practicality" },
   notices = { "class", "weary" },
   impression = {
-    first = "Dannelor teaches bandaging on the Craftsmen's Terrace with the patience of someone who has seen what happens when it's done badly. He seems to think every traveler should know it, warrior or not.",
+    first = "He has seen what happens when a bandage is done badly.",
     third = "{name} met Dannelor, who teaches first aid in Darnassus and believes everyone should learn it.",
   },
 
@@ -1699,7 +1699,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "precise", "distracted" }, values = { "knowledge", "care" },
   notices = { "craft", "class" },
   impression = {
-    first = "Ainethil teaches alchemy on the Craftsmen's Terrace and talks to her flasks almost as much as to her students. She is exacting about measures and suspicious of anyone who isn't.",
+    first = "She talks to her flasks almost as much as to her students.",
     third = "{name} met Ainethil, the exacting alchemy trainer of Darnassus.",
   },
 

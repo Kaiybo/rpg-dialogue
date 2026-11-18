@@ -11,10 +11,11 @@ P:NPC {
   key = "barin_redstone", id = TODO_NPC("Senator Barin Redstone"), name = "Senator Barin Redstone",
   bible = "bibles/barin_redstone.md", role = "noble", tier = "major",
   communities = { "ironforge" }, temper = { "sharp" }, values = { "lawful", "proud", "dutiful" },
+  likesTone = "polite", race = "Dwarf",
   notices = { "gnome", "wildhammer", "fel" },
 
   impression = {
-    first = "Senator Barin Redstone keeps a list of everyone who has wronged Ironforge, and it is a long list. The Dark Iron head it, the gnomes come close behind, and the Wildhammer are on it for good measure.",
+    first = "He keeps a long list of everyone who has wronged Ironforge.",
     third = "{name} heard Senator Barin Redstone's opinions on the Dark Iron, the gnomes and the Wildhammer, at length.",
   },
 
@@ -277,7 +278,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well now, that's the first sensible thing anyone's said tae me since the session opened. Ye've an eye for where the real work o' this mountain gets done, an' I'll no' forget it." },
+        { id = "s2", text = "Flattery's cheap in this hall, but ye lay it on like someone who's actually read the Senate's record, so I'll take it. Go on, then, an' tell me what ye're after." },
+      },
+      fail = {
+        { id = "f1", text = "I've had petitioners butter me up for forty years, an' every one o' them wanted a seal on somethin' afterwards. Save yer breath for the business ye came on." },
+        { id = "f2", text = "That's a pretty speech, an' ye may take it over tae the King, who's fond o' them. The Senate deals in motions an' ledgers, an' I'm no' moved by fine words." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Ye've a tongue on ye that'd do well on the Senate floor, where we've been skinnin' each other for three hundred years. I'll grant ye that one, though ye'll no' get another so easy." },
+        { id = "s2", text = "There's more spine in that than in half the clans' delegates, an' I mean it kindly. Aye, I can take a jab, so long as there's a point on the end o' it." },
+      },
+      fail = {
+        { id = "f1", text = "Ye'll mind yer tongue before a Senator o' Ironforge, or ye'll find how long the guards can make the walk tae the gates feel. I've been mocked by better, an' they had the votes tae back it." },
+        { id = "f2", text = "That was meant tae sting, I suppose, an' it's only shown me what manner o' guest ye are. I'll remember it the next time yer name crosses my desk." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He glances toward the throne and lowers his voice.", text = "Easy, now, there's nae call for that in the High Seat. Ye've made yer point, an' I'm no' so proud that I cannae see when a matter's better settled quietly." },
+        { id = "s2", text = "I've sat across from Dark Iron envoys who looked at me less hard than that, an' I didnae enjoy them either. Very well, ye have my attention, so say what ye want an' we'll be done." },
+      },
+      fail = {
+        { id = "f1", text = "Are ye threatenin' a Senator in the King's own hall, wi' his guard no' twenty paces off? Ye've more nerve than sense, an' I've a mind tae let them explain the difference." },
+        { id = "f2", text = "A Redstone doesnae scare, {g:lad|lass}, we only take notes. Yers is a short one, an' it says ye're no' tae be trusted wi' anythin' that needs a steady head." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's no' a matter I'll open tae someone the Senate barely knows. Come back when ye've given me reason tae think it's safe wi' ye." },
+      { id = "gt2", text = "I know well enough, an' I'll keep it behind my teeth for now. A Senator doesnae hand out the mountain's business tae every stranger who asks." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report that reaches the Senate crosses my desk, an' I read them, which is more than some o' my colleagues can say. Ask, an' I'll tell ye what's in them, or what should be." },
     },

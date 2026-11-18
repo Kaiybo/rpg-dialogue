@@ -8,7 +8,7 @@ P:NPC {
   communities = { "goshek_watch" }, temper = { "brisk" }, values = { "dutiful", "sharp" },
   notices = { "class" },
   impression = {
-    first = "Quae keeps her notes in a hand nobody else can read and her eyes on the orc farm below the ridge. She speaks quickly, as if each word costs her a moment of watching.",
+    first = "She speaks as if each word costs a moment of watching.",
     third = "{name} met Quae, one of Phin Odelic's agents, keeping watch on Go'Shek Farm in the Arathi Highlands.",
   },
 
@@ -252,7 +252,7 @@ P:NPC {
   communities = { "goshek_watch" }, temper = { "nervous" }, values = { "brave", "loyal" },
   notices = { "kit" },
   impression = {
-    first = "Kinelory paces when she isn't watching and watches when she isn't pacing. She is plainly frightened and plainly going to do the dangerous thing anyway.",
+    first = "She is plainly frightened and will do the dangerous thing anyway.",
     third = "{name} met Kinelory, Quae's partner in Phin Odelic's service, who means to waylay a Forsaken courier near Go'Shek Farm.",
   },
 
@@ -427,7 +427,7 @@ P:NPC {
   communities = { "drywhisker" }, temper = { "flustered" }, values = { "curious", "learned" },
   notices = { "race" },
   impression = {
-    first = "Professor Phizzlethorpe has lost his notes, his patience and very nearly his nerve in a kobold-infested gorge. He talks faster than he walks, which, given the kobolds, is a worry.",
+    first = "He talks faster than he walks, which worries me given the kobolds.",
     third = "{name} met Professor Phizzlethorpe, a gnome scholar stranded among the kobolds of Drywhisker Gorge.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   notices = { "craft", "status" },
 
   impression = {
-    first = "Pozzik built a raceway to prove goblins are better engineers than gnomes, and he means to keep proving it every single day. He talks like a man always ten minutes from the next heat.",
+    first = "He built a raceway to prove goblins are better engineers than gnomes.",
     third = "{name} met Pozzik, the goblin half of the rivalry that runs the Mirage Raceway.",
   },
 
@@ -332,7 +332,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Fizzle Brassbolts told me to stand very still before he said hello. He is the gnomish half of a rivalry at the Mirage Raceway, and he treats a cracked piston as a personal tragedy.",
+    first = "He told me to stand very still before he said hello.",
     third = "{name} met Fizzle Brassbolts, the excitable gnome who runs the Mirage Raceway alongside his goblin rival.",
   },
 
@@ -620,7 +620,7 @@ P:NPC {
   notices = { "purse", "drink" },
 
   impression = {
-    first = "Kravel Koalbeard speaks in a low voice and treats every conversation like a bet he's already won. Neither racing crew should trust him, and I'd wager both of them do.",
+    first = "Neither racing crew should trust him, and I'd wager both do.",
     third = "{name} met Kravel Koalbeard, a sly dwarf who fetches parts and whispers tips at the Mirage Raceway.",
   },
 

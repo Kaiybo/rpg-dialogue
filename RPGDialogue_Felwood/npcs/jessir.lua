@@ -10,7 +10,7 @@ P:NPC {
   notices = { "pet", "paladin" },
 
   impression = {
-    first = "Jessir Moonbow came from Darnassus to meet two friends at the Emerald Sanctuary, and they never came. She keeps her wolf close and her eyes on the road to Jaedenar.",
+    first = "The two friends she came to meet never arrived.",
     third = "{name} met Jessir Moonbow, who waits at the Emerald Sanctuary for two friends who went looking for the Shadow Council.",
   },
 

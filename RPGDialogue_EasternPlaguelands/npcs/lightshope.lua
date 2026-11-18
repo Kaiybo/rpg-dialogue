@@ -6,10 +6,11 @@ P:NPC {
   key = "tyrosus", id = TODO_NPC("Lord Maxwell Tyrosus"), name = "Lord Maxwell Tyrosus",
   bible = "bibles/easternplaguelands.md", role = "noble", tier = "major",
   communities = { "light_hope", "argent_dawn" }, temper = { "reserved" }, values = { "devout", "pragmatic" },
+  likesTone = "polite", private = { "silver_hand" },
   notices = { "race", "class", "form" },
 
   impression = {
-    first = "Lord Maxwell Tyrosus leads the Argent Dawn and says he's out of practice with visitors, though he hardly seemed it. He asks nothing about whose crown anyone serves, only whether they'll stand.",
+    first = "He never asks whose crown you serve, only whether you'll stand.",
     third = "{name} met Lord Maxwell Tyrosus, who leads the Argent Dawn from the chapel at Light's Hope.",
   },
 
@@ -311,6 +312,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's generous of you, and I thank you, though the credit belongs to those who stand the walls at night. I'll see that they hear it." },
+        { id = "s2", text = "I'm as unused to compliments as I am to visitors, and I find I don't quite know where to put it. Still, it's good to hear that the Dawn's work is seen." },
+      },
+      fail = {
+        { id = "f1", text = "I left an order that had grown too fond of hearing itself praised, so fine words sit poorly with me. Tell me what you'll do against the Scourge, and I'll listen gladly." },
+        { id = "f2", text = "You've no need to court my favour, {class}. The Dawn asks only whether you'll stand, and flattery doesn't answer that." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Well, I did say I was out of practice as a host, and you've proved it for me. It does a commander good to be laughed at now and then, so I thank you." },
+        { id = "s2", text = "You've a bold tongue, and you'd need one to joke in sight of Naxxramas. I'd sooner have fighters who can still laugh than ones who've forgotten how." },
+      },
+      fail = {
+        { id = "f1", text = "There are good people buried beneath this chapel, and I'll not have it made light of. Mind how you speak in Light's Hope." },
+        { id = "f2", text = "I've had worse from the Crusade, and they at least believed what they were saying. If you came here to sneer, the road west is open." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've a formidable way about you, and I'd be a fool not to mark it. Turn that on Stratholme, and for my part I'll deal plainly with you." },
+        { id = "s2", text = "Peace. I can see you're not one to be brushed aside, and I've no wish to try it, so you'll have my answer." },
+      },
+      fail = {
+        { id = "f1", text = "A necropolis hangs in the sky over my chapel, and I look up at it every morning. You'll understand if a raised voice doesn't trouble me." },
+        { id = "f2", text = "The Argent Dawn doesn't answer to crowns or warchiefs, and it certainly doesn't answer to threats. Stand down, or my knights will see you to the gate." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "The Dawn's riders cover the whole Eastweald, and a fair part of what they hear reaches this chapel. These are the matters I can speak to with some authority." },
@@ -332,6 +365,10 @@ P:NPC {
     stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's great fortress in the east, and the Crusade wastes its soldiers on the gates. The Dawn will take it one day, but not yet." } },
     bolvar = { { id = "tp_bolvar", text = "Lord Bolvar sends what he can to the north, which is less than I'd like and more than I'd feared. He has a kingdom to hold, and I don't envy him." } },
     _none = { { id = "tp_none", text = "Not my concern while the Scourge stands." } },
+    _gated = {
+      { id = "gt1", text = "That's a matter I keep for those who've stood with the Dawn a while. Do the work, and I'll speak of it when I know you better." },
+      { id = "gt2", text = "I'd rather not discuss that with someone I've only just met. Forgive my reserve, but it has kept this chapel standing." },
+    },
   },
 }
 
@@ -342,7 +379,7 @@ P:NPC {
   notices = { "race", "class", "form" },
 
   impression = {
-    first = "Leonid Barthalomew apologized for his face before anything else. He is dead and knows it, and has decided to use that, with a calm I found more unsettling than any rage.",
+    first = "He is dead and knows it, with a calm that unsettles me.",
     third = "{name} met Leonid Barthalomew the Revered, the undead priest who serves the Argent Dawn at Light's Hope Chapel.",
   },
 

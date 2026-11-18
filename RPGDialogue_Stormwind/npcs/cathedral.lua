@@ -9,10 +9,11 @@ P:NPC {
   key = "benedictus", id = TODO_NPC("Archbishop Benedictus"), name = "Archbishop Benedictus",
   bible = "bibles/benedictus.md", role = "priest", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
+  likesTone = "polite",
   spiritSensitive = true,
   notices = { "light", "affliction", "form" },
   impression = {
-    first = "Archbishop Benedictus has a gentle voice and a way of making a vast cathedral feel like a small chapel. He says the doors are open to everyone, and he plainly wants it to be true.",
+    first = "He makes a vast cathedral feel like a small chapel.",
     third = "{name} met Archbishop Benedictus, who tends the Church of the Holy Light and keeps its doors open to all.",
   },
 
@@ -397,7 +398,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You're kind to say so, child, though I'm only an old student of Faol's in a finer robe than I deserve. I'll keep your words for one of the grey mornings." },
+        { id = "s2", text = "That warms an old priest more than the Cathedral's braziers do. Give the credit to the Light, child, and I'll keep only the smile." },
+      },
+      fail = {
+        { id = "f1", text = "Gently, child. Men have praised me in this nave before asking the Church to bless something it shouldn't, and I've learned to hear it coming." },
+        { id = "f2", text = "Praise belongs to the Light and not to its servants, and I'd be a poor archbishop if I forgot that for a pleasant word. Let's speak plainly instead." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Faol used to tease me in just that tone when I grew too solemn over my books, and I haven't heard it since. You've done an old man good, child." },
+        { id = "s2", text = "You've a sharp tongue, and I'll own that the robes invite it. I looked like a farmer long before I looked like an archbishop, and I laugh at the difference myself." },
+      },
+      fail = {
+        { id = "f1", text = "There are wounded in the side chapels and orphans at the door, child, and you spend your wit on an old priest. I'll pray you find a better use for it." },
+        { id = "f2", text = "I've been mocked by better and forgiven them all, so I forgive you as well. I'd ask you, though, to remember whose house you're standing in." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There's a great deal of anger in you, child, and I felt it across the nave. Come, I'll not quarrel with you; tell me what you need, and we'll see whether the Church can give it." },
+        { id = "s2", text = "You needn't raise your hand to be heard in this house. I'm an old man, and I'll give way on the small matter if it lets us speak of the larger one in peace." },
+      },
+      fail = {
+        { id = "f1", text = "I buried the refugees of Lordaeron with these hands, child, and there's little left in the world that I fear for myself. Sit down and tell me what's truly troubling you." },
+        { id = "f2", text = "No one is threatened beneath this roof, not the least beggar and not its archbishop. Lower your voice, or the paladins at the door will ask you to take it outside." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is something I share with those I've come to know, child, and we've not walked far enough together yet. Come and sit with us a few more times." },
+      { id = "gt2", text = "I'll keep my counsel on that for now. It's no unkindness, only that some things are for friends of the Cathedral, and I'd be glad to count you one in time." },
+    },
     holy_light = {
       { id = "tp_holy_light", text = "The Light is not a lord who demands tribute, but a fire that burns in every soul, if only we tend it. I've seen it in a pauper and in a king, and I've seen it missing from both." },
       { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You serve the Light with your hands as well as your words, and that is the whole of our faith. Never forget that the beggar on the steps deserves your prayers as much as any lord." },
@@ -434,7 +471,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "lawful" },
   notices = { "paladin" },
   impression = {
-    first = "Gazin Tenorm is a dwarf frightened for his friend and far too stubborn to hide it. He would sooner be out searching than standing at an altar waiting on prayers.",
+    first = "He would sooner be out searching for his friend than praying.",
     third = "{name} met Gazin Tenorm at the Cathedral, a dwarf sick with worry for his friend Henze Faulk.",
   },
 
@@ -631,7 +668,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "craft", "child" },
   impression = {
-    first = "Thirty children wait on Stephanie Turner, so she is always in a hurry, and still she found a moment to tell me to eat something. I doubt she has slept properly in years.",
+    first = "Thirty children wait on her, and she still tells me to eat.",
     third = "{name} met Stephanie Turner, who runs Stormwind's orphanage with her husband and never has enough linen.",
   },
 
@@ -853,7 +890,7 @@ P:NPC {
     { id = "b_dad", text = "Dad says I can't keep her. Dad says a lot of things." },
   },
   impression = {
-    first = "Lil Timmy has a kitten that needs a good home and a father who says theirs isn't one. He made his case with all the persistence of a seasoned merchant.",
+    first = "He pleads his kitten's case like a seasoned merchant.",
     third = "{name} met Lil Timmy, a boy near the Cathedral who is determined to find his kitten a good home.",
   },
   greetings = {
@@ -1029,7 +1066,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "affliction", "form" },
   impression = {
-    first = "High Priestess Laurena likes her students standing in the light from the windows, and she looks at them very carefully when they do. She trusts slowly, and I think she's usually right to.",
+    first = "She trusts slowly, and I think she's usually right to.",
     third = "{name} met High Priestess Laurena, the Cathedral's senior priest trainer, who teaches only those she trusts with more.",
   },
 
@@ -1303,7 +1340,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "form", "race" },
   impression = {
-    first = "Brother Joshua teaches beside the altar because people listen better near it, and I suspect he's right. He has watched the first light come through the east window for years and never tired of it.",
+    first = "He has never tired of first light through the east window.",
     third = "{name} met Brother Joshua, a quiet priest trainer who teaches beside the Cathedral's altar.",
   },
 
@@ -1647,7 +1684,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "form" },
   impression = {
-    first = "I have never seen a priest so unable to keep still as Brother Benjamin, who teaches while pacing the eastern hall. He asked more questions than he answered and seemed delighted by every one.",
+    first = "I have never seen a priest so unable to keep still.",
     third = "{name} met Brother Benjamin, a restless priest trainer who thinks best while walking the Cathedral's halls.",
   },
 
@@ -1800,7 +1837,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
   notices = { "light", "race", "form" },
   impression = {
-    first = "Brother Crowley speaks for the Scarlet Crusade with the fervor of someone who has seen the dead walk. He was certain of everything he said, and that certainty stayed with me afterward.",
+    first = "His certainty about everything stays with me afterward.",
     third = "{name} met Brother Crowley, the Scarlet Crusade's emissary in the Cathedral's lower halls, who recruits the brave for Lordaeron.",
   },
 

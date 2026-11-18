@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Lord Banehollow rules the Shadow Council in Jaedenar with perfect manners and no warmth at all. He seemed to see straight through the Council's shadow and decided it was more amusing to trade than to kill.",
+    first = "He has perfect manners and no warmth at all.",
     third = "{name} spoke with Lord Banehollow, master of the Shadow Council in Jaedenar, and left Shadow Hold alive.",
   },
 

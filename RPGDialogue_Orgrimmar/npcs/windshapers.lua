@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class", "origin" },
 
   impression = {
-    first = "Corswyn Aseril is a Skyborne Windshaper who stands in Grommash Hold as if she were listening for a wind that hasn't come. She is gracious and careful, and every word she spoke seemed to have been weighed for the Warchief's ears.",
+    first = "Every word she speaks is weighed for the Warchief's ears.",
     third = "{name} met Corswyn Aseril, a Skyborne Windshaper who stands among the Warchief's company in Grommash Hold.",
   },
 
@@ -216,7 +216,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Aeigelyges is a young Skyborne who stands with Corswyn Aseril in Grommash Hold and watches the orcs with open fascination. He asked me nearly as many questions as I asked him.",
+    first = "He asks nearly as many questions as he answers.",
     third = "{name} met Aeigelyges, a young Skyborne Windshaper who keeps company with Corswyn Aseril in Grommash Hold.",
   },
 
@@ -326,7 +326,7 @@ P:NPC {
   notices = { "race", "class", "fel" },
 
   impression = {
-    first = "Yiyo Nightwalker is a Skyborne Windshaper who keeps to the Cleft of Shadow, of all places, and watches the people who come and go there. She was dry and guarded, and I couldn't decide whether she was hiding from the city or keeping an eye on it.",
+    first = "I can't tell whether she hides from the city or watches it.",
     third = "{name} met Yiyo Nightwalker, a Skyborne Windshaper who lingers in Orgrimmar's Cleft of Shadow.",
   },
 

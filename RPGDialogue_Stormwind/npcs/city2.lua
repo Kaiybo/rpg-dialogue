@@ -9,10 +9,11 @@ P:NPC {
   key = "grayson_sb", id = TODO_NPC("Lord Grayson Shadowbreaker"), name = "Lord Grayson Shadowbreaker", title = "Paladin Trainer",
   bible = "bibles/city2.md", role = "trainer", tier = "major",
   communities = { "stormwind" }, temper = { "proud" }, values = { "pious", "lawful", "stern" },
+  likesTone = "polite",
   spiritSensitive = true,
   notices = { "kit", "readiness" },
   impression = {
-    first = "Lord Grayson Shadowbreaker of the Silver Hand is not easily satisfied, and he told me so himself. He seems to judge a person first by how they keep their gear.",
+    first = "He judges a person first by how they keep their gear.",
     third = "{name} met Lord Grayson Shadowbreaker of the Silver Hand, the Cathedral's exacting paladin trainer.",
   },
 
@@ -314,7 +315,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "I thank you for that, and I'll offer it up at vespers, where such things belong. It's good to know the order's work is still seen in this city." },
+        { id = "s2", text = "You speak well of the Silver Hand, and whoever does that speaks well of everything I've given my life to. The Light's protection on you for it." },
+      },
+      fail = {
+        { id = "f1", text = "Pride is the sin a paladin must watch hardest, and you'd feed mine with a spoon. Keep your compliments, for I've no use for them." },
+        { id = "f2", text = "I've trained squires who thought a honeyed word would spare them the drill yard, and it never did. It serves you no better here." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hm. My own master at arms spoke to me so when I was a squire, and I was the better for it. You've spirit, and the Light can make use of spirit." },
+        { id = "s2", text = "That's a bold tongue to bring into the Light's own house. I'll not pretend it pleases me, but I'd sooner have boldness before me than another bowing courtier." },
+      },
+      fail = {
+        { id = "f1", text = "You mock a lord of the Silver Hand on consecrated ground, and I find nothing in it to laugh at. Go and learn some reverence, and then come back." },
+        { id = "f2", text = "I've heard such jeers from men who never stood a night's vigil in their lives. They mean as little from you as they did from them." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've a hard look about you, and I've seen it on men who meant what they said. I'll give you your answer, though it's the Light I answer to and not you." },
+        { id = "s2", text = "Stay your hand, for there's no call for that here. I'll grant what you ask this once, because I'd not have blood on the Cathedral's stones over so small a thing." },
+      },
+      fail = {
+        { id = "f1", text = "I've stood before the walking dead with nothing but a hammer and a prayer, and you are neither so cold nor so many. Step back." },
+        { id = "f2", text = "Threaten me again and you'll find that a hammer blessed in this Cathedral falls as hard on the living as on the dead. The Light does not flinch, and neither do those who carry it." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I'll not speak of that with one I hardly know. Such matters are for those who've proven themselves before the Light and before me." },
+      { id = "gt2", text = "That is not yours to ask of me yet. Show me your worth in deeds, and I may answer you then." },
+    },
     silver_hand = {
       { id = "tp_silver_hand", text = "The Silver Hand was the finest order of knights the world has seen, and Uther made it so. It's scattered now, but I keep its oath in Stormwind, and I'll not let its standards slip while I live." },
       { id = "tp_silver_hand2", when = { class = "PALADIN" }, text = "You wear the Light as the Silver Hand wore it, so mind how you keep your armour and your word. Uther judged a knight by both, and so do I." },
@@ -344,7 +381,7 @@ P:NPC {
   spiritSensitive = true,
   notices = {},
   impression = {
-    first = "Arthur the Faithful isn't sure he has earned his name, which is probably why he has. He invites everyone to kneel a moment before they begin, and he means it kindly.",
+    first = "He doubts he has earned his name, which is why he has.",
     third = "{name} met Arthur the Faithful, a devout paladin trainer in the Cathedral's east wing.",
   },
 
@@ -569,7 +606,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "honest", "ambitious" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Grimand Elmore boasts about his work as if he were stating plain fact, and from what I saw, he may be. His praise is so rare that it nearly sounds like an insult.",
+    first = "His praise is so rare that it nearly sounds like an insult.",
     third = "{name} met Grimand Elmore, master weaponsmith of the Dwarven District, who makes barding for paladins' chargers.",
   },
 
@@ -793,7 +830,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
   notices = { "lore" },
   impression = {
-    first = "In the Royal Library one whispers, because Milton Sheaf believes the books are sleeping. He forgave a book seventy years overdue for the sake of a pressed flower he found between its pages.",
+    first = "He believes the books are sleeping, so one whispers.",
     third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
   },
 
@@ -1001,7 +1038,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "witty" },
   notices = { "watch" },
   impression = {
-    first = "Nobody has ever insisted on selling only cheese as firmly as Elling Trias does. He stands behind his counter looking honest with real dedication.",
+    first = "Nobody has ever insisted so firmly on selling only cheese.",
     third = "{name} met Elling Trias at his Trade District cheese shop, a man very insistent that he is only a cheesemaker.",
   },
 

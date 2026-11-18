@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "weary" },
 
   impression = {
-    first = "Watcher Biggs is the last man of a caravan the Lost Ones broke on the road to Nethergarde. He sits guard over a smashed wagon in the reeds because he swore he would, and he means to finish the trip.",
+    first = "He guards a smashed wagon in the reeds because he swore to.",
     third = "{name} met Watcher Biggs, sole survivor of a Nethergarde caravan, guarding its wreck in the Swamp of Sorrows.",
   },
 
@@ -269,7 +269,7 @@ P:NPC {
   notices = { "class", "race", "faction" },
 
   impression = {
-    first = "Magtoor leads the few draenei at the Harborage who kept their minds when the rest of their kind went mad. He speaks slowly and kindly, and every word about the Lost Ones sounds like it costs him.",
+    first = "Every word about the Lost Ones sounds like it costs him.",
     third = "{name} met Magtoor, leader of the sane draenei of the Harborage.",
   },
 
@@ -447,7 +447,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Masat T'andr works hides at the Harborage, slow and exact, and his patterns are better than anything I've seen in a city shop. He says his hands remember the craft on the days his head does not.",
+    first = "His hands remember the craft on days his head does not.",
     third = "{name} met Masat T'andr, the draenei leatherworker of the Harborage.",
   },
 

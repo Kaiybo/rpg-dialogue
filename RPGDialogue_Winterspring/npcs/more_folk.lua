@@ -12,7 +12,7 @@ P:NPC {
   communities = { "everlook" }, temper = { "brisk", "shrewd" }, values = { "profit", "practical" },
   notices = { "reputation", "craft" },
   impression = {
-    first = "Bronn Fitzwrench stands outside Everlook selling forgiveness by the bolt of runecloth and the lump of coal. He is in a hurry, cold, and entirely unembarrassed about putting a price on redemption.",
+    first = "He is entirely unembarrassed about putting a price on redemption.",
     third = "{name} met Bronn Fitzwrench, the goblin outside Everlook who sells the Cartel's forgiveness for runecloth and coal.",
   },
   greetings = {

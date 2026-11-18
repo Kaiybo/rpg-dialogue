@@ -13,7 +13,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "grim", "anxious" }, values = { "loyal", "honest" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Grunt Logmar stands watch at Camp Taurajo with the look of someone who hasn't slept properly in weeks. He was with Grunt Dogran when the quilboar took him, and he made it back, and he hasn't forgiven himself for either.",
+    first = "He hasn't forgiven himself for making it back without Dogran.",
     third = "{name} met Grunt Logmar at Camp Taurajo, the grunt who came back from the raid where Dogran was captured.",
   },
 
@@ -156,7 +156,7 @@ P:NPC {
   temper = { "proud", "grim" }, values = { "loyal", "brave" },
   notices = { "class", "race" },
   impression = {
-    first = "Grunt Dogran lies wounded in a Bristleback camp south of the Crossroads, his leg and arm ruined, waiting to find out whether the quilboar or his wounds will take him first. He talks about his mate in Orgrimmar more than about himself.",
+    first = "He talks about his mate in Orgrimmar more than about himself.",
     third = "{name} found Grunt Dogran, a wounded orc grunt held captive by the quilboar near Camp Taurajo.",
   },
 
@@ -300,7 +300,7 @@ P:NPC {
   temper = { "grim", "calm" }, values = { "loyal", "vengeful" },
   notices = { "race", "class" },
   impression = {
-    first = "Gann Stonespire wanders alone on the roads of the southern Barrens near Bael Modan, where the dwarves blast holes in the hills his tribe once called home. He tried talking to them, and now he has stopped trying.",
+    first = "He tried talking to the dwarves, and now he has stopped trying.",
     third = "{name} met Gann Stonespire, a tauren wandering near Bael Modan who wants the dwarves driven out.",
   },
 

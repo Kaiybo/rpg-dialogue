@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "wry", "sharp" }, values = { "curious", "ambitious" },
   notices = { "race", "class" },
   impression = {
-    first = "Jeeda is Jin'Zil's apprentice and stirs his pots at Malaka'jin, and she rolls her eyes at half of what he says while writing the other half down. She is sharp, wry and far more ambitious than she lets her master see.",
+    first = "She is far more ambitious than she lets her master see.",
     third = "{name} met Jeeda, the young troll apprentice to Witch Doctor Jin'Zil at Malaka'jin.",
   },
 
@@ -166,7 +166,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Xen'Zilla is a lean Darkspear hunter who keeps his spear within reach even while he skins. He laughs easily, but his eyes go to the northern trees every time something rustles.",
+    first = "His eyes go to the northern trees whenever something rustles.",
     third = "{name} met Xen'Zilla, a Darkspear hunter at Malaka'jin who wants the Stonetalon spiders kept away from the camp's meat.",
   },
 
@@ -319,7 +319,7 @@ P:NPC {
   notices = { "weary", "race", "class" },
 
   impression = {
-    first = "Ken'zigla smells of bitterroot and smoke, and he measures everything twice, the draughts and the people who ask for them. He spoke to me while stirring and never once looked away from the pot.",
+    first = "He measures everything twice, the draughts and the people asking for them.",
     third = "{name} met Ken'zigla, the Darkspear brewer of healing draughts at Malaka'jin.",
   },
 

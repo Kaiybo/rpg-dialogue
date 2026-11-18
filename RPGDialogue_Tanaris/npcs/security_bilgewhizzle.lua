@@ -11,7 +11,7 @@ P:NPC {
   communities = { "steamwheedle_port" }, temper = { "harried", "sharp" }, values = { "profit", "dutiful" },
   notices = { "stealth", "trophy" },
   impression = {
-    first = "Security Chief Bilgewhizzle keeps the peace at Steamwheedle Port and complains that the Cartel wants him in two places at once. He deputizes anyone who'll stand still and never lets them read the small print.",
+    first = "He deputizes anyone who stands still and never shows the small print.",
     third = "{name} met Security Chief Bilgewhizzle, the harried goblin in charge of Water Company security at Steamwheedle Port.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Golhine the Hooded teaches druids beside the one clean moonwell in a sick forest, and doesn't say much more than he must. The hood, he says, only keeps the ash off.",
+    first = "He says the hood only keeps the ash off.",
     third = "{name} met Golhine the Hooded, the quiet druid trainer at Talonbranch Glade.",
   },
 

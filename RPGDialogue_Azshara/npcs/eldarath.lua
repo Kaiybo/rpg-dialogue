@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "pet" },
 
   impression = {
-    first = "Ogtinc is a furbolg hunter who left his people to serve the Cenarion Circle, and he keeps watch over the Ruins of Eldarath from his cliff. He grieves every courser he asks someone to kill.",
+    first = "He grieves every courser he asks someone to kill.",
     third = "{name} met Ogtinc, a furbolg of the Cenarion Circle keeping watch on the cliff above the Ruins of Eldarath.",
   },
 
@@ -332,7 +332,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak kindly to a furbolg, and not many do in these days. Ogtinc thanks you, and he will remember the warmth of it when the cliff is cold." },
+        { id = "s2", text = "Those are good words, friend, and Ogtinc thinks you mean them. The Circle taught me that kindness is a kind of healing, and I feel a little healed." },
+      },
+      fail = {
+        { id = "f1", text = "Ogtinc is only a hunter on a cliff, friend, and such large words do not fit him. I would sooner you spoke plainly, as the beasts do." },
+        { id = "f2", text = "My people heard sweet words too, before the sickness took them, and I have been wary of sweetness since. Say what you need of me, and we will leave the praise aside." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hrr. You poke at the bear to see whether he still has claws, and that is a hunter's trick, so Ogtinc is not angry. He still has them, friend, and he is glad you asked boldly." },
+        { id = "s2", text = "Ogtinc has been called worse by his own kin, and they meant it more. You have a strong heart to tease a furbolg at his own fire, and I think the path may have need of it." },
+      },
+      fail = {
+        { id = "f1", text = "That was not kindly said, and Ogtinc does not know what he did to earn it. I left my tribe to get away from anger, so do not bring it up my cliff." },
+        { id = "f2", text = "Ogtinc does not answer mockery, because nothing good grows from it. Sit quietly a while, or go down to the ruins, where the ghosts may enjoy a quarrel more than I do." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "Ogtinc takes one slow step back from the fire.", text = "You are stronger than Ogtinc, and you want him to know it, and now he knows it. I ask only that you remember I am not your enemy, and that this cliff has seen enough fear." },
+        { id = "s2", text = "Ogtinc has seen that look on the faces of his own people, before they stopped knowing him. I will give you what you ask, friend, but I am sorry that you asked it so." },
+      },
+      fail = {
+        { id = "f1", text = "Ogtinc watched his tribe go mad around him, and he walked out through them alone. You do not frighten him, friend, and he wishes you would not try." },
+        { id = "f2", text = "The divine path does not bend because someone raises a voice at it, and neither does Ogtinc. Sit down by the fire, and we will speak as two hunters should." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "Ogtinc does not know you well enough yet to speak of that. Walk gently on this coast a while, and then ask me again." },
+      { id = "gt2", text = "That is a thing I keep close, friend, and I am not ready to give it to you. A furbolg learns to be slow with his trust." },
+    },
     knows = {
       { id = "tp_knows", text = "I know the beasts of this coast, and the ruins below, and a little of the Circle's work. Ask what you need." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Friend, I will tell you all that I know. It is not so much, but it is honest." },
@@ -361,7 +398,7 @@ P:NPC {
   notices = { "profession" },
 
   impression = {
-    first = "Peter Galen teaches dragonscale leatherworking from a camp in the ruins, and offers his condolences to anyone who goes hunting dragons. He keeps a list of customers who never came back.",
+    first = "He keeps a list of customers who never came back.",
     third = "{name} met Peter Galen, the dragonscale leatherworker camped in the Ruins of Eldarath.",
   },
 
@@ -567,7 +604,7 @@ P:NPC {
   notices = { "race", "purse" },
 
   impression = {
-    first = "Kim'jael is a goblin the elves hired and then tried to kill, and he's furious about the nickname more than the knives. He paid me fairly and then immediately renegotiated.",
+    first = "He paid me fairly and then immediately renegotiated.",
     third = "{name} met Kim'jael, a goblin scout double-crossed by Magus Rimtori's elves on the northern cliffs.",
   },
 
@@ -814,7 +851,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Captain Vanessa Beltis lost her ship, the Horizon Scout, to the naga off Azshara and holds a nook in the Ruined Reaches with what's left of her crew. She blames herself for every drowned sailor.",
+    first = "She blames herself for every drowned sailor.",
     third = "{name} met Captain Vanessa Beltis, whose ship the Horizon Scout lies at the bottom of the sea off Azshara.",
   },
 
@@ -1004,7 +1041,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Pilot Xiggs Fuselighter dropped out of the sky onto a tiny helipad off Azshara's coast because I fired a flare. He's flying rubbings to Ironforge as a favour to a friend, and seems to love every minute.",
+    first = "He flies rubbings to Ironforge as a favour and loves every minute.",
     third = "{name} met Pilot Xiggs Fuselighter, who flies the Explorers' League's rubbings out of Azshara.",
   },
 

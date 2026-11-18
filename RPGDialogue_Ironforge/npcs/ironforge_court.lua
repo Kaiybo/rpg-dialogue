@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft", "kin" },
 
   impression = {
-    first = "High Tinker Mekkatorque speaks fast, worries about whether people are eating, and has more ideas than he can test. Leading his people from someone else's city weighs on him more than he lets on.",
+    first = "Leading his people from someone else's city weighs on him.",
     third = "{name} met High Tinker Gelbin Mekkatorque, the elected leader of the gnomes, who works from Ironforge while Gnomeregan cannot be lived in.",
   },
 
@@ -568,7 +568,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh, that's very kind of you, and I'll admit it's nice to hear, because most of what I hear all day is what's broken. I'd say my spirits are up a good twelve percent." },
+        { id = "s2", text = "You noticed the work! Hardly anyone does, they only notice when it stops working, so thank you, truly." },
+      },
+      fail = {
+        { id = "f1", text = "That's generous, but I'm the gnome who lost Gnomeregan, and I've learned to weigh praise carefully since then. Yours came out rather light on the scale, I'm afraid." },
+        { id = "f2", text = "Hm, I've run the numbers on that compliment, and about ninety percent of it is grease. I use a great deal of grease, friend, so I do know it when I see it." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Yes, well, I've been called worse by my own apprentices, and usually while something was on fire. You're quite right to poke at me, since a tinker who can't be laughed at stops checking his sums." },
+        { id = "s2", text = "Oh, very good, I'm writing that one down. If you can needle a High Tinker and make him laugh, you ought to meet my engineers, who've been trying for years." },
+      },
+      fail = {
+        { id = "f1", text = "I can take a joke about my height, my goggles or my inventions, but that one was aimed at my people, and they've lost enough. I'd thank you not to try it again." },
+        { id = "f2", text = "I've heard that sort of thing before, generally from people who've never built anything. It doesn't make me angry so much as tired, and I haven't the hours to spare for being tired." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He takes half a step back and nearly trips over a loose gear.", text = "All right, all right, there's no need for that, because I'm a tinker and not a soldier. You've made me nervous enough to drop a perfectly good spanner, so let's talk sensibly." },
+        { id = "s2", text = "Goodness, you do loom, don't you? I've no wish to quarrel with anyone in Tinker Town, so say what you need and I'll see whether it can be managed." },
+      },
+      fail = {
+        { id = "f1", text = "I walked out of Gnomeregan with radiation in the air and troggs behind me, so I'm afraid a hard look doesn't register on any gauge I own. Do try asking nicely, since it has a much better success rate." },
+        { id = "f2", text = "You're standing in a dwarven city full of gnomes who'd take that very personally, and half of them carry wrenches. I'd reconsider your approach, friend, purely as a matter of engineering." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I'd rather not go into that with someone I've only just met, if it's all the same to you. Some things I keep in the locked drawer, and you haven't got the key yet." },
+      { id = "gt2", text = "That's a subject I'm careful with, and I don't know you well enough to be careless. Ask me again when we've a little more history between us." },
+    },
     knows = {
       { id = "tp_knows", text = "I've a head full of schematics and only a little room left over for everything else, but I'll share what's in there. Ask me about any of this." },
     },
@@ -597,7 +633,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Royal Historian Archesonus learned my voice before she learned my name, since her eyes went long ago. Her memory has more than made up for it.",
+    first = "Her eyes went long ago, so she knows me by my voice.",
     third = "{name} spoke with Royal Historian Archesonus, the blind keeper of Ironforge's history who knows her visitors by their voices.",
   },
 
@@ -894,7 +930,7 @@ P:NPC {
   notices = { "lore", "travel" },
 
   impression = {
-    first = "High Explorer Magellas warned me not to touch anything with a label, or without one. His Prospectors do the digging, he says, and he does the worrying, and he's good at it.",
+    first = "His Prospectors do the digging and he does the worrying.",
     third = "{name} met High Explorer Muninn Magellas in the Hall of Explorers, who leads the Explorers' League from Ironforge.",
   },
 
@@ -1276,7 +1312,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Prospector Stormpike looked up from his reading just long enough to make clear I'd interrupted. He isn't unkind, only spare with his words and his time.",
+    first = "He isn't unkind, only spare with his words and his time.",
     third = "{name} interrupted Prospector Stormpike's reading in the Hall of Explorers, and the dwarf made plain he had little time for chat.",
   },
 
@@ -1527,7 +1563,7 @@ P:NPC {
   notices = { "kit", "greenness" },
 
   impression = {
-    first = "Senator Mehr Stonehallow could be debating somewhere warm and is counting troggs in a quarry instead. He seems proud of that, and rightly.",
+    first = "He could debate somewhere warm and counts troggs in a quarry instead.",
     third = "{name} met Senator Mehr Stonehallow, who left the warmth of the Senate to hold the Gol'Bolar Quarry against the troggs.",
   },
 
@@ -1878,7 +1914,7 @@ P:NPC {
   notices = { "drink", "weary" },
 
   impression = {
-    first = "Innkeeper Firebrew keeps the Stonefire loud, warm and full of stories that grow as the kegs empty. He likes anyone who'll add to the noise.",
+    first = "His stories grow as the kegs empty.",
     third = "{name} took a stool at the Stonefire Tavern, where Innkeeper Firebrew keeps the beer strong and the stories tall.",
   },
 

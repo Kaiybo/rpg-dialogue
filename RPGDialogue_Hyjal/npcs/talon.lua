@@ -6,10 +6,11 @@ P:NPC {
   key = "hyj_thisalee", id = TODO_NPC("Thisalee Crow"), name = "Thisalee Crow", title = "Druid of the Talon",
   bible = "bibles/hyjal.md", role = "questgiver", tier = "major",
   communities = { "hyjal", "druids_of_the_talon" }, temper = { "proud", "sharp" }, values = { "brave", "loyal", "curious" },
+  likesTone = "blunt",
   notices = { "class", "race", "form", "kit" },
 
   impression = {
-    first = "Thisalee Crow is young, quick and impatient with anyone who wants to talk a problem to death. She loves this mountain fiercely and seems to think caution is something that happens to other people.",
+    first = "She thinks caution is something that happens to other people.",
     third = "{name} met Thisalee Crow, a headstrong young Druid of the Talon who keeps watch over the wounded slopes of Mount Hyjal.",
   },
 
@@ -418,7 +419,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh! Well, nobody up here says things like that, because the Skylord thinks praise makes us careless. Say it again when the owls are listening, would you?" },
+        { id = "s2", text = "You're all right, you know that? I get told off so often that I'd forgotten what the other thing sounds like, and I'm not going to pretend I don't like it." },
+        { id = "s3", when = { class = "DRUID" }, text = "From another druid, that actually counts for something, because you know how hard the flying is. Don't tell Nighthaven I said so, but you're the best of them I've met." },
+      },
+      fail = {
+        { id = "f1", text = "You sound like a trader working up to a price, and I've got crates to count. If you want something off the Talon, just ask me straight." },
+        { id = "f2", text = "Don't do that. The owls can tell when somebody's laying it on, and they've all turned to look at you." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Finally, somebody on this mountain who bites back instead of bowing. I was starting to think the whole world had gone as careful as the Skylord." },
+        { id = "s2", text = "Oh, you're asking for it, and I love that you are. Keep up with me on the slopes and you can say whatever you like to my face." },
+      },
+      fail = {
+        { id = "f1", text = "I've got demons in the gorge and fel in the roots, and you want to stand here being clever at me. Go and be clever somewhere it'll help." },
+        { id = "f2", text = "Say that again and I'll have an owl drop something on you, and they've very good aim. I'm busy, and you're not half as funny as you think." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, all right, you've made your point, and you didn't have to loom to make it. I'm not scared of much, but I'm not stupid either, and you look like trouble I don't need today." },
+        { id = "s2", text = "Huh. The owls have all gone quiet, and they only do that for hawks and for worse. Fine, you win this one, but don't go trying it on the younger ones." },
+      },
+      fail = {
+        { id = "f1", text = "I carried messages over the lines when the Legion was on this mountain, so you'll forgive me if I don't fall over. Try scaring the demons instead, because they've earned it." },
+        { id = "f2", text = "Really? On my mountain, in front of my birds? Back off, before I forget the Skylord told me to be polite to visitors." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "I'm not telling you that, not yet. I talk too much as it is, and I've learned to save some of it for people I trust." },
+      { id = "gt2", text = "No, that one's not for strangers. Do something for the mountain first, and then we'll see." },
+    },
     knows = {
       { id = "tp_knows", text = "I've flown over most of this mountain, and what I haven't flown over, the owls have. Ask, and I'll tell you what I'd want to know in your boots." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask, then, but don't expect me to hold your hand through the answer." },

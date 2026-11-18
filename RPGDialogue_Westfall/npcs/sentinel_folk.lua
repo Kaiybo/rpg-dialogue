@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "steady" }, values = { "kind", "practical" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Innkeeper Heather fights the Westfall dust with a broom and a sense of humour, and the dust is winning. Most of her guests sleep in their boots, she says, and she has stopped minding.",
+    first = "Her guests sleep in their boots, and she has stopped minding.",
     third = "{name} met Innkeeper Heather, who keeps the inn on Sentinel Hill and feeds the hungry militia.",
   },
 
@@ -231,7 +231,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "harried" }, values = { "dutiful", "practical" },
   notices = { "kit" },
   impression = {
-    first = "One ledger and a much-robbed wagon keep Sentinel Hill supplied, and Quartermaster Lewis manages both with weary good grace. He'd rather not know how gear gets damaged, because then he'd have to write it down.",
+    first = "He would rather not know how the gear gets damaged.",
     third = "{name} met Quartermaster Lewis, who keeps Sentinel Hill fed and armed with far too little.",
   },
 
@@ -450,7 +450,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "brisk" }, values = { "proud" },
   notices = { "travel", "animal" },
   impression = {
-    first = "Thor speaks of his gryphons as if they were moody old friends, and he seems to like them better than most people. The birds, I think, know it.",
+    first = "He likes his gryphons better than most people, and they know it.",
     third = "{name} met Thor, the gryphon master of Sentinel Hill, whose birds are the one way out of Westfall the Defias haven't robbed.",
   },
 
@@ -675,7 +675,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "watchful" }, values = { "dutiful", "loyal" },
   notices = { "stealth", "kit" },
   impression = {
-    first = "Scout Riell sees every road into Sentinel Hill from her tower, and she saw me long before I saw her. She likes the Defias nervous, and she's working hard at it.",
+    first = "She saw me long before I saw her.",
     third = "{name} met Scout Riell, who watches the roads from Sentinel Hill's tower and reports to Gryan Stoutmantle.",
   },
 
@@ -901,7 +901,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "dry" }, values = { "craft" },
   notices = { "class" },
   impression = {
-    first = "Westfall wood is poor, according to William MacGregor, so he makes up the difference with patience. Strings, he reminded me more than once, are always extra.",
+    first = "Strings, he reminded me more than once, are always extra.",
     third = "{name} met William MacGregor, the Sentinel Hill bowyer, who coaxes good bows from Westfall's poor wood.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "level" },
 
   impression = {
-    first = "Neeka Bloodscar is Kargath's head scout, and she sized me up like a coyote she hadn't decided to shoot yet. She talks about Helgrum in Stonard as if he were a younger brother who runs too fast and thinks too little.",
+    first = "She sized me up like a coyote she hadn't decided to shoot.",
     third = "{name} met Neeka Bloodscar, head scout of Kargath in the Badlands.",
   },
 
@@ -289,7 +289,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Jarkal Mossmeld rents the room upstairs at Kargath's inn and fills it with jars of gizzards and fangs. He's a Darkspear alchemist with a merchant's eye, and he made sure I knew his offers beat anyone else's.",
+    first = "He fills his rented room with jars of gizzards and fangs.",
     third = "{name} met Jarkal Mossmeld, a troll alchemist who works upstairs at the inn in Kargath.",
   },
 
@@ -561,7 +561,7 @@ P:NPC {
   notices = { "race", "level" },
 
   impression = {
-    first = "Gorrik keeps the wind riders at Kargath and spends half his day dragging them out of the shade. His beasts hate the heat, he says, and he hates it more.",
+    first = "His wind riders hate the heat, and he hates it more.",
     third = "{name} met Gorrik, the wind rider master at Kargath.",
   },
 
@@ -739,7 +739,7 @@ P:NPC {
   notices = { "weary", "level" },
 
   impression = {
-    first = "Grawl sells general goods at Kargath and treats every waterskin like it's the last one in the Badlands. He's a plain, gruff orc who measures everything in how long it keeps a grunt alive.",
+    first = "He treats every waterskin like the last one in the Badlands.",
     third = "{name} bought supplies from Grawl, who sells general goods at Kargath.",
   },
 

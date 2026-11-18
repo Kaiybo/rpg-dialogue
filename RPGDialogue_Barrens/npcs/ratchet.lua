@@ -8,9 +8,10 @@ P:NPC {
   prejudice = { race = "NightElf", amount = 6, why = "Night elves complain about the smoke and the logging contracts, buy nothing and haggle over the rest; to him they are bad customers first." },
   bible = "bibles/crossroads.md", role = "noble", tier = "major",
   temper = { "brash" }, values = { "ambitious", "practical" },
+  likesTone = "blunt",
   notices = { "race" },
   impression = {
-    first = "Gazlowe runs Ratchet for the Steamwheedle Cartel, and he will tell anyone who stands still that he built Orgrimmar for Thrall. He is loud and greedy and sharper than he lets on, and the Southsea pirates on his coast cost him money every day.",
+    first = "He tells anyone who stands still that he built Orgrimmar.",
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
@@ -453,7 +454,43 @@ P:NPC {
       },
     },
   },
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Now that's what I like to hear, pal, somebody who knows quality when it's standing right in front of them! I built half of Orgrimmar and I run all of this town, and it's about time somebody noticed." },
+        { id = "s2", text = "Hey, keep talking like that and I might start thinking you've got taste, friend. Flattery's cheap, sure, but I never said I didn't like a bargain." },
+      },
+      fail = {
+        { id = "f1", text = "Pal, I've been sweet-talked by trade princes with a contract in one hand and a knife in the other, so you're gonna have to do a lot better than that." },
+        { id = "f2", text = "That's nice, real nice, and it's worth exactly what you paid for it, which is nothing. You want something from me, friend, you name a price like everybody else." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got a mouth like a goblin, pal, and from me that's the highest praise going. I don't even mind that it was at my expense, because that was funny." },
+        { id = "s2", text = "Oh, you're a wise guy, huh? Good, because wise guys I can do business with, and it's the polite ones who rob you blind." },
+      },
+      fail = {
+        { id = "f1", text = "Real cute, friend, real cute. I've got bruisers on every corner of this town who get paid by the hour to deal with cute." },
+        { id = "f2", text = "You're insulting the guy who runs the dock you walked in on, the inn you're gonna sleep in and the boat you're gonna leave on. Think that one through, pal." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Whoa, whoa, easy there, boss, nobody needs to get hurt over a little conversation! I'm a businessman, and I know when the smart money says play nice.", narr = "Gazlowe raises both hands and takes a short step back." },
+        { id = "s2", text = "Okay, okay, I get the picture, and it's a very convincing picture. Let's you and me keep this friendly, since friendly costs a lot less." },
+      },
+      fail = {
+        { id = "f1", text = "Pal, I dug the foundations of Orgrimmar with kobolds chewing on my boots, so a mean face isn't gonna rattle me." },
+        { id = "f2", text = "You lean on me in my own town and you'll find out what the bruisers cost me, which is plenty, so I like to get my money's worth. Back it up, friend." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's inside information, pal, and inside information goes to people I know and like, which so far isn't you." },
+      { id = "gt2", text = "Nope, not telling, friend, because that one's worth something and you haven't shown me you're good for it yet." },
+    },
     knows = {
       { id = "tp_knows", text = "Pal, every rumor on this coast comes through my docks sooner or later, and half of 'em pay a toll on the way. Ask me about any of these, and the first answer's on the house." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, pal, because answers are cheap, but the good stuff's for customers with a little credit built up, and you ain't there yet." },
@@ -480,7 +517,7 @@ P:NPC {
   temper = { "anxious" }, values = { "curious" },
   notices = { "class" },
   impression = {
-    first = "Sputtervalve is a goblin tinker in Ratchet who cannot stop talking about the Samophlange, a contraption he lost out in the Barrens. He means well and frets constantly, and his sentences rarely end where they started.",
+    first = "His sentences rarely end where they started.",
     third = "{name} met Sputtervalve, a fretful goblin tinker in Ratchet.",
   },
   greetings = {
@@ -633,7 +670,7 @@ P:NPC {
   temper = { "smooth" }, values = { "ambitious" },
   notices = { "race" },
   impression = {
-    first = "Mebok Mizzyrix sells concoctions out of Ratchet and wants raptor horns and other odd ingredients for them. He is a pure salesman, all promises and grins, and he never says exactly what the drinks are for.",
+    first = "He never says exactly what his drinks are for.",
     third = "{name} met Mebok Mizzyrix, a goblin peddler of tonics in Ratchet.",
   },
   greetings = {
@@ -809,7 +846,7 @@ P:NPC {
   temper = { "harried" }, values = { "practical", "dutiful" },
   notices = { "race" },
   impression = {
-    first = "Wharfmaster Dizzywig keeps Ratchet's docks running and keeps a ledger of every crate that never arrived. He is harried and exact, and a missing shipment makes him take it personally.",
+    first = "He keeps a ledger of every crate that never arrived.",
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {

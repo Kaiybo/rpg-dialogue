@@ -10,7 +10,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "grave", "steady" }, values = { "devout", "duty" },
   notices = { "class", "race", "fel" },
   impression = {
-    first = "Taiga Wisemane is a grave old tauren who speaks about demons the way farmers speak about locusts, as a plague that has come before and will come again. He wants the Burning Blade's portals shut and is not interested in who gets the credit.",
+    first = "He speaks of demons the way farmers speak of locusts.",
     third = "{name} met Taiga Wisemane, the tauren elder at Shadowprey Village who would take the Hand of Iruxos from the Burning Blade.",
   },
 
@@ -199,7 +199,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "blunt", "restless" }, values = { "brave", "nature" },
   notices = { "class", "race", "deeds" },
   impression = {
-    first = "Vark Battlescar keeps an upstairs room in Shadowprey with a vial on the table and a scar he doesn't explain. He wants Maraudon's plants healed, and he talks about the satyr Vyletongue like a personal enemy.",
+    first = "He has a scar he doesn't explain and a grudge against Vyletongue.",
     third = "{name} met Vark Battlescar, the scarred tauren at Shadowprey Village who would heal Maraudon's vines.",
   },
 
@@ -413,7 +413,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "genial", "wistful" }, values = { "friendship", "nature" },
   notices = { "class", "race", "pet" },
   impression = {
-    first = "Roon Wildmane is an old tauren hunter who keeps a kodo horn polished for a friend he hasn't seen in years. He talks about Hemet Nesingwary the way some people talk about the best summer of their lives.",
+    first = "He polishes a kodo horn for a friend unseen in years.",
     third = "{name} met Roon Wildmane, the tauren hunter at Shadowprey Village who once hunted Desolace with Hemet Nesingwary.",
   },
 

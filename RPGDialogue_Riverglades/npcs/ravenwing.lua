@@ -9,7 +9,7 @@ P:NPC {
   communities = { "farholde", "brotherhood_horse" }, temper = { "cold", "sharp" }, values = { "dutiful", "cautious" },
   notices = { "class", "fel" },
   impression = {
-    first = "Interrogator Ravenwing questions whatever the scouts drag back from the Twilight's camps, prisoners and papers alike. He asked me more questions than I asked him, and I noticed only afterward.",
+    first = "He asks more questions than I do, and I notice only afterward.",
     third = "{name} met Interrogator Ravenwing, who questions the Brotherhood's Twilight captives at Farholde Keep.",
   },
 

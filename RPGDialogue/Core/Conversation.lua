@@ -482,15 +482,20 @@ end
 
 -- The one gossip option a "get on with it" (or a reply like "Show me your wares.") should
 -- pick straight away, so the game opens the vendor or trainer without its menu first.
+-- "I wish to unlearn my talents" and a pet trainer's "I wish to untrain my pet" wear the
+-- trainer's icon (and say "train"): never the one to pick.
+local function isUndo(name)
+  name = (name or ""):lower()
+  return name:find("unlearn", 1, true) or name:find("untrain", 1, true) or name:find("reset", 1, true)
+end
+
 function Conv.ServiceOption(s, hint)
   if C.InCombat() then return nil end
   local options = C.GossipOptions()
   local services = {}
   for _, o in ipairs(options) do
     local kind = Conv.OptionKind(o)
-    -- "I wish to unlearn my talents" wears the trainer's icon too: never the one to pick.
-    local unlearn = (o.name or ""):lower():find("unlearn", 1, true)
-    if kind and not unlearn then services[#services + 1] = { id = o.id, kind = kind } end
+    if kind and not isUndo(o.name) then services[#services + 1] = { id = o.id, kind = kind } end
   end
   if #services == 0 then return nil end
   local want = (hint and wordsKind(hint, WANT_WORDS)) or ROLE_SERVICE[s.info.role or ""]
@@ -501,7 +506,7 @@ function Conv.ServiceOption(s, hint)
   if want == "trainer" then
     for _, o in ipairs(options) do
       local name = (o.name or ""):lower()
-      if (name:find("train", 1, true) or name:find("teach", 1, true)) and not name:find("unlearn", 1, true) then
+      if (name:find("train", 1, true) or name:find("teach", 1, true)) and not isUndo(name) then
         return { id = o.id, kind = "trainer" }
       end
     end
@@ -729,6 +734,7 @@ function Conv.ShowReplyEnd(text, narr)
   if not s then return end
   local info = s.info
   local linked = Conv.Hear(text)
+  Conv.Log("narr", narr)
   Conv.Log("npc", text)
   local said = s.said
   s.said = nil
@@ -828,6 +834,7 @@ function Conv.ShowNode(nodeId, reply, replyNarr)
   end
 
   s.page = nil
+  Conv.Log("narr", narr)
   Conv.Log("npc", body)
   local said = s.said
   s.said = nil
@@ -919,7 +926,25 @@ function Conv.Log(who, text)
   if not s or not text or text == "" then return end
   s.log = s.log or {}
   s.log[#s.log + 1] = { who = who, text = text }
-  if #s.log > 40 then table.remove(s.log, 1) end
+  if #s.log > 400 then table.remove(s.log, 1) end
+  -- The journal's Transcript page keeps recent conversations, not just the last (0.87.0).
+  if ns.char then
+    local list = ns.char.transcripts
+    if not list then
+      list = {}
+      local old = ns.char.transcript
+      if old and old.log and #old.log > 0 then list[1] = old end
+      ns.char.transcript = nil
+      ns.char.transcripts = list
+    end
+    local last = list[#list]
+    if not last or last.log ~= s.log then
+      list[#list + 1] = { name = s.info and s.info.name, t = C.Now(), log = s.log }
+      while #list > 20 do table.remove(list, 1) end
+    end
+  end
+  local J = ns.Journal
+  if J and J.IsShown and J.IsShown() and J.Current() == "transcript" then J.Show("transcript", true) end
 end
 
 function Conv.Choose(index)
@@ -1109,6 +1134,7 @@ end
 
 -- Tone for the box's selector (0.85.0): "polite" / "normal" / "blunt", or nil when hidden.
 function Conv.ToneView(s)
+  do return nil end   -- 0.86.0: tone selector removed
   if not s or not ns.Disposition or ns.db.settings.toneSelector == false then return nil end
   return ns.Disposition.Tone(s.ctx)
 end
@@ -1331,21 +1357,27 @@ function Conv.Persuade(action)
     return
   end
   local before = ns.Disposition and ns.Disposition.For(env, ctx)
+  -- What you actually say (0.86.0), and their own answer to it when the line has one.
+  local say = Engine.PickSay and Engine.PickSay(s.info, action, ctx, env)
   local ok = P.Try(action, s.info, s.mem, ctx)
   local result = ok and "success" or "fail"
-  local w = Engine.PickPersuade(s.info, action, result, ctx, env)
+  local paired = say and type(say.line[result]) == "string" and say.line[result] or nil
+  local w = not paired and Engine.PickPersuade(s.info, action, result, ctx, env) or nil
   local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
-  if w then
+  if paired then
+    text = Tokens.Render(paired, ctx, env, say.line.when)
+  elseif w then
     Conv.Shown(w)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, ctx, env, w.line.when)
   end
   local name = L["PERSUADE_" .. action:upper()] or action
   local said = "[" .. name .. "]"
+  if say then said = Tokens.Render(say.line.text, ctx, env, say.line.when) end
   Conv.Log("you", said)
   Conv.Log("npc", text)
   local linked = Conv.Hear(text)
-  View(s).ShowAnswer(text, name, linked, ns.db.settings.echoReply ~= false and said or nil)
+  View(s).ShowAnswer(text, name, linked, (say or ns.db.settings.echoReply ~= false) and said or nil)
   if s.viewTopic and s.nodeDef then
     s.viewTopic = nil
     Conv.OfferChoices(s)

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "fel" },
 
   impression = {
-    first = "Arei is the spirit of an ancient who fought for this forest long ago, still bound here and still carrying its pain. He asked to be led home with a patience that put me to shame.",
+    first = "He asked to be led home with a patience that shamed me.",
     third = "{name} met the spirit of Arei, an ancient of Felwood who asked to be led away to rest.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brill" }, temper = { "gruff" }, values = { "dutiful", "proud" },
   notices = { "class", "kit" },
   impression = {
-    first = "Austil de Mon drills warriors in the back of the Gallows' End Tavern as if Lordaeron's army still needed recruits. He is gruff about everything except a good stance.",
+    first = "He is gruff about everything except a good stance.",
     third = "{name} met Austil de Mon, who trains the Forsaken's warriors in Brill's tavern.",
   },
 

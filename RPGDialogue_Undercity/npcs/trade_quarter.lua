@@ -13,7 +13,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "surly", "nervous" }, values = { "practical" },
   notices = { "race", "purse" },
   impression = {
-    first = "Jeremiah Payson sells cockroaches under a walkway by the bank and treats every customer as an intrusion. Under the rudeness there's a man who would very much prefer not to be asked who he used to be.",
+    first = "He would very much prefer not to be asked who he was.",
     third = "{name} met Jeremiah Payson, the Undercity's cockroach vendor, who was once Jeremiah Felstone.",
   },
 
@@ -126,7 +126,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "smooth", "cheerful" }, values = { "greedy" },
   notices = { "purse", "race" },
   impression = {
-    first = "Alessandro Luca sells odds and ends in blue in the Undercity, and he sells them like heirlooms. He has a name for every shade of blue and a grudge against the colour green, and he seems to think blue is the only cheerful thing left in Lordaeron.",
+    first = "He holds a grudge against the colour green.",
     third = "{name} met Alessandro Luca, who sells blue odds and ends in the Undercity.",
   },
 
@@ -277,7 +277,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cool", "wry" }, values = { "precise", "discreet" },
   notices = { "race", "class" },
   impression = {
-    first = "Ophelia Montague keeps the Undercity's vaults alongside William and answers every question about their family with a smile and nothing else. She treats a secret the way other bankers treat gold, and she seems to enjoy the mystery more than the money.",
+    first = "She treats a secret the way other bankers treat gold.",
     third = "{name} met Ophelia Montague, a banker of the Undercity.",
   },
 
@@ -389,7 +389,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "eager", "scattered" }, values = { "curious" },
   notices = { "craft", "race" },
   impression = {
-    first = "Graham Van Talen teaches engineering in the Undercity and is missing two fingers, which he says the plague didn't take. He measures everything in fuse lengths and is still building the clockwork dragonling that cost him those fingers, and he was the happiest person I'd met in the city until I realised why.",
+    first = "He is still building the clockwork dragonling that cost him two fingers.",
     third = "{name} met Graham Van Talen, the Undercity's engineering trainer.",
   },
 
@@ -502,7 +502,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "gloomy", "dry" }, values = { "practical" },
   notices = { "craft" },
   impression = {
-    first = "Franklin Lloyd sells engineering supplies next to Graham Van Talen and seems to be waiting for the day his neighbour finally blows them both up. He keeps a chalk tally of customers who never came back, and he's very calm about it.",
+    first = "He keeps a calm chalk tally of customers who never came back.",
     third = "{name} met Franklin Lloyd, who sells engineering supplies in the Undercity.",
   },
 
@@ -611,7 +611,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "gruff", "dry" }, values = { "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Arthur Moore teaches leatherworking in the Undercity and says death was the best thing that ever happened to his trade, since he can't smell the tannery anymore. He reads a hide with his thumb the way other men read a letter, and he wasn't entirely joking.",
+    first = "He says death improved his trade, since he can't smell the tannery.",
     third = "{name} met Arthur Moore, the Undercity's leatherworking trainer.",
   },
 
@@ -718,7 +718,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "fussy", "proud" }, values = { "precise" },
   notices = { "craft", "gear", "class" },
   impression = {
-    first = "Bowen Brisboise teaches tailoring in the Undercity and visibly winced at my clothes. He once made coats for the court, he talks about cloth as if each kind had a character, and he still judges everyone by the cut of their seams.",
+    first = "He visibly winced at my clothes.",
     third = "{name} met Bowen Brisboise, the Undercity's tailoring trainer and a former court tailor.",
   },
 

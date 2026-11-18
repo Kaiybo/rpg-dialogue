@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class", "craft", "hunger" },
 
   impression = {
-    first = "Augustus the Touched is a dead man selling mushrooms in a dead town, and he is cheerfully, completely mad. Somewhere under the giggling he knows exactly what happened to Terrordale, and I think the madness is how he stands it.",
+    first = "I think the madness is how he stands what happened to Terrordale.",
     third = "{name} met Augustus the Touched, an undead mushroom seller in Terrordale who never left the inn where the Scourge found him.",
   },
 

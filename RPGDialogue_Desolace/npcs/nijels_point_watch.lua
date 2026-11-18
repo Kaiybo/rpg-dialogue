@@ -10,7 +10,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "earnest", "tired" }, values = { "dutiful", "loyal" },
   notices = { "race", "class", "soldier" },
   impression = {
-    first = "Corporal Melkins keeps the bounty ledger at Nijel's Point and counts centaur ears with the weary care of a man who would rather be counting sheep in Elwynn. He believes in the mission and hates the job.",
+    first = "He believes in the mission and hates the job.",
     third = "{name} met Corporal Melkins, who pays the Alliance's centaur bounty at Nijel's Point.",
   },
 
@@ -214,7 +214,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "intense", "sorrowful" }, values = { "nature", "devout" },
   notices = { "race", "class" },
   impression = {
-    first = "Talendria speaks about the satyr Vyletongue with a cold, private anger, as if his corruption of Maraudon were an insult to her family. She wants the caverns healed, not just cleared, and she is very particular about the difference.",
+    first = "She wants Maraudon healed, not just cleared, and minds the difference.",
     third = "{name} met Talendria, the night elf at Nijel's Point who wants Maraudon's poisoned vines healed.",
   },
 
@@ -412,7 +412,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "cheerful", "proud" }, values = { "duty", "nature" },
   notices = { "race", "weary", "class" },
   impression = {
-    first = "Baritanas Skyriver keeps the hippogryphs at Nijel's Point and is the only person in the outpost who seems to like Desolace, because he only ever sees it from above. He is proud of his birds and slightly vain about his name.",
+    first = "He likes Desolace because he only ever sees it from above.",
     third = "{name} met Baritanas Skyriver, the cheerful hippogryph master at Nijel's Point.",
   },
 

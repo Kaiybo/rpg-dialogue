@@ -10,7 +10,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "bitter", "haunted" }, values = { "loyal", "vengeful" },
   notices = { "race", "class", "deeds" },
   impression = {
-    first = "Drulzegar Skraghook was the only one of his fishing crew to come home when the naga struck, and he has not fished since. He pays strangers to kill naga and it never seems to be enough, because the guilt isn't something a bounty can settle.",
+    first = "No naga bounty will ever settle his guilt at coming home alone.",
     third = "{name} met Drulzegar Skraghook, the troll at Shadowprey who lost his whole crew to the Slitherblade naga.",
   },
 
@@ -185,7 +185,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "warm", "wry" }, values = { "hospitality", "community" },
   notices = { "race", "weary", "drink" },
   impression = {
-    first = "Innkeeper Sikewa runs a tauren inn in a troll village on the edge of a dead land, and she seems to find all of that more funny than sad. She knows everyone's business and keeps most of it.",
+    first = "She knows everyone's business and keeps most of it.",
     third = "{name} met Innkeeper Sikewa, the tauren who keeps the inn at Shadowprey Village.",
   },
 
@@ -306,7 +306,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "laconic", "patient" }, values = { "duty", "nature" },
   notices = { "race", "weary" },
   impression = {
-    first = "Thalon keeps the wind riders at the very end of Shadowprey's dock, where the sea wind is strongest. He says little, watches the horizon a great deal, and talks to his riders more than to travellers.",
+    first = "He says little and watches the horizon a great deal.",
     third = "{name} met Thalon, the tauren wind rider master at the end of Shadowprey's dock.",
   },
 

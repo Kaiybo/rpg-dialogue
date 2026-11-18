@@ -11,7 +11,7 @@ P:NPC {
   notices = { "kit", "drink" },
 
   impression = {
-    first = "Sergeant De Vries is Westbrook's morale officer, which seems to mean he sells the drink and listens to the complaining. He is better at the second part than he lets on.",
+    first = "He listens to the complaining better than he lets on.",
     third = "{name} met Sergeant De Vries, morale officer of Westbrook Garrison, who keeps tired soldiers going with drink and good humour.",
   },
 

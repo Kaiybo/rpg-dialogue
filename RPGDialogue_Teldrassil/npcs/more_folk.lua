@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sentinel Shayla Nightbreeze walks the road between Dolanaar and Darnassus and carries the Council's orders as if each one were carved in stone. She keeps a list of who has wronged the forest.",
+    first = "She keeps a list of who has wronged the forest.",
     third = "{name} met Sentinel Shayla Nightbreeze, who patrols the road west of Dolanaar and speaks for the Council of the Forest.",
   },
 
@@ -123,7 +123,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Porthannius has a package of herbs for Dolanaar and too much business with the druids of Shadowglen to carry it himself. He is apologetic about it, in a kindly, slightly fussy way.",
+    first = "He is apologetic in a kindly, slightly fussy way.",
     third = "{name} met Porthannius in Shadowglen, who sends herbs to the Dolanaar inn.",
   },
 
@@ -259,7 +259,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Kal teaches young druids in Dolanaar and speaks as if every word had been weighed and found sufficient. He is the first to tell a druid when the Enclave is ready for them.",
+    first = "Every word he speaks sounds weighed and found sufficient.",
     third = "{name} met Kal, the druid trainer of Dolanaar, who sends young druids on to Mathrengyl Bearwalker in Darnassus.",
   },
 
@@ -358,7 +358,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Keldas trains hunters' companions in Dolanaar and talks to the animals before he talks to their owners. He seems to think that's the right order.",
+    first = "He talks to the animals before he talks to their owners.",
     third = "{name} met Keldas, the pet trainer of Dolanaar.",
   },
 
@@ -482,7 +482,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Meri Ironweave sells mail and shields in Dolanaar, cheerfully, and seems faintly amused by her own name. Her goods are plain and well made.",
+    first = "She seems faintly amused by her own name.",
     third = "{name} met Meri Ironweave, the armorer of Dolanaar.",
   },
 
@@ -599,7 +599,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Shalomon sells weapons in Dolanaar and handles every blade as if it might still be useful to someone he cares about. He says little and means all of it.",
+    first = "He says little and means all of it.",
     third = "{name} met Shalomon, the weaponsmith of Dolanaar.",
   },
 
@@ -714,7 +714,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Danlyia sells food and drink in Dolanaar and talks while she wraps it. By the time the bread is in your pack, she has told you who in the village is quarrelling with whom.",
+    first = "She tells you who is quarrelling with whom while wrapping your bread.",
     third = "{name} met Danlyia, who sells food and drink in Dolanaar.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical", "loyal" },
   notices = { "light", "kin", "soldier" },
   impression = {
-    first = "Harry Burlguard is an old soldier who holds court at a table in the Pig and Whistle and teaches young warriors by setting them on the regulars. He laughs more than he lets on.",
+    first = "He teaches young warriors by setting them on the tavern regulars.",
     third = "{name} met Harry Burlguard, an old veteran who teaches fighting from his table in the Pig and Whistle.",
   },
 
@@ -233,7 +233,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "fierce" }, values = { "proud" },
   notices = { "light", "kin", "drink" },
   impression = {
-    first = "Bartleby sits at the end of the Pig and Whistle's bar with his arms around his mug and dares the world to take it. He's spoiling for a fight and oddly gracious if he loses one.",
+    first = "He is spoiling for a fight and oddly gracious when he loses.",
     third = "{name} met Bartleby, the Pig and Whistle's most stubborn drunk, and his beloved mug.",
   },
 
@@ -452,7 +452,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk" }, values = { "friendly", "practical" },
   notices = { "light", "kin", "drink" },
   impression = {
-    first = "Elly Langston carries the Pig and Whistle's drinks through a room full of soldiers and drunks without spilling a drop or losing her temper. She had my order before I'd finished giving it.",
+    first = "She never spills a drop or loses her temper.",
     third = "{name} met Elly Langston, barmaid at the Pig and Whistle Tavern in Old Town.",
   },
 
@@ -667,7 +667,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "careful", "proud" },
   notices = { "light", "kin", "craft" },
   impression = {
-    first = "Stephen Ryback cooks the best ribs in Old Town and handles a kitchen knife the way a soldier handles a sword. He says he's just a cook, in a voice that ends the subject.",
+    first = "He says he is only a cook, and that ends the subject.",
     third = "{name} met Stephen Ryback, the Pig and Whistle's cook and cooking trainer, who is just a cook, he says.",
   },
 
@@ -852,7 +852,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "patient" }, values = { "practical", "hardworking" },
   notices = { "light", "kin", "craft" },
   impression = {
-    first = "Simon Tanner teaches leatherworking at the Protective Hide and has made his peace with students who leave for adventure halfway through. He spoke kindly of his dandy of an apprentice, and he meant it.",
+    first = "He has made his peace with students who leave for adventure.",
     third = "{name} met Simon Tanner, the leatherworking trainer at the Protective Hide in Old Town.",
   },
 
@@ -1027,7 +1027,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "cunning", "loyal" },
   notices = { "light", "kin", "stealth" },
   impression = {
-    first = "Osborne the Night Man trains rogues outside SI:7's door and keeps one hand near his coin purse while he does it. He's dry, watchful and harder to read than he looks.",
+    first = "He keeps one hand near his coin purse while he teaches.",
     third = "{name} met Osborne the Night Man, the rogue trainer who stands outside SI:7 in Old Town.",
   },
 
@@ -1302,7 +1302,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "careful" },
   notices = { "light", "kin", "stealth" },
   impression = {
-    first = "Jasper Fel sells poisons inside SI:7 in a voice meant for one listener at a time. He seemed to know more about my business than I'd told anybody, and he wanted me to notice.",
+    first = "He knows more about my business than I have told anybody.",
     third = "{name} met Jasper Fel, the soft-spoken dealer who sells supplies inside SI:7.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "wonder", "far", "form" },
   impression = {
-    first = "The king of Stormwind is a boy who still forgets the proper words of welcome, and he tries very hard to remember them. He seemed far more curious about me than about being king.",
+    first = "He seems far more curious about me than about being king.",
     third = "{name} was received by the boy king Anduin Wrynn, who rules until his father comes home and tries very hard at it.",
   },
 
@@ -369,7 +369,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's a very kind thing to say! I'll tell Bolvar tonight, though he'll only say that a king shouldn't listen to compliments, and then he'll smile anyway." },
+        { id = "s2", text = "Nobody at council says nice things unless they want a road built, so thank you. I think you meant that one, and I'm going to remember it." },
+      },
+      fail = {
+        { id = "f1", text = "The dukes talk to me like that right before they ask for something, and I've learned to tell. You don't have to do it, because I'd have listened anyway." },
+        { id = "f2", text = "Um, thank you, I suppose, but Bolvar says a king who likes flattery ends up with very bad advisers. I'd rather you just told me about the places you've been." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Nobody's dared tease me since I got the crown, and I've missed it terribly. Don't let the guards hear you, though, because they take it much more seriously than I do." },
+        { id = "s2", text = "That was almost rude, and I liked it, because everyone else here bows so much that I only ever see the tops of their heads. I'm not as small as I look, you know." },
+      },
+      fail = {
+        { id = "f1", text = "That wasn't very kind, and I don't think it was meant to be. My father would have known what to say back, but I'm only going to ask you not to do it again." },
+        { id = "f2", text = "I'm the king, even if the crown slips down over my ears, and you shouldn't talk to me like that in my own hall. Bolvar's looking at you now, and I'd stop if I were you." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You, um, you needn't stand so close. I'll hear what you wanted to say, only please say it from over there, where the guards can stop frowning." },
+        { id = "s2", narr = "He takes half a step back toward the throne, then makes himself stand still.", text = "I'm not supposed to look frightened in front of the court, so I'm going to pretend I'm not. What is it you wanted?" },
+      },
+      fail = {
+        { id = "f1", text = "My father sailed off to make peace and never came home, so there isn't much left that you could scare me with. You'd better stop before Bolvar notices, because he's much less patient than I am." },
+        { id = "f2", text = "Kings aren't supposed to be frightened in their own keep, and I've been practising. I think you should say sorry, and then we can talk about something else." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "Bolvar says I'm not to talk about that with people the crown doesn't know well yet. I'm sorry, but I did promise him." },
+      { id = "gt2", text = "I'd like to tell you, only I don't really know you yet, and a king has to be careful who he tells things to." },
+    },
     varian = {
       { id = "tp_varian", text = "My father went to Theramore to make peace and never got there, and nobody will tell me what happened to his ship. Bolvar says he'll come home, and I say it too, every night, so it stays true." },
       { id = "tp_varian2", when = { disposition = { min = 65 } }, text = "Sometimes I go into his study and sit in his chair, just to see the room the way he saw it. I'm not supposed to, so please don't tell Bolvar, though I think he knows." },

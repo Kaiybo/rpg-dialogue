@@ -9,7 +9,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "smooth", "sharp" }, values = { "cunning", "loyal" },
   notices = { "stealth", "class" },
   impression = {
-    first = "Mennet Carkad recruits for the Deathstalkers with perfect manners and no illusions. He speaks as if every conversation were a test, and I suspect every one of them is.",
+    first = "I suspect every conversation with him is a test.",
     third = "{name} met Mennet Carkad, who tests would-be Deathstalkers on Lord Varimathras's behalf in the Rogues' Quarter.",
   },
 

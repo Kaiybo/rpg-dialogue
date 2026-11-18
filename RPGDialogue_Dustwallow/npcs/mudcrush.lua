@@ -9,7 +9,7 @@ P:NPC {
   temper = { "blunt", "cheerful" }, values = { "honest" },
   notices = { "hunger", "kin" },
   impression = {
-    first = "Mudcrush Durtfeet is a huge ogre by the marsh road who wants fish heads and says he'll eat me if he doesn't get them. I think he's mostly joking, though I wouldn't stake much on it.",
+    first = "He says he'll eat me without fish heads, and he's mostly joking.",
     third = "{name} met Mudcrush Durtfeet, a hungry ogre by the Dustwallow road who likes murloc heads.",
   },
 

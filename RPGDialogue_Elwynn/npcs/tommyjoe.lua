@@ -9,7 +9,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "romantic" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Nobody watches a river as carefully as Tommy Joe Stonefield, who says he's only looking at the water and says it far too quickly. Every day lately is a fine day to him.",
+    first = "He says he's only watching the water, and says it too quickly.",
     third = "{name} met Tommy Joe Stonefield by the river, where he is certainly not waiting for anyone in particular.",
   },
 

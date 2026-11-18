@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Tajarri guards the Shrine of Remulos with a scimitar and a long memory, and she judges every visitor by how they stand on sacred ground. To young druids she's gentler than she looks.",
+    first = "She judges every visitor by how they stand on sacred ground.",
     third = "{name} met Tajarri, the sworn warden of the Shrine of Remulos in Moonglade, who oversees the druids' trials.",
   },
 

@@ -8,7 +8,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "dutiful" },
   notices = { "greenness" },
   impression = {
-    first = "Kaltunk greets every recruit who walks into the Valley of Trials, because someone once greeted him and he remembers who. He is gruff about it, but he has not forgotten what it was to arrive with nothing.",
+    first = "He has not forgotten what it was to arrive with nothing.",
     third = "{name} met Kaltunk, the gruff orc who greets new blood at the mouth of the Valley of Trials.",
   },
 
@@ -219,9 +219,10 @@ P:NPC {
   key = "gornek", id = TODO_NPC("Gornek"), name = "Gornek",
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "valley_of_trials" }, temper = { "hard" }, values = { "stern", "dutiful" },
+  race = "Orc", likesTone = "blunt",
   notices = { "greenness", "class", "origin" },
   impression = {
-    first = "Gornek runs the Den and claims he is never asleep when the recruits whisper. The first lesson, to him, is getting back up, and he looks at newcomers as though deciding whether they will learn it.",
+    first = "The first lesson, to him, is getting back up.",
     third = "{name} met Gornek, the hard orc who runs the Den in the Valley of Trials and makes Horde out of whoever walks in.",
   },
 
@@ -436,7 +437,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I don't hear much of that from recruits, and I'll admit it's not unwelcome. Now put that respect into your work and we'll get along." },
+        { id = "s2", text = "You know how to honor those who came before you, and that tells me someone raised you right. I'll remember it, recruit." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery won't get you out of the valley any faster, recruit. The scorpids don't care how sweetly you talk, and neither do I." },
+        { id = "f2", text = "I've trained a hundred whelps, and the ones who licked my boots were always the first to run. Stop talking and go earn your place." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! A recruit with a tongue as sharp as that might just have the nerve to match it. I like a bit of fire, so long as you carry it into the fight." },
+        { id = "s2", text = "You'd mock your own trainer, in your first days in the valley? Good, because the Horde has no use for the timid, and you're plainly not that." },
+      },
+      fail = {
+        { id = "f1", text = "You've killed a few boars and now you think you can bare your teeth at me. Watch your mouth, recruit, or you'll be hauling water with the peons until you learn respect." },
+        { id = "f2", text = "I was fighting for the Horde before you could lift an axe, and I'll not be laughed at by a green whelp. Do that again and we'll settle it in the dirt." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Well. There's more in you than I took you for, recruit, and I don't say that lightly. You'll have no more hard words from me today." },
+        { id = "s2", text = "I've seen that look on grunts twice your age, and it usually meant someone was about to bleed. All right, {class}, you've shown me you're no whelp." },
+      },
+      fail = {
+        { id = "f1", text = "You think to frighten me, recruit, in my own valley? I've stared down ogres, and you're a long way short of an ogre." },
+        { id = "f2", text = "Save that for the Burning Blade in their cave, because they're the ones who ought to fear you. I'm the one who decides whether you're fit to leave this valley." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "You've not earned that answer yet, recruit. Do the work I give you, and then we'll see what I tell you." },
+      { id = "gt2", text = "That's not something I share with a whelp who's barely bloodied. Come back when the valley knows your name." },
+    },
     knows = {
       { id = "tp_knows", text = "Recruits talk in the Den when they think I'm asleep, and I never am. Ask about these, and then listen." },
     },
@@ -456,7 +493,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "watchful" }, values = { "sharp", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Zureetha Fargaze watches the Burning Blade's caves to the north and wants every detail of what anyone saw there. Her contempt for the cultists who want the old fire back is fierce and wholly sincere.",
+    first = "Her contempt for cultists who want the old fire back is fierce.",
     third = "{name} met Zureetha Fargaze, who watches the Burning Blade's caves in the Valley of Trials and sends recruits to thin their ranks.",
   },
 
@@ -635,7 +672,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "exasperated" }, values = { "practical" },
   notices = { "idle" },
   impression = {
-    first = "Most of Foreman Thazz'ril's days go to keeping his peons awake, and mostly he fails. He is exasperated by their talent for napping and almost impressed by it, which makes him better company than he would guess.",
+    first = "His peons' talent for napping exasperates and almost impresses him.",
     third = "{name} met Foreman Thazz'ril, who struggles to keep the sleepy peons of the Valley of Trials gathering lumber.",
   },
 
@@ -840,7 +877,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "longsuffering" }, values = { "practical", "generous" },
   notices = { "hunger" },
   impression = {
-    first = "Nobody thanks the cook, Galgar told me, but everybody notices when the pot is empty. He insists fried scorpid tail grows on you, and I am not yet convinced.",
+    first = "Nobody thanks the cook, he says, until the pot is empty.",
     third = "{name} met Galgar, the long-suffering cook who feeds the recruits, grunts and peons of the Valley of Trials.",
   },
 
@@ -1057,7 +1094,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "curt" }, values = { "practical" },
   notices = { "kit" },
   impression = {
-    first = "Kzan Thornslash keeps the recruits armed while they keep dropping their weapons in the scrub. He is curt and charges for everything, but he knows his trade.",
+    first = "He is curt and charges for everything, but he knows his trade.",
     third = "{name} met Kzan Thornslash, the curt weaponsmith who keeps the recruits of the Valley of Trials armed.",
   },
 

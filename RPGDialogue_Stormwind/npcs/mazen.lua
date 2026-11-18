@@ -11,10 +11,11 @@ P:NPC {
   key = "mazen", id = TODO_NPC("Mazen Mac'Nadir"), name = "Mazen Mac'Nadir", title = "Academy of Arcane Arts and Sciences",
   bible = "bibles/mazen.md", role = "scholar", tier = "major",
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious", "cautious" },
+  likesTone = "polite",
   notices = { "mage", "warlock", "scholar" },
 
   impression = {
-    first = "Mazen Mac'Nadir keeps the Academy's library and looks as though the library has been keeping him: ink on his cuffs, three books under one arm and a list of overdue requests as long as the other. He talks quickly, worries constantly, and lights up the moment anyone mentions Khadgar.",
+    first = "He lights up the moment anyone mentions Khadgar.",
     third = "{name} met Mazen Mac'Nadir, caretaker of the Academy's library in Stormwind, a harried scholar who guards enchanted books from the wrong hands.",
   },
 
@@ -430,7 +431,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh! Well, that's, yes, thank you, that's very kind indeed. Nobody praises a cataloguer, you understand, so I haven't a reply prepared, and I usually have one prepared for everything." },
+        { id = "s2", text = "You noticed the shelving! It took me years, and you're only the second person who's seen that it's sorted at all. Do sit down, if you can find a chair." },
+      },
+      fail = {
+        { id = "f1", text = "That's most generous, but I've read enough courtly letters to recognise the form, and it's generally followed by a request to borrow something. Nothing leaves this room, I'm afraid." },
+        { id = "f2", text = "I'm a polite man, so I'll say thank you, but I'd be happier with an honest question about the books. Compliments make me lose my place." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Yes, well, I did go to Goldshire once and came straight home, so I can't call that unfair. You're quicker than most of the Academy's students, and I mean it kindly." },
+        { id = "s2", text = "Oh, that's rather good, and I'm writing it down before I forget it. I've been called worse by archmages with less wit, I assure you." },
+      },
+      fail = {
+        { id = "f1", text = "I don't see what's amusing about a man who keeps his books in order. I'll ask you to lower your voice among the shelves, and I'll ask it politely, once." },
+        { id = "f2", text = "Mock the stacks if you must, but half of what Stormwind knows about itself is in this room, and I gathered it. I'd thought better of you." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Oh dear, please, there's no call for that, and do mind the stack by the door. I'll tell you what you want to know, only kindly step back from the folios." },
+        { id = "s2", text = "I'm a scholar, you understand, and I've never claimed to be brave. Ask your question, and I'll answer it as fully as I can, if you'll stop looking at me like that." },
+      },
+      fail = {
+        { id = "f1", text = "I catalogue works on the Burning Legion before breakfast, so I'm afraid a raised voice doesn't trouble me as it once might have. Sit down, please, before you knock something over." },
+        { id = "f2", text = "This room is under the Academy's wards, and they're considerably less polite than I am. I'd advise you to compose yourself." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I'm afraid I don't share that with visitors I've only just met. It isn't rudeness, I hope; a careful man keeps some pages closed until he knows his reader." },
+      { id = "gt2", text = "I'd rather not say, not yet. Come by again and talk books with me a while, and perhaps I'll feel differently." },
+    },
     background = { { id = "tp_bg", text = "Born in Stormwind, raised above a bookbinder's, and apprenticed to the Academy at twelve because I read the labels on everything. I've never left, except once to Goldshire, and I didn't care for it." } },
     advice = { { id = "tp_ad", text = "Write everything down, and then write down where you put it. The second part is the one people forget." } },
     khadgar = { { id = "tp_khadgar", text = "The finest mind of his generation, and I've a shelf of his work that I'd save before my own furniture. Ask Watcher Mahar Ba at Nethergarde, if you'd like to hear someone even more excitable about him than I am." } },

@@ -2,6 +2,17 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-18)
+- 18 more named NPCs in Dun Morogh have conversations, around Kharanos, Anvilmar, Gol'Bolar Quarry and Amberstill Ranch.
+
+## 1.27.0 (2026-11-18)
+- More named NPCs the earlier passes missed now have conversations, and thin ones have more to say. New files: restart the game fully.
+- Major NPCs answer Admire, Taunt and Intimidate in their own voice, and turn you down in their own words when they won't talk.
+
+## 1.26.0 (2026-11-18)
+- Thin NPCs deepened with more to say, and NPCs that were missed added.
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.25.0 (2026-11-18)
 - "Where is...?" directions for Ironforge (`directions.lua`, new file: restart the game fully).
 - Magni's lines have narration.

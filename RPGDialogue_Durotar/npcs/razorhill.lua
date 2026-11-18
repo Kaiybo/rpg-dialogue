@@ -6,9 +6,10 @@ P:NPC {
   key = "garthok", id = TODO_NPC("Gar'Thok"), name = "Gar'Thok",
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
+  race = "Orc", likesTone = "blunt",
   notices = { "kit", "greenness" },
   impression = {
-    first = "Gar'Thok speaks in orders and expects reports in return, and he holds Razor Hill as if all of Durotar depended on it. Having seen the roads that meet there, I think perhaps it does.",
+    first = "He holds Razor Hill as if all of Durotar depended on it.",
     third = "{name} met Gar'Thok, the terse commander of Razor Hill, who holds Durotar's crossroads for the Horde.",
   },
 
@@ -221,7 +222,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. That's well said, and I don't hear it often out here. I'll take it, and then we'll both get back to work." },
+        { id = "s2", text = "Razor Hill gets little thanks from Orgrimmar and less from those passing through, so I'll remember that you gave some." },
+      },
+      fail = {
+        { id = "f1", text = "I've reports to write and Kolkar on the border, and no time to be flattered. Say what you came to say." },
+        { id = "f2", text = "Words like that belong in throne rooms and not in barracks. If you want my good opinion, bring me a quilboar's head." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've nerve to talk that way in my barracks, and nerve is what I'm short of in this garrison. Keep it, because you'll need it past the gate." },
+        { id = "s2", text = "That's the first thing anyone's said all day that wasn't a complaint or a report. You've a quick tongue, {class}, and I don't mind it." },
+      },
+      fail = {
+        { id = "f1", text = "I don't have the patience for jesters. Take your wit out to the road and try it on the Razormane." },
+        { id = "f2", text = "Insult me again and you'll be mucking out the wolf pens until dark. I command this post, and you'll speak like you know it." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've made your point, and I'm not fool enough to argue with it. I'd sooner have that temper pointed at the Kolkar than at me." },
+        { id = "s2", text = "I've led grunts into worse than you, but not much worse, I'll grant. Very well, I'm listening." },
+      },
+      fail = {
+        { id = "f1", text = "I've held this hill against quilboar, centaur and Kul Tiras marines, so one loud {class} doesn't trouble me." },
+        { id = "f2", text = "Threaten an officer of the Horde again and you'll do it from the stockade. Now stand down." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not for your ears, not until you've done more for this post than talk." },
+      { id = "gt2", text = "I don't discuss that with those I can't yet vouch for. Earn it, and ask me again." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report from Durotar crosses my table, so I know what's happening and where. Ask, and be quick about it." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've done good work for Razor Hill, so you'll get more than a short answer from me, this once." },
@@ -248,7 +285,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "grim" }, values = { "lawful", "protective" },
   notices = { "class", "stealth" },
   impression = {
-    first = "There is a patience in how Orgnil Soulscar hunts the Burning Blade that frightens me a little. The cultists he most wants to meet, he says, are the ones smiling inside the city walls.",
+    first = "His patience in hunting the Burning Blade frightens me a little.",
     third = "{name} met Orgnil Soulscar of Razor Hill, a grim orc who hunts the Burning Blade wherever it hides.",
   },
 
@@ -481,7 +518,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Innkeeper Grosk offers a bed, ale and a roof against the sun, and treats everything beyond the door as rocks and scorpids. He is as dry as Durotar, but he does check the blankets.",
+    first = "He is as dry as Durotar, but he does check the blankets.",
     third = "{name} rested at Innkeeper Grosk's inn in Razor Hill, the safest bed in a land of rocks and scorpids.",
   },
 
@@ -705,7 +742,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "easygoing" }, values = { "generous", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Walls, says Brakk, are for people who have stopped walking, and he camps wherever he stops across Durotar. His fire felt like the most welcoming place in that whole red land.",
+    first = "Walls, he says, are for people who have stopped walking.",
     third = "{name} met Brakk, a wandering orc who camps across Durotar and keeps a journal of every fire he has ever built.",
   },
 

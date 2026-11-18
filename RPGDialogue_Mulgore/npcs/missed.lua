@@ -1,0 +1,907 @@
+-- Mulgore's Braves, the named guards the roster scan found unwritten: four on Red Cloud Mesa around
+-- Camp Narache (Greathoof, Lightninghorn, Proudsnout, Running Wolf) and nine at Bloodhoof Village
+-- (Cloudmane, Darksky, Dawneagle, Ironhorn, Leaping Deer, Rainchaser, Rockhorn, Strongbash, Swiftwind).
+-- Each has a post, a temper and a thing they watch for. Voice: bibles/missed.md
+local P = RPGDialogueAPI:Pack("rpgd.mulgore")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+---------------------------------------------------------------------------
+-- Brave Greathoof: wanders by the giant skeleton south of Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_greathoof", id = TODO_NPC("Brave Greathoof"), name = "Brave Greathoof", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "narache" }, temper = { "thoughtful" }, values = { "dutiful", "reverent" },
+  notices = { "class" },
+  impression = {
+    first = "Brave Greathoof walks a slow circle around the great bones south of Camp Narache, and he looks at them as often as he looks at the plain. He speaks as though the bones might be listening.",
+    third = "{name} met Brave Greathoof, who keeps watch by the great bones south of Camp Narache.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk softly here, {class}, for you stand in the shadow of something older than our camp." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back to the bones, and they have not moved, which is all I ask of them." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha is bright on the bones tonight, and the cougars hunt by her light, so keep to the path." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter looks at these bones and thinks of the size of the spear, I am sure. I think of it too, on the long watches." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Greathoof, and my watch is the south of Red Cloud Mesa, where the great bones lie. The plainstriders and the cougars keep me company, and neither is much for talk." },
+      },
+      again = {
+        { id = "h_again", text = "Ask what you will, for the watch is long and the plain is quiet." },
+        { id = "h_again2", text = "Was there something more you wished to know?" },
+      },
+      choices = {
+        { text = "What beast left bones that size?", next = "bones" },
+        { text = "What do you watch for out here?", next = "watch" },
+        { text = "A lonely post, this one.", next = "lonely" },
+        { text = "Walk with the Earth Mother, brave.", next = "END" },
+      },
+    },
+    bones = {
+      lines = { { id = "b_default", text = "A kodo, the elders say, from a time when the herds were greater than any that walk the plains today. It lay down here long before the Hawkwind raised their tents, and no one has had the heart to move it." } },
+      choices = {
+        { text = "Why guard what is already dead?", next = "bones_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bones_why = {
+      lines = { { id = "bw_default", text = "I do not guard the bones so much as the young ones who come to climb them. A cougar waits in the long grass for exactly that kind of carelessness, and I would rather it went hungry." } },
+      choices = { { text = "A fair reason. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    watch = {
+      lines = { { id = "w_default", text = "Mountain cougars come down from the rim of the mesa, and the battleboars wander up from the south when the quilboar let them stray. Neither will trouble a full camp, but both will trouble one young tauren walking alone.", fx = { learn = { "quilboar" } } } },
+      choices = {
+        { text = "I can thin the cougars for you.", next = "BACK", when = { class = { "HUNTER", "WARRIOR" } }, reply = "Then take only what you need to make the path safe, and thank each one as it falls. The Earth Mother made the cougar too.", fx = { affinity = 1 } },
+        { text = "I'll keep to the path. Something else.", next = "BACK" },
+      },
+    },
+    lonely = {
+      lines = { { id = "l_default", text = "It is quiet, which is not the same thing as lonely. A brave who cannot keep his own company on the plain will be poor company for anyone in the camp." } },
+      choices = { { text = "Well said. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I was raised at Camp Narache and I have walked this stretch of the mesa since I earned my spear." } },
+    quilboar = { { id = "tp_qb", text = "The Bristleback keep to their ravine in the east, but their boars do not, and I turn those back when they come." } },
+    earth_mother = { { id = "tp_em", text = "She is in the grass and in the bones alike, and I find it easy to remember that out here." } },
+    _none = { { id = "tp_none", text = "That is beyond my watch, friend, so ask it of Chief Hawkwind in the camp." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Lightninghorn: patrols the road just north of Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_lightninghorn", id = TODO_NPC("Brave Lightninghorn"), name = "Brave Lightninghorn", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "narache" }, temper = { "brisk" }, values = { "dutiful", "proud" },
+  notices = { "race" },
+  impression = {
+    first = "Brave Lightninghorn strides the road north of Camp Narache at a pace most tauren save for the hunt. He counts everyone who leaves the mesa, and he remembers which of them came back.",
+    third = "{name} met Brave Lightninghorn, who patrols the road north of Camp Narache.",
+  },
+  greetings = {
+    { id = "g_default", text = "The road is clear as far as the pass, {class}, for I walked it myself not long ago." },
+    { id = "g_back", when = { metBefore = true }, text = "You are on my road again, and that is good, because a road wants feet on it." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "Another of ours bound for the wide plains, I think. Walk it proudly, for the whole camp watches the young ones go." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
+      text = "It is a long walk from Durotar to this mesa. You honour the Hawkwind by making it, and I will see you safely onto the road." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Brave Lightninghorn, and this road is mine from the edge of the camp to the pass that leads down off the mesa. Everyone who leaves Camp Narache for Bloodhoof Village passes me, and I like to know their faces." },
+      },
+      again = {
+        { id = "h_again", text = "Speak as we walk, if you would, because I do not like to stand still on a watch." },
+        { id = "h_again2", text = "What else, then?" },
+      },
+      choices = {
+        { text = "Where does this road lead?", next = "road" },
+        { text = "You walk faster than most tauren.", next = "pace" },
+        { text = "Does anything trouble the road?", next = "trouble" },
+        { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    road = {
+      lines = { { id = "r_default", text = "North through the pass and down onto the plains of Mulgore, and then on to Bloodhoof Village beside Stonebull Lake. Beyond that the road climbs to Thunder Bluff itself, where Cairne Bloodhoof keeps the tribes together.", fx = { learn = { "cairne" } } } },
+      choices = {
+        { text = "Who should I look for at Bloodhoof?", next = "road_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_who = {
+      lines = { { id = "rw_default", text = "Baine Bloodhoof, the chieftain's son, has the keeping of the village, and he always has work for willing hands. Brave Rockhorn walks the south side of it, and you may tell him that Lightninghorn's road is quiet." } },
+      choices = { { text = "I'll tell him. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    pace = {
+      lines = { { id = "p_default", text = "My mother named me for the storm, and I have tried to deserve it. A slow guard sees the same trouble as a quick one, only he sees it after it has already happened." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    trouble = {
+      lines = { { id = "t_default", text = "Plainstriders mostly, which are more foolish than dangerous, and a cougar now and then where the rocks crowd the road. The Bristleback stay in their ravine, and I mean to keep it so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I am of the Hawkwind's camp, and I asked for the road because I could not bear to stand at a tent door." } },
+    cairne = { { id = "tp_ca", text = "He led us out of the Barrens to this land, and every road in Mulgore is safe because of him." } },
+    advice = { { id = "tp_adv", text = "Leave the mesa by daylight the first time, so that you see the plains open below you as they should be seen." } },
+    _none = { { id = "tp_none", text = "I know my road and little past it, so ask in the camp behind me." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Proudsnout: patrols the graveyard just west of Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_proudsnout", id = TODO_NPC("Brave Proudsnout"), name = "Brave Proudsnout", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "narache" }, temper = { "solemn" }, values = { "reverent", "dutiful" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Brave Proudsnout keeps the burial ground west of Camp Narache, walking between the scaffolds with his head a little bowed. He lowers his voice when he speaks, as though someone nearby were sleeping.",
+    third = "{name} met Brave Proudsnout, who watches the burial ground west of Camp Narache.",
+  },
+  greetings = {
+    { id = "g_default", text = "Speak quietly here, {class}, for this is where the Hawkwind lay their dead to the sky." },
+    { id = "g_back", when = { metBefore = true }, text = "You return to the resting place, and I hope it is to pay respect and not from need." },
+  },
+  notice = {
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "You are one of the Forsaken. I will not bar your way, but I ask you plainly to leave our dead to their rest." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "You hear the spirits, shaman, so you will know better than most how lightly to tread on this ground." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Proudsnout, and I stand watch over the burial ground. The ancestors do not need guarding from much, but the battleboars root where they please, and I will not have them rooting here." },
+      },
+      again = {
+        { id = "h_again", text = "Ask, and I will answer as quietly as I can." },
+        { id = "h_again2", text = "The ancestors are patient, and so am I." },
+      },
+      choices = {
+        { text = "How do the tauren bury their dead?", next = "rites" },
+        { text = "Does anything disturb this place?", next = "disturb" },
+        { text = "I will leave the dead in peace.", when = { race = "Scourge" }, next = "forsaken" },
+        { text = "May the ancestors rest well.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    rites = {
+      lines = { { id = "r_default", text = "We raise them on scaffolds so that An'she and the winds may take what the Earth Mother lent them. Nothing is hidden under stone, because nothing about a good life needs hiding.", fx = { learn = { "earth_mother" } } } },
+      choices = {
+        { text = "And their spirits?", next = "spirits" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits = {
+      lines = { { id = "s_default", text = "They walk on with the ancestors, and some of them linger a while to see that the camp is well. When the wind turns suddenly in the grass here, I greet it, in case it is someone I knew." } },
+      choices = { { text = "A good custom. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    disturb = {
+      lines = { { id = "d_default", text = "Boars, mostly, and once a young brave who thought it a fine place to practise his war cry. I have more patience with the boars, since they know no better." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forsaken = {
+      lines = { { id = "f_default", text = "Then we understand one another, and I thank you for saying it. The elders say your people did not choose what was done to them, and I try to remember that when the wind brings me your scent." } },
+      choices = { { text = "That is more courtesy than most give. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "My own grandfather lies here, and so I asked the chief for this watch and no other." } },
+    earth_mother = { { id = "tp_em", text = "She lends us our bodies for a while, and this is the place where we give them back." } },
+    scourge = { { id = "tp_sc", text = "I have heard that in the north the dead are made to rise and serve, and I can think of no greater wrong." } },
+    _none = { { id = "tp_none", text = "I could not say, and this is not the place to guess aloud." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Running Wolf: patrols the southeast corner of Camp Narache.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_running_wolf", id = TODO_NPC("Brave Running Wolf"), name = "Brave Running Wolf", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "narache" }, temper = { "fierce" }, values = { "protective", "proud" },
+  notices = { "class" },
+  impression = {
+    first = "Brave Running Wolf paces the southeast edge of Camp Narache with his eyes fixed on the east, where the ravine is. He grips his weapon like someone who has been told to wait and does not enjoy it.",
+    third = "{name} met Brave Running Wolf, who guards the southeast edge of Camp Narache.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stay inside the camp's edge unless you can fight, {class}, because the quilboar are closer than the elders like to say." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and you are in one piece, so the Bristleback did not get the better of you." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "You carry yourself like one who has stood in a line before. I wish the chief would send ten of you into that ravine with me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Brave Running Wolf, and this corner of the camp is mine to hold. Brambleblade Ravine lies to the east of here, full of Bristleback quilboar, and I am the first horn they will meet if they ever come out of it.", fx = { learn = { "quilboar" } } },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bristleback", min = 10 } }, text = "I hear the ravine is quieter since you went into it, and I will not pretend I am not envious. Brave Running Wolf holds this corner, and he would rather have been beside you." },
+      },
+      again = {
+        { id = "h_again", text = "Speak, but forgive me if I keep my eyes on the east." },
+        { id = "h_again2", text = "What more would you ask?" },
+      },
+      choices = {
+        { text = "Tell me about the Bristleback.", next = "quilboar" },
+        { text = "You would rather be fighting them.", next = "wait" },
+        { text = "I've bloodied the ravine already.", next = "bloodied", when = { killed = { name = "Bristleback", min = 10 } } },
+        { text = "Hold your corner well, brave.", next = "END" },
+      },
+    },
+    quilboar = {
+      lines = { { id = "q_default", text = "They are bristled, squealing raiders who dig their thorns into good land and call it theirs. They steal from our hunters and foul the ravine, and their shamans work some craft with the brambles that I do not understand." } },
+      choices = {
+        { text = "Who leads them?", next = "quilboar_lead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quilboar_lead = {
+      lines = { { id = "ql_default", text = "The worst of them keep to the back of the ravine, where the thorns are thickest, and they send the young ones out to do the stealing. Ask Grull Hawkwind if you want names, for he has been counting their wrongs longer than I have." } },
+      choices = { { text = "I'll ask him. Something else.", next = "BACK" } },
+    },
+    wait = {
+      big = true,
+      lines = { { id = "w_default", text = "I would, and I have said so to the chief more than once. He tells me that a brave who leaves his post to hunt glory leaves a gap, and that the gap is what the enemy is waiting for." } },
+      choices = {
+        { text = "The chief is right. The post matters more.", next = "BACK", reply = "I know that he is, and I stand here because I know it. I only wish knowing it made the standing easier.", fx = { align = { order = 1 } } },
+        { text = "Better to strike them first than to wait.", next = "BACK", reply = "That is what my blood says as well, every single morning. Do not say it too loudly near the chief's tent.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bloodied = {
+      lines = { { id = "bl_default", text = "Then you have done what I am not allowed to do, and the camp sleeps better for it. Tell me one day how they fight when they are cornered, because I mean to be ready." } },
+      choices = { { text = "They fight dirty. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I was the fastest runner of my season, and now I am asked to stand still, which the Earth Mother surely finds amusing." } },
+    quilboar = { { id = "tp_qb", text = "They hold Brambleblade Ravine to the east, and they will hold more than that if no one pushes them back." } },
+    advice = { { id = "tp_adv", text = "Do not go into the ravine alone until your arm is stronger, for there are more of them than there are thorns." } },
+    _none = { { id = "tp_none", text = "I know the east edge and the enemy beyond it, and for anything else you must ask in the camp." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Cloudmane: Bloodhoof Village, the north bridge toward Thunder Bluff.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_cloudmane", id = TODO_NPC("Brave Cloudmane"), name = "Brave Cloudmane", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "mild" }, values = { "dutiful", "patient" },
+  notices = { "race" },
+  impression = {
+    first = "Brave Cloudmane stands near the north bridge out of Bloodhoof Village with one eye on the road and one on the sky. He seems to know what the weather will do an hour before it does it.",
+    third = "{name} met Brave Cloudmane, who watches the north bridge of Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Well met, {class}. The wind is from the bluffs today, so you will have fair walking if you are bound north." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back to the bridge, friend, and the sky has been kind since you last crossed it." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha lights the bridge well enough tonight, though the wolves like the far bank after dark." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll", "Scourge" } },
+      text = "You are a long way from your own hearth, and you are welcome at ours. Ask me the way to anything in the village, for directions are half of my duty." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Cloudmane, and I keep the bridge on the north side of the village. If you are looking for someone in Bloodhoof, I can likely point you to the right tent." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I point you toward?" },
+        { id = "h_again2", text = "Ask freely, for the road is empty just now." },
+      },
+      choices = {
+        { text = "Where does the north road go?", next = "north" },
+        { text = "Who should I see in the village?", next = "village" },
+        { text = "You keep looking at the sky.", next = "sky" },
+        { text = "Winds guide you, brave.", next = "END" },
+      },
+    },
+    north = {
+      lines = { { id = "n_default", text = "Across the bridge and over the plain to the great lifts of Thunder Bluff, which you can see from here on a clear day. It is a half day's easy walk, and prairie wolves are the worst you should meet beside the road." } },
+      choices = {
+        { text = "And off the road?", next = "north_off" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    north_off = {
+      lines = { { id = "no_default", text = "Off the road is another matter, for the Windfury harpies nest on the ridges far to the north, and dwarves are digging where they should not be to the west of the bluffs. Baine can tell you more of both, if you have a mind to help." } },
+      choices = { { text = "I'll speak to Baine. Something else.", next = "BACK" } },
+    },
+    village = {
+      lines = { { id = "v_default", text = "Baine Bloodhoof for the troubles of the plains, and Innkeeper Kauth for a bed and a meal. Harn Longcast sells lines and hooks just by my bridge here, if Stonebull Lake has caught your eye." } },
+      choices = { { text = "My thanks. Something else.", next = "BACK" } },
+    },
+    sky = {
+      lines = { { id = "s_default", text = "It is a habit of my family, and the reason for our name. The clouds over the bluffs tell you by midday whether the evening will bring rain, and a guard who knows the rain is coming can warn the kodo herders in time." } },
+      choices = {
+        { text = "What does the sky say today?", next = "BACK", reply = "It says dry until dusk and a wind after, so tie down anything you care about." },
+        { text = "The elements say the same to me.", next = "BACK", when = { class = { "SHAMAN", "DRUID" } }, reply = "Then you hear in a moment what I read in an hour, and I will trust your word over my own eyes.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "The Cloudmane have read the weather for the Bloodhoof herds since before we came to Mulgore." } },
+    cairne = { { id = "tp_ca", text = "The chieftain sits in Thunder Bluff at the end of my road, and it is an honour to guard the way to him." } },
+    advice = { { id = "tp_adv", text = "Cross the plain in the morning, when the wolves are fed and lazy." } },
+    _none = { { id = "tp_none", text = "That I cannot point you to, friend, though Baine may know." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Darksky: Bloodhoof Village, the east side; keeps the night watch.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_darksky", id = TODO_NPC("Brave Darksky"), name = "Brave Darksky", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "wary" }, values = { "protective", "dutiful" },
+  notices = { "race", "stealth" },
+  impression = {
+    first = "Brave Darksky stands at the east edge of Bloodhoof Village and studies every stranger a little longer than is comfortable. He prefers the night watch, and he looks as if he has not missed one in years.",
+    third = "{name} met Brave Darksky, who watches the east side of Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "State your business in Bloodhoof, {class}, and then be welcome to it." },
+    { id = "g_back", when = { metBefore = true }, text = "I know your face now, so pass, and mind the east road after dark." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "You walk late. So do I, by choice, because the things I watch for prefer the dark." },
+  },
+  notice = {
+    { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
+      text = "You move too quietly for an honest traveller, and I notice such things. Keep your hands where the village can see them and we will have no quarrel." },
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" },
+      text = "A goblin in Bloodhoof. You will understand if I watch you closely, given what your cousins have done to our hills." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Darksky. I hold the east side of the village, which is the side that faces the Venture Company's mine, and I do not trust anything that comes from that direction until I have looked at it twice.", fx = { learn = { "venture_company" } } },
+      },
+      again = {
+        { id = "h_again", text = "Go on, then, but I am listening to the road as well as to you." },
+        { id = "h_again2", text = "Ask it quickly." },
+      },
+      choices = {
+        { text = "What have the goblins done?", next = "goblins" },
+        { text = "Why do you prefer the night?", next = "night" },
+        { text = "You don't trust strangers much.", next = "trust" },
+        { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    goblins = {
+      lines = { { id = "gb_default", text = "They came with papers and smiles, and when we would not sell the land they began to dig it anyway. Now there is a hole in the hills to the east and their machines cut the trees that shade our hunting grounds." } },
+      choices = {
+        { text = "Why not drive them out?", next = "goblins_out" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goblins_out = {
+      lines = { { id = "go_default", text = "Baine means to, and he asks every able traveller to help him do it. There are a great many of them, and they pay their guards better than they treat their land." } },
+      choices = { { text = "I'll ask Baine about it. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    night = {
+      lines = { { id = "n_default", text = "The day watch sees herders and traders, and the night watch sees what waits until the herders and traders have gone to their fires. I would rather meet a thing in the dark with my eyes already used to it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    trust = {
+      lines = { { id = "t_default", text = "I trust strangers exactly as far as I can see them, and at night that is not far. Do not take it as an insult, for the village sleeps easier because one of us is rude." } },
+      choices = {
+        { text = "None taken. I'd do the same.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Even your own kind?", next = "BACK", when = { race = "Tauren" }, reply = "The Grimtotem are my own kind as well, and I would look twice at them before any goblin." },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I asked for the night watch as a young brave, and nobody has ever tried to take it from me." } },
+    venture_company = { { id = "tp_vc", text = "They dig east of here and cut what they do not dig, and no word of ours has slowed them." } },
+    grimtotem = { { id = "tp_gt", text = "A tribe that smiles at Cairne's fire and sharpens its axes behind its back. I say no more than that." } },
+    _none = { { id = "tp_none", text = "I do not know, and I do not guess aloud." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Dawneagle: Bloodhoof Village; the longest-serving of the braves.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_dawneagle", id = TODO_NPC("Brave Dawneagle"), name = "Brave Dawneagle", gender = "female",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "steady" }, values = { "loyal", "wise" },
+  notices = { "race", "class" },
+  impression = {
+    first = "Brave Dawneagle stands her post in the middle of Bloodhoof Village as though she had grown there. The younger braves glance at her before they answer a question, and she pretends not to notice.",
+    third = "{name} met Brave Dawneagle, the longest-serving brave of Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "An'she's light upon you, {class}. You have found Bloodhoof Village, and you have found the one who has watched it longest." },
+    { id = "g_back", when = { metBefore = true }, text = "I remember you, for I remember everyone who has walked through this village." },
+    { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "You are up with the sun, which is the proper hour, and the one I was named for." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc is always welcome here. I was with the tribe when Thrall's warriors stood beside us against the centaur, and I do not forget a debt." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Dawneagle. I was standing a watch for the Bloodhoof before there was a village here to stand it in, and I expect to be standing it when the young ones beside me have gone grey." },
+      },
+      again = {
+        { id = "h_again", text = "Ask, child, for I have answered every question this village has."  },
+        { id = "h_again2", text = "What else would you know?" },
+      },
+      choices = {
+        { text = "What was it like before the village?", next = "before" },
+        { text = "Where can I find things here?", next = "find" },
+        { text = "The other braves look to you.", next = "others" },
+        { text = "May the eternal sun shine on you.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    before = {
+      lines = { { id = "b_default", text = "We were wanderers in the Barrens, following the kodo and running from the centaur, who killed us for sport and for our water. I stood guard over tents that were folded and gone by morning, year after year.", fx = { learn = { "centaur" } } } },
+      choices = {
+        { text = "And then Cairne brought you here.", next = "before_cairne" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before_cairne = {
+      lines = { { id = "bc_default", text = "Cairne and the orcs together, for it took both to break the centaur's hold on the road. The first night we camped beside Stonebull Lake I slept without my spear in my hand, and I had not done that since I was a calf.", fx = { learn = { "cairne" } } } },
+      choices = {
+        { text = "The Horde paid that debt gladly.", next = "BACK", when = { race = { "Orc", "Troll" } }, reply = "And we pay ours in turn, which is why you will never want for a fire in Mulgore.", fx = { affinity = 1 } },
+        { text = "You earned that sleep. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    find = {
+      lines = { { id = "f_default", text = "Baine Bloodhoof sits by the great totem, and the inn is the long tent where Kauth keeps the fire. The trainers and the crafters have the lodges around the edge, and any brave you pass will point you the rest of the way." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+    },
+    others = {
+      lines = { { id = "o_default", text = "They are good braves, every one, though Strongbash talks too much and Darksky not enough. I trained half of them, so I may say so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I have carried a spear for the Bloodhoof through the wandering years and all the years since, and I have no wish to put it down." } },
+    centaur = { { id = "tp_ce", text = "They hunted us across the Barrens for generations, and I will not hear them spoken of lightly." } },
+    cairne = { { id = "tp_ca", text = "I have followed him since he was a young chief with more courage than followers, and he has never led us wrong." } },
+    thrall = { { id = "tp_th", text = "He gave us the strength to win a home, and he asked only friendship for it." } },
+    _none = { { id = "tp_none", text = "In all my years I have not learned that, so it must not be worth the knowing, or else Baine knows it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Ironhorn: Bloodhoof Village, by the trainers' lodges.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_ironhorn", id = TODO_NPC("Brave Ironhorn"), name = "Brave Ironhorn", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "stern" }, values = { "discipline", "dutiful" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Brave Ironhorn stands near the trainers' lodges in Bloodhoof Village with his back as straight as a totem pole. He looks over every weapon that passes him and has an opinion on how it is carried.",
+    third = "{name} met Brave Ironhorn, who stands guard by the trainers' lodges in Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand straight when you speak to a brave, {class}, and then tell me what you need." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and carrying yourself a little better than last time, I think." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior. Krang Stonehoof teaches your craft in the lodge behind me, and he will tell you what I am about to, which is that your grip is too tight." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Your gear is in a poor state, and a warrior is judged by it. Mahnott Roughwound can mend it before it shames you in a fight." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Brave Ironhorn. My post is here by the lodges where the young are taught, and I see to it that what they learn inside is not forgotten the moment they step outside." },
+      },
+      again = {
+        { id = "h_again", text = "Speak plainly, as a brave should." },
+        { id = "h_again2", text = "What else?" },
+      },
+      choices = {
+        { text = "Who teaches in these lodges?", next = "trainers" },
+        { text = "You're hard on the young ones.", next = "hard" },
+        { text = "How does a tauren become a brave?", next = "brave" },
+        { text = "As you were, brave.", next = "END" },
+      },
+    },
+    trainers = {
+      lines = { { id = "t_default", text = "Krang Stonehoof has the warriors and Yaw Sharpmane the hunters, and the druids and shaman have their own teachers nearby. For the crafts, Chaw Stronghide and Yonn Deepcut work hides, and Vira Younghoof will show you how to bind a wound." } },
+      choices = { { text = "That's a great deal of teaching. Something else.", next = "BACK" } },
+    },
+    hard = {
+      lines = { { id = "hd_default", text = "I am exactly as hard as the plains will be, and no harder. A swoop does not care that a young hunter was tired, and a gnoll will not wait while he remembers which end of the spear to hold." } },
+      choices = {
+        { text = "Did someone treat you the same?", next = "hard_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard_who = {
+      lines = { { id = "hw_default", text = "Brave Dawneagle did, and I cursed her for it every morning of my first year with the spear. I have thanked her for it every year since, though never where the young ones could hear." } },
+      choices = { { text = "Your secret is safe. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    brave = {
+      lines = { { id = "br_default", text = "By completing the rites the elders set, and then by standing a watch without complaint until the village forgets that you were ever a calf. The first part takes a season, and the second takes the rest of your life." } },
+      choices = {
+        { text = "I walked those rites at Narache.", next = "BACK", when = { race = "Tauren" }, reply = "Then you know the beginning of it, and the plains will teach you the remainder. Stand straight while they do.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I have been a brave of Bloodhoof for many seasons, and I have never once been late to a watch." } },
+    advice = { { id = "tp_adv", text = "Look after your weapon before you look after your supper, for only one of them will save your life." } },
+    cairne = { { id = "tp_ca", text = "The chieftain fights at the front of the line even now, and that is the only kind of chief worth following." } },
+    _none = { { id = "tp_none", text = "That is not a matter for my post, so ask one of the elders." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Leaping Deer: Bloodhoof Village, the shore of Stonebull Lake.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_leaping_deer", id = TODO_NPC("Brave Leaping Deer"), name = "Brave Leaping Deer", gender = "female",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "cheerful" }, values = { "protective", "kind" },
+  notices = { "pet", "class" },
+  impression = {
+    first = "Brave Leaping Deer keeps the lake side of Bloodhoof Village, and she is the youngest of the braves by some seasons. She watches the sky over the water as keenly as the shore, and she smiles easily for a guard.",
+    third = "{name} met Brave Leaping Deer, who watches the lake shore of Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello, {class}! Mind the shore if you go down to the water, because the swoops have been bold this season." },
+    { id = "g_back", when = { metBefore = true }, text = "It is good to see you again, and the lake is as lovely as you left it." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "What a fine companion you have in {pet}! Keep it close by the water, though, because a swoop will try for anything smaller than a kodo." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Leaping Deer, and I have the lake shore, which the others call the easy post. They have never had to chase a swoop off a calf who only wanted to wade." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I tell you? I do like the company." },
+        { id = "h_again2", text = "Go on, I am listening with one ear and watching the sky with both eyes." },
+      },
+      choices = {
+        { text = "Are the swoops truly that bold?", next = "swoops" },
+        { text = "Tell me about the lake.", next = "lake" },
+        { text = "You're young for a brave.", next = "young" },
+        { text = "Keep the shore safe.", next = "END" },
+      },
+    },
+    swoops = {
+      lines = { { id = "s_default", text = "They are great carrion birds with a wingspan wider than I am tall, and they have learned that the village means food. Most only steal fish from the drying racks, but the hungry ones will dive at a child or a hound." } },
+      choices = {
+        { text = "How do you drive off a bird that size?", next = "swoops_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swoops_how = {
+      lines = { { id = "sh_default", text = "I shout, and I throw, and if neither works I have my bow, though I would rather not use it over the heads of the little ones. Yaw Sharpmane says I shoot well enough to be a hunter, and I tell her that someone must mind the shore." } },
+      choices = {
+        { text = "A hunter's eye is wasted on a post.", next = "BACK", when = { class = "HUNTER" }, reply = "You sound just like Yaw! Perhaps one day, when there is another brave who likes children and dislikes birds." },
+        { text = "The shore is lucky to have you. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    lake = {
+      lines = { { id = "l_default", text = "Stonebull Lake is the heart of the village, for it waters the kodo and feeds half our fires. Uthan Stillwater teaches fishing on the shore, and he will be cross if you splash near his line." } },
+      choices = { { text = "I'll keep my distance. Something else.", next = "BACK" } },
+    },
+    young = {
+      lines = { { id = "y_default", text = "I am, and Brave Ironhorn reminds me of it daily. I finished my rites two summers ago and asked for a spear the very same evening, because I could not think of anything I wanted more than to look after this place." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I grew up wading in this lake, and now I guard the calves who wade in it, which seems right to me." } },
+    advice = { { id = "tp_adv", text = "If a swoop's shadow crosses you, crouch and keep still, because they dive at whatever runs." } },
+    earth_mother = { { id = "tp_em", text = "I think she must love this lake best of all, for she has made it so beautiful." } },
+    _none = { { id = "tp_none", text = "Oh, I do not know that one! Brave Dawneagle will, because she knows everything." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Rainchaser: Bloodhoof Village, the west side toward Palemane Rock.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_rainchaser", id = TODO_NPC("Brave Rainchaser"), name = "Brave Rainchaser", gender = "female",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "patient" }, values = { "watchful", "dutiful" },
+  notices = { "class" },
+  impression = {
+    first = "Brave Rainchaser crouches at the west edge of Bloodhoof Village to read the ground more often than she stands to watch the horizon. She can tell you what crossed the grass in the night and how much it weighed.",
+    third = "{name} met Brave Rainchaser, who watches the west side of Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Greetings, {class}. You came in from the east, by your tracks, and you have been walking a good while." },
+    { id = "g_back", when = { metBefore = true }, text = "I knew your step before I saw you, for you favour the same foot you did last time." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You read the ground as you walk, as I do. Look there by the tall grass and tell me whether you see a gnoll's print or a wolf's." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Rainchaser, and I watch the west, where the Palemane gnolls keep their rock. They creep close to the village after dark to see what they might steal, and they leave me a tidy record of it in the mud." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask? I have time, for tracks do not run away." },
+        { id = "h_again2", text = "Speak, friend." },
+      },
+      choices = {
+        { text = "Tell me about the Palemane.", next = "gnolls" },
+        { text = "What do the tracks say today?", next = "tracks" },
+        { text = "Rainchaser is an unusual name.", next = "name" },
+        { text = "Good hunting, brave.", next = "END" },
+      },
+    },
+    gnolls = {
+      lines = { { id = "gn_default", text = "They are hyena-folk, cowardly alone and vicious in a pack, and they have taken the rocks to the west and south of the lake. They poach our game and leave the carcasses half eaten, which offends me more than the stealing." } },
+      choices = {
+        { text = "Why does the waste offend you more?", next = "gnolls_waste" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnolls_waste = {
+      lines = { { id = "gw_default", text = "A thief at least wants what he takes. A hunter who kills and leaves the kill to rot has insulted the beast and the Earth Mother both, and that is the kind of neighbour who will never learn to live beside you.", fx = { learn = { "earth_mother" } } } },
+      choices = {
+        { text = "I use everything I kill.", next = "BACK", when = { any = { { profession = "Skinning" }, { class = "HUNTER" } } }, reply = "Then you hunt as we do, and the plains will not grudge you what you take.", fx = { affinity = 1 } },
+        { text = "I see it. Something else.", next = "BACK" },
+      },
+    },
+    tracks = {
+      lines = { { id = "t_default", text = "Two gnolls came within a spear's cast of the kodo pens before dawn and turned back, likely when Brave Darksky's shadow moved. A prairie wolf followed them out again, hoping for scraps, and was disappointed." } },
+      choices = { { text = "You see all that in the mud? Something else.", next = "BACK" } },
+    },
+    name = {
+      lines = { { id = "n_default", text = "The best tracking is done just after rain, when the ground is soft and everything that moves must sign its name. My mother followed the storms for that reason, and I was born at the edge of one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I was a tracker for the hunt before I took a brave's spear, and I find the two are much the same work." } },
+    earth_mother = { { id = "tp_em", text = "She writes everything that happens on her skin, for those who trouble to read it." } },
+    advice = { { id = "tp_adv", text = "Look at the ground before you make camp, because whatever slept there last night may come back tonight." } },
+    _none = { { id = "tp_none", text = "There are no tracks leading to that answer, I am afraid." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Rockhorn: patrols just south of Bloodhoof Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_rockhorn", id = TODO_NPC("Brave Rockhorn"), name = "Brave Rockhorn", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "stolid" }, values = { "dutiful", "steadfast" },
+  notices = { "race" },
+  impression = {
+    first = "Brave Rockhorn walks the road just south of Bloodhoof Village at the pace of a grazing kodo. He takes his time before he answers, and what he says is never more than is needed.",
+    third = "{name} met Brave Rockhorn, who patrols the road south of Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "You have reached Bloodhoof Village, {class}, and the road behind you is the one I keep." },
+    { id = "g_back", when = { metBefore = true }, text = "You are on the south road again, and it is as you left it." },
+    { id = "g_tauren", when = { race = "Tauren", maxLevel = 8 }, text = "You are fresh down from Red Cloud Mesa, I think, for you still have its dust on your hooves. Welcome to the wide plains, young one." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "I walked up from Camp Narache on this same road, a good many seasons ago. It seemed longer then." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Rockhorn. I walk the south road between the village and the pass up to Red Cloud Mesa, and I see the young ones in when they come down from Camp Narache." },
+      },
+      again = {
+        { id = "h_again", text = "Ask, and I will think on it." },
+        { id = "h_again2", text = "There is no hurry, so say what you wish." },
+      },
+      choices = {
+        { text = "What lies south of here?", next = "south" },
+        { text = "Where should a newcomer go first?", next = "first" },
+        { text = "Lightninghorn says his road is quiet.", next = "lightning", when = { heardLine = "brave_lightninghorn.rw_default" } },
+        { text = "You're a tauren of few words.", next = "words" },
+        { text = "I'll walk on.", next = "END" },
+      },
+    },
+    south = {
+      lines = { { id = "s_default", text = "The road runs south across the plain and climbs to Red Cloud Mesa, where the Hawkwind keep Camp Narache and raise our young. West of the road the Palemane gnolls have a camp, and I keep them on their side of it." } },
+      choices = {
+        { text = "Do the gnolls test you often?", next = "south_gnolls" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    south_gnolls = {
+      lines = { { id = "sg_default", text = "They tested me once, three of them together, on a night with no moon. They have not done so again, and I have not needed to say anything about it." } },
+      choices = { { text = "I can imagine why. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    first = {
+      lines = { { id = "f_default", text = "Go to Baine Bloodhoof by the great totem, who will know what the village needs. After that the inn, because nothing the plains ask of you will be done better hungry." } },
+      choices = { { text = "Sound counsel. Something else.", next = "BACK" } },
+    },
+    lightning = {
+      lines = { { id = "li_default", text = "His road is always quiet, and he is never quiet on it. I am glad to hear it all the same, and I thank you for carrying the word down." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    words = {
+      lines = { { id = "w_default", text = "A rock does not need to say that it is a rock. I find that most things worth knowing about a brave can be seen by watching where he stands." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I came down from Camp Narache as a youth and took the south road as my watch, and I have not wanted another." } },
+    advice = { { id = "tp_adv", text = "Keep to the road until you know the plain, and keep your pace until you know the road." } },
+    cairne = { { id = "tp_ca", text = "He is a great chief, and that is all that needs saying." } },
+    _none = { { id = "tp_none", text = "I do not know, and I would rather say so than guess." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Strongbash: Bloodhoof Village, by the inn.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_strongbash", id = TODO_NPC("Brave Strongbash"), name = "Brave Strongbash", gender = "male",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "hearty" }, values = { "strength", "hospitality" },
+  notices = { "class", "drink" },
+  impression = {
+    first = "Brave Strongbash fills the space outside the Bloodhoof inn the way a kodo fills a doorway. He greets every traveller as an old friend, and he sizes up each one as a possible wrestling partner.",
+    third = "{name} met Brave Strongbash, who stands guard by the inn at Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho, {class}! Come in off the plain and be welcome, for there is a fire in the inn and stew on it." },
+    { id = "g_back", when = { metBefore = true }, text = "Ho, my friend returns! You look thinner, and Kauth's stew will mend that." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "Now there is a pair of shoulders! Tell me that you wrestle, friend, because no one in this village will give me a proper match any longer." },
+    { id = "n_drunk", cat = "drink", when = { drunk = true },
+      text = "You have found the bottom of a cup or two, I see. Sit by the fire until the ground stops moving, and I will see that nobody trips over you." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Strongbash, and I keep the peace at the inn, which is mostly a matter of standing where people can see me. Nobody has started a quarrel at Kauth's fire in three seasons, and I admit that I find it a little dull." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? I am glad of the talk." },
+        { id = "h_again2", text = "Ask away, for I am not going anywhere." },
+      },
+      choices = {
+        { text = "Who's inside the inn today?", next = "inn" },
+        { text = "You wrestle?", next = "wrestle" },
+        { text = "Does a tauren village need a guard at its inn?", next = "need" },
+        { text = "I'll go in to the fire.", next = "END" },
+      },
+    },
+    inn = {
+      lines = { { id = "i_default", text = "Innkeeper Kauth, as always, and Magrin Rivermane, who has had the same seat by the fire for longer than I have had this post. There are usually a few travellers from Orgrimmar as well, come to see what grass looks like." } },
+      choices = {
+        { text = "What does Magrin do all day?", next = "inn_magrin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inn_magrin = {
+      lines = { { id = "im_default", text = "He sits, and he listens, and he knows more about who has passed through Bloodhoof than I do, though I am the one standing at the door. Ask him yourself, for he is friendlier than he looks." } },
+      choices = { { text = "I may do that. Something else.", next = "BACK" } },
+    },
+    wrestle = {
+      lines = { { id = "w_default", text = "Every tauren wrestles as a calf, and I simply never stopped. I have thrown every brave in the village except Dawneagle, who refuses on the grounds that she has nothing to prove, and Rockhorn, who cannot be moved." } },
+      choices = {
+        { text = "I'd give you a match someday.", next = "BACK", when = { any = { { class = "WARRIOR" }, { race = "Orc" }, { race = "Tauren" } } }, reply = "Ha! I will hold you to that, and I will try not to break anything you need.", fx = { affinity = 2 } },
+        { text = "I'll pass. Something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = { { id = "n_default", text = "Not for our own, no. Travellers are another matter, for an orc and a Forsaken who have both had too much firewater will find something to disagree about, and it is easier to carry them out than to reason with them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I was the largest calf of my season and I am the largest brave of the village, so they put me where travellers would see me first." } },
+    advice = { { id = "tp_adv", text = "Eat before you fight and rest before you travel, and you will live to be as big as I am." } },
+    thrall = { { id = "tp_th", text = "The Warchief's people are welcome at this fire always, and I have yet to lose a wrestling match to one." } },
+    _none = { { id = "tp_none", text = "Ha, you have me there, friend! Ask Magrin inside, for he hears everything." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brave Swiftwind: Bloodhoof Village, the bridge and road east toward the Barrens.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brave_swiftwind", id = TODO_NPC("Brave Swiftwind"), name = "Brave Swiftwind", gender = "female",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "bloodhoof" }, temper = { "alert" }, values = { "dutiful", "loyal" },
+  notices = { "race", "class" },
+  impression = {
+    first = "Brave Swiftwind watches the eastern road out of Bloodhoof Village and counts the caravans that come along it. She stands lightly, like a runner waiting for the word, and she has the news from the road before anyone else.",
+    third = "{name} met Brave Swiftwind, who watches the eastern road at Bloodhoof Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Greetings, {class}. If you came by the eastern road, tell me what you saw on it, for I collect such news." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and I hope the road treated you well, because it has not treated everyone so." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
+      text = "You will have come through the Barrens to reach us, and I would be glad to hear how the road stands at the pass." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Brave Swiftwind, and the eastern road is my watch. Everything that comes to Mulgore from the Barrens and from Orgrimmar comes along it, and so does every piece of news, good or ill." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you hear? I have the whole road's worth." },
+        { id = "h_again2", text = "Ask, and then tell me something in return if you can." },
+      },
+      choices = {
+        { text = "What news from the road?", next = "news" },
+        { text = "Where does the eastern road lead?", next = "east" },
+        { text = "You stand like someone ready to run.", next = "run" },
+        { text = "Safe watch, brave.", next = "END" },
+      },
+    },
+    news = {
+      lines = { { id = "n_default", text = "The worst of it is the caravan that was struck on the plain east of the lake. The wagons still lie where they were broken, and I pass the place whenever I carry word to the pass, which is why I do not walk that stretch slowly." } },
+      choices = {
+        { text = "Who would attack a caravan in Mulgore?", next = "news_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news_who = {
+      lines = { { id = "nw_default", text = "There are folk enough who would, between the gnolls, the goblins' hired blades and worse things that leave fewer tracks. I report what I find to Baine and leave the judging to him, for a guard who guesses aloud starts fights." } },
+      choices = {
+        { text = "I'll look the wagons over myself.", next = "BACK", reply = "Then go carefully, and bring me whatever you learn, for I would rather know than wonder.", fx = { affinity = 1 } },
+        { text = "A wise habit. Something else.", next = "BACK" },
+      },
+    },
+    east = {
+      lines = { { id = "e_default", text = "Across the plain to the pass in the eastern hills, and through it into the Barrens, where Camp Taurajo keeps a fire for our people. From there an orc could show you the road north to the Crossroads and on to Orgrimmar." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    run = {
+      lines = { { id = "r_default", text = "I am the one who runs to Thunder Bluff when the village needs the chieftain to know something before nightfall. I have done it in less than half the time the walk should take, and I am prouder of that than of anything I have done with a spear." } },
+      choices = {
+        { text = "Travel form would beat you there.", next = "BACK", when = { class = "DRUID" }, reply = "It would, and I have raced a druid to the lifts to prove it. I lost, but not by as much as he expected.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I was a herd runner before I was a brave, and the village has made use of my legs ever since." } },
+    advice = { { id = "tp_adv", text = "When you pass something wrong on the road, tell the next guard you meet, even if it seems small." } },
+    venture_company = { { id = "tp_vc", text = "Their wagons use my road too, and I count every one, in and out." } },
+    _none = { { id = "tp_none", text = "No word of that has come along my road yet, but I will listen for it." } },
+  },
+}

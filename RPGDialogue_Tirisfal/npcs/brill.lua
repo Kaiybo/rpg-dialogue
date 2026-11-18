@@ -7,9 +7,10 @@ P:NPC {
   prejudice = { origin = "forsaken_scarlet_turned", amount = 12, why = "He fights the Crusade daily; a Forsaken who once wore Scarlet is, to him, a spy until proven otherwise." },
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
+  likesTone = "blunt",
   notices = { "kit", "race" },
   impression = {
-    first = "Executor Zygand speaks of the Scarlet Crusade the way a soldier speaks of bad weather he means to outlast. He is cold and spare with words, and I would not want to be on the wrong end of his blade.",
+    first = "I would not want to face the wrong end of his blade.",
     third = "{name} met Executor Zygand, commander of the Deathguard in Tirisfal, who means to see the Scarlet Crusade driven from the glades.",
   },
 
@@ -264,6 +265,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "The Deathguard isn't accustomed to thanks, least of all from those passing through. I'll accept it on behalf of my soldiers, since they earned it in the fields." },
+        { id = "s2", text = "You notice the work, which is more than the magistrate does. That's well said, and I'll remember who said it." },
+      },
+      fail = {
+        { id = "f1", text = "I've no use for compliments, and less for those who think I can be bought with them. If you've a report, give it, and if you haven't, the road is behind you." },
+        { id = "f2", text = "Flattery is how spies begin, and I've hanged enough Scarlet spies to know the tune. Speak plainly in Brill, or don't speak to me." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've a bold mouth for someone standing in a town full of my soldiers. I'd rather have that than the cringing sort, so I'll let it stand this once." },
+        { id = "s2", text = "The last one who spoke to me that way was a sergeant I served under in life, and he was usually right. You've nerve, and Tirisfal needs nerve." },
+      },
+      fail = {
+        { id = "f1", text = "I've put down Crusaders who showed me more respect while they were dying. Watch your tongue, or I'll find you a post at the Scarlet lines where you can exercise it." },
+        { id = "f2", text = "Mock the Deathguard again and you'll discover how little humour the dead have left. Mine went into the grave with me, and it stayed there." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You carry yourself like someone who has killed and expects to again. I respect that more than I respect manners, so you have my attention." },
+        { id = "s2", text = "There are few who'd try to stare down an Executor at his own post, and you didn't flinch doing it. Very well; I'll be straight with you, and quick." },
+      },
+      fail = {
+        { id = "f1", text = "The Lich King himself had his hand around my mind, and you believe a scowl will move me. Stand down, before I have you put in the cellar with the Scarlet prisoners." },
+        { id = "f2", text = "You threaten a commander of the Deathguard in front of his own garrison, which is a poor grasp of tactics. Do it again and I'll treat it as an attack." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Reports reach me from every field and road in Tirisfal. Ask what you need, and keep it brief." },
@@ -290,6 +323,10 @@ P:NPC {
     argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the Scourge in the east and asks fewer questions about our flesh than I expected. I don't trust them, but I don't need to, as long as they keep killing the same enemy." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme is where the prince put his own people to the sword, and the Scourge holds the city still. The Crusade squabbles with the dead for its streets, which suits me, since each zealot who dies there is one I won't meet in Tirisfal." } },
     _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
+    _gated = {
+      { id = "gt1", text = "That stays within the Deathguard, and you haven't earned a place in its confidence. Serve Brill a while longer before you ask me again." },
+      { id = "gt2", text = "I don't discuss that with those I haven't measured yet. You'll have to do more than walk into town before I tell you." },
+    },
   },
 }
 
@@ -299,7 +336,7 @@ P:NPC {
   communities = { "brill" }, temper = { "brisk" }, values = { "orderly", "proud" },
   notices = { "status" },
   impression = {
-    first = "When Magistrate Sevren took Brill back it was a plague town full of the mindless, and he is quietly proud of what it is now. He would much rather I did his errands than discussed them.",
+    first = "He is quietly proud of what Brill has become.",
     third = "{name} met Magistrate Sevren of Brill, who rebuilt the town one street at a time and keeps it running by the book.",
   },
 
@@ -510,7 +547,7 @@ P:NPC {
   communities = { "brill" }, temper = { "intent" }, values = { "ambitious", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Apothecary Johaan works among bottles that are only mostly safe and speaks of a new plague with real enthusiasm. It is meant for the Scourge, he says, and he says it quickly.",
+    first = "His new plague is meant for the Scourge, he says, and quickly.",
     third = "{name} met Apothecary Johaan of the Royal Apothecary Society, who labours over a new plague in Brill.",
   },
 
@@ -721,7 +758,7 @@ P:NPC {
   communities = { "brill" }, temper = { "bitter" }, values = { "proud" },
   notices = { "drink" },
   impression = {
-    first = "Coleman Farthing died defending the Agamands' mills because they asked him to, and he has not forgiven them. He is courteous and wry about it, which somehow makes the grudge feel deeper.",
+    first = "He died defending the Agamands' mills and has not forgiven them.",
     third = "{name} met Coleman Farthing in the Gallows' End, a former mill hand who wants the risen Agamands put to rest for good.",
   },
 
@@ -878,7 +915,7 @@ P:NPC {
   communities = { "brill" }, temper = { "chilly" }, values = { "practical" },
   notices = { "weary" },
   impression = {
-    first = "By the tavern fire sits Gretchen Dedmar, out of habit, since she can no longer feel its warmth. What she misses most is being cold, which is one of the saddest things anyone has told me.",
+    first = "What she misses most is being cold.",
     third = "{name} met Gretchen Dedmar, a chilly regular of the Gallows' End who has found a way to keep death's cold at bay for a time.",
   },
 
@@ -1052,7 +1089,7 @@ P:NPC {
   communities = { "brill" }, temper = { "gentle" }, values = { "kind", "generous" },
   notices = { "weary", "race" },
   impression = {
-    first = "Innkeeper Renee looks after everyone in the Gallows' End, and especially the dead ones. She once hurt people for a cause, she says, and now she pours drinks and listens, which seems to suit her far better.",
+    first = "She once hurt people for a cause, and now she pours drinks.",
     third = "{name} met Innkeeper Renee of the Gallows' End, who left a harder life behind to look after Brill's guests, living and dead alike.",
   },
 
@@ -1292,7 +1329,7 @@ P:NPC {
   communities = { "brill" }, temper = { "composed" }, values = { "curious", "practical" },
   notices = { "craft" },
   impression = {
-    first = "Before I could ask, Eleanor Shackleton told me she was not with the Crusade, which only made me wonder why she felt the need. She is a composed traveller and a patient teacher of campfires.",
+    first = "She told me she was not with the Crusade before I asked.",
     third = "{name} met Eleanor Shackleton, a traveller camped on the road near Brill who teaches anyone willing how to make a proper camp.",
   },
 

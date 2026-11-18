@@ -6,11 +6,12 @@ P:NPC {
   key = "darthalia", id = TODO_NPC("High Executor Darthalia"), name = "High Executor Darthalia",
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
+  likesTone = "blunt",
   prejudice = { faction = "Horde", race = { "Orc", "Tauren", "Troll" }, amount = 10, why = "The living Horde flinch from the Forsaken, and she returns the contempt." },
   notices = { "race", "class" },
 
   impression = {
-    first = "High Executor Darthalia measures everyone by their use to the Dark Lady's front. She pushes the line toward Southshore one field at a time, and she doesn't intend to stop.",
+    first = "She measures everyone by their use to the Dark Lady's front.",
     third = "{name} met High Executor Darthalia, who holds Tarren Mill for the Dark Lady and presses the line against Southshore.",
   },
 
@@ -433,7 +434,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Flattery. I had thought I left that behind with my pulse, yet I find I still have a taste for it. You may continue to be useful." },
+        { id = "s2", text = "You notice competence, which is uncommon among the living and the dead alike. I accept the compliment, and I shall make a note of your name." },
+      },
+      fail = {
+        { id = "f1", text = "I have been dead long enough to lose my vanity along with most of my face. Save your charm for someone with a heartbeat to quicken." },
+        { id = "f2", text = "Compliments are what people offer when they have no results to report. Bring me results from the front instead." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. That was nearly funny, and I have not laughed since I was buried. You have nerve, and the Dark Lady's front has need of nerve." },
+        { id = "s2", text = "You are insolent, and I find it preferable to the way most visitors stare at the floor. I shall overlook it this once, with something like amusement." },
+      },
+      fail = {
+        { id = "f1", text = "The last one who mocked me is now assisting the apothecaries with their work, in several jars. Consider your next remark with care." },
+        { id = "f2", text = "I was mocked by the living when I rose, and I have outlasted most of them. You are not clever, and you are wasting the front's time." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "How interesting. Very little unsettles the dead, and yet you have managed a flicker of it. Very well, you have my attention, and you should use it wisely." },
+        { id = "s2", text = "You press as though you mean it, and I can respect ruthlessness. I will concede the point, since it costs me less than arguing." },
+      },
+      fail = {
+        { id = "f1", text = "I have already died, and it was a disappointment. Whatever you are threatening me with, I assure you I have had worse." },
+        { id = "f2", narr = "She regards you without blinking, which she no longer needs to do.", text = "You are attempting to frighten a corpse who commands a garrison of corpses. I admire the optimism, but do not try it again." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is not something I discuss with those who have yet to prove their worth to the front, so go and prove it." },
+      { id = "gt2", text = "I know the answer, and you have not earned it. The Dark Lady's officers do not confide in every passerby." },
+    },
     knows = {
       { id = "tp_knows", text = "I will answer what it serves the Dark Lady for you to know. Choose your questions carefully." },
     },
@@ -458,7 +495,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Apothecary Lydon told me not to touch anything, since most of it would kill me. He says he feels very little now, except about his work and something called Umpi.",
+    first = "He told me to touch nothing, since most of it kills.",
     third = "{name} met Apothecary Lydon of the Royal Apothecary Society, who brews deadly things at Tarren Mill.",
   },
 
@@ -775,7 +812,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Innkeeper Shay keeps chairs for guests who no longer need to rest. The humour at Tarren Mill's inn is as dry as old bone, and I suspect that's deliberate.",
+    first = "The inn keeps chairs for guests who no longer need to rest.",
     third = "{name} visited the inn at Tarren Mill, kept by Innkeeper Shay, whose guests rarely need to sleep.",
   },
 

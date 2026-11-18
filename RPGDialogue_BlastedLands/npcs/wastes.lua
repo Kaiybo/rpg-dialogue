@@ -6,10 +6,11 @@ P:NPC {
   key = "kumisha", id = TODO_NPC("Kum'isha the Collector"), name = "Kum'isha the Collector",
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "major",
   communities = { "blasted_lands" }, temper = { "sharp", "proud" }, values = { "proud", "greedy" },
+  private = { "dark_portal" },
   notices = { "race", "money" },
 
   impression = {
-    first = "Kum'isha the Collector is a broken draenei who sneers that every race smells of greed, then sends you looking for crystals. Under the contempt there is a homesickness so old it has gone hard.",
+    first = "Under his contempt is a homesickness so old it has gone hard.",
     third = "{name} met Kum'isha the Collector, a Lost One who searches the Blasted Lands for draenethyst to carry him home.",
   },
 
@@ -309,6 +310,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak kindly to the broken one, and you do not ask for anything in the same breath. That is rare enough that Kum'isha will remember it." },
+        { id = "s2", text = "It has been a very long time since anyone looked at me and found something to praise. I do not trust it, but I find that I do not mind it." },
+      },
+      fail = {
+        { id = "f1", text = "Sweet words, and behind them the same hunger as all the rest. You want my treasures, and you think that a compliment is cheaper than crystal." },
+        { id = "f2", text = "They all flatter Kum'isha once they have seen what he keeps in his chests. Save it, for your greed is showing through." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You mock the broken draenei to his face, instead of staring and whispering as the others do. That is almost honest, and I have missed honesty." },
+        { id = "s2", text = "So you have a tongue, and some courage behind it. Good; the wastes are dull, and it is long since anyone gave me a reason to laugh in them." },
+      },
+      fail = {
+        { id = "f1", text = "Laugh, then. I have been laughed at by orcs, by ogres and by the soldiers of Nethergarde, and I have outlasted a great many of them." },
+        { id = "f2", text = "You sneer at what you do not understand, as your kind always does. I was old before your grandsires were born, and I will not be mocked by a child." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Enough. I have been broken once already, and I have no wish to learn whether you could do it again, so ask, and be done." },
+        { id = "s2", text = "There is something in you that is harder than greed, and I did not expect to find it. I will step carefully around it." },
+      },
+      fail = {
+        { id = "f1", text = "You cannot frighten one who has already lost a world. Everything you could take from Kum'isha was taken long ago, by things far worse than you." },
+        { id = "f2", text = "Threats, now. First they stare, then they bargain, then they threaten, and still none of them brings the crystals any faster." },
+      },
+    },
+  },
   topics = {
     knows = { { id = "tp_knows", text = "Kum'isha has walked these wastes for a long time and listened to every fool who passed. Choose, then, and I will tell you what I have heard." } },
     background = {
@@ -325,6 +358,10 @@ P:NPC {
     dreadmaul = { { id = "tp_dreadmaul", text = "The ogres of the Dreadmaul are as greedy as all the others, and less clever. They take the crystals for shiny stones and throw them away." } },
     second_war = { { id = "tp_second_war", text = "Your Second War was fought over a world you never saw. Mine was lost before your war began." } },
     _none = { { id = "tp_none", text = "Kum'isha does not care, {race}, so bring crystals or leave." } },
+    _gated = {
+      { id = "gt1", text = "That is not for strangers, and you are still a stranger to Kum'isha. Bring me what I seek, and then perhaps I will speak of it." },
+      { id = "gt2", text = "I will not tell you that. You have done nothing yet to show me that you are different from all the others." },
+    },
   },
 }
 
@@ -336,7 +373,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Bloodmage Drazial studies the beasts of the Blasted Lands with the delight of a man unpacking presents, and he looks at people the same way. He called me a test subject and meant it as a compliment.",
+    first = "He called me a test subject and meant it as a compliment.",
     third = "{name} met Bloodmage Drazial, an elven bloodmage studying the strength of the Blasted Lands' beasts.",
   },
 
@@ -640,7 +677,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bloodmage Lynnore speaks of basilisks with more respect than she shows most people. She is cold, clever and fond of her brother in a way she would never admit to his face.",
+    first = "She is fonder of her brother than she would ever admit.",
     third = "{name} met Bloodmage Lynnore, Drazial's sister, who studies how the basilisks and vultures of the Blasted Lands think and heal.",
   },
 
@@ -933,7 +970,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Daio the Decrepit is an old man at a demon altar in the Tainted Scar, smiling as if the place were a garden. He speaks plainly about the price of power, and I believe he has paid it.",
+    first = "I believe he has paid the price of power he speaks of.",
     third = "{name} met Daio the Decrepit, an old warlock who teaches the binding of demons from an altar in the Tainted Scar.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Bengus Deepforge teaches smithing at the very heart of the Great Forge, where the heat would melt a lesser teacher. He judges people by their hands, and he says most hands are soft.",
+    first = "He judges people by their hands, and says most are soft.",
     third = "{name} met Bengus Deepforge, the master blacksmith who trains smiths at the Great Forge.",
   },
 
@@ -217,7 +217,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Geofram Bouldertoe teaches mining at the north side of the Great Forge and talks about stone the way other dwarves talk about ale. He has a deep respect for tunnels and none at all for troggs.",
+    first = "He has deep respect for tunnels and none at all for troggs.",
     third = "{name} met Geofram Bouldertoe, who teaches mining in the Great Forge.",
   },
 
@@ -411,7 +411,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Daryl Riknussun teaches cooking at the Bronze Kettle and believes that a good meal solves most of life's problems. He talks about his brother Emrul's spice prices as if they were a personal insult.",
+    first = "He takes his brother Emrul's spice prices as a personal insult.",
     third = "{name} met Daryl Riknussun, who teaches cooking at the Bronze Kettle in Ironforge.",
   },
 
@@ -631,7 +631,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Emrul Riknussun sells spices and recipes at the Bronze Kettle and swears his prices are fair. He talks about his brother Daryl with a fondness he hides under a great deal of complaining.",
+    first = "He hides his fondness for his brother Daryl under endless complaining.",
     third = "{name} met Emrul Riknussun, Daryl's brother, who sells spices and recipes beside the Bronze Kettle.",
   },
 
@@ -823,7 +823,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Nissa Firestone teaches bandaging at the Ironforge Physician and has no patience for anyone who bleeds on her floor. She is gentle with wounds and brisk with everything else.",
+    first = "She is gentle with wounds and brisk with everything else.",
     third = "{name} met Nissa Firestone, who teaches first aid at the Ironforge Physician.",
   },
 
@@ -1028,7 +1028,7 @@ P:NPC {
   notices = { "arcane" },
 
   impression = {
-    first = "Gimble Thistlefuzz teaches enchanting upstairs in Thistlefuzz Arcanery and jumps at every footstep on the stairs. Once he decides a visitor isn't there to steal his formulas, he cannot stop talking about them.",
+    first = "He jumps at every footstep, sure someone wants his formulas.",
     third = "{name} met Gimble Thistlefuzz, a nervous gnome who teaches enchanting in Ironforge.",
   },
 

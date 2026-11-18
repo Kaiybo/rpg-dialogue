@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "The Atal'ai Exile was cast out of his tribe for doubting a prophecy, and now he lives among the Witherbark as a guest they barely tolerate. He speaks of Jammal'an with the cold anger of someone who was right too early.",
+    first = "He has the cold anger of someone who was right too early.",
     third = "{name} met the Atal'ai Exile, a troll priest banished from the Sunken Temple for doubting Jammal'an the Prophet.",
   },
 

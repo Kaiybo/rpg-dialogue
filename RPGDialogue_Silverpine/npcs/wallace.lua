@@ -9,7 +9,7 @@ P:NPC {
   communities = { "north_tides_run" }, temper = { "cheerful" }, values = { "practical", "honest" },
   notices = { "race", "craft" },
   impression = {
-    first = "Wallace the Blind sells weapons on a lonely stretch of the Silverpine coast to anyone who comes to his door. He can't see his customers, and he has decided that suits him very well.",
+    first = "He can't see his customers, and that suits him very well.",
     third = "{name} met Wallace the Blind, a sightless weapon seller at North Tide's Run who serves every comer alike.",
   },
 

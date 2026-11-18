@@ -13,7 +13,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "grave", "precise" }, values = { "dutiful", "knowledge" },
   notices = { "race", "class" },
   impression = {
-    first = "Andrew Brownell keeps watch on the Scourge's doings far beyond Lordaeron, and he speaks of liches the way a physician speaks of a disease he has studied for too long. His reports are thorough, and none of them are good news.",
+    first = "His reports are thorough, and none of them are good news.",
     third = "{name} met Andrew Brownell in the Magic Quarter, who studies the Scourge's reach into Kalimdor.",
   },
 
@@ -122,7 +122,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "condescending" }, values = { "power", "knowledge" },
   notices = { "class" },
   impression = {
-    first = "Luther Pickman teaches warlocks in the Magic Quarter and treats every question as a small insult to his time. He seems to believe that fear is the first thing a student should learn and the last thing they should show.",
+    first = "He believes fear is the first thing a student should learn.",
     third = "{name} met Luther Pickman, a warlock trainer in the Undercity's Magic Quarter.",
   },
 
@@ -248,7 +248,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "matter_of_fact", "dry" }, values = { "craft", "practical" },
   notices = { "profession", "class", "race" },
   impression = {
-    first = "Killian Hagey teaches skinning in the Rogues' Quarter and talks about it with the calm of a man who has never once been squeamish. He keeps his knives cleaner than anything else in the Undercity.",
+    first = "His knives are the cleanest things in the Undercity.",
     third = "{name} met Killian Hagey, the Undercity's skinning trainer.",
   },
 
@@ -375,7 +375,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "fussy", "dry" }, values = { "order", "discretion" },
   notices = { "purse", "class", "race" },
   impression = {
-    first = "Mortimer Montague keeps the vaults of the Trade Quarter with the solemnity of a man guarding a tomb, which he says is more or less what a bank is. He counts everything twice and trusts nobody once.",
+    first = "He counts everything twice and trusts nobody once.",
     third = "{name} met Mortimer Montague, one of the bankers of the Undercity.",
   },
 
@@ -501,7 +501,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "sly", "brisk" }, values = { "practical", "profit" },
   notices = { "class", "profession" },
   impression = {
-    first = "Gillian Moore sells leather armor in the Rogues' Quarter, mostly to people who would rather not say what they need it for. She has a knack for knowing what a customer wants before they decide to lie about it.",
+    first = "She knows what a customer wants before they decide to lie.",
     third = "{name} met Gillian Moore, who sells leather armor in the Undercity's Rogues' Quarter.",
   },
 
@@ -626,7 +626,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "plain", "patient" }, values = { "craft", "practical" },
   notices = { "profession", "class" },
   impression = {
-    first = "Joseph Moore sells thread, salt and dyes to the leatherworkers of the Rogues' Quarter and keeps careful lists of who buys what. He is the dullest man in the quarter and seems to take pride in it.",
+    first = "He is the dullest man in the quarter and proud of it.",
     third = "{name} met Joseph Moore, who sells leatherworking supplies in the Undercity.",
   },
 
@@ -751,7 +751,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cheerful", "chatty" }, values = { "practical", "profit" },
   notices = { "class", "profession" },
   impression = {
-    first = "Jonathan Chambers sells bags in the Rogues' Quarter and believes, sincerely, that most of the world's troubles come from having nowhere to put things. He is the only cheerful person on his stretch of canal.",
+    first = "He sincerely blames the world's troubles on having nowhere to put things.",
     third = "{name} met Jonathan Chambers, who sells bags in the Undercity's Rogues' Quarter.",
   },
 
@@ -876,7 +876,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "refined", "tart" }, values = { "taste", "craft" },
   notices = { "class", "profession", "race" },
   impression = {
-    first = "Lucille Castleton sells robes in the Magic Quarter and remembers the court fashions of Lordaeron in far more detail than she remembers her own life. She has opinions about every hem that walks past her.",
+    first = "She has opinions about every hem that walks past her.",
     third = "{name} met Lucille Castleton, who sells robes in the Undercity's Magic Quarter.",
   },
 
@@ -1004,7 +1004,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "pompous", "dry" }, values = { "status", "craft" },
   notices = { "class", "race" },
   impression = {
-    first = "Sheldon Von Croy sells cloth armor in the Magic Quarter and pronounces his own name as if it ought to open doors. Whatever standing it once had died with Lordaeron, but he hasn't stopped expecting the doors to open.",
+    first = "He still expects his name to open doors.",
     third = "{name} met Sheldon Von Croy, who sells cloth armor in the Undercity's Magic Quarter.",
   },
 
@@ -1131,7 +1131,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "eager", "nervous" }, values = { "knowledge", "craft" },
   notices = { "class", "profession" },
   impression = {
-    first = "Zane Bradford sells wands in the Magic Quarter and tests every one himself, which explains the scorch marks on his coat. He is enthusiastic in a way the Forsaken rarely are, and slightly too close to his merchandise.",
+    first = "The scorch marks on his coat come from testing his own wands.",
     third = "{name} met Zane Bradford, who sells wands in the Undercity's Magic Quarter.",
   },
 
@@ -1256,7 +1256,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "laconic", "dry" }, values = { "craft", "practical" },
   notices = { "class", "race" },
   impression = {
-    first = "Sydney Upton sells staves in the Magic Quarter and talks about wood grain the way others talk about wine. He has little to say about anything else, and says even that slowly.",
+    first = "He talks of wood grain like wine, and of little else.",
     third = "{name} met Sydney Upton, who sells staves in the Undercity's Magic Quarter.",
   },
 
@@ -1384,7 +1384,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "gloomy", "wry" }, values = { "practical", "community" },
   notices = { "race", "profession", "class" },
   impression = {
-    first = "Morley Bates sells mushrooms and drink in the Magic Quarter to customers who mostly can't taste them. He finds this funnier than it is and tells everyone so.",
+    first = "He thinks it funny that his customers can't taste what he sells.",
     third = "{name} met Morley Bates, who sells fungus and drink in the Undercity's Magic Quarter.",
   },
 
@@ -1509,7 +1509,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "blunt", "hard" }, values = { "strength", "practical" },
   notices = { "class", "kit", "profession" },
   impression = {
-    first = "Mirelle Tremayne sells heavy armor in the War Quarter and sizes up every customer like a sergeant inspecting recruits. She has no patience for anyone who thinks armor is for show.",
+    first = "She has no patience for anyone who thinks armor is for show.",
     third = "{name} met Mirelle Tremayne, who sells heavy armor in the Undercity's War Quarter.",
   },
 
@@ -1637,7 +1637,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "formal", "dry" }, values = { "order", "community" },
   notices = { "race", "class", "level" },
   impression = {
-    first = "Christopher Drakul registers guilds in the Trade Quarter among bolts of tabard cloth, and he treats every charter as a small act of rebuilding. He carries a priest's staff and never says why.",
+    first = "He carries a priest's staff and never says why.",
     third = "{name} met Christopher Drakul, the guild master of the Undercity.",
   },
 

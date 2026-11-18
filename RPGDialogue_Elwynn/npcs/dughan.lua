@@ -9,7 +9,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" }, likesTone = "polite",
   notices = { "reputation", "bounty" },
   impression = {
-    first = "Marshal Dughan keeps Goldshire standing on stubbornness and very little sleep. He looked at me the way a man looks at one more pair of hands.",
+    first = "He looks at me like one more pair of hands.",
     third = "{name} met Marshal Dughan, who keeps Goldshire standing on stubbornness and very little sleep.",
   },
 
@@ -853,7 +853,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's civil of you, and I get little enough of it between the farmers' complaints and the Keep's silences. I'll admit it sits well, though I'll deny it if Remy asks." },
+        { id = "s2", text = "You've an eye for the work, then, since most folk only see a man behind a desk. Thank you, friend; I'll go back to these reports in a better temper." },
+      },
+      fail = {
+        { id = "f1", text = "I've half of Elwynn on this desk and no room on it for compliments. If you want something from the garrison, ask for it straight." },
+        { id = "f2", text = "The last man who praised me that warmly wanted a patrol pulled off the Westfall road, and he's in the Stockade now. I trust you're after something more honest." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! All those years a soldier and I've ended up a clerk with a sword, so you'll get no argument from me. It takes some nerve to say it across my own desk, and I can use nerve." },
+        { id = "s2", text = "Well, you're not shy, and I've guards who could stand to learn that from you. I was a footman under Lothar's banner, friend, and I've been ribbed by harder men, though not by many better at it." },
+      },
+      fail = {
+        { id = "f1", text = "I'll thank you to keep a civil tongue in my garrison. I've gnolls at the river and Defias on the road, and no patience left over for a jester." },
+        { id = "f2", text = "Mock the Marshal of Goldshire again and you can carry your wit out to Hogger's hill and try it on him. I've work to do." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Steady. I've stood against orcs, so I'll not be bullied, but I can tell when someone's in earnest, and you are. Say what you want, and I'll weigh it fairly." },
+        { id = "s2", text = "There's no need to lean on me, friend, for I take the point. I'll give ground on this one, since I've too few fighters in Elwynn to make an enemy of one who means it." },
+      },
+      fail = {
+        { id = "f1", text = "I held a line against the Horde in the Second War, and you think to frighten me at my own post? Step back from the desk." },
+        { id = "f2", text = "You threaten an officer of the Stormwind Army with his guards within call. I call that foolish, and I'll warn you that there's a cell in the Stockade for anyone who tries it twice." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's garrison business, and I don't share it with folk I've no reason yet to trust. Do right by Goldshire, and we'll speak again." },
+      { id = "gt2", text = "I'll keep that to myself for the present. You'll find me freer with my words once I know what you're made of." },
+    },
     knows = {
       { id = "tp_knows", text = "Every complaint in Goldshire ends up on this desk sooner or later, so I know a little of everything. Ask me about any of this." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even tell you what I don't put in the reports. Ask away." },

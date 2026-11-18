@@ -8,7 +8,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "steady", "sharp" }, likesTone = "blunt",
   notices = { "greenness", "kit", "follow_through" },
   impression = {
-    first = "Marshal McBride calls everyone recruit, and he means it as a duty more than an insult. He has a whole valley to hold and nowhere near enough people to hold it.",
+    first = "He has a whole valley to hold and too few holding it.",
     third = "{name} reported to Marshal McBride, who holds Northshire Valley and likes his recruits to stay alive.",
   },
 
@@ -538,7 +538,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I don't hear much of that in this valley, recruit, and I'll not say it's unwelcome. Now put the same effort into the kobolds and we'll get on." },
+        { id = "s2", text = "That's well said, and I'll take it for the garrison, since they hold Northshire and I only count them. You've a decent head on you, recruit." },
+      },
+      fail = {
+        { id = "f1", text = "I've a valley to hold, recruit, and no time to be told how well I'm holding it. Save your breath for the climb to Echo Ridge." },
+        { id = "f2", text = "A recruit who polishes the marshal instead of a sword is no use to the Stormwind Army. Speak plainly or go back to your drills." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've more spine than the last dozen they sent me, and they'd not have dared say that to my face. Keep it, recruit, because the kobolds won't be half so forgiving." },
+        { id = "s2", text = "That's bold talk for somebody still wearing the Abbey's dust on their boots. I like it, though, and a soldier who'll stand up to me will stand up to a Defias." },
+      },
+      fail = {
+        { id = "f1", text = "You'll watch your tongue on my ground, recruit. I've buried soldiers who'd earned the right to joke with me, and you've not yet earned a clean mail shirt." },
+        { id = "f2", text = "I've heard better from drunken footmen and thought less of them for it. If you've breath for mockery, you've breath for another patrol of the vineyards." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Stand easy, recruit, I take your meaning. You've more steel in you than I'd reckoned, and I'll not waste it by quarrelling, so have your say." },
+        { id = "s2", text = "Well, now. I've stared down plenty of raw recruits, and it's not often that one stares back hard enough for me to feel it. Very well, I'll give you that one." },
+      },
+      fail = {
+        { id = "f1", text = "I've held this valley against worse than a recruit with a scowl. Stand down, before I have you scrubbing the Abbey's steps until the brothers can pray in the shine." },
+        { id = "f2", text = "You'd threaten a marshal of Stormwind in front of his own garrison? That's a short road to the Stockade, recruit, and I'd turn round on it now." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not for a recruit I've barely had time to judge. Do some work for the valley first, and then ask me." },
+      { id = "gt2", text = "I'll not discuss that with you yet, recruit. I talk freely to soldiers I trust, and you've still that to earn." },
+    },
     knows = {
       { id = "tp_knows", text = "I keep a map of this valley in my head and a pile of reports on my desk. Ask me about any of this, recruit, and I'll give it to you straight." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer on these, and quickly, because I've a valley to hold." },

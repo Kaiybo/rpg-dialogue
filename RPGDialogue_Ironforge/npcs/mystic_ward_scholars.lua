@@ -14,7 +14,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Talvash del Kissel calls himself a jeweler of great renown, and then corrects himself to former renown, and then blames a competitor for the difference before I've asked. His workbench is very clean and very empty.",
+    first = "His workbench is very clean and very empty.",
     third = "{name} met Talvash del Kissel, a gnome jeweler in the Mystic Ward whose name was ruined by a rumour that his work was cursed.",
   },
 
@@ -134,7 +134,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Tymor is a dwarf who studies the arcane, which he admits is a little unusual, and he has papered his room in the Mystic Ward with charcoal rubbings of elven runes. He asked whether I'd ever been to Azshara before he asked my name.",
+    first = "He asked whether I'd been to Azshara before he asked my name.",
     third = "{name} met Tymor, a dwarf student of the arcane in the Mystic Ward who collects the runes of the old elves of Azshara.",
   },
 

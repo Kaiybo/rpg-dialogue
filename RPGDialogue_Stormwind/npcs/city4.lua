@@ -7,9 +7,10 @@ P:NPC {
   key = "marcus", id = TODO_NPC("General Marcus Jonathan"), name = "General Marcus Jonathan",
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
+  likesTone = "polite",
   notices = { "soldier", "kit" },
   impression = {
-    first = "General Marcus Jonathan keeps Stormwind's walls with whatever the Keep will spare him, and it plainly isn't enough. He reads every letter from the provinces twice and answers fewer than he'd like.",
+    first = "He reads every letter from the provinces twice and answers too few.",
     third = "{name} met General Marcus Jonathan, High Commander of Stormwind's defence, who watches over the Valley of Heroes.",
   },
 
@@ -337,7 +338,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's good of you to say, and I'll pass it on to the guards at the gate, since they've earned it more than I have. A kind word goes a long way on a cold watch." },
+        { id = "s2", text = "Well met, and well said. I've kept these walls a good many years, and it's pleasant to hear that someone coming through them noticed." },
+      },
+      fail = {
+        { id = "f1", text = "You've a smooth tongue, friend, and I've heard smooth tongues at this gate from peddlers and worse. I judge folk by how they carry their blades, so let's leave it there." },
+        { id = "f2", text = "I thank you, but the heroes on those plinths earned their praise the hard way, and I've not earned mine yet. Keep it for them." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Turalyon's sergeants talked to me like that when I was a green captain, and it did me no harm. You'd have fitted in well on the march north." },
+        { id = "s2", text = "You've cheek, I'll give you that, and I've always preferred it to cringing. A soldier who can't take a jest at the gate won't take an arrow on the wall." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried men who earned the right to talk to me like that, and you're not one of them. Mind your manners in the Valley of Heroes." },
+        { id = "f2", text = "That's poor talk at the feet of Lothar's companions, friend. I'll let it pass once, for the sake of the peace I'm sworn to keep here." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Steady, now. You've made yourself plain, and I'd sooner settle it with words than have my guards settle it another way, so tell me what you want." },
+        { id = "s2", text = "I've seen that look across a shield wall, and I know better than to shrug it off. You'll have your say, friend, and then you'll keep your blade sheathed as every visitor does." },
+      },
+      fail = {
+        { id = "f1", text = "I watched the Horde break on Lordaeron's walls, and you're a long way short of the Horde. Take your hand off that hilt and walk on." },
+        { id = "f2", text = "You're standing at the front gate of Stormwind with my guards on every wall above you. I'd think very carefully about the next thing you do." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I discuss with every traveller who rides through my gate. Come back when I know you better, and I may." },
+      { id = "gt2", text = "I'll keep that to myself for now, friend. A general learns to be careful with what he says and to whom he says it." },
+    },
     valley_of_heroes = {
       { id = "tp_valley_of_heroes", text = "The Valley of Heroes is Stormwind's front door, and I've stood guard over it since the day the statues went up. Those heroes gave everything, and I'll not let anyone pass beneath them who means the city harm." },
       { id = "tp_valley_of_heroes2", when = { disposition = { min = 65 } }, text = "I knew some of the people those statues are carved for, and they weren't marble then, only tired soldiers. I walk the Valley at dawn to say good morning to them, and I'd thank you not to tell anyone." },
@@ -369,7 +406,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "prickly" }, values = { "proud", "practical" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Renzik speaks of himself by name, like a goblin selling his own legend, and he is second at SI:7 all the same. He decided I might be worth something and told me so bluntly.",
+    first = "He speaks of himself by name, like a goblin selling a legend.",
     third = "{name} met Renzik the Shiv, the goblin who serves as second at SI:7 and decides what good means there.",
   },
 
@@ -566,7 +603,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
   notices = { "soldier" },
   impression = {
-    first = "Major Samuelson keeps the throne room orderly and expects visitors to behave as though they know where they are standing. He said that was all I needed to know about him, and he meant it.",
+    first = "He expects visitors to know exactly where they are standing.",
     third = "{name} met Major Samuelson, captain of the guard in Stormwind Keep, a man of few words and fewer exceptions.",
   },
 
@@ -778,7 +815,7 @@ P:NPC {
     { id = "b_loaf", text = "A loaf for the road, a loaf for the pocket, a loaf for later!" },
   },
   impression = {
-    first = "Thomas Miller walks the Trade District from dawn to dusk with a basket of bread and a left foot that complains the whole way. He had a roll halfway into my hand before I'd decided I was hungry.",
+    first = "He presses a roll into your hand before you know you're hungry.",
     third = "{name} met Thomas Miller, the Trade District's walking baker, whose basket always wins the argument with his feet.",
   },
   greetings = {

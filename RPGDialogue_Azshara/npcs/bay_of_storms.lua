@@ -6,10 +6,11 @@ P:NPC {
   key = "hydraxis", id = TODO_NPC("Duke Hydraxis"), name = "Duke Hydraxis",
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "bay_of_storms" }, temper = { "proud", "steady" }, values = { "brave", "proud" },
+  likesTone = "polite",
   notices = { "class", "race", "reputation" },
 
   impression = {
-    first = "Duke Hydraxis of the Waterlords is a water elemental who rules a rock in the Bay of Storms and wages war on fire, earth and air. He judged me as a tool and seemed to find me barely adequate.",
+    first = "He judged me as a tool and found me barely adequate.",
     third = "{name} met Duke Hydraxis, lord of the Hydraxian Waterlords, on his island in the Bay of Storms.",
   },
 
@@ -349,7 +350,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak as one should on the shore of the Waterlords, mortal, and the tide carries such words a long way. I will remember that you knew how to address a duke of the deep." },
+        { id = "s2", text = "It is fitting that you see what water is, when so many of your kind see only something to drink. Speak on, little rain, for you have my ear." },
+        { id = "s3", when = { class = "SHAMAN" }, text = "A shaman who gives water its due before the other three. You are wiser than most who bargain with the elements, and I will not forget it." },
+      },
+      fail = {
+        { id = "f1", text = "Your praise runs off me like rain off a stone, mortal. The Waterlords are moved by deeds against fire, and you have brought me only words." },
+        { id = "f2", text = "Do not pour sweet water into the sea and expect the sea to grow sweeter. I have heard courtiers before, and I value all of them below a single dead servant of the Firelord." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You splash at the tide, little rain, and you do not flinch when it rises. There is some storm in you after all, and I had not expected it." },
+        { id = "s2", text = "Those are bold words to speak to me on my own rock. The Waterlords have use for mortals who do not go still when a lord of the deep looks at them." },
+      },
+      fail = {
+        { id = "f1", text = "You mock the sea from its own shore, which is how mortals drown. Speak with respect, as I told you, or do not speak at all." },
+        { id = "f2", text = "A puddle may say what it likes about the ocean, and the ocean does not answer. Do not try my patience further, for it is deep, but it has a floor." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You press upon me as though you were a storm front, mortal, and for a moment the water at my feet believed it. I am not moved, yet I see that fire would have cause to fear you, and that pleases me." },
+        { id = "s2", text = "Few who stand on this shore would dare so much. I yield you nothing, but I will speak to you as I speak to one who matters, since you have shown me that you may." },
+      },
+      fail = {
+        { id = "f1", text = "You cannot frighten the tide, mortal. It has worn down mountains that were greater than you, and it did not hurry." },
+        { id = "f2", text = "You threaten water with a raised hand, and the water closes over the hand. Lower it, and remember whose shore this is." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "The deeper waters are not opened to every mortal who wades in. Serve the Waterlords against fire, and then ask me again." },
+      { id = "gt2", text = "I will not speak of that to one whose name the tide has not yet troubled to carry. Earn my regard first, mortal." },
+    },
     knows = {
       { id = "tp_knows", text = "The waters carry news to me from every shore. Ask, mortal, and I will tell you what the tide has brought." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For an ally, I will open the deeper waters. Choose." },
@@ -375,10 +414,11 @@ P:NPC {
   key = "loramus", id = TODO_NPC("Loramus Thalipedes"), name = "Loramus Thalipedes",
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "bay_of_storms" }, temper = { "sharp", "steady" }, values = { "brave", "stern" },
+  private = { "elune" },
   notices = { "class", "race", "fel" },
 
   impression = {
-    first = "Loramus Thalipedes is a night elf demon hunter living on an island in the Bay of Storms with three felhounds. He sees demons I can't, mocks me for it, and still agreed to help me hunt one.",
+    first = "He mocks me for the demons I can't see, yet he helps.",
     third = "{name} met Loramus Thalipedes, a demon hunter who keeps watch from his island in the Bay of Storms.",
   },
 
@@ -716,7 +756,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You admire a thing my own people cast out, and I hear no pity in it, which is rarer still. I had forgotten that anyone might speak so to me and mean it." },
+        { id = "s2", text = "Those are kind words to bring to this island, where I am used to the sea and the growling of my hounds. I will take them, stranger, though I do not promise to know what to do with them." },
+      },
+      fail = {
+        { id = "f1", text = "Demons flatter, mortal, and they do it far better than you. I learned long ago to listen for what the sweet voice wants." },
+        { id = "f2", text = "Save your honey for the priestesses, who still care what is said of them. I gave up my eyes and my good name, and I did not do it to be praised by a passer-by." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You bait a demon hunter in front of his felhounds, and your voice does not shake. Perhaps you are worth more than a meal after all." },
+        { id = "s2", text = "You have teeth, then, and I am glad of it, because the thing I hunt would swallow a meek {class} whole. Keep that edge, and bring it with you when the time comes." },
+      },
+      fail = {
+        { id = "f1", text = "I have been mocked by dreadlords in voices I once loved, and you are a poor second to them. Mind your tongue, or my hounds will mind it for you." },
+        { id = "f2", text = "You mistake me for someone with patience to spare. Say what you came to say, and say it civilly, while I still care to listen." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "My hounds have gone quiet, and they do not do that for many. I see well enough what stands in front of me, mortal, and I will own that I should not like to be the demon you come for." },
+        { id = "s2", text = "There is a weight in you that I had not marked before, and I mark such things for my living. I do not frighten, but I do take note, and you have my notice." },
+      },
+      fail = {
+        { id = "f1", text = "I have stood in the dark with things that would unmake your mind for sport, and I walked out again. You will have to do a great deal better than that." },
+        { id = "f2", text = "You threaten a blind elf on a rock, and you think it bold. I see the fire in every living thing, mortal, and yours burns no hotter than my hounds' supper." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is mine to keep, and I do not share it with strangers who wander onto my island. Prove that you are something more than that." },
+      { id = "gt2", text = "No. I have told you what a demon is, and the rest I tell only to those I have reason to trust." },
+    },
     knows = {
       { id = "tp_knows", text = "I know demons, mortal, and the things that serve them. Little else is worth knowing." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I will speak plainly, which I rarely do. Ask." },
@@ -745,7 +822,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Lord Arkkoroc is a sea giant who lives in a drowned temple and calls himself a god. He grieves the sons a hydra has killed, and he paid me exactly what he promised.",
+    first = "He calls himself a god and grieves the sons a hydra killed.",
     third = "{name} met Lord Arkkoroc, the sea giant who rules the Temple of Arkkoran on Azshara's northern shore.",
   },
 

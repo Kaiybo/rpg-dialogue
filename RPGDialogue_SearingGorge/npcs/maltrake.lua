@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Squire Maltrake serves Kalaran Windblade with a zeal that made me uneasy. He calls fire glorious and his master greater than I can understand, and he means both as praise.",
+    first = "He calls fire glorious, and his zeal makes me uneasy.",
     third = "{name} met Squire Maltrake, the devoted servant of Kalaran Windblade, near Thorium Point in the Searing Gorge.",
   },
 

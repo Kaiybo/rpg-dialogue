@@ -9,7 +9,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "proud" }, values = { "proud", "ambitious" },
   notices = { "kit", "class" },
   impression = {
-    first = "Belgrom Rockmaul talks about the Warchief's ear and his agents across Kalimdor as though he holds the Horde together himself. An elf mage played him for a fool in Azshara, and it is still eating at him.",
+    first = "Being fooled by an elf mage in Azshara still eats at him.",
     third = "{name} met Belgrom Rockmaul in the Valley of Honor, a boastful orc commander who sends agents across Kalimdor and was betrayed by an elf mage.",
   },
 

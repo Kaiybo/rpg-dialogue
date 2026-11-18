@@ -12,7 +12,7 @@ P:NPC {
   temper = { "calm", "warm" }, values = { "honest", "loyal" },
   notices = { "class", "kit" },
   impression = {
-    first = "Islen Waterseer keeps a fishing hut on the Barrens shore south of Ratchet, a powerful old shaman whose bond with the spirits of water is spoken of as far as Thunder Bluff. She is gentle and unhurried, and she seems entirely unafraid of the human patrols that pass along her beach.",
+    first = "She seems entirely unafraid of the human patrols on her beach.",
     third = "{name} met Islen Waterseer, a tauren shaman of water who lives by the sea on the Barrens coast.",
   },
 
@@ -111,7 +111,7 @@ P:NPC {
   temper = { "calm", "proud" }, values = { "honest", "brave" },
   notices = { "class", "pet" },
   impression = {
-    first = "Mahren Skyseer camps beside Islen Waterseer on the Barrens coast and hunts the great beasts of the sea. She is Jorn Skyseer's sister, and she speaks of her prey with a reverence that borders on love.",
+    first = "She speaks of her prey with a reverence that borders on love.",
     third = "{name} met Mahren Skyseer, a tauren hunter of sea beasts and sister of Jorn Skyseer.",
   },
 

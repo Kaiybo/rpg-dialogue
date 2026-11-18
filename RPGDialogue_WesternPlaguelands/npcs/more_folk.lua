@@ -12,7 +12,7 @@ P:NPC {
   notices = { "paladin", "lore" },
 
   impression = {
-    first = "Artist Renfray is a ghost at Caer Darrow who remembers everything the other spirits have forgotten, which seems to be her curse. She painted the Fordrings once, and she still speaks of Tirion as an old friend.",
+    first = "Remembering what the other spirits have forgotten seems to be her curse.",
     third = "{name} met Artist Renfray, the ghost of the painter who made the Fordring family's portrait at Caer Darrow.",
   },
 
@@ -209,7 +209,7 @@ P:NPC {
   notices = { "profession" },
 
   impression = {
-    first = "Rory fishes off Caer Darrow's shore as a ghost, and unlike most of his neighbours he knows exactly what he is. He wants it understood that the Scourge didn't kill his town; something worse and older did.",
+    first = "He insists something older and worse than the Scourge killed his town.",
     third = "{name} met Rory, a ghost fisherman of Caer Darrow who remembers that the town is dead.",
   },
 
@@ -348,7 +348,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Joseph Dirte is a ghost who still believes he hauls the Barovs' rubbish, and he insists on the full title of Waste Management Specialist. Cross him and he threatens you with his fists of fury. He misses someone called Brandy.",
+    first = "Cross him and he threatens you with his fists of fury.",
     third = "{name} met Joseph Dirte, the ghost of Caer Darrow's refuse man, who still minds his shed.",
   },
 
@@ -494,7 +494,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Baker Masterson still bakes and sells bread at Caer Darrow, though he's been dead for years and doesn't seem to know it. He's warm and busy, and it's the saddest thing on the island.",
+    first = "He doesn't know he is dead, and it's the saddest thing here.",
     third = "{name} met Baker Masterson, the ghost baker who still sells bread at Caer Darrow.",
   },
 

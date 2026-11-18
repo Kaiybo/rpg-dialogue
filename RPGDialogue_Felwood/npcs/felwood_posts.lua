@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Mishellena keeps the hippogryphs at Talonbranch Glade and grieves for Felwood every time she flies over it. She speaks softly and won't let her birds drink anything but moonwell water.",
+    first = "She won't let her birds drink anything but moonwell water.",
     third = "{name} met Mishellena, the night elf hippogryph master at Talonbranch Glade.",
   },
 
@@ -195,7 +195,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Brakkar keeps the wind riders at Bloodvenom Post and has no patience for this forest or anything that crawls out of it. He talks about his beasts with more warmth than he shows any person.",
+    first = "He shows his wind riders more warmth than he shows any person.",
     third = "{name} met Brakkar, the orc wind rider master at Bloodvenom Post.",
   },
 
@@ -375,7 +375,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Bale sells general goods at Bloodvenom Post, from water skins to bread, and he grieves quietly for the land around it. He is slow to speak and careful with his words, like a tauren who has seen a lot of bad soil.",
+    first = "He is slow to speak, and grieves quietly for the land.",
     third = "{name} met Bale, the tauren who sells general goods at Bloodvenom Post.",
   },
 

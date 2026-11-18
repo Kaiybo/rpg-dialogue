@@ -6,11 +6,12 @@ P:NPC {
   key = "nials", id = TODO_NPC("Captain Nials"), name = "Captain Nials",
   bible = "bibles/arathi.md", role = "soldier", tier = "major",
   communities = { "refuge_pointe" }, temper = { "firm" }, values = { "dutiful", "proud" },
+  likesTone = "blunt",
   prejudice = { class = "ROGUE", amount = 10, why = "Syndicate cutthroats in the same leathers keep killing his lookouts." },
   notices = { "kit", "race" },
 
   impression = {
-    first = "Captain Nials told me to make it quick, and meant it. What's left of Stromgarde is mostly tents now, and she carries that like a sword she refuses to put down.",
+    first = "She carries ruined Stromgarde like a sword she won't put down.",
     third = "{name} met Captain Nials at Refuge Pointe, an officer of Stromgarde fighting to win back the fallen kingdom.",
   },
 
@@ -328,7 +329,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's good of you to say. The men here have held this camp with no walls and half a supply line, and they don't hear it nearly enough." },
+        { id = "s2", text = "I'll take that, and thank you. Stromgarde's name still means something to a few people, and I'm glad you're one of them." },
+      },
+      fail = {
+        { id = "f1", text = "I don't need compliments, I need swords. If you admire the defense so much, you can help me hold it." },
+        { id = "f2", text = "That's courtier's talk, and Stromgarde's courtiers are all dead or fled. Speak like a soldier or don't waste my time." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've got some gall, and so did the best sergeant I ever had. I'll let it pass, because I'd rather have a sharp tongue in camp than a dull blade." },
+        { id = "s2", text = "Fair enough, I walked into that one. It's been a long while since anyone here had the spirit to joke, so I can't say I mind." },
+      },
+      fail = {
+        { id = "f1", text = "I've lost a kingdom and half my company, and I won't be laughed at by a sellsword passing through. Watch yourself in my camp." },
+        { id = "f2", text = "That's the kind of thing the Syndicate shout from the hills before they run. I thought better of you than that." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, stand easy. You've made yourself clear, and I can't afford a brawl in a camp this small, so I'll give you the point." },
+        { id = "s2", text = "You've a hard way about you, and I'll admit it gives me pause. Say your piece, and I'll hear it." },
+      },
+      fail = {
+        { id = "f1", text = "I've held this ground against ogres, trolls and the Horde, so a stare won't shift me. Try it again and my sentries will see you to the road." },
+        { id = "f2", text = "Men of Stromgarde don't frighten, friend, or we'd have left these highlands years ago. Take that tone somewhere else." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's the camp's business, and I don't share it with people I haven't seen under arms. Prove yourself to Refuge Pointe first." },
+      { id = "gt2", text = "I know well enough, and I'm keeping it to myself for now. A captain doesn't talk freely to someone he's only just met." },
+    },
     knows = {
       { id = "tp_knows", text = "My scouts report everything they see in the highlands, and I listen to all of it. Ask, and keep it short." },
     },
@@ -349,10 +386,11 @@ P:NPC {
   key = "drumfel", id = TODO_NPC("Drum Fel"), name = "Drum Fel",
   bible = "bibles/arathi.md", role = "soldier", tier = "major",
   communities = { "hammerfall" }, temper = { "driven" }, values = { "loyal", "ambitious" },
+  likesTone = "blunt", race = "Orc",
   notices = { "race", "kit" },
 
   impression = {
-    first = "Drum Fel speaks of Hammerfall as though its prosperous days have already begun. He sees the ogres and Witherbark as obstacles on a road he's certain of.",
+    first = "He talks as though Hammerfall's prosperous days have already begun.",
     third = "{name} met Drum Fel, who leads Hammerfall and means to clear the highlands of ogres and trolls.",
   },
 
@@ -661,7 +699,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Good. You see what we've built on this ground, and you say so without crawling. I'll remember that you spoke well of Hammerfall." },
+        { id = "s2", text = "Praise from a fighter is worth having, and you carry yourself like one. It's welcome, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "Words are cheap in Hammerfall. Bring me Witherbark tusks or ogre heads, and that will be all the praise I need." },
+        { id = "f2", text = "You flatter like a human trader. I've no use for it, and you'll find I'm harder to please than that." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got fire in you, and you're not afraid to throw it at me. Good, because I've no use for anyone who flinches." },
+        { id = "s2", text = "That was bold. I beat an ogre for less once, but you said it with a grin, and I find I'm grinning too." },
+      },
+      fail = {
+        { id = "f1", text = "Our people wore chains on this very ground, so choose what you laugh at here. Insult me again and we'll settle it in the yard." },
+        { id = "f2", text = "That was a whelp's yapping, and it's earned you nothing. Come back when you've got deeds to put behind your mouth." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Hm. You stand your ground, and I respect strength when I see it. I'll hear you, for Hammerfall has enemies enough beyond the wall." },
+        { id = "s2", text = "You've a warrior's stare, and I won't pretend it's nothing. Very well, you've earned an answer." },
+      },
+      fail = {
+        { id = "f1", text = "I've broken ogres with my own hands, so that look does nothing to me. If you want to try me, the yard is open and I'm not busy." },
+        { id = "f2", text = "You threaten me in Hammerfall, where Doomhammer fell so that no orc would be cowed again? You shame yourself, and I'll not bend to it." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That isn't for your ears yet. Fight for Hammerfall first, and then I'll decide what you've earned." },
+      { id = "gt2", text = "I know it, and I'll keep it until you've proven yourself to me. I don't share such things with those I haven't seen bleed for the Horde." },
+    },
     knows = {
       { id = "tp_knows", text = "Hammerfall's scouts range far, and they tell me what they find. Ask, and I'll tell you what serves the Horde." },
     },
@@ -684,7 +758,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Zengu is patient the way a good hunter is patient, and he finds it very funny that a human-made troll-killing sword might be turned on the Gurubashi. I rather agree.",
+    first = "He finds it funny to turn a troll-killing sword on the Gurubashi.",
     third = "{name} met Zengu, a Darkspear troll sent by Vol'jin to find the sword Trol'kalar in Arathi.",
   },
 
@@ -948,7 +1022,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Adegwa keeps the one soft place in Hammerfall's hard stone. A tauren far from Mulgore, he offered me rest as though it was the most natural thing in the world.",
+    first = "He offered me rest as though it were the most natural thing.",
     third = "{name} rested by Innkeeper Adegwa's fire, a tauren far from Mulgore who keeps the inn at Hammerfall.",
   },
 

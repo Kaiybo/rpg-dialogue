@@ -9,7 +9,7 @@ P:NPC {
   notices = { "profession", "kit" },
 
   impression = {
-    first = "Galvan the Ancient speaks of himself by name and of truesilver as if she once broke his heart. He's loud and odd and plainly a master, and he trusts a hard worker more than any title.",
+    first = "He speaks of truesilver as if she once broke his heart.",
     third = "{name} met Galvan the Ancient, master armorsmith of the Mithril Order, at his camp near the gates of Zul'Gurub.",
   },
 

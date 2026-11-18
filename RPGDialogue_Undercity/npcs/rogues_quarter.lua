@@ -11,7 +11,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "smooth", "wry" }, values = { "cunning" },
   notices = { "stealth", "purse" },
   impression = {
-    first = "Miles Dexter teaches rogues in the Rogues' Quarter and admitted, quite cheerfully, that he'd already guessed what was in my pack. I checked it afterwards, and he was right.",
+    first = "He guessed what was in my pack, and he was right.",
     third = "{name} met Miles Dexter, a rogue trainer in the Undercity and a former cutpurse of the capital.",
   },
 
@@ -156,7 +156,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "formal" }, values = { "loyal" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Gregory Charles teaches rogues with a courtier's manners and a hangman's patience. He stands with his back to the wall, counts the doors before he counts the people, and speaks of the noble he once guarded as if the man were a debt never settled.",
+    first = "He counts the doors before he counts the people.",
     third = "{name} met Gregory Charles, a cold, courteous rogue trainer in the Undercity.",
   },
 

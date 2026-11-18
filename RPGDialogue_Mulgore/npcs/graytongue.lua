@@ -9,7 +9,7 @@ P:NPC {
   communities = { "narache" }, temper = { "calm" }, values = { "wise", "protective" },
   notices = { "race", "form" },
   impression = {
-    first = "Seer Graytongue sets the young of Camp Narache their Rite of Strength against the Bristleback. He speaks slowly and bluntly, and he has seen what the quilboar leave behind them.",
+    first = "He has seen what the quilboar leave behind them.",
     third = "{name} met Seer Graytongue on Red Cloud Mesa, the old seer who sets young braves their Rite of Strength.",
   },
 

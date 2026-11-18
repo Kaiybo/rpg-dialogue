@@ -11,7 +11,7 @@ P:NPC {
   notices = { "profession", "lore" },
 
   impression = {
-    first = "Daniel is meant to be counting Brother Paxton's missing books, and he will tell you about every trainer in Elwynn before he gets round to it. I liked him more than his master seems to.",
+    first = "I like him more than his master seems to.",
     third = "{name} met Daniel, Brother Paxton's distractible library assistant, who knows where every trade trainer in Elwynn can be found.",
   },
 

@@ -299,8 +299,6 @@ local function build()
 
   -- Reading: how the text arrives.
   header(L.OPT_HEADER_ACCESS)
-  checkbox(L.OPT_INSTANT, "instantText")
-  slider(L.OPT_SPEED, "textSpeed", 20, 200, 10)
   checkbox(L.OPT_AUTO, "autoAdvance")
   slider(L.OPT_AUTO_DELAY, "autoDelay", 1, 10, 1, seconds, { dependsOn = "autoAdvance" })
   checkbox(L.OPT_REDUCE_MOTION, "reduceMotion")
@@ -327,9 +325,6 @@ local function build()
   checkbox(L.OPT_HINTS, "alignHints")
   checkbox(L.OPT_TOPIC_LINKS, "topicLinks")
   checkbox(L.OPT_DISPOSITION, "showDisposition")
-  cycle(L.OPT_TONE, "tone", { "polite", "normal", "blunt" }, { L.TONE_POLITE, L.TONE_NORMAL, L.TONE_BLUNT },
-    { onChange = function(v) if ns.Disposition then ns.Disposition.SetTone(v) end end })
-  checkbox(L.OPT_TONE_SELECTOR, "toneSelector")
   checkbox(L.OPT_APPROVAL, "approval")
   checkbox(L.OPT_CHECK_RESULTS, "checkResults")
   checkbox(L.OPT_GUT, "gutFeelings")

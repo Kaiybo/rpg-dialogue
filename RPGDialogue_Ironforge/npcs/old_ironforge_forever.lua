@@ -12,7 +12,7 @@ P:NPC {
   notices = { "spirits", "kin", "lore" },
 
   impression = {
-    first = "Afadra Dunwall keeps the tombs of the Hall of Thanes, and she is far more annoyed than frightened that the dead down there have stopped sleeping. Her keepers won't go below, so she sends whoever will.",
+    first = "She is more annoyed than frightened that the dead have stopped sleeping.",
     third = "{name} met Afadra Dunwall, the Lorekeeper who keeps the tombs of the Hall of Thanes beneath Old Ironforge.",
   },
 
@@ -248,7 +248,7 @@ P:NPC {
   notices = { "rogue", "goblin", "kin" },
 
   impression = {
-    first = "Thom Filch is a gnome from Gadgetzan who says he was patrolling the Hall of Thanes when the Dark Irons came up through the floor. He trips over every second word, and every word he trips over is 'loot'.",
+    first = "Every word he trips over turns out to be 'loot'.",
     third = "{name} met Thom Filch, a Gadgetzan gnome hanging about the stair to the Hall of Thanes with an eye on its heirlooms.",
   },
 

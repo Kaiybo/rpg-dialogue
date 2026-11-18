@@ -12,7 +12,7 @@ P:NPC {
   notices = { "status", "race" },
 
   impression = {
-    first = "Argent Quartermaster Hasana keeps the Dawn's stores at the Bulwark and laughs more than anyone else behind that wall. She sells only to those the Dawn trusts, and she says it with a grin that makes it hard to argue.",
+    first = "Her grin makes it hard to argue with her terms.",
     third = "{name} met Argent Quartermaster Hasana, the troll who keeps the Argent Dawn's stores at the Bulwark.",
   },
 
@@ -112,7 +112,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Bardu Sharpeye is a tauren resting at the Bulwark before going on to Hearthglen, after a Scarlet mage's lost weapons. He speaks slowly and seems to have thought about every word first.",
+    first = "He speaks slowly, as if he has weighed every word first.",
     third = "{name} met Bardu Sharpeye, a tauren at the Bulwark preparing to search Hearthglen for a murdered Scarlet mage's weapons.",
   },
 
@@ -218,7 +218,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Werg Thickblade sells leatherworking supplies at the Bulwark and complains about the smell of the place in the same breath. He's the only orc I've met who misses the Barrens' heat.",
+    first = "He is the only orc I've met who misses the Barrens' heat.",
     third = "{name} met Werg Thickblade, an orc selling leatherworking supplies at the Bulwark.",
   },
 
@@ -373,7 +373,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Mickey Levine keeps a jar of plague termites at the Bulwark and a grudge against the Scarlet Crusade that she means to settle one rotten beam at a time. She is cheerful about it in a way that is not cheerful at all.",
+    first = "She means to ruin the Scarlets one rotten beam at a time.",
     third = "{name} met Mickey Levine at the Bulwark, who plans to bring down the Scarlet Crusade's lumber mill at Northridge with termites.",
   },
 

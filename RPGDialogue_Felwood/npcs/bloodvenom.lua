@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "pet" },
 
   impression = {
-    first = "Winna Hazzard cackles at the end of every other sentence and keeps a kitten she plans to make much larger. Felwood delights her, and that alone ought to worry everyone.",
+    first = "Felwood delights her, and that alone ought to worry everyone.",
     third = "{name} met Winna Hazzard, the cackling alchemist of Bloodvenom Post, who finds the corruption of Felwood fascinating.",
   },
 
@@ -285,7 +285,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Trull Failbane wants to know everything Felwood hides, and he'll know if I skip a part of my report. He is grim and careful, and he plainly doesn't trust the alchemist either.",
+    first = "He'll know if I skip any part of my report.",
     third = "{name} met Trull Failbane, the grim orc who serves as Orgrimmar's eyes at Bloodvenom Post.",
   },
 

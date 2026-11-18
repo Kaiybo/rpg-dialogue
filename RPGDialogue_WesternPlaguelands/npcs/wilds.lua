@@ -9,7 +9,7 @@ P:NPC {
   notices = { "stealth" },
 
   impression = {
-    first = "Janice Felstone keeps asking after John and packing for a journey she will never take. She doesn't seem to know what she is, and I hadn't the heart to tell her.",
+    first = "She doesn't know what she is, and I couldn't tell her.",
     third = "{name} met Janice Felstone, a lost and fretful spirit still waiting for her husband at Felstone Field.",
   },
 
@@ -242,7 +242,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Mulgris Deepriver is dying in that house at the Writhing Haunt, and he knows it. Even so, he spent his breath asking mercy for the sick beasts outside rather than for himself.",
+    first = "Dying, he asked mercy for the sick beasts and none for himself.",
     third = "{name} met Mulgris Deepriver, a dying tauren druid of the Cenarion Circle at the Writhing Haunt.",
   },
 
@@ -479,7 +479,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Marlene Redpath waits on Sorrow Hill for word of her niece, Pamela, and hope is about all she has left. She asked so gently that it would be hard to refuse her anything.",
+    first = "Hope for her niece Pamela is about all she has left.",
     third = "{name} met Marlene Redpath on Sorrow Hill, who longs to learn what became of her niece Pamela after Darrowshire fell.",
   },
 
@@ -659,7 +659,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Kirsta Deepshadow was bleeding quietly when I found her and still managed to be funny about it. She is a scout who has seen the Crusade up close and liked none of it.",
+    first = "She was bleeding quietly and still managed to be funny about it.",
     third = "{name} met Kirsta Deepshadow, a wounded Stormwind scout watching Hearthglen from the Northridge hills.",
   },
 
@@ -878,7 +878,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Eva Sarkhoff apologized for the state of the grounds as though she still kept house at Caer Darrow. She and Lucien want only to stop being there, and she asked it with perfect courtesy.",
+    first = "She and Lucien want only to stop being there.",
     third = "{name} met Eva Sarkhoff, the ghostly former head maid of House Barov, lingering at Caer Darrow with her husband Lucien.",
   },
 

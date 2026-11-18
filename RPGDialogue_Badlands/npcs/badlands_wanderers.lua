@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "race", "class" },
 
   impression = {
-    first = "Lucien Tosselwrench is Lotwil Veriatus's assistant, a gnome alchemist who has made his peace with working beside a man who talks to rocks. He expects every experiment to end badly and stays anyway, which says something about him.",
+    first = "He expects every experiment to end badly and stays anyway.",
     third = "{name} met Lucien Tosselwrench, assistant to Lotwil Veriatus at his camp in the Badlands.",
   },
 
@@ -209,7 +209,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Garek is a high elf camped alone in the Badlands on an errand for the Kirin Tor that he will not fully explain. He is courteous, guarded and plainly more worried than he lets his voice show.",
+    first = "He is more worried than he lets his voice show.",
     third = "{name} met Garek, a high elf on a quiet mission for the Kirin Tor near Dustwind Gulch.",
   },
 

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "ghost", "undead" , "class" },
 
   impression = {
-    first = "Umbranse the Spiritspeaker lives alone in a small house in the hills northeast of Everlook and says he can speak with the dead. He is polite, soft-voiced and very interested in what I have seen.",
+    first = "He is soft-voiced and very interested in what I have seen.",
     third = "{name} met Umbranse the Spiritspeaker, a human medium living in the hills of Winterspring.",
   },
 
@@ -201,7 +201,7 @@ P:NPC {
   notices = { "cold" },
 
   impression = {
-    first = "Natheril Raincaller sells food, water and travelling gear at Starfall Village, and he worries about every traveller who comes in from the snow. He always has something warm on the fire.",
+    first = "He always has something warm on the fire.",
     third = "{name} met Natheril Raincaller, who sells general goods at Starfall Village.",
   },
 

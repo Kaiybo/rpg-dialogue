@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "lawful" },
   notices = { "stealth", "watch" },
   impression = {
-    first = "Master Mathias Shaw talks like a man who has already read my file, and he probably has. I couldn't tell whether he approved of me or merely made a note.",
+    first = "He talks like a man who has already read my file.",
     third = "{name} met Master Mathias Shaw, head of SI:7, who listened to every word I said and gave back almost none.",
   },
 
@@ -412,7 +412,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "I'm not complimented often, and never accurately, so that's a first. I'll file it, and I file very little under pleasant." },
+        { id = "s2", text = "Most people who walk into this building are too busy watching their backs to notice how it's run. You noticed, and I notice who notices." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery is the first tool I teach and the first one I teach them to spot. Yours wants work, so come back when it's had some." },
+        { id = "f2", text = "I pay people to lie to me better than that. Tell me what you're after, and we'll both save an afternoon." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've a mouth on you, and you used it on the one man in Stormwind who knows where you slept last night. I respect the nerve, if not the judgment." },
+        { id = "s2", text = "Good. The last agent who was afraid to needle me got three men killed in Westfall by keeping quiet. Keep the tongue, and learn when to sheathe it." },
+      },
+      fail = {
+        { id = "f1", text = "That was sharp, but you showed me the blade before you used it. In Old Town that gets you laughed at, and in Moonbrook it gets you buried." },
+        { id = "f2", text = "I've been insulted by Defias under a knife and by nobles over wine, and both did it better. Was there anything else?" },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You moved before I'd finished counting your weapons, and that doesn't happen to me often. All right, you've made your point, so tell me what you wanted with it." },
+        { id = "s2", text = "I've read enough people to know when one means it, and you do. I'll give you the answer you came for, and then you'll stand a little further from my desk." },
+      },
+      fail = {
+        { id = "f1", text = "There are four of my people in this room, and you've spotted one of them. Take your time working out where that leaves you." },
+        { id = "f2", text = "I've had threats from VanCleef's own lieutenants, and they at least sent theirs in writing. Stand down, before somebody upstairs mistakes you for a problem." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not for you, not yet. Information in this building is paid for in trust, and you're short of it." },
+      { id = "gt2", text = "I know the answer, and I'm choosing not to give it to you. Earn a place on my good side and ask again." },
+    },
     si7 = { { id = "tp_si7", text = "SI:7 is the King's eyes and ears, and in his absence, they're the Regent's. We hear more than we say and say less than we know, which is how it should be." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's riot was not an accident, and it was not entirely the prisoners' idea. I'll say no more than that, except that I'd like the names of the people who've been paying the guards." } },
     deadmines = {
@@ -449,7 +485,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "curious", "lawful" },
   notices = { "arcane" },
   impression = {
-    first = "Jennea Cannon teaches in the Wizard's Sanctum, where even the floor is warded, and she doesn't hand out compliments lightly. Her praise comes in very small measures, and it seems to be worth earning.",
+    first = "Her praise comes in very small measures and is worth earning.",
     third = "{name} met Jennea Cannon of the Wizard's Sanctum, a mage trainer who believes everyone's fundamentals have gaps.",
   },
 
@@ -707,7 +743,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "ambitious" },
   notices = { "pet", "watch" },
   impression = {
-    first = "Gakin the Darkbinder teaches beneath the Slaughtered Lamb and values discretion above everything. He spoke as though every word cost him something he meant to be repaid.",
+    first = "Every word seems to cost him something he means to have repaid.",
     third = "{name} met Gakin the Darkbinder, the warlock trainer beneath the Slaughtered Lamb, who pays well for silence.",
   },
 
@@ -982,7 +1018,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "guest", "drink" },
   impression = {
-    first = "Innkeeper Allison runs the Gilded Rose between the bank and the auction house, so she feeds the newly rich and the newly poor alike. She called me love before she even knew my name.",
+    first = "She feeds the newly rich and the newly poor alike.",
     third = "{name} took a room at the Gilded Rose, where Innkeeper Allison keeps the fire lit for every tired traveler.",
   },
 

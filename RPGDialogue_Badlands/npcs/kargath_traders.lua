@@ -13,7 +13,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Greth keeps the stables at Kargath, out of the sun under a lean-to of hides and old timbers. He worries about water more than anything, and he measures every beast that comes in by how thirsty it looks.",
+    first = "He measures every beast by how thirsty it looks.",
     third = "{name} met Greth, the stable master at Kargath.",
   },
 
@@ -111,7 +111,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Sranda sells light armor and weapons at Kargath, and she sizes up every customer as though she's deciding whether they'll still be alive to come back. She's quick, dry and doesn't haggle.",
+    first = "She sizes up whether each customer will live to come back.",
     third = "{name} met Sranda, who sells light armor and weapons at Kargath.",
   },
 

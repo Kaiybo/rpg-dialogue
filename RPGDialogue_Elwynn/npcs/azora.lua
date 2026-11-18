@@ -10,7 +10,7 @@ P:NPC {
   communities = {}, temper = { "brisk" }, values = { "order", "curious" },
   notices = { "class" },
   impression = {
-    first = "Dawn Brightstar sells vials and scrolls at the top of the Tower of Azora and keeps her shelves as tidy as a temple. She speaks of Theocritus with a mixture of respect and exasperation.",
+    first = "She speaks of Theocritus with equal respect and exasperation.",
     third = "{name} met Dawn Brightstar, who sells arcane goods at the top of the Tower of Azora.",
   },
   greetings = {
@@ -193,7 +193,7 @@ P:NPC {
   communities = {}, temper = { "eager" }, values = { "craft", "curious" },
   notices = { "class" },
   impression = {
-    first = "Kitta Firewind teaches enchanting in the Tower of Azora and talks about it faster than I could follow. Whatever the city's mages think of her craft, she plainly loves it.",
+    first = "Whatever the city's mages think of her craft, she plainly loves it.",
     third = "{name} met Kitta Firewind, who teaches enchanting in the Tower of Azora.",
   },
   greetings = {

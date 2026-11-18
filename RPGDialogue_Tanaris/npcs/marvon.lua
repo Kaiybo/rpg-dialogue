@@ -9,7 +9,7 @@ P:NPC {
   temper = { "excitable", "chatty" }, values = { "curious", "profit" },
   notices = { "craft", "lore" },
   impression = {
-    first = "Marvon Rivetseeker crashed his zeppelin in the Tanaris desert and decided he'd meant to come all along. He calls himself a scientist, but his eyes light up at treasure, and he once barely got out of the Sunken Temple alive.",
+    first = "He crashed his zeppelin here and decided he'd meant to come.",
     third = "{name} met Marvon Rivetseeker, a goblin scientist and treasure hunter camped at the Broken Pillar in Tanaris.",
   },
 

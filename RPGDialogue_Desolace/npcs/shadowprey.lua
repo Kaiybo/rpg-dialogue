@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Jinar'Zillen is a troll who has arranged his whole life around doing as little as possible, and he is proud of it. He talked to me from a hammock and never once put his feet on the dock.",
+    first = "He has arranged his whole life around doing as little as possible.",
     third = "{name} met Jinar'Zillen, a lazy troll at Shadowprey Village who trades fish for the shellfish in his traps.",
   },
 

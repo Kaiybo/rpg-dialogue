@@ -11,7 +11,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "serene", "welcoming" }, values = { "peace", "hospitality" },
   notices = { "race", "weary" },
   impression = {
-    first = "Daeolyn Summerleaf sells supplies in Nighthaven and treats every traveler, Horde or Alliance, as a guest of the grove. She seems to believe the peace of Moonglade can rub off on anyone who stays long enough.",
+    first = "She believes Moonglade's peace rubs off on anyone who stays long enough.",
     third = "{name} met Daeolyn Summerleaf, who keeps Nighthaven's general store open to all.",
   },
 
@@ -209,7 +209,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "dreamy", "gentle" }, values = { "nature", "wonder" },
   notices = { "craft", "form" },
   impression = {
-    first = "Malvor teaches herbalism in Nighthaven and speaks of the plants of Moonglade as though they were half asleep and dreaming. He is gentle, and a little hard to bring back to earth.",
+    first = "He is gentle, and a little hard to bring back to earth.",
     third = "{name} met Malvor, Nighthaven's dreamy herbalist.",
   },
 
@@ -394,7 +394,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "practical", "dry" }, values = { "readiness", "honesty" },
   notices = { "class" },
   impression = {
-    first = "Narianna sells bows in Nighthaven and sees no contradiction in arming travelers in the most peaceful place in Kalimdor. She is dry and practical about it.",
+    first = "She sees no contradiction in selling bows in so peaceful a place.",
     third = "{name} met Narianna, the practical bowyer of Nighthaven.",
   },
 

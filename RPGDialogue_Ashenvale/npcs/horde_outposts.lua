@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Je'neu Sancrea is a Darkspear shaman of the Earthen Ring who listens to the sea the way other people listen to gossip. Something in Blackfathom Deeps troubles the water, and he means to find out what.",
+    first = "He listens to the sea the way others listen to gossip.",
     third = "{name} met Je'neu Sancrea, a troll shaman of the Earthen Ring at Zoram'gar Outpost who watches Blackfathom Deeps.",
   },
 
@@ -133,7 +133,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Marukai stands at the edge of Zoram'gar and glares at the sea as if it owed him money. He has had enough of naga crawling up out of the surf and says so to anyone in earshot.",
+    first = "He glares at the sea as if it owed him money.",
     third = "{name} met Marukai, a Darkspear troll at Zoram'gar Outpost who wants the naga of the Zoram Strand thinned out.",
   },
 
@@ -258,7 +258,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Mitsuwa lost his kinfolk to the Thistlefur furbolgs on the road to Zoram'gar, and the troll charms they carried with them. He talks about the dead as if they had only gone ahead.",
+    first = "He speaks of his dead kin as if they'd only gone ahead.",
     third = "{name} met Mitsuwa, a Darkspear troll at Zoram'gar Outpost whose kin were killed by the Thistlefur.",
   },
 
@@ -377,7 +377,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Muglash is an orc with one ambition left, and it is a hydra. He talks about Vorsha the Lasher the way some orcs talk about the old days, with a kind of terrible longing.",
+    first = "He has one ambition left, and it is a hydra.",
     third = "{name} met Muglash at Zoram'gar Outpost, an orc set on killing the hydra Vorsha the Lasher.",
   },
 
@@ -495,7 +495,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Locke Okarr keeps Splintertree's supplies moving and takes every lost saw blade personally. He is the sort of orc who keeps lists, and he would rather fight the elves with timber than with grievances.",
+    first = "He takes every lost saw blade personally.",
     third = "{name} met Locke Okarr at Splintertree Post, an orc who needs the Warsong's lost supplies found.",
   },
 
@@ -619,7 +619,7 @@ P:NPC {
   notices = { "weary", "hunger" },
 
   impression = {
-    first = "Innkeeper Kaylisk runs Splintertree's inn like a field kitchen, with a ladle in one hand and an eye on the treeline. She feeds anyone who walks in with the Horde's colours and asks questions afterwards.",
+    first = "She feeds anyone in Horde colours and asks questions afterwards.",
     third = "{name} met Innkeeper Kaylisk, who keeps the inn at Splintertree Post.",
   },
 
@@ -795,7 +795,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Vhulgra keeps Splintertree's wind riders and watches the sky the way a guard watches a road. She flies the wounded out and the messages in, and she trusts the beasts more than most people.",
+    first = "She trusts her beasts more than she trusts most people.",
     third = "{name} met Vhulgra, the wind rider master at Splintertree Post.",
   },
 
@@ -904,7 +904,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Qeeju is a troll who keeps Splintertree's stables, unhurried and amused by everything. The beasts in his pens are the calmest things in the whole post.",
+    first = "The beasts in his pens are the calmest things in the post.",
     third = "{name} met Qeeju, the troll stable master at Splintertree Post.",
   },
 

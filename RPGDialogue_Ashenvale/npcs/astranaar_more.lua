@@ -10,7 +10,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "measured" }, values = { "dutiful", "devout" },
   notices = { "race", "class" },
   impression = {
-    first = "Sentinel Thenysil weighs every newcomer as if she were deciding where to post them. She says little, but what she says tends to reach Darnassus.",
+    first = "She says little, but what she says tends to reach Darnassus.",
     third = "{name} met Sentinel Thenysil of Astranaar, who sends word of proven heroes to Tyrande Whisperwind.",
   },
 
@@ -268,7 +268,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "wry" }, values = { "dutiful" },
   notices = { "race" },
   impression = {
-    first = "Daelyshia keeps the hippogryphs on Astranaar's island and keeps a sharp eye on the eastern sky. She flies her birds low over the trees, and doesn't apologise for it.",
+    first = "She flies her birds low over the trees and doesn't apologise.",
     third = "{name} met Daelyshia, the hippogryph master of Astranaar.",
   },
 

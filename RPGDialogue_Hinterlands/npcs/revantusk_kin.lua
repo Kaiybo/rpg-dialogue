@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Elder Torntusk sat in a Vilebranch cage at the top of Jintha'Alor and greeted me like a chieftain receiving a guest. He fought for the old Horde, and he talks about his mate as if she were the one in danger.",
+    first = "Caged, he still greeted me like a chieftain receiving a guest.",
     third = "{name} found Elder Torntusk of the Revantusk caged at Jintha'Alor, awaiting the Vilebranch altar.",
   },
 
@@ -182,7 +182,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Renn'az sells arrows on the Revantusk platforms and knows exactly how many he has left. He talks about the Vilebranch the way a farmer talks about weather.",
+    first = "He talks about the Vilebranch the way a farmer talks about weather.",
     third = "{name} bought arrows from Renn'az, the ammunition seller at Revantusk Village.",
   },
 

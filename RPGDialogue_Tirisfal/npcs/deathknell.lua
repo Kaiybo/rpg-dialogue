@@ -8,7 +8,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "matter_of_fact" }, values = { "practical" },
   notices = { "greenness" },
   impression = {
-    first = "Undertaker Mordo tends the graves at Deathknell and greets the newly risen with a matter-of-fact kindness. He buries things, he says, and leaves the explaining to others.",
+    first = "He buries things, he says, and leaves the explaining to others.",
     third = "{name} met Undertaker Mordo, who tends the graves of Deathknell and welcomes those who rise from them.",
   },
 
@@ -197,7 +197,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "sardonic" }, values = { "loyal", "sharp" },
   notices = { "class" },
   impression = {
-    first = "Having died once already, Shadow Priest Sarvis finds it hard to take death seriously. His humour is dry as grave dust, and the Light plainly makes him uneasy.",
+    first = "Having died once already, he finds it hard to take death seriously.",
     third = "{name} met Shadow Priest Sarvis, the sardonic voice of the Forsaken in Deathknell, who serves the Dark Lady alone.",
   },
 
@@ -394,6 +394,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Praise, in a graveyard chapel, and from someone with a working jaw. I'd blush if I still had the blood for it, so do consider yourself thanked." },
+        { id = "s2", text = "How pleasant. Most of my congregation crawls out of the ground too confused to say anything nice, so you've rather stood out." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery is wasted on the dead, I'm afraid, because we've been lied to by experts, some of them wearing crowns. Try honesty, since it's cheaper and I see it less often." },
+        { id = "f2", text = "That was very nearly sincere, and I applaud the effort. Now tell me what you actually want, and spare us both the sermon." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Oh, well done, there's some wit left in that skull after all. Mock away, because I've been dead long enough to enjoy a joke at my own funeral." },
+        { id = "s2", text = "I haven't been needled that neatly since the seminary, and the man who did it is still in the ground out there. You'll do well among us, I think." },
+      },
+      fail = {
+        { id = "f1", text = "I've heard better jibes from the mindless ones, and they only know the one groan. If you must be rude, at least have the decency to be amusing." },
+        { id = "f2", text = "How very brave of you, to sneer at a priest in his own chapel. The Forgotten Shadow keeps a long memory, and so, unfortunately for you, do I." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "My, there's something unpleasant behind your eyes, and I say that with a professional's respect. I'll mind my tone, since I've grown rather attached to this second go at things." },
+        { id = "s2", text = "You needn't loom quite so close, because I take your point entirely. Death seems to have left you the useful parts, and I'm not fool enough to test them." },
+      },
+      fail = {
+        { id = "f1", text = "You are threatening a dead man, which shows a touching optimism. I've already had the worst day I'm ever going to have, so do try something else." },
+        { id = "f2", text = "Ah, menace. I woke in a grave with a stranger's voice in my head, and you'll find I've been hard to rattle ever since." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
@@ -415,6 +447,10 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief of the Horde took us in when the living would only burn us. The orcs are wary of us and they're right to be, but an alliance doesn't need affection to work." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran was the city of the Kirin Tor, and Archimonde knocked it flat. They say they're rebuilding behind their shields now, and I'd wager they'll be very sorry they didn't let more of us in." } },
     _none = { { id = "tp_none", text = "A good question for someone with more patience than I have." } },
+    _gated = {
+      { id = "gt1", text = "That's a subject I keep for those I've some reason to trust, and you haven't given me one yet. Ask me again when you've done something worth the telling." },
+      { id = "gt2", text = "I think not, though it was charming of you to ask. A shadow priest keeps confidences, and he's choosy about who he shares his own with." },
+    },
   },
 }
 
@@ -424,7 +460,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "clipped" }, values = { "dutiful", "loyal" },
   notices = { "kit" },
   impression = {
-    first = "Executor Arren wastes no words and expects reports rather than conversation. He wants the Scarlet Crusade gone, and he does not care whether they ever understand why.",
+    first = "He wants the Scarlet Crusade gone, whether or not they understand why.",
     third = "{name} met Executor Arren, who keeps Deathknell against the Scarlet Crusade camped to its southeast.",
   },
 
@@ -608,7 +644,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "steadfast" }, values = { "devout", "patient" },
   notices = { "class" },
   impression = {
-    first = "Though it hurts him to hold the Light, Aramis Hammerhand will not let go of it. He calls the pain a forge, and he says it like a man who has made his peace with burning.",
+    first = "It hurts him to hold the Light, and he won't let go.",
     third = "{name} met Aramis Hammerhand in the Deathknell church, who teaches those Forsaken who woke still holding the Light.",
   },
 

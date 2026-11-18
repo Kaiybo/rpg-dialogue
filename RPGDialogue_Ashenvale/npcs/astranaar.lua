@@ -8,9 +8,10 @@ P:NPC {
   key = "raene", id = TODO_NPC("Raene Wolfrunner"), name = "Raene Wolfrunner",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "major",
   communities = { "astranaar" }, temper = { "fierce" }, values = { "protective", "loyal" },
+  likesTone = "blunt",
   notices = { "pet", "form", "class" },
   impression = {
-    first = "Raene Wolfrunner would sooner face every furbolg and orc in Ashenvale alone than watch another tree fall. When she speaks of her friend Teronis, the grief sits close under all that fierceness.",
+    first = "Her grief for Teronis sits close under all that fierceness.",
     third = "{name} met Raene Wolfrunner, who commands the scouts of Astranaar and fights for every tree in Ashenvale.",
   },
 
@@ -347,7 +348,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's good to hear, and I don't hear it often out here. I'll take it back to the Sentinels on the wall, because they've earned a share of it." },
+        { id = "s2", text = "You've a kind tongue, and you sound as if you mean it. Thank you, because the forest wears on a hunter, and a word like that helps." },
+      },
+      fail = {
+        { id = "f1", text = "Don't waste flattery on me, because I can't make arrows out of it. If you think well of Astranaar, pick up a blade and show me." },
+        { id = "f2", text = "I've tracked enough game to know when I'm being led down a trail. Whatever you're after, ask for it straight." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got a wolf's cheek, and I like it. The Sentinels are so grim these days that I'd forgotten what it was to be needled." },
+        { id = "s2", text = "Careful, or I'll start to enjoy your company. You've a quick tongue, and I'd wager a quick blade to go with it." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried friends this season, so I've no patience for that. Say it again and you can find another village to rest in." },
+        { id = "f2", text = "That's the kind of talk I'd expect from someone who has never stood a night watch on the Ashenvale border. Go and stand one, and then come and mock me." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, you've made yourself clear, and I'm not fool enough to pick a fight inside my own walls while the orcs are outside them. Have it your way." },
+        { id = "s2", text = "You've a look in your eye I've seen on cornered nightsabers, and I respect it enough to step back. Tell me what you want." },
+      },
+      fail = {
+        { id = "f1", narr = "Her hand drops to the bow at her side.", text = "I hunt things in the dark that would turn your stomach, so that glare is wasted on me. Stand down before I decide you're a threat to Astranaar." },
+        { id = "f2", text = "Try to frighten me again and I'll have the Sentinels walk you to the bridge. I have real enemies in this forest, and I haven't time for a pretend one." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I'll talk about with someone I've barely hunted beside. Do some work for Astranaar, and I may tell you." },
+      { id = "gt2", text = "I know, and I'm keeping it to myself until I'm surer of you. Out here we've learned to be careful about whom we trust." },
+    },
     knows = {
       { id = "tp_knows", text = "My scouts bring me word of everything that moves in this forest, and Korra brings me the rest. Ask what you need." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } },
@@ -377,7 +414,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "anxious" }, values = { "loving", "determined" },
   notices = { "class" },
   impression = {
-    first = "Pelturas Whitemoon asked me to speak softly for his daughter's sake, then listened for her the whole time we talked. He has tried nearly every cure there is, and he has not once stopped hoping.",
+    first = "He has tried nearly every cure and has not once stopped hoping.",
     third = "{name} met Pelturas Whitemoon of Astranaar, a father searching for any cure for his daughter Relara's fever and nightmares.",
   },
 
@@ -568,7 +605,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "frightened" }, values = { "gentle" },
   notices = { "pet" },
   impression = {
-    first = "Small and sick as she is, Relara Whitemoon still means to become a Sentinel or a hippogryph, whichever gets to fly. Her papa, she assured me, is fixing everything.",
+    first = "She means to become a Sentinel or a hippogryph, whichever flies.",
     third = "{name} met Relara Whitemoon, Pelturas's young daughter, who faces her fevered nightmares with a child's stubborn hope.",
   },
 
@@ -765,7 +802,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "kit" },
   impression = {
-    first = "Faldreas keeps a list of everyone who goes out on Astranaar's roads and everyone who ought to have come back. Crossing names off the right way, he says, is the best part of his day.",
+    first = "The best part of his day is crossing off a returned name.",
     third = "{name} met Faldreas Goeth'Shael, who keeps track of every traveller leaving Astranaar and listens to the forest spirits.",
   },
 
@@ -949,7 +986,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary" },
   impression = {
-    first = "Every night Innkeeper Kimlya sends broth up to a sick child, knowing the father will eat it if the girl won't. Astranaar's inn seems to run on that sort of quiet kindness.",
+    first = "She sends broth up to a sick child every night.",
     third = "{name} rested at Innkeeper Kimlya's inn on Astranaar's island, a refuge for scouts, healers and weary travellers.",
   },
 
@@ -1161,7 +1198,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class" },
   impression = {
-    first = "Delgren the Purifier greets everyone with the Light's blessing and a cheerful word, a long way from home and glad of company. He is earnest and warm, though I would not want to be a warlock standing near his hammer.",
+    first = "Warm and earnest, but I'd not be a warlock near his hammer.",
     third = "{name} met Delgren the Purifier at Maestra's Post, a servant of the Light hunting the Dark Strand cult in Ashenvale.",
   },
 

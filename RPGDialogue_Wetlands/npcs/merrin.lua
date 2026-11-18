@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Merrin Rockweaver is trapped on the ridge above Whelgar's dig with the survivors of a raptor attack, and still argues about where to dig next. She talks about her husband Tarrel the way other dwarves talk about home.",
+    first = "She talks about her husband Tarrel the way dwarves talk about home.",
     third = "{name} met Merrin Rockweaver, an Explorers' League digger who survived the raptor attack at Whelgar's Excavation Site.",
   },
 

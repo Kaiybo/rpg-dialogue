@@ -11,7 +11,7 @@ P:NPC {
   notices = { "small", "druid", "mage" },
 
   impression = {
-    first = "Doraan is a dragon who lies in the marsh south of Theramore and seems to want nothing more than to enjoy the weather. He was courteous, amused and told me nothing at all about himself.",
+    first = "He was courteous and amused, and told me nothing about himself.",
     third = "{name} met Doraan, a courteous dragon resting in the marsh south of Theramore Isle.",
   },
 

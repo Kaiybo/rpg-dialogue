@@ -9,7 +9,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout", "patient" },
   notices = { "class", "form" },
   impression = {
-    first = "Zangen Stonehoof lights the great fire on the High Rise every evening and says the same prayer over it. He is gentle and unhurried, and he is helping Rau Cliffrunner reach something the Galak centaur guard.",
+    first = "He says the same prayer over the great fire every evening.",
     third = "{name} met Zangen Stonehoof on the High Rise of Thunder Bluff, the tauren who lights the evening fire and sent for moonwell water for Rau Cliffrunner.",
   },
 

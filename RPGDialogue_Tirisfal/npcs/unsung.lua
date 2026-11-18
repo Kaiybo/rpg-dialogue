@@ -15,7 +15,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "grim" }, values = { "dutiful", "practical" },
   notices = { "class", "weary" },
   impression = {
-    first = "Dannal Stern teaches the newly risen of Deathknell to hold a sword again with hands that no longer feel it. He is grim and patient, and he talks about his old soldiering life without any wish to have it back.",
+    first = "He speaks of his soldiering life without wishing it back.",
     third = "{name} met Dannal Stern, the warrior trainer of Deathknell.",
   },
   greetings = {
@@ -182,7 +182,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class", "light" },
   impression = {
-    first = "Dark Cleric Duesten teaches Deathknell's risen priests that faith is something you build for yourself, not something a god hands you. He speaks of the Light with contempt and of the will with reverence.",
+    first = "He holds the Light in contempt and the will in reverence.",
     third = "{name} met Dark Cleric Duesten, the priest trainer of Deathknell and a voice of the Cult of Forgotten Shadows.",
   },
   greetings = {
@@ -336,7 +336,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "dry" }, values = { "practical" },
   notices = { "purse", "hunger" },
   impression = {
-    first = "Joshua Kien sells general goods in Deathknell and finds it very funny that the dead still need bread and water. He keeps a shopkeeper's habits from his life before, down to the polite tone.",
+    first = "He finds it very funny that the dead still need bread.",
     third = "{name} met Joshua Kien, who sells supplies to the newly risen of Deathknell.",
   },
   greetings = {
@@ -506,7 +506,7 @@ P:NPC {
   communities = { "brill" }, temper = { "smooth" }, values = { "ambitious", "cunning" },
   notices = { "class", "fel" },
   impression = {
-    first = "Rupert Boch trains warlocks in Brill and speaks of demons the way a merchant speaks of difficult customers. He is courteous and amused, and he never says anything he did not mean to.",
+    first = "He never says anything he did not mean to.",
     third = "{name} met Rupert Boch, the warlock trainer of Brill.",
   },
   greetings = {
@@ -660,7 +660,7 @@ P:NPC {
   communities = { "brill" }, temper = { "brisk" }, values = { "curious", "practical" },
   notices = { "craft" },
   impression = {
-    first = "Carolai Anise teaches alchemy in Brill, a brisk woman who talks about potions as practical medicine and very little else. She seems to think the apothecaries make too much noise about their work.",
+    first = "She thinks the apothecaries make too much noise about their work.",
     third = "{name} met Carolai Anise, the alchemy trainer of Brill.",
   },
   greetings = {
@@ -825,7 +825,7 @@ P:NPC {
   communities = { "brill" }, temper = { "warm" }, values = { "kind", "practical" },
   notices = { "weary" },
   impression = {
-    first = "Nurse Neela teaches first aid in Brill and still talks like the nurse she was in life, warm and firm in the same breath. She stitches dead flesh as carefully as she once stitched the living.",
+    first = "She stitches dead flesh as carefully as she once stitched the living.",
     third = "{name} met Nurse Neela, who teaches first aid in Brill.",
   },
   greetings = {
@@ -990,7 +990,7 @@ P:NPC {
   communities = { "brill" }, temper = { "dry" }, values = { "practical", "proud" },
   notices = { "mount", "purse" },
   impression = {
-    first = "Zachariah Post sells skeletal horses in Brill and swears they are better than the living kind, since they never tire and never need feeding. He sells mostly to the Forsaken, and he says so without apology.",
+    first = "He swears his skeletal horses are better than the living kind.",
     third = "{name} met Zachariah Post, who sells undead horses in Brill.",
   },
   greetings = {

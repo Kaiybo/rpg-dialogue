@@ -9,7 +9,7 @@ P:NPC {
   temper = { "wry", "proud" }, values = { "curious", "proud" },
   notices = { "arcane", "trophy" },
   impression = {
-    first = "Azuregos is a blue dragon who guards the magic left in Azshara's ruins and finds mortals very tiresome, especially the ones with swords. He has a sense of humour, which is more unsettling than if he hadn't.",
+    first = "He has a sense of humour, which unsettles me more than none.",
     third = "{name} met Azuregos, the blue dragon who guards the magical remnants of Azshara.",
   },
 
@@ -175,7 +175,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Flattery, from a mortal who has not first reached for a sword. I had forgotten how pleasant it is, and I'll allow that you do it better than the Highborne ghosts, who have had ten thousand years to practise." },
+        { id = "s2", text = "You have a courtier's tongue, little one, and I am old enough to enjoy one without believing it. Go on standing there, for you are the best company I've had on this coast in a century." },
+        { id = "s3", when = { class = "MAGE" }, text = "A mage who admires the flight that guards magic, instead of resenting it. You are a rare specimen, little one, and I shall try not to lose you." },
+      },
+      fail = {
+        { id = "f1", text = "I have been flattered by queens and by archmages, little one, and nearly all of them wanted something that glowed. Whatever you are hoping to carry off, the answer is no." },
+        { id = "f2", text = "That was sweetly said and thoroughly unconvincing. A dragon hears a great deal of praise from mortals in the moment before they ask a favour or draw a blade, and I am weary of both." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! It has been an age since a mortal dared to be rude to me without an army at its back. I find I like you better for it, though you shouldn't make a habit of it." },
+        { id = "s2", text = "You have a sharp little tongue, and you used it on a dragon, which is either courage or a very short memory. I shall assume courage, since it amuses me more." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, little one. I have a sense of humour, but it is a good deal older than you are, and it doesn't stretch as far as you seem to think." },
+        { id = "f2", text = "I've been insulted by experts, and you aren't one of them. Mind your manners on my shore, or I'll remember that mortals are easier to bear when they are quiet." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "Azuregos tilts his great head and studies you for a long moment.", text = "Well, now. I haven't felt a mortal press on me like that in a long while, and I confess it makes me curious instead of angry. You have nerve, little one, and I'll grant you that much ground." },
+        { id = "s2", text = "You would lean on a dragon, on his own shore, and you would mean it. I am not afraid of you, but I am surprised, and at my age surprise is worth a little courtesy." },
+      },
+      fail = {
+        { id = "f1", text = "You are trying to frighten something that watched your kingdoms being built, little one. Do stop, before I mistake it for the start of a fight and finish it." },
+        { id = "f2", text = "I've been menaced by forty of your kind at once, all shouting, and I am still here to be bored by it. One of you alone is hardly worth my waking up for." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "No, little one. I guard what the Highborne left behind from mortals I have no reason to trust, and you haven't yet given me one." },
+      { id = "gt2", text = "That I'll keep to myself for now. A dragon doesn't hand his knowledge to every traveller who wanders up to ask, and so far you are only a traveller." },
+    },
     knows = { { id = "tp_knows", text = "I know more than you by some ten thousand years, which isn't hard. Choose your question carefully; I'm not in the mood to answer many." } },
     background = { { id = "tp_bg", text = "A dragon of the blue flight, charged with watching over what the Highborne left behind. The charge is tedious, the company worse." } },
     advice = { { id = "tp_ad", text = "If you find a glowing thing in a ruin, leave it there. I'll be along shortly to make sure you did." } },

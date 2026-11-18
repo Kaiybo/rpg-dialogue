@@ -12,7 +12,7 @@ P:NPC {
   notices = { "pvp", "race", "level" },
 
   impression = {
-    first = "The Darkspear Emissary stands in the Horde's cities asking for fighters to take back the Darkspear trolls' old islands from Theramore. The talk was easy and sly, but whenever the islands came up, the jokes stopped.",
+    first = "The jokes stopped whenever the islands came up.",
     third = "{name} met the Darkspear Emissary, a troll of the Darkspear Raiders who recruits for the fight against Theramore on the Darkspear Islands.",
   },
 

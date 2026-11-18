@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Old Man Heming sits on the Booty Bay docks with a line in the water and an opinion on every fish in the South Seas. He swears the sea has taught him more than any book, and he's probably right.",
+    first = "He swears the sea taught him more than any book.",
     third = "{name} met Old Man Heming, the old fisherman on the Booty Bay docks.",
   },
 
@@ -245,7 +245,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Mazk Snipeshot sells guns and shot in Booty Bay and fires off sales talk faster than any rifle he stocks. He's a goblin who likes loud things, and he says so proudly.",
+    first = "He likes loud things and says so proudly.",
     third = "{name} met Mazk Snipeshot, who sells guns in Booty Bay.",
   },
 
@@ -419,7 +419,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Haren Kanmae sells bows in Booty Bay, a soft-spoken craftsman among the shouting goblins. He thinks a good bow beats a loud gun, and he's tired of saying so.",
+    first = "He thinks a good bow beats a loud gun.",
     third = "{name} met Haren Kanmae, the bowyer of Booty Bay.",
   },
 

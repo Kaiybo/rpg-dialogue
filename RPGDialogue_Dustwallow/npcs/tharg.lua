@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brackenwall" }, temper = { "gruff", "sad" }, values = { "loyal", "brave" },
   notices = { "trophy", "weary" },
   impression = {
-    first = "Tharg is an old ogre with bad knees and a dead wife, and he talks about the Stonemaul village in the south as if he could still smell it. He wants the black dragons to pay, and he wants to go home.",
+    first = "He wants the black dragons to pay, and wants to go home.",
     third = "{name} met Tharg, an old Stonemaul ogre in Brackenwall who lost his wife to the black dragons.",
   },
 

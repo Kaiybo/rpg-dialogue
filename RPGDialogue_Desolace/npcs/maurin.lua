@@ -9,7 +9,7 @@ P:NPC {
   communities = { "ghost_walker" }, temper = { "cold", "contemptuous" }, values = { "knowledge", "loyal" },
   notices = { "arcane", "race" },
   impression = {
-    first = "Maurin Bonesplitter despises the Burning Blade less for serving demons than for not understanding them. He is a cold, precise thing, and the orcs at Ghost Walker Post are glad of him and keep their distance.",
+    first = "He despises the Burning Blade for not understanding the demons they serve.",
     third = "{name} met Maurin Bonesplitter, a Forsaken spellcaster sent to Ghost Walker Post by Keldran to undo the Burning Blade in Desolace.",
   },
 

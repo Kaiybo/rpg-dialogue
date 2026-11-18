@@ -11,7 +11,7 @@ P:NPC {
   communities = { "brill" }, temper = { "calm", "cold" }, values = { "wise", "stern" },
   notices = { "class", "race", "light", "form" },
   impression = {
-    first = "Dark Cleric Beryl teaches the Forsaken priests of Brill, and she insists they master the Light before she lets them near the shadow. She is cool and exact, and she seems to find the Light more useful than holy.",
+    first = "She seems to find the Light more useful than holy.",
     third = "{name} met Dark Cleric Beryl, Brill's priest trainer, who tests her students on the Light before teaching them darker things.",
   },
 
@@ -165,7 +165,7 @@ P:NPC {
   communities = { "brill" }, temper = { "chatty", "proud" }, values = { "curious", "ambitious" },
   notices = { "class", "arcane" },
   impression = {
-    first = "Cain Firesong teaches magic in the back of the Gallows' End and talks about fire the way other men talk about old sweethearts. He is vain, quick and good company, and he has not forgiven Dalaran for anything.",
+    first = "He has not forgiven Dalaran for anything.",
     third = "{name} met Cain Firesong, who trains mages at the Gallows' End in Brill.",
   },
   greetings = {
@@ -290,7 +290,7 @@ P:NPC {
   communities = { "brill" }, temper = { "smooth", "watchful" }, values = { "cunning", "careful" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Marion Call trains rogues in a quiet corner of the Gallows' End and notices everything said within earshot. She is soft-spoken and amused, and I had the feeling she knew more about me after five minutes than I'd meant to tell her.",
+    first = "Five minutes told her more about me than I meant to tell.",
     third = "{name} met Marion Call, who trains rogues at the Gallows' End in Brill.",
   },
   greetings = {
@@ -415,7 +415,7 @@ P:NPC {
   communities = { "brill" }, temper = { "calm", "earnest" }, values = { "craft", "patient" },
   notices = { "craft", "race" },
   impression = {
-    first = "Faruza teaches herbalism in Brill and knows every weed in the Glades by its smell. She is calm and earnest, and she treats the blighted plants of Tirisfal as patients rather than lost causes.",
+    first = "She treats the blighted plants as patients rather than lost causes.",
     third = "{name} met Faruza, Brill's herbalism trainer.",
   },
   greetings = {

@@ -6,10 +6,11 @@ P:NPC {
   key = "torntusk", id = TODO_NPC("Primal Torntusk"), name = "Primal Torntusk",
   bible = "bibles/revantusk.md", role = "noble", tier = "major",
   communities = { "revantusk" }, temper = { "fierce" }, values = { "loyal", "protective", "proud" },
+  likesTone = "blunt", race = "Troll",
   notices = { "race", "class" },
 
   impression = {
-    first = "Primal Torntusk leads the Revantusk while her mate sits in a Vilebranch cage at Jintha'Alor. She speaks of the Horde like a debt her tribe has paid twice over, and she isn't wrong.",
+    first = "She leads the tribe while her mate sits in a Vilebranch cage.",
     third = "{name} met Primal Torntusk, who leads the Revantusk trolls of the Hinterlands coast and wants her mate back from the Vilebranch.",
   },
 
@@ -364,7 +365,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hah. Ya got a good eye, stranger, and ya say it straight, so I take it. Not many outsiders see what Revantusk be worth." },
+        { id = "s2", text = "That be good to hear, mon, and I don't hear it much on this coast. The village will know ya spoke well of it." },
+      },
+      fail = {
+        { id = "f1", text = "I told ya I got little time for pretty words. Bring me Vilebranch tusks, and then I'll know what ya think of Revantusk." },
+        { id = "f2", text = "Sweet talk be what the Vilebranch give before the knife comes out. Ya want somethin' from me, so ask it plain." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hah! Ya got a sharp mouth, and ya use it on a Primal in her own village. I like that, for a troll who can't take a jab is no troll at all." },
+        { id = "s2", text = "Ya be bold, stranger, bolder than most who come down that trail. Good, because the Hinterlands eat the timid ones." },
+      },
+      fail = {
+        { id = "f1", text = "Watch that tongue, or I'll hang it on the rack with the fish. Nobody mocks Revantusk on Revantusk sand." },
+        { id = "f2", text = "My mate be in a Vilebranch cage and my people be few, so I got no laughter for that. Speak with respect or walk back up the trail." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, ya made ya point, and ya made it like a warrior. I got enemies enough in these hills, so I won't make another one today." },
+        { id = "s2", text = "Hm. Ya got the look of someone who means it, and I respect that. Say what ya want, and I'll listen." },
+      },
+      fail = {
+        { id = "f1", text = "I be starin' down the Vilebranch and the Wildhammer every day, mon, and they got more teeth than you. Don't try to scare me in my own village." },
+        { id = "f2", text = "Ya threaten me here, with every spear in Revantusk at my back? Ya either got a death wish or no sense, and I don't care to learn which." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That be Revantusk business, and ya haven't earned a share of it. Do right by the village first, and then ask me." },
+      { id = "gt2", text = "I know it, and I'm not tellin' a stranger. Come back when my people speak well of ya." },
+    },
     knows = { { id = "tp_knows", text = "I know the Hinterlands and every tribe in them. Ask, and I tell you what serves Revantusk." } },
     background = { { id = "tp_bg", text = "Revantusk born, Revantusk chief, and Horde since the runners came home with Thrall's word.", next = "horde" } },
     advice = { { id = "tp_ad", text = "Never sleep in the open near Jintha'Alor, mon. The Vilebranch like their meat fresh, and they don't wait for you to wake up." } },
@@ -386,7 +423,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Huntsman Markhor keeps the stables at Revantusk and judges the wilds as harshly as any judge of men. His twin brother died in the Vilebranch raid, and grief has made him patient, not soft.",
+    first = "Grief for his twin brother has made him patient, not soft.",
     third = "{name} met Huntsman Markhor, the Revantusk stable master who mourns his twin brother Malkhor.",
   },
 
@@ -605,7 +642,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Mystic Yayo'jin sells reagents from a platform at the north end of Revantusk and talks about Zul'jin as if he might walk up the stairs. She told me to mind her goods before she told me her name.",
+    first = "She talks about Zul'jin as if he might walk up the stairs.",
     third = "{name} met Mystic Yayo'jin, who sells mystical goods at Revantusk Village and hates the cannibal Vilebranch.",
   },
 
@@ -897,7 +934,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Katoom the Angler would rather be fishing than doing anything else in the world, and says so with real peace. His only enemies are the turtles that steal his bait.",
+    first = "His only enemies are the turtles that steal his bait.",
     third = "{name} met Katoom the Angler, Revantusk's fishing trainer and an admirer of Nat Pagle.",
   },
 
@@ -1103,7 +1140,7 @@ P:NPC {
   notices = { "weary", "pet" },
 
   impression = {
-    first = "Lard is an ogre who keeps the inn at Revantusk, keeps the peace, and sells fish. He is enormous and gentle, and mostly worried about his lunch.",
+    first = "He is enormous and gentle, and mostly worried about his lunch.",
     third = "{name} met Lard, the ogre innkeeper of Revantusk Village.",
   },
 
@@ -1318,7 +1355,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Smith Slagtree is an orc who mends anything broken at Revantusk's forge, while you wait. His best tools were a gift from a gnome who once saved his life, and the Vilebranch stole them.",
+    first = "The Vilebranch stole the tools a gnome gave him.",
     third = "{name} met Smith Slagtree, the orc smith of Revantusk Village, who lost a treasured set of tools to the Vilebranch.",
   },
 
@@ -1503,7 +1540,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Otho Moji'ko sells cooking supplies and dreams of terrifying Aerie Peak. He spits when he says the word Wildhammer, and he says it often.",
+    first = "He spits when he says Wildhammer, and he says it often.",
     third = "{name} met Otho Moji'ko, the Revantusk cook's supplier who wants to send the Wildhammer a message.",
   },
 
@@ -1750,7 +1787,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Gorkas is the wind rider master at Revantusk, and he spends more time fishing off the pier than tending his beasts. He's waiting for one particular grouper and doesn't care who knows it.",
+    first = "He's waiting for one particular grouper and doesn't care who knows.",
     third = "{name} met Gorkas, the orc wind rider master at Revantusk, who fishes off the pier between flights.",
   },
 

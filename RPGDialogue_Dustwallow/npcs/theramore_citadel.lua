@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Commander Samaul runs the Theramore Guard from Foothold Citadel, and he looks at every visitor as a disturbance he will have to write up later. He is stern, but he listens, and he doesn't like being kept in the dark.",
+    first = "He is stern, but he listens, and he hates being kept ignorant.",
     third = "{name} met Commander Samaul, commander of the Theramore Guard in Foothold Citadel.",
   },
 
@@ -197,7 +197,7 @@ P:NPC {
   notices = { "race", "craft" , "class" },
 
   impression = {
-    first = "Caz Twosprocket is a gnome engineer who is also, rather to everyone's surprise, one of Theramore's best smiths. He is bored, and when he's bored he talks, and when he talks he draws on whatever's nearest.",
+    first = "When he's bored he talks, and he draws on whatever's nearest.",
     third = "{name} met Caz Twosprocket, Theramore's gnome engineer and smith.",
   },
 
@@ -372,7 +372,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Torq Ironblast is a grizzled dwarf gunsmith in Foothold Citadel who tests every barrel with his ear before he'll sell it. He fought in the Third War, and he still talks about the orcs the way a man talks about a storm that took his roof.",
+    first = "He speaks of the orcs like a storm that took his roof.",
     third = "{name} met Torq Ironblast, the dwarven gunsmith of Foothold Citadel.",
   },
 

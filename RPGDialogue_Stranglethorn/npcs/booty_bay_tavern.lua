@@ -12,7 +12,7 @@ P:NPC {
   notices = { "stealth", "purse" },
 
   impression = {
-    first = "Ian Strom sits in a corner of the Salty Sailor with his back to the wall and his eyes on the door. He knew I was coming before I'd decided to, or at least he let me think so.",
+    first = "He lets you think he knew you were coming.",
     third = "{name} met Ian Strom, a Stormwind-born rogue trainer who teaches the quiet trade from a corner of Booty Bay's Salty Sailor, to Horde and Alliance alike.",
   },
 
@@ -496,7 +496,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Tokal sits in the darkest corner of the Salty Sailor with her back to the wall and a mug she hardly touches. She told me to make it quick, and I had the feeling she meant it as advice.",
+    first = "She says to make it quick, and means it as advice.",
     third = "{name} met Tokal, an orc hiding out in Booty Bay's Salty Sailor and waiting on a boat that will take her anywhere but Desolace.",
   },
 
@@ -919,7 +919,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Elril Everlight stands by the water in plate armor with a hammer on her hip, and the whole town takes her for a paladin. When I asked, she only smiled, which I suspect is the answer she gives everyone.",
+    first = "Ask if she is a paladin and she only smiles.",
     third = "{name} met Elril Everlight, a soft-spoken night elf in plate who watches the sea from Booty Bay's walkways and never quite says whether she's a paladin.",
   },
 

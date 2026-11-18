@@ -9,7 +9,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "cautious", "courteous" }, values = { "wisdom", "patience" },
   notices = { "craft", "stealth" },
   impression = {
-    first = "Barithras Moonshade wanted mushrooms from a cave the Ancients told him to avoid, so he sent me instead and asked me to look around while I was there. He is careful with his own life and frank about it.",
+    first = "He is careful with his own life and frank about it.",
     third = "{name} met Barithras Moonshade of Auberdine, who sent them into the cave behind Cliffspring Falls for rare mushrooms and news of what hides there.",
   },
 

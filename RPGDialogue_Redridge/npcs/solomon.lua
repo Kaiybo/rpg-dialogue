@@ -7,10 +7,11 @@ P:NPC {
   key = "solomon", id = TODO_NPC("Magistrate Solomon"), name = "Magistrate Solomon",
   bible = "bibles/solomon.md", role = "noble", tier = "major",
   communities = { "lakeshire" }, temper = { "sharp" }, values = { "lawful", "stern" },
+  likesTone = "polite",
   notices = { "reputation", "deputy" },
 
   impression = {
-    first = "Magistrate Solomon asked me to be brief and then wrote another letter nobody will answer. He carries Lakeshire's danger the way a clerk carries a stack of papers, carefully and too long.",
+    first = "He keeps writing letters that nobody will answer.",
     third = "{name} was received by Magistrate Solomon, Lakeshire's elected leader, whose letters asking for help mostly go unanswered.",
   },
 
@@ -569,7 +570,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "How very civil. I have had nothing but orcs and unanswered letters for a year, so you will forgive me if I am slow to recognise a compliment when one arrives." },
+        { id = "s2", text = "The court thanks you, and so, less formally, do I. It is pleasant to learn that someone has noticed Lakeshire still has a magistrate and that he is still at his desk." },
+      },
+      fail = {
+        { id = "f1", text = "I sit in judgment for a living, and I have heard a great many people be charming just before sentence. It has never yet altered a ruling." },
+        { id = "f2", text = "You are kind, I am sure, but I should trade every compliment in Redridge for a single company of the King's foot. Shall we proceed to your business?" },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. A magistrate who defends his town with a pen and a seal; yes, I am aware of how it looks. You are the first in this hall with the wit to notice and the courage to let me know it." },
+        { id = "s2", text = "That is insolence, and well turned. I have missed a proper argument, since the orcs do not offer one, so do go on, and the court will try not to enjoy it." },
+      },
+      fail = {
+        { id = "f1", text = "You are addressing the magistrate of Lakeshire in his own hall, and you will do it with respect. I have fined men for less on quieter days." },
+        { id = "f2", text = "While you sharpen your wit, the Blackrock are sharpening axes above Stonewatch. Kindly take the one and go and blunt the other." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is no need to raise your voice in my hall, for I heard you. Very well, I concede the point, as I would sooner lose an argument than a pair of hands Lakeshire needs." },
+        { id = "s2", text = "I see. You are in earnest, and I am not so proud that I cannot tell when to give way. State what you require, and the court will consider it favourably." },
+      },
+      fail = {
+        { id = "f1", text = "I have Blackrock orcs across the lake and gnolls on the road, and I assure you that you are a poor third. Lower your voice." },
+        { id = "f2", text = "Threatening an officer of the Crown is an offence in this township, and I happen to be the one who hears such cases. I suggest you reconsider before I must." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is not a matter I discuss with persons the court has no reason yet to trust. Serve Lakeshire, and you may ask me again." },
+      { id = "gt2", text = "I decline to answer, and I am under no obligation to say why. Perhaps I shall when you have shown the township some good will." },
+    },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade was meant to keep Stormwind's worst where they couldn't harm anyone, and now the prisoners hold it. If the King's own prison can't be held, I don't know how Stormwind expects Lakeshire to hold its walls." } },
     bolvar = { { id = "tp_bolvar", text = "I have written to Highlord Fordragon so many times that his clerks must recognise my seal by now. He means well, I believe, but meaning well has never yet driven an orc out of Redridge." } },
     prestor = {

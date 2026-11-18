@@ -9,7 +9,7 @@ P:NPC {
   communities = { "eastvale" }, temper = { "proud" }, values = { "curious", "ambitious" },
   notices = { "arcane", "fel" },
   impression = {
-    first = "Theocritus looked at me as if I were an interruption to more important work, and in his own tower I probably was. His gnomes seem to do most of the stair-climbing.",
+    first = "He looks at me as an interruption to more important work.",
     third = "{name} climbed the Tower of Azora to meet Theocritus, a mage with little patience and a great deal to do.",
   },
 

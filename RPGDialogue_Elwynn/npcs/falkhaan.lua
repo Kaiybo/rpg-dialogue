@@ -9,7 +9,7 @@ P:NPC {
   communities = { "northshire", "goldshire" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Falkhaan Isenstrider stands by the road telling tired people where to sleep, and he does it with all the pride of a herald. He seemed genuinely pleased to send me on to the Lion's Pride.",
+    first = "He sends tired travelers to bed with a herald's pride.",
     third = "{name} was pointed toward Goldshire's inn by Falkhaan Isenstrider, who keeps watch over the road and cares that travelers rest.",
   },
 

@@ -8,10 +8,11 @@ P:NPC {
   key = "sylvanas", id = TODO_NPC("Lady Sylvanas Windrunner"), name = "Lady Sylvanas Windrunner",
   bible = "bibles/undercity.md", role = "noble", tier = "major",
   communities = { "undercity" }, temper = { "cold" }, values = { "proud", "vengeful" },
+  likesTone = "polite",
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "The Dark Lady speaks with the patience of someone who has all the time in the world and none of the forgiveness. When she names Arthas, the cold in her voice goes deeper still.",
+    first = "She has all the time in the world and no forgiveness.",
     third = "{name} stood before Lady Sylvanas Windrunner, the Dark Lady and queen of the Forsaken, in the Royal Quarter of the Undercity.",
   },
 
@@ -589,6 +590,39 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You flatter well, and I have heard a great deal of flattery, in two lifetimes and from better courtiers than you. I find that I do not mind it today, so you may stay a while longer." },
+        { id = "s2", text = "My rangers used to say such things to me in Quel'Thalas, and they meant them, as I think you do. Very well; it is noted, and the Dark Lady does not forget who spoke well of her." },
+        { id = "s3", when = { race = "Scourge" }, text = "It is no small thing to hear that from one of my own, who knows precisely what our freedom cost. Stand a little straighter, because you have pleased your queen." },
+      },
+      fail = {
+        { id = "f1", text = "Kings were flattered to death in the palace above us, and I do not intend to share their fate. Say what you came for, and leave the honey for the living." },
+        { id = "f2", text = "I know the sound of a courtier who wants something, because I listened to it for years in Silvermoon. It bored me then, and death has not improved my patience." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You have a sharp tongue, and you use it in front of my guards, which is either courage or a wish to be buried twice. I am amused, and that happens seldom enough that I shall let you keep the tongue." },
+        { id = "s2", text = "Few dare to needle the Banshee Queen in her own throne room, and fewer still do it well. You have some spine in you, and I have uses for those who do." },
+      },
+      fail = {
+        { id = "f1", text = "Arthas mocked me while I lay dying, and I have had my fill of mockery ever since. Guard your tongue in my city, or my Deathguard will show you how quiet the canals are." },
+        { id = "f2", text = "You mistake my patience for weakness, as the living so often do. Speak to me that way again, and Varimathras will be given the pleasure of correcting you." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "So there are teeth behind that face after all. I do not frighten, but I do take note of those who are willing to try it here, and I have noted you." },
+        { id = "s2", narr = "She studies you for a long moment, and she does not blink.", text = "You would lean upon the Dark Lady herself, in the heart of her own city. I am not shaken, but I am interested, and that is worth rather more to you." },
+      },
+      fail = {
+        { id = "f1", text = "I have stood before Arthas with his blade through my body, and you imagine that you can make me afraid. Lower your eyes and your voice, before I lose what little patience I have left." },
+        { id = "f2", text = "Threats are for those who cannot carry them out, and you are standing far beneath the earth among my Deathguard. Do not try that with me again." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Little happens in my kingdom that does not reach me, one way or another. Ask, and I will decide how much of it you need." },
@@ -620,6 +654,10 @@ P:NPC {
     jaina = { { id = "tp_jaina", text = "Jaina Proudmoore led the living west to Kalimdor while Lordaeron burned. She has her island and her peace with the orcs, and she will not trouble me, if she is wise." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof spoke for my people in the Warchief's councils, when the others would have turned us away. I don't forget a debt, and that is one." } },
     _none = { { id = "tp_none", text = "That isn't my concern. Varimathras will tell you if it should be." } },
+    _gated = {
+      { id = "gt1", text = "That is not a matter I discuss with those who have yet to prove themselves to me. Serve the Forsaken well, and perhaps I shall think it worth my breath." },
+      { id = "gt2", text = "You ask too much for one who has done so little, and I will not speak of it. Earn my regard first, and then ask again." },
+    },
   },
 }
 
@@ -627,9 +665,10 @@ P:NPC {
   key = "varimathras", id = TODO_NPC("Varimathras"), name = "Varimathras",
   bible = "bibles/undercity.md", role = "noble", tier = "major",
   communities = { "undercity" }, temper = { "arrogant" }, values = { "proud" },
+  likesTone = "polite", private = { "burning_legion" },
   notices = { "class", "fel" },
   impression = {
-    first = "Varimathras calls himself the Dark Lady's most loyal servant and says he always chooses wisely. He is courteous in the way a cat is courteous to a mouse.",
+    first = "He is courteous the way a cat is to a mouse.",
     third = "{name} met Varimathras, the dreadlord who serves as majordomo to the Dark Lady in the Undercity.",
   },
 
@@ -856,6 +895,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "How perceptive of you, and how rare it is to find good judgment in a mortal. Do go on; I have had centuries of practice at listening to praise, and I never tire of it." },
+        { id = "s2", text = "You have a courtier's tongue, little one, and I confess I had missed the sound of one in this city of sour corpses. I shall remember you kindly, for whatever that is worth." },
+      },
+      fail = {
+        { id = "f1", text = "I was flattering princes long before your kind had learned to walk upright, so you will forgive me if I find your efforts clumsy. Try them on the apothecaries, who are starved for it." },
+        { id = "f2", text = "Such sweet words, and so transparently meant to buy something. I serve the Dark Lady, mortal, and my good opinion is not for sale at that price." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Oh, how delightful, the mouse has decided to pull the cat's whiskers. You have nerve, and I do so enjoy nerve, especially while it lasts." },
+        { id = "s2", text = "It has been an age since anyone in this dreary court dared to bait me. You amuse me, mortal, and that has kept creatures far smaller than you alive." },
+      },
+      fail = {
+        { id = "f1", text = "You forget what you are speaking to, and I assure you that is a dangerous thing to forget. Only my boundless loyalty to the queen keeps your skin where it is." },
+        { id = "f2", text = "Careful, little one. The Dark Lady asks that I suffer her guests, but she has never asked me to suffer them gladly, nor for very long." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "His wings shift, and he inclines his head by a fraction.", text = "My, what a fierce little creature you are. I am in no danger, of course, but I shall choose my words with you a touch more carefully, purely out of courtesy." },
+        { id = "s2", text = "I always choose wisely, and it would be unwise to make an enemy of someone the Dark Lady finds so useful. Consider me suitably cautioned, mortal." },
+      },
+      fail = {
+        { id = "f1", text = "You threaten a dreadlord in his queen's own hall, and I find it almost charming. Do run along, before I begin to find it tiresome instead." },
+        { id = "f2", text = "I have watched worlds burn, mortal, and you propose to frighten me with a scowl. Take it elsewhere; the Deathguard may be impressed, though I rather doubt it." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Everything in this city passes through my hands on its way to the Dark Lady, faithfully, as always. Ask, and I will share what she would wish you to know." },
@@ -871,6 +942,10 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The orc Warchief is a useful ally, and my queen values his friendship. I find him rather earnest, but earnestness has its uses." } },
     dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are clever little creatures who think their shields will keep them safe. They may even be right, for now." } },
     _none = { { id = "tp_none", text = "That is beneath my notice, and possibly beneath yours. Ask an apothecary." } },
+    _gated = {
+      { id = "gt1", text = "That is a matter for the Dark Lady's trusted servants, and you are not yet numbered among them. I shall say nothing of it, however prettily you ask." },
+      { id = "gt2", text = "I think not, mortal. There are things I discuss only with those who have proven their worth to my queen, and you have a little way to go." },
+    },
   },
 }
 
@@ -880,7 +955,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "theatrical" }, values = { "curious", "proud" },
   notices = { "craft", "race" },
   impression = {
-    first = "Everything in the Apothecarium delights Master Apothecary Faranell, including the living, purely academically. His cheer is so bright that it takes a moment to notice what he is actually brewing.",
+    first = "His cheer is bright enough to hide what he is brewing.",
     third = "{name} met Master Apothecary Faranell, the gleeful head of the Royal Apothecary Society in the Undercity.",
   },
 
@@ -1118,6 +1193,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh, you do appreciate the work! So few visitors do; most of them only hold their noses and ask where the door is. You've quite made my morning, and the vats will hear all about it." },
+        { id = "s2", text = "Flattery! How lovely, and how very seldom anyone bothers with it down here. I'd name a strain after you, if the Dark Lady didn't insist that we number them." },
+      },
+      fail = {
+        { id = "f1", text = "Oh dear, that was a compliment, wasn't it, and not a very well-made one. I measure things for a living, you see, and that one came up rather short of sincere." },
+        { id = "f2", text = "How sweet, and how perfectly empty! I've had test subjects say nicer things to me, and they were strapped to a table at the time." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Oh, that's very good, do say it again so that Keever can hear. Nobody teases me any more, because they're all afraid of what I'll put in their tea." },
+        { id = "s2", text = "Cheeky! I like it, because cheek means a strong constitution, and a strong constitution is so useful in an errand-runner. Science forgives you entirely." },
+      },
+      fail = {
+        { id = "f1", text = "Now that wasn't kind, and it wasn't even clever, which is the worse fault. I'd watch what you drink in the Apothecarium for a while, purely as a precaution." },
+        { id = "f2", text = "Mockery, in my own laboratory! I've a great many jars on these shelves, you know, and one or two of them are still empty." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He edges behind the nearest table of flasks.", text = "Oh! Oh, goodness, there's no need for that, I've delicate glassware all round me. I'll mind my manners, and you'll kindly mind the retorts, yes?" },
+        { id = "s2", text = "My, you are alarming when you want to be, and I say so with real professional admiration. Let's stay friends, shall we, because I bruise easily these days and nothing mends." },
+      },
+      fail = {
+        { id = "f1", text = "Are you trying to frighten me? How adorable! I work elbow-deep in plague every day of the week, and you're a good deal less catching." },
+        { id = "f2", text = "Do stop looming, because you're blocking my light, and the green one mustn't be left unwatched. Whatever you were hoping to scare out of me, it's staying where it is." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
@@ -1132,6 +1239,10 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "Dalaran's alchemists hoard their recipes behind their shields and refuse to share them with anyone. I don't hold it against them, because I'd do the same." } },
     thrall = { { id = "tp_thrall", text = "The orcs are terribly suspicious of our work, which I find charming. I've offered to show them around the Apothecarium, but they always seem to have somewhere else to be." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid! My department is bubbling, so do excuse me." } },
+    _gated = {
+      { id = "gt1", text = "Ah, now that's Society business, and I only share Society business with people I'm rather fonder of. Do something splendid for science first, and then we'll see!" },
+      { id = "gt2", text = "Oh no, no, I shan't tell you that, not yet! I hardly know you, and some of my best secrets are terribly easy to spill." },
+    },
   },
 }
 
@@ -1141,7 +1252,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold" }, values = { "pragmatic", "loyal" },
   notices = { "class" },
   impression = {
-    first = "Bethor Iceshard still carries the wand from an apprentice's oath, though one of the friends who swore it sold himself to the Lich King. He says he has grown cold, and I believe him, though not entirely.",
+    first = "He says he has grown cold, and I only partly believe him.",
     third = "{name} met Bethor Iceshard in the Magic Quarter, a Forsaken mage haunted by an old friend who became a lich.",
   },
 
@@ -1356,7 +1467,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "dry" }, values = { "hospitable" },
   notices = { "race", "weary" },
   impression = {
-    first = "What Innkeeper Norman really sells is a chair and a place of one's own to people who no longer sleep. Nobody takes anyone's chair down there, he says, and he guards that last courtesy kindly.",
+    first = "Nobody takes anyone's chair down there, and he sees to it kindly.",
     third = "{name} found a chair at Innkeeper Norman's inn by the Trade Quarter, one of the few homely corners of the Undercity.",
   },
 

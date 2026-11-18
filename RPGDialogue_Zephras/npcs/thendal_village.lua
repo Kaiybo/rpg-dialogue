@@ -15,7 +15,7 @@ P:NPC {
   notices = { "kin", "class", "race", "origin" },
 
   impression = {
-    first = "Ailee Farheart of the Rangers was the first to greet me in Thendal Village, bright as morning and already pointing me toward Rorian. She talks about coming of age as if it were the best day anyone could have.",
+    first = "She talks of coming of age as the best day anyone has.",
     third = "{name} met Ailee Farheart, a ranger of Thendal Grove who welcomes the young on the day they come of age.",
   },
 
@@ -272,7 +272,7 @@ P:NPC {
   notices = { "class", "race", "kin", "origin" },
 
   impression = {
-    first = "Windshaper Boro teaches shamanism in a village where the spirits no longer answer, and he teaches it anyway, patiently, one element at a time. He listens to the silence the way other men listen to music.",
+    first = "He listens to the silence the way other men listen to music.",
     third = "{name} met Windshaper Boro, Thendal Village's shaman trainer, who hopes the four elements will lead his people back to the spirits of the four winds.",
   },
 
@@ -467,7 +467,7 @@ P:NPC {
   notices = { "class", "origin", "kit" },
 
   impression = {
-    first = "Blademaster Ren teaches the blade from the Thendal watchtower and believes the warrior who flinches is the warrior who dies. She speaks like an officer and looks at you as if measuring where you'd break.",
+    first = "She looks at you as if measuring where you'd break.",
     third = "{name} met Blademaster Ren, the warrior trainer in the Thendal Village watchtower, who teaches the young never to flinch.",
   },
 
@@ -586,7 +586,7 @@ P:NPC {
   notices = { "class", "pet", "race", "origin" },
 
   impression = {
-    first = "Tai'ree Farsight trains Thendal's hunters and greets most people with a curt nod and a long look. She says the wilds have never been wilder, and she sounds as though she means to be ready for it.",
+    first = "She says the wilds have never been wilder.",
     third = "{name} met Tai'ree Farsight, Thendal Village's hunter trainer, who believes the isle's hunters have never been more needed.",
   },
 
@@ -703,7 +703,7 @@ P:NPC {
   notices = { "kit", "class", "race" },
 
   impression = {
-    first = "Destin Thriceforged sells blades and mends broken ones in Thendal Village, and he talks about the shape of a sword the way other men talk about a sunset. He takes windstones or coin, and he'd rather have the windstones.",
+    first = "He takes windstones or coin, and he'd rather have the windstones.",
     third = "{name} met Destin Thriceforged, Thendal Village's weapon merchant, who sells plain steel made in the old style.",
   },
 

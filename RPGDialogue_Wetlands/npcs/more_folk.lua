@@ -16,7 +16,7 @@ P:NPC {
   communities = { "menethil" }, temper = { "harried", "warm" }, values = { "family", "practical" },
   notices = { "race", "class" },
   impression = {
-    first = "Andrea Halloran keeps one eye on me and the other on her children, Jesse and Regina, who seem determined to climb everything in Menethil. She's married to the tanner, and says the smell is the least of her worries.",
+    first = "She says the tannery smell is the least of her worries.",
     third = "{name} met Andrea Halloran, the tanner's wife in Menethil Harbor, who has her hands full with two adventurous children.",
   },
   greetings = {
@@ -130,7 +130,7 @@ P:NPC {
   communities = { "wetlands" }, temper = { "mournful", "gentle" }, values = { "love", "faithful" },
   notices = { "class" },
   impression = {
-    first = "Comar Villard walks the muddy roads near the Thandol Span looking for his wife, who went missing long ago. He's gentle and polite and seems not to notice how thin and worn he's become.",
+    first = "He doesn't notice how thin he has grown looking for his wife.",
     third = "{name} met Comar Villard, a grieving man who wanders the northern Wetlands searching for his lost wife.",
   },
   greetings = {

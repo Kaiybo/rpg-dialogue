@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse", "kit" },
 
   impression = {
-    first = "Baron Revilgaz watches the cove from his balcony the way a miser watches a purse. He was perfectly civil to me, and I had the distinct sense of being priced.",
+    first = "He was perfectly civil, and I felt distinctly priced.",
     third = "{name} was received by Baron Revilgaz, who keeps Booty Bay for the Steamwheedle Cartel and counts its ships and coins from his balcony.",
   },
 
@@ -453,6 +453,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Flattery's the one commodity I'll take delivery of without checking the weight, friend, and yours came in at a decent grade. I've marked you up a line in the ledger, which is more than most visitors to this balcony ever manage." },
+        { id = "s2", text = "Now that's a fair appraisal of the finest port south of anywhere, and I ought to know, because I did the building and the billing both. Keep talkin' like that and you'll find the Bay a friendlier place to do business." },
+      },
+      fail = {
+        { id = "f1", text = "I get buttered up by ship captains with unpaid dock fees three times before breakfast, pal, so I know the going rate for a compliment, and yours is priced too high. Try again when there's some coin behind it." },
+        { id = "f2", text = "Sweet talk is overhead, friend, and I never pay overhead that doesn't show up as profit somewhere. You can save it for the tavern, where they have to listen." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! It's been a long season since anyone on this balcony had the nerve to haggle with my pride, and I'd nearly forgotten what it costs. You've got cheek, friend, and cheek is an asset I know how to value." },
+        { id = "s2", text = "You push like a goblin on a deadline, and I mean that as the highest rating I give. All right, pal, you've got my attention, and you got it cheaper than most." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, friend, because insulting the management carries a surcharge in this town, and my Bruisers collect it by hand. I'll write that one off as a clerical error, once." },
+        { id = "f2", text = "I've been mocked by Bloodsail captains with a whole fleet behind them, and they're still out there wanting my town while I'm up here owning it. You'll have to do a great deal better than that to move my prices, pal." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Hm. I've just run the figures on what it'd cost me to have you thrown in the cove against what it'd cost me if you didn't go quietly, and I don't care for the second column. Let's call this a negotiation, friend, and keep our voices down.", narr = "The Baron glances once at the nearest Bruiser, then back at you, and closes his ledger." },
+        { id = "s2", text = "A good businessman knows when the risk outweighs the margin, and you, friend, are a larger liability than you looked comin' up the stairs. Say your piece, and I'll listen with both ears." },
+      },
+      fail = {
+        { id = "f1", text = "You're leaning on the wrong goblin, pal, since every Bruiser in Booty Bay draws wages from my purse and they do love earning them. Take a breath, look over the railing at how far down the water is, and start again politely." },
+        { id = "f2", text = "Threats are just bad offers with no coin attached, and I turn down bad offers all day long. The Bloodsail have been at it for years, friend, and all they've got to show for it is the bill." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Everything that happens in this cove ends up in my ledger sooner or later. Ask, and I'll tell you what it says, within reason and within budget." },
@@ -482,6 +514,10 @@ P:NPC {
       { id = "tp_zul_gurub2", when = { disposition = { min = 70 } }, text = "Between us, I've had three ships report strange lights over Zul'Gurub this month, and I've quietly raised the price of passage north. Fear is a commodity, friend, and you sell it fresh, before it spoils in the warehouse." },
     },
     onyxia = { { id = "tp_onyxia", text = "I'm told there's a black dragon in a cave in Dustwallow Marsh, and that she has the decency to stay there. Long may she stay there, I say, because fire insurance is murder." } },
+    _gated = {
+      { id = "gt1", text = "That entry's in the private ledger, friend, and I only open the private ledger for accounts in good standing. Bring me some business first, and then we'll see what it says." },
+      { id = "gt2", text = "I don't discuss that with walk-in trade, pal, because what I know is stock, and I don't hand out stock on credit to strangers." },
+    },
     _none = { { id = "tp_none", text = "If it doesn't touch my port or my purse, I don't keep track of it. Krazek does, for a fee, so go and ask him." } },
   },
 }
@@ -490,10 +526,11 @@ P:NPC {
   key = "seahorn", id = TODO_NPC("Fleet Master Seahorn"), name = "Fleet Master Seahorn",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "booty_bay", "blackwater" }, temper = { "boisterous" }, values = { "brave", "loyal" },
+  likesTone = "blunt",
   notices = { "race", "kit" },
 
   impression = {
-    first = "Fleet Master Seahorn laughs like someone who has survived a great many bad ideas, most of them his own. I liked him at once, which may be exactly what he intended.",
+    first = "He laughs like a survivor of many bad ideas, mostly his own.",
     third = "{name} met Fleet Master Seahorn of the Blackwater Raiders, a loud, cheerful pirate who answers to the Baron and to no one else.",
   },
 
@@ -1092,6 +1129,39 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Ha! You've a tongue as smooth as a calm sea, and this old bull's vain enough to enjoy the sailing! Say it again louder, so the crew below can hear what their Fleet Master is worth." },
+        { id = "s2", text = "Now that's kindly said, and I'll take it, for the Blackwater get cursed a good deal more often than they get praised. You've a fair eye for a fleet, sailor." },
+      },
+      fail = {
+        { id = "f1", text = "I've heard sweeter words from sharks circling a longboat, and they wanted the same thing you do! Speak plain with me, for I trust plain talk and I count my rum after the other kind." },
+        { id = "f2", text = "Ha, you're laying it on thicker than barnacles on an old hulk, and it'll come off just as hard. I've been flattered by Bloodsail spies before, so you'll forgive me if I keep one hand on my purse." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha ha! There's salt in you after all, and I like a sailor who'll spit into the wind just to see what comes back! Most folk climb those stairs too frightened of my horns to say a thing worth hearing." },
+        { id = "s2", text = "By the tides, you've got nerve, and nerve is the one cargo I can never find enough of! Keep that tongue sharp, for the Bloodsail deserve it far more than I do." },
+        { id = "s3", when = { race = "Tauren" }, text = "Ha! It takes one of the herd to lock horns with me so cheerfully, and I've missed it more than I knew! The plains bred you well, even if they couldn't keep me." },
+      },
+      fail = {
+        { id = "f1", text = "You'd mock a Fleet Master on his own deck, with his crew listening below? I've put loud mouths over the rail for less, so mind your footing, because the cove is cold this time of year." },
+        { id = "f2", text = "That's a poor jest, and I've laughed at storms that were funnier. Come back when you've learned the difference between cheek and bilge water." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy now, easy! I've stared down storms and red sails both, and I know weather when I see it coming, and you're weather. There's no need for horns and steel between us, so say what you want and I'll hear it." },
+        { id = "s2", text = "Hm. I laughed at a squall once and it took my mainmast for it, so I learned to tell which ones to laugh at. I'll not laugh at you, sailor, so speak your mind." },
+      },
+      fail = {
+        { id = "f1", text = "Ha! I'm a bull who went to sea in a leaking hull and came back with a fleet, and you think to frighten me on my own top floor? Sit down before I have the lads teach you how the stairs work." },
+        { id = "f2", text = "The Bloodsail's fleet master wants my horns for his wall, and he has cannon, and still I sleep like a calf. You'll need a good deal more than a hard look." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },
@@ -1109,6 +1179,10 @@ P:NPC {
     ratchet = { { id = "tp_ratchet", text = "Ratchet's a friendly port and Gazlowe keeps a clean dock, and the Barrens wind blows straight off the plains I grew up on. I'll take a cargo to Ratchet any day of the week." } },
     theramore = { { id = "tp_theramore", text = "Theramore is Proudmoore's island, and she keeps a good harbor and an honest customs house. Her navy remembers what happened to her father's fleet, though, so give them room on the water." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've watched a few rounds at the Arena, and I'll say this, the Bloodsail never send anyone. That alone tells you the fights are too fair for them." } },
+    _gated = {
+      { id = "gt1", text = "That's a tale for shipmates, and you've not yet hauled a single line beside me. Sail with the Blackwater a while, and then ask me again." },
+      { id = "gt2", text = "Ha, not so fast! I don't open that locker for every stranger who climbs my stairs, however friendly they look." },
+    },
     _none = { { id = "tp_none", text = "That's a landlubber's question, so ask somebody with dry boots and dry hooves." } },
   },
 }
@@ -1121,7 +1195,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Krazek talks faster than I can follow and seems to know the price of everything in the jungle. I suspect he already knew mine before I opened my mouth.",
+    first = "I suspect he knew my price before I opened my mouth.",
     third = "{name} met Krazek, Baron Revilgaz's secretary, who claims to know every price, pirate and debt in Stranglethorn.",
   },
 
@@ -1490,7 +1564,7 @@ P:NPC {
   notices = { "purse", "drink" },
 
   impression = {
-    first = "Sea Wolf MacKinley was friendly enough over the knucklebones, and I still came away feeling like a column in his ledger. I mean to stay out of his debt.",
+    first = "I mean to stay out of his debt.",
     third = "{name} shared a crate with Sea Wolf MacKinley, a Booty Bay moneylender who swears that not even death cancels a debt owed to him.",
   },
 
@@ -1733,7 +1807,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Kebok smiled through his whole pitch, and I noticed the smile never reached the part about his agents getting killed. I am apparently meant to be harder to kill.",
+    first = "His smile never reaches the part about his agents getting killed.",
     third = "{name} heard a business proposition from Kebok, a goblin trader whose agents keep dying in the jungle.",
   },
 
@@ -1960,7 +2034,7 @@ P:NPC {
   notices = { "drink", "guest" },
 
   impression = {
-    first = "Innkeeper Skindle keeps the Salty Sailor running under the Baron's nose and lowers his voice near the stairs. Sensible man, and the rum was better than I expected.",
+    first = "He lowers his voice near the stairs, which is sensible.",
     third = "{name} took a stool at the Salty Sailor, where Innkeeper Skindle keeps the rooms, the rum and a careful eye on the Baron's stairs.",
   },
 
@@ -2215,7 +2289,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Captain Smotts lost two ships and a fortune to three sea giants, and he tells the story as though it happened to someone he'd like to punch. He has not given up.",
+    first = "Sea giants cost him two ships, and he hasn't given up.",
     third = "{name} heard Captain Hecklebury Smotts tell of the three sea giants who sank two of his ships and took everything he owned.",
   },
 
@@ -2449,7 +2523,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Shaky Phillipe jumped when I came near and asked, a little too casually, whether a large man with a gambling habit had been looking for him. Somebody clearly has.",
+    first = "Someone large with a gambling habit is clearly looking for him.",
     third = "{name} met Shaky Phillipe, a nervous Booty Bay sailor who seems very worried about a certain large gambler.",
   },
 
@@ -2692,7 +2766,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "First Mate Crazz hates the Bloodsail Buccaneers with a steady, practical sort of hatred. Anyone with news of a red bandana will have a friend in him, for an afternoon.",
+    first = "He hates the Bloodsail with a steady, practical sort of hatred.",
     third = "{name} met First Mate Crazz of the Blackwater Raiders, who wants to know what the Bloodsail Buccaneers are planning and then to sink it.",
   },
 
@@ -3116,7 +3190,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Crank Fizzlebub called me over from across the dock with a promise of easy money. Nothing he offers will be easy, and I'm fairly sure that's the point.",
+    first = "Nothing he offers will be easy, and that is the point.",
     third = "{name} was hailed by Crank Fizzlebub, a Booty Bay goblin with schemes for anyone who has a strong arm and a short memory.",
   },
 
@@ -3350,7 +3424,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Whiskey Slim raised a toast to me before he knew my name, and two more after. Somewhere under the drink is a real grief over a lost cask of port.",
+    first = "Under the drink lies real grief over a lost cask of port.",
     third = "{name} was toasted by Whiskey Slim, a cheerful drinker in Booty Bay who still mourns a lost cask of the finest port.",
   },
 
@@ -3572,7 +3646,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Drizzlik praised his own leatherwork for longer than most people pray. The trouble is that the work deserves most of it.",
+    first = "He praises his own leatherwork at length, and the work deserves it.",
     third = "{name} browsed Drizzlik's Emporium in Booty Bay, where the goblin leathercrafter praises his own crocolisk and panther hides at great length.",
   },
 
@@ -3743,7 +3817,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Sprogger cooked for Captain Smotts and came up out of the sea with him when the giants struck. He speaks of it plainly, which made it worse to hear.",
+    first = "He speaks plainly of the giants, which makes it worse to hear.",
     third = "{name} met Sprogger, Captain Smotts' cook, who survived the sinking of the Smotts' Revenge alongside his captain.",
   },
 
@@ -3939,7 +4013,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Fin Fizracket is sweating out the Stranglethorn Fever and warned me off in the same breath as he asked for help. I kept a polite distance anyway.",
+    first = "He has the Stranglethorn Fever, so I keep a polite distance.",
     third = "{name} met Fin Fizracket, a Blackwater Raider laid low by the Stranglethorn Fever.",
   },
 
@@ -4199,7 +4273,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Wharfmaster Lozgil sees every crate and every face that comes off a boat in Booty Bay. He looked at mine long enough that I wondered which list I'd gone on.",
+    first = "He sees every crate and face off the boats, mine included.",
     third = "{name} passed Wharfmaster Lozgil on the docks of Booty Bay, where everything and everyone coming off a boat goes past him first.",
   },
 

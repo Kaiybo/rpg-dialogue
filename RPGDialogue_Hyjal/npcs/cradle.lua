@@ -6,10 +6,11 @@ P:NPC {
   key = "hyj_maerion", id = TODO_NPC("Maerion Thaelemaches"), name = "Maerion Thaelemaches", title = "Demon Hunter",
   bible = "bibles/hyjal.md", role = "questgiver", tier = "major",
   communities = { "hyjal" }, temper = { "sharp", "proud" }, values = { "stern", "brave" },
+  likesTone = "blunt", private = { "nordrassil" },
   notices = { "class", "race", "form" },
 
   impression = {
-    first = "Maerion Thaelemaches is a night elf demon hunter who calls the victory at Hyjal a defeat with better songs, and seems to mean it. He watches everything, says less than he knows, and expects to be distrusted.",
+    first = "He calls the victory at Hyjal a defeat with better songs.",
     third = "{name} met Maerion Thaelemaches, a grim night elf demon hunter keeping his own vigil in the Cradle of Tranquility.",
   },
 
@@ -283,7 +284,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "It is a long while since anyone spoke well of what I am, and longer since I believed it. I find that I believe you, and I am not certain what to do with that." },
+        { id = "s2", text = "You offer respect where my own people offer a hand on the hilt. I will not pretend it means nothing to me, though I would ask you not to say it where the Sentinels can hear." },
+      },
+      fail = {
+        { id = "f1", text = "The fel in me speaks sweetly too, and it has had far longer to practise than you. I have learned what a pleasant voice is usually reaching for." },
+        { id = "f2", text = "Do not praise me. The songs praised everyone who stood on this mountain, and I have seen what the songs are worth." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You would goad a demon hunter in the Cradle, with nothing between us but the grass. That is the first honest thing anyone has done in front of me this season, and I respect it." },
+        { id = "s2", text = "Good. I had taken you for one more pilgrim come to admire the scars on the mountain, and I see now that you have an edge of your own." },
+      },
+      fail = {
+        { id = "f1", text = "I have been called a monster by people whose lives I saved, and they said it with more skill. You will need something sharper than that to reach me." },
+        { id = "f2", text = "Be careful how you speak to me. I keep a hard hold on what I carry, and I do not loosen it to trade insults with the living." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I felt that, and very little reaches me now. You have looked at what I am and pushed against it regardless, and I will give ground to that, because few have earned it." },
+        { id = "s2", text = "The thing I carry stirred when you spoke, as it does when it scents a rival. I do not fear you, but I will treat you as I would treat something dangerous, and from me that is a courtesy." },
+      },
+      fail = {
+        { id = "f1", text = "I took a demon's fire into my own flesh, and I have held it there by will alone ever since. There is nothing in your voice that can frighten me after that." },
+        { id = "f2", text = "You threaten me as the Watchers do, and they at least bring chains. Stand down, before I begin to wonder what is making you so bold." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "I will not speak of that to you. I have told strangers too much before, and I learned what they did with it." },
+      { id = "gt2", text = "That stays with me until I know what you are. Show me, and I may answer." },
+    },
     knows = {
       { id = "tp_knows", text = "I know the Legion, and I know what it left on this mountain. Ask, and I will tell you the truth, which is not always welcome." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask quickly. I am not here to keep company." },
@@ -314,7 +352,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Jereman is a vast dread raven, one of the Wild Gods, and it speaks as though it has watched the mountain far longer than anyone has lived on it. It answered my questions sideways, and I kept thinking about the answers afterward.",
+    first = "It answers questions sideways, and I keep thinking about the answers afterward.",
     third = "{name} spoke with Jereman, a raven of the Wild Gods who watches over the Cradle of Tranquility.",
   },
 

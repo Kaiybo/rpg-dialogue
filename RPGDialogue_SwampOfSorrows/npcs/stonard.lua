@@ -6,10 +6,11 @@ P:NPC {
   key = "ruag", id = TODO_NPC("Dispatch Commander Ruag"), name = "Dispatch Commander Ruag",
   bible = "bibles/swampofsorrows.md", role = "soldier", tier = "major",
   communities = { "stonard" }, temper = { "methodical" }, values = { "dutiful", "practical" },
+  race = "Orc", likesTone = "blunt",
   notices = { "kit", "class" },
 
   impression = {
-    first = "Dispatch Commander Ruag sends scouts into the swamp and counts what comes back. He keeps the old business at Thrall's Grasp close, and plainly wishes he could forget it.",
+    first = "He plainly wishes he could forget the business at Thrall's Grasp.",
     third = "{name} met Dispatch Commander Ruag, who directs the Horde's scouts from Stonard in the Swamp of Sorrows.",
   },
 
@@ -383,6 +384,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Nobody praises the one who signs the orders, only the ones who carry them. I'll take it, and I'll remember who gave it." },
+        { id = "s2", text = "That's well said, and it's not something I hear over a desk full of reports. Stonard does its duty, and it's good to know someone has noticed." },
+      },
+      fail = {
+        { id = "f1", text = "I read forty reports a day, and I know when one is all words and no scouting. Yours is the same, so tell me what you want and leave the rest." },
+        { id = "f2", text = "An orc earns praise with deeds, and so does the one handing it out. Go into the swamp and come back with something worth my ink before you flatter me." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've a tongue like a grunt on his first campaign, and I was that grunt once. Good; I'd rather send out scouts with some fire in them." },
+        { id = "s2", text = "You mock a commander at his own desk, which takes more nerve than I see in most of the boots that come through here. Keep that nerve for the Atal'ai, and we'll get along." },
+      },
+      fail = {
+        { id = "f1", text = "I've sent better warriors than you into that swamp and counted fewer coming back. Don't make jokes in this hall until you've walked it." },
+        { id = "f2", text = "Watch your mouth. I sit behind a desk because the Horde needs it done, and not because I've forgotten how to use an axe." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've got a hard eye, and I know better than to ignore one. Stonard needs fighters like that, so I'll not waste your time with arguing." },
+        { id = "s2", text = "That's a look I've seen on blademasters, and I didn't cross them either. Say what you need, and you'll have it straight." },
+      },
+      fail = {
+        { id = "f1", text = "This fort has stood since the old Horde, and it wasn't built by orcs who frighten easily. Stand down, before the guards decide you mean it." },
+        { id = "f2", text = "You threaten me in the great hall of Stonard, with every grunt in earshot. I'll put that in the report as a joke, and you had better hope it reads like one." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Every report in Stonard crosses my desk, so I know a little about most things in this swamp. Ask me about any of these, and keep it short." },
@@ -400,6 +433,10 @@ P:NPC {
     },
     voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are good in the swamp, better than any orc. I'd take ten of them for every grunt the Warchief sends me." } },
     _none = { { id = "tp_none", text = "That's not charted yet. Do you want the job, or are you all talk?" } },
+    _gated = {
+      { id = "gt1", text = "That's not in any report I'd show you, and I won't speak of it either. Earn your place in Stonard first." },
+      { id = "gt2", text = "I keep that to myself and to those I trust with my orders. You're not one of them yet." },
+    },
   },
 }
 
@@ -410,7 +447,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Fel'zerul watches the sunken temple the way some people watch a sleeping beast. Whatever stirs beneath the Pool of Tears, he has felt it, and he doesn't like it.",
+    first = "He has felt what stirs beneath the Pool of Tears.",
     third = "{name} met Fel'zerul, sent by the Warchief to watch the Temple of Atal'Hakkar from Stonard.",
   },
 
@@ -692,7 +729,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Helgrum the Swift can't keep still and admits he's fast rather than clever. He spoke of Neeka Bloodscar with an easy pride that made me like him at once.",
+    first = "He admits he is fast rather than clever.",
     third = "{name} met Helgrum the Swift, the restless runner who carries word between Stonard and Kargath.",
   },
 
@@ -891,7 +928,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Bengor can barely walk or talk, and he insists on remembering all the same. He wears what the murlocs did to him with a soldier's stubborn pride.",
+    first = "He wears what the murlocs did to him with stubborn pride.",
     third = "{name} met Bengor, a gravely wounded Horde soldier at Stonard who remembers what became of the lost orders.",
   },
 
@@ -1077,7 +1114,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Karakul made me take my boots off at the door before he made me eat. Gruff as he is, he plainly thinks feeding the scouts is the most important job in Stonard.",
+    first = "He makes you take your boots off before he makes you eat.",
     third = "{name} met Innkeeper Karakul, who keeps Stonard's scouts fed and dry in the Swamp of Sorrows.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Doran Steelwing is a Wildhammer who talks about the forest trolls the way other folk talk about weather they hate. He'd rather be in the air over Jintha'Alor than anywhere else.",
+    first = "He'd rather be in the air over Jintha'Alor than anywhere else.",
     third = "{name} met Doran Steelwing, a Wildhammer of Aerie Peak with no love for the trolls of the Hinterlands.",
   },
 
@@ -170,7 +170,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Kerr Ironsight watches the passes below Aerie Peak and misses very little, which she says is how she got her name. She sized me up before I'd said a word.",
+    first = "She sized me up before I'd said a word.",
     third = "{name} met Kerr Ironsight, a watchful Wildhammer at Aerie Peak.",
   },
 
@@ -328,7 +328,7 @@ P:NPC {
   notices = { "greenness", "pet" },
 
   impression = {
-    first = "Claira Kindfeather has lived at Aerie Peak all her life and speaks of the gryphons as if they were grandchildren. Her husband Howin wanders the keep while she keeps an eye on him.",
+    first = "She speaks of the gryphons as if they were grandchildren.",
     third = "{name} met Claira Kindfeather, a warm old Wildhammer of Aerie Peak.",
   },
 
@@ -495,7 +495,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Howin Kindfeather walks the keep all day saying hello to everyone, and he said hello to me three times. He knows the name of every gryphon at the Peak and most of their opinions.",
+    first = "He said hello to me three times.",
     third = "{name} met Howin Kindfeather, who walks the halls of Wildhammer Keep greeting everyone he meets.",
   },
 

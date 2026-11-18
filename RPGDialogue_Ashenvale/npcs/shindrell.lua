@@ -9,7 +9,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "keen", "dutiful" }, values = { "duty", "protective" },
   notices = { "pet", "soldier" },
   impression = {
-    first = "Shindrell Swiftfire gives orders she doesn't enjoy and says so, which I respect more than if she pretended. She watches the coast, the forest and the Horde all at once, and she looks tired from it.",
+    first = "She gives orders she doesn't enjoy and says so, which I respect.",
     third = "{name} met Shindrell Swiftfire, a Sentinel huntress of Astranaar who watches Ashenvale's coast and the Horde's quiet advances.",
   },
 

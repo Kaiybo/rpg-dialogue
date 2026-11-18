@@ -16,7 +16,7 @@ P:NPC {
   notices = { "class", "pet", "race", "origin" },
 
   impression = {
-    first = "Quel'ana Quickgale trains hunters in Valanaar's Hall of Arms with one good eye and better ears than anyone I've met. He talks about taming a beast as if it were a promise you make to it.",
+    first = "He talks of taming a beast as a promise you make it.",
     third = "{name} met Quel'ana Quickgale, the partially sighted hunter trainer of Valanaar's Hall of Arms.",
   },
 
@@ -184,7 +184,7 @@ P:NPC {
   notices = { "class", "origin", "race" },
 
   impression = {
-    first = "Seena Skybreaker trains warriors in Valanaar's Hall of Arms and talks about standing in front of other people as if it were the only job worth doing. She laughs easily and hits harder than she laughs.",
+    first = "She laughs easily and hits harder than she laughs.",
     third = "{name} met Seena Skybreaker, Valanaar's warrior trainer, who teaches her students to stand in front of everyone else.",
   },
 
@@ -341,7 +341,7 @@ P:NPC {
   notices = { "craft", "kin", "race" },
 
   impression = {
-    first = "Riaani Nightwind of the Windshapers keeps the old wind constructs running and barely looks up from them to speak. He treats every bolt as something the spirits left in his keeping.",
+    first = "He treats every bolt as something the spirits left in his keeping.",
     third = "{name} met Riaani Nightwind, a Windshaper artisan in Valanaar who repairs the wind constructs the spirits left behind.",
   },
 
@@ -507,7 +507,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Alvarion Windfield lies upstairs at the Calmbreeze Inn with wounds that would have killed a weaker man, and he still makes jokes about his apples. He worries about his wife and his orchard far more than about himself.",
+    first = "Badly wounded, he still makes jokes about his apples.",
     third = "{name} met Alvarion Windfield, keeper of Windfield Orchard, recovering upstairs at the Calmbreeze Inn after bandits nearly killed him.",
   },
 
@@ -671,7 +671,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Melasa Fairmend teaches first aid in Valanaar and has been bandaging more people lately than she'd like. She's brisk, kind and a little too tired to be gentle about it.",
+    first = "She is brisk, kind and too tired to be gentle about it.",
     third = "{name} met Melasa Fairmend, Valanaar's medic, who teaches first aid to anyone who'll learn it.",
   },
 

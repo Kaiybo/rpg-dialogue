@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "status" },
 
   impression = {
-    first = "Captain Pentigast plays the centaur clans against each other the way other men play cards, and he doesn't pretend it's pretty. He has more ground than soldiers and knows exactly how thin he's stretched.",
+    first = "He plays the centaur clans against each other like cards.",
     third = "{name} met Captain Pentigast, who commands the Stormwind Army's thin garrison at Nijel's Point.",
   },
 
@@ -300,7 +300,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's decent of you, and it's more than I get from Stormwind in a year of dispatches. I'll take it, and gladly." },
+        { id = "s2", text = "Well, someone's noticed that the Point is still standing. Thank you; I'll pass that along to the men, who've earned it more than I have." },
+      },
+      fail = {
+        { id = "f1", text = "I've served under officers who were promoted on that sort of talk, and I buried the men they commanded. Leave it out when you speak to me." },
+        { id = "f2", text = "Flattery's a tactic like any other, and I can see the flank you're working toward. Tell me what you want, and save us both the manoeuvre." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! That's the first honest insult I've had since I was posted here, and I rather enjoyed it. You'd do well in a mess hall." },
+        { id = "s2", text = "You've cheek, and you've the nerve to use it on a captain. I can work with nerve, since it's in short supply out in this dust." },
+      },
+      fail = {
+        { id = "f1", text = "I've been sneered at by nobles in Stormwind who never held a wall in their lives. You're in poor company, and you'll keep a civil tongue at my post." },
+        { id = "f2", text = "Mock the garrison again and you can find your own way through the centaur. I've no time for it." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, I take your meaning, and I'm not too proud to say it's a persuasive one. I'd sooner have you with the Point than against it." },
+        { id = "s2", text = "I weigh threats for a living, and I've just moved you up the list. Let's keep this civil, shall we?" },
+      },
+      fail = {
+        { id = "f1", text = "I've five centaur clans and a valley full of demons trying to frighten me, so you'll have to wait your turn. Stand down." },
+        { id = "f2", text = "Threatening an officer of Stormwind at his own post is a poor piece of judgment. I'll overlook it once, because I'm short of swords." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I discuss with anyone I haven't taken the measure of. Do some work for the Point, and we'll speak again." },
+      { id = "gt2", text = "I know the answer, and I'm keeping it. Out here I'm careful about who learns what." },
+    },
     knows = {
       { id = "tp_knows", text = "Keeping three clans at each other's throats means knowing what each one is up to. Ask, and I'll tell you what's safe to tell." },
     },
@@ -325,7 +361,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Keeper Marandis speaks as though every word were borrowed from the Cenarion Circle and must be returned in good condition. Whatever errand brought him down from Stonetalon, he considers it far from small.",
+    first = "Whatever brought him down from Stonetalon, he considers it far from small.",
     third = "{name} met Keeper Marandis of the Cenarion Circle, who keeps the grove at Nijel's Point.",
   },
 
@@ -530,7 +566,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Kreldig Ungor is up to his beard in salvage and reagents and still found time to be friendly. He patched a kettle with an arrow hole in it and seemed prouder of that than of anything else.",
+    first = "He is prouder of a patched kettle than of anything else.",
     third = "{name} met Kreldig Ungor, the busy dwarf who runs Reclaimers Inc.'s business out of Nijel's Point.",
   },
 
@@ -733,7 +769,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Brother Anton is earnest, brave and wholly certain of the Scarlet Crusade. He looked at me as a recruit he hadn't signed up yet.",
+    first = "He looks at me as a recruit he hasn't signed up yet.",
     third = "{name} met Brother Anton, an emissary of the Scarlet Crusade who seeks the faithful at Nijel's Point.",
   },
 
@@ -989,7 +1025,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Lyshaerya sweeps the Desolace dust while she talks and has given up winning against it. Her calm is the kind people come a long way to sit beside.",
+    first = "She sweeps the dust as she talks and has given up winning.",
     third = "{name} met Innkeeper Lyshaerya, who keeps the only warm hearth at Nijel's Point.",
   },
 
@@ -1174,10 +1210,11 @@ P:NPC {
   key = "takata", id = TODO_NPC("Takata Steelblade"), name = "Takata Steelblade",
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "ghost_walker" }, temper = { "hard" }, values = { "loyal", "stern" },
+  race = "Orc", likesTone = "blunt",
   notices = { "class", "kit" },
 
   impression = {
-    first = "Takata Steelblade hunts the Burning Blade and every satyr who shelters them, and nothing about him invites small talk. He measures people by whether they will fight.",
+    first = "He measures people by whether they will fight.",
     third = "{name} met Takata Steelblade, the hard-bitten orc who hunts the Burning Blade from Ghost Walker Post.",
   },
 
@@ -1455,7 +1492,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I don't fight for praise, but I'll not spit on it when it's honestly given. You have my thanks, {class}." },
+        { id = "s2", text = "It's been a long while since anyone at this post spoke of anything but demons. That was well said, and I'll remember it." },
+      },
+      fail = {
+        { id = "f1", text = "The satyrs flatter too, just before they lie. Speak plainly, or go back up the road." },
+        { id = "f2", text = "I've no use for soft words in a place like this. If you want my respect, bring me a warlock's head." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you've got teeth, and that's good, because the demons here mock far worse and I need warriors who can laugh back at them." },
+        { id = "s2", text = "An orc who can't take a jab has no business holding a blade. You gave me a fair one, and I'll own it." },
+      },
+      fail = {
+        { id = "f1", text = "I've killed things that mocked me in my own father's voice, and you're a poor second to them. Hold your tongue." },
+        { id = "f2", text = "Insult me again and we'll settle it the old way, in the dust outside. I've no patience for fools at a war post." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I know strength when I see it, and I don't insult it by pretending otherwise. Lok'tar, {class}; I'd rather hunt beside you than stand in your way." },
+        { id = "s2", text = "There's something in your eye that I've seen in few besides the demons, and I mean that with respect. Speak, and I'll listen." },
+      },
+      fail = {
+        { id = "f1", text = "Our people were ruled by fear once, and it was the Legion holding the whip. I'll never bend to it again, least of all for you." },
+        { id = "f2", text = "I hunt demons for a living, so you'd need to be worse than they are to frighten me, and you aren't." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I tell to one who hasn't bled beside me. Fight the demons here, and then ask." },
+      { id = "gt2", text = "I'll keep that to myself until I know what kind of {class} you are." },
+    },
     knows = {
       { id = "tp_knows", text = "I know what my hunt has taught me. Ask, and I'll answer if it serves the Horde." },
     },
@@ -1478,7 +1551,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Nataka Longhorn has grown fond of Desolace and asked me not to tell anyone. He's the most unhurried soul I've met out here, and a fisherman at heart.",
+    first = "He has grown fond of Desolace and asked me not to tell.",
     third = "{name} met Nataka Longhorn of Thunder Bluff, an easygoing tauren posted at Ghost Walker Post.",
   },
 

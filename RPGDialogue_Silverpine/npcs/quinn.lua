@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "dry" }, values = { "loyal", "skeptical" },
   notices = { "wounds", "class" },
   impression = {
-    first = "Quinn Yorick lies wounded in a ghoul-haunted farmhouse and jokes about it as if he'd only twisted an ankle. He doubts the apothecary's cures, trusts his sister completely, and is bored nearly to a second death.",
+    first = "Wounded as he is, he is bored nearly to a second death.",
     third = "{name} met Quinn Yorick, a wounded deathstalker and Rane Yorick's brother, laid up at the Ivar Patch.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "drink", "mount" },
 
   impression = {
-    first = "Rhapsody Shindigger was once the finest gryphon rider at Aerie Peak and is now the drunkest brewer in the Hinterlands. Under the hiccups there's a dwarf who misses the sky very badly.",
+    first = "Under the hiccups there's a dwarf who misses the sky very badly.",
     third = "{name} met Rhapsody Shindigger, a Wildhammer gryphon rider turned moonshiner at his camp in the Hinterlands.",
   },
 
@@ -165,7 +165,7 @@ P:NPC {
   notices = { "drink", "race" },
 
   impression = {
-    first = "Gilveradin Sunchaser is a high elf who sells bottles of Hinterlands Honey Ripple, or rather the empty bottles that make cheap ripple look like the real thing. He speaks like a scholar and schemes like a goblin, and seems to enjoy both.",
+    first = "He speaks like a scholar and schemes like a goblin.",
     third = "{name} met Gilveradin Sunchaser, a high elf of refined speech and flexible scruples near Shindigger's Camp.",
   },
 

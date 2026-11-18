@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "earnest" }, values = { "order", "proud" },
   notices = { "purse", "watch" },
   impression = {
-    first = "Olivia Burnside keeps the vaults at the Bank of Stormwind and told me twice that nothing has ever been stolen from them. The second time she sounded as if she were reassuring herself.",
+    first = "She says nothing was ever stolen, as if reassuring herself.",
     third = "{name} met Olivia Burnside, a banker of Stormwind who is very proud of her vaults.",
   },
   greetings = {
@@ -191,7 +191,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "dry" }, values = { "order", "discreet" },
   notices = { "purse", "trophy" },
   impression = {
-    first = "Newton Burnside says the bank sees more of the kingdom than the king does, because everyone sooner or later comes to put something away. He was polite, precise and quietly amused by all of it.",
+    first = "He says the bank sees more of the kingdom than the king.",
     third = "{name} met Newton Burnside, a dry and observant banker of Stormwind.",
   },
   greetings = {
@@ -372,7 +372,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "community", "order" },
   notices = { "kin", "travel" },
   impression = {
-    first = "John Burnside has the first window inside the bank's door, so he greets everyone who comes in, and he seems to genuinely enjoy it. He wanted to know where I'd been more than what I'd brought.",
+    first = "He would rather hear where I have been than what I brought.",
     third = "{name} met John Burnside, the cheerful banker at the first window of the Bank of Stormwind.",
   },
   greetings = {
@@ -550,7 +550,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "showy" }, values = { "trade", "order" },
   notices = { "purse", "craft" },
   impression = {
-    first = "Auctioneer Chilton runs the left-hand podium of Stormwind's auction house and believes a fair sale needs rules, a deposit and a little theatre. He talked about a linen cloth as though it were a crown.",
+    first = "He talks about a linen cloth as though it were a crown.",
     third = "{name} met Auctioneer Chilton, a showman of Stormwind's auction house.",
   },
   greetings = {
@@ -731,7 +731,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "precise" }, values = { "order", "honest" },
   notices = { "purse" },
   impression = {
-    first = "Auctioneer Fitch keeps the middle podium and the auction house's book, and he writes every bid down in a small, careful hand. He seemed to think fraud was the greatest danger the city faced.",
+    first = "He thinks fraud is the greatest danger the city faces.",
     third = "{name} met Auctioneer Fitch, the careful keeper of the auction house's book.",
   },
   greetings = {
@@ -1046,7 +1046,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "practical", "community" },
   notices = { "greenness", "purse" },
   impression = {
-    first = "Auctioneer Jaxon knows every regular in Stormwind's auction house by name and most of them by their habits. She gave me sensible advice about prices and then teased me for not taking it sooner.",
+    first = "She gives sensible advice on prices and teases you for ignoring it.",
     third = "{name} met Auctioneer Jaxon, the warm and practical auctioneer of Stormwind's hall.",
   },
   greetings = {
@@ -1224,7 +1224,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "formal" }, values = { "order", "loyal" },
   notices = { "status" },
   impression = {
-    first = "Aldwin Laughlin registers Stormwind's guilds and designs their crests, and he treats every charter as a small promise made in front of the crown. He was formal, kind and very fond of his paperwork.",
+    first = "He treats every charter as a small promise made before the crown.",
     third = "{name} met Aldwin Laughlin, who keeps the Stormwind guild registry.",
   },
   greetings = {
@@ -1398,7 +1398,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "discipline", "craft" },
   notices = { "class", "kit" },
   impression = {
-    first = "Woo Ping teaches weapons in a corner of Weller's Arsenal and watches how a student stands before he looks at what they hold. He was calm and patient, and said more with one correction than most do with a speech.",
+    first = "He says more with one correction than most do with a speech.",
     third = "{name} met Woo Ping, the weapon master who teaches in Weller's Arsenal.",
   },
   greetings = {
@@ -1563,7 +1563,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "honest" },
   notices = { "kit", "greenness" },
   impression = {
-    first = "Marda Weller keeps the second counter of Weller's Arsenal and the shop's books with it. She was brisk and sharp, and plainly the reason the arsenal still turns a profit.",
+    first = "She is plainly the reason the arsenal still turns a profit.",
     third = "{name} met Marda Weller, who keeps the books and the second counter at Weller's Arsenal.",
   },
   greetings = {
@@ -1743,7 +1743,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "learned" }, values = { "craft", "proud" },
   notices = { "arcane", "craft" },
   impression = {
-    first = "Keldric Boucher sells vials and arcane goods in Pestle's Apothecary and can explain every powder on his shelves at length. He liked being asked, and liked being right even more.",
+    first = "He likes being asked, and likes being right even more.",
     third = "{name} met Keldric Boucher, who sells arcane goods at Pestle's Apothecary.",
   },
   greetings = {
@@ -1922,7 +1922,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "quick" }, values = { "practical", "community" },
   notices = { "class" },
   impression = {
-    first = "Kyra Boucher sells reagents just inside the door of Pestle's Apothecary and knows what every sort of spellcaster runs out of. She seemed to know the habits of every caster in the city by what they bought.",
+    first = "She knows every caster's habits by what they buy.",
     third = "{name} met Kyra Boucher, the reagent seller at Pestle's Apothecary.",
   },
   greetings = {

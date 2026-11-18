@@ -6,10 +6,11 @@ P:NPC {
   key = "jaina", id = TODO_NPC("Lady Jaina Proudmoore"), name = "Lady Jaina Proudmoore",
   bible = "bibles/dustwallow.md", role = "noble", tier = "major",
   communities = { "theramore" }, temper = { "earnest", "sharp" }, values = { "wise", "kind", "dutiful" },
+  private = { "arthas", "stratholme" },
   notices = { "class", "race", "form" },
 
   impression = {
-    first = "Lady Jaina Proudmoore would rather hear bad news early, and she meant it. She carries Theramore and its peace on her shoulders, and seems to have forgotten what sitting down feels like.",
+    first = "She would rather hear bad news early, and she means it.",
     third = "{name} met Lady Jaina Proudmoore, who founded Theramore and works to keep the peace between Alliance and Horde.",
   },
 
@@ -684,7 +685,44 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's kind of you, and I'll admit I needed to hear it today. Most of what reaches this tower is complaint, so thank you." },
+        { id = "s2", text = "You're generous, and I think you mean it, which is rarer than you'd expect. I'll try to deserve it." },
+        { id = "s3", when = { class = "MAGE" }, text = "From a fellow mage that means something, because you know what the work costs. Thank you." },
+      },
+      fail = {
+        { id = "f1", text = "I grew up in my father's court and studied in Dalaran, so I've heard flattery from experts. I'd much rather you told me what you actually think." },
+        { id = "f2", text = "That's a pretty compliment, and I can't help noticing that it arrives just before you want something. Shall we skip to that part?" },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Nobody has dared to tease me since Dalaran, and I've missed it more than I realized. Go on, I can take it, and I may even give some back." },
+        { id = "s2", text = "You're impertinent, and I mean that as praise. Everyone here calls me Lady and agrees with me, so it's a relief to be argued with." },
+      },
+      fail = {
+        { id = "f1", text = "I've been called a traitor to my own blood by people who had earned the right to be angry. You haven't, so I'd choose your next words more carefully." },
+        { id = "f2", text = "That wasn't wit, it was only unkindness. I expected better of you, and I'm sorry to be wrong." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've made your point, and forcefully. I don't enjoy being pushed, but I'd be a poor ruler if I couldn't admit when the push was fair." },
+        { id = "s2", text = "All right, I hear you, and I can see that you mean it. I'd rather give ground than turn a disagreement into a fight inside my own tower." },
+      },
+      fail = {
+        { id = "f1", narr = "Frost gathers briefly along the head of her staff.", text = "I stood against Archimonde at Hyjal, so I'm afraid you'll have to do better than that. Please don't try it again, because I'd hate to have you removed from Theramore." },
+        { id = "f2", text = "I don't frighten easily, and I don't respond well to people who try. If you have a grievance, state it calmly and I'll listen." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I'd rather not speak of that with someone I've only just met. Perhaps I will when I know you better." },
+      { id = "gt2", text = "That's a matter I keep close, and I hope you'll forgive me for it. Trust is hard to come by on this island, and I spend mine carefully." },
+    },
     knows = {
       { id = "tp_knows", text = "Theramore hears from both sides of every border, and most of it reaches my desk eventually. Ask, and I'll tell you what I can." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -724,7 +762,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Archmage Tervosh spoke quickly, as though the day were already running out on him. Between the Lady's errands and his books, I gather his garden gets very little of him.",
+    first = "Between her errands and his books, his garden gets little of him.",
     third = "{name} met Archmage Tervosh, Lady Jaina's brisk and loyal advisor in Theramore.",
   },
 
@@ -1020,7 +1058,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Captain Garran Vimes refuses to decide what the evidence means before he's seen all of it, which makes him rare in Theramore. Everyone else blames the Horde for the inn, and he isn't everyone.",
+    first = "Everyone else blames the Horde for the inn, and he isn't everyone.",
     third = "{name} met Captain Garran Vimes of the Theramore Guard, who is looking into the burning of the Shady Rest Inn.",
   },
 
@@ -1314,7 +1352,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Adjutant Tesoran asked for my name, unit and business before he caught himself. He keeps every soldier's record in Theramore, and I'd guess he could find anything in them blindfolded.",
+    first = "I'd guess he could find any soldier's record blindfolded.",
     third = "{name} met Adjutant Tesoran, who keeps the records of the Theramore Guard.",
   },
 
@@ -1526,7 +1564,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Janene runs her inn like the kitchen of all Theramore and plainly loves the place. She fed me before she asked a single thing about me.",
+    first = "She fed me before she asked a single thing about me.",
     third = "{name} met Innkeeper Janene, the warm and steady keeper of Theramore's inn.",
   },
 

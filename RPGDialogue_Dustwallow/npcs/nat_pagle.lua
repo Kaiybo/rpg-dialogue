@@ -10,7 +10,7 @@ P:NPC {
   temper = { "easygoing", "dry" }, values = { "patient", "honest" },
   notices = { "craft", "drink" },
   impression = {
-    first = "Nat Pagle says he doesn't much enjoy fishing, and then talks about it for an hour without getting up. He likes a slow day, a full bottle and anybody patient enough to sit still beside him.",
+    first = "He claims not to enjoy fishing, then talks of it for hours.",
     third = "{name} met Nat Pagle, the famous fisherman, on his quiet landing in Dustwallow Marsh.",
   },
 

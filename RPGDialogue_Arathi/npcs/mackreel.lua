@@ -10,7 +10,7 @@ P:NPC {
   notices = { "drink", "travel" },
 
   impression = {
-    first = "Foggy MacKreel is stranded on a broken piece of the Thandol Span and seems far more worried about a moonshine debt than about the drop beneath him. I'm fairly sure he slept through the explosion.",
+    first = "I'm fairly sure he slept through the explosion.",
     third = "{name} met Foggy MacKreel, a dwarf of Longbraid's stranded on the broken Thandol Span with a jug of moonshine and no way down.",
   },
 

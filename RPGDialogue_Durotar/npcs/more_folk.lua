@@ -18,7 +18,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "wry", "calm" }, values = { "devout", "patient" },
   notices = { "class", "race" },
   impression = {
-    first = "Telf Joolam keeps the Shrine of the Dormant Flame on a high peak above the Southfury, a lean troll shaman long alone with his fire. He tests young shaman before the flame will speak to them.",
+    first = "He has been alone with his fire a long time.",
     third = "{name} met Telf Joolam, the troll shaman who keeps the Shrine of the Dormant Flame.",
   },
   greetings = {
@@ -114,7 +114,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "proud" }, values = { "loyal", "craft" },
   notices = { "race", "pet" },
   impression = {
-    first = "Zjolnir raises and sells the riding raptors of Sen'jin Village, proud of every beast in his pens. He sells them to Darkspear trolls, and to almost nobody else unless the tribe vouches for them.",
+    first = "He sells raptors to almost nobody the Darkspear won't vouch for.",
     third = "{name} met Zjolnir, the troll raptor handler at Sen'jin Village.",
   },
   greetings = {
@@ -231,7 +231,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "stern" }, values = { "craft", "loyal" },
   notices = { "race" },
   impression = {
-    first = "Xar'Ti teaches the Darkspear to ride their raptors at Sen'jin Village, and she is stricter than any sergeant in Razor Hill. She seems to think falling off is the most important lesson there is.",
+    first = "She thinks falling off is the most important lesson there is.",
     third = "{name} met Xar'Ti, the troll riding trainer at Sen'jin Village.",
   },
   greetings = {
@@ -340,7 +340,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "eager", "cheerful" }, values = { "curious", "loyal" },
   notices = { "race", "class" },
   impression = {
-    first = "Bom'bay is Master Gadrin's apprentice at Sen'jin Village, a young witch doctor who very much wants someone to practise his hexes on. Gadrin says his voodoo is strong, which seems to worry everyone else in the village.",
+    first = "He very much wants someone to practise his hexes on.",
     third = "{name} met Bom'bay, the eager young witch doctor apprenticed to Master Gadrin.",
   },
   greetings = {
@@ -461,7 +461,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "jovial" }, values = { "practical" },
   notices = { "hunger", "race" },
   impression = {
-    first = "Hai'zan sells meat at Sen'jin Village, a cheerful troll who swears his raptor jerky is the best in Durotar. He keeps a close eye on the murlocs down the beach, mostly because they keep trying to steal his fish.",
+    first = "The murlocs keep trying to steal his fish.",
     third = "{name} met Hai'zan, the troll butcher at Sen'jin Village.",
   },
   greetings = {
@@ -576,7 +576,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "gruff" }, values = { "practical", "craft" },
   notices = { "hunger", "craft" },
   impression = {
-    first = "Grimtak sells meat and drink west of the inn in Razor Hill, and he is missing a finger, which he blames on a cleaver and a bad night. He seems to think it makes him a better butcher, somehow.",
+    first = "He blames his missing finger on a cleaver and a bad night.",
     third = "{name} met Grimtak, the Razor Hill butcher who's lost a finger to his own trade.",
   },
   greetings = {
@@ -691,7 +691,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
   notices = { "class", "kit" },
   impression = {
-    first = "Cutac sells cloth and leather armor in Razor Hill, mostly to young recruits fresh out of the Valley of Trials. He has seen enough of them come back in pieces to have opinions on what they should wear.",
+    first = "He has seen too many recruits come back in pieces.",
     third = "{name} met Cutac, who sells cloth and leather armor in Razor Hill.",
   },
   greetings = {
@@ -804,7 +804,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "cold", "sharp" }, values = { "ambitious", "cunning" },
   notices = { "class" },
   impression = {
-    first = "Dhugru Gorelust trains warlocks in Razor Hill, and the grunts give his corner of town a wide berth. He speaks softly and watches closely, and he seems to know exactly how much the town distrusts him.",
+    first = "He seems to know exactly how much the town distrusts him.",
     third = "{name} met Dhugru Gorelust, the warlock trainer in Razor Hill.",
   },
   greetings = {
@@ -923,7 +923,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "steady" }, values = { "wise", "patient" },
   notices = { "class", "race" },
   impression = {
-    first = "Shikrik teaches the first lessons of the shaman in the Valley of Trials, a patient orc woman who has heard every newcomer's question a hundred times. She answers each one as if it were the first.",
+    first = "She answers every newcomer's question as if it were the first.",
     third = "{name} met Shikrik, the orc shaman trainer in the Valley of Trials.",
   },
   greetings = {
@@ -1042,7 +1042,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "practical" },
   notices = { "hunger" },
   impression = {
-    first = "Zlagk sells meat and drink in the Valley of Trials, mostly to recruits who arrive with nothing in their packs. He's gruff about it, but nobody leaves his stall hungry.",
+    first = "He is gruff, but nobody leaves his stall hungry.",
     third = "{name} met Zlagk, the butcher in the Valley of Trials.",
   },
   greetings = {
@@ -1155,7 +1155,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "blunt" }, values = { "dutiful", "loyal" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Raider Jhash patrols the road between the Valley of Trials and Razor Hill on wolfback, always alongside Raider Kerr. He talks the way a soldier talks on a long ride, plainly and without much hurry.",
+    first = "He talks like a soldier on a long ride, plain and unhurried.",
     third = "{name} met Raider Jhash, who patrols the road from the Valley of Trials to Razor Hill.",
   },
   greetings = {

@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "death", "sea" },
   impression = {
-    first = "The keeper of the Westfall lighthouse is a ghost, Captain Grayson, who tends its flame so no other ship meets the rocks his did. He seemed more lonely than frightening.",
+    first = "He seemed more lonely than frightening.",
     third = "{name} met the ghost of Captain Grayson at the Westfall lighthouse, who keeps its flame lit for the ships that still sail.",
   },
 

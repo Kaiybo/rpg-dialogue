@@ -11,7 +11,7 @@ P:NPC {
   notices = { "arcane", "class" },
 
   impression = {
-    first = "Magus Wordeen Voidglare came to Tarren Mill to study and now spends his days plotting a way into Dalaran. He calls his own work brilliant, and resents the Kirin Tor for being better at it.",
+    first = "He resents the Kirin Tor for being better at his own work.",
     third = "{name} met Magus Wordeen Voidglare, the Forsaken scholar in Tarren Mill who wants Dalaran's secrets for the Dark Lady and for himself.",
   },
 
@@ -176,7 +176,7 @@ P:NPC {
   notices = { "arcane", "kit" },
 
   impression = {
-    first = "Keeper Bel'varil gathers Dalaran's binding tokens and bracers for Magus Voidglare and tries out jokes that land a beat too late. He says death robbed him of his comic timing, and he may be right.",
+    first = "He says death robbed him of his comic timing, and it shows.",
     third = "{name} met Keeper Bel'varil, Magus Voidglare's assistant in Tarren Mill.",
   },
 

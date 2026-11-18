@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Martek the Exiled works metal in a lonely Badlands camp, and nobody living knows more about it than he does.",
+    first = "Nobody living knows more about working metal than he does.",
     third = "{name} met Martek the Exiled, a dwarven smith living in exile in the Badlands.",
   },
 
@@ -210,7 +210,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Rigglefuzz is a goblin cooking by the Badlands road, and he's convinced buzzard wings are his ticket to riches.",
+    first = "He's convinced buzzard wings are his ticket to riches.",
     third = "{name} met Rigglefuzz, a goblin cook with big plans for Badlands buzzards.",
   },
 

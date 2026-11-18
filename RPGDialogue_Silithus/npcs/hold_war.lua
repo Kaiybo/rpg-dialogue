@@ -14,7 +14,7 @@ P:NPC {
   notices = { "badges" },
 
   impression = {
-    first = "Windcaller Kaldon assigns the newcomers at Cenarion Hold their field duty and keeps a careful tally of every badge they bring back. He talks like a quartermaster and thinks like a general.",
+    first = "He talks like a quartermaster and thinks like a general.",
     third = "{name} met Windcaller Kaldon, the night elf who hands out field duty at Cenarion Hold.",
   },
 
@@ -127,7 +127,7 @@ P:NPC {
   notices = { "rogue", "poisoned" },
 
   impression = {
-    first = "Dirk Thunderwood is a dwarf from Ravenholdt who runs the manor's poison work with his brother, and he's come to Silithus for the venom. He's friendly in a way that makes you count your fingers afterwards.",
+    first = "He's friendly in a way that makes me count my fingers afterwards.",
     third = "{name} met Dirk Thunderwood, a Ravenholdt dwarf hunting rare venoms at Cenarion Hold.",
   },
 
@@ -237,7 +237,7 @@ P:NPC {
   notices = { "leather" },
 
   impression = {
-    first = "Zannok Hidepiercer sells leatherworking supplies at Valor's Rest, the bleakest corner of Silithus. He works with the desert's hides and complains about them, both with equal patience.",
+    first = "He works the desert's hides and complains about them just as patiently.",
     third = "{name} met Zannok Hidepiercer, who sells leatherworking supplies at Valor's Rest.",
   },
 

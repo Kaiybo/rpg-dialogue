@@ -9,7 +9,7 @@ P:NPC {
   notices = { "arcane", "weary" },
 
   impression = {
-    first = "Theldurin the Lost jumps at every gust at Agmond's End and won't say the names he fears aloud. He's mad, or close to it, but he talks about the thing under the stone as though he has heard it breathe.",
+    first = "He talks as if he heard the thing under the stone breathe.",
     third = "{name} met Theldurin the Lost, a frightened dwarf hiding at Agmond's End in the Badlands who once ran with the Twilight's Hammer.",
   },
 

@@ -13,15 +13,17 @@ local Theme = UI.Theme
 local Ask = {}
 UI.AskAbout = Ask
 
-local MAX_ROWS, ROW_H = 12, 20
+-- WOOD_ROWS: the wood panel's fixed count. MAX_ROWS: the most the game look can show
+-- when the box beside it is tall (it fills the parchment to the bottom).
+local WOOD_ROWS, MAX_ROWS, ROW_H = 12, 40, 20
 local WOOD_WIDTH, GAME_WIDTH = 240, 260
-local WOOD_HEIGHT = 66 + MAX_ROWS * ROW_H + 40
+local WOOD_HEIGHT = 66 + WOOD_ROWS * ROW_H + 40
 -- Game look: rows start below the 60-pixel header; the bottom bar is 26 high.
 local GAME_TOP, GAME_BAR = 66, 26
 local panel
 local offset, showArchive, filtered = 0, false, {}
 local selected   -- index into filtered (keyboard / gamepad)
-local rows = MAX_ROWS   -- rows that fit the panel right now
+local rows = WOOD_ROWS   -- rows that fit the panel right now
 
 local function width() return Theme.IsGame() and GAME_WIDTH or WOOD_WIDTH end
 
@@ -200,7 +202,7 @@ local function layout()
     panel.rule:SetPoint("TOPLEFT", 12, -28)
     panel.rule:SetPoint("TOPRIGHT", -12, -28)
     top = -62
-    rows = MAX_ROWS
+    rows = WOOD_ROWS
   end
   panel.rule:SetShown(not game)
   panel.empty:SetWidth(W - 32)

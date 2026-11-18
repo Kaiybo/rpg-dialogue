@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "mount" },
 
   impression = {
-    first = "Verner Osgood has a hot forge and no iron, because the Guard takes every scrap. He seemed glad to have someone to grumble at besides his horses.",
+    first = "His forge is hot, but the Guard takes every scrap of iron.",
     third = "{name} met Verner Osgood, the Lakeshire smith whose iron all goes to the Guard.",
   },
 

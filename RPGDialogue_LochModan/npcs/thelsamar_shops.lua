@@ -11,7 +11,7 @@ P:NPC {
   notices = { "mount" },
 
   impression = {
-    first = "Thorgrum Borrelson keeps Thelsamar's gryphons and reads the weather over the loch better than any almanac. He trusts his birds more than most people, and says so.",
+    first = "He trusts his birds more than most people, and says so.",
     third = "{name} met Thorgrum Borrelson, the gryphon master of Thelsamar.",
   },
 
@@ -212,7 +212,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Morhan Coppertongue sells mail armor in Thelsamar and can talk a mountaineer into a heavier coat than he came in for. He is proud of his trade and prouder of his tongue.",
+    first = "He is proud of his trade and prouder of his tongue.",
     third = "{name} met Morhan Coppertongue, a metalsmith in Thelsamar.",
   },
 
@@ -405,7 +405,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Honni Goldenoat bakes the bread at the Stoutlager Inn and is up before anyone else in Thelsamar. She is warm, floury, and of the firm opinion that sausages need bread to be a meal.",
+    first = "She firmly believes sausages need bread to be a meal.",
     third = "{name} met Honni Goldenoat, the baker at Thelsamar's Stoutlager Inn.",
   },
 
@@ -595,7 +595,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Karm Ironquill sells picks and mining supplies in Thelsamar and keeps a careful eye on which mines are safe this week. He says little, but what he says is worth listening to.",
+    first = "He says little, but he knows which mines are safe this week.",
     third = "{name} met Karm Ironquill, who sells mining supplies in Thelsamar.",
   },
 
