@@ -426,7 +426,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I'm an alchemist and I teach it, up here where the fumes blow out to sea. Been at it since before the Baron ran this town." } },
+    background = { { id = "tp_bg", text = "I'm an alchemist and I teach it, up here where the fumes blow out to sea. I have been at it a good long while, and I have the scars on my ledger to show for it." } },
     _none = { { id = "tp_none", text = "If it doesn't go in a cauldron, pal, I haven't priced it. Ask at the tavern." } },
   },
 }
@@ -538,7 +538,7 @@ P:NPC {
       text = "Is that a spanner on your belt? Oh, marvellous, an actual engineer, and I've had nobody to talk tolerances with for seventeen days." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "Another gnome, all the way out here! Tell me there's news from Tinker Town, and tell me whether anyone has made progress on getting our city back." },
-    { id = "n_goblin", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
+    { id = "n_horde", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
       text = "Oh! You're with the Horde. Well, a gear is a gear, and my prices are the same for everybody, so please don't touch the red lever." },
   },
   start = "hello",
@@ -674,7 +674,7 @@ P:NPC {
   key = "maywiki", id = TODO_NPC("Maywiki of Zuldazar"), name = "Maywiki of Zuldazar", gender = "female",
   bible = "bibles/missed.md", role = "questgiver", tier = "quest",
   communities = {}, temper = { "serene", "sly" }, values = { "devout", "balance" },
-  notices = { "class", "race" },
+  notices = { "race" },
   impression = {
     first = "Maywiki of Zuldazar sits a little apart on Yojamba Isle, and speaks for the Zandalar to those who walk with spirits and wild things. She laughed softly before she answered anything, as though she'd heard my questions on the wind already.",
     third = "{name} met Maywiki of Zuldazar, who speaks for the Zandalar tribe to druids and shaman on Yojamba Isle.",
@@ -738,11 +738,11 @@ P:NPC {
     ask = {
       lines = { { id = "a_default", text = "De Hakkari carry tokens of deir god, coins and bijous and stranger things, and each one is a small piece of his strength. Bring dem out of de city and into Zandalari hands, and you weaken him while my people learn your worth." } },
       choices = {
-        { text = "And what does your tribe give in return?", next = "return" },
+        { text = "And what does your tribe give in return?", next = "reward" },
         { text = "Something else.", next = "BACK" },
       },
     },
-    ["return"] = {
+    reward = {
       lines = { { id = "r_default", text = "Dat is between you and de tribe, and it grows wit' de tribe's regard for you. Zandalari do not forget a friend, but we be slow to name one, so do de work first and ask de price after." } },
       choices = { { text = "Work first, then. Something else.", next = "BACK" } },
     },
