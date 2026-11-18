@@ -161,7 +161,9 @@ end
 Disp.TONES = { "polite", "normal", "blunt" }
 local TONE_OK = { polite = true, normal = true, blunt = true }
 
+-- 0.86.0: the tone feature is removed; everyone speaks Normal (variants fall back to it).
 function Disp.Tone(ctx)
+  do return "normal" end
   local spoofed = ctx and ctx.spoofed and ctx.spoofed.tone
   if TONE_OK[spoofed] then return spoofed end
   local settings = ns.db and ns.db.settings

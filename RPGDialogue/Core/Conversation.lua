@@ -1109,6 +1109,7 @@ end
 
 -- Tone for the box's selector (0.85.0): "polite" / "normal" / "blunt", or nil when hidden.
 function Conv.ToneView(s)
+  do return nil end   -- 0.86.0: tone selector removed
   if not s or not ns.Disposition or ns.db.settings.toneSelector == false then return nil end
   return ns.Disposition.Tone(s.ctx)
 end

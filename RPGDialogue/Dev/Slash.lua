@@ -201,7 +201,7 @@ commands.sheet = function() ns.UI.ExportFrame.Show("sheet") end
 commands.import = function() ns.UI.ExportFrame.Show("import") end
 
 -- /rpgd tone [polite|normal|blunt]: show or set this character's tone (0.85.0).
-commands.tone = function(args)
+local _removedTone = function(args)
   local t = args[1] and args[1]:lower()
   if t == "polite" or t == "normal" or t == "blunt" then ns.Conversation.SetTone(t) end
   local cur = ns.Disposition.Tone()

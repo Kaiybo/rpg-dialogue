@@ -639,7 +639,7 @@ function D.Layout()
   frame.disp:SetShown(frame.disp.value ~= nil and not frame.flagBox:IsShown())
   -- Persuasion buttons sit just left of "Ask about..." (or the corner), right to left.
   local persuadeOn = frame.persuadeState ~= nil and not frame.flagBox:IsShown()
-  local words = not game
+  local words = true   -- 0.86.0: actions always show their names
   local anchor, anchorPoint, gap = frame.ask, "LEFT", -6
   if not frame.ask:IsShown() then
     anchor, anchorPoint, gap = frame, "BOTTOMRIGHT", 0
