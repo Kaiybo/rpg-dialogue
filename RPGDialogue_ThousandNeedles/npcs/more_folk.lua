@@ -978,3 +978,756 @@ P:NPC {
     _none = { { id = "tp_none", text = "That one has not come up the lift yet, friend. Ask Cliffwatcher Longhorn." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Laer Stepperunner: food and drink vendor at Whitereach Post.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "laer", id = TODO_NPC("Laer Stepperunner"), name = "Laer Stepperunner", title = "Food & Drink",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = {}, temper = { "gentle", "curious" }, values = { "hospitality", "wonder" },
+  notices = { "hunger", "race", "craft" },
+  impression = {
+    first = "Laer Stepperunner sells bread and drink at Whitereach Post, on the canyon floor beneath the needles. He feeds everyone at the post, the goblin included, and he asked me more questions than I asked him.",
+    third = "{name} met Laer Stepperunner, who sells food and drink at Whitereach Post.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome to Whitereach, traveller. You have canyon dust to your knees, so sit, and I will bring you water before you say another word." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back down the canyon! Sit where you sat before, for I have kept the bread warm on the chance of it." },
+    { id = "g_away", when = { away = 14 }, text = "{away} since you ate at my fire. Tell me where you have been, and whether the bread there was any good." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You are of the tribes, and far from the green of Mulgore, as I am. The stone here is beautiful, but I do miss grass that is soft underhoof." },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "You carry tools like the goblin Wizlo's. Perhaps you can tell me something I have been wondering about his machine, if you have a moment." },
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "A cook! Then tell me honestly whether you can taste that I baked this on a flat stone and not in a proper oven." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Laer Stepperunner. I bake the bread and carry the water for Whitereach Post, and for anybody who comes down the Great Lift with an empty pack, which is nearly everybody." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Laer Stepperunner. Motega Firemane keeps the watch here and I keep the fire, and between the two of us Whitereach is as near to a home as this canyon allows." },
+        { id = "h_eng", when = { profession = "Engineering" }, text = "I am Laer Stepperunner, and I sell bread and drink. I would trade you a loaf for an honest answer, though, for you look as if you understand machines." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you like to know, friend?" },
+        { id = "h_again2", text = "Ask, and take some more water while you do." },
+        { id = "h_again3", text = "Yes, traveller?" },
+      },
+      choices = {
+        { text = "Let me see your food and drink.", next = "BUSINESS" },
+        { text = "What sort of place is Whitereach Post?", next = "post" },
+        { text = "You share your camp with a goblin.", next = "wizlo" },
+        { text = "How do you bake bread in a canyon?", next = "bread" },
+        { text = "What should I know about the road ahead?", next = "road" },
+        { text = "Does Wizlo's machine have feelings? No.", next = "machine", when = { profession = "Engineering" } },
+        { text = "You miss the grass of Mulgore.", next = "grass", when = { race = "Tauren" } },
+        { text = "Walk with the Earth Mother, Laer.", next = "END" },
+      },
+    },
+    post = {
+      lines = {
+        { id = "post_d", text = "It is a few tents and a fire where the road from the Great Lift turns south, and we are here so that Freewind is not surprised. Motega watches the Grimtotem on Darkcloud Pinnacle, and I watch Motega, who forgets to eat." },
+      },
+      choices = {
+        { text = "Do the Grimtotem trouble you here?", next = "post_grim" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post_grim = {
+      big = true,
+      lines = {
+        { id = "post_grim_d", text = "They pass on the road and do not look at us, which troubles me more than a harsh word would. They are tauren as I am, and I have set out bread for them more than once, and it is always there in the morning." },
+      },
+      choices = {
+        { text = "Keep setting it out. One of them may take it.", next = "BACK", reply = "That is my hope, and Motega calls it foolish. I notice he has never told me to stop.", fx = { align = { light = 1 } } },
+        { text = "They have chosen their path. Save your bread.", next = "BACK", reply = "You may be right, and Motega would say so. It is only bread, though, and I have plenty.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wizlo = {
+      lines = {
+        { id = "wizlo_d", text = "Wizlo Bearingshiner, yes. He is very loud and very small, and he works harder than anyone I have known, so I bring him supper, because he would not stop to fetch it himself." },
+      },
+      choices = {
+        { text = "What do you make of his machine?", next = "wizlo_machine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wizlo_machine = {
+      lines = {
+        { id = "wizlo_machine_d", text = "It walks into the same rock each morning and then stands there, and I cannot help feeling sorry for it. I asked Wizlo whether it minds, and he laughed, but he did not answer, and I have been wondering since." },
+      },
+      choices = {
+        { text = "It's brass and springs, Laer. It can't mind.", next = "BACK", reply = "So I suppose. I shall go on turning it around when he is not looking, all the same.", fx = { trait = { skeptical = 1 } } },
+        { text = "Turn it away from the rock, to be safe.", next = "BACK", reply = "I do, when he is not looking. I am glad I am not the only one who would.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bread = {
+      lines = {
+        { id = "bread_d", text = "On a flat stone set over coals, turned once, as my family baked it on the move across the plains. The flour comes down the Great Lift from the Barrens, and half of it is dust by the time it arrives." },
+      },
+      choices = {
+        { text = "And the water?", next = "bread_water" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bread_water = {
+      lines = {
+        { id = "bread_water_d", text = "From a seep under the canyon wall that I found by following the wasps. It fills one skin in the time it takes to bake a loaf, so I have learned to do the two together." },
+      },
+      choices = {
+        { text = "Following the wasps was clever.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = {
+        { id = "road_d", text = "South and east the canyon runs on beneath the needles to Freewind Post, where there is a lift and an inn. Beyond that it opens onto the Shimmering Flats, where the gnomes and goblins race, and there is no water there at all." },
+      },
+      choices = {
+        { text = "What hunts the canyon floor?", next = "road_hunts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_hunts = {
+      lines = {
+        { id = "road_hunts_d", text = "The Galak centaur, who hold the crags and ride down on whoever looks alone, and the cougars after dusk. Travel while the sun is on the canyon floor, and keep to the middle of it." },
+      },
+      choices = {
+        { text = "The middle of the road, by daylight.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    machine = {
+      lines = {
+        { id = "machine_d", text = "You are quite sure? It makes a small sound when it strikes the rock, very like a sigh. But you know these things, and I shall try to believe you." },
+      },
+      choices = {
+        { text = "That sound is a slipping gear.", next = "BACK", reply = "A slipping gear. Then I am glad to know it, and a little sorry.", fx = { trait = { honest = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grass = {
+      lines = {
+        { id = "grass_d", text = "Every morning, when I step out and the ground is hard. Then the sun comes over the canyon rim and turns all the needles red, and I think the Earth Mother has simply made this place for looking at and not for lying down in." },
+      },
+      choices = {
+        { text = "She made both, and we are lucky to see them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    grimtotem = { { id = "tp_grim", text = "The Grimtotem keep to Darkcloud Pinnacle and speak to none of us. Motega Firemane can tell you what he has seen, for he sees more than I do." } },
+    background = { { id = "tp_bg", text = "I came down the Great Lift with a sack of flour, to feed the watch for a season. The watch has not ended, and so neither have I." } },
+    advice = { { id = "tp_ad", text = "Fill every skin you own before you leave this fire. The canyon is long, and it gives nothing away." } },
+    _none = { { id = "tp_none", text = "I do not know, friend, though I should like to. If you find out, come back and tell me over some bread." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Synge: goblin gunsmith at the Mirage Raceway.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "synge", id = TODO_NPC("Synge"), name = "Synge", title = "Gunsmith",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "mirage_raceway" }, temper = { "pushy", "cheerful" }, values = { "profit", "firepower" },
+  notices = { "kit", "class", "craft" },
+  impression = {
+    first = "Synge is a goblin who sells guns at the Mirage Raceway, to race crowds bound for Tanaris and to anyone who has met the scorpids on the Flats. He quoted me three prices before I had finished saying hello.",
+    third = "{name} met Synge, the goblin gunsmith at the Mirage Raceway.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hey, hey, step up, friend! Ya look like somebody with a long walk ahead and nothin' loud to take along, and I can fix exactly one of those." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite repeat customer! Tell me she shot straight, because my returns policy is that I don't have one." },
+    { id = "g_away", when = { away = 14 }, text = "{away}, pal, and still breathin', which I'm puttin' down to quality merchandise." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, now we're talkin'! You're a professional, so I'll skip the patter and go straight to the top shelf, and the top-shelf prices." },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "Whoa, whoa, you build your own, don't ya? Fine, I ain't offended, but you're still gonna need shot, and I got shot." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf at a gun stall! Listen, pal, I know you're gonna tell me Ironforge makes 'em better, so let's skip that and say you're only browsin'." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Synge is the name, guns are the game, and I've got the only stall on the Shimmering Flats that sells 'em. Rifles, blunderbusses and all the shot ya can carry, at prices I'm callin' reasonable." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "Synge, gunsmith, at your service. There's basilisks out on the salt that'll look at ya funny and scorpids that'll do worse, so whatever you're carryin', pal, I got somethin' with more opinion in it." },
+        { id = "h_eng", when = { profession = "Engineering" }, text = "Synge, gunsmith. You're in the trade, so I'll be straight with ya, which costs me nothin': half this stock I put together myself, and the other half I'd rather not say where it came from." },
+      },
+      again = {
+        { id = "h_again", text = "What else, pal? I'm losin' daylight and margin." },
+        { id = "h_again2", text = "Keep talkin', I can count shot and listen." },
+        { id = "h_again3", text = "Yeah, friend?" },
+      },
+      choices = {
+        { text = "Show me your guns.", next = "BUSINESS" },
+        { text = "Why sell guns at a racetrack?", next = "why" },
+        { text = "The goblin crew must be good customers.", next = "crew" },
+        { text = "What's out on the Flats that needs shooting?", next = "flats" },
+        { text = "Do you sell to the gnomes as well?", next = "gnomes" },
+        { text = "Which half of your stock did you build?", next = "built", when = { profession = "Engineering" } },
+        { text = "What do you recommend for the basilisks?", next = "basilisk", when = { class = "HUNTER" } },
+        { text = "Good selling, Synge.", next = "END" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_d", text = "Location, pal! Everybody headed south to Tanaris comes across this salt, and everybody comin' back north tells 'em about the bandits. I'm standin' right where the worryin' starts, and worry is my best salesman." },
+      },
+      choices = {
+        { text = "You make your coin from fear, then.", next = "why_fear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_fear = {
+      big = true,
+      lines = {
+        { id = "why_fear_d", text = "From caution, friend, which is fear with a receipt. Listen, the Wastewanders are out there whether I open the stall or not, and the fella who bought from me is the one who comes back to complain about the price." },
+      },
+      choices = {
+        { text = "Fair enough. Better armed than sorry.", next = "BACK", reply = "That's my whole pitch in four words, pal. Can I put it on a sign?", fx = { align = { order = -1 } } },
+        { text = "Someone should clear the bandits, not sell around them.", next = "BACK", reply = "Sure, and when somebody does, I'll sell 'em the guns to do it. Either way I'm open.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crew = {
+      lines = {
+        { id = "crew_d", text = "Ya'd think so, wouldn't ya? Pozzik's boys spend every copper on fuel and fenders, and the only thing they shoot is their mouths off. My money comes from the spectators and from whoever lost a bet and wants to feel tall again." },
+      },
+      choices = {
+        { text = "Do you bet on the races yourself?", next = "crew_bet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crew_bet = {
+      lines = {
+        { id = "crew_bet_d", text = "On goblin engineerin', every heat, on principle and against my better judgment. I'm down about a crate of blunderbusses on the season, and I'm writin' it off as loyalty." },
+      },
+      choices = {
+        { text = "Loyalty's an expensive habit.", next = "BACK", reply = "Tell me about it. It's the only overhead I can't haggle down.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flats = {
+      lines = {
+        { id = "flats_d", text = "Scorpids the size of a wagon wheel, basilisks that sit so still ya trip on 'em, and vultures waitin' to see which of the other two gets ya. Fizzle's gnomes are payin' for the venom, I hear, so somebody's makin' money off it." },
+      },
+      choices = {
+        { text = "And the salt itself?", next = "flats_salt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flats_salt = {
+      lines = {
+        { id = "flats_salt_d", text = "Gets in everything, pal: the locks, the barrels, my lunch. I oil the whole stock every night, and I'd bill the desert for it if I could find where to send the invoice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes = {
+      lines = {
+        { id = "gnomes_d", text = "Coin's coin, friend, and a gnome's is the same size as anybody's. They come over, they take one apart on my counter to see how it works, they tell me three things wrong with it, and then they buy it anyway." },
+      },
+      choices = {
+        { text = "Are they right about the three things?", next = "gnomes_right" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes_right = {
+      lines = {
+        { id = "gnomes_right_d", text = "Two outta three, usually, and I fix those on the next batch and don't say thank you. That's free consultin', and by my last copper I ain't gonna spoil it by admittin' anything." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", fx = { trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    built = {
+      lines = {
+        { id = "built_d", text = "The ones with the brass bands on the barrel, those are mine. The bands ain't decoration, either, they're there because the first batch had what I'd call a ventilation event, and my cousin still can't grow his left eyebrow back." },
+      },
+      choices = {
+        { text = "And these ones hold?", next = "BACK", reply = "Every one I've sold so far, pal, and nobody's come back to say different, which I'm choosin' to read the cheerful way.", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    basilisk = {
+      lines = {
+        { id = "basilisk_d", text = "Somethin' heavy, and from farther off than ya think ya need. Those hides turn light shot like rain off a tin roof, and ya don't want to be standin' close when one decides to look ya in the eye." },
+      },
+      choices = {
+        { text = "Heavy shot, long range. Understood.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mirage_raceway = { { id = "tp_race", text = "Goblins against gnomes, every day, loud as ya like. I got money on the goblins and a stall that sells to whoever wins." } },
+    background = { { id = "tp_bg", text = "I came out for one race and saw a crowd with no gun stall anywhere near it. A fella doesn't walk away from a gap in the market like that." } },
+    advice = { { id = "tp_ad", text = "Buy more shot than ya need, pal. Nobody ever died of havin' some left over." } },
+    _none = { { id = "tp_none", text = "That ain't in my inventory, friend. Try Kravel, he deals in the stuff ya can't put on a shelf." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Riznek: goblin drink vendor at the Mirage Raceway.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "riznek", id = TODO_NPC("Riznek"), name = "Riznek", title = "Drink Vendor",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "mirage_raceway" }, temper = { "slick", "amiable" }, values = { "profit", "gossip" },
+  notices = { "drink", "race", "travel" },
+  impression = {
+    first = "Riznek is a goblin who sells drinks at the Mirage Raceway, in the middle of a salt desert with no water in it, and he is very happy with that arrangement. He hears most of what is said in the stands, and remembers it.",
+    third = "{name} met Riznek, the goblin drink vendor at the Mirage Raceway.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Thirsty, friend? Sure ya are, you're standin' on salt as far as the eye can see, and I'm the only fella out here with anything wet." },
+    { id = "g_back", when = { metBefore = true }, text = "Look who's parched again! Step up, pal, your usual's waitin', whatever it turns out to be." },
+    { id = "g_away", when = { away = 14 }, text = "{away} without one of my drinks? Pal, I'm amazed you're still upright." },
+  },
+  notice = {
+    { id = "n_drunk", cat = "drink", when = { drunk = true },
+      text = "Whoa, somebody got started without me! No hard feelin's, friend, but hold onto the rail, the track's closer than it looks." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! Now there's a customer who understands my line of work. Don't ask me for a proper stout, though, pal, it don't survive the trip." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "One of the big folks, down from Freewind! You'll be wantin' the large size, friend, and I'm happy to say I stock it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Riznek, purveyor of refreshment to the racin' public. Water, milk, juice and somethin' stronger for when your car comes in last, all of it hauled across the desert at a cost ya don't want to hear about." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Riznek, drinks. Your pal Kravel Koalbeard is my steadiest customer and my worst one, on account of he buys by the crate and I never find out who actually drinks it." },
+        { id = "h_drunk", when = { drunk = true }, text = "Riznek, drinks, and by the look of ya that's the last thing I oughta sell ya. Lucky for us both, friend, I also carry water." },
+      },
+      again = {
+        { id = "h_again", text = "What else, pal? Talkin's thirsty work, I'll point out." },
+        { id = "h_again2", text = "Go on, I got ears and a full cooler." },
+        { id = "h_again3", text = "Yeah?" },
+      },
+      choices = {
+        { text = "Let me see what you're pouring.", next = "BUSINESS" },
+        { text = "How do you get drinks out to a salt flat?", next = "haul" },
+        { text = "You must hear a lot from behind that counter.", next = "hear" },
+        { text = "Who drinks more, the gnomes or the goblins?", next = "who" },
+        { text = "A drink stand in a desert can't lose.", next = "desert" },
+        { text = "Kravel buys by the crate, you said.", next = "kravel", when = { race = "Dwarf" } },
+        { text = "What would you pour a tauren?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Keep it cold, Riznek.", next = "END" },
+      },
+    },
+    haul = {
+      lines = {
+        { id = "haul_d", text = "By kodo from Freewind and by wagon up from Gadgetzan, and I lose a barrel in five to heat, leaks and drivers with a thirst. That's all in the price, pal, every drop that didn't make it." },
+      },
+      choices = {
+        { text = "And how do you keep it cool?", next = "haul_cool" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    haul_cool = {
+      lines = {
+        { id = "haul_cool_d", text = "A hole in the ground, wet sackin', and an arrangement with the ice cream gnome that I ain't at liberty to discuss. Let's say Brivelthwerp and me found a way to share overhead, and leave it there." },
+      },
+      choices = {
+        { text = "A goblin and a gnome, sharing costs?", next = "BACK", reply = "Don't spread it around, friend. There's a whole racetrack out here built on us not gettin' along.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hear = {
+      lines = {
+        { id = "hear_d", text = "Everything, friend. A fella with a cup in his hand forgets the fella who filled it is standin' right there, so I know who's bettin' big, who's bettin' borrowed, and whose car ain't gonna finish before it starts." },
+      },
+      choices = {
+        { text = "And what do you do with all that?", next = "hear_do" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hear_do = {
+      big = true,
+      lines = {
+        { id = "hear_do_d", text = "Nothin', and that's the honest truth, which I don't hand out often. The day folks figure the drinks fella repeats things, they drink somewhere else, and there ain't a somewhere else, so they'd just stop talkin' and I'd be bored." },
+      },
+      choices = {
+        { text = "A barkeep who keeps quiet is worth trusting.", next = "BACK", reply = "Trust is good for repeat business, pal. I'd frame that if I had a wall.", fx = { align = { honor = 1 } } },
+        { text = "You're sitting on a fortune. Sell what you hear.", next = "BACK", reply = "Kravel's told me the same, more than once. I looked at his line of work and decided I like sleepin' nights.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who = {
+      lines = {
+        { id = "who_d", text = "The goblins drink more and the gnomes drink faster, so it comes out even on the ledger. The night before a big heat they both order double, and the mornin' after there's a real slow race." },
+      },
+      choices = {
+        { text = "Does anyone ever help that along?", next = "who_help" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who_help = {
+      lines = {
+        { id = "who_help_d", text = "Listen, I sell the drinks, pal, I don't ask where they're carried to. If a certain dwarf walks off with a round for the other team's pit crew, that's between him and his conscience, assumin' he's got one on order." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    desert = {
+      lines = {
+        { id = "desert_d", text = "That's what I figured, friend, and I was mostly right! What I didn't figure was the salt eatin' my barrel hoops, the sun cookin' the milk, and a customer base that pays me in race tickets when their car loses." },
+      },
+      choices = {
+        { text = "Do you take the tickets?", next = "BACK", reply = "Once, pal. I got a drawer fulla losin' goblin tickets, and I keep 'em to remind me what a sure thing looks like.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kravel = {
+      lines = {
+        { id = "kravel_d", text = "By the crate, cash up front, no questions and no receipts, which is how I know not to ask any. He's a pal of yours, maybe, or maybe ya just share a beard, but I'd count my change twice around him." },
+      },
+      choices = {
+        { text = "He's no friend of mine.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "tauren_d", text = "Water, friend, and plenty of it, and I ain't even gonna try the hard sell. I watched a tauren drink a whole keg of juice in this heat once, out of thirst and good manners, and I felt bad takin' the money." },
+      },
+      choices = {
+        { text = "You felt bad, but you took it.", next = "BACK", reply = "I'm a goblin with feelin's, pal, I ain't a charity.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mirage_raceway = { { id = "tp_race", text = "Best customers in the world, race crowds. They're hot, they're excited, and half of 'em just lost money and want to forget it." } },
+    background = { { id = "tp_bg", text = "I used to haul water for a caravan, pal, till I noticed the fella sellin' it by the cup was makin' triple." } },
+    advice = { { id = "tp_ad", text = "Drink before ya cross the Flats, not halfway over. There ain't a halfway stand, and believe me, I looked into it." } },
+    _none = { { id = "tp_none", text = "Ain't heard that one over the counter yet, friend. Buy somethin' and stick around, it'll come up." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brivelthwerp: gnome ice cream vendor at the Mirage Raceway.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "brivelthwerp", id = TODO_NPC("Brivelthwerp"), name = "Brivelthwerp", title = "Ice Cream Vendor",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "mirage_raceway" }, temper = { "earnest", "fretful" }, values = { "quality", "precision" },
+  notices = { "race", "craft", "arcane" },
+  impression = {
+    first = "Brivelthwerp is a gnome who sells strawberry ice cream at the Mirage Raceway, in the hottest place I can think of, and treats keeping it frozen as an engineering problem. He told me the melting point to two decimal places.",
+    third = "{name} met Brivelthwerp, the gnome who sells ice cream at the Mirage Raceway.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Oh, a customer, wonderful, please decide quickly! Every time I open the lid I lose roughly two percent of my cold, and I've none to spare." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, which my figures suggest means you liked it! Same again, I hope, since it's the only flavour I have." },
+    { id = "g_away", when = { away = 14 }, text = "{away}! I've sold four hundred and twelve servings since you were last here, and lost nineteen to the sun, which is a record low." },
+  },
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A fellow gnome! Then you'll appreciate the insulation on this crate, which is three layers of my own design, and I'd love your opinion on the hinge." },
+    { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
+      text = "Oh, a mage, an actual mage! I don't suppose you do frost? I ask everyone in a robe, and I do apologise, but the need is rather pressing." },
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "You cook, I can tell by the burn on your thumb. Please don't ask me for the recipe, because it isn't mine to give, and I'm dreadful at refusing people." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Brivelthwerp, ice cream, pleased to meet you! Tigule and Foror's Strawberry, the genuine article, kept at precisely the right temperature in the worst possible place to keep anything cold." },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "Brivelthwerp, and what a relief to see a gnome who isn't covered in axle grease! I came out to cheer for Fizzle's team, and then I noticed a few hundred overheated spectators and no dessert whatsoever." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "Brivelthwerp, ice cream vendor, and you're a mage, so I'm going to be very polite to you. One small frost spell on this crate would save me about an hour of shovelling, should you feel inclined." },
+      },
+      again = {
+        { id = "h_again", text = "Yes, what else? Quickly, the lid's ajar!" },
+        { id = "h_again2", text = "Do go on, I'm only checking the temperature." },
+        { id = "h_again3", text = "Hm? Oh, yes?" },
+      },
+      choices = {
+        { text = "I'll have some ice cream.", next = "BUSINESS" },
+        { text = "How do you keep ice cream frozen out here?", next = "frozen" },
+        { text = "Why sell ice cream in a desert?", next = "why" },
+        { text = "You only sell the one flavour.", next = "flavour" },
+        { text = "Who buys the most?", next = "buys" },
+        { text = "I could frost that crate for you.", next = "frost", when = { class = "MAGE" } },
+        { text = "Your hinge is letting the cold out.", next = "hinge", when = { any = { { race = "Gnome" }, { profession = "Engineering" } } } },
+        { text = "Stay cool, Brivelthwerp.", next = "END" },
+      },
+    },
+    frozen = {
+      lines = {
+        { id = "frozen_d", text = "With salt, which is the one thing this desert gives away free! Ice packed in salt gets colder than ice alone, you see, by a good many degrees, and I am standing on more salt than anyone could use in a lifetime." },
+      },
+      choices = {
+        { text = "And where does the ice come from?", next = "frozen_ice" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frozen_ice = {
+      lines = {
+        { id = "frozen_ice_d", text = "Ah, well, that is the weak point in the system. There's a mage here, Magus Tirth, who sells chickens of all things, and he'll conjure me a block each morning if I catch him before the first race and after his first complaint." },
+      },
+      choices = {
+        { text = "What does he charge you?", next = "frozen_tirth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frozen_tirth = {
+      lines = {
+        { id = "frozen_tirth_d", text = "A serving a day and my silence on the subject of how his wagers are going, which is badly, by my arithmetic. I keep a tally of the heats out of habit, and he asked me very firmly to stop showing it to him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_d", text = "Because nobody else had thought of it, and I calculated that demand would rise with every degree! I was right about the demand, and I simply underestimated the degrees, by quite a lot." },
+      },
+      choices = {
+        { text = "Do you regret coming?", next = "why_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_regret = {
+      big = true,
+      lines = {
+        { id = "why_regret_d", text = "Not once! Do you know, a goblin mechanic and one of Fizzle's own pit crew stood right here yesterday, eating out of the same tub because I'd run short of spoons, and neither of them said a single rude word for four whole minutes." },
+      },
+      choices = {
+        { text = "Then you're doing more good here than the race.", next = "BACK", reply = "Oh! I hadn't put it so grandly, but I think I shall, privately. Four minutes is a start, isn't it?", fx = { align = { light = 1 } } },
+        { text = "Four minutes. Then they went back to hating each other.", next = "BACK", reply = "Well, yes, they did, there was a spanner thrown by teatime. I'm still counting the four minutes.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flavour = {
+      lines = {
+        { id = "flavour_d", text = "Strawberry, yes, because that's what Tigule and Foror make, and I wouldn't dream of putting their name on anything else. I've had ideas for others, mind you, and a notebook full of them, but an idea won't keep in this heat any better than cream does." },
+      },
+      choices = {
+        { text = "What's in the notebook?", next = "flavour_book" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flavour_book = {
+      lines = {
+        { id = "flavour_book_d", text = "Forty-one flavours, ranked by feasibility! Number one is plain cream with a pinch of the Flats' own salt, which sounds dreadful and tasted marvellous, the single time I got it to set before it melted." },
+      },
+      choices = {
+        { text = "Salted cream? I'd try it.", next = "BACK", reply = "You would? That's two of us, then, which I'm recording as a doubling of the market.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buys = {
+      lines = {
+        { id = "buys_d", text = "The goblins, by volume, though they'd deny it in front of the gnomes. Trackmaster Zherin buys one every day at noon and eats it without a word, and I have never once seen a tauren look so content." },
+      },
+      choices = {
+        { text = "And Fizzle and Pozzik?", next = "buys_bosses" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buys_bosses = {
+      lines = {
+        { id = "buys_bosses_d", text = "Fizzle forgets to eat altogether when there's a car in pieces, so I leave one on his workbench and collect the empty tub. Pozzik sends someone, and insists it's for a visiting investor, every single day." },
+      },
+      choices = {
+        { text = "That's a great many investors.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frost = {
+      narr = "He has the lid off and is standing well back before you have finished the sentence.",
+      lines = {
+        { id = "frost_d", text = "Oh, would you? Not too hard, please, I only need it down by about ten degrees, and the last volunteer froze the hinges shut and I had to sell lukewarm promises until sundown." },
+      },
+      choices = {
+        { text = "Ten degrees, and no frozen hinges.", next = "BACK", reply = "Perfect, oh, that's perfect! You've a very steady hand, and I shall think of you all afternoon.", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hinge = {
+      lines = {
+        { id = "hinge_d", text = "I knew it, I knew it was the hinge! I measured a loss on that side and blamed the afternoon sun, when it's the gasket not seating. Thank you, that's the most useful thing anyone's said to me since I arrived." },
+      },
+      choices = {
+        { text = "A strip of oiled leather will seal it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mirage_raceway = { { id = "tp_race", text = "I do cheer for the gnomish car, naturally, though quietly. Half my customers are goblins, and the cheering costs me sales at a measurable rate." } },
+    background = { { id = "tp_bg", text = "I came to watch a race and saw a market. I'm told that's a very goblin thing to have done, and I've decided not to mind." } },
+    advice = { { id = "tp_ad", text = "Eat it quickly! I mean that as a matter of physics and not of manners." } },
+    _none = { { id = "tp_none", text = "Oh, I couldn't say, I'm afraid. I really only know about temperatures, and strawberries, in that order." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Magus Tirth: human mage selling chickens at the Mirage Raceway. Classic: mage quests Get the Scoop / Rituals of Power.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tirth", id = TODO_NPC("Magus Tirth"), name = "Magus Tirth",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "mirage_raceway" }, temper = { "pompous", "irritable" }, values = { "learning", "pride" },
+  notices = { "arcane", "class", "purse" },
+  impression = {
+    first = "Magus Tirth is a human mage who sells chickens at the Mirage Raceway, and who wishes it understood that he was once the author of a serious work on ritual magic. He has lost a good deal at the races and is certain the next heat will mend it.",
+    third = "{name} met Magus Tirth, a mage reduced to selling chickens at the Mirage Raceway.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Yes, yes, I sell chickens, and before you ask, I am also a magus of some standing. The two facts are connected by a run of very poor luck." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. If you have come about a chicken, they are there, and if you have come to ask how the races are treating me, kindly do not." },
+    { id = "g_away", when = { away = 14 }, text = "{away}, is it? I have been here every day of it, in this heat, in these robes, with these birds." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "Ah, a student of the art, and one who has kept at their studies, by the look of that focus. It is a relief to be looked at by somebody who knows what a magus is." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "A warlock. I have written on the dangers of your sort of summoning, at length, and I notice you are all still doing it." },
+    { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
+      text = "That is a heavy purse to carry about a racetrack. Keep it away from the betting stand, I say, and I say it as a man who knows precisely where the stand is." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Magus Tirth. I offer fine Ancona chickens, healthy and well kept, to discerning buyers, and I will thank you not to remark on how a mage came to be offering them." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "I am Magus Tirth, and you will have heard the name if your masters taught you properly. I wrote Rituals of Power, which is still the soundest work on the subject, whatever is said of its author now." },
+        { id = "h_scoop", tags = { "news" }, when = { questActive = TODO_QUEST("Get the Scoop") }, text = "Tabetha sent you for my book? Then I have an awkward thing to tell you, and I would be obliged if you kept your voice down while I do." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something further?" },
+        { id = "h_again2", text = "Go on, if you must. The heat is not improving my patience." },
+        { id = "h_again3", text = "Well?" },
+      },
+      choices = {
+        { text = "Show me your chickens.", next = "BUSINESS" },
+        { text = "How does a magus come to sell chickens?", next = "how" },
+        { text = "Where is your copy of Rituals of Power?", next = "book", when = { any = { { questActive = TODO_QUEST("Get the Scoop") }, { questActive = TODO_QUEST("Rituals of Power") } } } },
+        { text = "Tell me about Rituals of Power.", next = "wrote", when = { class = "MAGE" } },
+        { text = "You have the look of a man who bets.", next = "bets" },
+        { text = "Why Ancona chickens, of all things?", next = "ancona" },
+        { text = "What do you make of the gnomes' and goblins' machines?", next = "machines" },
+        { text = "Good day, Magus.", next = "END" },
+      },
+    },
+    how = {
+      lines = {
+        { id = "how_d", text = "By degrees, as with most descents. I came to observe these rocket cars out of scholarly interest, I placed one small wager to make the afternoon pass, and I have been making the afternoon pass at some expense ever since." },
+      },
+      choices = {
+        { text = "And the chickens pay your debts?", next = "how_debts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    how_debts = {
+      lines = {
+        { id = "how_debts_d", text = "The chickens pay for my supper. The debts are another matter, and I conjure ice for a gnome and water for the pit crews to keep the more impatient of my creditors civil." },
+      },
+      choices = {
+        { text = "That is honest work, at least.", next = "BACK", reply = "It is menial work. I shall allow that it is honest, since very little else about my situation is flattering.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    book = {
+      big = true,
+      narr = "He glances toward the betting stand and lowers his voice.",
+      lines = {
+        { id = "book_d", text = "I no longer have one. I sold my last copy to settle a wager, and the buyer wore the red of the Scarlet Crusade, so I should think it sits in their monastery's library in Tirisfal with the rest of what they have hoarded." },
+      },
+      choices = {
+        { text = "You sold your own book for a bet?", next = "book_shame" },
+        { text = "Then I'll fetch it from the Scarlet Monastery.", next = "BACK", reply = "You will find them poor hosts. The library is theirs, and the book is mine, whatever I was paid, so take it with my blessing.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    book_shame = {
+      lines = {
+        { id = "book_shame_d", text = "For a certainty, as it was put to me at the time. The goblin car had a new engine and could not lose, and I learned that afternoon how thoroughly a new engine can explode." },
+      },
+      choices = {
+        { text = "A scholar's work should never be staked on a race.", next = "BACK", reply = "No, it should not. You are quite right, and I have told myself so every morning since.", fx = { align = { honor = 1 } } },
+        { text = "A book is only paper. The debt was real.", next = "BACK", reply = "That is what I said to myself as I handed it over. It has sounded thinner each day.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrote = {
+      lines = {
+        { id = "wrote_d", text = "It concerns the preparation of ritual: the circle, the reagents, the order of the words, and why a careless magus is a brief one. I wrote it for apprentices, in the hope they would read it before they tried anything." },
+      },
+      choices = {
+        { text = "Did your own apprentice read it?", next = "wrote_plucky" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrote_plucky = {
+      lines = {
+        { id = "wrote_plucky_d", text = "Johnson? He read the first chapter and thought himself finished. You will find a chicken they call \"Plucky\" wandering the Flats, and should it ever stand up on two legs and speak to you, you may give it my regards and tell it the spell will hold." },
+      },
+      choices = {
+        { text = "You turned your apprentice into a chicken.", next = "BACK", reply = "I decline to discuss the particulars. I shall say only that it was instructive, and that he was warned.", fx = { trait = { stern = 1 } } },
+        { text = "I think I'd rather not know.", next = "BACK", reply = "A wise policy, and one I recommend to more people.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bets = {
+      lines = {
+        { id = "bets_d", text = "I wager, which is a different thing, for I apply method to it. I have charted every heat since I arrived, and the figures show plainly that the goblin car is due." },
+      },
+      choices = {
+        { text = "It was due last time as well, I'd guess.", next = "bets_due" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bets_due = {
+      lines = {
+        { id = "bets_due_d", text = "It has been due for some weeks, yes, which only makes it more so. The ice cream gnome keeps a tally of his own and waves it at me, and I have had to ask him to stop." },
+      },
+      choices = {
+        { text = "The gnome's tally may be the better one.", next = "BACK", reply = "It may. I do not look at it, on principle.", fx = { trait = { honest = 1 } } },
+        { text = "Then put it all on the goblins, Magus.", next = "BACK", reply = "I intend to, the moment I have anything left to put.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ancona = {
+      lines = {
+        { id = "ancona_d", text = "They are a hardy, handsome bird, and they bear the heat better than I do. I have, besides, some professional experience of chickens, which I did not expect to turn to account." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    machines = {
+      lines = {
+        { id = "machines_d", text = "They are crude, deafening, and fascinating, and I say so reluctantly. A fire elemental does in a breath what those engines do with a barrel of fuel, but nobody has yet persuaded an elemental to go in a straight line for a prize." },
+      },
+      choices = {
+        { text = "Have you tried?", next = "BACK", reply = "Once, privately, behind the gnomish pits. I replaced the tent, and we do not speak of it.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mirage_raceway = { { id = "tp_race", text = "It is a monument to noise and a sink for coin, and I have not missed a heat since I arrived. Draw what conclusion you like." } },
+    scarlet_crusade = { { id = "tp_scar", text = "Zealots, but zealots who pay promptly and collect books. I knew one of them for the length of one transaction, and that was sufficient." } },
+    background = { { id = "tp_bg", text = "I am a magus and an author. The chickens are a temporary arrangement, and have been for some while." } },
+    advice = { { id = "tp_ad", text = "Never wager anything you would be ashamed to describe losing. I offer that at no charge, having paid for it in full myself." } },
+    _none = { { id = "tp_none", text = "That lies outside my field, and my field has narrowed lately to ritual magic and poultry." } },
+  },
+}
