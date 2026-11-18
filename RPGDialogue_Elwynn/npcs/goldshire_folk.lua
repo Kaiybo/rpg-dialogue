@@ -26,6 +26,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_hogger = {
+      lines = {
+        { id = "dd_hogger_a", text = "I'd heard as much, and I'll tell you true, half the hunters who've drunk here this year went after that gnoll and came back on a cart. What was he like, up close?" },
+      },
+      choices = {
+        { text = "Big, mean and smarter than a gnoll should be.", next = "dd_hogger_2" },
+        { text = "He went down like any other beast. The stories were overblown.", next = "dd_hogger_2", fx = { align = { honor = -1 } } },
+        { text = "I had help. The credit belongs to everyone who fought.", next = "dd_hogger_2", fx = { align = { honor = 1 } } },
+      },
+    },
+    dd_hogger_2 = {
+      lines = {
+        { id = "dd_hogger_2a", text = "Well, however it went, the farmers south of town can bring their sheep in without a guard now, and that's worth more than a story. I'll be telling yours for a month, mind, and it'll get bigger every time." },
+      },
+      choices = { { text = "Tell it well, then. Something else.", next = "BACK" } },
+    },
+
     xpt_dobbins = {
       big = true,
       lines = { { id = "xpt_dobbins_default", text = "Same as keeping a tavern together, friend: pour the first round yourself, and never ask anyone how the last job went until they've finished their drink. The companies that last are the ones that know when to stop talking about the dead." } },
@@ -120,6 +137,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger", tags = { "news" }, when = { killed = { name = "Hogger" } },
+          text = "Farley's been telling the bar all night that Hogger's dead, and for once I've seen the proof, because Dughan pinned a great grey claw to his board. You'll not pay full price for your talk at this bar tonight, friend, only for the drink." },
+        { id = "dd_necklace", when = { questDone = TODO_QUEST("Lost Necklace") },
+          text = "Auntie Bernice was in to say she has her necklace back and Billy Maclure didn't steal it after all. She didn't say sorry to the boy, mind, but she did buy him a pie, which is the Stonefield way of saying it." },
+
         { id = "h_pt_dobbins", tags = { "news" }, when = { party = true },
           text = "A table for the lot of you, then? Sit where you like, but I'd keep away from the corner by the stairs, because the folk who sit there tend to be the sort who leave without paying." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want water, I'd guess, or a quiet corner, and we've one of each, though the corner's damp." },
@@ -146,6 +168,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, lean on the bar, only not that end, because it wobbles." },
       },
       choices = {
+        { text = "I'm the one who put Hogger down, Dobbins.", next = "dd_hogger", when = { killed = { name = "Hogger" } } },
+
         { text = "What do you think of druids?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You must hear all the news behind this bar.", next = "news" },
         { text = "What's good to drink?", next = "drinks" },

@@ -325,6 +325,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_queen", when = { questDone = TODO_QUEST("The Cirrusfly Queen") },
+          text = "Elatrell says you took down the cirrusfly queen in the grove. Good riddance; her children ate clean through my best bedroll last spring, and I've been sleeping on a cloak ever since." },
+        { id = "h_dd_grown", when = { metBefore = true, levelsSince = 5 },
+          text = "Look at you! You've grown since we last spoke; you walk like somebody who's slept under the open sky and woken up glad of it." },
         { id = "h_default", key = true, text = "Raan Wildwind, at your service. You've got that itch in your boots, I can tell, the one that sends a body out past the last village looking for gold and a good story. If you mean to live long enough to find either, you'll need to know how to look after yourself in the wilds, and I can show you." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
           text = "Well met! More and more of you young ones are leaving the grove to seek your fortunes, and somebody has to show you how to sleep outdoors without waking up in a cirrusfly nest." },

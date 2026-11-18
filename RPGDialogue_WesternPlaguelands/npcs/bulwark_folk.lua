@@ -129,13 +129,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_scarlet = {
+      lines = {
+        { id = "dd_scarlet_1",
+          text = "Clearer, yes, though the Crusade grows back like thistle after a burn. The ones you cut down will be mourned in their chapel, and the ones who mourn them will be angrier when I come walking up their road." },
+        { id = "dd_scarlet_2",
+          text = "I do not say this to blame you. The Earth Mother asks us to weigh what we take from the land, that is all, and I would know how you weigh it." },
+      },
+      choices = {
+        { text = "They hunt everyone not like them. I weigh nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Heavily. I fought because they gave me no choice.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Bardu.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 25 } },
+          text = "The wind from Hearthglen carries fewer red banners than it did, and the grunts at the gate say that was your doing. You have made my road a little shorter, little one, and I thank you." },
         { id = "h_default", key = true,
           text = "Bardu Sharpeye, of the tauren tribes. I've heard that before the Scarlet Crusade lost their minds, they kept a mage who made bows and guns finer than any I've seen, and that they killed him before his work could leave Hearthglen." },
       },
       again = { { id = "h_again", text = "Something more? I have a little time yet." } },
       choices = {
+        { text = "The road to Hearthglen should be clearer now.", next = "dd_scarlet", when = { killed = { name = "Scarlet", min = 25 } } },
         { text = "Why does a tauren care about Scarlet weapons?", next = "why" },
         { text = "How do the Forsaken treat you here?", next = "forsaken" },
         { text = "Do you miss Mulgore?", next = "mulgore" },

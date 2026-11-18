@@ -36,6 +36,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_reapers", when = { killed = { name = "Reaper", min = 20 } },
+          text = "Benjy Wheeler came by for timber to mend his fence and said you'd been smashing the reapers in his fields. Curly wants to go and watch next time, which is exactly why I'm not telling him when." },
         { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Halligan Turner and keep my partner Curly from getting himself killed, and the trees are the easy part." },
         { id = "h_helping", tags = { "news" }, when = { questActive = TODO_QUEST("Helping Hands") },
           text = "Come on, come on. Curly's in trouble out there and we haven't much time." },

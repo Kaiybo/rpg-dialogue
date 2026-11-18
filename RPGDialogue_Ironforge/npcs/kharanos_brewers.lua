@@ -384,6 +384,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_oz_leper = {
+      lines = {
+        { id = "dd_oz_leper1", text = "I know, and I know you had to, because they're past reasoning with while the sickness is in them. That's exactly why Razzle and I work through the night on the Recombobulator, so one day nobody will have to choose between their own skin and a sick neighbour's." },
+      },
+      choices = {
+        { text = "I'll help with the cure, then, not just the killing.", next = "BACK", reply = "Oh, wonderful! Every helper raises our odds by at least four percent, and I've done the sums.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're past saving. Mercy is a quick blade.", next = "BACK", reply = "I hope you're wrong. I'll keep working as if you are, if that's all right with you.", fx = { align = { light = -1 } } },
+        { text = "Something else, Ozzie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -396,12 +406,15 @@ P:NPC {
           text = "The Gnogaine works! Well, it works on the fallout, it turns bright purple, which is either very good or very bad, and I'm leaning towards good." },
         { id = "h_glow", when = { questActive = TODO_QUEST("The Only Cure is More Green Glow") },
           text = "Yes, more fallout, I know, I know. The only cure is more green glow, which Razzle says is a terrible slogan, but I've had it painted on the shed anyway." },
+        { id = "dd_leper", when = { killed = { name = "Leper Gnome", min = 30 } },
+          text = "You've been fighting the leper gnomes outside Gnomeregan, I can tell; you've got that greenish sort of grime on your boots. I don't blame you, they'll bite, but please remember they were gnomes like me once, and they still might be again." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I tighten, I can do both." },
         { id = "h_again2", text = "Ask, ask, the gearbox can wait. No, it can't. Ask anyway." },
       },
       choices = {
+        { text = "I've had to kill a lot of leper gnomes, Ozzie.", next = "dd_oz_leper", when = { killed = { name = "Leper Gnome", min = 30 } } },
         { text = "What exactly is Gnogaine?", next = "gnogaine" },
         { text = "What happened in Gnomeregan?", next = "gnomeregan" },
         { text = "How do you and Razzle work together?", next = "razzle" },

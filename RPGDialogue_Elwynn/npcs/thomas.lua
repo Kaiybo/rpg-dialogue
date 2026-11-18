@@ -29,6 +29,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_murloc_t = {
+      lines = {
+        { id = "dd_murloc_t_a", text = "Thinner, aye, but not gone, and they never are. They took Rolf and his men out there, and every one you put down is one less that'll do it to the next patrol." },
+      },
+      choices = {
+        { text = "Then I'll keep at it until the lake is clean.", next = "dd_murloc_t2", fx = { align = { order = 1 } } },
+        { text = "They were there first. We should leave them to their lake.", next = "dd_murloc_t2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_murloc_t2 = {
+      lines = {
+        { id = "dd_murloc_t2a", text = "That's a fine thought, but tell it to the farmers whose nets they cut. Either way, the guards at the bridge sleep a little better for what you did, and so do I." },
+      },
+      choices = { { text = "Glad to hear it. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I sent two of them north along the river, and they never came back, so I'll take any help, even from spirits." } },
@@ -106,6 +122,13 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_murlocs", when = { killed = { name = "Murloc", min = 30 } },
+          text = "The fishermen at Stone Cairn Lake say the murlocs have pulled back from the shore, and they say a stranger did it. I'd like to buy that stranger a drink, and I think I'm looking at them." },
+        { id = "dd_linen", when = { questDone = TODO_QUEST("Red Linen Goods") },
+          text = "Sara Timberlain tells me you got her red linen back off the Defias. That's one less thing for her to shout at me about, so I'm grateful twice over." },
+        { id = "dd_deaths_t", when = { deaths = { min = 10 } },
+          text = "You've been carried off the field more than a few times by the look of you, friend. A soldier learns to pick fights, so pick yours better and I'll not have to write any letters." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I've two men missing, and I've a feeling I'll need someone to say words before this is over." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my bridge! Marshal Dughan said he'd send help, and I'd stopped believing him, so I'm glad to be wrong." },
         { id = "h_default", text = "Guard Thomas, of the Stormwind Army. I hold this bridge, and east of here the forest stops being friendly." },
@@ -145,6 +168,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, though I'll be watching the treeline while you talk." },
       },
       choices = {
+        { text = "The murlocs at Stone Cairn Lake are thinner now.", next = "dd_murloc_t", when = { killed = { name = "Murloc", min = 30 } } },
+
         { text = "What happened to your men?", next = "men", when = { questDone = TODO_QUEST("Find the Lost Guards") } },
         { text = "What's out east?", next = "east" },
         { text = "Is anything else troubling this stretch of the forest?", next = "murlocs" },

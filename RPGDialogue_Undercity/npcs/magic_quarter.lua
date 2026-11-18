@@ -428,10 +428,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_dalaran = {
+      lines = { { id = "dd_dalaran_default", text = "Pleased is a small word for it. They shut their gates while the plague took the rest of us, and now they send children in violet robes to poke about in Silverpine as though nothing happened, so every one you drop is a debt Dalaran finally pays." } },
+      choices = {
+        { text = "They'll keep paying until their walls come down.", next = "BACK", reply = "Now that is a sentence I'd like engraved somewhere. Go on, then, and bring me back a robe or two.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Most of them were apprentices. They didn't close those gates.", next = "BACK", reply = "They live behind them, and that's close enough for me. You'll lose that tenderness in a year or two, I promise.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kaelystia Hatebringer, trainer of mages, and before you ask, yes, I chose the name myself. I teach the Dark Lady's sorcerers to burn and freeze her enemies, and I'm told I'm thorough about it." },
         { id = "h_dalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "A Dalaran apprentice, once, by the way you hold your hands. Then you know what they did to us, and you'll understand why I teach with such enthusiasm." },
+        { id = "h_dd_dalaran", tags = { "news" }, when = { killed = { name = "Dalaran", min = 30 } },
+          text = "You've been cutting down Dalaran's precious apprentices in the forests, I'm told, and doing it with some flair. Come in, sit, and tell me which of them screamed the loudest." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief; brevity is the soul of spellcraft." },
@@ -446,6 +457,7 @@ P:NPC {
         { text = "What became of Dalaran, then?", next = "dome" },
         { text = "Darkspear magic comes from the loa, not from books.", next = "troll", when = { race = "Troll" } },
         { text = "I'll go.", next = "END" },
+        { text = "Dalaran's mages are dying out there, Kaelystia. Pleased?", next = "dd_dalaran", when = { killed = { name = "Dalaran", min = 30 } } },
       },
     },
     hate = {

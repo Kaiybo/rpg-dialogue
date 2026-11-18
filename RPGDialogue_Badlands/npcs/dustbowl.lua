@@ -124,6 +124,16 @@ P:NPC {
         { text = "Grass sounds good. I hope you find some.", next = "BACK" },
       },
     },
+    dd_ry_trogg = {
+      lines = {
+        { id = "dd_ry_trogg1", text = "Thinnin', aye, but there's more o' them down below than ye'd believe. They came up out o' the deep halls the same week we broke through, an' I've wondered ever since if we woke them, or if they were waitin' for somebody tae open the door." },
+      },
+      choices = {
+        { text = "Some doors should stay shut, Ryedol.", next = "BACK", reply = "Maybe. But the League never met a door it didnae want tae open, an' I'm League tae the bone.", fx = { align = { order = 1 } } },
+        { text = "Then we keep digging and kill whatever comes up.", next = "BACK", reply = "That's the spirit, an' that's Hammertoe talkin' through ye, I swear it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" }, faction = "Alliance" },
@@ -147,9 +157,12 @@ P:NPC {
         { id = "h_hope", when = { any = { { questActive = TODO_QUEST("A Sign of Hope") }, { questActive = TODO_QUEST("Prospect of Faith") } } },
           text = "These are Hammertoe's notes; he found somethin' before the end, an' he thought it was Uldaman. Take them tae Ironforge, where somebody will know what they mean." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, is it? The League's scholars say our forefathers were shaped from the stone, so maybe it's no wonder some of us hear it talk back." },
+        { id = "dd_stonevault", when = { killed = { name = "Stonevault", min = 40 } },
+          text = "Ye've been at the Stonevault troggs round the dig, an' plenty o' them by the look o' ye. They chased us out o' Uldaman's front door, so every one ye drop is a step back toward it." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', for there's not much else tae do out here but listen an' dig." } },
       choices = {
+        { text = "The Stonevault troggs are thinning out, Ryedol.", next = "dd_ry_trogg", when = { killed = { name = "Stonevault", min = 40 } } },
         { text = "Was this land always so barren, Prospector?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What were you digging for out here?", next = "uldaman" },
         { text = "Tell me about Hammertoe.", next = "hammertoe" },

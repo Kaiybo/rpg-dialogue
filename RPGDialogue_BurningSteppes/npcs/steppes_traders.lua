@@ -33,6 +33,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Felder Stover. I keep the Vigil's blades sharp and its armor in one piece, which up here is a full day's work every day. The ash gets into everything, joints and rivets and hinges, so if your weapon grinds, that's why, and it's not my fault." },
+        { id = "dd_firegut", when = { questDone = TODO_QUEST("Extinguish the Firegut") },
+          text = "Oralius says you broke up the Firegut camp for him. Ogre clubs are what dented half the shields on my rack, so I've you to thank for a few quiet days at the anvil." },
       },
       again = {
         { id = "h_again", text = "Something else? The forge is getting cold." },
@@ -133,6 +135,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Gruna. I bake bread at Flame Crest for whoever comes through, grunts and goblins and riders and lost fools alike. The ground here is so hot I hardly need a fire, which is the only kind thing I'll ever say about these Steppes." },
+        { id = "dd_deaths", when = { deaths = { min = 10 } },
+          text = "You again, and still alive, or alive again, I can never tell with you. Eat something, because the spirit healer doesn't bake, and you look like you've been to see her often." },
       },
       again = {
         { id = "h_again", text = "Something else? The bread won't watch itself." },

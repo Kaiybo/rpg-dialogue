@@ -34,6 +34,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_shredders", when = { questDone = TODO_QUEST("Shredding Machines") },
+          text = "Seereth says you broke the Venture Company's shredders in Windshear Crag. I felt it, I think, as a kind of easing in the stone, the way a body eases when a splinter is pulled out." },
         { id = "h_default", key = true,
           text = "I am Mor'rogal, and I listen to the earth for Sun Rock. Something is amiss beneath these mountains, and the kobolds of Boulderslide Ravine are at the heart of it, digging toward something I fear may be one of the earthen." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Boulderslide Ravine") },

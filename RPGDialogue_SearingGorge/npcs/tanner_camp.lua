@@ -43,6 +43,8 @@ P:NPC {
           text = "You're a leatherworker, but not ready for this yet, I think. Come back when your hands know the ordinary leather by heart." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "I don't mind your colours, and the Gorge doesn't either. Fire burns orc and human just the same." },
+        { id = "dd_elementals", when = { killed = { name = { "Magma Elemental", "Inferno Elemental", "Blazing Elemental" }, min = 20 } },
+          text = "You carry the smell of the Gorge's fire spirits on you; you've broken a good many of them. Their heat leaves a mark on a hunter the same way it does on a hide, and yours is plain to me." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I'm only scraping, and scraping can wait." },

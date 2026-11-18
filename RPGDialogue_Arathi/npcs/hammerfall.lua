@@ -181,6 +181,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Doomhammer fell not far from here, and the beasts in the hills watched it, I think, though nobody asks a raptor what it saw." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Your people were hunted by centaur before Thrall found you, I've heard, so you know what it is to be chained to fear." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead thing carrying the Light, like the knights who rode past this camp when I was in chains. I thought I had seen everything there was to see, and I was wrong, which is the first thing to surprise me in years." },
+        { id = "h_dd_arms", when = { questDone = TODO_QUEST("Call to Arms") },
+          text = "Drum Fel tells everyone you answered his call to arms and came back with Witherbark blood to the elbow. Good; the spirits I'm raising here have less to be angry about." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, then, for all the good it will do." },
@@ -579,6 +581,8 @@ P:NPC {
           text = "Keep your voice down, {class}. The auguries speak of a knife in the dark, and I would sooner it were yours than the Witherbark's." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The stones spoke of tracks in the ruins of Stromgarde last night, and I wonder now if they meant yours." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The auguries never spoke of you, which troubles me more than anything they did say, because I thought I had seen every shape the future could take." },
+        { id = "h_dd_syndicate", when = { killed = { name = "Syndicate", min = 30 } },
+          text = "The bones speak of a great many Syndicate deaths, and they speak your name beside them. Whatever those humans were calling up at Northfold, they have fewer hands to call with now." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your voice down." },
@@ -775,6 +779,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Climb on with your armour if you must, but the winds off Thoradin's Wall don't care how brave you are, and they've tipped heavier riders than you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You could fly yourself if you wanted, I've heard, but I'll take your coin all the same." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders shy away from most of your people, but they let you near, and I've learned to trust their noses more than my own eyes." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell from somewhere high, {class}, and you've the bruised look of it. The Highland cliffs are cruel to anyone without wings, so next time let my wind riders carry you down." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wind's turning." },

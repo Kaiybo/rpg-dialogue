@@ -118,6 +118,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_souls", when = { questDone = TODO_QUEST("The Restless Souls") },
+          text = "I hear Egan's little device has set some of Stratholme's lost ones free, and that you carried it into the city. My people lived and died in those streets, so you have my thanks, quietly given." },
         { id = "o_scmercy", tags = { "news" }, when = { opinion = { topic = "scarlet_crusade", stance = "mercy" } }, text = "I'm told you'd rather reason with the Crusade than break it. My son wears their colours in Hearthglen, so I hope with all my heart that you're right." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" } },
           text = "You travel with {companion}, and they carry themselves like one of the Silver Hand, though I'd guess they never knew Uther. I was one of the first to take that oath, and I've been out here long enough to wonder whether the order still remembers my name." },
@@ -459,6 +461,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { faction = "Horde", honorKills = { min = 250 } },
+          text = "My rangers tell me you've been bleeding the Alliance in their own valleys. Good, because every human you put in the ground is one fewer who'll ever set foot on my family's land." },
         { id = "o_sydistrust", tags = { "news" }, when = { opinion = { topic = "sylvanas", stance = { "distrust", "doubt" } } }, text = "Word reaches even Marris Stead, and word is you doubt the Dark Lady. Say it to my face, if you'd like to learn how the rangers of Quel'Thalas settled such things." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for the ones not rotten through are hollow and full of something worse." },

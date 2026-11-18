@@ -108,6 +108,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_murkeye_gryan", when = { questDone = TODO_QUEST("The Coastal Menace") },
+          text = "Captain Grayson's light burns a little steadier, they tell me, now that Old Murk-Eye is gone from the shore. I don't pretend to understand a ghost keeping a lighthouse, but I understand a coast made safe, and that's your work." },
+        { id = "dd_bandanas_gryan", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
+          text = "Scout Galiaan brought me a sack of red bandanas with your name tied to it. Every one of those is a man who won't stand in front of a farmhouse with a torch again, and I've not forgotten it." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "You've the look of {alt}, a {altclass} who stood with the People's Militia on this hill when we had precious few to stand. If that's kin of yours, then Westfall already owes your family something." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",

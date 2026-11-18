@@ -41,6 +41,7 @@ P:NPC {
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Leaders of the Fang"), days = 3 } },
           text = "You did it, {name}. My dreams are free of their faces, and you've helped save the Barrens from a cursed future, so I thank you for myself, for the druids of Thunder Bluff, and for the land." },
         { id = "h_cleared", tags = { "news" }, when = { cleared = "Wailing Caverns" }, text = "You've been to the depths of the Wailing Caverns. Did you see Naralex? Did he look peaceful, or was he still trapped in the dream?" },
+        { id = "h_dd_serpent", tags = { "news" }, when = { questDone = TODO_QUEST("Serpentbloom") }, text = "Apothecary Zamah told me you brought her serpentbloom out of the caverns, which means you've walked through the place in my dreams. I hope you came out with your sleep unspoiled, because not everyone does." },
       },
       again = {
         { id = "h_again", text = "What else? I'm awake, at least, and the sun's still up." },

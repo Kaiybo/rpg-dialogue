@@ -470,6 +470,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_crystals", when = { questDone = TODO_QUEST("Draenethyst Crystals") },
+          text = "Magtoor holds the crystals you brought him as though they were warm, and he hums when he thinks nobody is listening. My hands remember that song, though my head does not, so I thank you for letting me hear it." },
         { id = "h_default", key = true,
           text = "Masat T'andr. I work leather, and I sell patterns to those who can follow them. The swamp gives good hides, if you can bear the smell of curing them, and the dragonkin near the temple give better ones." },
         { id = "h_lw", when = { profession = { name = "Leatherworking", min = 200 } },

@@ -109,6 +109,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be wanting to teleport home instead of using my gryphons, I suppose. That's fine, but don't come crying to me when you land somewhere damp." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the birds if you like, because they've earned it, flyin' through this rain day in and day out without one word o' complaint, unlike me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. If ye can talk the marsh out o' bein' damp, the Lady's gryphons will build ye a statue, an' so will I." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've taken a long drop somewhere and come back from it, I can tell by the way you're eyeing my gryphons' saddles. These birds don't let go of a rider who holds on, so you'll be safer up there than you were wherever you fell." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I saddle one for ye?" },
@@ -336,6 +337,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen! You can stay, but if that imp of yours puts so much as a claw in my soup pot, I'll ladle him straight back to wherever he came from." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mudrock", min = 30 } }, text = "You've been thinning out the Mudrock tortoises, I can tell, because the fishermen say the shore's safe to walk again. If any of those came home in a sack, my soup pot's waiting." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I've cooked turtle for envoys and sailors alike, but never for someone who might thank the turtle." },
+        { id = "h_dd_pagle", when = { questDone = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "I hear you've been fishing with Nat Pagle out on that island of his, and that he actually let you catch something. If you ever bring back more than you can eat, my pot has room for it, and I won't ask how much he drank while you fished." },
       },
       again = {
         { id = "h_again", text = "What else, while it simmers?" },
@@ -555,6 +557,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be frank, I have bandaged too many soldiers who met the wrong end of the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The tower sends me apprentices now and then with burns on their hands from spells gone wrong, and I'd be glad if you weren't the next." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I teach field medicine, and I'd like to see how a shaman's healing compares with a clean bandage." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died more than once, and recently, by the look of your color. I don't treat that sort of thing, but I can tell you the spirit healer is not a substitute for a bandage." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, I've dressings to change." },
@@ -574,7 +577,18 @@ P:NPC {
         { text = "Do mages often come to you hurt, Doctor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is a shaman's healing so different from yours, Doctor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Could the Light do more for the sick than your medicines, Doctor?", next = "xpt_vanhowzen", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
+        { text = "I've died more often than I'd like, Doctor.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Goodbye, Doctor.", next = "END" },
+      },
+    },
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1", text = "Most adventurers say that, and then they go straight back into the Wyrmbog. Each time you return, your body remembers the wound for a while, which is why you come back weak, so give it time and eat something before you walk out of that gate again." },
+      },
+      choices = {
+        { text = "I'll take your advice and be more careful.", next = "BACK", reply = "Good, though I've heard that promise in this tent a hundred times. Prove me wrong, and I'll be delighted.", fx = { align = { order = 1 } } },
+        { text = "Risk is the job, Doctor. I'll keep taking it.", next = "BACK", reply = "Then learn to bandage yourself properly, because nobody else will be there to do it. I'll teach you, if you'll stand still.", fx = { align = { order = -1 } } },
+        { text = "Something else, Doctor.", next = "BACK" },
       },
     },
     triage = {

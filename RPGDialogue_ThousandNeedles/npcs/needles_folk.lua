@@ -27,6 +27,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_falling = {
+      lines = {
+        { id = "dd_fa_default", text = "They are, and the wind makes them worse, pushing at your back when you least expect it. Our people have lived on these heights for a long time, and even we lose someone to the canyon every few seasons. Were you trying to take a shortcut, or did the wind take you?" },
+      },
+      choices = {
+        { text = "A shortcut. The lifts are too slow.", next = "BACK", reply = "Then you're like every young brave who thinks the canyon is a friend. It isn't, so next time, take the lift, or take a wind rider.", fx = { align = { order = -1 } } },
+        { text = "The wind. I'll respect it more now.", next = "BACK", reply = "Good, because the wind deserves respect, and it rewards those who give it. May the Earth Mother catch you next time, if you fall again.", fx = { align = { order = 1 } } },
+        { text = "Something else, Nyse.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They smell death and they see the Light, and they can't decide which to trust. They'll fly you all the same, because the mesas have taught them that strange things often turn out to be friends." } },
@@ -86,6 +96,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You've stepped off the edge of a mesa recently, I can see it in your face. The Needles are tall and the canyon floor is hard, and my wind riders are much gentler than the ground, if you'll let them carry you down." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. My wind riders will carry you, but they don't love the weight of armor, so sit still and don't fight them in the air." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -107,6 +119,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, friend. The riders can wait a little longer." },
       },
       choices = {
+        { text = "I fell off a mesa, Nyse. The edges are treacherous.", next = "dd_falling", when = { deathCause = "falling" } },
         { text = "Do the wind riders mind carrying a druid?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the air spirits watch over the wind riders, Nyse?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Spellcasters seem to make the wind riders uneasy.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
@@ -245,6 +258,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_harpies", when = { killed = { name = "Screeching", min = 20 } },
+          text = "The harpies' screeching has gone quieter in the canyons since you went among them, and my beasts are grateful for it. A wolf who hears harpies all night doesn't sleep, and a wolf who doesn't sleep bites the stablemaster." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. The animals always settle when a warrior comes in, I've noticed, because they can tell you'd stand between them and anything with teeth." },
         { id = "h_default", key = true,

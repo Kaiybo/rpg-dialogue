@@ -35,6 +35,8 @@ P:NPC {
           text = "I sell what ye need an' never what ye want, so the mountaineers like me an' the bairns sulk past my stall. Flasks, rope, thread an' the like, an' all of it priced so ye can afford tae come back." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late for shoppin', friend, but the inn never really closes, so neither do I. What d'ye need?" },
+        { id = "dd_sausages", when = { questDone = TODO_QUEST("Thelsamar Blood Sausages") },
+          text = "Vidra's been wavin' a spoon at me, sayin' ye fetched her sausage fixin's. Her sausages are the best in Loch Modan, an' don't ever tell her I said so." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a crate o' candles that wants movin'." },

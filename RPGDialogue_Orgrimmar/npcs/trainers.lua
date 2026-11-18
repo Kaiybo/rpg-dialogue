@@ -120,6 +120,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_defense", when = { questDone = TODO_QUEST("Path of Defense") },
+          text = "Uzzek sent word from the Barrens that you finished his test and earned your shield. I don't hand out praise, so you'll have to make do with this: you didn't embarrass the Valley of Honor." },
         { id = "h_alt_same", tags = { "news" }, when = { alt = { sameClass = true } },
           text = "I trained a {altclass} called {alt} not long ago, with the same habit you have of dropping the shield arm when tired. Whoever taught the pair of you, they taught you both the same bad lesson." },
         { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true, class = "WARRIOR" } },
@@ -191,6 +193,16 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_echeyakee = {
+      lines = {
+        { id = "dd_ec_default", text = "He was, because he never hunted the same way twice and the grass hid his white coat better than you'd think. Some of the tauren say a beast like that is a spirit of the plains and should be left alone. What do you say to that?" },
+      },
+      choices = {
+        { text = "A spirit or not, he was killing Sergra's hunters.", next = "BACK", reply = "And that's the only argument Sergra needed. A hunter takes the beast that threatens the camp; the spirits can sort out the rest.", fx = { align = { order = 1 } } },
+        { text = "The tauren may be right. I'll honor him in the hunt.", next = "BACK", reply = "Good, because a hunter who honors what he kills hunts longer than one who doesn't. The tauren taught us that, and they were right.", fx = { align = { order = -1 } } },
+        { text = "Something else, Ormak.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Most of us don't think of it at all. The Light came to Durotar on the armour of men who caged orcs, and my students would rather trust their beasts than any glow. You'll have to show them it's yours and not theirs." } },
@@ -290,6 +302,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_echeyakee", tags = { "news" }, when = { killed = { name = "Echeyakee" } },
+          text = "Sergra Darkthorn tells me you took Echeyakee, the white lion of the Barrens, and brought his hide back to the Crossroads. Every hunter in the Horde has tried to track that cat at least once, and most of us came back empty-handed." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. Not my students, but I'll watch you anyway, because I watch everything that moves in this valley." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've no lessons for you, but if a hunter's pet comes back torn, I'd rather send it to you than to anyone in this valley." },
         { id = "h_default", key = true, text = "I'm Ormak Grimshot, and I teach the hunters of the Horde. Durotar is a hard land for game, so a hunter here learns to track things that would rather not be found." },
@@ -301,6 +315,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your companion's a demon, so I won't ask to see it, but I'll ask how you treat it." },
       },
       choices = {
+        { text = "Echeyakee was hard to track, Ormak.", next = "dd_echeyakee", when = { killed = { name = "Echeyakee" } } },
         { text = "Would you really trust a priest with a hunter's pet?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shamans and hunters must see the land differently.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Hunters and druids must want the same things from the wild.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -488,6 +503,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_water", when = { questDone = TODO_QUEST("Call of Water") },
+          text = "Islen Waterseer tells me the water has answered you, and that you went where she sent you without complaint. That pleases me, because water is the hardest of the elements to hear and the slowest to forgive." },
         { id = "h_pt_sham", tags = { "news" }, when = { party = { class = "SHAMAN" } },
           text = "The spirits sit easier around you, and I think it's because you travel with a shaman. {companion} has a steady way about them, so listen when they tell you the land is uneasy, because they'll hear it long before you do." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who wields the Light. The spirits around you are quiet and uneasy, as though they cannot decide what you are. I find I cannot decide either." },

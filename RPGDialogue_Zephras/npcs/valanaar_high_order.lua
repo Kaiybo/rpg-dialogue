@@ -634,8 +634,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: Belathaan Brightwish, avenged for Elaadrin.
+    dd_belathaan = {
+      lines = { { id = "db_default", text = "A little. He bought his robes from me, plain blue-grey and never anything showy, because he said a man going to talk of peace shouldn't look as though he'd come to win. I made the last one he wore, and I've wondered since whether they buried him in it." } },
+      choices = {
+        { text = "He was brave to go. Someone had to try for peace.", next = "BACK", reply = "That's what I tell myself when I pass his empty chair at the hall. It helps, a little.", fx = { align = { light = 1 } } },
+        { text = "Talking to Lorthuna was folly, and he paid for it.", next = "BACK", reply = "Perhaps, but don't say it where the Supreme Magister can hear. He sent him, and he hasn't forgiven himself.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_avenged", tags = { "news" }, when = { questDone = TODO_QUEST("Avenged Tenfold") },
+          text = "The Supreme Magister came by for a new collar yesterday and actually stood still for the fitting, which he hasn't done since Belathaan died. I gather you're the one who answered for him, so thank you." },
         { id = "h_default", key = true, text = "Othesia Evengale, tailor, and yes, this is my house, and yes, I teach here, because a workshop costs windstones I'd rather spend on thread. What can I do for you?" },
       },
       again = {
@@ -643,6 +654,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; my needle can listen." },
       },
       choices = {
+        { text = "Did you know Belathaan Brightwish?", next = "dd_belathaan", when = { questDone = TODO_QUEST("Avenged Tenfold") } },
         { text = "Train me, or show me your thread and dye.", next = "BUSINESS" },
         { text = "What makes Skyborne cloth different?", next = "cloth" },
         { text = "Are you related to the Supreme Magister?", next = "name" },

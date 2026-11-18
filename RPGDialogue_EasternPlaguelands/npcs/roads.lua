@@ -517,8 +517,23 @@ P:NPC {
         { text = "Something else, Smokey.", next = "BACK" },
       },
     },
+    dd_gambit = {
+      lines = {
+        { id = "dd_gambit_1",
+          text = "Jealous? Of a gnome's tin box? Well, maybe a wee bit, aye, for my compounds keep soldiers alive an' nobody writes songs about that." },
+        { id = "dd_gambit_2",
+          text = "Still, whatever came out o' that box cleared a room full o' Barov's dead students, so it's done more good than most things built by gnomes. Don't you tell her I said so, mind." },
+      },
+      choices = {
+        { text = "Your compounds matter more than any gadget, Smokey.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm telling her anyway. She'll love it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_gambit", when = { questDone = TODO_QUEST("Dawn's Gambit") },
+          text = "Betina's been tellin' everyone her wee holy-vapour box worked in the Scholomance, an' that it was you who carried it in. I've heard nothin' else for a week, an' I'm glad for her, though I'd be gladder if she stopped tellin' me." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Ye'll no' like what's in my pots, I'll warn ye now, but every bit o' it keeps the plague off a soldier's boots, an' I'll no' apologise for that." },
         { id = "h_default", key = true,
@@ -543,6 +558,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin o' the Forsaken! Well, that's one fer the books, a dead {g:lad|lass} callin' down the Light, an' I'll no' pretend I'm no' curious, but hold yer smitin' till ye're out o' the workshop." },
       },
       choices = {
+        { text = "You sound jealous of Betina's gadget.", next = "dd_gambit", when = { questDone = TODO_QUEST("Dawn's Gambit") } },
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "That compound smells dreadful.", next = "compound" },
         { text = "I'd guess they call you Smokey for a reason.", next = "name" },
@@ -708,6 +724,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_smokey", when = { questDone = TODO_QUEST("Smokey's Special Compound") },
+          text = "Smokey says you brought him all the bits for his special compound, which explains the smell drifting over from his camp! I've put my nose plug back in, so it's very nice to see you, truly." },
         { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" } },
           text = "Is that a gnome I see behind you? Oh, {companion}, come here and let me look at you, because I haven't seen another gnome this far north since the last Dawn caravan left Ironforge." },
         { id = "h_druidcl", when = { class = "DRUID" },

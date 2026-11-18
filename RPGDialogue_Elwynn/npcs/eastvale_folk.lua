@@ -29,6 +29,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rolf_sara = {
+      lines = {
+        { id = "dd_rolf_sara_a", text = "He did, and he didn't sleep that night, I'd wager. The lumbermen are nervous about the lake road now, and I've two men who won't haul timber past the water after dark, whatever I pay them." },
+      },
+      choices = {
+        { text = "They're right to be careful. The murlocs are still out there.", next = "dd_rolf_sara2" },
+        { text = "Pay them more and they'll find their courage.", next = "dd_rolf_sara2", fx = { align = { light = -1 } } },
+        { text = "Fear is fair. I'd not push them, Sara.", next = "dd_rolf_sara2", fx = { align = { light = 1 } } },
+      },
+    },
+    dd_rolf_sara2 = {
+      lines = {
+        { id = "dd_rolf_sara2a", text = "Well, the timber will wait till morning, and so will I. Thank you for bringing Thomas an answer, because a guard who doesn't know is worse company than one who's grieving." },
+      },
+      choices = { { text = "Something else, Sara.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not once, no. They took the cloth from honest folk first, and I'm only putting it back to use. Your spirits might call that balance." } },
@@ -97,6 +114,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_rolf_sara", when = { questDone = TODO_QUEST("Discover Rolf's Fate") },
+          text = "Guard Thomas told the camp what you found at the lake, and the men took their caps off at supper. Rolf used to buy our pine for the bridge posts, and he always paid fair, which is more than I can say for some." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your tabard's been torn and stitched by somebody who didn't know what they were doing, and I can see it from my step." },
         { id = "h_default", text = "I'm Sara Timberlain. The loggers cut wood and I cut cloth, because somebody in this camp has to make something you'd want to wear, even if I cut it from thieves' red bandanas." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Linen Goods") },
@@ -123,6 +143,8 @@ P:NPC {
         { id = "h_again2", text = "What else? Only mind the thread while you think." },
       },
       choices = {
+        { text = "Thomas told you about Rolf's men, then.", next = "dd_rolf_sara", when = { questDone = TODO_QUEST("Discover Rolf's Fate") } },
+
         { text = "That seems a little grim.", next = "grim" },
         { text = "What makes red linen so good?", next = "cloth" },
         { text = "What news comes past your step?", next = "camp" },

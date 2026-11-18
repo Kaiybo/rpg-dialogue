@@ -114,6 +114,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_timber", when = { reputation = { faction = "Timbermaw Hold", min = "honored" } },
+          text = "Salfa tells me the Timbermaw speak well o' ye these days, which is more than they've ever said o' me. Furbolgs are slow tae trust, so whatever ye did for 'em, ye did it proper." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Winterfall", min = 30 } },
           text = "Ye've been thinnin' the Winterfall, I hear, an' I'll no' pretend it gladdens me, for they were decent folk before the firewater. Still, the trappers can walk the valley again, an' that's somethin'." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -355,6 +357,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "Ha, Mau'ari can see Bwonsamdi's fingerprints all over you, mon! He keep sending you back, so either he like you or he can't stand your company, and Mau'ari not decide which yet." },
         { id = "h_pt_mauari", tags = { "news" }, when = { party = { race = "Troll" } },
           text = "Mau'ari sees a troll walking with you, and that warms her more than the fire. {companion} knows what the cold does to troll bones, so you be keeping each other close up here." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Chillwind", min = 25 } },

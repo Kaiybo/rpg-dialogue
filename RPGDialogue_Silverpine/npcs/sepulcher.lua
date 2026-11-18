@@ -129,6 +129,10 @@ P:NPC {
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Horde" },
           text = "Arugal is dead, and the howling from the keep has gone ragged and leaderless overnight. I sent two deathstalkers into those walls before you ever came to the Sepulcher, and I'm told you went in after them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, at the Sepulcher. I have worgen, Scourge, gnolls and Dalaran's mages to fight, and a paladin who can stand against all four is worth more to me than a dozen Deathguard." },
+        { id = "h_dd_weaver", tags = { "news" }, when = { questDone = TODO_QUEST("The Weaver") },
+          text = "Allister reports that the Weaver is dead and the Dalaran mages at Ambermill are without their master. That is the kind of report I like to read twice." },
+        { id = "h_dd_pyrewood", when = { questDone = TODO_QUEST("Pyrewood Ambush") },
+          text = "Faerleia tells me Pyrewood's Council fell under your blade. Arugal will have to find new puppets, and the worgen are already less orderly for it." },
       },
       choices = {
         { text = "You treat me like one of Dalaran's spies, Hadrec.", next = "prej_hadrec", when = { prejudiced = true } },
@@ -277,6 +281,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_dalar = {
+      lines = { { id = "dd_dalar_default", text = "I trust that he hates Dalaran, which makes him useful, and I trust that he was one of them for most of his life, which makes him a risk. The Society keeps an eye on any mage who still speaks fondly of the Violet Citadel, even when he's cursing it." } },
+      choices = {
+        { text = "He's serving the Dark Lady now. That should be enough.", next = "BACK", reply = "It should be, and for the High Executor it is. I'm an apothecary, though, and we test everything twice.", fx = { align = { order = 1 } } },
+        { text = "Then perhaps I'll keep an eye on him for you.", next = "BACK", reply = "Perhaps you will, and perhaps I never asked. Quietly, {class}, and don't let him catch you looking.", fx = { align = { order = -1 } } },
+        { text = "Something else, Apothecary.", next = "BACK" },
+      },
+    },
+
     op_worgen = {
       big = true,
       lines = {
@@ -347,6 +360,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Do keep your blade sheathed in here, {class}, because the samples are fragile and I am out of patience with this damp." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've come to bless my work, don't bother, because it does its job very well without anyone's god." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Keep your hands to yourself in here, if you'd be so kind, because the Light and this damp are both ruinous to my reagents, and I can't replace them until the next bat flies in." },
+        { id = "h_dd_prove", when = { questDone = TODO_QUEST("Prove Your Worth") },
+          text = "I see Dalar Dawnweaver has had you running his little tests. A Kirin Tor man, even a dead one, likes to measure people before he'll trust them, and he rarely shares the results." },
       },
       choices = {
         { text = "Are a priest's craft and yours alike, Renferrel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -360,6 +375,7 @@ P:NPC {
         { text = "Do you need a guard for your samples, Apothecary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "The Light might spoil your work, Apothecary.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
+        { text = "You don't trust Dalar Dawnweaver, do you?", next = "dd_dalar", when = { questDone = TODO_QUEST("Prove Your Worth") } },
       },
       again = {
         { id = "h_again", text = "Yes? And keep your hands at your sides." },
@@ -461,6 +477,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_weaver = {
+      lines = { { id = "dd_weaver_default", text = "A careful man, good at wards, better at committees, and very good at not listening when I warned them about the plague. Dalaran sent him to Ambermill to dig into something old, and I expect he died still thinking he was the cleverest person in Silverpine." } },
+      choices = {
+        { text = "He was your colleague. You might mourn him a little.", next = "BACK", reply = "I mourned him and all the others when they shut the gates on the rest of us. There's nothing left over for him now.", fx = { align = { light = 1 } } },
+        { text = "He ignored you, and now he's dead. That's justice enough.", next = "BACK", reply = "It's tidier than justice, which I've come to prefer. Thank you for doing it so efficiently.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     op_kirin_tor = {
       big = true,
       lines = {
@@ -548,6 +573,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arugal's worgen are beasts only in shape, {class}, and I'd advise you not to treat them like ordinary game." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Dalaran had priests too, clever ones in fine robes, and they listened to my warnings no better than the Kirin Tor did." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The Kirin Tor never did take the Light seriously, which is one of many things I warned them about, and they listened to that about as well as they listened to everything else." },
+        { id = "h_dd_weaver", tags = { "news" }, when = { questDone = TODO_QUEST("The Weaver") },
+          text = "Allister tells me you killed the archmage at Ambermill, the one his watchers call the Weaver. I knew that man when we both wore violet, and I find I'm not as sorry as I expected." },
       },
       choices = {
         { text = "What did Dalaran's priests say when you warned them, Dalar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -563,6 +590,7 @@ P:NPC {
         { text = "What did you warn the Kirin Tor about the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Arugal is dead, Archmage. I was there.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
+        { text = "You knew the Weaver, Dalar? Tell me about him.", next = "dd_weaver", when = { questDone = TODO_QUEST("The Weaver") } },
       },
       again = {
         { id = "h_again", text = "What else? I'm glad of a mind to talk to, so don't waste it." },
@@ -740,6 +768,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I heard one was coming, of course, and I'm pleased to see you look the part, for the Shadow could use more servants in Silverpine who know how to listen." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dalaran", min = 20 } }, text = "The Dalaran wizards at Ambermill have lost a good many of their number, and the survivors are keeping behind their walls. Whatever they're building there, you've slowed it down." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. My watchers told me one was coming to Silverpine, though they didn't say you'd glow quite so brightly, which will make you rather harder to hide." },
+        { id = "h_dd_deaths", when = { deaths = { min = 5 } },
+          text = "My watchers have seen you fall in Silverpine more than once, and they've seen you walk back up the road from the graveyard afterwards. I write that down too, because persistence is worth knowing about." },
       },
       choices = {
         { text = "What does the Forgotten Shadow ask of its priests, Allister?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -861,6 +891,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_nightlash = {
+      lines = { { id = "dd_nightlash_default", text = "A ghost, or near enough, something the Scourge left behind out in the fields that wouldn't lie still. The Deathguard won't say because two of them went out after it and only one came back, and he's never said what he saw." } },
+      choices = {
+        { text = "Then it had earned an end. I was glad to give it.", next = "BACK", reply = "Glad's a strong word for a crypt like this one, but I'll pour you something to go with it, even if neither of us can taste it.", fx = { align = { honor = 1 } } },
+        { text = "I wasn't glad. I wanted the Executor's reward, that's all.", next = "BACK", reply = "Honest, at least, and honest's rare in Silverpine. The reward spends the same either way, I suppose.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Bates.", next = "BACK" },
+      },
+    },
+
     fl = {
       lines = { { id = "fl_default", text = "Was I? An old habit, from when I had a collar worth straightening and a face worth putting above it. It's been a long while since anyone this pleasant walked into my crypt, and I find I want to look my best, or at least my least decomposed." } },
       choices = {
@@ -957,6 +996,10 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Welcome to the slabs, I mean the beds; you'll find the crypt quiet, mostly, though the spiders hear every prayer said aloud." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon will have to share a slab with the spiders, I'm afraid, because the good slabs are taken." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in my crypt! Don't mind the slabs, they're only beds now, and I'll ask you to keep the Light low after dark, because it sets the spiders off something awful." },
+        { id = "h_dd_deadfields", tags = { "news" }, when = { questDone = TODO_QUEST("The Dead Fields") },
+          text = "The High Executor's lads say Nightlash is gone from the Dead Field, and that you're the one who put it down. The crypt's been half a shade quieter at night, and I'll take half a shade." },
+        { id = "h_dd_erland", when = { questDone = TODO_QUEST("Escorting Erland") },
+          text = "Rane Yorick came through here grinning, or doing what passes for it, because you'd brought Erland home through the woods. Deathstalkers don't often come back in one piece, so that's a story the crypt keeps telling." },
       },
       choices = {
         { text = "Do your guests ever ask for last rites, Bates?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -972,6 +1015,7 @@ P:NPC {
         { text = "I cut timber in Silverpine, Bates, and drank in Pyrewood.", next = "xorig_woods", when = { origin = "forsaken_silverpine_woodsman" } },
         { text = "Why are you straightening your collar, Bates?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "bates_fl_rebuff" } } },
         { text = "Just a rest, thanks.", next = "END" },
+        { text = "What was Nightlash, Bates? The Deathguard wouldn't say.", next = "dd_nightlash", when = { questDone = TODO_QUEST("The Dead Fields") } },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's not going anywhere, and neither are the rest of us; we've already made our last journey once." },

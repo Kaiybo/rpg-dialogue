@@ -98,6 +98,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Another mage! Kryten's enough for one camp, {class}, an' he talks about Archmage Malin like the fellow walks on water." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' a loud one by the clank o' ye. If ye're comin' scoutin' wi' me, ye'll walk behind an' breathe through yer nose, or ye'll no come at all." },
+        { id = "h_dd_ogres", when = { killed = { name = "Boulderfist", min = 30 } },
+          text = "The Boulderfist ogres aren't coming down to the walls as often, and I've a feeling that's because fewer of them are left to come. Whoever's thinning them is doing Stromgarde's work, and I'm told it's you." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I've maps tae draw." },
@@ -475,6 +477,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The gryphons don't care for whatever you've got following you, {class}, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
+        { id = "h_dd_northfold", when = { questDone = TODO_QUEST("Northfold Manor") },
+          text = "My gryphon riders flew over Northfold this morning and saw no Syndicate banners on the walls. Captain Nials says that's your doing, and I've told the riders to give you their best bird." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell from the cliffs, didn't you? The Highlands look gentle from the back of a gryphon, but they're all sudden drops on foot." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
@@ -566,6 +572,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_northfold = {
+      lines = { { id = "dd_northfold_default", text = "Robbing them, then selling our own flour back to us through some smiling middleman for twice what it cost. They're Alterac's nobility gone to seed, and they'd sell the walls of Stromgarde if they could carry them." } },
+      choices = {
+        { text = "Then they'll get nothing more from Refuge Pointe. I'll see to it.", next = "BACK", reply = "I'll hold you to that, and I'll know if you don't, because I count. Thank you, {class}.", fx = { align = { order = 1 } } },
+        { text = "Can't blame a man for knowing a good market when he sees one.", next = "BACK", reply = "I can blame him, and I do, every evening when I tally up. Mind you don't start admiring them out loud.", fx = { align = { order = -1 } } },
+        { text = "Something else, Vikki.", next = "BACK" },
+      },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Most of them are too tired to trust or distrust anybody, and they'll trust you the first time you pull one of them out of a Witherbark ambush. A few of the older ones remember orc shamans from the war and won't sit near you, so I'd let them come round on their own." } },
@@ -639,6 +654,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want arrows, I suppose, which is a pity, since I'm down to my last two quivers and the soldiers want those too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. If you're after herbs, the Highlands have plenty, but watch out for the ogres in the east, because they think everything in the hills belongs to them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting oil for that plate and the good bandages, and I'll warn you now, {class}, the Captain's sergeants have already asked me for both." },
+        { id = "h_dd_northfold", tags = { "news" }, when = { questDone = TODO_QUEST("Northfold Manor") },
+          text = "Captain Nials says you cleared the Syndicate out of Northfold Manor, and I've already noticed fewer supply carts going missing on the north road. I count everything, {class}, and I counted that." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a tally to finish." },
@@ -657,6 +674,7 @@ P:NPC {
         { text = "Is Refuge Pointe short of more than bandages, Vikki?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the soldiers here trust a dwarf shaman, Vikki?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
+        { text = "The Syndicate were robbing your carts, Vikki?", next = "dd_northfold", when = { questDone = TODO_QUEST("Northfold Manor") } },
       },
     },
     xrogue = {

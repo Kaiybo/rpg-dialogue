@@ -118,8 +118,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_honor = {
+      lines = {
+        { id = "ddh_default", text = "Then you know what they are like up close, which most of the city's elders do not. The orcs fight bravely, I will give them that, but every tree they fell at Warsong is older than their whole Horde, and they do not care." },
+      },
+      choices = {
+        { text = "They're soldiers like us, following orders.", next = "BACK", reply = "Perhaps. It is still our forest they cut, whoever gives the orders. Keep your sympathy, but keep your blade sharp too.", fx = { align = { honor = 1 } } },
+        { text = "Then we hit their camps before they hit ours.", next = "BACK", reply = "You think like Raene on a bad night. I would not say no to it, if Darnassus ever sends us the numbers.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 50 } }, text = "You have fought the Horde and lived, many times over by your bearing. The Sentinels at Warsong could use a blade like yours, and so could I, if the orcs push their lumber camps any further into our forest." },
         { id = "o_orcs_hate", tags = { "news" }, when = { opinion = { topic = "orcs", stance = "hate" } },
           text = "I hear you call the orcs beasts. I call them targets, which is shorter, and easier to aim at." },
         { id = "o_warsong_hate", tags = { "news" }, when = { gossip = { topic = "warsong", stance = "hate" } },
@@ -149,6 +160,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. A Sentinel listens even while she watches the trees." },
       },
       choices = {
+        { text = "I've fought the Horde in Ashenvale often enough.", next = "dd_honor", when = { honorKills = { min = 50 } } },
         { text = "How do you judge who's proven themselves?", next = "proven" },
         { text = "The Sentinels must face a good deal here.", next = "warsong_t" },
         { text = "What is the High Priestess like?", next = "tyrande" },

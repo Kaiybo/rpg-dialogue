@@ -30,11 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_atrexis = {
+      lines = { { id = "dd_atrexis_default", text = "Some of it, I reckon, the old bones an' grave-goods especially. A necromancer raisin' an army under the Kirin Tor's noses will stir up anything that remembers bein' dead, an' I've a crate of burial urns from the old cemeteries that rattled every night for a month." } },
+      choices = {
+        { text = "Then perhaps you shouldn't sell grave-goods, Brammold.", next = "BACK", reply = "Perhaps I shouldn't, an' perhaps I'll think on it, though the margins are awful temptin'. Ye've a conscience on ye, friend.", fx = { align = { light = 1 } } },
+        { text = "Quiet urns fetch a better price. You owe me a cut.", next = "BACK", reply = "Ha! A cut, says the hero. I'll stand ye a drink, an' that's the most ye'll get from a Deepmine.", fx = { align = { light = -1 } } },
+        { text = "Something else, Brammold.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brammold Deepmine, dealer in antiques. Dalaran's full of old things, friend, and half of them hum, so I sell the quiet half and keep a wary eye on the rest." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus, eh? Then don't go pokin' the humming ones. Last fellow who did lost an eyebrow, and I lost a customer." },
+        { id = "h_dd_atrexis", tags = { "news" }, when = { killed = { name = "Atrexis", min = 1 } },
+          text = "They say ye went down under the streets an' put that Grave Knight in the ground for good, friend. Half my stock's stopped hummin' at night since, an' I don't think that's a coincidence." },
       },
       again = { { id = "h_again", text = "Anything else catch yer eye? Take yer time; good stone an' old silver don't rush, an' neither do I." } },
       choices = {
@@ -47,6 +58,7 @@ P:NPC {
         { text = "Lizi says your shelf sets off her tuning forks.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Good day.", next = "END" },
+        { text = "Your stock hummed because of Atrexis, Brammold?", next = "dd_atrexis", when = { killed = { name = "Atrexis", min = 1 } } },
       },
     },
     where = {
@@ -167,6 +179,8 @@ P:NPC {
         { id = "h_default", key = true, text = "Lizi Silverstone, Kirin Tor, late of Gnomeregan's arcane workshops! And yes, those two are Beepo and Niko, and no, they aren't mine; they belong to the shop, or the shop belongs to them, depending on whom you ask." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "Another magus! Don't mind the mess; this street was rubble not long ago, and some of it still thinks it is." },
+        { id = "h_dd_gilded", when = { questDone = TODO_QUEST("Opportunistic Education") },
+          text = "Delv Fortuz has been storming about the archives because someone sold Rexxie a history book and she painted it gold! I think it's rather funny, but please never tell him I said so, because he'd never lend me another manual." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes, and I've only got two copies of each, which is one fewer than I'd like." },
@@ -331,6 +345,8 @@ P:NPC {
           text = "You're the one Modera speaks of. The street's been calmer since you went up the Citadel, and I've slept better for it." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus, so you'll understand why I flinch whenever the masons float another block overhead. I know exactly how many spells are holding it up, and it's fewer than you'd hope." },
+        { id = "h_dd_shrewd", when = { questDone = TODO_QUEST("Shrewd Negotiations") },
+          text = "So you're the one who carried the Horde's end of the bargain up to Archmage Celindra. I can't say I like the Horde on our streets, but I've watched more of this city burn than I'd like, and I'll take allies over ashes." },
       },
       again = {
         { id = "h_again", text = "Anything else? Zara's waiting for her share of my attention." },

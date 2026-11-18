@@ -197,6 +197,8 @@ P:NPC {
           text = "A druid at Menethil! The Wetlands could use one o' ye, because the whole marsh has been in a fury since the Dragonmaw came." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, is it? I'll take any hand that'll hold the wall, but keep whatever ye've got on that leash well away from my sailors." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dragonmaw", min = 40 } }, text = "The lads on the wall say there's fewer Dragonmaw on the hills each mornin', an' they've started callin' it yer doin'. Good; I'll have bare banner poles yet." },
+        { id = "dd_thandol", when = { questDone = TODO_QUEST("The Thandol Span") },
+          text = "Longbraid's men tell me ye went down intae the Thandol Span's footings after the Dark Irons. That bridge is the only road north tae Arathi, so I'm in yer debt, an' I hate bein' in debt." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, mind, for the wall doesnae keep itself." },
@@ -595,6 +597,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, is it? Keep your hands where I can see them, friend, though there's nothing in my pockets but sand and the smell of mead." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Sit down, sit down; you can't smell any worse than I do, though I'd thank you to keep your demon downwind." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? You wouldn't happen to know how to ask the sea for a ship back, would you? I've lost one, and I'd like it returned." },
+        { id = "dd_drown", when = { deathCause = "drowning" },
+          text = "You've been under the water, haven't you? I can see it in the way you flinch at the harbour. The sea took my whole crew, so I'll forgive you for not liking her." },
       },
       again = {
         { id = "h_again", text = "Another question? Then it's another drink, and I believe it's your round." },
@@ -844,6 +848,16 @@ P:NPC {
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
+    dd_gl_deaths = {
+      lines = {
+        { id = "dd_gl_deaths1", text = "The Light leaves a mark when it drags a soul back, the way a rope leaves a burn on yer hand. Most folk never notice it, but I've buried enough sailors in this harbour tae know the look, an' ye've got it worse than most." },
+      },
+      choices = {
+        { text = "Then the Light must want me alive for something.", next = "BACK", reply = "Maybe it does. I'd try tae find out what before ye spend the rest o' yer chances.", fx = { align = { light = 1 } } },
+        { text = "The Light had nothing to do with it. I just got up.", next = "BACK", reply = "Say it however ye like, {g:lad|lass}. I know who did the liftin', even if ye don't.", fx = { align = { light = -1 } } },
+        { text = "Something else, Glorin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, thank the Light! A pair o' strong arms that know what they're blessin', so sit, an' I'll tell ye what's wrong wi' this harbour." },
@@ -869,12 +883,17 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in the Church's house. If ye're after the poor box, I'll save ye the trouble: it's been empty since the fleet went down." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye dry socks wi' that fire o' yours? I've no' had a dry pair since I came off the boat." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll no' pretend it sits easy wi' me, but the marsh has more souls in it than one priest can tend, an' I'll take help from wherever it comes." },
+        { id = "dd_deaths", when = { deaths = { min = 5 } },
+          text = "The Light's brought ye back more than once; I can see it on ye, a bit thin round the edges. I'll no' lecture ye, but I'll pray for ye, an' ye cannae stop me." },
+        { id = "dd_drown", when = { deathCause = "drowning" },
+          text = "Ye drowned, didn't ye? I can always tell, for the ones the sea gave back have a look about them, as if they're still listenin' for the tide." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the next soul comes in drippin'." },
         { id = "h_again2", text = "Aye? Go on, then, I'm listenin', mostly." },
       },
       choices = {
+        { text = "How can you tell I've died, Glorin?", next = "dd_gl_deaths", when = { deaths = { min = 5 } } },
         { text = "How could a druid help you here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Can I help?", next = "help" },
         { text = "You seem a grumpy sort, Brother.", next = "grumpy" },
@@ -1171,6 +1190,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_ha_di = {
+      lines = {
+        { id = "dd_ha_di1", text = "Have ye? Then ye've seen their eyes, like coals in a dead forge. They came at Dun Modr in the dark wi' blastpowder on their backs, an' I've wanted a reckonin' ever since, so tell me straight: is it justice, or is it just killin'?" },
+      },
+      choices = {
+        { text = "It's justice. Dun Modr deserved an answer.", next = "BACK", reply = "Aye. Aye, it did, an' I'll sleep a bit easier for hearin' somebody say it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It's just killing, Harlo. I happen to be good at it.", next = "BACK", reply = "Honest, at least. I suppose the dead lads don't mind which it is, so long as it's done.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! If ye've the Light in ye, ye might take a look at my back, for the healers have given up on it an' I've no'." },
@@ -1189,12 +1218,17 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The healer's tried every poultice she owns on my back, so if ye've some green trick she hasnae, I'll lie still for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Dark Irons that took Dun Modr had fire-callers wi' them, so I'll be watchin' yer hands." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I was at Dun Modr when the Dark Irons came, an' I saw the ground split under us, so I'd sooner ye stood back a step, if it's all the same tae ye." },
+        { id = "dd_banners", when = { questDone = TODO_QUEST("War Banners") },
+          text = "Captain Stoutfist says ye tore down the Dragonmaw war banners in the hills. I'd have given a year's pay tae see it, though I've no' had pay since Dun Modr, so that's an easy offer." },
+        { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 30 } },
+          text = "Ye've been killin' Dark Irons, I hear, an' plenty o' them. Good, for every one is a debt paid for the lads at Dun Modr who never woke up in a cot like I did." },
       },
       again = {
         { id = "h_again", text = "Ask away, for I'm no' goin' anywhere till this rain stops, an' it never stops." },
         { id = "h_again2", text = "What else? Talkin' keeps my mind off the back." },
       },
       choices = {
+        { text = "I've killed my share of Dark Irons, Harlo.", next = "dd_ha_di", when = { killed = { name = "Dark Iron", min = 30 } } },
         { text = "Who took Dun Modr?", next = "who" },
         { text = "Who was your commander?", next = "longbraid" },
         { text = "That wound looks bad.", next = "wound" },
@@ -1438,6 +1472,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've crates of shot going out to Ironforge, and I'm told the dwarven hunters can't get enough of it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stand off the crates, if you don't mind; I had a load of Ironforge powder go up once, and I've no wish to find out what your sort does to it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in Menethil! You wouldn't be able to keep the marsh from eating my cargo, would you? I'd pay for the service." },
+        { id = "dd_crocskins", when = { questDone = TODO_QUEST("Young Crocolisk Skins") },
+          text = "Halloran tells me you've been keeping him in crocolisk hides. I ship those skins east, so your work's sitting in a crate on my dock right now." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've crates waiting, but they'll wait." },
@@ -1677,6 +1713,16 @@ P:NPC {
         { text = "Something else, Helbrek.", next = "BACK" },
       },
     },
+    dd_hb_nek = {
+      lines = {
+        { id = "dd_hb_nek1", text = "Singin', drinkin' an' breakin' my stools. The Dragonmaw have sat on the road north since the war ended, an' this is the first good news Menethil's had from that way in a long while, so I'll put up wi' the stools. What was he like, the orc?" },
+      },
+      choices = {
+        { text = "Big, angry and slow. He died like any other orc.", next = "BACK", reply = "Ha! That's the verse they're missin'. I'll pass it along, an' they'll sing it worse.", fx = { align = { light = -1 } } },
+        { text = "He fought for his clan. I'll grant him that.", next = "BACK", reply = "Fair words for an enemy. Don't say them too loud in here, mind, for the lads lost friends tae that clan.", fx = { align = { light = 1 } } },
+        { text = "Something else, Helbrek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
@@ -1698,12 +1744,17 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want a room near the back, then, for I've learned that beasts don't care for the noise o' the bar." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye warm the hearth a bit? The damp gets in the logs, an' the sailors complain the fire's sulkin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Deepwater! Ye'll fit right in, for my regulars are sailors, soldiers an' diggers, an' every one o' them's more superstitious than ye." },
+        { id = "dd_goods", when = { questDone = TODO_QUEST("Reclaiming Goods") },
+          text = "Karl Boran's been crowin' in my common room that ye pulled his crates back out o' the murlocs' hands. He bought a round on the strength of it, an' Karl never buys a round." },
+        { id = "dd_nekrosh", tags = { "news" }, when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
+          text = "They're sayin' up at the keep that Nek'rosh is dead an' that it was you who did it. I've had soldiers singin' about it under my roof all week, so badly that the gulls left." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The stew's no' goin' anywhere, an' neither am I." },
         { id = "h_again2", text = "Aye? Pull up a chair while ye think." },
       },
       choices = {
+        { text = "The soldiers are singing about Nek'rosh?", next = "dd_hb_nek", when = { questDone = TODO_QUEST("Defeat Nek'rosh") } },
         { text = "Do druids often come through Menethil?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Any news?", next = "news" },

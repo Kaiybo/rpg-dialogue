@@ -130,8 +130,25 @@ P:NPC {
         { text = "Something else, High Executor.", next = "BACK" },
       },
     },
+    dd_termites = {
+      lines = {
+        { id = "dd_termites_1",
+          text = "Worth it? The Crusade needs timber for palisades, siege ladders and gallows, and Northridge was where they cut it. Now they'll be hauling wood from Hearthglen under my archers' noses, and every wagon they lose is a wall they don't build." },
+        { id = "dd_termites_2",
+          text = "Undercity will say it was the apothecaries' victory, of course. Let them, so long as the Crusade knows it was the Bulwark that did it to them." },
+      },
+      choices = {
+        { text = "The Crusade deserves every pestilence we can give it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Using plague still turns my stomach, Executor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") },
+          text = "Levine tells me her termites ate the Crusade's lumber yard at Northridge from the inside out, and that you carried them there. I've seen worse uses of a plague, and I've seen very few better." },
+        { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 40 } },
+          text = "My deathstalkers count Scarlet dead the way the living count coins, and lately they keep finding your work along the Hearthglen road. Keep at it; every crusader in the dirt is one fewer at my wall." },
         { id = "o_pcwar", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } }, text = "Apothecary Dithers says you'd sooner fight Chillwind than share a word with it. Hold that thought until Andorhal falls, and then we'll talk." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" }, faction = "Horde" },
           text = "You travel with {companion}, one of the Dark Lady's own, and that pleases me. The living fight the Scourge out of fear, but we fight it because we remember exactly what it did to us." },
@@ -168,6 +185,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, the wall can spare me for another minute." },
       },
       choices = {
+        { text = "Northridge burned. Was it worth it?", next = "dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") } },
         { text = "How do you fight two enemies with one wall?", next = "play", when = { questBefore = TODO_QUEST("Mission Accomplished!") } },
         { text = "The Bulwark looks thrown together from rubble.", next = "wall" },
         { text = "What's to be done about Andorhal?", next = "andorhal" },
@@ -406,8 +424,23 @@ P:NPC {
         { text = "Something else, priestess.", next = "BACK" },
       },
     },
+    dd_deaths = {
+      lines = {
+        { id = "dd_deaths_1",
+          text = "Every death leaves a mark, if you know where to look, and I have had some practice looking. The spirit healers send you back, and each time a little less of the warmth comes with you." },
+        { id = "dd_deaths_2",
+          text = "I don't say it to frighten you. Most of us in the Bulwark died only once and had no say in the matter, so you'll understand if we find your carelessness a little indulgent." },
+      },
+      choices = {
+        { text = "Death's just a road. I'll walk it as often as I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd rather not lose any more of myself. I'll be careful.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've crossed the threshold more than a few times, haven't you? I can smell the grave on you, and it suits you better than you'd think." },
         { id = "h_default", key = true,
           text = "Shadow Priestess Vandis. Bring me a sample from each of the four cauldrons and the apothecaries will turn the plague on its makers, which is all the miracle we're likely to get." },
         { id = "h_sample", tags = { "news" }, when = { questActive = TODO_QUEST("Return to the Bulwark") },
@@ -435,6 +468,7 @@ P:NPC {
         { id = "h_again2", text = "Still curious? It won't save you out there, but go on." },
       },
       choices = {
+        { text = "You can tell how often I've died?", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Why shadow, not the Light?", next = "shadow" },
         { text = "How do the samples help?", next = "samples" },
         { text = "Derrington seems a hard commander.", next = "derrington" },
@@ -688,8 +722,23 @@ P:NPC {
         { text = "Something else, Apothecary.", next = "BACK" },
       },
     },
+    dd_felstone = {
+      lines = {
+        { id = "dd_felstone_1",
+          text = "Beautifully, mostly. The grain round the field went grey and the rats stopped breeding, which tells me the plague's broken, though I'll admit the grass didn't care for it either." },
+        { id = "dd_felstone_2",
+          text = "Undercity sends me a letter asking whether the agent could be turned the other way, to make a plague instead of cure one. I always lose those letters, you understand, at least until someone asks twice." },
+      },
+      choices = {
+        { text = "Turning it into a weapon would win the war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Keep losing those letters, Apothecary.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_felstone", when = { questDone = TODO_QUEST("Target: Felstone Field") },
+          text = "The Felstone cauldron is spent, and Vandis says it was your hand that tipped the agent in! My knee was aching all afternoon, which I'm choosing to take as a sign of approval." },
         { id = "h_default", key = true,
           text = "Apothecary Dithers, of the Royal Apothecary Society, on loan to the Bulwark. I make the counter agent for the cauldrons and sell the quickener, and I'm building a key to the Scholomance out of bones, so it's a busy sort of afterlife." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("Skeletal Fragments") },
@@ -723,6 +772,7 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else? Mind the green bottle, it's in a mood." },
       },
       choices = {
+        { text = "Did the counter agent work at Felstone?", next = "dd_felstone", when = { questDone = TODO_QUEST("Target: Felstone Field") } },
         { text = "Your counter agent sounds clever.", next = "agent" },
         { text = "Tell me about this key.", next = "key" },
         { text = "How's the knee?", next = "knee" },
@@ -1178,8 +1228,23 @@ P:NPC {
         { text = "Something else, Garush.", next = "BACK" },
       },
     },
+    dd_scourge = {
+      lines = {
+        { id = "dd_scourge_1",
+          text = "I do. When I fought for the old Horde, there were farmers and children among the dead, and the demon blood made it feel like glory. The Scourge has no children, and nothing that falls to my axe here was ever going to wake up and forgive me." },
+        { id = "dd_scourge_2",
+          text = "That is a kind of peace, and I did not expect to find it in the Plaguelands. Perhaps you will find it too, if you keep at it long enough." },
+      },
+      choices = {
+        { text = "Glory is glory, whoever's blood buys it.", next = "BACK", fx = { align = { honor = -1, light = -1 } } },
+        { text = "I think I understand. There's no shame in this fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Garush.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie" }, min = 60 } },
+          text = "The scouts say the dead lie thicker on the roads you walk, {class}. Once I killed for a warchief who wanted blood, and now I kill for the Dawn, and you seem to have found the same honest work." },
         { id = "o_addistrust", tags = { "news" }, when = { gossip = { topic = "argent_dawn", stance = "distrust" } }, text = "The High Executor tells me you think the Dawn wants watching. Watch, then; we have nothing here we'd hide from you." },
         { id = "h_default", key = true,
           text = "Argent Officer Garush, orc, Horde-born, and a soldier of the Argent Dawn, where every race faces one enemy. I fought for the Horde all my life, and now I fight for everybody." },
@@ -1209,6 +1274,7 @@ P:NPC {
         { id = "h_again2", text = "Something more? Ask it, I'm here at the wall until the sun goes down." },
       },
       choices = {
+        { text = "You call killing the Scourge honest work?", next = "dd_scourge", when = { killed = { name = { "Skeletal", "Ghoul", "Rotting", "Zombie" }, min = 60 } } },
         { text = "An orc in the Argent Dawn is a rare sight.", next = "why" },
         { text = "What do the stones do?", next = "commission" },
         { text = "I hear you write to an Alliance officer.", next = "pureheart" },

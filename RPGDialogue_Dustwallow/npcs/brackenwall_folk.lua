@@ -36,6 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Logok keeps the inn for the Stonemaul and for the Horde. Everybody calls Logok \"Little\", and Logok thinks it is very funny, and so far nobody has explained why." },
+        { id = "h_dd_spies", tags = { "news" }, when = { questDone = TODO_QUEST("Theramore Spies") }, text = "Nazeer says you find the little Theramore spies on the islands and squash them. Logok is glad, because they watch Logok's inn and never once buy stew." },
       },
       again = { { id = "h_again", text = "What else does small friend want? More stew?" } },
       choices = {
@@ -43,7 +44,18 @@ P:NPC {
         { text = "Why do they call you Little?", next = "name" },
         { text = "What's in the stew?", next = "stew" },
         { text = "How do the Stonemaul feel about the Horde?", next = "horde" },
+        { text = "The Theramore spies were watching your inn, Logok?", next = "dd_spies", when = { questDone = TODO_QUEST("Theramore Spies") } },
         { text = "Farewell, Logok.", next = "END" },
+      },
+    },
+    dd_spies = {
+      lines = {
+        { id = "dd_spies_1", text = "Watching everything, Nazeer says, the ogres and the orcs and the wyverns, and counting with little sticks. Logok thinks counting is rude when you don't buy anything, so Logok is happy you made them stop." },
+      },
+      choices = {
+        { text = "Spies deserve what they get. I'd do it again.", next = "BACK", reply = "Good! Logok will tell the Stonemaul you are a friend, and the Stonemaul like friends who squash things.", fx = { align = { honor = -1 } } },
+        { text = "They were only soldiers doing their job, Logok.", next = "BACK", reply = "Hmm. Logok does a job too, and Logok does not sneak. But Logok will think about it while the stew cooks.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Logok.", next = "BACK" },
       },
     },
     name = {
@@ -117,6 +129,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Shardi. I keep the riders at Brackenwall, and I keep them flying, which in this fog takes more nerve than most warriors ever need." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned in the marsh, I'd bet, because you've still got that bog water in your ears. The riders fly over it for a reason, so let them, and save your lungs for shouting." },
       },
       again = { { id = "h_again", text = "Anything else? The fog's getting thicker." } },
       choices = {

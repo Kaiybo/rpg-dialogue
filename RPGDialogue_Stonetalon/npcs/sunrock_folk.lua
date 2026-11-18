@@ -31,8 +31,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_falling = {
+      lines = {
+        { id = "dd_fa_default", text = "It happens to everyone in Stonetalon at least once, and to grunts in a hurry twice. The paths up here are old and narrow and the wind pushes from the side, so a careless step becomes a long drop. My riders could have taken you down for a few coins, you know." },
+      },
+      choices = {
+        { text = "I'd rather climb my own way. Falling's part of it.", next = "BACK", reply = "Then you're as stubborn as the mountain, and it'll win in the end. But I'll see you at the spirit healer, I suppose.", fx = { align = { order = -1 } } },
+        { text = "Next time I'll pay for a wind rider.", next = "BACK", reply = "Smart, and my beasts will thank you for the business. They'll only try to bite you once, as I said.", fx = { align = { order = 1 } } },
+        { text = "Something else, Tharm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You came down off a cliff without one of my wind riders under you, didn't you? I can always tell, because folks who fall walk a little stiff for a day after the spirit healer sends them back." },
         { id = "h_default", key = true,
           text = "I'm Tharm, and I keep the wind riders on Sun Rock. They'll carry you to Thunder Bluff or down to the Crossroads faster than any kodo, and they'll only try to bite you once." },
         { id = "h_orc", when = { race = "Orc" },
@@ -45,6 +57,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but stand clear of that one on the end; she's in a mood." },
       },
       choices = {
+        { text = "I fell from a cliff, Tharm. It happens.", next = "dd_falling", when = { deathCause = "falling" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Where do your wind riders come from?", next = "wild" },
         { text = "Do the harpies trouble your riders?", next = "harpies" },
@@ -187,6 +200,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_deepmoss", when = { killed = { name = "Deepmoss", min = 15 } },
+          text = "You smell of Deepmoss webbing, and my beasts don't like it one bit. Thank you for thinning those spiders out, though, because I've lost two wolves to their venom this season alone." },
         { id = "h_default", key = true,
           text = "I am Gereck, and I tend the beasts of Sun Rock for any hunter who needs a companion kept safe. They eat well here and sleep out of the wind, which is more than the mountains offer them." },
         { id = "h_tauren", when = { race = "Tauren" },

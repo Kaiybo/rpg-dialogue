@@ -42,6 +42,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rep = {
+      lines = { { id = "dd_rep_default", text = "Every name, living or fallen, goes in the League's rolls, and the rolls go back to Stromgarde when the day's done. Arathor was the first kingdom of men, {class}, and we mean to remember who helped it stand up again." } },
+      choices = {
+        { text = "I fight for Arathor's memory, Field Marshal, not for the rolls.", next = "BACK", reply = "Then you're the sort the rolls were made for. Keep fighting, and keep your head down at the stables.", fx = { align = { honor = 1 } } },
+        { text = "I fight for the League's gear. The memory is a bonus.", next = "BACK", reply = "Honest, at least, and the quartermaster won't argue. Just make sure you earn it in the Basin.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Field Marshal.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -54,6 +63,8 @@ P:NPC {
           text = "Now take all five at once, soldier, and put the Defilers' banners down across the whole Basin. It's never been done lightly, so pick your companions well." },
         { id = "h_rank", when = { pvpRank = 6 },
           text = "A ranked officer of the Alliance, by your insignia. Good, for the Basin needs leaders as much as it needs blades." },
+        { id = "h_dd_rep", tags = { "news" }, when = { reputation = { faction = "League of Arathor", min = "honored" } },
+          text = "The League has a long memory for those who fight in the Basin, and your name is written high in it. Stromgarde's old banners fly over the farms again, and you helped raise them." },
       },
       again = {
         { id = "h_again", text = "What else, soldier? The map's not going anywhere, more's the pity." },
@@ -66,6 +77,7 @@ P:NPC {
         { text = "How do I take four bases at once?", next = "tactics", when = { questActive = Q_CTRL4 } },
         { text = "My grandfather farmed near Stromgarde.", next = "kin", when = { race = "Human" } },
         { text = "I'll be on my way, Marshal.", next = "END" },
+        { text = "Does the League remember all who fought in the Basin?", next = "dd_rep", when = { reputation = { faction = "League of Arathor", min = "honored" } } },
       },
     },
 
@@ -184,6 +196,8 @@ P:NPC {
           text = "You fought in the Basin and came back to tell me, and the League buried some of its own because of it. That pleases me more than it should." },
         { id = "h_orc", when = { race = "Orc" },
           text = "An orc, come to fight in the hills where Doomhammer fell. I'm told that means something to your people." },
+        { id = "h_dd_rep", tags = { "news" }, when = { reputation = { faction = "The Defilers", min = "honored" } },
+          text = "The Defilers know your name well by now, and the living in the Basin have begun to learn it. That's the right order of things." },
       },
       again = {
         { id = "h_again", text = "What else? The dead are patient, but I am not." },

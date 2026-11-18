@@ -541,6 +541,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 4 }, maxLevel = 12 }, text = "You have been to the spirit healer more than once already, and you are scarcely out of the glade. Learn your healing before you learn your courage, child, for Elune is patient and your body is not." },
         { id = "h_default", key = true,
           text = "I am Shanda, and I teach the priests of Elune who wake in Shadowglen. The Mother Moon gives us her light to heal and to guard, and I'll show you the first of it here." },
         { id = "h_pri", when = { class = "PRIEST" },

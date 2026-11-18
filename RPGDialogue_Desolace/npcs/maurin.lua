@@ -33,6 +33,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_satyr", when = { questDone = TODO_QUEST("Befouled by Satyr") },
+          text = "Takata tells me you went into the Sargeron and cut down the satyrs for him. I approve, of course. The Burning Blade hide behind the satyrs, and the satyrs hide behind the demons, so every dead satyr is one less wall between me and my real quarry." },
         { id = "h_default", key = true,
           text = "I am Maurin Bonesplitter. Keldran sent me to Desolace because I know the Burning Blade and its magics better than its own warlocks do, and I am here to see the cult undone." },
         { id = "h_relations", when = { questBefore = TODO_QUEST("Alliance Relations") },

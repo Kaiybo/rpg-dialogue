@@ -39,6 +39,7 @@ P:NPC {
           text = "Well done. You have sent the Bristleback a clear message, and they will think twice before they dig on this hill again." },
         { id = "h_ceremony", when = { questActive = TODO_QUEST("Preparation for Ceremony") },
           text = "Eyahn sent you with the ceremony preparations? Good, then the dead will be honored properly, once the quilboar are gone from among them." },
+        { id = "h_dd_rites", tags = { "news" }, when = { questDone = TODO_QUEST("Rites of the Earthmother") }, text = "Seer Graytongue tells me you have finished the Rites of the Earthmother, which few young ones carry so far. The dead here were the ones who walked those Rites before you, and they would have been glad of the company." },
       },
       again = {
         { id = "h_again", text = "What else would you know of this place, and of the honored dead who rest here?" },
@@ -50,7 +51,27 @@ P:NPC {
         { text = "What does a lorekeeper do?", next = "lorekeeper" },
         { text = "The spirits here must speak to you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
         { text = "How can I help the honored dead?", next = "BUSINESS" },
+        { text = "Seer Graytongue says I have finished the Rites.", next = "dd_rites", when = { questDone = TODO_QUEST("Rites of the Earthmother") } },
         { text = "Rest well, Lorekeeper.", next = "END" },
+      },
+    },
+    dd_rites = {
+      lines = {
+        { id = "dd_rites_1", text = "He would, and he would say it in very few words, because Graytongue spends words the way a dry season spends rain. The Rites are not the end of a road, though; they are the place where the Earth Mother stops leading you by the hand." },
+      },
+      choices = {
+        { text = "What becomes of those who finish them?", next = "dd_rites2" },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
+      },
+    },
+    dd_rites2 = {
+      lines = {
+        { id = "dd_rites_2", text = "Some who finish them go up to the bluffs and never look back at the mesa, and some come here to sit with the dead and remember who walked first. I won't tell you which is wiser, only that the dead remember both kinds." },
+      },
+      choices = {
+        { text = "I'll remember the mesa wherever the road goes.", next = "BACK", reply = "Then the mesa will remember you, which is the only kind of debt the dead ever collect. Walk with the Earth Mother.", fx = { align = { order = 1 } } },
+        { text = "The road ahead matters more than where I started.", next = "BACK", reply = "Spoken like a young one, and there's no shame in that. The road will bring you back here someday, I think, when you are ready to look behind you.", fx = { align = { order = -1 } } },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
       },
     },
     buried = {

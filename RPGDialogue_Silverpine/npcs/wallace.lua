@@ -40,6 +40,8 @@ P:NPC {
           text = "The howling's gone ragged out there, friend, all out of order, like a choir that's lost its leader. Somebody did something up at that keep, and from the way you walk in, I've a feeling it was you." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late visitor, is it? Day and night are much the same to me, but the wolves out there seem to prefer the dark, so you're braver than most." },
+        { id = "h_dd_vilefin", when = { killed = { name = "Vile Fin", min = 20 } },
+          text = "The murlocs down on the shore have gone quiet, friend, and that racket of theirs used to reach me even through the shutters. Somebody's been thinning them out, and you smell faintly of fish, so I've drawn my own conclusions." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? I'm in no hurry, and neither are the murlocs." },

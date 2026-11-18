@@ -172,6 +172,16 @@ P:NPC {
         { text = "Diggers and troggs both, then. I'll remember that.", next = "BACK" },
       },
     },
+    dd_kd_rug = {
+      lines = {
+        { id = "dd_kd_rug1", text = "Aye, by runner, an' the runner was out o' breath. He wrote that the troggs are fewer an' that ye fight like a Mountaineer, which from Rugelfuss is near enough a medal, though he'll also say they'll be back by spring, for he always does." },
+      },
+      choices = {
+        { text = "Then I'll come back in spring and kill them again.", next = "BACK", reply = "That's the spirit, an' I'll put ye on the board in chalk so it's easy tae change the date.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "They're vermin, but I take no joy in the killing.", next = "BACK", reply = "No, nor do I, though I'd never say it in front o' the captain. It's work that wants doin', that's all.", fx = { align = { light = 1 } } },
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
@@ -201,12 +211,17 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my road! The Light an' a good hammer, there's no better pair for troggs." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the road for the King, an' I'll be watchin' you as well, nothin' personal." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman on my road! The troggs come up out o' the hills, an' I've always wanted somebody who could tell me which hill first." },
+        { id = "dd_troggthreat", when = { questDone = TODO_QUEST("The Trogg Threat") },
+          text = "Captain Rugelfuss sent word down from the Valley o' Kings that ye thinned his troggs proper. He doesnae praise anybody, so I'd frame that if I were ye." },
+        { id = "dd_stonesplinter", when = { killed = { name = "Stonesplinter", min = 60 } },
+          text = "Ye've killed that many Stonesplinters that the hills have gone quiet on my side o' the road. I'm no' sure I like the quiet, mind, for troggs are never quiet unless they're plannin'." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The road's quiet, for now." },
         { id = "h_again2", text = "Ask away. I've a post tae watch an' all day tae watch it." },
       },
       choices = {
+        { text = "Rugelfuss sent word about me?", next = "dd_kd_rug", when = { questDone = TODO_QUEST("The Trogg Threat") } },
         { text = "The hills seem to have changed lately.", next = "druid_q", when = { class = "DRUID" } },
         { text = "I keep hearing talk of a spy.", next = "spy" },
         { text = "How's the loch?", next = "loch" },
@@ -567,6 +582,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind ye don't summon anythin' in the trenches; it's crowded enough wi' troggs." },
         { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
           text = "Ye stand at the edge o' my trench like it's the only safe bit o' ground in the loch, which tells me ye were born under the mountain. The sky out here gets tae the deeps lads; ye'll get used tae it, or ye won't." },
+        { id = "dd_dam", tags = { "news" }, when = { questDone = TODO_QUEST("A Dark Threat Looms") },
+          text = "Word came up the road that ye stopped the Dark Irons blowin' the dam. If that dam went, my dig would be the bottom o' a lake, so I owe ye more than a pint." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
@@ -830,6 +847,16 @@ P:NPC {
         { text = "Something else, Hearthstove.", next = "BACK" },
       },
     },
+    dd_hs_dam = {
+      lines = {
+        { id = "dd_hs_dam1", text = "He did, an' he counted every copper of it twice. That dam holds back the whole loch, friend, an' if it went, the Stoutlager would be lodgin' fish by mornin', so the whole town drank tae ye whether ye were here or no'." },
+      },
+      choices = {
+        { text = "The dam's safe. That's reward enough for me.", next = "BACK", reply = "Spoken like a Mountaineer, an' I'll tell Hinderweir ye said so. He'll go red tae the beard.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tell Hinderweir the next round should be mine to drink, not his.", next = "BACK", reply = "Ha! I'll tell him, an' I'll watch his face while I do it. That alone's worth the trouble.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Something else, Hearthstove.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_any", when = { alt = true, metBefore = false },
@@ -852,12 +879,17 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll pour ye somethin' gentle, an' if ye've a blessing for the cellar, I'll take that too." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at the Stoutlager! Ye'll no' be drinkin' much, I'd wager, but ye'll keep the peace better than my stool-leg." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Stoutlager! Ye'll tell me if the cellar's happy, for my best cask went sour last week, an' I'll no' blame the brewer." },
+        { id = "dd_rats", when = { questDone = TODO_QUEST("Rat Catching") },
+          text = "Kadrell's been tellin' the whole bar ye brought him a sack o' kobold ears, an' he tells it louder every pint. I'd sooner not hear about ears while folk are eatin', but well done all the same." },
+        { id = "dd_dam", tags = { "news" }, when = { questDone = TODO_QUEST("A Dark Threat Looms") },
+          text = "Hinderweir came in last night an' bought a round for the house, which he's never done in his life. He says ye kept the Dark Irons from blowin' his dam, an' I believe him, for he was smilin'." },
       },
       again = {
         { id = "h_again", text = "Another? Sit, sit, there's room." },
         { id = "h_again2", text = "What else? Tell me a tale an' I'll pour." },
       },
       choices = {
+        { text = "Hinderweir really bought a round?", next = "dd_hs_dam", when = { questDone = TODO_QUEST("A Dark Threat Looms") } },
         { text = "What do you love most about Loch Modan?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "You must see all sorts at this bar.", next = "regulars" },
@@ -1083,6 +1115,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my kitchen! Ye'll no' be wantin' blood sausage, I suppose, but ye can sit an' watch, so long as ye don't touch the pots." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Ye'll be wantin' a blood sausage, I expect, for everybody who looks as grim as ye do is only hungry." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in my kitchen! Ye'll no' be wantin' tae bless the sausages, will ye? Folk might start sayin' they're magic, an' then I'd have tae charge more." },
+        { id = "dd_choksul", when = { questDone = TODO_QUEST("WANTED: Chok'sul") },
+          text = "Somebody brought down that ogre Chok'sul, an' I hear it was you. He took two o' my best hams off a cart last spring, so I'll call that justice served, an' wi' mustard." },
       },
       again = {
         { id = "h_again", text = "What is it now? I have a pot on the fire, so be quick." },
@@ -1336,6 +1370,16 @@ P:NPC {
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
+    dd_rg_deaths = {
+      lines = {
+        { id = "dd_rg_deaths1", text = "Then ye're still standin', which is the whole o' the lesson. I lost eleven good dwarves on these slopes the year the troggs came up, an' not one o' them got tae try again, so whatever brings ye back, thank it, an' then stop needin' it." },
+      },
+      choices = {
+        { text = "Your dwarves deserved that chance. I'll learn caution.", next = "BACK", reply = "Good. Caution's no' cowardice, whatever the young ones say over their ale.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If something brings me back, why bother being careful?", next = "BACK", reply = "Because one day it won't, an' ye'll no' get a warnin' first. Mind that, {class}.", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Captain Rugelfuss, holding the Valley of Kings for Ironforge and King Magni. The troggs rise from under the hills faster than we can put them down, like water through a cracked seam." },
@@ -1357,12 +1401,17 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The troggs come up from under the hills faster than we can put them down, an' I'd take a hundred o' yer kind if Ironforge would send them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Stonesplinter", min = 40 } }, text = "My mountaineers say the Stonesplinter packs in the valley are thinner than they've been all year, an' they say yer name when they say it. Ironforge should hear o' that, an' I'll see it does." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've held this valley against troggs for months, and if you can feel them coming through the stone, you're worth ten of my tired soldiers." },
+        { id = "dd_rats", when = { questDone = TODO_QUEST("Rat Catching") },
+          text = "Kadrell tells me ye cleared his tunnel rats out o' the foothills. Good, for every kobold ye kill down there is one less diggin' intae my valley from the west." },
+        { id = "dd_deaths", when = { deaths = { min = 10 } },
+          text = "Ye've the look o' someone who's been carried back from the hills more than once. There's no shame in it, but a soldier learns somethin' every time he's laid out, or he doesnae last." },
       },
       again = {
         { id = "h_again", text = "Is there anything further? Speak it, an' I'll hear it." },
         { id = "h_again2", text = "Speak plainly, if ye would; I prefer it, as any dwarf o' the regiment does." },
       },
       choices = {
+        { text = "I've died more times than I'd like, Captain.", next = "dd_rg_deaths", when = { deaths = { min = 10 } } },
         { text = "What would you have me tell the beasts?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Your soldiers seem thin on the ground, Captain.", next = "reserve" },
         { text = "Who leads the troggs?", next = "leader" },
@@ -1602,6 +1651,16 @@ P:NPC {
         { text = "Something else, Hinderweir.", next = "BACK" },
       },
     },
+    dd_hw_di = {
+      lines = {
+        { id = "dd_hw_di1", text = "More than I'd like an' fewer than they'd like, thanks tae you. They come up out o' the Searing Gorge an' the Badlands, Thaurissan's rotten get, an' they hate this dam because it's Bronzebeard work that'll outlast anything they build." },
+      },
+      choices = {
+        { text = "Ironforge should march on Blackrock and end it.", next = "BACK", reply = "Aye, an' many a dwarf has said so over a pint. The King says the mountain's too strong yet, an' I'll no' argue wi' Magni.", fx = { align = { honor = 1 } } },
+        { text = "Better to catch their spies quietly than fight in the open.", next = "BACK", reply = "Quiet suits me fine, so long as the quiet ends wi' them in irons an' my dam still standin'.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Chief Engineer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1618,12 +1677,17 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, could you bless the dam? I've tried everything else, and my grandfather swore by a good blessing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Thank goodness, because if the Dark Irons come for the dam, you'll shine so brightly they'll know they're not welcome." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, could you ask the water whether it's content behind the dam? My grandfather would turn in his grave if it wasn't, and so would his." },
+        { id = "dd_shipment", when = { questDone = TODO_QUEST("Protecting the Shipment") },
+          text = "Miran tells me ye saw her shipment safe through the Dark Iron ambush on the excavation road. The same beards have been sniffin' round my dam, so I'll take any friend that frightens them." },
+        { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 25 } },
+          text = "Ye've put a fair few Dark Irons in the dirt, by the count the Mountaineers keep. Every one o' them was a pair o' hands that might've been settin' a charge under my dam." },
       },
       again = {
         { id = "h_again", text = "Yes? Quickly, please, for I've readings due an' the stone won't wait." },
         { id = "h_again2", text = "Go on, and hold the rail while you do." },
       },
       choices = {
+        { text = "How many Dark Irons are still out there?", next = "dd_hw_di", when = { killed = { name = "Dark Iron", min = 25 } } },
         { text = "Does the dam harm the land around it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The dam looks older than anything in Thelsamar.", next = "old" },
         { text = "Who would want the dam to fall?", next = "threat" },

@@ -134,6 +134,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_tablets", when = { questDone = TODO_QUEST("Stealing Knowledge") },
+          text = "Jediga tells me you've been fetching Highborne tablets for her trade with the human wizard. I don't like it, but the camp needs the coin, so I'll look the other way and thank you for it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Good, because the elves have scouts in those woods who hide better than any orc, and I need someone who can find their trail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -381,6 +383,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_betrayed", when = { questDone = TODO_QUEST("Betrayed") },
+          text = "You killed the elf who made fools of us, and the whole camp's talking about it. I told the commander not to trust her magic, and nobody listened, so I'll take some quiet satisfaction from your work." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Let me guess, you're here for glory, which is very noble and doesn't pay, so let's talk business instead." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -618,6 +622,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "I heard you fell off a cliff and broke yourself. A wind rider would have caught you, but you didn't ask, so don't come complaining to me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "Mage. You can keep my riders warm with a little fire, if you'd do it quickly. They hate the salt wind, and so do I." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },

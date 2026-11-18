@@ -168,6 +168,16 @@ P:NPC {
         { text = "Then I hope they sleep easier now.", next = "BACK" },
       },
     },
+    dd_of_rep = {
+      lines = {
+        { id = "dd_of_rep1", text = "Because ye've brought us what we asked for an' never once asked what it was for, which is more than Thaurissan's heirs ever gave us. The Brotherhood remembers who comes back, an' ye've come back often enough that the smiths have stopped hidin' their good tongs when ye walk in." },
+      },
+      choices = {
+        { text = "Your Brotherhood has earned my trust in return.", next = "BACK", reply = "Then we're square, an' that's the best a Dark Iron can say tae anyone. Mind ye keep it so.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I came for the recipes. Trust is a bonus.", next = "BACK", reply = "Ha! Honest, at least, an' the Brotherhood respects a good bargain more than a sweet word.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Overseer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_dwarf", tags = { "news" }, when = { party = { race = "Dwarf" } },
@@ -195,9 +205,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. We forged arms for Ragnaros's armies down in that mountain, so I can tell ye from here what's wrong wi' yer blade, whether ye want tae hear it or no." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. There's nothin' in the Gorge worth eatin', I'll warn ye, but there's plenty that'll try tae eat you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, an' one o' the Forsaken. Thaurissan's men would have made a prize o' ye, an' my lads will stare, for they've never seen a dead thing glow wi' the Light instead o' fire." },
+        { id = "dd_maltorius", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") },
+          text = "Lolo tells me Overseer Maltorius is dead, an' that ye're the one who did it. I knew him once, before the Brotherhood broke away, an' he was a cruel beast even by the mountain's measure." },
+        { id = "dd_rep", when = { reputation = { faction = "Thorium Brotherhood", min = "honored" } },
+          text = "The Brotherhood speaks well o' ye now, an' that's no' a small thing. We're Dark Iron, an' we dinnae trust easy, for we were lied tae by a god for a very long time." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
+        { text = "Why does the Brotherhood trust me now?", next = "dd_of_rep", when = { reputation = { faction = "Thorium Brotherhood", min = "honored" } } },
         { text = "Could the Gorge ever heal, Overseer?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Not many slaves ever get free of the Dark Irons.", next = "escape" },
         { text = "What does the Brotherhood make?", next = "trade" },
@@ -440,6 +455,8 @@ P:NPC {
           text = "Ye know what the best part o' freedom is? Sittin' down whenever ye like, with nobody tellin' ye tae stand, except the Overseer, an' Lolo, an' now you." },
         { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
           text = "Och, a deeps miner, I can see it in how ye keep glancin' at the sky like it owes ye money. Sit a while, for down here we've both earned the right, an' tell me if the Ironforge seams are as cool as I remember." },
+        { id = "dd_maltorius", when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") },
+          text = "The captain says ye brought down Maltorius. I'd been savin' a very firm word for him, so I'm a wee bit disappointed, but mostly I'm glad tae be spared the walk." },
       },
       again = { { id = "h_again", text = "Aye? Ask quick, I've just got comfy." } },
       choices = {
@@ -636,6 +653,16 @@ P:NPC {
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
+    dd_ll_hear = {
+      lines = {
+        { id = "dd_ll_hear1", text = "I'm blind, no' deaf, an' half o' Thorium Point talks tae me as if I'm a wall. The smiths gossip over the anvils, the lookouts count bodies for the bounty, an' the Dark Irons out in the Slag Pit shout yer name when they're cursin', which they do a great deal lately." },
+      },
+      choices = {
+        { text = "Good. Let them learn to fear the name.", next = "BACK", reply = "Fear's a fine lookout, I'll grant ye. Just dinnae let it make ye careless.", fx = { align = { light = -1 } } },
+        { text = "I'd rather they surrendered than cursed me.", next = "BACK", reply = "So would I, an' some might, one day. The Brotherhood did, after all, in its way.", fx = { align = { light = 1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_hunter", tags = { "news" }, when = { party = { class = "HUNTER" } },
@@ -659,9 +686,14 @@ P:NPC {
           text = "Folk say I drink too much for a lookout, an' I say I'd see nothin' at all without it. They've no answer tae that, an' neither have I, come tae think of it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ah, I can smell the oil on yer armor an' hear it clankin' from here, so ye're either a warrior or a very loud thief, an' I'm hopin' for warrior." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "Ah, a hunter, for I can smell the beast on ye, an' it's a fine healthy smell, so ye must feed it well." },
+        { id = "dd_menace", when = { questDone = TODO_QUEST("Fiery Menace!") },
+          text = "Hansel tells me ye took care o' the fire beasts he was meant tae deal with. He's grateful, though he'd never say so, for sayin' things makes him tired." },
+        { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 50 } },
+          text = "Fifty Dark Irons or more, I hear, an' none o' them our Brotherhood lads, thank the stone. I cannae see the scars on ye, but I can hear them in the way ye walk." },
       },
       again = { { id = "h_again", text = "Aye, aye, still here. I can hear ye fidgetin'." } },
       choices = {
+        { text = "How do you hear all this, Captain?", next = "dd_ll_hear", when = { killed = { name = "Dark Iron", min = 50 } } },
         { text = "How do you keep watch, blind?", next = "watch" },
         { text = "What do you hear from the Gorge at night?", next = "maltorius" },
         { text = "What did you smell on Kalaran?", next = "kalaran", when = { heardClaim = "kalaran_father" } },

@@ -30,8 +30,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_araj = {
+      lines = {
+        { id = "dd_araj_1",
+          text = "We have a file on everyone, {class}, and his was a long one. He ran things at Andorhal for the Cult of the Damned, and a good deal of what my missing agents were chasing went through his hands first." },
+        { id = "dd_araj_2",
+          text = "With him gone, the Blightcaller's friends lose a link in the chain. It won't bring my people back, but it'll make the next ones safer, and that's the only kind of justice this job offers." },
+      },
+      choices = {
+        { text = "Then put my name in his file, too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Leave me out of SI:7's files, please.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Flint.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_araj", tags = { "news" }, when = { killed = { name = "Araj" } },
+          text = "So Araj the Summoner is dust, and I'm told you were there when he went. SI:7 has a file on that lich three fingers thick, and I'll enjoy writing the last page of it." },
         { id = "h_default", key = true,
           text = "Flint Shadowmore, SI:7, here at the King's pleasure, or the regent's, anyway. Somebody out in these lands has been killing my agents, and they call him the Blightcaller, and that's all I know about him so far." },
         { id = "h_found", tags = { "news" }, when = { questActive = TODO_QUEST("Flint Shadowmore"), metBefore = false },
@@ -50,6 +65,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Quietly." },
       },
       choices = {
+        { text = "You had a file on Araj?", next = "dd_araj", when = { killed = { name = "Araj" } } },
         { text = "Who is the Blightcaller?", next = "blight" },
         { text = "Tell me about your missing agents.", next = "agents" },
         { text = "What's SI:7 doing this far north?", next = "si7" },
@@ -183,13 +199,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_scarlet = {
+      lines = {
+        { id = "dd_scarlet_1",
+          text = "Aye, and the Crusade will notice, too, so mind yer back on the road home. They hang their dead men's names on the chapel door at Hearthglen and swear on every one of them." },
+        { id = "dd_scarlet_2",
+          text = "Did ye see anythin' of a workshop while ye were at it, or a smithy with fancy bows on the rack? That's what I'm after, an' I'd buy ye a drink for a straight answer." },
+      },
+      choices = {
+        { text = "Nothing like that, sorry. Just soldiers.", next = "BACK" },
+        { text = "They're madmen. Every one of them deserved it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They were Lordaeron's people once. I took no joy in it.", next = "BACK", fx = { align = { light = 1 } } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 25 } },
+          text = "Word at the fire is ye've been thinnin' out the Scarlets round Hearthglen. That's a road I've got to walk soon, lass or lad, so I'll not complain about fewer crusaders on it." },
         { id = "h_default", key = true,
           text = "Alexia Ironknife. I've heard that before the Scarlet Crusade went mad, they had a mage workin' for them, makin' bows an' guns better than any soldier had a right tae carry. The Crusade killed him before any of it left the workshop, an' I mean tae find out why." },
       },
       again = { { id = "h_again", text = "Anythin' else? I've a long walk ahead." } },
       choices = {
+        { text = "I've cut a path through the Scarlets near Hearthglen.", next = "dd_scarlet", when = { killed = { name = "Scarlet", min = 25 } } },
         { text = "Why would the Crusade kill their own mage?", next = "why" },
         { text = "What do you want with the weapons?", next = "want" },
         { text = "Hearthglen is crawling with Scarlets.", next = "hearthglen" },

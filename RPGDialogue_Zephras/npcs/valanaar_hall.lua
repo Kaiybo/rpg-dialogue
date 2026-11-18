@@ -207,6 +207,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_lorthuna", tags = { "news" }, when = { questDone = TODO_QUEST("Confront Lorthuna") },
+          text = "They say you stood on the Rohashi Spires when Lorthuna fell. I heard the wind scream all the way down here when the Windlord struck her, and I've not slept well since, so I'll not ask how you sleep." },
         { id = "h_default", key = true, text = "Seena Skybreaker. I teach my warriors to hold still when everything in them wants to step back, because the ones who step back are the ones we carry home. Blademaster Ren up in Thendal teaches the same lesson, and we're both right, so you'd better listen to one of us." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Skybreaker Bulwark") },
           text = "You did right by the Bulwark, and by my family's name, and I'll not forget it. Come to me whenever you need training, and I'll make sure you're worth what you've done." },
@@ -687,8 +689,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player keeps dying.
+    dd_deaths = {
+      lines = { { id = "dd_default", text = "And I'm glad of it, but don't lean on it. Every time you come back you're a little more careless, and careless people are the ones who end up on my table with a wound the spirits can't reach in time. Learn to bind your own, and you'll need them less." } },
+      choices = {
+        { text = "Then teach me what you can.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_tithe", when = { questDone = TODO_QUEST("Blood Tithe") },
+          text = "Alvarion has been mending faster since you settled things with the bandits who cut him; anger is a poor poultice, and you took it off him. I don't approve of revenge, but I'll not argue with the results." },
+        { id = "h_dd_deaths", when = { deaths = { min = 5 } },
+          text = "You've come back from the spirit healer more than once, haven't you? It mends the body well enough, but it doesn't teach you to carry bandages, and that's my job." },
         { id = "h_default", key = true, text = "Melasa Fairmend. I teach first aid, which on this isle lately means teaching people how to keep their friends alive until somebody better can get to them. Linen, a steady hand and a cool head are most of it." },
       },
       again = {
@@ -696,6 +710,7 @@ P:NPC {
         { id = "h_again2", text = "Ask; I can roll bandages and talk." },
       },
       choices = {
+        { text = "The spirit healer keeps sending me back.", next = "dd_deaths", when = { deaths = { min = 5 } } },
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Who have you been patching up lately?", next = "patients" },
         { text = "How do your people heal, without priests?", next = "healing" },

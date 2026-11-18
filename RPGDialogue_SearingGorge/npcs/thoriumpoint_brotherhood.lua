@@ -43,6 +43,8 @@ P:NPC {
           text = "An Ironforge dwarf! I've always wanted tae see the Great Forge, ye know, just tae look, an' maybe tae see what they charge for their ore." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde, all the way up here! Ye've come through the Badlands, I expect, an' ye'll know where the good ore is in Kargath's hills, so let's talk." },
+        { id = "dd_rep", when = { reputation = { faction = "Thorium Brotherhood", min = "friendly" } },
+          text = "Overseer Oilfist says ye're a friend o' the Brotherhood now, which means I'm no' allowed tae exploit ye. Explore ye, I mean, explore. Ach, ye know what I mean." },
       },
       again = {
         { id = "h_again", text = "What else? I'm all ears, an' most o' my ears are for business." },

@@ -39,8 +39,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player killed Urs'anah, Aetheen's test.
+    dd_matriarch = {
+      lines = { { id = "dm_default", text = "Then the den will scatter, and the young ones will go hungry or go elsewhere, and either way the boy by the elder tree can sleep. I'm glad of it, and a little sorry, because she was old when my grandmother was a girl." } },
+      choices = {
+        { text = "She was a beast. Thendal comes first.", next = "BACK", reply = "It does, and that's what the Rangers are for. I only like to remember what it cost, so I don't start finding it easy.", fx = { align = { order = 1 } } },
+        { text = "I'm sorry too. She was only hungry, like the rest of the isle.", next = "BACK", reply = "She was. The pylons fail and the land gives less, and the beasts feel it before we do. Thank you for saying so.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_matriarch", tags = { "news" }, when = { killed = { name = "Urs'anah" } },
+          text = "The rangers are saying Urs'anah is dead, and that it was you who walked into her den. Aetheen won't say so aloud, but she's been smiling at the wind all morning, and she doesn't smile at anything." },
         { id = "h_default", key = true, text = "I'm Ailee Farheart, of the Rangers of Thendal Grove. We need all the help we can get around here, so every new face that walks into the village is a welcome one, yours included." },
         { id = "h_before", when = { race = "Skyborne", questBefore = TODO_QUEST("Coming of Age") },
           text = "Look at you, ready for adventure and trying very hard not to show your nerves! It's your coming of age, and Rorian the Dayseeker has your relic waiting at the greatfather tree just west of here." },
@@ -54,6 +65,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I've time. The grove can spare me for a little while." },
       },
       choices = {
+        { text = "I killed the ursera matriarch in the southern caves.", next = "dd_matriarch", when = { killed = { name = "Urs'anah" } } },
         { text = "What does coming of age mean here?", next = "coming" },
         { text = "Who is Rorian the Dayseeker?", next = "rorian" },
         { text = "What do the Rangers of Thendal Grove do?", next = "rangers" },
@@ -473,8 +485,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player keeps dying.
+    dd_deaths = {
+      lines = { { id = "dd_default", text = "Pride, most likely. The young ones who fall here fall because they won't step back from a fight they've already lost. Learn when to give ground, and you'll live long enough to learn the rest of what I teach." } },
+      choices = {
+        { text = "I'd rather fall than run from a fight.", next = "BACK", reply = "Then you'll fall, and often, and I'll admire it each time. Just know that the isle needs living warriors more than brave ones.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll give ground, and come back when it suits me.", next = "BACK", reply = "Good. A fight you walk away from is a fight you can win tomorrow, with friends at your back.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 5 } },
+          text = "You've been to the spirit healer, by the look of you, and more than once. There's no shame in that, only in coming back without learning why." },
         { id = "h_default", key = true, text = "I'm Ren, and I teach the blade here. Our world is changing, and it will need people with the will to lead and protect the others if our people are going to survive it, so I don't waste my time on anyone who isn't serious." },
         { id = "h_path", tags = { "news" }, when = { questDone = TODO_QUEST("The Warrior's Path") },
           text = "You found me, then, and you read my note. Come back to me as you grow, because you'll need guidance more than you think, and better you get it from me than from your mistakes." },
@@ -486,6 +509,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I've drills to run." },
       },
       choices = {
+        { text = "I've died more than once already. What am I doing wrong?", next = "dd_deaths", when = { deaths = { min = 5 } } },
         { text = "What do you teach first?", next = "flinch" },
         { text = "Why does the isle need warriors now?", next = "protect" },
         { text = "Who else trains in this watchtower?", next = "tower" },
@@ -582,8 +606,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player has been culling the ursera.
+    dd_ursera = {
+      lines = { { id = "du_default", text = "Hunger and desperation, the same as drives any of us. The isle's magic thins and the land gives less, and a beast doesn't understand pylons, only that the berries are gone. So we hunt them, and if we're any good, we take no pleasure in it." } },
+      choices = {
+        { text = "Then cull them cleanly and keep the village safe.", next = "BACK", reply = "That's the hunter's answer, and it's mine too, most days. Clean kills, and nothing wasted.", fx = { align = { order = 1 } } },
+        { text = "Then we should leave them be and let the wild sort itself out.", next = "BACK", reply = "The wild will sort itself out, aye, and some of what it sorts will be children. Still, I'd rather you felt that way than not.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ursera", when = { killed = { name = "Ursera", min = 20 } },
+          text = "You've been thinning the ursera to the south, and thinning them cleanly; the dens are quieter than they've been all season. Hunt them for need and not for sport, though, because they were here long before Thendal was." },
         { id = "h_default", key = true, text = "I'm Tai'ree, and I train the hunters of Thendal. There's more work for us now than there's been in my lifetime, because the winds are getting rougher, the isle's magic is thinning out, and the beasts have gone stranger than anyone here can remember." },
         { id = "h_way", tags = { "news" }, when = { questDone = TODO_QUEST("The Way of the Hunter") },
           text = "You read my note and you came, which is the first test passed. You remind me of how I looked to my own teacher once, all elbows and nerve, but whether you've got what this work needs is something only you can show me." },
@@ -593,6 +628,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. I'm listening." },
       },
       choices = {
+        { text = "The ursera seem half starved. Is that why they attack?", next = "dd_ursera", when = { killed = { name = "Ursera", min = 20 } } },
         { text = "Wilder how?", next = "wilds" },
         { text = "Who was your mentor?", next = "mentor" },
         { text = "Train me, Tai'ree.", next = "BUSINESS", when = { class = "HUNTER" } },
@@ -689,6 +725,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_encroach", when = { questDone = TODO_QUEST("Aggressive Encroachment") },
+          text = "Valreaa says the children are playing by the elder tree again, and that you're the reason. A blade's only worth what it protects, so I hope whatever you carried out there did its work well." },
         { id = "h_default", key = true, text = "Destin Thriceforged, and these are my blades. Nothing fancy, just shortswords, axes and clubs, but they're made in the old style that Luminarian set down, and they'll hold an edge longer than you'll hold your nerve." },
       },
       again = {

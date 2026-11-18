@@ -37,6 +37,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_encroach", tags = { "news" }, when = { questDone = TODO_QUEST("Encroachment") },
+          text = "My supply carts have been rolling in from the Barrens border without a single tusk mark on them since you sorted out those quilboar for Gar'Thok. I'll take that over a medal, because a medal doesn't feed anybody." },
+        { id = "h_dd_razormane", when = { killed = { name = "Razormane", min = 20 } },
+          text = "You smell like quilboar, {class}, and not the good kind that comes out of my pot. Thin enough of the Razormane and maybe I'll have pork on the menu for once instead of scorpid." },
         { id = "h_default", key = true,
           text = "The Horde's got a lot of mouths to feed, and I'm the one stuck feeding them. Torka, cook to the Razor Hill garrison, and if you've got two hands and no orders, I've got a use for both." },
         { id = "h_eggs_done", when = { questDone = TODO_QUEST("Break a Few Eggs") },
@@ -186,8 +190,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_darkstorm = {
+      lines = {
+        { id = "dd_ds_default", text = "Quieter, aye, but a scout learns not to trust quiet. Fizzle Darkstorm had followers, and followers scatter rather than vanish, so I'll be watching the ridges between here and the Barrens for new smoke. If you see any on your way west, tell me or tell Kargal." },
+      },
+      choices = {
+        { text = "If I see smoke, I'll put it out myself.", next = "BACK", reply = "Spoken like someone Kargal would like. Just come back and tell me afterwards, so I know where to look next.", fx = { align = { order = -1 } } },
+        { text = "I'll bring word to you first, then.", next = "BACK", reply = "Good. A scout who reports is worth three who don't, and Gar'Thok will hear your name from me.", fx = { align = { order = 1 } } },
+        { text = "Something else, Takrin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_darkstorm", tags = { "news" }, when = { questDone = TODO_QUEST("Dark Storms") },
+          text = "I walked past Thunder Ridge this morning and didn't see a single Burning Blade fire burning. Orgnil says Fizzle Darkstorm is dead and you're the reason, so the western road is a good deal friendlier than it was." },
         { id = "h_default", key = true,
           text = "Takrin Pathseeker, scout. I walk the roads between here and the Barrens and come back to tell Razor Hill what's on them. My friend Kargal at the Barrens outpost needs new recruits, and I'm always looking." },
         { id = "h_letter_done", when = { questDone = TODO_QUEST("Conscript of the Horde") },
@@ -202,6 +218,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The road will still be there in a moment." },
       },
       choices = {
+        { text = "Thunder Ridge should be quieter now, Takrin.", next = "dd_darkstorm", when = { questDone = TODO_QUEST("Dark Storms") } },
         { text = "What's this about recruits?", next = "recruit" },
         { text = "What lies on the road west?", next = "road" },
         { text = "Tell me about Kargal Battlescar.", next = "kargal" },
@@ -316,8 +333,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_eggs = {
+      lines = {
+        { id = "dd_eg_default", text = "I don't mind, not really, because a garrison be needin' food and the taillashers lay plenty. But I raise beasts, mon, and every egg in Torka's pan be a raptor I never get to name. What you think, should a hunter feel bad about that?" },
+      },
+      choices = {
+        { text = "No. Food is food, and the grunts were hungry.", next = "BACK", reply = "Spoken like an orc, even if you not be one. Torka will love you, and my raptors will forgive you eventually.", fx = { align = { light = -1 } } },
+        { text = "A little. I'll leave the next nest alone.", next = "BACK", reply = "Ah, dat be a good heart talkin'. The raptors don't know it, but I do, and I'll tell them anyway.", fx = { align = { light = 1 } } },
+        { text = "Something else, Shoja'my.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_eggs", tags = { "news" }, when = { questDone = TODO_QUEST("Break a Few Eggs") },
+          text = "Torka be fryin' raptor eggs and tellin' everyone who brought them in. I won't say nothin' bad about you, mon, but my raptors in the back pens been givin' you a funny look." },
         { id = "h_default", key = true,
           text = "I be Shoja'my, and these be my stables, though the orcs think they be in charge of them. I keep the beasts that hunters cannot carry with them, and I feed them better than the grunts get fed." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -330,6 +359,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask, I be shovelin' anyway." },
       },
       choices = {
+        { text = "You don't like that I took those eggs, Shoja'my.", next = "dd_eggs", when = { questDone = TODO_QUEST("Break a Few Eggs") } },
         { text = "I need to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How did a troll end up running Razor Hill's stables?", next = "how" },
         { text = "What beasts do you keep?", next = "beasts" },

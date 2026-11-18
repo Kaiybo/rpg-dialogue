@@ -33,6 +33,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_tz_rock = {
+      lines = {
+        { id = "dd_tz_rock1", text = "Yes, and they will rise again, because the sickness under Blackrock keeps calling them up angry. Killing them is like cutting the grass in a burning field. Still, a shaman cannot calm a spirit that is tearing his arm off, so I am grateful for the quiet you bought." },
+      },
+      choices = {
+        { text = "Then the sickness itself must be ended.", next = "BACK", reply = "Yes. When you are strong enough to go below the mountain, come and find me.", fx = { align = { order = 1 } } },
+        { text = "If they come at me, I'll break them. That's all.", next = "BACK", reply = "That is a warrior's answer, and the earth will hear it. I hope it forgives you.", fx = { align = { order = -1 } } },
+        { text = "Something else, Thunderheart.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +59,8 @@ P:NPC {
           text = "You know the songs of the Earth Mother, so you will understand me when I say the earth here has forgotten its own." },
         { id = "h_orc", when = { race = "Orc" },
           text = "The orcs once called on the elements and then forgot them, but the Warchief has called them home. I am glad to stand among those who remember." },
+        { id = "dd_rock", when = { killed = { name = "Rock Elemental", min = 20 } },
+          text = "You have broken many of the stone spirits that walk the Badlands. I do not blame you, for their anger is not theirs, but I feel each one go back into the earth, and it is a heavy feeling." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? Speak slowly; the fire does not hurry, and neither should we." },
@@ -56,6 +68,7 @@ P:NPC {
         { id = "h_again3", text = "Go on, young one. I am listening, and so is the ground." },
       },
       choices = {
+        { text = "I've had to put down a lot of rock elementals.", next = "dd_tz_rock", when = { killed = { name = "Rock Elemental", min = 20 } } },
         { text = "What's wrong with the elements here?", next = "sick" },
         { text = "Who is Pyron?", next = "pyron" },
         { text = "Why is a tauren with the Expeditionary Force?", next = "why" },
@@ -508,16 +521,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gg_kos = {
+      lines = {
+        { id = "dd_gg_kos1", text = "Not much one at a time, maybe. But they come at night with blasting powder and fire, and they don't stop when they bleed, and I've put four friends in the dirt behind this wall. Don't get easy with them." },
+      },
+      choices = {
+        { text = "You're right. I'll stay wary of them.", next = "BACK", reply = "Good. Wary grunts get old, and old grunts get to complain about young ones.", fx = { align = { order = 1 } } },
+        { text = "Let them come. I'll meet them head on.", next = "BACK", reply = "Then stand next to me when they do, and we'll see how far head on gets you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Gargal, grunt of Kargath. When the Dark Irons come, I stand in front, and they hit my shield instead of the ones behind me, and that's my whole job." },
+        { id = "dd_kos", when = { questDone = TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves") },
+          text = "The Warlord says you hunted Dark Irons off his poster. That's fewer of them hitting my shield, so I owe you, and I don't say that to many." },
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere." },
         { id = "h_again2", text = "Speak. I'm listening, but my shield's facing the ridge." },
       },
       choices = {
+        { text = "The Dark Irons weren't much, Gargal.", next = "dd_gg_kos", when = { questDone = TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves") } },
         { text = "Tell me about your shield.", next = "shield" },
         { text = "What do you fight for, Gargal?", next = "fight" },
         { text = "Who are you protecting?", next = "protect" },

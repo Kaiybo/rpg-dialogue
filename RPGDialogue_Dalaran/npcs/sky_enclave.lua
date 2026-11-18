@@ -51,6 +51,8 @@ P:NPC {
           text = "Oh, good, someone with a sword. Not that we need one, of course, everything's perfectly fine, but it's nice to have one about." },
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "That's... a demon, isn't it? Is it yours? It's yours. Please keep it close; I've a list of procedures for demons, and none of them are pleasant." },
+        { id = "h_dd_sample", when = { questDone = TODO_QUEST("A Green Sample") },
+          text = "Alfina tells me you fetched her sample from the central garden, and that you came back with all your fingers. Some of those plants have opinions now, so that's a better result than most apprentices manage." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've time until the next skycutter comes in, and I'd much rather talk than watch the sky." },

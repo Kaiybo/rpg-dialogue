@@ -52,8 +52,23 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_spirits = {
+      lines = {
+        { id = "dd_spirits_1",
+          text = "They trouble every kaldorei who lives here, though most of my sisters won't admit it. These trees grew up through the bones of Queen Azshara's city, and when the wind moves through them, sometimes it sounds like the old court laughing." },
+        { id = "dd_spirits_2",
+          text = "That's why I won't cut a bow from Azshara's wood, {class}. A bow should be quiet in the hand, and I'd not trust one grown from that soil to stay quiet when it mattered." },
+      },
+      choices = {
+        { text = "The dead deserved rest, even the Highborne.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Highborne earned their torment. I did it for you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brinna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_spirits", when = { questDone = TODO_QUEST("Spiritual Unrest") },
+          text = "Loh'atu tells me you laid some of the Highborne spirits to rest near the point. I didn't think I'd ever say this, but the woods feel a little less watched tonight, and I thank you for it." },
         { id = "h_default", key = true, text = "I am Brinna Valanaar. I keep the Sentinels at Talrendis armed, which means a great many bows and a great many broken strings, because the satyrs and the naga keep them busy on what was once the edge of Zin-Azshari." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Ishnu-alah. You'll have heard what this land was, then, and you'll understand why I don't love it." },
@@ -63,6 +78,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, but briefly; the Highborne talked too much, and look what became of them." },
       },
       choices = {
+        { text = "Do the Highborne spirits trouble you?", next = "dd_spirits", when = { questDone = TODO_QUEST("Spiritual Unrest") } },
         { text = "Where do you get your wood?", next = "wood" },
         { text = "The Sentinels must face a good deal here.", next = "border" },
         { text = "What makes a good bow?", next = "bow", when = { class = "HUNTER" } },

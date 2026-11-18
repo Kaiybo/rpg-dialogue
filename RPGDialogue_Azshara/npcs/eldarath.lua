@@ -470,8 +470,23 @@ P:NPC {
         { text = "Never mind the scales.", next = "BACK" },
       },
     },
+    dd_dragons = {
+      lines = {
+        { id = "dd_dragons_1",
+          text = "I keep a list of customers who went after dragonscale and never came back to pay for the lesson. It's a long list, and I read it some nights to remind myself why I teach the trade from a camp, not a cave." },
+        { id = "dd_dragons_2",
+          text = "The blue dragonkin guard something up there, and they guard it well. If you keep going back, bring the scales to me, and bring yourself back with them." },
+      },
+      choices = {
+        { text = "I'll bring the scales. Leave my name off.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I die, I die. Write me in.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Peter.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_dragons", when = { killed = { name = { "Dragonspawn", "Scalebane", "Magelord" }, min = 20 } },
+          text = "You've been fighting the blue dragonkin up near the Ruins of Eldarath, and you're still alive. I'll take you off the list I keep, then, at least for this week." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, in my camp. You'll want dragonscale like the rest of them, I expect, though I'll warn you now that dragons don't care for demons any more than they care for me." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -496,6 +511,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've a hide soaking, so make it quick." },
                 { id = "h_again2", text = "Go on, I'm listening, and so's the dragon whelp up on the ridge, probably." } },
       choices = {
+        { text = "You really keep a list of the dead?", next = "dd_dragons", when = { killed = { name = { "Dragonspawn", "Scalebane", "Magelord" }, min = 20 } } },
         { text = "Why work out here, of all places?", next = "why" },
         { text = "Is dragonscale worth the danger?", next = "scale" },
         { text = "Show me what you teach.", next = "BUSINESS" },
@@ -1101,6 +1117,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_crew", when = { questDone = TODO_QUEST("A Crew Under Fire") },
+          text = "Beltis says ye fought the naga off her crew in the Ruined Reaches, an' I saw it from up top on my rounds. Ye looked like a wee hero from up there, an' I'll tell 'em so in Ironforge." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, wantin' a lift? Fine by me, so long as yer wee beastie doesn't chew the fuel line, because I'll not be explainin' that tae Ironforge." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },

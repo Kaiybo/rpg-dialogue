@@ -32,6 +32,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_goblins = {
+      lines = {
+        { id = "dd_gb_default", text = "No, they won't, because there's always more coin in the next valley. They cut the forest down to the stumps and sell the wood to anyone who'll buy it, and when the trees are gone they'll come for the stone under Sun Rock itself. I was gentle once, as I told you, but I'm not gentle with them." },
+      },
+      choices = {
+        { text = "Then we drive them out of Stonetalon entirely.", next = "BACK", reply = "That's my aim, and the Warchief's, if he could spare me the grunts. Keep killing them, and maybe the next shipment won't come.", fx = { align = { light = -1 } } },
+        { text = "They'd stop if someone made peace worth their coin.", next = "BACK", reply = "You may be right, but I'll not be the one to pay the Venture Company to stop murdering trees. That's a deal I'd sooner make with an axe.", fx = { align = { light = 1 } } },
+        { text = "Something else, Maggran.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I hold it against the knights who carried it over the camps, and none of them were you. Cairne gave me Sun Rock to hold, and I hold it for the Horde. Hold it with me, and I won't care what you pray to." } },
@@ -143,6 +153,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_goblins", tags = { "news" }, when = { questDone = TODO_QUEST("Goblin Invaders") },
+          text = "Seereth says you've been cutting down the Venture Company's loggers in Windshear Crag. Good, because every goblin who falls there is one less saw in the forest and one less pair of eyes watching my walls." },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You found the bottom of one of these cliffs the hard way, I see. Stonetalon is made of drops, and the ground at the end of them doesn't care how strong you are, so watch your feet as closely as you watch your enemies." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Sun Rock. I was gentle once. The Silver Hand's camps took some of that, and the wars took the rest." },
         { id = "h_default", key = true,
           text = "I'm Maggran Earthbinder. Cairne gave me Sun Rock to hold, and the wind and sun here to ease what the years and a spider's fang did to me. I was gentle once, but I'm not anymore." },
@@ -172,6 +186,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The rock's quiet for once, and I can spare the time." },
       },
       choices = {
+        { text = "The Venture Company won't stop at Windshear, will they?", next = "dd_goblins", when = { questDone = TODO_QUEST("Goblin Invaders") } },
         { text = "What hardened you?", next = "hard" },
         { text = "Sun Rock seems troubled.", next = "troubles" },
         { text = "Tell me about the spider that nearly had you.", next = "besseleth" },
@@ -475,6 +490,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_venture", when = { killed = { name = "Venture", min = 30 } },
+          text = "The saws have gone quieter in Windshear Crag, and I'm told it's your doing. Seedlings won't take where the shredders still roll, so every goblin you stop is a tree I may yet see growing." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I coax green shoots out of burned ground, and I'd love to know whether the Light can help." },
         { id = "h_default", text = "I'm Tammra Windfield, and I tend what grows on Sun Rock and try to bring back what doesn't. Every mountain can heal, given time and stubbornness." },
         { id = "h_kaya", tags = { "news" }, when = { questActive = TODO_QUEST("Kaya's Alive") },
@@ -1021,6 +1038,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_feeders", when = { questDone = TODO_QUEST("Blood Feeders") },
+          text = "Xen'Zilla say you cleared out dem Deepmoss spiders from the slopes near Malaka'jin. Good, mon, because I need dem slopes for my herbs, and I don't like sharin' them with things dat got eight legs and too many eyes." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light! Jin'Zil seen many things in dis cave, mon, but never dis. You be a strange one." },
         { id = "h_default", key = true,
           text = "Jin'Zil be my name: witch doctor, Darkspear, and friend to Darsok and Rokhan. Dis cave be my workshop, and da forest out dere be my pantry." },
@@ -1194,6 +1213,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_kaya = {
+      lines = {
+        { id = "dd_ky_default", text = "Shaken, but she's young and she'll mend. The Grimtotem were waiting for her on the road, which means someone knew she'd be walking it, and that worries Maggran more than any ambush. Do you think the Grimtotem have eyes on Sun Rock?" },
+      },
+      choices = {
+        { text = "They do. Maggran should root out whoever's talking.", next = "BACK", reply = "That's what he's doing, and he's not gentle about it. I'll keep my ears open at the bar, because people talk when they drink.", fx = { align = { order = 1 } } },
+        { text = "Maybe it was only bad luck. Don't turn on your own.", next = "BACK", reply = "I hope you're right, because suspicion on a small rock like this spreads faster than fire. I'll tell Maggran you said so.", fx = { align = { order = -1 } } },
+        { text = "Something else, Jayka.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "We welcome everyone who comes in tired. Some of the orcs here might stare at the Light, because they remember the camps, but nobody starts trouble in my inn. Sit, rest, and tell me a story." } },
@@ -1235,6 +1264,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_kaya", tags = { "news" }, when = { questDone = TODO_QUEST("Kaya's Alive") },
+          text = "Tammra came in last night and cried into her stew, and then she laughed, and then she told the whole inn how you brought young Kaya home alive. Nobody on Sun Rock will forget that, and neither will I." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Weapons down, boots off, and tell me who you've been fighting. I don't care what you pray to." },
         { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and an orc who feeds the Horde's fighters serves it as well as any grunt." },
         { id = "h_op_magatha", tags = { "news" }, when = { gossip = { topic = "grimtotem", stance = "lost" } },
@@ -1258,6 +1289,7 @@ P:NPC {
         { id = "h_again2", text = "Sit a while longer if you like. Nobody hurries on the rock, and a warrior who rests fights better." },
       },
       choices = {
+        { text = "Kaya's safe now, Jayka. How is she?", next = "dd_kaya", when = { questDone = TODO_QUEST("Kaya's Alive") } },
         { text = "Do you like it up here?", next = "rock" },
         { text = "The rock must have news of its own.", next = "news" },
         { text = "Want to hear how my last fight went?", next = "story" },
@@ -1784,6 +1816,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_charredvale", when = { questDone = TODO_QUEST("Reclaiming the Charred Vale") },
+          text = "Keeper Albagorm says you went down into the Charred Vale for him. He barely says a word to anyone, so if he spoke of you to me, it must have mattered to him a great deal." },
         { id = "h_default", text = "I'm Faralia, and I keep a small inn for those who climb up to the grove. Not many do, and the ones who do usually need the bed." },
         { id = "h_druid", when = { metBefore = true }, text = "A druid came up from the grove at dawn and sat on my step without a word, watching the mountain, and then she left. I've decided it was a compliment." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Up here the stars are near enough to count, and I've tried, but I always lose my place somewhere past the ridge." },

@@ -114,8 +114,25 @@ P:NPC {
         { text = "Something else, my lord.", next = "BACK" },
       },
     },
+    dd_darrow = {
+      lines = {
+        { id = "dd_darrow_1",
+          text = "Because Darrowshire stood when the Scourge came, with farmers and a handful of paladins, and it fell, and nobody came. The men who later founded the Dawn were busy elsewhere, and some of us have carried that ever since." },
+        { id = "dd_darrow_2",
+          text = "Joseph Redpath and Davil Lightfire bought the rest of the Eastweald a day with their lives. Now their spirits can rest, and an old soldier like me can stop looking south when the wind turns." },
+      },
+      choices = {
+        { text = "It wasn't your fault. Nobody could have saved them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the Dawn should remember its failures, not bury them.", next = "BACK", fx = { align = { light = -1, order = -1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_darrow", tags = { "news" }, when = { questDone = TODO_QUEST("The Battle of Darrowshire") },
+          text = "Carlin Redpath tells me Darrowshire's last stand has been fought again, and won this time, with you beside its ghosts. The Dawn owes that town a debt it can never repay, and you have paid some of it for us." },
+        { id = "h_dd_exalted", when = { reputation = { faction = "Argent Dawn", min = "exalted" } },
+          text = "There's not a knight in this chapel who doesn't know your name now. I spoke it at the war council last night, and nobody needed it explained." },
         { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "Duke Zverenhoff says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
           text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
@@ -142,6 +159,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
+        { text = "Why does the Dawn owe Darrowshire a debt?", next = "dd_darrow", when = { questDone = TODO_QUEST("The Battle of Darrowshire") } },
         { text = "Does the Dawn mean to heal the land, or only hold it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You must have left the Silver Hand for a reason.", next = "left" },
         { text = "You don't seem a man who sought to lead the Dawn.", next = "lead" },
@@ -427,8 +445,23 @@ P:NPC {
         { text = "Something else, Revered.", next = "BACK" },
       },
     },
+    dd_zael = {
+      lines = {
+        { id = "dd_zael_1",
+          text = "Because I might have ended up in it, if things had gone a little differently, and so might many of the Dawn's own. Those trolls weren't stealing corpses for food alone; whatever they carried off had a way of walking again." },
+        { id = "dd_zael_2",
+          text = "I know what it is to be raised against your will, friend. I would not wish it on the meanest beggar in Lordaeron, and so I'm glad that door is closed, at least on this hill." },
+      },
+      choices = {
+        { text = "Nobody should be raised against their will. I'm glad.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead are dead. I did it for Alen's coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Leonid.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_zael", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") },
+          text = "Alen tells me his pit is quiet at night now, and that you were the reason. The dead who lie there were people once, and I'm grateful someone made sure they stayed where we laid them." },
         { id = "o_tlaband", tags = { "news" }, when = { opinion = { topic = "the_light", stance = "abandoned" } }, text = "They tell me you've decided the Light abandoned the dead. I won't argue with you; I'll only ask you to watch what happens at this altar." },
         { id = "o_fkdistrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "distrust" } }, text = "I'm told you'd rather the dead kept away from the Dawn. I understand, and I'll try to be useful all the same." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
@@ -454,6 +487,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Yes? I have time; it's one of the few things the dead have plenty of." } },
       choices = {
+        { text = "Why does the pit matter so much to you?", next = "dd_zael", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
         { text = "Do you feel the blight in the land, Leonid?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd not have thought the Light would answer you.", next = "light" },
         { text = "I'd have expected you to serve the Banshee Queen.", next = "why" },

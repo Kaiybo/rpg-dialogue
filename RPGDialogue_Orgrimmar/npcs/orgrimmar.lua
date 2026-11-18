@@ -37,6 +37,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_tiragarde = {
+      lines = {
+        { id = "dd_tir_default", text = "He did, and in fewer words than I would have liked. Admiral Proudmoore came to Kalimdor to finish what the old wars began, and he died for it at Theramore, but some of his sailors never sailed home. They hold that keep out of grief as much as hatred, I think, and that makes them more dangerous, not less." },
+      },
+      choices = {
+        { text = "Grief or hatred, they came with swords. They get swords.", next = "dd_tiragarde2", fx = { align = { light = -1 } } },
+        { text = "Then perhaps they could be made to sail home in peace.", next = "dd_tiragarde2", fx = { align = { light = 1 } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    dd_tiragarde2 = {
+      lines = {
+        { id = "dd_tir2_default", text = "Perhaps you're right, and I've learned not to be certain about humans either way. Jaina Proudmoore stood with me against her own father, and the man who raised me in Durnholde was human too. Our people can hold both of those truths, and I need them to, because the Horde will not survive on hatred alone." },
+      },
+      choices = { { text = "I understand, Warchief. Something else.", next = "BACK" } },
+    },
     xalt_thrall = {
       lines = {
         { id = "xalt_thrall_default", text = "Many have stood here, and I try to remember each of them, because I was once a slave nobody looked at twice. Whoever they are to you, they came in with their head up and left the same way, and that is all I ask of anyone in the Horde." },
@@ -152,6 +168,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_tiragarde", tags = { "news" }, when = { questDone = TODO_QUEST("Vanquish the Betrayers") },
+          text = "Gar'Thok writes that the Kul Tirans at Tiragarde Keep have been driven back to their walls, and he names you in the report. I asked for peace with the humans, and I still want it, but those who land armed on our shore have made their own choice." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "There was another {altrace} in this hall not long ago, a {altclass} named {alt}, who stood the way you stand, as if the floor might be pulled out from under them. Is that one of your clan, or does Durotar simply raise its children alike?" },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -190,6 +208,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a companion at your side. The Frostwolves taught me in Alterac that the bond with a beast is a bond of honour, and I have never forgotten it." },
       },
       choices = {
+        { text = "Gar'Thok sent you word of Tiragarde Keep, Warchief?", next = "dd_tiragarde", when = { questDone = TODO_QUEST("Vanquish the Betrayers") } },
         { text = "Someone close to me has stood in this hall, Warchief.", next = "xalt_thrall", when = { alt = true } },
         { text = "What place does a priest have in a Horde of shaman, Warchief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Cairne says the tauren owe you a debt, Warchief.", next = "druid_q", when = { class = "DRUID" } },
@@ -787,6 +806,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_zalazane = {
+      lines = {
+        { id = "dd_zl_default", text = "Not yet, mon. Zalazane be dead, but his hexed ones still walk the isles, and they be our own people, wearin' our own faces. We give them peace first, then we go home, and until then Sen'jin village be home enough. What do you think we should do with the hexed?" },
+      },
+      choices = {
+        { text = "Put them down quickly. It's the only mercy left.", next = "BACK", reply = "That be the hard answer, and maybe the true one. Gadrin hopes for a cure, but I be the chief, and a chief can't wait on hope forever.", fx = { align = { light = -1 } } },
+        { text = "Keep looking for a cure. They're still your people.", next = "BACK", reply = "Gadrin would like you, mon. I hope you be right, because I would rather bring them home than bury them.", fx = { align = { light = 1 } } },
+        { text = "Something else, Vol'jin.", next = "BACK" },
+      },
+    },
     xpt_voljin = {
       big = true,
       lines = { { id = "xpt_voljin_default", text = "Know that we were nearly wiped out, mon, hunted by the sea witch's murlocs and by our own kin, until Thrall's ships came through the storm and took us off the Echo Isles. A Darkspear remembers every debt, good and bad, so be the kind of friend they owe something to and not the other kind." } },
@@ -870,6 +899,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_zalazane", tags = { "news" }, when = { questDone = TODO_QUEST("Zalazane") },
+          text = "Master Gadrin send me word you went to the Echo Isles and ended Zalazane. That be a debt the Darkspear don't forget, mon, and I don't either, so you walk in my hall with your head up." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "You got the same look as {alt}, mon, that {altclass} who come and sit with me a while back. The loa like to send the same spirit twice when the first one ain't finished the job." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -897,6 +928,7 @@ P:NPC {
           text = "You again, mon. Vol'jin did what you said and counted the hexed with the enemy, and it be the right thing for a chief, maybe, but it sit in my belly like a bad fish." },
       },
       choices = {
+        { text = "Zalazane's dead, Vol'jin. Will the Darkspear go back to the isles?", next = "dd_zalazane", when = { questDone = TODO_QUEST("Zalazane") } },
         { text = "I'd guess the loa still listen to a priest, Vol'jin.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The loa and the Earth Mother can't agree on much.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why follow Thrall?", next = "thrall" },
@@ -1107,6 +1139,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_darkstorm = {
+      lines = {
+        { id = "dd_ds_default", text = "Everyone who once dabbled in the old fires knew someone like him, and I've made no secret of my past. He was ambitious and not very clever, which is the most dangerous kind of warlock. You did Durotar a kindness, and you did me one too, because now Orgnil has one fewer reason to glare at my door." },
+      },
+      choices = {
+        { text = "Orgnil's right to watch you. You admit your past.", next = "BACK", reply = "He is, and I'd think less of him if he didn't. Watch me too, if you like; I've nothing to hide that the Warchief doesn't already know.", fx = { align = { order = 1 } } },
+        { text = "The past's the past. What matters is whose side you're on.", next = "BACK", reply = "A generous view, and a rare one in this city. I'm on the Warchief's side, and I mean to stay there.", fx = { align = { order = -1 } } },
+        { text = "Something else, Neeru.", next = "BACK" },
+      },
+    },
     xpt_neeru = {
       big = true,
       lines = { { id = "xpt_neeru_default", text = "Then your companion is braver than most, because the warlocks of the old Horde are blamed for every wound our people still carry. I teach the young ones to command what they summon and never to beg it for favours, and if your friend has learned that, they'll outlive their critics." } },
@@ -1207,6 +1249,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_darkstorm", tags = { "news" }, when = { questDone = TODO_QUEST("Dark Storms") },
+          text = "So Fizzle Darkstorm is dead at Thunder Ridge, and Orgnil Soulscar sends me a very short note saying who did it. I knew Fizzle, after a fashion, and I can tell you he was no great loss to anyone, least of all to the Blade." },
         { id = "h_pt_lock", tags = { "news" }, when = { party = { class = "WARLOCK" } },
           text = "Your friend {companion} smells of sulfur and doesn't seem ashamed of it. Most orcs in this city look away from my sort, so it warms me to see someone who keeps such honest company." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. How very unusual. I make it my business to know everyone in Orgrimmar who handles a dangerous fire, and you are certainly one of them." },
@@ -1230,6 +1274,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Searing Blade", min = 20 } }, text = "The Searing Blade in the chasm beneath the city have lost many of their number, and I hear you were among those responsible. The Warchief's enemies have fewer places to hide now." },
       },
       choices = {
+        { text = "You knew Fizzle Darkstorm, Neeru?", next = "dd_darkstorm", when = { questDone = TODO_QUEST("Dark Storms") } },
         { text = "Do you watch the Horde's priests as closely as its warlocks?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you make of the Horde's warlocks, Neeru?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What is the Burning Blade?", next = "blade" },
@@ -1397,6 +1442,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_orders = {
+      lines = {
+        { id = "dd_or_default", text = "The usual, which is to say everything and nothing. One table says the humans mean to land a whole army at Tiragarde, another says it's only a few stubborn sailors who won't go home, and an old wolf rider says Proudmoore's ghost is behind it all. What did you make of them, since you carried the things?" },
+      },
+      choices = {
+        { text = "Let them land. Durotar will bury every one.", next = "BACK", reply = "That's what the loud table says too, and they'll love you for it. I'll keep the stew hot either way.", fx = { align = { honor = -1 } } },
+        { text = "I didn't read them. They were for the Warchief.", next = "BACK", reply = "A messenger who doesn't peek, now there's a rare thing. Thrall's lucky in his runners, if nothing else.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Gryshka.", next = "BACK" },
+      },
+    },
     fl = {
       lines = { { id = "fl_default", text = "Everyone eats at the Tusk, but not everyone gets the best cut, and you'd do well to notice which one's on your plate. A warrior with shoulders like yours needs feeding properly, and I'll admit I like to watch a strong one eat." } },
       choices = {
@@ -1532,6 +1587,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_orders", tags = { "news" }, when = { questDone = TODO_QUEST("The Admiral's Orders") },
+          text = "Half my tables were arguing last night about the Kul Tiran orders that came up from Razor Hill, and someone swore you were the one who carried them to the Warchief. Whatever's in them, it's good for business, because worried grunts eat twice as much." },
+        { id = "h_dd_exalted", when = { reputation = { faction = "Orgrimmar", min = "exalted" } },
+          text = "There's not a grunt in this city who doesn't know your face by now, and most of them would buy you a drink if you let them. Sit down, then, and let the Broken Tusk feed someone who's earned it." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "You've the same face as {alt}, who slept upstairs and ate two bowls of my stew without stopping for breath. Kin of yours, I'd guess, and if the appetite runs in the family I'd best start another pot." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -1561,6 +1620,7 @@ P:NPC {
         { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You've been down Ragefire Chasm and back, have you? Sit and eat, because nobody comes up from those caves without a hole in their stomach, and I'd like to hear what's been making my floor so warm." },
       },
       choices = {
+        { text = "What were they saying about the Kul Tiran orders?", next = "dd_orders", when = { questDone = TODO_QUEST("The Admiral's Orders") } },
         { text = "Do your brawlers ever let a priest patch them up?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The spirits must favor a good hearth, Gryshka.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd guess orcs and tauren don't always get along here.", next = "druid_q", when = { class = "DRUID" } },
@@ -1660,6 +1720,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "dd_de_default", text = "The difference is you get back up and go somewhere, and I get back up and get knocked down again by the next grunt who wants to test his strength. My mother used to say the earth catches everyone who falls, but I don't think she meant for it to catch me quite this often." },
+      },
+      choices = {
+        { text = "Then stop standing in their way, Gamon.", next = "BACK", reply = "And where would I stand instead? This is where Tazan pays me. Besides, they'd only come looking.", fx = { align = { light = -1 } } },
+        { text = "Come stand somewhere else. I'll watch your back.", next = "BACK", reply = "That's kind of you, friend, truly. But you'll be gone by morning, and I'll be here, so I'd best stay where they know where to find me.", fx = { align = { light = 1 } } },
+        { text = "Something else, Gamon.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Because everyone does, and the only glow I ever saw in Mulgore was the sunrise over the grass. The orcs here tell me what that Light did to them in the camps, though, so I expect you'll hit me harder than most." } },
@@ -1743,6 +1813,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've been knocked flat a good few times yourself, from the look of you, and not just by the grunts in this bar. Sit down on the floor here with me, then, because at least the floor can't drop you any further." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! A dead paladin. I've been knocked down by everything else in this inn, so I suppose you're next, are you?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
         { id = "h_default", key = true,
@@ -1754,6 +1826,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Don't set me on fire, that's all I ask, because people usually settle for punching me." },
       },
       choices = {
+        { text = "We've both been knocked down a lot, Gamon.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Why don't you let someone heal you, Gamon?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd guess the spirits spoke to you once, Gamon.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would the wild do you more good than this inn, Gamon?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

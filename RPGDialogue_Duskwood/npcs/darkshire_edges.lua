@@ -180,8 +180,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_dodds_w = {
+      lines = {
+        { id = "dd_dodds_w_a", text = "I know, and it shows, because the men at the crossroads came back with all their fingers this week. That doesn't happen often in Duskwood, and they asked me to pass on their thanks, though they'd not say it to your face." },
+      },
+      choices = {
+        { text = "Tell your men they don't owe me anything.", next = "dd_dodds_w2", fx = { align = { honor = 1 } } },
+        { text = "They can thank me with a drink at the Scarlet Raven.", next = "dd_dodds_w2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_dodds_w2 = {
+      lines = {
+        { id = "dd_dodds_w2a", text = "Ha, I'll tell them, and they'll do it, and then they'll complain about Hann's prices all night. That's the best sign I know that a man in Duskwood is still alive." },
+      },
+      choices = { { text = "Something else, Dodds.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
+        { id = "dd_watch_dodds", when = { questDone = TODO_QUEST("The Night Watch") },
+          text = "Commander Ebonlocke sent word that you've been clearing the dead off the roads for the Watch. I'd shake your hand, but I've been told I grip like a man who's frightened, so I'll just say thank you instead." },
+        { id = "dd_deaths_dodds", when = { deaths = { min = 15 } },
+          text = "You've been killed out here more than once, I can tell, because there's a grey to you that the Watch learns to recognise. I've lost men who didn't come back from that, so I'm glad you keep doing it." },
+
         { id = "h_default", key = true,
           text = "Watcher Dodds, Night Watch. This camp holds the crossroads so Darkshire can sleep at night, though nobody in Darkshire actually sleeps. Perhaps you've seen those spiders that have taken over the western border?" },
         { id = "h_spiders_done", when = { questDone = TODO_QUEST("Eight-Legged Menaces") },
@@ -196,6 +217,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, {class}. A man on watch is glad of talk." },
       },
       choices = {
+        { text = "I've been clearing the roads for the Watch, Dodds.", next = "dd_dodds_w", when = { questDone = TODO_QUEST("The Night Watch") } },
+
         { text = "What about the spiders?", next = "spiders" },
         { text = "Why can't the Watch handle them?", next = "manpower" },
         { text = "What's it like, holding this camp?", next = "camp" },

@@ -530,6 +530,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "I heard the bay took you, and the tide gave you back, which it doesn't often do. That's why my birds don't fly over that water after dark, friend, and now you know why I'm so stubborn about it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage of the Alliance, at Talrendis Point. My hippogryphs dislike the smell of arcane magic, so I'll ask you to stand downwind until they're used to you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },

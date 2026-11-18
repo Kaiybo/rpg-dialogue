@@ -25,6 +25,16 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dd_port = {
+      lines = {
+        { id = "dd_pt_default", text = "Heard about it? Pal, the whole dock heard about it, because he opened it the same night and sang till dawn. Ninety-nine years in a bottle and it lasted one evening, which is either a crime or the best investment of the century, depending on your accounting." },
+      },
+      choices = {
+        { text = "A good drink is worth the risk. Life's short.", next = "BACK", reply = "Now you're talkin' like a goblin! Live fast, spend faster, and let somebody else count the empties.", fx = { align = { order = -1 } } },
+        { text = "He should have sold it for what it was worth.", next = "BACK", reply = "That's what I told him, and he threw a wrench at me. You and me, pal, we understand margins.", fx = { align = { order = 1 } } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
     prej_gazlowe = {
       big = true,
       lines = { { id = "prej_gazlowe_default", text = "Nothin' personal, pal, it's just the numbers. Every night elf who comes through here buys one bandage, complains about the smoke for an hour and writes a letter to Astranaar about the Venture Company, which ain't even us, by the way. That's a lot of overhead for one bandage." } },
@@ -157,6 +167,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_port", tags = { "news" }, when = { questDone = TODO_QUEST("Trouble at the Docks") },
+          text = "Bigglefuzz tells me you went into those stinkin' caverns and came back with his bottle of port, and I gotta say, pal, I like a customer who'll walk through monsters for a drink. That's the kind of commitment that makes money." },
+        { id = "h_dd_ratchet_rep", when = { reputation = { faction = "Ratchet", min = "honored" } },
+          text = "My dockhands talk about you like you're a regular, pal, and in Ratchet a regular is worth more than a cousin. Keep spendin' and keep behavin', and the Cartel's door stays open for ya." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Whoa, whoa, I've seen that mug before, pal, on a {altrace} named {alt}, other side of the war, who paid the dock toll without arguing, which is how I remember. You two related? Doesn't matter, because Ratchet charges everybody the same, and I mean everybody." },
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
@@ -176,6 +190,7 @@ P:NPC {
         { id = "h_cl_dm", tags = { "news" }, when = { cleared = "The Deadmines" }, text = "Heard you went down into the Deadmines and put VanCleef out of business, pal. Can't say I'm crying, but whoever built that juggernaut down there knew what they were doing, and I'd have paid good gold for a look at the blueprints first." },
       },
       choices = {
+        { text = "You heard about Bigglefuzz's port, Gazlowe?", next = "dd_port", when = { questDone = TODO_QUEST("Trouble at the Docks") } },
         { text = "You flinch when I walk in, Gazlowe. Something about night elves?", next = "prej_gazlowe", when = { prejudiced = true } },
         { text = "I'd guess Thrall used the spirits to build Orgrimmar.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does Ratchet ever think about what it does to the coast?", next = "xdruid", when = { class = "DRUID" } },
@@ -718,6 +733,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_samophlange", when = { questDone = TODO_QUEST("Samophlange") },
+          text = "Sputtervalve says you got his samophlange back from the Venture boys, and he hasn't stopped tinkering since, which means he's stopped bothering my customers. That's worth a lot to me, friend, though not in coin, naturally." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now there's a customer with special needs, and special needs mean special prices. My tonics refresh the living, sweetheart, but I'm sure I can find something for you." },
         { id = "h_default", key = true,
           text = "Mebok Mizzyrix, purveyor of fine tonics and quality refreshment at prices that'll make you weep, with joy, naturally. I'm always looking for a few special ingredients, and the Barrens is full of 'em, if you've got the stomach to collect." },
@@ -892,6 +909,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_southsea", when = { killed = { name = "Southsea", min = 30 } },
+          text = "You've been cuttin' up Southsea pirates up the coast, and I can see it right here in my ledger, because fewer crates have gone missin' this month than any month this year. You're good for business, pal, and I don't say that lightly." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "I've had your cargo through my ledger before, pal, or the cargo of a {altrace} called {alt}, other side of the war, with the same habit of not declaring half of it. I've got a column for that, and I've a feeling I'm about to use it again." },
         { id = "h_alt_same", when = { alt = { faction = "same", days = 30 } },

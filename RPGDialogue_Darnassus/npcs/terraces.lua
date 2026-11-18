@@ -932,6 +932,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 100 } }, text = "You have blooded yourself against the Horde, and more than once, by the look of you. Good. The Sentinels in Ashenvale need warriors who have stood against orcs and not only against beasts." },
         { id = "h_pt_ariasta", tags = { "news" }, when = { party = { class = "WARRIOR" } },
           text = "You walk with a warrior. {companion} carries a blade the way a sentinel would want it carried, low and ready, and I would guess they have stood in front of you more than once." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I teach only those with the warrior's spirit, but I'll grant that some healers have more of it than the fighters they heal." },
@@ -1096,8 +1097,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_rank = {
+      lines = {
+        { id = "ddr_default", text = "Every path and every terrace! The Alliance keeps its honours in Stormwind, but news of them comes here like everything else, and it's my task to make sure Darnassus hears it. Most of the warriors' names I cry belong to strangers, so it's a joy to cry one I know." },
+      },
+      choices = {
+        { text = "I fight for the Alliance. The honours are only noise.", next = "BACK", reply = "Noise is my trade, friend, so I'll keep making it for you whether you like it or not!", fx = { align = { honor = 1 } } },
+        { text = "Shout it louder. Let the Horde hear it too.", next = "BACK", reply = "I'll try, though my voice only carries as far as Rut'theran on a still night. Perhaps the hippogryphs will take it further!", fx = { align = { honor = -1 } } },
+        { text = "Something else, Herald.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_rank", tags = { "news" }, when = { pvpRank = 6 }, text = "Hear ye! Your rank among the Alliance's soldiers has been read out on the Terrace of Warriors, and I read it louder than anyone! It is not every day a crier gets to shout the name of someone standing right in front of him." },
+        { id = "h_dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") }, text = "I cried the news from every terrace in the city that the Branch of Cenarius was taken back from the satyr Geltharis in Ashenvale! I may have added a little thunder to the telling, but only a little." },
         { id = "h_default", text = "I am Herald Moonstalker, crier of Darnassus! I walk every path in the city so that no hero misses a summons, and my feet will tell you I take that seriously." },
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A Call to Arms: The Plaguelands!") },
           text = "Hear ye! Stormwind calls heroes to the Plaguelands, where the Scourge stirs again. Commander Ashlam Valorfist keeps his camp at Chillwind, north of the Alterac Mountains." },
@@ -1117,6 +1130,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; a crier never runs dry." },
       },
       choices = {
+        { text = "You've been crying my rank around the city, Herald?", next = "dd_rank", when = { pvpRank = 6 } },
         { text = "What's the news from the Eastern Kingdoms?", next = "east" },
         { text = "You must hear all of Kalimdor's news first.", next = "kalimdor" },
         { text = "What's the strangest news you've cried?", next = "strange" },

@@ -37,6 +37,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "dd_keeshan_dorin", when = { questDone = TODO_QUEST("Missing In Action") },
+          text = "You're the one who brought Keeshan back from the Blackrock, aren't you? I refitted his armour this morning, what was left of it, and I gave him the best girdle I had, because a man who comes back from that deserves something that fits." },
+
         { id = "h_default", key = true, text = "Dorin Songblade, armorer. I keep Lakeshire's guards in plate that fits, which is harder than it sounds when half o' them were farmers last spring." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Songblade Search") },
           text = "My brother Daewyn went off tae the Wetlands wi' a diggin' crew out o' Loch Modan, intae hills no dwarf's set boot in. He always writes, an' this time he hasn't." },

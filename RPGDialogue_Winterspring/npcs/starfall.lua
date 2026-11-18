@@ -67,6 +67,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_spirits", when = { questDone = TODO_QUEST("Troubled Spirits of Kel'Theril") },
+          text = "Jaron tells me the spirits of Kel'Theril are quieter since you went among them. He'll call it an archaeologist's triumph, but I'll call it a kindness, and I'll thank you for it." },
         { id = "h_default", key = true, text = "I am Wynd Nightchaser, and I've spent more years at Starfall than I'd care to count, even by kaldorei reckoning. Winterspring is a harsh land, but it holds a great many old elven ruins, and most of them hold Highborne secrets that someone would rather were forgotten." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("The Ruins of Kel'Theril") },
           text = "Jaron Stoneshaper has been down to Kel'Theril more recently than I have, and he'll tell you what he saw. He's a dwarf, so he'll tell you at length." },
@@ -255,8 +257,23 @@ P:NPC {
       lines = { { id = "op_r4_default", text = "Lost kin, aye. You say it gently, for someone talking about an exile ten thousand years old." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_crystal = {
+      lines = {
+        { id = "dd_crystal_1",
+          text = "Not a peek, not a sketch, not so much as a rubbin' for the archives in Ironforge! He says some things the Highborne made ought tae stay locked away, an' I say the League's been lockin' things away in display cases for years with no complaints." },
+        { id = "dd_crystal_2",
+          text = "The night elves have long memories, mind, an' I'll grant ye theirs are worse than mine. Still, ye cannae learn from a thing ye won't look at, an' that's the whole o' my philosophy." },
+      },
+      choices = {
+        { text = "Wynd's right. Some magic should stay buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. Knowledge belongs to everyone, Jaron.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jaron.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_crystal", when = { questDone = TODO_QUEST("The Crystal of Zin-Malor") },
+          text = "Wynd's been tellin' me you brought him back some old Highborne crystal from the ruins o' Kel'Theril, an' he won't let me near it. I'm an Explorers' League man, {g:lad|lass}, an' it's breakin' my heart." },
         { id = "o_explorers_league_admire", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "admire" } },
           text = "Word is you think history belongs to everyone. The League could use a few more like you." },
         { id = "o_titans_believe", tags = { "news" }, when = { opinion = { topic = "titans", stance = "believe" } },
@@ -278,6 +295,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I'm not going anywhere till the wildkin calm down." },
       },
       choices = {
+        { text = "Wynd won't let you see the crystal?", next = "dd_crystal", when = { questDone = TODO_QUEST("The Crystal of Zin-Malor") } },
         { text = "How has the digging gone?", next = "camp" },
         { text = "Have you seen any of the old ruins?", next = "kel" },
         { text = "What brings the Explorers' League this far north?", next = "league" },

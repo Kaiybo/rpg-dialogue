@@ -32,8 +32,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_earthen = {
+      lines = {
+        { id = "dd_ea_default", text = "That something old was disturbed beneath Boulderslide, and that it is quieter now. The earth spirits don't think in days, as we do, so they speak of it as though it happened a moment ago and also long ago. You did well, though I fear the kobolds will keep digging as long as there are candles to light their way." },
+      },
+      choices = {
+        { text = "Then the kobolds should be driven out of the ravine.", next = "BACK", reply = "Perhaps, though the spirits don't hate the kobolds as they hate the goblins. The kobolds only dig; the goblins devour.", fx = { align = { order = 1 } } },
+        { text = "The kobolds only dig. Let the spirits judge them.", next = "BACK", reply = "Wisely spoken, and the spirits would agree. Save your anger for the Venture Company, who deserve it more.", fx = { align = { order = -1 } } },
+        { text = "Something else, Seereth.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_earthen", tags = { "news" }, when = { questDone = TODO_QUEST("Earthen Arise") },
+          text = "Mor'rogal tells me you went into Boulderslide Ravine and faced what the kobolds were digging toward. The spirits of the mountain have spoken of it all week, and for once they sound less angry." },
         { id = "h_default", key = true,
           text = "I am Seereth Stonebreak, sent from Orgrimmar to Stonetalon by the Warchief's own shaman. The goblins of the Venture Company are plundering and burning the forest, and the spirits of these mountains are nearly blind with pain and rage." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Spirits of Stonetalon") },
@@ -54,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}. I'll answer while I can still think over the noise." },
       },
       choices = {
+        { text = "What did the spirits say about the ravine, Seereth?", next = "dd_earthen", when = { questDone = TODO_QUEST("Earthen Arise") } },
         { text = "What do the spirits say?", next = "spirits" },
         { text = "The goblins seem to want this whole forest.", next = "venture" },
         { text = "Why go to the tauren elders?", next = "elders", when = { any = { { questDone = TODO_QUEST("Goblin Invaders") }, { questActive = TODO_QUEST("The Elder Crone") } } } },

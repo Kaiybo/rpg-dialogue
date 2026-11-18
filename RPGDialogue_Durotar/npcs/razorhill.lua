@@ -272,6 +272,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_gazzuz = {
+      lines = {
+        { id = "dd_gz_default", text = "Good, though the Blade will raise another like him, because there's always some fool who thinks a demon will make him strong. Neeru Fireblade will want to hear it from you himself, so tell him in Orgrimmar." },
+      },
+      choices = {
+        { text = "Then I'll kill the next one too, and the one after.", next = "BACK", reply = "That's the only answer that works with them, and I've been giving it for years. Welcome to the hunt.", fx = { align = { order = 1 } } },
+        { text = "Killing the summoners won't end it. Something feeds them.", next = "BACK", reply = "Something does, and I mean to find out what, but until I do, a dead warlock is a warlock who isn't summoning. Keep your eyes open.", fx = { align = { order = -1 } } },
+        { text = "Who is Neeru Fireblade to you?", next = "dd_gazzuz2" },
+      },
+    },
+    dd_gazzuz2 = {
+      lines = {
+        { id = "dd_gz2_default", text = "He's the one who says he knows the Blade from the inside, and he gives me names I can't get anywhere else. I take the names and I watch the man, because a fire that warms you can still burn your hut down." },
+      },
+      choices = { { text = "I'll watch him too. Something else.", next = "BACK" } },
+    },
     prej_orgnil = {
       big = true,
       lines = { { id = "prej_orgnil_default", text = "I do, and I'll keep it there until you give me cause to move it. The Burning Blade are cutting through Skull Rock and the Valley of Trials, and half of them were respectable warlocks in Orgrimmar a year ago. The fel has a voice, and it is very patient." } },
@@ -379,6 +395,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_skullrock", tags = { "news" }, when = { questDone = TODO_QUEST("Skull Rock") },
+          text = "Margoz sent word that you went into Skull Rock and came back with a string of Searing Collars. That's good work, and it means fewer cultists to hunt on my roads." },
+        { id = "h_dd_gazzuz", tags = { "news" }, when = { killed = { name = "Gazz'uz" } },
+          text = "Gazz'uz is dead, they tell me, and I'm told it was your blade that did it. I've wanted that warlock's skull since he first set foot in Skull Rock, but I'll settle for knowing he's rotting in it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man with the Light in his hands. I hunt cultists who smile and hide what they serve, so forgive me for wanting a long look at you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade fear the light more than they fear axes, and the shadow they don't fear at all, so I'm curious which you carry." },
         { id = "h_default", key = true,
@@ -396,6 +416,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Each one you put down is one less traitor whispering to the Legion." },
       },
       choices = {
+        { text = "Gazz'uz won't be summoning anything else, Orgnil.", next = "dd_gazzuz", when = { killed = { name = "Gazz'uz" } } },
         { text = "You keep one hand on your blade around me, Soulscar.", next = "prej_orgnil", when = { prejudiced = true } },
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A shaman could find the Blade by the ground they've poisoned.", next = "xhsham", when = { class = "SHAMAN" } },
@@ -484,6 +505,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_tiragarde = {
+      lines = {
+        { id = "dd_tir_default", text = "He has, and from what the patrols say, it's your doing. When the grunts came back from Tiragarde short of men, that whole barracks sat in silence and I couldn't sell a drop. Now they come in loud, and loud means coin." },
+        { id = "dd_tir_benedict", when = { killed = { name = "Benedict" } }, text = "He has, and Benedict's head is the reason. The grunts have been loud ever since you came back from Tiragarde, and loud grunts drink, which suits me better than any medal." },
+      },
+      choices = {
+        { text = "They built a fort on our coast. They earned every arrow.", next = "BACK", reply = "That's how the barracks sees it too, and I won't argue with paying customers. Durotar was empty rock when we came, and it's ours now.", fx = { align = { light = -1 } } },
+        { text = "Some of them were only sailors. I take no joy in it.", next = "BACK", reply = "Then you're softer than the grunts, but I don't hold it against you. I've buried enough of my own to know a dead sailor leaves someone waiting too.", fx = { align = { light = 1 } } },
+        { text = "Something else, Grosk.", next = "BACK" },
+      },
+    },
     fl = {
       lines = { { id = "fl_default", text = "I can, but I save it, because Durotar doesn't give a man much to smile about. Then you walk in with the red dust on your boots, and I find I've spent a whole day's ration of it on you." } },
       choices = {
@@ -606,6 +638,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_benedict", tags = { "news" }, when = { killed = { name = "Benedict" } },
+          text = "The grunts came in last night drinking to Lieutenant Benedict's death, and your name kept coming up between rounds. I can't tell if that makes you a hero or the reason my ale ran dry, but in an inn it's the same thing." },
+        { id = "h_dd_tiragarde", tags = { "news" }, when = { questDone = TODO_QUEST("Vanquish the Betrayers") },
+          text = "Gar'Thok ate a whole meal at my table last night without growling at anyone once. The grunts say Tiragarde Keep is short a good many Kul Tirans, and that you're the one who made it so." },
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
           text = "Another one with your face slept here, {alt} by name, and left the bed tidier than any grunt ever has. If that's family, I'll expect the same from you." },
         { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
@@ -637,6 +673,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The ale isn't going anywhere, and neither am I." },
       },
       choices = {
+        { text = "I hear the commander's been eating well, Grosk.", next = "dd_tiragarde", when = { questDone = TODO_QUEST("Vanquish the Betrayers") } },
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd guess no spirits trouble your inn, Grosk.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
@@ -684,6 +721,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_kultiras = {
+      lines = {
+        { id = "dd_kt_default", text = "It does, more than I like to admit. The marines march the same way the camp guards did, and they shout the same orders, so when I see their banner I'm a slave again for a breath. Then I remember the keys are gone, and that some of them fell to people like you." },
+      },
+      choices = {
+        { text = "Every one I put down is one less hand on a key.", next = "BACK", reply = "That's how it feels, though I know it isn't quite true. Still, I'll write it down that way tonight, because I'd like to sleep.", fx = { align = { honor = -1 } } },
+        { text = "They aren't the camp guards, Brakk. Those men are gone.", next = "BACK", reply = "You're right, and I know it with my head, if not with my gut. Thank you for saying it plainly; I'll try to remember it.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Brakk.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "That the Light used to come to Durotar's people only on the armour of their jailers, and now it walks the roads with a dead man who fights for the Horde. I'd write that the world turns strange, and that I don't mind it as much as I thought." } },
@@ -754,6 +801,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_kultiras", when = { killed = { name = "Kul Tiras", min = 15 } },
+          text = "I hear you've been fighting the Kul Tirans down at Tiragarde. I wrote about it last night, though my hand shook a little, because the last time I saw that many human soldiers, they were the ones holding the keys." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin walking Durotar. My journal will want to hear about you, because I've never written anything like you before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on the road. Sit by the fire, then, and tell me what you pray to out here, because I've always wondered what holy folk say when there's nobody listening." },
         { id = "h_default", key = true,
@@ -769,6 +818,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock at my fire. Sit, but tell your demon to keep to the dark side of it." },
       },
       choices = {
+        { text = "You were in the camps, Brakk. Does Tiragarde bring it back?", next = "dd_kultiras", when = { killed = { name = "Kul Tiras", min = 15 } } },
         { text = "What do you pray to on the road, Brakk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have you noticed about this land, Brakk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You seem to prefer sleeping out here.", next = "why" },

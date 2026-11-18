@@ -301,6 +301,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Darla Harris, gryphon master, and these birds will carry you anywhere the Alliance keeps a roost, so long as you don't kick. Where are you headed?" },
+        { id = "h_dd_falling", when = { deathCause = "falling" },
+          text = "You fell, didn't you? I can always tell, because folk who've fallen to their deaths look up at my gryphons afterwards with a sort of wounded envy." },
       },
       again = {
         { id = "h_again", text = "Anything else before you fly?" },

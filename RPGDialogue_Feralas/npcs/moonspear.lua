@@ -93,6 +93,7 @@ P:NPC {
           text = "Lethtendris is in the satyrs' quarter of the old city, weaving her web of stolen magic. Bring it here, and we'll let that power go back into the wild before it does harm." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "One of our own, good. You'll understand why I don't let the island go unwatched for a single night." },
+        { id = "h_dd_woodpaw", tags = { "news" }, when = { questDone = TODO_QUEST("The Woodpaw Gnolls") }, text = "Ginro tells me the Woodpaw paid for Raschal, and that you collected the debt. I'd have sent a patrol myself, but the naga keep my Sentinels on the shore." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I will not hand them another hour." },
@@ -106,7 +107,18 @@ P:NPC {
         { text = "Why fight the naga at all? Night elves aren't warmongers.", next = "strike" },
         { text = "I've fought naga before. What should I know?", next = "veteran", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Give me a task.", next = "BUSINESS" },
+        { text = "The Woodpaw killed Raschal. Will the Sentinels go after them?", next = "dd_woodpaw", when = { questDone = TODO_QUEST("The Woodpaw Gnolls") } },
         { text = "I'll let you work.", next = "END" },
+      },
+    },
+    dd_woodpaw = {
+      lines = {
+        { id = "dd_woodpaw_1", text = "Not while Shalzaru's kin are digging in at Isle of Dread, and not with the Gordunni in the hills. Raschal was a good courier and a better friend, but the General counts her blades, and I can't spend them on gnolls when the naga are a day's swim away." },
+      },
+      choices = {
+        { text = "Then I'll keep the gnolls in line myself.", next = "BACK", reply = "I won't stop you, and I'll see that Ginro knows it. Mind the southern camps, though; they fight dirty and they fight in packs.", fx = { align = { order = -1 } } },
+        { text = "The General is right. The naga come first.", next = "BACK", reply = "She usually is, which is the most annoying thing about her. I'm glad someone outside the Sentinels sees it.", fx = { align = { order = 1 } } },
+        { text = "Something else, Latronicus.", next = "BACK" },
       },
     },
     naga = {

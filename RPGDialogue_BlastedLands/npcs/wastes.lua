@@ -124,6 +124,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_kazzak", when = { killed = { name = "Kazzak" } },
+          text = "So, the great demon in the Scar has been thrown down, and you were there. Kum'isha remembers when such things walked her world by the hundred, so do not expect Kum'isha to dance, but Kum'isha is glad." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The orc shamans spoke to the elements on my world once, before they found darker teachers, and my people paid for that lesson." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and you smell of iron and greed together, as all your kind do. You would cut down anything that stood between you and a prize." },
@@ -426,6 +428,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_lynnore", when = { questDone = TODO_QUEST("The Basilisk's Bite") },
+          text = "My sister says you brought her basilisk parts, and she said it with something very like a smile. I'd be jealous, if I weren't fascinated." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Snickerfang", "Ashmane", "Scorpok" }, min = 30 } }, text = "You've been busy out there, by the smell of you, which is boar and hyena in roughly equal measure. Do bring me the interesting parts, won't you?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the beasts out here still speak to you, or has the fel drowned them out? Either answer would be fascinating, and I'll want notes." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Be frank with me: do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
@@ -723,6 +727,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_drazial", when = { questDone = TODO_QUEST("A Boar's Vitality") },
+          text = "My brother tells me you've been bringing him boar parts. He was insufferable about it at supper, so do me a kindness and bring me something next time, so I have something to be insufferable about back." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Redstone", min = 30 } }, text = "The Redstone basilisks are thinning out around the pass, and I know whose doing it is, so I hope you at least watched how they froze before you killed them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You claim to hear the spirits of beasts and I study them, so we may be the only two people in this wasteland who believe they exist." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You move like a basilisk, slow until it matters, and I'd find that admirable if I thought you'd learned it from watching basilisks." },
@@ -993,8 +999,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_kazzak = {
+      lines = {
+        { id = "dd_kazzak_1",
+          text = "I like it very much, and I fear it very much, both at once. The lesser demons I bind out here knew their place while a doomlord walked among them, because they feared him more than they feared me." },
+        { id = "dd_kazzak_2",
+          text = "Now they look at me and wonder. Power is a ladder, and when you knock out a rung near the top, everything beneath it shifts, so I'll be sleeping lightly for a while." },
+      },
+      choices = {
+        { text = "Then perhaps stop binding demons, old man.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then bind them tighter. Fear is a fine leash.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Daio.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_kazzak", when = { killed = { name = "Kazzak" } },
+          text = "The Scar feels lighter since Kazzak was thrown back, and I hear you had a hand in it. I've lived in that one's shadow for a long time, friend, and I'm not sure I like the quiet." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at my altar? The elements will not follow you here, I'm afraid, because the Tainted Scar has fed on demons so long that the earth itself has gone sour." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You take what you want and leave before anyone can name the price, which is a fine way to live, though it never works with demons." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -1016,6 +1037,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. I've nowhere to be, and the Scar is very quiet company." },
       },
       choices = {
+        { text = "You don't like that Kazzak is gone?", next = "dd_kazzak", when = { killed = { name = "Kazzak" } } },
         { text = "What would I have to sacrifice?", next = "sacrifice" },
         { text = "How do you conjure a demon?", next = "conjure" },
         { text = "Why live here, of all places?", next = "scar" },

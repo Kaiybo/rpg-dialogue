@@ -32,8 +32,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_honor = {
+      lines = {
+        { id = "dd_hn_default", text = "Then you've seen what we're up against. The night elves fight like the forest itself is angry at us, and maybe it is, because Grom killed their demigod and they've never forgiven any of us for it. Do you think the Warsong should keep cutting, or leave the forest be?" },
+      },
+      choices = {
+        { text = "Keep cutting. The Horde needs that timber to survive.", next = "BACK", reply = "Spoken like a Warsong, and that's the answer I give the Warchief every season. Lok'tar, and keep your axe sharp.", fx = { align = { order = 1 } } },
+        { text = "We could take less and bleed less for it.", next = "BACK", reply = "Maybe, but the elves would call any axe at all an insult. You'll learn that on the next charge, I think, so watch your flanks.", fx = { align = { order = -1 } } },
+        { text = "Something else, Kadrak.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { honorKills = { min = 50 } },
+          text = "My scouts say you've been through the gulch, and that the Silverwing Sentinels have counted you among their losses more than once. Grom would have been glad of you, so keep the elves bleeding for every tree they try to hold." },
         { id = "h_default", key = true, text = "Kadrak, of the Warsong. I hold the Mor'shan Rampart and send our scouts north into Ashenvale, and every one I send, the night elves try to make sure doesn't come back." },
         { id = "h_op_grom", when = { opinion = { topic = "grom", stance = "blame" } },
           text = "You're the one who blames Grom. I let it pass once, and I'm still letting it pass, but my grunts heard it too, so watch your back on the rampart." },
@@ -55,6 +67,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and make it quick." },
       },
       choices = {
+        { text = "I've been fighting the Silverwing in the gulch, Kadrak.", next = "dd_honor", when = { honorKills = { min = 50 } } },
         { text = "Why is the Horde pushing into Ashenvale?", next = "ashenvale" },
         { text = "Tell me about the Warsong.", next = "warsong" },
         { text = "The night elves must be hard enemies in those woods.", next = "elves" },

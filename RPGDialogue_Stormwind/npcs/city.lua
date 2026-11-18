@@ -1004,6 +1004,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_allison_h = {
+      lines = {
+        { id = "dd_allison_h_a", text = "Then you'll hear your own story told back to you before the night's out, and it'll be wrong in three places. The carter swore Hogger stood ten feet tall and spoke Common, which I very much doubt." },
+      },
+      choices = {
+        { text = "Let them tell it however they like. It's done.", next = "dd_allison_h2", fx = { align = { honor = 1 } } },
+        { text = "Ten feet tall is about right, actually.", next = "dd_allison_h2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_allison_h2 = {
+      lines = {
+        { id = "dd_allison_h2a", text = "Well, the city loves a story about a gnoll more than it loves the truth about one, and so do I, if I'm honest. Sit down and enjoy being famous for an evening; it won't last past the next fair." },
+      },
+      choices = { { text = "I'll enjoy it while I can. Something else.", next = "BACK" } },
+    },
+
     xpt_allison = {
       big = true,
       lines = { { id = "xpt_allison_default", text = "Badly, love, and loudly. I've seen friends of ten years stop speaking over a single green ring, and I've seen a dwarf give away a whole sword because his friend looked at it the right way." } },
@@ -1101,6 +1117,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger_allison", when = { killed = { name = "Hogger" } },
+          text = "A carter from Goldshire was in last week telling everyone that Hogger's finally dead, and he described the one who did it well enough that I think I'm pouring for them. That gnoll's been a fireside story in this city for years, so you've made yourself one too." },
+        { id = "dd_deaths_allison", when = { deaths = { min = 20 } },
+          text = "You look like a guest who's woken up in the Cathedral more often than in my beds, if you don't mind my saying. Take a room tonight and sleep in it properly, for once." },
+
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Well, look at you, love, the spit of {alt}, who had the corner room last time the auction house was busy! Sit down and tell me straight whether you're cousins or I've just been working too long." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -1131,6 +1152,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more? The kettle's always on." },
       },
       choices = {
+        { text = "I'm the one who killed Hogger, Allison.", next = "dd_allison_h", when = { killed = { name = "Hogger" } } },
+
         { text = "A room, please.", next = "BUSINESS" },
         { text = "You must hear all sorts in here.", next = "news" },
         { text = "The Gilded Rose sees all sorts, I'd wager.", next = "guests" },

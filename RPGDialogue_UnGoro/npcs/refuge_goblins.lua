@@ -44,6 +44,7 @@ P:NPC {
           text = "Thirty-five scales, pal, that's what the math says, and I checked the math twice because I'm the one who's gonna be flying on it. Watch the beaks; they go for the eyes." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Shizzle's Flyer"), days = 3 } },
           text = "Look at these, look at the webbing on 'em, they're perfect! I could kiss ya, but I'll pay ya instead, because that's how I show I care, and frankly it's less awkward for everybody." },
+        { id = "h_dd_pterrordax", tags = { "news" }, when = { killed = { name = "Pterrordax", min = 20 } }, text = "There's fewer of those flappin' lizards over the Refuge since you started knockin' them down, pal, and I've been able to work on the flyer with both eyes on the bolts instead of one on the sky. That's worth something to me, on account." },
       },
       again = {
         { id = "h_again", text = "What else, pal? I got nothin' but time and spare bolts." },
@@ -55,7 +56,18 @@ P:NPC {
         { text = "Why not just walk out of the crater?", next = "walk" },
         { text = "Are you really that scared of pterrordax?", next = "scared" },
         { text = "Let me see your engine work.", next = "xeng", when = { profession = "Engineering" } },
+        { text = "The pterrordax don't scare me, Shizzle.", next = "dd_pterrordax", when = { killed = { name = "Pterrordax", min = 20 } } },
         { text = "I'll leave you to your bolts.", next = "END" },
+      },
+    },
+    dd_pterrordax = {
+      lines = {
+        { id = "dd_pterrordax_1", text = "Easy for you to say, pal, you didn't crash a perfectly good flyer into the crater with one of 'em chewin' on the left wing. I lost a propeller, two crates of parts and nearly my favourite ear, so every one you knock down is a little bit of personal satisfaction for me, free of charge." },
+      },
+      choices = {
+        { text = "Then stop flying where they hunt.", next = "BACK", reply = "Stop flying? That's like tellin' a goblin to stop counting, pal, it's never gonna happen. I'll fly higher, though, and faster, and maybe with a bigger gun on it.", fx = { align = { order = 1 } } },
+        { text = "Bolt a cannon on the flyer and let them come.", next = "BACK", reply = "Now you're talkin' my language! A rocket on each wing, a little extra weight, a lot of extra boom; I'll draw up the plans tonight.", fx = { align = { order = -1 } } },
+        { text = "Something else, Shizzle.", next = "BACK" },
       },
     },
     stranded = {
@@ -188,6 +200,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Quixxil, fixer for the Marshal Expedition, which means I get things the scientists need and they don't ask how. The crater's a gold mine, friend, crystals and hides and eggs and scales, and these eggheads are so busy writing it all down they never think to put a price on it." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, huh? Doesn't matter to me, pal; the Expedition takes help from anybody who'll climb down the rim, and so do I. Your coin's as round as anybody's." },
+        { id = "h_dd_devilsaur", tags = { "news" }, when = { killed = { name = "Devilsaur", min = 10 } }, text = "Word around the Refuge is you've been taking down devilsaurs, pal, and that means somewhere out there is a pile of the best leather in Kalimdor going to waste. If you ever want a fixer to move some hide for a reasonable cut, you know where I sit." },
       },
       again = {
         { id = "h_again", text = "What else can Quixxil do for ya, friend?" },
@@ -197,7 +210,18 @@ P:NPC {
         { text = "What does a fixer actually do here?", next = "fixer" },
         { text = "What's worth money in the crater?", next = "worth" },
         { text = "Do the scientists know about your side business?", next = "scientists" },
+        { text = "What's devilsaur leather actually worth, Quixxil?", next = "dd_devilsaur", when = { killed = { name = "Devilsaur", min = 10 } } },
         { text = "I'll be on my way, Quixxil.", next = "END" },
+      },
+    },
+    dd_devilsaur = {
+      lines = {
+        { id = "dd_devilsaur_1", text = "More than you'd believe, pal. The leatherworkers back in the capitals will pay through the nose for it, because it stitches up tough and light and nobody wants to go and get it themselves. I've seen a set of devilsaur leggings sell for more than this whole Refuge cost to build, and I've got the receipts." },
+      },
+      choices = {
+        { text = "I hunt them for the leather. It's good business.", next = "BACK", reply = "Now there's a sensible customer! You and me are gonna get along fine, as long as you remember my cut.", fx = { align = { honor = -1 } } },
+        { text = "I hunt them to keep the Refuge safe, not for coin.", next = "BACK", reply = "Sure, sure, very noble, and the leather's just a lucky accident. If you ever change your mind about the accident, come see me.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Quixxil.", next = "BACK" },
       },
     },
     fixer = {
@@ -292,6 +316,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Gibbert's the name, weapons are the game, and in Un'Goro the game is staying alive, friend. Swords, axes, maces, a few staves, all hauled down the ramp from Gadgetzan at great personal expense, and that personal expense goes straight on the price tag." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter! I've got nothing that shoots, pal, but when a raptor gets inside your bow range you'll want somethin' sharp in the other hand, believe me." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died a few times down there, pal, I can see it on you, and that tells me you've been bringing the wrong weapon to the crater. Take a look at my stock before you go back down, because a bigger blade is cheaper than another walk from the spirit healer." },
       },
       again = {
         { id = "h_again", text = "What else, chum? The rack's not getting any lighter." },

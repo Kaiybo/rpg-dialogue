@@ -1598,8 +1598,18 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_deaths = {
+      lines = {
+        { id = "ddd_default", text = "Then let me teach you to count something else, like the seconds between a wound and a bandage. Most deaths I hear about began as a cut that someone meant to see to after the fight, and then the fight went on too long." },
+      },
+      choices = {
+        { text = "That's fair. Teach me what you can.", next = "BUSINESS" },
+        { text = "I'll see to my wounds after the fighting.", next = "BACK", reply = "That's what they all say, and then they come back pale from the spirit healer and say it again. Think on it, please." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 20 } }, text = "Forgive me for staring, but I can see you have died a good many times, more than any of my students. Bandages won't stop all of that, though they would have stopped some of it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll still teach you, if you'll let me, because I've seen prayers run out in the Barrens while the linen carried on." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order heals with the Light, I know, but even the Light needs a moment, and a bandage can buy you that moment." },
         { id = "h_default", text = "I'm Dannelor, and I teach first aid: linen, wool, a steady hand and the sense to use them before it's too late. It's the one trade every adventurer should learn, because the healer isn't always beside you." },
@@ -1618,6 +1628,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. My next student is late, as always." },
       },
       choices = {
+        { text = "I've died more often than I care to count.", next = "dd_deaths", when = { deaths = { min = 20 } } },
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why should I learn this?", next = "why" },
         { text = "Some wounds must be harder to treat than others.", next = "wound" },

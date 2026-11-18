@@ -32,6 +32,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_faith = {
+      lines = {
+        { id = "dd_ft_default", text = "More than I care to count. Dorn is strange, and he talks of the Nether as if it were a neighbor, but his tests find out what a warrior really is. A brave who won't trust a step won't trust his chieftain either, and Freewind can't use that kind." },
+      },
+      choices = {
+        { text = "Trust matters. A warrior must follow when called.", next = "BACK", reply = "That's how I see it, and that's what keeps Freewind standing while the Galak circle us. You'd do well here.", fx = { align = { order = 1 } } },
+        { text = "I stepped for myself, not for any chieftain.", next = "BACK", reply = "That's an answer Dorn might like, though I don't. Still, you stepped, and that's what counts.", fx = { align = { order = -1 } } },
+        { text = "Something else, Longhorn.", next = "BACK" },
+      },
+    },
     op_centaur = {
       lines = {
         { id = "opc_q", text = "The young braves ask me whether the Galak can ever be lived beside, and I tell them to ask a traveller, because I've watched the centaur too long to answer fairly. So I'm asking you: what do you make of them?" },
@@ -142,6 +152,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_faith", when = { questDone = TODO_QUEST("Test of Faith") },
+          text = "Dorn Plainstalker told me you took his Test of Faith and stepped off the edge without flinching. I've watched braves with spears in their hands turn back from that ledge, so I'll not question your courage again." },
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "The scouts say you went into Razorfen Downs and put the dead thing at its heart back in the ground. I've watched cold air roll off those thorns toward the Needles all season, and this morning it didn't come." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. From up here I can see every Galak raiding party long before they see us, but I can't follow them into the canyons, and you can." },
@@ -180,6 +192,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The Galak won't wait for us to finish talking, and the canyon has eyes of its own." },
       },
       choices = {
+        { text = "You've seen braves fail Dorn's test, Longhorn?", next = "dd_faith", when = { questDone = TODO_QUEST("Test of Faith") } },
         { text = "Can the canyon floor recover from the Galak?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You built this post very high.", next = "high" },
         { text = "What do you know of the Grimtotem?", next = "grimtotem" },
@@ -478,6 +491,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_egg", when = { questDone = TODO_QUEST("Alien Egg") },
+          text = "Hagar tells me you found that strange egg for him in the canyons, and he hasn't stopped talking about it since. I'm glad someone at Freewind has a mystery that isn't guarded by centaur and fire." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior, good! If you go down to the Galak camps, mind the carvings on the walls, because some are older than the centaur who live there now, and I'd hate to lose them to a stray axe." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -687,6 +702,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_flame", when = { questDone = TODO_QUEST("The Sacred Flame") },
+          text = "Rau says you walked into the centaur's hold and brought back something from the Sacred Flame. You must be braver than I am, because I came here for an egg, and I still check every shadow for Galak." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior! Splendid, because if I do find that egg, whatever laid it may want it back, and I'd be glad if it found you first." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -1114,6 +1131,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_arnak = {
+      lines = {
+        { id = "dd_ar_default", text = "He did, and he stood there until it was ash. Arnak shamed the Grimtotem and every tauren with what he did to Lakota and her brother, and Freewind has waited a long time to see him answered. Do you feel better, now that it's done?" },
+      },
+      choices = {
+        { text = "I do. He deserved worse than he got.", next = "BACK", reply = "Many here would say the same, and none of them would blame you. Sit, and have some stew, because you've earned a quiet evening.", fx = { align = { light = -1 } } },
+        { text = "Not really. Killing him doesn't give Lakota her brother back.", next = "BACK", reply = "No, it doesn't, and you're wise to know it. But it means no other girl in these canyons will have to fear him, and that's something.", fx = { align = { light = 1 } } },
+        { text = "Something else, Abeqwa.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Because it sings for anything new, and you're the newest thing these mesas have seen in a long time. One of the dead with the Light in them is a song the wind hasn't learned yet, and I'd like to hear how it goes." } },
@@ -1172,6 +1199,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_arnak", tags = { "news" }, when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") },
+          text = "Cliffwatcher Longhorn took down the poster for Arnak Grimtotem this morning and burned it in my hearth. He wouldn't say who brought Arnak's hoof back, but he looked straight at you when he wouldn't say it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior! Leave your axe by the door, please, because the last one who brought his to the table turned round to look at the view and cut the stew in half." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -1196,6 +1225,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The stew won't spoil while we talk." },
       },
       choices = {
+        { text = "Longhorn burned Arnak's poster in your hearth?", next = "dd_arnak", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "What does the wind over the mesas say?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The mesa seems to have news of its own.", next = "news" },
         { text = "How did anyone build up here?", next = "mesa" },

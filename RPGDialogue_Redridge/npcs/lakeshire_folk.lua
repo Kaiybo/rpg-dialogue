@@ -530,6 +530,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_deaths_parker", when = { deaths = { min = 15 } },
+          text = "You've been carted back to the graveyard more times than any soldier I've known, by the look of you, and you're still walking the roads. Either you're very brave or you never learn, and in Redridge it's hard to tell the two apart." },
+
         { id = "h_default", key = true,
           text = "Parker. I walk this road between Lakeshire and the Duskwood line with my eye on the hills, and keeping my eye on the job is the whole trick." },
         { id = "h_gnolls", tags = { "news" }, when = { questActive = TODO_QUEST("Encroaching Gnolls") },
@@ -669,6 +672,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_darcy_b = {
+      lines = {
+        { id = "dd_darcy_b_a", text = "Then you'll never buy your own story at this inn again, love, because I'll be telling it for you. Was he as big as they said? Half the soldiers swear he was the size of a cart, and the other half swear he was bigger." },
+      },
+      choices = {
+        { text = "The size of a cart, with twice the temper.", next = "dd_darcy_b2" },
+        { text = "He was just a pig. A big one, but a pig.", next = "dd_darcy_b2" },
+      },
+    },
+    dd_darcy_b2 = {
+      lines = {
+        { id = "dd_darcy_b2a", text = "Well, I'll tell it bigger either way, because a town under siege needs a good story more than it needs the truth. Martie's garden will bloom next spring, and that's the ending I like best." },
+      },
+      choices = { { text = "Tell it well, Darcy. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That folk still help each other, love, even with the orcs so close. Your spirits might like that bit best." } },
@@ -745,6 +764,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bellygrub_darcy", when = { killed = { name = "Bellygrub" } },
+          text = "Oh, love, you didn't, did you? Bellygrub's gone and the whole inn's in mourning and celebrating at once, and Martie Jainrose bought a round, which she has never done in her life." },
+        { id = "dd_keeshan_darcy", tags = { "news" }, when = { questDone = TODO_QUEST("Missing In Action") },
+          text = "Corporal Keeshan's home, love, and he's been telling everyone how you got him out. I cried into the soup when he came in, and nobody's to say a word about it." },
+
         { id = "h_default", text = "I'm Darcy. I wait tables at the inn and I hear all the gossip, and I pass on only the nice parts, mostly." },
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("A Free Lunch") },
           text = "It's only lunch, for Parker out on the road. He forgets to eat, so somebody has to remember for him, but don't tell him I said that." },
@@ -769,6 +793,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm all ears, love. Well, ears and plates." },
       },
       choices = {
+        { text = "I'm the one who brought Bellygrub down, Darcy.", next = "dd_darcy_b", when = { killed = { name = "Bellygrub" } } },
+
         { text = "Something smells good tonight.", next = "food" },
         { text = "Heard any gossip?", next = "gossip" },
         { text = "Is there anyone special in your life, Darcy?", next = "parker" },

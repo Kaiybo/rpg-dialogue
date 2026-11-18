@@ -36,6 +36,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_trolls = {
+      lines = { { id = "dd_trolls_default", text = "Leave? They were here long before Aerie Peak, an' they'll be here when my grandsons are grey, for this was their empire once. The best we can hope is tae keep them in their ruins, an' ye've been doin' a fine job of it." } },
+      choices = {
+        { text = "Then I'll keep them in their ruins as long as I'm here.", next = "BACK", reply = "That's the spirit o' the Wildhammer. My gryphons will spot for ye whenever ye ride out.", fx = { align = { order = 1 } } },
+        { text = "It was their land first. Maybe that should count for something.", next = "BACK", reply = "Maybe it should, an' I've thought it myself on a long patrol. Then they come for my riders with spears, an' I stop thinkin' it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Falstad.", next = "BACK" },
+      },
+    },
+
     prej = {
       lines = { { id = "prej_default", text = "Aye, an' my grandfather had a worse one! Ye know the War o' the Three Hammers as well as I do, how the Bronzebeards took Ironforge an' showed us the door, an' a clan doesnae forget that because a king sends a letter." } },
       choices = {
@@ -182,6 +191,8 @@ P:NPC {
           text = "A spellcaster at Aerie Peak! Mind ye keep yer fire off the gryphons, {class}, for they've long memories an' sharper beaks." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ha, a quiet one! Ye walked in so soft the gryphons never squawked, an' that's a rarer trick than ye'd think in Wildhammer Keep." },
+        { id = "h_dd_trolls", tags = { "news" }, when = { killed = { name = { "Vilebranch", "Witherbark" }, min = 60 } },
+          text = "My riders tell me the troll drums at Jintha'Alor and Shadra'Alor have gone quieter, an' that a stranger's been doin' the quietin'. I like a guest who leaves the Hinterlands tidier than they found it." },
       },
       again = {
         { id = "h_again", text = "What else? Out wi' it, for I've trolls tae think about!" },
@@ -209,6 +220,7 @@ P:NPC {
         { text = "The Wildhammer and Ironforge still seem at odds, Thane.", next = "xpt_dwarf", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
         { text = "You've a mouth on you about Ironforge, Falstad.", next = "prej", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } } },
         { text = "I'm here to fight trolls.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { aerie_peak = 1 } } },
+        { text = "Will the trolls ever leave the Hinterlands, Falstad?", next = "dd_trolls", when = { killed = { name = { "Vilebranch", "Witherbark" }, min = 60 } } },
       },
     },
     xrogue = {
@@ -763,6 +775,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Ye stand heavy, like a dwarf in full mail, though I cannae see if ye are one. The land feels a warrior's step, an' it's no always glad of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I can hear yer beast breathin' beside ye, an' it's calmer than most, which tells me ye treat it well." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye shine like a lantern, {class}, an' the spirits o' this land don't quite know what tae make o' ye, though they're no' unfriendly." },
+        { id = "h_dd_sharpbeak", when = { questDone = TODO_QUEST("Saving Sharpbeak") },
+          text = "The spirits have been singin' about a gryphon brought home, an' Talonaxe says it was yer doin'. Even the old ones on the ridge seem pleased, an' they're hard tae please." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', as I'm always listenin'." } },
       choices = {
@@ -908,6 +922,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_sharpbeak = {
+      lines = { { id = "dd_sharpbeak_default", text = "Because a Wildhammer an' his gryphon are bound closer than brothers, an' every rider here's lost a bird or feared it. When the trolls took young Sharpbeak, the whole Peak felt it in their bellies, an' ye gave them a reason tae smile again." } },
+      choices = {
+        { text = "Any creature that loyal deserves rescuing. I'd do it again.", next = "BACK", reply = "Spoken like a Wildhammer, whatever ye were born. The riders'll no' forget it, an' neither will I.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "It was a job, and the Peak paid well for it.", next = "BACK", reply = "Aye, well, keep that last bit tae yerself in here, or ye'll be drinkin' alone. The birds dinnae care, but the riders do.", fx = { align = { light = -1 } } },
+        { text = "Something else, Thulfram.", next = "BACK" },
+      },
+    },
+
     xpt_table = {
       big = true,
       lines = { { id = "xpt_table_default", text = "Fewer than I'd like and more than the trolls would like, because the road from Hillsbrad runs through Vilebranch country and they don't let a lone traveller pass easily. Those who come in company tend to arrive, and those who come alone tend to arrive late or not at all." } },
@@ -1000,6 +1023,10 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Set yer hammer by the door an' yer backside by the fire, for there's no a troll in the Hinterlands that'll find ye here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' ye've brought the forest in on yer boots. Sit, an' tell me what's movin' out there, for the riders only see the trees from above." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei! The Wildhammer have shamans o' their own, an' they'll be wantin' tae talk wi' ye, I'd wager." },
+        { id = "h_dd_sharpbeak", tags = { "news" }, when = { questDone = TODO_QUEST("Saving Sharpbeak") },
+          text = "Every rider in the Peak's been raisin' a mug tae whoever brought Sharpbeak home, an' Talonaxe says that's you. Sit down, then, an' let them look at ye properly." },
+        { id = "h_dd_necklace", when = { questDone = TODO_QUEST("Troll Necklace Bounty") },
+          text = "Fraggar's been showin' off a string o' troll necklaces at my bar an' tellin' everyone where they came from. He's tellin' it as if he'd done it himself, mind, so ye might want tae set him straight." },
       },
       again = { { id = "h_again", text = "Anythin' else? Yer mug's no' empty yet." } },
       choices = {
@@ -1017,6 +1044,7 @@ P:NPC {
         { text = "Will the Wildhammer really welcome an Ironforge shaman, Thulfram?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'd guess few travellers make it up to the Peak.", next = "xpt_table", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
         { text = "A mug, please.", next = "END", fx = { affinity = 1 } },
+        { text = "Why does Sharpbeak matter so much to the riders, Thulfram?", next = "dd_sharpbeak", when = { questDone = TODO_QUEST("Saving Sharpbeak") } },
       },
     },
     xrogue = {

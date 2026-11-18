@@ -72,6 +72,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_celastrus", when = { questDone = TODO_QUEST("Celastrus the Bitter") },
+          text = "The keeper of the slopes says you cut down the great thorn. A blade that can do that without hatred is a blade worth knowing." },
         { id = "o_demon_hunters_distrust", tags = { "news" }, when = { gossip = { topic = "demon_hunters", stance = "distrust" } },
           text = "You told the elf demon hunter you do not trust him. I do not trust him either, though I notice he is always on the ridge when I need someone there." },
         { id = "h_default", key = true,

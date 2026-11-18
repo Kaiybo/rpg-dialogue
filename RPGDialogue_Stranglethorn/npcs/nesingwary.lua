@@ -438,6 +438,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_barnil_b = {
+      lines = {
+        { id = "dd_barnil_b_a", text = "Writing about it? He's written a whole chapter, lad, and it's mostly about how the great cat moved through the grass, and very little about you. That's Hemet; the hunt's the story, and the hunter's only the one who was lucky enough to be there." },
+      },
+      choices = {
+        { text = "That's how it should be. Bangalash deserves the chapter.", next = "dd_barnil_b2", fx = { align = { honor = 1 } } },
+        { text = "I'd like my name in there, at least once.", next = "dd_barnil_b2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_barnil_b2 = {
+      lines = {
+        { id = "dd_barnil_b2a", text = "I'll see that it's spelled right, at least, since I'm the one who copies it out fair. Mind the loose pages if you're walking near the river, because the wind takes them and I can't chase them all." },
+      },
+      choices = { { text = "I'll keep an eye out. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It has room for anythin' wi' a good story, an' ye're a better one than most o' the panthers. Just don't go talkin' tae the beasts before the master shoots them, for he'll call it unsporting." } },
@@ -548,6 +564,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bangalash_barnil", when = { killed = { name = "Bangalash" } },
+          text = "You're the one who brought down King Bangalash! Hemet's been writing about it in the book every night by the fire, and I've had to fetch him three new quills already." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll forgive the mess, for the master's pages blow all over the camp an' I've no' had time tae tidy, but sit an' rest, for the jungle's hard on soft feet." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, here! The master'll be pleased, for he's always sayin' the Alliance needs more heroes, an' never mind that he's one himself, though he'll no' admit it." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
@@ -576,6 +595,8 @@ P:NPC {
         { id = "h_again2", text = "Somethin' else, friend? Ask away, only mind the oil." },
       },
       choices = {
+        { text = "Hemet's writing about Bangalash in the book?", next = "dd_barnil_b", when = { killed = { name = "Bangalash" } } },
+
         { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Has magic ever helped with the master's lost pages?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },

@@ -114,8 +114,18 @@ P:NPC {
         { text = "Something else, Lorelae.", next = "BACK" },
       },
     },
+    dd_honored = {
+      lines = {
+        { id = "ddh_default", text = "It does, and the Circle is slow to trust anyone who isn't a druid, so that means something. Keep doing the work wherever the land is sick, and the elders will remember your name long after you've forgotten theirs." },
+      },
+      choices = {
+        { text = "I'd like to see what you keep for the Circle's friends.", next = "BUSINESS" },
+        { text = "Something else, Lorelae.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honored", when = { reputation = { faction = "Cenarion Circle", min = "honored" } }, text = "The Circle speaks well of you now, from Nighthaven to the edges of Felwood, and I keep the best of what I hold for those it trusts. You have earned your place at our table, friend." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde. The Circle sells its wares to those it trusts, and I've a feeling you'll grow that trust faster than most, since the land already speaks to you." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -138,6 +148,7 @@ P:NPC {
         { id = "h_again2", text = "Yes? Speak, and I'll listen as the glade does." },
       },
       choices = {
+        { text = "The Circle trusts me now, it seems.", next = "dd_honored", when = { reputation = { faction = "Cenarion Circle", min = "honored" } } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What does the Circle sell?", next = "goods" },
         { text = "How does one earn the Circle's trust?", next = "trust" },

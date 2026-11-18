@@ -31,6 +31,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_crew", when = { questDone = TODO_QUEST("A Crew Under Fire") },
+          text = "Somebody told me you pulled sailors out of that sunken ship off the point! If they come by for supplies, tell them I've got rope, and I'd recommend they buy plenty, because that ship clearly didn't have enough." },
         { id = "h_default", key = true,
           text = "Jubie Gadgetspring, engineering supplies: tubes, frameworks, blasting powder, parchment and ink. My husband Blimo sells everything else downstairs, and between the two of us, we've got whatever an adventurer forgets to bring to the end of the world." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -146,8 +148,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_naga = {
+      lines = {
+        { id = "dd_naga_1",
+          text = "Close? One of them looked in the downstairs window while I was counting thread, and I'll have you know I didn't scream, I just made a high noise. Jubie says it's good for business to have a house on the beach, and I say it's good for business to have a house that isn't on the naga's beach." },
+        { id = "dd_naga_2",
+          text = "So thank you, truly, and if you could kill a few more on your way past, I'd be ever so grateful. I can't pay you, mind, because Jubie keeps the strongbox upstairs, next to the explosives." },
+      },
+      choices = {
+        { text = "I'll keep them off your beach, Blimo.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You should move somewhere safer, friend.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Blimo.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_naga", when = { killed = { name = "Spitelash", min = 40 } },
+          text = "You've been killing the naga along the shore, haven't you? I can tell, because there's been almost a whole week without hissing outside the window, and I slept through the night, which hasn't happened since Jubie bought the blasting powder." },
         { id = "h_default", key = true,
           text = "Blimo Gadgetspring, trade supplies: thread, dye, vials, coal, fishing lures, a bit of everything. Jubie handles the explosive things upstairs, and I handle the things that don't explode, which is a much shorter list than you'd think in this house." },
         { id = "h_tailor", when = { profession = { "Tailoring", "Leatherworking" } },
@@ -158,6 +175,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I don't mind. It's nice to talk to someone who isn't on fire." },
       },
       choices = {
+        { text = "Do the naga come close to your house?", next = "dd_naga", when = { killed = { name = "Spitelash", min = 40 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Do you like living here?", next = "here" },
         { text = "What's out on the cliffs?", next = "cliffs" },

@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_hexx = {
+      lines = { { id = "dd_hexx_default", text = "Because I be old an' Revantusk, an' de Vilebranch think an elder's blood be strong for deir old gods. Dey wanted to show de forest trolls what happen to tribes who stand with de Horde, an' you showed dem instead." } },
+      choices = {
+        { text = "The Vilebranch will learn the same lesson again if they come.", next = "BACK", reply = "Dat de talk! De Revantusk remember you, an' we sing you rude songs about de Vilebranch to keep you warm.", fx = { align = { light = -1 } } },
+        { text = "I hope some of the Vilebranch turn from those old gods.", next = "BACK", reply = "Hope be cheap, an' I spend it anyway. Maybe one day, but not while dey still keep altars.", fx = { align = { light = 1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -44,6 +53,8 @@ P:NPC {
           text = "I sleep in my own hut again, though I wake up at every drum. You did dat, an' de Revantusk don't forget." },
         { id = "h_horde_old", when = { race = "Orc" },
           text = "De Horde of today be not de Horde I marched with, an' I tank de spirits for dat. Thrall be a better chief dan any I had." },
+        { id = "h_dd_hexx", tags = { "news" }, when = { questDone = TODO_QUEST("Wanted: Vile Priestess Hexx and Her Minions") },
+          text = "Hexx be dead! De one who wanted my blood on her altar, gone, an' you de one who did it. I tell de whole village, an' den I tell dem again, because old men be allowed." },
       },
       again = {
         { id = "h_again", text = "What else? I got nowhere to be, as you see." },
@@ -57,6 +68,7 @@ P:NPC {
         { text = "What do you think of the Wildhammer?", next = "xwild", when = { faction = "Alliance" } },
         { text = "Who is this priestess who wants your blood?", next = "hexx" },
         { text = "Hold on. I'll get you out.", next = "END" },
+        { text = "Hexx wanted you for her altar, Elder. Why you?", next = "dd_hexx", when = { questDone = TODO_QUEST("Wanted: Vile Priestess Hexx and Her Minions") } },
       },
     },
 

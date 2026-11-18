@@ -47,6 +47,8 @@ P:NPC {
           text = "Incendicite! I've found a lad brave enough tae try smeltin' it, an' let's hope he doesn't blow himself up before he gets it right." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome! Ye'll be wantin' tae tell me how tae improve Trollplow's engine, then. Save it fer Pilot Bellowfiz; he's the one who cares about engines." },
+        { id = "dd_jetsteam", when = { questDone = TODO_QUEST("Stocking Jetsteam") },
+          text = "Bellowfiz says ye stocked his flier for that long trip o' his. Eleven hundred miles in a gnome's contraption, mind, an' I'd sooner drive Trollplow through a mountain." },
       },
       again = {
         { id = "h_again", text = "What else? Trollplow's listenin' too." },

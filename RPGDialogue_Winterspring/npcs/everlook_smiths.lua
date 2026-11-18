@@ -36,6 +36,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_seril", when = { questDone = TODO_QUEST("Corruption") },
+          text = "Seril's been grinnin' at his anvil like a fool, mon, and he tell me you be de one who took back his plans from dem bone soldiers in Stratholme. A sword still be no axe, but I give you respect for it all de same." },
         { id = "h_default", key = true,
           text = "I am Kilram, master of da axe, and I teach da way of da axesmith to smiths who be worthy. Da axe be da oldest and da best of weapons, mon, and anybody who tell ya different be sellin' swords or hammers." },
         { id = "h_smith", when = { profession = "Blacksmithing", questBefore = TODO_QUEST("Snakestone of the Shadow Huntress") },
@@ -139,6 +141,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_kilram", when = { questDone = TODO_QUEST("Snakestone of the Shadow Huntress") },
+          text = "The troll next door tells everyone you avenged him on the Shadow Huntress. I don't care for axes, but I respect a debt paid, and that one's been eating at him longer than he admits." },
         { id = "h_default", key = true,
           text = "I'm Seril Scourgebane, and I train swordsmiths, if they're worth training. If I'm short with you, it's for a reason: the plans for the great blade Corruption have been stolen by the Black Guard, Baron Rivendare's own skeletal elite, and I'd like them back." },
         { id = "h_smith", when = { profession = "Blacksmithing", questBefore = TODO_QUEST("Corruption") },

@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_keeshan_g = {
+      lines = {
+        { id = "dd_keeshan_g_a", text = "Then thank you, and I mean it more than I can say properly. I used to lie awake in that cave imagining his face when the end came, and now it's come, and I find I only feel tired." },
+      },
+      choices = {
+        { text = "That's grief, Corporal. Let it come. Your men deserve it.", next = "dd_keeshan_g2", fx = { align = { light = 1 } } },
+        { text = "Don't feel tired. Feel angry, and finish the rest of them.", next = "dd_keeshan_g2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_keeshan_g2 = {
+      lines = {
+        { id = "dd_keeshan_g2a", text = "Maybe I'll feel both, before the end, and maybe that's how a soldier gets through it. I'll raise a cup to the Sabres tonight, and I'll raise one to you as well." },
+      },
+      choices = { { text = "Raise one for me. Something else.", next = "BACK" } },
+    },
+
     op_orcs = {
       lines = {
         { id = "op_orcs_a", text = "I heard the guards on the rock talk about him, if you can believe it. They called him a slave-born whelp who'd made the Horde soft and given it to trolls and cow-men, and they spat after his name. I've had weeks to think about it, so what's your view?" },
@@ -120,6 +136,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_gath_k", tags = { "news" }, when = { killed = { name = "Gath'Ilzogg" } },
+          text = "Gath'Ilzogg's dead. I heard the men say it at the inn, and I made them say it twice, because I saw what that orc's raiders did to my regiment. If you were the one who did it, then you've done more for the 12th Sabre Regiment than any of us could." },
+
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "You're the second soul to come looking for a Stormwind corporal in these hills, if my head's still straight. The other was a {altclass} called {alt}, and you've the same look, so I'll trust you the way I trusted that one." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
@@ -144,6 +163,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, talk. It keeps me awake, and awake is good." },
       },
       choices = {
+        { text = "Gath'Ilzogg is dead, Corporal. I saw to it.", next = "dd_keeshan_g", when = { killed = { name = "Gath'Ilzogg" } } },
+
         { text = "How did you survive so long in the hills?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What did you see up there?", next = "seen" },
         { text = "What happened at Stonewatch?", next = "fall" },

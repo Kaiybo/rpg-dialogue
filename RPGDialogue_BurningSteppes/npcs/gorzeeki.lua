@@ -44,6 +44,8 @@ P:NPC {
           text = "Three black dragonscales, pal, and I'll make you a Doomsday Candle that burns any demon that tries to break your circle, which is a bargain when you think about the alternative. Buy them from a skinner, unless you want to ask a dragon nicely and see what that costs." },
         { id = "h_nonlock", when = { class = { "WARRIOR", "PALADIN", "HUNTER", "ROGUE", "PRIEST", "SHAMAN", "MAGE", "DRUID" } },
           text = "You're not a warlock, are you? That's fine, I'm not either, really, I just work for one, and the pay's good and the company's fascinatin', so I call it a career." },
+        { id = "dd_dreadsteed", when = { questDone = TODO_QUEST("Dreadsteed of Xoroth") },
+          text = "Master Mor'zul says you've got yourself a dreadsteed, and you didn't even get eaten by it, pal! That's the best return on a candle I ever sold, and I'm tellin' every warlock who walks by." },
       },
       again = {
         { id = "h_again", text = "What else, pal? I've got potions, inks, opinions, and a beetle I was saving, and only one of those is free." },

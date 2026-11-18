@@ -180,6 +180,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, so please don't, because blessed water spoils my samples." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and so another of Hamuul's watchers. His students on Elder Rise are always terribly polite to me, which in my experience is how the living say they don't trust you." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "You've been to the bottom of the Wailing Caverns, I'm told, and come out unpoisoned, which is remarkable considering what grows down there." },
+        { id = "h_dd_fang", tags = { "news" }, when = { questDone = TODO_QUEST("Leaders of the Fang") }, text = "The young druid on Elder Rise, Wildmane, is going about with a smile on her face and telling everyone you killed the Druids of the Fang for her. I suppose that's one way to cure a nightmare, though the Society would have preferred the specimens alive." },
       },
       choices = {
         { text = "Do the tauren trust a priest's healing?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -196,11 +197,22 @@ P:NPC {
         { text = "Why do the druids distrust you, Zamah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of the Wailing Caverns, Zamah.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
+        { text = "You wanted the Fang druids alive, Zamah?", next = "dd_fang", when = { questDone = TODO_QUEST("Leaders of the Fang") } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
         { id = "h_again2", text = "Ask what you will. The pools are patient, and so, I've found, is the grave." },
+      },
+    },
+    dd_fang = {
+      lines = {
+        { id = "dd_fang_1", text = "Alive, dead, or in between, which is the state I find most instructive. Druids who drank from a poisoned dream and came back changed are of great interest to the Royal Apothecary Society, because the Dark Lady's people know a thing or two about coming back changed." },
+      },
+      choices = {
+        { text = "Some things are better left dead, Zamah.", next = "BACK", reply = "Spoken like someone with a pulse. I'll note it in my journal, under opinions of the living, which is a very long page.", fx = { align = { light = 1 } } },
+        { text = "Next time I'll bring you what's left of them.", next = "BACK", reply = "How refreshingly practical of you. A jar of cavern water and a scrap of robe would do, and please don't tell the druids on Elder Rise.", fx = { align = { light = -1 } } },
+        { text = "Something else, Zamah.", next = "BACK" },
       },
     },
     why = {

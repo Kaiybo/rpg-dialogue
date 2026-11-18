@@ -92,8 +92,25 @@ P:NPC {
         { text = "Something else, Khaelyn.", next = "BACK" },
       },
     },
+    dd_bats = {
+      lines = {
+        { id = "dd_bats_1",
+          text = "Because a plaguebat doesn't fight fair, and neither does what it carries. They come up under a gryphon's wing in a swarm, and every bite that gets through means a sick bird and a week of poultices, if the bird lives." },
+        { id = "dd_bats_2",
+          text = "Georgia's bats are another matter; the Forsaken bred theirs and keep them clean, and I'll give her that much. It's the wild ones from Stratholme that I'd see dead, every last one of them." },
+      },
+      choices = {
+        { text = "I'll keep killing them. Your birds deserve clean air.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I killed them for the pay. Your birds are your problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Khaelyn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_bats", when = { killed = { name = "Plaguebat", min = 30 } },
+          text = "My riders say the plaguebats over the Thondroril are thinner than they've been all season, and someone told me to thank you for it. The gryphons hate those things more than they hate the cold." },
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "I heard you took a fall somewhere and didn't get up the first time. Take it from someone who flies for a living: the ground always wins, so stop giving it the chance." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, at Light's Hope! The birds hate the air up here, {class}, but they'll fly calmer with someone aboard who knows what the wind's thinking." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
@@ -118,6 +135,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but don't keep a gryphon waiting in this air." },
       },
       choices = {
+        { text = "Why do your gryphons hate the plaguebats so much?", next = "dd_bats", when = { killed = { name = "Plaguebat", min = 30 } } },
         { text = "How do the gryphons bear the foul air?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly from here?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "The gryphons must struggle with the plague.", next = "air" },
@@ -265,6 +283,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_bats", when = { killed = { name = "Plaguebat", min = 30 } },
+          text = "You've been killing my bats' wild cousins over the Thondroril, I hear. Don't expect them to thank you; they aren't sentimental, and neither am I." },
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "I heard you fell from somewhere high and broke on the rocks. My bats would have caught you, you know, if you'd paid for the flight." },
         { id = "h_default", key = true,
           text = "Georgia, bat handler for the Horde. My bats fly to the Undercity and wherever else the Dark Lady's people keep a roost, and they don't care how foul the air is." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -481,8 +503,25 @@ P:NPC {
         { text = "Something else, Jessica.", next = "BACK" },
       },
     },
+    dd_darrow = {
+      lines = {
+        { id = "dd_darrow_1",
+          text = "Every bite, and asked for bread to wipe the bowl. Carlin's been sitting at that corner table for years, picking at his food and looking at the door as though Joseph might walk through it, and last week he looked out of the window instead." },
+        { id = "dd_darrow_2",
+          text = "I don't know what you saw down in Darrowshire, and I don't think I want to. But whatever it was, it gave a man his appetite back, and in this country that's something close to a miracle." },
+      },
+      choices = {
+        { text = "The dead of Darrowshire are at peace now.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Peace for ghosts doesn't change much for the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_darrow", tags = { "news" }, when = { questDone = TODO_QUEST("The Battle of Darrowshire") },
+          text = "Carlin Redpath came in last week and ordered a meal and ate all of it, which I've never once seen him do. He said you'd given Darrowshire its battle back, and then he cried into the stew, so I didn't charge him." },
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } },
+          text = "You've been carried back to the chapel more than once, by the look of you. Sit down by the fire and eat before you go out again; the dead can wait an hour." },
         { id = "o_fktrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Lord Tyrosus mentioned you'd have the Forsaken fight beside us. Leonid will be glad of it, if nobody's told him already." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, at my inn! You'll want a window that faces the hills, I expect, though I'll warn you the view hasn't been green in a long while." },
@@ -514,6 +553,7 @@ P:NPC {
         { id = "h_again2", text = "Stay as long as you like; there's nowhere warmer for miles." },
       },
       choices = {
+        { text = "Carlin really ate a whole meal?", next = "dd_darrow", when = { questDone = TODO_QUEST("The Battle of Darrowshire") } },
         { text = "Do you ever miss green hills, Jessica?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've come back from Stratholme. Its masters are dead.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "I'd like to rest here.", next = "BUSINESS" },
@@ -675,8 +715,23 @@ P:NPC {
         { text = "Something else, Jase.", next = "BACK" },
       },
     },
+    dd_augustus = {
+      lines = {
+        { id = "dd_augustus_1",
+          text = "A rival who sells mushrooms out of a ruined town and giggles at his own prices? Not exactly, but two of my best customers came back from Terrordale with his goods, and a merchant notices that sort of thing." },
+        { id = "dd_augustus_2",
+          text = "Mind you, the man kept his books in a burning town for the Scourge to read, and still wanted them back. I can respect that, even if I'd rather he did it somewhere further away from my stall." },
+      },
+      choices = {
+        { text = "Competition's good for trade. You'll manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A madman shouldn't be trading in the Plaguelands at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Jase.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_augustus", when = { questDone = TODO_QUEST("Augustus' Receipt Book") },
+          text = "Someone's been telling the soldiers that the madman in Terrordale is open for business again, and that you found his receipt book. I'm trying very hard to take that as a compliment to the market and not as competition." },
         { id = "h_default", key = true,
           text = "Jase Farlane, trade supplies for Light's Hope. Everything a crafter needs to mend a soldier's kit or brew a potion, and every bit of it came a long and dangerous way, so the prices aren't Stormwind's." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -697,6 +752,7 @@ P:NPC {
         { id = "h_again2", text = "Go on and ask, though I'll be tallying spools of thread the whole time." },
       },
       choices = {
+        { text = "You see Augustus as a rival?", next = "dd_augustus", when = { questDone = TODO_QUEST("Augustus' Receipt Book") } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Getting supplies here can't be easy.", next = "wagons" },
         { text = "What does the Dawn need most?", next = "needs" },

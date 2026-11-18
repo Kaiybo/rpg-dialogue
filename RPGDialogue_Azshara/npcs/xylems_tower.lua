@@ -555,6 +555,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") },
+          text = "So you're the one who killed the drake that ate the Archmage's apprentice. He's been insufferably cheerful since, and I'm the one who has to stand at the bottom of the tower and listen to it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clanking and shining and dreadfully earnest. I'm obliged to send you up to the Archmage, but do try not to bless anything in the tower, because he hates it." },
         { id = "h_warcl", when = { class = "WARRIOR" },

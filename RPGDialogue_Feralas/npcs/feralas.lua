@@ -238,6 +238,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand on Feathermoon. Pratt McGrubben once wore that tabard, and he tells me your order stands its ground, which is the only praise I give." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hatecrest", min = 30 } }, text = "My Sentinels report fewer Hatecrest on the shore at night, and they tell me it was you who thinned them. Elune favors those who do the work, and so do I." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at Feathermoon. The High Priestess teaches that all things answer to Elune in time, and I am curious what you believe answers you." },
+        { id = "h_dd_shalzaru", tags = { "news" }, when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "Latronicus tells me Lord Shalzaru is dead in his hole at Isle of Dread, and that you were the blade that did it. The Hatecrest will choose another royal soon enough, but they'll think twice before they look toward this isle again." },
       },
       again = { { id = "h_again", text = "Report, or ask; either is useful, and the Sentinels have little use for idle words." }, { id = "h_again2", text = "What else?" } },
       choices = {
@@ -566,6 +567,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light! I've not had a proper talk about the Light since I hung up my tabard, and you'll forgive an old man for being glad of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, on Feathermoon! The Sentinels will watch you closely, friend, so don't take it to heart, because they watched me for a full year and I only sell leather." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I carried the Light for many a year, and I never once thought I'd see the day Ironforge took up totems." },
+        { id = "h_dd_scales", tags = { "news" }, when = { questDone = TODO_QUEST("Against the Hatecrest") }, text = "Latronicus sent me down a sack of Hatecrest scales, and he said you were the one who pried them off. They're the toughest hide I've worked since I put down the hammer, so thank you kindly, friend." },
       },
       again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching while you think." } },
       choices = {
@@ -582,7 +584,18 @@ P:NPC {
         { text = "You must still feel the Light, Pratt, even without your tabard.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do the Sentinels distrust mages so, Pratt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does a dwarf shaman seem wrong to an old paladin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What can you make from naga scales, Pratt?", next = "dd_scales", when = { questDone = TODO_QUEST("Against the Hatecrest") } },
         { text = "Just browsing.", next = "END" },
+      },
+    },
+    dd_scales = {
+      lines = {
+        { id = "dd_scales_1", text = "Bracers, mostly, and a vest if I can stretch them, though they fight the needle like the naga fought you. I used to wear plate blessed by the Light, and now I stitch scales off creatures that used to be night elves, which is a strange road for an old paladin to walk." },
+      },
+      choices = {
+        { text = "Armor is armor. Where it came from doesn't matter.", next = "BACK", reply = "That's a soldier's answer, and I gave it myself once. It keeps a Sentinel alive, and I suppose that's blessing enough.", fx = { align = { light = -1 } } },
+        { text = "They were elves once. That should give us pause.", next = "BACK", reply = "It gives me pause every time I cut a piece, friend. The Light taught me that, even if it didn't teach me to stop.", fx = { align = { light = 1 } } },
+        { text = "Something else, Pratt.", next = "BACK" },
       },
     },
     retire = {
@@ -766,6 +779,8 @@ P:NPC {
           text = "A hunter, and with a companion! Bring it in out of the rain, please; the Sentinels' cats sleep by my hearth all the time." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, under my roof. I won't turn anyone from my hearth in this rain, but I'll ask you to leave your companion on the dock, because the Sentinels won't sleep with it in the house." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Sentinels will stare, I'm afraid, but they'll share the fire with you, and so will I." },
+        { id = "h_dd_raschal", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Courier") }, text = "Ginro came down for a cup last night and didn't drink it, and he told me you found what was left of Raschal's boat. The Sentinels have been quieter at the tables since, the way people are when they've lost one of their own." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned at least once, I'd say, by the way you eye the channel. Half the stronghold has swallowed too much of that water crossing from the mainland, so take the boat next time, and leave the swimming to the naga." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on, and the moon won't be up for an hour yet." } },
       choices = {
@@ -781,7 +796,18 @@ P:NPC {
         { text = "Do the Sentinels really bring their cats inside, Shyria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Will the Sentinels really not sleep with a demon near, Shyria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would the Sentinels stare at a dwarf shaman, Shyria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Ginro took Raschal's loss hard, didn't he?", next = "dd_raschal", when = { questDone = TODO_QUEST("The Missing Courier") } },
         { text = "Thank you.", next = "END" },
+      },
+    },
+    dd_raschal = {
+      lines = {
+        { id = "dd_raschal_1", text = "Harder than he lets anyone see. Raschal ate at that table by the window every evening and teased me about the rain, and Ginro sent him out with the parcel himself. Now Ginro sits in Raschal's seat and reads the dispatches twice, as if one of them might bring him back." },
+      },
+      choices = {
+        { text = "It wasn't his fault. The coast is dangerous.", next = "BACK", reply = "I've told him so, and so has the General, but grief doesn't listen to Sentinels any more than to innkeepers. Perhaps he'll hear it from you.", fx = { align = { light = 1 } } },
+        { text = "He'll want whoever did it found and punished.", next = "BACK", reply = "He does, and he's said as much to Quintis. Feathermoon doesn't forget its dead, and the gnolls of the south may learn that the hard way.", fx = { align = { light = -1 } } },
+        { text = "Something else, Shyria.", next = "BACK" },
       },
     },
     talk = {
@@ -1006,6 +1032,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because ogre clubs break bones my healers can't set, and I'm tired of sending braves home to Thunder Bluff on a litter." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gordunni", min = 40 } }, text = "The Gordunni are counting their dead, and a good share of them are yours. Belgrom will hear of it, and so will every ogre in the Lower Wilds." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can the Light break ogres? Because that's the only question I've got for anyone in Feralas." },
+        { id = "h_dd_horns", tags = { "news" }, when = { questDone = TODO_QUEST("A Grim Discovery") }, text = "Krueg says you brought him a pile of Grimtotem horns big enough to make Belgrom smile, and Belgrom doesn't smile. Good work, and keep your back to a tree when you're in those hills." },
       },
       again = {
         { id = "h_again", text = "What else? Ogres don't wait for talk, and an orc who talks too long forgets to swing." },
@@ -1486,6 +1513,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! Come in from the rain, and bring your beast close to the fire, for the wet gets into fur worse than it gets into skin." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Come in, come in, out of the rain. A Forsaken who carries the Light is as welcome by my fire as anyone, though the braves may need a moment." },
+        { id = "h_dd_horns", tags = { "news" }, when = { questDone = TODO_QUEST("A Grim Discovery") }, text = "Krueg came through here with a sack of Grimtotem horns over his shoulder and your name in his mouth, loud enough for the whole camp to hear. Some of the braves cheered, and some of the elders went very quiet." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You have the tired look of someone who has walked back from the spirit healer more than once. Sit by my fire and dry off, because the rain in Feralas doesn't care how many times you've died." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere, and the Earth Mother means it to grow the grass." } },
       choices = {
@@ -1501,7 +1530,18 @@ P:NPC {
         { text = "Do you see many warriors come back from the ogre lands, Greul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the hunters of Mojache bring to your fire, Greul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the braves mind a Forsaken paladin, Greul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Why did the elders go quiet about the horns, Greul?", next = "dd_horns", when = { questDone = TODO_QUEST("A Grim Discovery") } },
         { text = "Just a rest, thank you.", next = "END" },
+      },
+    },
+    dd_horns = {
+      lines = {
+        { id = "dd_horns_1", text = "Because those horns grew on tauren heads, friend, whatever tribe the heads belonged to. The Grimtotem are a shame on our people and they would kill every orc in this camp if they could, but some of our elders remember sharing fires with them before the tribes split." },
+      },
+      choices = {
+        { text = "The Grimtotem chose their side. The bounty is fair.", next = "BACK", reply = "Krueg would agree with you, and so would most of the braves. I only ask you not to wave the horns around near the elders' fire.", fx = { align = { honor = -1 } } },
+        { text = "Trophies from kin are a hard thing. I understand.", next = "BACK", reply = "Thank you for that; it's more than Krueg ever said. The orcs are good allies, but they don't always see what we see.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Greul.", next = "BACK" },
       },
     },
     camp = {

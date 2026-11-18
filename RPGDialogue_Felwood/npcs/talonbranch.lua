@@ -109,8 +109,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_purified = {
+      lines = {
+        { id = "ddp_default", text = "I remember it before the Legion's filth soaked into the soil, when it was simply the northern edge of Ashenvale. Healed, yes, but not quickly, and not by any one hand; it will take the Emerald Circle centuries, and it will take people like you to keep the satyrs from undoing the work." },
+        { id = "ddp_druid", when = { class = "DRUID" }, text = "You have felt the sickness in the soil yourself, so you know how deep it goes. Healed, yes, but over centuries, and by druids who keep coming back to tend it when it would be easier to leave." },
+      },
+      choices = {
+        { text = "Then I'll keep coming back to tend it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_purified", tags = { "news" }, when = { questDone = TODO_QUEST("Purified!") }, text = "Eridan Bluewind sent word from the Sanctuary that you helped him cleanse the Jadefire's corruption, and that something green has begun to grow where it fell. I have waited a long time to hear that, so forgive an old druid for being moved by it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, by the moonwell. You came in quietly, which I approve of, since this forest is full of things that listen." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
@@ -134,6 +145,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer, though the moonwell has been my only company for a long while." } },
       choices = {
+        { text = "Can Felwood really be healed, Golhine?", next = "dd_purified", when = { questDone = TODO_QUEST("Purified!") } },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why teach here?", next = "why" },
         { text = "Talonbranch Glade seems to have held out well.", next = "glade" },

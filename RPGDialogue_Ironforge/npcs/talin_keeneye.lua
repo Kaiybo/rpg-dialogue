@@ -48,6 +48,8 @@ P:NPC {
           text = "A hunter, an' a fresh one, by the look o' ye. There's no better place tae learn than a valley that's too full o' game." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome, out by the lake in the cold! Ye're braver than ye look, an' ye'll want tae keep yer feet dry." },
+        { id = "dd_newthreat", when = { questDone = TODO_QUEST("A New Threat") },
+          text = "Balir tells me ye cleared the Rockjaw troggs out o' the valley for him. Good, for they'd been scarin' my boars an' spoilin' my huntin' for weeks." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The boars'll wait, more's the pity." },

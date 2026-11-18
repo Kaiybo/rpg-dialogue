@@ -625,6 +625,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_eliza_hann", when = { killed = { name = "Eliza" } },
+          text = "Word in the corner is that the Embalmer's bride won't be rising from her grave again, and somebody had to put her back in it. Have a nip of the moonshine, quietly, because a deed like that deserves something strong." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'll pour you spring water and say nothing, though the jug under the counter is there if the Light ever looks away." },
         { id = "h_default", text = "Hann's the name, and drink's the trade. Milk, juice, spring water for the careful folk, and for everyone else, there's the jug under the counter." },
         { id = "h_dry_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dry Times") },
@@ -1168,6 +1171,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_farrin_s = {
+      lines = {
+        { id = "dd_farrin_s_a", text = "Then I'll ask you plainly, because nobody else will tell me: is his grave still whole? My father was laid in the east corner by the old oak, and every night I dream it's empty." },
+      },
+      choices = {
+        { text = "I didn't see an empty grave by the oak.", next = "dd_farrin_s2", fx = { align = { light = 1 } } },
+        { text = "I won't lie to you. Many graves there are empty.", next = "dd_farrin_s2", fx = { align = { light = -1, honor = 1 } } },
+      },
+    },
+    dd_farrin_s2 = {
+      lines = {
+        { id = "dd_farrin_s2a", text = "Either way, you've given me more than the guards ever did, which is an answer. I'll go out with the Watch next week and see for myself, and I'll bring flowers, whatever I find." },
+      },
+      choices = { { text = "I hope you find peace there. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The dead walk there now, so I pace and wait. If your spirits could tell my father I'm still here, it'd be something." } },
@@ -1254,6 +1273,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_skel_farrin", tags = { "news" }, when = { killed = { name = "Skeletal", min = 30 } },
+          text = "They say someone's been breaking up the skeletons around Raven Hill, and that it's you. If that's true, I might be able to stand at my father's grave again before the summer's out, and I can't tell you what that means." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My father's grave hasn't had a prayer said over it since the dead started walking, and I've been too frightened to go myself." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. They say the dead give way when your kind walk among them, and I've always wanted to see that, from a safe distance." },
         { id = "h_default", text = "Farrin Daris. I've a room here at the Raven, and I walk from it to this table and back, because there's nowhere else in Darkshire a man can safely walk anymore, not even to my father's grave." },
@@ -1270,6 +1292,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'd welcome the distraction." },
       },
       choices = {
+        { text = "I've been clearing the dead around Raven Hill.", next = "dd_farrin_s", when = { killed = { name = "Skeletal", min = 30 } } },
+
         { text = "Why can't you go out?", next = "grave" },
         { text = "Why haven't Stormwind's guards come?", next = "guards" },
         { text = "You talk as if something's coming.", next = "dark" },

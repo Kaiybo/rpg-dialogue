@@ -100,8 +100,19 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    dd_blackwood = {
+      lines = {
+        { id = "ddb_default", text = "That is the question that keeps me from sleep. The thistle bears' sickness looks nothing like the furbolgs' madness, but both began the same season, and the forest does not usually fall ill twice at once by chance." },
+      },
+      choices = {
+        { text = "Then whoever poisoned them should answer for it.", next = "BACK", reply = "If we ever find them, they will, and I will not stand in the Sentinels' way. Until then I tend what I can.", fx = { align = { order = 1 } } },
+        { text = "Heal the bears first. Blame can wait.", next = "BACK", reply = "Spoken like a druid. Yes, the bears first, always, and the hunting of satyrs to those with the stomach for it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_blackwood", tags = { "news" }, when = { questDone = TODO_QUEST("The Blackwood Corrupted") }, text = "Thundris showed me the satyr's work you uncovered in the Blackwood camps, the poisoned food and the rest. So the furbolgs were made sick by a hand and not by the land, and that changes how I think of the bears as well." },
         { id = "h_default", key = true,
           text = "I am Tharnariun Treetender. The thistle bears of Darkshore have gone mad, and not with ordinary rage, for they foam and stagger and turn on their own cubs. I have tended these forests since the old days, and I mean to learn what is doing it and cure it if I can." },
         { id = "h_plagued", tags = { "news" }, when = { questActive = TODO_QUEST("Plagued Lands") },
@@ -126,6 +137,7 @@ P:NPC {
         { id = "h_again3", text = "Ask away. A healer's work is half waiting in any case." },
       },
       choices = {
+        { text = "If the furbolgs were poisoned, could the bears have been too?", next = "dd_blackwood", when = { questDone = TODO_QUEST("The Blackwood Corrupted") } },
         { text = "What's making the bears mad?", next = "cause" },
         { text = "Why take a bear alive?", next = "alive" },
         { text = "Is anyone else in Auberdine chasing this sickness?", next = "terenthis_t" },
@@ -363,8 +375,18 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    dd_strand = {
+      lines = {
+        { id = "dds_default", text = "Fewer, but not gone, and they are not common bandits. They whisper of old powers at the Tower of Althalaxx, and some among them are our own kind, kaldorei who have turned their backs on Elune for promises in the dark." },
+      },
+      choices = {
+        { text = "Kaldorei among them? That's a bitter thing.", next = "BACK", reply = "Bitter, and shameful. The Highborne made the same choice once, and the whole world paid for it. Keep your blade ready." },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_strand", tags = { "news" }, when = { killed = { name = "Dark Strand", min = 30 } }, text = "My scouts say the Dark Strand cultists along the coast have lost a great many of their number, and that the bodies all fell to the same blade. I would rather that blade stayed in Darkshore a while longer, {class}." },
         { id = "h_default", key = true,
           text = "I am Sentinel Elissa Starbreeze. I keep Auberdine's stores, and I keep our accounts with Maestra's Post in Ashenvale, where Delgren the Purifier and his paladins hunt the Dark Strand, those Highborne-hearted fools." },
         { id = "h_supplies", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies to Auberdine") },
@@ -386,6 +408,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, though I'm counting too." },
       },
       choices = {
+        { text = "The Dark Strand are fewer now, Sentinel.", next = "dd_strand", when = { killed = { name = "Dark Strand", min = 30 } } },
         { text = "Tell me about Delgren's company.", next = "delgren_e" },
         { text = "Who are the Dark Strand?", next = "strand" },
         { text = "Auberdine's stores must run short, this far out.", next = "short" },
@@ -584,8 +607,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_fall = {
+      lines = {
+        { id = "ddf_default", text = "Never with a rider who holds on, and I've flown the route to Rut'theran more times than I can count. Most falls happen on Darkshore's cliffs, from people who think they can climb down faster than they can walk around." },
+      },
+      choices = {
+        { text = "That sounds like something I'd do.", next = "BACK", reply = "Then take the long way round, and arrive alive. The cliffs will still be there tomorrow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You've fallen from a height before, haven't you? You eye the hippogryphs as if they might drop you over the sea. They won't, so long as you hold on and don't try to climb down early." },
         { id = "h_default", key = true,
           text = "I am Caylais Moonfeather, and these are my hippogryphs. They'll carry you over the water to Rut'theran Village or south to Astranaar, and farther once you've walked the roads and they know where you mean to go." },
         { id = "h_back", when = { metBefore = true },
@@ -602,6 +635,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; they won't mind waiting a little longer." },
       },
       choices = {
+        { text = "I've fallen before. Are your hippogryphs ever careless?", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the hippogryphs like?", next = "birds" },
         { text = "Flying seems a risky way to travel.", next = "safe" },

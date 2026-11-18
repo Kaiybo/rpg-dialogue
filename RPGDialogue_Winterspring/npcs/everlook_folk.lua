@@ -115,6 +115,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_yeti", when = { killed = { name = "Yeti", min = 30 } },
+          text = "Darling, the yetis up at Owl Wing Thicket are getting scarce, and I hear you're to blame. Where am I supposed to find inspiration for my little pranks on Umi if you keep killing it?" },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Ooh, a warlock! Now there's somebody who knows what real scary looks like, darling, and I'd wager you wouldn't jump at Umi's silly yeti, would you?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -1081,8 +1083,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_bears = {
+      lines = {
+        { id = "dd_bears_1",
+          text = "I did not say that. The bears are strong and the snow is hard, and a hunter who brings meat to Everlook keeps the town alive through the long dark. I only wonder whether you took what you needed, or what you could." },
+        { id = "dd_bears_2",
+          text = "On the plains of Mulgore we thank the kodo before the spear falls, and we leave the young and the old for the next season. Here, nobody leaves anything, and the herds remember it." },
+      },
+      choices = {
+        { text = "I took what I needed and gave thanks for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The hills are full of bears. I'll take what I like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Storm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_bears", when = { killed = { name = "Shardtooth", min = 30 } },
+          text = "The Shardtooth bears of the eastern hills grow fewer, and the hunters' fires in Everlook say it was your hand that thinned them. The Earth Mother sees how you hunt, young one, and so do I." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. Your demon watches me as a wolf watches a calf, and I do not like it, but I will speak with you, because I judge the hunter and not the hound." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1114,6 +1131,7 @@ P:NPC {
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
+        { text = "You disapprove of how many bears I've killed?", next = "dd_bears", when = { killed = { name = "Shardtooth", min = 30 } } },
         { text = "How do the tauren feel about the Horde?", next = "op_ask" },
         { text = "Do the spirits favour the great beasts of Winterspring?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You must hunt the greatest beasts in Winterspring, Storm.", next = "druid_q", when = { class = "DRUID" } },

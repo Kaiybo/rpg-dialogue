@@ -144,6 +144,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_necklace_r", when = { questDone = TODO_QUEST("Lost Necklace") },
+          text = "You found Bernice's necklace, didn't you? I heard it, I heard it twice, and Billy Maclure's been telling every cart driver he was innocent all along." },
+        { id = "dd_escape_r", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
+          text = "The Maclure girl's gone off with the Stonefield boy, and they say you helped! That's the best news I've had to sell all week, and I'll be selling it twice." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, a priest! Bless me, then, bless me twice, because I've done nothing wrong, nothing at all, this week." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, a paladin! Remy's done nothing wrong, nothing at all, so you can keep that hammer where it is, where it is." },
         { id = "h_default", text = "Remy, at your service, at your service! Whatever you need, I know a fellow who knows a fellow." },

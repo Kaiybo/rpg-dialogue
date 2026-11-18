@@ -682,6 +682,7 @@ P:NPC {
           text = "A hunter. The beasts avoid the highborne ruins, and I have learned to trust their judgment over any scholar's." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk like one of my scouts, and I would not mind having one more who can cross the ruins without waking what sleeps there." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman among the Sentinels. The highborne ruins here are full of spirits that never found rest, and I wonder whether they'd speak to you." },
+        { id = "h_dd_cages", tags = { "news" }, when = { questDone = TODO_QUEST("Freedom for All Creatures") }, text = "Kindal says the Grimtotem cages are standing empty and the creatures have gone back to the forest, and that you were the one who opened the doors. Elune smiles on that kind of work, and so do I." },
       },
       again = { { id = "h_again", text = "What else? The ruins have waited ten thousand years to tell their story; they can wait while you ask." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -814,6 +815,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I trust a newcomer only as far as their blade has proven, and yours has proven nothing to me yet, Light or no Light." },
+        { id = "h_dd_gordunni", tags = { "news" }, when = { killed = { name = "Gordunni", min = 40 } }, text = "The hunters say the Gordunni don't come down to the river so often now, and that you're the reason. The camp breathes a little easier, friend, and so do I." },
       },
       again = { { id = "h_again", text = "What else do you seek? Ask, and the fire will listen with me." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -829,7 +831,18 @@ P:NPC {
         { text = "My power wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the gordunni fight, Hadoken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How can I prove myself to you, Hadoken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've cut down a great many Gordunni, Hadoken.", next = "dd_gordunni", when = { killed = { name = "Gordunni", min = 40 } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    dd_gordunni = {
+      lines = {
+        { id = "dd_gordunni_1", text = "So I hear, and I'm grateful. When we first raised Camp Mojache the ogres came down every night, and we lost hunters at the river and calves at the edge of the grass. Now the young ones can fetch water without a brave walking beside them." },
+      },
+      choices = {
+        { text = "They'll be back. I'd build the walls higher.", next = "BACK", reply = "You may be right, and Rok Orhan says the same, though louder. We'll raise them a little, for the young ones' sake.", fx = { align = { order = 1 } } },
+        { text = "Let the hunters roam. The ogres fear them now.", next = "BACK", reply = "Spoken like a hunter, and it warms an old heart. The Earth Mother made us to walk the land, not to hide behind fences.", fx = { align = { order = -1 } } },
+        { text = "Something else, Hadoken.", next = "BACK" },
       },
     },
     b1_1 = {

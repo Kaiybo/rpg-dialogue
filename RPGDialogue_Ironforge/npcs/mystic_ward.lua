@@ -646,6 +646,16 @@ P:NPC {
         { text = "Something else, Theodrus.", next = "BACK" },
       },
     },
+    dd_td_deaths = {
+      lines = {
+        { id = "dd_td_deaths1", text = "That's the question every priest asks, an' no two give the same answer. Mine is that the Light doesnae waste anythin', an' a soul that's still got work in it gets sent back tae do it, so if ye keep comin' back, ye've work left." },
+      },
+      choices = {
+        { text = "Then I'll find that work and do it well.", next = "BACK", reply = "Good. An' when ye find it, come an' tell me, for I'm curious what the Light wanted.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Or I'm just too stubborn to stay dead.", next = "BACK", reply = "Stubbornness is a dwarf's gift, an' maybe the Light borrows it now an' then. Off wi' ye.", fx = { align = { light = -1 }, trait = { witty = 1 } } },
+        { text = "Something else, Theodrus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Hall. Good; ye'll have heard my warnin' before, but I'll give it again: don't turn yer back on the Light, for it'll no' turn its back on ye." },
@@ -666,12 +676,15 @@ P:NPC {
           text = "I remember ye wi' a broom in yer hands an' yer ears flappin' at every lesson ye werenae meant tae hear. Ye've the vestments now, so I'll expect ye tae have learned the warnin' as well as the prayers." },
         { id = "h_firstaltar", when = { origin = "gnome_first_altar" },
           text = "The gnome who asked me what the Light wanted in return, an' didnae like it when I said nothin'. I'll grant ye've stuck at it longer than I wagered, so don't turn yer back on it now." },
+        { id = "dd_deaths", when = { deaths = { min = 10 } },
+          text = "Ye've been through the spirit healer's hands more often than most, I'd say. The Light's been patient wi' ye, so maybe it's time ye were a bit more patient wi' yerself." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Speak up; I've students waitin'." },
         { id = "h_again2", text = "Well? The Light's patient, but I'm only a dwarf." },
       },
       choices = {
+        { text = "Why does the Light keep bringing me back, Theodrus?", next = "dd_td_deaths", when = { deaths = { min = 10 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why warn everyone the same way?", next = "warn" },
         { text = "What should a young priest learn first?", next = "first", when = { class = "PRIEST" } },

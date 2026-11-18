@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_syndicate = {
+      lines = { { id = "dd_syndicate_default", text = "Nervous? Me? I'm a merchant, friend, and merchants are always a little nervous; it's good for business. It's only that some of my suppliers come down from the Alterac hills, and they've been paying late since you started your little hunt." } },
+      choices = {
+        { text = "Then perhaps you should find better suppliers.", next = "BACK", reply = "Perhaps I should, and perhaps you'll keep that remark between the two of us. Is that a deal? Lovely.", fx = { align = { honor = 1 } } },
+        { text = "I could keep my blade away from your suppliers, for a price.", next = "BACK", reply = "Now you're talking like a proper Undercity shopkeeper. I'll think on it, and you'll forget we spoke, won't you?", fx = { align = { honor = -1 } } },
+        { text = "Something else, Andron.", next = "BACK" },
+      },
+    },
+
     op_alterac = {
       big = true,
       lines = {
@@ -66,6 +75,8 @@ P:NPC {
           text = "My favorite messenger! I told them I'd rather they kept sending you, and here you are. Somebody's finally listening to me." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage! You'll like my stock, or the bits I'm allowed to show you. Old highborne stuff, mostly, and some of it still hums." },
+        { id = "h_dd_syndicate", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } },
+          text = "Oh, it's you, the one who's been killing all those Syndicate fellows in the hills. Not that I'd know any of them, of course, but do be careful who you're seen with, friend." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry, and the bottle isn't either." },
@@ -79,6 +90,7 @@ P:NPC {
         { text = "Our acquaintances want more from you, Andron.", next = "ledger", when = { questActive = TODO_QUEST("The Deathstalkers"), class = "ROGUE" } },
         { text = "Let's do business.", next = "BUSINESS" },
         { text = "I'll leave you to your bottle.", next = "END" },
+        { text = "You seem nervous about those Syndicate kills, Andron.", next = "dd_syndicate", when = { killed = { name = "Syndicate", min = 30 } } },
       },
     },
 

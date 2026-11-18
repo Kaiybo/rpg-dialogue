@@ -124,6 +124,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to startle my roost, since my gryphons are cross enough about the rain without a bear wandering past." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons don't care for the smell of brimstone, so you'll forgive them if they ruffle up when you climb on." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My birds fly over the mountains every day, and they'd thank you for a calmer wind over Dun Algaz." },
+        { id = "dd_fall", when = { deathCause = "falling" },
+          text = "You came down off something high and didn't land well, I'd wager. The Arathi cliffs to the north are steep, so next time take a bird, for they've never once dropped a passenger." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are waiting, and they don't wait patiently in the rain." },

@@ -73,6 +73,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_bonfires", when = { questDone = TODO_QUEST("Blademaster's Bonfires") },
+          text = "I watched your fires burn in Dae'gun from the ridge. The orc knows how to bait a demon, I'll give him that, and so, it seems, do you." },
         { id = "o_talon_caution_act", tags = { "news" }, when = { gossip = { topic = "talon_caution", stance = "act" } },
           text = "The druid says you favour burning over watching. Then you understand my way better than hers." },
         { id = "o_burning_legion_beaten", tags = { "news" }, when = { gossip = { topic = "burning_legion", stance = "beaten" } },
@@ -356,8 +358,25 @@ P:NPC {
       lines = { { id = "op_r3_default", text = "Ambition is a seed like any other. What it grows into depends on who waters it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    dd_celastrus = {
+      lines = {
+        { id = "dd_celastrus_1",
+          text = "The mountain is one body, and its sickness is one sickness, even if you see it as many brambles and many slopes. When a great root of that sickness is cut, the whole of Hyjal shivers, the way your arm twitches when a splinter comes out." },
+        { id = "dd_celastrus_2",
+          text = "It will take a long age to heal the rest. I have such ages to spend, and you do not, so I would know whether you mean to come back." },
+      },
+      choices = {
+        { text = "I'll come back. The mountain deserves to heal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I go where I'm needed, not where I'm owed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jereman.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_celastrus", when = { questDone = TODO_QUEST("Celastrus the Bitter") },
+          text = "The eastern hollow breathes easier since the bitter thorn fell, and I felt it under my wings before Thylaen ever told me. You did that, small one, and the mountain will remember it longer than you will." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You have fallen and risen again more often than most who climb this mountain. I watch the spirits go up from the slopes, and I have started to recognise yours." },
         { id = "o_demon_hunters_respect", tags = { "news" }, when = { gossip = { topic = "demon_hunters", stance = "respect" } },
           text = "You told the demon hunter you respect his kind. I allow him in the Cradle, and that is not the same thing as respect." },
         { id = "h_default", key = true,
@@ -367,6 +386,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Another question. Ravens are patient, little one; ask it." } },
       choices = {
+        { text = "How could you feel the thorn fall?", next = "dd_celastrus", when = { questDone = TODO_QUEST("Celastrus the Bitter") } },
         { text = "What do the wild gods make of Teldrassil?", next = "op_ask" },
         { text = "This Cradle of Tranquility feels strangely calm.", next = "cradle" },
         { text = "Why do you allow the demon hunter here?", next = "maerion" },

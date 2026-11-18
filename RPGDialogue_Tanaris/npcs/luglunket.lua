@@ -42,6 +42,7 @@ P:NPC {
           text = "The more pouches we reclaim, the further away from disaster we all are, and the better the quarterly figures look! I sleep better knowing you're out there, and I sleep on a water tank, so that's saying something." },
         { id = "h_troll", when = { race = "Troll" },
           text = "A troll! The Sandfury out west don't care for our pumps, but I'm sure you're nothing like them, being a paying customer." },
+        { id = "h_dd_wastewander", tags = { "news" }, when = { killed = { name = "Wastewander", min = 40 } }, text = "Huzzah, it's you! The Wastewanders have been keeping well clear of my spigots since you started thinning them out, and I haven't had to chase a single thief off with a wrench all week." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? The spigots can wait a minute. Well, thirty seconds, because the Company docks me for drips." },
@@ -55,7 +56,18 @@ P:NPC {
         { text = "Show me those spigots.", next = "spigots", when = { profession = "Engineering" } },
         { text = "The water could just be shared, Luglunket.", next = "share", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "The Wastewanders know my face now, Luglunket.", next = "dd_wastewander", when = { killed = { name = "Wastewander", min = 40 } } },
         { text = "Keep up the good work.", next = "END" },
+      },
+    },
+    dd_wastewander = {
+      lines = {
+        { id = "dd_wastewander_1", text = "They certainly do, and they don't like it one bit, which suits me down to the last copper! Every pouch they don't steal is a pouch the Company doesn't have to replace, and every pouch the Company doesn't replace is a little bonus in my pocket, in theory." },
+      },
+      choices = {
+        { text = "Thieves are thieves. I'll keep after them.", next = "BACK", reply = "Huzzah! I'll put in a good word with the Company, and the Company remembers its friends, at least until the next budget.", fx = { align = { light = -1 } } },
+        { text = "They're thirsty, Luglunket. It's a desert.", next = "BACK", reply = "Well, yes, but so am I, and I pay for my water like an honest goblin, or a mostly honest one, let's say.", fx = { align = { light = 1 } } },
+        { text = "Something else, Luglunket.", next = "BACK" },
       },
     },
     source = {

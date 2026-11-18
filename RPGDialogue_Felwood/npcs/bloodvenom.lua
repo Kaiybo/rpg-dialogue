@@ -114,8 +114,20 @@ P:NPC {
         { text = "Never mind the mushrooms.", next = "BACK" },
       },
     },
+    dd_deaths = {
+      lines = {
+        { id = "ddd_default", text = "Then you and I have something in common, except that you keep coming back warm and I came back cold. Dying is a small thing once you've done it, really. It's what you come back as that matters, and you keep coming back as yourself, which is either lucky or very dull." },
+        { id = "ddd_undead", when = { race = "Scourge" }, text = "Oh, but we've both done it properly, you and I, and the second death is never as interesting as the first. Do try not to fall apart out there; I haven't the thread to sew you back together." },
+      },
+      choices = {
+        { text = "Lucky, I'd say.", next = "BACK", reply = "Spoken like someone with a pulse. Mind you keep it, then." },
+        { text = "Something else, Winna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_secrets", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "Trull says you found what the owlbeasts were guarding for him. I want to know what it was, and he refuses to tell me, which is exactly the sort of thing that makes unlife worth living." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died a good many times, haven't you? I can always tell. The living get a sort of crumpled look about them once they've been to the spirit healer often enough, and I find it rather charming." },
         { id = "o_forsaken_pity", tags = { "news" }, when = { opinion = { topic = "forsaken", stance = "pity" } },
           text = "I hear you think the Forsaken are still people inside. How touching! Do hold this flask while you're feeling sympathetic." },
         { id = "h_pt_winna", tags = { "news" }, when = { party = { size = 4 } },
@@ -146,6 +158,7 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else? Quickly, something's about to bubble over." },
       },
       choices = {
+        { text = "I've died more times than I can count, Winna.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Do the spirits of this forest still answer anyone, alchemist?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "That kitten must have a name.", next = "kitten" },
         { text = "What are you working on?", next = "work" },
@@ -399,6 +412,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_well", when = { questDone = TODO_QUEST("Well of Corruption") }, text = "Winna says you brought her samples from the corrupted wells and didn't drink any of them, which puts you ahead of the last grunt she sent. Felwood's water is the same poison that took my people once, so don't touch it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Good, Bloodvenom needs more of your kind than it gets, because the satyrs and the Deadwood don't wait for a scout to finish counting them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },

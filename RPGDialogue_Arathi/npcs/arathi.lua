@@ -165,6 +165,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in Stromgarde's camp, {class}. I've lost too many soldiers this year to turn away anyone who'll fight, but I'll have someone watching you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The Syndicate have pulled back from the roads, and my scouts found their camps half empty. Stromgarde's dead are a little better avenged tonight, and I have you to thank for it." },
+        { id = "h_dd_plague", when = { questDone = TODO_QUEST("Hints of a New Plague?") },
+          text = "Quae tells me you helped her chase the Forsaken courier across the Highlands. I don't like to think what the Undercity's brewing, but I'd rather know than not." },
       },
       again = { { id = "h_again", text = "What else? Keep it brief." }, { id = "h_again2", text = "Go on; the tent can wait, though the hills can't." } },
       choices = {
@@ -699,6 +701,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_witherbark = {
+      lines = { { id = "dd_witherbark_default", text = "Kin is a big word, mon. Dey troll, and I be troll, but de Witherbark turned away from Thrall and took dem old gods' bloody ways back up de hills, so dey made dem choice, and you only answered it." } },
+      choices = {
+        { text = "They chose blood. I'll keep answering it until they stop.", next = "BACK", reply = "Den keep your spear sharp, because dey don't stop easy. De loa watch, and dey keep count too.", fx = { align = { light = -1 } } },
+        { text = "Some might come down from the hills, given the chance.", next = "BACK", reply = "Maybe one or two, mon, maybe. If you find one dat want to, you bring him to Zengu, and we see.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else, Zengu.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It be the best joke of all, mon, because the humans called on the Light against the Amani and called us beasts. Now it fight on our side, and the spirits must be laughin' themselves sick." } },
@@ -767,6 +778,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and a big one. Stromgarde keep a sword in their vaults made to kill trolls, and Zengu would like it carried by a warrior who know what to do with it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon. The loa of the wild must like you, 'cause you walk like one of their own." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha, a dead paladin, mon! The humans' Light, in the hands of the Forsaken, and me here fetchin' a troll-killin' sword to use on the Gurubashi, so this be a very good week for jokes." },
+        { id = "h_dd_witherbark", tags = { "news" }, when = { killed = { name = "Witherbark", min = 30 } },
+          text = "You been killin' a lot of Witherbark in dem hills, mon, and Zengu can tell, because de drums at Hammerfall don't sound so worried no more. Some of dem trolls I knew de faces of, once." },
       },
       again = {
         { id = "h_again", text = "More? Zengu got all day, mon. Hunters always do." },
@@ -788,6 +801,7 @@ P:NPC {
         { text = "Should we use a troll-killing sword against trolls?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does it amuse you that the Light now serves the Horde, Zengu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "The Witherbark are your kin, Zengu. Does it trouble you?", next = "dd_witherbark", when = { killed = { name = "Witherbark", min = 30 } } },
       },
     },
     xrogue = {
@@ -957,6 +971,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_arms = {
+      lines = { { id = "dd_arms_default", text = "Every night they come home whole, and some nights when they don't. My people sing for the hunt and for the rain, but the orcs sing for the ones who fought beside them, and I have come to think it is the same song in a different hide." } },
+      choices = {
+        { text = "A warrior's deeds should be sung. It keeps them honest.", next = "BACK", reply = "Then I hope they sing yours for a long time, and truly. Walk with the Earth Mother.", fx = { align = { honor = 1 } } },
+        { text = "Songs are for the living. I fight for what it gets me.", next = "BACK", reply = "That is an honest answer, and a lonely one. The fire is here when you change your mind.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Adegwa.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "My people give thanks to the Earth Mother for the sun on the grass, and I wonder sometimes whether your Light is only that same warmth by another name. I am an innkeeper, not an elder, so I keep a fire, and I do not mind what anyone calls it." } },
@@ -1034,6 +1057,10 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit, and set that weapon down, for there is no foe in this room, and the fire will mend what the Witherbark have bruised." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The wild has followed you in, I see, and it is as welcome at my fire as you are." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "One of the Forsaken, and the Light shines in you like the sun on Mulgore's grass. The Earth Mother keeps her own counsel about the dead, but I think she would not mind a light kept burning." },
+        { id = "h_dd_arms", tags = { "news" }, when = { questDone = TODO_QUEST("Call to Arms") },
+          text = "Drum Fel's grunts came in from the Witherbark hills singing your name, or something close to it, since orcs sing the way kodo walk. Sit, and rest a while, for the hills will still be there tomorrow." },
+        { id = "h_dd_threat", when = { questDone = TODO_QUEST("The Real Threat") },
+          text = "Korin Fel has been easier in his spirit since you came back from Northfold. He reads his bones every evening by my fire, and lately they have not made him frown." },
       },
       again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
       choices = {
@@ -1051,6 +1078,7 @@ P:NPC {
         { text = "Tauren hunters rarely come this far from Mulgore.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the tauren see the Light as the Earth Mother's gift?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
+        { text = "Do the grunts often sing about the battles, Adegwa?", next = "dd_arms", when = { questDone = TODO_QUEST("Call to Arms") } },
       },
     },
     xrogue = {

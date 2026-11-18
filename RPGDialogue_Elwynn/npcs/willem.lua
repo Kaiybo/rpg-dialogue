@@ -37,6 +37,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_hogger_w = {
+      lines = {
+        { id = "dd_hogger_w_a", text = "I do, and I'll tell you why. I sent three recruits down that road this spring with a bounty notice in their packs, and only two of them came back, so every time somebody tells me Hogger's dead I want to hear it twice." },
+      },
+      choices = {
+        { text = "He's dead. Your recruit is avenged.", next = "dd_hogger_w2", fx = { align = { honor = 1 } } },
+        { text = "Then stop sending green recruits after a gnoll warlord.", next = "dd_hogger_w2", fx = { align = { order = -1 } } },
+      },
+    },
+    dd_hogger_w2 = {
+      lines = {
+        { id = "dd_hogger_w2a", text = "You're right, and you're right, and I'll carry both. I'll light a candle for the lad at vespers tonight, and I'll tell the brothers who to thank for it." },
+      },
+      choices = { { text = "Light one for me too. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "There are kobolds in the mine, wolves in the woods, and Defias in the vineyard. Your spirits might help, if you're willing." } },
@@ -114,6 +130,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_hogger_willem", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
+          text = "A runner from Goldshire says Hogger's claw is pinned to Marshal Dughan's board and that one of our own Northshire recruits put it there. I told the brothers I'd always known you had it in you, which was very nearly true." },
+        { id = "dd_rep_willem", when = { reputation = { faction = "Stormwind", min = "honored" } },
+          text = "Word gets back to the Abbey about who's doing right by Stormwind, and your name's been on a few lips in the city lately. Mind you keep it there for good reasons." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Brother Paxton's always short of hands on his rounds, so if you've the time, he'll be glad of yours." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Marshal will want to see you, because he's been asking Stormwind for paladins since the snow melted." },
         { id = "h_default", text = "I'm Willem, deputy to Marshal McBride. If it's trouble in this valley, I've likely heard of it already." },
@@ -159,6 +180,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening. One eye on the road, mind." },
       },
       choices = {
+        { text = "Hogger's dead, Deputy. I thought you'd want to know.", next = "dd_hogger_w", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") } },
+
         { text = "Any trouble I can help with?", next = "BUSINESS" },
         { text = "What sort of trouble is there in the valley?", next = "thieves" },
         { text = "Who else in the valley needs a hand?", next = "valley" },

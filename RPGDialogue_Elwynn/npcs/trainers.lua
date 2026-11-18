@@ -1229,6 +1229,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_josetta_d = {
+      lines = {
+        { id = "dd_josetta_d_a", text = "Then let me count them for you, gently, because someone ought to. Every time you come back, the Light has given you another chance, and I'd ask you to spend the next one more wisely than the last." },
+      },
+      choices = {
+        { text = "The Light brings me back for a reason. I'll keep fighting.", next = "dd_josetta_d2", fx = { align = { light = 1 } } },
+        { text = "Dying is just part of the work. I don't dwell on it.", next = "dd_josetta_d2", fx = { align = { light = -1 } } },
+      },
+    },
+    dd_josetta_d2 = {
+      lines = {
+        { id = "dd_josetta_d2a", text = "Perhaps, but I've seen what too many deaths do to a soul, and it isn't always visible from the outside. Rest at the Lion's Pride before you go out again, and come and see me if the dreams get bad." },
+      },
+      choices = { { text = "I will, Priestess. Something else.", next = "BACK" } },
+    },
+
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some days I do. I stayed to heal, and I don't regret it, but your boots make me wistful, so tell me where you've been." } },
@@ -1306,6 +1322,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_deaths_josetta", when = { deaths = { min = 10 } },
+          text = "I've seen you carried up those stairs more times than I'd like, and I've started to know you by your wounds. The Light is patient, but I'd sooner it didn't have to be so patient with you." },
+        { id = "dd_drown_josetta", when = { deathCause = "drowning" },
+          text = "You drowned, didn't you? There's a grey look the lake leaves on people even after the spirit's come back, and you have it, so please keep clear of Crystal Lake until you've learned to swim properly." },
+
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Brother Wilhelm's down the road, behind the smithy, but you're welcome here too, if you'd like a quiet word before the drills." },
         { id = "h_default", text = "I'm Priestess Josetta. I teach the Light up here, above the noise of the common room, or mostly above it, and I dream of the roads I never took." },
         { id = "h_garments", when = { questActive = TODO_QUEST("Garments of the Light") },
@@ -1334,6 +1355,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },
       choices = {
+        { text = "I've fallen more times than I can count, Priestess.", next = "dd_josetta_d", when = { deaths = { min = 10 } } },
+
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why didn't you travel?", next = "travel" },
         { text = "Where would you have gone?", next = "where" },

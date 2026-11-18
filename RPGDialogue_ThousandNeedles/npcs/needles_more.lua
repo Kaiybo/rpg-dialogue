@@ -152,6 +152,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_grimtotem", when = { killed = { name = "Grimtotem", min = 20 } },
+          text = "You've been fighting the Grimtotem in the canyons, I hear. Good, because they've been raiding our supply lines, and every one of them you put down means fewer stolen crates for me to count." },
         { id = "h_default", key = true, text = "I am Jandia, and I keep the trade goods of Freewind Post. Everything up here comes up the lifts from the canyon floor, and I make sure we never run out of what matters." },
         { id = "h_screech", when = { questActive = TODO_QUEST("Stop the Screeching") }, text = "That screeching from the cliffs keeps the whole post awake at night. If you can quiet it, we'll all sleep better." },
       },

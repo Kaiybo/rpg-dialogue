@@ -46,6 +46,8 @@ P:NPC {
           text = "One of our own recruits, come home to the quarter. I remember your file, and I remember thinking you'd either do very well or die very quickly." },
         { id = "h_notrogue", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } },
           text = "You're not one of mine, by the way you clank. Still, every soldier in this city works for the Dark Lady's eyes sooner or later, whether they know it or not." },
+        { id = "h_dd_erland", when = { questDone = TODO_QUEST("Escorting Erland") },
+          text = "Word from the Sepulcher says you brought Deathstalker Erland home through the worgen woods. The Deathstalkers remember who looks after their own, and so do I." },
       },
       again = {
         { id = "h_again", text = "Something further? I've all the time in the world, which is one of the few perks of being dead." },

@@ -35,6 +35,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } },
+          text = "You've been killing the crocolisks along the river, haven't you? They're nasty brutes, I'll grant you, but they were here first, and I'd rather you didn't brag about it near my stables." },
         { id = "h_default", key = true,
           text = "I'm Hekkru, and I keep the stables for Stonard. If you've a beast that needs rest, I'll keep it dry and fed while you go and get yourself bitten by something." },
         { id = "h_hunter", when = { class = "HUNTER" },

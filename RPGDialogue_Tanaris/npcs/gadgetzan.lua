@@ -221,6 +221,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and with a beast! Tell me, pal, have you ever wondered what my elixir would do to an animal, purely in the name of science and possibly a second product line?" },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now there's a customer who understands side effects. You've seen what happens when a little power goes a long way, so you'll appreciate my elixir better than most." },
+        { id = "h_dd_justice", tags = { "news" }, when = { questDone = TODO_QUEST("Wastewander Justice") }, text = "Bilgewhizzle tells me you went out and gave the Wastewanders a lesson in property rights, pal, and the pumps are running sweeter for it. Water's the one ingredient I can't do without, so call it an investment in the elixir business." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them in the shade, then, because everything's better in the shade, and the shade's free, for now." },
@@ -250,7 +251,18 @@ P:NPC {
         { text = "I've heard everyone's sums on the Wastewanderers, Baron.", next = "water_word",
           when = { thread = { id = "gadgetzan_water", beat = "b5_marin", state = { "stirring", "unfolding" } } } },
         { text = "Who was this other customer of yours, Marin?", next = "xalt_marin", when = { alt = true } },
+        { text = "The Wastewanders won't be at your pumps for a while, Marin.", next = "dd_justice", when = { questDone = TODO_QUEST("Wastewander Justice") } },
         { text = "Good luck with it.", next = "END" },
+      },
+    },
+    dd_justice = {
+      lines = {
+        { id = "dd_justice_1", text = "Music to my ears, pal, and to my ledger. Every barrel of water those bandits drank was a barrel I couldn't brew with, and a Noggenfogger without water is just a very expensive powder that makes you sneeze. You've cut my overheads, so to speak, and I'm a goblin who notices that sort of thing." },
+      },
+      choices = {
+        { text = "Bandits on the water deserve a hard lesson.", next = "BACK", reply = "Now that's a philosophy I can bottle, friend! Bilgewhizzle will want to put it on a plaque.", fx = { align = { light = -1 } } },
+        { text = "Sell them water and they'd stop stealing it.", next = "BACK", reply = "Sell to the Wastewanders? With what money, pal, the money they stole from the last caravan? I like the way you think, though, it's very nearly profitable.", fx = { align = { light = 1 } } },
+        { text = "Something else, Marin.", next = "BACK" },
       },
     },
     elixir = {
@@ -572,6 +584,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Do you know which desert plants won't kill a person, sweetie? Because Marin says all of them are fine, and Marin is a liar when there's money on the line." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, sweetie! You'll want something hot and heavy before you march off into the sand, though not too heavy, or you'll sink." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, sweetie? You can eat at my table, but your little friend can wait outside, because the last imp in here ate a whole tray of biscuits, set the tablecloth on fire and never paid for either." },
+        { id = "h_dd_elixir", tags = { "news" }, when = { questDone = TODO_QUEST("Noggenfogger Elixir") }, text = "Noggy came round waving a bottle and telling me you drank his elixir and didn't turn into a skeleton, sweetie, or not for long anyway. He's been unbearable since, and I mean that with love." },
       },
       again = { { id = "h_again", text = "Anything else, sweetie?" }, { id = "h_again2", text = "Go on, sweetie; I'm stirring, but I can listen." } },
       choices = {
@@ -591,7 +604,18 @@ P:NPC {
         { text = "Can you really make desert meat taste good, Sprinkle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you look after many folk in Gadgetzan, Sprinkle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "An imp really set your tablecloth on fire, Sprinkle?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Marin's elixir works, Sprinkle. Mostly.", next = "dd_elixir", when = { questDone = TODO_QUEST("Noggenfogger Elixir") } },
         { text = "Thanks, Sprinkle.", next = "END" },
+      },
+    },
+    dd_elixir = {
+      lines = {
+        { id = "dd_elixir_1", text = "Mostly is about as good as Noggy ever gets, and he knows it, which is why he needed my powder to make it taste like anything but a boot. He'll never put my name on the label, but he did buy me a new pot, so I suppose that's goblin for thank you." },
+      },
+      choices = {
+        { text = "You deserve credit on the label, Sprinkle.", next = "BACK", reply = "Oh, you're sweet! I'll tell him you said so, and he'll go red and change the subject, which is half the fun.", fx = { align = { honor = 1 } } },
+        { text = "Take the pot and let him have the label.", next = "BACK", reply = "That's the practical answer, sweetie, and I suppose I already did. A good pot lasts longer than a label anyway.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sprinkle.", next = "BACK" },
       },
     },
     noggy = {
@@ -826,6 +850,7 @@ P:NPC {
           text = "A hunter? Good, because the Wastewanderers aren't the only ones drinking my water without paying, and I'd like the hyenas off my pipes as well." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Keep your fire-breathing friends away from the water tower, pal, because steam and demons don't mix, and the last time something blew a valve it took three crews and a week's budget to fix." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Wastewander", min = 40 } }, text = "The Wastewanders have been keeping away from our pumps lately, and from what I hear, they've been keeping away from you. Pressure's holding, for once, and I'm not complaining." },
+        { id = "h_dd_shakedown", tags = { "news" }, when = { questDone = TODO_QUEST("Southsea Shakedown") }, text = "The Security Chief down at Steamwheedle Port, who is no relation of mine whatever anybody tells you, says you shook down the Southsea at Lost Rigger Cove for him, and now he won't stop writing me letters about it. Every letter costs me a reply, pal, so I'd appreciate it if you'd stop being so heroic for a week." },
       },
       again = { { id = "h_again", text = "What else? Quickly, pal, the gauge is twitching, and a twitching gauge is about to be an expensive gauge." } },
       choices = {
@@ -1027,6 +1052,7 @@ P:NPC {
           text = "A hunter? Oh, good, someone who can read tracks, because every puddle I find out there already has paw prints all round it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please don't summon anything near my dowsing rods, pal, because they twitch at every strange thing, and I've already got a month of readings that point at demons and a boss who wants them explained." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, out here with the surveyors? Good, because my crew comes back from the dunes sunburnt and scared, and I'm a surveyor, not a nursemaid." },
+        { id = "h_dd_pouches", when = { questDone = TODO_QUEST("Water Pouch Bounty") }, text = "Luglunket tells me you've been bringing back water pouches from the Wastewanders, and every one of them shows up in my figures as a little less water missing. I do love it when the numbers improve, and so does the Company." },
       },
       again = { { id = "h_again", text = "Somethin' else? I'll mark it on a map, and the map goes on the expense report." } },
       choices = {
@@ -1530,6 +1556,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my stall? You're looking at me like I've got something to hide, sweetheart, and I'll have you know everything I sell is very nearly legal." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, tell me true, can you tell enchanted from ordinary with a glance? Because I've a crate of Sandfury fetishes and I'd like to know which ones to charge double for." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Look, I know what you're thinking, but the trolls in Zul'Farrak aren't using that stuff, and I am, at a profit, so it's practically charity." },
+        { id = "h_dd_dunemaul", tags = { "news" }, when = { killed = { name = "Dunemaul", min = 30 } }, text = "The Dunemaul ogres haven't been bothering my suppliers out in the south dunes lately, pal, and my suppliers all describe somebody who looks a lot like you. Fewer ogres means cheaper shells, and cheaper shells means a fatter margin for me." },
       },
       again = { { id = "h_again", text = "Still here asking questions? That's how I started, pal, and look where it got me, which I won't tell you." } },
       choices = {
@@ -1549,7 +1576,18 @@ P:NPC {
         { text = "Why do you think the fetishes are enchanted, Tran'rek?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is it really charity, Tran'rek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Zul'Farrak's chief is dead. That must hurt your scarab trade.", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
+        { text = "The Dunemaul are paying for your margins, Tran'rek.", next = "dd_dunemaul", when = { killed = { name = "Dunemaul", min = 30 } } },
         { text = "I'll bring them.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    dd_dunemaul = {
+      lines = {
+        { id = "dd_dunemaul_1", text = "Everybody pays for somebody's margins out here, pal, that's what makes it a market. The Dunemaul squat on the best scarab grounds south of the Gaping Chasm and smash anybody who digs there, so every ogre you put down is one more digger who comes home with shells instead of a broken leg." },
+      },
+      choices = {
+        { text = "Then I'll take a cut of those margins.", next = "BACK", reply = "Ha! A partner, is it? Talk to me after you've brought me a few crates, and we'll see about a percentage, a small one.", fx = { align = { honor = -1 } } },
+        { text = "I killed them to keep the diggers alive, not for you.", next = "BACK", reply = "Sure, sure, and the diggers thank you, and I thank you, and everybody's happy. Motives don't show up on an invoice, pal.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Tran'rek.", next = "BACK" },
       },
     },
     shells = {
@@ -1843,6 +1881,8 @@ P:NPC {
           text = "A hunter, and a beast with you! Animals sleep in the stables, friend, and Laziphus will tell you so, but I'll pretend I didn't see it if it's quiet." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the Road Warrior! Please stay in the shape you walked in with, because the last bear tore up a perfectly good mattress." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Welcome to the Road Warrior, friend, and if that little fellow of yours wants a drink, he can have one, but he's paying the same as everyone else, plus a deposit on the furniture." },
+        { id = "h_dd_andre", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Andre Firebeard") }, text = "The Security Chief came up from the port last night and bought a round for the whole bar, which he has never once done in the history of this establishment, and he kept saying your name between toasts. Something about Andre Firebeard's head, which is not a thing I like to hear over dinner, but I'll take the business." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You look like you've been dead and back a few times this week, friend, and the desert does that to a body. Pull up a stool out of the sun, because a room's cheaper than another walk from the spirit healer." },
       },
       again = {
         { id = "h_again", text = "Anything else? Have a drink while you think, pal; thinking's thirsty work and I'm the one who sells the cure." },
@@ -1869,7 +1909,18 @@ P:NPC {
         { text = "What do you mean, settle our shares?", next = "xpt_fizzgrimble", when = { party = { size = { min = 2 } } } },
         { text = "Someone like me has stayed here before, Fizzgrimble?", next = "xalt_fizzgrimble", when = { alt = true } },
         { text = "You're very attentive tonight, Fizzgrimble.", next = "flirt", when = { flirt = true } },
+        { text = "The Security Chief bought a round? For me?", next = "dd_andre", when = { questDone = TODO_QUEST("WANTED: Andre Firebeard") } },
         { text = "Just a drink, thanks.", next = "END" },
+      },
+    },
+    dd_andre = {
+      lines = {
+        { id = "dd_andre_1", text = "For you, about you, and for anybody who'd sit still long enough to hear about the Southsea, which turned out to be everybody. Firebeard's been raiding Cartel ships for years, so half the sailors in here owed him a grudge, and the other half owed him money, so they drank to you either way." },
+      },
+      choices = {
+        { text = "Pirates had it coming. Good riddance to Firebeard.", next = "BACK", reply = "That's the spirit, and that's what the bar said too, about forty times. You'll never pay for a drink in here again, figuratively speaking, of course.", fx = { align = { order = 1 } } },
+        { text = "Someone will pay me better to go after the Cartel next.", next = "BACK", reply = "Shh, keep your voice down, pal, the Bruisers drink here! I like you, though, so I'll pretend that was the heat talking.", fx = { align = { order = -1 } } },
+        { text = "Something else, Fizzgrimble.", next = "BACK" },
       },
     },
     news = {
@@ -2058,6 +2109,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd not happen to have a shape that lets a fellow disappear quickly, would you? I'm asking for a friend, and the friend is me." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Oh, no, please tell me MacKinley hasn't started sending demons to collect, because that would be very unfair, even for Booty Bay." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Is this about my soul? Because I've been meaning to work on that, I really have, right after I settle a few small accounts." },
+        { id = "h_dd_southsea", when = { killed = { name = "Southsea", min = 30 } }, text = "You've been cutting down Southsea pirates by the boatload, I hear, and some of those boats owe money to people I owe money to. I can't decide whether to thank you or hide from you, so I'll do a little of both." },
       },
       again = { { id = "h_again", text = "Anything else? Say it quietly, because ships have ears." } },
       choices = {
@@ -2077,7 +2129,18 @@ P:NPC {
         { text = "Debts in Booty Bay are for fools who get caught.", next = "END", reply = "You're my kind of shaman, pal, and if the spirits ever whisper who's coming for me, you'll find me down by the pier.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You look like you think I've come to collect a debt, Stoley.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why would anyone set a hunter on your trail, Stoley?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Afraid I'll come for you next, Stoley?", next = "dd_southsea", when = { killed = { name = "Southsea", min = 30 } } },
         { text = "Good luck.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    dd_southsea = {
+      lines = {
+        { id = "dd_southsea_1", text = "Me? No, no, I'm just a humble dockhand who happens to know a few pirates, pal, the way everybody on this coast knows a few pirates. The Southsea at Lost Rigger Cove used to buy my crates, and some of them owe MacKinley, and MacKinley owes nobody, so you can see why I'm sweating more than usual." },
+      },
+      choices = {
+        { text = "Pay your debts and you've nothing to fear.", next = "BACK", reply = "You sound like my mother, friend, and she also told me to stay away from boats. I'll get there, I swear on my last copper.", fx = { align = { order = 1 } } },
+        { text = "Relax. I only kill pirates who swing first.", next = "BACK", reply = "That's a comfort, pal, because I never swing first, or second, or at all. I'm more of a running sort of fellow.", fx = { align = { order = -1 } } },
+        { text = "Something else, Stoley.", next = "BACK" },
       },
     },
     debt = {

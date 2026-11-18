@@ -123,6 +123,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_torek", when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Torek's raiders say you stood with them at the Silverwing Outpost. I understand why the Horde fights here, little one, but I hope you will remember the forest when the fighting is done." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel it too, the way the ancient spirits of this forest watch us, and how little they welcome what we do here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. So many hunters come back hurt from the trees that I am glad of anyone who can mend them, whatever voice answers your prayers." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "The arcane comes off you like heat off a stone, and I can feel it from here. Please be careful with your fire in this forest, because it is the most beautiful thing I know, and it would burn very quickly." },
@@ -479,6 +480,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_torek", tags = { "news" }, when = { questDone = TODO_QUEST("Torek's Assault") }, text = "You went with Torek to hit the elves' outpost and came back with all your fingers, mon. Dat be a good day for Splintertree, and a bad one for de Sentinels." },
         { id = "o_warchief_soft", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "soft" } },
           text = "Torek be tellin' everyone you think Thrall gone soft, mon. Careful, de Darkspear owe him our lives, an' we don't forget it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? The night elves got their own spirits in these trees, and they be whispering about us, so keep your ears open on the paths." },

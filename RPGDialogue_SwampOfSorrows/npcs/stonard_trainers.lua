@@ -31,6 +31,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_kazzak", when = { killed = { name = "Kazzak" } },
+          text = "I felt the Tainted Scar go quiet from here, a mile from the Portal, and now I hear you were there when Kazzak fell. My students will sleep better, and I will not, because power that great never stays gone for long." },
         { id = "h_default", key = true,
           text = "I'm Kartosh, and I teach warlocks their craft, here where the old Horde's warlocks made the bargains that damned us. Your will isn't shaped for the forces I teach, {class}, but you may ask your questions." },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -196,8 +198,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_crocs = {
+      lines = {
+        { id = "dd_crocs_1",
+          text = "I read everyone's tracks; it's the only thing in this swamp that doesn't lie. Yours go in fast and come out slow, which tells me you fight hard and bleed a little, and you don't wait for the crocolisk to make the first move." },
+        { id = "dd_crocs_2",
+          text = "Grokor would say you should've tamed one instead of killing it. Grokor would make a pet of an ogre if it sat still long enough." },
+      },
+      choices = {
+        { text = "Killing them is cleaner than taming them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Grokor's right. A tamed beast is worth ten dead ones.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ogromm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } },
+          text = "The Sawtooth tracks along the river are thinner this week, and I've seen your boot prints over most of them. Not bad, for someone I didn't train." },
         { id = "h_default", key = true,
           text = "I'm Ogromm, and I train hunters, which you are not. Ask your question quickly, because I've a swamp full of tracks to read and none of them are yours." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -212,6 +229,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, and keep it short." },
       },
       choices = {
+        { text = "You've been reading my tracks?", next = "dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you track anything in this swamp?", next = "tracking" },
         { text = "What's worth hunting out here?", next = "quarry" },

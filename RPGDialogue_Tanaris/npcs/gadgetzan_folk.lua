@@ -192,6 +192,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the bank. Bears don't carry much gold, I'd have thought, but you're welcome to keep what you have here, safe behind the Bruisers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at the bank. I'll keep your gold safe, friend, but I'll remind you that the Cartel's vault holds Horde gold too, and I won't hear any complaints about it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll take your gold and keep it safe, but anything that glows, smokes or whispers stays out of my vault, by order of the Cartel." },
+        { id = "h_dd_rep", when = { reputation = { faction = "Gadgetzan", min = "revered" } }, text = "Ah, one of the Baron's very favourite customers, according to the books, and the books never lie, friend, which is more than I can say for the Baron. Your box is right where you left it, and I've personally checked the lock twice." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I open your box? Opening's included, closing's included, and everything else is itemized." },
@@ -440,6 +441,7 @@ P:NPC {
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll fly you anywhere, but if you could ask the wind to keep the sand out of my birds' feathers, I'd be in your debt." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "Ye've taken a long fall somewhere and walked back from it, I can tell by how ye eye the edge of the roost. Hold the reins and let the gryphon do the flyin', and ye'll never meet the ground that fast again." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat, and frankly so am I; it's no' a dwarf's climate." },
@@ -664,6 +666,7 @@ P:NPC {
           text = "A hunter of the Horde. My wind riders smell your beast already, so let it stand where they can see it, and they will settle." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open a portal to Orgrimmar and save my wind riders the trouble, so I suppose you're here to tell me you like the view." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarf across the yard keeps gryphons for paladins, and now I keep wind riders for one too." },
+        { id = "h_dd_rank", when = { faction = "Horde", pvpRank = 6 }, text = "You wear a rank the Warchief's officers don't hand out lightly, {rank}. My riders carry blooded warriors with pride, so climb on when you're ready." },
       },
       again = {
         { id = "h_again", text = "Speak, then. The riders are fed, and an orc does not waste a fed rider's patience." },

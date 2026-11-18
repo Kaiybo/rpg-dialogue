@@ -119,6 +119,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_ogres", when = { killed = { name = "Dreadmaul", min = 40 } },
+          text = "Fewer ogres on the Darkshire road, the drivers tell me, and every one of them used your name. I've written it in the ledger under the column marked 'reasons the wagons arrived'." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "A whole company, and here I am with half a storeroom and the Stormwind wagons three weeks late. Visitors eat what the garrison eats at Nethergarde, which is salt pork and good intentions." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. My crates go missing between Darkshire and here often enough without help, so please tell me you're the kind who brings things back." },
@@ -496,8 +498,23 @@ P:NPC {
         { text = "Something else, Watcher.", next = "BACK" },
       },
     },
+    dd_kazzak = {
+      lines = {
+        { id = "dd_kazzak_1",
+          text = "He was the Legion's foothold on this side of the Portal, the thing we feared would open it again. Khadgar's notes speak of doomlords as captains, not soldiers, and a captain alone on our world was always waiting for an army." },
+        { id = "dd_kazzak_2",
+          text = "Demons don't truly die here, you understand, they're only cast back to the Nether. He may return one day, but for now the Scar is quieter, and I mean to write it down very carefully." },
+      },
+      choices = {
+        { text = "Then we'll kill him again if he comes back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Write it down. The Watchers should be ready next time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Watcher.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_kazzak", tags = { "news" }, when = { killed = { name = "Kazzak" } },
+          text = "They say Lord Kazzak has fallen in the Tainted Scar, and that you were among those who brought him down. I've been watching the Portal for that doomlord's shadow for as long as I've been posted here, and I scarcely know what to do with my evenings now." },
         { id = "h_pt_mage", tags = { "news" }, when = { party = { class = "MAGE" }, faction = "Alliance" },
           text = "You travel with a mage, I see, and {companion} will feel the Portal before they see it, as all of us did when we first came. Nethergarde was raised by Dalaran's mages to watch that gate, and we have not stopped watching." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, here? Then you'll know how to stand still and watch without being noticed, which is most of what we do in Nethergarde, though we write it all down afterward." },
@@ -523,6 +540,7 @@ P:NPC {
         { id = "h_again2", text = "What else would you like to know? I warn you, I can talk about the Portal until the candle gutters." },
       },
       choices = {
+        { text = "What did Kazzak mean to the Watchers?", next = "dd_kazzak", when = { killed = { name = "Kazzak" } } },
         { text = "Has Nethergarde tried to restore the land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What exactly do you watch for?", next = "watch" },
         { text = "Who was Khadgar?", next = "khadgar" },
@@ -851,6 +869,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_mazen", when = { questDone = TODO_QUEST("Mazen's Behest") },
+          text = "Mahar Ba's been tellin' anyone who'll stand still that ye fetched his reagents for the Watchers' work. He's a good lad, if a bit wordy, an' he doesnae get much help from anyone." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" }, text = "So the Emperor's dead under the mountain, and the Dark Irons have lost their king in his own throne room! I'm a Wildhammer, mind, and my clan has a long memory where Thaurissan's line is concerned, so I'm pouring a dram for it tonight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, eh? Ye've the shoulders for a Wildhammer storm hammer, if ye ever tire o' whatever it is ye're carryin' now." },
@@ -1180,8 +1200,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_honor = {
+      lines = {
+        { id = "dd_honor_1",
+          text = "Because every orc you kill in Alterac or Warsong is one fewer orc standing between this world and what lies behind that Portal. The Legion made the orcs into a weapon once, and it would be glad to see us break that weapon for it." },
+        { id = "dd_honor_2",
+          text = "I know how it sounds, coming from an elf in a dwarven keep. I only ask you to remember who is truly watching when the two sides spend their blood on each other." },
+      },
+      choices = {
+        { text = "The Horde is the enemy. I'll keep killing them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Maybe you're right. The Legion is the true enemy.", next = "BACK", fx = { align = { order = -1, light = 1 } } },
+        { text = "Something else, Ambassador.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { faction = "Alliance", honorKills = { min = 100 } },
+          text = "You've the look of someone who's been killing Horde soldiers in some valley or other, and doing it well. I won't lecture you, friend, but I'd like you to sit with me a while before you go back to it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. I'd ask whose blood you've been trained to spill, though I suspect the answer is orcs, and I'd suggest very gently that the orcs are not the ones building altars south of this keep." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1204,6 +1239,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. A diplomat's only weapon is a long conversation." },
       },
       choices = {
+        { text = "Why would you lecture me about the Horde?", next = "dd_honor", when = { faction = "Alliance", honorKills = { min = 100 } } },
         { text = "Who do you speak for, Ambassador?", next = "who" },
         { text = "What do you mean, the wrong enemy?", next = "enemy" },
         { text = "What threatens these lands, then?", next = "legion" },
@@ -1485,6 +1521,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 8 } },
+          text = "Ye've been dyin' a fair bit lately, by the look o' ye. Have a drink before ye go back out, because a dwarf in Kharanos would tell ye nae spirit healer's half as good as a warm mug." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! Good, sit doon an' have one, because ye'll be wantin' it after a day out by the Dreadmaul camps." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1742,8 +1780,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_sharpbeak = {
+      lines = {
+        { id = "dd_sharpbeak_1",
+          text = "Every gryphon master between Aerie Peak and Nethergarde knows it. He was the Wildhammer's finest, and the Dark Irons took him for some foul purpose of their own, and the Aerie's been sending letters asking after him for longer than I'd like to say." },
+        { id = "dd_sharpbeak_2",
+          text = "A gryphon that's been caged doesn't always fly right again, mind. But he'll be home, among his own kind, and that's more than most creatures get out of the Dark Irons." },
+      },
+      choices = {
+        { text = "He deserved to fly free. I'd do it again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I did it for Thadius's reward, honestly.", next = "BACK", fx = { align = { light = -1, honor = 1 } } },
+        { text = "Something else, Alexandra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_sharpbeak", tags = { "news" }, when = { questDone = TODO_QUEST("Saving Sharpbeak") },
+          text = "Thadius tells me you got Sharpbeak out of the Dark Iron cage and sent him home to the Hinterlands. I've had a bird in a cage once, and I cried for a week when I got her back, so you have my thanks for that one." },
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "I hear you came down from a height somewhere without wings to break it. My birds have been flying in this wind for years, so next time, let one of them do the falling for you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Stay clear of the roost if you can't help creeping, because a gryphon that hears someone sneak up behind it will bite first and think about it afterward." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll be heavy in the saddle, so mind how you mount, because my birds remember who kicked them on the way up." },
@@ -1764,6 +1819,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there something else, or shall I saddle a bird for you?" } },
       choices = {
+        { text = "Do you know Sharpbeak's story?", next = "dd_sharpbeak", when = { questDone = TODO_QUEST("Saving Sharpbeak") } },
         { text = "Where can your gryphons take me?", next = "routes" },
         { text = "How do the birds manage this place?", next = "birds" },
         { text = "Show me the routes.", next = "BUSINESS" },
@@ -1919,8 +1975,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_ragnar = {
+      lines = {
+        { id = "dd_ragnar_1",
+          text = "Every night! She'll sip it and tell me it tastes like a goblin's boot, and then she'll drink three more and tell me the same thing again. It's the closest thing to home she's got out here, I think, complaining about somebody else's ale." },
+        { id = "dd_ragnar_2",
+          text = "Last night, though, she just drank it and told me about her cousin Ragnar's barley. I don't know what you said to her family, but whatever it was, I'm grateful." },
+      },
+      choices = {
+        { text = "Everyone needs to hear from home sometimes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I just carried a letter. Don't make it a story.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bernie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ragnar", when = { questDone = TODO_QUEST("Ragnar Thunderbrew") },
+          text = "Enohar's been in a better mood since you carried her letter home to her kin in Kharanos, and she even let me pour her a mug without arguing about the brew. That's a first, and I'm marking the day." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my kitchen! Keep the imp off the counter, friend, because the last one that got in here ate a wheel of cheese and blamed the dwarves, and the dwarves have not forgotten." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! You'll want the big loaf, then, because the soldiers who stand the morning watch by the Portal come back hungrier than the ogres." },
@@ -1941,6 +2012,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, or shall I wrap something up for the road?" } },
       choices = {
+        { text = "Enohar usually argues about your ale?", next = "dd_ragnar", when = { questDone = TODO_QUEST("Ragnar Thunderbrew") } },
         { text = "What's good today?", next = "food" },
         { text = "You must hear all the keep's gossip.", next = "gossip" },
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -2081,8 +2153,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_ogres = {
+      lines = {
+        { id = "dd_ogres_1",
+          text = "An ogre doesnae swing, it drops, so the dent's wide an' shallow an' always from above. A Dark Iron leaves a neat wee hole, an' a demon leaves scorch marks, an' I've seen all three on the same breastplate." },
+        { id = "dd_ogres_2",
+          text = "Yers is ogre, mostly, an' plenty o' it. Keep yer shield up higher, an' ye'll keep yer head under it." },
+      },
+      choices = {
+        { text = "Good advice. I'll keep my shield high.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather hit first than block, Strumner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ogres", when = { killed = { name = "Dreadmaul", min = 40 } },
+          text = "Ye've been bashin' Dreadmaul skulls by the dozen, if the dents in yer kit are anythin' tae go by. Leave it here an' I'll beat the ogre out o' it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I mend armor, no' souls, so if it's yer demon that needs fixin', ye've come tae the wrong dwarf." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "Hunter, is it? Mail, then, or leather wi' studs, an' either way ye'll want it seen tae before the dust gets in the links." },
@@ -2097,6 +2184,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anythin' else, or can I get back tae the anvil?" } },
       choices = {
+        { text = "How can you tell ogre dents from any other?", next = "dd_ogres", when = { killed = { name = "Dreadmaul", min = 40 } } },
         { text = "What do the Blasted Lands do to armor?", next = "wear" },
         { text = "It must be hard to work a forge out here.", next = "work" },
         { text = "I need repairs.", next = "BUSINESS" },

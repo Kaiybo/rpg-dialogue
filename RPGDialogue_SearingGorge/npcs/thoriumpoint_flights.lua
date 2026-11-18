@@ -110,6 +110,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_lr_fall = {
+      lines = {
+        { id = "dd_lr_fall1", text = "Treacherous is kind. The heat cracks the stone from underneath, so a ledge that held a dwarf yesterday drops a gnome today. My birds can feel the hot air rising off the cliffs and ride it, which is more than any of us can say." },
+      },
+      choices = {
+        { text = "Then I'll leave the cliffs to your gryphons.", next = "BACK", reply = "They'll be glad of the company. I'll have one saddled whenever you want it.", fx = { align = { order = 1 } } },
+        { text = "I'll climb anyway. I like seeing the Gorge myself.", next = "BACK", reply = "Brave, and a little daft. Wave to me from the ledge, so I know where to send the search.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon on the ground, please, because a gryphon in the Gorge has enough to worry about with fire elementals and doesn't need a passenger that smells of brimstone." },
@@ -125,12 +135,15 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Keep your hand off that hilt while you're at the Point, because the Dark Irons here are friends, or near enough, and they notice these things." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My gryphons are restless round strange beasts, so if you've one with you, keep it close and don't let it eye the birds like supper." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A Bronzebeard shaman, at a Dark Iron camp. I thought I'd seen every odd thing Thorium Point had to offer, and then you walked up the path." },
+        { id = "dd_fall", when = { deathCause = "falling" },
+          text = "You came off one of the Gorge's ledges, didn't you? It happens to everyone who tries to walk where my birds fly, and the rock out there is loose as ash." },
       },
       again = {
         { id = "h_again", text = "What else, {g:lad|lass}? The birds are getting twitchy in this smoke, and so am I." },
         { id = "h_again2", text = "Go on, ask. I've nowhere to be but here." },
       },
       choices = {
+        { text = "I did fall, yes. The ledges here are treacherous.", next = "dd_lr_fall", when = { deathCause = "falling" } },
         { text = "Do the gryphons hate the Gorge?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "A Bronzebeard among Dark Irons?", next = "brotherhood" },

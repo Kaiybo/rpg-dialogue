@@ -341,8 +341,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the sea monster the player killed for Argo.
+    dd_monster = {
+      lines = { { id = "dm_default", text = "Good for business? Honey, folks come off the Tanaris boat just to gawk at the ugly thing, and then they need a drink, and then a bed. I've been thinkin' about chargin' Argo rent for the view." } },
+      choices = {
+        { text = "You should cut me in. I killed it.", next = "BACK", fx = { trait = { greedy = 1 } },
+          reply = "Ha! I like you, explorer, but I like my margins more. I'll tell every customer it was you, though, and in this port that's worth more than coin." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_monster", tags = { "news" }, when = { questDone = TODO_QUEST("The Monster Surfaces") },
+          text = "You're the one who put that sea monster's head on Argo's stern! He's bought drinks for the whole bar three nights runnin', honey, and I'm not complainin', because he drinks on account and I charge interest." },
+        { id = "h_dd_stew", when = { questDone = TODO_QUEST("A Taste of the Sea") },
+          text = "Fimbo's been sellin' seafood stew at two silver a bowl since you brought him those murloc eyes, and half my supper trade's gone across the dock. I'm not sore, explorer, I'm just keepin' a list." },
         { id = "h_default", key = true, text = "Zizplink, innkeeper, at your service and at very fair rates! Beds upstairs, food down here, and everybody off the Tanaris boat comes through that door, so you hear things, explorer, and a good rumour's worth more than a bed." },
         { id = "h_list", tags = { "news" }, when = { questActive = TODO_QUEST("Zizplink's Grocery List") },
           text = "You've got my list! Don't lose it, explorer, and don't read it out loud, because some of those are for Fimbo's cafe, and he's sensitive about his budget." },
@@ -359,6 +372,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, explorer? Ask away, honey, the questions are free and the soup is not." }, { id = "h_again2", text = "More? I'll top you up while you think, and I'll only charge you for half." } },
       choices = {
+        { text = "Argo's new figurehead seems good for business.", next = "dd_monster", when = { questDone = TODO_QUEST("The Monster Surfaces") } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "You must hear plenty, running an inn.", next = "gossip" },
         { text = "The one at the bar looks grumpy.", next = "gray" },
@@ -562,8 +576,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Deeds pass: Marshal Ryan's death, heard at the port.
+    dd_ryan = {
+      lines = { { id = "dr_default", text = "Then you saw more than I did; I was down here drinking when he rode west. He was the best of us, the only one who could make Demar laugh, and the Hammer got him anyway. Did he say anything about the keep?" } },
+      choices = {
+        { text = "He asked me to carry his crest to Demar.", next = "dd_ryan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dd_ryan2 = {
+      lines = { { id = "dr2_default", text = "That sounds like him: duty to the last, and never a word for himself. Maybe I ought to go up and look at that crest on the wall, though I'm not sure I've earned the right." } },
+      choices = {
+        { text = "Go up. He'd want you back with the Brotherhood.", next = "BACK", reply = "Maybe. Pour me one more, and then maybe.", fx = { align = { order = 1 } } },
+        { text = "You owe them nothing. Stay here if you like.", next = "BACK", reply = "That's what I keep telling myself, and it sounds no better coming from you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ryan", tags = { "news" }, when = { questDone = TODO_QUEST("Dying Wish") },
+          text = "Word came down from the keep that Ryan's dead, and that you were with him at the end. I rode beside him, back when I still rode, so sit down and tell me he didn't go easy, because he'd have hated that." },
+        { id = "h_dd_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
+          text = "So you killed Mugg. Demar's been after that ogre since before I left the keep, and now a stranger walks in and does it in a week, which tells you everything about Stormwind's idea of reinforcements." },
         { id = "h_default", key = true, text = "Gray Dawnbright, Brotherhood of the Horse, on leave from it, or it's on leave from me; I haven't decided. Make yourself useful and get Zizplink, the innkeeper, to fill this." },
         { id = "h_resolved", tags = { "news" }, when = { thread = { id = "farholde_lost", state = "resolved" } },
           text = "I went up to the keep and sat with Demar. We didn't talk about Fern, not really; we drank to her, alive or not, and that's the first time in years." },
@@ -581,6 +615,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Still here? Fine, then, talk." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
+        { text = "I was with Marshal Ryan when he died.", next = "dd_ryan", when = { questDone = TODO_QUEST("Dying Wish") } },
         { text = "Why aren't you up at the keep?", next = "keep" },
         { text = "Tell me about the Brotherhood.", next = "brotherhood" },
         { text = "Who's Tessa?", next = "tessa", when = { heardLine = "gray.h_tessa" } },
@@ -1390,8 +1425,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Deeds pass: the player drowned.
+    dd_drown = {
+      lines = { { id = "dd_default", text = "Most of 'em can't swim, kid, and they say that's on purpose: if ya go over, ya go quick and don't waste the sea's time. I learned anyway, because I'd rather argue with the sea than agree with it." } },
+      choices = {
+        { text = "Then I'll learn to fight it, same as you.", next = "BACK", reply = "Good answer. Start in the shallows, and don't go past the wreckage until ya can swim back from it.", fx = { align = { order = -1 } } },
+        { text = "I'll respect it and keep to the shore.", next = "BACK", reply = "Plenty of old fishermen say the same, and they're old for a reason, kid.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_monster", when = { questDone = TODO_QUEST("The Monster Surfaces") },
+          text = "So you're the one who pulled Argo's monster up out of the wreckage. The fish came back to the near water the week after, kid, and I've had my best catches since spring, so I owe ya, and I'll pay in advice." },
+        { id = "h_dd_drown", when = { deathCause = "drowning" },
+          text = "You drowned, didn't ya, kid? Don't look so surprised; ya stand back from the edge of my dock like it owes ya money." },
         { id = "h_default", key = true, text = "Gritta Chumwater, kid. I sell chum, lures, fish and advice, and only the advice is free, so don't get used to it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? You'll want somethin' to do between fights, kid, so take up fishing, because it'll teach you patience, which you lack, and the pole's three silver." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Fish don't care how holy you are, kid, so don't stand over the water glowing, because it's costing me customers." },
@@ -1406,6 +1454,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, kid? Buy somethin' while you think." }, { id = "h_again2", text = "Still standin' there, kid? Standin's free, but the dock space isn't, so buy a lure." } },
       choices = {
+        { text = "I drowned out there. How do sailors stand it?", next = "dd_drown", when = { deathCause = "drowning" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where's the best fishing?", next = "fishing" },
         { text = "I can't think who would buy chum.", next = "chum" },

@@ -123,6 +123,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_bandanas_danu", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
+          text = "Galiaan's sack of bandanas came through my hands on the way to Gryan, and I counted yours twice to be sure. That's honest militia work, and you'll find the patrols treat you as one of their own now." },
+
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, is it? I've heard your kind can turn into bears. If that's true, I'd like a few for the coast road." },
         { id = "h_default", text = "Captain Danuvin, of the People's Militia. I organize the farmers who were too stubborn to leave, and stubborn makes good soldiers." },

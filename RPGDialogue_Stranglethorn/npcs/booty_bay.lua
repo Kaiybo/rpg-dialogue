@@ -42,6 +42,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rev_ex = {
+      lines = {
+        { id = "dd_rev_ex_a", text = "Talk about you? They keep a whole ledger, friend, with your name on the cover and every pirate you've sunk on the pages inside. In Booty Bay, a good name is worth more than a full hold, because a full hold can be stolen and a name can't." },
+      },
+      choices = {
+        { text = "I'll keep earning it, Baron. Booty Bay's been good to me.", next = "dd_rev_ex2", fx = { align = { honor = 1 } } },
+        { text = "A good name's nice. Good coin is nicer.", next = "dd_rev_ex2", fx = { align = { honor = -1 } } },
+      },
+    },
+    dd_rev_ex2 = {
+      lines = {
+        { id = "dd_rev_ex2a", text = "Ha! Spoken like somebody who's spent time on my docks, and I like both answers, because both of them keep you coming back. Now go and spend some of that coin in my port before the Cartel thinks I'm going soft." },
+      },
+      choices = { { text = "Something else, Baron.", next = "BACK" } },
+    },
+
     op_venture = {
       lines = {
         { id = "opv_default", text = "They answer to whoever's paying this quarter, and right now that's the saw business. They're stripping the north of this jungle bare, and half my customers love the cheap lumber while the other half curse them. Which half are you, friend?" },
@@ -189,6 +205,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_exalted_rev", when = { reputation = { faction = "Booty Bay", min = "exalted" } },
+          text = "Well, if it isn't Booty Bay's favourite customer! My accountants tell me you've done more for this port than half my bruisers put together, and I pay my bruisers very well, so that's a compliment worth its weight in gold." },
+
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Funny thing, friend, but I had a {altrace} called {alt} on this balcony not long ago, flying the other banner and haggling over the very same dock fees. You've the same look about the eyes, the one that says the fee is negotiable, and I'll tell you what I told {alt}, which is that it isn't." },
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
@@ -228,6 +247,8 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "booty_bay", min = 30 } }, text = "Ask away. You've earned a little of my time on account; this town vouches for you." },
       },
       choices = {
+        { text = "Your accountants talk about me, Baron?", next = "dd_rev_ex", when = { reputation = { faction = "Booty Bay", min = "exalted" } } },
+
         { text = "Does the Cartel ever ask the spirits anything, Baron?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What could a spellcaster do for Booty Bay, Baron?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Your cartels are stripping the jungle bare.", next = "druid_talk", when = { class = "DRUID" } },
@@ -2062,6 +2083,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_deaths_skindle", when = { deaths = { min = 20 } },
+          text = "You've been dragged back from the dead so many times, pal, the spirit healer ought to be charging you rent. I'll give you a bed, but if you die in it, the cleaning's on your account." },
+        { id = "dd_venture_skindle", when = { killed = { name = "Venture", min = 50 } },
+          text = "Word on the docks is you've been tearing up the Venture Company camps up the coast. Bad for them, good for the Cartel, and good for my rooms, because the loggers who used to come here to complain have stopped coming at all." },
+
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "You're the second one with that face this month, pal, and the first was a {altrace} called {alt}, from the other side of the bar, if you take my meaning. Same scowl at the stairs, same complaint about the rum, and you'll pay what {alt} paid, because I'm fair like that." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
@@ -4292,6 +4318,9 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dd_drown_lozgil", when = { deathCause = "drowning" },
+          text = "You drowned somewhere, didn't you, pal? I can tell, because you walk my wharf like the water's going to grab you, and I'll tell you for free: the bay's deep, the sharks are hungry, and the Wharfmaster doesn't fish out corpses." },
+
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I see every face that comes off the boats, and yours is the first in a week that didn't look like it was hiding something, so welcome to Booty Bay, and the docking fee's at the end." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin. I don't often see the Silver Hand on my docks, and when I do it usually means someone out in the jungle is about to have a very bad day." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman off the Grom'gol road. I watch who comes and goes, and your sort have been coming more often since Orgrimmar was built." },

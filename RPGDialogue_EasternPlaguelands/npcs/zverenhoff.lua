@@ -85,6 +85,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 50 } },
+          text = "I'm told the Crusade's patrols near Tyr's Hand have lost a good many men to you lately. Do be careful; the Crusade keeps very thorough records of its grudges, and I should know, since I've read some of them." },
         { id = "h_default", key = true, text = "Duke Nicholas Zverenhoff of the Argent Dawn. I help Lord Tyrosus keep this chapel standing, and I'm the one who pays out valor tokens when people bring us scourgestones as proof of what they've slain." },
         { id = "h_book", tags = { "news" }, when = { questRecent = { TODO_QUEST("Duke Nicholas Zverenhoff"), days = 3 } },
           text = "Studies in Spirit Speaking, by Umbranse. I'd hoped it would be illuminating, but so far it's a great many pages that say \"Ooooooo\", and I'm not yet sure who thinks that up." },

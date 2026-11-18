@@ -84,6 +84,7 @@ P:NPC {
           text = "Throm-ka. It's good to see another orc this far from the Barrens, even if you're only passing through." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren! Dadanga always perks up around your people, and I've never worked out whether it's the smell of the plains or the size." },
+        { id = "h_dd_bones", tags = { "news" }, when = { questDone = TODO_QUEST("Roll the Bones") }, text = "Spark has been in a better mood since you dug those bones out for him, which means he's only complained about Dadanga twice today. I'll take it, and so will she." },
       },
       again = {
         { id = "h_again", text = "Anything else? Dadanga's in no hurry, and neither am I; an orc learns patience at the end of a lead rope." },
@@ -99,7 +100,18 @@ P:NPC {
         { text = "How do the humans here treat an orc?", next = "humans" },
         { text = "Any advice for keeping a beast content?", next = "tips", when = { class = "HUNTER" } },
         { text = "What does Dadanga eat?", next = "BUSINESS" },
+        { text = "Spark doesn't seem to like Dadanga much, Petra.", next = "dd_bones", when = { questDone = TODO_QUEST("Roll the Bones") } },
         { text = "Take care, Petra.", next = "END" },
+      },
+    },
+    dd_bones = {
+      lines = {
+        { id = "dd_bones_1", text = "He doesn't like anything that isn't gold, and Dadanga is a great deal of things, but she isn't gold. She carries his bones up from Terror Run without a single complaint, though, which is more than I can say for Spark, so I think she's the better worker of the two." },
+      },
+      choices = {
+        { text = "Spark works hard. Give the goblin some credit.", next = "BACK", reply = "He does, I'll grant you, in his own loud way. Dadanga's forgiven him already, and I suppose I can try.", fx = { align = { honor = 1 } } },
+        { text = "He's a coward and a moaner. Dadanga's worth ten of him.", next = "BACK", reply = "Ha! I'd never say it to his face, but she heard you, and I think she agrees.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Petra.", next = "BACK" },
       },
     },
     smoke = {

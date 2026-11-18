@@ -107,6 +107,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_threat", when = { questDone = TODO_QUEST("Continued Threat") },
+          text = "Tok'Kar says the murlocs on the coast are scattered and that you did the scattering. He'll want his errands run on time now that he's got no excuse, and that suits me fine." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde raised these stones, and I'd wager a few of your kind walked these halls back then, doing things the walls still remember." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're looking for something worth stealing in Stonard, I wish you luck, because I've been looking for years and found mostly mud." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. There's enough old history in these stones that I'd wager they've got something to say to you, if you've the patience to listen." },
@@ -340,6 +342,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_fall", when = { deathCause = "falling" },
+          text = "I heard you went off a ledge and the ground caught you. A wind rider would've done the catching, and gently, but nobody ever asks the wind rider master until they've already fallen." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Keep your hands off the harness, because the last time somebody cut a strap for a joke, a rider came down in the Pool of Tears." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Can you dry a wind rider's wings with a spell? Because if you can, I'll stop scraping moss and start taking bets." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The riders won't fly over the temple when the wind comes from the east, and maybe you can tell me why." },
@@ -682,8 +686,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_honor = {
+      lines = {
+        { id = "dd_honor_1",
+          text = "In the Second War, before the camps, when I was young and the demon blood still ran hot. I've killed humans and dwarves both, and I'll tell you that most of them fought as bravely as any orc." },
+        { id = "dd_honor_2",
+          text = "That's what nobody tells the recruits. The Alliance soldier across from you has a home and a reason, just like you, so beat him because you're better, not because you hate him." },
+      },
+      choices = {
+        { text = "Hate keeps the blade sharp. I'll keep it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Respect for a worthy enemy. I understand.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Malosh.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_honor", when = { faction = "Horde", honorKills = { min = 100 } },
+          text = "I hear you've been bloodying the Alliance in the battlegrounds, and you've the walk of a warrior who's seen it. Good, because there's nothing I can teach in the mud that a real fight doesn't teach better." },
+        { id = "h_dd_rank", when = { faction = "Horde", pvpRank = 6 },
+          text = "That's a Horde rank on your shoulders, and it wasn't given cheap. Stand up straight in my yard, so the recruits can see what it looks like." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my yard. Stand back from the sparring rings, because the last mage who wandered in froze one of my recruits to the mud, and he's still shy about it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You fight dirty, I'm told, and in the mud of this swamp there's no other way to fight, so maybe you've something to teach my warriors." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hit like a warrior and heal like a priest, and I've never decided whether to train you or envy you." },
@@ -704,6 +725,7 @@ P:NPC {
         { id = "h_again2", text = "What else? The yard's waiting." },
       },
       choices = {
+        { text = "You've fought the Alliance yourself, then?", next = "dd_honor", when = { faction = "Horde", honorKills = { min = 100 } } },
         { text = "Do your warriors respect shamans fighting beside them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your warriors trust spellcasters at their backs, Malosh?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why train in the mud?", next = "mud" },

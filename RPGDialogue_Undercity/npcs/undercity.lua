@@ -36,6 +36,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_hillsbrad = {
+      lines = { { id = "dd_hillsbrad_default", text = "What I want is Lordaeron, and Hillsbrad is a corner of it the living still pretend is theirs. Every farm you burned tells them they are tenants on my land, and that the rent has come due." } },
+      choices = {
+        { text = "Then I'll keep collecting, my lady, as long as you need.", next = "BACK", reply = "Good. The Forsaken remember who stands with them, and so do I.", fx = { align = { order = 1 } } },
+        { text = "Some of those farmers had done nothing to us, my lady.", next = "BACK", reply = "Neither had we, when the Crusade came with its torches. Keep your conscience if you like, but keep it quiet in my court.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+
     xalt_sylvanas = {
       lines = {
         { id = "xalt_sylvanas_default", text = "Many swear themselves to the Forsaken before this throne, and I forget most of them by the next bell. That one I remember, which should tell you something about them, and perhaps about you." },
@@ -151,6 +160,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren. Your Arch Druid spoke for my people before the Horde, and I have not forgotten it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Forsaken need blades that do not break, and I will learn soon enough whether yours is one of them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I led the rangers of Quel'Thalas once, and I still know an archer by the way they carry their shoulders." },
+        { id = "h_dd_hillsbrad", tags = { "news" }, when = { questDone = TODO_QUEST("Battle of Hillsbrad") },
+          text = "Varimathras tells me Hillsbrad's fields burned on your account, and that the farmers of Southshore now bolt their doors at dusk. The living who drove us out of Lordaeron should learn what it is to fear the night." },
+        { id = "h_dd_rank", when = { pvpRank = 8 },
+          text = "The Alliance has begun to write your name in its lists of the dead, {rank}. Let them, because a name they fear is worth a regiment to me." },
       },
       choices = {
         { text = "Someone close to me has stood before you, my Lady.", next = "xalt_sylvanas", when = { alt = true } },
@@ -173,6 +186,7 @@ P:NPC {
         { text = "You don't seem to think much of the Horde, my lady.", next = "horde" },
         { text = "What would you have of me, my lady?", next = "ask_me" },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2 } },
+        { text = "Hillsbrad burned, my lady. Is that what you wanted?", next = "dd_hillsbrad", when = { questDone = TODO_QUEST("Battle of Hillsbrad") } },
       },
       again = {
         { id = "h_again", text = "You have more to say. Say it." },
@@ -740,6 +754,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 30 } }, text = "Hillsbrad's farmers and footmen fall before you rather efficiently, I'm told. The Dark Lady will be pleased, and I make a point of remembering those who please her." },
         { id = "h_cl_cath", tags = { "news" }, when = { cleared = "Scarlet Cathedral", faction = "Horde" },
           text = "The High Inquisitor has fallen, and her commander with her, and the Dark Lady was pleased to hear it from my lips before anyone else's. I do so enjoy delivering good news, and you have given me so much to deliver." },
+        { id = "h_dd_rep", when = { reputation = { faction = "Undercity", min = "revered" } },
+          text = "Your name comes up in the Royal Quarter more often than you might find comfortable. The Dark Lady thinks well of you, and I, of course, think whatever she thinks." },
       },
       choices = {
         { text = "You've been keeping notes on someone I know?", next = "xalt_varimathras", when = { alt = true } },
@@ -885,6 +901,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_pain = {
+      lines = { { id = "dd_pain_default", text = "For pain, {class}, as the name rather plainly says. Lydon tests his small brews on Hillsbrad's beasts, and each result tells the Society a little more about how the living suffer, which we will need to know very precisely one day." } },
+      choices = {
+        { text = "The living earned whatever the Society brews for them.", next = "BACK", reply = "Spoken like a true servant of the Dark Lady. Run along, and do send Lydon more of whatever he asks for.", fx = { align = { light = -1 } } },
+        { text = "I fetched those reagents for Lydon. I didn't sign up for cruelty.", next = "BACK", reply = "You signed up the moment you handed him the first vial. Conscience is an expensive habit down here, {class}, and the Society does not cover it.", fx = { align = { light = 1 } } },
+        { text = "Something else, Master Apothecary.", next = "BACK" },
+      },
+    },
+
     op_undeath = {
       big = true,
       lines = {
@@ -992,6 +1017,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Oh, splendid, splendid, you'll be bringing me bear hearts and spider blood by the bucket, I can feel it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Marvellous, because you're a living, or once-living, example of a hypothesis I've never managed to test properly, which is whether faith changes the body's chemistry." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Oh, how marvellous, a Forsaken who carries the Light and walks into the Apothecarium anyway. I would dearly love to know what holy power does to a sample of the new plague, purely in the name of science." },
+        { id = "h_dd_pain", tags = { "news" }, when = { questDone = TODO_QUEST("Elixir of Pain") },
+          text = "Apothecary Lydon writes from Tarren Mill that his Elixir of Pain behaved splendidly on its test subject, and that you fetched every ingredient. Lydon is a plodder, but he records his results, and yours are in them." },
       },
       choices = {
         { text = "Does faith change the body, Master Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1008,6 +1035,7 @@ P:NPC {
         { text = "I've been to the bottom of the Scarlet Monastery, Master Apothecary.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "My companion is a priest. What do you want with them?", next = "xpt_faranell", when = { party = { class = "PRIEST" } } },
         { text = "I'll leave you to your work.", next = "END" },
+        { text = "Lydon's elixir worked, then. What's it for?", next = "dd_pain", when = { questDone = TODO_QUEST("Elixir of Pain") } },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Quickly, the green flask is making that noise again!" },
@@ -1214,6 +1242,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. In Dalaran we used to think a blade a crude thing beside a spell, and I've learned since that a blade, at least, doesn't sell its soul." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My old friends and I swore our oath in a chapel, and I've found myself thinking about that chapel lately more than I'd like." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. In Dalaran we thought the Light and the arcane two roads to the same truth, and I wonder now which of them has kept faith with you better than mine kept faith with me." },
+        { id = "h_dd_dalaran", tags = { "news" }, when = { killed = { name = "Dalaran", min = 20 } },
+          text = "You've been killing Dalaran's mages in Silverpine and Hillsbrad, I hear, and I find I don't mind in the least. They walled themselves up while Lordaeron died, and they've learned nothing behind those walls." },
       },
       choices = {
         { text = "What became of the chapel where you swore your oath?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1348,6 +1378,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_scarlet = {
+      lines = { { id = "dd_scarlet_default", text = "They do, and loudly. Most of them lost someone to the Crusade's pyres after they rose, and a name to blame the dead Scarlets on is the nearest thing to a toast they've got left." } },
+      choices = {
+        { text = "Good. Tell them I'm not finished with the Crusade.", next = "BACK", reply = "I'll tell them, and they'll like it. Just don't let the pyres take you as well; I'd hate to lose a regular.", fx = { align = { light = -1 } } },
+        { text = "I'd rather they didn't. Killing isn't something to toast.", next = "BACK", reply = "That's an old living notion, and a decent one. I'll keep it behind the bar with the other things nobody asks for.", fx = { align = { light = 1 } } },
+        { text = "Something else, Norman.", next = "BACK" },
+      },
+    },
+
     op_peace = {
       big = true,
       lines = {
@@ -1436,6 +1475,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under the city? You'll not find much growing down here, friend, except what's in the canals, and I wouldn't touch that." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Take a chair, any chair that's empty, and nobody will take it from you while you sit, which is the closest thing to a sanctuary I can offer." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, with a chair waiting like anyone else. You glow a little when you sit, which some of the regulars find upsetting, so I'll put you by the wall where the light won't bother them." },
+        { id = "h_dd_scarlet", tags = { "news" }, when = { killed = { name = "Scarlet", min = 100 } },
+          text = "The Deathguard who drink here say you've put more Scarlets in the ground than some of their whole companies. They raise a cup to you, which is a strange thing to watch when none of them can swallow." },
+        { id = "h_dd_deaths", when = { deaths = { min = 20 } },
+          text = "You've died a good many times for someone still walking about, if the spirit healers' gossip is to be believed. Sit down, and let one evening pass without anyone killing you." },
       },
       again = {
         { id = "h_again", text = "Anything else? The chairs aren't going to fill themselves." },
@@ -1456,6 +1499,7 @@ P:NPC {
         { text = "Do many living folk travel with the Forsaken, Norman?", next = "xpt_norman", when = { party = { race = "Scourge" } } },
         { text = "What's the talk at your tables, Norman?", next = "op_peace" },
         { text = "Just resting.", next = "END" },
+        { text = "The Deathguard drink to my Scarlet kills, Norman?", next = "dd_scarlet", when = { killed = { name = "Scarlet", min = 100 } } },
       },
     },
     xhwar = {

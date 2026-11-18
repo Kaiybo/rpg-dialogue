@@ -277,6 +277,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. I walked from Mulgore with hunters who knew more of the land than I did, and I have been glad of their kind since." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome. I keep your herbs and seeds dry in the back, away from the sand, because the Earth Mother gives little enough in this place." },
+        { id = "h_dd_poison", when = { questDone = TODO_QUEST("The Perfect Poison") }, text = "Dirk Thunderwood tells me you brought him the venoms he wanted for Ravenholdt. I sell poisons to the Hold, but I've never sold anything as foul as what those two are brewing." },
       },
       again = {
         { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet and the Earth Mother listens?" },
@@ -293,7 +294,18 @@ P:NPC {
         { text = "A warrior who poisons his blade has no honour, Khur.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What did the hunters teach you on the road from Mulgore?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How can you sell poison with a clear conscience, Khur?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What are the Ravenholdt brothers brewing, Khur?", next = "dd_poison", when = { questDone = TODO_QUEST("The Perfect Poison") } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    dd_poison = {
+      lines = {
+        { id = "dd_poison_1", text = "Something for blades, and something meant for the silithid, if Dirk is to be believed. I believe half of what he says, which is generous, because a man who serves a manor full of assassins does not tell a tauren merchant all his business. Still, if it kills the bugs, I will not complain too loudly." },
+      },
+      choices = {
+        { text = "Poison is a coward's weapon, whoever it's aimed at.", next = "BACK", reply = "Then I sell coward's weapons, and I sleep well enough. Against the silithid, I think even the Earth Mother would forgive a little venom.", fx = { align = { honor = 1 } } },
+        { text = "Whatever kills the silithid is a good weapon.", next = "BACK", reply = "That is what Dirk says, and what my purse says too. I only wish I could trust the hand that holds the vial.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Khur.", next = "BACK" },
       },
     },
     poison = {

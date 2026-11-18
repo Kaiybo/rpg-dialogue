@@ -38,8 +38,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_tally = {
+      lines = {
+        { id = "ddt_default", text = "The Council keeps account of everyone who walks beneath Teldrassil, and Priestess Amara's report on the northern road now stands in yours. Keep giving them reasons to write such things, and you will find the forest's laws sit lightly on you." },
+      },
+      choices = {
+        { text = "Good. A forest needs its laws kept.", next = "BACK", reply = "It does, and it is rare to hear a newcomer say so without being asked. I will remember it.", fx = { align = { order = 1 } } },
+        { text = "I didn't clear that road for the Council's ledger.", next = "BACK", reply = "Nobody asked why you did it, {class}, only that it was done. The Council writes it down either way.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_road", when = { questDone = TODO_QUEST("The Road to Darnassus") }, text = "Priestess Amara reports that the northern road to Darnassus is clear of ambushers, and that you cleared it. The Council of the Forest has entered that in your favour, {class}." },
+        { id = "h_dd_fall", when = { deathCause = "falling" }, text = "The healers say you have fallen from the high paths at least once. Teldrassil is a tall tree, {class}, and the Council will not build railings for the careless." },
         { id = "h_default", key = true,
           text = "I am Sentinel Kyra Starsong, and I pass on the orders of the Council of the Forest. Those who keep Teldrassil's laws have nothing to fear from me, and those who don't will find me very hard to avoid." },
         { id = "h_seek", tags = { "news" }, when = { questActive = TODO_QUEST("Seek Redemption!") },
@@ -52,6 +64,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you need to." },
       },
       choices = {
+        { text = "Does the Council keep a tally of my deeds?", next = "dd_tally", when = { questDone = TODO_QUEST("The Road to Darnassus") } },
         { text = "What is the Council of the Forest?", next = "council" },
         { text = "What's wrong with helping Zenn?", next = "zenn" },
         { text = "How bad are things in Teldrassil?", next = "trouble" },
@@ -127,6 +140,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_kills", tags = { "news" }, when = { killed = { name = "Bloodfeather", min = 30 } }, text = "My Sentinels have stopped counting the Bloodfeather you have brought down, because the count had grown embarrassing for us. The glade is quieter than it has been since the harpies came." },
         { id = "h_default", key = true,
           text = "I am Sentinel Arynia Cloudsbreak. I was sent here with a few Sentinels to protect the Oracle Tree from the harpies that have nested all around this glade, and little by little we're pushing them back." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Enchanted Glade") },
@@ -262,9 +276,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = {
+        { id = "ddd_default", text = "Every time, Elune sends you back, and every time you come back a little less afraid. That is a gift, but it can become a carelessness if you let it, and I have buried Sentinels who mistook the one for the other." },
+        { id = "ddd_ne", when = { race = "NightElf" }, text = "You have drifted as a wisp more often than most, I think, and found your way back to your body each time. That is Elune's mercy, child, and it can become a carelessness if you let it." },
+      },
+      choices = {
+        { text = "I'll be more careful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Fear of death never helped anyone fight.", next = "BACK", reply = "No, but a little of it has kept many alive. Think on it, at least." },
+      },
+    },
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "There is a stillness on you that the living don't usually carry, child, the kind that comes from walking back from the spirit healer too many times. Elune is patient, but you should learn to be careful." },
         { id = "h_default", key = true,
           text = "I am Laurna Morninglight, and I teach the priests of Elune who come down from Shadowglen. I'd rather be out on the roads with the Sentinels, but someone must train the next of us, and the Sisterhood chose me." },
         { id = "h_favor", when = { questActive = TODO_QUEST("In Favor of Elune") },
@@ -280,6 +305,7 @@ P:NPC {
         { id = "h_again3", text = "Something more? Sit, sit, I'll pour while you think." },
       },
       choices = {
+        { text = "I've died more often than I like to admit.", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is the Sisterhood of Elune?", next = "sisterhood" },
         { text = "Who is Sentinel Shaya?", next = "shaya" },
@@ -527,9 +553,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_sabers = {
+      lines = {
+        { id = "dds_default", text = "I know, and I know why. Some of them are sick and starving, and the Conservator would rather thin them than watch them waste away, but that doesn't mean I have to like it, and I don't." },
+      },
+      choices = {
+        { text = "Next time I'll leave them be, if I can.", next = "BACK", reply = "Would you? Then I'll tell the sabers you said so, and they'll purr at you the next time you come by.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A beast that attacks me dies. That's the end of it.", next = "BACK", reply = "That's a hunter's answer, and a cold one. Go gently past my stalls, then, because these ones are mine.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_sabers", when = { killed = { name = "Nightsaber", min = 20 } }, text = "You smell of nightsaber, friend, and not the tame sort. I know the wild ones in the hills have been thin and mean of late, but please tell me you took no joy in it." },
+        { id = "h_dd_zenn", when = { questDone = TODO_QUEST("Zenn's Bidding") }, text = "Sentinel Kyra told me you gathered nightsaber claws for the satyr in the hills. My sabers can't know that, but I do, and it will take me a while to forget it." },
         { id = "h_default", key = true,
           text = "I'm Seriadne, and I keep the stables here in Dolanaar. Leave a companion with me and I'll feed it and brush it and tell it stories until you come back." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -541,6 +579,7 @@ P:NPC {
         { id = "h_again3", text = "Go on, I've a brush in my hand but my ears are free." },
       },
       choices = {
+        { text = "I've had to kill nightsabers out in the hills.", next = "dd_sabers", when = { killed = { name = "Nightsaber", min = 20 } } },
         { text = "I'd like to use the stables.", next = "BUSINESS" },
         { text = "What sort of stories do you tell them?", next = "stories" },
         { text = "Do the Gnarlpine trouble your animals?", next = "gnarlpine" },

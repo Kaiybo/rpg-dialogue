@@ -99,6 +99,8 @@ P:NPC {
           text = "A dwarf o' Khaz Modan! The valley's ours by right o' the King, an' it'll take good dwarven boots tae hold it." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome! Ye'll like Dun Baldar, there's machines in the mines an' bigger ones on the field." },
+        { id = "h_dd_honor", tags = { "news" }, when = { honorKills = { min = 250 } },
+          text = "Word from the valley is ye've put a good many Frostwolves an' their friends in the snow, an' Vanndar likes that sort o' tally. Keep it up, an' mind ye come back for yer insignia." },
       },
       again = {
         { id = "h_again", text = "What else, soldier? The valley's waitin'." },
@@ -236,6 +238,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_rank = {
+      lines = { { id = "dd_rank_default", text = "It is a dangerous thing, and a good one. A soldier the enemy knows is a soldier they fear, and they will send their best against you, so you will either grow stronger or fall, and the clan will honour you either way." } },
+      choices = {
+        { text = "Then let them send their best. I'll be waiting in the snow.", next = "BACK", reply = "Spoken like a Frostwolf. Lok'tar, {rank}, and die with honour if you must.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather they didn't know me. A hidden blade lives longer.", next = "BACK", reply = "That is a rogue's wisdom, and the snow has room for it. But the clan sings of the ones they saw.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+
     prej = {
       big = true,
       lines = { { id = "prej_default", text = "I trust what bleeds and breathes. The Forsaken have a queen who answers to nobody and apothecaries who brew plagues in cellars, and they march under our banner while they serve hers first." } },
@@ -324,6 +335,8 @@ P:NPC {
           text = "An orc! Then you know what the Frostwolves are to the Warchief, and why this valley will never be given up." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren. The cold is no friend to your hide, but the clan welcomes any who stand with it." },
+        { id = "h_dd_rank", when = { pvpRank = 6 },
+          text = "Your rank has risen, {rank}, and the Stormpike have started to learn your face. That is how respect is earned on this field, and you are earning it." },
       },
       again = {
         { id = "h_again", text = "What else? The drums do not wait." },
@@ -337,6 +350,7 @@ P:NPC {
         { text = "What is this test?", next = "test" },
         { text = "The clan knows my name now, Warmaster.", next = "honored", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } } },
         { text = "For the Horde, Warmaster.", next = "END" },
+        { text = "The Stormpike know my face, Warmaster. Is that a good thing?", next = "dd_rank", when = { pvpRank = 6 } },
       },
     },
 

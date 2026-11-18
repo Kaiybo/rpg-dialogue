@@ -323,6 +323,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dd_darkstorm", tags = { "news" }, when = { questDone = TODO_QUEST("Dark Storms") },
+          text = "Orgnil tells me Fizzle Darkstorm is dead at Thunder Ridge, and that you did the killing. The cultists in Skull Rock have been shouting at each other ever since, which suits me, because frightened cultists make mistakes." },
+        { id = "h_dd_blade", when = { killed = { name = "Burning Blade", min = 40 } },
+          text = "I've been counting the Burning Blade in Skull Rock for a long time, {class}, and the count keeps going down whenever you pass this way. I like a falling count." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Good. The Burning Blade at Skull Rock serve demons, and I'd like to see what your Light does to them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You won't change Skull Rock with prayers, but you can keep my scouts alive while they count the cultists, which is more use than most." },
         { id = "h_default", key = true,

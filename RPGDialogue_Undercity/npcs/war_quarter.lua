@@ -32,11 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_deaths = {
+      lines = { { id = "dd_deaths_default", text = "The spirit healers would say it is because your work is unfinished, and the Scarlet priests would say it is a curse. I think the Light is less tidy than either of them, and that it simply does not let go of what it once touched." } },
+      choices = {
+        { text = "Then I'll use every return to serve it better.", next = "BACK", reply = "Then you'll be a stranger priest than most in this city, and a better one. Go gently.", fx = { align = { light = 1 } } },
+        { text = "I come back because I refuse to stay down. That's all.", next = "BACK", reply = "Spite is a power too, and the Forsaken run on it more than they'd admit. Just don't mistake it for grace.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Aelthalyste, and I teach the priests of the Forsaken. The Light abandoned us to the plague, many say, and yet when I call it, it still comes, and I've spent my second life trying to understand why." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're no priest, but you're welcome to sit. The dead come here to remember they were people once, and the living sometimes come to see whether we were." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin among the Forsaken. The Light keeps stranger company than the Church ever let it, and you're the proof." },
+        { id = "h_dd_deaths", when = { deaths = { min = 10 } },
+          text = "You've walked back from the spirit healers more often than most, and each time the Light let you go again. I wonder whether you ever ask it why." },
       },
       again = {
         { id = "h_again", text = "Ask what you came to ask. There's no shame here that hasn't already been confessed by someone worse." },
@@ -52,6 +63,7 @@ P:NPC {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "I stopped waiting for the Light, Aelthalyste. The shadow answered instead.", next = "xorig_shadow", when = { origin = "forsaken_shadow_acolyte" } },
         { text = "Peace to you.", next = "END" },
+        { text = "Why does the Light keep sending me back, Aelthalyste?", next = "dd_deaths", when = { deaths = { min = 10 } } },
       },
     },
     xorig_shadow = {

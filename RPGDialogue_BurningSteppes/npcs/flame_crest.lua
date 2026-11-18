@@ -1672,6 +1672,16 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dd_vg_krom = {
+      lines = {
+        { id = "dd_vg_krom1", text = "They are, and each time they tell it the ogre grows a head taller. Thal'trak will hear it in Kargath before Sha'ni gets home, and I hope he is sitting down when he does, because he had stopped hoping." },
+      },
+      choices = {
+        { text = "Good. Thal'trak deserves his wife back.", next = "BACK", reply = "He does. Too many of us lost our families in the camps and never got them back.", fx = { align = { light = 1 } } },
+        { text = "Let them tell it. Fear of the Horde serves us.", next = "BACK", reply = "It does, out here. The ogres will think twice about taking Horde scouts again.", fx = { align = { light = -1 } } },
+        { text = "Something else, Vahgruk.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The sky over the Steppes is thick with ash and angry fire, and my riders feel it, so if the spirits have anything to say about it, tell them to say it quietly." },
@@ -1687,9 +1697,14 @@ P:NPC {
           text = "A hunter. Keep your beasts away from the riders' feed, because a wind rider will eat anything that fits in its mouth, and some things that don't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of Thunder Bluff. The wind riders hate this sky, friend, but they've never yet refused to carry one of the Earth Mother's own." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The beasts will take you home, wherever home is for one like you." },
+        { id = "dd_kromgrul", when = { questDone = TODO_QUEST("Krom'Grul") },
+          text = "Sha'ni says you put an end to Krom'Grul, and that she walks out of Dreadmaul with her head still on. The riders have been telling that story all the way to Kargath." },
+        { id = "dd_fall", when = { deathCause = "falling" },
+          text = "You fell from a height, didn't you? The Steppes hide their cliffs in smoke. Next time, take a wind rider, and let the beast worry about where the ground went." },
       },
       again = { { id = "h_again", text = "Anything else, or do you want a rider?" } },
       choices = {
+        { text = "The riders are telling stories about Krom'Grul?", next = "dd_vg_krom", when = { questDone = TODO_QUEST("Krom'Grul") } },
         { text = "Where do your riders fly?", next = "routes" },
         { text = "What do you make of the Blackrock?", next = "rend" },
         { text = "Show me the routes.", next = "BUSINESS" },

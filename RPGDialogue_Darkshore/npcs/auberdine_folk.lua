@@ -37,8 +37,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dd_ameth = {
+      lines = {
+        { id = "dda_default", text = "Everything! Ameth'Aran was a Highborne city, and the elves will barely talk about the Highborne, so every carved stone is a page of history nobody else will read to us. A curse and a fallen city, and a ghost or two by the sound of it, which is exactly what makes for good archaeology." },
+      },
+      choices = {
+        { text = "The elves might not want strangers digging there.", next = "BACK", reply = "They don't, and Tysha has told me so in very polite and very firm words. I only look, I promise, and I take nothing that's nailed down.", fx = { align = { order = 1 } } },
+        { text = "History belongs to whoever is brave enough to dig.", next = "BACK", reply = "That's the League's motto in all but name! Don't say it in front of the Sentinels, though.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dd_ameth", tags = { "news" }, when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") }, text = "Sentinel Tysha says you read the tablets at Ameth'Aran for her, and I have been sick with envy ever since! I've written to Greywhisker in Darnassus, and he'll want to hear every word you remember." },
         { id = "h_default", key = true,
           text = "Hollee, of the Explorers' League, at your service, or at anyone's service who can swing a pick at a golem. I left Prospector Remtravel at the dig to the south when the ground opened up, and I've not slept properly since." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Absent Minded Prospector") },
@@ -55,6 +66,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Talking keeps me from pacing the jetty." },
       },
       choices = {
+        { text = "What do the tablets at Ameth'Aran mean to the League?", next = "dd_ameth", when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") } },
         { text = "What happened at the dig?", next = "dig" },
         { text = "Tell me about Prospector Remtravel.", next = "remtravel" },
         { text = "How does a dwarf end up in Darkshore?", next = "league" },
@@ -323,6 +335,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_dd_raene", when = { questDone = TODO_QUEST("Raene's Cleansing") }, text = "Raene Wolfrunner writes from Astranaar that the {class} I sent south has been of real help to her. I am glad I pointed you down that road, and gladder still that you took it." },
         { id = "h_default", key = true,
           text = "I am Sentinel Selarin, and I serve Raene Wolfrunner of Astranaar. Ashenvale is bleeding, from the orcs' axes and from the corruption both, and my mistress needs every capable hand Auberdine can send her." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Trek to Ashenvale") },
@@ -521,6 +534,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "So you're the one who did for that big murloc, Murkdeep! The fishermen've been toastin' ye all week, and I've been toastin' along with them, for a dwarf never turns down a good reason." },
         { id = "h_default", key = true,
           text = "Kurdram Stonehammer, and I teach mining, for those who can stand the work. There's copper and tin in these hills if ye know where to look, and I'll teach ye where, for a price." },
         { id = "h_miner", when = { profession = "Mining" },
