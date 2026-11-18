@@ -2,9 +2,23 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## Unreleased
-- **"Where is...?"** Anyone can now be asked the way around town, Daggerfall-style: the inn, the bank, the auction house, the flight master, a mailbox, class trainers (yours first), profession trainers and the town's notable people. Seeded for Stormwind, Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity, Goldshire, Razor Hill and the Crossroads. With TomTom installed, the answer also sets a waypoint. **New files: restart the game fully (a /reload won't load them).**
-- **Every quest you finish in a town raises your standing there.** Before, only the quests listed for each town counted. Now any other quest you turn in inside a town gives a smaller boost (+3), the town hears you helped, and its people's disposition toward you rises with it.
+## 0.85.0 (2026-11-18)
+Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
+
+### Talk your way in.
+- **Admire, Taunt and Intimidate.** Small buttons on the box's bottom bar (a "Persuade..." entry in DialogueUI). Each can be tried once a day with each person. Whether it works depends on who they are and who you are, not dice: the vain like flattery, gruff fighters respect a bit of spine, cowards fold when you lean on them. Success or failure shifts their disposition for a while, and they answer in their own voice. Turn it off under Settings: "Admire, Taunt and Intimidate buttons".
+- **People keep secrets until they like you.** Someone who is Cold toward you sticks to small talk; secrets and personal matters wait until they're Warm. A refused topic says "(won't say)" in the Ask list, with the tier it needs on hover. Turn it off under Settings.
+- **Tone: Polite, Normal or Blunt.** Pick how you speak from the bottom bar (or the last row in DialogueUI, or `/rpgd tone`). Some people like manners and some like plain talk, and it moves their disposition. Thrall, Eitrigg, Galthuk, Marshal McBride, Marshal Dughan and Innkeeper Farley reword your replies to match, and some notice how you speak.
+
+### Read people.
+- **Gut feelings.** When someone says something they're unreliable about, you sometimes sense it: "Something in his voice doesn't sit right." Rogues and priests notice more often, and so does anyone who has heard the claim contradicted. A doubted claim is marked in the journal. Turn it off under Settings: "Gut feelings".
+- **Narration.** Lines can come with a short stage direction in dim ink above the words: what the person does as they speak. First used for Thrall, Cairne, Magni, Tyrande, Bolvar and Marshal McBride. Turn it off under Settings.
+
+### Getting around.
+- **"Where is...?"** Anyone can now be asked the way around town, Daggerfall-style: the inn, the bank, the auction house, the flight master, a mailbox, class trainers (yours first), profession trainers and the town's notable people. Seeded for Stormwind, Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity, Goldshire, Razor Hill and the Crossroads. With TomTom installed, the answer also sets a waypoint.
+
+### Fixes.
+- **The letters panel closes when you walk away from the mailbox**, including on clients where the old distance check didn't work.
 
 ## 0.84.0 (2026-11-18)
 Eleven pieces of work in one release. **New files: restart the game fully (a /reload won't load them).** Every content pack got a minor version bump.
