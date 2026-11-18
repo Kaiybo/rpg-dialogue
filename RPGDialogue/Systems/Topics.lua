@@ -124,7 +124,40 @@ function Topics.Asked(id, npcKey, answered)
     elseif mem.nothing then
       mem.nothing[id] = nil
     end
+    -- Any answer (or a plain brush-off) means they're no longer refusing it.
+    if mem.gated then mem.gated[id] = nil end
   end
+end
+
+-- They refused to talk about it (0.85.0): their disposition was below `need`. Kept apart
+-- from "nothing to say"; asking again once they think better of you works.
+function Topics.Gated(id, npcKey, need)
+  local rec = ns.char.topics[id]
+  if rec then rec.asked = C.Now(); rec.archived = nil end
+  local mem = npcKey and ns.char.npc[npcKey]
+  if not mem then return end
+  mem.topics = mem.topics or {}
+  mem.topics[id] = C.Now()
+  mem.gated = mem.gated or {}
+  mem.gated[id] = need or true
+  if mem.nothing then mem.nothing[id] = nil end
+end
+
+-- The disposition they wanted before they'd talk about it (nil when they never refused).
+function Topics.GatedFrom(id, npcKey)
+  local mem = npcKey and ns.char.npc[npcKey]
+  local g = mem and mem.gated and mem.gated[id]
+  if g == nil then return nil end
+  return type(g) == "number" and g or (ns.Disposition and ns.Disposition.GATE_ORDINARY or 35)
+end
+
+-- Still refused: they turned it down, and (in a conversation with them now) their
+-- disposition is still short of what they wanted.
+function Topics.StillGated(id, npcKey, disp)
+  local need = Topics.GatedFrom(id, npcKey)
+  if not need then return false, nil end
+  if type(disp) == "number" and disp >= need then return false, need end
+  return true, need
 end
 
 -- What people said when asked about it, for the journal's "Heard of" page: one answer per

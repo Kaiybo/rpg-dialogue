@@ -34,6 +34,7 @@ local function refresh()
   local s = ns.Conversation.session
   local npcKey = s and s.memKey
   local list = ns.Topics.Filter(ns.Topics.Known(showArchive, npcKey), text)
+  local disp = s and ns.Disposition and ns.Disposition.For(s.env, s.ctx)
   filtered = ns.Topics.Rows(list, text ~= nil and text ~= "")
   for i = 1, MAX_ROWS do
     local row = panel.rows[i]
@@ -52,9 +53,11 @@ local function refresh()
       row.topic = t.id
       local asked = npcKey and ns.Topics.AskedOf(t.id, npcKey)
       local nothing = asked and ns.Topics.NothingFrom(t.id, npcKey)
+      local gated = asked and ns.Topics.StillGated(t.id, npcKey, disp)
       local suffix = ""
       if t.archived then suffix = " |cff888888(" .. L.ASK_ARCHIVED .. ")|r" end
-      if nothing then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_NOTHING .. ")|r"
+      if gated then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_GATED .. ")|r"
+      elseif nothing then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_NOTHING .. ")|r"
       elseif asked then suffix = suffix .. " " .. Theme.Hex("dim") .. "(" .. L.ASK_ASKED .. ")|r" end
       row.label:SetText("  " .. t.name .. suffix)
       Theme.TextColor(row.label, "choice")
@@ -128,7 +131,12 @@ local function create()
       end
       local s = ns.Conversation.session
       local key = s and s.memKey
-      if key and ns.Topics.NothingFrom(self.topic, key) then
+      local disp = s and ns.Disposition and ns.Disposition.For(s.env, s.ctx)
+      local gated, need = false, nil
+      if key then gated, need = ns.Topics.StillGated(self.topic, key, disp) end
+      if gated then
+        GameTooltip:AddLine(L.ASK_GATED_TIP:format(ns.Disposition.TierName(need)), 1, 0.5, 0.4, true)
+      elseif key and ns.Topics.NothingFrom(self.topic, key) then
         GameTooltip:AddLine(L.ASK_NOTHING_TIP, 0.7, 0.7, 0.7, true)
       elseif key and ns.char.npc[key] and ns.char.npc[key].knows and ns.char.npc[key].knows[self.topic] then
         GameTooltip:AddLine(L.ASK_KNOWS_ROW_TIP, 0.7, 0.7, 0.7, true)

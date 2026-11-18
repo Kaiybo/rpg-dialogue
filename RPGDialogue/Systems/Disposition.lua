@@ -12,6 +12,8 @@
 --     * their rivals (`rivals` on the NPC, 0.55.0): your affinity with each
 --       rival x3 against you (to -15), or, if you've crossed the rival,
 --       x1 in your favour (to +5)
+--     * Admire / Taunt / Intimidate (Systems/Persuasion.lua, 0.85.0): a modifier that
+--       fades by a point a day
 --     * their prejudices (`prejudice` on the NPC, 0.80.0): what they hold against your
 --       race, faction, class or origin, eased by 3 for each point of affinity you've earned
 --       (to -25 in all)
@@ -27,6 +29,36 @@ ns.Disposition = Disp
 
 -- A Persuade check with no conditions of its own passes from here up (Engine.CheckChoice).
 Disp.PERSUADE = 65
+
+-- What they'll talk about (0.85.0). Below GATE_ORDINARY (Cold or worse) they won't discuss
+-- anything but the "ask anyone" topics; secrets and personal topics need GATE_PRIVATE
+-- (Warm). A topic's own `minDisposition` overrides both; a line's `minDisposition` holds
+-- that one answer back.
+Disp.GATE_ORDINARY = 35   -- Wary or better
+Disp.GATE_PRIVATE = 60    -- Warm or better
+Disp.PRIVATE_CATEGORIES = { secrets = true, personal = true }
+
+-- The disposition a topic needs with this NPC (0 for none). Private: the topic says
+-- `private`/`secret`, its category is secrets or personal, its `about` names this NPC, or
+-- the NPC lists it in its own `private`.
+function Disp.TopicNeed(topic, info)
+  local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
+  if topic == "knows" or (tdef and tdef.standard) then return 0 end
+  if tdef and type(tdef.minDisposition) == "number" then return tdef.minDisposition end
+  local def = info and info.def
+  local private = tdef and (tdef.private or tdef.secret or Disp.PRIVATE_CATEGORIES[tdef.category or ""])
+  if not private and tdef and tdef.about and info and info.key then
+    local about = type(tdef.about) == "table" and tdef.about or { tdef.about }
+    for _, k in ipairs(about) do if k == info.key then private = true; break end end
+  end
+  if not private and def and type(def.private) == "table" then
+    for _, k in ipairs(def.private) do if k == topic then private = true; break end end
+  end
+  if type(def and def.topicGates) == "table" and type(def.topicGates[topic]) == "number" then
+    return def.topicGates[topic]
+  end
+  return private and Disp.GATE_PRIVATE or Disp.GATE_ORDINARY
+end
 
 Disp.TIERS = {
   { id = "hostile", max = 19 }, { id = "cold", max = 34 }, { id = "wary", max = 44 },
@@ -179,6 +211,8 @@ function Disp.Compute(info, mem, ctx)
   add(-left, "prejudice")
   local reaction = ctx and ctx.npcReaction
   if type(reaction) == "number" and reaction <= 3 then add(-10, "unfriendly") end
+  -- Admire, Taunt, Intimidate (0.85.0): what's left of how they took it.
+  if ns.Persuasion then add(ns.Persuasion.Modifier(mem), "persuade") end
   return clamp(v, 0, 100), why
 end
 

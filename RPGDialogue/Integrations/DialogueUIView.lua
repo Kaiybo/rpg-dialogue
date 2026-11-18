@@ -87,6 +87,19 @@ end
 local function buildRows(p)
   local out = {}
   local Conv = ns.Conversation
+  if p.persuading then
+    -- Admire, Taunt, Intimidate (0.85.0): once a day each with each person.
+    local state = Conv.PersuadeState() or {}
+    for _, action in ipairs(ns.Persuasion.ACTIONS) do
+      local st = state[action]
+      local name = L["PERSUADE_" .. action:upper()]
+      local usable = st ~= nil and st.usable
+      out[#out + 1] = { text = usable and name or (name .. " (" .. L.PERSUADE_TRIED .. ")"), locked = not usable,
+        onClick = function() page.persuading = nil; Conv.Persuade(action) end }
+    end
+    out[#out + 1] = { text = L.DUI_BACK, gap = true, onClick = function() page.persuading = nil; V.Refresh() end }
+    return out
+  end
   if p.asking then
     -- What the player can say back to the last answer (0.82.0), above the list.
     for i, c in ipairs(p.choices or {}) do
@@ -97,6 +110,7 @@ local function buildRows(p)
     local s = Conv.session
     local key = s and s.memKey
     local all = ns.Topics.Known(false, key)
+    local disp = s and ns.Disposition and ns.Disposition.For(s.env, s.ctx)
     local std, knows, rest = {}, {}, {}
     for _, t in ipairs(all) do
       if t.standard then std[#std + 1] = t elseif t.knows then knows[#knows + 1] = t else rest[#rest + 1] = t end
@@ -112,7 +126,8 @@ local function buildRows(p)
       local t = topics[i]
       local id = t.id
       local suffix = ""
-      if key and ns.Topics.NothingFrom(id, key) then suffix = " (" .. L.ASK_NOTHING .. ")"
+      if key and ns.Topics.StillGated(id, key, disp) then suffix = " (" .. L.ASK_GATED .. ")"
+      elseif key and ns.Topics.NothingFrom(id, key) then suffix = " (" .. L.ASK_NOTHING .. ")"
       elseif key and ns.Topics.AskedOf(id, key) and not t.standard then suffix = " (" .. L.ASK_ASKED .. ")"
       elseif t.knows then suffix = " *" end
       out[#out + 1] = { text = t.name .. suffix, onClick = function() Conv.Ask(id) end }
@@ -139,7 +154,12 @@ local function buildRows(p)
     out[#out + 1] = { text = n > 0 and L.DUI_ASK_N:format(n) or L.DUI_ASK, gap = true,
       onClick = function() page.asking = true; page.askPage = 0; V.Refresh() end }
   end
-  out[#out + 1] = { text = L.GET_ON_WITH_IT, gap = not p.canAsk, onClick = function() Conv.Business() end }
+  if ns.Persuasion and Conv.PersuadeState() then
+    out[#out + 1] = { text = L.DUI_PERSUADE, gap = not p.canAsk,
+      onClick = function() page.persuading = true; V.Refresh() end }
+  end
+  out[#out + 1] = { text = L.GET_ON_WITH_IT, gap = not p.canAsk and not Conv.PersuadeState(),
+    onClick = function() Conv.Business() end }
   return out
 end
 
@@ -218,7 +238,7 @@ end
 
 function V.SetChoices(choices)
   if not page then return end
-  page.choices, page.asking = choices, nil
+  page.choices, page.asking, page.persuading = choices, nil, nil
   if lastView then lastView.choices = choices end
   V.Refresh()
 end

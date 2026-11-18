@@ -455,13 +455,28 @@ end
 --   * A named NPC's story is their own or a polite deflection, never a role's stock one.
 --   * Latest rumors: the NPC's own, then whatever is going round this zone (any role can
 --     pass on hearsay, not only innkeepers), then their role's or anyone's.
+-- A line's `minDisposition` (0.85.0) holds that answer back until they think well enough of you.
+local function dispFilter(disp)
+  return function(line)
+    local need = line.minDisposition
+    if type(need) == "number" and disp < need then return false, ("disposition %d < %d"):format(disp, need) end
+    return true
+  end
+end
+
+local function currentDisposition(ctx, env)
+  if not ns.Disposition or not env then return 50 end
+  return ns.Disposition.For(env, ctx)
+end
+
 function Engine.PickTopic(info, topic, ctx, env)
   local cands = {}
   local def = info.def
   local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
   local standard = tdef and tdef.standard
+  local held = dispFilter(currentDisposition(ctx, env))
   if def and def.topics then
-    add(cands, def.topics[topic], Engine.BASE.own, "own")
+    add(cands, def.topics[topic], Engine.BASE.own, "own", held)
     if #cands == 0 and not standard then add(cands, def.topics._none, 90, "own-brushoff") end
   end
   if topic == "rumors" and #cands == 0 and ns.Rumors then
@@ -472,17 +487,108 @@ function Engine.PickTopic(info, topic, ctx, env)
     for _, p in ipairs(ns.Data.PoolsFor(info, ctx, true)) do
       local topics = p.pool.topics or {}
       if not (standard and topic == "background" and named) then
-        add(cands, topics[topic], p.base, "pool:" .. p.pool.id)
+        add(cands, topics[topic], p.base, "pool:" .. p.pool.id, held)
       end
       if not standard then add(cands, topics._none, p.base - 150, "pool-brushoff:" .. p.pool.id) end
     end
     for _, g in ipairs(ns.Data.GenericFor(ctx)) do
       local topics = g.topics or {}
-      add(cands, topics[topic], 0, "generic:" .. g.id)
+      add(cands, topics[topic], 0, "generic:" .. g.id, held)
       if not standard then add(cands, topics._none, -100, "generic-brushoff:" .. g.id) end
     end
   end
   return Engine.Pick("topic", cands, ctx, env, { node = "topic:" .. topic })
+end
+
+---------------------------------------------------------------------------
+-- Disposition gates (0.85.0): what they won't talk about yet
+---------------------------------------------------------------------------
+-- The disposition this topic needs before they'll discuss it at all (Disposition.TopicNeed),
+-- when they don't have it yet; else nil. Returns need, current disposition.
+function Engine.TopicGate(info, topic, ctx, env)
+  if not ns.Disposition then return nil end
+  local disp = currentDisposition(ctx, env)
+  local need = ns.Disposition.TopicNeed(topic, info)
+  if disp < need then return need, disp end
+  return nil
+end
+
+-- When the answer they gave was a brush-off: the lowest `minDisposition` among the answers
+-- they'd otherwise have given (so the brush-off counts as "won't say", not "nothing to say").
+function Engine.HeldAnswerNeed(info, topic, ctx, env)
+  local disp = currentDisposition(ctx, env)
+  local lowest
+  local function scan(list)
+    for _, line in ipairs(list or {}) do
+      local m = line.minDisposition
+      if type(m) == "number" and disp < m and Cond.Eval(line.when, ctx, env) then
+        if not lowest or m < lowest then lowest = m end
+      end
+    end
+  end
+  local def = info.def
+  if def and def.topics then scan(def.topics[topic]) end
+  if ns.Data then
+    for _, p in ipairs(ns.Data.PoolsFor(info, ctx, true)) do scan((p.pool.topics or {})[topic]) end
+    for _, g in ipairs(ns.Data.GenericFor(ctx)) do scan((g.topics or {})[topic]) end
+  end
+  return lowest, disp
+end
+
+-- Their refusal, in their voice: the NPC's own `topics._gated`, then their pools', then
+-- the generic ones (RPGDialogue_World).
+function Engine.PickGated(info, ctx, env)
+  local cands = {}
+  local def = info.def
+  if def and def.topics then add(cands, def.topics._gated, Engine.BASE.own, "own-gated") end
+  if ns.Data then
+    for _, p in ipairs(ns.Data.PoolsFor(info, ctx, true)) do
+      add(cands, (p.pool.topics or {})._gated, p.base, "pool-gated:" .. p.pool.id)
+    end
+    for _, g in ipairs(ns.Data.GenericFor(ctx)) do
+      add(cands, (g.topics or {})._gated, 0, "generic-gated:" .. g.id)
+    end
+  end
+  return Engine.Pick("topic", cands, ctx, env, { node = "topic:_gated" })
+end
+
+---------------------------------------------------------------------------
+-- Admire, Taunt, Intimidate (0.85.0): how they answer
+---------------------------------------------------------------------------
+-- The NPC's own `persuade[action][result]`, then the reply sets (P:Persuade) for their
+-- role (and subtitle), for their side, then everyone's. A set's `role` and `subtitle` narrow
+-- it; lines carry ordinary conditions (`race`, `class`, `faction`, `disposition`...).
+local function persuadeSetBase(set, info, ctx)
+  if set.faction and set.faction ~= ctx.faction then return nil end
+  if set.zone and not U.Contains(U.AsList(set.zone), ctx.zone) then return nil end
+  if set.subzone and not U.Contains(U.AsList(set.subzone), ctx.subzone) then return nil end
+  local base = (set.subzone and 80) or (set.zone and 60) or 0
+  if set.role then
+    if not U.Contains(U.AsList(set.role), info.role) then return nil end
+    base = 150
+  end
+  if set.subtitle then
+    local have = type(info.subtitle) == "string" and info.subtitle:lower() or ""
+    local ok = false
+    for _, w in ipairs(U.AsList(set.subtitle)) do if have:find(w, 1, true) then ok = true; break end end
+    if not ok then return nil end
+    base = base + 50
+  end
+  if set.faction then base = base + 30 end
+  return base
+end
+
+function Engine.PickPersuade(info, action, result, ctx, env)
+  local cands = {}
+  local def = info.def
+  local own = def and def.persuade and def.persuade[action]
+  if own then add(cands, own[result], Engine.BASE.own, "own") end
+  for _, set in ipairs(ns.Data and ns.Data.persuade or {}) do
+    local base = persuadeSetBase(set, info, ctx)
+    local lists = base and set[action]
+    if lists then add(cands, lists[result], base, "persuade:" .. set.id) end
+  end
+  return Engine.Pick("persuade", cands, ctx, env, { node = "persuade:" .. action })
 end
 
 ---------------------------------------------------------------------------

@@ -328,6 +328,8 @@ local function build()
   checkbox(L.OPT_DISPOSITION, "showDisposition")
   checkbox(L.OPT_APPROVAL, "approval")
   checkbox(L.OPT_CHECK_RESULTS, "checkResults")
+  checkbox(L.OPT_PERSUASION, "persuasion", { onChange = function() if UI.Dialogue and UI.Dialogue.SetDisposition and ns.Conversation.session then UI.Dialogue.SetDisposition(ns.Conversation.DispositionView(ns.Conversation.session)) end end })
+  checkbox(L.OPT_GATES, "dispositionGates")
 
   -- The world: people noticing you, speaking up, the madness.
   header(L.OPT_HEADER_WORLD)

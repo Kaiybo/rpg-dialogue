@@ -32,6 +32,7 @@ Systems\Rumors.lua
 Systems\Towns.lua
 Systems\Kin.lua
 Systems\Disposition.lua
+Systems\Persuasion.lua
 Systems\Topics.lua
 Systems\Books.lua
 Systems\Insanity.lua

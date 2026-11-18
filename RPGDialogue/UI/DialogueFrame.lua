@@ -85,6 +85,13 @@ D.utf8Cut = utf8Cut
 local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
+
+local PERSUADE_ACTIONS = { "admire", "taunt", "intimidate" }
+local PERSUADE_ICONS = {
+  admire = "Interface\\Icons\\Spell_Holy_Heal",
+  taunt = "Interface\\Icons\\Spell_Nature_Reincarnation",
+  intimidate = "Interface\\Icons\\Ability_GolemThunderClap",
+}
 local function isGame() return Theme.IsGame() end
 -- "Large dialogue box" (0.82.0): a wider, taller box with bigger text, easier to read.
 local LARGE_EXTRA_W, LARGE_GAME_EXTRA_W, LARGE_EXTRA_H, LARGE_TEXT = 220, 150, 110, 3
@@ -348,6 +355,32 @@ local function create()
   frame.disp:SetScript("OnLeave", function() GameTooltip:Hide() end)
   frame.disp:Hide()
 
+  -- Admire, Taunt, Intimidate (0.85.0): small buttons on the bottom bar, an icon (and, in
+  -- the wide wood look, a word). Each is tried once a day with each person.
+  frame.persuade = {}
+  for i, action in ipairs(PERSUADE_ACTIONS) do
+    local b = CreateFrame("Button", nil, frame)
+    b.action = action
+    b:SetSize(18, 18)
+    b.icon = b:CreateTexture(nil, "ARTWORK")
+    b.icon:SetSize(16, 16)
+    b.icon:SetPoint("LEFT", 1, 0)
+    b.icon:SetTexture(PERSUADE_ICONS[action])
+    b.label = b:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    b.label:SetPoint("LEFT", b.icon, "RIGHT", 3, 0)
+    b.label:SetText(L["PERSUADE_" .. action:upper()])
+    b.hl = b:CreateTexture(nil, "HIGHLIGHT")
+    b.hl:SetAllPoints()
+    b.hl:SetColorTexture(1, 1, 1, 0.12)
+    b:SetScript("OnClick", function(self)
+      if self.usable then ns.Conversation.Persuade(self.action) end
+    end)
+    b:SetScript("OnEnter", function(self) D.PersuadeTooltip(self) end)
+    b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    b:Hide()
+    frame.persuade[i] = b
+  end
+
   frame.flagBox = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
   frame.flagBox:SetSize(WOOD_WIDTH - 2 * PAD - 120, 20)
   frame.flagBox:SetAutoFocus(false)
@@ -492,6 +525,7 @@ function D.Style()
   frame.said:SetSpacing(settings().lineSpacing or 3)
   Theme.SetFont(frame.flagHint, "body", size - 3)
   Theme.SetFont(frame.disp.label, "body", size - 2)
+  for _, b in ipairs(frame.persuade) do Theme.SetFont(b.label, "body", size - 3) end
   Theme.Shadow(frame.disp.label, false)
   Theme.TextColor(frame.disp.label, "header")
   frame.text:SetSpacing(settings().lineSpacing or 3)
@@ -574,7 +608,29 @@ function D.Layout()
     end
   end
   frame.disp:SetShown(frame.disp.value ~= nil and not frame.flagBox:IsShown())
-  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown()
+  -- Persuasion buttons sit just left of "Ask about..." (or the corner), right to left.
+  local persuadeOn = frame.persuadeState ~= nil and not frame.flagBox:IsShown()
+  local words = not game
+  local anchor, anchorPoint, gap = frame.ask, "LEFT", -6
+  if not frame.ask:IsShown() then
+    anchor, anchorPoint, gap = frame, "BOTTOMRIGHT", 0
+  end
+  for i = #frame.persuade, 1, -1 do
+    local b = frame.persuade[i]
+    b:SetShown(persuadeOn)
+    if persuadeOn then
+      b.label:SetShown(words)
+      b:SetWidth(words and (22 + (b.label:GetStringWidth() or 40)) or 18)
+      b:ClearAllPoints()
+      if anchor == frame then
+        b:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", game and -8 or -16, game and 6 or 16)
+      else
+        b:SetPoint("RIGHT", anchor, anchorPoint, gap, 0)
+      end
+      anchor, anchorPoint, gap = b, "LEFT", words and -8 or -2
+    end
+  end
+  local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown() or persuadeOn
   if game then
     local bottom = barShown and GAME_BAR or 4
     -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
@@ -820,6 +876,7 @@ end
 -- d: { value, name, why } or nil (setting off, or a game page).
 function D.SetDisposition(d, noLayout)
   if not frame then return end
+  D.SetPersuade(ns.Conversation.PersuadeState and ns.Conversation.PersuadeState() or nil)
   frame.disp.value = d
   if d then
     frame.disp.label:SetText(L.DISP_LABEL:format(Theme.Hex("title") .. d.name .. "|r"))
@@ -830,7 +887,30 @@ function D.SetDisposition(d, noLayout)
   if not noLayout then D.Layout() end
 end
 
-local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE" }
+-- state: { [action] = { usable, last } } or nil (off, or a game page).
+function D.SetPersuade(state)
+  if not frame then return end
+  frame.persuadeState = state
+  for _, b in ipairs(frame.persuade) do
+    local st = state and state[b.action]
+    b.usable = st ~= nil and st.usable
+    b.icon:SetDesaturated(not b.usable)
+    b.icon:SetAlpha(b.usable and 1 or 0.45)
+    if b.usable then Theme.TextColor(b.label, "header") else Theme.TextColor(b.label, "dim") end
+  end
+end
+
+function D.PersuadeTooltip(b)
+  local name = L["PERSUADE_" .. b.action:upper()]
+  GameTooltip:SetOwner(b, "ANCHOR_TOP")
+  GameTooltip:SetText(name)
+  GameTooltip:AddLine(L["PERSUADE_" .. b.action:upper() .. "_TIP"], 1, 1, 1, true)
+  if not b.usable then GameTooltip:AddLine(L.PERSUADE_TRIED_TIP, 0.7, 0.7, 0.7, true) end
+  GameTooltip:Show()
+end
+
+local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE",
+  persuade = "DISP_WHY_PERSUADE" }
 
 function D.DispositionTooltip(owner)
   local d = frame.disp.value
