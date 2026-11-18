@@ -20,7 +20,7 @@ WoW (Forever, Classic-based client 1.60) addon: CRPG-style NPC conversations. Co
 2. Add `## x.y.z (date)` to `CHANGELOG.md` (and each changed pack's own `CHANGELOG.md`): user-facing, short.
 3. Update `HANDOFF.md` (state + next step only; history lives in the changelog and git).
 4. `python3 tools/build_zip.py` (zip in `tools/out/`; send it to the user).
-5. Commit, push to the session branch, open a draft PR. Once merged to `claude/import`, `.github/workflows/github-release.yml` publishes the GitHub release (tag `v<version>`, zip, changelog notes) automatically.
+5. Commit, push to the session branch, open a draft PR. Once merged to `claude/import`, `.github/workflows/github-release.yml` publishes the GitHub release (tag `v<version>`, zip, changelog notes) automatically, via `tools/gh_releases.py`, which also backfills any version without one.
 
 ## Rules that always hold
 - Whole-sentence, natural Warcraft voice (no clipped fragments). Player replies 15 words or fewer.
