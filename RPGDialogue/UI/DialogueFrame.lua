@@ -86,9 +86,10 @@ local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
 
-local PERSUADE_ACTIONS = { "admire", "taunt", "intimidate" }
+local PERSUADE_ACTIONS = { "admire", "joke", "taunt", "intimidate" }
 local PERSUADE_ICONS = {
   admire = "Interface\\Icons\\Spell_Holy_Heal",
+  joke = "Interface\\Icons\\INV_Misc_Bell_01",
   taunt = "Interface\\Icons\\Spell_Nature_Reincarnation",
   intimidate = "Interface\\Icons\\Ability_GolemThunderClap",
 }
@@ -475,8 +476,6 @@ local function placeParts(game)
     frame.ask:SetSize(118, 20)
     frame.ask:SetPoint("BOTTOMRIGHT", -8, 4)
     frame.disp:SetPoint("BOTTOMLEFT", 12, 7)
-    frame.disp.label:SetFontObject("GameFontNormalSmall")
-    frame.tone.label:SetFontObject("GameFontNormalSmall")
     frame.flagBox:SetPoint("BOTTOMLEFT", 12, 5)
     -- The metal border reaches past the frame (most at the portrait corner and the top).
     frame:SetClampRectInsets(-13, 4, 16, -3)
@@ -499,8 +498,6 @@ local function placeParts(game)
     frame.ask:SetSize(140, 22)
     frame.ask:SetPoint("BOTTOMRIGHT", -16, 14)
     frame.disp:SetPoint("BOTTOMLEFT", PAD + 6, 16)
-    frame.disp.label:SetFontObject("GameFontHighlight")
-    frame.tone.label:SetFontObject("GameFontHighlight")
     frame.flagBox:SetPoint("BOTTOMLEFT", PAD + 6, 10)
     frame.flagHint:SetPoint("LEFT", frame.flagBox, "RIGHT", 8, 0)
     frame:SetClampRectInsets(0, 0, 0, 0)
@@ -637,47 +634,31 @@ function D.Layout()
     end
   end
   frame.disp:SetShown(frame.disp.value ~= nil and not frame.flagBox:IsShown())
-  -- Persuasion buttons sit just left of "Ask about..." (or the corner), right to left.
+  -- The actions (0.87.0): a row of their own above the bottom bar in both looks, each an
+  -- icon and its name, spread evenly across the box. The bar itself keeps Disposition (left)
+  -- and "Ask about..." (right), which never fit beside four named buttons.
   local persuadeOn = frame.persuadeState ~= nil and not frame.flagBox:IsShown()
-  local words = true   -- 0.86.0: actions always show their names
-  local anchor, anchorPoint, gap = frame.ask, "LEFT", -6
-  if not frame.ask:IsShown() then
-    anchor, anchorPoint, gap = frame, "BOTTOMRIGHT", 0
-  end
-  -- Game look (0.86.1): the bar is too narrow, so the actions get their own row above it,
-  -- left to right, and the bar keeps just Disposition and Ask about.
-  if game then
-    local prev
+  local ACTION_ROW = 24
+  do
+    local left = game and 14 or (PAD + 6)
+    local avail = W - 2 * left
+    local total = 0
     for _, b in ipairs(frame.persuade) do
       b:SetShown(persuadeOn)
-      if persuadeOn then
-        b.label:SetShown(true)
-        b:SetHeight(20)
-        b.icon:SetSize(18, 18)
-        b:SetWidth(26 + (b.label:GetStringWidth() or 40))
-        b:ClearAllPoints()
-        if prev then b:SetPoint("LEFT", prev, "RIGHT", 16, 0)
-        else b:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 12, GAME_BAR + 2) end
-        prev = b
-      end
+      b.label:Show()
+      b:SetHeight(20)
+      b.icon:SetSize(16, 16)
+      b:SetWidth(22 + math.ceil(b.label:GetStringWidth() or 40))
+      total = total + b:GetWidth()
     end
-  end
-  for i = #frame.persuade, 1, -1 do
-    local b = frame.persuade[i]
-    if game then break end
-    b:SetShown(persuadeOn)
-    if persuadeOn then
-      b.label:SetShown(words)
-      b:SetHeight(words and 18 or 20)
-      b.icon:SetSize(words and 16 or 18, words and 16 or 18)
-      b:SetWidth(words and (22 + (b.label:GetStringWidth() or 40)) or 20)
+    local n = #frame.persuade
+    -- Game look: justified edge to edge. Wood look (much wider): a steady gap from the left.
+    local gap = game and math.max(4, math.floor((avail - total) / math.max(1, n - 1))) or 22
+    local x = left
+    for _, b in ipairs(frame.persuade) do
       b:ClearAllPoints()
-      if anchor == frame then
-        b:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", game and -8 or -16, game and 6 or 16)
-      else
-        b:SetPoint("RIGHT", anchor, anchorPoint, (anchor == frame.ask and not words) and -10 or gap, 0)
-      end
-      anchor, anchorPoint, gap = b, "LEFT", words and -8 or -5
+      b:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", x, game and (GAME_BAR + 2) or 42)
+      x = x + b:GetWidth() + gap
     end
   end
   frame.tone:SetShown(frame.tone.value ~= nil and not frame.flagBox:IsShown())
@@ -692,7 +673,7 @@ function D.Layout()
   local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown() or frame.tone:IsShown() or persuadeOn
   if game then
     local bottom = barShown and GAME_BAR or 4
-    if persuadeOn then bottom = bottom + 24 end
+    if persuadeOn then bottom = bottom + ACTION_ROW end
     -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
     if frame.flagBox:IsShown() or (frame.flagHint:GetText() or "") ~= "" then
       y = y - 16
@@ -712,6 +693,7 @@ function D.Layout()
   else
     frame.flagBox:SetWidth(woodWidth() - 2 * PAD - 120)
     if barShown then y = y - 36 end
+    if persuadeOn then y = y - ACTION_ROW end
     frame:SetHeight(-y + PAD - 4)
   end
   -- The Ask list beside the box keeps its height.

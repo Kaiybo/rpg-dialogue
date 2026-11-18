@@ -262,7 +262,7 @@ end
 function kinds.Persuade(pack, def)
   if not def.id then return warn(pack, "Persuade without id") end
   def._pack = pack.id
-  for _, action in ipairs({ "admire", "taunt", "intimidate" }) do
+  for _, action in ipairs({ "admire", "joke", "taunt", "intimidate" }) do
     for _, result in ipairs({ "success", "fail" }) do
       local list = def[action] and def[action][result]
       indexList(list, "persuade:" .. def.id .. "." .. action .. "." .. result, "persuade:" .. def.id, "persuade")

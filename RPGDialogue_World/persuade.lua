@@ -394,6 +394,175 @@ P:Persuade { id = "flightmaster", role = { "flightmaster", "stablemaster" },
 }
 
 ---------------------------------------------------------------------------
+-- Joke (0.87.0): you tell them one, and they laugh or they don't.
+---------------------------------------------------------------------------
+P:Persuade { id = "joke_any",
+  joke = {
+    success = {
+      { id = "s1", text = "Ha! Oh, that's a good one, {class}. I'll be telling that at supper and passing it off as my own." },
+      { id = "s2", text = "Now that did me good. I haven't had a proper laugh since the last caravan came through." },
+      { id = "s3", text = "Ha ha! You've missed your calling, friend, because there's a tavern somewhere that would feed you for that." },
+      { id = "s4", text = "Oh, stop, you'll have me in stitches, and I've work to finish before dark." },
+      { id = "s5", text = "That's terrible, truly terrible, and I'm laughing anyway, so I suppose you win." },
+      { id = "s6", when = { race = "Gnome" }, text = "Ha! I didn't expect that from a gnome; I was braced for something about gear ratios." },
+      { id = "s7", when = { race = "Dwarf" }, text = "Ha! Trust a dwarf to know a good one. That's a joke with some ale behind it." },
+      { id = "s8", when = { race = "Troll" }, text = "Ha! You trolls laugh at the strangest things, and it seems I do too." },
+      { id = "s9", when = { race = "Scourge" }, text = "Gallows humour from someone who's been to the gallows and back. I shouldn't laugh, but there it is." },
+    },
+    fail = {
+      { id = "f1", text = "Was that meant to be funny? I'll laugh later, {class}, when I've worked out which part was the joke." },
+      { id = "f2", text = "I heard that one from my grandfather, and it was old when he told it." },
+      { id = "f3", text = "Hm. I'm sure it's very amusing wherever you come from." },
+      { id = "f4", text = "I've had a long day, friend, and that didn't make it any shorter." },
+      { id = "f5", text = "You'll forgive me if I don't laugh. There's not been much to laugh about around here lately." },
+      { id = "f6", when = { race = "Tauren" }, text = "Perhaps it's funnier in your own tongue. In mine it just sort of lay there, I'm afraid." },
+      { id = "f7", when = { race = "NightElf" }, text = "Ten thousand years to polish a jest, and that's the one you chose to bring me?" },
+      { id = "f8", when = { race = "Scourge" }, text = "Jokes from the dead, now. I liked it better when your sort only moaned." },
+    },
+  },
+}
+
+P:Persuade { id = "joke_horde", faction = "Horde",
+  joke = {
+    success = {
+      { id = "s1", text = "Ha! Good. A Horde that can't laugh at itself is only an army, and we're meant to be more than that." },
+      { id = "s2", text = "Ha, that's a fine one! I'll carry it to the next campfire, {class}." },
+    },
+    fail = {
+      { id = "f1", text = "There's a time for jests, {class}, and it's after the work is done and the dead are counted." },
+    },
+  },
+}
+
+P:Persuade { id = "joke_alliance", faction = "Alliance",
+  joke = {
+    success = {
+      { id = "s1", text = "Ha! Light knows we could all do with a laugh these days. Thank you for that, {class}." },
+      { id = "s2", text = "Oh, very good! I shall have to remember that one for the next feast day." },
+    },
+    fail = {
+      { id = "f1", text = "I'm sure that goes down well in the barracks, {class}, but it's wasted on me." },
+    },
+  },
+}
+
+P:Persuade { id = "joke_orcs", zone = { "Orgrimmar", "Durotar" },
+  joke = {
+    success = { { id = "s1", text = "Ha! Even my old wolf would have laughed at that, and he bites people who smile at him." } },
+    fail = { { id = "f1", text = "Orcs laugh after the battle, not instead of it. Bring me a victory, and then your jest." } },
+  },
+}
+
+P:Persuade { id = "joke_trolls", subzone = { "Sen'jin Village", "Echo Isles", "Darkspear Strand" },
+  joke = {
+    success = { { id = "s1", text = "Ha ha! Dat's a good one, mon. Even Bwonsamdi be laughin' at dat, and he's heard dem all." } },
+    fail = { { id = "f1", text = "Ya tell it like a tax collector, mon. A joke needs a little rhythm, and you got none." } },
+  },
+}
+
+P:Persuade { id = "joke_tauren", zone = { "Thunder Bluff", "Mulgore" },
+  joke = {
+    success = { { id = "s1", text = "Ho! The Earth Mother gave us laughter for days like this one. That was well told, friend." } },
+    fail = { { id = "f1", text = "I've turned it over twice, as I'd turn a stone, and I still can't find the laughter under it." } },
+  },
+}
+
+P:Persuade { id = "joke_forsaken", zone = { "Undercity", "Tirisfal Glades" },
+  joke = {
+    success = { { id = "s1", text = "Ha. I didn't know I could still do that. How unsettling, and how pleasant." } },
+    fail = { { id = "f1", text = "I died once already, and that was a livelier affair than your joke." } },
+  },
+}
+
+P:Persuade { id = "joke_dwarves", zone = { "Ironforge", "Dun Morogh" },
+  joke = {
+    success = { { id = "s1", text = "Hah! By my beard, that's a good one! Ye'll tell it again at the tavern, and I'll stand there laughin' twice." } },
+    fail = { { id = "f1", text = "I've heard funnier from a cracked anvil, {g:lad|lass}. Try it again after an ale or three." } },
+  },
+}
+
+P:Persuade { id = "joke_gnomes", subzone = { "Tinker Town", "Gnomeregan Exiles", "Anvilmar" },
+  joke = {
+    success = { { id = "s1", text = "Ha! Oh, that's excellent, and structurally sound too: set-up, misdirection, payoff. I'm writing it down." } },
+    fail = { { id = "f1", text = "I see what you were attempting, but the timing was off by at least a second and a half." } },
+  },
+}
+
+P:Persuade { id = "joke_kaldorei", zone = { "Darnassus", "Teldrassil" },
+  joke = {
+    success = { { id = "s1", text = "Ha. It has been a long age since an outsider made me laugh, and I thank you for it." } },
+    fail = { { id = "f1", text = "The young races laugh so easily. I wonder sometimes what it is you hear that we don't." } },
+  },
+}
+
+P:Persuade { id = "joke_humans", zone = { "Stormwind City", "Elwynn Forest" },
+  joke = {
+    success = { { id = "s1", text = "Ha! That's better than anything the criers have had to say all week, I can tell you." } },
+    fail = { { id = "f1", text = "I'd keep that one away from the Cathedral Square if I were you, {class}." } },
+  },
+}
+
+P:Persuade { id = "joke_guard", role = { "guard", "soldier", "militia" },
+  joke = {
+    success = {
+      { id = "s1", text = "Ha! Don't let the captain see me laughing on watch, {class}, but that was worth the risk." },
+      { id = "s2", text = "Heh. A long watch goes quicker with a laugh in it, so I'll thank you for that one." },
+    },
+    fail = {
+      { id = "f1", text = "I'm on duty, {class}, and my face is too. Move along." },
+      { id = "f2", text = "Very droll. Now stand clear of the road, because you're blocking my view of it." },
+    },
+  },
+}
+
+P:Persuade { id = "joke_innkeeper", role = "innkeeper",
+  joke = {
+    success = {
+      { id = "s1", text = "Ha ha! Now that one's new to me, and I thought I'd heard every joke that ever leaned on this bar." },
+      { id = "s2", text = "Oh, that's a keeper! I'll have the whole common room groaning at it by nightfall." },
+    },
+    fail = {
+      { id = "f1", text = "I hear that one every night around closing, friend, and it's never once been funny." },
+    },
+  },
+}
+
+P:Persuade { id = "joke_merchant", role = { "vendor", "banker", "auctioneer" },
+  joke = {
+    success = { { id = "s1", text = "Ha! Very good. A customer who makes me laugh is a rare thing, and a welcome one." } },
+    fail = { { id = "f1", text = "Amusing, I'm sure. Were you going to buy something, or only perform?" } },
+  },
+}
+
+P:Persuade { id = "joke_smith", role = "blacksmith",
+  joke = {
+    success = { { id = "s1", text = "Ha! Careful, now, you nearly made me miss the anvil, and that's a costly sort of joke." } },
+    fail = { { id = "f1", text = "I can't hear half of what you say over the hammer, and I don't think I've missed much." } },
+  },
+}
+
+P:Persuade { id = "joke_trainer", role = "trainer",
+  joke = {
+    success = { { id = "s1", text = "Ha! Good. A student who can laugh will last longer than one who can only scowl." } },
+    fail = { { id = "f1", text = "If you put as much work into your training as into your jests, you'd be a master by now." } },
+  },
+}
+
+P:Persuade { id = "joke_peon", role = { "peon", "worker" },
+  joke = {
+    success = { { id = "s1", text = "Heh heh! Me like that one. Me tell it to the others, if me can remember the end." } },
+    fail = { { id = "f1", text = "Me not get it. Is it about work? Me hope it not about more work." } },
+  },
+}
+
+P:Persuade { id = "joke_flightmaster", role = { "flightmaster", "stablemaster" },
+  joke = {
+    success = { { id = "s1", text = "Ha! Even the beasts pricked their ears up at that one, and they've no sense of humour at all." } },
+    fail = { { id = "f1", text = "The beasts didn't laugh either, if that's any comfort to you." } },
+  },
+}
+
+---------------------------------------------------------------------------
 -- "I've nothing to say to you about that." When they don't think well enough of you yet.
 ---------------------------------------------------------------------------
 P:Generic { id = "gated", topics = {

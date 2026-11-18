@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.87.0 (2026-11-18)
+- New action: **Joke**. Tell someone a joke, once a day each. Merry, easy-going people laugh and think better of you; grim and stern ones don't, though a joke that falls flat costs little. Witty and charming characters do better. People answer in their own voice, by race, home and trade (needs RPGDialogue_World 1.41.0).
+- The actions (Admire, Joke, Taunt, Intimidate) now sit on their own row above the bottom bar in both looks, each with its icon and name, so nothing overlaps Disposition or "Ask about...".
+
 ## 0.86.1 (2026-11-18)
 - Game look: Admire, Taunt and Intimidate get their own row above the bottom bar, so they no longer cover Disposition.
 

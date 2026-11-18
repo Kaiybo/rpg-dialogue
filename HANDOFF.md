@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.86.1)
+## State (0.87.0)
+- 0.87.0 (World 1.41.0): Joke action (`Systems/Persuasion.lua`, `joke_*` sets in World `persuade.lua`); actions on their own justified row above the bar in both looks. The 0.85.1 font change never showed because `applyStyle` sets the bar fonts after `placeParts`. Not seen in game: the row's spacing in the 338-wide game look, and the Joke icon (`INV_Misc_Bell_01`, may not exist on this client). Tone code is switched off, not deleted.
 - 0.86.1: game look puts the actions on their own row above the bar (they overlapped Disposition). Not seen in game.
 - 0.86.0: tone removed (Disp.Tone always "normal", ToneView nil; content tone variants fall back to normal and can be cleaned up later). Actions show their names in the game look too. User saw no change from 0.85.1; check which look/DialogueUI they're in.
 - 0.85.1 hotfix: bottom bar tidied in the game look (user said it looked bad). Not seen in game yet.
