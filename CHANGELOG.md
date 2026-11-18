@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.86.0 (2026-11-18)
+**New files: restart the game fully (a /reload won't load them).**
+
+### More people to talk to.
+- **741 named NPCs who had nothing to say now have conversations,** across 38 zone packs. A sweep of every zone's roster turned up the people earlier passes missed: shopkeepers, trainers, guards, auctioneers, bankers, townsfolk and the children who run about the cities. The biggest gains are in Ironforge and Dun Morogh, Undercity, Stormwind, Thunder Bluff, Orgrimmar, Loch Modan and Darnassus.
+- People are placed where they stood in Classic, not where later expansions moved them: Kali Remik in Sen'jin Village, Estelle Gendry and Ralston Farnsley in the Undercity, Ashlan Stonesmirk at the Dun Modr camp, Makaba Flathoof at Camp Aparaje, Saern Priderunner on Thunder Bluff's Hunter Rise, and Cenarion Emissary Jademoon at the Great Forge.
+- Classic names where they changed later: Clerk Lendry in Theramore, Maywiki of Zuldazar.
+
 ## 0.85.0 (2026-11-18)
 Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 

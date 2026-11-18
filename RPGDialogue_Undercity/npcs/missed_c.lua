@@ -1,0 +1,75 @@
+-- Undercity folk the rosters missed, part three: Ralston Farnsley, the Horde's cloth quartermaster in the
+-- Magic Quarter (the wiki files him under Durotar, where he stands in a later age). Voice: bibles/missed_c.md
+local P = RPGDialogueAPI:Pack("rpgd.undercity")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+-- Ralston Farnsley: collects wool, silk, mageweave and runecloth for the Undercity.
+P:NPC {
+  key = "ralston_farnsley", id = TODO_NPC("Ralston Farnsley"), name = "Ralston Farnsley", gender = "male",
+  bible = "bibles/missed_c.md", role = "quartermaster", tier = "service",
+  communities = { "undercity" }, temper = { "dry", "fussy" }, values = { "thrifty", "loyal" },
+  notices = { "race", "class" },
+  impression = {
+    first = "Ralston Farnsley keeps the Horde's cloth in the Magic Quarter, and he handles a bolt of wool the way other Forsaken handle a relic. He is polite in the manner of a man who has already counted what you are carrying.",
+    third = "{name} met Ralston Farnsley, the cloth quartermaster who gathers donations for the Undercity in the Magic Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good day to you, {class}. If that pack of yours holds any cloth you can spare, the Undercity would put it to better use than the moths will." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you again, and I hope your pack is heavier than it was. My shelves empty a good deal faster than they fill." },
+    { id = "g_wool", when = { questActive = TODO_QUEST("A Donation of Wool") }, text = "You have the wool, I trust? Lay it on the table, if you please, and mind the candle." },
+  },
+  notice = {
+    { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "One of the living, and all the way down here in the damp. You are welcome, of course, though I would ask you not to bleed on the stock." },
+    { id = "n_mage", cat = "class", when = { class = { "MAGE", "WARLOCK", "PRIEST" } },
+      text = "You wear cloth yourself, I see, so you will know good weave from bad. That is rarer among my visitors than you might hope." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_forsaken", when = { race = "Scourge" }, text = "Ralston Farnsley, cloth quartermaster. You need no telling why I am here, since you can see what the grave does to a coat, and the Dark Lady has a whole people to keep decently covered." },
+        { id = "h_default", text = "I am Ralston Farnsley, and I gather cloth on behalf of the Undercity. Wool, silk, mageweave or runecloth will all serve, and whoever brings it will find that the Forsaken remember those who were useful to them." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something more? I have a tally to finish." },
+        { id = "h_again2", text = "Do go on, though I should warn you that I am counting while you talk." },
+      },
+      choices = {
+        { text = "I have cloth to donate.", next = "BUSINESS" },
+        { text = "What do the dead need with so much cloth?", next = "need" },
+        { text = "What does the Undercity give in return?", next = "return_", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Why keep cloth in the Magic Quarter?", next = "quarter" },
+        { text = "Good day, quartermaster.", next = "END" },
+      },
+    },
+    need = {
+      lines = { { id = "n_default", text = "Rather more than the living do, as it happens. A wound on one of us does not close of its own accord, so it must be stitched and bound and bound again, and what is not used for bandages goes to uniforms for the Deathguard." } },
+      choices = {
+        { text = "Which cloth do you need most?", next = "most" },
+        { text = "I hadn't thought of the dead needing bandages.", next = "bandages" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    most = {
+      lines = { { id = "m_default", text = "Runecloth, without question, and I will take as much of it as anyone cares to carry down here. Wool and silk I accept gratefully the once, but runecloth takes an enchantment and holds a stitch, and the apothecaries ask for it faster than I can fold it." } },
+      choices = { { text = "I'll keep it in mind. Another matter.", next = "BACK" } },
+    },
+    bandages = {
+      lines = { { id = "b_default", text = "Few of the living do think of it. They suppose that we feel nothing and so need nothing, when the truth is that an arm left untended simply comes off, and one has only so many arms." } },
+      choices = { { text = "A fair point. Something else.", next = "BACK" } },
+    },
+    return_ = {
+      lines = { { id = "r_default", text = "Its regard, which is not given cheaply to the living. Bring enough over enough time and the Deathguard will stop watching your hands, and I am told that those we hold in the very highest esteem may even buy our horses." } },
+      choices = { { text = "Regard will do. Something else.", next = "BACK" } },
+    },
+    quarter = {
+      lines = { { id = "q_default", text = "Because it is the driest corner of a city built in a sewer, and because the mages and warlocks next door are my most particular customers. They ruin a robe a week between them, and they are never the ones who come to replace it." } },
+      choices = { { text = "Something else, quartermaster.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I measured and counted cloth when Lordaeron had a king, and I do the same now that it has a queen. The work has changed less than I have." } },
+    _none = { { id = "tp_none", text = "That is not a thing I keep on my shelves, I am afraid. Ask me about cloth, or ask someone else." } },
+  },
+}

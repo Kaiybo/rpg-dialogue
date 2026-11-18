@@ -3,7 +3,7 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.27.0 (2026-11-18)
-- 47 named NPCs the earlier passes missed now have conversations (`npcs/missed_a.lua`, `npcs/missed_a2.lua`, `npcs/missed_a3.lua`, `npcs/missed_b.lua`, `npcs/missed_b2.lua`, `npcs/missed_b3.lua`). New files: restart the game fully.
+- 49 named NPCs the earlier passes missed now have conversations (`npcs/missed_a.lua`, `npcs/missed_a2.lua`, `npcs/missed_a3.lua`, `npcs/missed_b.lua`, `npcs/missed_b2.lua`, `npcs/missed_b3.lua`, `npcs/missed_c.lua`). New files: restart the game fully.
 
 ## 1.26.0 (2026-11-18)
 - "Where is...?" directions for Orgrimmar (`directions.lua`, new file: restart the game fully).

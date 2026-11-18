@@ -3,7 +3,7 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.25.0 (2026-11-18)
-- 2 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`). New files: restart the game fully.
+- 3 named NPCs the earlier passes missed now have conversations (`npcs/missed.lua`, `npcs/missed_makaba.lua`). New files: restart the game fully.
 
 ## 1.24.0 (2026-11-18)
 - New NPCs from the Classic-era roster (`npcs/more_folk.lua`). New files: restart the game fully.
