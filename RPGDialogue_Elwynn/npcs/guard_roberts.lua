@@ -26,7 +26,7 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
-      text = "A priest! Did Josetta send you? Don't answer that; just tell me it won't sting." },
+      text = "A priest! Did Priestess Josetta in Goldshire send you? Don't answer that; just tell me it won't sting." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look nearly as battered as I do. Sit down a minute before you fall down." },
   },
@@ -37,7 +37,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Guard Roberts, Stormwind Guard, on patrol. Lying-down patrol, for the moment, but I've a fine view of the lake and nobody's got past me yet." },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Garments of the Light") },
-          text = "Josetta sent you, didn't she? Somebody from Goldshire told her I was out here. Go on, then, do your healing and your fortifying, and try not to look so pleased about it." },
+          text = "Priestess Josetta sent you, didn't she? Somebody must have told her in Goldshire that I was lying out here. Go on, then, do your healing and your fortifying, and try not to look so pleased about it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Garments of the Light"), days = 3 } },
           text = "I can breathe without wincing, and I'd forgotten what that was like. You've a gift, and I'll say so to Josetta if she asks." },
         { id = "h_paladin", when = { class = "PALADIN" },
@@ -123,7 +123,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Mind the lakeshore after dark. The bank's softer than it looks, whatever I told the marshal." } },
     defias = { { id = "tp_defias", text = "They're on every road these days, and I'll swear one of them was on mine.", next = "hurt" } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I've been lying here a while, and news comes slowly to the grass." } },
-    heroes_vigil = { { id = "tp_heroes_vigil", text = "I can see the island from where I lie, and the stone ring where the wizards walk at night. They light fires that burn the wrong colour, and I report it, and nobody comes." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "I can see the island from where I lie, and the stone ring on it where the wizards walk at night. They light fires that burn the wrong colour, and I report it, and nobody comes." } },
     holy_light = { { id = "tp_holy_light", text = "Priestess Josetta sends young priests to pray over my leg, and I'll say this much: it hurts less after. Whether that's the Light or the company, I couldn't tell you." } },
     the_stockade = { { id = "tp_the_stockade", text = "I've walked a good few Defias to the Stockade in my time, and every one of them swore he was innocent. One of them might have been, I suppose." } },
     varian = { { id = "tp_varian", text = "A guard doesn't ask where the king's gone; a guard stands where he's put. It's harder than it sounds, lying here with nothing to stand on." } },

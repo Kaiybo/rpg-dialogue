@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Mind the gate. They're gentle, but they're not stupid, and they know an open gate." },
-    { id = "g_ready", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 }, text = "Look at you, come to choose one, have you? Take your time." },
+    { id = "g_ready", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 }, text = "Come to choose a horse, have you? Take your time." },
   },
 
   notice = {
@@ -47,7 +47,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I can, because a horse that leaves its oats or stands with its head low is telling you as plainly as any man could. Randal says I talk to them more than I talk to him, and he isn't wrong." } },
+      lines = { { id = "xdruid_default", text = "I do, because a horse that leaves its oats or stands with its head low is telling you as plainly as any man could. Randal, who teaches the riding, says I talk to them more than I talk to him, and he isn't wrong." } },
       choices = {
         { text = "A beast cared for daily repays it. That's the right way.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Horses are stock, Katie. Grieve less and sell more, I'd say.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -67,7 +67,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They fear what smells like a wolf or a cat, and most of your pets do. I've had a whole stable kick its doors because a hunter walked a lynx past the paddock, so I'd ask you to go round the long way." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks calm enough, but the mares won't believe that. Keep it by the gate, please." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They fear what smells like a wolf or a cat, and most of your pets do. Your {pet} looks calm enough, but the mares won't believe that, so keep it by the gate, please." },
       },
       choices = {
         { text = "I'll keep my beast away from your stable.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -77,7 +77,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "The Defias tried last spring, and they got as far as the fence before old Bramble kicked one of them into the trough. Stormwind horses fetch a high price on the Westfall road, so I don't blame them for trying, but I do blame them." } },
+      lines = { { id = "xrogue_default", text = "The Defias tried last spring, and they got as far as the fence before old Bramble, my lead mare, kicked one of them into the trough. Stormwind horses fetch a high price on the Westfall road, so I can see why they tried, but I don't forgive it." } },
       choices = {
         { text = "Anyone who'd steal a horse deserves the trough. Bramble did right.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A horse thief's only doing what Stormwind's tax men do.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -86,7 +86,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave your companion outside the gate." } },
+      lines = { { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave your demon outside the gate." } },
       choices = {
         { text = "Your mare comes first. I'll leave my demon at the gate.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A horse that can't stand a demon isn't worth riding.", next = "BACK", fx = { align = { light = -1 } } },
@@ -115,13 +115,13 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Would you say a blessing over the mare in foal? I'm not superstitious, but I'm not taking chances either." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The old knights rode horses bred in Elwynn, and some of their great-grandchildren are in my stalls this minute." },
-        { id = "h_default", key = true, text = "Katie Hunter. I breed the horses Stormwind rides: bred for years, cared for daily, and worth every coin. Randal teaches you to stay on them." },
-        { id = "h_young", when = { race = "Human", maxLevel = 39 }, text = "Soon, love. You'll need Randal's lessons first, and he won't teach anyone who's still green, so come back seasoned." },
+        { id = "h_default", key = true, text = "I'm Katie Hunter, and I breed the horses Stormwind rides, bred for years, cared for daily and worth every coin. Randal, over there, teaches you to stay on them." },
+        { id = "h_young", when = { race = "Human", maxLevel = 39 }, text = "You'll want a horse soon, love, but you'll need Randal's lessons first, and he won't teach anyone who's still green, so come back seasoned." },
         { id = "h_trusted", when = { ["not"] = { race = "Human" }, reputation = { faction = "Stormwind", min = "exalted" } },
-          text = "Stormwind trusts you completely, I hear, and then so do I. Come and meet them." },
+          text = "Stormwind trusts you completely, I hear, and so I do too. Come and meet them." },
         { id = "h_other", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } }, text = "These are Stormwind's horses. Earn the kingdom's full trust and we'll do business; until then, you're welcome to pat one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "I count every horse in this stable twice a night, so you know, and I know every one of them by the sound of its hooves." },
+          text = "I count every horse in this stable twice a night, just so you know, and I know every one of them by the sound of its hooves." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Keep your creature downwind of the stalls, please, because I've a mare in foal and she won't settle if she smells it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stormwind's cavalry rode my mother's horses into the last war, and they came home with warriors on their backs, those that came home." },
@@ -149,18 +149,18 @@ P:NPC {
       },
     },
     choose = {
-      lines = { { id = "c_default", text = "Not by the colour. By how it stands when you walk up. A horse that turns to look at you is a horse that'll look after you." } },
+      lines = { { id = "c_default", text = "Not by the colour, but by how it stands when you walk up. A horse that turns to look at you is a horse that'll look after you." } },
       choices = {
         { text = "And if it turns away?", next = "choose_away" },
         { text = "Something else.", next = "BACK" },
       },
     },
     choose_away = {
-      lines = { { id = "ca_default", text = "Then it's not stupid either, and you've some work ahead. Bring apples and patience, but mostly apples." } },
+      lines = { { id = "ca_default", text = "Then it's no fool either, and you've some work ahead. Bring apples and patience, but mostly apples." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     only = {
-      lines = { { id = "o_default", text = "Because good horses in the wrong hands are a cavalry charge waiting to happen. I'm not saying you're the wrong hands. Prove you're the right ones." } },
+      lines = { { id = "o_default", text = "Because good horses in the wrong hands are a cavalry charge waiting to happen. I'm not saying you're the wrong hands, only that you'll need to prove you're the right ones." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     names = {
@@ -170,9 +170,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Horses since before I could walk properly, and they taught me; I'm still learning." } },
-    advice = { { id = "tp_ad", text = "Walk the last mile. A horse that's cooled down is a horse that's ready tomorrow." } },
-    trade = { { id = "tp_tr", text = "Horses, and the bridles to call them. Stormwind's best, for Stormwind's own." } },
+    background = { { id = "tp_bg", text = "I've been around horses since before I could walk properly, and they're still teaching me." } },
+    advice = { { id = "tp_ad", text = "Walk the last mile, because a horse that's cooled down is a horse that's ready tomorrow." } },
+    trade = { { id = "tp_tr", text = "I sell horses, and the bridles to call them, Stormwind's best for Stormwind's own." } },
     _none = { { id = "tp_none", text = "I couldn't tell you that, love, but ask me about horses and I'll talk all day." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire people always want to borrow a horse for their parade, and they bring it back with ribbons in its mane. The horses come home vain for a week afterwards." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's horse fairs were the finest in the world before the plague, and every breeder in the north is gone now. It makes my stock worth more and my heart a little heavier." } },
@@ -206,7 +206,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Anyone can learn with patience. Your spirits might calm the horse, but your heels still need to be down. That doesn't change." } },
+      lines = { { id = "xdsham_default", text = "Anyone can learn with patience. Your spirits might calm the horse, but your heels still need to be down, and that doesn't change." } },
       choices = {
         { text = "Patience and proper form, Randal. I'll learn it right.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My spirits will keep me on. I'll skip the drills.", next = "BACK", fx = { align = { order = -1 } } },
@@ -244,7 +244,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It will, in time, if the beast doesn't snap at its heels. I've seen hunters ride all the way to Westfall with a cat padding beside them, and the horse never blinked once it knew the cat was a friend." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Walk your {pet} past the paddock a few times. The horses will learn its smell, and then they'll stop fretting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It will, in time, if the beast doesn't snap at its heels. Walk your {pet} past the paddock a few times, and once the horses learn its smell, they'll stop fretting." },
       },
       choices = {
         { text = "I'll take the time to teach them both.", next = "BACK", fx = { align = { order = 1 } } },
@@ -282,10 +282,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll ride the heavy horses, I expect, and you'll find them stubborn, because they were bred to stand still in a charge." },
-        { id = "h_default", key = true, text = "Randal Hunter. Katie breeds them, I teach people to stay on them. It's taken years to get the order of those two jobs right." },
+        { id = "h_default", key = true, text = "I'm Randal Hunter. Katie breeds the horses and I teach people to stay on them, and it's taken us years to get that arrangement right." },
         { id = "h_outsider", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } }, minLevel = 40 },
           text = "I teach horses, and Stormwind's people. Your own folk will have their own mounts and their own teachers; I'd go to them." },
-        { id = "h_young", when = { maxLevel = 39 }, text = "Patience. Riding's for people who've lived long enough to be careful, forty seasons on the road, give or take, so come back then." },
+        { id = "h_young", when = { maxLevel = 39 }, text = "Patience. Riding's for people who've been on the road long enough to be careful, so come back when you've more seasons behind you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Your kind always want to ride at first and then decide halfway to Stormwind that walking was faster." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -294,7 +294,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to ride with your beast trotting alongside, I suppose, and that takes a calm horse and a calmer rider." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, I'm told, and the first night elf to come to my yard. I don't suppose you need lessons, if you can turn into something with four legs yourself." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll want to learn to ride quietly, I expect, and I'll tell you now there's no such thing on a horse." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Heels down. Oh, you're not mounted. A shaman, then. Do your spirits ride, or do they just float alongside?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Heels down! Oh, you're not mounted; you're a shaman, then. Do your spirits ride, or do they just float alongside?" },
       },
       again = { { id = "h_again", text = "More questions? Good, because questions now are cheaper than falls later." } },
       choices = {
@@ -335,7 +335,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I fell off a lot when I was young. Now I teach so other people fall off less." } },
+    background = { { id = "tp_bg", text = "I fell off a lot when I was young, and now I teach so other people fall off less." } },
     advice = { { id = "tp_ad", text = "Look where you want to go, not at the thing you want to miss. Horses follow your eyes." } },
     trade = { { id = "tp_tr", text = "Riding lessons, or one lesson, really; the rest you learn by falling." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. Ask me about saddles." } },

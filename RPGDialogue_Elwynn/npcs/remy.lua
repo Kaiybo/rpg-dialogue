@@ -69,7 +69,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Something special! Something special, I promise! Totem polish? Spirit charms? Count your coins first. Count them!" } },
+      lines = { { id = "xdsham_default", text = "Something special, something special, I promise! Totem polish, spirit charms, all sorts, so count your coins first, count them!" } },
       choices = {
         { text = "I'll pay a fair price, Remy, and count my change.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Charms? I'll take two. Spirits love charms.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Arrows, and a collar, and a fellow's old fishing rod, if you're desperate! And murloc warnings, those are free, because nobody listens to Remy about the murlocs until somebody gets eaten." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! Lovely animal, lovely! Would it like a collar? A fine collar, only slightly chewed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Arrows, and a collar, and murloc warnings, those are free! And your {pet}, lovely animal, lovely! Would it like a collar? A fine collar, only slightly chewed." },
       },
       choices = {
         { text = "I'll take the murloc warning, Remy. Keep the collar.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -117,7 +117,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell half of it, and the cellar's in the other half." } },
+      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like the cellar spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell half of it, and the cellar's in the other half." } },
       choices = {
         { text = "Your secret's safe with me, Remy. I won't tell Farley.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your silence has a price, Remy. Mine does too.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -155,17 +155,17 @@ P:NPC {
           text = "I told you, I told you! Murlocs, and nobody listens to Remy until somebody gets eaten.",
           fx = { expose = "murlocs_in_elwynn" } },
         { id = "e_thomas", tags = { "news" }, priority = 5, when = { heardLine = "thomas.h_report" },
-          text = "Thomas said that? A drink, for Remy, for Remy! I'll hold him to it, I'll hold him to it twice." },
+          text = "Guard Thomas said he'd buy me a drink? A drink, for Remy, for Remy! I'll hold him to it, I'll hold him to it twice." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "A sky elf! I've never sold to a sky elf, never once! What do your people buy? Whatever it is, I've probably got some." },
         { id = "q_peril_active", when = { questActive = TODO_QUEST("A Fishy Peril") },
-          text = "Did you tell him, did you tell him? The Marshal, about the murlocs? Tell him twice, because he only hears things the second time." },
+          text = "Did you tell Marshal Dughan about the murlocs, did you tell him? Tell him twice, because he only hears things the second time." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Dwarves know gold, know gold! You wouldn't have a little dust in that beard, would you, a little dust?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, a mage! I know a fellow in Stormwind who sells books that would curl your hair, curl your hair, if that's the sort of thing you're after." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, a warlock! You'll want to speak to Marcot down in the cellar, and I didn't tell you, I didn't tell you." },
+          text = "A warlock, a warlock! You'll want to speak to Remen Marcot down in the cellar, and I didn't tell you, I didn't tell you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, a warrior! I know a fellow who sells swords, two fellows, in fact, and they both owe me money." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, a hunter! I've a fellow who sells arrows, a good fellow, mostly arrows, mostly good!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, a night elf! I know a fellow who knows a fellow who once sold a bear's tooth to one of your people, true as I'm standing here." },
@@ -186,7 +186,7 @@ P:NPC {
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { band = { "Seasoned", "Veteran", "Champion" } } } } },
           fail = { next = "clams", fx = { affinity = -1 } } },
         { text = "What sort of books would curl my hair, Remy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "You seem worried about telling me, Remy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You seem worried about telling me of the cellar, Remy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there anything you could get a warrior, Remy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you sell a hunter, Remy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You look like a man with something to confess, Remy.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -198,7 +198,7 @@ P:NPC {
     },
     news = {
       lines = {
-        { id = "n_default", text = "News, news! The price of eggs is a scandal, and Farley waters nothing, which is also a scandal." },
+        { id = "n_default", text = "News, news! The price of eggs is a scandal, a scandal, and nobody in Goldshire talks of anything else." },
         { id = "n_murlocs", key = true, when = { questBefore = TODO_QUEST("A Fishy Peril") },
           text = "Murlocs, up the streams in the east, murlocs! Nobody believes me, but they will.",
           fx = { hear = "murlocs_in_elwynn", learn = { "murlocs_east" } } },
@@ -211,7 +211,7 @@ P:NPC {
     },
     murlocs = {
       lines = {
-        { id = "mu_default", text = "They're swimming up the eastern streams, scaring off the fish and going for gentle folk! I told the Marshal, but he's worried about gnolls and bandits, gnolls and bandits!",
+        { id = "mu_default", text = "They're swimming up the eastern streams, scaring off the fish and going for gentle folk! I told Marshal Dughan, but he's worried about gnolls and bandits, gnolls and bandits!",
           fx = { learn = { "murlocs_east" } } },
       },
       choices = {
@@ -276,7 +276,7 @@ P:NPC {
     talks = {
       lines = {
         { id = "t_default", key = true,
-          text = "All right, all right! Riders, night riders, out by the pumpkin patch, and they pay the kobolds before I can. I never sold to them, I swear it.",
+          text = "All right, all right! Riders, night riders, out by the Brackwell pumpkin patch, and they buy from the kobolds before I can. I never sold to them, I swear it.",
           fx = { expose = "remy_only_buyer", learn = { "the_collector" }, thread = { id = "elwynn_gold", beat = "b_remy_talks" } } },
       },
       choices = { { text = "That wasn't so hard.", next = "END", fx = { trait = { stern = 1 }, affinity = -1 } } },
@@ -291,11 +291,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Oh, I hear everything first, friend, always have, always have! Ask me about any of this and you'll hear it before anyone else does." },
     },
-    background = { { id = "tp_bg", text = "From Redridge, looking for business, looking for business! And I found plenty, plenty.", next = "home" } },
+    background = { { id = "tp_bg", text = "I'm from Redridge, and I came looking for business, looking for business, and found plenty, plenty.", next = "home" } },
     advice = { { id = "tp_ad", text = "Never sell to a gnoll, because gnolls don't pay. And always count your change twice, twice!" } },
     gold_dust = { { id = "t_dust", text = "It's mine, my trade! Nobody in Elwynn buys dust but Remy, nobody but Remy!",
       fx = { hear = "remy_only_buyer" } } },
-    murlocs_east = { { id = "t_murlocs", text = "Real, real as rain! Ask the fishermen, the ones that are left." } },
+    murlocs_east = { { id = "t_murlocs", text = "The murlocs are real, real as rain! Ask the fishermen, the ones that are left." } },
     the_collector = { { id = "t_collector", text = "Never heard of him, never heard of him. Why do you ask, why?" } },
     hogger = { { id = "t_hogger", text = "Don't sell to gnolls, because gnolls don't pay, and Hogger especially doesn't pay." } },
     _none = { { id = "t_none", text = "Don't know, don't know! Ask Farley; he hears everything twice as fast as me." } },

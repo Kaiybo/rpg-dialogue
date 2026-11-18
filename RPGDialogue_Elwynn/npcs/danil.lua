@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some of them crossed themselves when they saw your totems, I'll confess. But the Light didn't object to dwarven coin when we built the Abbey, so I doubt it minds you." } },
+      lines = { { id = "xdsham_default", text = "Some of them made the sign of the Light when they saw your totems, I'll confess. But the Light didn't object to dwarven coin when we built the Abbey, and it won't object to yours going toward our leaking roof." } },
       choices = {
         { text = "Then I'll give something for the roof, Brother. Gladly.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Let the Light fix its own roof, Brother Danil.", next = "BACK", fx = { align = { light = -1 } } },
@@ -63,7 +63,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I think the Defias robbed Milly's vineyard within a bowshot of the Abbey walls, so I've stopped thinking anyone wouldn't. You've an honest enough face, but so did the last fellow who bought one loaf and left with three." } },
+      lines = { { id = "xrogue_default", text = "The Defias robbed Milly Osworth's vineyard within a bowshot of the Abbey walls, so I've stopped thinking anyone wouldn't. You've an honest enough face, but so did the last fellow who bought one loaf and left with three." } },
       choices = {
         { text = "I'd never steal from the Abbey's stores, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If the Abbey can't guard its bread, that's the Abbey's fault.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -90,7 +90,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Water, mostly, because Sammuel works you lot in the sun until you see visions, and the visions are usually just thirst. And a little thread, for the tabard you'll tear on the first kobold you meet." } },
+      lines = { { id = "xapala_default", text = "Water, mostly, because Brother Sammuel works you lot in the sun until you see visions, and the visions are usually just thirst. And a little thread, for the tabard you'll tear on the first kobold you meet." } },
       choices = {
         { text = "A paladin should pay his way, Brother, at full price.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Surely the Abbey can feed its own paladins for nothing.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -113,8 +113,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I keep the coin box under the bread, you know, and I've a very good memory for how many loaves I baked." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You've come down from the graveyard, I can tell, and La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane works recruits hard, and hungry recruits drop their shields." },
+          text = "You've come down from the graveyard, I can tell, and Drusilla La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane Beshere works recruits hard, and hungry recruits drop their shields." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at Northshire, and plainly a long way from home! The Abbey's bread is humble, but it's honest, and I'd say the same of the thread." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of the Abbey! Brother Bremen's students always buy the bread and forget the water, and then they come back thirsty." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and I'll wager a full purse with you. The Abbey's roof still leaks, you know. Perhaps your rain spirits could ask it to stop." },
@@ -171,7 +171,7 @@ P:NPC {
     },
     tools_approve = {
       lines = {
-        { id = "ta_default", text = "Brother Neals says honest trade counts as prayer. He says that about wine as well, so I don't lean on it." },
+        { id = "ta_default", text = "Brother Neals says honest trade counts as prayer, but he says that about wine as well, so I don't lean on it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -186,7 +186,7 @@ P:NPC {
     },
     poor = {
       lines = {
-        { id = "p_default", text = "Then buy bread and water and nothing clever. A full stomach wins more fights than a sharp knife. Don't tell the smiths." },
+        { id = "p_default", text = "Then buy bread and water and nothing clever. A full stomach wins more fights than a sharp knife, though don't tell the smiths I said so." },
       },
       choices = {
         { text = "Bread and water it is.", next = "BUSINESS", fx = { affinity = 1, trait = { cautious = 1 } } },

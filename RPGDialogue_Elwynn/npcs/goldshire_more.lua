@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I cook for everyone who's hungry. A full belly makes for a kinder world, and I'd guess your spirits would agree." } },
+      lines = { { id = "xdsham_default", text = "I cook for everyone who's hungry, because a full belly makes for a kinder world, and I'd guess your spirits would agree." } },
       choices = {
         { text = "A full belly and a kind heart. That's good work, Tomas.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Charge more. Kindness doesn't pay the butcher.", next = "BACK", fx = { align = { light = -1 } } },
@@ -45,7 +45,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Barley soup, mushroom pie and a pumpkin mash from the Brackwells' field that the regulars pretend not to like. Toddrick calls it rabbit food, but the bowls come back empty, so I don't listen to Toddrick." } },
+      lines = { { id = "xdruid_default", text = "Barley soup, mushroom pie and a pumpkin mash from the Brackwells' field that the regulars pretend not to like. Toddrick the butcher calls it rabbit food, but the bowls come back empty, so I don't listen to Toddrick." } },
       choices = {
         { text = "The land gives plenty without killing. Your mash proves it.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Hunting is part of the wild too. I'll take the stew.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -54,7 +54,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Something warm and heavy that stays put, like boar stew with a heel of Kira's bread. Don't eat the spiced chili before you fight, mind, or you'll regret it at the worst moment." } },
+      lines = { { id = "xwarcl_default", text = "Something warm and heavy that stays put, like boar stew with a heel of Kira Songshine's bread. Don't eat the spiced chili before you fight, mind, or you'll regret it at the worst moment." } },
       choices = {
         { text = "A warm stew, then, and I'll mind the chili.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll eat whatever's quick and get moving.", next = "BACK", fx = { align = { order = -1 } } },
@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar ribs, roasted slow, or a bear steak if you can get one fat enough. The Stonetusks near the Stonefield farm are the best for it, and Ma Stonefield will thank you for taking them too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want the scraps, I suppose. Bring it by the kitchen door, not through the common room." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar ribs, roasted slow, or a bear steak if you can get one fat enough. Your {pet} will want the scraps, I suppose, so bring it by the kitchen door, not through the common room." },
       },
       choices = {
         { text = "I'll bring you what I hunt and waste none.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -75,7 +75,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I said a quiet one, because the loud ones knock over pots and the quiet ones at least taste the stew before they steal it. Truth be told, I'd rather feed you than lose a ladle, so sit and I'll fill a bowl." } },
+      lines = { { id = "xrogue_default", text = "Because you came in quiet, and the loud ones knock over pots, while the quiet ones at least taste the stew before they steal it. Truth be told, I'd rather feed you than lose a ladle, so sit and I'll fill a bowl." } },
       choices = {
         { text = "I'll pay for the stew, Tomas, and leave your ladles be.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Free stew's the best kind. I'll take the bowl and go.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -141,7 +141,7 @@ P:NPC {
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's the first thing a new cook should learn?", next = "first" },
         { text = "Where does the meat come from?", next = "meat" },
-        { text = "Sam on the road sent me about a campfire.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Cooking") } },
+        { text = "Sam Sarsaparilla sent me about a campfire.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Cooking") } },
         { text = "I've cooked for an abbey full of novices.", next = "abbey", when = { origin = "human_abbey_novice" } },
         { text = "Why would a rogue be welcome in your kitchen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you hear through your larder wall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -170,7 +170,7 @@ P:NPC {
       },
     },
     meat = {
-      lines = { { id = "m_default", text = "From Toddrick, and Toddrick gets it from the farms and from adventurers who bring in more boar than they know what to do with. I've never turned away a fresh haunch." } },
+      lines = { { id = "m_default", text = "From Toddrick the butcher, and he gets it from the farms and from adventurers who bring in more boar than they know what to do with. I've never turned away a fresh haunch." } },
       choices = {
         { text = "And the farms that sell to you?", next = "meat_farms" },
         { text = "Something else.", next = "BACK" },
@@ -233,7 +233,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I walk every one of them with my basket. I've met every sort of traveller, and you're the first shaman. Here, take a loaf." } },
+      lines = { { id = "xdsham_default", text = "I walk every one of them with my basket, and I've met every sort of traveller, but you're my first shaman. Here, take a loaf." } },
       choices = {
         { text = "Thank you, Kira. Kindness on the road is a blessing.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll pay for the loaf. Charity's not needed.", next = "BACK", fx = { align = { light = -1 } } },
@@ -271,7 +271,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Two days fresh and five days for chewing, and after that it's for the ducks. Hunters out in the hills toward Westfall always want something that keeps, so I bake them a hard roll that won't crumble in a pack." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ooh, does your {pet} eat bread? Mine would, if I had one, and then I'd never sell another loaf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Two days fresh and five days for chewing, and after that it's for the ducks. Ooh, does your {pet} eat bread? Mine would, if I had one, and then I'd never sell another loaf." },
       },
       choices = {
         { text = "I'll pack your bread and share it on the trail.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -290,7 +290,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." } },
+      lines = { { id = "xlock_default", text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." } },
       choices = {
         { text = "I'll walk you past the dark stretches, if you like.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Fear's a good teacher. Keep walking fast.", next = "BACK", fx = { align = { light = -1 } } },
@@ -319,7 +319,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You look as though you've forgotten your own supper, like every healer I meet on this road." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my road! I always feel safer when there's plate in sight, even if it's only passing." },
-        { id = "h_default", text = "Kira Songshine, baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
+        { id = "h_default", text = "I'm Kira Songshine, the baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "I should be home by now, but there's always one more traveler on the road. Lucky for you it's this one." },
         { id = "h_hogger", when = { questActive = TODO_QUEST("WANTED: \"Hogger\"") },
           text = "If you're going after Hogger, take two loaves, one for the walk there and one for the walk back, because I'm an optimist." },
@@ -333,7 +333,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! You'll have meat already, I expect, but bread goes with it, so let's talk." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the road! Have a sniff of this basket, because I'll wager the bread in Darnassus doesn't smell anything like it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll pay for that loaf like everybody else, mind, because I count them twice before I leave Goldshire." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman on the road! Bread? Your spirits must be hungry too. Fresh this morning." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman on the road! Will you have some bread? It's fresh this morning, and your spirits must be hungry too." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've got a long way to walk before dark." },
@@ -367,7 +367,7 @@ P:NPC {
       lines = {
         { id = "rh_default", text = "Don't say the name too loud out here. The Westbrook lads tell stories about him that would curdle the milk, and I've milk in this basket." },
         { id = "rh_done", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Oh, that was you? Then I can walk the west road without humming to keep my nerve up. I'll find something else to hum about." },
+          text = "Oh, it was you who killed Hogger? Then I can walk the west road without humming to keep my nerve up. I'll find something else to hum about." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "hogger" } } } },
     },
@@ -384,7 +384,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I bake at dawn and walk till dusk. My feet know every rut between Goldshire and the city gates." } },
+    background = { { id = "tp_bg", text = "I bake at dawn and walk till dusk, and my feet know every rut between Goldshire and the city gates." } },
     advice = { { id = "tp_ad", text = "Always carry more water than you think. The road's longer than it looks from the inn door." } },
     hogger = { { id = "tp_hogger", text = "I don't sell on the southwest road. That's all I'll say, and I'll say it quietly." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, love. Ask me where the road goes and I'll know." } },
@@ -435,7 +435,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "No, a paladin, but a warrior's nearly as good! I practise with a stick behind the smithy, only Argus says I'm holding it like a broom, and then Mark laughs." } },
+      lines = { { id = "xwarcl_default", text = "I'm going to be a paladin, not a warrior, but a warrior's nearly as good! I practise with a stick behind the smithy, only Argus says I'm holding it like a broom, and then Mark laughs." } },
       choices = {
         { text = "Keep practising, Bo. Everyone starts with a stick.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Paladins are all prayer. Be a warrior instead.", next = "BACK", fx = { align = { light = -1 } } },
@@ -446,7 +446,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Maybe, if I could have a bear! Joshua says you can't keep a bear in Goldshire, but there's lots of room behind the inn, and Farley wouldn't notice for ages." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Does it have a name? Can it do tricks? I bet it can do tricks." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Maybe, if I could have a beast like your {pet}! Does it have a name? Can it do tricks? I bet it can do tricks." },
       },
       choices = {
         { text = "A beast is a friend, Bo, not a toy.", next = "BACK", fx = { align = { light = 1 } } },
@@ -516,7 +516,7 @@ P:NPC {
     },
     grown = {
       big = true,
-      lines = { { id = "gr_default", text = "A soldier, like the ones who went off and didn't say where. Ma says I'm not to, because some of them didn't come back, but she always says that." } },
+      lines = { { id = "gr_default", text = "I will, like the soldiers who went off and didn't say where. Ma says I'm not to, because some of them didn't come back, but she always says that." } },
       choices = {
         { text = "Your ma's right. Stay and look after Goldshire.", next = "BACK", fx = { align = { order = 1 }, trait = { kind = 1 } } },
         { text = "Follow your own road when you're grown.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -563,7 +563,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not yet, but I will. I've walked back and forth all morning. Maybe your spirits could tell me where they're hiding." } },
+      lines = { { id = "xdsham_default", text = "It's empty for now, but it won't be, though I've walked back and forth all morning. Maybe your spirits could tell me where the fish are hiding." } },
       choices = {
         { text = "Keep trying, Matt. Patience always pays off.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Try a different lake. These fish are hopeless.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -601,7 +601,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bears, sometimes, early, and Ma says not to go near when the bear's there. I think the bear's better at fishing than me, which isn't fair, since it doesn't even have a rod." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like fish? I'll give it one when I catch one, if I ever catch one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bears, sometimes, early, and Ma says not to go near when the bear's there. Does {pet} like fish? I'll give it one when I catch one, if I ever catch one." },
       },
       choices = {
         { text = "Leave the bears be, Matt. The pond is theirs too.", next = "BACK", fx = { align = { light = 1 } } },
@@ -629,7 +629,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "She won't let me past the bridge, because of the guards who went to the lake and never came back, and because of the murlocs Remy talks about. I'm not scared, honest, but I said a prayer for the guards anyway, the way Ma does, in case it helps." } },
+      lines = { { id = "xapriest_default", text = "She does, and she won't let me past the bridge, because of the guards who went to the lake and never came back, and because of the murlocs Remy talks about. I'm not scared, honest, but I said a prayer for the guards anyway, the way Ma does, in case it helps." } },
       choices = {
         { text = "It helps, Matt. Keep saying it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't bring them back, Matt. Best not to hope.", next = "BACK", fx = { align = { light = -1 } } },

@@ -46,7 +46,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Not for the pieces that come to me, because they'd be firewood otherwise and a bow lasts a man his whole life. The mill's another matter, but the mill isn't mine, and Raelen doesn't take advice from bowyers." } },
+      lines = { { id = "xdruid_default", text = "Not for the pieces that come to me, because they'd be firewood otherwise and a bow lasts a man his whole life. The mill's another matter, but the mill isn't mine, and Supervisor Raelen doesn't take advice from bowyers." } },
       choices = {
         { text = "Your bows honour the wood. The mill should learn from you.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Wood is wood. A tree cut for bows or beams is the same.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -55,7 +55,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "To bring one bear to you instead of three, which is the whole trick in these woods. Shoot the nearest from far off, let it come, and the others stay asleep. The loggers who learned that are still logging." } },
+      lines = { { id = "xwarcl_default", text = "To bring one bear to you instead of three, which is the whole trick in these woods. Shoot the nearest from far off, let it come, and the others stay asleep, because the loggers who learned that are still logging." } },
       choices = {
         { text = "I'll pull them one at a time, like you say.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd rather walk in and take all three at once.", next = "BACK", fx = { align = { order = -1 } } },
@@ -64,7 +64,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "A short bow is a quiet thing, quieter than a thrown knife if you know how to loose it, and plenty of scouts carry one for the long shots. I'll string you one, but don't tell Drake I took his custom." } },
+      lines = { { id = "xrogue_default", text = "A short bow is a quiet thing, quieter than a thrown knife if you know how to loose it, and plenty of scouts carry one for the long shots. I'll string you one, but don't tell Drake Lindgren next door I took his custom." } },
       choices = {
         { text = "I'll pay you fairly and tell Drake if he asks.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Drake won't hear a word from me about where I shop.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -73,7 +73,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "The grain tells me, because a straight piece wants to be a bow and a twisted one wants to be something else, and I don't fight it. The tower sends me a request for a staff now and then, and I make it when the right piece comes up from the mill." } },
+      lines = { { id = "xmage_default", text = "The grain tells me, because a straight piece wants to be a bow and a twisted one wants to be something else, and I don't fight it. The Tower of Azora sends me a request for a staff now and then, and I make it when the right piece comes up from the mill." } },
       choices = {
         { text = "Then I'll wait for the right piece. Good work takes time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Wood's wood. Carve it to the order and be done.", next = "BACK", fx = { align = { order = -1 } } },
@@ -102,18 +102,18 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've no bows for you, I expect, but you're welcome to sit while I work, and you can tell me if my language offends." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my shop! You'll not want a bow, I know, but I'll show you anyway, because I'm proud of them." },
-        { id = "h_default", text = "Rallic Finn, bowyer. The loggers bring me the straight-grained pieces they can't sell to Stormwind, and I turn them into bows and arrows for the camp and anyone passing through." },
+        { id = "h_default", text = "I'm Rallic Finn, the bowyer here. The loggers bring me the straight-grained pieces they can't sell to Stormwind, and I turn them into bows and arrows for the camp and anyone passing through." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei, at my bench! Your people made bows before mine had learned to sharpen a stick, so I'll take any criticism you care to give and try not to sulk about it." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Most of your kin walk past my bows and ask where the guns are. Drake Lindgren next door sells shot, if that's what you're after." },
         { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") }, text = "You're the one who thinned out the wolves and bears around the camp. The loggers have stopped bringing me torn quivers to mend, and I'm glad of the rest for my fingers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "You've a rogue's way of looking at a room, checking the windows first and the shelves second. Most rogues buy throwing knives from Drake, not bows from me." },
+          text = "You've a rogue's way of looking at a room, checking the windows first and the shelves second. Most rogues buy throwing knives from Drake Lindgren next door, not bows from me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in a bowyer's shop. You'll be after a staff, I expect, and I'll tell you now I only make them when the wood tells me to." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at a bowyer's bench! You'll want a bow for pulling something toward you, I expect, and that's a fair use of one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're looking at my staves the way I look at them, so I reckon you hear the grain as well as I do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Not much call for bows in your line, I'd guess, but you're welcome to look while I work." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Wood has a spirit, if you ask me. You can feel it in a good stave." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Wood has a spirit, if you ask me, and you can feel it in a good stave." },
       },
       again = {
         { id = "h_again", text = "What else? I'm only rubbing oil into this stave, so I can listen while I work." },
@@ -247,8 +247,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Meat and bread, which your beast will eat, and that's about the end of it. Rallic next door will tell you which arrows fly straight, and I'll tell you which ones are cheaper, which isn't always the same thing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at my dried meat. I've counted that as well, so you know." },
+        { id = "xhuntcl_default", text = "Meat and bread, which your beast will eat, and that's about the end of it. Rallic Finn next door will tell you which arrows fly straight, and I'll tell you which ones are cheaper, which isn't always the same thing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Meat and bread, which your beast will eat, and that's about the end of it. Your {pet} keeps looking at my dried meat, so you know, and I've counted that as well." },
       },
       choices = {
         { text = "I'll pay for good arrows. A clean shot's worth the coin.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -285,7 +285,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Safe enough by day, but two of my carts were stopped near the Brackwell patch in spring, and the drivers came home with nothing but a story about red bandanas. The Marshal says he's spread thin, and I believe him, though I'd believe him better with a few soldiers on my road." } },
+      lines = { { id = "xapala_default", text = "Safe enough by day, but two of my carts were stopped near the Brackwell patch in spring, and the drivers came home with nothing but a story about red bandanas. Marshal Dughan says he's spread thin, and I believe him, though I'd believe him better with a few soldiers on my road." } },
       choices = {
         { text = "The law must reach the roads too. Dughan should hear of this.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The law won't help you. Hire swords and settle it yourself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -296,7 +296,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I carry candles and I carry linen, and I'll sell you both at a fair price, which is a high price, because of the road." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want oil for that plate, and I've plenty, counted, and I'll not ask what you've been smiting." },
-        { id = "h_default", text = "Drake Lindgren, general and trade supplies. Everything in this house came up the road from Stormwind on a cart, so if you think the prices are high, blame the road." },
+        { id = "h_default", text = "I'm Drake Lindgren, and I sell general and trade supplies. Everything in this house came up the road from Stormwind on a cart, so if you think the prices are high, blame the road." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! I've nothing clever in stock, I'm afraid, but there's plenty of plain flux and thread if you're building something that won't explode." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Throwing knives are on the left, and I've counted them, so you know. It's nothing personal; I count everything." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -336,7 +336,7 @@ P:NPC {
       },
     },
     loggers_shot = {
-      lines = { { id = "ls_default", text = "Boredom, mostly. They shoot at bottles on the fence posts when Raelen isn't looking, and then they come back to me for more shot, so I've no complaints." } },
+      lines = { { id = "ls_default", text = "Boredom, mostly. They shoot at bottles on the fence posts when Supervisor Raelen isn't looking, and then they come back to me for more shot, so I've no complaints." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     road = {
@@ -396,7 +396,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I joke about Raelen, but I'm proud of the work. The trees come down, the boards go up, and the kingdom gets built. Your spirits might see it differently." } },
+      lines = { { id = "xdsham_default", text = "I joke about Supervisor Raelen, but I'm proud of the work: the trees come down, the boards go up and the kingdom gets built. Your spirits might see it differently." } },
       choices = {
         { text = "Honest work builds kingdoms, Terry. Be proud of it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Too many trees come down. The forest should be left alone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -416,7 +416,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "More than I like to count, because Stormwind's always building something and Raelen's always promising it beams by Tuesday. Last spring I counted the rings on one old oak and stopped at two hundred, and I didn't feel much like joking for the rest of the day." } },
       choices = {
-        { text = "Plant an acorn for every oak, the way your mother did.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Plant an acorn for every oak you fell, Terry.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "The city needs beams. Old oaks can't stand forever anyway.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -433,8 +433,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Bad enough that the lads won't go past the ridge without three of them together. The wolves aren't much better, mind, but the bears are the ones that sit on a bundle and won't give it back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} looks like it could take a bear by itself. Could you lend it to me for a day?" },
+        { id = "xhuntcl_default", text = "Bold enough that the lads won't go past the ridge without three of them together. The wolves aren't much better, mind, but the bears are the ones that sit on a bundle and won't give it back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bold enough that the lads won't go past the ridge without three of them together. That {pet} of yours looks like it could take a bear by itself, so could you lend it to me for a day?" },
       },
       choices = {
         { text = "I'll clear the bears so your lads can work.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -453,7 +453,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back he takes it out of. I've nothing against you personally, but I've a great deal against my back." } },
+      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but I've a great deal against my back." } },
       choices = {
         { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", fx = { align = { light = -1 } } },

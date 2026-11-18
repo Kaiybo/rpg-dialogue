@@ -20,7 +20,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every one of them does, and every dent's an insult. A shaman might be kinder to metal, spirits or not. We'll see." } },
+      lines = { { id = "xdsham_default", text = "Every one of them does, and every dent's an insult to me. A shaman might be kinder to metal, spirits or not, so we'll see." } },
       choices = {
         { text = "I'll treat your work with respect, Godric.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Armour's meant to be dented. That's its job.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -29,7 +29,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Not much, because my armor's meant to be heard and seen, and yours is meant to be neither. Kerridan sends his students to me for a buckler now and then, and I tell them a shield is no shame, even for a sneak." } },
+      lines = { { id = "xrogue_default", text = "Not much, because my armor's meant to be heard and seen, and yours is meant to be neither. Jorik Kerridan sends his students to me for a buckler now and then, and I tell them a shield is no shame, even for a sneak." } },
       choices = {
         { text = "A shield is no shame. I'll carry one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A shield's for those who get caught.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I can, and I do, with the rings set loose under the arm. It costs a little more and protects a little less there, but a hunter who can't draw is just a target wearing my work." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours takes the knocks in your place, I see. Bring it round, and I'll check it for thorns." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can, and I do, with the rings set loose under the arm, because a hunter who can't draw is just a target wearing my work. That {pet} of yours takes the knocks in your place, I see, so bring it round, and I'll check it for thorns." },
       },
       choices = {
         { text = "I'll trade a little protection for a clean draw.", next = "BACK", fx = { align = { order = 1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "That it's heavy for a reason, and the reason's the lad behind you who isn't wearing any. Sammuel's students always want it polished, and I tell them polish is for parades, and parades are for kings." } },
+      lines = { { id = "xapala_default", text = "That it's heavy for a reason, and the reason's the lad behind you who isn't wearing any. Brother Sammuel's students always want it polished, and I tell them polish is for parades, and parades are for kings." } },
       choices = {
         { text = "I'll wear it for the lad behind me, not for show.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A paladin should look the part. Polish matters.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -105,17 +105,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll be in robes, I suppose, but come back when you've learned that robes don't stop a kobold's pick." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now that's a sight, because I made half the plate Sammuel's students wear, and I like to see it come back with honest dents." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now that's a sight, because I made half the plate Brother Sammuel's students wear, and I like to see it come back with honest dents." },
         { id = "h_default", text = "Godric Rothgar, armorer to the Abbey. Every recruit who walks out of Northshire walks out in something I've hammered, so mind you bring it back unbroken." },
-        { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane will teach you to swing, but I'll teach you to love a shield, because a kobold's pick goes through a sword arm far easier than oak." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane Beshere will teach you to swing, but I'll teach you to love a shield, because a kobold's pick goes through a sword arm far easier than oak." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll not be wanting my plate, I expect, though you'll be glad of whoever's wearing it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, and La Salle's student, I'd wager. You'll have nothing to do with my forge, then, unless you need a cage." },
+          text = "A warlock, and Drusilla La Salle's student, I'd wager. You'll have nothing to do with my forge, then, unless you need a cage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want mail that bends at the shoulder, so the bow doesn't fight you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a link of mail on you, which offends me as an armorer and impresses me as a man. I suppose that bark-skin trick serves you well enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll want leather, not my mail, I expect, but you'll be glad of whoever's wearing it when you're caught." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Recruits come in, I fit them with mail, and they dent it. Don't you dent my work." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Recruits come in, I fit them with mail and they dent it, so don't you dent my work." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've rivets cooling." },
@@ -140,7 +140,7 @@ P:NPC {
     dents = {
       lines = { { id = "d_default", text = "Kobolds at the Echo Ridge Mine, mostly, since they swing those picks like they're digging through you. The wolves only chew the straps, which is worse, because straps I have to sew." } },
       choices = {
-        { text = "And the rain?", next = "rain" },
+        { text = "Is anything worse for your armour than kobolds?", next = "rain" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,7 +162,7 @@ P:NPC {
     kobolds = { { id = "tp_kob", text = "They dent everything they touch. I'd almost admire it if I didn't have to fix it." } },
     _none = { { id = "tp_none", text = "If it can't be riveted, I couldn't tell you a thing about it." } },
     echo_ridge = { { id = "tp_echo_ridge", text = "Every recruit back from Echo Ridge brings me a breastplate full of kobold scratches and a story to go with it. I mend the plate and leave the story where it is." } },
-    magni = { { id = "tp_magni", text = "Janos says Ironforge plate is the finest made, and I'll admit it to you but never to him. King Magni can keep his mountain; I've got the Abbey's anvil." } },
+    magni = { { id = "tp_magni", text = "Janos Hammerknuckle, the dwarf smith here, says Ironforge plate is the finest made, and I'll admit it to you but never to him. King Magni can keep his mountain; I've got the Abbey's anvil." } },
     second_war = { { id = "tp_second_war", text = "I hammered armor for the Alliance in the Second War, when a smith slept beside his forge or didn't sleep at all. Northshire's quiet by comparison, kobolds and all." } },
   },
 }
@@ -184,7 +184,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Most of them, I'm afraid. I mend them quietly. A shaman might be more careful, being older and calmer." } },
+      lines = { { id = "xdsham_default", text = "Most of them do, I'm afraid, and I mend them quietly. A shaman might be more careful, being calmer than a novice." } },
       choices = {
         { text = "Careful hands save good cloth, Dermot. I'll mind mine.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Robes are cheap. Let them tear.", next = "BACK", fx = { align = { order = -1 } } },
@@ -213,7 +213,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something soft and dark, oiled so the dew runs off. The wolves on the hillside see movement before colour, so stand still and you'll be invisible in anything, but a dry hunter is a happier one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And do keep your {pet} off my folded stock. Fur on a priest's robe is the one complaint I hear more than any." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something soft and dark, oiled so the dew runs off. And do keep your {pet} off my folded stock, because fur on a priest's robe is the one complaint I hear more than any." },
       },
       choices = {
         { text = "I'll take the soft leather and move quietly.", next = "BACK", fx = { align = { order = 1 } } },
@@ -241,7 +241,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Faster than I can sew them, because Anetta sends them into the vineyards after wounded recruits, and the brambles take the hems. I don't mind the work, though I've pricked my thumb so often the Brothers think I'm doing penance." } },
+      lines = { { id = "xapriest_default", text = "Faster than I can sew them, because Priestess Anetta sends the novices into the vineyards after wounded recruits, and the brambles take the hems. I don't mind the work, though I've pricked my thumb so often the Brothers think I'm doing penance." } },
       choices = {
         { text = "A torn hem is a mark of service, Dermot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They should be more careful. Robes cost coin.", next = "BACK", fx = { align = { light = -1 } } },
@@ -250,7 +250,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Most of Sammuel's students do for the first year, and then they stop, once they learn that a bright tabard is the first thing a Defias archer aims at. I sell more plain grey than white these days, which says something about the road." } },
+      lines = { { id = "xapala_default", text = "Most of Brother Sammuel's students do for the first year, and then they stop, once they learn that a bright tabard is the first thing a Defias archer aims at. I sell more plain grey than white these days, which says something about the road." } },
       choices = {
         { text = "I'll wear the colors. Folk should see who stands for them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Plain grey, then. Pride gets paladins killed.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -261,7 +261,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a bolt of white wool just up from Stormwind, and it's made for exactly your sort, if you keep it out of the brambles." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a tabard over that plate, and I've a few in the Abbey's colors, if you're the sort who likes to be noticed." },
-        { id = "h_default", text = "Dermot Johns. I sell robes to the priests and jerkins to the rest, and I spend my evenings mending both by candlelight." },
+        { id = "h_default", text = "I'm Dermot Johns. I sell robes to the priests and jerkins to the rest, and I spend my evenings mending both by candlelight." },
         { id = "h_caster", when = { any = { { class = "PRIEST" }, { class = "MAGE" } } }, text = "A robe-wearer, I see! Do keep it out of the brambles by the vineyards, will you? Silk doesn't forgive thorns." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Dark leather, I suppose, and nothing that squeaks. I've sold to your sort before, though they never come back to say how it went." },
@@ -270,7 +270,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my shop! Padding, then, for under your mail, and I've some that's barely been sat on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want leather that doesn't snag on the brambles by the vineyards, and I've just the thing." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in Northshire, and that's finer stitching on your sleeve than any of mine. I'd ask who made it if I thought you'd tell me." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I mend the novices' robes. Most of them tear them, and I mend them. Do your spirits tear things?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I mend the robes the novices tear, which is most of them, so I hope your spirits are gentler with cloth." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a hem half pinned." },
@@ -307,7 +307,7 @@ P:NPC {
       },
     },
     leather_more = {
-      lines = { { id = "lm_default", text = "Eagan Peltskinner down in Goldshire tans better than I ever could, mind you. When I've coin to spare I buy from him instead." } },
+      lines = { { id = "lm_default", text = "Eagan Peltskinner, round the side of the Abbey, tans better than I ever could, mind you. When I've coin to spare I buy from him instead." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -339,14 +339,14 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day, the halls and the ale and stone with some backbone. Some of the old clans might grumble about a shaman, but I'd not, not this far from home." } },
       choices = {
-        { text = "We dwarves stand together, Janos, whatever the old grumbles.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Folk far from home should stand together, Janos.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The old clans are right. Shamans are strange to us.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." } },
+      lines = { { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. Drusilla La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." } },
       choices = {
         { text = "Plain it is. I've no need to frighten anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll take the wicked-looking one. Fear has its uses.", next = "BACK", fx = { align = { light = -1 } } },
@@ -375,7 +375,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every day o' the week, an' twice on feast days. A bow's a bent stick, but a gun's a feat o' craft, an' it makes a noise that'll scatter wolves from here to the abbey gate." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a proper look about it. Is it from the mountains? It's got the shoulders for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every day o' the week, an' twice on feast days, for a gun's a feat o' craft an' a bow's a bent stick. That {pet} o' yours has a proper look about it, too, wi' shoulders like a mountain beast." },
       },
       choices = {
         { text = "Whatever the weapon, I'll aim for a clean kill.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -394,7 +394,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "The smart ones carry one for when the spell fizzles an' the kobold's still comin', because kobolds don't wait for ye tae finish castin'. I've sold a few tae Khelden's students, an' every one o' them held it like a quill." } },
+      lines = { { id = "xmage_default", text = "The smart ones carry one for when the spell fizzles an' the kobold's still comin', because kobolds don't wait for ye tae finish castin'. I've sold a few tae Khelden Bremen's students, an' every one o' them held it like a quill." } },
       choices = {
         { text = "A sensible precaution. I'll carry one and learn to use it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If my spell fizzles, a dagger won't save me anyway.", next = "BACK", fx = { align = { order = -1 } } },
@@ -423,7 +423,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a mace that'd suit ye, if ye've the arm for it, though most o' yer lot prefer the staff." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a weapon worth makin', because yer lot actually look after what I sell ye." },
-        { id = "h_default", text = "Janos Hammerknuckle. I sell steel to the Abbey's recruits, and I've given up counting how many of them grip a sword like a soup ladle." },
+        { id = "h_default", text = "I'm Janos Hammerknuckle, an' I sell steel tae the Abbey's recruits, an' I've given up countin' how many o' them grip a sword like a soup ladle." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well now, a proper dwarf! Ye've no idea how good it is to hear a sensible voice up here among all these tall folk." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, is it? Ye'll be wantin' a dagger, I suppose, an' at least ye'll hold it the right way round." },
@@ -433,7 +433,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do ye carry a gun, or one o' those bows? I'll forgive the bow, if ye're a good shot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've not seen one of your folk since Ironforge, and never one who walked into a smithy on purpose." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell daggers an' staves, an' I'll sell one tae ye, though I'd wager my beard ye mean tae do yer killin' some other way." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, an' a shaman by the look o' ye! Well, the stone talks tae ye, an' at least ye know how tae hold a blade, unlike these humans." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, by the look o' ye! Well, if the stone talks tae ye, ye'll know how tae hold a blade better than these humans." },
       },
       again = {
         { id = "h_again", text = "What else is on yer mind, then? Out with it afore the forge cools." },
@@ -456,7 +456,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because the humans pay in good silver and the forges back home have more smiths than anvils. And because nobody here argues with me about Bronzebeard politics over breakfast." } },
+      lines = { { id = "w_default", text = "Because the humans pay in good silver and the forges back home have more smiths than anvils, and because nobody here argues with me about Bronzebeard politics over breakfast." } },
       choices = {
         { text = "Coin's a fine reason to travel.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "Arming the young is the better reason.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
@@ -471,7 +471,7 @@ P:NPC {
       },
     },
     grip_kobold = {
-      lines = { { id = "gk_default", text = "Then aim low, because they're short, and keep yer candle hand clear. They've a way of setting folk alight with those daft wax hats." } },
+      lines = { { id = "gk_default", text = "Then aim low, because they're short, and keep clear o' their candles, because they've a way of setting folk alight with those daft wax hats." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -511,7 +511,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I do, because the Light doesn't ask what you were doing when you got hurt, and neither do I. Kerridan's students come to me with the strangest wounds, and I mend them without a word, though I do pray a little longer over some of them." } },
+      lines = { { id = "xrogue_default", text = "I do, because the Light doesn't ask what you were doing when you got hurt, and neither do I. Jorik Kerridan's students come to me with the strangest wounds, and I mend them without a word, though I do pray a little longer over some of them." } },
       choices = {
         { text = "Thank you, Brother. I'll try to deserve it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Save your prayers, Brother. The bandages are enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -540,7 +540,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It mends what lives, and your companion lives, so I don't see why not. I've laid hands on a hunter's wolf that took a kobold's pick in the flank, and it licked my hand after, which I took as thanks." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks healthy, but if it's ever hurt, bring it to me. I don't charge, and it doesn't need to pray." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It mends what lives, and your companion lives, so I don't see why not. Your {pet} looks healthy, but if it's ever hurt, bring it to me; I don't charge, and it doesn't need to pray." },
       },
       choices = {
         { text = "My beast deserves the same care as any of us.", next = "BACK", fx = { align = { light = 1 } } },
@@ -586,13 +586,13 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sammuel's work, I'd guess, and either way you'll be the one standing over me while I mend somebody." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! One of Brother Sammuel's, I'd guess, and either way you'll be the one standing over me while I mend somebody." },
         { id = "h_default", text = "I'm Brother Paxton. I walk the grounds from the vineyards to the gate, and I mend whatever the wolves and kobolds leave of our recruits." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A fellow servant of the Light! Walk with me a while, if you've the time, and you'll learn more healing on this path than in any book." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage! Khelden's students always come to me with burns on their fingers, and I mend them and tell them to be more careful, though they never are." },
+          text = "A mage! Khelden Bremen's students always come to me with burns on their fingers, and I mend them and tell them to be more careful, though they never are." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You've come from La Salle's graveyard. I can feel it on you, and I'll admit it makes me uneasy." },
+          text = "You've come from Drusilla La Salle's graveyard. I can feel it on you, and I'll admit it makes me uneasy." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be the reason I walk the long way round to the barracks, I expect, with linen in both hands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I mend your beasts too, you know, if they'll let me close enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, here at the Abbey! If you can mend a wolf bite, I'll gladly share the work, because the recruits bring me more than I can carry." },
@@ -642,7 +642,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I took my vows here and I expect I'll die here, hopefully of old age." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, child, but I'll pray you find out." } },
     holy_light = { { id = "tp_holy_light", text = "The Light asks very little of us, child, only everything, and it's patient while we work our way up to it. I've been working my way up for thirty years." } },
-    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "Archbishop Faol founded the Brotherhood to keep the Abbey and its books and to train the Light's servants. I'd add that it now exists to keep Daniel from losing those books, but that's a newer duty." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "Archbishop Faol founded the Brotherhood to keep the Abbey and its books and to train the Light's servants. I'd add that it now exists to keep my assistant Daniel from losing those books, but that's a newer duty." } },
     scourge = { { id = "tp_scourge", text = "We pray for Lordaeron every evening, child, for the dead and for those who aren't allowed to rest. I've found the second prayer much harder to say." } },
     scholomance = { { id = "tp_scholomance", text = "There are books in our sealed wing that the Scholomance would kill for, and I mean that plainly. That's why I keep the key, and why I don't lend it to Daniel." } },
   },

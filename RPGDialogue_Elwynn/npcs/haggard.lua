@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Their lightning took good men, and I've not forgotten it. But you walk like a dwarf, steady and honest, and I'll judge you on that." } },
+      lines = { { id = "xdsham_default", text = "Their lightning took good men, and I've not forgotten it. But you walk steady and honest, and I'll judge you on that." } },
       choices = {
         { text = "Judge me by my deeds, Marshal. That's all I ask.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The war's long past. Let the old fears go.", next = "BACK", fx = { align = { order = -1 } } },
@@ -71,8 +71,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "When we could get them, aye; a dwarf with a rifle found more Riverpaw camps in a month than my lads did in a year. Dead-tooth Jack's camp would take one about an afternoon, I'd guess." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a tracker. Point it at Jack's camp and it'll do my old badge proud." },
+        { id = "xhuntcl_default", text = "When we could get them, aye; a dwarf with a rifle found more Riverpaw camps in a month than my lads did in a year. One of you could find Dead-tooth Jack, the Defias who took my badge, in about an afternoon, I'd guess." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When we could get them, aye; a dwarf with a rifle found more Riverpaw camps in a month than my lads did in a year. Your {pet} has the look of a tracker, so point it at Dead-tooth Jack's camp and it'll do my old badge proud." },
       },
       choices = {
         { text = "I'd track for the Guard gladly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -102,9 +102,9 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The lads I served with in the Guard, the ones who aren't sitting in the sun like me, and my eyes, if you've a prayer that does that. The Brothers tried once, and it helped a little, though the dark still comes in at the edges." } },
       choices = {
-        { text = "I'll pray for them, and for you, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll pray for them, and for you, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Eyes fail with age, Haggard. Prayer won't change that.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else, Captain.", next = "BACK" },
+        { text = "Something else, Marshal.", next = "BACK" },
       },
     },
     xapala = {
@@ -113,16 +113,16 @@ P:NPC {
       choices = {
         { text = "The law must be kept in small things too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some small sins aren't worth the chain. Mercy keeps the peace.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else, Captain.", next = "BACK" },
+        { text = "Something else, Marshal.", next = "BACK" },
       },
     },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? My eyes aren't what they were, but I know the smell of incense, so sit down; you're the first one up here in a month who isn't swearing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I served beside a few of your sort in the Second War, and they were the only ones who didn't sing on the march." },
-        { id = "h_default", text = "Haggard. I ran the Stormwind Guard once, back when I could read a duty roster. Now I sit here and listen to the loggers swear, and lately I can't even keep hold of my own badge." },
+        { id = "h_default", text = "I'm Haggard, and I ran the Stormwind Guard once, back when I could read a duty roster. Now I sit here and listen to the loggers swear, and lately I can't even keep hold of my own badge." },
         { id = "h_jack_before", when = { questBefore = TODO_QUEST("Dead-Tooth Jack") },
-          text = "A fellow came up the path in the dark wearing a Stormwind tabard. I took him for Dughan and handed him my old badge. A lifetime in uniform, and I fell for that." },
+          text = "A fellow came up the path in the dark wearing a Stormwind tabard. I took him for Marshal Dughan and handed him my old badge. A lifetime in uniform, and I fell for that." },
         { id = "h_jack_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dead-Tooth Jack") },
           text = "Dead-tooth Jack, the loggers call him, a Defias who camps out south like a badger in a hole. Get my badge back and I'll not ask how you did it." },
         { id = "h_jack_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dead-Tooth Jack"), days = 3 } },
@@ -134,7 +134,7 @@ P:NPC {
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
           text = "You've a soldier's stance, but you're heavy on the back foot. Shift forward a touch... there, now you're harder to knock down." },
         { id = "h_burlguard", tags = { "news" }, when = { questActive = TODO_QUEST("Marshal Haggard") },
-          text = "Burlguard, is that you? No, it isn't; walking up like that, I took you for a gnoll. So Burlguard sent you, did he? Come closer." },
+          text = "Is that Burlguard? No, it isn't, and walking up like that, I nearly took you for a gnoll. So Burlguard sent you, did he? Come closer." },
         { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
           text = "That voice. You're one of the Eastvale woodsfolk who used to bring wolf pelts to the logging camp, aren't you? Grown, and with a bow; my eyes can't see you, but my ears remember." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -152,7 +152,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your badge?", next = "jack" },
-        { text = "What's in the manor?", next = "manor" },
+        { text = "Whose house was this before you, Marshal?", next = "manor" },
         { text = "Tell me about the Guard.", next = "guard" },
         { text = "Your eyes seem to be failing you, Marshal.", next = "eyes" },
         { text = "I've been to Darkshire.", next = "darkshire", when = { visited = "Darkshire" } },
@@ -163,7 +163,7 @@ P:NPC {
         { text = "What made a good soldier, back when you led the Guard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I hear the Guard used hunters for tracking.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anyone you'd like remembered in prayer, Haggard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What makes a good guardsman, Captain Haggard?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What makes a good guardsman, Marshal Haggard?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the Guard ever have to fight the beasts of this forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Where did you smell it before, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Were the orc shamans you fought really that fearsome, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -173,7 +173,7 @@ P:NPC {
 
     jack = {
       lines = {
-        { id = "j_default", text = "Dead-tooth Jack. Came up in the dark in a Stormwind tabard. I took him for Dughan, gave him the badge, and he laughed all the way down the path." },
+        { id = "j_default", text = "A Defias called Dead-tooth Jack came up in the dark in a Stormwind tabard. I took him for Marshal Dughan and gave him the badge, and he laughed all the way down the path." },
         { id = "j_done", when = { questDone = TODO_QUEST("Dead-Tooth Jack") },
           text = "It's back where it belongs, and the Defias are short one disguise because of you. I'll not forget it." },
       },
@@ -196,7 +196,7 @@ P:NPC {
     },
     jack_keep = {
       lines = {
-        { id = "jk_default", text = "And have Dughan hear I took a thief for him? I'd sooner eat the badge when it's back." },
+        { id = "jk_default", text = "And have Marshal Dughan hear I took a thief for him? I'd sooner eat the badge when it's back." },
       },
       choices = {
         { text = "Your secret's safe.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
@@ -215,7 +215,7 @@ P:NPC {
     },
     manor_papers = {
       lines = {
-        { id = "mp_default", text = "There's a chest upstairs full of parchments. I looked once, before the fog came over my eyes. The hand looked familiar." },
+        { id = "mp_default", text = "There's a chest upstairs full of parchments, and I looked once, before the fog came over my eyes. The handwriting looked familiar." },
         { id = "mp_low", when = { maxLevel = 21 },
           text = "Not today. That chest's been shut since I moved in, and something about it makes the back of my neck itch. Come back when you've more years on you." },
       },
@@ -304,7 +304,7 @@ P:NPC {
     },
     noble = {
       lines = {
-        { id = "nb_default", text = "Then knock on Dughan's and say nothing whatever about my badge. That's the best use of a noble name I've heard in years." },
+        { id = "nb_default", text = "Then use it to open Marshal Dughan's door, and say nothing whatever about my badge. That's the best use of a noble name I've heard in years." },
       },
       choices = {
         { text = "Not a word.", next = "BACK", fx = { affinity = 2 } },
@@ -317,13 +317,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I may not see much these days, but there's nothing wrong with my ears. Ask me about any of this, and speak up." },
     },
-    background = { { id = "tp_bg", text = "Stormwind Guard, all my working life. Then my eyes went, so I came out here to let the loggers do the shouting." } },
+    background = { { id = "tp_bg", text = "I served in the Stormwind Guard all my working life, and when my eyes went, I came out here to let the loggers do the shouting." } },
     advice = {
-      { id = "tp_ad", text = "Never hand your badge to a man you can't see. And keep your kit oiled.", next = "advice" },
-      { id = "tp_ad2", text = "Stand with your weight forward. A man on his back foot is a man halfway to the ground." },
+      { id = "tp_ad", text = "Never hand your badge to a man you can't see, and keep your kit oiled.", next = "advice" },
+      { id = "tp_ad2", text = "Stand with your weight forward, because a man on his back foot is a man halfway to the ground." },
     },
-    defias = { { id = "tp_defias", text = "Thieves dressed as officials, now. In my day they had the courtesy to look like thieves." } },
-    eastvale = { { id = "tp_eastvale", text = "Quiet, mostly, with wolves at night and Raelen shouting by day. I prefer the wolves." } },
+    defias = { { id = "tp_defias", text = "The Defias dress as officials now, when in my day they had the courtesy to look like thieves." } },
+    eastvale = { { id = "tp_eastvale", text = "Quiet, mostly, with wolves at night and Supervisor Raelen shouting by day. I prefer the wolves." } },
     stalvan = {
       { id = "tp_stalvan", text = "Ask Smitts at the Raven. I've only a page, and I can't read it.", next = "stalvan" },
       { id = "tp_stalvan2", text = "That name again. I'd sooner the chest stayed shut." },
@@ -333,7 +333,7 @@ P:NPC {
     varian = { { id = "tp_varian", text = "I knew Varian when he first wore the crown, a good lad with a temper, and he listened when old soldiers spoke. Wherever he's gone, he didn't go without a reason, and I'd stake my badge on that if I still had it." } },
     bolvar = { { id = "tp_bolvar", text = "Bolvar Fordragon was a squire when I was already going grey, and he's a better man than most who've worn plate. If anyone can hold that city together for the boy, it's him." } },
     prestor = { { id = "tp_prestor", text = "My eyes are going, but I hear well enough, and I've heard Lady Prestor speak. Hers is a voice that makes men agree before they've thought about it, and I've never trusted voices like that." } },
-    lost_footmen = { { id = "tp_lost_footmen", text = "Rolf and Malakai went up the river on Thomas's orders and haven't come back. Thomas is a good lad, but he's carrying it, and you can hear it every time he speaks." } },
+    lost_footmen = { { id = "tp_lost_footmen", text = "Rolf and Malakai went up the river on Guard Thomas's orders and haven't come back. Thomas is a good lad, but he's carrying it, and you can hear it every time he speaks." } },
     the_stockade = { { id = "tp_the_stockade", text = "In my day we filled the Stockade with pickpockets and drunks. Now it's full of masked men from Westfall, and I'm told the walls are none too sound." } },
     heroes_vigil = { { id = "tp_heroes_vigil", text = "The Stone of Remembrance on Stone Cairn Lake was raised for the dead of the First War, and I stood guard at its dedication. Rogue wizards hold it now, I hear, and I'd throw them in the lake myself if I could see them." } },
   },

@@ -22,9 +22,9 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "A mage, and your robes are dreadful. Never mind; Morley could do something with you, as he does with everyone." },
+      text = "A mage, and your robes are dreadful. Never mind; Morley Eberlein, my clothier downstairs, could do something with you, as he does with everyone." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "You reek of the Nether. So did Morganth, before he went wrong. I will be watching you closely, and you will not enjoy it." },
+      text = "You reek of the Nether, and so did the renegade Morganth, before he went wrong. I will be watching you closely, and you will not enjoy it." },
     { id = "n_taint", cat = "fel", when = { taint = { min = 25 } },
       text = "Something fel has had its fingers in you. Stand by the window, please; I'd like it to be the first thing I see if you change shape." },
   },
@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunted, no; watched, perhaps. Morganth's Shadowhide gnolls range far beyond Redridge, and a hunter who knows the hills can see things the Eye of Azora can't. Tell me what you find, and nothing more." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, I see, is sniffing my gnome. Do call it off; they are not hounds, and they are not food." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunted, no; watched, perhaps, for Morganth's Shadowhide gnolls range far beyond Redridge. And your {pet}, I see, is sniffing my gnome, so do call it off; they are not hounds, and they are not food." },
       },
       choices = {
         { text = "I'll watch and report what I see.", next = "BACK", fx = { align = { order = 1 } } },
@@ -132,11 +132,11 @@ P:NPC {
         { id = "h_low", when = { maxLevel = 17 },
           text = "You are very young and I am very busy. Come back when you've survived something interesting." },
         { id = "h_before", when = { minLevel = 18, questBefore = TODO_QUEST("Morganth") },
-          text = "A man in Redridge, in the Tower of Ilgalar, once studied with Stormwind's mages until he went wrong. He is my problem." },
+          text = "A man named Morganth, in the Tower of Ilgalar in Redridge, once studied with Stormwind's mages until he went wrong. He is my problem." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Morganth") },
           text = "Morganth commands the Shadowhide gnolls and thinks himself a lord. Remind him otherwise. Permanently, if you'd be so kind." },
         { id = "h_eye", when = { questActive = TODO_QUEST("A Watchful Eye") },
-          text = "The Eye of Azora sees far, but not far enough. That is where you come in, regrettably." },
+          text = "My scrying sphere, the Eye of Azora, sees far, but not far enough. That is where you come in, regrettably." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morganth"), days = 3 } },
           text = "Gone, really? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be, which is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
@@ -151,7 +151,7 @@ P:NPC {
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I'd rather not hear of it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In my tower. Hmm. My gnomes will be fascinated, I'm sure. I am not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, in my tower. My gnomes will be fascinated, I'm sure, but I am not." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
@@ -193,7 +193,7 @@ P:NPC {
     duty = {
       big = true,
       lines = {
-        { id = "d_default", text = "Because I don't care about tax rolls or harvests or who the Regent is dining with. But I know what Morganth is. If I don't care about that, no one competent will." },
+        { id = "d_default", text = "Because I care nothing for tax rolls or harvests or who the Regent is dining with, but I know what Morganth is, and if I don't stop him, no one competent will." },
       },
       choices = {
         { text = "Then I'll help.", next = "BACK", fx = { affinity = 2, learn = { "morganth" }, align = { order = 1 } } },
@@ -225,7 +225,7 @@ P:NPC {
       lines = {
         { id = "st_default", text = "In time. I sent a message through them weeks ago and thought it failed. Next I mean to send something that holds every gnoll wearing one where it stands." },
         { id = "st_heard", when = { questDone = TODO_QUEST("Theocritus' Retrieval") },
-          text = "You heard my message through one. Weeks late, but heard. That is still the most satisfying thing to happen in this tower all year." },
+          text = "You heard my message through one of those pendants, weeks late, but you heard it. That is still the most satisfying thing to happen in this tower all year." },
       },
       choices = {
         { text = "Months of research for a leash.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -235,7 +235,7 @@ P:NPC {
 
     tower = {
       lines = {
-        { id = "tw_default", text = "Mine. The gnomes keep it, Morley dresses it, and the Eye watches Redridge. I go up and down the stairs as little as possible." },
+        { id = "tw_default", text = "It's mine. The gnomes keep it, Morley Eberlein keeps it in robes and the Eye watches Redridge, while I go up and down the stairs as little as possible." },
       },
       choices = {
         { text = "The gnomes?", next = "tower_gnomes" },
@@ -250,7 +250,7 @@ P:NPC {
     },
     eye = {
       lines = {
-        { id = "ey_default", text = "The Eye of Azora, a scrying sphere upstairs. Touch it and you see Ilgalar's walls. My glyphs carry its sight further, wherever someone brave sets them." },
+        { id = "ey_default", text = "The Eye of Azora, a scrying sphere upstairs. Touch it and you see the walls of Morganth's tower in Redridge. My glyphs carry its sight further, wherever someone brave sets them." },
       },
       choices = {
         { text = "I could set one.", next = "BACK", when = { minLevel = 20 }, fx = { affinity = 1, learn = { "morganth" } } },
@@ -290,7 +290,7 @@ P:NPC {
 
     mage = {
       lines = {
-        { id = "ma_default", text = "I'm not a trainer. But here is one thing free: Ur's work is sealed for a reason. If anyone offers you a look inside, refuse, loudly." },
+        { id = "ma_default", text = "I'm not a trainer, but here is one thing for free: Ur's work is sealed for a reason, so if anyone offers you a look inside, refuse, loudly." },
       },
       choices = {
         { text = "I'll refuse.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -351,9 +351,9 @@ P:NPC {
     },
     defias = { { id = "tp_defias", text = "Thieves, and tiresome ones, but somebody else's problem, I'm delighted to say." } },
     eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally, and I try not to." } },
-    blackrock = { { id = "tp_blackrock", text = "The orcs in Stonewatch Keep. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock are the orcs in Stonewatch Keep, in Redridge. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
     _none = { { id = "tp_none", text = "If it were worth knowing, I would know it. Draw your own conclusions." } },
-    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the Scourge broke it in an afternoon. The Kirin Tor rebuild behind their walls now and admit almost nobody, and I confess I don't blame them, nor do I write." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the Scourge broke it in an afternoon. The Kirin Tor rebuild behind their walls now and admit almost nobody, and I confess I don't blame them." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor once invited me to join them, and I declined, because I prefer a tower of my own to a chair in somebody else's. That is all the explanation they received, and all you shall." } },
     scourge = { { id = "tp_scourge", text = "The Scourge is necromancy on a scale no sane mage would attempt, and the man behind its plague sat among the Kirin Tor before he chose it. Every mage alive should remember Kel'Thuzad's name and be ashamed of it.", fx = { learn = { "kelthuzad" } } } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on Dalaran's own council before he went hunting forbidden knowledge, and they say he rules the dead now from a citadel that floats above the plaguelands. If he is still a man in any sense, he is a monstrous one." } },

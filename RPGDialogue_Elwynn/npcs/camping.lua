@@ -73,7 +73,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because a fire you've worked for is half the point of camping, though I won't deny I've wished for a spell when the wood's wet. Light it once with magic and I'd never learn to do it properly, so I suppose I'd better say no." } },
+      lines = { { id = "xmage_default", text = "I'd better not, because a fire you've worked for is half the point of camping, though I won't deny I've wished for a spell when the wood's wet. Light it once with magic and I'd never learn to do it properly." } },
       choices = {
         { text = "You're right. The proper way is worth learning first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic does it faster. Take the easy road, Sam.", next = "BACK", fx = { align = { order = -1 } } },
@@ -82,7 +82,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Mostly, though the Marshal says there are strangers on the road in red bandanas, and I've started sleeping with my kettle where I can reach it. I'm not much of a fighter, I'll admit, but nobody's ever robbed a man who offered them tea first." } },
+      lines = { { id = "xapala_default", text = "Mostly, though Marshal McBride says there are strangers on the road in red bandanas, and I've started sleeping with my kettle where I can reach it. I'm not much of a fighter, I'll admit, but nobody's ever robbed a man who offered them tea first." } },
       choices = {
         { text = "Then I'll keep watch tonight, so you can rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A man who can't defend himself shouldn't sleep on the road.", next = "BACK", fx = { align = { light = -1 } } },
@@ -95,7 +95,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Sam Sarsaparilla, adventurer, or trying to be. Mostly I walk a long way and then sit by a fire, which is the best part." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "The Marshal sent you to check on me? Ha! Can't blame him, with strangers on the road and all, so sit down and I'll show you how harmless I am." },
+          text = "Marshal McBride sent you to check on me? Ha! Can't blame him, with strangers on the road and all, so sit down and I'll show you how harmless I am." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire a while. No, longer than that. You'll feel it when you've properly rested." },
         { id = "h_far", when = { minLevel = 25 },
@@ -122,7 +122,7 @@ P:NPC {
         { text = "I've slept rough from here to the jungle.", next = "far", when = { minLevel = 25 } },
         { text = "A hunter sleeps rough with a beast for a pillow.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Anyone could sneak up on you out here.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why not just carry a spark-stone like everyone else?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Shall I light your fire with magic, Sam?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think warriors rest enough, Sam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is it safe, camping out here alone, Sam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever sleep under the trees without a fire?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -133,7 +133,7 @@ P:NPC {
     },
 
     why = {
-      lines = { { id = "w_default", text = "Inns are lovely, but they're for stopping. A camp's for going on. And anyone walking past can share your fire, which is how you meet people worth knowing." } },
+      lines = { { id = "w_default", text = "Inns are lovely, but they're for stopping, and a camp's for going on. Besides, anyone walking past can share your fire, which is how you meet people worth knowing." } },
       choices = {
         { text = "Who shares your fire?", next = "why_share" },
         { text = "Teach me.", next = "camp", fx = { affinity = 2, learn = { "camping" } } },
@@ -141,7 +141,7 @@ P:NPC {
     },
     why_share = {
       lines = {
-        { id = "ws_default", text = "Anyone! A dwarf with a fishing rod last night. A gnome who asked whether the fire was running properly. Each of them left the camp a little better." },
+        { id = "ws_default", text = "Anyone! Last night it was a dwarf with a fishing rod, and before him a gnome who asked whether the fire was running properly, and each of them left the camp a little better." },
       },
       choices = {
         { text = "That sounds nice.", next = "BACK", fx = { affinity = 1 } },
@@ -151,7 +151,7 @@ P:NPC {
 
     camp = {
       lines = {
-        { id = "c_default", text = "Start with a campfire. Any cook can learn to build one. Then every trade adds something around it, and everyone who sits down gets the good of it." },
+        { id = "c_default", text = "Start with a campfire, which any cook can learn to build. Then every trade adds something around it, and everyone who sits down gets the good of it." },
       },
       choices = {
         { text = "What can my trade add?", next = "camp_trade" },
@@ -181,14 +181,14 @@ P:NPC {
     },
     camp_town = {
       lines = {
-        { id = "cw_default", text = "Folk in town don't care for campfires in the square, and I can't say I blame them after the haystack business. Out here nobody minds but the wolves, and the wolves don't vote." },
+        { id = "cw_default", text = "Folk in town don't care for campfires in the square, and I can't say I blame them after the time I set a haystack alight. Out here nobody minds but the wolves, and the wolves don't vote." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     road = {
       lines = {
-        { id = "r_default", text = "Wherever the road goes, Westfall next maybe, or Redridge. I hear the lake there's lovely, if you don't mind gnolls." },
+        { id = "r_default", text = "Wherever the road goes, Westfall next maybe, or Redridge, where I hear the lake's lovely, if you don't mind gnolls." },
       },
       choices = {
         { text = "That's a long road to walk alone.", next = "road_alone" },
@@ -204,13 +204,13 @@ P:NPC {
 
     marshal = {
       lines = {
-        { id = "m_default", text = "And here I am, checking back! Tell McBride I'm harmless, and he's welcome at the fire any evening he likes." },
+        { id = "m_default", text = "And here I am, checking back! Tell Marshal McBride I'm harmless, and he's welcome at the fire any evening he likes." },
       },
       choices = { { text = "I'll tell him.", next = "BUSINESS", fx = { affinity = 1 } } },
     },
     priest = {
       lines = {
-        { id = "p_default", text = "Bless away! A fire that's been prayed over feels warmer. That might be in my head. I don't mind if it is." },
+        { id = "p_default", text = "Bless away! A fire that's been prayed over feels warmer, and if that's only in my head, I don't mind." },
       },
       choices = {
         { text = "Light keep this fire, and all who sit by it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -239,13 +239,13 @@ P:NPC {
       },
     },
     hunter2 = {
-      lines = { { id = "hunter2_l", text = "I'll put that in my next letter to the Marshal; he thinks camping's a hobby for fools. Pull up a log, if you like, and bring the pillow." } },
+      lines = { { id = "hunter2_l", text = "I'll put that in my next letter to Marshal McBride; he thinks camping's a hobby for fools. Pull up a log, if you like, and bring the pillow." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Not much of a story yet! That's why I'm out here. Ask me again in a year." } },
+    background = { { id = "tp_bg", text = "I've not much of a story yet, which is why I'm out here, so ask me again in a year." } },
     advice = { { id = "tp_ad", text = "Sit down more. Everybody who's in a hurry ends up at the spirit healer." } },
     camping = {
       { id = "tp_camping", text = "A campfire first; any cook can learn it. Then a tent if you work leather, a fish bowl if you fish. The more trades at a fire, the better the rest." },

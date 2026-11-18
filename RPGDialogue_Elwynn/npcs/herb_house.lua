@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Somewhat, I'd say. We both use the elements, but I measure mine. Your spirits might not like measuring." } },
+      lines = { { id = "xdsham_default", text = "Somewhat, I'd say, for we both use the elements, but I measure mine, and your spirits might not like measuring." } },
       choices = {
         { text = "Careful measurement is wisdom, Mallory. I respect it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The spirits don't measure. They just answer.", next = "BACK", fx = { align = { order = -1 } } },
@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Peacebloom and silverleaf, for a start, from the fields around Goldshire. Hunters see more of the ground than anyone, so if you pick as you go, you'll keep me in stock and yourself in potions." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind your {pet} doesn't eat the silverleaf. It gives a beast a terrible bellyache, and you'll smell it for days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom and silverleaf, for a start, from the fields around Goldshire. Mind your {pet} doesn't eat the silverleaf, though, because it gives a beast a terrible bellyache." },
       },
       choices = {
         { text = "I'll pick carefully and leave the roots.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, and you'll want more than you think, because your sort always run short at the worst moment." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my door. You'll be gathering for me before long, I expect, since your sort walk where the herbs grow." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're looking at Pomeroy's herb beds with a very critical eye. Don't tell him, because he's sensitive about the peacebloom." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Hold on, I'm stirring. Do your spirits know alchemy? Fire, water, earth: they're all in my cauldron." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Hold on, I'm stirring. Fire, water and earth are all in my cauldron, so I'd guess your spirits know a little alchemy." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the green flask; it isn't finished." },
@@ -126,7 +126,7 @@ P:NPC {
         { text = "What should a new alchemist make first?", next = "first" },
         { text = "I'd have thought an alchemist would work in the city.", next = "house" },
         { text = "Something's brewing on your bench.", next = "brew" },
-        { text = "Sam sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Alchemy") } },
+        { text = "Sam Sarsaparilla sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Alchemy") } },
         { text = "Why shouldn't a mage use spells in alchemy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What reason would you have to keep nightshade high?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many healing potions should a warrior carry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -184,7 +184,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I studied under an apothecary in Stormwind's Trade District and left when his street grew too crowded for two of us." } },
     advice = { { id = "tp_ad", text = "Taste nothing you've just brewed, friend. Let someone else be brave first." } },
-    camping = { { id = "tp_camping", text = "Sam's campfires are fine for sausages. For anything finer, you want a steady flame and a good deal of patience." } },
+    camping = { { id = "tp_camping", text = "Sam Sarsaparilla's campfires are fine for sausages, but for anything finer, you want a steady flame and a good deal of patience." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and I can't stop stirring to find out." } },
     scourge = { { id = "tp_scourge", text = "The plague that took Lordaeron was brewed, friend, not caught, and that frightens me more than any wolf. Somebody with training like mine did that, and I think of it every time I light the burner." } },
     dalaran = { { id = "tp_dalaran", text = "The alchemists of Dalaran had the finest stills in the world, and I've heard they're only now rebuilding them. I'd like to see one before I die, preferably not because of one." } },
@@ -235,7 +235,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Earthroot, chewed, for a bruise that won't settle, and bark of the silver birch for a sore head. Mallory will tell you a potion's better, and she's right, but a root in your pocket costs nothing." } },
+      lines = { { id = "xwarcl_default", text = "Earthroot, chewed, for a bruise that won't settle, and bark of the silver birch for a sore head. Mallory will tell you a potion's better, and he's right, but a root in your pocket costs nothing." } },
       choices = {
         { text = "I'll carry the root. Every little help counts.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll leave the roots to farmers.", next = "BACK", fx = { align = { order = -1 } } },
@@ -246,7 +246,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Peacebloom, along the roads, and silverleaf in the shade by the river. You'll find them where the deer have grazed and left the rest, and if your beast stops to sniff, it's usually found something." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its nose to the ground already. Half my best patches were found by somebody's dog." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom along the roads, and silverleaf in the shade by the river. Your {pet} has its nose to the ground already, and half my best patches were found by somebody's dog." },
       },
       choices = {
         { text = "I'll gather as I go and leave the patches whole.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -294,9 +294,9 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've peacebloom and silverleaf, if you'd like to learn which herbs work alongside your prayers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll not have time to learn herbs, I expect, with all your duties, but if you see silverleaf by the road, I'd be grateful if you picked it." },
-        { id = "h_default", text = "Pomeroy, and I teach herbalism, which is a grand name for knowing where to look and when to pick. Mallory brews and I gather, and between us we keep half the gate guards on their feet." },
+        { id = "h_default", text = "I'm Pomeroy, and I teach herbalism, which is a grand name for knowing where to look and when to pick. Mallory brews and I gather, and between us we keep half the gate guards on their feet." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Herbalism") },
-          text = "Sam's sent you, has he? He wants every camp to have someone who can tell a healing leaf from a bellyache, and he's right about that, bless him." },
+          text = "Sam Sarsaparilla's sent you, has he? He wants every camp to have someone who can tell a healing leaf from a bellyache, and he's right about that, bless him." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei! I've heard your forests grow herbs I've never seen, and I'll confess I'm a little jealous of you for it." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter. You walk the woods anyway, so you might as well learn what you're stepping on, and I'll wager half of it's useful." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -305,7 +305,7 @@ P:NPC {
           text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the herb house. Stand still, now, because you've knocked my drying rack twice already." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your sort pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The hillsides here are friends of mine. Do your earth spirits know them?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The hillsides here are friends of mine, so I wonder if your earth spirits know them too." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I've roots drying and nowhere to be." },
@@ -316,7 +316,7 @@ P:NPC {
         { text = "What grows in Elwynn?", next = "herbs" },
         { text = "You and Mallory seem to get on well.", next = "mallory" },
         { text = "Gathering must be dangerous these days.", next = "danger" },
-        { text = "Sam sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
+        { text = "Sam Sarsaparilla sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "What do you grow, if not something for blades?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why won't you spare the best herbs for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do any of your herbs help a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -347,7 +347,7 @@ P:NPC {
       },
     },
     mallory_smell = {
-      lines = { { id = "ms_default", text = "Worse, some days. But I've seen him sit up all night with a guard's wound, and I'll forgive a man a great deal of smell for that." } },
+      lines = { { id = "ms_default", text = "Worse, some days, but I've seen him sit up all night with a guard's wound, and I'll forgive a man a great deal of smell for that." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     danger = {
@@ -360,7 +360,7 @@ P:NPC {
       },
     },
     camp = {
-      lines = { { id = "c_default", text = "Then pick what you can by the roadside, and learn which leaves keep and which spoil by morning. A camp herbalist earns her keep before a camp cook does, though don't tell Tomas I said so, because he already salts the stew out of spite." } },
+      lines = { { id = "c_default", text = "Then pick what you can by the roadside, and learn which leaves keep and which spoil by morning. A camp herbalist earns her keep before a camp cook does, though don't tell Tomas, the cook at the Lion's Pride, I said so, because he already salts the stew out of spite." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "camping" } } } },
     },
   },
