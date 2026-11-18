@@ -226,7 +226,7 @@ P:NPC {
       lines = { { id = "pj_wixx_default", text = "Against their mouths, sure. Every dwarf who comes through Everlook tells me the Ironforge stock is better, the Ironforge powder's drier and the Ironforge barrels are straighter, and then they walk out with my rifle anyway and tell their friends they got robbed." } },
       choices = {
         { text = "Is Ironforge powder really better?", next = "pj_wixx2" },
-        { text = "Your guns speak for themselves. I won't run them down.", next = "BACK", reply = "Now that's a customer with taste, pal, and a fella who knows quality when it's pointed at a yeti. You'll go far, and probably come back for more shot.", fx = { align = { honor = 1 } } },
+        { text = "Your guns speak for themselves. I won't run them down.", next = "BACK", reply = "Now that's a customer with taste, pal, and somebody who knows quality when it's pointed at a yeti. You'll go far, and probably come back for more shot.", fx = { align = { honor = 1 } } },
         { text = "I'll say whatever gets me a better price, Wixxrak.", next = "BACK", reply = "Ha! Honest about bein' dishonest, I like that, chum. But I know every trick in the bartering book, because I wrote half the chapters myself.", fx = { align = { honor = -1 } } },
         { text = "Show me what you've got, and I'll judge the steel.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -264,7 +264,7 @@ P:NPC {
       },
       choices = {
         { text = "A hunter keeps the weapon in order. I'll learn the oil myself.", next = "BACK", reply = "Ha, a hunter with standards, and I respect that, pal, truly. But the recipe stays secret, so you'll just have to keep buying it from me.", fx = { align = { order = 1 } } },
-        { text = "I don't care what's in it, so long as the rifle fires.", next = "BACK", reply = "That's what I like to hear, pal, a man of results. It fires every time, cold or not, and that's the only promise that matters on a gun.", fx = { align = { order = -1 } } },
+        { text = "I don't care what's in it, so long as the rifle fires.", next = "BACK", reply = "That's what I like to hear, pal, somebody who cares about results. It fires every time, cold or not, and that's the only promise that matters on a gun.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

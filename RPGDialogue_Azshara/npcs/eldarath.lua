@@ -399,7 +399,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because your kind walk up to the dragon and hit it, and the dragon breathes, and then I add a name to my list. The ones who come back are the ones who brought a dozen friends and a priest, and even they come back singed." } },
       choices = {
-        { text = "Then I'll go with friends and a plan. Bravery isn't foolishness.", next = "BACK", reply = "There's a warrior who'll come back, and I'm glad of it. Bring the friends by the shop after, and I'll stand you a, well, a good price on the scales.", fx = { align = { order = 1 } } },
+        { text = "Then I'll go with friends and a plan. Bravery isn't foolishness.", next = "BACK", reply = "There's a warrior who'll come back, and I'm glad of it. Bring the friends by the shop after, and we'll see about those scales.", fx = { align = { order = 1 } } },
         { text = "I'll take my chances alone. Glory doesn't share well.", next = "BACK", reply = "Then I'll write your name now and save myself the trouble. Glory doesn't skin dragons, friend.", fx = { align = { order = -1 } } },
         { text = "Something else, Peter.", next = "BACK" },
       },
