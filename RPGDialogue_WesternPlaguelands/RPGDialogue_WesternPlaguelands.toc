@@ -21,3 +21,4 @@ npcs\roads.lua
 npcs\theldanis.lua
 npcs\lucien.lua
 npcs\chillwind_scouts.lua
+npcs\more_folk.lua

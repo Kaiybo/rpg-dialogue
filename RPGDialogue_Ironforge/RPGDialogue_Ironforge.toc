@@ -37,3 +37,5 @@ npcs\razzle_sprysprocket.lua
 npcs\barin_redstone.lua
 npcs\old_ironforge_forever.lua
 npcs\dunmorogh_forever.lua
+npcs\more_folk.lua
+npcs\more_folk2.lua

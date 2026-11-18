@@ -30,3 +30,4 @@ npcs\watcher_backus.lua
 npcs\watcher_ladimore.lua
 npcs\darkshire_edges.lua
 npcs\lars.lua
+npcs\more_folk.lua

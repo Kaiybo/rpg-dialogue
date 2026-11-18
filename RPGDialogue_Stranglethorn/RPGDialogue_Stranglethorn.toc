@@ -35,3 +35,4 @@ npcs\booty_bay_wharf.lua
 npcs\booty_bay_visitors.lua
 npcs\booty_bay_flora.lua
 npcs\yojamba.lua
+npcs\more_folk.lua

@@ -20,3 +20,4 @@ npcs\moonspear.lua
 npcs\feathermoon_folk.lua
 npcs\mojache_folk.lua
 npcs\east_feralas.lua
+npcs\more_folk.lua

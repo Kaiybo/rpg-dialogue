@@ -21,3 +21,4 @@ npcs\moonhorn.lua
 npcs\zherin.lua
 npcs\lakota.lua
 npcs\needles_more.lua
+npcs\more_folk.lua

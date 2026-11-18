@@ -21,3 +21,4 @@ npcs\av_headland.lua
 npcs\archives.lua
 npcs\tempered_tomes.lua
 npcs\orphanage.lua
+npcs\more_folk.lua
