@@ -285,7 +285,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The gate guards, mostly, and the farmers who can't afford the Abbey's healers. Mallory brews and I gather, and between us we keep a lot of people on their feet who'd otherwise be on their backs." } },
       choices = {
-        { text = "That's service, Pomeroy, as true as any oath.", next = "BACK", reply = "That's a kind thing to say, and I'll tell Mallory you said it. She'll pretend not to be pleased.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's service, Pomeroy, as true as any oath.", next = "BACK", reply = "That's a kind thing to say, and I'll tell Mallory you said it. He'll pretend not to be pleased.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They should pay the Abbey. Healing isn't free.", next = "BACK", reply = "They should, and the Abbey should take them, but neither's going to happen any time soon, so Mallory and I make do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

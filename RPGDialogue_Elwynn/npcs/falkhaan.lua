@@ -115,7 +115,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More every season, and I can tell them by their boots, since a hunter walks the edges and never the road. Your {pet} looks like it's walked far today, so get it fed before yourself, and you'll both sleep better." },
       },
       choices = {
-        { text = "I'll leave the road wolves be unless they come near.", next = "BACK", reply = "Good, and the wolves will learn to leave you be. Farley will have a bed for you.", fx = { align = { honor = 1 } } },
+        { text = "I'll leave the road wolves be unless they come near.", next = "BACK", reply = "Good, and most of them will learn to leave you be. Mind the ones that don't.", fx = { align = { honor = 1 } } },
         { text = "I'll take every wolf in those trees, near or not.", next = "BACK", reply = "Then you'll be back on this road tired and bitten, I expect. Mind yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -133,7 +133,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "It does when your hands start shaking at Jasperlode and you set the mine's timbers alight instead of the kobolds. I've seen it happen to a young mage from the Abbey, and he was very sorry about it afterwards." } },
       choices = {
-        { text = "I'll take your advice and rest, Falkhaan.", next = "BACK", reply = "Good, the tower will thank you, and so will the miners at Jasperlode.", fx = { align = { order = 1 } } },
+        { text = "I'll take your advice and rest, Falkhaan.", next = "BACK", reply = "Good. Jasperlode's timbers will thank you, and so will the miners under them.", fx = { align = { order = 1 } } },
         { text = "I'll sleep when the work is done, not before.", next = "BACK", reply = "The work's never done, friend, and you'll find that out. The inn's down the road when you do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -236,7 +236,7 @@ P:NPC {
       },
       choices = {
         { text = "Sounds like you both win.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "He does. Fires don't walk.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "He does, Falkhaan. A fire can't walk out to meet anyone.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 

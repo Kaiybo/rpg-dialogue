@@ -561,7 +561,7 @@ P:NPC {
       lines = { { id = "kd_default", text = "Every morning, cousin, when I wake up sweating in a hammock instead of under a proper stone roof. Still, the sea's got its charms, and nobody in Ironforge would let me grind snuff in the Great Forge." } },
       choices = {
         { text = "A dwarf belongs in the mountain. Go home someday.", next = "BACK", reply = "Someday, aye, when my beard's gone white and the sea's had its fill of me. I'll walk into the Great Forge and order the biggest ale in Ironforge.", fx = { align = { order = 1 } } },
-        { text = "A dwarf belongs wherever he likes. Stay at sea.", next = "BACK", reply = "Ha! That's what I tell myself every morning while I wring out my beard. The mountain'll keep, and the sea won't wait.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "A dwarf belongs wherever he likes. Stay at sea.", next = "BACK", reply = "Ha! That's what I tell myself every morning while I wring out my beard. The Great Forge can pour my ale when I'm too old to haul a line.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

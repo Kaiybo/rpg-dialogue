@@ -407,7 +407,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Every day, friend, for a spark in a sawmill takes the whole thing and the men in it besides. The wolves and bears ran the lads off the cut wood up north, so if you're handy with flame, aim it at them and not at my stacks." } },
       choices = {
-        { text = "I'll be careful with fire near the mill.", next = "BACK", reply = "Thank you, the stacks thank you too. Aim north, at the bears.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll be careful with fire near the mill.", next = "BACK", reply = "Thank you, and the stacks thank you too. Aim north, at the bears.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little fire never hurt green wood. You worry too much.", next = "BACK", reply = "Green wood's one thing, but a dry stack's another, and it all burns. Keep it away from my mill.", fx = { align = { order = -1 } } },
         { text = "Something else, Terry.", next = "BACK" },
       },
@@ -453,7 +453,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back he takes it out of. I've nothing against you personally, but my back has suffered enough." } },
+      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." } },
       choices = {
         { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", reply = "Thank you, and my back thanks you too. Raelen's a hard one.", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", reply = "It's mine, friend, and I'll thank you to remember it. Go round the long way.", fx = { align = { light = -1 } } },

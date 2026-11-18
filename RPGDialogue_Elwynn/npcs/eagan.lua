@@ -87,7 +87,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Every animal smells it, and the wolves have been in a temper since you came up the road. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word." } },
       choices = {
-        { text = "The wolves are right to fear it. I'll keep it leashed.", next = "BACK", reply = "Thank you, and I'll keep the wolves' trust in their noses. They've not been wrong yet.", fx = { align = { light = 1 } } },
+        { text = "The wolves are right to fear it. I'll keep it leashed.", next = "BACK", reply = "Thank you. A wolf's nose has never been wrong yet, and I'd like them settled before lambing.", fx = { align = { light = 1 } } },
         { text = "Let them howl. Fear keeps beasts in their place.", next = "BACK", reply = "Fear keeps them howling all night, friend, and none of us sleep. Keep it leashed.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -227,7 +227,7 @@ P:NPC {
       lines = {
         { id = "s_default", text = "Keep the knife flat and follow the fat; don't saw at it. If you hear it tearing, you've already ruined it. Helene teaches it properly, down in Goldshire." },
       },
-      choices = { { text = "Knife flat. Thanks.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Knife flat, follow the fat. Thanks, Eagan.", next = "BACK", fx = { affinity = 2 } } },
     },
     druid = {
       lines = { { id = "d_default", text = "Depends on the coat. Don't look at me like that; you asked." } },
@@ -237,7 +237,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a trapper and a skinner, here in Northshire, and that's the lot." } },
-    advice = { { id = "tp_ad", text = "Feed your animal before yourself. Clean your knife before you sleep. Never turn your back on a wolf that's stopped growling." } },
+    advice = { { id = "tp_ad", text = "Feed your animal before yourself and clean your knife before you sleep, and never turn your back on a wolf that's stopped growling." } },
     kobolds = { { id = "t_kobolds", text = "Kobolds don't wear anything worth taking." } },
     hogger = { { id = "t_hogger", text = "A gnoll that big has a hide like a door. I'd like it, but I'd not like to be the one taking it." } },
     _none = { { id = "t_none", text = "Ask someone who talks more." } },

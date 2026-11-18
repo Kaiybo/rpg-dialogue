@@ -250,7 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "Axes and men, both.", next = "BACK", reply = "Good, and quick about it. The axes are by the shed.", fx = { affinity = 2, align = { light = 1 }, standing = { eastvale = 1 } } },
-        { text = "The men first. Then your deadline.", next = "BACK", reply = "The men first, aye, and I'll not argue with a priest. Be quick about it, though.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "The men first, and then your deadline.", next = "BACK", reply = "The men first, aye, and I'll not argue with a priest. Be quick about it, though.", fx = { align = { light = 1 }, affinity = -1 } },
       },
     },
     farmhand = {

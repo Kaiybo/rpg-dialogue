@@ -70,7 +70,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They fear what smells like a wolf or a cat, and most of your pets do. Your {pet} looks calm enough, but the mares won't believe that, so keep it by the gate, please." },
       },
       choices = {
-        { text = "I'll keep my beast away from your stable.", next = "BACK", reply = "Thank you, the mares will thank you too. They've long memories about lynxes.", fx = { align = { honor = 1 } } },
+        { text = "I'll keep my beast away from your stable.", next = "BACK", reply = "Thank you kindly. The mares have long memories where lynxes are concerned.", fx = { align = { honor = 1 } } },
         { text = "Your horses will have to get used to it.", next = "BACK", reply = "They won't, and my fences will pay for it. Go round the long way, please, or don't come at all.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Katie Hunter, and I breed the horses Stormwind rides, bred for years, cared for daily and worth every coin. Randal, over there, teaches you to stay on them." },
         { id = "h_young", when = { race = "Human", maxLevel = 39 }, text = "You'll want a horse soon, love, but you'll need Randal's lessons first, and he won't teach anyone who's still green, so come back seasoned." },
         { id = "h_trusted", when = { ["not"] = { race = "Human" }, reputation = { faction = "Stormwind", min = "exalted" } },
-          text = "Stormwind trusts you completely, I hear, and so I do too. Come and meet them." },
+          text = "Stormwind trusts you completely, I hear, and so do I. Come and meet them." },
         { id = "h_other", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } }, text = "These are Stormwind's horses. Earn the kingdom's full trust and we'll do business; until then, you're welcome to pat one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I count every horse in this stable twice a night, so you know, and I know each by the sound of its hooves." },

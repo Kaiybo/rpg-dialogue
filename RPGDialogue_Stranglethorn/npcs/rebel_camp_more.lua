@@ -232,7 +232,7 @@ P:NPC {
     questions = {
       lines = { { id = "qu_default", text = "Do I? It's the watch, friend, it gets into you. You stand out there all night listening for the Colonel's men, and when someone finally comes along to talk to, you want to know everything." } },
       choices = {
-        { text = "Of course. Long nights.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Of course. The nights must be long.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'll keep my answers short, then.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },

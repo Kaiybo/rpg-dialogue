@@ -151,7 +151,7 @@ P:NPC {
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I have no wish to hear of it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In my tower. Hmm. My gnomes will be fascinated, I'm sure. I am not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, in my tower, of all places. My gnomes will be fascinated, I'm sure, and I am not." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
@@ -309,7 +309,7 @@ P:NPC {
         { id = "wl_default", text = "Nobody is Morganth until they are. He began as a student with good intentions. Keep yours where I can see them." },
       },
       choices = {
-        { text = "You'll see them.", next = "BACK", reply = "Good, and I'll be watching. Do keep them in sight.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You'll see them.", next = "BACK", reply = "Good. I'll be watching them rather more closely than you'd like.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My power is my business.", next = "BACK", reply = "It's mine too, the moment it comes near this tower. Remember that.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },

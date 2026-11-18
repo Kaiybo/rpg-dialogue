@@ -818,7 +818,7 @@ P:NPC {
     k_nelf = {
       lines = { { id = "kne_default", text = "I know it, in my head, but my hands haven't learned it yet, and my hands are what kept me alive in Desolace. Sit there a while and don't sell me to anybody, and maybe they'll come round." } },
       choices = {
-        { text = "I'll prove it. My word holds.", next = "BACK", reply = "Then prove it, and I'll learn to trust you a little at a time. My hands will catch up eventually.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'll prove it, because my word holds.", next = "BACK", reply = "Then prove it, and I'll learn to trust you a little at a time. My hands will catch up eventually.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Trust nobody. That's the wiser lesson anyway.", next = "BACK", reply = "That's the lesson Desolace taught me too, and it hasn't failed me yet. Trust is for orcs with nothing to lose.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1168,7 +1168,7 @@ P:NPC {
       lines = { { id = "wyh_default", text = "I could, and someday I will, but Teldrassil is young and the city on it younger still, and it doesn't yet feel like home the way the old forest did. I'd rather miss Ashenvale from the sea than from a branch." } },
       choices = {
         { text = "Your people need you at home, Elril.", next = "BACK", reply = "Maybe they do, and I'll go when they call. But Teldrassil doesn't feel like home yet, and I've learned to wait.", fx = { align = { order = 1 }, learn = { "teldrassil" } } },
-        { text = "Home is wherever you choose to stand.", next = "BACK", reply = "That's what I tell myself, and the cove agrees most nights. Home is where the moon finds you.", fx = { align = { order = -1 }, learn = { "teldrassil" } } },
+        { text = "Home is wherever you choose to stand.", next = "BACK", reply = "That's what I tell myself, and the cove agrees most nights. The surf even sounds a little like wind in the canopy, if I close my eyes.", fx = { align = { order = -1 }, learn = { "teldrassil" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1216,7 +1216,7 @@ P:NPC {
         { id = "ta_horde", when = { faction = "Horde" }, text = "You'll have heard the Warsong's side of it, so here's mine: the most beautiful forest in the world, cut for lumber, and my people killing for every tree. I've seen both sides bury their dead under the same branches, and I've stopped being sure the trees are on anyone's side." },
       },
       choices = {
-        { text = "Every grave there is a loss. Both sides need peace.", next = "BACK", reply = "They do, and I'll pray for it every night. Peace is the only thing that saves the forest.", fx = { align = { light = 1 }, learn = { "warsong" } } },
+        { text = "Every grave there is a loss. Both sides need peace.", next = "BACK", reply = "They do, and I pray for it every night. I've seen Ashenvale glades burned by both sides, and the trees never asked who lit the fire.", fx = { align = { light = 1 }, learn = { "warsong" } } },
         { text = "The forest belongs to whoever can hold it.", next = "BACK", reply = "Then the forest belongs to nobody, and that's the saddest thought I've heard all week. I'll keep praying for it anyway.", fx = { align = { light = -1 }, learn = { "warsong" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1273,7 +1273,7 @@ P:NPC {
       },
       choices = {
         { text = "The Light and the moon are one warmth, shared.", next = "BACK", reply = "Perhaps they are, and that's the warmth I felt in the cathedral. Elune and the Light seem to like the same sort of quiet.", fx = { align = { light = 1 }, learn = { "sisterhood_of_elune" } } },
-        { text = "Gods and priests both quarrel. I trust neither.", next = "BACK", reply = "Then trust the moon, which never quarrels with anyone. It shines on gods and priests alike.", fx = { align = { light = -1 } } },
+        { text = "Gods and priests both quarrel. I trust neither.", next = "BACK", reply = "Then trust the moon, which has never once quarrelled with me. Even the priestesses in Darnassus can't say that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1306,7 +1306,7 @@ P:NPC {
     k_scourge = {
       lines = { { id = "ksc_default", text = "A little, since my people have no stories for the dead who keep their own minds. But Elune's light falls on everything, the drowned and the dead included, so I'd rather learn your name than fear it." } },
       choices = {
-        { text = "I was someone once. I'd be glad of a friend.", next = "BACK", reply = "Then you have one, and I'll be glad of you too. Elune shines on the living and the dead alike.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I was someone once. I'd be glad of a friend.", next = "BACK", reply = "Then you have one, and I'll be glad of you too. Come and stand the night watch with me some evening, because the docks are quieter than you'd think.", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "Fear us if you like. We've earned it.", next = "BACK", reply = "Perhaps you have, and I'll not pretend otherwise. But I'll still not fear you here, under the Baron's peace.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

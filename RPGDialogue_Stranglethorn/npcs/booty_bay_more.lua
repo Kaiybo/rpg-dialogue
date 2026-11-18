@@ -72,7 +72,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Now and then, mostly the young ones who haven't learned to teleport yet, and they spend the whole flight clutching their hats. I tell them the gryphons are smarter than they look, and the gryphons seem to agree with me." } },
       choices = {
         { text = "I'll take the gryphon. Teleporting isn't everything.", next = "BACK", reply = "Good, and ye'll see the coast as the birds see it, which no portal gives ye. Mind yer hat over the bay.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll teleport. Gryphons are for those without better options.", next = "BACK", reply = "Then off ye pop, and the birds won't miss ye. Better options, he says, as if a gryphon weren't the finest ride in the world.", fx = { align = { light = -1 } } },
+        { text = "I'll teleport. Gryphons are for those without better options.", next = "BACK", reply = "Then off ye pop, and the birds won't miss ye. Better options, says you, as if a gryphon weren't the finest ride in the world.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -425,7 +425,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every piece back there has a fee, and every fee has a date, and I remember every date. I'm afraid {pet} can't be deposited, before you ask, since the last live beast I took in ate a strongbox and most of what was in it." },
       },
       choices = {
-        { text = "I keep trophies to honor the beasts I've taken.", next = "BACK", reply = "And they'll be safe here as long as you keep paying, friend. Honor's a lovely thing to keep in a box.", fx = { align = { light = 1 } } },
+        { text = "I keep trophies to honor the beasts I've taken.", next = "BACK", reply = "And they'll be safe here as long as you keep paying, friend. There's a stuffed panther in box nine that frightens the night clerk every single time.", fx = { align = { light = 1 } } },
         { text = "Trophies are vanity. I sell what I kill and keep the coin.", next = "BACK", reply = "Smart business, friend, the coin keeps better than a stuffed head. Though the raptor head does lend the vault a certain charm.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -551,7 +551,7 @@ P:NPC {
         { id = "sb_default", text = "Officially, no, since the Baron would have my ears. Unofficially, gold doesn't come with a bandana, and I never ask where a coin has been before it reaches me." },
       },
       choices = {
-        { text = "Coin is coin. Smart business.", next = "BACK", reply = "Spoken like a true Booty Bay native, friend. Coin has no colors in my vault, and no bandanas either.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Coin is coin, and that's smart business.", next = "BACK", reply = "Spoken like a true Booty Bay native, friend. Coin has no colors in my vault, and no bandanas either.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "That's how pirates get rich off honest folk.", next = "BACK", reply = "And then they bring it here, friend, which is how honest folk get it back eventually, by way of the Cartel. The system works, mostly.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -634,7 +634,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "A Bloodsail captain who killed three men with it in a single night, or so the seller told me, and I've no reason to doubt him. The blade's sharp and well balanced, so whether the story's true or not, it'll serve you just as well." } },
       choices = {
-        { text = "A good blade is enough. I don't need the story.", next = "BACK", reply = "A practical buyer, and they're rarer than you'd think. The blade's good, and the story's free with purchase.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good blade is enough. I don't need the story.", next = "BACK", reply = "A practical buyer, and they're rarer than you'd think. Take the blade, and I'll save the story for the next fellow.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The story makes the blade. I'll pay for both.", next = "BACK", reply = "That's my favorite kind of customer! Blade and story together, and both of them sharpened.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jutak.", next = "BACK" },
       },
@@ -653,7 +653,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "A curved knife for cutting herbs, said to have belonged to a kaldorei priestess, though I'd not swear to the priestess. Most druids look at my table like it's a graveyard of trees, and to be fair, some of these hilts are ironwood." } },
       choices = {
         { text = "A blade that cuts herbs cleanly is a worthy tool. I'll look.", next = "BACK", reply = "It is, and the edge is still good after all these years. Whether a priestess held it, I'll leave to you.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your stories beat your steel, Jutak. I'll keep my claws.", next = "BACK", reply = "Your claws are free and never need sharpening, so I can't argue. But the knife's a fine story, at least.", fx = { align = { order = -1 } } },
+        { text = "Your stories beat your steel, Jutak. I'll keep my claws.", next = "BACK", reply = "Your claws are free and never need sharpening, so I can't argue. I'll sell the knife to somebody who likes a tale.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -662,7 +662,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "The sailor swore it did, and he swore it on his mother, though I later learned he swore everything on his mother, so make of that what you will. Every blade has a story, friend, and the price depends on how much of the story you choose to believe." } },
       choices = {
         { text = "Sell it straight, Jutak, story and doubts together.", next = "BACK", reply = "That's the paladin's way, and I'll not pretend I always do it. But you'll get both from me, since you asked.", fx = { align = { honor = 1 } } },
-        { text = "A good story sells a blade. I'd do the same.", next = "BACK", reply = "Then you'd be a better trader than most paladins I've met. A story sells, and a doubt doesn't.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A good story sells a blade. I'd do the same.", next = "BACK", reply = "Then you'd be a better trader than most paladins I've met. The last one made me swear on the Light before he'd buy a spoon.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -732,7 +732,7 @@ P:NPC {
       },
       choices = {
         { text = "That's pure robbery, Jutak.", next = "BACK", reply = "Robbery's a word for people who aren't in pirate towns, friend. I'll call it recovery, and give you a fair price to get yours back.", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Finders keepers. I respect that.", next = "BACK", reply = "A buyer who understands the trade! Finders keepers, and the finders sell to me.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Finders keepers, eh? I respect that.", next = "BACK", reply = "A buyer who understands the trade! Finders keepers, and the finders sell to me.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -793,7 +793,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The best, so far, because you're new and you're proud and you want everyone to see the Light still answers you. Walk out of here swinging one of my hammers and every sailor on the pier will know it, and that's good for both of us." } },
       choices = {
-        { text = "I'll carry it to use, Zarena, not for show.", next = "BACK", reply = "Honestly is better, and I'll respect you for it. The steel will last longer than the fame, anyway.", fx = { align = { honor = 1 } } },
+        { text = "I'll carry it to use, Zarena, not for show.", next = "BACK", reply = "For use is better, and I'll respect you for it. Fame rusts faster than my steel does, anyway.", fx = { align = { honor = 1 } } },
         { text = "Let them see. A little fame won't hurt.", next = "BACK", reply = "A little fame's good for business, and good steel deserves it. Swing it where everyone can see.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -859,7 +859,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I care that they don't break, and that's a rarer promise on this boardwalk than it ought to be. Where they go after they leave my counter is between the buyer and their conscience, and I've found mine sleeps better when I don't ask." } },
       choices = {
-        { text = "Then ask anyway. A conscience works better awake.", next = "BACK", reply = "Maybe you're right, and maybe I should. But a smith who asks too many questions loses too many sales.", fx = { align = { light = 1 } } },
+        { text = "Then ask anyway. A conscience works better awake.", next = "BACK", reply = "Maybe you're right, and maybe I should. I'll start with the next one who wants a blade that won't catch the light.", fx = { align = { light = 1 } } },
         { text = "A smith sells steel, not judgment. You're right not to ask.", next = "BACK", reply = "Exactly, and I'd lose half my trade if I asked. I make it strong, and that's where my part ends.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -947,7 +947,7 @@ P:NPC {
         { id = "xo_default", text = "Heavier, certainly, and the Orgrimmar smiths know how to make a blade that frightens people. Mine are made to cut instead, so pick one up and see if you can tell me otherwise." },
       },
       choices = {
-        { text = "Fine. Show me.", next = "BUSINESS" },
+        { text = "Fine, then, show me.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -956,7 +956,7 @@ P:NPC {
         { id = "xm_default", text = "To a smith I sell plans, if I've any spare, and opinions for free. Don't quench in seawater, whatever the dockhands tell you; it pits the steel and ruins the temper." },
       },
       choices = {
-        { text = "Good advice. Thank you.", next = "BACK", fx = { affinity = 2 } },
+        { text = "That's good advice. Thank you.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1163,7 +1163,7 @@ P:NPC {
   greetings = {
     { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well hello, sweetheart, the Salty Sailor just got better lookin' by a margin I can't even put a price on! Sit down, sit down, the smile's free and the bread's a copper." },
     { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There's my favourite customer, sweetheart! I saved you the table with only one wobbly leg, which around here counts as a reservation, and I didn't even bill you for the sentiment." },
-    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Food or drink, pal, strictly business, just like you asked! Mind you, business is the one thing I never get tired of." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Food or drink, pal, strictly business, just like you asked! Then again, business is the one thing I never get tired of." },
     { id = "g_food", text = "Are you hungry or thirsty, pal? If it's both, you're my favorite kind of customer, and I've got a combination price!" },
   },
 

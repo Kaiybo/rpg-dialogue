@@ -723,7 +723,7 @@ P:NPC {
         { id = "pk_default", text = "Take the leaves and the flowers and leave the root in the ground, and it'll come back next spring. Rip it all up and you'll have one harvest and then nothing but mud." },
       },
       choices = {
-        { text = "Leave the root. Always.", next = "picking_root", fx = { align = { light = 1 } } },
+        { text = "Leave the root in, always.", next = "picking_root", fx = { align = { light = 1 } } },
         { text = "I take what I need. The land is wide.", next = "picking_root", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1119,8 +1119,8 @@ P:NPC {
         { id = "rm_default", text = "Nobody knows. The farmers say they've always been in the lake, but they never came this far before. Some say they've been pushed out by something worse, and I don't like to think what." },
       },
       choices = {
-        { text = "Someone should drive them back to the lake.", next = "BACK", reply = "I'd be grateful, honestly, and so would my horse. Every crossing past that river feels like I'm daring them to come up out of the reeds.", fx = { align = { light = -1 } } },
-        { text = "Leave them be. They were here first.", next = "BACK", reply = "Here first or not, they took my wagon and every crate on it. It's easy to be generous when it's somebody else's flour at the bottom of the river.", fx = { align = { light = 1 } } },
+        { text = "Someone should drive them back to the lake.", next = "BACK", reply = "I'd be grateful, truly, and so would my horse. Every crossing past that river feels like I'm daring them to come up out of the reeds.", fx = { align = { light = -1 } } },
+        { text = "Leave them be. They were here first.", next = "BACK", reply = "Here first or not, they spooked my horse and cost the camp its tools. It's easy to be generous when it's somebody else's saw at the bottom of the river.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

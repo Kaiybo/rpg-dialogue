@@ -48,7 +48,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Quiet, polite and forever asking for more candles, which Farley grumbles about and I fetch anyway. Once a frost spell got loose up there and the ale in the cellar went cold for a week, and nobody's complained about anything since." } },
       choices = {
-        { text = "That's a good use of magic. Cold ale for all.", next = "BACK", reply = "Ha, that's what the regulars said too, once they'd stopped shivering. I'd not mind if it happened again in summer.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Cold ale for the whole room? That's a good use of magic.", next = "BACK", reply = "Ha, that's what the regulars said too, once they'd stopped shivering. I'd not mind if it happened again in summer.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "He should keep his spells to his own room.", next = "BACK", reply = "Farley says the same, and loudly, but I'll not be the one to tell a mage what to do. I just fetch the candles.", fx = { align = { order = 1 } } },
         { text = "Something else, Dobbins.", next = "BACK" },
       },
@@ -250,7 +250,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Torches, linen and rope, and always after a fight, never before one. If they'd buy them first, there'd be fewer kobolds in Fargodeep and more warriors with both eyebrows." } },
       choices = {
-        { text = "I'll buy what I need before the fight.", next = "BACK", reply = "At last, a warrior with sense in his pack! You'll keep both eyebrows and I'll keep a customer.", fx = { align = { order = 1 } } },
+        { text = "I'll buy what I need before the fight.", next = "BACK", reply = "At last, a warrior with some sense in the pack! You'll keep both eyebrows and I'll keep a customer.", fx = { align = { order = 1 } } },
         { text = "I'll buy it when I find out I need it.", next = "BACK", reply = "They all say that, and they all come back singed. The torches are on the left when you do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -271,7 +271,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Every day, because the Defias didn't get their gear out of thin air, and I'd hate to find my rope hanging off a farmhouse window. But a merchant who asks too many questions doesn't stay a merchant for long, so I count coin and hope." } },
       choices = {
-        { text = "Then I'll make sure your rope stays on honest work.", next = "BACK", reply = "I'd sleep better for hearing that, honestly. A coil of my rope on a farmhouse window would sit badly with me.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll make sure your rope stays on honest work.", next = "BACK", reply = "I'd sleep better for hearing that. A coil of my rope on a farmhouse window would sit badly with me.", fx = { align = { honor = 1 } } },
         { text = "Questions are bad for trade. You're right not to ask.", next = "BACK", reply = "Glad you see the sense in it, though I'd rather you hadn't agreed so quickly. I'll count your coin and not ask after it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -298,7 +298,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Rations for someone else, mostly, because your lot always end up feeding whoever you've just rescued. I sold a paladin three days' bread last month, and he came back next morning for six more, with two farm boys trailing behind him." } },
       choices = {
-        { text = "Then I'll buy extra. Someone will always need it.", next = "BACK", reply = "Then you're cut from the same cloth as the last one, and I'll stock up accordingly. Somebody always does need it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll buy extra. Someone will always need it.", next = "BACK", reply = "Then you're cut from the same cloth as the last one, and I'll stock up accordingly. I'd best order more flour.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll buy for myself. Rescued folk can feed themselves.", next = "BACK", reply = "Some can, I suppose, though the farm boys looked very glad of that bread. Your rations are on the second shelf.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -460,7 +460,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "The bones go to the Abbey for soup, and the rest goes to whoever's waiting at the back door, which is more folk every month since Westfall went bad. Farley thinks I sell them to a tanner, and I let him." } },
       choices = {
-        { text = "Your back door does more good than many sermons.", next = "BACK", reply = "That's kind of you, and you'll keep it quiet from Farley, I hope. The folk at the back door are what matters.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your back door does more good than many sermons.", next = "BACK", reply = "That's kind of you, and you'll keep it quiet from Farley, I hope, or he'll start counting the bones.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Scraps should be sold. Charity won't keep your cleavers sharp.", next = "BACK", reply = "Maybe not, but my cleavers stay sharp enough, and those families stay fed. I'll sleep fine either way.", fx = { align = { light = -1 } } },
         { text = "Something else, Toddrick.", next = "BACK" },
       },
@@ -482,7 +482,7 @@ P:NPC {
         { id = "h_princess", when = { questDone = TODO_QUEST("Princess Must Die!") },
           text = "You did for the Brackwells' prize sow? Pity you didn't bring her here. I'd have made Goldshire's finest sausages." },
         { id = "h_boar", when = { metBefore = true }, text = "The boar's good this week, but the wolf's not. Don't let anyone sell you wolf, not even me." },
-        { id = "h_second", when = { metBefore = true }, text = "Farley says my sausages are the second-best thing in this inn. and when I asked him what the first was, he pointed at himself." },
+        { id = "h_second", when = { metBefore = true }, text = "Farley says my sausages are the second-best thing in this inn, and when I asked him what the first was, he pointed at himself." },
         { id = "h_dobbins", when = { heardLine = "dobbins.h_default" }, text = "Dobbins says he fetches when Farley shouts? He fetches when I shout too, only slower, much slower." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've quick hands, and I've quicker cleavers, so keep yours where I can see them." },
@@ -661,7 +661,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "For a shop in the Trade District, every night, and for rain on the roads so my rivals' wagons get stuck. I'm told that's not how it works, but it hasn't stopped me yet." } },
       choices = {
-        { text = "Pray for others too, Bouden. It might take better.", next = "BACK", reply = "I've tried, honestly, but they never seem to take. Still, I'll put in a word for you tonight.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pray for others too, Bouden. It might take better.", next = "BACK", reply = "I've tried, truly, but they never seem to take. Still, I'll put in a word for you tonight.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Pray for profit, then. Charity never built a shop.", next = "BACK", reply = "At last, someone who understands, and I'll pray for your purse as well as mine. The Light can sort out the details.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -827,7 +827,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Not the wise ones, because a shield on the arm ruins the casting, they tell me, and I believe them after one tried it and dropped both. If you want protection, stand behind someone who's wearing my work." } },
       choices = {
         { text = "Then I'll stand beside your warriors, not behind them.", next = "BACK", reply = "Beside them, then, and that's braver than most mages manage. Just don't drop your staff on their feet.", fx = { align = { honor = 1 } } },
-        { text = "Let the warriors take the blows. That's what they're for.", next = "BACK", reply = "They'll take them, aye, and you'd best remember who's bleeding for you. A word of thanks goes a long way.", fx = { align = { honor = -1 } } },
+        { text = "Let the warriors take the blows. That's what they're for.", next = "BACK", reply = "They'll take them, aye, and you'd best remember who's bleeding for you. Buy one of them a drink at Farley's now and then.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1216,7 +1216,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Knees, mostly, because you lot kneel more than anyone, and then the hems, because you kneel in the mud beside whoever's bleeding. I put a second layer at the knee on every robe I sell to a healer, and I don't charge for it, so don't tell Corina." } },
       choices = {
-        { text = "That's a kind thought, Kurran. It won't go unnoticed.", next = "BACK", reply = "It's nothing, honestly, only a few stitches more. Just keep it from Corina and we'll call it even.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's a kind thought, Kurran. It won't go unnoticed.", next = "BACK", reply = "It's nothing, really, only a few stitches more. Just keep it from Corina and we'll call it even.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Charge for it. Kindness won't pay your rent.", next = "BACK", reply = "Corina would say the same, and you'd both be right, I suppose. I'll keep doing it anyway, because the knees always go first.", fx = { align = { light = -1 } } },
         { text = "Something else, Kurran.", next = "BACK" },
       },
@@ -2263,7 +2263,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, first, with no holes where a dozen arrows went in. Your {pet}'s coat is glossy as anything, so somebody's feeding it right, and I'm guessing that's you." },
       },
       choices = {
-        { text = "One clean shot. A good coat deserves it.", next = "BACK", reply = "That's a hunter who knows his trade, and I'll pay you well for it. The Prowlers are worth the patience.", fx = { align = { honor = 1 } } },
+        { text = "One clean shot. A good coat deserves it.", next = "BACK", reply = "That's a hunter who knows the trade, and I'll pay you well for it. The Prowlers are worth the patience.", fx = { align = { honor = 1 } } },
         { text = "I'll put in as many arrows as it takes.", next = "BACK", reply = "Then you'll bring me a sieve and I'll pay you for one. A clean shot is cheaper in arrows too.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

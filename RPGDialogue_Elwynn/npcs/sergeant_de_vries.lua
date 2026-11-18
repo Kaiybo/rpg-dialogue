@@ -147,7 +147,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A sergeant of the Stormwind Guard, posted to Westbrook. I'm better with a cask than a sword, and the captain knew it." } },
     advice = { { id = "tp_ad", text = "Eat something before you drink something. You'd be amazed how many soldiers never learn it." } },
     defias = { { id = "tp_defias", text = "Some of them were honest masons once. That's the worst of it, friend." } },
-    rainer = { { id = "tp_rainer", text = "Too much ground, too few men, and a stack of reports. A good man, all the same." } },
+    rainer = { { id = "tp_rainer", text = "He's got too much ground, too few men and a stack of reports, but he's a good man all the same." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask Deputy Rainer; he's the one with the reports." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire I lose most of the garrison to it on their days off, and they come back with sore heads and a story apiece. Good for morale, I tell the deputy, and he pretends to believe me." } },
     booty_bay = { { id = "tp_booty_bay", text = "I tasted rum from Booty Bay once that took the varnish off a table, and I've wanted a cask for the garrison ever since. Deputy Rainer says no, very firmly." } },

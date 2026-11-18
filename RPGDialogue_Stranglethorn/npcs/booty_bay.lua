@@ -325,7 +325,7 @@ P:NPC {
       },
       choices = {
         { text = "And if a war comes through those teeth anyway?", next = "peace_war" },
-        { text = "Neutral ground. I like it.", next = "BACK", fx = { affinity = 1, opinion = { peace = "for" } } },
+        { text = "Neutral ground suits me fine.", next = "BACK", fx = { affinity = 1, opinion = { peace = "for" } } },
       },
     },
     peace_war = {
@@ -555,7 +555,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, when we run down the coast to Jaguero Isle and want fresh meat that didn't come out of a barrel. A good hunter can drop a Bloodsail lookout from his crow's nest at a hundred paces, too, and I'll not pretend I've never been glad of it. Mind, if {pet} comes aboard, it'll want to fight the ship's cat, and the ship's cat has never lost." },
       },
       choices = {
-        { text = "I'd hunt for the galley, not shoot sailors for coin.", next = "BACK", reply = "Good, good, the galley could use a hunter who knows his game. The cook will love you more than the captain does.", fx = { align = { honor = 1 } } },
+        { text = "I'd hunt for the galley, not shoot sailors for coin.", next = "BACK", reply = "Good, good, the galley could use a hunter who knows game. The cook will love you more than the captain does.", fx = { align = { honor = 1 } } },
         { text = "A lookout's an easy shot. I'd take it and the coin.", next = "BACK", reply = "Ha! A lookout's an easy shot until his mate shoots back, friend. Hunt for the galley, and leave the lookouts to the guns.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1335,7 +1335,7 @@ P:NPC {
       },
       choices = {
         { text = "Good for business?", next = "bandages" },
-        { text = "Strange how? Kurzen's men.", next = "word_kurzen" },
+        { text = "Strange how? You mean Kurzen's men?", next = "word_kurzen" },
         { text = "You haven't said a word about the Venture Company.", next = "word_venture" },
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 1, learn = { "kurzen" } } },
       },
@@ -1602,7 +1602,7 @@ P:NPC {
       choices = {
         { text = "Do the spirits of your dead debtors ever trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd wager some debtor has tried to pay you off with magic.", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Deal me in. One game.", tag = "Persuade", next = "game",
+        { text = "Deal me in for one game.", tag = "Persuade", next = "game",
           check = { pass = { money = { min = 100000 } } },
           fail = { next = "broke" } },
         { text = "What do people owe you for?", next = "owe" },
@@ -1668,7 +1668,7 @@ P:NPC {
       },
       choices = {
         { text = "Go easy on him. He's harmless.", next = "BACK", reply = "Harmless, aye, and broke, which is worse. I'll go easy, as easy as a debt allows.", fx = { align = { light = 2 }, trait = { kind = 1 } } },
-        { text = "I'll tell him. Kindly.", next = "BACK", reply = "Kindly, aye, and he'll still shake. That's the beauty of fear, friend, it works even when ye're nice about it.", fx = { align = { light = -1 }, trait = { cruel = 1 }, affinity = 1 } },
+        { text = "I'll tell him, and kindly.", next = "BACK", reply = "Kindly, aye, and he'll still shake. That's the beauty of fear, friend, it works even when ye're nice about it.", fx = { align = { light = -1 }, trait = { cruel = 1 }, affinity = 1 } },
       },
     },
 
@@ -1993,7 +1993,7 @@ P:NPC {
       },
       choices = {
         { text = "A hunter who lies about a kill dishonors the beast.", next = "BACK", reply = "It does, and the beasts would agree with you. Most hunters at my bar don't, mind.", fx = { align = { honor = 1 } } },
-        { text = "A good story's worth a little embroidery, Skindle.", next = "BACK", reply = "A little embroidery, he says! Friend, I've heard tigers grow from cats to dragons in one telling.", fx = { align = { honor = -1 } } },
+        { text = "A good story's worth a little embroidery, Skindle.", next = "BACK", reply = "A little embroidery, says you! Friend, I've heard tigers grow from cats to dragons in one telling.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2266,7 +2266,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "My chest, my sash and my cutlass, which Negolash took right out of my hand, and the rest is scattered among the wrecks his brothers left. A quiet sort could fish a few things out of the shallows while the brutes are busy, and I'd call that a rescue, not a theft." } },
       choices = {
-        { text = "Your things are yours. I'll fetch them back untouched.", next = "BACK", reply = "Honestly, aye, and I'll thank you honestly too. Bring them back and I'll be a happy man again.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your things are yours. I'll fetch them back untouched.", next = "BACK", reply = "Untouched, aye, and I'll thank you twice for it. Bring them back and I'll be a happy man again.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll fetch them, and keep whatever else I find.", next = "BACK", reply = "Keep whatever else you like, friend, the giants won't miss it. Just bring me that cutlass, because it was my father's.", fx = { align = { honor = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
@@ -2372,7 +2372,7 @@ P:NPC {
       },
       choices = {
         { text = "Picked up a sword.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Kept walking. Still am.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "I kept walking, and I still am.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "I'd rather not say.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -2546,13 +2546,13 @@ P:NPC {
         { text = "You seem afraid for your life, Shaky. What happened?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I tell you whose tracks are outside your door, Shaky?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who wants to break your legs, Shaky?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Your secret's safe. For now.", next = "END", reply = "Thank you, oh, thank you, you're a good soul! I'll try to stay out of sight, which shouldn't be hard.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Your secret's safe, for now.", next = "END", reply = "Thank you, oh, thank you, you're a good soul! I'll try to stay out of sight, which shouldn't be hard.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Pay whatever you owe, and you'll stop shaking.", next = "END", reply = "If only it were that easy, I'd have stopped shaking years ago. Light keep you, and don't tell anyone where I am.", fx = { align = { honor = 1 } } },
         { text = "Want me to lean on this gambler for you?", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Somebody must be looking for you, Shaky.", next = "xmage", when = { class = "MAGE" } },
         { text = "Why would anyone send a demon after you, Shaky?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who's looking for you, Shaky, and why should a druid care?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Calm down. Nobody's after you.", next = "END", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Calm down, Phillipe. Nobody's after you.", next = "END", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
     debt = {
@@ -2572,7 +2572,7 @@ P:NPC {
     debt_talk = {
       lines = { { id = "dt_default", text = "No! He'll know I sent you, because he knows everything, so please don't... unless you think it'd work? No, it wouldn't, don't." } },
       choices = {
-        { text = "All right. I won't.", next = "BACK", fx = { affinity = 1 } },
+        { text = "All right, I won't.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'll be subtle.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -2601,7 +2601,7 @@ P:NPC {
       choices = {
         { text = "It was the smiling face.", next = "BACK", reply = "The smiling face! Oh no, the smiling face is the worst one, that's the one he wears when he's already decided.", fx = { align = { light = -1 }, trait = { cruel = 1 } } },
         { text = "I'm joking. He didn't say a thing.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "Pay him, Phillipe. It'll stop.", next = "BACK", reply = "Stop? Would it really stop? I'd pay anything to make it stop, if I had anything, which is the whole problem.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Pay him, Phillipe, and it'll stop.", next = "BACK", reply = "Stop? Would it really stop? I'd pay anything to make it stop, if I had anything, which is the whole problem.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
       },
     },
     hide = {
@@ -3776,7 +3776,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "I held on to a barrel of salt pork and kicked for shore, and I didn't let go until my feet touched sand. The Captain was clinging to the next barrel over, and we didn't say a word to each other the whole way in." } },
       choices = {
         { text = "You survived together. That's a bond worth keeping.", next = "BACK", reply = "We did, me and the captain, and it's the only thing that keeps me by his side. A barrel of salt pork, and a bond for life.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You were lucky. Most aren't.", next = "BACK", reply = "Lucky, aye, and I've wondered every day why it was me. I'll take your word that luck's all it was.", fx = { align = { light = -1 } } },
+        { text = "You were lucky, because most aren't.", next = "BACK", reply = "Lucky, aye, and I've wondered every day why it was me. I'll take your word that luck's all it was.", fx = { align = { light = -1 } } },
         { text = "Something else, Sprogger.", next = "BACK" },
       },
     },
@@ -4033,7 +4033,7 @@ P:NPC {
       },
       choices = {
         { text = "This is beyond what I can mend. Hold on.", next = "BACK", reply = "Beyond you too? Buddy, that's the worst thing you could tell me. I'll hang on, I guess.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "It'll pass. Rest and water.", next = "BACK", reply = "Rest and water, sure, buddy, the physician said the same. Doesn't feel like it's passing.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "It'll pass with rest and water.", next = "BACK", reply = "Rest and water, sure, buddy, the physician said the same. Doesn't feel like it's passing.", fx = { align = { light = -1 }, affinity = 1 } },
       },
     },
     after = {

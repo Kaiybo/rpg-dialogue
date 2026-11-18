@@ -85,7 +85,7 @@ P:NPC {
     ride = {
       lines = { { id = "ri_default", text = "The Darkspear say their people rode them long ago, and old Kin'weelay, the Darkspear here in camp, tells it as though it were yesterday. I have tried once, and I have the scar on my thigh to show you how that went." } },
       choices = {
-        { text = "Keep trying. You'll get there.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Keep trying, and you'll get there.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

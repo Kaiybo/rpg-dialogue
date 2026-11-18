@@ -31,7 +31,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I hope so, or I'm in trouble, but the Light is gentle with honest failings, and I'd guess your spirits are too." } },
       choices = {
         { text = "Honest failings are forgivable, Brother. The Light knows.", next = "BACK", reply = "Bless you for that, friend, and I'll note it in the tally under encouragement. It's a short column.", fx = { align = { light = 1 } } },
-        { text = "The Light demands better, Brother. Try harder.", next = "BACK", reply = "I do try, friend, honestly I do, and I'll try harder after a small cup. Purely to steady the hand.", fx = { align = { light = -1 } } },
+        { text = "The Light demands better, Brother. Try harder.", next = "BACK", reply = "I do try, friend, truly I do, and I'll try harder after a small cup. Purely to steady the hand.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,7 +149,7 @@ P:NPC {
       choices = {
         { text = "These walls look newer than that.", next = "abbey_war" },
         { text = "I'd like to see the library sometime.", next = "BACK", fx = { trait = { curious = 1 }, affinity = 1 } },
-        { text = "Old stones. Nothing more.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = -1 } },
+        { text = "They're only old stones, Brother.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = -1 } },
       },
     },
     abbey_war = {

@@ -280,7 +280,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty, and they drink it faster than anyone. A warrior coming back from Fargodeep wants a bottle to forget the kobolds, and I'm happy to sell it, though I'd not say so in front of Pa." } },
       choices = {
-        { text = "I'll drink to the ones who didn't come back.", next = "BACK", reply = "I'll pour a glass to that, and I'll pour one for them too. The ones who don't come back deserve better than a bottle.", fx = { align = { light = 1 } } },
+        { text = "I'll drink to the ones who didn't come back.", next = "BACK", reply = "I'll pour a glass to that, and one for them besides. Half the lads who bought a bottle on their way to Fargodeep never came back for a second.", fx = { align = { light = 1 } } },
         { text = "I'll drink to forget the lot of them.", next = "BACK", reply = "Then you'll want two bottles, and I'll not ask what you're forgetting. Don't tell Pa where you got them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

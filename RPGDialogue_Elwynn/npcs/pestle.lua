@@ -41,7 +41,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and better I sell them a decent one than have them making their own from who knows what." } },
       choices = {
-        { text = "Better your candles than theirs. You're doing good.", next = "BACK", reply = "I like to think so, and it helps me sleep, a little. A decent candle's a decent candle.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better your candles than theirs. You're doing good.", next = "BACK", reply = "I like to think so, and it helps me sleep, a little, so long as I don't ask what they light them for.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You shouldn't wonder, William. It's not your business.", next = "BACK", reply = "You're probably right, and I'll try to stop. It's hard not to wonder, with all that chanting.", fx = { align = { light = -1 } } },
         { text = "Something else, William.", next = "BACK" },
       },

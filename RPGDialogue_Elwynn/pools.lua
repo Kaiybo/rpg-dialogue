@@ -19,7 +19,7 @@ P:Pool {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true }, text = "Did the Defias take your clothes too, or did you start that way?" },
   },
   react = {
-    { id = "r_stealth", on = "stealth", text = "Show yourself! Slowly." },
+    { id = "r_stealth", on = "stealth", text = "Show yourself, and come out slowly!" },
   },
   lines = {
     { id = "l_default", text = "There are kobolds to the north, thieves to the east and wolves everywhere else, so welcome to Northshire, recruit." },

@@ -275,15 +275,15 @@ P:NPC {
       choices = {
         { text = "Then give them a chance to surrender first.", next = "BACK",
           fx = { align = { light = 3 }, trait = { kind = 1 }, opinion = { defias = "mercy" } },
-          journal = { first = "Told McBride the Defias should get a chance to surrender. He didn't argue. He didn't agree either.",
+          journal = { first = "Told McBride the Defias should get a chance to surrender. He didn't argue, but he didn't agree either.",
                       third = "{name} told McBride the Defias deserved a chance to surrender." } },
         { text = "A thief's a thief. I'll treat them like one.", next = "BACK",
           fx = { align = { order = 3 }, trait = { stern = 1 }, opinion = { defias = "hardline" }, affinity = 1 },
-          journal = { first = "McBride asked about the Defias. I told him a thief's a thief. He nodded like I'd passed something.",
+          journal = { first = "McBride asked about the Defias, and I told him a thief's a thief. He nodded as if I'd passed some test.",
                       third = "{name} told McBride the Defias should be treated as thieves, nothing more." } },
         { text = "Who's organizing them? That's who I'd want.", next = "defias_leaders",
           fx = { align = { honor = -2 }, trait = { curious = 1 }, opinion = { defias = "follow_the_leaders" } },
-          journal = { first = "Asked McBride who's behind the Defias. He didn't know. He didn't like not knowing.",
+          journal = { first = "Asked McBride who's behind the Defias. He didn't know, and he didn't like not knowing.",
                       third = "{name} asked Marshal McBride who leads the Defias. He had no answer." } },
       },
     },
@@ -384,7 +384,7 @@ P:NPC {
         { id = "v_default", text = "I did, and I remember the ones who come back. What brings someone your size back up my hill?" },
       },
       choices = {
-        { text = "Visiting the Abbey. And you.", next = "veteran_visit", fx = { affinity = 2 } },
+        { text = "Visiting the Abbey, and you, Marshal.", next = "veteran_visit", fx = { affinity = 2 } },
         { text = "Checking you still need me.", next = "veteran_need" },
       },
     },
@@ -453,7 +453,7 @@ P:NPC {
       },
     },
     shaman = {
-      lines = { { id = "shaman_l", text = "The stone, is it. Ironforge's letter said to expect you and said nothing about what you'd be, so I'll judge you on kobolds like everyone else. Is that fair?" } },
+      lines = { { id = "shaman_l", text = "The stone, is it? Ironforge's letter said to expect you and said nothing about what you'd be, so I'll judge you on kobolds like everyone else. Is that fair?" } },
       choices = {
         { text = "More than fair, Marshal.", next = "BACK", fx = { affinity = 2 } },
         { text = "The spirits judge differently.", next = "BACK", fx = { trait = { stern = 1 } } },

@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Candles, as far as I can tell, because they shout 'You no take candle!' at anyone who comes near, so I reckon they're afraid of the dark in those tunnels. I'd almost feel sorry for them, if they weren't digging up the vineyard." } },
       choices = {
-        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", reply = "That's the job, and I'll mark it on the board. The Marshal will be glad.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", reply = "That's the job, and I'll chalk it on the stable door. Milly loses a row of vines every week they keep digging.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Leave them their candles and they'll stop digging. Fear makes them bold.", next = "BACK", reply = "Maybe they would, but they've had the Abbey's candles already. I'd rather they stopped digging under the vines.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Not badly yet, a few cuts and a farmhand's broken arm, but they're getting bolder, and bold thieves end up using their knives. Milly Osworth's family hasn't slept properly in a month, and that's a wound too, whatever the Marshal says." } },
       choices = {
-        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", reply = "Thank you, Milly's family will be glad of it. The Light knows they need some rest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", reply = "Thank you. Milly's family will be glad of it, because the Light knows they need some rest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "No blood, no wound. Let the Marshal handle the rest.", next = "BACK", reply = "You've not met Milly, then, after a week of no sleep. I'll leave it to the Marshal.", fx = { align = { light = -1 } } },
         { text = "Something else, Willem.", next = "BACK" },
       },
@@ -184,7 +184,7 @@ P:NPC {
       choices = {
         { text = "Who leads them up here?", next = "garrick" },
         { text = "I can't see why anyone would join them.", next = "why", fx = { trait = { curious = 1 } } },
-        { text = "Then I'll clear them out.", next = "BACK", reply = "Good, and the Marshal will be glad of it. The camp's in the north rows.", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
+        { text = "Then I'll clear them out.", next = "BACK", reply = "Good. The camp's in the north rows, and I'll have the chalk ready for your tally.", fx = { align = { order = 1 }, trait = { brave = 1 }, affinity = 1 } },
         { text = "The vineyard's not my problem, Deputy.", next = "BACK", reply = "It's all our problem, friend, if they get bolder. But I'll not force you.", fx = { align = { order = -1 } } },
       },
     },
@@ -255,7 +255,7 @@ P:NPC {
         { id = "bw_default", text = "Wherever they're sent. I don't ask; I'd only get an answer I didn't like. Meanwhile we've kobolds, wolves and thieves, and a Marshal who won't sleep." },
       },
       choices = {
-        { text = "Then I'll help where I can.", next = "BACK", reply = "Thank you, the Marshal will be glad of it. So will I.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then I'll help where I can.", next = "BACK", reply = "Thank you. The Marshal won't say it, so I will: we need every pair of hands we can get.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Somebody should ask.", next = "BACK", reply = "Somebody should, aye, and it'll not be a deputy. Ask it in Stormwind if you like.", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
       },
     },
