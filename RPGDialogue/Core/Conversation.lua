@@ -50,8 +50,22 @@ function Conv.DetectRole(ctx, interactionName)
   role = role or roleFromPatterns(ctx.npcName or nil, W.NAME_ROLES)
   -- Anyone else friendly who walks and talks is a citizen: townsfolk pools answer them, so
   -- the people in the streets can be spoken to too (0.35.0). Beasts and critters aren't.
-  if not role and Conv.IsCitizen(ctx) then role = "citizen" end
+  -- A friendly demon (a warlock's bound servant, an imp with his own business) answers from
+  -- the demon pool, not the townsfolk's (0.84.0).
+  if not role and Conv.IsCitizen(ctx) then
+    role = (C.CreatureType(ctx.unit) == "Demon") and Conv.DemonRole(ctx.npcName) or "citizen"
+  end
   return role
+end
+
+-- Demons that can't talk (hounds, steeds, walking stone) get their own small pool.
+local MUTE_DEMONS = { "felhunter", "felhound", "felstalker", "infernal", "felsteed", "dreadsteed" }
+function Conv.DemonRole(name)
+  local lower = type(name) == "string" and name:lower() or ""
+  for _, w in ipairs(MUTE_DEMONS) do
+    if lower:find(w, 1, true) then return "demon_beast" end
+  end
+  return "demon"
 end
 
 local NOT_PEOPLE = { Beast = true, Critter = true, Mechanical = true, Elemental = true, ["Non-combat Pet"] = true, Totem = true, ["Not specified"] = true }
