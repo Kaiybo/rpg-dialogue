@@ -30,3 +30,4 @@ npcs\brill_watch.lua
 npcs\brill_trainers.lua
 npcs\brill_market.lua
 npcs\deathknell_trainers.lua
+npcs\more_folk.lua
