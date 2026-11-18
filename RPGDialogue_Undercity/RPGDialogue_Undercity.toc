@@ -31,4 +31,7 @@ npcs\uc_trade_more.lua
 npcs\uc_royal_more.lua
 npcs\more_folk.lua
 npcs\missed_estelle.lua
+npcs\missed_b.lua
+npcs\missed_b2.lua
+npcs\missed_b3.lua
 directions.lua

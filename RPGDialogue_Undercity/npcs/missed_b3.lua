@@ -85,7 +85,7 @@ P:NPC {
     third = "{name} met Silas Zimmer, who keeps a table of old charms in the Undercity's Temple of the Damned.",
   },
   greetings = {
-    { id = "g_default", text = "Look, if you like, but nothing here is priced. I haven't decided yet whether any of it ought to leave my keeping." },
+    { id = "g_default", text = "Look all you like, but nothing here is priced. I haven't decided yet whether any of it ought to leave my keeping." },
     { id = "g_back", when = { metBefore = true }, text = "You're back at my table. The charms haven't changed, and neither has my mind about them." },
   },
   notice = {
