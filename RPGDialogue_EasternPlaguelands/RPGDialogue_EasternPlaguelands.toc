@@ -24,3 +24,4 @@ npcs\lightshope_dawn.lua
 npcs\terrordale.lua
 npcs\darrowshire.lua
 npcs\more_folk.lua
+npcs\missed.lua

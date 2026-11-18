@@ -25,3 +25,4 @@ npcs\stonard_traders.lua
 npcs\pelluk.lua
 npcs\swamp_west.lua
 npcs\stonard_market.lua
+npcs\missed.lua

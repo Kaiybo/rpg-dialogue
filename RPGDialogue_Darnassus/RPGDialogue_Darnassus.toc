@@ -26,4 +26,7 @@ npcs\prejudices.lua
 npcs\teuren.lua
 npcs\more_folk.lua
 npcs\more_folk2.lua
+npcs\missed.lua
+npcs\missed2.lua
+npcs\missed3.lua
 directions.lua

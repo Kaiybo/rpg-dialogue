@@ -26,4 +26,7 @@ npcs\rezlak.lua
 npcs\rhinag.lua
 npcs\durotar_forever.lua
 npcs\more_folk.lua
+npcs\missed_kali.lua
+npcs\missed.lua
+npcs\missed2.lua
 directions.lua

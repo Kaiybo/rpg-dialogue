@@ -25,3 +25,6 @@ npcs\ruuleagletalon.lua
 npcs\windfeather.lua
 npcs\narache_forever.lua
 npcs\more_folk.lua
+npcs\missed.lua
+npcs\missed2.lua
+npcs\missed3.lua

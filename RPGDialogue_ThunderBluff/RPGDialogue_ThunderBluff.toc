@@ -27,4 +27,9 @@ npcs\borook.lua
 npcs\bluff_craftsfolk.lua
 npcs\bluff_callers.lua
 npcs\more_folk.lua
+npcs\missed.lua
+npcs\missed2.lua
+npcs\missed3.lua
+npcs\missed4.lua
+npcs\missed_saern.lua
 directions.lua

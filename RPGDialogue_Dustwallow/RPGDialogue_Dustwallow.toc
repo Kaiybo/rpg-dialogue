@@ -25,3 +25,6 @@ npcs\mudcrush.lua
 npcs\nat_pagle.lua
 npcs\doraan.lua
 npcs\more_folk.lua
+npcs\missed.lua
+npcs\missed2.lua
+npcs\missed3.lua
