@@ -43,7 +43,7 @@ P:NPC {
           text = "You smell like dead, little one. The Twilight talk about dead things a lot, so you stand there where Clugfist can see you." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Little one has big axe. Good! Ogres like little ones who hit hard." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You do shadow magic, like the Twilight do. Clugfist does not like it, but Horde says you are friend, so Clugfist keeps fists down." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "You make fire from hands? Two-head magic is like that, and Clugfist does not trust it, but you can try to be good." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "You make fire from hands? The two-head ogre magi make fire like that, and Clugfist does not trust it, but you can try to be good." },
       },
       again = {
         { id = "h_again", text = "Little one has more words? Clugfist is listening." },
@@ -268,7 +268,7 @@ P:NPC {
     },
     alone_easy = {
       lines = {
-        { id = "ae_default", text = "No. The Twilight have ogres bigger than Jom-jom, and they have robes who make the ground burn. Jom-jom ran, and hid, and waited for a little one to come." },
+        { id = "ae_default", text = "No. The Twilight have ogres bigger than Jom-jom, and they have robe men who make the ground burn. Jom-jom ran, and hid, and waited for a little one to come." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

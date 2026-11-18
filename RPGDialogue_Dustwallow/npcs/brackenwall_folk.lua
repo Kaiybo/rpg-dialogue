@@ -21,7 +21,7 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "Come in, come in! Logok has stew, and Logok has beds, and Logok only sat on one bed this week." },
     { id = "g_back", when = { metBefore = true }, text = "Small friend comes back! Logok saved you a spoon." },
-    { id = "g_mok", when = { questDone = TODO_QUEST("Justice Dispensed") }, text = "Overlord is happy, so Logok is happy, so everybody gets extra stew tonight." },
+    { id = "g_mok", when = { questDone = TODO_QUEST("Justice Dispensed") }, text = "Overlord Mok'Morokk is happy, so Logok is happy, so everybody gets extra stew tonight." },
   },
 
   notice = {
@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     stew = {
-      lines = { { id = "st_default", text = "Crocolisk, mostly, and some mushrooms from the bog, and a thing Ogg'marr sold Logok that he says is a goose. Logok does not ask, because Logok's mother said never ask the butcher." } },
+      lines = { { id = "st_default", text = "Crocolisk, mostly, and some mushrooms from the bog, and a thing Ogg'marr the butcher sold Logok that he says is a goose. Logok does not ask, because Logok's mother said never ask the butcher." } },
       choices = {
         { text = "Wise words from your mother.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

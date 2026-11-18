@@ -65,7 +65,7 @@ P:NPC {
         { text = "What do the Windshapers want?", next = "order" },
         { text = "What is skysight?", next = "skysight" },
         { text = "Why warn me off the Windshapers?", next = "xwarn", when = { race = "Skyborne", faction = "Alliance" } },
-        { text = "Your shaman must differ from mine.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
+        { text = "Your shamans must differ from mine.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "My people have welcomed yours in Mulgore.", next = "xmulgore", when = { race = "Tauren" } },
         { text = "I drank the sapta, Ventaari. The winds still don't answer me.", next = "xsapta", when = { origin = "skyborne_windshaper" } },
         { text = "I wore the grey robes once, Ventaari. I walk with the Windshapers now.", next = "xorig_aketh", when = { origin = "skyborne_former_alaketh" } },
@@ -145,7 +145,7 @@ P:NPC {
     },
     callhome = {
       lines = {
-        { id = "ch_default", text = "We don't know yet, and I'll not pretend we do. Some of us believe the shaman below the clouds, the ones who call themselves the Earthen Ring, know far more of the elemental planes than we've ever learned, and Ayessa Dawnsinger means to find out." },
+        { id = "ch_default", text = "We don't know yet, and I'll not pretend we do. Some of us believe the shamans below the clouds, the ones who call themselves the Earthen Ring, know far more of the elemental planes than we've ever learned, and Ayessa Dawnsinger means to find out." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -155,7 +155,7 @@ P:NPC {
       lines = {
         { id = "sk_default", text = "A gift some of us carry, to see past this world and hear the spirits that move behind it. You can draw on it anywhere, but it's far stronger where the elements converge, and the spirits drawn to such places sometimes let slip a little wisdom." },
         { id = "sk_outsider", when = { ["not"] = { race = "Skyborne" } },
-          text = "A gift some shen'dorei carry, to see past this world and hear the spirits behind it. I doubt you have it, traveller, though your shaman may have something like it under another name." },
+          text = "A gift some shen'dorei carry, to see past this world and hear the spirits behind it. I doubt you have it, traveller, though your shamans may have something like it under another name." },
       },
       choices = {
         { text = "A gift like that could fade, I'd guess.", next = "skysight_fade" },
@@ -260,7 +260,7 @@ P:NPC {
 
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },
-      text = "A human! Are you one of the Kirin Tor's? It was their magi who saw us through the High Order's keyhole and saw us back, and I'd give a great deal to meet one in person." },
+      text = "A human! Are you one of the Kirin Tor's? It was their magi who spotted us peering through the High Order's keyhole and looked back, and I'd give a great deal to meet one in person." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "Remarkable. I'd heard the Kirin Tor counted gnomes among their scholars, and I confess I didn't believe it until this moment." },
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },

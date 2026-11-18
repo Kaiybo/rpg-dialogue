@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "fel", when = { class = "WARLOCK" },
-      text = "You traffic with things from outside this world. So do the cultists up at the Shroud, and I've watched where it led them, so forgive me if I sit with my back to a wall." },
+      text = "You traffic with things from outside this world. So do the Twilight's cultists, and I've watched where it led them, so forgive me if I sit with my back to a wall." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You watch the doors when you come into a room. So do I, and so does every cultist I've ever questioned, which is why I notice." },
   },
@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest. The prisoners talk about a voice in the dark, and they talk about it the way you'd talk about the Light, and I'd value your opinion on what that means." },
         { id = "h_mage", when = { class = "MAGE" },
-          text = "A mage. Ashe Amberhall reads their trinkets and I read their faces, and between us we nearly understand them, which is more than I'd like." },
+          text = "A mage. Ashe Amberhall, our own mage, studies the trinkets we take off the cultists while I study their faces, and between us we nearly understand them." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask carefully; I'll remember how you asked." },
@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     cultists_believe = {
-      lines = { { id = "cb_default", text = "I believe they believe it, which is dangerous enough. Some of them were farmers from Sunnyglade's country once, and something turned them, and I'd give a great deal to know what." } },
+      lines = { { id = "cb_default", text = "I believe they believe it, which is dangerous enough. Some of them were farmers around Sunnyglade before the cult burned it, and something turned them, and I'd give a great deal to know what." } },
       choices = {
         { text = "Can they be turned back?", next = "cultists_back" },
         { text = "Something else.", next = "BACK" },
@@ -69,7 +69,7 @@ P:NPC {
     },
     cultists_back = {
       big = true,
-      lines = { { id = "ck_default", text = "One, once, for a week or so, until the voice he'd been hearing came back and he stopped speaking to me at all. I don't try as hard now, and I'm not proud of that." } },
+      lines = { { id = "ck_default", text = "I turned one, once, for a week or so, until the voice he'd been hearing came back and he stopped speaking to me at all. I don't try as hard now, and I'm not proud of that." } },
       choices = {
         { text = "Keep trying. Every one saved matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Don't. Get what you need and be done with them.", next = "BACK", fx = { align = { light = -1 } } },

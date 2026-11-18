@@ -17,7 +17,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A great deal, as it happens, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
+      lines = { { id = "xwarcl_default", text = "Oh, I need one more than you'd think, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
       choices = {
         { text = "I'll guard any caster gladly. That's what a sword is for.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Mages ought to fight their own battles, Tabetha.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -28,7 +28,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The crocolisks in the shallows, first, because they lie as still as logs until you're standing on them, and then the black whelps that come down from the Wyrmbog. The whelps are the worst, since they're clever and they burn, and they've started roosting closer to my hut than I'd like." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} had better stay out of my herb beds, because the mud here grows nothing easily and I've fought for every leaf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The crocolisks in the shallows, first, because they lie as still as logs until you're standing on them, and then the black whelps that come down from the Wyrmbog. The whelps are the worst, since they're clever and they burn, and they've started roosting closer to my hut than I'd like. And {pet} had better stay out of my herb beds, because the mud here grows nothing easily and I've fought for every leaf." },
       },
       choices = {
         { text = "I'll drive those whelps back toward the Wyrmbog for you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -142,7 +142,7 @@ P:NPC {
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The marsh has its dangers, of course, from the black dragonflight's whelps to the Grimtotem in the south. I've learned which ones to ward against and which ones to simply avoid." } },
-      choices = { { text = "That's kind of you.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Do you help the travellers who come by?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "And when someone like you comes by needing help with a spell, I'm glad to give it. A hermit isn't the same as a hater of company." } },
@@ -214,7 +214,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I've tracked more than I let on, and a fair bit of it walks on two legs and keeps well off the road, which is never a good sign. The raptors I can live with, because at least they don't lie about being hungry." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a good nose, I'll grant it. If it starts growling at my turnip patch, though, you tell it Swamp Eye has a long memory." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I've tracked more than I let on, and a fair bit of it walks on two legs and keeps well off the road, which is never a good sign. The raptors I can live with, because at least they don't lie about being hungry. That {pet} of yours has a good nose, I'll grant it." },
       },
       choices = {
         { text = "Whatever lurks out here, Theramore should hear about it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -286,7 +286,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Patience, and a good window, and not sleeping much, if you must know. Swamp Eye watches the reeds move, and he knows a crocolisk from a soldier from a sneak like you, because each one moves the reeds a different way." } },
+      lines = { { id = "xrogue_default", text = "Not much, no, thanks to patience, a good window and not sleeping much. Swamp Eye watches the reeds move, and he knows a crocolisk from a soldier from a sneak like you, because each one moves the reeds a different way." } },
       choices = {
         { text = "I'll leave your house alone, Jarl. You've earned that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then I'll just have to move the reeds more cleverly.", next = "BACK", fx = { align = { order = -1 } } },
@@ -337,7 +337,7 @@ P:NPC {
       choices = { { text = "Black shields?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Theramore asked me about the Shady Rest Inn, as if I'd have anything to do with that place. I keep to myself and I tell the truth, which is more than I can say for some." } },
+      lines = { { id = "b1_2_l", text = "Black iron shields, like the one somebody nailed over the fireplace at the burned Shady Rest Inn. Theramore asked me about that place as if I'd had a hand in it, but I keep to myself and I tell the truth, which is more than I can say for some." } },
       choices = { { text = "Who should I trust?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
@@ -413,8 +413,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Ogron hunt turtle, because turtle slow and Ogron also slow. Raptors too fast for Ogron, and black dragons too big, so Ogron leave them for clever hunters like you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ogron like {pet}! {pet} not scared of Ogron, and that very rare, because most things run when they see ogre." },
+        { id = "xhuntcl_default", text = "Ogron hunt turtle, because turtle slow and Ogron also slow, and Ogron leave raptors and dragons for clever hunters like you. Ogron hope you hunt Reethe with Ogron, because Ogron not lie about what Ogron saw." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ogron hunt turtle, because turtle slow and Ogron also slow, and Ogron leave raptors and dragons for clever hunters like you. Ogron hope you hunt Reethe with Ogron, because Ogron not lie about what Ogron saw. Ogron like {pet}!" },
       },
       choices = {
         { text = "You've earned my trust, Ogron. Fish and all.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -486,7 +486,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "You shiny one! Ogron see shiny ones in Theramore with big hammers, and they look at Ogron like Ogron is next to get hammered, so you please not do that." },
         { id = "h_default", key = true, text = "Ogron is ogre, but Ogron not want to smash Alliance. Ogron want to help find who burn the inn, because Ogron see things too, and nobody ask Ogron." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Questioning Reethe") }, text = "Ogron go with you to find Reethe, and you ask the questions, because Ogron not good with words. But Ogron good at keeping you safe." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You make magic like Draz'Zilb! But Ogron think your magic is kinder, because you not use it to tell people what to do." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You make magic like Draz'Zilb, the ogre mage in Brackenwall! But Ogron think your magic is kinder, because you not use it to tell people what to do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ogron know that smell, because it is the same as the old ogre magi. Ogron not afraid, but Ogron stand a little farther away, if that is all right with you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You druid! Ogron see you turn into bear, once, by the water, and Ogron think that very good trick." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You quiet one! Ogron not hear you come, and Ogron have very big ears, so you must be very good at sneaking." },
@@ -515,7 +515,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Ogron's clan always fight, always smash, and Ogron tired of it. Ogron want to be friend instead, and humans give Ogron chance when nobody else would." } },
-      choices = { { text = "You eat fish?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Do the soldiers trust you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Some soldiers still scared of Ogron, and they look at Ogron like Ogron going to eat them. Ogron not eat people, Ogron eat fish." } },
@@ -576,7 +576,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every week the tracks come a little nearer, and last night something big went round the base of the tower twice and didn't leave. The lads say it's only the fog playing tricks, but fog doesn't leave claw marks on the door." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Could {pet} have a sniff round the tower before you go? A beast's nose would settle the argument faster than the three of us ever will." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every week the tracks come a little nearer, and last night something big went round the base of the tower twice and didn't leave. The lads say it's only the fog playing tricks, but fog doesn't leave claw marks on the door. Could {pet} have a sniff round the tower before you go?" },
       },
       choices = {
         { text = "Report it to Theramore. They need to know.", next = "BACK", fx = { align = { order = 1 } } },
@@ -594,7 +594,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Harder than it looks in daylight and easier than I'd like at night, because the fog off the marsh rolls right over the road. Whoever took the diplomat knew that too, and they knew it better than any traveler should." } },
+      lines = { { id = "xrogue_default", text = "Harder than it looks in daylight and easier than I'd like at night, because the fog off the marsh rolls right over the road. Whoever took the missing Stormwind diplomat on this road knew that too, and they knew it better than any traveler should." } },
       choices = {
         { text = "Then I'll report the gaps to Theramore, properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A tower that can be slipped past is no tower. Fix it yourself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -680,7 +680,7 @@ P:NPC {
       choices = { { text = "I'll keep that in mind.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "If you're investigating, talk to the captain in Theramore, and leave the rumors where you found them." } },
+      lines = { { id = "b1_3_l", text = "If you're investigating, talk to Captain Vimes in Theramore, and leave the rumors where you found them." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -768,7 +768,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mok'Morokk hunt black dragon, one day, and wear its head for hat! Today Mok'Morokk eat tortoise, because black dragon very big and Mok'Morokk very busy being overlord." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} look tasty, but Mok'Morokk not eat it, because hunter look angry when Mok'Morokk say that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mok'Morokk hunt black dragon, one day, and wear its head for hat! Today Mok'Morokk eat tortoise, because black dragon very big and Mok'Morokk very busy being overlord. {pet} look tasty, but Mok'Morokk not eat it, because hunter look angry when Mok'Morokk say that." },
       },
       choices = {
         { text = "A real boss would hunt the dragon himself, Overlord.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -887,11 +887,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "The black dragon Onyxia, she come and kill our chief, and our home at Stonemaul burn. The ogres who live had to run, and Mok'Morokk led them here." } },
-      choices = { { text = "You thanked Thrall?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "And the orcs took you in?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Now Brackenwall is our home, and the orcs give us protection. Mok'Morokk say thank you to Thrall, because that what a smart ogre do." } },
-      choices = { { text = "Take it back how?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Will the Stonemaul ever go home?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "But Mok'Morokk not forget. One day Stonemaul ogres take back what is ours, and the dragon pay." } },
@@ -959,7 +959,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That they are not simply wild beasts, and that something in the Wyrmbog wants the Stonemaul gone from this marsh entirely. The black dragon killed our chieftain, and I have studied every scale and claw your kind have brought back since." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking south, toward the Wyrmbog. Beasts smell a dragon's lair long before an ogre can, so heed it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That they are not simply wild beasts, and that something in the Wyrmbog wants the Stonemaul gone from this marsh entirely. The black dragon killed our chieftain, and I have studied every scale and claw your kind have brought back since. Your {pet} keeps looking south, toward the Wyrmbog." },
       },
       choices = {
         { text = "Then I'll hunt the brood until the Stonemaul are avenged.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -978,7 +978,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Ogres remember Gul'dan, who made the first ogre magi with fel magic and lies. When the black dragon drove us out and the orcs offered us Brackenwall speaking to the elements instead, we knew they had changed." } },
+      lines = { { id = "xhsham_default", text = "Ogres remember Gul'dan, who made the first ogre magi with fel magic and lies. When the black dragon drove us out, the orcs who offered us Brackenwall spoke to the elements instead of demons, and so we knew they had changed." } },
       choices = {
         { text = "The Horde has changed. We'll never go back to fel magic.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Gul'dan had power, at least. Not every warlock was a fool.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1046,11 +1046,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Brackenwall is the home of the Stonemaul ogres who fled the black dragon, and of the orcs who sheltered us. It is not grand, but it is ours." } },
-      choices = { { text = "You serve Thrall then?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Is it safe here?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The marsh is dangerous, with Theramore to the east and Onyxia's brood to the south. We must be clever to survive here, and cleverness is my duty." } },
-      choices = { { text = "What do you need?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Ogres aren't known for cleverness.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "Do not underestimate the ogres of Brackenwall, friend. We may seem slow, but we remember everything." } },

@@ -109,7 +109,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Mud was born hungry and Mud is still hungry. That is the whole story, and Mud tells it every day." } },
-    advice = { { id = "tp_ad", text = "Eat first, then fight. Nobody fights good hungry, except Mud, and Mud is special, and Mud also ate a frog this morning by mistake." } },
+    advice = { { id = "tp_ad", text = "Eat first, then fight. Nobody fights good hungry, except Mud, and Mud is special." } },
     onyxia = { { id = "tp_onyxia", text = "Big black dragon live down south, and she eat bigger things than fish heads. Mudcrush not go there, Mudcrush stay here by the road, where it safe and the fish come." } },
     theramore = { { id = "tp_theramore", text = "The little humans walk past Mudcrush on the road and walk fast. Mudcrush only want fish heads, but they think Mudcrush want them, and maybe they are a little right." } },
     thrall = { { id = "tp_thrall", text = "The orc chief say no eating the humans, so Mudcrush eat fish heads. Mudcrush think this very sad, but Mudcrush listen." } },

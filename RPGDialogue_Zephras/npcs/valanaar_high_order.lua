@@ -31,7 +31,7 @@ P:NPC {
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "A human, and of the Alliance. The Kirin Tor have been better friends to us than we had any right to expect, so you'll find the High Order's doors open to you." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Ansirem's letters spoke of gnomish scholars in Dalaran, and I took it for a joke at my expense. I'm glad to be wrong." },
+      text = "A gnome! Archmage Ansirem's letters spoke of gnomish scholars in Dalaran, and I took it for a joke at my expense. I'm glad to be wrong." },
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "Kaldorei. Our ancestors left yours ten thousand years ago in the middle of a quarrel, and I'd like to think we can both be more civil about it now." },
     { id = "n_enclave", cat = "origin", when = { origin = "skyborne_sky_enclave_student" },
@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_catch", tags = { "news" }, when = { questActive = TODO_QUEST("Catching Wind") },
           text = "The Index Esoteria needs its readings from the Overlook Standing Stones, and the Windshapers will complain whatever you do, so do it quickly. Without those numbers no skycutter can cross between the planes safely, and I'll not gamble our people on guesswork." },
         { id = "h_avenge", tags = { "news" }, when = { questActive = TODO_QUEST("Avenged Tenfold") },
-          text = "Belathaan went out to talk of peace, and they killed him for it. See that his death is answered, and don't come back to me with excuses." },
+          text = "Belathaan Brightwish, one of my magisters, went out to talk of peace, and the cult killed him for it. See that his death is answered, and don't come back to me with excuses." },
         { id = "h_lorthuna", tags = { "news" }, when = { questDone = TODO_QUEST("Confront Lorthuna") },
           text = "We stood on the Rohashi Spires and watched Rohash strike Lorthuna into the sky like a child knocking a cup from a table. The cult's broken, but the Windlord knows where we are now, and that's a price I'll be paying for the rest of my life." },
         { id = "h_next", tags = { "news" }, when = { questDone = TODO_QUEST("What Comes Next") },
@@ -133,7 +133,7 @@ P:NPC {
     },
     shrine2 = {
       lines = {
-        { id = "s2_default", text = "Ayessa and I faced her on the Rohashi Spires, and she told us the wards had been down for days and she'd lit a beacon for Al'Akir's followers. Rohash of the Conclave answered it, struck her away into the sky, and promised us the Windlord's judgement, and if Ansirem hadn't brought the Kirin Tor through when he did, I wouldn't be here to tell you so." },
+        { id = "s2_default", text = "Ayessa Dawnsinger of the Windshapers and I faced her on the Rohashi Spires, and she told us the wards had been down for days and she'd lit a beacon for Al'Akir's followers. Rohash of the Conclave answered it, struck her away into the sky, and promised us the Windlord's judgement, and if Ansirem hadn't brought the Kirin Tor through when he did, I wouldn't be here to tell you so." },
       },
       choices = {
         { text = "So the orders fought side by side.", next = "ceasefire" },
@@ -192,7 +192,7 @@ P:NPC {
     },
     belathaan = {
       lines = {
-        { id = "bt_default", text = "A magister of my order, and a cousin of Valennia Stormfist's, whose mother was a Windshaper, so he of all people should have been safe from that quarrel. He took parts from one of their old constructs, Ayessa sent someone to put a scare into him on the road, and then he was dead." },
+        { id = "bt_default", text = "A magister of my order and a cousin of Valennia Stormfist's, and his own mother was a Windshaper, so he of all people should have been safe from that quarrel. He took parts from one of their old constructs, Ayessa sent someone to put a scare into him on the road, and then he was dead." },
       },
       choices = {
         { text = "How did he die?", next = "belathaan2" },
@@ -673,7 +673,7 @@ P:NPC {
     },
     name = {
       lines = {
-        { id = "na_default", text = "You and half of Valanaar. If you want to know whose family is whose, go and ask him, and when he gives you a straight answer, come and tell me, because I'd like to hear one too." },
+        { id = "na_default", text = "You and half of Valanaar ask me that. If you want to know whose family is whose, go and ask him, and when he gives you a straight answer, come and tell me, because I'd like to hear one too." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -681,9 +681,9 @@ P:NPC {
     },
     feathers = {
       lines = {
-        { id = "fe_default", text = "Hippogryph feathers, and because they're beautiful, and because we need beautiful things just now. Half my customers want one braided in with whatever I've made them, and I've stopped pretending I mind; it's the nicest part of the job." },
+        { id = "fe_default", text = "They're hippogryph feathers, and people wear them because they're beautiful, and we need beautiful things just now. Half my customers want one braided in with whatever I've made them, and I've stopped pretending I mind; it's the nicest part of the job." },
         { id = "fe_out", when = { ["not"] = { race = "Skyborne" } },
-          text = "Hippogryph feathers, and because they're beautiful, and we need beautiful things just now. I could braid one in for you, if your people wouldn't laugh at you for it when you go home." },
+          text = "They're hippogryph feathers, and people wear them because they're beautiful, and we need beautiful things just now. I could braid one in for you, if your people wouldn't laugh at you for it when you go home." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -837,7 +837,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "This is the High Order's dock. The skycutter that comes in here will take you straight to Dalaran, at the northern end of the city, and from there the Kirin Tor can see you on to Stormwind if you've the need." },
+        { id = "h_default", key = true, text = "This is the High Order's dock. The skycutter that comes in here will take you straight to Dalaran, and from there the Kirin Tor can see you on to Stormwind if you've the need." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "This is the High Order's dock, and the ship here goes to Dalaran, which won't suit you. The Windshapers run their own skycutter from the western dock to Mulgore, so go and ask them for passage." },
       },

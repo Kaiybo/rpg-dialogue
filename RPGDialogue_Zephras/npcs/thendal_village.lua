@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_young", cat = "kin", when = { race = "Skyborne", maxLevel = 3 },
       text = "Look at you, so bright-eyed I could read by you. You only come of age once, so try to remember how today feels." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Tai'ree will want you before the day's out, and the Rangers will want you after that, so you'll be a busy one." },
+      text = "A hunter! Tai'ree, our hunter trainer, will want you before the day's out, and the Rangers will want you after that, so you'll be a busy one." },
     { id = "n_ranger", cat = "origin", when = { origin = "skyborne_thendal_ranger" },
       text = "I'd know a Ranger's walk anywhere: heel down, quiet, and always looking past whoever you're talking to." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -136,7 +136,7 @@ P:NPC {
     },
     rorian2 = {
       lines = {
-        { id = "r2_default", text = "He doesn't like to see the gifts of our people wasted on games, and he'll tell you so, at length, if you're caught using them for fun. Myriaal gets that speech about once a week, and I'm fairly sure she's started to enjoy it." },
+        { id = "r2_default", text = "He doesn't like to see the gifts of our people wasted on games, and he'll tell you so, at length, if you're caught using them for fun. Myriaal, up on the watchtower, gets that speech about once a week, and I'm fairly sure she's started to enjoy it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -153,7 +153,7 @@ P:NPC {
     },
     pests = {
       lines = {
-        { id = "pe_default", text = "The vuldren were always docile, and now some of them are turning on people, and the cirrusflies are swarming in the east of the grove like nothing I've ever seen. Elatrell says it's the magic out of balance, and I've no better answer than hers." },
+        { id = "pe_default", text = "The vuldren were always docile, and now some of them are turning on people, and the cirrusflies are swarming in the east of the grove like nothing I've ever seen. Elatrell, who's been fighting the cirrusflies, says it's the magic out of balance, and I've no better answer than his." },
       },
       choices = {
         { text = "So what do the Rangers do about it?", next = "wildstance" },
@@ -208,9 +208,9 @@ P:NPC {
       lines = {
         { id = "xor_default", text = "That's not a question for a ranger, and it's not one I'll answer for you either, because both orders have good people in them and both have done things I'd rather forget. The grove is the one place they don't fight, so I suppose my answer is to trust the grove." },
         { id = "xor_ho", when = { faction = "Alliance" },
-          text = "You're High Order, so you'll hear plenty about the Windshapers' faults from Falorne, and Ventaari will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
+          text = "You're High Order, so you'll hear plenty about the Windshapers' faults from Falorne, your order's teacher here, and Ventaari of the Windshapers will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
         { id = "xor_ws", when = { faction = "Horde" },
-          text = "You're with the Windshapers, so Ventaari will tell you all about the High Order's faults, and Falorne will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
+          text = "You're with the Windshapers, so Ventaari will tell you all about the High Order's faults, and Falorne of the High Order will tell you all about yours. Both orders have good people and both have done things I'd rather forget, so I'll only say this: the grove is the one place they don't fight." },
       },
       choices = {
         { text = "Then I'll keep the grove's peace, whatever my order says.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -242,7 +242,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the grove's paths and most of the faces in the village, so ask and I'll help if I can." } },
     advice = { { id = "tp_ad", text = "Watch the edges of the paths, because they crumble, and never turn your back on a vuldren that's stopped eating." } },
-    windstones = { { id = "tp_stones", text = "Dalia's the one to ask about windstones. She knows where to look, and she'll tell you how precious they've become." } },
+    windstones = { { id = "tp_stones", text = "Dalia the Collector is the one to ask about windstones. She knows where to look, and she'll tell you how precious they've become." } },
     two_orders = { { id = "tp_orders", text = "The orders don't fight in the grove, and that's the most I'll say about them.", next = "xorders" } },
     al_aketh = { { id = "tp_aketh", text = "If you see grey robes and shaved heads near the village, tell Rorian or a Peacekeeper, and don't try anything clever on your own." } },
     _none = { { id = "tp_none", text = "Oh, that's beyond me, I'm afraid. Ask Rorian; he's forgotten more than I'll ever know." } },
@@ -274,7 +274,7 @@ P:NPC {
     { id = "n_shaman_out", cat = "class", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } },
       text = "The elements answer you, don't they? I can feel it from here, and I confess it makes me envious and glad in the same breath." },
     { id = "n_totem", cat = "origin", when = { origin = "skyborne_gevrek_totem_keeper" },
-      text = "You've the look of someone who tends totems for a living, careful with your hands and always glancing at the sky. Ayessa chose well." },
+      text = "You've the look of someone who tends totems for a living, careful with your hands and always glancing at the sky. Grand Skyseer Ayessa chose well." },
     { id = "n_alaketh", cat = "origin", when = { origin = "skyborne_former_alaketh" },
       text = "Your hair's still short at the roots, and I think I know why. You're among Windshapers now, and nobody here will hold the grey robes against you if you've really set them down." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
@@ -398,7 +398,7 @@ P:NPC {
       lines = {
         { id = "xm_default", text = "Then you're luckier than any of us, and I hope you never learn what the silence is like. Is it true that your elements simply answer when you call, without any bargaining or pleading?" },
         { id = "xm_tauren", when = { race = "Tauren" },
-          text = "Then you're luckier than any of us, and I hope your Earth Mother keeps it that way. Ayessa says the tauren of Mulgore welcomed our people as if we'd always been neighbors, so tell me, do your elements answer when you call, or must you plead?" },
+          text = "Then you're luckier than any of us, and I hope your Earth Mother keeps it that way. Grand Skyseer Ayessa says the tauren of Mulgore welcomed our people as if we'd always been neighbors, so tell me, do your elements answer when you call, or must you plead?" },
       },
       choices = {
         { text = "They answer, but only when I respect them.", next = "xmainland2", fx = { affinity = 1, trait = { pious = 1 } } },
@@ -468,7 +468,7 @@ P:NPC {
     { id = "n_blade", cat = "origin", when = { origin = "skyborne_empyrean_recruit" },
       text = "You hold your weapon the way the Empyrean Blades drill their recruits, point low and elbow in. Whoever started you knew their business." },
     { id = "n_repair", cat = "kit", when = { durability = { max = 30 } },
-      text = "Your gear's half falling off you. Go and see Destin before you come to me, because I won't teach someone whose straps are about to give way." },
+      text = "Your gear's half falling off you. Go and see Destin, the weapon merchant, before you come to me, because I won't teach someone whose straps are about to give way." },
   },
 
   start = "hello",

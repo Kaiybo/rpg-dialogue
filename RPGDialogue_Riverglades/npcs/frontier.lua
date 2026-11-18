@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They mind it about as much as Curly minds being flattened, I'd wager. Turner says trees don't have feelings, but Turner's never had one fall on him." } },
+      lines = { { id = "xdsham_default", text = "If they do, they get their own back; one's flattened Curly twice this month. Turner says trees don't have feelings, but Turner's never had one fall on him." } },
       choices = {
         { text = "Thank the trees before you cut them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Trees are timber. Cut them and be done.", next = "BACK", fx = { align = { light = -1 } } },
@@ -36,7 +36,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part, though somebody keeps raiding our woodpiles." },
+        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Halligan Turner and keep my partner Curly from getting himself killed, and the trees are the easy part." },
         { id = "h_helping", tags = { "news" }, when = { questActive = TODO_QUEST("Helping Hands") },
           text = "Come on, come on. Curly's in trouble out there and we haven't much time." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },
@@ -80,7 +80,7 @@ P:NPC {
       choices = { { text = "That's a good reason.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     raids = {
-      lines = { { id = "r_default", text = "Somebody's been at the woodpiles at night, and spear-length pieces have gone missing. Halligan thinks it's the Horde. I think so too, but I like to let Halligan be right first." } },
+      lines = { { id = "r_default", text = "Somebody's been at the woodpiles at night, and spear-length pieces have gone missing. Halligan, the camp boss, thinks it's the Horde. I think so too, but I like to let Halligan be right first." } },
       choices = {
         { text = "I'll keep watch.", next = "BACK", fx = { affinity = 1, standing = { farholde = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -203,7 +203,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're buying, talk. If you're standing around, there's an axe, and my blisters have blisters." },
+    { id = "g_default", text = "If you're buying timber, talk. If you're just standing around, there's an axe over there." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Pick up a saw or pick a direction." },
   },
 
@@ -227,7 +227,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Halligan Turner. This camp feeds Farholde its timber, the Brotherhood keeps the cultists off it, mostly, and I keep the loggers off each other." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },
-          text = "You brought the kid back. He's a good worker when he isn't being an idiot, so... thanks, and that's all you're getting." },
+          text = "You brought Curly back. He's a good worker when he isn't being an idiot, so... thanks, and that's all you're getting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If you're here to bless the trees, they're getting cut down anyway, so save your breath." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good. My meat store keeps getting raided, and my lads couldn't track a cart down a road." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "I know your sort. Keep your hands where I can see them when you're near the payroll." },
@@ -267,7 +267,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     brotherhood = {
-      lines = { { id = "b_default", text = "They pay in silver when they have it and in promises when they don't, and I've had more promises than silver this year. Brant keeps his, eventually." } },
+      lines = { { id = "b_default", text = "They pay in silver when they have it and in promises when they don't, and I've had more promises than silver this year. Commander Brant keeps his promises, eventually." } },
       choices = {
         { text = "Is their protection worth the silver?", next = "bh_ask", fx = { learn = { "brotherhood_horse" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } },
@@ -276,7 +276,7 @@ P:NPC {
     -- Opinion pass: Halligan asks the player how he should deal with the raids.
     bh_ask = {
       big = true,
-      lines = { { id = "bq_default", text = "Ask me that when the Horde stops raiding my woodpiles. You've seen both banks of the river, so you tell me: do I keep paying the Brotherhood, or make my own peace with the orcs and save the silver?" } },
+      lines = { { id = "bq_default", text = "Some months it is and some it isn't, with the Horde still raiding my woodpiles. You've seen both banks of the river, so you tell me: do I keep paying the Brotherhood, or make my own peace with the orcs and save the silver?" } },
       choices = {
         { text = "Pay the Brotherhood. They're all that stands between you and Rog'mar.", next = "bh_ask_pay", fx = { opinion = { brotherhood_horse = "trust" }, align = { order = 1 }, affinity = 1 } },
         { text = "Make your own peace. A woodpile isn't worth a life.", next = "bh_ask_peace", fx = { opinion = { peace = "for" }, align = { order = -1 } } },
@@ -314,7 +314,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Every week. Axes slip, trees roll, and Curly exists, so I send them up to the keep, and Rowland sends them back with a lecture for me. Stay a day if you like; you'd save me the lecture." },
+        { id = "xpa_default", text = "Every week. Axes slip, trees roll, and Curly exists, so I send them up to the keep, and Sister Rowland sends them back with a lecture for me. Stay a day if you like; you'd save me the lecture." },
       },
       choices = {
         { text = "I'll stay. Your lads deserve better care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },

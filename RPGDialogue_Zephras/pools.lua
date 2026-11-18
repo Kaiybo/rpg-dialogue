@@ -41,7 +41,7 @@ P:Pool {
   react = { { id = "r_stealth", on = "stealth", text = "I can't see you, but I can hear you breathing, so out with you." } },
   lines = {
     { id = "l_default", text = "We're Peacekeepers, so we keep the peace, and lately that means keeping a few people apart who'd rather not be kept." },
-    { id = "l_blades", text = "The Empyrean Blades guarded the Shal'nan once, and now they guard all of us: a step down in company, and a step up in work." },
+    { id = "l_blades", text = "The Empyrean Blades guarded the Shal'nan, our old ruler, once, and now they guard all of us: a step down in company, and a step up in work." },
     { id = "l_bandits", text = "Half the trouble on the roads now is refugees gone bandit, and I can't find it in me to hate them, though I'll still arrest them." },
     { id = "l_pylons", text = "If you see anyone in grey robes near the anchor pylons, don't approach them; come and find us, and quickly." },
     { id = "l_alliance", when = { race = "Skyborne", faction = "Alliance" }, text = "High Order, are you? You'll be off to Dalaran soon, I expect, so mind your tongue around the Windshapers before you go." },

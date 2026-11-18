@@ -53,7 +53,7 @@ P:NPC {
         { text = "What does taming a beast involve?", next = "taming" },
         { text = "How did you lose your sight?", next = "eye" },
         { text = "What's happening to the isle's beasts?", next = "wilds" },
-        { text = "Who's Quel'dora?", next = "kin" },
+        { text = "Does anyone else in the hall help you, Quel'ana?", next = "kin" },
         { text = "Train me, Quel'ana.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Hunters where I'm from tame very different beasts.", next = "xoutsider", when = { class = "HUNTER", ["not"] = { race = "Skyborne" } } },
         { text = "I hunted the cliffs below Siroccas.", next = "xcliff", when = { origin = "skyborne_siroccas_cliff_hunter" } },
@@ -129,7 +129,7 @@ P:NPC {
     },
     kin = {
       lines = {
-        { id = "ki_default", text = "Family, and she works here in the hall with me, so you'll meet her sooner or later. She'll tell you I hunt better with one eye than most do with two, and I'll tell you she's being kind, and we'll both be a little right." },
+        { id = "ki_default", text = "Quel'dora, who's family, works here in the hall with me, so you'll meet her sooner or later. She'll tell you I hunt better with one eye than most do with two, and I'll tell you she's being kind, and we'll both be a little right." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -207,7 +207,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Seena Skybreaker. I teach my warriors to hold still when everything in them wants to step back, because the ones who step back are the ones we carry home. Ren up in Thendal teaches the same lesson, and we're both right, so you'd better listen to one of us." },
+        { id = "h_default", key = true, text = "Seena Skybreaker. I teach my warriors to hold still when everything in them wants to step back, because the ones who step back are the ones we carry home. Blademaster Ren up in Thendal teaches the same lesson, and we're both right, so you'd better listen to one of us." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Skybreaker Bulwark") },
           text = "You did right by the Bulwark, and by my family's name, and I'll not forget it. Come to me whenever you need training, and I'll make sure you're worth what you've done." },
       },
@@ -295,7 +295,7 @@ P:NPC {
     },
     hall = {
       lines = {
-        { id = "ha_default", text = "Quel'ana trains the hunters and hears everything, so mind what you say about him. Belarysa, Eltheen and Raylann have their corners too, and Quel'dora keeps the place from falling apart around all of us." },
+        { id = "ha_default", text = "Quel'ana trains the hunters and hears everything, so mind what you say about him, and Quel'dora keeps the place from falling apart around all of us." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -451,7 +451,7 @@ P:NPC {
     },
     orchard = {
       lines = {
-        { id = "or_default", text = "The cyclone construct? I've heard of it, and I've heard it drove off the bandits who hurt Alvarion, which means there's more wind left in it than anyone thought. If Aamelia wants a Windshaper to look it over, she's only to ask, and I'd go gladly, since it's not every day one of them wakes up on its own." },
+        { id = "or_default", text = "The cyclone construct? I've heard of it, and I've heard it drove off the bandits who hurt Alvarion Windfield, which means there's more wind left in it than anyone thought. If his wife Aamelia wants a Windshaper to look it over, she's only to ask, and I'd go gladly, since it's not every day one of them wakes up on its own." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -517,9 +517,9 @@ P:NPC {
 
   notice = {
     { id = "n_healer", cat = "class", when = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
-      text = "You've a healer's look about you. Don't trouble yourself; Melasa's done all that can be done, and the rest is lying here being bored." },
+      text = "You've a healer's look about you. Don't trouble yourself; Melasa the medic has done all that can be done, and the rest is lying here being bored." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Winds above, you're a big one. Mind the floorboards up here; Donaal swears they'll hold, but he's never had to test it." },
+      text = "Winds above, you're a big one. Mind the floorboards up here; Donaal the innkeeper swears they'll hold, but he's never had to test it." },
   },
 
   start = "hello",
@@ -570,7 +570,7 @@ P:NPC {
     },
     orchard = {
       lines = {
-        { id = "or_default", text = "Stormapples, mostly, the Red Delicious kind, and berries along the hedges. Nyalah buys our apples for her kitchen, and I'll tell you that's the proudest thing about our lives, that a cook that good thinks we grow something worth eating." },
+        { id = "or_default", text = "Stormapples, mostly, the Red Delicious kind, and berries along the hedges. Nyalah the cook buys our apples for her kitchen, and I'll tell you that's the proudest thing about our lives, that a cook that good thinks we grow something worth eating." },
       },
       choices = {
         { text = "What else does the orchard give you?", next = "flutterfly" },

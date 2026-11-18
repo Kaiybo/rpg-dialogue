@@ -27,9 +27,9 @@ P:NPC {
 
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
-      text = "One of our living allies, I see. You'll want to sleep with your mouth covered; the air out there gets into the breathing." },
+      text = "One of our living allies, I see. You'll want to sleep with your mouth covered; the plague air out there gets into the lungs." },
     { id = "n_warlock", cat = "class", when = { class = { "WARLOCK", "PRIEST" } },
-      text = "You deal in the darker arts, and good. Out here delicacy is a luxury, and the Scourge has no shortage of corpses to argue with." },
+      text = "You deal in the darker arts, or near enough, and good. Out here delicacy is a luxury the Bulwark can't afford." },
   },
 
   start = "hello",
@@ -37,7 +37,7 @@ P:NPC {
     op_argent_dawn = {
       big = true,
       lines = {
-        { id = "opad_default", text = "Garush answers to the Dawn, and the Dawn answers to Light's Hope, and I answer to the Dark Lady, so we're all very polite. His order is full of paladins who once marched with Uther, and they hand out commissions to Forsaken now. What do you make of the Argent Dawn?" },
+        { id = "opad_default", text = "No. Officer Garush answers to the Dawn, the Dawn answers to Light's Hope, and I answer to the Dark Lady, so we're all very polite. His order is full of paladins who once marched with Uther, and they hand out commissions to Forsaken now. What do you make of the Argent Dawn?" },
       },
       choices = {
         { text = "They fight the Scourge beside us. That's good enough.", next = "op_argent_dawn_r1", fx = { align = { honor = 1 }, opinion = { argent_dawn = "trust" } } },
@@ -60,7 +60,7 @@ P:NPC {
     },
     xpt_forsaken = {
       big = true,
-      lines = { { id = "xpt_forsaken_default", text = "We fight it without any hope of going home, which makes us patient, and we know its tricks because we were its tricks. Your friend will tell you that every ghoul at these gates was somebody's neighbour once, and that is why we never miss." } },
+      lines = { { id = "xpt_forsaken_default", text = "We fight it without any hope of going home, which makes us patient, and we know its tricks because we were its tricks. Your Forsaken friend will tell you that every ghoul at these gates was somebody's neighbour once, and that is why we never miss." } },
       choices = {
         { text = "Burn every one of them, whoever they used to be.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "They were people once. They deserve a mercy before the blade.", next = "BACK", fx = { align = { light = 1 } } },
@@ -69,7 +69,7 @@ P:NPC {
     },
     xcl_strat = {
       big = true,
-      lines = { { id = "xcl_strat_default", text = "Then you've done what the Dark Lady's armies couldn't, and Undercity will be calling it policy by supper. The Baron served Kel'Thuzad in life before he ever served him in death, and I knew men who sat at his table, so I'll not pretend there's anything personal in it, except that there is." } },
+      lines = { { id = "xcl_strat_default", text = "Then you've done what the Dark Lady's armies couldn't, and Undercity will be calling it policy by supper. Baron Rivendare served Kel'Thuzad in life before he ever served him in death, and I knew men who sat at his table, so I'll not pretend there's anything personal in it, except that there is." } },
       choices = {
         { text = "The Dark Lady should hear it first. It was her war.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let Undercity squabble over the credit. The Bulwark knows the truth.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -102,7 +102,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Andorhal, eventually, but not yet. I've watched too many brave living soldiers march down that road and come back to the Bulwark as Scourge, so I'd sooner you learned the ground first and fought second." } },
+      lines = { { id = "xwarcl_default", text = "I could, and I'll point it at Andorhal eventually, but not yet. I've watched too many brave living soldiers march down that road and come back to the Bulwark as Scourge, so I'd sooner you learned the ground first and fought second." } },
       choices = {
         { text = "Then I'll learn the ground and take the city properly.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Waiting breeds rot. I'll go now and cut my own road.", next = "BACK", fx = { align = { order = -1 } } },
@@ -113,7 +113,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the plague doesn't stay in the cauldrons. The wolves carry it out to the farms and the bats carry it over the hills, and every one of them is a map of where the Scourge has been, if anyone bothers to read it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash past the Bulwark, {class}. A beast that eats one wrong carcass out there will turn on you before the night's out, and I'd rather not have to put down the pair of you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the plague doesn't stay in the cauldrons. The wolves carry it out to the farms and the bats carry it over the hills, and every one of them is a map of where the Scourge has been, if anyone bothers to read it. Keep {pet} on a short leash past the Bulwark, {class}." },
       },
       choices = {
         { text = "I'll read their trails and report every one to you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -132,7 +132,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_pcwar", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } }, text = "Dithers says you'd sooner fight Chillwind than share a word with it. Hold that thought until Andorhal falls, and then we'll talk." },
+        { id = "o_pcwar", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } }, text = "Apothecary Dithers says you'd sooner fight Chillwind than share a word with it. Hold that thought until Andorhal falls, and then we'll talk." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" }, faction = "Horde" },
           text = "You travel with {companion}, one of the Dark Lady's own, and that pleases me. The living fight the Scourge out of fear, but we fight it because we remember exactly what it did to us." },
         { id = "h_default", key = true,
@@ -218,7 +218,7 @@ P:NPC {
     },
     wall = {
       lines = {
-        { id = "w_default", text = "When Capital City fell, the survivors fled here, to Uther's camp, and now it's our wall of debris, enough to keep the mindless out of Tirisfal. It wouldn't stop an army, of course, which is what we're for." },
+        { id = "w_default", text = "When the capital fell, its survivors fled here, to a camp Uther's followers had built, and now it's our wall of debris, enough to keep the mindless dead out of Tirisfal. It wouldn't stop an army, of course, which is what we're for." },
       },
       choices = {
         { text = "Uther's camp?", next = "wall_uther" },
@@ -311,7 +311,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Burn whatever you kill out there, if you've the time. The Scourge wastes nothing, and neither should you." } },
     andorhal = { { id = "tp_andorhal", text = "That's where the Scourge gathers in the west, under a lich, and if we break it, the west is ours to reclaim for the Dark Lady.", next = "andorhal" }, { id = "tp_andorhal2", text = "It's east of the wall, and it's the one place I'd send my best and expect to lose some." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're fanatics from Hearthglen, and useful fanatics, when they're pointed the right way." } },
-    plague_cauldrons = { { id = "tp_cauldrons", text = "The cauldrons are the Lich King's breath on the land, and Vandis and Dithers mean to sour it." } },
+    plague_cauldrons = { { id = "tp_cauldrons", text = "The cauldrons are the Lich King's breath on the land, and Shadow Priestess Vandis and Apothecary Dithers mean to sour it." } },
     scourge = {
       { id = "tp_scourge", text = "The Scourge sits east of this wall in numbers no one has bothered to count, because the count would only frighten the living. We hold the Bulwark against it every night, and we'll hold it tomorrow." },
       { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what's out there, because you marched with it. Every one of them we put down is one less voice you'll hear in your sleep, if you slept." },
@@ -389,7 +389,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I've opened three wolves from Felstone Field on that table, and their blood was thicker than tar. Bring me a sample from each cauldron instead, and the apothecaries will learn more in an hour than I learned in a week of cutting." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} stays outside my tent, {class}. It isn't that I dislike beasts, only that I've had the cauldron wolves on my table, and I'd hate to think of yours there." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I've opened three wolves from Felstone Field on that table, and their blood was thicker than tar. Bring me a sample from each cauldron instead, and the apothecaries will learn more in an hour than I learned in a week of cutting. {pet} stays outside my tent, {class}." },
       },
       choices = {
         { text = "Then I'll put the sick ones down quickly and spare them that.", next = "BACK", fx = { align = { light = 1 } } },
@@ -399,7 +399,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Not directly, or the Cult would have been washed out of Andorhal long ago. But the water spirits run under every field in the west, and Dithers thinks the counter agent spreads further if it's poured where they still move. If you can find such a place, tell me, and I'll send the next sample there." } },
+      lines = { { id = "xhsham_default", text = "Not directly, or the Cult would have been washed out of Andorhal long ago. But the water spirits run under every field in the west, and Apothecary Dithers thinks the counter agent spreads further if it's poured where they still move. If you can find such a place, tell me, and I'll send the next sample there." } },
       choices = {
         { text = "I'll find where the water still runs clean.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pour it anywhere. The spirits can sort it out.", next = "BACK", fx = { align = { order = -1 } } },
@@ -411,7 +411,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Shadow Priestess Vandis. Bring me a sample from each of the four cauldrons and the apothecaries will turn the plague on its makers, which is all the miracle we're likely to get." },
         { id = "h_sample", tags = { "news" }, when = { questActive = TODO_QUEST("Return to the Bulwark") },
-          text = "You have a bottle, so hand it over carefully. Dithers will have it opened, sniffed and argued with before you've found somewhere to sit." },
+          text = "You have a bottle, so hand it over carefully. Apothecary Dithers will have it opened, sniffed and argued with before you've found somewhere to sit." },
         { id = "h_returned", when = { questRecent = { TODO_QUEST("Return to the Bulwark"), days = 2 } },
           text = "Dithers is pleased with your sample, and he actually hummed. I've never heard him hum before, and I found it rather unsettling." },
         { id = "h_faith", when = { metBefore = true },
@@ -586,7 +586,7 @@ P:NPC {
     op_peace = {
       big = true,
       lines = {
-        { id = "oppc_default", text = "Notes? With Arbington? Ha! He'd faint if I sent him so much as a postcard, though I'll confess his counter-agent's not half bad. Should the Forsaken and the Alliance work together out here against the Scourge, do you think?" },
+        { id = "oppc_default", text = "Notes? With Arbington, their alchemist? Ha! He'd faint if I sent him so much as a postcard, though I'll confess his counter-agent's not half bad. Should the Forsaken and the Alliance work together out here against the Scourge, do you think?" },
       },
       choices = {
         { text = "The Scourge is everyone's enemy. Work with them.", next = "op_peace_r1", fx = { align = { honor = 1 }, opinion = { peace = "peace" } } },
@@ -609,7 +609,7 @@ P:NPC {
     },
     xcl_scholo = {
       big = true,
-      lines = { { id = "xcl_scholo_default", text = "Splendid, splendid, and do tell Arbington if you're ever on the Alliance side of the road, because he'll faint and I'd like to hear about it. The Society sent me out here to break the cauldrons, but between you and me, half the recipes in those cauldrons were first written down in Gandling's classrooms." } },
+      lines = { { id = "xcl_scholo_default", text = "Splendid, splendid! The Society sent me out here to break the cauldrons, but between you and me, half the recipes in those cauldrons were first written down in Gandling's classrooms." } },
       choices = {
         { text = "Then the Society should seize his notes before the Cult does.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Burn his recipes. Nobody should brew those again.", next = "BACK", fx = { align = { light = 1 } } },
@@ -653,7 +653,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It recovered, mostly, and it now forecasts rain better than my knee does. The beasts of the Plaguelands are a marvellous record of what the plague does, so if you shoot anything odd, I'll happily take it off your hands." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Might I take the tiniest sample from {pet}, {class}? Only a whisker, purely for comparison, and I promise to give it back if it's still attached." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It recovered, mostly, and it now forecasts rain better than my knee does. The beasts of the Plaguelands are a marvellous record of what the plague does, so if you shoot anything odd, I'll happily take it off your hands. Might I take the tiniest sample from {pet}, {class}?" },
       },
       choices = {
         { text = "Nothing I shoot goes in your jars. The beasts deserve better.", next = "BACK", fx = { align = { light = 1 } } },
@@ -672,7 +672,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more than most priests do for their patients." } },
+      lines = { { id = "xhpriest_default", text = "One did, once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more than most priests do for their patients." } },
       choices = {
         { text = "Let me try anyway. Mending is worth the attempt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep your notes, Apothecary. Shadow's no friend to bone.", next = "BACK", fx = { align = { light = -1 } } },
@@ -904,7 +904,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every autumn, with forty hounds and twice as many servants, and the deer were so tame you could hardly call it hunting. The deer are dead now and the hounds walk on without them, which is about what the Barovs deserve, I suppose." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that beast is {pet}, is it? My father would have offered you good gold for it, {class}, and then had it put down the first time it muddied his boots." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every autumn, with forty hounds and twice as many servants, and the deer were so tame you could hardly call it hunting. The deer are dead now and the hounds walk on without them, which is about what the Barovs deserve, I suppose. And that beast is {pet}, is it?" },
       },
       choices = {
         { text = "A hunt should be earned. Your father's was only theatre.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -932,7 +932,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_bvforfeit", tags = { "news" }, when = { opinion = { topic = "barov", stance = "forfeit" } }, text = "Word is you think House Barov forfeited everything. Clever of you, and I agree, which is precisely why my brother's share should come to me." },
+        { id = "o_bvforfeit", tags = { "news" }, when = { opinion = { topic = "barov", stance = "forfeit" } }, text = "Word is you think House Barov forfeited everything. Clever of you, and I agree, which is precisely why the deeds belong to the Barov who paid for the bargain with his life, and that's me." },
         { id = "h_default", key = true,
           text = "Alexi Barov. My family sold its soul to Kel'Thuzad and I'm the one who got free of him, while my brother Weldon kept his breath and now imagines he gets the money too.",
           fx = { hear = "barov_heir" } },
@@ -1003,7 +1003,7 @@ P:NPC {
     spared = {
       big = true,
       lines = {
-        { id = "s_default", text = "He looked at me and couldn't do it, which was squeamishness, not mercy. If he'd finished me, he'd have his fortune, so that's his mistake, not my debt." },
+        { id = "s_default", text = "Brother? He had me at his mercy once and couldn't do it, which was squeamishness, not mercy. If he'd finished me, he'd have his fortune, so that's his mistake, not my debt." },
       },
       choices = {
         { text = "That's cold, even for the dead.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
@@ -1152,7 +1152,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The plague sends the beasts mad, and the mad ones run toward the dead rather than away from them. Follow a sick wolf far enough, and more often than not you'll find a cult camp or a ghoul pit at the end of the trail." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has a keen nose, I can see it. Keep it upwind of the dead, {class}, for once a beast smells a ghoul it never forgets, and some of them never stop shaking." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The plague sends the beasts mad, and the mad ones run toward the dead rather than away from them. Follow a sick wolf far enough, and more often than not you'll find a cult camp or a ghoul pit at the end of the trail. {pet} has a keen nose, I can see it." },
       },
       choices = {
         { text = "Then I'll put the mad ones down before I follow their trails.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1186,9 +1186,9 @@ P:NPC {
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },
           text = "Wear the commission, and you'll find the dead out there carry scourgestones, what's left of the will that drives them. Bring them here, and every stone you bring is one less thing walking." },
         { id = "h_everlook", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
-          text = "A report from Everlook, in Gregor's hand? He writes small and I read slowly, but we always get there in the end." },
+          text = "A report from Everlook, in Gregor Greystone's hand? He writes small and I read slowly, but we always get there in the end." },
         { id = "h_pureheart", when = { metBefore = true },
-          text = "Pureheart's at Chillwind on the Alliance side, and the two of us write to each other. Ten years ago one of us would have killed the other, and now we argue about rations." },
+          text = "Officer Pureheart's at Chillwind Camp on the Alliance side, and the two of us write to each other. Ten years ago one of us would have killed the other, and now we argue about rations." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. I saw what the old Horde's warlocks made of my people, {class}, the blood-curse and the madness, and I'll not pretend I'm glad to see you." },
         { id = "h_magecl", when = { class = "MAGE" },
