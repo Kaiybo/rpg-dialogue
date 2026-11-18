@@ -37,7 +37,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Everything, if he's paying attention, because a bear never fights with half its weight and never gets up once it's beaten. I tell the recruits to fight like that, and then they go out and fight like scarecrows." } },
+      lines = { { id = "xdruid_default", text = "He could learn everything, if he's paying attention, because a bear never fights with half its weight and never stops until the fight's done. I tell the recruits to fight like that, and then they go out and fight like scarecrows." } },
       choices = {
         { text = "A bear lets a beaten foe go, too. Teach them that.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A bear finishes what it starts. Teach them that instead.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -47,8 +47,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That you win fights before they start, and that's smart, I'll give you that. But one day the wolf gets past the beast and the arrow, and then you'll wish you'd stood in my yard a week and learned to take a hit." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours takes the hits for you, I see. Look after it; it's doing my job." },
+        { id = "xhuntcl_default", text = "That you win fights before they start, and I'll grant you that's smart. But one day the wolf gets past the beast and the arrow, and then you'll wish you'd stood in my yard a week and learned to take a hit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That you win fights before they start, and I'll grant you that's smart. That {pet} of yours takes the hits for you, I see, so look after it, because it's doing my job." },
       },
       choices = {
         { text = "I'll learn to stand my ground when it comes to that.", next = "BACK", fx = { align = { order = 1 } } },
@@ -67,7 +67,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "They respect what a mage can do, but they don't respect that you can't take a punch, and I've told them that's the point. Learn to stand behind a shield wall and you'll live long enough to burn whatever's in front of it." } },
+      lines = { { id = "xmage_default", text = "They respect what a mage can do, but not that you can't take a punch, and I've told them that's exactly why you need them. Learn to stand behind a shield wall and you'll live long enough to burn whatever's in front of it." } },
       choices = {
         { text = "I'll respect your shield wall, Llane, and stand where I'm told.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your warriors should be grateful for what I can do.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -76,7 +76,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever La Salle lets out of the graveyard." } },
+      lines = { { id = "xlock_default", text = "It's happened twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." } },
       choices = {
         { text = "I'll keep my imp leashed and away from your recruits.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your recruits could do with a real fight now and then.", next = "BACK", fx = { align = { light = -1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "To stay standing when the Light goes quiet, because one day it will, and you'll still have a gnoll in front of you. Sammuel teaches you to pray and I teach you to take a hit, and you'll need both before you're through." } },
+      lines = { { id = "xapala_default", text = "To stay standing when the Light goes quiet, because one day it will, and you'll still have a gnoll in front of you. Brother Sammuel teaches you to pray and I teach you to take a hit, and you'll need both before you're through." } },
       choices = {
         { text = "I'll learn both. Duty asks it of me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Light won't go quiet for me. I'll trust it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -97,17 +97,17 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my hall. You've a priest's heart and a warrior's arms, so let's see if you've a warrior's legs." },
         { id = "h_default", text = "Warriors are made, not born. Mostly by getting knocked down and standing back up." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Simple Letter"), days = 1 } },
-          text = "So you can read. Good, now let's see if you can stand." },
+          text = "So you read the letter and found your way to me. Good; now let's see if you can stand." },
         { id = "h_warrior_blooded", when = { class = "WARRIOR", band = "Blooded" },
-          text = "You've put on some muscle. Still dropping your guard on the left, though." },
+          text = "You've put on some muscle, but you're still dropping your guard on the left." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "Hunters. Always trying to win a fight from across the field." },
+          text = "A hunter, always trying to win a fight from across the field." },
         { id = "h_other", when = { ["not"] = { class = { "WARRIOR", "HUNTER" } } },
-          text = "Not my student. The drills wouldn't kill you, though. Probably." },
+          text = "You're not my student, but the drills wouldn't kill you. Probably." },
         { id = "h_bruise", when = { metBefore = true, class = "WARRIOR" }, text = "You're standing straighter, and the bruises are in better places. That's progress, recruit." },
         { id = "h_dawn", when = { metBefore = true }, text = "The recruits ran the yard twice this morning. One cried and one laughed, and the one who laughed is the one I'm worried about." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 20 },
-          text = "Look at the scars on you. Somebody's been earning them properly. Stand there. Let me see if the left guard ever got fixed." },
+          text = "Look at the scars on you. Somebody's been earning them properly, so stand there and let me see if the left guard ever got fixed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in my yard. You'll want to run the drills with my recruits, I expect, or else you're here to steal the practice swords." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -169,7 +169,7 @@ P:NPC {
     },
     stance_more = {
       lines = {
-        { id = "sm_default", text = "That's it, a thousand times, until you do it asleep. Then I'll show you the second thing. Most never get to the second thing." },
+        { id = "sm_default", text = "It is that simple, and you do it a thousand times until you do it asleep. Then I'll show you the second thing, though most never get that far." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
@@ -195,7 +195,7 @@ P:NPC {
         { id = "p_default", text = "One thing: stand behind me, not beside me and not in front of me. If you're ever in front, I've failed, and so have you." },
       },
       choices = {
-        { text = "Behind you. And I keep you standing.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Behind you, then, and I'll keep you standing.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll stand where I'm needed, not where I'm told.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "And if I'd rather fight?", next = "priest_fight" },
       },
@@ -213,7 +213,7 @@ P:NPC {
       choices = { { text = "Lower, wider, angry. Got it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     trainers = {
-      lines = { { id = "trainers_l", text = "Anetta mends what I break, Bremen keeps his recruits away from my yard, and Kerridan behind the stables thinks I can't hear him laughing at my drills. I can, and I'm keeping count." } },
+      lines = { { id = "trainers_l", text = "Priestess Anetta mends what I break, Khelden Bremen keeps his mages out of my yard, and Jorik Kerridan behind the stables thinks I can't hear him laughing at my drills. I can, and I'm keeping count." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },

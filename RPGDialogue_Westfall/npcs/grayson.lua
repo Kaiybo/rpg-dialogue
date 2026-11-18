@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_flame", text = "Keep clear of the lamp. It's the only thing here still alive, in its way." },
-    { id = "g_murkeye", when = { questActive = TODO_QUEST("The Coastal Menace") }, text = "Murk-Eye still breathes. I can feel it in the tide." },
+    { id = "g_murkeye", when = { questActive = TODO_QUEST("The Coastal Menace") }, text = "Old Murk-Eye, the murloc who rules this shore, still breathes. I can feel it in the tide." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Coastal Menace") }, text = "The beach is quiet. Quiet enough that I can hear the gulls again." },
   },
 
@@ -52,8 +52,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "It looks right through me, and at least it doesn't scream while it does it. The gulls see me too, and the murlocs, and they're the ones I'd least like to. Old Murk-Eye looks at me every night, and I swear he grins." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't stopped staring at me since you came up the path. Tell it I'm harmless, would you?" },
+        { id = "xhuntcl_default", text = "It does, and it looks right through me, which is more than most people manage. The murlocs see me too, and old Murk-Eye, their leader, looks up at me every night and grins." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It does, and it looks right through me, which is more than most people manage. Your {pet} hasn't stopped staring at me since you came up the path, so tell it I'm harmless, would you?" },
       },
       choices = {
         { text = "I'll hunt Murk-Eye for you, and the keeper's family.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -97,7 +97,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Captain Grayson, of a ship that isn't, from a crew that aren't. I mean no harm to the living; I mean only to keep this flame lit." },
+        { id = "h_default", text = "Captain Grayson, of a ship long sunk and a crew long drowned. I mean no harm to the living; I mean only to keep this flame lit." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Keeper of the Flame") },
           text = "The night my ship came in, this lamp was dark and we hit the rocks. I'd not wish that on any captain, honest or otherwise." },
         { id = "h_flame", tags = { "news" }, when = { questActive = TODO_QUEST("Keeper of the Flame") },
@@ -105,14 +105,14 @@ P:NPC {
         { id = "h_coast", when = { questActive = TODO_QUEST("The Coast Isn't Clear") },
           text = "The murlocs on the shore grow bolder every tide. Thin them, and the next keeper might live to see old age." },
         { id = "h_menace", tags = { "news" }, when = { questActive = TODO_QUEST("The Coastal Menace") },
-          text = "Old Murk-Eye drove the keeper's family off once, and when they came back and lit the lamp, he came back too. I watched it all, and I couldn't do a thing." },
+          text = "Old Murk-Eye, the murloc chief, drove the keeper's family off once, and when they came back and lit the lamp, he came back too. I watched it all, and I couldn't do a thing." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Coastal Menace"), days = 3 } },
           text = "He's gone; I felt it in the tide. The family's beyond thanking you, so I'll do it for them: thank you." },
         { id = "h_pirate", when = { class = "ROGUE" },
           text = "You've a pirate's way of standing, weight on the balls of the feet and one hand near the knife. I'd have signed you on." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The flame burns brightest when nobody's looking at it, and I'm always looking at it. That comes with being dead, I find." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a living one. I mean you no harm; I only mean to keep the flame lit, and you could help." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me, I think, though you might not; animals are better at seeing the dead than the living are." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me plainly, I think, because animals are better at seeing the dead than people are." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'd half expected your Light to burn me where I stand, but it only feels warm, which is a strange thing for a dead man to feel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A child of the kaldorei, if this old ghost's eyes still serve. I never sailed far enough to see your people's shores, and now I never shall." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, living, and come to see a ghost. Do your spirits speak to me, then? I've had little enough company out here." },
@@ -163,7 +163,7 @@ P:NPC {
       },
     },
     pirate = {
-      lines = { { id = "p_default", text = "A pirate, a privateer, a merchant with flexible morals. Depends who you asked and what they'd lost." } },
+      lines = { { id = "p_default", text = "A pirate, a privateer or a merchant with flexible morals, depending on who you asked and what they'd lost." } },
       choices = {
         { text = "Ha. Fair.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "What was your ship called?", next = "ship" },
@@ -173,7 +173,7 @@ P:NPC {
       },
     },
     ship = {
-      lines = { { id = "sh_default", text = "Depends which year you mean. She wore a few names and a few coats of paint. The sea knows which one stuck. I'll let it keep that." } },
+      lines = { { id = "sh_default", text = "That depends which year you mean, because she wore a few names and a few coats of paint. The sea knows which one stuck, and I'll let it keep that." } },
       choices = {
         { text = "A careful answer.", next = "pirate_wrecks", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -185,7 +185,7 @@ P:NPC {
     },
     murkeye = {
       lines = {
-        { id = "mu_default", text = "An old murloc with a long memory. He leads the weaker ones the way a gull leads a flock to scraps. The lighthouse family were scraps, to him." },
+        { id = "mu_default", text = "Murk-Eye is an old murloc with a long memory, and he leads the weaker ones the way a gull leads a flock to scraps. The lighthouse family were scraps, to him." },
         { id = "mu_active", when = { questActive = TODO_QUEST("The Coastal Menace") },
           text = "He walks the shore with his kin about him, so wait till he wanders clear of them. Then bring me one of his scales." },
       },
@@ -199,7 +199,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     dead = {
-      lines = { { id = "de_default", text = "Cold, mostly, and quiet. You'd think the dead would have plenty to say to each other, but we don't." } },
+      lines = { { id = "de_default", text = "It's cold, mostly, and quiet. You'd think the dead would have plenty to say to each other, but we don't." } },
       choices = {
         { text = "Are there others like you here?", next = "dead_others" },
         { text = "Something else.", next = "BACK" },

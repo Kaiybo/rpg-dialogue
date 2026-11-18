@@ -80,7 +80,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not one of them. I carry Lakeshire's danger carefully, and too long. Your spirits might reach where my letters can't." } },
+      lines = { { id = "xdsham_default", text = "Slow? It hasn't answered one of them, and I've carried Lakeshire's danger on paper for too long. Your spirits might reach where my letters can't." } },
       choices = {
         { text = "Keep writing, Magistrate. Someone will listen.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stop writing. Act yourself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -96,7 +96,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "It was Ilgalar's tower, a wizard dead long before my time, and now a necromancer squats in it. I've written to the Mage Quarter about Morganth twice, and they've answered neither letter." } },
+      lines = { { id = "xma_default", text = "It was Ilgalar's tower, a wizard dead long before my time, and now a necromancer called Morganth squats in it. I've written to the Mage Quarter about him twice, and they've answered neither letter." } },
       choices = {
         { text = "I'll carry word to the Mage Quarter, properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Forget Stormwind. I'll deal with Morganth myself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -135,7 +135,7 @@ P:NPC {
         { id = "h_new", when = { maxLevel = 17 },
           text = "You've come up from Elwynn? Good, because Lakeshire needs every blade it can borrow, even the short ones." },
         { id = "h_westfall", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Westfall") },
-          text = "I hear they've raised a militia in Westfall, farmers with spears holding their own. Take my letter to their leader; if anyone understands our plight, it's him." },
+          text = "I hear they've raised a militia in Westfall, farmers with spears holding their own. Take my letter to their leader, Gryan Stoutmantle; if anyone understands our plight, it's him." },
         { id = "h_westfall_done", tags = { "news" }, when = { questDone = TODO_QUEST("Messenger to Westfall") },
           text = "Stoutmantle can't spare a man. I'd be angrier if I didn't know exactly how he feels." },
         { id = "h_gath", when = { questActive = TODO_QUEST("Wanted: Gath'Ilzogg") },
@@ -160,7 +160,7 @@ P:NPC {
           text = "The court recognises you, which is not the same as welcoming you. State your business." },
         { id = "h_redridge_born", when = { origin = "human_redridge_born" },
           text = "One of our own, back from the wider world. The court remembers your family's name, and it would rather see you on the walls than on a list of the missing." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Be brief. A shaman. I'll write another letter nobody will answer. Do your spirits carry letters?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and I'll ask you to be brief. I've another letter to write that nobody will answer, so tell me, do your spirits carry letters?" },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
@@ -205,7 +205,7 @@ P:NPC {
     need_worst = {
       big = true,
       lines = {
-        { id = "nw_default", text = "Bandages, of all things. We ran out of them before we ran out of courage, and I put that in a report to the King. It still shames me." },
+        { id = "nw_default", text = "Bandages, of all things. We ran out of them before we ran out of courage, and I put that in a report to the Keep. It still shames me." },
         { id = "nw_priest", when = { class = "PRIEST" },
           text = "Bandages, and someone who knows what to do when the bandages aren't enough. You'll have guessed why I'm telling you." },
       },
@@ -447,7 +447,7 @@ P:NPC {
       },
     },
     lordaeron_north = {
-      lines = { { id = "ln_default", text = "Nothing good, I'm afraid. I wrote to the King that something darker than any orc is brewing up there, and nobody answered that part either." } },
+      lines = { { id = "ln_default", text = "Nothing good, I'm afraid. I wrote to the Keep that something darker than any orc is brewing up there, and nobody answered that part either." } },
       choices = {
         { text = "You were right. I've seen it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -544,7 +544,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "wl_default", fx = { learn = { "morganth" } },
-          text = "I know he raises the dead and calls things out of the dark in that tower, and I know you've just asked me about it with more interest than I'd like. The court will assume that was professional curiosity." },
+          text = "That would be Morganth, in his tower in the eastern hills. He raises the dead and calls things out of the dark, and you've just asked me about it with more interest than I'd like. The court will assume that was professional curiosity." },
       },
       choices = {
         { text = "It was. Know your enemy, Magistrate.", next = "warlock_enemy" },

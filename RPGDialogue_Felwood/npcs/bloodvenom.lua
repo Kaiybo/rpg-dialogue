@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, how lovely! You lot always know which bottle not to drink from, and that makes you twice as useful to me as anyone in this post. *cackles*" },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Do you know, the water in the Jadefire well does something arcane to it, I'm almost certain, though I haven't found a mage willing to taste it yet. *cackles*" },
+          text = "A mage! Do you know, I'm almost certain the satyrs' foul moonwell has gone arcane as well as rotten, but I haven't found a mage willing to taste it yet. *cackles*" },
         { id = "h_default", key = true,
           text = "Winna Hazzard, alchemist of a sort, servant of the Dark Lady and keeper of one kitten! Felwood is the most interesting place I've been since I died, because everything in it is wrong in some new way. *cackles*" },
         { id = "h_strange", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange One") },
@@ -187,7 +187,7 @@ P:NPC {
 
     work = {
       lines = {
-        { id = "w_default", text = "The moonwell at Constellas, the night elves' precious symbol of renewal, and now it's poisoned and the satyrs use it to make more satyrs. *cackles* Isn't that marvellous?" },
+        { id = "w_default", text = "The moonwell at the Ruins of Constellas, darling! It was the night elves' precious symbol of renewal, and now it's poisoned and the satyrs use it to make more satyrs. *cackles* Isn't that marvellous?" },
       },
       choices = {
         { text = "What do you want with it?", next = "work_use" },
@@ -305,7 +305,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Some of them did. Some of them bled green, and that's what worries me." } },
+      lines = { { id = "op_r1_default", text = "Some of them did, and I'll give them that. But I've seen what their apothecaries brew, and that worries me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -341,8 +341,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Wrong enough that the bears turn on their own cubs, and the owlbeasts at the Winterspring border attack anything that walks, as if somebody told them to guard something. That's what I sent you up there to find out, and I still don't like the answer." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} out of the river, if you value it. I watched a scout's wolf drink from it once, and he had to put it down himself the next morning." },
+        { id = "xhuntcl_default", text = "Wrong enough that the bears turn on their own cubs, and the owlbeasts at the Winterspring border attack anything that walks, as if somebody told them to guard something. That's what I send hunters up there to find out, and I don't like what they bring back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wrong enough that the bears turn on their own cubs, and the owlbeasts at the Winterspring border attack anything that walks, as if somebody told them to guard something. And keep {pet} out of the river, if you value it. I watched a scout's wolf drink from it once, and he had to put it down himself the next morning." },
       },
       choices = {
         { text = "Then I'll put the sick ones down quickly and spare them pain.", next = "BACK", fx = { align = { light = 1 } } },
@@ -409,7 +409,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, at Bloodvenom. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
         { id = "h_default", key = true,
-          text = "I am Trull Failbane. Orgrimmar wants eyes in Felwood, and these are them, because this forest is full of the same fel that once poisoned my own people, the owlbeasts on the Winterspring border hide more, and I'm paid to find out where it hides." },
+          text = "I am Trull Failbane, and Orgrimmar pays me to be its eyes in Felwood. This forest is full of the same fel that once poisoned my people, and the owlbeasts on the Winterspring border are guarding something, so I mean to find out what." },
         { id = "h_guardians", tags = { "news" }, when = { questActive = TODO_QUEST("Wild Guardians") },
           text = "Back with word? Good, then sit and tell me everything, slowly, because I'll know if you skip a part." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Guarding Secrets") },
@@ -445,7 +445,7 @@ P:NPC {
 
     winterspring = {
       lines = {
-        { id = "ws_default", text = "Snow, past the Timbermaw tunnels to the northeast, and owlbeasts, wildkin, crawling all over it. They guard something, secrets of the night elves, and creatures don't guard nothing." },
+        { id = "ws_default", text = "Snow, past the Timbermaw tunnels to the northeast, and owlbeasts, wildkin, crawling all over it. They're guarding something, night elf secrets if I had to guess, and beasts don't guard nothing." },
       },
       choices = {
         { text = "The secrets must be hidden somewhere up there.", next = "winterspring_caves" },
@@ -501,7 +501,7 @@ P:NPC {
 
     nara = {
       lines = {
-        { id = "n_default", text = "That's beyond me; I know owlbeasts, not their magic, so it went to Nara Wildmane in Thunder Bluff. If the wildkin were made to guard someone's holy places, then what they're guarding matters more than I thought." },
+        { id = "n_default", text = "That's beyond me; I know owlbeasts, not their magic, which is why it went to Nara Wildmane, the elder druid in Thunder Bluff. If the wildkin were made to guard someone's holy places, then what they're guarding matters more than I thought." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },

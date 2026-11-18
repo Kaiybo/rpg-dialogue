@@ -69,7 +69,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Warm clothes for Winterspring and clean water for Felwood, because you can't drink anything in that forest, and arrows for both. The road south runs through the Timbermaw tunnels, so keep on good terms with the furbolgs, or you'll be walking a long way around." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And something for {pet}, of course! I keep dried meat for the travelers' beasts, and they always look at me as if I'm the kindest person in Kalimdor." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Warm clothes for Winterspring, clean water for Felwood, and something for {pet}, of course! I keep dried meat for travellers' beasts, and they always look at me as if I'm the kindest person in Kalimdor." },
       },
       choices = {
         { text = "I'll go through the tunnels and keep the Timbermaw's trust.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -257,7 +257,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only the ones they need, which is the strange thing, because a deer here will pass a whole bed of herbs and nibble only one leaf. I think they know what's dreaming and what's awake, and leave the dreaming ones alone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} sniffs only at the peacebloom, I see, the most wakeful of them all. Your beast has good taste, friend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only the ones they need, and {pet} sniffs only at the peacebloom, I see, the most wakeful of them all. Your beast has good taste, friend." },
       },
       choices = {
         { text = "Then the beasts should be left to their grazing. I'll respect that.", next = "BACK", fx = { align = { light = 1 } } },
@@ -439,8 +439,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Moonglade's wood, which grows slow and close to the Dream and doesn't warp in the cold, and that matters when you're on your way to Winterspring. I won't cut a living tree, so I use what the storms bring down, and I never have more than a dozen to sell." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} deserves a hunter who doesn't miss, so take your time choosing. A good bow is a kindness to your beast as much as to you." },
+        { id = "xhuntcl_default", text = "Moonglade's wood, which grows slow and close to the Dream and doesn't warp in the cold, and that matters when you're on your way to Winterspring. I won't cut a living tree, so I use what the storms bring down, which is why I never have more than a dozen to sell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Moonglade's wood, which doesn't warp in the cold, and {pet} deserves a hunter who doesn't miss, so take your time choosing. A good bow is a kindness to your beast as much as to you." },
       },
       choices = {
         { text = "A bow from fallen wood is the only honest kind.", next = "BACK", fx = { align = { light = 1 } } },

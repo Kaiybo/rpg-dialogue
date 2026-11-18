@@ -38,7 +38,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Nothing a little goblin genius and a lot of rope couldn't patch, and the zeppelin only dipped a bit over the Barrens. Warriors always get restless on the ride, so stand at the rail and glare at the clouds, and you'll reach Orgrimmar with every rope where it should be." } },
+      lines = { { id = "xwarcl_default", text = "We patched it with goblin genius and a lot of spare rope, and the zeppelin only dipped a bit over the Barrens. Warriors always get restless on the ride, so stand at the rail and glare at the clouds, and you'll reach Orgrimmar with every rope where it should be." } },
       choices = {
         { text = "Fair. A warrior keeps discipline, even on a zeppelin.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If I'm bored, I'll swing my axe wherever I please.", next = "BACK", fx = { align = { order = -1 } } },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Oh, they ride all the time, pal, because Thunder Bluff's a long way from anywhere and even the Earth Mother's own get tired of walking. One of your elders rode up top the whole way to Orgrimmar once, and I swear the gas bags were happier for it." } },
       choices = {
-        { text = "Your zeppelins are clever, but the sky was ours first, friend.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your zeppelins are clever, but I'd rather walk the earth, friend.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Your zeppelins haven't dropped me in the jungle yet. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -206,7 +206,7 @@ P:NPC {
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "Your beast keeps eyeing my riders, so keep it back. They've no love for jungle cats." },
+      text = "If you've a beast with you, keep it back from my riders. They've no love for strange animals." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear. The jungle trolls on the ridges watch everyone who comes and goes from this camp, so keep your head low when you leave." },
   },
@@ -352,8 +352,8 @@ P:NPC {
     background = { { id = "tp_ba", text = "I keep the riders, as my mother kept them for the clans before me. That's my work, and I do it well." } },
     advice = { { id = "tp_ad", text = "Fly high over the jungle, because the Bloodscalp throw spears and the gorillas throw worse." } },
     thrall = { { id = "tp_thrall", text = "The Warchief sent us to the jungle and we came, and we've held this camp under worse than rain. I'd go anywhere he asked." } },
-    darkspear = { { id = "tp_darkspear", text = "The Darkspear trolls guard the ridge, and the riders trust them more than they trust the orcs. That should tell you something." } },
-    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls at Zul'Gurub ride bats and raptors, and they fly over the ridge at night sometimes. My riders hate them, and so do I." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear trolls here in camp know this jungle, and the riders trust them more than they trust the orcs. That should tell you something." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls at Zul'Gurub keep great bats, and some nights those bats fly over the ridge. My riders hate them, and so do I." } },
     booty_bay = { { id = "tp_booty_bay", text = "I've flown to Booty Bay more times than I can count, and every time the goblins try to sell me something before my feet touch the ground. They never succeed." } },
     _none = { { id = "tp_none", text = "I don't know that one, and I won't pretend to. Ask the Commander; he knows the camp better than I do." } },
   },
@@ -377,7 +377,7 @@ P:NPC {
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "Low on arrows? The jungle swallows them; you shoot, and they're gone into the green, so buy double." },
+      text = "Low on arrows? The jungle swallows every one you shoot, so buy double." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've been dead recently, by the look of you. Buy some drink and rest before you head out again." },
   },
@@ -509,7 +509,7 @@ P:NPC {
     },
     thieves = {
       lines = {
-        { id = "th_default", text = "The Bloodscalp have stolen rations from the caravans, so the Commander says, but never from my tent. I sleep on my crates, and they know it." },
+        { id = "th_default", text = "The Bloodscalp have stolen rations from the caravans, so the Commander says, and they've tried my tent too. I sleep on my crates now, and they know it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -522,6 +522,6 @@ P:NPC {
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells everything, at a price, and I don't pay their prices if I can help it. I'd rather wait for the next zeppelin." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture Company buys up everything in the jungle and sells it back at triple the price. I've told the Commander we should burn their camps, and he's thinking about it." } },
     second_war = { { id = "tp_second_war", text = "I hauled supplies in the Second War, and I'm hauling them now, and nothing about it has changed. The grunts still complain about the bread." } },
-    _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories, and an orc who wants stories goes to Thulbek." } },
+    _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories, and an orc who wants stories goes to Thulbek at the inn." } },
   },
 }

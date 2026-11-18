@@ -127,7 +127,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Patience, and how to look at a thing before you charge it, which is the hardest lesson for a paladin. I've seen Brandur Ironhammer send me dwarves who'd charge a mountain if it looked at them wrong." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a calm about it that I'd like to see in my students. You must be a patient master to raise a creature so steady." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Patience, and how to look at a thing before you charge it, which is the hardest lesson for a paladin. Your {pet} has a calm about it that I'd like to see in my students. You must be a patient master to raise a creature so steady." },
       },
       choices = {
         { text = "Patience is a virtue anyone can learn.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -157,7 +157,7 @@ P:NPC {
         { id = "h_valor", when = { class = "PALADIN", minLevel = 20 },
           text = "There's another test when you're ready, a test of valor rather than compassion. Most paladins prefer it, which is exactly why it comes second." },
         { id = "h_nobility", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Nobility") },
-          text = "So Arthur sent you, and not a day too soon. Much has happened lately, and not all of it in the open; the Light has enemies closer to home than you'd like, so sit." },
+          text = "So Arthur the Faithful sent you, and not a day too soon. The Light has enemies closer to home than you'd like, so sit, and I'll tell you what he couldn't." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "You were taught that the Light is a gift, I expect. I teach that it's a test. We're both right, and the novices hate it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -232,7 +232,7 @@ P:NPC {
       },
     },
     why_self = {
-      lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count, and it's a short list, but I'd like it shorter." } },
+      lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left tests me. I keep count of them, and it's a short list, but I'd like it shorter." } },
       choices = {
         { text = "Is the Silver Hand still what it was?", next = "op_silverhand" },
         { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -253,19 +253,19 @@ P:NPC {
     },
 
     valor = {
-      lines = { { id = "v_default", text = "Daphne Stilwell's farm, in Westfall above the shore, and the Defias want it. Stand with her, and afterwards her husband in Ironforge will want to hear it from you." } },
+      lines = { { id = "v_default", text = "The test of valor is at Daphne Stilwell's farm, in Westfall above the shore, which the Defias want. Stand with her, and afterwards Jordan Stilwell in Ironforge will want to hear it from you." } },
       choices = {
-        { text = "I don't think I know her husband.", next = "valor_jordan" },
+        { text = "Who is Jordan Stilwell?", next = "valor_jordan" },
         { text = "Something else.", next = "BACK" },
       },
     },
     valor_jordan = {
-      lines = { { id = "vj_default", text = "Jordan Stilwell, a smith. He was meant to be one of us, before his father's craft claimed him. One of the most faithful men I know, and he never took the oath." } },
+      lines = { { id = "vj_default", text = "He's a smith in Ironforge who was meant to be one of us, before his father's craft claimed him. He's one of the most faithful men I know, and he never took the oath." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     script = {
-      lines = { { id = "sc_default", text = "Gazin brought it here, I read it, and it went up to the King's advisors. Proof in the Brotherhood's own hand. Nobody at court can call it rumour now.",
+      lines = { { id = "sc_default", text = "Gazin brought the script here, I read it, and it went up to the King's advisors. It's proof in the Brotherhood's own hand, so nobody at court can call it rumour now.",
         fx = { learn = { "defias" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -305,11 +305,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Knight of the Silver Hand whose work is making more of them. The rest of my story belongs to them.", next = "why" } },
     advice = { { id = "tp_ad", text = "Help someone today who can't help you back. Then do it tomorrow. That's the whole of the lesson; the rest is practice." } },
     tome_of_divinity = {
-      { id = "tp_tome", text = "The Abbey's book, and it's been to the Deadmines and back. Read it slowly, because it took its time with us.", next = "tome" },
+      { id = "tp_tome", text = "Northshire Abbey's book of paladin trials, and every task in it is one I set. Read it slowly, because it was written slowly.", next = "tome" },
     },
     northshire_abbey = { { id = "tp_abbey", text = "It's where most of us began, and Brother Sammuel still teaches there. Listen to him; he doesn't repeat himself." } },
-    defias = { { id = "tp_defias", text = "Lost men. Some can be found again, but most won't want to be." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "Brave men who forgot the first virtue. I test my paladins so they never do." } },
+    defias = { { id = "tp_defias", text = "The Defias are lost men, Westfall's stonemasons turned bandits. Some can be found again, but most won't want to be." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The Crusade is brave men who forgot compassion, the first virtue. I test my paladins so they never do." } },
     _none = { { id = "tp_none", text = "That's not a matter for the Cathedral. Ask in the Trade District; they'll sell you an answer." } },
   },
 }

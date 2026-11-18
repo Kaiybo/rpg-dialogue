@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I think a dwarf should stick to stone and leave spirits to orcs. But you're polite, so I'll overlook it." } },
+      lines = { { id = "xdsham_default", text = "I think spirits are orc business, and I'd sooner folk left them to the orcs. But you're polite, so I'll overlook it." } },
       choices = {
         { text = "I'll respect your land and your vines, Pa.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your opinions aren't the only ones worth having.", next = "BACK", fx = { align = { order = -1 } } },
@@ -35,7 +35,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'm worried about everything that comes near the vineyard, since the Defias came and Goldtooth's lot went through the kobold mines. A mage could do good out here, I don't doubt, but I've seen one fire take a whole row, and I'm not seeing it again." } },
+      lines = { { id = "xmage_default", text = "I'm worried about everything that comes near the vineyard, since the Defias came and the kobolds started digging near the farms. A mage could do good out here, I'll grant you, but I've seen one fire take a whole row, and I'm not seeing it again." } },
       choices = {
         { text = "I'll be careful, Pa. Your vines are safe from me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little fire might clear out the Defias quicker.", next = "BACK", fx = { align = { order = -1 } } },
@@ -64,7 +64,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They come up from the woods at night and dig under the trellis till it falls, and then they eat whatever's on the ground. The Stonefields say it's my vines bringing them, and I say it's their pigs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could clear the low rows by itself. Let it, if you've the time." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They come up from the woods at night and dig under the trellis till it falls, and then they eat whatever's on the ground. Your {pet} looks like it could clear the low rows by itself, so let it, if you've the time." },
       },
       choices = {
         { text = "I'll clear the boars and keep out of the feud.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -92,7 +92,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Twice this month, and they take a crate each time and leave the gate swinging. Dughan's men come up after and write it down, and then they go home, and I sit up with a pitchfork." } },
+      lines = { { id = "xapala_default", text = "Twice this month, and they take a crate each time and leave the gate swinging. Marshal Dughan's men come up after and write it down, and then they go home, and I sit up with a pitchfork." } },
       choices = {
         { text = "Then you'll not sit up alone tonight, Pa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A pitchfork's a fine guard. You'll manage.", next = "BACK", fx = { align = { light = -1 } } },
@@ -110,14 +110,14 @@ P:NPC {
           text = "Has anyone seen Maybell? Her ma says she's resting, and her door's shut, and I don't like a shut door in my own house." },
         { id = "h_goldtooth", when = { questDone = TODO_QUEST("Goldtooth") },
           text = "So it was a kobold took the Stonefield woman's necklace and not my Billy. I said so from the start. Nobody listens to a Maclure on that farm." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Late to be out among the vines. A man hears things in the rows at night, and none of them are honest." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "It's late to be out among the vines. A man hears things in the rows at night, and none of them are honest." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've a stink about you like a burned field, and I don't want it near my vines, so state your business and go." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on Maclure land. Good, because there are folk on the Stonefield side who'd do with a fright." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you've come for the boars, they're in the low rows, rooting up my vines like they own them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on Maclure land, and I'll ask you plain whether the Stonefields sent you. If they didn't, you're welcome to look at the vines." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Keep your sparks away from my vines, or I'll have Joshua run you off the farm with a pitchfork." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, on my land. Well, I've an opinion on that, and every opinion worth having is mine. Mind the vines." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Keep your sparks away from my vines, or I'll have my son Joshua run you off the farm with a pitchfork." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, on my land. Well, I've an opinion on that, as I have on most things, so mind the vines." },
       },
       again = {
         { id = "h_again", text = "What else? I've vines to see to before dark." },
@@ -154,7 +154,7 @@ P:NPC {
       },
     },
     feud_start = {
-      lines = { { id = "fs_default", text = "Doesn't matter what started it. It's how it's always been, and a man who changes how it's always been had better have a very good reason." } },
+      lines = { { id = "fs_default", text = "It doesn't matter what started it. It's how it's always been, and a man who changes how it's always been had better have a very good reason." } },
       choices = {
         { text = "So you don't know either.", next = "feud_know" },
         { text = "Something else.", next = "BACK" },
@@ -187,7 +187,7 @@ P:NPC {
 
     children = {
       lines = {
-        { id = "c_default", text = "Maybell's a good girl, quiet, helps her ma. Billy's a scamp who eats anything that isn't nailed down. They're Maclures, the both of them, and they'll keep this vineyard when I'm gone." },
+        { id = "c_default", text = "Maybell's a good girl, quiet, and she helps her ma. Billy's a scamp who eats anything that isn't nailed down. They're Maclures, the both of them, and they'll keep this vineyard when I'm gone." },
       },
       choices = {
         { text = "Does Maybell want the vineyard?", next = "children_maybell" },
@@ -210,7 +210,7 @@ P:NPC {
     },
 
     defias = {
-      lines = { { id = "d_default", text = "Thieves in red, cutting across the vineyard at night toward the Westfall road. I've a lantern and a stout stick, and they've not touched my grapes yet." } },
+      lines = { { id = "d_default", text = "The Defias, thieves in red, cut across the vineyard at night toward the Westfall road. I've a lantern and a stout stick, and they've not touched my grapes yet." } },
       choices = {
         { text = "A stick won't stop them.", next = "BACK", fx = { trait = { cautious = 1 }, learn = { "defias" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } },
@@ -221,7 +221,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Maclures have kept this vineyard since before the orcs came, and after they'd gone we planted it again." } },
     advice = { { id = "tp_ad", text = "Know whose land you're standing on. Out here, with Stonefields across the fence, it matters plenty." } },
     maybell_tommy = { { id = "tp_mt", text = "What's that? My Maybell and who? I'll not hear gossip about my own daughter, and I'll not hear that name.", next = "feud" } },
-    defias = { { id = "tp_defias", text = "They cross my land at night. They'll not cross it with my grapes." } },
+    defias = { { id = "tp_defias", text = "The Defias cross my land at night, but they'll not cross it with my grapes." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I'm not sure I want to. Ask in Goldshire." } },
     heroes_vigil = { { id = "tp_heroes_vigil", text = "My grandfather's name is on the stone at Stone Cairn Lake, and I'll have you know there isn't a Stonefield beside it. Make of that what you like." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys our wine by the barrel when it's at Goldshire, and they pay in honest coin. I'd sell to them before I'd sell to certain folk across the river." } },
@@ -251,7 +251,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "He always does. He has opinions about everything, especially the Stonefields. I'd rather pour wine and keep the peace." } },
+      lines = { { id = "xdsham_default", text = "He always does, because he has opinions about everything, especially the Stonefields. I'd rather pour wine and keep the peace." } },
       choices = {
         { text = "Peace is worth pouring for, Joshua.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your father's right to grumble. The Stonefields cause trouble.", next = "BACK", fx = { align = { light = -1 } } },
@@ -289,7 +289,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very nearly, and he talks about them the same way, with a lot of fist-shaking at the bottom rows. If you clear a few boars out, he'll think better of you, though he'll not tell you so himself." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mind your {pet} near the bottles, if you would. One wag of a tail and I'm explaining to Pa again." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very nearly, and if you clear a few boars out, he'll think better of you, though he'll not tell you so. Mind your {pet} near the bottles, though, because one wag of a tail and I'm explaining to Pa again." },
       },
       choices = {
         { text = "I'll clear the boars and leave Pa in peace.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -299,7 +299,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "He does, and the one night he came up two short it was Billy who'd taken them to the Stonefields, which caused more trouble than a Defias raid. If you ever see Billy with a bottle, I'd be grateful if you didn't tell Pa." } },
+      lines = { { id = "xrogue_default", text = "He does, and the one night he came up two short it was my brother Billy who'd taken them to the Stonefields, which caused more trouble than a Defias raid. If you ever see Billy with a bottle, I'd be grateful if you didn't tell Pa." } },
       choices = {
         { text = "I won't lie to your Pa if he asks me.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your secret's safe. What Pa doesn't know won't hurt.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -326,7 +326,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Safe enough from the Stonefields, who only shout, but less so from the Defias, who've started cutting through the vineyard on their way to the Brackwell patch. Pa won't ask the Marshal for help, because he says Maclures look after their own, and I've stopped arguing." } },
+      lines = { { id = "xapala_default", text = "Safe enough from the Stonefields, who only shout, but less so from the Defias, who've started cutting through the vineyard on their way to the Brackwell patch. Pa won't ask Marshal Dughan for help, because he says Maclures look after their own, and I've stopped arguing." } },
       choices = {
         { text = "Pride shouldn't stop him asking for help. Tell the Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your Pa's right. Look after your own.", next = "BACK", fx = { align = { order = -1 } } },
@@ -350,7 +350,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after something for a long night in a cold camp, I've just the bottle." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! Here, have a taste, because I've never poured for one of your people and I'd love to know what you make of it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Pa won't like it, but Pa doesn't like anybody, so you're in good company. What can I sell you?" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have a taste of the wine. Pa's grumbling, but don't mind him. Your spirits might like it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have a taste of the wine, and don't mind Pa's grumbling; your spirits might like it even if he doesn't." },
       },
       again = {
         { id = "h_again", text = "Anything else? Pa's watching, so I'd best look busy." },
@@ -374,7 +374,7 @@ P:NPC {
       },
     },
     pa = {
-      lines = { { id = "p_default", text = "Only about Stonefields. Ask him about grapes and he's the gentlest man in Elwynn, but mention the farm across the river and he goes red to the ears." } },
+      lines = { { id = "p_default", text = "Only where the Stonefields are concerned. Ask him about grapes and he's the gentlest man in Elwynn, but mention the farm across the river and he goes red to the ears." } },
       choices = {
         { text = "And you? Do you hate the Stonefields?", next = "pa_you" },
         { text = "Something else.", next = "BACK" },
@@ -402,7 +402,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Born a Maclure, raised among the vines. I'd sooner sell wine than fight about it." } },
+    background = { { id = "tp_bg", text = "I was born a Maclure and raised among the vines, and I'd sooner sell wine than fight about it." } },
     advice = { { id = "tp_ad", text = "Taste before you buy, always. Any vintner who won't let you is hiding something." } },
     maybell_tommy = { { id = "tp_mt", text = "Not here, friend, not with Pa in earshot.", next = "secret" } },
     _none = { { id = "tp_none", text = "Couldn't say. I know grapes, and a little of what goes on in Goldshire." } },

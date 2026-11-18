@@ -17,8 +17,8 @@ P:NPC {
     { id = "g_op_refugees_welcome", when = { opinion = { topic = "westfall_refugees", stance = "welcome" } }, text = "Ah, you're back! Two more carts came up from Westfall this week, and I told them a friend of the road had spoken up for them." },
     { id = "g_road", text = "The road south's the best road in Elwynn, friend, because it ends at a warm fire and a soft bed." },
     { id = "g_back", when = { questDone = TODO_QUEST("Rest and Relaxation") }, text = "Well? Is the Lion's Pride everything I said?" },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be walking. The inn's lamps are lit; follow them." },
-    { id = "g_far", when = { minLevel = 25 }, text = "Look who's back on my road. You've worn out a few pairs of boots since." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "It's late to be walking, friend, but the inn's lamps are lit, so follow them." },
+    { id = "g_far", when = { minLevel = 25 }, text = "Look who's back on my road. You've worn out a few pairs of boots since I saw you last." },
     { id = "g_away", when = { away = 14 }, text = "There's a face I haven't seen on my road for {away}! You'll want a hot meal and a soft bed, so you know exactly where to go." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since I last pointed you south, friend. I'd say Farley's stew did that, but I suspect it was the road." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk up the road have been saying kind things about you, and I like to think I sent you off on the right foot." },
@@ -56,7 +56,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_refugees_3 = {
-      lines = { { id = "op_refugees_r3", text = "Gryan Stoutmantle's trying, up on Sentinel Hill, with farmers and pitchforks. Tell him I sent you, and that the road misses its harvest." } },
+      lines = { { id = "op_refugees_r3", text = "Gryan Stoutmantle's trying, up on Sentinel Hill, with farmers and pitchforks. Tell him I sent you, and that Goldshire misses Westfall's harvest." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_refugees_4 = {
@@ -74,7 +74,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They come every day, from every corner of the Alliance. A dwarf shaman is a new one on me, but the inn's welcome is the same for all." } },
+      lines = { { id = "xdsham_default", text = "They come every day, from every corner of the Alliance. A shaman is a new one, I'll grant you, but the inn's welcome is the same for all." } },
       choices = {
         { text = "A fair welcome for everyone is good order, Falkhaan.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Welcome is cheap. Let them earn their beds.", next = "BACK", fx = { align = { order = -1 } } },
@@ -83,7 +83,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
+      lines = { { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
       choices = {
         { text = "Nobody upstairs will come to harm from me, Falkhaan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What happens in the cellar isn't their business.", next = "BACK", fx = { align = { light = -1 } } },
@@ -112,7 +112,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More every season, and I can tell them by their boots, since a hunter walks the edges and never the road. The wolves have learned to keep off the road too, so you'll find them in the trees." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a creature that's walked far today. Get it fed before yourself, and you'll both sleep better." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More every season, and I can tell them by their boots, since a hunter walks the edges and never the road. Your {pet} looks like it's walked far today, so get it fed before yourself, and you'll both sleep better." },
       },
       choices = {
         { text = "I'll leave the road wolves be unless they come near.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -131,7 +131,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "It does when your hands start shaking at Jasperlode and you set the mine's timbers alight instead of the kobolds. I've seen it happen to a young mage from the tower, and he was very sorry about it afterwards." } },
+      lines = { { id = "xmage_default", text = "It does when your hands start shaking at Jasperlode and you set the mine's timbers alight instead of the kobolds. I've seen it happen to a young mage from the Abbey, and he was very sorry about it afterwards." } },
       choices = {
         { text = "I'll take your advice and rest, Falkhaan.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll sleep when the work is done, not before.", next = "BACK", fx = { align = { order = -1 } } },
@@ -140,7 +140,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I try, and they never listen, and some of them come back down this road on a cart. A paladin who won't rest is a paladin who fails when it matters, and I'd tell Sammuel that to his face if he ever sat down long enough." } },
+      lines = { { id = "xapala_default", text = "I try, and they never listen, and some of them come back down this road on a cart. A paladin who won't rest is a paladin who fails when it matters, and I'd tell Brother Sammuel that to his face if he ever sat down long enough." } },
       choices = {
         { text = "Rest is a duty too. I'll take it when it's due.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll rest when the work is done, and not before.", next = "BACK", fx = { align = { order = -1 } } },
@@ -154,11 +154,11 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, down from the Abbey! Rest at the inn tonight, because I've seen Brother Sammuel's students, and they never know when to stop." },
         { id = "h_default", text = "Falkhaan Isenstrider, at your service. I stand by this road and tell tired people where to sleep, because somebody has to and it may as well be me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Rest and Relaxation") },
-          text = "Kobolds since sunup, by the look of you. Rest when you're worn down. The Lion's Pride in Goldshire is the place for it." },
+          text = "You've been fighting kobolds since sunup, by the look of you. Rest when you're worn down, and the Lion's Pride in Goldshire is the place for it." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Rest and Relaxation") },
           text = "Straight down the road south; you can't miss it. Tell Farley I sent you, and he'll pretend to grumble about it." },
         { id = "h_after", when = { questDone = TODO_QUEST("Rest and Relaxation") },
-          text = "Farley's my oldest friend, so tell me true: is he still going on about the cow? He is, isn't he." },
+          text = "Farley's my oldest friend, so tell me true: is he still telling that story about the hunter on the cart? He is, isn't he." },
         { id = "h_home", when = { homeInn = { "Goldshire", "Lion's Pride Inn" } },
           text = "So you've made the Lion's Pride your home. Good choice; it's mine too, most nights." },
         { id = "h_recruit", when = { maxLevel = 5, timesTalked = { max = 1 } },
@@ -166,7 +166,7 @@ P:NPC {
         { id = "h_far", when = { minLevel = 25 },
           text = "I sent you south a recruit, and you've come back walking like someone who sleeps on rocks. The inn's still there, if you've forgotten what a bed is." },
         { id = "h_priest", when = { class = "PRIEST", maxLevel = 9 },
-          text = "Another one out of the Abbey with sore knees. The brothers pray hard. Go and rest them somewhere soft." },
+          text = "Another one out of the Abbey with sore knees, because the brothers pray hard. Go and rest them somewhere soft." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You look like someone who sleeps in hedges and calls it an inn. The Lion's Pride has beds, you know, and real ones." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -180,13 +180,13 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I tell you? The road's quiet just now, and I've time." },
         { id = "h_again2", text = "Go on. Nobody's coming down from the Abbey for a while yet." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then. But the inn's warmer than this road at night." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then, but the inn's warmer than this road at night." },
       },
       choices = {
         { text = "Tell me about the inn.", next = "inn" },
         { text = "You stand out here all day, it seems.", next = "road" },
         { text = "Any advice for the road?", next = "advice" },
-        { text = "You mentioned a Melika.", next = "melika", when = { questDone = TODO_QUEST("Rest and Relaxation") } },
+        { text = "Is Melika at the inn some relation of yours?", next = "melika", when = { questDone = TODO_QUEST("Rest and Relaxation") } },
         { text = "The brothers say rest is its own prayer.", next = "priest", when = { class = "PRIEST" } },
         { text = "I walked this road as a novice once.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I've been a long way since you sent me south.", next = "far", when = { minLevel = 20 } },
@@ -206,7 +206,7 @@ P:NPC {
 
     inn = {
       lines = {
-        { id = "i_default", text = "Warm, honest, and the stew's the same stew it's been for twenty years. That's a compliment, whatever Farley says." },
+        { id = "i_default", text = "It's warm and honest, and the stew's the same stew it's been for twenty years. That's a compliment, whatever Farley says." },
       },
       choices = {
         { text = "What's Farley like?", next = "farley", fx = { learn = { "lions_pride" } } },
@@ -223,7 +223,7 @@ P:NPC {
     },
     farley = {
       lines = {
-        { id = "fa_default", text = "Loud, kind, and he's never let a guest leave hungry in his life. Don't tell him I said kind. He'll be unbearable for a week." },
+        { id = "fa_default", text = "He's loud and kind, and he's never let a guest leave hungry in his life. Don't tell him I said kind, or he'll be unbearable for a week." },
       },
       choices = {
         { text = "I'm surprised you don't work at the inn with him.", next = "farley_why" },
@@ -242,7 +242,7 @@ P:NPC {
 
     road = {
       lines = {
-        { id = "r_default", text = "Recruits come down from the Abbey with kobold wax in their hair and no idea where to sleep. Somebody ought to tell them." },
+        { id = "r_default", text = "I do, because recruits come down from the Abbey with kobold wax in their hair and no idea where to sleep. Somebody ought to tell them." },
       },
       choices = {
         { text = "Who comes down this road?", next = "road_who" },
@@ -251,9 +251,9 @@ P:NPC {
     },
     road_who = {
       lines = {
-        { id = "rw_default", text = "Novices, recruits, farmers going to market. A dwarf last week who'd taken a very wrong turn. All of them tired, and all of them sure they aren't." },
+        { id = "rw_default", text = "Novices, recruits and farmers going to market, and last week a dwarf who'd taken a very wrong turn. All of them are tired, and all of them are sure they aren't." },
         { id = "rw_westfall", when = { minLevel = 8 },
-          text = "Lately, Westfall folk too, going the other way with their carts. They don't ask me where to sleep. They ask where there's work." },
+          text = "Lately there's Westfall folk too, coming up the road with their carts. They don't ask me where to sleep; they ask where there's work." },
       },
       choices = {
         { text = "What do you tell the Westfall folk?", next = "road_westfall" },
@@ -262,7 +262,7 @@ P:NPC {
     },
     road_westfall = {
       lines = {
-        { id = "rx_default", text = "The Eastvale camp always wants hands, and Farley always wants a dishwasher. It's not much. It's what this end of the road has." },
+        { id = "rx_default", text = "The Eastvale camp always wants hands, and Farley always wants a dishwasher. It's not much, but it's what this end of the road has." },
       },
       choices = {
         { text = "How does Goldshire feel about the Westfall folk?", next = "op_refugees" },
@@ -333,7 +333,7 @@ P:NPC {
     },
     novice_pass = {
       lines = {
-        { id = "np_default", text = "Probably. I don't remember faces, I remember shoulders. Novices walk with them up round their ears. Yours have come down a good way." },
+        { id = "np_default", text = "Probably. I don't remember faces, I remember shoulders, and novices walk with theirs up round their ears. Yours have come down a good way." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -364,7 +364,7 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "Best inn this side of the city. I'd say that even if Farley weren't listening." } },
     northshire_abbey = { { id = "tp_abbey", text = "Good people up there. They work recruits hard, then send them past me looking half-dead." } },
     defias = { { id = "tp_defias", text = "Not on my road, they don't. They keep to the vineyards and the woods, so far at least." } },
-    westfall = { { id = "tp_westfall", text = "I see Westfall on the faces coming up this road. Tired, and too proud to say so." } },
+    westfall = { { id = "tp_westfall", text = "I see Westfall on the faces coming up this road, tired and too proud to say so." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask in the inn, or ask Farley; he knows everything, though mostly wrong." } },
     brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers up at the Abbey teach every recruit who comes through, and they ask nothing back but a prayer now and then. Not many in Stormwind can say the same." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes to Goldshire, Farley's inn is full to the rafters and he's happy as a pig in mud. I tell the recruits to ask for a bed early." } },

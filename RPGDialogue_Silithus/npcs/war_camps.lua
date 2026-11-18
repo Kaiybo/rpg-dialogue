@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Marshal Bluewall, Ironforge Brigade. The Horde's been getting a steady supply of reinforcements from the north, and it's been a struggle to keep up, so let me explain the situation to you, and quickly." },
+          text = "Marshal Bluewall, Ironforge Brigade. The Horde started gathering silithyst out here well before we did, and they get steady reinforcements from the north, so every crystal we bring in counts double." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Scouring the Desert"), days = 1 } },
           text = "Thank the Light you made it back! If we'd only started this sooner our need wouldn't be so desperate, but every crystal you bring in is one the Horde doesn't get." },
         { id = "h_horde", when = { faction = "Horde" },

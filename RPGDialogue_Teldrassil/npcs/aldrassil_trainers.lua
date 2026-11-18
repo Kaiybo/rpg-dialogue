@@ -73,7 +73,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "teldrassil" } } } },
     },
     after = {
-      lines = { { id = "af_default", text = "Dolanaar, and Kal, who teaches there, and then Darnassus and the Cenarion Enclave, when you're ready for the deeper shapes. Don't hurry it, because the bear will wait for you, and so will the sea." } },
+      lines = { { id = "af_default", text = "Dolanaar, and Kal, who teaches there, and then Darnassus and the Cenarion Enclave, when you're ready for the deeper shapes. Don't hurry it, because the bear will wait for you, and so will the shapes beyond it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
   },
@@ -173,7 +173,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Frahun Shadewhisper. I teach the young ones of Shadowglen to move without being heard and strike without being seen, which the Sentinels find useful, though they don't like to say so out loud." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "A rogue, fresh from the barrow. Come closer, quietly, and we'll see whether you have the hands for it." },
+          text = "A rogue, newly woken in the glade. Come closer, quietly, and we'll see whether you have the hands for it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep it low." },
@@ -194,9 +194,9 @@ P:NPC {
       },
     },
     need_stance = {
-      lines = { { id = "ns_default", text = "Tell that to the satyr, who never once fought cleanly. I'll teach you both ways, and you can decide which one keeps you alive." } },
+      lines = { { id = "ns_default", text = "Tell that to the satyrs, who never once fought cleanly. I'll teach you both ways, and you can decide which one keeps you alive." } },
       choices = {
-        { text = "I'll fight with honor, whatever the satyr do.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight with honor, whatever the satyrs do.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Whatever works. The dead don't complain.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },

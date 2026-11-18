@@ -72,7 +72,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because they howl from every side at once, and a gryphon can't see where the danger's coming from in this dark. I've lost two birds to bolting this year, and both of them were good, steady flyers before." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has my birds watching it, {class}, and I can't say they look pleased. Keep it on the far side of the roost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because they howl from every side at once, and a gryphon can't see where the danger's coming from in this dark. Your {pet} has my birds watching it too, {class}, so keep it on the far side of the roost." },
       },
       choices = {
         { text = "I'll hunt the wolves near the roost so the birds can rest.", next = "BACK", fx = { align = { honor = 1 } } },

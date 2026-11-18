@@ -1388,7 +1388,7 @@ P:NPC {
     },
     hunter = {
       lines = {
-        { id = "hu_default", text = "Until it doesn't, friend. Ask Hemet how many times his pet saved him while he fumbled for an arrow, and then come back and look at my hand axes." },
+        { id = "hu_default", text = "Until it doesn't, friend. Ask Hemet how many times he's clubbed a raptor with his rifle while he fumbled to reload, and then come back and look at my hand axes." },
       },
       choices = {
         { text = "My pet has my back, and it doesn't fumble.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -1575,7 +1575,7 @@ P:NPC {
     },
     eat_raptor = {
       lines = {
-        { id = "er_default", text = "Really, friend! It tastes like chicken that's very angry about being chicken. Slow-cook it with jungle spices and it's the best thing in the cove, though Nixxrax at the tavern won't put it on the menu." },
+        { id = "er_default", text = "Really, friend! It tastes like chicken that's very angry about being chicken. Slow-cook it with jungle spices and it's the best thing in the cove, though Nixxrax down the pier won't put it on the menu." },
       },
       choices = {
         { text = "I'll take your word for it.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -1821,9 +1821,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I learned engineering by taking things apart and learned safety by putting them back together wrong." } },
     advice = { { id = "tp_ad", text = "Never light a fuse indoors, friend. Learn from my mistakes." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best place in the world for an engineer, pal, because nobody minds a little explosion now and then. I've had three this week alone." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own mistake, pal, and I've heard the radiation still leaks out. I'd never build anything that dangerous, I'd only build things that explode." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "We lost Gnomeregan to the troggs and the radiation, friend, and I still dream about the lower levels. I'd never build anything that dangerous; I only build things that explode." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the home of the best engineers on Kalimdor, pal, and they keep trying to recruit me. I tell them I'm happy here, which is mostly true." } },
-    ratchet = { { id = "tp_ratchet", text = "Ratchet's where I learned my trade, pal, and I still miss the smell of oil and seawater in the morning. Booty Bay's got the seawater, at least." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where I bought my first crate of powder, friend, and I still miss the smell of oil and seawater in the morning. Booty Bay's got the seawater, at least." } },
     _none = { { id = "tp_none", text = "I don't know, but I could build a contraption to find out, if you'd like one, and if not, then suit yourself." } },
   },
 }

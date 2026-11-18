@@ -82,7 +82,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We need scouts, and a hunter makes the best scout there is. Before the Second War, half of Uther's victories began with a ranger's report from the forests of Lordaeron, and I've never forgotten it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours stands like a well-trained charger. You've cared for it properly, and I respect that in anyone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We need scouts, and a hunter makes the best scout there is. That {pet} of yours stands like a well-trained charger. You've cared for it properly, and I respect that in anyone." },
       },
       choices = {
         { text = "Then I'll scout for the Silver Hand with pride.", next = "BACK", fx = { align = { order = 1 } } },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "h_statuette", tags = { "news" }, when = { questActive = TODO_QUEST("A Friend of the Family") },
           text = "The Highlord wrote that you'd be bringing King Terenas's likeness, so hand it here, gently. The Light has settled in it like dust in an old chapel." },
         { id = "h_orinelle", when = { questActive = TODO_QUEST("The Shamed Lieutenant") },
-          text = "Southshore. Lieutenant Orinelle. Go and hear what he has to say for himself, and judge him only after." },
+          text = "Go to Southshore and find Lieutenant Orinelle. Hear what he has to say for himself, and judge him only after." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "The Cathedral's healers patch up my paladins more often than either of us admits. Consider yourself thanked on their behalf." },
         { id = "h_brandur", when = { race = "Dwarf", class = "PALADIN" },
@@ -185,7 +185,7 @@ P:NPC {
     },
 
     charger = {
-      lines = { { id = "ch_default", text = "Not bought, not bred. It answers a paladin who has proven worthy, and it must wear barding fit for the spirit realm as well as the road." } },
+      lines = { { id = "ch_default", text = "A charger is not bought or bred. It answers a paladin who has proven worthy, and it must wear barding fit for the spirit realm as well as the road." } },
       choices = {
         { text = "Who makes such barding?", next = "charger_elmore" },
         { text = "I'm ready to begin.", next = "trials", when = { class = "PALADIN", minLevel = 60 } },
@@ -237,7 +237,7 @@ P:NPC {
     },
 
     priest = {
-      lines = { { id = "pr_default", text = "One Light. You carry it to the wounded after the fighting. We carry it into the fight and hope to walk out. Neither of us chose the easy half." } },
+      lines = { { id = "pr_default", text = "The same Light, yes. You carry it to the wounded after the fighting. We carry it into the fight and hope to walk out. Neither of us chose the easy half." } },
       choices = {
         { text = "Which half is harder?", next = "priest_harder" },
         { text = "Something else.", next = "BACK" },
@@ -264,7 +264,7 @@ P:NPC {
     },
     weapon = {
       big = true,
-      lines = { { id = "weapon_l", text = "It's whatever you make of it, which is exactly the danger. Uther used it as a shield more often than a hammer, and the ones who forget that are now burning villages in Tirisfal." } },
+      lines = { { id = "weapon_l", text = "It's whatever you make of it, which is exactly the danger. Uther used it as a shield more often than a hammer, and the ones who forgot it wear Scarlet now and burn villages in Tirisfal." } },
       choices = {
         { text = "Then I'll carry it as a shield.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
         { text = "The undead don't need shielding. They need breaking.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
@@ -272,7 +272,7 @@ P:NPC {
       },
     },
     weapon_who = {
-      lines = { { id = "weapon_who_l", text = "Brother Crowley, downstairs, if you listen long enough, though he'd call it zeal. I let him recruit because the Archbishop asks me to, not because I agree." } },
+      lines = { { id = "weapon_who_l", text = "Brother Crowley, the Crusade's man downstairs, if you listen long enough, though he'd call it zeal. I let him recruit because the Archbishop asks me to, not because I agree." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {
@@ -331,7 +331,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A lord of the Silver Hand. People remember the title. The part that matters is the teaching.", next = "hand" } },
     advice = { { id = "tp_ad", text = "Care for your gear as if a life depends on it, because one will, and usually not yours." } },
     tome_of_divinity = { { id = "tp_tome", text = "The Tome is only the first trial, and there are many more. The last ones are not written in any book." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "They kept the Hand's zeal and left its mercy in Lordaeron. I pray for them. I would not ride with them." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The Scarlet Crusade kept the Hand's zeal and left its mercy in Lordaeron. I pray for them. I would not ride with them." } },
     _none = { { id = "tp_none", text = "That is not my concern. My concern is whether you're ready." } },
   },
 }
@@ -436,7 +436,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Kneel with me a moment, if you would, because a priest's prayer and a paladin's prayer are the same words said by different hands." },
         { id = "h_default", text = "Arthur. They call me the Faithful, though I've never been sure I earned it, and I keep trying to." },
-        { id = "h_grayson", when = { class = "PALADIN" }, text = "Lord Shadowbreaker will test you, Katherine will correct you, and I'll pray with you. Between the three of us, you'll survive." },
+        { id = "h_grayson", when = { class = "PALADIN" }, text = "Lord Shadowbreaker will test you, Katherine the Pure will correct you, and I'll pray with you. Between the three of us, you'll survive." },
         { id = "h_steadier", when = { metBefore = true, class = "PALADIN" }, text = "Each time you kneel here, you kneel a little steadier. I notice it, and the Light notices more." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Cathedral at night is all candle and echo. I like it best now. The prayers sound less like requests." },
         { id = "h_nobility", tags = { "news" }, when = { class = "PALADIN", minLevel = 40 },
@@ -486,7 +486,7 @@ P:NPC {
       },
     },
     served_masons = {
-      lines = { { id = "sm_default", text = "The Stonemasons' Guild. I prayed beside them some mornings while they worked. I pray for them still, wherever they've gone, and whatever they've become.",
+      lines = { { id = "sm_default", text = "The Stonemasons' Guild did. I prayed beside them some mornings while they worked. I pray for them still, wherever they've gone, and whatever they've become.",
         fx = { learn = { "defias" } } } },
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { defias = "masons_wronged" } } } },
     },
@@ -590,7 +590,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'll forge you a fine dagger with a good balance, and you can do whatever you like with it after it leaves my bench. What I won't do is hammer fel-touched iron, because I tried it once, when I was young and stupid, and the metal sang at me for a week." },
+        { id = "xlock_default", text = "I'll forge ye a fine dagger wi' a good balance, an' ye can do whatever ye like wi' it after it leaves my bench. What I willnae do is hammer fel-touched iron, for I tried it once, when I was young an' stupid, an' the metal sang at me for a week." },
       },
       choices = {
         { text = "A plain dagger, then, Elmore. I'll keep the fel away.", next = "BACK", fx = { align = { light = 1 } } },
@@ -638,7 +638,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A spear, an axe or a good skinning knife, certainly, and I'll put my skinning knives against any in the kingdom. The bowyers can have their yew, and the dwarves their rifles; I'll stick to things that are hammered." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} of yours trained to stay out of a forge? Good, because I've had one dog singe its tail on the slack tub and howl for an hour." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A spear, an axe or a good skinning knife, certainly, and I'll put my skinning knives against any in the kingdom. Is that {pet} of yours trained to stay out of a forge? Good, because I've had one dog singe its tail on the slack tub and howl for an hour." },
       },
       choices = {
         { text = "A well-made tool deserves an honest hand.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -668,7 +668,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not need my blades, I expect, but if you ever find yourself in a fight, a mace of mine will do more than a prayer." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Look at your charger's barding next time you're in the stables, and if it isn't mine, come and see me about it." },
-        { id = "h_default", key = true, text = "Elmore. I make weapons, and I make barding for paladins' chargers, and nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
+        { id = "h_default", key = true, text = "Grimand Elmore. I make weapons, an' I make barding for paladins' chargers, an' nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
         { id = "h_argus", when = { heardLine = "argus.s_default" },
           text = "Argus told ye never tae let the apprentice near the quench? Good lad. My apprentice Furen's still not allowed near mine." },
         { id = "h_paladin", when = { class = "PALADIN", minLevel = 50 },
@@ -860,7 +860,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Field journals, mostly, from ranger posts and old hunting lodges, because nobody records the wildlife of Azeroth like a bored ranger. I've an entire shelf on the beasts of Redridge written by one man who never saw a single gnoll." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} wouldn't happen to eat paper, would it? I ask because I've lost three manuscripts to the Cathedral's mice already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Field journals, mostly, from ranger posts and old hunting lodges, because nobody records the wildlife of Azeroth like a bored ranger. That {pet} wouldn't happen to eat paper, would it? I ask because I've lost three manuscripts to the Cathedral's mice already." },
       },
       choices = {
         { text = "I'll bring you any journals I find, for the library's sake.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -929,7 +929,7 @@ P:NPC {
       },
     },
     wanted_dibbs = {
-      lines = { { id = "wd_default", text = "Southshore. Loremaster Dibbs knows the ruins and he knows me, and he'll sigh about both. Go when you're strong enough to argue with an ogre." } },
+      lines = { { id = "wd_default", text = "Loremaster Dibbs, down in Southshore, knows the ruins and he knows me, and he'll sigh about both. Go when you're strong enough to argue with an ogre." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     best = {
@@ -940,7 +940,7 @@ P:NPC {
       },
     },
     best_stolen = {
-      lines = { { id = "bs_default", text = "After the Second War this library kept the Book of Medivh. Alterac's spies took it the very day the Horde's death knights came for it too. I still dust the shelf." } },
+      lines = { { id = "bs_default", text = "After the Second War this library kept the Book of Medivh, until thieves took it from that very shelf, and I still dust the space it left." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     lord = {
@@ -955,7 +955,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     priest = {
-      lines = { { id = "p_default", text = "Shelves of doctrine, and priests hardly read them. The Light isn't in books, they tell me. Then Brother Kristoff comes asking for metallurgy." } },
+      lines = { { id = "p_default", text = "There are shelves of doctrine, and priests hardly read them, because the Light isn't in books, they tell me. Then Brother Kristoff comes asking for metallurgy." } },
       choices = {
         { text = "Metallurgy?", next = "priest_iron" },
         { text = "Something else.", next = "BACK" },
@@ -988,8 +988,8 @@ P:NPC {
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are history made stone, and I'd like to put a little card beneath each one, explaining who they were. The guards say no, but I've not given up." } },
     background = { { id = "tp_bg", text = "My story is shelved under unremarkable, which is exactly where I like it. Ask me about the books instead." } },
     advice = { { id = "tp_ad", text = "Read the old books first. The new ones mostly argue with them." } },
-    seven_kingdoms = { { id = "tp_kingdoms", text = "A classic. A bit generous to Alterac, I always felt.", next = "best" } },
-    northshire_abbey = { { id = "tp_abbey", text = "A lovely library, for its size. Brother Paxton is a careful copyist. A very, very slow one." } },
+    seven_kingdoms = { { id = "tp_kingdoms", text = "The Seven Kingdoms is a classic, though a bit generous to Alterac, I always felt.", next = "best" } },
+    northshire_abbey = { { id = "tp_abbey", text = "The Abbey has a lovely library, for its size, and Brother Paxton is a careful copyist, though a very, very slow one." } },
     _none = { { id = "tp_none", text = "There'll be a book about it. There's a book about everything. I just haven't found that one yet." } },
   },
 }
@@ -1068,7 +1068,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now and then, when a hunter brings in something Elaine can smoke alongside the cheese. Rabbit from Elwynn goes beautifully with the Alterac Swiss, though I'd not tell my wife I said so." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been eyeing my counter for some time now. I'll ask it to remember I'm the honest one in the family." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, when a hunter brings in something Elaine can smoke alongside the cheese. Your {pet} has been eyeing my counter for some time now. I'll ask it to remember I'm the honest one in the family." },
       },
       choices = {
         { text = "A fair trade, game for cheese, suits me well.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1102,7 +1102,7 @@ P:NPC {
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "A diplomat goes missing in the middle of Stormwind, and nobody's surprised. That should worry you more than the diplomat." },
         { id = "h_shaw", when = { heardLine = "shaw.h_default" },
-          text = "You've met the Master? Then you know where I stand, but don't say it out loud. The cheese has ears, or rather, the customers do." },
+          text = "You've met Master Shaw? Then you know where I stand, but don't say it out loud. The cheese has ears, or rather, the customers do." },
         { id = "h_cheddar", when = { metBefore = true }, text = "The aged cheddar is excellent this week. That is all I have to say about anything." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "We're closing, because cheese needs its rest, and so do I. That is the only reason." },
         { id = "h_lescovar", tags = { "news" }, when = { questActive = TODO_QUEST("Look to an Old Friend") },
@@ -1168,7 +1168,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     jorgen = {
-      lines = { { id = "j_default", text = "Jorgen. Of course it's Jorgen. Very well: my contacts, your legs, and I save on couriers. Darkshire, the north road, a Night Watchman called Backus." } },
+      lines = { { id = "j_default", text = "Jorgen, of course it's Jorgen. Very well: my contacts and your legs, and I save on couriers. Go to Darkshire, up the north road, and find a Night Watchman called Backus." } },
       choices = {
         { text = "I'll need to know what to ask Backus.", next = "jorgen_backus" },
         { text = "Something else.", next = "BACK" },
@@ -1196,7 +1196,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a cheesemaker's husband who tastes everything first. That's my story, and I'm sticking to it." } },
     advice = { { id = "tp_ad", text = "Never trust a man who doesn't like cheese. He's hiding something worse." } },
     trade = { { id = "tp_tr", text = "Cheese: cheddar, bleu and gouda. That is the whole of my trade, as anyone will tell you.", next = "cheese" } },
-    defias = { { id = "tp_defias", text = "Terrible customers. Steal the samples." } },
+    defias = { { id = "tp_defias", text = "The Defias are terrible customers, and they steal the samples." } },
     _none = { { id = "tp_none", text = "Couldn't say. Have you tried the gouda?" } },
   },
 }

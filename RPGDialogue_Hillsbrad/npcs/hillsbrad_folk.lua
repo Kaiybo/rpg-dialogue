@@ -118,8 +118,8 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Vorrel, the Scarlets, and how long a night can be when you don't sleep." } },
-    background = { { id = "tp_bg", text = "A carter's wife in Hillsbrad, then a corpse, then a carter's wife again, after a fashion.", next = "vorrel" } },
+    knows = { { id = "tp_knows", text = "I know Vorrel, the Scarlets, and how long a night can be when you don't sleep." } },
+    background = { { id = "tp_bg", text = "I was a carter's wife in Hillsbrad, then a corpse, and now a carter's wife again, after a fashion.", next = "vorrel" } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They took my husband and asked him questions he couldn't answer. That's all I know of them, and all I need to." } },
     _none = { { id = "tp_none", text = "I don't know, stranger, and I don't much care." } },
   },
@@ -141,7 +141,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Good day to you. Your animal looks tired; mine are always tired, but they're dead, so they've an excuse." },
+    { id = "g_default", text = "Good day to you. If you've an animal that needs a rest, you've found the right stable." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, a returning patron. Do come in." },
   },
 
@@ -263,8 +263,8 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Blades. Edges. Who in this town needs one." } },
-    _none = { { id = "tp_none", text = "I don't know. I make weapons." } },
+    knows = { { id = "tp_knows", text = "I know blades, and I know who in this town needs one." } },
+    _none = { { id = "tp_none", text = "I don't know. I only make weapons." } },
   },
 }
 
@@ -314,7 +314,7 @@ P:NPC {
     },
     north = {
       big = true,
-      lines = { { id = "no_default", text = "Bats, from Tarren Mill. The Forsaken ride them over the hills, and twice now they've come close enough to spook my birds. The Marshal says to shoot at anything with leather wings, and I'm not sure he's wrong." } },
+      lines = { { id = "no_default", text = "Bats from Tarren Mill. The Forsaken ride them over the hills, and twice now they've come close enough to spook my birds. Marshal Redpath says to shoot at anything with leather wings, and I'm not sure he's wrong." } },
       choices = {
         { text = "He's right. Shoot first, here.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Some riders are only couriers. Hold your fire.", next = "BACK", fx = { align = { light = 1 } } },
@@ -328,7 +328,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Gryphons, weather and the sky north of here." } },
+    knows = { { id = "tp_knows", text = "I know gryphons, the weather and the sky north of here." } },
     _none = { { id = "tp_none", text = "Not a thing. Ask somebody with their feet on the ground." } },
   },
 }
@@ -386,21 +386,21 @@ P:NPC {
     },
     jumpy_aunt = {
       big = true,
-      lines = { { id = "ja_default", text = "No. Yes. I don't know. Everyone says the Forsaken aren't the people they were, and I'd like to believe it, because otherwise she's up there and she hasn't come to see me." } },
+      lines = { { id = "ja_default", text = "No, or yes, I don't know. Everyone says the Forsaken aren't the people they were, and I'd like to believe it, because otherwise she's up there and she hasn't come to see me." } },
       choices = {
         { text = "They aren't who they were. Let her go.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some of them remember. Don't give up on her.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
     job = {
-      lines = { { id = "jo_default", text = "Two summers. The old stable master went to Stromgarde with the League and didn't come back, so the Magistrate gave it to me because I was standing nearby." } },
+      lines = { { id = "jo_default", text = "Two summers. The old stable master went to Stromgarde with the League and didn't come back, so Magistrate Maleb gave it to me because I was standing nearby." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The stalls, the horses, and which of them bites. All of them." } },
-    _none = { { id = "tp_none", text = "Oh, I don't know about that. Maybe ask the Magistrate?" } },
+    knows = { { id = "tp_knows", text = "I know the stalls, the horses, and which of them bites, which is all of them." } },
+    _none = { { id = "tp_none", text = "Oh, I don't know about that. Maybe ask Magistrate Maleb?" } },
   },
 }
 
@@ -434,9 +434,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Neema, and if you're hungry or thirsty I'm the one to see, not Kelly at the bar, he only pours. Bread, cheese, a bit of meat and something to wash it down, love?" },
+          text = "I'm Neema, and if you're hungry or thirsty I'm the one to see, not Barkeep Kelly, he only pours. Bread, cheese, a bit of meat and something to wash it down, love?" },
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
-          text = "Another soldier for the Marshal? Sit down and eat first, he can wait, and so can Tarren Mill." },
+          text = "Another soldier for Marshal Redpath? Sit down and eat first, he can wait, and so can Tarren Mill." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've three tables waiting." },
@@ -449,7 +449,7 @@ P:NPC {
       },
     },
     gossip = {
-      lines = { { id = "go_default", text = "The Marshal's been up all night again over Tarren Mill, and Bilger's been watering the ale, though he swears he hasn't. And a dwarf in the corner says he saw Forsaken in the hills with a cart of barrels, which nobody likes the sound of." } },
+      lines = { { id = "go_default", text = "Marshal Redpath's been up all night again over Tarren Mill, and Brewmeister Bilger's been watering the ale, though he swears he hasn't. And a dwarf in the corner says he saw Forsaken in the hills with a cart of barrels, which nobody likes the sound of." } },
       choices = {
         { text = "Barrels? What kind?", next = "gossip_barrels" },
         { text = "Something else.", next = "BACK" },
@@ -470,7 +470,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Who's eating, who's drinking, and who's sweet on whom. Everything worth knowing in Southshore." } },
-    _none = { { id = "tp_none", text = "No idea, love. Try the Loremaster, he knows the dull things." } },
+    knows = { { id = "tp_knows", text = "I know who's eating, who's drinking, and who's sweet on whom, which is everything worth knowing in Southshore." } },
+    _none = { { id = "tp_none", text = "No idea, love. Try Loremaster Dibbs, he knows the dull things." } },
   },
 }

@@ -47,7 +47,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Once or twice, when they came down from the hills looking for an easy camp, and I learned they'd sooner fight in the snow than on open ground. Keep your back to the fire and your face to the dark, and you'll see them before they see you." } },
+      lines = { { id = "xwarcl_default", text = "Once or twice, when they came down from the hills looking for an easy camp, and I learned they'd sooner strike from the trees than meet you in the open. Keep your back to the fire and your face to the dark, and you'll see them before they see you." } },
       choices = {
         { text = "I'll keep the watch tonight. You've earned your sleep.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd rather find their camp than wait for them here.", next = "BACK", fx = { align = { order = -1 } } },
@@ -93,7 +93,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I've shared a fire wi' worse, friend, a trogg once, though he didnae stay long. Out here under the stars I judge a body by whether they put the fire out properly in the mornin', an' nothin' else." },
+        { id = "xlock_default", text = "I've shared a fire with worse, friend, a trogg once, though he didn't stay long. Out here under the stars I judge a body by whether they put the fire out properly in the morning, and nothing else." },
       },
       choices = {
         { text = "Then I'll leave your camp as I found it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -118,7 +118,7 @@ P:NPC {
           text = "A mage, and just in time, because my flint's gone damp and the fire's sulking. I don't suppose you'd mind?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit by the fire and warm your sword arm, then, for the Frostmane don't wait for anyone to thaw." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've slept out under the stars more nights than I can count, but I'd guess you've slept out as a bear, which is cheating." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Come sit by the fire, an' let yer wee friend sit on the far side, for it's warm enough without it addin' anythin'." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Come sit by the fire, and let your little friend sit on the far side, for it's warm enough without it adding anything." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Then you'll know what I mean when I say the mountain has moods. Most dwarves look at me strangely when I say it." },
       },
       again = {
@@ -185,7 +185,7 @@ P:NPC {
     },
     safe_mostly = {
       lines = {
-        { id = "sm_default", text = "Mostly. Kharanos had a troll at the door once, and they still toast the gnome who saw it off; ask Belm at the Thunderbrew." },
+        { id = "sm_default", text = "Mostly. Kharanos had a troll at the door once, and they still toast the gnome who saw it off; ask Innkeeper Belm at the Thunderbrew." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -213,10 +213,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Pitch your tent upwind of the fire, unless you like your bedding smoked." } },
     camping = { { id = "tp_camping", text = "A fire first, and cooks can make one, then each trade adds its piece. A good camp is a little town for the night.", next = "camp" } },
     frostmane = { { id = "tp_frostmane", text = "They're up on Shimmer Ridge, mostly. Don't camp near the ridge, and don't camp near anyone who does." } },
-    wildhammer = { { id = "tp_wildhammer", text = "I camped wi' a Wildhammer once, up in the Hinterlands, an' he talked tae his gryphon all night long. Fine company, the pair o' them, though the bird snored." } },
-    everlook = { { id = "tp_everlook", text = "I walked tae Everlook once, all the way up through Winterspring, an' I've never been so cold in my life, an' I'm from Dun Morogh. The goblins there sell hot cider, an' they know exactly what it's worth." } },
-    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw up in Felwood an' Winterspring are the only bears I've ever traded wi' instead o' runnin' from. Bring them a gift an' mind yer manners, an' they'll let ye camp in their tunnels." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I followed the Darkmoon Faire round fer a season when I was young an' foolish. Slept under its wagons an' ate its terrible food, an' I'd do it again in a heartbeat." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I camped with a Wildhammer once, up in the Hinterlands, and he talked to his gryphon all night long. Fine company, the pair of them, though the bird snored." } },
+    everlook = { { id = "tp_everlook", text = "I walked to Everlook once, all the way up through Winterspring, and I've never been so cold in my life, and I live in Dun Morogh. The goblins there sell hot cider, and they know exactly what it's worth." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw up in Felwood and Winterspring are the only bears I've ever traded with instead of running from. Bring them a gift and mind your manners, and they'll let you camp in their tunnels." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I followed the Darkmoon Faire around for a season when I was young and foolish. I slept under its wagons and ate its terrible food, and I'd do it again in a heartbeat." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask at the Thunderbrew; somebody there knows everything, and the rest is made up." } },
   },
 }
@@ -272,7 +272,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wolves, mostly, an' the boars that root about the hills, fer they're fat an' slow an' good practice. Once ye can bring down a boar wi' one shot, ye'll be ready fer the troggs, an' no' before." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} looks keen enough, though I'd keep it off the mail sacks if I were ye." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wolves, mostly, an' the boars that root about the hills, fer they're fat an' slow an' good practice. Yer {pet} looks keen enough fer them, though I'd keep it off the mail sacks if I were ye." },
       },
       choices = {
         { text = "I'll practise on the boars until I'm ready.", next = "BACK", fx = { align = { order = 1 } } },
@@ -370,13 +370,13 @@ P:NPC {
     },
     troggs_pass = {
       lines = {
-        { id = "tp2_default", text = "Through Coldridge Pass, mostly, an' the tunnel's thick wi' 'em. Thalos keeps the near end, an' he won't let the green ones through without a reason." },
+        { id = "tp2_default", text = "Through Coldridge Pass, mostly, an' the tunnel's thick wi' 'em. Mountaineer Thalos keeps the near end, an' he won't let the green ones through without a reason." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mail = {
       lines = {
-        { id = "ma_default", text = "Through the pass, when the troggs allow it. Most of it's fer Talin by the lake, an' half o' Talin's is fer Grelin, for I'm a postman, no' a miracle worker." },
+        { id = "ma_default", text = "Through the pass, when the troggs allow it. Most of it's fer Talin by the lake, an' half o' Talin's is fer Grelin up by the troll caves. Don't ask me why; I'm a postman, no' a miracle worker." },
       },
       choices = {
         { text = "Who's Talin?", next = "mail_talin" },
@@ -425,7 +425,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "I've had a couple o' recruits come up from Lordaeron, an' they fight like they've seen worse than troggs, because they have. I dinnae ask, an' they dinnae tell." } },
     magni = { { id = "tp_magni", text = "The King came tae Anvilmar once tae see the recruits, an' half o' them dropped their swords. Fine king, loud voice, an' he knew my name, which I'll admit I liked." } },
     second_war = { { id = "tp_second_war", text = "Coldridge Valley was full o' soldiers in the Second War, an' the Horde never got near Anvilmar. I like tae think we had somethin' tae do wi' that." } },
-    _none = { { id = "tp_none", text = "Couldnae tell ye. Ask Grelin; he's from the Senate, so he's meant to know things." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. Ask Grelin Whitebeard by the troll caves; he's an envoy o' the Senate, so he's meant tae know things." } },
   },
 }
 
@@ -617,7 +617,7 @@ P:NPC {
     },
     felix = {
       lines = {
-        { id = "fx_default", text = "That's Felix Whindlebolt, lost on his way to Gnomeregan, an' the trolls helped themselves to his things. If ye find a gnome's belongings in a troll camp, they're his." },
+        { id = "fx_default", text = "That's Felix Whindlebolt, a gnome who got out of Gnomeregan, an' the trolls helped themselves to his things. If ye find a gnome's belongings in a troll camp, they're his." },
       },
       choices = {
         { text = "He's one of mine. I'll find his things.", next = "BACK", when = { race = "Gnome" }, fx = { affinity = 2, trait = { kind = 1 } } },
@@ -647,7 +647,7 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "The troggs an' the Frostmane are both trouble, but only one o' them can be reasoned wi', an' it isnae the troggs. Write that down, if ye've a pencil." } },
     wildhammer = { { id = "tp_wildhammer", text = "Rough-mannered cousins wi' painted faces an' no notion o' proper protocol. I'd still rather negotiate wi' a Wildhammer than wi' a Frostmane, mind." } },
     darkspear = { { id = "tp_darkspear", text = "Trolls that side wi' the orcs, I'm told, an' cleaner-livin' than our Frostmane by a long road. I'd like tae meet one an' see if it's true." } },
-    _none = { { id = "tp_none", text = "That's no' in my report. Ask Senir, in Kharanos." } },
+    _none = { { id = "tp_none", text = "That's no' in my report. Ask my brother Senir, in Kharanos." } },
   },
 }
 
@@ -705,7 +705,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, the wolves an' the boars an' the bears, an' they leave the bones in heaps outside Frostmane Hold. If ye want tae know how many trolls there are, count the bones, for a troll eats more than three dwarves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep yer {pet} close, for the trolls would eat it too, an' they'd no' be fussy about the recipe." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, the wolves an' the boars an' the bears, an' they leave the bones in heaps outside Frostmane Hold. Keep yer {pet} close, for the trolls would eat it too, an' they'd no' be fussy about the recipe." },
       },
       choices = {
         { text = "I'll count their bones and report every one.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -763,7 +763,7 @@ P:NPC {
           text = "These reports go to Ironforge, where the Senate will read them, eventually. Make sure they do." },
         { id = "h_brother", when = { metBefore = true }, text = "My brother sent word from the valley, three lines, an' two of them complaints about the cold. The Whitebeards don't waste ink." },
         { id = "h_redstone", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Reports"), days = 5 } },
-          text = "Redstone shouted, did he? Good, for the Senate needed a shout. An' ye didn't mention ye'd helped me, I hope?" },
+          text = "Senator Redstone shouted, did he? Good, for the Senate needed a shout. An' ye didn't mention ye'd helped me, I hope?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! If ye're headed toward Frostmane Hold, keep yer fire close, for the caves are cold enough tae freeze a spell before it's cast." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -778,7 +778,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; it's warmer talkin'." },
       },
       choices = {
-        { text = "Grelin's report, envoy.", next = "brother", when = { questActive = TODO_QUEST("Senir's Observations") } },
+        { text = "Here's Grelin's report. What do you make of your brother?", next = "brother", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "How do you watch the trolls in their hold?", next = "hold" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Someone in the city must read your reports.", next = "reports" },
@@ -850,7 +850,7 @@ P:NPC {
     },
     drink = {
       lines = {
-        { id = "dr_default", text = "Good, then sit. Belm's ale is the best thing about this posting, an' the fire's the second best." },
+        { id = "dr_default", text = "Good, then sit. Innkeeper Belm's ale is the best thing about this posting, an' the fire's the second best." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -992,7 +992,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Would I? {g:Lad|Lass}, I'd buy them by the cartload, for the patrons want their ribs an' my supplier's off wi' the King's army. Crag boar's best, fresh an' fat, an' if ye bring me the rough cuts I'll know, so bring me the good ones." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} can have the scraps, if it'll keep its nose out o' the vats." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would I? {g:Lad|Lass}, I'd buy them by the cartload, an' crag boar's best, fresh an' fat. Yer {pet} can have the scraps, if it'll keep its nose out o' the vats." },
       },
       choices = {
         { text = "I'll bring you the best cuts, every time.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1106,7 +1106,7 @@ P:NPC {
     },
     xorig_brew2 = {
       lines = {
-        { id = "xob2_default", text = "Every winter, lad or lass, an' every spring the vats called me back. Go an' see where the barrels go, then, an' when ye find the far end o' the road, write home an' tell 'em what the ale tastes like there, for that's a brewer's duty too." },
+        { id = "xob2_default", text = "Every winter, {g:lad|lass}, an' every spring the vats called me back. Go an' see where the barrels go, then, an' when ye find the far end o' the road, write home an' tell 'em what the ale tastes like there, for that's a brewer's duty too." },
       },
       choices = {
         { text = "I'll do that, Ragnar.", next = "BACK", fx = { affinity = 2 } },
@@ -1115,7 +1115,7 @@ P:NPC {
     },
     ribs = {
       lines = {
-        { id = "ri_default", text = "Crag boar, basted in good malt, for the secret's in the Malt: Rhapsody Malt, from Belm at the bar. That's no' a secret, mind; that's a sales pitch." },
+        { id = "ri_default", text = "Crag boar, basted in good malt, for the secret's in the malt: Rhapsody Malt, from Innkeeper Belm at the bar. That's no' a secret, mind; that's a sales pitch." },
       },
       choices = {
         { text = "And the real secret?", next = "ribs_secret" },
@@ -1233,7 +1233,7 @@ P:NPC {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! We toast a gnome in this inn every night fer savin' the town, as ye'll see." },
     { id = "n_bear", cat = "origin", when = { origin = "dwarf_bear_tracker" },
-      text = "Ah, the Kharanos lad, or lass, wi' the bear! I remember ye trailin' them through the drifts when ye were knee-high tae a ram, an' now one's trailin' you. Keep it off the hearthrug, for it sheds." },
+      text = "Ah, the Kharanos {g:lad|lass} wi' the bear! I remember ye trailin' them through the drifts when ye were knee-high tae a ram, an' now one's trailin' you. Keep it off the hearthrug, for it sheds." },
   },
 
   start = "hello",
@@ -1269,7 +1269,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, though they're up an' out before the sun, an' they come back wi' snow on their boots an' a boar over their shoulders. I've learned tae keep a bucket by the door for the meltwater, an' a bone for whatever's followin' them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's a bone behind the bar for yer {pet}, if it'll wait politely, which most o' them do for a bone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, though they're up an' out before the sun an' back wi' snow on their boots an' a boar over their shoulders. There's a bone behind the bar for yer {pet}, if it'll wait politely, which most o' them do for a bone." },
       },
       choices = {
         { text = "I'll wipe my boots and keep the beast quiet.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1297,7 +1297,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than I'd like, an' they come in wi' trogg bites an' frostbite an' worse, an' Maxan does what he can between lessons. I keep the corner table free fer the worst of them, an' I keep the ale flowin', for that helps more than ye'd think." } },
+      lines = { { id = "xapriest_default", text = "More than I'd like, an' they come in wi' trogg bites an' frostbite an' worse, an' Maxan Anvol, the priest upstairs, does what he can between lessons. I keep the corner table free fer the worst of them, an' I keep the ale flowin', for that helps more than ye'd think." } },
       choices = {
         { text = "Then I'll take the corner table tonight and see to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Ale won't mend a trogg bite. They need a healer, not a mug.", next = "BACK", fx = { align = { light = -1 } } },

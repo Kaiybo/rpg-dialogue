@@ -33,12 +33,12 @@ P:NPC {
   nodes = {
     op_gnomeregan = {
       lines = {
-        { id = "opg_q", text = "Some folks say gnomes should have stopped tinkering after Gnomeregan, which is silly, but I hear it a lot. What do you think, should we go back for it, or let it go?" },
+        { id = "opg_q", text = "Some folks say gnomes should have stopped tinkering after Gnomeregan, which is silly, but I hear it a lot. What do you think, should the gnomes go back for it, or let it go?" },
       },
       choices = {
         { text = "Take it back. It's your home, and the troggs don't deserve it.", next = "op_gnomeregan_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { gnomeregan = "reclaim" } } },
         { text = "Let it go. The radiation's not worth more gnome lives.", next = "op_gnomeregan_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { cautious = 1 }, opinion = { gnomeregan = "lost" } } },
-        { text = "Your people poisoned it themselves. Be careful what you build next.", next = "op_gnomeregan_r3", fx = { trait = { stern = 1 }, opinion = { gnomes = "reckless" } } },
+        { text = "The gnomes poisoned it themselves. Be careful what you build next.", next = "op_gnomeregan_r3", fx = { trait = { stern = 1 }, opinion = { gnomes = "reckless" } } },
         { text = "Gnomeregan will be ours again, Karna. I'll see to it.", next = "op_gnomeregan_r4", fx = { affinity = 2, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
         { text = "That's for the gnomes to decide, Karna.", next = "BACK" },
       },
@@ -197,8 +197,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "A dwarf engineer, a Remtravel, and a member of the Marshal Expedition, which mostly means I get to see wonderful things and run away from them." } },
     advice = { { id = "tp_ad", text = "Always build two of anything important. I only built one A-Me, and look how that turned out." } },
     explorers_league = { { id = "tp_el", text = "My uncle's the one for the Explorers' League; I'm more for building than digging. Still, I'd love to show them A-Me one day." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the most wonderful city in the world, and we lost it, and I was too young to help. That's why I build things that go where things get dented, so I'm never too young again." } },
-    magni = { { id = "tp_magni", text = "King Magni gave the gnomes a home in Ironforge when we had nowhere else, and I'll always love him for it. He's very loud, though." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the most wonderful city in the world, and I was too young to help when the gnomes lost it. That's why I build things that can go where people get hurt, so nobody else has to." } },
+    magni = { { id = "tp_magni", text = "King Magni gave the gnomes a home in Ironforge when they had nowhere else, and I'll always love him for it. He's very loud, though." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells good parts, if you check every one, and I check every one twice. A-Me 01's left arm came from there, and it's still the best part of her." } },
     silithid = { { id = "tp_silithid", text = "The bugs crawling up from Silithus are fascinating, mechanically speaking, all levers and plates. I'd like to take one apart, if it would hold still." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, {g:lad|lass}! But give me a forge and a wee bit of time, and I could build something that does." } },

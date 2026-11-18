@@ -126,7 +126,7 @@ P:NPC {
       lines = {
         { id = "mr_default", text = "Nobody know, that be why they sent scouts. Ogres don't do much magic, mon, so when they start, it be because somebody bigger taught them, and I don't like to think who." },
         { id = "mr_done", when = { questDone = TODO_QUEST("Krom'Grul") },
-          text = "Krom'Grul wanted her for it, you told me, chained to an altar up there. I don't want to know no more about that ritual, mon, not ever." },
+          text = "You told me the ogre Krom'Grul had her chained to an altar up there for it. I don't want to know no more about that ritual, mon, not ever." },
       },
       choices = {
         { text = "The Warlord shouldn't have sent so few.", next = "mission_blame" },
@@ -135,7 +135,7 @@ P:NPC {
     },
     mission_blame = {
       lines = {
-        { id = "mb_default", text = "Maybe, mon, but the Warlord got Blackrock on every side and not enough soldiers for any of it. Goretooth tell me to move on and focus on the task at hand, and I can't believe he say that about my wife." },
+        { id = "mb_default", text = "Maybe, mon, but the Warlord got Blackrock on every side and not enough soldiers for any of it. Warlord Goretooth tell me to move on and focus on the task at hand, and I can't believe he say that about my wife." },
       },
       choices = {
         { text = "A soldier's orders come first. He's right.", next = "BACK", fx = { align = { order = 1 } } },
@@ -189,7 +189,7 @@ P:NPC {
       lines = {
         { id = "xs_default", text = "You think so, mon? I been asking the spirits every night, but they don't answer a soldier the way they answer someone like you. If you hear her, you tell me, even if it be bad." },
         { id = "xs_done", when = { questDone = TODO_QUEST("Dreadmaul Rock") },
-          text = "You already heard her, mon, up on that rock, and I be grateful and I hate it at the same time. Did she seem at peace to you?" },
+          text = "You already found her, mon, up on that rock, and I be grateful and I hate it at the same time. Did she seem at peace to you?" },
       },
       choices = {
         { text = "I'll tell you the truth, whatever it is.", next = "BACK", fx = { align = { honor = 1 } } },

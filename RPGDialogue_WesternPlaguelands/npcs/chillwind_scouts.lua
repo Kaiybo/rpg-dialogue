@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("The Eastern Plagues") },
           text = "Three of mine, Rutger, Fredo and Turyen, went east to the Marris Stead after word of the Blightcaller, and none of them reported back. I need to know what happened to them, and I need someone who can come back and tell me." },
         { id = "h_back", tags = { "news" }, when = { questDone = TODO_QUEST("The Eastern Plagues") },
-          text = "Their insignias, all three. Then they're gone, and the Blightcaller is Nathanos Marris, the old ranger lord, and Stormwind needs to hear it from someone who's been to that farm." },
+          text = "You've brought their insignias, all three. Then they're gone, and the Blightcaller is Nathanos Marris, the old ranger lord, and Stormwind needs to hear it from someone who's been to that farm." },
         { id = "h_after", when = { questDone = TODO_QUEST("The Blightcaller Cometh") },
           text = "Lord Bolvar has the report, and now the name's in the right ledgers. It doesn't bring my three back, but it means they died for something." },
         { id = "h_forsaken", when = { race = "Scourge" },
@@ -110,7 +110,7 @@ P:NPC {
     },
 
     camp = {
-      lines = { { id = "cp_default", text = "Valorfist runs a tight camp, and the Barov boy's an odd one to have around, and the priestess is the only one who doesn't ask what I'm writing. It's as safe as anywhere in the Plaguelands, which is to say not very." } },
+      lines = { { id = "cp_default", text = "Valorfist runs a tight camp, Weldon Barov's an odd one to have around, and the High Priestess is the only one who doesn't ask what I'm writing. It's as safe as anywhere in the Plaguelands, which is to say not very." } },
       choices = {
         { text = "What's odd about Weldon Barov?", next = "camp_barov" },
         { text = "Something else.", next = "BACK" },

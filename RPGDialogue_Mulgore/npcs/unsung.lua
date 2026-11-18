@@ -52,7 +52,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because one day a beast will charge you after your companion falls, and on that day you'll need to plant your feet and hold. The battleboars of Narache charge straight at anything that moves, and learning to stand against them is the first lesson every young one learns, warrior or hunter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} stands well, I'll give it that. Perhaps it could teach my young braves a thing or two about patience." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because one day a beast will charge you after your companion falls, and on that day you'll need to plant your feet and hold. Your {pet} stands well, I'll give it that. Perhaps it could teach my young braves a thing or two about patience." },
       },
       choices = {
         { text = "I'll learn to stand firm, as the braves do.", next = "BACK", fx = { align = { order = 1 } } },
@@ -149,7 +149,7 @@ P:NPC {
     },
     danger_why = {
       lines = { { id = "dw_default", text = "They are greedy for land, and they think Red Cloud Mesa should belong to them. Chief Hawkwind would share the plains with almost anyone, but the quilboar do not want to share anything." } },
-      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+      choices = { { text = "Thank you.", next = "BACK" } },
     },
     others = {
       lines = { { id = "o_default", text = "Meela Dawnstrider teaches the shaman, and Gart Mistrunner the druids, and Lanka Farshot the hunters. Between the four of us, every young tauren learns something before they walk down to Bloodhoof." } },
@@ -268,7 +268,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Thunder before it rolls and the earth before it shakes, and every shift of the wind that carries a scent. The beasts of Mulgore live closer to the elements than any shaman, so watch them closely, and they'll teach you as much as I ever could." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} lifts its head when the wind turns. That is the air speaking, {class}, and your companion is listening." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Thunder before it rolls and the earth before it shakes, and every shift of the wind that carries a scent. Your {pet} lifts its head when the wind turns. That is the air speaking, {class}, and your companion is listening." },
       },
       choices = {
         { text = "I'll learn to listen as my beast does.", next = "BACK", fx = { align = { light = 1 } } },
@@ -466,7 +466,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Both begin with listening to the beasts, though the druid walks further down that road than most hunters wish to. The Earth Mother gave the beasts their forms and gave us the means to understand them, so whatever path you walk, walk it with care." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks content. I've always believed a content beast is the mark of a good hunter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Both begin with listening to the beasts, though the druid walks further down that road than most hunters wish to. Your {pet} looks content. I've always believed a content beast is the mark of a good hunter." },
       },
       choices = {
         { text = "I'll walk with care, as the Earth Mother wishes.", next = "BACK", fx = { align = { light = 1 } } },
@@ -540,7 +540,7 @@ P:NPC {
       },
     },
     history = {
-      lines = { { id = "h2_default", text = "The demigod Cenarius taught us long ago, in the time of the ancient war, and the knowledge never left us. Today the Cenarion Circle still welcomes tauren in Moonglade, though not every elf is pleased about it." } },
+      lines = { { id = "h2_default", text = "The night elves did, when Hamuul Runetotem studied with Malfurion Stormrage, though our oldest stories say Cenarius walked with our ancestors long before. Today the Cenarion Circle still welcomes tauren in Moonglade, though not every elf is pleased about it." } },
       choices = { { text = "The elves must resent you.", next = "history_elves" } },
     },
     history_elves = {
@@ -562,7 +562,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I don't think they do, though they're neighbors on the same land, the way the kodo and the plainstrider are. The beasts answer the Earth Mother through the wild and the elements answer through stone and wind, and both grow restless when the land is hurt." } },
+      lines = { { id = "xhsham_default", text = "I don't think they do, though they're neighbors on the same land, the way the kodo and the plainstrider are. The beasts answer the Earth Mother through the wild and the elements answer through stone and wind, and both grow restless when the land is hurt, though our elders teach us to keep their ways apart." } },
       choices = {
         { text = "Each spirit has its place, and the elders are right to keep them there.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Spirits mingle freely. Lines the elders draw don't bind them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -606,7 +606,7 @@ P:NPC {
   nodes = {
     op_orcs = {
       lines = {
-        { id = "opo_q", text = "That's why I fight. But you've walked with the orcs more than some, so tell me what you think of them, and don't dress it up." },
+        { id = "opo_q", text = "I've told you what I owe them. But you've walked with the orcs more than some, so tell me what you think of them, and don't dress it up." },
       },
       choices = {
         { text = "Brothers in arms. The tauren owe them everything.", next = "op_orcs_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { orcs = "kin" } } },
@@ -626,7 +626,7 @@ P:NPC {
     },
     op_orcs_r2 = {
       lines = {
-        { id = "op_orcs_r2", text = "Useful, he says! The orcs bled for us at the centaur camps before you were born, so mind how you weigh it." },
+        { id = "op_orcs_r2", text = "Useful, you say! The orcs bled for us at the centaur camps before you were born, so mind how you weigh it." },
       },
       choices = {
         { text = "Something else, Krang.", next = "BACK" },
@@ -670,7 +670,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because a hunter who knows where the warriors will stand knows where to shoot, and where not to. Since Cairne joined the Horde, our braves fight beside orc hunters and troll hunters both, and the ones who learn each other's ways come home together." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will need to know the shield-wall too. Bring it to the training ground, and we'll see if it can hold its place." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a hunter who knows where the warriors will stand knows where to shoot, and where not to. Your {pet} will need to know the shield-wall too. Bring it to the training ground, and we'll see if it can hold its place." },
       },
       choices = {
         { text = "I'll learn to fight beside the warriors.", next = "BACK", fx = { align = { order = 1 } } },
@@ -835,7 +835,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A light axe or a short spear, something you can swing one-handed when the arrows are no use. The prairie wolves of Mulgore come in close and fast, and a hunter with nothing but a bow learns that lesson only once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks fierce enough to keep most things off you, but even the fiercest beast tires. Buy the axe, friend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A light axe or a short spear, something you can swing one-handed when the arrows are no use. Your {pet} looks fierce enough to keep most things off you, but even the fiercest beast tires. Buy the axe, friend." },
       },
       choices = {
         { text = "I'll carry a blade, and use it well.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -998,7 +998,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plainstrider pies and kodo stew bread, mostly, though I once made a wolf-and-wheat pie that nobody would eat twice. The hunters of Bloodhoof bring me what's left of their hunts, and I make sure nothing goes to waste, as the Earth Mother would wish." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And I've a crust or two for your {pet}, if it likes bread. Most beasts do, though they pretend they don't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plainstrider pies and kodo stew bread, mostly, though I once made a wolf-and-wheat pie that nobody would eat twice. And I've a crust or two for your {pet}, if it likes bread. Most beasts do, though they pretend they don't." },
       },
       choices = {
         { text = "Nothing wasted. That's the right way to hunt.", next = "BACK", fx = { align = { honor = 1 } } },

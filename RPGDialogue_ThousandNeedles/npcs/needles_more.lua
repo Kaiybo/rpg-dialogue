@@ -19,7 +19,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Step right up, pal, independent goblin, no team colors, no loyalties, and no refunds!" },
-    { id = "g_pace", when = { questActive = TODO_QUEST("Keeping Pace") }, text = "Pozzik sent you, didn't he? I can smell the fuel on the request. Say the word and I'll make a scene." },
+    { id = "g_pace", when = { questActive = TODO_QUEST("Keeping Pace") }, text = "Pozzik sent you, didn't he? You've got his garage grease on your boots. Say the word and I'll make a scene." },
     { id = "g_done", when = { questDone = TODO_QUEST("Zamek's Distraction") }, text = "Rizzle still doesn't know what hit him, and I've been dining out on it all week, pal." },
   },
 
@@ -182,7 +182,7 @@ P:NPC {
     lifts = {
       lines = { { id = "li_default", text = "Rope, pulleys and strong backs, and a prayer to the Earth Mother that the rope holds. Once a crate of salt fell all the way to the canyon floor, and the centaur down there thought it was raining." } },
       choices = {
-        { text = "Did they keep the salt?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I hope the centaur enjoyed it.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -69,7 +69,7 @@ P:NPC {
     },
 
     camp = {
-      lines = { { id = "ca_default", text = "Ravaged, as you see. The others here served the Hammer and its dark master, and they are gone now, scattered or dead, and I do not mourn them. I came for the wind, not for their doomsaying, and the wind kept me when they were swept away." } },
+      lines = { { id = "ca_default", text = "Waiting, among the ruins, as you see. The others here served the Hammer and its dark master, and they are gone now, scattered or dead, and I do not mourn them. I came for the wind, not for their doomsaying, and the wind kept me when they were swept away." } },
       choices = {
         { text = "You were one of the Twilight's Hammer?", next = "camp_hammer" },
         { text = "Something else.", next = "BACK" },

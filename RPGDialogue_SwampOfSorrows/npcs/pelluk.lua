@@ -75,7 +75,7 @@ P:NPC {
     },
     harborage_remember = {
       lines = {
-        { id = "hr_default", text = "Not all of us do. At Fallow Sanctuary to the south there are others like us who have forgotten too much, and they are angry and they do not know why. We do not go near them, and you should not either." },
+        { id = "hr_default", text = "Some of our people have forgotten too much of who they were. At Fallow Sanctuary to the south there are others like us who have gone that way, and they are angry and do not know why. We do not go near them, and you should not either." },
       },
       choices = {
         { text = "Can nothing be done for them?", next = "harborage_help" },

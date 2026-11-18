@@ -209,7 +209,7 @@ P:NPC {
       choices = { { text = "I hope you hear soon.", next = "BACK", fx = { affinity = 1 } } },
     },
     kurdran = {
-      lines = { { id = "ku_default", text = "Near enough for a gryphon, maybe. Falstad Wildhammer wrote his epitaph. Read it; it says more in four lines than the court says in a season." } },
+      lines = { { id = "ku_default", text = "Near enough, if you ride gryphons. Falstad Wildhammer wrote the epitaph on his statue, so read it; it says more in four lines than the court says in a season." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -276,7 +276,7 @@ P:NPC {
       choices = { { text = "Something else, General.", next = "BACK", fx = { affinity = 1 } } },
     },
     scouts = {
-      lines = { { id = "scouts_l", text = "I need them everywhere. The army never trained many; a human with a bow and a hound was a poacher, in my day, and now I'd pay one in gold to tell me what the Blackrock are doing in the Redridge hills." } },
+      lines = { { id = "scouts_l", text = "I need them everywhere. The army never trained many; a human with a bow and a hound was a poacher, in my day, and now I'd pay one in gold to tell me what the Blackrock orcs are doing in the Redridge hills." } },
       choices = {
         { text = "Times change, General.", next = "scouts_change" },
         { text = "I'll take a look at Redridge.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -331,12 +331,12 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The Watch reports to me on most things that happen inside these walls and a few that happen outside them. Ask me about any of this, and I'll answer as a soldier should." },
     },
-    background = { { id = "tp_bg", text = "Second War, under Turalyon. Now the walls of this city. A soldier's life is short to tell, if it's a lucky one.", next = "turalyon" } },
-    advice = { { id = "tp_ad", text = "Know where your exits are before you need them. Every general who forgot that has a statue. Or a grave." } },
-    defias = { { id = "tp_defias", text = "A Westfall matter, the court says, and a soldier's matter, I say. We'll see who's right." } },
-    blackrock = { { id = "tp_blackrock", text = "Orcs in Redridge, near enough to see from Lakeshire's walls. Near enough to worry me." } },
+    background = { { id = "tp_bg", text = "I fought the Second War under Turalyon, and now I keep the walls of this city. A soldier's life is short to tell, if it's a lucky one.", next = "turalyon" } },
+    advice = { { id = "tp_ad", text = "Know where your exits are before you need them. Every general who forgot that has a statue or a grave." } },
+    defias = { { id = "tp_defias", text = "The Defias are a Westfall matter, the court says, and a soldier's matter, I say. We'll see who's right." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs are in Redridge, near enough to see from Lakeshire's walls, and near enough to worry me." } },
     westfall = { { id = "tp_westfall", text = "Westfall fed this city once, and now it feeds the Defias, while Stoutmantle does my job with pitchforks.", next = "walls_westfall" } },
-    _none = { { id = "tp_none", text = "That's not a military matter, I'm afraid. Try City Hall." } },
+    _none = { { id = "tp_none", text = "That's not a military matter, I'm afraid. Try the clerks in the Keep." } },
   },
 }
 
@@ -413,7 +413,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When we need somebody watched from a long way off, sure, and Renzik pays by the hour, not by the arrow. Hunters see things from a rooftop that Renzik's people would need to be standin' on the guy's toes to see, and the beast makes a good alarm." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, does it bark when somebody sneaks up? Good, keep it that way, kid, 'cause the boss hates surprises and Renzik hates payin' for 'em." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When we need somebody watched from a long way off, sure, and Renzik pays by the hour, not by the arrow. And that {pet} of yours, does it bark when somebody sneaks up? Good, keep it that way, kid, 'cause the boss hates surprises and Renzik hates payin' for 'em." },
       },
       choices = {
         { text = "I'll watch for SI:7 if the kingdom needs it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -565,7 +565,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Nobody is trusted in the Keep, and you least of all, because I've read the histories of what the Guardian's meddling brought down on this city. You'll stand where you're told and speak when you're spoken to, and you'll do it without anything at your heel." },
+        { id = "xlock_default", text = "Nobody is trusted in the Keep, and you least of all, because I've read the histories of what the Guardian Medivh's meddling brought down on this city. You'll stand where you're told and speak when you're spoken to, and you'll do it without anything at your heel." },
       },
       choices = {
         { text = "Understood, Major. I'll keep my hands in sight.", next = "BACK", fx = { align = { order = 1 } } },
@@ -604,7 +604,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "On the walls, at night, when the lamps don't reach the harbor road. A hunter on the battlements sees what my guards miss, though I'd not say that in front of them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will stay out of the throne room, but it can sit by the gate. It looks better behaved than some of the nobles." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "On the walls, at night, when the lamps don't reach the harbor road. Your {pet} will stay out of the throne room, but it can sit by the gate. It looks better behaved than some of the nobles." },
       },
       choices = {
         { text = "I'll keep to your rules, Major. The Keep deserves order.", next = "BACK", fx = { align = { order = 1 } } },
@@ -824,7 +824,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now and then a hunter swaps me a brace of rabbits for a basket of rolls, and my wife makes the best pie in the Trade District from them. Never let it be said the bakers and hunters of Stormwind don't look after each other." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing my basket since you walked up. I'll pretend I didn't see it, just this once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then a hunter swaps me a brace of rabbits for a basket of rolls, and my wife makes the best pie in the Trade District from them. Your {pet} has been sniffing my basket since you walked up. I'll pretend I didn't see it, just this once." },
       },
       choices = {
         { text = "A fair swap between working folk. I like that.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -893,7 +893,7 @@ P:NPC {
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     flour = {
-      lines = { { id = "f_default", text = "Elwynn's mills, these days, and dear. Most of the bread in this city was baked from Westfall wheat once, but not since the farms went.",
+      lines = { { id = "f_default", text = "It is, and it comes from Elwynn's mills these days. Half the bread in this city was Westfall wheat once, but not since the farms went.",
         fx = { learn = { "westfall" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },

@@ -36,7 +36,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It never has, not since the farms emptied. Your wind spirits might know why. I just sweep and laugh." } },
+      lines = { { id = "xdsham_default", text = "It never has, not since the farms emptied. Your wind spirits might know why, but I just sweep and laugh." } },
       choices = {
         { text = "Keep sweeping and laughing, Heather. That's good spirit.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Stop fighting it. Let the dust have the inn.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They don't mind, as long as the beast doesn't eat their supper, and some of them talk to the animals more than to each other. A wolf by the fire reminds them of home, I think, the ones who had a home." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome by the fire. Only mind it doesn't sit on anyone's feet; they're sore enough." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They don't mind, as long as the beast doesn't eat their supper, and some of them talk to the animals more than to each other. Your {pet} is welcome by the fire, only mind it doesn't sit on anyone's sore feet." },
       },
       choices = {
         { text = "I'll keep it quiet and out of the way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -113,7 +113,7 @@ P:NPC {
           text = "You've eaten at Salma's? Then you've had the best stew in Westfall and you'll be disappointed in mine. I've made my peace with it." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elves, out here? We've only dust and gulls to offer you, and the gulls are rude and the dust gets everywhere." },
-        { id = "h_militia", when = { metBefore = true }, text = "The militia eats more than any army I've ever fed. I've never fed an army. I'm fairly sure this is worse." },
+        { id = "h_militia", when = { metBefore = true }, text = "The militia eats more than any army I've ever fed, and I've never fed an army, but I'm fairly sure this is worse." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The night watch comes in for soup about now, the same faces every night. I worry on the nights one's missing." },
         { id = "h_deadmines", tags = { "news" }, when = { deed = "dungeon:The Deadmines" },
           text = "You came back up out of Moonbrook. The whole hill's been singing about it, badly, and I've let them, because it's the first singing in here for a year." },
@@ -148,7 +148,7 @@ P:NPC {
       },
     },
     hill = {
-      lines = { { id = "hi_default", text = "Better than the farms. We've walls of a sort and Gryan's word. Out there they've only got locks, and the Defias have keys." } },
+      lines = { { id = "hi_default", text = "It's holding better than the farms, since we've walls of a sort and Gryan's word. Out there they've only got locks, and the Defias have keys." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "people_militia" } } } },
     },
     guests = {
@@ -164,7 +164,7 @@ P:NPC {
     },
     masons = {
       big = true,
-      lines = { { id = "ma_default", text = "Masons, the first of them to come out from the city after the trouble there. They paid for their ale and sang dreadful songs, and then one week they stopped coming in, and now I hear their names on Gryan's lists." } },
+      lines = { { id = "ma_default", text = "Some did, aye: masons, the first of them to come out from the city after the trouble there. They paid for their ale and sang dreadful songs, and then one week they stopped coming in, and now I hear their names on Gryan's lists." } },
       choices = {
         { text = "The city wronged them first. That should count for something.", next = "BACK", fx = { align = { order = -1 }, learn = { "stonemasons" } } },
         { text = "Whatever they were owed, they chose to become thieves.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonemasons" } } },
@@ -196,7 +196,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm an innkeeper. The inn came with the hill and I came with the inn, and that's as far back as anyone here cares." } },
     advice = { { id = "tp_ad", text = "Bind your hearthstone here. You'll want somewhere to come back to that isn't a field." } },
     defias = { { id = "tp_defias", text = "Some of them drank here, before all this, a few masons among them, and nice enough men they were. I try not to think about that." } },
-    people_militia = { { id = "tp_militia", text = "Farmers with spears and no pay, so they eat for free here. Gryan pays when he can, which is hardly ever." } },
+    people_militia = { { id = "tp_militia", text = "They're farmers with spears and no pay, so they eat for free here. Gryan pays when he can, which is hardly ever." } },
     _none = { { id = "tp_none", text = "Ask Gryan. Or ask the gulls, they'll tell you just as much." } },
   },
 }
@@ -245,7 +245,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Meat, mostly, and fewer vultures picking at the wagons. Goretusk and coyote both, if they're fresh, and I'll put them in the ledger and the pot, and the militia will be grateful for once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} eats too, I suppose. I'll put it in the ledger as one more mouth, but I'll not complain." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Meat, mostly: goretusk and coyote both, if they're fresh, and the militia will be grateful for once. Your {pet} eats too, I suppose, so I'll put it in the ledger as one more mouth and not complain." },
       },
       choices = {
         { text = "I'll hunt for the hill and ask nothing for it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -300,7 +300,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Lewis, quartermaster. I keep Sentinel Hill fed, armed and patched, which is a lot to ask of one ledger and a wagon that keeps getting robbed." },
         { id = "h_message", tags = { "news" }, when = { questActive = TODO_QUEST("A Swift Message") },
-          text = "Our armor's running thin. That note goes to the one man in the city who can fix it, faster than a wagon and without a Defias reading it first. Thor will put you in the air." },
+          text = "Our armor's running thin. That note goes to the one man in the city who can fix it, faster than a wagon and without a Defias reading it first. Thor, our gryphon master, will put you in the air." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Lewis") },
           text = "Osric's crate? Armor at last, and it goes to whoever's in the worst shape first. Now you know the way by gryphon, so use it often; the roads are worse." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll put your name in the ledger, and you'll get what armor I can spare, which isn't much, and it's mostly dented." },
@@ -334,7 +334,7 @@ P:NPC {
     short = {
       big = true,
       lines = {
-        { id = "s_default", text = "Every wagon from the city passes three farms the Defias hold. One in two arrives, in a good week. The ledger counts the bad weeks so I don't have to." },
+        { id = "s_default", text = "Every wagon from the city passes three farms the Defias hold, and one in two arrives in a good week. The ledger counts the bad weeks so I don't have to." },
       },
       choices = {
         { text = "I'll clear the road.", next = "BACK", fx = { affinity = 2, standing = { sentinel_hill = 1 } } },
@@ -349,7 +349,7 @@ P:NPC {
       },
     },
     forms = {
-      lines = { { id = "fo_default", text = "Three copies. One goes to the city, one comes back stamped, and one keeps the stove going. The third's the only one that's ever helped." } },
+      lines = { { id = "fo_default", text = "Three copies: one goes to the city, one comes back stamped, and the third keeps the stove going, which is the only one that's ever helped." } },
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     message = {
@@ -388,11 +388,11 @@ P:NPC {
     booty_bay = { { id = "tp_booty_bay", text = "I could get proper supplies from Booty Bay if the road south weren't full of trolls and the sea weren't full of pirates. As it is, I get what Stormwind sends me, which is mostly paperwork." } },
     stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons built Sentinel Hill's tower, and I've their ledgers somewhere in this wagon. Nobody paid them for it either, and I keep those pages folded so I don't have to read them." } },
     second_war = { { id = "tp_second_war", text = "I kept the books for a supply train in the Second War, and I've been counting arrows ever since. The numbers were worse then, but I was younger and they didn't feel as heavy." } },
-    background = { { id = "tp_bg", text = "A quartermaster. The ledger's the only history I keep, and it's mostly losses." } },
+    background = { { id = "tp_bg", text = "I'm a quartermaster, and the ledger's the only history I keep, and it's mostly losses." } },
     advice = { { id = "tp_ad", text = "Buy food before you need it. Out here the bread runs out before the hunger does." } },
     trade = { { id = "tp_tr", text = "General goods for a hill at war: what I have, I sell, and what I don't have was stolen.", next = "ledger" } },
     defias = { { id = "tp_defias", text = "They eat better than we do, I'm told, off our wagons. I'd like that told to someone who can do something about it." } },
-    people_militia = { { id = "tp_militia", text = "My best customers and my worst payers. I wouldn't change either." } },
+    people_militia = { { id = "tp_militia", text = "They're my best customers and my worst payers, and I wouldn't change either." } },
     _none = { { id = "tp_none", text = "That's not in my ledger, and if it's not in my ledger, it either doesn't exist or it's been stolen." } },
   },
 }
@@ -445,7 +445,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Once, and only once, because the cat took fright halfway to Stormwind and tried to climb the gryphon's neck. The bird landed in a field in Elwynn and refused to fly again until the cat was gone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will have to meet you at the other end. It'll find you; they always do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Once, and only once, because the cat took fright halfway to Stormwind and tried to climb the gryphon's neck. Your {pet} will have to meet you at the other end, and it'll find you, because they always do." },
       },
       choices = {
         { text = "I'll leave my beast at the stables and trust it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -523,7 +523,7 @@ P:NPC {
       },
     },
     birds = {
-      lines = { { id = "b_default", text = "Proud, hungry and loyal, in that order. Treat them like soldiers and they'll treat you like cargo. That's a compliment, from a gryphon." } },
+      lines = { { id = "b_default", text = "They're proud, hungry and loyal, in that order. Treat them like soldiers and they'll treat you like cargo, which is a compliment from a gryphon." } },
       choices = {
         { text = "I'll be good cargo.", next = "BACK", fx = { affinity = 1 } },
         { text = "Do they have names?", next = "names" },
@@ -534,7 +534,7 @@ P:NPC {
       choices = { { text = "Sounds like the militia.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } } },
     },
     routes = {
-      lines = { { id = "ro_default", text = "Stormwind, always. Lakeshire over the mountains, Darkshire when the wind's kind, Booty Bay if you've the stomach for it." } },
+      lines = { { id = "ro_default", text = "Stormwind, always, and Lakeshire over the mountains, Darkshire when the wind's kind and Booty Bay if you've the stomach for it." } },
       choices = {
         { text = "Why only the places I've been?", next = "routes_been" },
         { text = "Something else.", next = "BACK" },
@@ -576,7 +576,7 @@ P:NPC {
     onyxia = { { id = "tp_onyxia", text = "Some of the riders who fly south to Theramore say there's a black dragon in the marshes there who'd eat a gryphon whole. I've told my birds about her, and they've been behaving ever since." } },
     background = { { id = "tp_bg", text = "I'm the gryphon master, and that's the whole of it. The birds don't care where I came from, so neither do I." } },
     advice = { { id = "tp_ad", text = "Fly over trouble, not through it, and never feed a gryphon from your hand. I did it once, and never again." } },
-    trade = { { id = "tp_tr", text = "Rides out of Westfall for a little coin. Cheaper than walking, safer than the road.", next = "routes" } },
+    trade = { { id = "tp_tr", text = "I sell rides out of Westfall for a little coin, cheaper than walking and safer than the road.", next = "routes" } },
     westfall = { { id = "tp_westfall", text = "From up there it's all gold and grey. Pretty, if you don't know what's in the grey." } },
     _none = { { id = "tp_none", text = "I fly birds, friend, so you'd best ask someone who walks." } },
   },
@@ -593,7 +593,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_tower", text = "Up here you can see every road into the hill. Which means I see you coming long before you say hello." },
+    { id = "g_tower", text = "Up here you can see every road into the hill, which means I see you coming long before you say hello." },
     { id = "g_back", when = { metBefore = true }, text = "I saw you on the north track an hour ago. You walk like you're looking for a fight, which suits me fine." },
   },
 
@@ -606,7 +606,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I enjoy it very much. Every road into Sentinel Hill is mine to watch. A shaman's lightning would make them even more nervous." } },
+      lines = { { id = "xdsham_default", text = "I enjoy it very much, since every road into Sentinel Hill is mine to watch. A shaman's lightning would make them more nervous still." } },
       choices = {
         { text = "Watch fairly, Riell. Strike only when it's needed.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Make them terrified. Fear wins wars.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -626,7 +626,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Defias camps, mostly, and where the gnolls are gathering. The gnolls and the thieves trade, I'm sure of it, but I can't prove it from up here, so bring me something I can show Gryan." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, I'd guess. Point it at the hills south of the mine and see what it finds." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Defias camps, mostly, and where the gnolls are gathering, because I'm sure they trade with the thieves. Your {pet} has a good nose, I'd guess, so point it at the hills south of the mine and bring me something I can show Gryan." },
       },
       choices = {
         { text = "I'll track them and bring you proof.", next = "BACK", fx = { align = { order = 1 } } },
@@ -676,12 +676,12 @@ P:NPC {
         { id = "h_silk_done", when = { questDone = TODO_QUEST("Red Silk Bandanas") },
           text = "There are fewer red silks on the roads this week, and the ones that are left look nervous. I like them nervous." },
         { id = "h_gryan", when = { heardLine = "gryan.w_default" },
-          text = "Gryan told you how it was? He tells it like he was there because he was, and so were we all. That's why we stayed." },
+          text = "Gryan told you how Westfall went to ruin? We lived through it, every one of us on this hill, and that's why we stayed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The tower sees a lot, but it can't fight what it sees, so I'll tell you where to go and you'll go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll see things on the ground the tower can't, and I'd like to know what you see." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Gryan will want you on the hill tonight, because we lose fewer men when someone's there to tend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. From up here your armor shines like a beacon, and I mean that kindly, though the Defias will see it too." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I saw you coming a long way off. Your spirits aren't quiet. Good. The Defias should be nervous." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I saw you coming a long way off, and your spirits aren't quiet, which is good, because the Defias should be nervous." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm watching the road, not you, but talk anyway." },
@@ -733,14 +733,14 @@ P:NPC {
     },
     silk_under = {
       big = true,
-      lines = { { id = "su_default", text = "There's a way down somewhere in the town. The high ranks hole up beneath it. When you go, go with friends, and bring me ten silks for my table." } },
+      lines = { { id = "su_default", text = "There's a way down somewhere in the town, and the high ranks hole up beneath it. When you go, go with friends, and bring me ten silks for my table." } },
       choices = {
         { text = "Ten silks. I'll remember.", next = "BACK", fx = { affinity = 1, learn = { "moonbrook" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     tower = {
-      lines = { { id = "to_default", text = "Cold at night, hot by noon, and the wind never stops. On a clear day I can see Moonbrook's smoke from here. I'd trade the view for a quiet one." } },
+      lines = { { id = "to_default", text = "It's cold at night and hot by noon, and the wind never stops. On a clear day I can see Moonbrook's smoke from here. I'd trade the view for a quiet one." } },
       choices = {
         { text = "You look as if you never sleep.", next = "tower_sleep" },
         { text = "Something else.", next = "BACK" },
@@ -758,7 +758,7 @@ P:NPC {
       },
     },
     nightelf = {
-      lines = { { id = "ne_default", text = "In trees, I've heard. We've no trees to speak of out here, only plenty of sky and nothing to hide in, which suits a lookout fine." } },
+      lines = { { id = "ne_default", text = "From the trees, I've heard. We've no trees to speak of out here, only plenty of sky and nothing to hide in, which suits a lookout fine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     druid = {
@@ -863,7 +863,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "More often than Gina would like, and she'd tell you I'm a fool for it. A farmer with a bow is one more pair of eyes on the hill, and that's worth a few coppers to me." } },
+      lines = { { id = "xapala_default", text = "More often than my family would like, and they'd tell you I'm a fool for it. A farmer with a bow is one more pair of eyes on the hill, and that's worth a few coppers to me." } },
       choices = {
         { text = "That's right and generous. The weak deserve a way to fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Charge them, William. Charity won't keep your bench open.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -916,7 +916,7 @@ P:NPC {
       },
     },
     wood = {
-      lines = { { id = "w_default", text = "Dry country and crooked trees. Elwynn wood's better, but the wagons don't get through often enough, so I bend what we've got, slowly." } },
+      lines = { { id = "w_default", text = "It's dry country with crooked trees. Elwynn wood's better, but the wagons don't get through often enough, so I bend what we've got, slowly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     learn = {
@@ -939,7 +939,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     hunter = {
-      lines = { { id = "hu_default", text = "Something that pulls smooth and forgives a cold morning. Not the prettiest on the rack. The one you'll still trust in the Dagger Hills at dusk." } },
+      lines = { { id = "hu_default", text = "Something that pulls smooth and forgives a cold morning, not the prettiest on the rack but the one you'll still trust in the Dagger Hills at dusk." } },
       choices = {
         { text = "Show me that one.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },

@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest. The prisoners talk about a voice in the dark, and they talk about it the way you'd talk about the Light, and I'd value your opinion on what that means." },
         { id = "h_mage", when = { class = "MAGE" },
-          text = "A mage. Ashe Amberhall reads their trinkets and I read their faces, and between us we nearly understand them, which is more than I'd like." },
+          text = "A mage. Ashe Amberhall, our own mage, studies the trinkets we take off the cultists while I study their faces, and between us we nearly understand them." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask carefully; I'll remember how you asked." },
@@ -69,7 +69,7 @@ P:NPC {
     },
     cultists_back = {
       big = true,
-      lines = { { id = "ck_default", text = "One, once, for a week or so, until the voice he'd been hearing came back and he stopped speaking to me at all. I don't try as hard now, and I'm not proud of that." } },
+      lines = { { id = "ck_default", text = "I turned one, once, for a week or so, until the voice he'd been hearing came back and he stopped speaking to me at all. I don't try as hard now, and I'm not proud of that." } },
       choices = {
         { text = "Keep trying. Every one saved matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Don't. Get what you need and be done with them.", next = "BACK", fx = { align = { light = -1 } } },

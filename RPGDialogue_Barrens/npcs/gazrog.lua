@@ -15,10 +15,10 @@ P:NPC {
 
   greetings = {
     { id = "g_tower", text = "If you've come about the pay, the answer's still no. If you've come about raptors, talk." },
-    { id = "g_heads", when = { questActive = TODO_QUEST("Raptor Thieves") }, text = "Raptor heads, {class}. Twelve of them. I want to look them in the eye." },
+    { id = "g_heads", when = { questActive = TODO_QUEST("Raptor Thieves") }, text = "Bring me twelve raptor heads, {class}. I want to look the thieves in the eye." },
     { id = "g_silver", when = { questActive = TODO_QUEST("Stolen Silver") }, text = "The Raptor Grounds, south of Ratchet. If the silver's anywhere, it's in a nest down there." },
     { id = "g_paid", when = { questDone = TODO_QUEST("Stolen Silver") }, text = "The guards got paid, and they've stopped glaring at me. That's your doing." },
-    { id = "g_away", when = { away = 14 }, text = "{away} gone and you're back. Nothing's been stolen since you left, which I'm counting as a victory." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? Nothing's been stolen since you left, which I'm counting as a victory." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're not the same {class} who went raptor hunting for me. These days I'd worry for the raptors." },
   },
 
@@ -72,7 +72,7 @@ P:NPC {
     },
     truth = {
       big = true,
-      lines = { { id = "tr_default", text = "Find the silver first, and the truth will be lying next to it. Thork wants me to write it off and I won't, because the guards would never trust that strongbox again." } },
+      lines = { { id = "tr_default", text = "Find the silver first, and the truth will be lying next to it. Thork, who keeps the Crossroads, wants me to write it off and I won't, because the guards would never trust that strongbox again." } },
       choices = {
         { text = "The guards earned that silver. It comes back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let it go. Pay them from somewhere else.", next = "BACK", fx = { align = { order = -1 } } },
@@ -106,7 +106,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm an orc who keeps a strongbox and a tower. I was good at it until the lizards came." } },
     advice = { { id = "tp_ad", text = "Lock your valuables up high. Raptors can't climb, or I hope they can't, anyway." } },
-    centaur = { { id = "tp_centaur", text = "Kolkar can't climb a tower, so it was raptors that got the silver, but the centaur are out there somewhere, and I'll fight a whole herd of them before I face the guards again." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar raid caravans out west, and at least nobody blames them for the silver. I'd still rather fight them than face the unpaid guards again." } },
     quilboar = { { id = "tp_quilboar", text = "The Razormane come up the road and test our walls like they think we won't notice. We notice, and we have arrows enough for all of them." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins would've kept the silver in a vault with three locks and a trap. I'm starting to think the goblins have a point." } },
     thrall = { { id = "tp_thrall", text = "The Warchief trusts the Crossroads to us, and here I am losing silver to lizards. If he ever hears about it, I'd like it to be after I've got it back." } },

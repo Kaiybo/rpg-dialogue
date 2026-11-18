@@ -38,7 +38,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Daniel, Brother Paxton's assistant here in the library. I'm meant to be counting what's on the shelves, and I am, mostly, between other things." },
         { id = "h_inv", tags = { "news" }, when = { questActive = TODO_QUEST("Book Inventory") },
-          text = "He wants to know how many are missing, and the honest answer is more than I'd like and fewer than he fears. I'll have a proper count for him, I promise, only don't tell him I said 'fewer than he fears'." },
+          text = "Brother Paxton wants to know how many books are missing, and the honest answer is more than I'd like and fewer than he fears. I'll have a proper count for him, I promise, only don't tell him I said 'fewer than he fears'." },
         { id = "h_done", when = { questDone = TODO_QUEST("Book Inventory") },
           text = "The count's done, and Brother Paxton says it's the first useful thing I've given him. I'm choosing to take that as praise." },
         { id = "h_paladin", when = { class = "PALADIN" },

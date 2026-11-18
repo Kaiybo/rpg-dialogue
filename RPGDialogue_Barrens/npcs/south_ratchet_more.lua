@@ -110,7 +110,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Whoa, whoa, mind the crates, pal, they're stacked very carefully, I say, very carefully indeed, now. What can I do ya for?" },
-    { id = "g_port", when = { questActive = TODO_QUEST("Trouble at the Docks") }, text = "Did ya get it? The port? Tell me ya got the port, because Gazlowe's been askin' about his shipment twice this morning." },
+    { id = "g_port", when = { questActive = TODO_QUEST("Trouble at the Docks") }, text = "Did ya get the port back from Mad Magglish? Tell me ya got it, because Gazlowe's been askin' about his shipment twice this morning." },
   },
 
   notice = {
@@ -194,7 +194,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Step right up, step right up, but not too close to the apparatus, pal, it bites the unpaid." },
-    { id = "g_zando", when = { questActive = TODO_QUEST("Wrenix of Ratchet") }, text = "Zando'zan sent another one, huh? His last five went to feed the sharks, pal, so let's see if you can buck the trend." },
+    { id = "g_zando", when = { questActive = TODO_QUEST("Wrenix of Ratchet") }, text = "Zando'zan sent another one down from Orgrimmar, huh? His last five went to feed the sharks, pal, so let's see if you can buck the trend." },
   },
 
   notice = {

@@ -76,7 +76,7 @@ P:NPC {
       },
     },
     kings = {
-      lines = { { id = "k_default", text = "Kings, queens, warchiefs and whatever the Horde calls its queens, I've never quite understood. Not personally, of course, but through very discreet buyers who never tell their masters where the hat came from." } },
+      lines = { { id = "k_default", text = "Kings, queens and warchiefs, sweetie, all of them. Not personally, of course, but through very discreet buyers who never tell their masters where the hat came from." } },
       choices = {
         { text = "So you've never met one?", next = "kings_met" },
         { text = "Something else.", next = "BACK" },

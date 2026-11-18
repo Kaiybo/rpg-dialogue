@@ -277,7 +277,7 @@ P:NPC {
     troubles = {
       big = true,
       lines = {
-        { id = "t_default", text = "Hatecrest naga in the ruins of Solarsal, more of them each month. A hive of insects that has no business being in Feralas; I've sent word to Gracina Spiritmight in Darnassus. And ogres, always ogres." },
+        { id = "t_default", text = "The Hatecrest naga hold the ruins of Solarsal, and there are more of them each month. A hive of insects has appeared that has no business being in Feralas, and I've sent word to Gracina Spiritmight in Darnassus. And there are ogres, always ogres." },
       },
       choices = {
         { text = "The naga first.", next = "troubles_naga" },
@@ -586,7 +586,7 @@ P:NPC {
       },
     },
     retire = {
-      lines = { { id = "r_default", text = "Mostly. The Light still answers when I call; I just call less often. Don't let the needle fool you." } },
+      lines = { { id = "r_default", text = "Only mostly retired, friend. The Light still answers when I call; I just call less often, so don't let the needle fool you." } },
       choices = {
         { text = "Something must have made you stop.", next = "retire_why" },
         { text = "Ha. Noted.", next = "BACK", fx = { affinity = 2 } },
@@ -682,7 +682,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every night, and they lie by the fire in a great warm heap while their riders sleep upstairs. I think the cats guard the stronghold as well as the Sentinels do, though I'd never say so where the General could hear." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome to join them by the fire, if it doesn't mind sharing, and I suspect it's had a wetter day than you have." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every night, and they lie by the fire in a great warm heap while their riders sleep upstairs. Your {pet} is welcome to join them, if it doesn't mind sharing, and I suspect it's had a wetter day than you have." },
       },
       choices = {
         { text = "A loyal beast has earned its place by the fire.", next = "BACK", fx = { align = { light = 1 } } },
@@ -906,7 +906,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "In the caves and the old ruins to the north, where their shamans work foul magic with orbs and scrolls. Find their tracks, follow them to the shamans, and I will send the warriors in after you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And let {pet} take the first bite, because the ogres fear a beast's teeth more than an orc's axe, and I want them afraid." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In the caves and the old ruins to the north, where their shamans work foul magic. Follow their tracks, and let {pet} take the first bite, because the ogres fear a beast's teeth more than an orc's axe." },
       },
       choices = {
         { text = "I'll find them, but the kill should be face to face.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -924,7 +924,7 @@ P:NPC {
     },
     shaman_ro = {
       lines = {
-        { id = "sro_default", text = "Wrongly, rightly, all I know is that the elements answer them and the braves burn. You're the first shaman who's come out to Mojache in a moon; if you can turn their fire back on them, I'll owe you a drink." },
+        { id = "sro_default", text = "Wrongly or rightly, all I know is that the elements answer them and the braves burn. You're the first shaman who's come out to Mojache in a moon; if you can turn their fire back on them, I'll owe you a drink." },
         { id = "sro_thrall", when = { origin = "orc_thrall_shaman" },
           text = "Thrall taught you himself? Then you know what it looks like when the elements are forced instead of asked. That's every Gordunni mage you'll meet." },
       },
@@ -1080,7 +1080,7 @@ P:NPC {
     },
     belgrom_rest = {
       lines = {
-        { id = "br_default", text = "When the Gordunni do. Until then I sleep with my axe and eat standing up, and Greul scolds me for both." },
+        { id = "br_default", text = "When the Gordunni do. Until then I sleep with my axe and eat standing up, and Innkeeper Greul scolds me for both." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1150,7 +1150,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know these ogres and this land better than I'd like. Ask, and be brief." },
     },
-    grimtotem = { { id = "tp_grimtotem", text = "Tauren trouble. The tauren here watch for them, and I watch for ogres." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem are tauren trouble. The tauren here watch for them, and I watch for ogres." } },
     background = { { id = "tp_ba", text = "A warrior of the Horde, sent from Orgrimmar to break ogres. There's no more to it, and I like it that way.", next = "belgrom" } },
     advice = { { id = "tp_ad", text = "Never fight a Gordunni on a slope where it's above you. Ogres fall downhill, and they don't care who's underneath." } },
     thrall = { { id = "tp_thrall", text = "Thrall led us out of the camps, and every orc in Camp Mojache would die for him. I would die for him twice and complain about the first time." } },
@@ -1210,7 +1210,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because I'm a goblin, and goblins who follow ogre trails end up as ogre suppers, which is bad for business and worse for the goblin. You hunters can step around a sleeping ogre without waking it, my friend, and that's a talent I'd happily rent by the hour." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it could sniff out cobalt in an ogre camp, if cobalt smells of anything, which I'm going to assume it does, because I want it to and because it'd double the profits." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because goblins who follow ogre trails end up as ogre suppers, my friend. You hunters can step around a sleeping ogre, though, and {pet} looks like it could sniff out cobalt in an ogre camp, if cobalt smells of anything." },
       },
       choices = {
         { text = "I hunt for Camp Mojache first. Your ore comes second.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1434,7 +1434,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Stories, mostly, of yetis in the caves and great bears in the hills, and meat when the hunt is good. They sit here and argue over whose beast is bravest until the fire burns low, and I let them, because it's better than hearing about the ogres." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is the bravest I've seen tonight, I think, and you may tell the others I said so, because they'll argue with me and I enjoy it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Stories, mostly, of yetis in the caves and great bears in the hills, and whose beast is bravest. Your {pet} is the bravest I've seen tonight, I think, and you may tell the others I said so, because they'll argue with me and I enjoy it." },
       },
       choices = {
         { text = "A hunt is only worth telling if it's told true.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1567,7 +1567,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I keep the fire at Mojache. Every tauren camp needs one, and this one is mine." } },
     advice = { { id = "tp_ad", text = "Rub your hides with fat before you go into the rain. The braves laugh at it, and then they borrow my pot." } },
     thrall = { { id = "tp_thrall", text = "The Warchief stopped at an inn I worked once, before Mojache, and ate his stew like any grunt. That's the kind of chief worth following." } },
-    cairne = { { id = "tp_cairne", text = "Cairne's people are good neighbors, quiet and slow to anger, and they eat more than any orc I ever fed. I like that in a guest." } },
+    cairne = { { id = "tp_cairne", text = "My people follow Cairne, and we're quiet and slow to anger, though the braves here eat more than any orc I've ever fed. I like that in a guest." } },
     dire_maul = { { id = "tp_dire_maul", text = "The hunters who go up toward Dire Maul come back with their armor dented and their stories bigger. I feed them either way." } },
     grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem are tauren who've decided they hate everyone, and they sit up in the hills hating us. The Mojache tauren won't speak of them at supper." } },
     booty_bay = { { id = "tp_booty_bay", text = "Goblin traders come up the coast from Booty Bay and sell me spices at three times the price. Then they eat here and complain about my prices." } },

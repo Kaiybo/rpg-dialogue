@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some of them are. I warn people away from my own bottles because I'm careful. Gramma Stonefield says I'm slow, but I'm alive." } },
+      lines = { { id = "xdsham_default", text = "Some of them are, which is why I warn people away from my bottles. Gramma Stonefield calls me slow, but I'm careful, and I'm alive." } },
       choices = {
         { text = "Careful is wise, William. Slow and alive beats quick and dead.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A little danger never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
@@ -59,7 +59,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A salve for paws, made with tallow and a bit of herb, which I first made for Farley's dog. Animals get sore feet just as we do, but they don't complain, so you have to look." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet}'s paws, if it'll let me. Those roads are hard on a creature that doesn't wear boots." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A salve for paws, made with tallow and a bit of herb, which I first made for Farley's dog. Let me see {pet}'s paws, if it'll let me, because those roads are hard on a creature that doesn't wear boots." },
       },
       choices = {
         { text = "I'll look after its paws, then. Thank you.", next = "BACK", fx = { align = { light = 1 } } },
@@ -86,7 +86,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Honest enough, and kind, which matters more to me than honest. Two young people in love and two old families at war, and if a little potion helps one of them cross a river unseen, I'll answer for it to whoever asks." } },
+      lines = { { id = "xapala_default", text = "Honest enough, and kind, which matters more to me than honest. It's for two young people in love whose families are at war, and if a little potion helps one of them cross a river unseen, I'll answer for it to whoever asks." } },
       choices = {
         { text = "Kindness doesn't excuse deceit, William.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then you've done right. Love deserves the help.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -102,13 +102,13 @@ P:NPC {
         { id = "q_note", tags = { "news" }, when = { questActive = TODO_QUEST("Note to William") },
           text = "A note from Gramma Stonefield? Let me see it, then. Ha, still the worst handwriting in Elwynn, and still right about everything!" },
         { id = "e_gramma", when = { heardLine = "gramma.h_speak" },
-          text = "Gramma told you about the boy, did she? Then you're in on it, and welcome, because there aren't many of us." },
+          text = "Gramma Stonefield told you about her grandson and the Maclure girl, did she? Then you're in on it, and welcome, because there aren't many of us." },
         { id = "q_kelp", when = { questActive = TODO_QUEST("Collecting Kelp") },
           text = "The kelp is for a potion, a private potion for a private matter. You understand, I'm sure." },
         { id = "q_escape", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
-          text = "She drank it, and reached the river? Oh, good! Only don't tell the Stonefields I had a hand in it." },
+          text = "Maybell drank the potion and reached the river? Oh, good! Only don't tell either family I had a hand in it." },
         { id = "q_shipment", when = { questActive = TODO_QUEST("Shipment to Stormwind") },
-          text = "Straight to Morgan at the shop, please, and don't sit on the crate; candles bruise. Well, they dent, which is much the same to a candle." },
+          text = "Straight to my brother Morgan at our shop in Stormwind, please, and don't sit on the crate; candles bruise. Well, they dent, which is much the same to a candle." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Now, I'll wager you know the herbs of the wild better than any alchemist, and I'd love to compare notes." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -116,7 +116,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Something for the bruises, perhaps, or a candle to read your letters home by?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've a salve for scratches, and a candle that keeps the midges off, if you're camping by the lake." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell candles and small mercies, and I suspect you'll want more of the first than the second." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't drink from that bottle. Or that one. Your spirits may protect you, but my potions won't." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't drink from that bottle, or that one either; your spirits may protect you, but my potions won't." },
       },
       again = {
         { id = "h_again", text = "Hmm? Sorry, I was counting drops; do go on." },
@@ -137,7 +137,7 @@ P:NPC {
         { text = "There must be a tincture for a warrior's aches, Pestle.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you make anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is your private potion for an honest purpose, Pestle?", next = "xapala", when = { class = "PALADIN", any = { { questActive = TODO_QUEST("Collecting Kelp") }, { questActive = TODO_QUEST("The Escape") }, { topicKnown = "maybell_tommy" } } } },
-        { text = "I'd guess Crowe's students buy their candles here, William.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess Crowe's warlock students buy their candles here, William.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Your potions sound dangerous, William.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Nothing for now.", next = "END" },
       },
@@ -145,7 +145,7 @@ P:NPC {
 
     candles = {
       lines = {
-        { id = "c_default", text = "My brother Morgan and I keep an apothecary in Stormwind. Kobold wax burns long and clean. The kobolds in Fargodeep and Jasperlode have plenty." },
+        { id = "c_default", text = "Not to an apothecary, and my brother Morgan and I keep one in Stormwind. Kobold wax burns long and clean, and the kobolds in Fargodeep and Jasperlode mines have plenty." },
       },
       choices = {
         { text = "Your brother?", next = "candles_brother" },
@@ -163,13 +163,13 @@ P:NPC {
     },
     candles_why = {
       lines = {
-        { id = "cw_default", text = "The candles are out here. So are the herbs, and the crickets, and an old friend or two. The city is very loud for a man who counts drops." },
+        { id = "cw_default", text = "The candles are out here, and so are the herbs, the crickets and an old friend or two. The city is very loud for a man who counts drops." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     candles_where = {
       lines = {
-        { id = "cr_default", text = "I've no idea, and they don't ask why I want them. It's the most honest trade in Elwynn. Nobody pretends to understand anybody." },
+        { id = "cr_default", text = "I've no idea where they get them, and they don't ask why I want them, so it's the most honest trade in Elwynn: nobody pretends to understand anybody." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "kobolds" } } } },
     },
@@ -178,7 +178,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "l_default", key = true,
-          text = "A Maclure and a Stonefield. Their families haven't shared a fence post in years. Young love doesn't care about fence posts.",
+          text = "Maybell's a Maclure and Tommy Joe's a Stonefield, and their families haven't shared a fence post in years. Young love doesn't care about fence posts, and a drop of my invisibility liquor helps it over them.",
           fx = { learn = { "maybell_tommy" } } },
       },
       choices = {
@@ -190,7 +190,7 @@ P:NPC {
     },
     lovers_why = {
       lines = {
-        { id = "lw_default", text = "I remember being young, and in love, and told no. Mildred remembers too. Old people ought to be useful for something besides advice." },
+        { id = "lw_default", text = "I remember being young, and in love, and told no, and so does Mildred, that's Gramma Stonefield. Old people ought to be useful for something besides advice." },
       },
       choices = {
         { text = "That's kind of you both.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -199,7 +199,7 @@ P:NPC {
     },
     lovers_potion = {
       lines = {
-        { id = "lp_default", text = "Crystal kelp, a steady hand and a pinch of my own. It won't last long. Long enough for a walk to a river and back." },
+        { id = "lp_default", text = "Crystal kelp, a steady hand and a pinch of my own. It won't last long, but it's long enough for a walk to the river and back." },
         { id = "lp_kelp", when = { questActive = TODO_QUEST("Collecting Kelp") },
           text = "Crystal kelp's a sea plant, and how the Crystal Lake murlocs come by it I can't imagine. Ask them for it, firmly." },
       },
@@ -208,7 +208,7 @@ P:NPC {
 
     gramma = {
       lines = {
-        { id = "gr_default", text = "Mildred? Since we were both young enough to run. I hadn't seen her in years before her note came, and her handwriting hasn't improved one bit." },
+        { id = "gr_default", text = "Mildred? I've known her since we were both young enough to run. I hadn't seen her in years before her note came, and her handwriting hasn't improved one bit." },
       },
       choices = {
         { text = "She says you're slow.", next = "gramma_slow" },
@@ -217,7 +217,7 @@ P:NPC {
     },
     gramma_slow = {
       lines = {
-        { id = "gs_default", text = "Slow and right, she means. She's said it for fifty years. It's the nicest thing she says to anybody." },
+        { id = "gs_default", text = "She means slow and right, and she's said it for fifty years. It's the nicest thing she says to anybody." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },

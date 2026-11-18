@@ -234,7 +234,7 @@ P:NPC {
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 1 } },
-      text = "Ha! You've been at it too, I can tell. Sit down, sit down, now there's two of us and Donaal can't call it crazy talk when it's a majority." },
+      text = "Ha! You've been at it too, I can tell. Sit down, sit down, now there's two of us, and Donaal the innkeeper can't call it crazy talk when it's a majority." },
     { id = "n_stranger", cat = "stranger", when = { ["not"] = { race = "Skyborne" } },
       text = "You came up on one of their skycutters, didn't you? Didn't you! Their skycutters run and mine sits in the yard, and nobody will tell me why." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
@@ -246,7 +246,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "<He leans heavily on the table.> I was a sailor, you know, before the trouble. The skycutters used to run between all the islands, and then one day it was too dangerous, or so they say, and I've been stuck on this rock ever since." },
-        { id = "h_donaal", text = "<He turns and bellows across the room.> WHAT ARE THEY KEEPING FROM US, DONAAL? <He turns back to you, quite calm.> He knows something; innkeepers always know something, and so did we skycutter men, back when anything still sailed." },
+        { id = "h_donaal", text = "<He turns and bellows across the room.> WHAT ARE THEY KEEPING FROM US, DONAAL? <He turns back to you, quite calm.> He knows something, that innkeeper; innkeepers always know something, and so did we skycutter men, back when anything still sailed." },
       },
       again = {
         { id = "h_again", text = "Where was I? Oh yes, being ignored. Go on, then." },
@@ -411,7 +411,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn, the only place in Valanaar where it's polite to keep the windows shut. Will you have something to drink?" },
     { id = "g_home", when = { homeInn = true }, text = "Back home to the Calmbreeze. Your bed's made, more or less." },
-    { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before the Swimmers start in on their ghost stories." },
+    { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before Swimmers starts in on his ghost stories." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business. He even tipped, which nobody on this isle does." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone was in here tonight grumbling about you over their cup, and I'd much rather they grumbled about Swimmers' ghosts, so whatever it was, I'd smooth it over." },
     { id = "g_peace", when = { origin = "skyborne_peacekeeper" }, text = "A Peacekeeper at the Calmbreeze, and off duty, I hope. Sit where Swimmers can see you, would you? He behaves a little better when there's a badge in the room." },

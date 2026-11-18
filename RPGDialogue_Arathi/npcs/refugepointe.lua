@@ -25,7 +25,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' mine, from the mountain! Good, then ye'll know a proper scout when ye see one, which is more than these humans do." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage, is it? Then ye'll be more use to Kryten than to me, but stick around, for Trelane's things need someone who knows which end o' a wand to point." },
+      text = "A mage, is it? Then ye'll be more use to Kryten, Malin's apprentice, than to me, but stick around, for Trelane's things need someone who knows which end o' a wand to point." },
   },
 
   start = "hello",
@@ -67,7 +67,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Quick an' loud, if ye're askin' me, because Kor'gresh has been throwin' ice at his own kin an' I'd as soon he didnae learn any more o' the trick. Malin would have it done quietly, but Malin's in Stormwind an' I'm here." } },
+      lines = { { id = "xapala_default", text = "Quick an' loud, if ye're askin' me, because Kor'gresh, the ogre holdin' it, has been throwin' ice at his own kin an' I'd as soon he didnae learn any more o' the trick. Malin would have it done quietly, but Malin's in Stormwind an' I'm here." } },
       choices = {
         { text = "I'll face him in the open and take it fairly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Better to catch him sleeping. Less risk to the wand.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -244,7 +244,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the raptors hunt in threes, the striders kick, and the Witherbark ride none of them, which surprised me. I'd love to know whether the trolls ever tamed anything here, so if you find a fetish shaped like a beast, I'd be terribly grateful." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, may I draw {pet}? I promise I'll be quick, and I'll get the ears right this time, because Skuerto says my last drawing of a wolf looked like a cushion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the raptors hunt in threes, the striders kick, and the Witherbark ride none of them, which surprised me. Oh, and may I draw {pet}? I'll get the ears right this time, because Skuerto says my last wolf looked like a cushion." },
       },
       choices = {
         { text = "Beasts deserve study as well as slaughter. Keep writing.", next = "BACK", fx = { align = { light = 1 } } },
@@ -268,7 +268,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Apprentice Kryten, in Archmage Malin's service. While Skuerto scouts the tower, I study what I can, and frankly the Witherbark's hex-totems are better work than anything in my primers." },
         { id = "h_gold", when = { questActive = TODO_QUEST("Worth Its Weight in Gold") },
-          text = "Tusks from any Witherbark, medicine pouches from their witch doctors, and the knife a shadow hunter carries after his rites. That last one you'll only find by fighting them, I'm afraid." },
+          text = "I need tusks from any Witherbark, medicine pouches from their witch doctors, and the knife a shadow hunter carries after his rites. That last one you'll only find by fighting them, I'm afraid." },
         { id = "h_gold_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Worth Its Weight in Gold"), days = 3 } },
           text = "I've been up all night with the pouches, and some of those herbs aren't in any book in Stormwind. Malin will be delighted, and slightly jealous." },
         { id = "h_enchant", tags = { "news" }, when = { questActive = TODO_QUEST("An Apprentice's Enchantment") },
@@ -423,7 +423,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Whatever the hunters bring in, mostly, since the supply carts barely carry enough for the soldiers. Raptor's their favourite, and they'll fight over a haunch until the feathers fly, which is a sight to see if you're standing well back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the roost, please, because my birds have decided it looks like dinner, and gryphons don't take no for an answer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whatever the hunters bring in, mostly, and raptor's their favourite. Keep {pet} off the roost, please, because my birds have decided it looks like dinner, and gryphons don't take no for an answer." },
       },
       choices = {
         { text = "Feed the soldiers first, then the birds. That's the right order.", next = "BACK", fx = { align = { order = 1 } } },
@@ -537,7 +537,7 @@ P:NPC {
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer gryphons are fine beasts, but they don't like the Highlands weather any more than mine do. I'd not trade with them, but I'd not fight them either." } },
     stromgarde = { { id = "tp_stromgarde", text = "I fly Stromgarde's dispatches south, and most of them are pleas for more soldiers. Stormwind sends sympathy, and Ironforge sends what it can." } },
     thandol_span = { { id = "tp_thandol_span", text = "The Span's down, so everything comes and goes by gryphon now. My birds are tired, and so am I." } },
-    _none = { { id = "tp_none", text = "That's for someone on the ground. Ask the Captain." } },
+    _none = { { id = "tp_none", text = "That's for someone on the ground. Ask Captain Nials." } },
   },
 }
 
@@ -597,7 +597,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You could bring in meat, for a start, since the soldiers haven't seen fresh food in weeks. Raptor's tough but it's better than hardtack, and I'll trade arrows for it, which is the best bargain anyone's offered me since Stromgarde fell." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} eats, I suppose, which is one more mouth in a camp already counting crumbs. I'll not grudge it, though, for a beast that guards the camp earns its supper." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You could bring in meat, for a start, since the soldiers haven't seen fresh food in weeks, and I'll trade arrows for it. {pet} eats too, I suppose, but I'll not grudge it, for a beast that guards the camp earns its supper." },
       },
       choices = {
         { text = "I'll share the meat with whoever's hungriest.", next = "BACK", fx = { align = { light = 1 } } },

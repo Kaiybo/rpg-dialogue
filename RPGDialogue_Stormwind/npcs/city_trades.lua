@@ -19,7 +19,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They are tidy, lovely and a little sad. The earth here is fenced and trimmed, and I suspect your spirits would find it as quiet as I do." } },
+      lines = { { id = "xdsham_default", text = "I think they hear it only faintly. The earth here is fenced and trimmed, and I suspect your spirits would find it as quiet as I do." } },
       choices = {
         { text = "Even trimmed earth deserves care and respect, Tannysa.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Tidy gardens are dead gardens. Let them grow wild.", next = "BACK", fx = { align = { order = -1 } } },
@@ -77,7 +77,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Silverleaf and peacebloom in Elwynn, briarthorn along the roads into Westfall, and mageroyal where the ground is damp. A hunter who knows them can feed and heal themselves for weeks without coming near a town." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine nose; some of the old herbalists used hounds to find truffles and roots. Train it, and it'll find you more than game." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Silverleaf and peacebloom in Elwynn, briarthorn along the roads into Westfall, and mageroyal where the ground is damp. Your {pet} has a fine nose; some of the old herbalists used hounds to find truffles and roots. Train it, and it'll find you more than game." },
       },
       choices = {
         { text = "I'll take what grows and leave the roots to grow again.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -215,7 +215,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "A dagger in the back of the thigh, on a fellow who swore he'd only slipped on the canal stairs. I bandaged him and didn't ask, because a healer who asks loses half her patients to the alleys." } },
+      lines = { { id = "xrogue_default", text = "The strangest was a dagger in the back of the thigh, on a fellow who swore he'd only slipped on the canal stairs. I bandaged him and didn't ask, because a healer who asks loses half her patients to the alleys." } },
       choices = {
         { text = "Heal first, but tell the Watch afterwards, because that's right.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You did right not to ask. A healer keeps no ledger.", next = "BACK", fx = { align = { order = -1 } } },
@@ -410,7 +410,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Good yew, seasoned at least a year, and a draw that suits your arm, not your pride. I've seen young hunters buy a bow they can barely pull because it looked mighty, and then miss everything in Elwynn." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will want you to shoot straight, since it's the one in the thick of things. Treat it well and pick a bow you can hold steady." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Good yew, seasoned at least a year, and a draw that suits your arm, not your pride. And your {pet} will want you to shoot straight, since it's the one in the thick of things. Treat it well and pick a bow you can hold steady." },
       },
       choices = {
         { text = "I'll choose the bow that suits me, not the grand one.", next = "BACK", fx = { align = { order = 1 } } },
@@ -452,7 +452,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, buying bows? Your people usually want guns. Does the yew speak to your spirits?" },
       },
       again = {
-        { id = "h_again", text = "Ask what you like; I've a moment between passengers, and the ledgers can wait." },
+        { id = "h_again", text = "Ask what you like; I've a moment between customers, and the stock can wait." },
         { id = "h_again2", text = "Go on, friend, I love a good chat." },
       },
       choices = {
@@ -472,7 +472,7 @@ P:NPC {
       },
     },
     a = {
-      lines = { { id = "a_default", text = "It's from Elwynn, mostly, from the woods past the lumber mill. Though since the Defias took to those woods, the cutters charge me twice and bring half as much." } },
+      lines = { { id = "a_default", text = "It's from Elwynn, mostly, from the woods past the lumber mill, though since the Defias took to those woods, the cutters charge me twice and bring half as much." } },
       choices = {
         { text = "Would you buy from the Defias?", next = "a2" },
         { text = "Something else.", next = "BACK" },
@@ -518,7 +518,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Lilies, mostly, for funerals, and fewer roses for courting. The city's a little sad, I think, and the flowers know it before anyone." } },
+      lines = { { id = "xdsham_default", text = "Mourners, mostly, buying lilies for funerals, and fewer sweethearts buying roses. The city's a little sad, I think, and the flowers know it before anyone." } },
       choices = {
         { text = "Then sell them gently, Felicia. People need that kindness.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Grief sells well. Raise your price on lilies.", next = "BACK", fx = { align = { light = -1 } } },
@@ -576,7 +576,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Elwynn's lupines in the spring, and wild roses along the Redridge road, and a little white starflower near Stonewatch that nobody's managed to grow in a pot. If you ever find a whole root, I'd love to try." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is smelling my lilies. Do you think it likes them? Most dogs sneeze, but this one seems very refined." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Elwynn's lupines in the spring, and wild roses along the Redridge road, and a little white starflower near Stonewatch that nobody's managed to grow in a pot. Your {pet} is smelling my lilies. Do you think it likes them?" },
       },
       choices = {
         { text = "I'll leave the wildflowers where they grow. They're happier there.", next = "BACK", fx = { align = { light = 1 } } },

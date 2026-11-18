@@ -417,7 +417,7 @@ P:NPC {
         { id = "h_nightelf", when = { race = "NightElf" },
           text = "A kaldorei, in a city of human magi, looking at a Highborne shade as if he owed you money. Ishnu-alah all the same; sit down, and let us be civil." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "You carry yourself like the old court, cousin, though the sky has thinned you. Your scholar from the bookshop has been here three times this month, and I expect she sent you." },
+          text = "You carry yourself like the old court, cousin, though the sky has thinned you. Ysa'bel, your scholar from the bookshop, has been here three times this month, and I expect she sent you." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus. You may watch me work, if you like, so long as you do not try to help; your teachers' teachers were not yet born when these words were written." },
       },
@@ -457,7 +457,7 @@ P:NPC {
 
     dead = {
       lines = {
-        { id = "de_default", text = "That is a story I keep for myself, and I have kept it longer than this city has stood. I was Highborne, I am still Highborne, and I have been dead for most of the time I've been either, and that is all you'll have from me." },
+        { id = "de_default", text = "That is a story I keep for myself, and I have kept it longer than this city has stood. I was Highborne, I am still Highborne, and I have been dead far longer than I was ever alive, and that is all you'll have from me." },
       },
       choices = {
         { text = "Does it trouble you, what the Highborne did?", next = "guilt" },
@@ -569,7 +569,7 @@ P:NPC {
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus, at last, someone who'll understand that a glamour is the hardest thing in this city to do well and the easiest to do badly. Sit, and tell me what you'd like to look like." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "Something darker, I expect, and quieter, and with fewer buckles that catch the light. Rogues are my easiest customers and my least talkative." },
+          text = "A rogue, so you'll want something darker, I expect, and quieter, with fewer buckles that catch the light. Rogues are my easiest customers and my least talkative." },
       },
       again = {
         { id = "h_again", text = "Something else? Momo is asleep on the silk, so we'll have to talk until she moves." },

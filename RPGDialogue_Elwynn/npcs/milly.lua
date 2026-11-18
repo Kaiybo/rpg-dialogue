@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They've taken weeks of it. Every grape they take is bread we don't eat. Your spirits would be welcome to help us take it back." } },
+      lines = { { id = "xdsham_default", text = "They've taken weeks of bread's worth, because every grape they take is bread we don't eat. Your spirits would be welcome to help us take it back." } },
       choices = {
         { text = "I'll help take back your vineyard, Milly. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The vineyard's lost. Plant somewhere else.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -67,7 +67,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Through the north rows, where the vines are thickest. They watch the road and not the grapes, and I've crept past them myself to see what they'd taken, though I'd not do it twice." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And bring your {pet}. If it barks, they'll think it's a stray, and they won't look twice." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Through the north rows, where the vines are thickest, because they watch the road and not the grapes. Bring your {pet} too, and if it barks, they'll think it's a stray and won't look twice." },
       },
       choices = {
         { text = "I'll go quietly and take back only your crates.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "The Defias walked in like they owned the place and now they mostly do. My harvest's sitting in their camp." },
+        { id = "h_default", text = "The Defias walked into this vineyard like they owned it, and now they mostly do, with my harvest sitting in their camp." },
         { id = "q_harvest_active", when = { questActive = TODO_QUEST("Milly's Harvest") },
           text = "Every crate you bring back is a week of bread for us. Mind the ones with the knives." },
         { id = "q_harvest_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Milly's Harvest"), days = 2 } },
@@ -103,14 +103,14 @@ P:NPC {
         { id = "q_manifest", when = { questActive = TODO_QUEST("Grape Manifest") },
           text = "Take that manifest to Brother Neals. He'll want to know exactly how much the Abbey's getting, to the last bushel." },
         { id = "o_contradict", tags = { "news" }, when = { contradiction = "defias" },
-          text = "You told the Marshal one thing about the Defias and Willem another. Word gets around a valley this small. Which is it?" },
+          text = "You told Marshal McBride one thing about the Defias and Deputy Willem another. Word gets around a valley this small. Which is it?" },
         { id = "e_dughan", tags = { "news" }, when = { heardLine = "dughan.d_common_thieves" },
           text = "Common thieves? Common thieves don't post a guard on a stolen grape crate. You tell Marshal Dughan that from me.",
           fx = { hear = "defias_trained" } },
         { id = "h_willem", when = { questRecent = { TODO_QUEST("Milly Osworth"), days = 1 } },
-          text = "Willem sent you? Bless him, he'd come himself if they didn't keep him nailed to the Abbey door, and this trouble's past him anyway." },
+          text = "Deputy Willem sent you? Bless him, he'd come himself if they didn't keep him nailed to the Abbey door, and this trouble's past him anyway." },
         { id = "h_garrick_done", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
-          text = "No more Garrick in the shack past my rows. The rest of them are still across the river, mind. But I sleep a bit better." },
+          text = "Garrick Padfoot's gone from the shack past my rows, so I sleep a bit better, though the rest of his gang are still about." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've the look of someone who knows how the Defias think, and I'll not ask why, so long as you're on my side." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -155,7 +155,7 @@ P:NPC {
     },
     happened_guards = {
       lines = {
-        { id = "hg_default", text = "Promised to see to it. Then I lay awake picturing them chasing thugs through my rows in boots. If the Defias don't take the grapes, our own lot will tread them." },
+        { id = "hg_default", text = "They promised to see to it, and then I lay awake picturing them chasing thugs through my rows in boots. If the Defias don't take the grapes, our own lot will tread them." },
       },
       choices = {
         { text = "I'll step carefully.", next = "BUSINESS", fx = { affinity = 2, trait = { cautious = 1 } } },
@@ -164,7 +164,7 @@ P:NPC {
     },
     happened_grapes = {
       lines = {
-        { id = "hgr_default", text = "The guards are paid either way, but the grapes are all I've got. We're short on guards these days, aren't we? Well, we'll not be short on grapes, if I can help it." },
+        { id = "hgr_default", text = "The guards are paid either way, but the grapes are all I've got. We may be short of guards these days, but we'll not be short of grapes if I can help it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -190,18 +190,18 @@ P:NPC {
       },
     },
     abbey_neals = {
-      lines = { { id = "an_default", text = "Up the bell tower, where he thinks nobody can see him, though everybody can. He's a dear, mind; he'll bless every bushel and drink half of one." } },
+      lines = { { id = "an_default", text = "Three times, and he does the tasting up the bell tower, where he thinks nobody can see him, though everybody can. He's a dear, mind; he'll bless every bushel and drink half of one." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     farm = {
-      lines = { { id = "f_default", text = "Then you know. They say Westfall's lost, so don't you let them say it about Northshire." } },
+      lines = { { id = "f_default", text = "Then you know what it is to lose a harvest. They say Westfall's lost to the Defias, so don't you let them say it about Northshire." } },
       choices = {
         { text = "I won't.", next = "BACK", fx = { affinity = 2, standing = { northshire = 1 } } },
         { text = "Westfall wasn't lost. It was left.", next = "farm_left" },
       },
     },
     farm_left = {
-      lines = { { id = "fl_default", text = "Left, aye, that's the word Willem won't say. Well, nobody's leaving my vines, not while I've a wagon and two good hands.",
+      lines = { { id = "fl_default", text = "Left, aye, that's the word Deputy Willem won't say. Well, nobody's leaving my vines, not while I've a wagon and two good hands.",
         fx = { learn = { "westfall" } } } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, opinion = { defias = "hardline" } } } },
     },
@@ -214,7 +214,7 @@ P:NPC {
       },
     },
     bless_root = {
-      lines = { { id = "bw_default", text = "Vines don't care who's king. Burn the top off and they come back from the root. I like to think we're the same, in Northshire." } },
+      lines = { { id = "bw_default", text = "Vines don't care who's king, and if you burn the top off they come back from the root. I like to think we're the same, in Northshire." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

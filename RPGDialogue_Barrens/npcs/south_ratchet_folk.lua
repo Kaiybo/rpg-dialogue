@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_door", text = "Close the door behind you, please. The draught carries the smell downstairs, and the goblins complain." },
     { id = "g_seek", when = { questActive = TODO_QUEST("Seeking Strahad") }, text = "Your trainer's letter reached me before you did, which is usual. Come in and let me see what they've sent me." },
     { id = "g_back", when = { metBefore = true }, text = "You came back with all your fingers, which is more than some of my students manage. Sit down." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away, and the Nether hasn't claimed you yet. Good, because I dislike starting over with a new student." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Nether hasn't claimed you yet. Good, because I dislike starting over with a new student." },
   },
 
   notice = {
@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_seek", tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Strahad") },
           text = "So your trainer sent you across the sea to a goblin port to find me. Good, because it means they think you're ready for harder work than calling imps in a cellar." },
         { id = "h_alliance_lock", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Another of Gakin's students, by the look of you, sent the long way round by boat. That tells you how welcome our art is in Stormwind, doesn't it?" },
+          text = "Another of Gakin the Darkbinder's students, by the look of you, sent from Stormwind the long way round by boat. That tells you how welcome our art is in Stormwind, doesn't it?" },
         { id = "h_horde_lock", when = { class = "WARLOCK", faction = "Horde" },
           text = "The Cleft of Shadow sends me its promising ones, because I'm a long way from the Warchief's shamans. Come in, and mind the chalk on the floor." },
         { id = "h_light", when = { class = { "PALADIN", "PRIEST" } },
@@ -177,7 +177,7 @@ P:NPC {
   nodes = {
     xalt_wiley = {
       lines = {
-        { id = "xalt_wiley_default", text = "{alt}, sure, upstairs room on the left, the one with the window that sticks, paid for two nights and slept for one. I don't ask my guests where they're headed, pal, but that one asked a lot about the boat to Booty Bay." },
+        { id = "xalt_wiley_default", text = "{alt}, sure, upstairs room on the left, the one with the window that sticks, paid for two nights and slept for one. Never started a fight with the Theramore sailors downstairs either, pal, which is all the peace I ask for in Ratchet." },
         { id = "xalt_wiley_other", when = { alt = { faction = "other" } }, text = "{alt}, the {altrace}, and the funny thing, pal, is that the same week I had half a Theramore crew in here and a table of Horde grunts, and {alt} drank between 'em like a wall nobody wanted to climb. Best night of quiet I've had all year, and it didn't cost me a single chair." },
       },
       choices = {
@@ -558,7 +558,7 @@ P:NPC {
     },
     buyers2 = {
       big = true,
-      lines = { { id = "bu2_default", text = "Digging, sweetheart, and if I had to guess, he's one of the Bael'dun lot down south, digging deep in Bael Modan where the tauren at Taurajo don't want anybody digging. What they dig up isn't my business, because I sell the powder and somebody else sells the shovels." } },
+      lines = { { id = "bu2_default", text = "Digging, sweetheart, and if I had to guess, he's one of the dwarves digging at Bael Modan down south, where the tauren at Taurajo don't want anybody digging. What they dig up isn't my business, because I sell the powder and somebody else sells the shovels." } },
       choices = {
         { text = "Maybe it should be your business. That's tauren land.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "You sell, they dig. Nobody's fault.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },

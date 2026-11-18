@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid, and I've lost money betting on the first one before." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft, and they were the last orcs with any blood left in them." },
-    { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and they won't hold you up either, when my friends come." },
+    { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and nothing will hold back my friends when they come for you." },
   },
 
   notice = {
@@ -31,7 +31,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Grark Lorkrub, and if Kargath sent you, then you've come to drag me back for Goretooth's axe. Can you not see the power we gain by joining the legion of Blackrock?" },
+          text = "Grark Lorkrub, and if Kargath sent you, then you've come to drag me back for Warlord Goretooth's axe. Can you not see the power we gain by joining the legion of Blackrock?" },
         { id = "h_bound", tags = { "news" }, when = { questActive = TODO_QUEST("Precarious Predicament") },
           text = "Do you really believe you'll make it to your rendezvous with me in custody? You broke into a fortress to take a prized asset of theirs, and you think nobody noticed?" },
         { id = "h_alliance", when = { faction = "Alliance" },

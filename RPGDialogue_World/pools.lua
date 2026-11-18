@@ -598,7 +598,7 @@ P:Pool {
     { id = "n_cl_scarlet", cat = "dungeon", when = { cleared = "Scarlet Monastery" },
       text = "You've been inside the humans' monastery and broke the zealots in their own house. The Forsaken say it was a fine day's work, and for once I agree with them." },
     { id = "n_cl_zf", cat = "dungeon", when = { cleared = "Zul'Farrak" },
-      text = "Sandscalp's dead, I hear, and the Sandfury will be choosing a new chief with fewer teeth. The Darkspear were smiling about it, which is a thing worth seeing." },
+      text = "Chief Sandscalp of Zul'Farrak is dead, I hear, and the Sandfury will be choosing a new chief with fewer teeth. The Darkspear were smiling about it, which is a thing worth seeing." },
     { id = "n_cl_brd", cat = "dungeon", when = { cleared = "Blackrock Depths" },
       text = "You went beneath the mountain and killed the Dark Iron emperor. The Dark Irons have fought the Blackrock renegades in that mountain for years, and I'd as soon see both buried, so that's half the work done." },
     { id = "n_cl_mc", cat = "dungeon", when = { cleared = "Molten Core" },

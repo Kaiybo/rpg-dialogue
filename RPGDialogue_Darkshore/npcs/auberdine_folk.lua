@@ -42,9 +42,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Hollee, of the Explorers' League, at your service, or at anyone's service who can swing a pick at a golem. I left Prospector Remtravel at the dig to the south when the ground opened up, and I've not slept properly since." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Absent Minded Prospector") },
-          text = "Follow the coast road south past the Ruins of Mathystra's turning and keep going until you see the tents. If the prospector is still alive, he'll be the one muttering at a rock and not looking at the golem behind him." },
+          text = "Follow the coast road south and keep going until you see the tents. If the prospector is still alive, he'll be the one muttering at a rock and not looking at the golem behind him." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Absent Minded Prospector") },
-          text = "Master Greywhisker will hear how you went looking for the prospector, I promise you that. I've written him three letters already, and two of them were mostly about you." },
+          text = "Master Greywhisker, who runs the League's office in Darnassus, will hear how you went looking for the prospector, I promise you that. I've written him three letters already, and two of them were mostly about you." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Another dwarf, and so far from the mountain! I'm Hollee, of the League, and I'm in a spot of trouble, so I'll skip the pleasantries if you don't mind." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -218,7 +218,7 @@ P:NPC {
       choices = {
         { text = "Why study brain stems, of all things?", next = "stems" },
         { text = "Who do you fear will go the same way?", next = "fear" },
-        { text = "You have a brother in Stormwind?", next = "argos" },
+        { text = "Have you any family nearby?", next = "argos" },
         { text = "What does the change look like, at the start?", next = "change", when = { questDone = TODO_QUEST("Researching the Corruption") } },
         { text = "Fel magic is a tool. It only twists the weak.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
@@ -262,7 +262,7 @@ P:NPC {
     },
 
     argos = {
-      lines = { { id = "ar_default", text = "Argos went to Stormwind to find help among the humans, because he says the adventurers there will go anywhere for the right word. He was always the one who talked and I was always the one who read." } },
+      lines = { { id = "ar_default", text = "My brother Argos went to Stormwind to find help among the humans, because he says the adventurers there will go anywhere for the right word. He was always the one who talked and I was always the one who read." } },
       choices = {
         { text = "Do you miss him?", next = "argos_miss" },
         { text = "Something else.", next = "BACK" },
@@ -476,7 +476,7 @@ P:NPC {
       },
     },
     fly = {
-      lines = { { id = "fl_default", text = "Caylais will happily put you on a hippogryph, and plenty of folk prefer it. But you don't see the tree rise out of the sea from a hippogryph's back the way you do from the deck, and I'd not trade that sight for any amount of saved time." } },
+      lines = { { id = "fl_default", text = "Caylais, our hippogryph keeper, will happily put you on one, and plenty of folk prefer it. But you don't see the tree rise out of the sea from a hippogryph's back the way you do from the deck, and I'd not trade that sight for any amount of saved time." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     self = {

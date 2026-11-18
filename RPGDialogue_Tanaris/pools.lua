@@ -5,7 +5,7 @@ P:Pool {
   id = "guard_gadgetzan", role = "guard", community = "gadgetzan",
   barks = {
     { id = "b_heat", text = "Hot enough to cook an egg on my helmet, pal. Don't ask how I know, and don't ask why the helmet still smells of it, because the Cartel won't pay for a new one." },
-    { id = "b_water", text = "Water tower's humming, which is good, because when it stops humming everybody in town gets grumpy, and Marin starts docking our pay by the cup." },
+    { id = "b_water", text = "Water tower's humming, which is good, because when it stops humming everybody in town gets grumpy, and Marin Noggenfogger, the boss, starts docking our pay by the cup." },
   },
   greetings = {
     { id = "g_town", text = "This is Gadgetzan, friend: neutral ground, Cartel rules, and Cartel prices. You start a fight here and we finish it, usually on top of you, and then we bill you for the dent." },
@@ -184,6 +184,6 @@ P:Pool {
   },
   topics = {
     steamwheedle = { { id = "t_cartel", text = "Gadgetzan's the Cartel's town, pal. Booty Bay's a nice port, but this is the big chair, and the big chair has the big ledger." } },
-    _none = { { id = "t_none", text = "Ask at the Road Warrior, buddy. Fizzgrimble talks to everyone, about everything, for the price of a drink." } },
+    _none = { { id = "t_none", text = "Ask at the Road Warrior, buddy. Innkeeper Fizzgrimble talks to everyone, about everything, for the price of a drink." } },
   },
 }

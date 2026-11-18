@@ -633,7 +633,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because nothing in the glade is prey while the Keeper watches it, and the deer here have never learned to fear an arrow. Hunting them would be like robbing a sleeping man, and the Keeper would know, and so, eventually, would I." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'll note {pet} in the ledger as well, if you don't mind. The Keeper likes to know who has been in his glade, beasts included." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because nothing in the glade is prey while the Keeper watches it, and {pet} must learn that too. I'll note it in the ledger as well, since the Keeper likes to know who has been in his glade, beasts included." },
       },
       choices = {
         { text = "Then I'll hunt nothing here. Anything else would be dishonourable.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -702,7 +702,7 @@ P:NPC {
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
           text = "Another of your people, and the ledger says {alt} came before you, a {altclass}, quiet, polite and no trouble at all. I don't believe in chance, so I'll assume you'll be the same." },
         { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
-          text = "The Keeper says you don't believe the glade's peace could ever travel. A little advice from the den mother: keep that thought outside the village." },
+          text = "The Keeper says you don't believe the glade's peace could ever travel. A little advice from his majordomo: keep that thought outside the village." },
         { id = "h_pt_rabine", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, all at once, in the Keeper's own glade. Keep your voices low and your weapons sheathed, because Moonglade has been at peace since long before any of your kingdoms were born." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
@@ -774,10 +774,10 @@ P:NPC {
     chance = {
       big = true,
       lines = {
-        { id = "c_default", text = "I've lived long enough to see the same patterns come round twice. When something seems like chance, it's usually a thread we haven't followed yet." },
+        { id = "c_default", text = "I've lived long enough to see the same patterns come round twice. When something seems like chance, it's usually a thread we haven't followed yet, and I'm following one now." },
       },
       choices = {
-        { text = "Then I'll follow it.", next = "eldre", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "What thread are you following?", next = "eldre", fx = { affinity = 2, trait = { curious = 1 } } },
         { text = "Sometimes chance is just chance.", next = "just" },
       },
     },
@@ -790,7 +790,7 @@ P:NPC {
     },
     eldre = {
       lines = {
-        { id = "e_default", text = "Dire Maul, as most folk call it now, though I know it by its true name of Eldre'Thalas. It was a bastion of our magic long ago, and our agents have found something there that should have died in the War of the Ancients." },
+        { id = "e_default", text = "One that leads to Eldre'Thalas, the ruin most folk call Dire Maul now. It was a bastion of our magic long ago, and our agents have found something there that should have died in the War of the Ancients." },
       },
       choices = {
         { text = "What should have died?", next = "milli" },
@@ -930,7 +930,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The bear's, certainly, since it's mostly about patience and watching, and hunters watch for a living. The lake's trial would be harder, because hunters like to keep their feet dry, and the lake prefers students who don't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is very well behaved, unlike the druid in bear form who knocked over my reading table this morning." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The bear's, certainly, since it's mostly patience and watching, and {pet} would sit through it better than the druid in bear form who knocked over my reading table this morning." },
       },
       choices = {
         { text = "The trials belong to your students. I'll leave them be.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1167,7 +1167,7 @@ P:NPC {
     { id = "g_druid", when = { class = "DRUID" }, text = "{g:Brother|Sister}, come in. If you're ready to learn, then I'm ready to teach." },
     { id = "g_initiate", when = { origin = "nightelf_druid_initiate" }, text = "Peace, initiate. You still move like someone half in the Dream, careful of a world that might change while you blink, and that's no bad thing, but sit, because Moonglade at least will stay put while you learn it." },
     { id = "g_away", when = { away = 14 }, text = "Peace, friend, and welcome back after {away}. I hope you found a little stillness on the road, because I suspect you needed it." },
-    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you frightened someone in the village, and fear is a storm that leaves the one who raised it shaking too, if you notice, so sit a while and see whether it's true." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you frightened someone in the village. Fear is a storm that leaves the one who raised it shaking too, so sit a while and see whether that's true of you." },
   },
 
   notice = {
@@ -1224,7 +1224,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than either will admit, because both of us listen to the wild and take only what it gives. The difference is that a druid becomes the beast and a hunter walks beside it, and I've never been sure which is harder." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks very settled here. Beasts always do in Moonglade, as if they know how close the grove sits to the Dream." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than either will admit, and {pet} seems to know it, the way it settles here. Beasts always do in Moonglade, as if they know how close the grove sits to the Dream." },
       },
       choices = {
         { text = "A hunter keeps the beast and the wild in balance. That's the way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1386,7 +1386,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It knows what all beasts know, little one, that the wild was here before the hunter and will be here after. A hunter who forgets that hunts poorly, and a hunter who remembers it hunts as the bear does, slowly and only for need." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} sits easy before me, as few mortals do. It does not hurry, little one, so learn from it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} knows me, as all beasts remember the old spirits, and it sits easy before me as few mortals do. It does not hurry, little one, so learn from it." },
       },
       choices = {
         { text = "Then I'll hunt only for need, as the bear does.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1711,7 +1711,7 @@ P:NPC {
     },
     exception = {
       lines = {
-        { id = "e_default", text = "I could ask, and she'd bite me, and then she'd bite you. The answer's no, but it's a kind no, and the walk is lovely if you don't mind furbolgs." },
+        { id = "e_default", text = "I could ask the old one, and she'd bite me, and then she'd bite you. The answer's no, but it's a kind no, and the walk is lovely if you don't mind furbolgs." },
       },
       choices = { { text = "Something else, then.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -1800,7 +1800,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "As much as I do, I think, because Moonglade is beautiful, but it's still, and wind riders are made for the open sky over Mulgore. I take them for a long flight over the lake when the druids aren't looking, and they come back happier." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it misses home too, wherever home was. The Earth Mother watch over it, friend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "As much as I do, I think, and {pet} looks like it misses home too, wherever home was. The Earth Mother watch over it, friend." },
       },
       choices = {
         { text = "Every beast deserves the open sky it was born to.", next = "BACK", fx = { align = { light = 1 } } },

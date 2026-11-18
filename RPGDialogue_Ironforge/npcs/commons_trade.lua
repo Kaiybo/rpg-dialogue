@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bear pelts from the high snows an' boar hide from Loch Modan, for every leatherworker in Ironforge wants them an' none o' them want tae go out an' get them. A hunter who knows the market can do very well, if he doesnae flood it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep yer {pet} off the counter, mind, for the last one ate a buyer's gloves an' I'm still hearin' about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bear pelts from the high snows an' boar hide from Loch Modan, for every leatherworker in Ironforge wants them. Keep yer {pet} off the counter, mind, for the last one ate a buyer's gloves an' I'm still hearin' about it." },
       },
       choices = {
         { text = "I'll sell what I take, and no more than I need.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -77,7 +77,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the Stonemantles very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." } },
+      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." } },
       choices = {
         { text = "Fair rules. I'll keep my darker goods out of your house.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then the best things will sell somewhere else, at a better price.", next = "BACK", fx = { align = { light = -1 } } },
@@ -300,7 +300,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and I hear people whisper about them in the Commons, which seems unkind to a refugee." } },
       choices = {
-        { text = "Whispers are earned. I'll show the Commons we can be trusted.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll earn their trust. Let the Commons see it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Let them whisper. I'd rather be feared than pitied.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -432,9 +432,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I tallied water rates in Gnomeregan, and now I tally bids in Ironforge, which is much the same except nobody drowns if I get it wrong." } },
     advice = { { id = "tp_ad", text = "Write everything down, and then write down where you wrote it, and then cross-reference both, because a figure you can't find is the same as a figure you never had." } },
     _none = { { id = "tp_none", text = "That doesn't add up to anything I know about, I'm afraid, and I've checked the sum twice. Ask Redmuse; she's been here longer." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan runs the only market that'll sell tae both sides, an' it charges both sides for the privilege. I've been tryin' tae work out their commission for a year, an' I'm afraid it's simply 'yes'." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's prices change wi' the tide an' the mood o' the Baron. I keep a column for it in my book an' it's mostly question marks." } },
-    everlook = { { id = "tp_everlook", text = "A goblin market in the snow sellin' furs an' frostsaber pelts, an' at prices that'd make a miner weep. I've written tae ask how they ship, an' they've written back askin' what I'd pay tae know." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan runs the only market that sells to both sides, and it charges both sides for the privilege. I've been trying to work out their commission for a year, and I'm afraid it's simply 'yes'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's prices change with the tide and the mood of the Baron. I keep a column for them in my book, and it's mostly question marks." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a goblin market in the snow, selling furs and frostsaber pelts at prices that would make a miner weep. I wrote to ask how they ship, and they wrote back asking what I'd pay to know." } },
   },
 }
 
@@ -493,7 +493,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, an' arrows too, for the elves an' the humans who come through, though the dwarves buy the shot by the sackful. Ye'd no' believe how many hunters leave Ironforge wi' a fine rifle an' nothin' tae put in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a wee bit o' meat for yer {pet}, if ye like, for a hungry beast is a cranky beast, same as a hungry dwarf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, an' arrows too, though the dwarves buy the shot by the sackful. An' a wee bit o' meat for yer {pet}, if ye like, for a hungry beast is a cranky beast, same as a hungry dwarf." },
       },
       choices = {
         { text = "I'll buy enough for me and leave some for others.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -598,7 +598,7 @@ P:NPC {
     },
     carry_sword = {
       lines = {
-        { id = "cs_default", text = "Ye can run from a wolf, love, but ye cannae run from the snow. I've buried more adventurers' boots than adventurers, an' that's because the ones who came back left their toes in Chill Breeze Valley." },
+        { id = "cs_default", text = "Ye can run from a wolf, love, but ye cannae run from the snow. Half the adventurers who come back from Chill Breeze Valley wi'out a fire leave a few toes behind them." },
       },
       choices = {
         { text = "I'll take a fire over a sword, then.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
@@ -706,7 +706,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Small ones, mostly, for hunters like their own company an' their beasts' better than anyone else's. I wrote one last month called the Riflemen o' the High Snows, an' every one o' them brought a ram tae the signin'." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ye'd want yer {pet} on the crest, I'd wager, an' Lyesa would stitch it well enough tae fool its own mother." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Small ones, mostly, for hunters like their own company an' their beasts' better than anyone else's. Ye'd want yer {pet} on the crest, I'd wager, an' Lyesa would stitch it well enough tae fool its own mother." },
       },
       choices = {
         { text = "A guild makes a hunter stronger, beasts and all.", next = "BACK", fx = { align = { order = 1 } } },
@@ -865,7 +865,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Lookin' for a tabard? I've the guild's colors here, if yer guild's registered wi' Jondor." },
+    { id = "g_default", text = "Lookin' for a tabard? I've the guild's colors here, if yer guild's registered wi' Jondor at the next counter." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. Has yer guild settled on its colors yet, or are they still arguin'?" },
   },
 
@@ -907,7 +907,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Browns an' greys for the hills, white for the high snows, an' green if ye're bound for the Wetlands, though the mud'll make it brown soon enough. I made one for a dwarf hunter once wi' her ram stitched on the front, an' she cried when she saw it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I could put yer {pet} on a crest, if ye'd like, for I've stitched bears an' wolves an' one very difficult owl." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Browns an' greys for the hills, white for the high snows, an' green if ye're bound for the Wetlands. An' I could put yer {pet} on a crest, if ye'd like, for I've stitched bears an' wolves an' one very difficult owl." },
       },
       choices = {
         { text = "Put my beast on it, not my kills.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1099,7 +1099,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, an' the ones who cure them first are welcome. I once had a bear hide in here that smelled so badly the whole row had tae be aired out, an' the Stonemantles have long memories." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' no beasts past the counter, if ye please, though yer {pet} looks better behaved than most o' my customers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, an' the ones who cure them first are welcome, for the Stonemantles have long memories about smells. No beasts past the counter, if ye please, though yer {pet} looks better behaved than most o' my customers." },
       },
       choices = {
         { text = "I'll cure every hide before it comes near your vault.", next = "BACK", fx = { align = { order = 1 } } },

@@ -103,7 +103,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "East toward the Valley o' Kings, where the troggs come up out o' the earth in the night, an' south by the Silver Stream where the kobolds dig. The bounty board's got a job for every one o' them, so ye'll never stand idle." } },
+      lines = { { id = "xwarcl_default", text = "East toward the Valley o' Kings, where the troggs come up out o' the earth in the night, an' north by the Silver Stream where the kobolds dig. The bounty board's got a job for every one o' them, so ye'll never stand idle." } },
       choices = {
         { text = "I'll work through the bounty board, one job at a time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll go where the fighting's thickest and forget the board.", next = "BACK", fx = { align = { order = -1 } } },
@@ -177,17 +177,17 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
           text = "I hear ye went down intae Uldaman an' came out the far end. The troggs in my hills are the same breed as the ones in there, so ye've my thanks, an' the thanks o' every farmer on the loch." },
         { id = "h_default", key = true,
-          text = "Mountaineer Kadrell, an' I watch the road through Thelsamar for the King. There's troggs in the hills, a Dark Iron spy somewhere about an' kobolds in the foothills, so it's never dull." },
+          text = "I'm Mountaineer Kadrell, an' I watch the road through Thelsamar for the King. There's troggs in the hills, a Dark Iron spy somewhere about an' kobolds in the foothills, so it's never dull." },
         { id = "h_stout", tags = { "news" }, when = { questActive = TODO_QUEST("Stout to Kadrell") },
           text = "Stout, from Ironforge! Ye've brought me a taste o' home, an' I'll no' forget it." },
         { id = "h_rats", when = { questActive = TODO_QUEST("Rat Catching") },
-          text = "Tunnel rats, we call 'em: kobolds, west o' town along the hills, diggin' dens an' foulin' good land. Bring me their ears an' earn the bounty." },
+          text = "We call the kobolds tunnel rats, an' they're west o' town along the hills, diggin' dens an' foulin' good land. Bring me their ears an' earn the bounty." },
         { id = "h_stormpike", when = { questActive = TODO_QUEST("Mountaineer Stormpike's Task") },
           text = "Mountaineer Stormpike's got a job wants doin'. He's a good dwarf, grumpy but good." },
         { id = "h_stonegear", when = { questActive = TODO_QUEST("Stonegear's Search") },
-          text = "Stonegear's on a search o' his own. Help him find what he's after, an' mind the hills while ye do." },
+          text = "Pilot Stonegear's on a search o' his own. Help him find what he's after, an' mind the hills while ye do." },
         { id = "h_rockgar", when = { questActive = TODO_QUEST("Report to Mountaineer Rockgar") },
-          text = "Rockgar's at Dun Algaz, up the north road past the tower. Take dry socks, for the Wetlands will have the rest o' ye." },
+          text = "Mountaineer Rockgar's at Algaz Station, up the north road past the tower. Take dry socks, for the Wetlands will have the rest o' ye." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Well, look who it is! Thelsamar's favourite visitor, an' I'll hear no argument about it. Come here, come here!" },
         { id = "h_cold", when = { disposition = { max = 34 } },
@@ -249,7 +249,7 @@ P:NPC {
     spy = {
       big = true,
       lines = {
-        { id = "s_default", text = "A Dark Iron, poking about the town an' the dam. There's a poster out by the League, so if ye see a dwarf who looks a wee bit too sooty, give us a shout." },
+        { id = "s_default", text = "He's a Dark Iron, poking about the town an' the dam. There's a poster out by the League, so if ye see a dwarf who looks a wee bit too sooty, give us a shout." },
       },
       choices = {
         { text = "The dam seems a strange thing for a spy to want.", next = "spy_dam" },
@@ -258,12 +258,12 @@ P:NPC {
     },
     spy_dam = {
       lines = {
-        { id = "sd_default", text = "If it went, the loch would go wi' it, west intae the Wetlands. Hinderweir's on the dam day an' night, so ask him, if ye've an hour an' strong nerves." },
+        { id = "sd_default", text = "If it went, the loch would go wi' it, west intae the Wetlands. Chief Engineer Hinderweir's on the dam day an' night, so ask him, if ye've an hour an' strong nerves." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
     loch = {
-      lines = { { id = "l_default", text = "Beautiful, an' full o' trouble, like most things worth havin'. Ye should see it at dawn from the dam." } },
+      lines = { { id = "l_default", text = "It's beautiful, an' full o' trouble, like most things worth havin'. Ye should see it at dawn from the dam." } },
       choices = {
         { text = "That loch must hide a few things beneath the water.", next = "loch_what" },
         { text = "I'll go and see it.", next = "BACK", fx = { affinity = 1 } },
@@ -271,7 +271,7 @@ P:NPC {
     },
     loch_what = {
       lines = {
-        { id = "lw_default", text = "Crocolisks an' threshers, an' the Second War, for there's broken catapults on the bottom if ye dive. The orcs held this valley once, though no' for long." },
+        { id = "lw_default", text = "There's crocolisks an' threshers, an' bits o' the Second War, for there's broken catapults on the bottom if ye dive. The orcs held this valley once, though no' for long." },
       },
       choices = {
         { text = "What do you think should have been done with the orcs?", next = "opn_orcs" },
@@ -295,7 +295,7 @@ P:NPC {
     },
     stout = {
       lines = {
-        { id = "st_default", text = "Shimmer Stout! Barleybrew's brother brews it, an' by Magni's beard, I felt like I could fly. I couldnae, mind; I checked." },
+        { id = "st_default", text = "Shimmer Stout, from Dun Morogh! By Magni's beard, I felt like I could fly. I couldnae, mind; I checked." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -334,9 +334,9 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I'm a Mountaineer o' Ironforge, posted tae Thelsamar. It's the best post in Khaz Modan, an' I'll argue wi' anyone who says otherwise." } },
     advice = { { id = "tp_ad", text = "Read the poster, then read faces. A Dark Iron can wash his beard, but no' the soot under his nails.", next = "spy" } },
-    dark_iron = { { id = "tp_dark_iron", text = "Sneakin' about where they've no business. I'd like tae know what they want wi' a dam." } },
-    troggs = { { id = "tp_troggs", text = "Stonesplinter, out o' the hills. Captain Rugelfuss counts 'em down in the Valley o' Kings, an' he's run out o' fingers." } },
-    stonewrought_dam = { { id = "tp_dam", text = "It's holdin', though Hinderweir would tell ye otherwise every mornin'.", next = "spy_dam" } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are sneakin' about where they've no business. I'd like tae know what they want wi' a dam." } },
+    troggs = { { id = "tp_troggs", text = "They're Stonesplinter troggs, out o' the hills. Captain Rugelfuss counts 'em down in the Valley o' Kings, an' he's run out o' fingers." } },
+    stonewrought_dam = { { id = "tp_dam", text = "The dam's holdin', though Chief Engineer Hinderweir would tell ye otherwise every mornin'.", next = "spy_dam" } },
     _none = { { id = "tp_none", text = "Couldnae say. Ask at the inn, for they hear everythin'." } },
     magni = { { id = "tp_magni", text = "King Magni's Mountaineers hold Loch Modan for him, an' I'm proud tae be one. He sends word tae Thelsamar now an' then, an' we all stand a bit straighter for a week." } },
     wildhammer = { { id = "tp_wildhammer", text = "Wildhammer riders come down tae the Stoutlager now an' then, loud as a storm an' twice as thirsty. I like them, whatever the old folk say." } },
@@ -400,7 +400,7 @@ P:NPC {
     },
     opn_dig = {
       lines = {
-        { id = "opn_dig_q", text = "Magellas would have my beard for askin', but I've asked it myself at three in the mornin' wi' the troggs howlin' in the trench. Ye've seen the dig an' ye've seen what came up out of it. What would ye do in my boots?" },
+        { id = "opn_dig_q", text = "High Explorer Magellas would have my beard for askin', but I've asked it myself at three in the mornin' wi' the troggs howlin' in the trench. Ye've seen the dig an' ye've seen what came up out of it. What would ye do in my boots?" },
       },
       choices = {
         { text = "Keep digging. The past is worth the risk.", next = "opn_dig_r_admire", fx = { affinity = 1, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
@@ -436,7 +436,7 @@ P:NPC {
     },
     opn_dig_r_useful = {
       lines = {
-        { id = "opn_dig_r_useful", text = "A garrison! I've asked for one twice, an' Rugelfuss sends me his regrets an' a Mountaineer wi' a cold. Still, ye're right, an' I'll ask again." },
+        { id = "opn_dig_r_useful", text = "A garrison! I've asked for one twice, an' Captain Rugelfuss sends me his regrets an' a Mountaineer wi' a cold. Still, ye're right, an' I'll ask again." },
       },
       choices = {
         { text = "Something else, Prospector.", next = "BACK" },
@@ -511,10 +511,10 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Agmond, my best surveyor, caught alone in the hills by the troggs. We buried him by the dig, but no' properly, for there was no priest, an' it's sat on me ever since." } },
+      lines = { { id = "xapriest_default", text = "Agmond, my best surveyor, went out tae the Badlands sites an' the troggs caught him alone, I fear. If he's gone, he's had no priest tae say the words over him, an' that's sat on me ever since." } },
       choices = {
         { text = "Then I'll say the rites over him properly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He's buried, Prospector. The dig is his memorial now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He's gone, Prospector. The dig is his memorial now.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Prospector.", next = "BACK" },
       },
     },
@@ -547,13 +547,13 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
           text = "They say ye went right down intae Uldaman, past all the stone keepers. My idols an' Agmond's urns all point that way, so I'd dearly like tae hear what ye saw." },
         { id = "h_default", key = true,
-          text = "Darteus Ironband, Explorers' League, an' this is my dig. It's slow work, an' I'll no' pretend otherwise, but it'll pick up, an' when it does ye'll hear about it in Ironforge." },
+          text = "I'm Darteus Ironband o' the Explorers' League, an' this is my dig. It's slow work, an' I'll no' pretend otherwise, but it'll pick up, an' when it does ye'll hear about it in Ironforge." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Excavation Progress Report") },
           text = "A report for the League. Tell 'em it's slow but steady, that we need more hands, an' that the troggs are a nuisance, though they'll know the last bit already." },
         { id = "h_shipment", when = { questActive = TODO_QUEST("Protecting the Shipment") },
           text = "There's a shipment comin' up the road, an' the hills are crawlin'. See it gets here in one piece, for I'm countin' on it." },
         { id = "h_stormpike", when = { heardLine = "stormpike_p.h_default" },
-          text = "Ye've met Stormpike in the Hall? He's curt, an' he's always been curt, but he reads every word o' my reports." },
+          text = "Ye've met Prospector Stormpike in the Hall o' Explorers? He's curt, an' he's always been curt, but he reads every word o' my reports." },
         { id = "h_powder_in", tags = { "news" }, when = { questRecent = { TODO_QUEST("Protecting the Shipment"), days = 5 } },
           text = "Powder, at last! We're on top o' somethin' grand here, I can feel it. As for Saean, well, that's a matter for another day." },
         { id = "h_agmond", when = { questDone = TODO_QUEST("Agmond's Fate") },
@@ -578,7 +578,7 @@ P:NPC {
         { text = "What are you digging for?", next = "dig" },
         { text = "The dig seems to be going slowly.", next = "slow" },
         { text = "Does anything go missing from your dig?", next = "powder" },
-        { text = "Stormpike sent me. You need legwork?", next = "agmond", when = { questActive = TODO_QUEST("Ironband Wants You!") } },
+        { text = "Prospector Stormpike sent me. You need legwork?", next = "agmond", when = { questActive = TODO_QUEST("Ironband Wants You!") } },
         { text = "The stone at your dig is restless, Ironband.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Your dig could use a gnome's touch.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Those idols carry an enchantment. I can feel it from here.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -615,7 +615,7 @@ P:NPC {
     dig = {
       big = true,
       lines = {
-        { id = "d_default", text = "The past, our past: what the old dwarves left in these hills before Ironforge was a single hall. Every shard's a page o' a book nobody's read." },
+        { id = "d_default", text = "We're diggin' for the past, our past, what the old dwarves left in these hills before Ironforge was a single hall. Every shard's a page o' a book nobody's read." },
       },
       choices = {
         { text = "You must have found something by now.", next = "idols" },
@@ -625,7 +625,7 @@ P:NPC {
     idols = {
       big = true,
       lines = {
-        { id = "id_default", text = "Carved idols, a whole cache of 'em. Right after we lifted 'em, the troggs came up through the floor, an' the idols send 'em berserk, so I cannae call that coincidence." },
+        { id = "id_default", text = "We found carved idols, a whole cache of 'em. Right after we lifted 'em, the troggs came up through the floor, an' the idols send 'em berserk, so I cannae call that coincidence." },
       },
       choices = {
         { text = "Did your dig wake them?", next = "idols_wake" },
@@ -645,7 +645,7 @@ P:NPC {
     },
     slow = {
       lines = {
-        { id = "sl_default", text = "Troggs in the trench, an' my blastpowder goes missin' between Thelsamar an' here. Jern sends it an' I never see it, so somebody does." },
+        { id = "sl_default", text = "There's troggs in the trench, an' my blastpowder goes missin' between Thelsamar an' here. Jern sends it an' I never see it, so somebody does." },
       },
       choices = {
         { text = "Who's Jern?", next = "slow_jern" },
@@ -662,7 +662,7 @@ P:NPC {
       lines = {
         { id = "pw_default", text = "Ask the road. Every shipment gets lighter between town an' trench, an' I'm a digger, no' a guard." },
         { id = "pw_saean", when = { questDone = TODO_QUEST("Protecting the Shipment") },
-          text = "A porter called Saean. Near a year he hauled for us, an' all that time he was sellin' us tae the Dark Irons, an' I keep turnin' it over." },
+          text = "It was a porter called Saean. Near a year he hauled for us, an' all that time he was sellin' us tae the Dark Irons, an' I keep turnin' it over." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
@@ -700,10 +700,10 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "A digger hears a lot down a trench, an' most o' it's troggs, but no' all. Ask me about any o' this." },
     },
-    background = { { id = "tp_bg", text = "Darteus Ironband, prospector. I value results, an' I've had few lately, so I'm valuin' them very hard." } },
+    background = { { id = "tp_bg", text = "I'm Darteus Ironband, prospector. I value results, an' I've had few lately, so I'm valuin' them very hard." } },
     advice = { { id = "tp_ad", text = "When the ground goes quiet, listen harder, for that's when the troggs are diggin'." } },
-    explorers_league = { { id = "tp_league", text = "The finest lot o' diggers, scholars an' madmen in the world. I'm in the middle category." } },
-    dark_iron = { { id = "tp_dark_iron", text = "They're diggin' too, down south in Uldaman. I'd dearly like tae know what they're after." } },
+    explorers_league = { { id = "tp_league", text = "The League's the finest lot o' diggers, scholars an' madmen in the world. I'm in the middle category." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are diggin' too, down south in Uldaman. I'd dearly like tae know what they're after." } },
     troggs = { { id = "tp_troggs", text = "They're big an' mean, an' they go berserk near our idols. I'd like tae know why before they do.", next = "idols" } },
     uldaman = { { id = "tp_uldaman", text = "That's the big dig, down south. If my idols stir troggs, I shudder tae think what Uldaman stirs." } },
     _none = { { id = "tp_none", text = "That's no' my field. My field's six feet down." } },
@@ -769,7 +769,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Vidra does, an' she's particular about it, for she'll take fresh boar from the hills an' turn her nose up at anythin' that's been dead too long. Bring her good meat an' she'll speak kindly o' ye, which is rarer than ye'd think." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep yer {pet} out o' the kitchen, friend, for Vidra's chased off bigger beasts wi' a ladle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Vidra does, an' she's particular about it, for she'll take fresh boar from the hills an' turn her nose up at anythin' that's been dead too long. An' keep yer {pet} out o' the kitchen, friend, for Vidra's chased off bigger beasts wi' a ladle." },
       },
       choices = {
         { text = "I'll bring her the freshest boar in the hills.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -830,7 +830,7 @@ P:NPC {
           text = "Ye've the same thirst on ye as {alt}, a {altclass} who drank my Stoutlager an' didnae complain once, which is rarer than ye'd think in Thelsamar. Sit, an' let's see if ye've the same good manners." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
           text = "{alt} was in again the other night, singin' about the dam wi' the miners like a local. If ye're kin, tell that one they've a voice like a rockslide, an' I mean it fondly." },
-        { id = "h_default", text = "Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
+        { id = "h_default", text = "I'm Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
         { id = "h_brawl", when = { metBefore = true }, text = "Two miners fought over the last stool last night an' broke it, so now neither of 'em has a stool. There's a lesson in that somewhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, an' the miners are singin' about the dam again. Every verse is the same verse, only louder." },
         { id = "h_brewer", when = { origin = "dwarf_brewer" },
@@ -894,7 +894,7 @@ P:NPC {
     },
     vidra_ref = {
       lines = {
-        { id = "vr_default", text = "She runs the kitchen. Don't go in, an' don't ask what's in the sausage, but do eat it." },
+        { id = "vr_default", text = "Vidra runs my kitchen. Don't go in, an' don't ask what's in the sausage, but do eat it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -923,7 +923,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the Stoutlager, an' before that I drank in it. It was a short step." } },
     advice = { { id = "tp_ad", text = "Sit wi' yer back tae the wall an' yer face tae the fire, an' ye'll see everyone an' stay warm besides." } },
-    stonewrought_dam = { { id = "tp_dam", text = "Ask the miners, for they've a song about it. Just don't ask them tae sing it.", next = "song" } },
+    stonewrought_dam = { { id = "tp_dam", text = "Ask the miners, for they've a song about the dam. Just don't ask them tae sing it.", next = "song" } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Buy a round an' ask the whole inn; ye'll get six answers." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've heard the Darkmoon Faire's ale is weak, an' I've told everyone who'll listen. Nobody's come from the Faire tae argue, so I must be right." } },
     wildhammer = { { id = "tp_wildhammer", text = "Wildhammer riders drink here when they pass through, an' they drink as if the barrels had insulted them. I keep the tab honest, which is more than they do." } },
@@ -945,7 +945,7 @@ P:NPC {
 
   greetings = {
     { id = "g_kitchen", text = "Out o' my kitchen, unless ye've brought me somethin' tae cook." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' ye come back tae my kitchen empty-handed, I'll wager. Well, sit, since ye're here." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye come back tae my kitchen empty-handed, I'll wager. Well, sit, since ye're here." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear ye've been bein' pleasant tae folk in town. Pleasant's all very well, but have ye brought me anythin' tae cook?" },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk say ye've been helpin' about Thelsamar. Good, then ye'll no' mind helpin' me in the kitchen next." },
   },
@@ -1000,7 +1000,7 @@ P:NPC {
       choices = {
         { text = "I'll bring every bit of it, and skim none.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll bring it, and maybe a cask from the cellar too.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What's the ichor for?", next = "what_ichor" },
+        { text = "What's in your sausages, anyway?", next = "what" },
       },
     },
     xmage = {
@@ -1242,7 +1242,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Do that and I'll owe you a debt, for every new tunnel we find is one less surprise in the night. Watch the bears on the high ground as you go, mind, for they're hungrier than the troggs and twice as quick." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will smell them before you see them, which is more than my sentries manage." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do that and I'll owe you a debt, for every new tunnel we find is one less surprise in the night. Your {pet} will smell them before you see them, which is more than my sentries manage." },
       },
       choices = {
         { text = "I'll scout and report back before I strike.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1298,7 +1298,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge and King Magni. The troggs rise from under the hills faster than we can put them down, like water through a cracked seam." },
+        { id = "h_default", text = "I'm Captain Rugelfuss, holding the Valley of Kings for Ironforge and King Magni. The troggs rise from under the hills faster than we can put them down, like water through a cracked seam." },
         { id = "h_trogg", tags = { "news" }, when = { questActive = TODO_QUEST("The Trogg Threat") },
           text = "The troggs have dug in close. Thin them out and bring me proof, for I want the King to read numbers, not complaints." },
         { id = "h_lands", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
@@ -1327,11 +1327,11 @@ P:NPC {
         { text = "Your soldiers seem thin on the ground, Captain.", next = "reserve" },
         { text = "Who leads the troggs?", next = "leader" },
         { text = "Tell me about the statues.", next = "statues" },
-        { text = "Why trogg teeth?", next = "teeth" },
+        { text = "What proof do you want of the troggs?", next = "teeth" },
         { text = "I stood the high passes too, Captain.", next = "mountaineer", when = { origin = "dwarf_mountaineer" } },
         { text = "How do you hold the Valley against so many troggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Shall I track the troggs back to their holes, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll help defend the King's lands.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Put me on your line, Captain.", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I can get behind the trogg lines for you, Captain.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Troggs fear fire. My demons could help hold the Valley.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -1380,7 +1380,7 @@ P:NPC {
     },
     statues = {
       lines = {
-        { id = "su_default", text = "Madoran Bronzebeard and Khardros Wildhammer, raised by their sons. They watch the pass south, where the land still burns. A warning to the Dark Iron." },
+        { id = "su_default", text = "Those are Madoran Bronzebeard and Khardros Wildhammer, raised by their sons to watch the pass south, where the land still burns. They stand as a warning to the Dark Iron." },
       },
       choices = {
         { text = "The Wildhammer left Ironforge. What do you make of them?", next = "opn_wildhammer" },
@@ -1390,13 +1390,13 @@ P:NPC {
     },
     statues2 = {
       lines = {
-        { id = "s2_default", text = "They came for the dam, didn't they? So no, they don't, but the statues don't mind, for they're patient, and I try to be." },
+        { id = "s2_default", text = "A Dark Iron spy came sniffing round the dam this season, didn't he? So no, they don't, but the statues don't mind, for they're patient, and I try to be." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
     teeth = {
       lines = {
-        { id = "te_default", text = "They're proof. Eight teeth is eight troggs, while eight complaints is a captain who ought to be replaced." },
+        { id = "te_default", text = "Their teeth, for proof. Eight teeth is eight troggs, while eight complaints is a captain who ought to be replaced." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1440,7 +1440,7 @@ P:NPC {
       choices = {
         { text = "I'll hold where you put me, Captain.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "I'll go where the troggs are thickest.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
-        { text = "Where do they come from?", next = "leader" },
+        { text = "Who leads them?", next = "leader" },
       },
     },
   },
@@ -1451,7 +1451,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I'm the King's captain in the Valley of Kings. My history is the regiment's history, an' the regiment keeps a book, bound in ram's hide and older than my beard." } },
     advice = { { id = "tp_ad", text = "Bring proof, always. Nobody argues with a sack of teeth." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "The same troggs, or their cousins. They came up under the gnomes, and now they're coming up under us." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The troggs here are the same as Gnomeregan's, or their cousins. They came up under the gnomes, and now they're coming up under us." } },
     troggs = { { id = "tp_troggs", text = "They're Stonesplinter, tunneling up from every crevice in the loch's hills.", next = "leader" } },
     _none = { { id = "tp_none", text = "That's not my post, I'm afraid. Ask in Thelsamar, at the Stoutlager, where every dwarf in the loch has an opinion." } },
     magni = { { id = "tp_magni", text = "The regiment serves King Magni, and the regiment's book records every order he has sent us. There are fewer pages than I'd like, but each one is in his own hand." } },
@@ -1508,7 +1508,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dark Irons, mostly, creeping about with their powder kegs, though the mountain bears give my guards a fright now and then. If you see a track that isn't a bear's or a dwarf's, please, please tell someone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} would hear a fuse hiss long before any of us would, I'm sure of it, so do keep it near the walkways." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dark Irons, mostly, creeping about with their powder kegs, though the mountain bears give my guards a fright now and then. And your {pet} would hear a fuse hiss long before any of us would, I'm sure of it, so do keep it near the walkways." },
       },
       choices = {
         { text = "I'll report every track I find, Engineer.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1546,7 +1546,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "The loch would empty down the valley in an hour, and Thelsamar with it, and every farm between here and the Badlands. I dream of it most nights, so if you've a prayer for sleep, I'll take that too." } },
+      lines = { { id = "xapriest_default", text = "The loch would empty through the pass in an hour, down into the Wetlands, and every farm below the dam would go with it. I dream of it most nights, so if you've a prayer for sleep, I'll take that too." } },
       choices = {
         { text = "Then I'll pray for the dam, and for your sleep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't hold water. Check your sluice gates.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1555,7 +1555,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Scream, probably, and then hit him with a spanner, and then report him to Captain Rugelfuss in triplicate. I'm an engineer, not a soldier, though for the dam I'd learn." } },
+      lines = { { id = "xapala_default", text = "I'd scream, probably, and then hit him with a spanner, and then report him to Captain Rugelfuss in triplicate. I'm an engineer, not a soldier, though for the dam I'd learn." } },
       choices = {
         { text = "Report him in triplicate. The law will deal with him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Forget the forms. Throw him off the dam.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1565,7 +1565,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh o' the name, an' I'll not be the one remembered for the day she fell, not while there's a beard on my chin." },
+          text = "I'm Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh o' the name, an' I'll not be the one remembered for the day she fell, not while there's a beard on my chin." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("A Dark Threat Looms") },
           text = "Someone's been at the dam. Things have moved that shouldn't move and things have been left that shouldn't be here, so find out who, before it's too late to find out anything." },
         { id = "h_crack", when = { metBefore = true }, text = "I found a hairline crack on the east face this morning, which is nothing, probably nothing, stone settles, ye know. I'll check it again tonight, and tomorrow, and forever." },
@@ -1641,15 +1641,15 @@ P:NPC {
     },
     threat_how = {
       lines = {
-        { id = "th_default", text = "Something that goes bang, in barrels. I've seen sappers on the eastern ramp, and sappers don't come for the view." },
+        { id = "th_default", text = "They'd use something that goes bang, in barrels. I've seen sappers on the eastern ramp, and sappers don't come for the view." },
         { id = "th_seaforium", when = { questDone = TODO_QUEST("A Dark Threat Looms") },
-          text = "Seaforium! It's harmless dry, but wet, Stonesmirk says, it could blow Ironforge out of the mountain, and they brought it to a dam, of all things." },
+          text = "Seaforium! It's harmless dry, but wet, they tell me, it could blow Ironforge out of the mountain, and they brought it to a dam, of all things." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
     guards = {
       lines = {
-        { id = "gu_default", text = "Reassigned to the Alliance front, nearly all of them, and my best inspector with them. I have a clipboard, a rail, and you." },
+        { id = "gu_default", text = "They were reassigned to the Alliance front, nearly all of them, and my best inspector with them. I have a clipboard, a rail, and you." },
       },
       choices = {
         { text = "That'll do.", next = "BACK", fx = { affinity = 1 } },
@@ -1658,7 +1658,7 @@ P:NPC {
     },
     built = {
       lines = {
-        { id = "bu_default", text = "Before my time, and before my father's. It's stonewrought work, the finest in the world, an' who laid the first stone matters less than who keeps the last one." },
+        { id = "bu_default", text = "It was built before my time, and before my father's. It's stonewrought work, the finest in the world, an' who laid the first stone matters less than who keeps the last one." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

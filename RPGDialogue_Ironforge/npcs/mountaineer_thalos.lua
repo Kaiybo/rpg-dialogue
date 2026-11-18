@@ -18,8 +18,8 @@ P:NPC {
   greetings = {
     { id = "g_pass", text = "Hold there. Nobody goes through the pass without a reason, an' a good one." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, I see, which is more than I can say fer some who've gone through." },
-    { id = "g_obs", when = { questActive = TODO_QUEST("Senir's Observations") }, text = "Grelin's report fer Senir? Then ye've a reason, an' I'll no' stand in yer way." },
-    { id = "g_adv", when = { questActive = TODO_QUEST("The Adventurer") }, text = "Ye've got the bundle, then. The fellow's camped just outside Kharanos, an' he'll be glad o' it." },
+    { id = "g_obs", when = { questActive = TODO_QUEST("Senir's Observations") }, text = "Mountaineer Grelin's report fer Senir Whitebeard? Then ye've a reason, an' I'll no' stand in yer way." },
+    { id = "g_adv", when = { questActive = TODO_QUEST("The Adventurer") }, text = "Ye've got that bundle fer the adventurer, then? He's camped just outside Kharanos, an' he'll be glad o' it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the tunnel hasn't got any friendlier. Welcome back tae the valley." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "I near turned ye back the first time ye came up tae this pass, an' now I'd send ye through it alone. Funny how that goes." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word from Anvilmar is ye've been doin' good work in the valley. That counts fer somethin' at this tunnel." },
@@ -39,7 +39,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Mountaineer Thalos. My job's tae keep folk out o' Coldridge Pass unless their business is worth the risk, for the troggs in there have no hesitation at all about attackin' travellers." },
         { id = "h_obs_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Senir's Observations"), days = 3 } },
-          text = "So Grelin's report went through after all. Just keep followin' the road out the far side, an' it'll run right intae Kharanos." },
+          text = "So Grelin's report on the trolls went through after all. Just keep followin' the road out the far side, an' it'll run right intae Kharanos." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome headin' fer Kharanos, eh? Most o' yer folk are there now, since Gnomeregan. The tunnel's no worse than what ye left behind, I'd guess." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -53,7 +53,7 @@ P:NPC {
         { text = "What's waiting in the pass?", next = "pass" },
         { text = "What's on the other side?", next = "kharanos" },
         { text = "Who decides what counts as a good reason?", next = "reason" },
-        { text = "Grelin's report looks like trouble.", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
+        { text = "Mountaineer Grelin's report looks like trouble.", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "Any errands before I go through?", next = "BUSINESS" },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -67,7 +67,7 @@ P:NPC {
       },
     },
     pass_clear = {
-      lines = { { id = "pc_default", text = "We do, an' they come back. There's only so many mountaineers, an' most o' them are needed on the roads further east. So I stand here an' turn back the ones who'd only feed the troggs." },
+      lines = { { id = "pc_default", text = "We clear them, an' they come back. There's only so many mountaineers, an' most o' them are needed on the roads further east, so I stand here an' turn back the ones who'd only feed the troggs." },
       },
       choices = {
         { text = "Then the ones you let through should clear as they go.", next = "pass_duty" },
@@ -98,7 +98,7 @@ P:NPC {
       },
     },
     kharanos_senir = {
-      lines = { { id = "ks_default", text = "Grelin's brother, an' a wiser head than most in the Senate, though he'd never say so. He'll pour ye a drink an' complain about the cold, an' then he'll listen." },
+      lines = { { id = "ks_default", text = "He's brother tae Grelin, who watches the trolls up here, an' a wiser head than most in Ironforge, though he'd never say so. He'll pour ye a drink an' complain about the cold, an' then he'll listen." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -121,7 +121,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A mountaineer o' Ironforge, posted where the troggs are thickest. That's all the story I need." } },
     advice = { { id = "tp_ad", text = "Don't stop in the tunnel. Whatever ye hear, keep walkin' toward the light." } },
-    troggs = { { id = "tp_troggs", text = "They're in the walls o' the pass, an' they'll be in the walls o' yer dreams after." , next = "pass" } },
+    troggs = { { id = "tp_troggs", text = "They're in the walls o' the pass, an' once ye've been through, they'll be in yer dreams as well." , next = "pass" } },
     frostmane = { { id = "tp_frostmane", text = "The Frostmane keep tae their caves, mostly, but they watch the pass, an' so do I. A troll in the snow can see further than ye'd think." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are mountaineers o' a sort, though they'd sooner fly over a peak than climb it. Cheats, the lot o' them, but fine company in a fight." } },
     scourge = { { id = "tp_scourge", text = "I keep the pass fer the troggs an' the trolls, an' I thank the stone there's no worse tae keep it from. I hear the north's no' so lucky." } },

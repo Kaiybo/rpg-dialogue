@@ -52,7 +52,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not a scrap, and don't ye wave a raptor flank at me either, because I've seen what crater beasts eat, and some of it was a scholar's boot. Ammunition's another matter, and ye'll be wanting plenty of that down there." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} can eat what it likes, mind, because beasts have stronger stomachs than dwarves, but don't let it lick my counter after." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not a scrap, friend. Yer {pet} can eat what it likes, because beasts have stronger stomachs than dwarves, but don't let it lick my counter after." },
       },
       choices = {
         { text = "Your caution's sound. Stick with the old rations.", next = "BACK", fx = { align = { order = 1 } } },
@@ -276,7 +276,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not the ones on the ground, chum, because a devilsaur can't climb and a raptor can't jump that high, though I've seen one try. It's the pterrordax that worry me, and a hunter who thinned out their roosts on the ridge would make my whole week and my insurance cheaper." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} from eyein' my flyers' legs before takeoff, will you, chum? A bird that's been stared at all morning flies sulky and lands worse." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only the pterrordax, chum. And keep {pet} from eyein' my flyers' legs before takeoff, will you? A bird that's been stared at all morning flies sulky and lands worse." },
       },
       choices = {
         { text = "Pterrordax hunt to live. Thinning them isn't my place.", next = "BACK", fx = { align = { light = 1 } } },

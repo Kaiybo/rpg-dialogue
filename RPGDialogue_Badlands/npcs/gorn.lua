@@ -23,7 +23,7 @@ P:NPC {
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
-      text = "Young, and free, and never wore a chain. I'm glad of it, and I'll thank you not to waste it." },
+      text = "You're young, and you never wore a chain in the camps. I'm glad of it, and I'll thank you not to waste it." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Then you'll know that a blade carries every hand that's held it, and the Horde's carries some ugly ones." },
   },
@@ -124,7 +124,7 @@ P:NPC {
           text = "Tho'grun is dead and his corpse picked clean by the desert winds, and the ogres at Camp Boff are in disarray. Small victory, but it led to a large one." },
       },
       choices = {
-        { text = "Hiring traitors to fix old treachery. Fitting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Ogres for hire were a fair gamble. It just went bad.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Next time, send orc soldiers. Discipline wins.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -160,7 +160,7 @@ P:NPC {
     xcaster = {
       big = true,
       lines = {
-        { id = "xc_default", text = "Because chains are what spellcasters trust, and I've watched warlocks break better chains than these. A dead drake stays dead, and I'll take the risk of waking them over the risk of someone else doing it later." },
+        { id = "xc_default", text = "Because I've watched warlocks break better chains than these, and the Blackrock have warlocks. A dead drake stays dead, so I'll risk waking them now over someone else freeing them later." },
       },
       choices = {
         { text = "Killing is surer than any binding.", next = "BACK", fx = { align = { light = -1 } } },

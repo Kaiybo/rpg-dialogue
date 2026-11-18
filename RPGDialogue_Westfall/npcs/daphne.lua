@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_apples", text = "Mind the basket, love; those are the good apples." },
-    { id = "g_valor", when = { questActive = TODO_QUEST("The Tome of Valor") }, text = "Duthorian sent you? Then pick up a weapon, not an apple." },
+    { id = "g_valor", when = { questActive = TODO_QUEST("The Tome of Valor") }, text = "Duthorian Rall sent you? Then pick up a weapon, not an apple." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Tome of Valor") }, text = "There's my defender! Take an apple, or take two; you've earned the good ones." },
   },
 
@@ -62,7 +62,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only once, and they didn't like the welcome. It's the Defias I watch for, but the coyotes are bold too, and they've had two of my hens this month while I was looking at the sea." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine watchdog, love. If I had one like it, I'd sleep the whole night through." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only once, and they didn't like the welcome, but the coyotes are bold, and they've had two of my hens this month. Your {pet} would make a fine watchdog, love, and with one like it I'd sleep the whole night through." },
       },
       choices = {
         { text = "I'll clear the coyotes so your hens are safe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -149,7 +149,7 @@ P:NPC {
       choices = { { text = "Let's keep it that way.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     jordan = {
-      lines = { { id = "jo_default", text = "My husband Jordan's gone to Ironforge a while, to work with the dwarves. Best smith I know, and the most faithful man. He meant to be a paladin once, until his father's anvil wanted him more." } },
+      lines = { { id = "jo_default", text = "My husband Jordan's gone to Ironforge a while, to work with the dwarves. He's the best smith I know, and the most faithful man. He meant to be a paladin once, until his father's anvil wanted him more." } },
       choices = {
         { text = "You must miss him.", next = "jordan_miss" },
         { text = "He's working with my people, then.", next = "jordan_dwarf", when = { race = "Dwarf" } },
@@ -205,7 +205,7 @@ P:NPC {
       },
     },
     pray = {
-      lines = { { id = "pr_default", text = "In the orchard, mornings, before the work. There's no chapel within a day's walk. Jordan says the Light isn't fussy about roofs." } },
+      lines = { { id = "pr_default", text = "In the orchard, in the mornings before work, because there's no chapel within a day's walk. Jordan says the Light isn't fussy about roofs." } },
       choices = {
         { text = "Then let's pray together, now.", next = "BACK", fx = { affinity = 3, align = { light = 2 } } },
         { text = "Pray if you like. I'll keep watch on the road instead.", next = "BACK", fx = { align = { light = -1 } } },
@@ -223,7 +223,7 @@ P:NPC {
       { id = "tp_holy_light", text = "The Light's kept this farm through thieves and drought, and I've never once doubted it would. I keep my prayers short and my blade sharp, which I think is how the Light prefers it." },
       { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You'll know better than me, friend, but I think the Light likes a woman who prays with a sword in reach. I've had no complaints from it so far." },
     },
-    deadmines = { { id = "tp_deadmines", text = "Jordan wrote to me once that the Defias are tunnelling under Moonbrook like moles, and that the whole mine rings with hammers at night. I'd go down there myself if somebody would mind the apples." } },
+    deadmines = { { id = "tp_deadmines", text = "Folk on the road say the Defias are tunnelling under Moonbrook like moles, and that the whole mine rings with hammers at night. I'd go down there myself if somebody would mind the apples." } },
     northshire_abbey = { { id = "tp_northshire_abbey", text = "I was baptised at Northshire Abbey, and I still remember the brothers singing in the yard. I'd go back to hear it again, if the Defias would only give me a quiet week." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail pirates sail past the Longshore now and then, and I've seen their red sails from my orchard. They don't come ashore here, because the Defias would want a cut, and that's the one good thing about either of them." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Jordan took me to the Darkmoon Faire once when we were courting, and he won me a ribbon at the ring toss. I've still got it, tied to the farm gate, and the Defias have never dared take it down." } },
@@ -231,7 +231,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Pick your apples before the thieves notice they're ripe. Same goes for most things." } },
     defias = { { id = "tp_defias", text = "They want the farm because it overlooks their road to the sea. They can't have it." } },
     westfall = { { id = "tp_westfall", text = "It's hard country now, but the apples are good, because the trees don't know there's a war on." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Those are Duthorian's books. Valor comes after Divinity, he says, but out here it's the other way round." } },
+    tome_of_divinity = { { id = "tp_tome", text = "The Tomes of Divinity and Valor are Duthorian Rall's books for his young paladins. Valor comes after Divinity, he says, but out here it's the other way round." } },
     _none = { { id = "tp_none", text = "Couldn't say, love. The orchard keeps me busy enough." } },
   },
 }

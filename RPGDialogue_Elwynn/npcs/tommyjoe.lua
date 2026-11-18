@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_river", text = "I'm just watching the river, that's all, nothing else at all." },
-    { id = "g_sent", when = { questActive = TODO_QUEST("Young Lovers") }, text = "You've come from the vineyard; I can tell by the look of you." },
+    { id = "g_sent", when = { questActive = TODO_QUEST("Young Lovers") }, text = "You've come from the Maclure vineyard; I can tell by the look of you." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "Hello again! Isn't it a fine day? Every day's been a fine day lately." },
   },
 
@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The water, honest! Well, and maybe someone across it. But don't tell Ma, or Pa Maclure." } },
+      lines = { { id = "xdsham_default", text = "I am, honest! Well, and maybe at someone across it, but don't tell Ma, or Maybell's pa." } },
       choices = {
         { text = "Tell your family the truth, Tommy Joe. It's the brave way.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Keep it secret. Love's worth a little sneaking.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -57,7 +57,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because of Maybell, of course, and because both families think a Stonefield and a Maclure together is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
+      lines = { { id = "xwarcl_default", text = "Because of Maybell Maclure, of course, and because half the valley thinks a Stonefield and a Maclure is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
       choices = {
         { text = "Then fight for her, Tommy Joe. She's worth it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Mend your fences and leave her be.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -67,8 +67,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "To meet Maybell by the river, of course, without the whole family knowing. The murlocs are less trouble than my uncle, and he's less trouble than her pa." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours could keep watch by the river. If it growled, I'd know someone was coming." },
+        { id = "xhuntcl_default", text = "To meet Maybell Maclure by the river, of course, without the whole family knowing. The murlocs are less trouble than my uncle, and he's less trouble than her pa." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To meet Maybell Maclure by the river, of course, without the whole family knowing. That {pet} of yours could keep watch by the river for me, and if it growled, I'd know someone was coming." },
       },
       choices = {
         { text = "I'll not help you hide from your family.", next = "BACK", fx = { align = { order = 1 } } },
@@ -97,17 +97,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Are you going to tell my family? Please don't, because they'd lock me in the barn till winter." },
-        { id = "h_default", text = "Tommy Joe. Stonefield, if you're asking, and folk around here usually are, on account of the feud. Family thinks I'm mending the east fence." },
+        { id = "h_default", text = "I'm Tommy Joe Stonefield, if you're asking, and folk around here always ask, on account of our feud with the Maclures. My family thinks I'm mending the east fence." },
         { id = "h_young", tags = { "news" }, when = { questActive = TODO_QUEST("Young Lovers") },
           text = "Maybell sent you? Is she well, did she say anything... about me, I mean, did she say anything about me?" },
         { id = "h_gramma", when = { questActive = TODO_QUEST("Speak with Gramma") },
-          text = "Gramma's up at the farmhouse. She's the only one in the family who doesn't spit when the Maclures come up, mostly." },
+          text = "Gramma's up at the farmhouse, and she's the only one in the family who doesn't spit when the Maclures come up, mostly." },
         { id = "h_waiting", when = { questDone = TODO_QUEST("Speak with Gramma"), questBefore = TODO_QUEST("The Escape") },
-          text = "Gramma's up to something. She's sent word to the inn. She hums when she's scheming, and she's been humming all week." },
+          text = "Gramma's up to something, because she's sent a note to old William Pestle at the Goldshire inn. She hums when she's scheming, and she's been humming all week." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
-          text = "She came! She actually came, right down to the river, and nobody saw. Don't tell anyone, except Gramma; you can tell Gramma." },
+          text = "Maybell came! She actually came, right down to the river, and nobody saw. Don't tell anyone, except Gramma; you can tell Gramma." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Escape"), days = 7 } },
-          text = "We're careful, very careful. One day we'll stop being careful, and I'll stand in that vineyard and say it out loud." },
+          text = "Maybell and I are careful, very careful. One day we'll stop being careful, and I'll stand in that vineyard and say it out loud." },
         { id = "h_princess", when = { questActive = TODO_QUEST("Princess Must Die!") },
           text = "Ma's got you after the Brackwell pig? Good, because that sow ate my supper three nights running, if you count carrots as supper." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -153,7 +153,7 @@ P:NPC {
     },
     maybell_do = {
       lines = {
-        { id = "md_default", text = "Anything that doesn't start a war between the farms. And maybe one or two things that do." },
+        { id = "md_default", text = "Anything that doesn't start a war between the farms, and maybe one or two things that do." },
       },
       choices = {
         { text = "Careful, Tommy Joe.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
@@ -163,7 +163,7 @@ P:NPC {
 
     feud = {
       lines = {
-        { id = "f_default", text = "Ask my father and he'll talk an hour. Ask him again the next day and it's a different reason. That tells you something." },
+        { id = "f_default", text = "Ask my father and he'll talk for an hour, but ask him the next day and it's a different reason, which tells you something." },
       },
       choices = {
         { text = "Sounds like it's about nothing.", next = "BACK", fx = { affinity = 1, learn = { "maybell_tommy" } } },
@@ -182,7 +182,7 @@ P:NPC {
 
     farm = {
       lines = {
-        { id = "fa_default", text = "Stonefield land since before Gramma was born. It'll be mine one day. Which means one day I'll be the Stonefield who decides about the feud." },
+        { id = "fa_default", text = "It's been Stonefield land since before Gramma was born, and it'll be mine one day, which means I'll be the Stonefield who decides about the feud." },
       },
       choices = {
         { text = "And what will you decide?", next = "farm_decide" },
@@ -216,7 +216,7 @@ P:NPC {
 
     river = {
       lines = {
-        { id = "r_default", text = "It's the edge of our land and nobody else's. You can think here. And from that bend you can just see the vineyard roofs." },
+        { id = "r_default", text = "It's the edge of our land and nobody else's, so you can think here, and from that bend you can just see the roofs of the Maclure vineyard." },
       },
       choices = {
         { text = "So you watch for her.", next = "BACK", fx = { affinity = 1 } },
@@ -225,7 +225,7 @@ P:NPC {
     },
     river_murlocs = {
       lines = {
-        { id = "rm_default", text = "Not this far down. Folk say they're thick round Crystal Lake and up east. I keep an eye on the water all the same." },
+        { id = "rm_default", text = "Not this far down, though folk say they're thick round Crystal Lake and up east. I keep an eye on the water all the same." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "murlocs_east" } } } },
     },
@@ -258,7 +258,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Stonefield born. I'll have the farm one day. That's my whole story, except the part that's across the river." } },
+    background = { { id = "tp_bg", text = "I was born a Stonefield and I'll have the farm one day, and that's my whole story, except the part that's across the river." } },
     advice = { { id = "tp_ad", text = "If you want to be somewhere you shouldn't, carry a hammer. Nobody asks a man with a hammer what he's doing." } },
     maybell_tommy = { { id = "tp_us", text = "She's the cleverest person in Elwynn and she likes me. I don't understand it either." } },
     murlocs_east = { { id = "tp_murlocs", text = "Murlocs? Further east, folk say, though I keep an eye on the water all the same." } },

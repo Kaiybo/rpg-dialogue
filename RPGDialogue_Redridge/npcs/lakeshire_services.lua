@@ -154,7 +154,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Supplies, and who in town is running low on them." } },
-    background = { { id = "tp_bg", text = "Lakeshire girl, married a guard, and opened a shop. That's all." } },
+    background = { { id = "tp_bg", text = "I'm a Lakeshire girl who married a guard and opened a shop, and that's all." } },
     advice = { { id = "tp_ad", text = "Always carry spare flint. Fire's the best friend you have out there." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, dear." } },
   },
@@ -215,7 +215,7 @@ P:NPC {
     },
     di_comp = {
       big = true,
-      lines = { { id = "dic_default", text = "Every harvest fair, and she wins every time, because she cooks for soldiers and I cook for my mother. Some say a cook should share every secret, and some say a secret recipe is all a cook has." } },
+      lines = { { id = "dic_default", text = "Every harvest fair, and she wins every time, because she cooks for soldiers and I cook for my mother. She keeps her recipe secret, too, and I can't decide whether a cook ought to share hers or keep it." } },
       choices = {
         { text = "Share your recipes. Everyone eats better.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep your secrets. They're your living.", next = "BACK", fx = { align = { order = -1 } } },
@@ -291,7 +291,7 @@ P:NPC {
       },
     },
     wh_lonely = {
-      lines = { { id = "whl_default", text = "My kinsman Clyde walks out now and then, when he can find the path. That's company enough for me." } },
+      lines = { { id = "whl_default", text = "My kinsman Clyde, who works leather in town, walks out now and then, when he can find the path. That's company enough for me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -310,6 +310,6 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Hides, knives, and this canyon." } },
     background = { { id = "tp_bg", text = "Grew up in Lakeshire, moved out here to get away from it." } },
     advice = { { id = "tp_ad", text = "Sharp knife, light hand. A torn hide's worth nothing." } },
-    _none = { { id = "tp_none", text = "Don't know. Don't care, much." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't much care." } },
   },
 }

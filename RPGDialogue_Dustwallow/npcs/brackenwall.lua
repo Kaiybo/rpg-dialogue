@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren, good. You'll know the difference between your people and the ones who'd shame them." },
+      text = "A tauren, good. You'll know the difference between your people and the Grimtotem who'd shame them." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something chewed on you, so get patched; I need you on your feet." },
   },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hoofprints, heavy ones, among the boot marks, and they lead off toward the hills rather than toward Brackenwall. I'm no tracker, but I know an orc's tread when I see one, and none of those were ours." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Put {pet} on the scent near the inn, because a beast's nose doesn't care whose story is convenient. Mine never did either." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hoofprints, heavy ones, among the boot marks, and they lead off toward the hills rather than toward Brackenwall. I'm no tracker, but I know an orc's tread when I see one, and none of those were ours. Put {pet} on the scent near the inn, because a beast's nose doesn't care whose story is convenient." },
       },
       choices = {
         { text = "I'll follow that trail wherever it leads, even into the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -182,7 +182,7 @@ P:NPC {
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Inspecting the Ruins") },
           text = "Go to the burned inn, and see what's there, not what the humans say is there." },
         { id = "h_hoofprints", tags = { "news" }, when = { questActive = TODO_QUEST("Suspicious Hoofprints") },
-          text = "Hoofprints in the mud by the inn? Quilboar, maybe, or centaur out of the Barrens; either would do a thing like that. I'll send Kagoro to follow them and see where they lead." },
+          text = "Hoofprints in the mud by the inn? Quilboar, maybe, or centaur out of the Barrens; either would do a thing like that. I'll send Kagoro, our best tracker, to follow them and see where they lead." },
         { id = "h_badge", when = { questActive = TODO_QUEST("Lieutenant Paval Reethe") },
           text = "A Theramore badge in the ashes, with a name on it. Now that is interesting, and I want to know what a human lieutenant was doing in an inn that burned." },
         { id = "h_shield", when = { questActive = TODO_QUEST("The Black Shield") },
@@ -203,7 +203,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The humans of Theramore have paladins too, and they'd look at you and see something worse than an orc." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it useful, warrior." },
+        { id = "h_again", text = "What else? Make it useful." },
         { id = "h_again2", text = "Go on. I'm listening, and the marsh isn't." },
       },
       choices = {
@@ -481,9 +481,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, and Thrall paid for it in blood, but in the marsh paper gets wet." },
         { id = "h_head", tags = { "news" }, when = { questActive = TODO_QUEST("The Severed Head") },
-          text = "A severed head, and a question of whose. Someone wants us to read something into it. I'd like to know who first." },
+          text = "You've brought a severed head, and the question is whose. Someone wants us to read something into it, and I'd like to know who first." },
         { id = "h_witchdoctor", when = { questActive = TODO_QUEST("The Troll Witchdoctor") },
-          text = "The witch doctor can make the dead speak, if anyone can. Take it to him and listen carefully." },
+          text = "The witch doctor Kin'weelay, at Grom'gol, can make the dead speak if anyone can. Take the head to him and listen carefully." },
         { id = "h_marg", when = { questActive = TODO_QUEST("Marg Speaks") },
           text = "So Marg's spirit sent you crab-hunting along the coast, did it? Find that pendant, and we'll see what he died for." },
         { id = "h_zor", when = { questActive = TODO_QUEST("Report to Zor") },
@@ -498,7 +498,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Lower your voice when you ask it." },
-        { id = "h_again2", text = "Go on. Nobody's listening, and I've checked twice, though the ogres guard the door and they can't whisper to save their lives." },
+        { id = "h_again2", text = "Go on. Nobody's listening; I've checked twice." },
       },
       choices = {
         { text = "Will the peace with Theramore hold?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

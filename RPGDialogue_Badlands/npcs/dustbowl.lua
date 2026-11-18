@@ -84,7 +84,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Discs an' keepers an' a vault o' stone older than Ironforge, an' I cannae make sense o' half of it. The Explorers' League would give their beards for a mage who could, an' maybe they'll get one, if ye're willin'." } },
+      lines = { { id = "xmage_default", text = "His notes are full o' discs an' keepers an' a vault o' stone older than Ironforge, an' I cannae make sense o' half of it. The Explorers' League would give their beards for a mage who could, an' maybe they'll get one, if ye're willin'." } },
       choices = {
         { text = "Some old vaults should stay sealed, Prospector.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Whatever's sealed in Uldaman, I want to see it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -93,7 +93,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Aye, I would, though I think we both know what ye'd be prayin' for. He went intae that dig wi' his pick an' his notes, an' if the troggs got him, I'd like tae think the Light found him before they did." } },
+      lines = { { id = "xapriest_default", text = "Aye, I would, whether it's for his safe return or for his rest. He went intae that dig wi' his pick an' his notes, an' if the troggs got him, I'd like tae think the Light found him before they did." } },
       choices = {
         { text = "Grief like yours honors him. Don't bury it, Prospector.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mourn him later. His notes matter more right now.", next = "BACK", fx = { align = { light = -1 } } },
@@ -127,7 +127,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" }, faction = "Alliance" },
-          text = "Is that a gnome with you? Grand, because {companion} might be able to tell me what that blasted carved lock wants, and I've been staring at it for three days." },
+          text = "Is that a gnome with you? Grand, because {companion} might be able to tell me what the carved lock on the old vault door wants, and I've been staring at it for three days." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Shadowforge", min = 30 } }, text = "Word from the dig road is ye've been thinnin' out the Shadowforge, an' I'll drink tae that tonight, though no' too much, for Hammertoe's sake." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, is it? I'll no' pretend I like it, but there's worse than demons in Uldaman just now, an' Hammertoe's still down there somewhere." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -320,7 +320,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "My working theory is that the beasts can hear the elementals grinding inside the rock long before we can. My other theory is that the beasts are simply cleverer than my assistants, which would also explain a great deal." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would {pet} let me put a little listening device near its ear? It's quite harmless, and it's only exploded twice, neither time near an ear." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "My working theory is that the beasts can hear the elementals grinding inside the rock long before we can. Would {pet} let me put a little listening device near its ear? It's only exploded twice, neither time near an ear." },
       },
       choices = {
         { text = "Leave my beast out of your experiments, Lotwil.", next = "BACK", fx = { align = { light = 1 } } },
@@ -347,7 +347,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "That's precisely what I'd like to know! The elementals answer to the elements and nothing else as far as I can tell, so if the Light rattles them at all, it would mean the Light reaches places the Kirin Tor swears it can't, and probably nothing is exactly where the best discoveries start." } },
+      lines = { { id = "xapala_default", text = "That's precisely what I'd like to know! The elementals answer to the elements and nothing else as far as I can tell, so if the Light rattles them at all, it would mean the Light reaches places the Kirin Tor swears it can't, and that's exactly where the best discoveries start." } },
       choices = {
         { text = "The Light isn't a test subject, Lotwil.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fine. I'll stand by your rock and see what happens.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -356,7 +356,7 @@ P:NPC {
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpriest_default", text = "I don't know, and it's driving me to distraction, because I've written down every reaction it has and prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
+      lines = { { id = "xpriest_default", text = "It doesn't, and I can't think why, which is driving me to distraction, because of every reaction I've written down, prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
       choices = {
         { text = "Keep it bound, Lotwil. Rock that thinks is dangerous.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Perhaps it simply wants to be free, Lotwil.", next = "BACK", fx = { align = { order = -1 } } },
@@ -396,7 +396,7 @@ P:NPC {
         { id = "h_hard", when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
           text = "This is going to be hard, and that's not a warning, that's my working title. Lucien thinks it's funny; Lucien's my assistant." },
         { id = "h_machines", when = { questActive = TODO_QUEST("The Rise of the Machines") },
-          text = "The Hierophant sent you about golems? Oh, I've wanted to see a Dark Iron golem up close for years, though ideally not too close." },
+          text = "The Hierophant at Kargath sent you about golems? Oh, I've wanted to see a Dark Iron golem up close for years, though ideally not too close." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "Ah, a warrior! You'd make a splendid control for my experiments, being so very solid, and the elementals only hit hard when they're agitated." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -444,7 +444,7 @@ P:NPC {
     assembly = {
       big = true,
       lines = {
-        { id = "a_default", text = "A school, or the beginning of one! Arcane, alchemy, engineering: it's all one study, really, if you squint, and one day every thinking people in Azeroth could learn side by side, gnomes, dwarves, orcs and trolls. Why not? The rocks don't care who studies them." },
+        { id = "a_default", text = "A school, or the beginning of one! Arcane, alchemy, engineering: it's all one study, really, if you squint, and one day every thinking race in Azeroth could learn side by side, gnomes, dwarves, orcs and trolls. Why not? The rocks don't care who studies them." },
       },
       choices = {
         { text = "That's a big dream.", next = "BACK", fx = { affinity = 3 } },
@@ -504,9 +504,9 @@ P:NPC {
     k_shaman = {
       big = true,
       lines = {
-        { id = "xsh_default", text = "Measure them is precisely what I do, and they've never once complained to me. Though you're the third shaman this month to look at my shackles as if I'd chained a puppy, so I'll ask: what does it say?" },
+        { id = "xsh_default", text = "Measure them is precisely what I do, and they've never once complained to me. Though you're the third shaman this month to look at my shackles as if I'd chained a puppy, so I'll ask: what does the elemental say?" },
         { id = "xsh_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf shaman, at my camp! I'd heard of such a thing and assumed it was a misprint. You look at my shackles as if I'd chained a puppy, so do tell me what it says." },
+          text = "A dwarf shaman, at my camp! I'd heard of such a thing and assumed it was a misprint. You look at my shackles as if I'd chained a puppy, so do tell me what the elemental says." },
       },
       choices = {
         { text = "It says let it go.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },

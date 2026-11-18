@@ -325,7 +325,7 @@ P:NPC {
         { text = "Elune watches over your brother, Argos.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Why should a human cross the sea for the kaldorei?", next = "xhuman", when = { race = "Human" } },
         { text = "I met Gershala. He's well.", next = "xmet", when = { questDone = TODO_QUEST("The Corruption Abroad") } },
-        { text = "I brought Gershala his brain stems.", next = "xstems", when = { questDone = TODO_QUEST("Researching the Corruption") } },
+        { text = "I brought Gershala the furbolg brain stems he wanted.", next = "xstems", when = { questDone = TODO_QUEST("Researching the Corruption") } },
         { text = "Safe travels, Argos.", next = "END" },
       },
     },
@@ -503,7 +503,7 @@ P:NPC {
     },
 
     xstems = {
-      lines = { { id = "xs_default", text = "His last letter said the change begins in the mind, long before the body follows, and that those it happens to rarely notice. I have read that line many times, and I do not like what it means for any of us." } },
+      lines = { { id = "xs_default", text = "Then he has his furbolg brain stems. His last letter said the corruption begins in the mind, long before the body follows, and that those it happens to rarely notice. I have read that line many times, and I do not like what it means for any of us." } },
       choices = {
         { text = "Your people are stronger than the satyr were.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Anyone can fall. Watch yourselves closely.", next = "BACK", fx = { align = { light = -1 } } },
@@ -513,7 +513,7 @@ P:NPC {
   },
 
   topics = {
-    teldrassil = { { id = "tp_teldrassil", text = "Our new home, and still a little strange to me. I miss the old forests more than I can say." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our new home, and still a little strange to me. I miss the old forests more than I can say." } },
     _none = { { id = "tp_none", text = "I am a stranger here, and I do not know. Ask one of the humans; they seem to know everything, or say they do." } },
   },
 }

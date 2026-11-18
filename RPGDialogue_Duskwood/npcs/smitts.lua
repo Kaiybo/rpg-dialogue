@@ -65,7 +65,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing. I keep the warmest room in Duskwood, which isn't saying much." } },
+      lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing, and I write them all down so it can't." } },
       choices = {
         { text = "Keep the room warm, Smitts. People need it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Forget it all. Remembering hurts.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every night, and I've heard of worgs as big as a cart and spiders that could swallow a horse whole. Some of those tales are true, mind, which is the worst part of keeping a tavern in Duskwood." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steadier than most of my customers, {class}, and it doesn't ask for credit, which makes it my favourite already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every night, and some of the tales of cart-sized worgs and horse-swallowing spiders are true, which is the worst part. Your {pet} looks steadier than most of my customers, {class}, and it doesn't ask for credit, which makes it my favourite already." },
       },
       choices = {
         { text = "I'll tell only what's true. The town's frightened enough.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -111,7 +111,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I want an answer, and I've stopped being sure that's the same thing. Haggard thought justice would let us both sleep, but the man's long gone, and I still don't sleep." } },
+      lines = { { id = "xapala_default", text = "I want an answer, and I've stopped being sure that's the same thing. Haggard, who ran the Guard back then, thought justice would let us both sleep, but whoever did it is long gone, and I still don't sleep." } },
       choices = {
         { text = "Then I'll find you the truth and face whoever it names.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some truths are better left buried, Smitts.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -136,9 +136,9 @@ P:NPC {
         { id = "h_inquire", tags = { "news" }, when = { questActive = TODO_QUEST("Inquire at the Inn") },
           text = "A shadowy figure writing in a book, in my tavern? I remember him, all right: a jumpy fellow who left in a hurry and never paid." },
         { id = "h_shadowy", when = { questActive = TODO_QUEST("Finding the Shadowy Figure") },
-          text = "Raven Hill, last I heard. Nobody goes to Raven Hill on purpose, which is probably why he did." },
+          text = "He went to Raven Hill, last I heard. Nobody goes to Raven Hill on purpose, which is probably why he did." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "Mud-stained pages, in a hand I could never match to anyone. Haggard and I spent a whole season on them, so if you can finish it, finish it." },
+          text = "Those are the mud-stained pages from the murders, in a hand I could never match to anyone. Haggard and I spent a whole season on them, so if you can finish it, finish it." },
         { id = "h_juice", when = { questActive = TODO_QUEST("Zombie Juice") },
           text = "Zombie juice, for the hermit? That's strong stuff, and I wouldn't drink it myself, but he swears it's for his garden." },
         { id = "h_rot", when = { questActive = TODO_QUEST("Gather Rot Blossoms") },
@@ -358,7 +358,7 @@ P:NPC {
       lines = { { id = "gn_default", text = "Herble up the hill gets stared at for the first month, and then folk start bringing him their broken lanterns. You'll find Darkshire grows used to anyone who's useful after dark." } },
       choices = {
         { text = "I'm very useful after dark.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "Who's Herble?", next = "regulars" },
+        { text = "Who else drinks here, then?", next = "regulars" },
       },
     },
   },
@@ -378,7 +378,7 @@ P:NPC {
     worgen = { { id = "tp_worgen", text = "There's howling past midnight, every night. The regulars stopped flinching years ago, but newcomers never do." } },
     lions_pride = { { id = "tp_inn", text = "Farley's place in Goldshire? I hear the ale's good, and he's certainly got the easier crowd." } },
     ladimore = { { id = "tp_ladimore", text = "He was a knight of this town, before the war, and what walks the cemetery now is what's left of him. I don't talk about it at the bar." } },
-    embalmer = { { id = "tp_embalmer", text = "It's a story we told children to keep them out of the graveyard. It worked on me, but it didn't work on him." } },
+    embalmer = { { id = "tp_embalmer", text = "It's a story we told children to keep them out of the graveyard. It worked on me, but it didn't work on the hermit." } },
     _none = { { id = "tp_none", text = "That's not in my book, and my book's thick, so try Daltry at the Town Hall." } },
     raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a fine village once, with a stone church and a cemetery so peaceful folk picnicked in it. I've the old drawings in my book, and nobody believes me when I show them." } },
     dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders turned up in the same years the dead started walking, and I don't think that's coincidence. I've a page on them in my book, and it's all questions." } },

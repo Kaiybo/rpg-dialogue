@@ -67,7 +67,7 @@ P:NPC {
     },
     xcl_stocks = {
       big = true,
-      lines = { { id = "xcl_stocks_default", text = "Darkshire cares about one prisoner in that place, and the rest may rot or riot as they please. Ward sold our dead to a necromancer and I sentenced him for it, and the House of Nobles took him from us on a point of law, which I have not forgiven and do not intend to." } },
+      lines = { { id = "xcl_stocks_default", text = "Darkshire cares about one prisoner in that place, and the rest may rot or riot as they please. Dextren Ward sold our dead to a necromancer and I sentenced him for it, and the House of Nobles took him from us on a point of law, which I have not forgiven and do not intend to." } },
       choices = {
         { text = "The law is the law, my lord, even when it's slow.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Darkshire's justice should be Darkshire's, whatever the House says.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -82,7 +82,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Rarely, and never with enough. I'm courteous, but desperate. A shaman's help would be welcome." } },
+      lines = { { id = "xdsham_default", text = "Rarely, and never with enough, so I'm courteous but desperate, and a shaman's help would be very welcome." } },
       choices = {
         { text = "Then I'll help Darkshire, my lord. Count on it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stop waiting on Stormwind. Rule Darkshire yourself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -141,7 +141,7 @@ P:NPC {
         { id = "h_revenge", tags = { "news" }, when = { questRecent = { TODO_QUEST("Translation to Ello"), days = 1 } },
           text = "Whatever that hermit made is coming for Darkshire, so stop it before it reaches the square! I'll be in the Town Hall, directing." },
         { id = "h_bride", when = { questActive = TODO_QUEST("Bride of the Embalmer") },
-          text = "His own heart, in his dead wife's breast. Nannies tell that story to frighten children, and now I'm asking you to dig it up." },
+          text = "Abercrombie put his own heart in his dead wife's breast. Nannies tell that story to frighten children, and now I'm asking you to dig it up." },
         { id = "h_revenge_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bride of the Embalmer"), days = 5 } },
           text = "The council has voted you its thanks, unanimously, which has never once happened before. Please don't make a habit of being necessary." },
         { id = "h_westfall", when = { thread = { id = "westfall_left", beat = "b3_danuvin" } },

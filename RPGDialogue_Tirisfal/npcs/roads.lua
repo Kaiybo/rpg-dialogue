@@ -45,7 +45,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hides, sinew and anything else a beast will give up, because the Dark Lady's people need boots and bowstrings as much as blades. The spiders in Night Web Hollow give good silk and the scavengers in the fields give good hides, so don't come back with anything half-chewed." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the hides once they're down, and we'll get on fine. The Dark Lady's people need boots and bowstrings as much as blades, and I'm not sentimental about where they come from." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It does, so bring me every hide you can, and keep {pet} off them once they're down. The Dark Lady's people need boots and bowstrings as much as blades, and I'm not sentimental about where they come from." },
       },
       choices = {
         { text = "I'll bring back every hide. Deathknell comes first.", next = "BACK", fx = { align = { order = 1 } } },
@@ -73,7 +73,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? Then you can tell me whether your spirits want anything from those ruined houses, because my people have already stripped them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wanting a look at our fields, I suppose, and I'll tell you now they're no better than they look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because skins and sinew are worth as much to Deathknell as any scrap of cloth, and you'll know how to get them." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've corpses to gather from the field and a few of them might want a blessing before Mordo shovels them under." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've corpses to gather from the field and a few of them might want a blessing before Undertaker Mordo shovels them under." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll scavenge like everyone else, and your demon can carry the scraps." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll still scavenge like everyone else, so don't expect the Light to carry your sacks, though if it lights up those houses for you, I'll not complain." },
       },
@@ -97,13 +97,13 @@ P:NPC {
     },
     whose = {
       lines = {
-        { id = "wh_default", text = "Farmers, a smith, a schoolmistress, I'd guess, from the slates. They died when the plague came through, and some of them rose and some of them didn't." },
+        { id = "wh_default", text = "Farmers, a smith and a schoolmistress, I'd guess, going by the slates. They died when the plague came through, and some of them rose and some of them didn't." },
       },
       choices = { { text = "Taking their things would trouble me.", next = "whose_trouble" } },
     },
     whose_trouble = {
       lines = {
-        { id = "wt_default", text = "It did, the first week. Then I needed a coat, and the coat didn't care whose it was, and neither does the cold." },
+        { id = "wt_default", text = "It troubled me too, the first week. Then I needed a coat, and the coat didn't care whose it was, and neither does the cold." },
       },
       choices = {
         { text = "The dead don't need coats. Take what serves us.", next = "BACK", fx = { align = { light = -1 } } },
@@ -112,7 +112,7 @@ P:NPC {
     },
     town = {
       lines = {
-        { id = "to_default", text = "The plague, then the Scourge, then us. It's a graveyard with a few houses still standing, and Shadow Priest Sarvis wakes the dead from it, one by one." },
+        { id = "to_default", text = "It was, until the plague came, and then the Scourge, and then us. It's a graveyard with a few houses still standing, and Shadow Priest Sarvis wakes the dead from it, one by one." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -131,7 +131,7 @@ P:NPC {
       },
     },
     soldier = {
-      lines = { { id = "so_default", text = "A soldier of Lordaeron, then you'll remember the long marches with half rations. Scavenging is no different, except the people you're taking from won't complain." } },
+      lines = { { id = "so_default", text = "A soldier of Lordaeron? Then you'll remember the long marches on half rations. Scavenging is no different, except the people you're taking from won't complain." } },
       choices = { { text = "Old habits, then.", next = "BACK", fx = { affinity = 2 } } },
     },
     xhsham = {
@@ -145,7 +145,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Grow what, and for whom? Joshua Kien gets his bread from Brill and the apothecaries want only the weeds, but if you can coax a few rows of something useful out of that soil, I'll set a guard on it, though I'll not set three." } },
+      lines = { { id = "dq_default", text = "Grow what, and for whom? Joshua Kien, who keeps our stores, gets his bread from Brill and the apothecaries want only the weeds, but if you can coax a few rows of something useful out of that soil, I'll set a guard on it, though I'll not set three." } },
       choices = {
         { text = "One guard will do. I'll make the rows worth guarding.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Guard it or don't. I'll plant what I like.", next = "BACK", fx = { align = { order = -1 } } },
@@ -229,7 +229,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Would you? They wander without purpose, but they always seem to drift back toward the farmsteads, as though some part of them remembers home. If you find Samuel Fowler near the Solliden Farmstead, be gentle with him, for Marla's sake." },
+        { id = "xhuntcl_default", text = "Would you? They wander without purpose, but they always seem to drift back toward the farmsteads, as though some part of them remembers home. If you find Samuel Fowler near the Solliden Farmstead, be gentle with him, for his wife Marla's sake." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you, with {pet} to help? They wander without purpose, but they drift back toward the farmsteads, and a beast's nose will find them before your eyes do." },
       },
       choices = {
@@ -283,7 +283,7 @@ P:NPC {
     },
     damned = {
       lines = {
-        { id = "da_default", text = "The ones the Lich King's grip held onto when ours slipped free. They don't remember their names, and they don't know they've died, which may be a mercy or may be the cruellest part." },
+        { id = "da_default", text = "They're the ones the Lich King's grip held onto when ours slipped free. They don't remember their names, and they don't know they've died, which may be a mercy or may be the cruellest part." },
       },
       choices = { { text = "I wonder if they suffer.", next = "damned_suffer" } },
     },
@@ -298,7 +298,7 @@ P:NPC {
     },
     marla = {
       lines = {
-        { id = "ma_default", text = "Marla Fowler, a farmwife buried before the plague took the rest of her family. Her husband died later and rose with the Damned, and it seemed wrong to me that they'd stay apart forever." },
+        { id = "ma_default", text = "There's Marla Fowler, a farmwife buried before the plague took the rest of her family. Her husband died later and rose with the Damned, and it seemed wrong to me that they'd stay apart forever." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
@@ -333,7 +333,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "He teaches the will above all, and I think any mage could use that, though he'd say a mage leans on her books the way a priest leans on the Light. I'm not sure he's right, but I'm only a novice, so I keep that to myself." },
+        { id = "xmage_default", text = "He teaches the will above all, and any mage could use that, though he also says pity is a weakness of the will. I still pity the poor Damned in the fields, so perhaps I'm not his best student." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "I knew a girl from Dalaran before the plague who could light candles just by looking at them, and she'd have hated what we've become. You've kept your magic and your wits, which is more than the poor Damned in the fields have done." },
       },
       choices = {
@@ -488,7 +488,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Afraid? Sensible, friend. I've a little coin, a lot of skill and exactly one life, and I'd like to keep all three, so fight me with your fists like an honest scoundrel and I'll take your wager gladly." } },
+      lines = { { id = "xhsham_default", text = "Afraid? Call it sensible, friend, because I've a little coin, a lot of skill and exactly one life, and I'd like to keep all three, so fight me with your fists like an honest scoundrel and I'll take your wager gladly." } },
       choices = {
         { text = "Fists it is. I'll fight you fairly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll use whatever I like, and you'll still lose.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -612,7 +612,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Johaan's teaching me, and the fields around Brill are full of useful things, most of them deadly to the living, which is rather the point." },
+          text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Apothecary Johaan's teaching me, and the fields around Brill are full of useful things, most of them deadly to the living, which is rather the point." },
         { id = "h_weed", tags = { "news" }, when = { questActive = TODO_QUEST("Doom Weed") },
           text = "Doom weed grows in the fields around the town, and in the graveyard, too, where it's thickest. Gather me a good bundle, and mind the roots; they're the part I want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the elements have any use for doom weed, do you think? I've so much of it, and only one Johaan to give it to." },

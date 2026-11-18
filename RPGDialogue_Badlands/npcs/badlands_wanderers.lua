@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_default", text = "Oh, a visitor. Please don't touch the cart; it's holding three things that don't like each other, and only one of them is Servo." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and with all your fingers, which is a good sign in this camp. What can I do for you?" },
     { id = "g_away", when = { away = 14 }, text = "It's been {away}, and in that time Lotwil has started four experiments and finished none. I've been counting." },
-    { id = "g_progress", when = { questActive = TODO_QUEST("Liquid Stone") }, text = "He's getting closer to finishing, I'm afraid. How are things going on your end?" },
+    { id = "g_progress", when = { questActive = TODO_QUEST("Liquid Stone") }, text = "Lotwil is getting closer to finishing his binding, I'm afraid. Have you found those potions yet?" },
   },
 
   notice = {
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_cloth", tags = { "news" }, when = { questActive = TODO_QUEST("Stone Is Better than Cloth") },
           text = "Bronze bracers, patterned ones, if you can find or make them. I've some thoughts about what stone can do for armour, and I'd like to test them on something other than my own wrists." },
         { id = "h_cog", tags = { "news" }, when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
-          text = "He wants cog number five, does he? Yes, I've been expecting that, and no, this isn't going to be good." },
+          text = "Lotwil wants cog number five for his machine, does he? Yes, I've been expecting that, and no, this isn't going to be good." },
         { id = "h_cog_done", when = { questDone = TODO_QUEST("This Is Going to Be Hard") },
           text = "Cog number five is in place, and the machine is doing what it does. I've moved my bedroll another twenty paces downhill." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -128,7 +128,7 @@ P:NPC {
     },
     work_leave = {
       lines = {
-        { id = "wl_default", text = "No, of course not, I'd make two. One for each of us, and one spare, because he'll drop his." },
+        { id = "wl_default", text = "No, of course not, I'd make three: one for each of us, and a spare, because he'll drop his." },
       },
       choices = {
         { text = "Loyalty like that is rare.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
@@ -192,7 +192,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what's in every jar in this camp and roughly how far each one would throw you. Ask." } },
-    background = { { id = "tp_bg", text = "Gnomeregan, once, mixing tonics for the engineers. Now I mix them for one man and a robot." } },
+    background = { { id = "tp_bg", text = "I lived in Gnomeregan, once, mixing tonics for the engineers. Now I mix them for one man and a robot." } },
     advice = { { id = "tp_ad", text = "Always know where the nearest exit is, especially when someone says 'watch this.'" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not, if it's all the same to you. I left a good laboratory there and a few better friends." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond the Assembly's present research. Ask Lotwil; he'll guess, and confidently." } },
@@ -215,7 +215,7 @@ P:NPC {
     { id = "g_default", text = "You've found my camp, which means either you're lost or you're looking for something. I'd like to know which before we go further." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. I've had few enough visitors that I'm starting to remember all of them." },
     { id = "g_away", when = { away = 14 }, text = "It's been {away}. The ground has trembled twice since you left, which I mention not to alarm you but because no one else here would care." },
-    { id = "g_sign", when = { questActive = TODO_QUEST("Tremors of the Earth") }, text = "Any word of the Sign? The ogres don't stay in one place long, but Camp Boff is where I'd begin." },
+    { id = "g_sign", when = { questActive = TODO_QUEST("Tremors of the Earth") }, text = "Any word of the Sign of the Earth? The ogres who took it don't stay in one place long, but Camp Boff is where I'd begin." },
   },
 
   notice = {
@@ -376,10 +376,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know a little about a great many old things, and more than I'd like about the black dragons. Ask, and I'll answer what I can." } },
-    background = { { id = "tp_bg", text = "Of Quel'Thalas, once. Now of wherever Krasus needs a pair of eyes." } },
+    background = { { id = "tp_bg", text = "I was of Quel'Thalas, once. Now I go wherever Krasus needs a pair of eyes." } },
     advice = { { id = "tp_ad", text = "Never trust a voice in a ravine, however reasonable it sounds." } },
-    black_dragonflight = { { id = "tp_bd", text = "Old, patient and cruel, and fond of wearing other faces. Be careful whom you trust in these hills." } },
-    dark_iron = { { id = "tp_di", text = "A troubled people, and gifted. Angor Fortress was theirs before it was anything else." } },
+    black_dragonflight = { { id = "tp_bd", text = "They're old, patient and cruel, and fond of wearing other faces. Be careful whom you trust in these hills." } },
+    dark_iron = { { id = "tp_di", text = "They're a troubled people, and gifted. Angor Fortress was theirs before it was anything else." } },
     _none = { { id = "tp_none", text = "I'm afraid I can't help you there. My errand keeps my thoughts on one thing." } },
   },
 }

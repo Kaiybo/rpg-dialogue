@@ -93,7 +93,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Enough that my lads count them before they start work, and stop working when they lose count. The wolves came after the bears, following the scraps, so clear the one and the other will scatter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could earn its keep up north. I'd pay it in scraps if it weren't against my principles." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Enough that my lads count them before they start work, and stop working when they lose count. Your {pet} could earn its keep up north, and I'd pay it in scraps if it weren't against my principles." },
       },
       choices = {
         { text = "I'll thin them so your lads can work safely.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -112,7 +112,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'd rather have anything that keeps the orders on time, but I know a spell can't tell good grain from bad, and my lads can. Still, if you've a spell that keeps wolves off the cut wood, I'd pay for it." } },
+      lines = { { id = "xmage_default", text = "I'd rather have anything that keeps the orders on time, but I know a spell can't tell good timber from bad, and my lads can. Still, if you've a spell that keeps wolves off the cut wood, I'd pay for it." } },
       choices = {
         { text = "I'd trust your lads' saws over any spell, Raelen.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic's faster and cheaper. You should try it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -121,7 +121,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I sent word to the deputy at Westbrook, and Rainer wrote back that I'd got the wrong end of the forest. Meanwhile my lads are getting chewed on and the order's due, and nobody in Stormwind cares about lumber until the beams don't come." } },
+      lines = { { id = "xapala_default", text = "I sent word to Deputy Rainer at Westbrook, and he wrote back that I'd got the wrong end of the forest. Meanwhile my lads are getting chewed on and the order's due, and nobody in Stormwind cares about lumber until the beams don't come." } },
       choices = {
         { text = "Stormwind owes you protection. I'll see it given.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Don't wait on Stormwind. Arm your lads and fight.", next = "BACK", fx = { align = { order = -1 } } },
@@ -133,11 +133,11 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you carry wood? No, never mind; I'd rather you scared the bears off, and you'd have the lads' thanks, which is all I've got to give." },
         { id = "h_default", text = "Supervisor Raelen. I make sure the wood gets cut, stacked and shipped on time. Everybody else makes sure it doesn't." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Bundle of Trouble") },
-          text = "The wolves and bears up north ran my lads off the cut wood, and now it's lying there with nobody willing to fetch it. And the order's due." },
+          text = "The wolves and bears up north ran my lads off the cut wood, and now it's lying there with nobody willing to fetch it, and the order's due." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Bundle of Trouble") },
-          text = "Eight bundles, from up north where the animals are. Not kindling and not twigs, mind; proper bundles." },
+          text = "I need eight bundles of wood from up north, where the animals are, and not kindling or twigs, mind; proper bundles." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Bundle of Trouble"), days = 2 } },
-          text = "Wagon's loaded. If the buyer complains about bark, that's on him." },
+          text = "The wagon's loaded with your bundles, and if the buyer complains about bark, that's on him." },
         { id = "h_rainer", key = true, text = "I told the deputy about the animals days ago; Rainer, his name is. Has anyone seen him since? Anyone at all?" },
         { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") },
           text = "Fewer wolves this week, so somebody's been busy. If that was you, the lads are grateful, and I'm too busy to be." },
@@ -179,7 +179,7 @@ P:NPC {
 
     rainer = {
       lines = {
-        { id = "r_default", text = "Westbrook, apparently. The other end of the forest. I asked a deputy for help and got directions to a different deputy." },
+        { id = "r_default", text = "At Westbrook, apparently, at the other end of the forest. I asked a deputy for help and got directions to a different deputy." },
       },
       choices = {
         { text = "Want me to have a word with him?", next = "rainer_word", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -198,13 +198,13 @@ P:NPC {
       },
       choices = {
         { text = "Thomas is closer.", next = "BACK", fx = { affinity = 1 } },
-        { text = "You could just write to Dughan.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "You could just write to Marshal Dughan.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 
     order = {
       lines = {
-        { id = "o_default", text = "It's all for buyers, more of them than I can count. Orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
+        { id = "o_default", text = "It's all spoken for, and the orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
       },
       choices = {
         { text = "Why not hire more lads?", next = "order_hire" },
@@ -230,7 +230,7 @@ P:NPC {
 
     animals = {
       lines = {
-        { id = "a_default", text = "Wolves and bears, bolder every week. Thomas says something deeper in the forest has them riled. I say something has them hungry, and my lads look like supper." },
+        { id = "a_default", text = "Wolves and bears, and they get bolder every week. Guard Thomas on the bridge says something deeper in the forest has them riled, but I say something has them hungry, and my lads look like supper." },
       },
       choices = {
         { text = "Something in the forest?", next = "animals_cause" },
@@ -239,7 +239,7 @@ P:NPC {
     },
     animals_cause = {
       lines = {
-        { id = "ac_default", text = "Don't ask me; I count logs, not omens. Ask Thomas on the bridge, or the mage in that tower, who's nearer the omens than I'll ever be." },
+        { id = "ac_default", text = "Don't ask me; I count logs, not omens. Ask Thomas on the bridge, or the mage in the Tower of Azora, who's nearer the omens than I'll ever be." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "eastvale" } } } },
     },
@@ -266,7 +266,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I run the camp, and that's the whole story. The order ships at sundown, so next question." } },
-    advice = { { id = "tp_ad", text = "Know your deadline. Then pretend it's a day sooner." } },
+    advice = { { id = "tp_ad", text = "Know your deadline, and then pretend it's a day sooner." } },
     eastvale = { { id = "tp_eastvale", text = "Best timber in Elwynn and the worst luck to go with it. You can write that on my stone." } },
     kobolds = { { id = "tp_kobolds", text = "Not my problem until they start eating lumber. Give it time." } },
     _none = { { id = "tp_none", text = "Does it ship? If it doesn't, I don't know about it, and I don't need to." } },

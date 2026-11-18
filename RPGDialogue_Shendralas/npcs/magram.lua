@@ -276,7 +276,7 @@ P:NPC {
     },
     xjehn2 = {
       lines = {
-        { id = "xj2_default", text = "That is a Magram answer, at least, and I can use a Magram answer. The Gelkis sent outsiders to their deaths, and I will put you to work instead, which is the better use of you." },
+        { id = "xj2_default", text = "Work, and plenty of it. The Gelkis sent outsiders to kill our khan, and I will put you to work undoing what they did, which is the better use of you." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -648,7 +648,7 @@ P:NPC {
         { id = "h_checking", when = { questActive = TODO_QUEST("Checking Things Out") },
           text = "Look carefully at what the Magram are doing, outsider, and come back and tell me all of it. I need to know how deep their attention runs before I decide anything." },
         { id = "h_jehn_active", when = { questActive = TODO_QUEST("Khan Jehn"), questDone = TODO_QUEST("Checking Things Out") },
-          text = "Swift, outsider, but do not underestimate him. A khan is not a thing to be trifled with, and Jehn least of all." },
+          text = "Strike swiftly, outsider, but do not underestimate Khan Jehn. A khan is not a thing to be trifled with, and Jehn least of all." },
         { id = "h_jehn_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Khan Jehn"), days = 7 }, questDone = TODO_QUEST("Checking Things Out") },
           text = "Jehn is dead? Then the Earth Mother guided your hand, and Uthek can scold me all she likes, because a dead Magram khan is worth a scolding." },
         { id = "h_druid", when = { class = "DRUID" },

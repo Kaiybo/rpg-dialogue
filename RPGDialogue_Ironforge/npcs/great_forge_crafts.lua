@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now an' then, though the gunsmiths do the fine work; I make the steel an' they make it sing. A dwarf hunter wi' a Great Forge barrel can hit a ram's horn at three hundred paces, an' I've seen it done." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a collar for yer {pet}, if ye'd like one, for a good collar's just a ring o' steel that's learned some manners." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now an' then, though the gunsmiths do the fine work; I make the steel an' they make it sing. An' a collar for yer {pet}, if ye'd like one, for a good collar's just a ring o' steel that's learned some manners." },
       },
       choices = {
         { text = "I'll trust Great Forge steel over any other.", next = "BACK", fx = { align = { order = 1 } } },
@@ -235,7 +235,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen tae them. Deepmountain's taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
+      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen tae them. Deepmountain Minin' has taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
       choices = {
         { text = "Keep Deepmountain's methods, and add the listening on top.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Throw out the old teaching. Listen to the stone first.", next = "BACK", fx = { align = { order = -1 } } },
@@ -264,7 +264,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Troggs, if ye've the stomach, an' the spiders that nest in the old shafts, which I'd shoot on sight. Mind ye don't take a beast down a narrow tunnel, though, for there's no room tae turn round an' they panic." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would fill a tunnel wall tae wall, I'd say, so keep it tae the wide shafts an' it'll be fine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Troggs, if ye've the stomach, an' the spiders that nest in the old shafts, which I'd shoot on sight. Yer {pet} would fill a tunnel wall tae wall, though, so keep it tae the wide shafts or it'll panic." },
       },
       choices = {
         { text = "I'll keep to the wide shafts and go carefully.", next = "BACK", fx = { align = { order = 1 } } },
@@ -438,7 +438,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I could, though Emrul would charge me double for the mushrooms, the old thief. Night elves aren't all fussy about meat, mind, but a good cook asks before he serves, an' that's the first thing I teach." } },
+      lines = { { id = "xdruid_default", text = "I could, though my brother Emrul would charge me double for the mushrooms, the old thief. Night elves aren't all fussy about meat, mind, but a good cook asks before he serves, an' that's the first thing I teach." } },
       choices = {
         { text = "Always ask your guest first. That's simple courtesy.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Serve what you have. Travellers can't afford to be choosy.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -458,7 +458,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar from Dun Morogh, for it's lean an' sweet, an' bear when ye can get it, for it's rich enough tae feed a family. Bring me crag boar ribs an' I'll teach ye somethin' Ragnar Thunderbrew would pay tae know." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would eat well too, if ye'd learn a bit o' cookin', for a beast likes a warm meal as much as any dwarf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar from Dun Morogh, for it's lean an' sweet, an' bear when ye can get it, for it's rich enough tae feed a family. Yer {pet} would eat well too, if ye'd learn a bit o' cookin', for a beast likes a warm meal as much as any dwarf." },
       },
       choices = {
         { text = "I'll take only what the pot needs.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -468,7 +468,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Emrul, every week, though he'll deny it. Ye might think a recipe's a small thing, but a good cook's livelihood rests on knowin' what nobody else knows, much like yer trade." } },
+      lines = { { id = "xrogue_default", text = "My own brother Emrul, every week, though he'll deny it. Ye might think a recipe's a small thing, but a good cook's livelihood rests on knowin' what nobody else knows, much like yer trade." } },
       choices = {
         { text = "A recipe's a cook's secret. I'll respect yours.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Secrets are meant to be pried loose. That's the fun.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -486,7 +486,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every week, for the Physician sends down orders for broth an' I make it the way my mother did, wi' bones an' barley an' nothin' fancy. Nissa says it does as much as her bandages, but she'll never say it in front o' her students." } },
+      lines = { { id = "xapriest_default", text = "Every week, for Nissa Firestone, who teaches first aid, sends down orders for broth, an' I make it the way my mother did, wi' bones an' barley an' nothin' fancy. Nissa says it does as much as her bandages, but she'll never say it in front o' her students." } },
       choices = {
         { text = "Feeding the sick is holy work, Daryl. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Broth is broth. Healing is the priests' work, not the cook's.", next = "BACK", fx = { align = { light = -1 } } },
@@ -678,7 +678,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mild spices an' a pinch o' salt, an' no' a grain more, for boar's got its own flavour if ye let it. Daryl would drown it in nutmeg, but he's my brother, so I'll say only that he's wrong." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would like a bit o' seasonin' too, I'd wager, though most beasts are happy wi' what ye kill raw." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mild spices an' a pinch o' salt, an' no' a grain more, for boar's got its own flavour if ye let it. Yer {pet} would like a bit o' seasonin' too, I'd wager, though most beasts are happy wi' what ye kill raw." },
       },
       choices = {
         { text = "Keep it simple. Let the meat speak for itself.", next = "BACK", fx = { align = { order = 1 } } },
@@ -762,7 +762,7 @@ P:NPC {
         { text = "Do people really worry about warlocks' coin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a warrior care about spices, Emrul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What spice would you put on wild boar, Emrul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever give spices to the poor, Emrul?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN", heardLine = "if_daryl.em_default" } },
         { text = "Where do your spices come from, Emrul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can't conjured spices match yours, Emrul?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -869,8 +869,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hunters get bitten more than anyone, an' bites fester, which is worse than any cut. A bear's claw's dirty an' a wolf's tooth's dirtier, an' I've had tae clean both out o' more hunters than I care tae count." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll no' bandage yer {pet}, before ye ask; I'm a physician, no' an animal doctor, though I've been asked." },
+        { id = "xhuntcl_default", text = "Hunters get bitten more than most, an' bites fester, which is worse than any cut. A bear's claw's dirty an' a wolf's tooth's dirtier, an' I've had tae clean both out o' more hunters than I care tae count." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunters get bitten more than most, an' bites fester, which is worse than any cut. An' I'll no' bandage yer {pet}, before ye ask; I'm a physician, no' an animal doctor, though I've been asked." },
       },
       choices = {
         { text = "I'll keep my wounds clean and come to you.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1014,7 +1014,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I patched up soldiers in the Second War, an' I've been patchin' up adventurers ever since. Adventurers are worse patients." } },
     advice = { { id = "tp_ad", text = "Bandage first, ask questions after. The wound won't wait for yer curiosity." } },
     scourge = { { id = "tp_scourge", text = "The plague wounds dinnae close right, an' they smell wrong, an' I've seen a few come through here from the north. Burn the bandages an' wash yer hands twice." } },
-    holy_light = { { id = "tp_holy_light", text = "The priests mend with prayer an' I mend wi' linen, an' between us we lose fewer than we would alone. Dinnae tell Rohan I said that, for he'd be insufferable." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests mend with prayer an' I mend wi' linen, an' between us we lose fewer than we would alone. Dinnae tell High Priest Rohan I said that, for he'd be insufferable." } },
     second_war = { { id = "tp_second_war", text = "I learned my trade in the Second War, stitchin' soldiers who came back from the front wi' axe cuts I couldnae believe they'd survived. Most o' them did, an' I'm proud o' that." } },
     _none = { { id = "tp_none", text = "That's no' a wound, so it's no' my concern." } },
   },
@@ -1034,7 +1034,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Who's there? Oh, a customer, and you set off my door ward, which I calibrated myself to catch exactly that. You might have knocked, you know." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since my inventory still balances to the last strange dust from your last visit." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since nothing went missing after your last visit; I counted, down to the last pinch of dust." },
   },
 
   notice = {
@@ -1075,7 +1075,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh yes, a good enchantment on your gloves or your bow will steady your aim better than a deep breath ever could. I'd tell you more, but I've already said too much, and you're looking at my notes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} mustn't touch the enchanted rods, please, because the last beast that did glowed for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh yes, a good enchantment on your gloves or your bow will steady your aim better than a deep breath ever could. But your {pet} mustn't touch the enchanted rods, please, because the last beast that did glowed for a week." },
       },
       choices = {
         { text = "I'll keep my eyes off your notes, Gimble.", next = "BACK", fx = { align = { honor = 1 } } },

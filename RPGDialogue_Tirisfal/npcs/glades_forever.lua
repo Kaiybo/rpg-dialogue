@@ -35,15 +35,15 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Hadric Harlson, of the Argent Dawn. Keep your voice down, {class}, because there are Cult of the Damned skulking around the outskirts of the city, and I want them to hear nothing until we're on them." },
         { id = "h_emissary", tags = { "news" }, when = { questActive = TODO_QUEST("The Argent Emissary") },
-          text = "Terrence sent you after me, I suppose, to see what the Argent Dawn is doing poking about Tirisfal unsupervised. Stay low and try not to be seen, {class}; these cultists are not to be trifled with." },
+          text = "The Deathguard sent you after me, I suppose, to see what the Argent Dawn is doing poking about Tirisfal unsupervised. Stay low and try not to be seen, {class}; these cultists are not to be trifled with." },
         { id = "h_crystals", when = { questActive = TODO_QUEST("Remnants of War") },
           text = "Don't handle those crystals more than you must. Even shattered and spent, the necrotic magic left in them is dangerous." },
         { id = "h_cult", when = { questActive = TODO_QUEST("The Cult of the Damned") },
-          text = "Neophytes and enforcers, eight of each, and don't let them talk to you. The cult is very good at talking." },
+          text = "Kill eight of their neophytes and eight of their enforcers, and don't let them talk to you. The cult is very good at talking." },
         { id = "h_both", tags = { "news" }, when = { questDone = TODO_QUEST("Remnants of War"), questBefore = TODO_QUEST("Bandarion Keep") },
           text = "You've done a great thing for the Dawn's cause here today. My commander and I were bound for Bandarion Keep before we learned of the cult, and if you want to know more of our mission, that's where you'll find him." },
         { id = "h_keep", when = { questActive = TODO_QUEST("Bandarion Keep") },
-          text = "Northwest, to Bandarion Keep, and give my commander my regards. I'll stay here and mop up the rest of this mess." },
+          text = "Head northwest to Bandarion Keep, and give my commander, Leonid, my regards. I'll stay here and mop up the rest of this mess." },
         { id = "h_keepdone", when = { questDone = TODO_QUEST("Bandarion Keep") },
           text = "You met Leonid, then. He'll have told you what that keep means to him, and I'll only say that he doesn't tell everyone." },
       },
@@ -57,7 +57,7 @@ P:NPC {
         { text = "What do you know of the Cult of the Damned?", next = "cult" },
         { text = "Who is your commander?", next = "leonid" },
         { text = "Are you Forsaken, or Argent Dawn?", next = "both" },
-        { text = "Kristof thinks someone is raising Scourge inside our borders.", next = "kristof", when = { any = { { questDone = TODO_QUEST("Patience") }, { questActive = TODO_QUEST("Patience") } } } },
+        { text = "Deathguard Kristof thinks someone is raising Scourge inside our borders.", next = "kristof", when = { any = { { questDone = TODO_QUEST("Patience") }, { questActive = TODO_QUEST("Patience") } } } },
         { text = "I'll keep low. Farewell.", next = "END" },
       },
     },
@@ -223,7 +223,7 @@ P:NPC {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's in pieces. Brill has a smith; use him before the Scourge finishes the job." },
     { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
-      text = "A paladin. I'd heard Billmuth was telling stories about your kind, and I'll reserve judgment until I've seen you fight." },
+      text = "A paladin. I'd heard Deathguard Billmuth was telling stories about your kind, and I'll reserve judgment until I've seen you fight." },
   },
 
   start = "hello",
@@ -233,13 +233,13 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Deathguard Kristof. I keep the waystation on the Undercity road, and I give directions to those who need them, though lately I've been watching for something other than lost travellers." },
         { id = "h_patience", tags = { "news" }, when = { questActive = TODO_QUEST("Patience") },
-          text = "Zygand wants my report? Then take it, and please see that he reads it at once, because I fear our Scourge problem has only just begun. Come back to me in due time, too; I believe I've nearly uncovered something I could use a willing blade for." },
+          text = "Executor Zygand wants my report? Then take it, and please see that he reads it at once, because I fear our Scourge problem has only just begun. Come back to me in due time, too; I believe I've nearly uncovered something I could use a willing blade for." },
         { id = "h_discipline", when = { questActive = TODO_QUEST("Discipline") },
           text = "I see the Executor's given you his motivator. Go on, then, if you must; there is no escape, even in death, and it may as well be your hand as his." },
         { id = "h_wrath", tags = { "news" }, when = { questBefore = TODO_QUEST("The Wrath of Rath'mael"), minLevel = 15 },
           text = "Reports have come in from the Lordamere Overlook, deep in the Ruins of Lordaeron. An unholy fog has taken the streets and the graveyard up there, and my scouts say it's being conjured by a necromancer named Rath'mael." },
         { id = "h_wrathact", when = { questActive = TODO_QUEST("The Wrath of Rath'mael") },
-          text = "Has the skeletal lieutenant been slain? Bring allies if you have them, because Rath'mael won't fall to one blade." },
+          text = "Has Rath'mael's skeletal lieutenant been slain? Bring allies if you have them, because Rath'mael won't fall to one blade." },
         { id = "h_wrathdone", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Wrath of Rath'mael"), days = 3 } },
           text = "Rath'mael is gone, and the fog over the ruins is already thinning. Something of his kind will take his place, I have no doubt, but we can hope their ranks thin in the meantime." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Wrath of Rath'mael"), days = 7 } },
@@ -283,9 +283,9 @@ P:NPC {
     },
     riptear = {
       lines = {
-        { id = "rt_default", text = "Linnea, at the rear guard, had a rogue abomination wandering near Venomweb Vale, and she kept it quiet, as she should. Abominations don't stroll past the Bulwark unnoticed, {name}, so somebody stitched that thing together on our side of the wall, and that's my whole case in one corpse." },
+        { id = "rt_default", text = "Deathguard Linnea, at the rear guard east of Brill, had a rogue abomination wandering near Venomweb Vale, and she kept it quiet, as she should. Abominations don't stroll past the Bulwark unnoticed, {name}, so somebody stitched that thing together on our side of the wall, and that's my whole case in one corpse." },
         { id = "rt_done", when = { questDone = TODO_QUEST("Rear Guard Patrol") },
-          text = "You put down Linnea's abomination, I hear, and good riddance. But think on it: that thing didn't stroll past the Bulwark unnoticed, so somebody stitched it together on our side of the wall, and that's my whole case in one corpse." },
+          text = "You put down Deathguard Linnea's abomination, I hear, and good riddance. But think on it: that thing didn't stroll past the Bulwark unnoticed, so somebody stitched it together on our side of the wall, and that's my whole case in one corpse." },
       },
       choices = {
         { text = "Then we find whoever's stitching.", next = "BACK", fx = { affinity = 1 } },
@@ -305,7 +305,7 @@ P:NPC {
     },
     zygand = {
       lines = {
-        { id = "zy_default", text = "The Executor listens to everything and believes nothing until it's been proven twice. His patience ran out on our reports, which is fair, because mine ran out on his instructions some time ago, but he reads every word, and few commanders bother." },
+        { id = "zy_default", text = "Executor Zygand listens to everything and believes nothing until it's been proven twice, but he reads every word, and that's more than most commanders do." },
       },
       choices = {
         { text = "Then give him proof.", next = "BACK", fx = { affinity = 1 } },
@@ -323,7 +323,7 @@ P:NPC {
     },
     hadric = {
       lines = {
-        { id = "ha_default", text = "Hadric Harlson, yes, one of ours who went over to the Dawn. Terrence doesn't trust him out of sight, but I've watched him, and he kills cultists with the kind of care you only see in someone who hates them personally." },
+        { id = "ha_default", text = "Hadric Harlson, yes, one of ours who went over to the Dawn. Some of the Deathguard don't trust him out of sight, but I've watched him, and he kills cultists with the kind of care you only see in someone who hates them personally." },
         { id = "ha_cult", when = { questDone = TODO_QUEST("The Cult of the Damned") },
           text = "Hadric and his cultists, yes. You helped him clear them, I hear, and if the Cult of the Damned is this close to the city, it explains the lights I've been seeing in the woods. Perhaps I should speak to the man." },
       },
@@ -392,7 +392,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I served, I died, I serve. The middle part I don't discuss." } },
+    background = { { id = "tp_bg", text = "I served, then I died, and now I serve again. The middle part I don't discuss." } },
     advice = { { id = "tp_ad", text = "When the reports don't add up, believe your own eyes before the reports." } },
     _none = { { id = "tp_none", text = "Not my concern. Ask in Brill." } },
   },
@@ -524,7 +524,7 @@ P:NPC {
         { id = "h_raised", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Lesson in Divinity"), days = 2 }, class = "PALADIN" },
           text = "Thank you, stranger. I'd never have expected a paladin to do such a thing for me, and I'm in your debt for as long as this body holds together." },
         { id = "h_plans", when = { questActive = TODO_QUEST("A Lesson in Divinity"), class = "PALADIN" },
-          text = "Their friars and zealots carry satchels with their deployment orders. Bring a copy to Billmuth, and he'll take it from there, so we can warn the Deathguard and set an ambush of our own." },
+          text = "Their friars and zealots carry satchels with their deployment orders. Bring a copy to Deathguard Billmuth at Bandarion Keep, and he'll take it from there, so we can warn the Deathguard and set an ambush of our own." },
       },
       again = {
         { id = "h_again", text = "What else? Quietly." },
@@ -618,7 +618,7 @@ P:NPC {
     },
     vale = {
       lines = {
-        { id = "v_default", text = "Venomweb Vale. It was good hunting country once, all deer and rabbits, and now it's spiders the size of carts and a Scarlet camp in the north end. The Scarlet Monastery is just beyond, so they're thick on the ground." },
+        { id = "v_default", text = "This is Venomweb Vale. It was good hunting country once, all deer and rabbits, and now it's spiders the size of carts and a Scarlet camp in the north end. The Scarlet Monastery is just beyond, which is why they're so thick on the ground." },
       },
       choices = {
         { text = "Tell me about the Scarlet camp.", next = "camp" },
@@ -628,7 +628,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Village lad, then a soldier, then a corpse, then a Deathguard, and now a corpse again, briefly. I've had a busy few years." } },
+    background = { { id = "tp_bg", text = "I was a village lad, then a soldier, then a corpse, then a Deathguard, and lately a corpse again, briefly. I've had a busy few years." } },
     advice = { { id = "tp_ad", text = "Look where you put your feet. Billmuth will tell you why." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Billmuth; he'll worry about it for both of us." } },
   },
@@ -687,7 +687,7 @@ P:NPC {
     },
     passengers = {
       lines = {
-        { id = "ps_default", text = "A tauren who got off, looked at Tirisfal, and got straight back on again, which I thought showed great wisdom. And a troll who wanted to know where the beach was, and wouldn't believe me when I told him Lordaeron's beaches are mostly murlocs." },
+        { id = "ps_default", text = "There was a tauren who got off, looked at Tirisfal, and got straight back on again, which I thought showed great wisdom. And a troll who wanted to know where the beach was, and wouldn't believe me when I told him Lordaeron's beaches are mostly murlocs." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
@@ -805,7 +805,7 @@ P:NPC {
     },
     maxkeep = {
       lines = {
-        { id = "mk_default", text = "They spoil him dreadfully. Breton keeps a bone by the gate for him, and Danitha pretends not to notice, and I've seen grown knights who can't hold the Light without wincing kneel down in the mud to scratch his ears." },
+        { id = "mk_default", text = "They spoil him dreadfully. Breton Samuels keeps a bone by the gate for him, and Danitha pretends not to notice, and I've seen grown knights who can't hold the Light without wincing kneel down in the mud to scratch his ears." },
       },
       choices = {
         { text = "Max has good taste in friends.", next = "BACK", fx = { affinity = 1 } },
@@ -882,7 +882,7 @@ P:NPC {
     },
     wall = {
       lines = {
-        { id = "w_default", text = "Quieter than it was. The plaguemist used to sit on this place like a wet blanket, all yellow and grey, and since the work in the Plaguelands began, it's thinned. I don't trust it, mind, because I've never known the Scourge to give up anything for free." },
+        { id = "w_default", text = "It's quieter than it was. The plaguemist used to sit on this place like a wet blanket, all yellow and grey, and since the work in the Plaguelands began, it's thinned. I don't trust it, mind, because I've never known the Scourge to give up anything for free." },
       },
       choices = {
         { text = "Who holds the Bulwark?", next = "holds" },
@@ -891,7 +891,7 @@ P:NPC {
     },
     holds = {
       lines = {
-        { id = "h2_default", text = "High Executor Derrington, and the Argent Dawn alongside him, more's the pity or more's the blessing depending on who you ask. This was Uther's camp once, for the folk who got out of the capital when it fell, and I like to think we're keeping it for the same reason." },
+        { id = "h2_default", text = "High Executor Derrington, and the Argent Dawn alongside him, more's the pity or more's the blessing depending on who you ask. This was a refugee camp once, for the folk who got out of the capital when it fell, and I like to think we're keeping it for the same reason." },
       },
       choices = {
         { text = "That's a good reason.", next = "BACK", fx = { affinity = 1, learn = { "argent_dawn" } } },
@@ -997,7 +997,7 @@ P:NPC {
     },
     adelbert = {
       lines = {
-        { id = "ad_default", text = "Loud, stubborn, certain of everything, and the best man I've ever stood a wall beside. We've been arguing since before either of us died, and I expect we'll keep it up until the Scourge gets bored and goes home." },
+        { id = "ad_default", text = "He's loud, stubborn and certain of everything, and the best man I've ever stood a wall beside. We've been arguing since before either of us died, and I expect we'll keep it up until the Scourge gets bored and goes home." },
       },
       choices = {
         { text = "That's a fine friendship.", next = "BACK", fx = { affinity = 1 } },
@@ -1006,7 +1006,7 @@ P:NPC {
     },
     crows = {
       lines = {
-        { id = "cr_default", text = "Not one I've ever seen. When the cult moves along the ridge the crows go up all at once and circle and won't come down, and the mindless dead don't bother them at all. Learned that my first winter here, and it's never once been wrong." },
+        { id = "cr_default", text = "Not a single one that I've seen. When the cult moves along the ridge the crows go up all at once and circle and won't come down, and the mindless dead don't bother them at all. I learned that my first winter here, and it's never once been wrong." },
       },
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { trait = { curious = 1 } } },

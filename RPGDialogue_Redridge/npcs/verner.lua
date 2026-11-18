@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_forge", text = "The forge is hot, so make it quick or make it useful." },
-    { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Did Argus get my note? He'll grumble; he always grumbles." },
+    { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Did Smith Argus in Goldshire get my note? He'll grumble; he always grumbles." },
     { id = "g_yowler", when = { questDone = TODO_QUEST("Howling in the Hills") }, text = "I haven't heard a howl in a week, and my horses are sleeping. So am I, for once." },
   },
 
@@ -49,12 +49,12 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_gnolls_3 = {
-      lines = { { id = "op_gnolls_r3", text = "That's Yowler, then, and I'll say good riddance. Every gnoll that can howl louder than the rest thinks he's a king." } },
+      lines = { { id = "op_gnolls_r3", text = "That's Yowler, the big brute who leads them, and I'll say good riddance. Every gnoll that can howl louder than the rest thinks he's a king." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They take every scrap. I've a hot forge and no iron. At least my horses listen to my grumbling." } },
+      lines = { { id = "xdsham_default", text = "They take every scrap, so I've a hot forge and no iron, and only my horses to listen to me grumble." } },
       choices = {
         { text = "The Guard needs it, Verner. Be patient.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Take some back. You've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not unless you've seen it lying about in the hills, and you might have, because the gnolls loot every cart they catch. If you find any scrap on their bodies, bring it to me, and I'll make something useful of it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better claws than my best horseshoe nails, {class}, and I'm a little jealous of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not unless you've seen it lying about in the hills, so bring me any scrap you find on the gnolls. Your {pet} has better claws than my best horseshoe nails, {class}, and I'm a little jealous of it." },
       },
       choices = {
         { text = "I'll bring you every scrap I find.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -129,15 +129,15 @@ P:NPC {
         { id = "h_shoes", when = { questBefore = TODO_QUEST("The Price of Shoes") },
           text = "Smith Argus in Goldshire owes me, and he's got iron. If someone carried a note down to him, I might see horseshoes this side of winter." },
         { id = "h_shoes_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Price of Shoes") },
-          text = "Go to the smithy in Goldshire. Hand him the note and stand there till he reads it, or he'll use it to light the forge." },
+          text = "Go to the smithy in Goldshire. Hand Argus the note and stand there till he reads it, or he'll use it to light the forge." },
         { id = "h_return", tags = { "news" }, when = { questRecent = { TODO_QUEST("Return to Verner"), days = 3 } },
           text = "Shoes! Real shoes, from real iron, so he came through after all. Don't tell him I said so, or he'll be unbearable." },
         { id = "h_scales", when = { questActive = TODO_QUEST("Underbelly Scales") },
-          text = "Underbelly scales, from the black whelps that wander south of the lake. Argus wants paying, and scales are the only coin I've got." },
+          text = "I need underbelly scales from the black whelps that wander south of the lake. Argus wants paying, and scales are the only coin I've got." },
         { id = "h_gnolls", when = { questBefore = TODO_QUEST("A Baying of Gnolls") },
           text = "The gnolls up in the hills take any horse that wanders off, and then they eat it. I've stopped naming the foals." },
         { id = "h_baying", when = { questActive = TODO_QUEST("A Baying of Gnolls") },
-          text = "Brutes and mystics, on the ridge north of my stable. Clear them off before they clear off with another horse." },
+          text = "Gnoll brutes and mystics are camped on the ridge north of my stable. Clear them off before they clear off with another horse." },
         { id = "h_yowler", when = { questActive = TODO_QUEST("Howling in the Hills") },
           text = "Yowler's the big one who leads the pack. Bring me proof he's done and I'll sleep through the night for the first time since spring." },
         { id = "h_argus", when = { heardLine = "argus.s_default" },

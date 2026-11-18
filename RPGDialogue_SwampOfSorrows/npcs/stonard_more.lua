@@ -71,7 +71,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "None that I know of, though Greshka swears the old warlocks left something of themselves in these stones, and Karakul keeps the old hearth burning, just in case. Me, I keep the meat moving and try not to think about it." } },
+      lines = { { id = "xhcast_default", text = "None that I know of, though Greshka, who sells grimoires here, swears the old warlocks left something of themselves in these stones, and Karakul keeps the old hearth burning, just in case. Me, I keep the meat moving and try not to think about it." } },
       choices = {
         { text = "Leave the old stones be. The Warchief would want that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If there's power in those stones, someone should use it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -201,7 +201,7 @@ P:NPC {
     },
     home_where = {
       lines = {
-        { id = "hw_default", text = "Little more than a camp with walls, and the Warchief opened the gates. Durotar's the first home most of us chose for ourselves, and I chose to leave it for this, which says something about me I don't like to think about." },
+        { id = "hw_default", text = "An internment camp, little more than a pen with walls, until the Warchief opened the gates. Durotar's the first home most of us chose for ourselves, and I chose to leave it for this, which says something about me I don't like to think about." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -234,7 +234,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The Warchief cares about places like this, places nobody else remembers. That's why I stay." } },
     second_war = { { id = "tp_second_war", text = "Stonard's stones were laid by the old Horde, back in the wars, and they still remember it. I like to think someone should be here to remember with them." } },
     sunken_temple = { { id = "tp_sunken_temple", text = "The trolls on the lake keep to themselves, mostly. I'd like it to stay that way." } },
-    _none = { { id = "tp_none", text = "Can't help you there. Ask Ruag; he keeps the papers, and the papers know more than I do." } },
+    _none = { { id = "tp_none", text = "Can't help you there. Ask Commander Ruag; he keeps the papers, and the papers know more than I do." } },
   },
 }
 
@@ -274,7 +274,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Heavy and slow, which in a fight is the same thing, and a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
+      lines = { { id = "xwarcl_default", text = "They are, because a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
       choices = {
         { text = "I'll wait. Patience is part of any soldier's work.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd fly now and take the risk. Waiting wastes daylight.", next = "BACK", fx = { align = { order = -1 } } },
@@ -322,7 +322,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Somebody with a grudge, or a sense of humour I'd like to beat out of him, and Ruag never found out which. The rider swam out angry and the passenger didn't swim out at all, so I check every strap twice now." } },
+      lines = { { id = "xrogue_default", text = "Somebody with a grudge, or a sense of humour I'd like to beat out of him, and Commander Ruag never found out who. The rider swam out angry and the passenger didn't swim out at all, so I check every strap twice now." } },
       choices = {
         { text = "Find him and see him properly punished.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The swamp already took its toll. Let it lie.", next = "BACK", fx = { align = { order = -1 } } },
@@ -395,7 +395,7 @@ P:NPC {
     },
     others_worse = {
       lines = {
-        { id = "ow_default", text = "Me, obviously, though he'd say the same. A hot rider just sulks in the shade, but a wet one catches the cough and gives it to every other rider in the pen." },
+        { id = "ow_default", text = "No, I do, though he'd say the same. A hot rider just sulks in the shade, but a wet one catches the cough and gives it to every other rider in the pen." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -523,7 +523,7 @@ P:NPC {
           text = "I sell grimoires to warlocks, and you aren't one. If you've a question, make it quick, and then go and bother Karakul instead." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Greshka. I sell the grimoires that teach your servants new tricks, the Blood Pact and the Firebolt and the rest. You know enough to be dangerous, but you still need training, so let's see what you can pay for." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh is out in the yard if you want somebody to hit." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh the trainer is out in the yard if you want somebody to hit." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you keep beasts, which is a pity, though I suppose they're loyal." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You've no business here, then, and I'll tell you what I tell every druid: what I sell would make your Earth Mother weep." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're no warlock, and the Light on you makes my books itch. A Forsaken paladin, of all things, so what do you want?" },
@@ -577,7 +577,7 @@ P:NPC {
     },
     felzerul = {
       lines = {
-        { id = "fe_default", text = "Fel'zerul, out watching the temple, and he keeps the Warchief's line and looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
+        { id = "fe_default", text = "There's Fel'zerul, out watching the temple, who keeps the Warchief's line and looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -700,7 +700,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in my yard. Can you fight in this mud, or does the Light keep your boots clean for you?" },
       },
       again = {
-        { id = "h_again", text = "More questions? Swing a blade while you ask them. Deeds, not words." },
+        { id = "h_again", text = "More questions? Swing a blade while you ask them, because deeds count here, not words." },
         { id = "h_again2", text = "What else? The yard's waiting." },
       },
       choices = {

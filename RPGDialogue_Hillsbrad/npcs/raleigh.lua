@@ -33,7 +33,7 @@ P:NPC {
     { id = "n_light", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
       text = "One of the faithful, I see. They'll want you most of all up north, just as they wanted me." },
     { id = "n_scarlet", cat = "scarlet", when = { questActive = TODO_QUEST("Down the Scarlet Path") },
-      text = "That seal, red wax and a burning sword... I used to press it myself." },
+      text = "That letter bears the Crusade's seal, red wax and a burning sword, and I used to press it myself." },
   },
 
   start = "hello",
@@ -84,7 +84,7 @@ P:NPC {
     },
     opn_crusade_r_hate = {
       lines = {
-        { id = "opn_crusade_r_hate", text = "Some will. Some will die in the breaking, and those are the ones I'd have to name in my prayers. I don't say you're wrong; I say it'll cost." },
+        { id = "opn_crusade_r_hate", text = "Some of the good ones will find their way out, and some will die in the breaking, and those are the ones I'd have to name in my prayers. I don't say you're wrong; I only say it'll cost." },
       },
       choices = {
         { text = "Something else, Raleigh.", next = "BACK" },
@@ -161,7 +161,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "With trackers and hounds both, the Houndmaster's best, bred in the kennels at the Monastery. I've seen those dogs run down a man who'd only been accused, and I've wondered since whether the dogs knew more about mercy than their masters did." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't growled at me once, and the Houndmaster's beasts growled at anyone not wearing red. I take that as a kindness, and I've had few enough of those lately." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With trackers and the Houndmaster's dogs, and your {pet} hasn't growled at me once, which those dogs never managed for anyone not wearing red. I take that as a kindness, and I've had few enough of those lately." },
       },
       choices = {
         { text = "A deserter is still a deserter, and the hunt is lawful.", next = "BACK", fx = { align = { order = 1 } } },
@@ -202,7 +202,7 @@ P:NPC {
           text = "You travel with {companion}, and I'd know a fellow priest by the way they bow their head at my door. Southshore has buried too many lately, and I find I'm glad of every healer who passes through." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. The Crusade would have named you a heretic before you'd finished speaking, {class}, and once I'd have agreed with them, so sit down and let me hear what I'd have condemned." },
         { id = "h_default", key = true,
-          text = "Raleigh. They call me the Devout, which is kind of them. I wore the Crusade's red once. Now I keep a room above an inn and watch the north road." },
+          text = "I'm Raleigh, and they call me the Devout, which is kind of them. I wore the Crusade's red once, and now I keep a room above an inn and watch the north road." },
         { id = "h_letter", tags = { "news" }, key = true, when = { questActive = TODO_QUEST("Down the Scarlet Path") },
           text = "Anton's letter? Give it here. Light help us, he still thinks I'm one of them, and there's something you need to hear before you go anywhere near Tirisfal." },
         { id = "h_monastery", tags = { "news" }, when = { questActive = TODO_QUEST("In the Name of the Light") },
@@ -260,7 +260,7 @@ P:NPC {
       },
     },
     left_right = {
-      lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
+      lines = { { id = "lr_default", text = "Leaving was right, but staying quiet afterward wasn't, and that's why I tell the truth to everyone Anton sends me. Most of them go home, and some go north with a different reason." } },
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "You still haven't forgiven yourself, have you?", tag = "Persuade", next = "stayed",
@@ -368,7 +368,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If a man in red asks whether you're plagued, the right answer is to be somewhere else." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },
     scarlet_monastery = { { id = "tp_monastery", text = "The heart of the Crusade, in Tirisfal. I can tell you who sits in it, if you mean to go.", next = "monastery" } },
-    argent_dawn = { { id = "tp_dawn", text = "Men who left the Hand before the rot set in, wiser than me, or quicker." } },
+    argent_dawn = { { id = "tp_dawn", text = "The Argent Dawn are men who left the Hand before the rot set in, wiser than me or quicker." } },
     holy_light = { { id = "tp_holy_light", text = "The Light is a hard master, and I served it in red once, and I served it badly. I serve it now in a quiet room in Southshore, and I think it prefers me this way." } },
     scourge = { { id = "tp_scourge", text = "I have burned the dead and watched them rise again, and I have seen what that does to a man's mind. The Crusade's madness started there, in the fields outside Stratholme." } },
     forsaken = { { id = "tp_forsaken", text = "They are dead, and they are thinking, and they are brewing something up the hill, and I'd sleep better if one of those three things weren't true. I pray for them anyway, and that's more than my old brothers would do." } },

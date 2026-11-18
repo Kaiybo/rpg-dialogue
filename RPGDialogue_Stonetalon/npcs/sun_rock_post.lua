@@ -54,7 +54,7 @@ P:NPC {
     ledge = {
       big = true,
       lines = {
-        { id = "le_default", text = "Because those who want the art badly enough will find the path, and those who don't will waste my rods. Kulwia thinks I'm unfriendly, and she's right, but my students finish what they start." },
+        { id = "le_default", text = "Because those who want the art badly enough will find the path, and those who don't will waste my rods. Kulwia, who sells supplies below, thinks I'm unfriendly, and she's right, but my students finish what they start." },
       },
       choices = {
         { text = "Knowledge should be open to anyone who asks.", next = "BACK", fx = { align = { order = -1 } } },

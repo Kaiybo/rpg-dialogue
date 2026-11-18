@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Stand firm, strike true, and never forget why you fight. Your spirits must teach the same." } },
+      lines = { { id = "xdsham_default", text = "Where your feet are decides whether you live, and why you fight decides whether you stand. Your spirits must teach the same." } },
       choices = {
         { text = "Never forget why you fight. Well said, Wu Shen.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Why I fight doesn't matter. Winning does.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Where to put your feet when the beast gets past the arrows, which it will. A hunter with good footing can back away and keep shooting, and a hunter with bad footing falls over and gets eaten." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better footing than most of my recruits, I'll tell you that. Watch how it moves, and learn." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where to put your feet when the beast gets past the arrows, which it will. Your {pet} has better footing than most of my recruits, I'll tell you that. Watch how it moves, and learn." },
       },
       choices = {
         { text = "I'll learn the footwork. It might save my life.", next = "BACK", fx = { align = { order = 1 } } },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Wu Shen. I train Stormwind's warriors, and I teach them the same thing every day until they stop needing to be told: where your feet are decides whether you live." },
         { id = "h_young", when = { class = "WARRIOR", maxLevel = 15 },
-          text = "Du Lac sent you up from Goldshire, and she taught you to stand. Here we teach you to move without forgetting how to stand, which is harder than it sounds." },
+          text = "Lyria Du Lac sent you up from Goldshire, and she taught you to stand. Here we teach you to move without forgetting how to stand, which is harder than it sounds." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
           text = "You've fought real enemies since you were last here; I can see it in how you stand. Good. Now let's find what bad habits they taught you." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
@@ -274,7 +274,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     others_rogues = {
-      lines = { { id = "or_default", text = "Osborne stands at that door all night and thinks we can't see him. We can, and we let him think it, which is the closest thing to friendship Old Town allows." } },
+      lines = { { id = "or_default", text = "Osborne, their trainer, stands at that door all night and thinks we can't see him. We can, and we let him think it, which is the closest thing to friendship Old Town allows." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -355,7 +355,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every fighter does, and hunters hide theirs best, behind patience and a steady aim. But I've seen a hunter whose pet was killed, and I've never seen fury like it, not even in a berserker." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is the leash on your anger, I think, and the reason for it too. Keep it close, and keep it safe." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every fighter does, and hunters hide theirs best, behind patience and a steady aim. Your {pet} is the leash on your anger, I think, and the reason for it too. Keep it close, and keep it safe." },
       },
       choices = {
         { text = "I keep my anger under control. That's discipline.", next = "BACK", fx = { align = { order = 1 } } },
@@ -409,7 +409,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "I'd welcome your advice on what to practise.", next = "practise", when = { class = "WARRIOR" } },
         { text = "Isn't anger dangerous in a fight?", next = "anger" },
-        { text = "A shield seems the wiser choice to me.", next = "blade", when = { class = "WARRIOR" } },
+        { text = "Blade or shield, Ilsa? Which should I favour?", next = "blade", when = { class = "WARRIOR" } },
         { text = "Why does a gnome need a greatsword?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "I held a corridor in Gnomeregan.", next = "rearguard", when = { origin = "gnome_rearguard" } },
         { text = "Do you fight the rogues for fun?", next = "rogues", when = { class = "ROGUE" } },
@@ -633,8 +633,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "I'd like to know what to practise.", next = "practise", when = { class = "WARRIOR" } },
         { text = "What do you mean by the line?", next = "line" },
-        { text = "That list must hold a lot of names.", next = "list" },
-        { text = "Gnomes and dwarves can't fit easily in your line.", next = "allies", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Do you keep count of the recruits who don't come back?", next = "list" },
+        { text = "How do gnomes and dwarves fit in your line, Ander?", next = "allies", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Can a hunter hold your line?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I walked the Trade District with a halberd once.", next = "guard", when = { origin = "human_city_guard" } },
         { text = "Do you think rogues should fight in a line?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -690,7 +690,7 @@ P:NPC {
     },
 
     list = {
-      lines = { { id = "li_default", text = "The ones I trained who didn't come back. It's a long list, longer since the Blackrock came down into Redridge, and I read it every morning before the recruits arrive." } },
+      lines = { { id = "li_default", text = "I keep a list of the ones I trained who didn't come back. It's long, and longer since the Blackrock orcs came down into Redridge, and I read it every morning before the recruits arrive." } },
       choices = {
         { text = "That's a heavy thing to carry.", next = "list_heavy" },
         { text = "Something else.", next = "BACK" },

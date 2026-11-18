@@ -146,7 +146,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Redridge and Duskwood, if you ask me plainly. The orcs in the Redridge hills and whatever stalks the Duskwood roads outnumber the men I can send, and a hunter who can read a trail is worth a squad of guards who can't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks keen enough to follow a worg into Duskwood. Keep it fed and keep it close, and the Light will watch over you both." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Redridge and Duskwood, if you ask me plainly. That {pet} of yours looks keen enough to follow a worg into Duskwood. Keep it fed and keep it close, and the Light will watch over you both." },
       },
       choices = {
         { text = "I'll go where the roads are worst, Highlord.", next = "BACK", fx = { align = { order = 1 } } },
@@ -207,9 +207,9 @@ P:NPC {
         { id = "h_varian", when = { minLevel = 30 },
           text = "The king left for Theramore and never arrived. Each morning I look at that empty seat and tell the boy it's only a while longer." },
         { id = "h_masquerade", tags = { "news" }, when = { questDone = TODO_QUEST("The Great Masquerade") },
-          text = "I trusted her counsel for years. Every word of it. I'll be reading old decrees for months, looking for her hand in them." },
+          text = "I trusted Lady Prestor's counsel for years, every word of it, and now I'll be reading old decrees for months, looking for her hand in them." },
         { id = "h_solomon", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
-          text = "Solomon's evidence isn't enough to march an army on, and too much to ignore. So I'm sending you. Lakeshire deserves an army; it gets my best instead." },
+          text = "Magistrate Solomon's evidence from Lakeshire isn't enough to march an army on, and it's too much to ignore, so I'm sending you. Lakeshire deserves an army; it gets my best instead." },
         { id = "h_light", when = { alignment = { axis = "light", min = 50 } },
           text = "There's something steady in you. The Light, or plain decency; on a good day they look the same." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -237,7 +237,7 @@ P:NPC {
         { text = "The Church seems to have the crown's ear.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Stormwind took my family in, after Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "There's still no word of King Varian, I take it.", next = "varian" },
-        { text = "I don't know how you bear it.", next = "bear" },
+        { text = "I don't know how you bear the regency, Highlord.", next = "bear" },
         { text = "I'm a soldier, Highlord, and I'm yours to send.", next = "soldier", when = { class = "WARRIOR" } },
         { text = "Ironforge stands with Stormwind, Highlord.", next = "ironforge", when = { race = "Dwarf" } },
         { text = "My people lost Gnomeregan. Will Stormwind help take it back?", next = "gnomeregan", when = { race = "Gnome" } },
@@ -287,7 +287,7 @@ P:NPC {
     bear = {
       big = true,
       lines = {
-        { id = "b_default", text = "I don't act on suspicion, and I don't break faith with the people who serve. Some days that's all a regent has. It has to be enough." },
+        { id = "b_default", text = "I bear it by not acting on suspicion, and not breaking faith with the people who serve. Some days that's all a regent has, and it has to be enough." },
       },
       choices = {
         { text = "It's more than most have.", next = "BACK", fx = { affinity = 2, align = { order = 1, light = 1 } } },
@@ -335,7 +335,7 @@ P:NPC {
       choices = {
         { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Prayers won't bring a king home, my lord.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The people outside the walls need it too.", next = "church_outside" },
+        { text = "Pray for the people outside the walls too.", next = "church_outside" },
       },
     },
     church_outside = {
@@ -476,9 +476,9 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll spare the council a few more minutes. Ask me about any of this, and I'll answer as plainly as I'm able." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "My officers can answer most questions better than I can. If it must be me, keep to these." },
     },
-    defias = { { id = "tp_defias", text = "Thieves with a grievance and better organization than I'd like. Westfall bleeds for it." } },
+    defias = { { id = "tp_defias", text = "The Defias are thieves with a grievance and better organization than I'd like, and Westfall bleeds for it." } },
     westfall = { { id = "tp_westfall", text = "Gryan Stoutmantle holds Westfall with farmers and pitchforks, and he does it without a single soldier from this city. I'm not proud of that." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall's test. Pass it, and you'll have earned the right to call yourself one of us." } },
+    tome_of_divinity = { { id = "tp_tome", text = "The Tome is Duthorian Rall's test for young paladins. Pass it, and you'll have earned the right to call yourself one of us." } },
     _none = { { id = "tp_none", text = "Bring that to one of my officers. I have a kingdom on this desk." } },
   },
 }

@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Yanni Stoutheart, general supplies, an' if ye need it on the road, I've likely got it under this counter somewhere." },
+    { id = "g_default", text = "I'm Yanni Stoutheart, an' I sell general supplies, so if ye need it on the road, I've likely got it under this counter somewhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Let me guess: ye ran out o' somethin' ye swore ye had plenty of." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? Then yer pack's half empty, an' I'm glad tae see ye." },
   },
@@ -68,7 +68,7 @@ P:NPC {
     },
     gossip_rope = {
       lines = {
-        { id = "gr_default", text = "Climbin', I'd guess, round the troggs on the north ridge, or somethin' worse. Hinderweir's lot have been twitchy about Dark Irons up there, an' twitchy engineers buy rope." },
+        { id = "gr_default", text = "Climbin', I'd guess, round the troggs on the north ridge, or somethin' worse. Chief Engineer Hinderweir's lot at the dam have been twitchy about Dark Irons up there, an' twitchy engineers buy rope." },
       },
       choices = {
         { text = "Better to be ready than sorry.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
@@ -78,7 +78,7 @@ P:NPC {
     },
     trade = {
       lines = {
-        { id = "td_default", text = "Steady, like the loch. Ironforge folk come for the fishin' an' the sausages, the League comes for the digs, an' everyone needs a flask on the way out." },
+        { id = "td_default", text = "It's steady, like the loch. Ironforge folk come for the fishin' an' the sausages, the League comes for the digs, an' everyone needs a flask on the way out." },
       },
       choices = {
         { text = "Steady is good.", next = "BACK", fx = { affinity = 1 } },
@@ -99,7 +99,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Thelsamar born, an' I've kept this counter since my uncle handed it over wi' a bad back an' a crate o' unsold candles." } },
+    background = { { id = "tp_bg", text = "I'm Thelsamar born, an' I've kept this counter since my uncle handed it over wi' a bad back an' a crate o' unsold candles." } },
     advice = { { id = "tp_ad", text = "Pack for the trip ye'll have, no' the one ye're hopin' for." } },
     _none = { { id = "tp_none", text = "If I don't sell it, I probably don't know it. Try the bar." } },
   },
@@ -118,7 +118,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Drac Roughcut, trade goods. If ye're makin' somethin', I've likely got the bit ye're missin'." },
+    { id = "g_default", text = "I'm Drac Roughcut, an' I sell trade goods. If ye're makin' somethin', I've likely got the bit ye're missin'." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, for I've restocked the flux an' I'd like somebody tae buy it." },
   },
 
@@ -132,9 +132,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Vials for the alchemists, flux for the smiths, spice for the cooks an' thread for anyone who's torn somethin'. I don't sell finished goods, for that's somebody else's livin', an' I don't stock rubbish, for that's mine." },
+          text = "I sell vials for the alchemists, flux for the smiths, spice for the cooks an' thread for anyone who's torn somethin'. I don't sell finished goods, for that's somebody else's livin', an' I don't stock rubbish, for that's mine." },
         { id = "h_cook", when = { profession = "Cooking" },
-          text = "A cook! Vidra's always after my spices, an' she'll tell ye herself the sausages are half of it, though she'll no' say which half." },
+          text = "A cook! Vidra's always after my spices, an' she'll tell ye herself my spice is half o' what makes her sausages, though she'll no' say which half." },
       },
       again = {
         { id = "h_again", text = "What else? I've stock tae count." },
@@ -150,7 +150,7 @@ P:NPC {
     },
     goods = {
       lines = {
-        { id = "gd_default", text = "Ironforge, by cart through Dun Algaz, an' some by ship tae Menethil an' up the Wetlands road when it's clear. The carts are slow an' the ships are dear, an' I charge accordingly, though no more than I must." },
+        { id = "gd_default", text = "From Ironforge, by cart through the tunnel at the North Gate, an' some by ship tae Menethil an' down the Wetlands road through Dun Algaz when it's clear. The carts are slow an' the ships are dear, an' I charge accordingly, though no more than I must." },
       },
       choices = {
         { text = "The Wetlands road is dangerous these days?", next = "goods_road" },
@@ -169,7 +169,7 @@ P:NPC {
     },
     buyers = {
       lines = {
-        { id = "by_default", text = "Ghak, for vials, an' he breaks them faster than I can bring them in. Then Morhan for flux, an' then every young dwarf who thinks he'll be a tailor, right up until he pricks his thumb." },
+        { id = "by_default", text = "Ghak the alchemist buys the most, for vials, an' he breaks them faster than I can bring them in. Then Morhan the smith for flux, an' then every young dwarf who thinks he'll be a tailor, right up until he pricks his thumb." },
       },
       choices = {
         { text = "Ghak breaks that many?", next = "buyers_ghak" },
@@ -197,9 +197,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Carted goods between Ironforge an' the loch for years before I settled. My back decided for me." } },
+    background = { { id = "tp_bg", text = "I carted goods between Ironforge an' the loch for years before I settled. My back decided for me." } },
     advice = { { id = "tp_ad", text = "Buy good flux. Cheap flux ruins a better day's work than ye'd believe." } },
-    dragonmaw = { { id = "tp_dragonmaw", text = "Orcs on the Wetlands side o' the pass, an' they've cost me two crates o' good spice." } },
+    dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw are orcs on the Wetlands side o' the pass, an' they've cost me two crates o' good spice." } },
     _none = { { id = "tp_none", text = "Not my trade. Ask somebody who's paid tae know it." } },
   },
 }
@@ -217,7 +217,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Vrok Blunderblast, guns an' shot, an' aye, the name's earned. Come in, an' don't touch anythin' that's pointed at ye." },
+    { id = "g_default", text = "I'm Vrok Blunderblast, an' I sell guns an' shot, an' aye, the name's earned. Come in, an' don't touch anythin' that's pointed at ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more shot already? Ye've been busy, an' I like a busy customer." },
   },
 
@@ -233,7 +233,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Shot an' pouches for anyone wi' a gun, an' repairs for anyone wi' a gun that's stopped bein' one. The mountaineers keep me in business, for the troggs never run short an' neither should they." },
+          text = "I sell shot an' pouches for anyone wi' a gun, an' repairs for anyone wi' a gun that's stopped bein' one. The mountaineers keep me in business, for the troggs never run short an' neither should they." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter, good! I've heavy shot in for the bears up by Farstrider, an' light shot for anythin' ye'd rather no' ruin the hide of." },
         { id = "h_elf", when = { race = "NightElf" },
@@ -284,7 +284,7 @@ P:NPC {
     },
     customers = {
       lines = {
-        { id = "cu_default", text = "The mountaineers, by a long way, for Kadrell's lot fire more shot at the troggs than I'd have thought there were troggs. After them, the dam engineers, who buy powder an' then look guilty about it." },
+        { id = "cu_default", text = "The mountaineers, by a long way, for Mountaineer Kadrell's lot fire more shot at the troggs than I'd have thought there were troggs. After them, the dam engineers, who buy powder an' then look guilty about it." },
       },
       choices = {
         { text = "Why guilty?", next = "customers_dam" },
@@ -293,7 +293,7 @@ P:NPC {
     },
     customers_dam = {
       lines = {
-        { id = "cd_default", text = "Because Hinderweir's told them no' tae go blastin' near the dam, an' they go blastin' near the dam. I sell the powder an' keep my nose out, for a gunsmith wi' opinions doesnae stay in business." },
+        { id = "cd_default", text = "Because Chief Engineer Hinderweir's told them no' tae go blastin' near the dam, an' they go blastin' near the dam. I sell the powder an' keep my nose out, for a gunsmith wi' opinions doesnae stay in business." },
       },
       choices = {
         { text = "You should tell Hinderweir.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonewrought_dam" } } },
@@ -304,7 +304,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Three generations o' Blunderblasts, an' every one o' us has lost an eyebrow tae the trade." } },
+    background = { { id = "tp_bg", text = "Three generations o' Blunderblasts have worked this trade, an' every one o' us has lost an eyebrow tae the trade." } },
     advice = { { id = "tp_ad", text = "Keep yer powder dry an' yer barrel clean, an' never look down the end tae see why it didnae fire." } },
     _none = { { id = "tp_none", text = "If it doesnae go bang, I'm no' the dwarf tae ask." } },
   },
@@ -323,7 +323,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Rann Flamespinner, thread an' dye an' patterns. Come in, friend, an' mind ye don't tread on the bolts." },
+    { id = "g_default", text = "I'm Rann Flamespinner, an' I sell thread an' dye an' patterns. Come in, friend, an' mind ye don't tread on the bolts." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Is that the shirt I sold ye the pattern for? It's come out better than I'd hoped." },
   },
 
@@ -339,7 +339,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Thread an' dye an' a pattern or two for anyone who'd sooner sew than buy. It's quiet work in a loud town, an' I like it that way." },
+          text = "I sell thread an' dye an' a pattern or two for anyone who'd sooner sew than buy. It's quiet work in a loud town, an' I like it that way." },
         { id = "h_mage", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
           text = "A robe-wearer, an' ye'll be wantin' to mend it yerself one day, for robes tear in the oddest places. Come an' look at the silk thread." },
       },
@@ -365,7 +365,7 @@ P:NPC {
     },
     name_red = {
       lines = {
-        { id = "nr_default", text = "When I can get the right root, which grows on the far side o' the Wetlands an' costs me dear. Some years I make it, an' some years I sell my last bolt an' tell folk tae wait." },
+        { id = "nr_default", text = "I do when I can get the right root, which grows on the far side o' the Wetlands an' costs me dear. Some years I make it, an' some years I sell my last bolt an' tell folk tae wait." },
       },
       choices = {
         { text = "A family craft is worth keeping alive.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -404,7 +404,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Son o' a dyer from Ironforge. I came tae the loch for the quiet an' stayed for the sausages." } },
+    background = { { id = "tp_bg", text = "I'm the son o' a dyer from Ironforge. I came tae the loch for the quiet an' stayed for the sausages." } },
     advice = { { id = "tp_ad", text = "Double the thread at the shoulder. That's where everything tears first." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye, friend. Thread's my business, an' it keeps me busy enough." } },
   },

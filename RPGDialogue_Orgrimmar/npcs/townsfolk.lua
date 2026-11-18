@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Your vault is where you left it, {class}, and so is everything in it. In the camps an orc owned nothing worth locking up; I'd know if a single coin of yours went missing." },
+    { id = "g_hi", text = "Your vault is where you left it, {class}, and so is everything in it, because I'd know if a single coin of yours went missing." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Put it in or take it out, and I'll write it down either way. If it's another sack of murloc eyes, though, I'm charging you for the smell." },
     { id = "g_goblin", when = { race = "Goblin" }, text = "A goblin at an orc's counter. Count it twice if you like, but you'll find I counted it three times." },
   },
@@ -57,7 +57,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I take anything that fits, though I'd thank you to clean it first. One hunter left a whole kodo horn with me last summer, and the grunts at the door still talk about the stink, so tan your hides before they reach my counter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And no, your {pet} can't come into the vault with you. The last one chewed through a strongbox, and I've never managed to explain that to the owner." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I take anything that fits, though I'd thank you to tan your hides before they reach my counter. And no, your {pet} can't come into the vault with you, because the last one chewed through a strongbox." },
       },
       choices = {
         { text = "I'll tan every hide properly. Waste insults the beast.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -67,7 +67,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I doubt it, but the orcs who listen to them seem to keep less of it and sleep better for it. In the camps we couldn't own a copper, and now we lock up chests of it, so perhaps the spirits are right to laugh at us." } },
+      lines = { { id = "xhsham_default", text = "I doubt they do, and the orcs who listen to them seem to keep less of it and sleep better for it. In the camps we couldn't own a copper, and now we lock up chests of it, so perhaps the spirits are right to laugh at us." } },
       choices = {
         { text = "Gold kept in good order serves the Horde well.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hoarded gold is just another chain, like the camps.", next = "BACK", fx = { align = { order = -1 } } },
@@ -120,7 +120,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've seen stranger deposits, but not many stranger depositors. Your vault is your own, whatever you pray to." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my counter. Your kind don't deposit much, I find, though you come back for your coin more often than most." },
-        { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde. My father owned a chain and a bowl; I like keeping what orcs own now." },
+        { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde. In the camps my father owned a chain and a bowl, so I like keeping what orcs own now." },
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, and my depositors never give anything back to anyone." },
@@ -247,7 +247,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Well enough if they're whole, and the leatherworkers pay best for the thick ones out of the Barrens. Bring me raptor hides and scorpid scales untorn, and the house takes its cut and you take the rest, without haggling with any trader in the Drag." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't go on the lists, before you ask. Somebody always asks, and the answer is always no." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Well enough if they're whole, and the leatherworkers pay best for raptor hides and scorpid scales out of the Barrens. Your {pet} doesn't go on the lists, though, before you ask, because somebody always asks." },
       },
       choices = {
         { text = "I sell only what the hunt leaves over.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -570,7 +570,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Come to found a clan of your own? Or have you come to see what one costs?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you gathered your names yet, or are you still persuading them?" },
-    { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people don't wait for a charter, I know, but you'll find one costs less than a war with the Sentinels." },
+    { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people never waited for anyone's charter, I know, but sign one anyway so the Horde knows who stands with you." },
   },
 
   start = "hello",
@@ -606,7 +606,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every clan had them, and the good ones fed the whole camp through the winter. The Frostwolves still ride their wolves up in Alterac, and the old clans had trackers who could follow a scent across a river, so don't let anyone tell you hunters stand outside the clans." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} counts as one of the guild too, as far as I'm concerned, though I've never managed to make one sign the book." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every clan had them, and the good ones fed the whole camp through the winter, so don't let anyone tell you hunters stand outside the clans. Your {pet} counts as one of the guild too, though I've never managed to make one sign the book." },
       },
       choices = {
         { text = "Then I'll put my name beside a clan's.", next = "BACK", fx = { align = { order = 1 } } },
@@ -871,8 +871,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Durotar's thin on game and thick on teeth, so a hunter earns every meal here. Go south past Razor Hill for the boar and the scorpids, and if you want a real fight, the raptors of the Barrens will give you one before you've walked a day past the Southfury." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours stands straighter than half my recruits. If it ever wants to join the guard, it'll have to learn to salute." },
+        { id = "xhuntcl_default", text = "Durotar's thin on game and thick on teeth, which tells you something. Go south past Razor Hill for the boar and the scorpids, and if you want a real fight, the raptors of the Barrens will give you one before you've walked a day past the Southfury." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Durotar's thin on game and thick on teeth, so go south past Razor Hill for boar and scorpids, or cross the Southfury for the raptors of the Barrens. That {pet} of yours stands straighter than half my recruits, by the way." },
       },
       choices = {
         { text = "I hunt to feed the Horde, Overlord, not for sport.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1226,7 +1226,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Sit if you like. Fishing teaches you to sit still before it teaches you anything else." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything, or only the weeds and the Barrens' boots?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything, or only weeds and old boots?" },
     { id = "g_camp", when = { origin = "orc_camp_born" }, text = "Sit down, camp child. You'll not remember a river from behind the fence either, I'd guess, only the trough, so let me show you what water is for when nobody's guarding it." },
   },
 
@@ -1268,7 +1268,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Closer than most hunters think. You read the water the way you read tracks, you wait where the prey wants to be, and you never take more than you'll eat, because the river remembers greed the same way the plains do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Go on, then; it's earned one more than the grunts who try to beg them off me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Closer than most hunters think, because you read the water the way you read tracks and never take more than you'll eat. Your {pet} would like a fish, I think, by the way it's watching my bucket, so go on and give it one." },
       },
       choices = {
         { text = "Take only what you'll eat. That's the rule I live by.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1331,7 +1331,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin wants to fish. Well, the river doesn't care, and it was a river that gave me my first peace after the camps, so sit down." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the river. Sit a while if you like; the water's the quietest temple in Orgrimmar." },
-        { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. In the camps nobody ever fed us enough, so I learned; then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
+        { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, here at the river. Sit down and be quiet a while, because you'll know better than most that the water gives more to those who wait for it." },
@@ -1447,7 +1447,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The hills around Razor Hill and the canyons near Skull Rock are thick with copper, and the harpies of Dustwind Cave nest on some of the best of it. Keep an eye on the cliffs while you track, and you'll come home with more than hides." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind your {pet} near the cliff edges, because a beast after a lizard doesn't look where it's running, and Durotar's canyons are deep." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The hills around Razor Hill and the canyons near Skull Rock are thick with copper, and the harpies of Dustwind Cave nest on some of the best of it. Mind your {pet} near the cliff edges, though, because a beast after a lizard doesn't look where it's running." },
       },
       choices = {
         { text = "I'll take what ore I need and leave the rest.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1644,7 +1644,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than a hunter likes to admit, because arrowheads, skinning knives and the axe on your back all come from a forge like mine. A good skinning knife takes a hide off clean in one pull and a bad one tears it, and the leatherworkers will pay you for the difference." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the forge noise, I see. Most beasts don't, though I had a boar once who'd sleep right beside the anvil." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than a hunter likes to admit, because your arrowheads and skinning knives all come from a forge like mine. Your {pet} doesn't care for the forge noise, I see, though I had a boar once who'd sleep right beside the anvil." },
       },
       choices = {
         { text = "A clean skinning honours the kill. I'll buy the better knife.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1826,7 +1826,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Your aim, no, but your gun, absolutely! A good scope and some proper black powder, and you'll put a shot through a harpy's wing from the far side of a canyon, though I'll admit the first few scopes I made were mostly decorative." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours could use some goggles, pal. Don't laugh; I've sold three pairs to hunters already, and only one of the beasts ate them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your aim, no, but your gun, absolutely, with a good scope and some proper black powder! And that {pet} of yours could use some goggles, pal; I've sold three pairs to hunters already, and only one of the beasts ate them." },
       },
       choices = {
         { text = "A true hunter relies on skill, not gadgets.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1951,7 +1951,7 @@ P:NPC {
   },
 
   topics = {
-    steamwheedle = { { id = "tp_steam", text = "Good people, rich people, and they'd want me to say I don't work for them. I don't, at least not officially." } },
+    steamwheedle = { { id = "tp_steam", text = "Good people and rich people, and I don't work for them, pal, at least not officially." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, pal, but it's full of sand, and sand gets in the gears. I came to Orgrimmar for the dry air, and the explosions here are cleaner." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's got Gazlowe, and Gazlowe's got the docks, and the docks have got every part you'd ever need. I order from him twice a month, and he still overcharges me, which is how you know he likes me." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture Company's engineers are cheap, sloppy, and dangerous, and they make the rest of us look bad. I blow things up on purpose, and there's a difference." } },

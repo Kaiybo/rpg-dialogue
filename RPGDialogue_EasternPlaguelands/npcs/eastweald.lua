@@ -267,7 +267,7 @@ P:NPC {
       lines = {
         { id = "sf_default", text = "That he'll be right. He was raised to believe his father betrayed Lordaeron for an orc, and if I ride into Hearthglen and he looks at me the way the Crusade taught him to, I'll have lost him twice." },
         { id = "sf_priest", when = { class = "PRIEST" },
-          text = "You'd hear this in a confessional, so I'll say it plainly: I'm not afraid of his sword, I'm afraid of his face. A dead father is a story he can live with, and a living traitor is one he'd have to answer for." },
+          text = "You've earned the truth, so I'll say it plainly: I'm not afraid of his sword, I'm afraid of his face. A dead father is a story he can live with, and a living traitor is one he'd have to answer for." },
       },
       choices = {
         { text = "He might surprise you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

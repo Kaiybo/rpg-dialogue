@@ -98,7 +98,7 @@ P:NPC {
     },
     opn_magni_r_loyal = {
       lines = {
-        { id = "opn_magni_r_loyal", text = "Careful. The Wildhammer bled for the Alliance in the Second War an' sent Kurdran through the Portal wi' it, so dinnae lecture me on keepin' faith." },
+        { id = "opn_magni_r_loyal", text = "Careful. The Wildhammer bled for the Alliance in the Second War an' sent Kurdran Wildhammer through the Dark Portal wi' it, so dinnae lecture me on keepin' faith." },
       },
       choices = {
         { text = "Something else, Thane.", next = "BACK" },
@@ -161,7 +161,7 @@ P:NPC {
           text = "You've brought {companion} up to the Peak, and a Bronzebeard by the cut of that beard. Magni and I keep the peace well enough these days, but I'll warn you that half my riders still mutter about Grim Batol when one of Ironforge's lot walks in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Ha! An Ironforge dwarf wi' the storm in yer hands! Magni's lot always called the spirits Wildhammer superstition, {class}, an' here ye are provin' 'em wrong in my own hall!" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest o' the Light, at Aerie Peak! We Wildhammer mostly keep tae the old spirits, as Fraggar'll tell ye, but I'll take any blessin' that sends a troll back intae the ground." },
+          text = "A priest o' the Light, at Aerie Peak! We Wildhammer mostly keep tae the old spirits, as Fraggar our shaman'll tell ye, but I'll take any blessin' that sends a troll back intae the ground." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in plate an' all! Ye'll be a heavy load for a gryphon, {class}, but the Vilebranch at Jintha'Alor could use a hammer brought down on 'em from a great height." },
         { id = "h_default", key = true,
@@ -267,7 +267,7 @@ P:NPC {
     },
     alliance = {
       big = true,
-      lines = { { id = "a_default", text = "We fought for it an' bled for it, then came home an' decided we'd rather answer tae our own sky. We're friends tae any who prove themselves, so prove yerself." } },
+      lines = { { id = "a_default", text = "We fought for it an' bled for it, an' some o' our riders never came home, an' the rest of us decided we'd rather answer tae our own sky. We're friends tae any who prove themselves, so prove yerself." } },
       choices = {
         { text = "What do you make of Magni and his Bronzebeards?", next = "opn_magni" },
         { text = "That's fair.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
@@ -320,7 +320,7 @@ P:NPC {
     xhunter = {
       lines = { { id = "xhu_default", text = "Fly wi' us? Ye'd need a gryphon, an' a gryphon chooses its rider, not the other way round. But a hunter who knows a beast's mind is halfway to bein' a Wildhammer, so go an' sit wi' the birds a while an' see if one takes to ye." } },
       choices = {
-        { text = "And if none of them does?", next = "gryphons" },
+        { text = "Tell me more about the gryphon riders.", next = "gryphons" },
         { text = "My beast is enough for me.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -337,7 +337,7 @@ P:NPC {
       lines = { { id = "xdr_default", text = "Ye can, can ye? So can we, in our own way; a Wildhammer knows when the wind's wrong an' the trees have gone quiet. It's the Vilebranch an' their altars, an' whatever they're feedin' wi' all that blood." } },
       choices = {
         { text = "Then I'll help heal it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Ask Fraggar. He listens too.", next = "allies" },
+        { text = "Who else stands with you against them?", next = "allies" },
       },
     },
     xgnome = {
@@ -363,7 +363,7 @@ P:NPC {
     grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was ours once, before the Dark Irons' witch cursed it wi' her dyin' breath. We left it tae the dark an' the Dragonmaw, an' we built Aerie Peak instead, an' it's the better home." } },
     second_war = { { id = "tp_second_war", text = "We flew wi' the Alliance in the Second War, an' Kurdran an' his riders were the terror o' the Horde. We bled fer the humans, an' we'd do it again, though we'd want a thank ye this time." } },
     thrall = { { id = "tp_thrall", text = "The orc warchief's made peace wi' some an' war wi' others, an' now he's got trolls in Revantusk right on my doorstep. I'll judge him by them, an' so far they've kept tae their side o' the hills." }, { id = "tp_thrall2", when = { faction = "Horde" }, text = "Yer warchief's Revantusk friends sit on my coast an' call it an alliance. Mind yer manners in my aerie, an' we'll get along fine." } },
-    green_dragons = { { id = "tp_green_dragons", text = "There's a portal tae their Dream in the Seradane, an' the green dragons that guard it have gone strange o' late. My riders give it a wide berth, an' so should ye." } },
+    green_dragons = { { id = "tp_green_dragons", text = "There's a portal tae the Emerald Dream in the Seradane, an' the green dragons that guard it have gone strange o' late. My riders give it a wide berth, an' so should ye." } },
     the_elements = { { id = "tp_the_elements", text = "We Wildhammer still talk tae the spirits, as the Bronzebeards stopped doin' long ago. Fraggar can tell ye more, if ye can get him tae stop listenin' tae the wind long enough." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken their blood god down in Stranglethorn, an' the Vilebranch up here have been dancin' tae the same drums. I dinnae like it, an' I like it less every night." } },
     _none = { { id = "tp_none", text = "Never heard o' it! Is it a troll, now? Then I'll hear of it soon enough." } },
@@ -446,7 +446,7 @@ P:NPC {
       choices = {
         { text = "Drive them out. The gryphons deserve safe aeries.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Guard the aeries, but leave the trolls their hills.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Somethin' else.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -714,7 +714,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I hear the owls an' the wolves, an' lately I hear them go quiet near Jintha'Alor, which troubles me. The beasts know when the land's sick, an' they flee the sickness long before we see it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet}, is it? A fine name, an' it suits the breath I hear. Keep it close in the forest, for the Vilebranch would take a hunter's beast for their altars as soon as the hunter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I hear the owls an' the wolves, an' lately I hear them go quiet near Jintha'Alor, which troubles me. Keep {pet} close in the forest, for the Vilebranch would take a hunter's beast for their altars as soon as the hunter." },
       },
       choices = {
         { text = "The land is sick. Jintha'Alor must be cleansed.", next = "BACK", fx = { align = { light = 1 } } },
@@ -932,7 +932,7 @@ P:NPC {
       choices = {
         { text = "Ironforge is wrong. The Wildhammer have the right of it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Each people honors the land in their own way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Somethin' else.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -947,8 +947,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "That the owls are gettin' bolder an' the wolves hungrier, an' that somethin' big's been crashin' about near the Overlook Cliffs. The riders cannae agree if it's troll or beast, an' nobody's been brave enough tae land an' settle it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? It can have the scraps from the kitchen, for the gryphons won't share an' the cat's too fat already." },
+        { id = "xhuntcl_default", text = "That the owls are gettin' bolder an' the wolves hungrier, an' that somethin' big's been crashin' about near the Overlook Cliffs. Half the riders think it's a troll an' half think it's a beast, an' nobody's been brave enough tae land an' settle it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the owls are gettin' bolder an' somethin' big's been crashin' about near the Overlook Cliffs. An' that's {pet}, is it? It can have the scraps from the kitchen, for the gryphons won't share." },
       },
       choices = {
         { text = "I'll go and settle it. Rumours do nobody any good.", next = "BACK", fx = { align = { order = 1 } } },

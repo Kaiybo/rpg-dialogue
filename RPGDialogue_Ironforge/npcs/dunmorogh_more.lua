@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Look at that, look at it! There goes another barrel o' powder, an' I'm standin' up here like a statue watchin' it happen!" },
+    { id = "g_default", text = "Look at that, look at it! The troggs are smashin' another barrel o' my powder down in the quarry, an' I'm standin' up here like a statue watchin' it happen!" },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Tell me ye've been down there breakin' trogg skulls, for nothin' else will calm me." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the troggs have dug another tunnel in that time. They've no respect for a survey line." },
   },
@@ -46,7 +46,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, I'm countin' troggs." },
-        { id = "h_again2", text = "Ask away, but if one o' them touches that blue barrel I'm goin' to scream." },
+        { id = "h_again2", text = "Ask away, but if one o' those troggs touches that blue powder barrel I'm goin' to scream." },
       },
       choices = {
         { text = "Where did the troggs come from?", next = "troggs" },
@@ -145,7 +145,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Felix Whindlebolt, refugee, formerly of the Gnomeregan Institute of Applied Gear-Work, Second Wing. We drove the troggs out, and then it all went so horribly wrong, and now we gnomes are scattered all over Dun Morogh, and I lost all my belongings on the way." },
+          text = "Felix Whindlebolt, refugee, formerly of the Gnomeregan Institute of Applied Gear-Work, Second Wing. We tried to drive the troggs out, and it all went so horribly wrong, and now we gnomes are scattered all over Dun Morogh, and I lost all my belongings on the way." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Refugee's Quandary") },
           text = "My box, my chest and my bucket of bolts, the trolls took all three back to their camps southwest of Anvilmar. I'm no adventurer, and I'd only get my head knocked in, so I'd be so grateful if you could fetch them." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("A Refugee's Quandary") },

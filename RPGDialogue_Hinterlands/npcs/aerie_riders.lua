@@ -89,7 +89,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Born at the Peak, flyin' since I was tall enough tae reach a saddle. Not much more tae tell." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care. Ask Fraggar; he knows everythin' the spirits whisper." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care. Ask Fraggar, our shaman; he knows everythin' the spirits whisper." } },
   },
 }
 
@@ -141,7 +141,7 @@ P:NPC {
     },
     seen_think = {
       big = true,
-      lines = { { id = "st_default", text = "Their priests, makin' bargains wi' things they shouldnae. Fraggar says the land's sick around their temples, an' I believe him, but the Thane wants proof before he sends riders." } },
+      lines = { { id = "st_default", text = "Their priests, makin' bargains wi' things they shouldnae. Fraggar, our shaman, says the land's sick around their temples, an' I believe him, but the Thane wants proof before he sends riders." } },
       choices = {
         { text = "Don't wait for proof. Strike now.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The Thane's right. Proof first, then riders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -222,7 +222,7 @@ P:NPC {
     },
 
     gryphons = {
-      lines = { { id = "gr_default", text = "Oh, they're darlin's, every one, even the ones that bite. I remember Sharpbeak's mother when she was a chick, an' now her own young one's gone missin' an' Talonaxe is beside himself." } },
+      lines = { { id = "gr_default", text = "Oh, they're darlin's, every one, even the ones that bite. I remember Sharpbeak's mother when she was a chick, an' now Sharpbeak himself has gone missin', an' Talonaxe the gryphon master is beside himself." } },
       choices = {
         { text = "What happened to Sharpbeak?", next = "gryphons_sharp" },
         { text = "Something else.", next = "BACK" },
@@ -329,7 +329,7 @@ P:NPC {
     },
 
     news = {
-      lines = { { id = "ne_default", text = "Rhapsody's been brewin' again, out east, an' Thulfram's complainin' about it, an' Truk's buyin' it on the quiet. Oh, an' the trolls are bein' trolls, but that's no' new." } },
+      lines = { { id = "ne_default", text = "Rhapsody Shindigger's been brewin' again, out east, an' Thulfram the innkeeper's complainin' about it, an' Truk at the bar is buyin' it on the quiet. Oh, an' the trolls are bein' trolls, but that's no' new." } },
       choices = {
         { text = "You really do know everything here.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_default", text = "Spoogledorf, at your service! Yes, that's my real name, and no, I don't mind you smiling. In Gnomeregan it was a perfectly respectable name, I'll have you know." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again! Come in, come in. Mind the stairs, they were built for long legs, and I've been cursing them for years." },
     { id = "g_often", when = { timesTalked = { min = 5 } }, text = "You visit an old gnome more often than his own company does, and they're supposed to report to me. Sit down, I'll pretend you're one of them." },
-    { id = "g_gnome", when = { race = "Gnome" }, text = "A fellow gnome, and a young one! Spoogledorf, late of Gnomeregan, Tinker Town, fourth spiral down. Which level were you from, before it all went wrong?" },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "A fellow gnome, and a young one! Spoogledorf, late of Gnomeregan, fourth spiral down. Which level were you from, before it all went wrong?" },
     { id = "g_horde", when = { faction = "Horde" }, text = "Oh! Well, this is unexpected. I'd ask how you got past the guards, but I've a feeling I'd rather not know. Spoogledorf, and please don't break anything." },
   },
 
@@ -63,7 +63,7 @@ P:NPC {
     name = {
       lines = {
         { id = "nm_default", text = "A spoogle is a coiled spring, the very small kind that makes a pocket watch tick, and a dorf is a workshop. My great-grandfather made the best spoogles in Gnomeregan, and the name came with the shop. In Gnomish it sounds as dignified as Ironforge." },
-        { id = "nm_gnome", when = { race = "Gnome" }, text = "Well, you know what a spoogle is, so you know my great-grandfather made the finest watch springs in Tinker Town. It's only the humans who laugh. To them everything we name sounds like a sneeze." },
+        { id = "nm_gnome", when = { race = "Gnome" }, text = "Well, you know what a spoogle is, so you know my great-grandfather made the finest watch springs in Gnomeregan. It's only the humans who laugh. To them everything we name sounds like a sneeze." },
       },
       choices = {
         { text = "Does anyone ever get it wrong?", next = "name_wrong" },
@@ -98,7 +98,7 @@ P:NPC {
     -- Gnomeregan
     gnomer = {
       lines = {
-        { id = "gr_default", text = "Seventy years in Tinker Town, and I left it in an afternoon with a ledger under one arm and my beard singed. The troggs came up from below, and then the gas came, and that was that. I don't talk about the gas." },
+        { id = "gr_default", text = "Seventy years in Gnomeregan, and I left it in an afternoon with a ledger under one arm and my beard singed. The troggs came up from below, and then the gas came, and that was that. I don't talk about the gas." },
         { id = "gr_gnome", when = { race = "Gnome" }, text = "You were there too, then, or your family was. I won't ask what you lost, and you needn't ask me. We both know what the air tasted like that last day." },
       },
       choices = {
@@ -147,17 +147,17 @@ P:NPC {
     -- The company
     guild = {
       lines = {
-        { id = "gd_default", text = "Five young ones and me. A warrior who argues with doors, a rogue who's always somewhere else, a priest who prays more than she heals, and a hunter with a bad-tempered cat called Biscuit. I keep two ledgers for them: one for coin, one for promises. Neither has ever balanced." },
+        { id = "gd_default", text = "Four young ones and me. A warrior who argues with doors, a rogue who's always somewhere else, a priest who prays more than she heals, and a hunter with a bad-tempered cat called Biscuit. I keep two ledgers for them: one for coin, one for promises. Neither has ever balanced." },
       },
       choices = {
         { text = "Why call it Uber Town?", next = "guild_name" },
         { text = "Two ledgers?", next = "guild_ledger" },
-        { text = "How do the five of them get along?", next = "guild_priest" },
+        { text = "How do the four of them get along?", next = "guild_priest" },
         { text = "Something else.", next = "BACK" },
       },
     },
     guild_name = {
-      lines = { { id = "gn_default", text = "'Uber' is an old Tinker Town word for a thing that's better than its blueprint. We mean to buy a town one day, a whole one, with a wall and a tavern and a bell, and it'll be better than its blueprint too. We've saved eleven gold so far." } },
+      lines = { { id = "gn_default", text = "'Uber' is an old Gnomeregan word for a thing that's better than its blueprint. We mean to buy a town one day, a whole one, with a wall and a tavern and a bell, and it'll be better than its blueprint too. We've saved eleven gold so far." } },
       choices = {
         { text = "Eleven gold won't buy much of a town.", next = "guild_town" },
         { text = "I like it. Every town starts as a dream.", next = "BACK", fx = { affinity = 1 } },
@@ -173,7 +173,7 @@ P:NPC {
       },
     },
     guild_ledger = {
-      lines = { { id = "gl_default", text = "The coin ledger says we're eleven gold richer than last year. The promise ledger says we owe a farmer a sheep, a widow a roof and a dwarf in Thelsamar an apology. When they fail, I tell them it's one more story for the songs, and when they win, I say the same." } },
+      lines = { { id = "gl_default", text = "The coin ledger says we're eleven gold richer than last year. The promise ledger says we owe a farmer a sheep, a widow a roof and a dwarf in Thelsamar an apology. When the young ones fail, I tell them it's one more story for the songs, and when they win, I say the same." } },
       choices = {
         { text = "Sounds like someone worth following.", next = "BACK", fx = { affinity = 1 } },
         { text = "Two ledgers sounds like a lot of paperwork.", next = "BACK", fx = { trait = { witty = 1 } } },

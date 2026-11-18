@@ -160,7 +160,7 @@ P:NPC {
       },
     },
     heat_stock = {
-      lines = { { id = "hes_default", text = "Oil, shade and a cool cellar dug into the rock under the inn, which Shul'kar lets me use for a share of the profits. It's the coolest place in Kargath, and the leather likes it better than I do." } },
+      lines = { { id = "hes_default", text = "Oil, shade and a cool cellar dug into the rock under the inn, which Shul'kar the innkeeper lets me use for a share of the profits. It's the coolest place in Kargath, and the leather likes it better than I do." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

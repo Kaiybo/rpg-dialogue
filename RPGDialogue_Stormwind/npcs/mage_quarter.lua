@@ -285,7 +285,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I have studied the flows of magic all my life and written a book on them, which I recommend and nobody reads. That will do for a history." } },
     advice = { { id = "tp_ad", text = "Be wary of magic, for it burns the untrained. You may think you've heard that before; it bears repeating." } },
-    xylem = { { id = "tp_xylem", text = "A brilliant archmage in Azshara and an insufferable one. Both are true, and both matter.", next = "xylem" } },
+    xylem = { { id = "tp_xylem", text = "Archmage Xylem is a brilliant archmage in Azshara, and an insufferable one. Both are true, and both matter.", next = "xylem" } },
     _none = { { id = "tp_none", text = "That lies outside my study, I'm afraid. Try the Royal Library; Milton will be delighted to see you." } },
   },
 }
@@ -317,7 +317,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not as you are. We had our magisters and our sun, and we lost much of both. I would not dismiss any path that might heal." } },
+      lines = { { id = "xdsham_default", text = "Not as you are, no. We had our magisters and our Sunwell, and we lost much of both, so I would not dismiss any path that might heal." } },
       choices = {
         { text = "Every path that heals deserves respect, Elsharin.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some paths lead nowhere. Choose with care.", next = "BACK", fx = { align = { light = -1 } } },
@@ -364,7 +364,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every day, and every night more so, because these human streets have no stars in them. The hunters of my people say the forest is a teacher and the beast a student, and I have come to think the same of magic." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a kind look, though it is restless among all this stone. Take it out into Elwynn often; it will thank you for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every day, and every night more so, because these human streets have no stars in them. Your {pet} has a kind look, though it is restless among all this stone. Take it out into Elwynn often; it will thank you for it." },
       },
       choices = {
         { text = "The wild should be guarded, like the Sentinels guard it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -612,7 +612,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It confuses them terribly, because they smell one place and then suddenly another, without any of the road between. I've seen a hound come through a portal from Theramore and sit down and refuse to move for an hour." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hate it, I'm sure. Walk it, or fly it, and spare it the experience." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It confuses them terribly, because they smell one place and then suddenly another, without any of the road between. Your {pet} would hate it, I'm sure. Walk it, or fly it, and spare it the experience." },
       },
       choices = {
         { text = "I'll spare my pet the discomfort and take the road.", next = "BACK", fx = { align = { light = 1 } } },
@@ -736,7 +736,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Power seeks power, my friend. The spirits are slow and fussy; demons are quick. I merely note what history shows." } },
+      lines = { { id = "xdsham_default", text = "They did, my friend, because power seeks power, and the spirits are slow and fussy while demons are quick. I merely note what history shows." } },
       choices = {
         { text = "I'll keep to slow and honest power, thank you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "History favours the bold. I'll remember that.", next = "BACK", fx = { align = { order = -1 } } },
@@ -782,8 +782,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Sulphur, old blood and a little fear, I'd imagine; the cellar's work leaves traces. A beast's nose is the one thing my wards can't silence, and so I keep well away from them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash, if you please. The last animal that came down here wandered into a circle and came out rather less of an animal." },
+        { id = "xhuntcl_default", text = "Sulphur, old blood and a little fear, I'd imagine; the cellar's work leaves traces. A beast's nose is the one thing my wards can't silence, which is why I don't care for them at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Sulphur, old blood and a little fear, I'd imagine; the cellar's work leaves traces. Keep {pet} on a short leash, if you please. The last animal that came down here wandered into a circle and came out rather less of an animal." },
       },
       choices = {
         { text = "If something's wrong down here, I'll find out.", next = "BACK", fx = { align = { light = 1 } } },
@@ -914,7 +914,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "Help, of a discreet kind, with a noble who talks too much about us at the wrong dinners. You understand that if Wishock's speech succeeds, there will be no cellar for anyone to be one of." } },
+      lines = { { id = "warlock_l", text = "Then I'll ask your help, of a discreet kind, with a noble who talks too much about us at the wrong dinners. You understand that if Wishock's speech succeeds, there will be no cellar for anyone to be one of." } },
       choices = {
         { text = "Then he'll have to be silenced.", next = "BACK", fx = { align = { light = -1, honor = -1 } } },
         { text = "I'll not poison a man for a speech.", next = "BACK", fx = { affinity = -1, align = { light = 1, honor = 1 } } },
@@ -937,7 +937,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I have a talent for making problems go quiet. The Black Claw values that talent. The rest is nobody's affair." } },
     advice = { { id = "tp_ad", text = "Never wander a tavern looking for the privy. Ask the barkeep, like a civilised person." } },
-    stalvan = { { id = "tp_stalvan", text = "A dead man with a lovely garden outside Darkshire. I'm told the house is unpleasant; the flowers, however, are exquisite." } },
+    stalvan = { { id = "tp_stalvan", text = "Stalvan Mistmantle is a dead man with a lovely garden outside Darkshire. I'm told the house is unpleasant; the flowers, however, are exquisite." } },
     _none = { { id = "tp_none", text = "I couldn't say. And if I could, I'd want something for it." } },
   },
 }
@@ -1016,7 +1016,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, though they would sooner die than say so. A demon will obey you to the end of the world, but it will never fetch your slippers out of affection." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching me very carefully, and it is right to. Animals always know which of us has the most to hide." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, though they would sooner die than say so. Your {pet} is watching me very carefully, and it is right to. Animals always know which of us has the most to hide." },
       },
       choices = {
         { text = "Affection is stronger than any binding.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1092,7 +1092,7 @@ P:NPC {
       },
     },
     student = {
-      lines = { { id = "s_default", text = "He grew impatient and reached for more than he could hold, and what he reached for held him instead. We don't speak his name down here, and you won't either." } },
+      lines = { { id = "s_default", text = "One. He grew impatient and reached for more than he could hold, and what he reached for held him instead. We don't speak his name down here, and you won't either." } },
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "I'll go.", next = "END" },
@@ -1358,7 +1358,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Gnomeregan first, then the long road south, and now this lovely cellar, because a gnome must keep busy.", next = "gnome" } },
     advice = { { id = "tp_ad", text = "Name your imp something dignified. They live up to their names, and they never forgive a silly one." } },
-    gnomeregan = { { id = "tp_gnome", text = "Home, once. I try not to think about the radiation, and mostly I manage." } },
+    gnomeregan = { { id = "tp_gnome", text = "Gnomeregan was home, once. I try not to think about the radiation, and mostly I manage." } },
     _none = { { id = "tp_none", text = "No idea! Is there a grimoire about it? There ought to be." } },
   },
 }

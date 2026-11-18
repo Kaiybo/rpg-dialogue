@@ -34,7 +34,7 @@ P:Pool {
     { id = "l_shrine", when = { subzone = "Shrine of Aviana" }, text = "Lower your voice near the shrine. Aviana rests close by, and the birds here are hers." },
     { id = "l_felblood", when = { subzone = { "Felblood Scar", "Tainted Foothills" } }, text = "The fel ran thickest down these slopes when the Legion came. Don't drink from anything here, and don't touch the brambles." },
     { id = "l_malorne", when = { subzone = "Malorne's Retreat" }, text = "The furbolgs in the caves here won't talk, only fight. Something has soured them, the same as the brambles." },
-    { id = "l_yashiro", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "The orc's doomguard is dead, they say, and you were there for it. The patrols near Dae'gun are breathing easier." },
+    { id = "l_yashiro", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "The doomguard Yashiro was hunting in Dae'gun is dead, they say, and you were there for it. The patrols near Dae'gun are breathing easier." },
     { id = "l_human", when = { race = "Human" }, text = "Humans fought beside us here, when the Legion came. I've not forgotten it, even if Ashenvale makes it hard to remember." },
     { id = "l_horde", when = { faction = "Horde" }, text = "Ashenvale is Ashenvale, and Hyjal is Hyjal. Here we hold our arrows unless you give us cause." },
   },

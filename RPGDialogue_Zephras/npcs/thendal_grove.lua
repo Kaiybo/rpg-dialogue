@@ -31,7 +31,7 @@ P:NPC {
 
   notice = {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "You're learning from Boro, aren't you? Then you'll feel it as I do, that there's nothing here to answer us, only echoes." },
+      text = "You're learning from Windshaper Boro, aren't you? Then you'll feel it as I do, that there's nothing here to answer us, only echoes." },
     { id = "n_young", cat = "kin", when = { race = "Skyborne", maxLevel = 4 },
       text = "You still have the smell of the great tree on you, child. Stay close to the paths, because the sprites here don't know a friend from a cultist." },
   },
@@ -40,7 +40,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Yala Windwatcher, and Rorian sent me to watch the winds at these stones. The wind spirits have left us, and what remains here are only mindless echoes, and lately those echoes have turned angry." },
+        { id = "h_default", key = true, text = "I'm Yala Windwatcher, and Rorian the Dayseeker sent me to watch the winds at these stones. The wind spirits have left us, and what remains here are only mindless echoes, and lately those echoes have turned angry." },
         { id = "h_unrest", tags = { "news" }, when = { questActive = TODO_QUEST("Elemental Unrest") },
           text = "Rorian sent you to me? Good; I could use your help. I've watched long enough to know what's stirring the sprites, and it isn't the weather." },
         { id = "h_agit", when = { questActive = TODO_QUEST("Agitators") },
@@ -168,8 +168,8 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Pests, everywhere pests, riding every draught through the grove. Gale's greetings, and what can I do for you?" },
-    { id = "g_infest", when = { questActive = TODO_QUEST("Infestation Investigation") }, text = "The eastern end of the grove. Don't let the swarm grow, and don't let them land on you." },
-    { id = "g_queen", when = { questActive = TODO_QUEST("The Cirrusfly Queen") }, text = "Watch the big ones. The bigger they are, the meaner they get." },
+    { id = "g_infest", when = { questActive = TODO_QUEST("Infestation Investigation") }, text = "The cirrusflies are breeding at the eastern end of the grove. Don't let the swarm grow, and don't let them land on you." },
+    { id = "g_queen", when = { questActive = TODO_QUEST("The Cirrusfly Queen") }, text = "Watch the big ones around the queen. The bigger they are, the meaner they get." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Cirrusfly Queen") }, text = "The grove's quieter without that queen. One less problem to think about." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the cirrusflies didn't miss you. I did, a little, though I'd not say so in front of the other rangers." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way from bug duty. The rangers notice that sort of thing." },
@@ -180,7 +180,7 @@ P:NPC {
     { id = "n_guts", cat = "kit", when = { killed = { name = "Cirrusfly", min = 8 } },
       text = "Judging by the bug entrails all over you, that infestation was worse than I was told. Go and wash before Rorian sees you." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter, is it? Tai'ree will be pleased, and so am I, since your sort actually enjoys this work." },
+      text = "A hunter, is it? Tai'ree, our hunter trainer, will be pleased, and so am I, since your sort actually enjoys this work." },
   },
 
   start = "hello",
@@ -193,7 +193,7 @@ P:NPC {
         { id = "h_queen", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Cirrusfly Queen"), days = 2 } },
           text = "Excellent work. You'd make a fine ranger, if this whole adventurer business doesn't work out for you, and I don't say that to everyone." },
         { id = "h_ranger", when = { origin = "skyborne_thendal_ranger" },
-          text = "Back from the paths, and still in one piece. Halaan says you were the only one of your year who could find a nest by smell." },
+          text = "Back from the paths, and still in one piece. Halaan Hawk-Eye says you were the only one of your year who could find a nest by smell." },
         { id = "h_outsider", when = { ["not"] = { race = "Skyborne" } },
           text = "A visitor from below, out among the bugs. You didn't come all this way for cirrusflies, I'd hope, but since you're here, I won't turn down help." },
       },
@@ -266,7 +266,7 @@ P:NPC {
     },
     xhunter = {
       lines = {
-        { id = "xh_default", text = "Then you'll understand that it's not the small ones you watch, it's the big ones, because the bigger they are, the meaner. Take Tai'ree's beast-sense out there with you and you'll do fine." },
+        { id = "xh_default", text = "Then you'll understand that it's not the small ones you watch, it's the big ones, because the bigger they are, the meaner. Take what Tai'ree taught you out there and you'll do fine." },
       },
       choices = {
         { text = "I'll mind the big ones.", next = "BACK", fx = { affinity = 1 } },
@@ -301,7 +301,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep clear of the southwest paths if you can. The ursera are restless, and the winds carry our scent straight to their den." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Aggressive Encroachment") }, text = "The scrawny ones, outside the den. Bring me their claws." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Aggressive Encroachment") }, text = "Cull the scrawny ursera outside the den, and bring me their claws." },
     { id = "g_done", when = { questDone = TODO_QUEST("Aggressive Encroachment") }, text = "The Rangers of the Grove are in your debt, and I mean that as surely as I mean the winds be with you." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. The ursera haven't quieted, but I'm glad you're back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your weapons since you first stood here, and I'm glad to see it." },
@@ -325,7 +325,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Aggressive Encroachment"), days = 2 } },
           text = "Well done. The Rangers of the Grove are in your debt, and the children can play by the tree again, at least for a while." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "A druid. Xyton would say the ursera are only doing what hunger tells them, and he's right, but hunger doesn't care whose child is in the way." },
+          text = "A druid. Xyton, our druid trainer, would say the ursera are only doing what hunger tells them, and he's right, but hunger doesn't care whose child is in the way." },
       },
       again = {
         { id = "h_again", text = "What else would you know?" },
@@ -435,7 +435,7 @@ P:NPC {
     { id = "n_mine", cat = "craft", when = { profession = "Mining" },
       text = "A miner! Then you'll know how to get a stone out of the ground without cracking it, and half the young ones I send out still can't." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "You're a student of the High Order, aren't you? Don't drain the stones to practice your spells, please; Dorii's apprentices tried that once." },
+      text = "You're a student of the High Order, aren't you? Don't drain the stones to practice your spells, please; the mage Dorii's apprentices tried that once." },
   },
 
   start = "hello",

@@ -232,7 +232,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Up intae the high snows, an' his tracks are deep enough tae lose a boot in, so ye'll no' miss them. I've lived out here longer than some o' the hills, but I've never seen a bear so set on another dwarf's dinner." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} could have a go at him, I suppose, but I'd hate for it tae end up as his pudding." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up intae the high snows, an' his tracks are deep enough tae lose a boot in, so ye'll no' miss them. Yer {pet} could have a go at him, I suppose, but I'd hate for it tae end up as his pudding." },
       },
       choices = {
         { text = "I'll track him and bring your stash home.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -260,7 +260,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Lonely? I've the hills an' the wind an' Ol' Sooty for company, though he's no' much o' a conversationalist an' he steals my food. A prayer now an' again wouldnae hurt, I suppose, but I'd sooner ye prayed for my stash." } },
+      lines = { { id = "xapriest_default", text = "Lonely? I've the hills an' the wind, an' Ol' Sooty the bear for company, though he's no' much o' a conversationalist an' he steals my food. A prayer now an' again wouldnae hurt, I suppose, but I'd sooner ye prayed for my stash." } },
       choices = {
         { text = "Then I'll pray for you and the stash both, Tundra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A man who chooses solitude doesn't need my prayers.", next = "BACK", fx = { align = { light = -1 } } },
@@ -269,7 +269,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "It's a bear, lad, an' bears steal, same as dwarves drink, an' I'll no' blame it for it. I only want my stash back, an' if Ol' Sooty has tae go tae get it, well, I'll no' be weepin' at his funeral." } },
+      lines = { { id = "xapala_default", text = "It's a bear, {g:lad|lass}, an' bears steal, same as dwarves drink, an' I'll no' blame it for it. I only want my stash back, an' if Ol' Sooty has tae go tae get it, well, I'll no' be weepin' at his funeral." } },
       choices = {
         { text = "Get the stash and spare the bear if I can. That's fair.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A beast that raids camps will raid them again. It dies.", next = "BACK", fx = { align = { light = -1 } } },
@@ -309,7 +309,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Somethin' else on yer mind? I've nowhere to be." },
-        { id = "h_again2", text = "Ask what ye like, lad; I've a fire goin' and nowhere better to be." },
+        { id = "h_again2", text = "Ask what ye like, {g:lad|lass}; I've a fire goin' and nowhere better to be." },
       },
       choices = {
         { text = "So a bear stole your food.", next = "bear" },
@@ -425,7 +425,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar, wolf and bear, if you can manage the bear, for I'm told the flight's long and the clouds don't serve lunch. Steelgrill says I'm overpacking, but Steelgrill's never been stuck on a mountaintop with nothing to eat but a spanner." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} can have a share of whatever's left over, since it'll be doing half the work, I imagine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar, wolf and bear, if you can manage the bear, for I'm told the flight's long and the clouds don't serve lunch. Your {pet} can have a share of whatever's left over, since it'll be doing half the work, I imagine." },
       },
       choices = {
         { text = "I'll bring exactly what's on your list.", next = "BACK", fx = { align = { order = 1 } } },
@@ -635,7 +635,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Honourable's for duels, lad, an' trolls don't duel; they come screamin' down the hill wi' spears. I'll no' tell ye how tae fight, but I've buried dwarves who waited for a fair fight, an' I'd rather sell ye a gun." } },
+      lines = { { id = "xapala_default", text = "Honourable's for duels, {g:lad|lass}, an' trolls don't duel; they come screamin' down the hill wi' spears. I'll no' tell ye how tae fight, but I've buried dwarves who waited for a fair fight, an' I'd rather sell ye a gun." } },
       choices = {
         { text = "I'll face my foes in the open. That's how it should be.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A dead troll is a dead troll. Sell me the gun.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -668,7 +668,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll swear by yer axe, I've no doubt, but there's no shame in a gun for the troll that's too far tae reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind don't care for guns, an' I'll no' take it personal if ye don't buy one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll no' want a gun, I know, but have ye ever heard a Rumbleshot fire in the snow? It's prettier than any spell." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in my shop! Ye'd no' be the first dwarf tae say powder an' fire are cousins, but ye'd be the first tae say it while askin' the fire's permission." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in my shop! Ye'd no' be the first dwarf tae say powder an' fire are cousins, but ye'd be the first tae ask the fire's permission before ye light the fuse." },
       },
       again = {
         { id = "h_again", text = "What else? I've a rifle to oil." },

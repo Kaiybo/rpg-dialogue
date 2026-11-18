@@ -79,7 +79,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two scaffolds last week as though they were made of straw. I'd pay a hunter in thanks, which is all I've got, to keep them off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two of my scaffolds last week. Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
       },
       choices = {
         { text = "I'll keep the beasts away from your bridge.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -144,15 +144,15 @@ P:NPC {
         { id = "h_tools", when = { questBefore = TODO_QUEST("The Lost Tools") },
           text = "My tools came across the lake by boat, and a catapult put the boat at the bottom. They're down there with it, my good hammer and all." },
         { id = "h_tools_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Lost Tools") },
-          text = "Off the end of the wreck, at the bottom. Hold your breath, mind the murlocs, and don't drop it on the way up." },
+          text = "My toolbox is off the end of the wreck, at the bottom of the lake. Hold your breath, mind the murlocs, and don't drop it on the way up." },
         { id = "h_tools_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Lost Tools"), days = 3 } },
-          text = "Rusted shut, but they're mine, and every one has my mark on the handle. Back to work, then." },
+          text = "My tools came up rusted shut, but they're mine, and every one has my mark on the handle. Back to work, then." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("The Everstill Bridge") },
           text = "Gnolls ran off with my iron from Stormwind, pikes and rivets both. What does a gnoll want with rivets, when they don't even build?" },
         { id = "h_rains", when = { questDone = TODO_QUEST("The Everstill Bridge") },
           text = "The rains are coming, and the bridge will be done before they do. Write that down somewhere I can point at later." },
         { id = "h_ink", tags = { "news" }, when = { questActive = TODO_QUEST("Ink Supplies") },
-          text = "A librarian wants ore, for ink, while I've got a town to fortify. Northshire has a funny idea of what matters this month." },
+          text = "Brother Paxton, the librarian up at Northshire Abbey, wants ore for his ink while I've got a town to fortify. Northshire has a funny idea of what matters this month." },
         { id = "h_rethban", when = { questActive = TODO_QUEST("Rethban Ore") },
           text = "Rethban Caverns, north of town. The gnolls are digging the seam out themselves now, so take it off them and carry it to Paxton yourself." },
         { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday, straight as a ruler, and I stood on it a while. Don't tell the crew, or they'll think I've gone soft about bridges." },
@@ -248,7 +248,7 @@ P:NPC {
 
     tools = {
       lines = {
-        { id = "t_default", text = "Shipped by wagon from Goldshire. The bridge was out, so we loaded them on a boat, and the orcs put a catapult stone through it. Toolbox went to the bottom, my good hammer with it." },
+        { id = "t_default", text = "My tools came by wagon from Goldshire, and with the bridge out we loaded them on a boat, and the orcs put a catapult stone through it. The toolbox went to the bottom, my good hammer with it." },
         { id = "t_done", when = { questDone = TODO_QUEST("The Lost Tools") },
           text = "Back on my bench now, thanks to you. I still look across the lake before I put anything in a boat." },
       },
@@ -267,7 +267,7 @@ P:NPC {
 
     supplies = {
       lines = {
-        { id = "su_default", text = "We smelted our own iron into swords and shot during the last attack. I sent to Stormwind for more. Redridge gnolls took the whole caravan into the hills behind town.",
+        { id = "su_default", text = "We smelted our own iron into swords and shot during the last attack, so I sent to Stormwind for more, and the Redridge gnolls carried the whole caravan off into the hills behind town.",
           fx = { learn = { "redridge_gnolls" } } },
       },
       choices = {
@@ -283,12 +283,12 @@ P:NPC {
       },
     },
     supplies_verner = {
-      lines = { { id = "sv_default", text = "He's begging for iron to shoe horses, and a gnoll's using a pike as a back-scratcher. Don't mention it near his forge; he's got hammers." } },
+      lines = { { id = "sv_default", text = "Verner's begging for iron to shoe horses, and a gnoll's using a pike as a back-scratcher. Don't mention it near his forge; he's got hammers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     paxton = {
-      lines = { { id = "px_default", text = "Paxton's my usual buyer, and a decent man. But I've walls to raise. If Northshire wants Rethban ore this month, Northshire can dig it." } },
+      lines = { { id = "px_default", text = "Paxton's my usual buyer, and a decent man, but I've walls to raise. If Northshire wants Rethban ore this month, Northshire can dig it." } },
       choices = {
         { text = "Where would I dig?", next = "rethban" },
         { text = "Fair. Something else.", next = "BACK" },

@@ -23,7 +23,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Evening, friend. No, no, sit wherever you like, I was only resting my eyes near the door." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I've nothing in my pockets, I've nowhere to be, and I'm very much enjoying my drink, so let's keep it friendly." },
-    { id = "g_after", when = { questDone = Q_DIPLOMAT }, text = "Ah. The one who sat on me. My ribs still remember you fondly, if you were wondering." },
+    { id = "g_after", when = { questDone = Q_DIPLOMAT }, text = "Ah, the one who leaned on me till I talked. My ribs still remember you fondly, if you were wondering." },
   },
 
   notice = {
@@ -65,7 +65,7 @@ P:NPC {
     defias = {
       lines = { { id = "de_default", text = "The Defias? Masons with grudges, I always heard, who took to robbing roads when Stormwind wouldn't pay them. Can't say I've ever met one, and I'd like that written down somewhere official." } },
       choices = {
-        { text = "Mikhail says you were watching us.", next = "defias_watch" },
+        { text = "Mikhail says you've been watching his customers.", next = "defias_watch" },
         { text = "You're lying, Slim.", next = "defias_lie" },
         { text = "Something else.", next = "BACK" },
       },

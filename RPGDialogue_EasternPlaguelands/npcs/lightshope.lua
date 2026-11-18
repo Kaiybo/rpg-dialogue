@@ -116,7 +116,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "The Duke says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
+        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "Duke Zverenhoff says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
           text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -261,7 +261,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll go back in.", next = "BACK", fx = { affinity = 2, standing = { light_hope = 1 }, trait = { brave = 1 } } },
-        { text = "You suspect the Crusade's leaders?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Then the Crusade's leaders bear watching too.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

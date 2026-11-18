@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Tharg see you, and Tharg not get up, because Tharg's knees are older than Tharg is." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Army of the Black Dragon") }, text = "The Firemane still walk in Tharg's old village, so you go and make fewer of them." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Army of the Black Dragon") }, text = "The Firemane, the black dragon's army, still walk in Tharg's old village, so you go and make fewer of them." },
     { id = "g_done", when = { questDone = TODO_QUEST("Army of the Black Dragon") }, text = "The brave one comes back! Sit by Tharg, because Tharg likes you better than most of Brackenwall." },
     { id = "g_away", when = { away = 14 }, text = "You gone {away}, and Tharg counted the days, because there is nothing else to do in this wet place." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You bigger now than when Tharg first sent you south, and harder to kill, Tharg thinks. That is good, because the dragons are bigger too." },
@@ -85,7 +85,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Tharg is still listening, so talk." },
-        { id = "h_again2", text = "What else? Tharg has nowhere to be, which is the whole trouble, and the roof still leaks on Tharg's good side." },
+        { id = "h_again2", text = "What else? Tharg has nowhere to be, which is the whole trouble." },
       },
       choices = {
         { text = "What happened to the Stonemaul village?", next = "village" },
@@ -152,7 +152,7 @@ P:NPC {
     },
     overlord_who = {
       big = true,
-      lines = { { id = "ow_default", text = "Draz'Zilb watches the Overlord with sharp eyes, and Draz'Zilb is clever, cleverer than Tharg. Tharg does not know what Draz'Zilb thinks, but Tharg sees him thinking it." } },
+      lines = { { id = "ow_default", text = "Draz'Zilb, the Overlord's adviser, watches the Overlord with sharp eyes, and Draz'Zilb is clever, cleverer than Tharg. Tharg does not know what Draz'Zilb thinks, but Tharg sees him thinking it." } },
       choices = {
         { text = "Mok'Morokk kept your people alive. That counts.", next = "overlord_end", fx = { align = { order = 1 } } },
         { text = "A chief who runs should be pulled down.", next = "overlord_end", fx = { align = { order = -1 } } },

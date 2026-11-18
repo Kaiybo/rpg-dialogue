@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very little that isn't about rents or bandits, I'm afraid. When the wolves of Duskwood took three children last winter, it reached this chamber as a line in a tax petition." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} sits more patiently than most courtiers, I'd say. I'll pray for its health along with yours, if you don't mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very little that isn't about rents or bandits, I'm afraid. Your {pet} sits more patiently than half the court, I'd say. I'll pray for its health along with yours, if you don't mind." },
       },
       choices = {
         { text = "Then I'll tell them what's happening out there, Bishop.", next = "BACK", fx = { align = { light = 1 } } },
@@ -125,10 +125,10 @@ P:NPC {
       choices = {
         { text = "This missing diplomat must be someone important.", next = "diplomat", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "The Church wants something from the court, I'd wager.", next = "court" },
-        { text = "Why trust a fisherman over the guard?", next = "contacts", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
+        { text = "Who keeps you informed, Your Grace, if not the guard?", next = "contacts", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "Your Grace, how does a priest serve at court?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
-        { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE", any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
+        { text = "Your informants would make fine spies, Your Grace.", next = "rogue", when = { class = "ROGUE", any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "I'd guess the Church is wary of the Mage Quarter, Your Grace.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -225,7 +225,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "rogue_l", text = "He'd be appalled to hear it, and he'd be very good at it. The Church has its listeners, child, as SI:7 has its knives, and I'd thank you not to compare them in Master Shaw's hearing." } },
+      lines = { { id = "rogue_l", text = "They'd be appalled to hear it, and they'd be very good at it. The Church has its listeners, child, as SI:7 has its knives, and I'd thank you not to compare them in Master Shaw's hearing." } },
       choices = {
         { text = "Listening is the same work, whoever pays.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
         { text = "The Church's way is the honest one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -251,7 +251,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A churchman who was better at listening than preaching, and so was sent where the listening is hardest. I don't complain, much." } },
     advice = { { id = "tp_ad", text = "Never say anything in the Keep you'd mind hearing at the Pig and Whistle by evening. It will be there by evening." } },
     defias = { { id = "tp_defias", text = "Westfall's brigands, with friends in more places than the court likes to admit. I keep their name out of the Church's prayers only so I can say it in its petitions.", next = "diplomat_defias" } },
-    stonemasons = { { id = "tp_masons", text = "Their unpaid wages are written in a ledger somewhere in this building. I've asked to see it twice." } },
+    stonemasons = { { id = "tp_masons", text = "The stonemasons' unpaid wages are written in a ledger somewhere in this building, and I've asked to see it twice." } },
     _none = { { id = "tp_none", text = "I couldn't say, and in this chamber that's usually the wisest answer anyway." } },
   },
 }
@@ -345,7 +345,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rare pelts, unusual feathers, a set of antlers that would make the Lescovars weep with envy! My family's hall has a gap above the fireplace that has been waiting for something magnificent for nine years." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, what a remarkable creature your {pet} is. I don't suppose you'd consider... no, no, of course not. Forget I asked." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rare pelts, unusual feathers, a set of antlers that would make the Lescovars weep with envy! Oh, what a remarkable creature your {pet} is. I don't suppose you'd consider... no, no, of course not." },
       },
       choices = {
         { text = "Some trophies belong in the wild, Count, not on a wall.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -403,7 +403,7 @@ P:NPC {
       choices = {
         { text = "Tell me about your museum.", next = "museum" },
         { text = "That's a traitor's tiara you're after.", next = "tiara", when = { any = { { questActive = TODO_QUEST("The Perenolde Tiara") }, { questDone = TODO_QUEST("The Perenolde Tiara") }, { heardLine = "ridgewell.h_tiara" } } } },
-        { text = "I don't know this Mayara Brightwing.", next = "mayara", when = { any = { { questActive = TODO_QUEST("Mayara Brightwing") }, { questDone = TODO_QUEST("Mayara Brightwing") } } } },
+        { text = "Who is Mayara Brightwing?", next = "mayara", when = { any = { { questActive = TODO_QUEST("Mayara Brightwing") }, { questDone = TODO_QUEST("Mayara Brightwing") } } } },
         { text = "Is any of your collection dwarven work, Count?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "You seem to have guessed my house already.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Has anyone ever tried to rob your museum, Count?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -494,8 +494,8 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A Ridgewell, of the Ridgewells! Our collection is our history, and I'm merely its latest and most devoted keeper.", next = "museum" } },
     advice = { { id = "tp_ad", text = "Never wear your second-best coat to the Keep. Someone always notices, and it's always the Duchess." } },
-    alterac = { { id = "tp_alterac", text = "Ruins, ogres and a traitor's treasure. I'd never go myself, but I'd love to own a piece of it.", next = "tiara" } },
-    thaurissan = { { id = "tp_thaurissan", text = "The old Dark Iron capital, all ash now, and Mayara says there's beauty in the ash if you dig. I believe her." } },
+    alterac = { { id = "tp_alterac", text = "Alterac is ruins, ogres and a traitor's treasure now. I'd never go myself, but I'd love to own a piece of it.", next = "tiara" } },
+    thaurissan = { { id = "tp_thaurissan", text = "Thaurissan was the old Dark Iron capital, all ash now, and Mayara says there's beauty in the ash if you dig. I believe her." } },
     _none = { { id = "tp_none", text = "Haven't the faintest, my dear, and if it isn't valuable, I shan't worry about it." } },
   },
 }
@@ -556,7 +556,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I trust anything that isn't summoning demons in a cellar. Your spirits I can live with, so long as they don't drink on credit." } },
       choices = {
         { text = "The warlocks should answer to the House. You're right there.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Leave the warlocks be. You found them drinking, after all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave the warlocks be. You were drinking with them, after all.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

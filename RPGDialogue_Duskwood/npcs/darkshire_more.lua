@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "These are bad days for Duskwood, {class}, and they don't seem to end. Is there news from the road?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. I'll cross you off the list of people I worry about, for today." },
-    { id = "g_sven", when = { questActive = TODO_QUEST("Deliveries to Sven") }, text = "Sven's crate won't carry itself, and his people won't eat until it gets there." },
+    { id = "g_sven", when = { questActive = TODO_QUEST("Deliveries to Sven") }, text = "Sven Yorgen's crate won't carry itself, and his people won't eat until it gets there." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Come in from the dark. The Watch's lamps only reach so far, and the woods know exactly how far." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I kept your name on my list of people to worry about the whole time. I'm glad to cross it off." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in town has been speaking kindly of you, and kind words are scarcer in Darkshire than lamp oil. The Light walks with folk like that." },
@@ -67,7 +67,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Anything that's changed: a worg den where there wasn't one, spiders in a house that was empty last week, tracks heading toward town. Jonathan hunts what I write down, so the better your eyes, the safer we all are." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine scout, {class}. Animals notice things long before people do, and in Duskwood that's often the difference." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anything that's changed: a new worg den, spiders in a house that was empty last week, tracks heading toward town. Your {pet} would make a fine scout for that, {class}, because animals notice things long before people do." },
       },
       choices = {
         { text = "I'll report everything I see. Your list keeps people alive.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be out in the wood longer than most, so do come back and tell me what you see moving where it shouldn't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll put you on my list of folk passing through, if you'll tell me where you're headed and when you'll be back." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Good, because I need someone who can read the sort of papers Jonathan leaves lying about and doesn't understand." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I keep lists of who's been fed and who's missing. The Light is something you walk under, not wait for. Do your spirits agree?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Here, the Light is something we walk under, not something we wait for, so tell me, do your spirits see it the same way?" },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? I've a list, but it can wait a moment." },
@@ -313,7 +313,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Safer, at least, which is more than I can say now. The road east runs through Deadwind Pass, past things I'd rather not name, and every crate that arrives keeps Lungertz's soldiers fed and armed against the Dark Portal." } },
+      lines = { { id = "xwarcl_default", text = "Safer, at least, which is more than I can say now. The road east runs through Deadwind Pass, past things I'd rather not name, and every crate that arrives keeps Quartermaster Lungertz's soldiers fed and armed against the Dark Portal." } },
       choices = {
         { text = "I'll guard the road. Nethergarde needs those supplies.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Nethergarde's a long way. I'll fight closer to home.", next = "BACK", fx = { align = { order = -1 } } },
@@ -324,7 +324,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Worgs along the eastern stretch, and spiders that string webs across the road at night as neat as a toll gate. A hunter clearing the road ahead of my wagons would save me more crates than any guard." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would keep my oxen nervous, {class}, but I'd rather nervous oxen than dead drivers, so walk it ahead of the wagons." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Worgs along the eastern stretch, and spiders that string webs across the road at night as neat as a toll gate. That {pet} would keep my oxen nervous, {class}, but I'd rather nervous oxen than dead drivers, so walk it ahead of the wagons." },
       },
       choices = {
         { text = "I'll clear the road ahead of your wagons.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -560,7 +560,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Improve it, he says! The jug under the counter is the only thing in Darkshire that's never once disappointed anybody, and I'll not have it frozen, sparkled or made to taste of cinnamon. A Dalaran fellow tried that on his way through once, years back, and the Watch still laugh about what it did to his eyebrows." },
+        { id = "xmage_default", text = "Improve it, you say! The jug under the counter is the only thing in Darkshire that's never once disappointed anybody, and I'll not have it frozen, sparkled or made to taste of cinnamon. A Dalaran fellow tried that on his way through once, years back, and the Watch still laugh about what it did to his eyebrows." },
       },
       choices = {
         { text = "Then I'll drink it the way it's made, and wince.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -635,7 +635,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a jug of juice for you and a bowl of water for the beast, and if either of you wants something stronger, ask quietly." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now, I'd wager your folk know a thing or two about what berries do when you leave them in a jar, eh?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Don't go chilling my moonshine with your tricks, it's meant to be drunk warm and regretted cold." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in. My moonshine might wake your spirits up. Don't tell the Watch." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in, because my moonshine might wake your spirits up, and don't tell the Watch." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the bar; I don't leave it after dark." },
@@ -776,7 +776,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not much, I'm afraid, because my shelves are mostly for mages and priests. If you need arrows, though, the fletchers in Lakeshire do good work, and the road there is only half as bad as the one to anywhere else." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my reagents, {class}, so call it back before it gets a noseful, because some of those powders make beasts sneeze fire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not much, I'm afraid, because my shelves are mostly for mages and priests, so try the fletchers in Lakeshire for arrows. And your {pet} is sniffing my reagents, {class}, which I'd rather it didn't, because some of those powders make beasts sneeze fire." },
       },
       choices = {
         { text = "I'll keep it outside. Your shop isn't a kennel.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -832,7 +832,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast, in my shop full of breakable glass. Please, for the love of the Light, tell it to sit." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Grandmother will want to read your cards, and I'll warn you now that she always finds a tree in a druid's spread." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came in so quiet the bell didn't even ring, and Gran would call that an omen. I call it a reason to oil the bell." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandmother would be delighted. She reads cards, you know, and you read spirits. Fate's mostly good locks, though." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandmother would be delighted, since she reads cards and you read spirits, though I still say fate's mostly a matter of good locks." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm only counting candles, and they're not going anywhere." },
@@ -950,7 +950,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We understand gears and powder, mostly. Spirits are messy. But you're in Darkshire, so you must have courage." } },
+      lines = { { id = "xdsham_default", text = "We understand gears and powder, mostly, and spirits are messy. Still, anyone who comes to Darkshire must have courage, and courage I understand." } },
       choices = {
         { text = "Courage and good order, Herble. They go together.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Messy is fine. Not everything needs gears.", next = "BACK", fx = { align = { order = -1 } } },
@@ -981,7 +981,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scopes, mostly, and good dwarven ones, though Finbus would argue gnomish lenses are better, and Finbus is wrong. A scope that lets you see a worg before it sees you is worth every copper in this dark wood." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has got its nose in my crate of springs, {class}, and if it swallows one I'll want it back, if you follow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scopes, mostly, and good dwarven ones, because a scope that shows you a worg before it sees you is worth every copper. That {pet} has got its nose in my crate of springs, {class}, and if it swallows one I'll want it back, if you follow." },
       },
       choices = {
         { text = "I'll trust my eyes. A scope's a crutch.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1046,7 +1046,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, a gnome who sells gun parts likes a hunter, because hunters like guns, and guns like parts!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Your people and mine haven't much in common, I'd guess, except that we've both lost a home lately and ended up somewhere damp." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I don't suppose your imp could tell me why it smells of burnt gears whenever it's near my shop?" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in Darkshire! I'm an exile who found somewhere darker. Are you an exile too, from the old ways?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in Darkshire! I'm an exile from Gnomeregan who found somewhere even darker, and I'd guess you've wandered a long way from home too." },
       },
       again = {
         { id = "h_again", text = "What else? I've three conversations going in my head already, so one more won't hurt." },
@@ -1134,7 +1134,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know gears, ore and every rumour that comes through a gnome's front door, which is all of them. Which shall it be?" } },
     background = { { id = "tp_bg", text = "Gnomeregan born, Ironforge displaced, Darkshire settled, and none of them asked me first." } },
     advice = { { id = "tp_ad", text = "Never trust a bronze tube that rattles, or a gnome who says something's perfectly safe." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "My city, my workshop, my favourite chair, and all of it under the mountain with that traitor's mess.", next = "gnomeregan" } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "My city, my workshop, my favourite chair, and all of it under the mountain with that traitor Thermaplugg's mess.", next = "gnomeregan" } },
     _none = { { id = "tp_none", text = "Fascinating question, and I know nothing whatsoever about it." } },
     magni = { { id = "tp_magni", text = "King Magni gave us gnomes a roof after Gnomeregan fell, and I'll always be grateful, but there's only so much rock a gnome can stare at. I came to Darkshire for a change of scenery, and I certainly got one." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a gnome who builds clockwork toys, and I've studied his work from a careful distance. It's very good, and I hate him a little for it." } },
@@ -1161,7 +1161,7 @@ P:NPC {
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { tabard = true },
-      text = "You're wearing colours! Are you from Stormwind, and has the king finally sent soldiers, or is it only you?" },
+      text = "You're wearing colours! Are you from Stormwind, and has Stormwind finally sent soldiers, or is it only you?" },
     { id = "n_weary", cat = "weary", when = { deathsHere = { min = 1 } },
       text = "You've been out there and come back looking worse. That's what happens, and that's why I stay in." },
   },
@@ -1170,7 +1170,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The dead walk there now. I pace and wait. If your spirits could tell him I'm still here, it'd be something." } },
+      lines = { { id = "xdsham_default", text = "The dead walk there now, so I pace and wait. If your spirits could tell my father I'm still here, it'd be something." } },
       choices = {
         { text = "I'll help you visit him, Farrin. Honour matters.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The dead are dead. Let your father rest.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1190,7 +1190,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because the dead are walking in the Tranquil Gardens, and every time I go near, something with my neighbour's face comes shambling out. I don't want to fight them, I only want to stand at the stone and say what I never got to say." } },
+      lines = { { id = "xwarcl_default", text = "Because the dead are walking the Raven Hill cemetery, and every time I go near, something with my neighbour's face comes shambling out. I don't want to fight them, I only want to stand at the stone and say what I never got to say." } },
       choices = {
         { text = "I'll clear the gardens. Your father deserves a visit.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The dead are everywhere. Grieve from here, Farrin.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1201,7 +1201,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wolves, as big as ponies some of them, and spiders that hang in the trees by the cemetery. My father used to walk this wood to fish the Darkened Bank, and now I can't walk to the end of the street." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would see the dead coming before they reached you, {class}. I've half a mind to buy a dog, but there's none left in Darkshire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wolves as big as ponies, some of them, and spiders that hang in the trees by the cemetery. Your {pet} would see the dead coming before they reached you, {class}; I'd buy a dog myself, but there's none left in Darkshire." },
       },
       choices = {
         { text = "I'll clear the way to the cemetery for you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1218,7 +1218,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "Would it? The guards keep telling me lamps don't scare ghouls, and Stormwind keeps sending no guards at all. If you can do what they won't, then at least somebody in this town will have tried." } },
+      lines = { { id = "xma_default", text = "Would it? The Watch keeps telling me lamps don't scare ghouls, and Stormwind keeps sending no guards at all. If you can do what they won't, then at least somebody in this town will have tried." } },
       choices = {
         { text = "You should petition the watch properly for an escort.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget the guards, Farrin. Waiting is killing you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1376,7 +1376,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They fear what's in it. I keep them calm with my voice. Your spirits might help them sleep." } },
+      lines = { { id = "xdsham_default", text = "They fear what's in it, and I keep them calm with my voice. Your spirits might help them sleep." } },
       choices = {
         { text = "Then keep them calm and safe, Steven.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Beasts fear what they should. Let them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1537,6 +1537,6 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about hooves, if you like." } },
     dark_riders = { { id = "tp_dark_riders", text = "Their horses aren't right, friend; I've seen them pass, and every animal in my stable kicked its stall. No living horse makes mine do that." } },
     raven_hill = { { id = "tp_raven_hill", text = "My horses won't take the west road past Raven Hill, not for oats and not for the whip. I've learned to trust them." } },
-    wildhammer = { { id = "tp_wildhammer", text = "I've heard the Wildhammer up in the Hinterlands keep gryphons the way I keep horses, and I'd give a week's wages to see their stables. Felicia says gryphons have worse tempers than any horse." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I've heard the Wildhammer up in the Hinterlands keep gryphons the way I keep horses, and I'd give a week's wages to see their stables. Felicia, who keeps the gryphons here, says they have worse tempers than any horse." } },
   },
 }

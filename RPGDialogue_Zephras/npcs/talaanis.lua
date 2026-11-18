@@ -93,7 +93,7 @@ P:NPC {
     },
     hunter_ta = {
       lines = {
-        { id = "hta_default", text = "The Rangers of Thendal Grove; then you know the island better than half the Council. The mainland will be strange to you, and none of us yet knows how strange, but keep your eyes as sharp as Thendal taught them and you'll manage." },
+        { id = "hta_default", text = "The Rangers of Thendal Grove trained you, then, so you know the island better than half the Council. The mainland will be strange to you, and none of us yet knows how strange, but keep your eyes as sharp as Thendal taught them and you'll manage." },
       },
       choices = {
         { text = "I'll miss the island's winds.", next = "BACK", fx = { affinity = 1 } },
@@ -194,7 +194,7 @@ P:NPC {
           text = "Our patrons vanished, the pylons began to fail and the islands drifted apart. Then the Al'Aketh brought down the wards that hid us, Lorthuna lit a beacon, and Rohash of the Windlord's Conclave came and promised to tell Al'Akir exactly where we are." },
       },
       choices = {
-        { text = "And so we left.", next = "windlord" },
+        { text = "So that's why we're going down to Azeroth.", next = "windlord" },
         { text = "Will Al'Akir come for us?", next = "windlord" },
         { text = "Tell me about the patrons.", next = "patrons" },
       },
@@ -432,7 +432,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never believe anyone who says they know what Al'Akir will do. I don't, and I've thought about it more than anyone." } },
     al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads, and worship for a Windlord our own patrons would hardly speak of. We broke them once at the Shrine of Akir, and once may not be enough.", next = "lorthuna" } },
     two_orders = { { id = "tp_orders", text = "Two roads out of the same house. I'd like them both to come home for dinner, someday." } },
-    shal_nan = { { id = "tp_shalnan", text = "Gone with the spirits, and if you hear anything, anything at all, you bring it to me first." } },
+    shal_nan = { { id = "tp_shalnan", text = "Missing, child, and nobody knows where. If you hear anything, anything at all, bring it to me first." } },
     windstones = { { id = "tp_windstones", text = "They light our lamps and fill our purses. When they fail, I suspect we'll learn which mattered more." } },
     highborne = { { id = "tp_highborne", text = "We are the sons and daughters of the Highborne, child, whether we like the inheritance or not. The High Order wants the power back and the Windshapers want the debt paid, and I want them both to remember what the Highborne's pride cost." } },
     dire_maul = { { id = "tp_dire_maul", text = "The city our ancestors fled is called Eldre'Thalas, and I'm told the outsiders now call it Dire Maul and that ogres walk its halls. I can't decide whether that is a tragedy or a kind of justice." } },
@@ -440,7 +440,7 @@ P:NPC {
     the_elements = { { id = "tp_the_elements", text = "The winds were our neighbors and our guardians for longer than anyone can count, and then they went quiet. I don't know why, and I'll trust nobody who claims to." } },
     elune = { { id = "tp_elune", text = "Our cousins on the ground pray to Elune, and a few of our people have begun to as well. We were a people of the winds before we were anything else, and I won't scold anyone for looking for another light." } },
     dalaran = { { id = "tp_dalaran", text = "The Kirin Tor sent Ansirem Runeweaver to us when we needed help most, and the High Order owes Dalaran a debt for it. I hope they know what they are taking on in our young mages." } },
-    kirin_tor = { { id = "tp_kirin_tor", text = "Archmage Ansirem stood beside us against Lorthuna's elementals and asked very little in return, which in my experience means he'll ask later. I'd pay it gladly." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "Archmage Ansirem stood beside us against Rohash's elementals and asked very little in return, which in my experience means he'll ask later. I'd pay it gladly." } },
     earth_mother = { { id = "tp_earth_mother", text = "Muln Earthfury of the tauren came with the Earthen Ring and stood with us when the elementals turned. His people speak of an Earth Mother, and the Windshapers are learning to listen to her voice beside the wind's." } },
     cairne = { { id = "tp_cairne", text = "The tauren chieftain, Cairne, has opened his lands in Mulgore to the Windshapers, and I don't know how to thank a man I've never met. I'm told he'd say there's nothing to thank him for, which makes me like him already." } },
     _none = { { id = "tp_none", text = "The Council has many questions and fewer answers, and that's one of the many." } },

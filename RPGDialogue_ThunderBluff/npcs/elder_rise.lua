@@ -18,8 +18,8 @@ P:NPC {
 
   greetings = {
     { id = "o_mag_distrust", when = { gossip = { topic = "magatha", stance = "distrust" } }, text = "I hear you told the sage on the lower rise that the Elder Crone is a viper. She hears these things too, outsider, and she has a long memory." },
-    { id = "o_cairne_admire", when = { gossip = { topic = "cairne", stance = "admire" } }, text = "The Elder Crone tells me you sang Bloodhoof's praises at her own fire. That was bold of you, and not very wise." },
-    { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter, or merely a Bloodhoof one?" },
+    { id = "o_cairne_admire", when = { gossip = { topic = "cairne", stance = "admire" } }, text = "The Elder Crone tells me you sang Cairne Bloodhoof's praises at her own fire. That was bold of you, and not very wise." },
+    { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Magatha remembers those who are useful, and so do I." },
     { id = "g_troggs", when = { questActive = TODO_QUEST("Testing an Enemy's Strength") }, text = "The troggs are in Ragefire Chasm, beneath Orgrimmar itself. The orcs built their capital on top of a nest and never thought to look down." },
     { id = "g_satchel", when = { questActive = TODO_QUEST("Searching for the Lost Satchel") }, text = "Maur's body lies somewhere in the Chasm. Search it well, and bring anything he carried back to the Elder Crone." },
@@ -37,7 +37,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Rahauro, and I attend the Elder Crone, Magatha Grimtotem. She has a great many burdens on behalf of all tauren, and I take the smaller ones from her shoulders so that she can bear the larger, such as the troggs beneath Orgrimmar who killed her diplomats." },
+        { id = "h_default", key = true, text = "I am Rahauro, and I attend the Elder Crone, Magatha Grimtotem. She has a great many burdens on behalf of all tauren, and I take the smaller ones from her shoulders so that she can bear the larger. The largest just now is the troggs beneath Orgrimmar, who killed her diplomats." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Testing an Enemy's Strength"), minLevel = 9 },
           text = "Troggs have come up from the depths beneath Orgrimmar, into a place called Ragefire Chasm. The Elder Crone sent diplomats to make peace with them, and the troggs killed every one, so now she sees them as a threat to the whole Horde and would like them destroyed before they overwhelm it from below." },
         { id = "h_satchel", when = { questDone = TODO_QUEST("Testing an Enemy's Strength"), questBefore = TODO_QUEST("Searching for the Lost Satchel") },
@@ -97,7 +97,7 @@ P:NPC {
       },
     },
     maur = {
-      lines = { { id = "m_default", text = "Maur Grimtotem mattered most, a Grimtotem of some learning who could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
+      lines = { { id = "m_default", text = "Grimtotem, all of them, and Maur Grimtotem mattered most, for he could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
       choices = {
         { text = "He must have hoped to find something.", next = "maur_find" },
         { text = "Something else.", next = "BACK" },
@@ -174,7 +174,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Bashana Runetotem, the Archdruid's daughter, which most people say before I can. I'm of the Cenarion Circle too, and while my father carries the Circle's burdens on Elder Rise, I carry its seeds, morrowgrain among them, and lately its worries about Blackfathom Deeps." },
+        { id = "h_default", key = true, text = "I'm Bashana Runetotem, the Archdruid's daughter, which most people say before I can. My father carries the Cenarion Circle's burdens on Elder Rise, and I carry its seeds, and lately its worries about Blackfathom Deeps." },
         { id = "h_bfd", when = { questActive = TODO_QUEST("Blackfathom Villainy") },
           text = "You have something from Blackfathom Deeps for me? Good. The Twilight's Hammer have been doing something foul in those flooded halls, and anything that tells us who leads them down there is worth having." },
         { id = "h_bfd_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackfathom Villainy"), days = 3 } },
@@ -373,7 +373,7 @@ P:NPC {
       },
     },
     nara = {
-      lines = { { id = "n_default", text = "Nara Wildmane, though the Wildmanes are a big family, so I'll let you work out the rest. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
+      lines = { { id = "n_default", text = "Nara Wildmane is kin, though the Wildmanes are a big family and I couldn't tell you exactly how. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

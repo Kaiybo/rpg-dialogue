@@ -14,9 +14,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_alliance_betrayed", when = { opinion = { topic = "alliance", stance = "betrayed" } }, text = "There's the one who agrees with my kettle. Sit, dear, and don't tell the Marshal what we said about kings." },
+    { id = "g_op_alliance_betrayed", when = { opinion = { topic = "alliance", stance = "betrayed" } }, text = "There's the one who agreed with me about the Alliance and our boys. Sit, dear, and don't tell the Marshal what we said about kings." },
     { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },
-    { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "The boy sent you. I know that face; it's the face of someone sent." },
+    { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "Tommy Joe sent you, didn't he? I know that face; it's the face of someone sent." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my accomplice! Come in, come in and sit down." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and not so much as a letter for an old woman. Sit down anyway, since you're here." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've filled out since you last came by, and you've the look of someone who's seen a thing or two. Good, because the young are no use until they have." },
@@ -63,7 +63,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Ending this foolish feud, dear. The Maclures and the Stonefields have wasted good years on it. Your spirits might knock some sense into them." } },
+      lines = { { id = "xdsham_default", text = "I'm scheming to end this foolish feud, dear, because the Maclures and the Stonefields have wasted good years on it. Your spirits might knock some sense into them." } },
       choices = {
         { text = "End it kindly, Gramma. Old wounds need gentle hands.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let them fight it out. Feuds end themselves eventually.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -92,7 +92,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "My father did, boar and deer up in the hills before the gnolls came over. He used to say a hunter feeds the house and a fighter only feeds the crows, and I've found that mostly true." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a handsome {pet}. Mind it doesn't chase our chickens, or I'll have to like you less." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "My father did, boar and deer up in the hills before the gnolls came over. That's a handsome {pet}, mind, but don't let it chase our chickens, or I'll have to like you less." },
       },
       choices = {
         { text = "I hunt to feed folk, as your father did.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -102,7 +102,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "It's for the boy, though he thinks it's for the east fence crew, and he'll carry half of it across the river to someone he thinks I don't know about. I don't mind a little sneaking when it's for love, but I mind it very much when it's for pie." } },
+      lines = { { id = "xrogue_default", text = "It's for Tommy Joe, though he thinks it's for the men mending the east fence, and he'll carry half of it across the river to someone he thinks I don't know about. I don't mind a little sneaking when it's for love, but I mind it very much when it's for pie." } },
       choices = {
         { text = "Your pie's safe, Gramma. I'd sooner help the boy than rob him.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sneaking's sneaking, Gramma. Love doesn't make it honest.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -138,15 +138,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want to sort out the Maclures, I expect, and I'll tell you now that swinging a hammer won't help, though it would be fun to watch." },
-        { id = "h_default", text = "Oldest Stonefield still breathing. That gives me the right to say this feud is a waste of good years, and I say it often." },
+        { id = "h_default", text = "I'm the oldest Stonefield still breathing, and that gives me the right to say this feud is a waste of good years, and I say it often." },
         { id = "h_speak", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Gramma") },
-          text = "The boy's in love with a Maclure. Of course he is. I've known since spring; he started washing behind his ears." },
+          text = "So Tommy Joe's in love with a Maclure. Of course he is; I've known since spring, when he started washing behind his ears." },
         { id = "h_note", when = { questActive = TODO_QUEST("Note to William") },
           text = "Take that to William Pestle at the Lion's Pride, and don't read it. Oh, read it if you must, but don't tell him you did." },
         { id = "h_waiting", when = { questDone = TODO_QUEST("Note to William"), questBefore = TODO_QUEST("The Escape") },
-          text = "William's a good friend and a slow one. Whatever he brews, it'll be right. It just won't be quick." },
+          text = "William's a good friend and a slow one. Whatever he brews, it'll be right; it just won't be quick." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
-          text = "Two young fools happy, and two old families none the wiser. Best day's work I've done in years." },
+          text = "Two young fools are happy and two old families are none the wiser, and that's the best day's work I've done in years." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Escape"), days = 14 } },
           text = "They'll be found out one day. I'll be here when they are, with a stick, for anybody who raises their voice." },
         { id = "h_grown", when = { minLevel = 25, metBefore = true },
@@ -160,9 +160,9 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've a cold air about you, child, colder than this kitchen in January. Sit by the stove and tell me what you've been up to." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My husband was one, in the old days, and he spent most of it fighting things that weren't Maclures." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Princess has been at our field again, and nobody's had the nerve to do anything about her." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Princess, the Brackwells' sow, has been at our field again, and nobody's had the nerve to do anything about her." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you make the Maclures and my lot see sense with a spell? No? Then you're no more use than a priest." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Well, aren't you a sight. Sit down; I'm scheming something, and your spirits might help." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at my door! Well, aren't you a sight. Sit down; I'm scheming something, and your spirits might help." },
       },
       again = {
         { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
@@ -217,14 +217,14 @@ P:NPC {
     },
     maclures = {
       lines = {
-        { id = "mc_default", text = "Never mind the Maclures. The girl's sweet, and that's all of them I need to know." },
+        { id = "mc_default", text = "Never mind the Maclures. Their Maybell's sweet, and that's all of them I need to know." },
       },
       choices = { { text = "Fair.", next = "BACK" } },
     },
 
     feud = {
       lines = {
-        { id = "f_default", text = "Ask three Stonefields, get four answers. I stopped caring which was true about forty years ago." },
+        { id = "f_default", text = "Ask three Stonefields and you'll get four answers. I stopped caring which was true about forty years ago." },
       },
       choices = {
         { text = "Then it's time it ended.", next = "feud_end", fx = { affinity = 1, learn = { "maybell_tommy" } } },
@@ -243,7 +243,7 @@ P:NPC {
 
     william = {
       lines = {
-        { id = "wi_default", text = "Since we were both young and foolish. He went off to make potions in the city; I stayed and made Stonefields. We each think the other got the worse bargain." },
+        { id = "wi_default", text = "I've known him since we were both young and foolish. He went off to make potions in the city; I stayed and made Stonefields. We each think the other got the worse bargain." },
       },
       choices = {
         { text = "I hope his potion works.", next = "william_potion" },
@@ -262,7 +262,7 @@ P:NPC {
 
     family = {
       lines = {
-        { id = "fa_default", text = "Bernice bakes, Ma fights a pig, and the boy moons at the river. I sit here and watch the lot of them." },
+        { id = "fa_default", text = "Bernice bakes, Tommy Joe's ma fights a pig, and the boy himself moons at the river. I sit here and watch the lot of them." },
       },
       choices = {
         { text = "Is Bernice all right?", next = "family_bernice" },
@@ -288,7 +288,7 @@ P:NPC {
 
     escape_done = {
       lines = {
-        { id = "ed_default", text = "She did. The boy came home with mud to the knees and a face like sunrise. I've not seen that face on a Stonefield in thirty years." },
+        { id = "ed_default", text = "Maybell did, and Tommy Joe came home with mud to the knees and a face like sunrise. I've not seen that face on a Stonefield in thirty years." },
       },
       choices = {
         { text = "You did that.", next = "BACK", fx = { affinity = 2 } },
@@ -364,8 +364,8 @@ P:NPC {
       { id = "tp_us2", text = "Sit down and ask me properly. Why I help them, you mean?", next = "why" },
     },
     lions_pride = { { id = "tp_inn", text = "William Pestle keeps a room there. We go back further than either of us likes to say." } },
-    defias = { { id = "tp_defias", text = "Thieves in red. When I was a girl, thieves had the decency to be ashamed of themselves." } },
-    _none = { { id = "tp_none", text = "At my age you stop collecting gossip. You start collecting chairs." } },
+    defias = { { id = "tp_defias", text = "The Defias are thieves in red, and when I was a girl, thieves had the decency to be ashamed of themselves." } },
+    _none = { { id = "tp_none", text = "At my age you stop collecting gossip and start collecting chairs." } },
     heroes_vigil = { { id = "tp_heroes_vigil", text = "I was a girl when the orcs came through and put Goldshire to the torch, child, and some of the names on the stone at Stone Cairn Lake were folk I knew. I don't go out there now, but I remember them on the right days." } },
     holy_light = { { id = "tp_holy_light", text = "I've prayed to the Light every morning for longer than most folk have been alive, and it's never once answered me in words. It answers in other ways, if you're patient and don't mind waiting." } },
     varian = { { id = "tp_varian", text = "I remember when the king came home from Lordaeron as a young man to take his father's throne, and the whole valley turned out to cheer him. I hope that wherever he is now, somebody's feeding him properly." } },

@@ -31,7 +31,7 @@ P:NPC {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
       text = "I heard you at the door, and at the bar, and just now. You want to work on that." },
     { id = "n_watch", cat = "watch", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
-      text = "You've been collecting bandanas for Galiaan. Folk who wear them have started asking who you are. Thought you'd want to know." },
+      text = "You've been collecting red bandanas for Scout Galiaan at Sentinel Hill, and the men who wear them have started asking who you are. Thought you'd want to know." },
   },
 
   start = "hello",
@@ -61,7 +61,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll judge you." } },
+      lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll be the judge of that." } },
       choices = {
         { text = "Then I'll earn it fair and square, Wiley.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Keep your secrets. I'll find my own way.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -137,7 +137,7 @@ P:NPC {
         { id = "h_defias", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Gryan did me a favor once, the kind you don't repay with coin. So I pay him in what I know about the Brotherhood, and you'd best listen close." },
         { id = "h_deadmines", when = { deed = "dungeon:The Deadmines" },
-          text = "Under Moonbrook, and back out again. I've heard a lot of stories about that place. Yours is the first one I believe." },
+          text = "You've been down into the Deadmines under Moonbrook, and back out again. I've heard a lot of stories about that place. Yours is the first one I believe." },
         { id = "h_rude", when = { trait = "witty" },
           text = "Clever mouth. I like a clever mouth, but Gryan doesn't; Gryan likes manners, and that's why he needs me." },
         { id = "h_price", when = { metBefore = true }, text = "You're back, good. I've heard three new things since yesterday, and one of them's even true; guess which." },
@@ -149,7 +149,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours is in my light as well, and it's bigger than you, so I'll let it stay." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you're here to save me, you're standing in my light, and I'm not for saving." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walked in like the law, and that's twice as bad as walking in like a warrior." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're in my light. A shaman. Hmm. I'll share what I know only if you deserve it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're in my light, shaman. I'll share what I know only if you deserve it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice down, the floor's thin." },
@@ -194,7 +194,7 @@ P:NPC {
     network = {
       big = true,
       lines = {
-        { id = "nw_default", text = "Every mine from Westfall to Elwynn, with kobolds and gnolls doing the digging. Goblins build the metal scarecrows for the fields. And the tunnels run closer to the Keep than anyone likes.",
+        { id = "nw_default", text = "They hold every mine from Westfall to Elwynn, with kobolds and gnolls doing the digging and goblins building their iron golems. And the tunnels run closer to the Keep than anyone likes.",
           fx = { learn = { "defias", "harvest_watchers" } } },
       },
       choices = {
@@ -234,7 +234,7 @@ P:NPC {
     },
 
     corner = {
-      lines = { { id = "c_default", text = "Sightlines: the door, the stairs, the window. And Daniels doesn't charge for the corner." } },
+      lines = { { id = "c_default", text = "It has sightlines to the door, the stairs and the window, and Daniels doesn't charge extra for it." } },
       choices = {
         { text = "Who's worth watching in here?", next = "watching" },
         { text = "Something else.", next = "BACK" },
@@ -256,14 +256,14 @@ P:NPC {
       },
     },
     vancleef = {
-      lines = { { id = "vc_default", text = "Then the masons lost their foreman. Doesn't mean they've stopped building. Check your exits for a while." } },
+      lines = { { id = "vc_default", text = "Then the masons lost their foreman, but that doesn't mean they've stopped building. Check your exits for a while." } },
       choices = {
         { text = "I always do.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     farm = {
-      lines = { { id = "fa_default", text = "Then you know more than my note does, and I'm sorry. I don't say that often, so take it while it's offered." } },
+      lines = { { id = "fa_default", text = "Then you know the Brotherhood better than anything I could tell you, and I'm sorry. I don't say that often, so take it while it's offered." } },
       choices = {
         { text = "Thank you, Wiley.", next = "BACK", fx = { affinity = 2 } },
         { text = "I don't want sorry. I want names.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { defias = "hardline" } } },

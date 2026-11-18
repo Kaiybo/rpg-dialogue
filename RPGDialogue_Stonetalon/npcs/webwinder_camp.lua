@@ -17,7 +17,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Oh, good, a visitor! Don't touch the crate with the red stripe. Or the blue one, actually." },
-    { id = "g_respite", when = { questActive = TODO_QUEST("A Gnome's Respite") }, text = "Loggers and deforesters in the Crag, ten of each! Every one you stop buys me an hour at the workbench." },
+    { id = "g_respite", when = { questActive = TODO_QUEST("A Gnome's Respite") }, text = "Stop ten loggers and ten deforesters in the Crag! Every one you stop buys me an hour at the workbench." },
     { id = "g_lomac", when = { questActive = TODO_QUEST("An Old Colleague") }, text = "Lomac's in Tinker Town, in Ironforge. Be charming! He hates charming, but try anyway." },
     { id = "g_alpha", when = { questActive = TODO_QUEST("Covert Ops - Alpha") }, text = "The plans, the plans, the plans! The explosions are a lovely bonus, but it's the plans we need." },
     { id = "g_done", when = { questDone = TODO_QUEST("Covert Ops - Alpha") }, text = "I've been reading the Venture Company's own engineering plans every night since you brought them. Shoddy welding, all of it! I'm thrilled." },
@@ -29,7 +29,7 @@ P:NPC {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome, out here among all these trees! Are you EAAAES? If not, you should be; we have excellent biscuits at the meetings." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
-      text = "An alchemist! Lomac will like you, or at least he'll dislike you less, which for him is the same thing." },
+      text = "An alchemist! Lomac, my old colleague in Tinker Town, will like you, or at least he'll dislike you less, which for him is the same thing." },
   },
 
   start = "hello",
@@ -181,10 +181,10 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Ishnu-alah, {class}. Watch the valley with me a moment, if you've time, beneath Elune's patient eye." },
-    { id = "g_embers", when = { questActive = TODO_QUEST("Enraged Spirits") }, text = "The fire elementals of the Charred Vale, and their smoldering embers. Bring them to me, and the Vale may breathe again." },
-    { id = "g_ancients", when = { questActive = TODO_QUEST("Wounded Ancients") }, text = "Shrapnel from a wounded treant, {class}. Gaxim thinks the goblins' weapons poisoned them, and I'd like to know if he's right." },
+    { id = "g_embers", when = { questActive = TODO_QUEST("Enraged Spirits") }, text = "Bring me the smoldering embers of the Charred Vale's fire elementals, and the Vale may breathe again." },
+    { id = "g_ancients", when = { questActive = TODO_QUEST("Wounded Ancients") }, text = "Bring me shrapnel from a wounded treant, {class}. Gaxim thinks the goblins' weapons poisoned them, and I'd like to know if he's right." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Did you pass through Ashenvale? Tell me the trees there are still green." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came up this path from Ashenvale. Thenysil would be proud of who she sent me." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came up this path from Ashenvale. Thenysil in Astranaar would be proud of who she sent me." },
   },
 
   notice = {

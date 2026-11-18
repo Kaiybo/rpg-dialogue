@@ -18,8 +18,8 @@ P:NPC {
   greetings = {
     { id = "g_cask", text = "Come in, come in! Something to wet your throat? Morale's my job, and thirst is the enemy of morale." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I knew you'd miss the place; nobody leaves Westbrook for good." },
-    { id = "g_apple", when = { questActive = TODO_QUEST("An Apple Treat") }, text = "That apple business of mine, is it? Don't let me keep you from it." },
-    { id = "g_apple_done", when = { questDone = TODO_QUEST("An Apple Treat") }, text = "Still grateful for that apple business, friend. Small things like that are half my job." },
+    { id = "g_apple", when = { questActive = TODO_QUEST("An Apple Treat") }, text = "You're fetching those apples for the lads' treat, then? Don't let me keep you from it." },
+    { id = "g_apple_done", when = { questDone = TODO_QUEST("An Apple Treat") }, text = "Still grateful for those apples you fetched for the lads, friend. Small treats like that are half my job." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the lads have been asking after you, or at least one of them has. Welcome back to Westbrook." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've filled out since you first came through that door, friend. You've the look of someone the lads would follow now." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Word down the road says you've done right by folk. That's good for morale too, you know, even mine." },
@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_weary", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look done in, and your kit looks worse. Sit down a moment; the smith can wait until you've had a drink." },
     { id = "n_drink", cat = "drink", when = { drunk = true },
-      text = "Somebody's started early, I see! Well, I won't tell Rainer if you won't." },
+      text = "Somebody's started early, I see! Well, I won't tell Deputy Rainer if you won't." },
   },
 
   start = "hello",
@@ -55,7 +55,7 @@ P:NPC {
       },
     },
     job = {
-      lines = { { id = "j_default", text = "Pour, listen and notice. A lad who stops eating, a lad who stops writing home, a lad who drinks too fast; I see it first, and I tell Rainer before it turns into something worse." },
+      lines = { { id = "j_default", text = "Pour, listen and notice. A lad who stops eating, a lad who stops writing home, a lad who drinks too fast; I see it first, and I tell Deputy Rainer before it turns into something worse." },
       },
       choices = {
         { text = "And what do you do about it?", next = "job_how" },

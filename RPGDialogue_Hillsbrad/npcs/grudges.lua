@@ -49,7 +49,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Hal McAllister. I've fished this shore since I could hold a rod, and I'll go on fishing it, so long as nothing grey comes down off that hill to stop me." },
         { id = "h_warlock", when = { class = "WARLOCK" },
-          text = "I'll sell to you, because the Magistrate says I'm to sell to anyone in an Alliance tabard. But I'll watch your hands, warlock, and I'll count my chickens after you've gone." },
+          text = "I'll sell to you, because Magistrate Maleb says I'm to sell to anyone in an Alliance tabard. But I'll watch your hands, warlock, and I'll count my hooks after you've gone." },
         { id = "h_millfriend", when = { npcFlagBefore = "hm_millfriend" },
           text = "Last time you stood on my jetty and told me the Mill's dead aren't so bad. Well, they're still up there, and I'm still down here, and I've not changed my mind." },
         { id = "h_softened", when = { npcFlagBefore = "hm_softened" },
@@ -205,7 +205,7 @@ P:NPC {
     },
     xwarlock_deeds = {
       lines = {
-        { id = "xwd_default", text = "Deeds, is it? There's a Magistrate up the street who'll give you plenty of those, and the Syndicate to spend them on. Come back with Southshore's thanks, and I'll think about mine." },
+        { id = "xwd_default", text = "Deeds, is it? Magistrate Maleb up the street has plenty of work against the Syndicate for you. Come back with Southshore's thanks, and I'll think about mine." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -253,7 +253,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Southshore born and bred, like my father and his. The McAllisters fish, and that's all there is to tell." } },
     advice = { { id = "tp_ad", text = "Don't drink from the river above the bend, and don't trust anything that's already died once." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Ask at the inn; Bilger knows everyone's business, and he'll pour you a drink while he gets it wrong." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. Ask at the inn; Brewmeister Bilger knows everyone's business, and he'll pour you a drink while he gets it wrong." } },
   },
 }
 
@@ -282,7 +282,7 @@ P:NPC {
     { id = "g_softened", when = { npcFlagBefore = "cj_softened" }, priority = 10,
       text = "Ah, you. I told you about the bread, and I've been cross with myself about it ever since, so you may as well come in." },
     { id = "g_battle", when = { questActive = TODO_QUEST("Battle of Hillsbrad") },
-      text = "Darthalia has you down in the fields, I hear. Mind the Southshore militia; they've more courage than sense, and they always did." },
+      text = "High Executor Darthalia has you fighting in the fields, I hear. Mind the Southshore militia; they've more courage than sense, and they always did." },
   },
 
   notice = {
@@ -305,7 +305,7 @@ P:NPC {
         { id = "h_dead", when = { race = "Scourge" },
           text = "We're the only honest folk in this valley, you and I. The living down in Southshore still think we're monsters, and the orcs up here still think we're grateful." },
         { id = "h_softened", when = { npcFlagBefore = "cj_softened", race = "Orc" },
-          text = "I gave Krusk his thread yesterday and wished him luck at Durnholde. He looked at me as though I'd grown a second head, and I can't say I blamed him." },
+          text = "I gave Krusk, our orc by the inn, his thread yesterday and wished him luck at Durnholde. He looked at me as though I'd grown a second head, and I can't say I blamed him." },
         { id = "h_battle_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Battle of Hillsbrad"), days = 3 } },
           text = "So you've been down in the fields. I knew some of those farmers by name, once, and I find I don't much want to know which ones." },
       },
@@ -423,7 +423,7 @@ P:NPC {
 
     town = {
       lines = {
-        { id = "tw_default", text = "Quieter than Southshore was, and the dead keep better hours. Darthalia runs it like a barracks, the apothecaries keep to their cellar, and that orc Krusk paces outside the inn as if Durnholde might come to him." },
+        { id = "tw_default", text = "Quieter than Southshore was, and the dead keep better hours. High Executor Darthalia runs it like a barracks, the apothecaries keep to their cellar, and that orc Krusk paces outside the inn as if Durnholde might come to him." },
       },
       choices = {
         { text = "What do you make of Krusk?", next = "town_krusk" },
@@ -501,6 +501,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Southshore cloth-seller, then a dead man in a pit, then a Tarren Mill cloth-seller. I've come down in the world by about a mile and a half." } },
     advice = { { id = "tp_ad", text = "Buy good thread and keep your grudges where you can find them. I'm better at the first." } },
-    _none = { { id = "tp_none", text = "I sell cloth, not answers. Shay at the inn hears more than I do, and passes most of it along for nothing." } },
+    _none = { { id = "tp_none", text = "I sell cloth, not answers. Innkeeper Shay hears more than I do, and passes most of it along for nothing." } },
   },
 }

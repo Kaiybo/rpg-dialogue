@@ -43,7 +43,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
       choices = {
         { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I don't need their warmth. Only their silence.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I don't need the docks to like me, only to keep quiet.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Baren.", next = "BACK" },
       },
     },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_sunfish", when = { questActive = TODO_QUEST("Selling Fish") },
           text = "Spotted sunfish, a good batch. Catch them yourself or take them off the murlocs. The fish won't mind which." },
         { id = "h_daniels", when = { heardLine = "daniels.h_default" },
-          text = "Daniels told you his troubles? He's dry and I'm empty; Lakeshire's a lovely place for a holiday." },
+          text = "Has Daniels told you his troubles? His cellar's dry and my nets are empty, so Lakeshire's a lovely place for a holiday." },
         { id = "h_boats", when = { metBefore = true }, text = "Counted the boats this morning, and they're all there; counted the nets, and they're all there too. Something's about to go wrong, I can feel it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
@@ -166,7 +166,7 @@ P:NPC {
       },
     },
     chase = {
-      lines = { { id = "ch_default", text = "Ask the deep water east of the bridge, because I won't. Whatever lives out there, Oslow's toolbox is keeping it company." } },
+      lines = { { id = "ch_default", text = "I couldn't tell you, and I won't row out into the deep water east of the bridge to ask. Oslow's toolbox went down out there, and whatever lives there is welcome to it." } },
       choices = {
         { text = "Maybe I'll swim out and see.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -199,7 +199,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     brew = {
-      lines = { { id = "br_default", text = "Ha! You took me at my word. Sit on that crate, then, and ask me anything that isn't about fish. I'll answer about fish anyway." } },
+      lines = { { id = "br_default", text = "Ha! Had a drop, have you? Sit on that crate, then, and ask me anything that isn't about fish. I'll answer about fish anyway." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     hunter = {

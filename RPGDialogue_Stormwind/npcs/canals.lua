@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They come down out of Elwynn's woods when the grapes ripen and they eat the lot, skins and all. Renato calls it a tragedy in three acts; I call it a line in my ledger that never balances." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, I'd wager. If it ever wants work, the boars come at dusk and they come hungry." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They come down out of Elwynn's woods when the grapes ripen and they eat the lot, skins and all. Your {pet} has a good nose, I'd wager. If it ever wants work, the boars come at dusk and they come hungry." },
       },
       choices = {
         { text = "I'll thin the boars and take only what the vines can spare.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -124,7 +124,7 @@ P:NPC {
       choices = {
         { text = "Let me see the wines.", next = "BUSINESS" },
         { text = "Renato hands out a great many tickets, I notice.", next = "tickets" },
-        { text = "I don't know this Roberto.", next = "roberto" },
+        { text = "Who is Roberto?", next = "roberto" },
         { text = "How does a winery do on the canals?", next = "canals" },
         { text = "A good red is a small blessing.", next = "priest", when = { class = "PRIEST" } },
         { text = "Someone's skimming your books, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
@@ -302,7 +302,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I grew up on a farm past Goldshire, dearie, and I miss the crickets and nothing else. The wolves took two of my father's sheep every spring, and he never once forgave them for it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And who's this, then? {pet}, is it? Keep it off my water buckets and we'll get along fine, the two of us." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I grew up on a farm past Goldshire, dearie, and I miss the crickets and nothing else. And who's this, then? {pet}, is it?" },
       },
       choices = {
         { text = "The wolves only take what they need to live, Emma.", next = "BACK", fx = { align = { light = 1 } } },
@@ -469,7 +469,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I walk this street a hundred times a day, and folk talk in front of an old woman like she's a lamppost. Go on, ask." } },
     background = { { id = "tp_bg", text = "A farm wife from the north who carries water now, and that's all the story anybody needs.", next = "home" } },
     advice = { { id = "tp_ad", text = "Respect your elders, dearie, and carry their buckets now and again. You'll be old yourself, if you're lucky." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "Burning half the north to save the other half, they tell me. I've seen enough burning; I don't need theirs." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The Scarlet Crusade are burning half the north to save the other half, they tell me. I've seen enough burning; I don't need theirs." } },
     _none = { { id = "tp_none", text = "How should I know? I carry water, dearie, so ask somebody who sits down for a living." } },
   },
 }
@@ -548,7 +548,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dull colours, tight weave and nothing that rustles, because a hunter in a silk shirt might as well ring a bell. We dye a woodland green that sells well to the Westbrook men, though they'll never admit they buy from a city shop." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is shedding on my bolts, love. I'll forgive it this once, because it has lovely eyes, but don't let it near the wool." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dull colours, tight weave and nothing that rustles, because a hunter in a silk shirt might as well ring a bell. Your {pet} is shedding on my bolts, love. I'll forgive it this once, because it has lovely eyes, but don't let it near the wool." },
       },
       choices = {
         { text = "Plain and quiet suits me. The hunt isn't for showing off.", next = "BACK", fx = { align = { order = 1 } } },
@@ -760,7 +760,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The good ones do, because hunting and fishing are the same patience with different weather. Mind, a hunter who's used to a bow can't stand losing a fish, and I've seen one try to shoot a pike out of Stonewatch Lake." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will want the first fish, I suppose, like every beast that's ever sat on my dock. Throw it the small ones and it'll stop staring at you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The good ones do, because hunting and fishing are the same patience with different weather. And your {pet} will want the first fish, I suppose, like every beast that's ever sat on my dock. Throw it the small ones and it'll stop staring at you." },
       },
       choices = {
         { text = "I take only what I'll eat, whether it's fish or deer.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -909,7 +909,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Bit o' both, guv, an' it changes with the weather. The truth is the farm took itself, what with the Defias an' the drought, but nobody tips a man for a drought." } },
       choices = {
         { text = "Then tell the truth, Morris. It's harder, but it's yours.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Keep the wolf. A good story feeds you better than the truth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Keep the orcs. A good story feeds you better than the truth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -944,7 +944,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Couldn't say his name, guv, on account of I promised, but he works the back of Old Town an' he pays in silver, mostly. The tanners in the city charge a fair bit to take a hide, so there's call for a quieter road." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine beast, guv, that {pet} of yours, an' I'll not try to sell it, I promise. Well, not unless ye ask." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Couldn't say his name, guv, on account of I promised, but he works the back of Old Town an' he pays in silver, mostly. That's a fine beast, guv, that {pet} of yours, an' I'll not try to sell it, I promise. Well, not unless ye ask." },
       },
       choices = {
         { text = "I'll sell my pelts at the tanners, honest and above board.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1000,7 +1000,7 @@ P:NPC {
         { text = "Are you trying to blackmail me, Morris?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want a blessing, Morris, or a coin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the guards say you took, Morris?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Was it a wolf that took your farm, Morris, or a story?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Was it really the orcs that took your farm, Morris?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Shall I conjure you some bread, Morris?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which farm did you really lose, Morris?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Get a job, Morris.", next = "END", fx = { affinity = -1 } },
@@ -1314,7 +1314,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crates of them, from Darkshore and Menethil and the Wetlands, and every one has to be checked against the manifest before it's unloaded. Last month someone tried to ship a live bear cub in a crate marked salt cod, and I still dream about it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep that {pet} away from the crates, please, because the last loose animal on these docks ate a whole manifest. I had to rewrite it from memory." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Crates of them, from Darkshore and Menethil and the Wetlands, and every one has to be checked against the manifest before it's unloaded. Keep that {pet} away from the crates, please, because the last loose animal on these docks ate a whole manifest. I had to rewrite it from memory." },
       },
       choices = {
         { text = "A live cub in a crate is cruelty. Someone should answer for it.", next = "BACK", fx = { align = { light = 1 } } },

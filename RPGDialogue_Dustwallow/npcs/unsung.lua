@@ -87,7 +87,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Everything, dear, my hinges, my scales and my good scissors, all of it. Hans Weston says I should keep it all greased, and Piter says I should keep it all dry, and between the two of them I've decided to buy new scissors every spring." } },
+      lines = { { id = "xapala_default", text = "Everything, dear, my hinges, my scales and my good scissors, all of it. Hans Weston the armorer says I should keep it all greased, and Piter the weaponsmith says I should keep it all dry, and between the two of them I've decided to buy new scissors every spring." } },
       choices = {
         { text = "I'll keep my armor oiled and stop complaining, then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let it rust. I'll buy new steel when it fails.", next = "BACK", fx = { align = { order = -1 } } },
@@ -191,7 +191,7 @@ P:NPC {
     },
     jaina_grumble = {
       lines = {
-        { id = "jg_default", text = "Old sailors from Kul Tiras, mostly, who still talk about the admiral after a few drinks. I tell them the war's over and they're in a free town, and then I sell them more bread." },
+        { id = "jg_default", text = "Old sailors from Kul Tiras, mostly, who still talk about Admiral Proudmoore after a few drinks. I tell them the war's over and they're in a free town, and then I sell them more bread." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -256,7 +256,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I can slow it down, which is the best anyone can promise in Dustwallow, with a good coat of tallow and a brushing every night. Hunters lie in the reeds for hours waiting on a crocolisk, and I've never met the mail that came out of those reeds the same as it went in." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from the tallow pot, because every hound in Theramore has had a go at it and none of them were sorry." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can slow it down, which is the best anyone can promise in Dustwallow, with a good coat of tallow and a brushing every night. Hunters lie in the reeds for hours waiting on a crocolisk, and I've never met the mail that came out of those reeds the same as it went in. And keep {pet} away from the tallow pot, because every hound in Theramore has had a go at it and none of them were sorry." },
       },
       choices = {
         { text = "I'll tallow it every night. Neglect is how gear fails.", next = "BACK", fx = { align = { order = 1 } } },
@@ -266,7 +266,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Not much, because the Guard wants plate and shields, and I've only got so many hours before the rust wins. Go and see Piter for blades, and if you need your leather patched, the marsh will rot it before I could anyway." } },
+      lines = { { id = "xrogue_default", text = "Not much, because the Guard wants plate and shields, and I've only got so many hours before the rust wins. Go and see Piter Verance next door for blades, and as for leather, the marsh will rot it faster than I could patch it." } },
       choices = {
         { text = "Leather keeps me fast. Plate is for those who stand still.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Plate keeps the line. I respect the Guard's armor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -463,8 +463,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Waxed string, oiled wood and a case that never sees the rain, though in Dustwallow the rain sees everything. The marsh's creatures are faster than they look, so I tell every hunter to carry a spare string and never trust the first one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? A fine beast, and a better sentry than any I've sold a bow to, because it hears the crocolisks long before you do." },
+        { id = "xhuntcl_default", text = "Waxed string, oiled wood and a case that never sees the rain, though in Dustwallow the rain sees everything. The marsh's creatures are faster than they look, so I tell every hunter to carry a spare string, because a string that snaps mid-shot leaves a wounded beast to suffer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Waxed string, oiled wood and a case that never sees the rain, though in Dustwallow the rain sees everything. The marsh's creatures are faster than they look, so I tell every hunter to carry a spare string, because a string that snaps mid-shot leaves a wounded beast to suffer. That's {pet}, is it?" },
       },
       choices = {
         { text = "A good hunter respects the prey. I make clean kills.", next = "BACK", fx = { align = { honor = 1 } } },

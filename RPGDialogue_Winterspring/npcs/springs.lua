@@ -50,19 +50,19 @@ P:NPC {
       choices = {
         { text = "Then I'll fight them hard but cleanly. They're sick, not wicked.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Sick or not, they're dangerous. I'll cut them down without pity.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Somethin' else, Donova.", next = "BACK" },
+        { text = "Something else, Donova.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They used tae walk straight an' purposeful, from camp tae spring an' back, an' now they stagger an' double back an' fight each other over nothin'. A hunter's eye on 'em would tell me more than I'll ever learn from goo in a jar." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep {pet} away from their camps, aye? I found a fox by the springs that had been lappin' at a spilled barrel, an' it was no' a pretty thing tae see." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They used tae walk straight an' purposeful, an' now they stagger an' double back an' fight each other over nothin'. Keep {pet} away from their camps, aye, for I found a fox that had been lappin' at a spilled barrel, an' it was no' a pretty sight." },
       },
       choices = {
         { text = "I'll track them honestly and tell you what I see.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll follow one home and steal a barrel for you to study.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Somethin' else.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dwarf_dn = {
@@ -183,7 +183,7 @@ P:NPC {
       },
     },
     winterfall_timbermaw = {
-      lines = { { id = "wt_default", text = "Salfa won't say it plain, but I think the Timbermaw have stopped hopin' for the Deadwood an' cannae bear tae stop hopin' for the Winterfall too. They'd rather the answer came from somebody who isnae kin, which is you." } },
+      lines = { { id = "wt_default", text = "Salfa, the Timbermaw who keeps the tunnel, won't say it plain, but I think the Timbermaw have stopped hopin' for the Deadwood an' cannae bear tae stop hopin' for the Winterfall too. They'd rather the answer came from somebody who isnae kin, which is you." } },
       choices = { { text = "Then I'll give you an answer.", next = "winterfall_word" } },
     },
     winterfall_hope = {
@@ -283,7 +283,7 @@ P:NPC {
   nodes = {
     xpt_mauari = {
       big = true,
-      lines = { { id = "xpt_mauari_default", text = "For the juju, mon, because the spirits up here are old and cold and they remember things the jungle forgot. Mau'ari would sooner freeze learning than stay warm and ignorant, and maybe your troll friend understands that too." } },
+      lines = { { id = "xpt_mauari_default", text = "For de juju, mon, because de spirits up here be old and cold, and dey remember things de jungle forgot. Mau'ari would sooner freeze learning than stay warm and ignorant, and maybe your troll friend understands that too." } },
       choices = {
         { text = "Some old spirits are best left forgotten, Mau'ari.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Old spirits hold power. You're right to seek it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -314,7 +314,7 @@ P:NPC {
       choices = {
         { text = "I'll take the E'ko with respect for the spirits, Mau'ari.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Spirits or not, I'll take whatever makes me stronger.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Somethin' else, Mau'ari.", next = "BACK" },
+        { text = "Something else, Mau'ari.", next = "BACK" },
       },
     },
     hunter_ma = {

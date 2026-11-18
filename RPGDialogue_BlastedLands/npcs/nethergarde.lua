@@ -34,7 +34,7 @@ P:NPC {
     { id = "n_quarter", cat = "origin", when = { origin = "human_mage_quarter" },
       text = "Trained in Stormwind's Mage Quarter, were you? Most of the magi on these walls came out of the same towers, and they all talk about Dalaran as if they'd built it themselves, so you'll fit right in." },
     { id = "n_lamb", cat = "origin", when = { origin = "human_lamb_cellar" },
-      text = "I know that look, because I've seen it on the Lamb's people when they come through for the demons on the plain. You'll sign for anything you take from my stores, and you'll sign in ink, not in anything else." },
+      text = "I know that look, because I've seen it on the warlocks who come through to bind the demons on the plain. You'll sign for anything you take from my stores, and you'll sign in ink, not in anything else." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Light's sake, look at your armor; the ogres had a go at you, didn't they? Strumner's at the forge downstairs, and he's the only one who'll mend it for leagues." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -276,7 +276,7 @@ P:NPC {
       },
     },
     wastes_others = {
-      lines = { { id = "wot_default", text = "A pair of elven bloodmages up by the northern pass, cutting up boars for science, and some sort of broken draenei wandering near the Portal, hunting for crystals. Neither of them buys from me, so I can't tell you much more." } },
+      lines = { { id = "wot_default", text = "Bloodmage Drazial and Bloodmage Lynnore, a pair of elves up by the northern pass, cutting up boars for science, and some sort of broken draenei wandering near the Portal, hunting for crystals. None of them buys from me, so I can't tell you much more." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -395,7 +395,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_alliance", when = { gossip = { topic = "alliance", stance = "failed" } }, text = "The Ambassador says you told him the Alliance failed Quel'Thalas. He's been almost cheerful since, and it's frightening the clerks." },
+    { id = "g_op_alliance", when = { gossip = { topic = "alliance", stance = "failed" } }, text = "Ambassador Ardalan says you told him the Alliance failed Quel'Thalas. He's been almost cheerful since, and it's frightening the clerks." },
     { id = "g_default", text = "Ah, a visitor! Do come in, only don't touch the instruments, the papers or, ideally, anything at all." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. I've filled half a book since we last spoke, and none of it good news." },
     { id = "g_portal_resolved", when = { thread = { id = "portal_watch", state = "resolved" } }, text = "Ah, my fellow watcher! The stones were cold again this morning, and I wrote it down, and I've promised Lungertz not to read it out at supper." },
@@ -694,7 +694,7 @@ P:NPC {
       choices = {
         { text = "Close the Portal for good. Seal it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Let the land heal its own way. Stop watching.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "How do you measure it?", next = "watch_tear" },
+        { text = "Couldn't the Portal's stones just be torn down?", next = "watch_tear" },
       },
     },
     k_druid = {
@@ -857,7 +857,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I find lost things, an' ye find things that werenae lost till ye came along, so in a way we're in the same trade." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Watchers downstairs think my chantin' is old superstition, an' I think their sums are, so we get along by no' talkin' at all." },
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "A druid. You have the look of one who would rather be anywhere else. I understand; I dream of trees myself, and wake to this." },
+          text = "A druid, wi' the look o' one who'd rather be anywhere else. I understand; I dream o' trees myself, an' wake tae this." },
         { id = "h_default", key = true,
           text = "Thadius Grimshade, diviner, late o' Aerie Peak an' now o' this tower. I find things, lost things an' hidden things, an' I ask a fair price for the findin'." },
         { id = "h_feather", tags = { "news" }, when = { questActive = TODO_QUEST("Thadius Grimshade") },
@@ -909,7 +909,7 @@ P:NPC {
       },
     },
     why_aerie = {
-      lines = { { id = "wa_default", text = "Every day, an' I'll deny it if ye tell the mages. When I cannae sleep I go up tae the roost an' talk tae Alexandra's gryphons; they're lowland birds, soft as butter, but they listen." } },
+      lines = { { id = "wa_default", text = "Every day, an' I'll deny it if ye tell the mages. When I cannae sleep I go up tae the roost an' talk tae the keep's gryphons; they're lowland birds, soft as butter, but they listen." } },
       choices = {
         { text = "That's no crime, Thadius.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then go home.", next = "BACK", fx = { affinity = -1 } },
@@ -1431,7 +1431,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Precious little that's fit tae eat, I'll tell ye, because the boars taste o' brimstone an' the scorpids taste o' nothin' at all. Back in Dun Morogh we'd hunt boar in the snow an' roast it by the brewhouse, an' I'll admit I think on that more often than a soldier should." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' who's this, then? {pet}, is it? Keep yer beast away from the barrels, because the last one that got its nose in a keg o' Thunderbrew slept for two days an' woke up mean." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Precious little fit tae eat, for the boars taste o' brimstone. An' who's this, {pet}? Keep yer beast away from the barrels, because the last one that got its nose in a keg o' Thunderbrew slept for two days an' woke up mean." },
       },
       choices = {
         { text = "Your post is here, Enohar. Dun Morogh will keep.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1458,7 +1458,7 @@ P:NPC {
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "A little, and only with stubbornness. I gather herbs and roots that grow nowhere else, twisted things that drink demon blood. Feed them to a man and he'll either be strong as a bull or spend three days in the latrine trench." } },
+      lines = { { id = "dt_default", text = "A wee bit, an' only out o' stubbornness. There's roots out there that grow nowhere else, twisted things that drink demon blood, an' feed one tae a man an' he'll either be strong as a bull or spend three days in the latrine trench." } },
       choices = {
         { text = "Then I'll help you find what heals rather than harms.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Twisted things should be burned, not harvested.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1492,7 +1492,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at Nethergarde. Well, there's a sight; most o' the folk in this keep would sooner see the Portal open than one o' yer kind on the wall." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye put a wee frost on this mug? Nethergarde's ale comes in warm an' stays warm, an' it's an insult tae every Thunderbrew livin'." },
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "A druid! You'll be wanting to see what this place was before the Dark Portal, I suppose. So would I." },
+          text = "A druid! Ye'll be wantin' tae see what this place was before the Dark Portal, I suppose, an' so would I." },
         { id = "h_default", key = true,
           text = "Enohar Thunderbrew, o' the Thunderbrews o' Kharanos, the finest brewers in all o' Khaz Modan, an' don't let anyone tell ye otherwise. Things get a wee bit stuffy in Nethergarde, so now an' then I have a brew tae take my mind off the duty." },
         { id = "h_ragnar", tags = { "news" }, when = { questActive = TODO_QUEST("Ragnar Thunderbrew") },
@@ -1680,7 +1680,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Clean water carried down from Darkshire, meat that hasn't been within a mile of the Tainted Scar, and long rests after every flight south. The worst of it is the dust, which gets into their feathers and their lungs, and I spend half my evenings combing it out." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} has the dust all down its coat as well, poor thing. Comb it out every night, because a beast that can't breathe can't hunt, whatever it tells you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Clean water, clean meat and a comb for the dust every evening. {pet} has the dust all down its coat as well, poor thing, so comb it out nightly, because a beast that can't breathe can't hunt." },
       },
       choices = {
         { text = "Your care keeps the keep's letters moving. That matters.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1857,7 +1857,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scorpid, once, roasted on a shield over the fire, and the lad who tried it couldn't feel his tongue for a week. I tell them it's bread, cheese and water or nothing, because nothing in the Blasted Lands was ever meant to be eaten." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? Keep it away from the cheese wheels, friend, because the last dog that found them is still the most popular soldier in the keep." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scorpid, roasted on a shield, and the lad couldn't feel his tongue for a week. Keep {pet} away from the cheese wheels, friend, because the last dog that found them is still the most popular soldier in the keep." },
       },
       choices = {
         { text = "The men deserve better. I'll hunt the wastes for them.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -2004,7 +2004,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Armor. Mended or sold, it's all the same price of patience." },
+    { id = "g_default", text = "Armor, mended or sold. Either way it costs patience, mine an' yers." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and dented again, by the sound of ye." },
   },
 
@@ -2028,7 +2028,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It grinds, is what it does, every link against the next till the rings wear thin as paper. Oil it every night, or ye'll be stood in front o' a basilisk wi' nothin' between ye an' it but good intentions." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' brush the grit out o' {pet}'s coat while ye're at it, because I've seen beasts here rubbed raw under the collar." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It grinds every link thin, so oil it every night, an' brush the grit out o' {pet}'s coat while ye're at it, because I've seen beasts here rubbed raw under the collar." },
       },
       choices = {
         { text = "I'll oil it nightly. Good gear is discipline.", next = "BACK", fx = { align = { order = 1 } } },

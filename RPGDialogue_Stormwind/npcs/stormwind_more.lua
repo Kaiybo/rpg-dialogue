@@ -115,7 +115,7 @@ P:NPC {
     },
     weak_who = {
       lines = {
-        { id = "ww_default", text = "A young man named in no book you'll find, who thought his voidwalker was fond of him. We burned what was left in the furnace upstairs, and Jarel has never once asked what we were burning." },
+        { id = "ww_default", text = "A young man named in no book you'll find, who thought his voidwalker was fond of him. We burned what was left in the furnace upstairs, and Jarel, the barman, has never once asked what we were burning." },
       },
       choices = {
         { text = "That's cruel, to let a student walk into that.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -242,8 +242,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Old enough to remember when the orcs' warlocks first came through the Portal, and wise enough to have studied them since.", next = "elder" } },
-    advice = { { id = "tp_ad", text = "Never let your servant see you tired, for a demon waits for that the way a wolf waits for a limp." } },
+    background = { { id = "tp_bg", text = "I'm old enough to remember when the orcs' warlocks first came through the Portal, and wise enough to have studied them since.", next = "elder" } },
+    advice = { { id = "tp_ad", text = "Never let your servant see you tired. Everything else is detail." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't care to. Ask someone who still finds the world interesting." } },
   },
 }
@@ -395,7 +395,7 @@ P:NPC {
     },
     portal_orcs = {
       lines = {
-        { id = "po_default", text = "Turned a people of shamans into a horde of butchers, and it's still in the blood of every orc in the internment camps, by the look of them. I keep that in mind whenever a student tells me he can stop whenever he likes." },
+        { id = "po_default", text = "Turned a people of shamans into a horde of butchers, and it's still in the blood of the orcs who survived, by all accounts. I keep that in mind whenever a student tells me he can stop whenever he likes." },
       },
       choices = {
         { text = "That's a warning you should give every student.", next = "BACK", fx = { align = { light = 1 } } },
@@ -792,7 +792,7 @@ P:NPC {
     },
     drink_shelf = {
       lines = {
-        { id = "dsh_default", text = "Because the vineyards round Dalaran are behind the Violet Citadel's walls or under them, and the orchards at Hearthglen belong to men in red tabards who don't sell to the likes of me. As for Lordaeron, nobody's brewing anything up there now but trouble." },
+        { id = "dsh_default", text = "Because the vineyards round Dalaran are behind the Violet Citadel's walls or under them, and the orchards at Hearthglen belong to men in red tabards who don't sell to the likes of me. As for Lordaeron, nobody's brewing anything there now but trouble." },
       },
       choices = {
         { text = "Tell me about the Lambic.", next = "drink_lambic" },
@@ -1101,10 +1101,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've tended this bar longer than I like to count, and I've learned to see nothing in all that time." } },
     advice = { { id = "tp_ad", text = "Stay away from the shadows. I'll keep saying it till somebody listens." } },
-    scarlet_crusade = { { id = "tp_scarlet", text = "They hold Hearthglen now, so no more ambrosia, and they wanted to recruit at my bar. I poured the man's drink on the floor.", next = "drink_ambrosia" } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "The Scarlet Crusade hold Hearthglen now, so there's no more ambrosia, and when one of them tried to recruit at my bar, I poured his drink on the floor.", next = "drink_ambrosia" } },
     lordaeron = { { id = "tp_lordaeron", text = "I've two casks of Lordaeron Lambic left, and when they're gone, so is the last of it.", next = "drink_lambic" } },
-    defias = { { id = "tp_defias", text = "Red kerchiefs in my corners now and then. I don't see them, if you take my meaning.", next = "shadows_why" } },
-    stonemasons = { { id = "tp_stonemasons", text = "I poured for them while they built this city, and they were good men, badly paid.", next = "years_masons" } },
+    defias = { { id = "tp_defias", text = "The Defias wear red kerchiefs, and I see one in my corners now and then, or rather I don't, if you take my meaning.", next = "shadows_why" } },
+    stonemasons = { { id = "tp_stonemasons", text = "I poured for the stonemasons while they built this city, and they were good men, badly paid.", next = "years_masons" } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, and I'd be suspicious of any barman who could." } },
   },
 }
@@ -1560,8 +1560,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A candle-seller's son who delivered a box to the Cathedral and never left.", next = "vow" } },
-    trade = { { id = "tp_tr", text = "Reagents, blessed and counted. Ask me about any of them, and I'll tell you more than you wanted.", next = "wares" } },
+    background = { { id = "tp_bg", text = "I'm a candle-seller's son who delivered a box to the Cathedral and never left.", next = "vow" } },
+    trade = { { id = "tp_tr", text = "I sell reagents, blessed and counted. Ask me about any of them, and I'll tell you more than you wanted.", next = "wares" } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know that, I'm afraid. I hardly leave this room except for prayers." } },
   },
 }
@@ -1701,7 +1701,7 @@ P:NPC {
 
     defias = {
       lines = {
-        { id = "d_default", text = "Masons who were cheated, then thieves who were organised, and now something with more money than either should have. Someone's paying them, and it isn't the farmers of Westfall.",
+        { id = "d_default", text = "The Defias were masons who were cheated, then thieves who were organised, and now something with more money than either should have. Someone's paying them, and it isn't the farmers of Westfall.",
           fx = { learn = { "defias" } } },
       },
       choices = {
@@ -1787,7 +1787,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A younger son who preferred cards to court. The rest you'll have to steal.", next = "lord" } },
+    background = { { id = "tp_bg", text = "I'm a younger son who preferred cards to court. The rest you'll have to steal.", next = "lord" } },
     advice = { { id = "tp_ad", text = "Never play fair, and never tell anyone you didn't." } },
     defias = { { id = "tp_defias", text = "Someone's paying them, friend, and it isn't Westfall's farmers.", next = "defias" } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. Ask me again when you've something to trade for it." } },
@@ -2237,8 +2237,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Wildhammer, born at Aerie Peak, raised on gryphon-back, and stuck in a city with nae sky to speak of.", next = "aerie" } },
     trade = { { id = "tp_tr", text = "Axes, every size, every sort. If it chops, I sell it.", next = "axes" } },
-    grim_batol = { { id = "tp_grim_batol", text = "Our old hold, and our old grief. Ask me properly and I'll tell ye.", next = "hammers_stance" } },
-    dark_iron = { { id = "tp_dark_iron", text = "Cursed, and welcome to it, every last one of them.", next = "hammers_dark" } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was our old hold, and it's our old grief. Ask me properly and I'll tell ye.", next = "hammers_stance" } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are cursed, and welcome to it, every last one of them.", next = "hammers_dark" } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, cousin. Ask a human; they know all sorts of useless things." } },
   },
 }
@@ -2460,9 +2460,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A shield-boy in the old garrison, a refugee after, and a merchant since the rebuilding.", next = "war" } },
+    background = { { id = "tp_bg", text = "I was a shield-boy in the old garrison, a refugee after, and a merchant since the rebuilding.", next = "war" } },
     trade = { { id = "tp_tr", text = "Shields, friend. Keep it up and you'll keep breathing.", next = "shields" } },
-    the_stockade = { { id = "tp_the_stockade", text = "It's over the canal and full of Defias, and one bad day from a riot. I sell the guards there their shields.", next = "oldtown_stockade" } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's over the canal and full of Defias, and one bad day from a riot. I sell the guards there their shields.", next = "oldtown_stockade" } },
     _none = { { id = "tp_none", text = "Couldn't say. Ask at the barracks; somebody there always thinks they know." } },
   },
 }
@@ -2888,7 +2888,7 @@ P:NPC {
 
     head = {
       lines = {
-        { id = "hd_default", text = "Hung at the city gate, where every citizen walking in can see it, and every spy can carry the news back to her kin. I've had a dozen children ask me if it's real, and I've told every one that a hero brought it home." },
+        { id = "hd_default", text = "It's hung at the city gate, where every citizen walking in can see it, and every spy can carry the news back to her kin. I've had a dozen children ask me if it's real, and I've told every one that a hero brought it home." },
       },
       choices = {
         { text = "What did the city do when you announced it?", next = "head_hang" },
@@ -2952,9 +2952,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Two wars, one gate, and thirty years of standing in the same place.", next = "war" } },
-    advice = { { id = "tp_ad", text = "Count the enemy before you charge, and then count them again, because someone's always behind the hill." } },
-    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "It's my post and my pride, and every statue in it is someone who did more than I ever will.", next = "valley" } },
+    background = { { id = "tp_bg", text = "I've had two wars, one gate and thirty years of standing in the same place.", next = "war" } },
+    advice = { { id = "tp_ad", text = "Count the enemy before you charge. Then count again." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The Valley of Heroes is my post and my pride, and every statue in it is someone who did more than I ever will.", next = "valley" } },
     _none = { { id = "tp_none", text = "Not my business, soldier. Ask at the Keep, and good luck getting an answer." } },
   },
 }
@@ -3223,9 +3223,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A career officer with a fondness for maps, plans and steam. The rest is in my file, which is very well organised." , next = "plans" } },
-    advice = { { id = "tp_ad", text = "Read the plan, then read it again, and then stand well behind the steam engine." } },
-    blackrock = { { id = "tp_blackrock", text = "A fortress on a fortress, with dragons on top, and I have a folder on it whose folders have folders.", next = "spire" } },
+    background = { { id = "tp_bg", text = "I'm a career officer with a fondness for maps, plans and steam. The rest is in my file, which is very well organised." , next = "plans" } },
+    advice = { { id = "tp_ad", text = "Read the plan. Then read it again. Then stand well behind the steam engine." } },
+    blackrock = { { id = "tp_blackrock", text = "Blackrock is a fortress on a fortress, with dragons on top, and I have a folder on it whose folders have folders.", next = "spire" } },
     _none = { { id = "tp_none", text = "That's not in any report I've seen, and I've seen most of them. Put it in writing and I'll look into it." } },
   },
 }
@@ -3447,7 +3447,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Cavalry first, then quartermaster, then this stall. I miss the cavalry, but the mounts here are better." } },
-    trade = { { id = "tp_tr", text = "War mounts for Commanders and above. Earn the rank and we'll talk.", next = "mounts" } },
+    trade = { { id = "tp_tr", text = "I sell war mounts to Commanders and above. Earn the rank and we'll talk.", next = "mounts" } },
     _none = { { id = "tp_none", text = "Not my department, soldier. Ask a clerk; they've nothing else to do." } },
   },
 }

@@ -14,14 +14,14 @@ P:NPC {
   notices = { "ghost", "undead" },
 
   impression = {
-    first = "Umbranse the Spiritspeaker lives alone in a small house in the hills northeast of Everlook and says he can speak with the dead. He is polite, soft-voiced and very interested in what the player has seen.",
+    first = "Umbranse the Spiritspeaker lives alone in a small house in the hills northeast of Everlook and says he can speak with the dead. He is polite, soft-voiced and very interested in what I have seen.",
     third = "{name} met Umbranse the Spiritspeaker, a human medium living in the hills of Winterspring.",
   },
 
   greetings = {
     { id = "g_default", text = "Come in, come in, and close the door gently. The spirits around here are easily startled." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. The spirits mentioned you might; they're often right about such things." },
-    { id = "g_duke", when = { questDone = TODO_QUEST("Duke Nicholas Zverenhoff") }, text = "Gregor tells me my little book proved useful to the Argent Dawn. I'm glad; it was lonely on my shelf." },
+    { id = "g_duke", when = { questDone = TODO_QUEST("Duke Nicholas Zverenhoff") }, text = "Gregor Greystone tells me my little book proved useful to the Argent Dawn. I'm glad; it was lonely on my shelf." },
   },
 
   notice = {
@@ -162,7 +162,7 @@ P:NPC {
       },
     },
     village = {
-      lines = { { id = "vi_default", text = "Quiet and cold, and very beautiful when the stars come out over the snow. Wynd keeps watch over the ruins, and the dwarves from the Explorers' League dig where they shouldn't, and I keep everyone fed." } },
+      lines = { { id = "vi_default", text = "Quiet and cold, and very beautiful when the stars come out over the snow. Wynd Nightchaser keeps watch over the ruins, and the dwarves from the Explorers' League dig where they shouldn't, and I keep everyone fed." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     road = {

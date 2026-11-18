@@ -19,7 +19,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I've seen smoke everywhere. Their camps burn day and night. Your spirits might tell you more than I can see." } },
+      lines = { { id = "xdsham_default", text = "Smoke everywhere, because their camps burn day and night. Your spirits might tell you more than I can see." } },
       choices = {
         { text = "Then report it to the Marshal, Ariena. He needs to know.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let the smoke burn. It's not our problem.", next = "BACK", fx = { align = { order = -1 } } },
@@ -48,7 +48,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the Blackrock shoot at anything that flies, and they've got black dragon whelps nesting in the hills above the falls. A gryphon knows a dragon when it smells one, even a small one, and it'll turn back every time." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has my gryphons nervous, {class}, but they're nervous of everything lately, so don't take it personally." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the Blackrock shoot at anything that flies, and there are black dragon whelps nesting above the falls. Your {pet} has my gryphons nervous too, {class}, but they're nervous of everything lately, so don't take it personally." },
       },
       choices = {
         { text = "I'll clear the whelps so your birds can fly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -147,7 +147,7 @@ P:NPC {
       },
     },
     b = {
-      lines = { { id = "b_default", text = "Only of the black dragonkin, and only when they're flying low over the Burning Steppes border. I don't take them that way any more, whatever the fare." } },
+      lines = { { id = "b_default", text = "Only of the black dragonkin, when we fly low near the Burning Steppes border. I don't take them that way any more, whatever the fare." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -179,7 +179,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'm never fast enough. The gnolls keep coming. Your lightning saves arrows, so I'm glad to see you." } },
+      lines = { { id = "xdsham_default", text = "I never am, because the gnolls keep coming. Your lightning saves arrows, so I'm glad to see you." } },
       choices = {
         { text = "I'll fight beside the watch, Kimberly. Count on me.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Make fewer arrows. Let the gnolls come.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -341,7 +341,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Always, friend. Measured to the grain, it never fails. A shaman's fire might be wilder, but powder's predictable." } },
+      lines = { { id = "xdsham_default", text = "Always, friend, because measured to the grain, it never fails. A shaman's fire might be wilder, but powder's predictable." } },
       choices = {
         { text = "Predictable is safe, Henry. Measure carefully.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Wild fire wins battles. Let it burn.", next = "BACK", fx = { align = { order = -1 } } },
@@ -388,7 +388,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rifle, every time, because a goretusk's skull will turn an arrow and it won't turn a ball of good dwarven lead. Measure your powder to the grain, mind, or you'll blow your own hand off instead of the boar's head." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast. Most of them bolt." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rifle, every time, because a goretusk's skull will turn an arrow but not a ball of good dwarven lead. Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast." },
       },
       choices = {
         { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", fx = { align = { order = 1 } } },
@@ -435,7 +435,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Guns are loud, friend, so I'd guess you're here for the powder, and I'll be asking what it's for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Keep your fire away from my powder kegs, if you'd be so kind, because I'd like to keep my fine record." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I'll ask you to keep any fire you're carrying well away from my kegs, green or otherwise." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf! A shaman, too. Dwarven blackpowder is like good ale, you know. Do your fire spirits approve?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, and a shaman too! Dwarven blackpowder is like good ale, you know, so tell me, do your fire spirits approve of it?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the powder kegs." },

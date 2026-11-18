@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "The spirits be quiet today, mon. Come and sit, and let's see if they wake up for you." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "A Forsaken priest, and you still pray. That be the strangest thing in this whole valley, and I like it." },
-    { id = "g_bowl", text = "Drop something in the bowl if you like, mon, a coin or a button or a bad memory, because the spirits not be fussy." },
+    { id = "g_bowl", text = "Drop something in the offering bowl by my feet if you like, mon, a coin or a button or a bad memory, because the spirits not be fussy." },
   },
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
@@ -233,7 +233,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     curtains = {
-      lines = { { id = "cu_default", text = "My students, mon, every season, and always the same spell. One fireball too eager and there go the curtains, and then I walk down to the Drag and buy new ones from Magar, who has stopped asking." } },
+      lines = { { id = "cu_default", text = "My students, mon, every season, and always the same spell. One fireball too eager and there go the curtains, and then I walk down to the Drag and buy new ones from Magar the tailor, who has stopped asking why." } },
       choices = {
         { text = "Why not stop hanging curtains?", next = "curtains_why" },
         { text = "Something else.", next = "BACK" },
@@ -244,7 +244,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     shamans = {
-      lines = { { id = "sh_default", text = "Searn and his kind ask the fire nicely and wait for it to answer, mon, which be very polite and very slow. I tell the fire what to do, and it does it, and we both get on with our day." } },
+      lines = { { id = "sh_default", text = "Searn Firewarder and the other shamans ask the fire nicely and wait for it to answer, mon, which be very polite and very slow. I tell the fire what to do, and it does it, and we both get on with our day." } },
       choices = {
         { text = "I'm a shaman. We don't need to ask twice.", next = "shaman_reply", when = { class = "SHAMAN" } },
         { text = "Searn has a point. Fire bites back.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -287,7 +287,7 @@ P:NPC {
   start = "hello",
   nodes = {
     xorig_lapsed = {
-      lines = { { id = "xlp_default", text = "Fire forgives nothing, but it does forget, if you feed it honestly for long enough. The anger that still reaches for fel is the same anger fire answers to, so give it to the flame before the old craft can take it. Do you feel the itch often?" } },
+      lines = { { id = "xlp_default", text = "Fire forgives nothing, but it does forget, if you feed it honestly for long enough. When your anger reaches for the fel, give it to the flame instead, because fire answers anger too. Do you feel the itch often?" } },
       choices = {
         { text = "Every time I'm angry, Searn.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Less than I used to.", next = "BACK", fx = { affinity = 1 } },
@@ -516,7 +516,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Watch your feet, mon, there be seedlings everywhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you smell of the Barrens. You've been picking peacebloom, I can tell." },
-    { id = "g_seedling", text = "Say hello to Little Karolek by the door, mon, he be the prickly one, and don't step on him." },
+    { id = "g_seedling", text = "Say hello to Little Karolek, the prickly earthroot by the door, mon, and don't step on him." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "A tauren! Come in, come in, mon, and tell me what be growing in Mulgore this season." },
   },
   notice = {

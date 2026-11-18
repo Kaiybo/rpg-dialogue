@@ -19,7 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Mind the draught, an' shut the door behind ye if ye've come in. I've a patient here." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Gozwin's colour's better today, an' he asked after ye, near enough." },
-    { id = "g_quest", when = { questActive = TODO_QUEST("Grund and Gozwin") }, text = "Any luck? The lad's not gettin' warmer on wishes alone." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Grund and Gozwin") }, text = "Any luck fetchin' what Gozwin needs? The lad's not gettin' warmer on wishes alone." },
     { id = "g_after", when = { questDone = TODO_QUEST("Grund and Gozwin") }, text = "There's the friend o' Gozwin's! Come in by the fire an' see what yer help's done." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "Look at ye, filled out like a proper mountaineer since ye first came through Anvilmar." },
   },
@@ -56,7 +56,7 @@ P:NPC {
       choices = {
         { text = "How did you find him?", next = "found" },
         { text = "Where did Gozwin come from?", next = "gnomeregan" },
-        { text = "What's this about a pocket shotgun?", next = "shotgun" },
+        { text = "Does Gozwin have plans, once he's well?", next = "shotgun" },
         { text = "Why go to such trouble for a stranger?", next = "why" },
         { text = "Let me look at him. I can heal.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "I'm a gnome too. Can I help him?", next = "xgnome", when = { race = "Gnome" } },
@@ -80,7 +80,7 @@ P:NPC {
         { id = "fb_default", text = "Springs, gears, a wee hammer, an' a drawin' o' somethin' I took for a gun, folded so many times it near fell apart. He'd not let go o' it even half dead, so I reckon it matters tae him more than his boots did." },
       },
       choices = {
-        { text = "That's the shotgun, then?", next = "shotgun" },
+        { text = "Was that drawing one of his designs?", next = "shotgun" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -205,7 +205,7 @@ P:NPC {
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" },
       text = "Oh, a gnome! Did you get out too? Don't tell me how, I don't think I could bear it, just tell me you're all right." },
     { id = "n_eng", cat = "engineer", when = { profession = { "Engineering" } },
-      text = "Is that grease under your fingernails? An engineer! Oh, thank goodness, someone who'll understand the barrel problem." },
+      text = "Is that grease under your fingernails? An engineer! Oh, thank goodness, someone who'll understand the barrel problem on my pocket shotgun." },
   },
 
   start = "hello",
@@ -225,7 +225,7 @@ P:NPC {
         { text = "How did you end up in the snow?", next = "snow" },
         { text = "Tell me about the pocket shotgun.", next = "gun" },
         { text = "What do you think of Grund?", next = "grund" },
-        { text = "Can I help with the barrel problem?", next = "xeng", when = { profession = { "Engineering" } } },
+        { text = "Can I help with your shotgun's barrel problem?", next = "xeng", when = { profession = { "Engineering" } } },
         { text = "Rest well, Gozwin.", next = "END" },
       },
     },
@@ -327,7 +327,7 @@ P:NPC {
     { id = "g_visitor", when = { questActive = TODO_QUEST("A Visitor to Dun Morogh") }, text = "Ah, did Steelgrill send ye tae see who was burnin' a fire up here? Well, it's me, an' I'm friendly." },
     { id = "g_watch", when = { questActive = TODO_QUEST("Farsen's Watch") }, text = "Ready tae see what I've been seein'? It's no' a pretty view." },
     { id = "g_spies", when = { questActive = TODO_QUEST("Nip 'Em in the Bud") }, text = "The spies are still at Ironband's Compound, an' they'll no' leave on their own." },
-    { id = "g_incursion", when = { questActive = TODO_QUEST("Old Ironforge Incursion") }, text = "Down under Old Ironforge wi' ye, an' bring yer friends. Durgen Dirgehammer won't come up tae meet ye." },
+    { id = "g_incursion", when = { questActive = TODO_QUEST("Old Ironforge Incursion") }, text = "Down under Old Ironforge wi' ye, an' bring yer friends. Their commander, Durgen Dirgehammer, won't come up tae meet ye." },
     { id = "g_after", when = { questDone = TODO_QUEST("Old Ironforge Incursion") }, text = "There's the one who delivered a Dark Iron's head tae Magni! Did he laugh? Tell me he laughed." },
   },
 
@@ -337,7 +337,7 @@ P:NPC {
     { id = "n_wild", cat = "wildhammer", when = { origin = "dwarf_wildhammer_kin" },
       text = "There's Aerie blood in ye, I can smell the gryphon on yer cloak. Welcome, cousin." },
     { id = "n_dwarf", cat = "dwarf", when = { race = "Dwarf", class = { "WARRIOR", "PALADIN", "HUNTER" } },
-      text = "A Bronzebeard wi' a proper weapon. Good, for I'm a shaman, an' my violence comes by way o' lightning, which is slow tae explain tae a Dark Iron." },
+      text = "A Bronzebeard wi' a proper weapon. Good, for I'm a shaman, an' I'd like a strong arm beside me when the Dark Irons come close." },
   },
 
   start = "hello",
@@ -354,7 +354,7 @@ P:NPC {
         { id = "h_map", tags = { "news" }, when = { questRecent = { TODO_QUEST("Underground Map"), days = 3 } },
           text = "Tunnels, all runnin' tae one point under Ironforge itself. That band ye busted up was a scoutin' force, an' if we hurry we'll beat the rest tae whatever they're after." },
         { id = "h_done", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
-          text = "The wind's quieter now the Dirgehammer's dead, an' I've stopped seein' Dark Irons in my dreams. I'll be goin' home tae the Aerie soon, once I've had one more look at that mountain." },
+          text = "The wind's quieter now Durgen Dirgehammer's dead, an' I've stopped seein' Dark Irons in my dreams. I'll be goin' home tae the Aerie soon, once I've had one more look at that mountain." },
       },
       again = {
         { id = "h_again", text = "What else? The fire'll keep a while yet." },

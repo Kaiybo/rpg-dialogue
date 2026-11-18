@@ -328,7 +328,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I remember throwing something that came back to my hand, which feels like a hunter's sort of memory, doesn't it? The rest went with the raft, but my feet still know how to follow a raptor through the ferns, and that has to count for something." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks at me like it's met me before, and nobody else in this world ever does, so I'll take that as a good sign." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only throwing something that came back to my hand, I think. And {pet} looks at me like it's met me before, which is more than most people do, so I'll take that as a good sign." },
       },
       choices = {
         { text = "Rebuild who you were, Linken. Your past still matters.", next = "BACK", fx = { align = { order = 1 } } },
@@ -549,7 +549,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I think they feel the hum in their feet, the same hum I feel in my teeth whenever I chip a sample, and they've the sense to steer clear. I haven't any sense, of course, so I keep walking right up to them with a notebook." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Has {pet} ever growled at a crystal? Tell me if it does, because a beast's nose might be the best instrument I could ask for, and it's certainly cheaper than a gnome's." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They feel the hum in their feet, I think. Has {pet} ever growled at a crystal? Tell me if it does, because a beast's nose might be the best instrument I could ask for, and it's certainly cheaper than a gnome's." },
       },
       choices = {
         { text = "Trust the beasts' caution. Some things shouldn't be disturbed.", next = "BACK", fx = { align = { order = 1 } } },
@@ -756,7 +756,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Because it moves, or the ground round it does, and the fire walks about at night where you can see it from the ledge. Ringo went that way, friend, and I've watched those lights every night since, wonderin' which one is him with a torch." } },
       choices = {
         { text = "Fear keeps you alive down there. Trust it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fear keeps you in this cave. Go and look for him.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fear keeps you on this ledge. Go and look for him.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

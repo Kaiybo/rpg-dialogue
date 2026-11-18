@@ -140,9 +140,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Marshal Maxwell, commanding what's left of Stormwind's presence in the Burning Steppes. We hold this ridge, we watch the mountain, and we write reports that nobody in the capital reads." },
         { id = "h_masters", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
-          text = "You're carrying the True Masters business, I see; Solomon's letters and the Highlord's seal always end up at my fire sooner or later. Sit, and I'll tell you how many have come before you." },
+          text = "You're carrying the True Masters business, I see; Magistrate Solomon's letters and the Highlord's seal always end up at my fire sooner or later. Sit, and I'll tell you how many have come before you." },
         { id = "h_windsor_go", tags = { "news" }, when = { questActive = TODO_QUEST("Marshal Windsor") },
-          text = "If John's tale holds a single grain of truth, Windsor is sitting in a Dark Iron cell under that mountain. Go and find out, deputy, and bring me something I can put in a report." },
+          text = "If Ragged John's tale holds a single grain of truth, Windsor is sitting in a Dark Iron cell under that mountain. Go and find out, deputy, and bring me something I can put in a report." },
         { id = "h_hope", tags = { "news" }, when = { questRecent = { TODO_QUEST("Abandoned Hope"), days = 7 } },
           text = "I keep going over what you told me. Windsor was the steadiest man I ever served under, and now he's raving in a cell about reptiles and fools." },
         { id = "h_jail", tags = { "news" }, when = { questRecent = { TODO_QUEST("Jail Break!"), days = 7 } },
@@ -581,7 +581,7 @@ P:NPC {
         { id = "h_menace", when = { questActive = TODO_QUEST("Dragonkin Menace") },
           text = "The dragonkin below the ridge are bolder every day, and I can't tell you more until I know you can stand against them. Thin their numbers, and then we'll speak of the rest." },
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
-          text = "Whatever stage of that business you've reached, remember that the letter began here, on this ridge. The Magistrate is an honest man, and I trust honest men to finish what I start." },
+          text = "However far that letter has travelled, remember that it began here, on this ridge. Magistrate Solomon is an honest man, and I trust honest men to finish what I start." },
         { id = "h_halycon", when = { questActive = TODO_QUEST("Put Her Down") },
           text = "Halycon, the orcs call her, the mother of their worgs. Find her in the Spire and end it, and try not to hate the creature for what was done to it." },
         { id = "h_halycon_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Put Her Down"), days = 5 } },
@@ -864,7 +864,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Worgs, soldier, and their riders, and anything coming down the slope from the Spire that wasn't there yesterday! Winky says he's seen dragons, too, but Winky also says he's seen my pension, so I'd treat that report with suspicion." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this is your second, is it? {pet}, attention! Winky says beasts can't be drilled, soldier, but I see a very fine posture on that one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Worgs, soldier, and their riders, and anything coming down the slope from the Spire that wasn't there yesterday! And this is your second, is it? {pet}, attention!" },
       },
       choices = {
         { text = "I'll report every movement exactly as I see it, sir.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1105,7 +1105,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Overseer Pyron guards the quarry inside the mountain, and he's a fire elemental, and he burned three of my mages before we'd even seen him properly. If you can get close enough to put him out, you'll have done what my whole expedition couldn't." } },
+      lines = { { id = "xwarcl_default", text = "Overmaster Pyron guards the quarry inside the mountain, and he's a fire elemental, and he burned three of my mages before we'd even seen him properly. If you can get close enough to put him out, you'll have done what my whole expedition couldn't." } },
       choices = {
         { text = "I'll go in for your mages. Nobody should burn for nothing.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll do it, but for my own reasons, not theirs.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1116,7 +1116,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It wandered too close to the mountain, and a fire elemental walked straight through it, and there was nothing left but a smell like burnt toffee. I keep thinking I'll get used to the Steppes, but every day they find a new way to frighten me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} all right in this heat? Mind its paws on the ash, because the ground here goes from warm to burning without any warning at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It wandered too close to the mountain, and a fire elemental walked straight through it. Oh, please mind {pet}'s paws on the ash, because the ground here goes from warm to burning without any warning at all." },
       },
       choices = {
         { text = "I'll guard my beast as carefully as you guard your mages.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1241,7 +1241,7 @@ P:NPC {
     },
     k_lock = {
       lines = {
-        { id = "xlk_default", text = "No, they don't, do they? I've thought about it, I'll admit, sending something that won't burn through the door first. But Maxwell would have my hide, and my mages would have the rest, and I'm not sure they'd be wrong." },
+        { id = "xlk_default", text = "No, they don't, do they? I've thought about it, I'll admit, sending something that won't burn through the door first. But Marshal Maxwell would have my hide, and my mages would have the rest, and I'm not sure they'd be wrong." },
         { id = "xlk_gnome", when = { race = "Gnome" },
           text = "No, they don't, and I've thought about asking you gnome warlocks for exactly that, since we're all scraping by on whatever works since Gnomeregan. But Maxwell would have my hide, and I'm not sure he'd be wrong." },
       },
@@ -1318,7 +1318,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A black whelp's head would make his year, though I'd settle for a Blackrock worg pelt with the teeth still in. He has a whole room of heads at his house in Stormwind, and he insists on telling guests he shot every one himself." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And does {pet} have a pedigree, I wonder? No, don't tell me, or I'll only start writing it up for the Count, and you'd never get it back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A black whelp's head would make his year, though I'd settle for a Blackrock worg pelt with the teeth still in. And does {pet} have a pedigree, I wonder? No, don't tell me, or I'll only start writing it up for the Count." },
       },
       choices = {
         { text = "A trophy should belong to the one who earned it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1550,7 +1550,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Nae a thing, for there's nothin' fit tae eat out there that isnae already cooked or poisoned. I fly in fish from Lakeshire every week, an' they eat better than I do, the spoiled creatures." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a bonny beast. {pet}, is it? Well, keep {pet} on the ground, for my birds think anythin' smaller than a horse is breakfast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nae a thing, for there's nothin' fit tae eat out there, so I fly in fish from Lakeshire. An' keep {pet} on the ground, for my birds think anythin' smaller than a horse is breakfast." },
       },
       choices = {
         { text = "Good birds deserve good food, Borgus. Keep spoiling them.", next = "BACK", fx = { align = { light = 1 } } },

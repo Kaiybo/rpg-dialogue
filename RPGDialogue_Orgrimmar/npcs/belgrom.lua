@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Belgrom Rockmaul. I'd travel in the Warchief's name, but Thrall needs me here in the city, and he asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
+        { id = "h_default", key = true, text = "Belgrom Rockmaul, adviser to the Warchief, who asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
         { id = "h_betrayed_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "That thieving elf! I may have made a grave mistake, {name}. She promised riches from the ruins of Azshara if I sent warriors to guard her diggers, and now she's killed them, every one, and I can't afford to send more." },
         { id = "h_betrayed_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 5 } },

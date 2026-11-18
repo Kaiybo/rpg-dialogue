@@ -79,7 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "Ratchet? That's goblin salt.", next = "trade_salt" },
-        { text = "Your son hunts for you?", next = "venture" },
+        { text = "Your son hunts for you? Tell me about him.", next = "venture" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -116,7 +116,7 @@ P:NPC {
           text = "Pity them? I do, some nights, and then I see the bottles going down to the Pools. The Elder Crone keeps them close and the High Chieftain gave them shelter, and nobody asks a meat seller what she thinks of plague-makers under her feet." },
       },
       choices = {
-        { text = "Has any Forsaken ever done you harm?", next = "venture" },
+        { text = "Is it only the dead, or has someone else hurt you?", next = "venture" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -221,7 +221,7 @@ P:NPC {
     },
     xdead_cold = {
       lines = {
-        { id = "xc_default", text = "Then the Earth Mother hasn't let go of you altogether, or else you've a long walk ahead to find her. I'll think on that, which is more than I've done for any of your people before today." },
+        { id = "xc_default", text = "You answered me honestly, either way, and maybe the Earth Mother hasn't let go of you altogether. I'll think on that, which is more than I've done for any of your people before today." },
       },
       choices = {
         { text = "Then think on it. That's all I ask.", next = "BACK", fx = { align = { light = 1 } } },

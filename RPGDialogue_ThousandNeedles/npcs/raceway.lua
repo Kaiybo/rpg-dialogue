@@ -120,7 +120,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Once, unofficially, when a vulture followed the gnome car all the way round and landed on the finish post first. I've been telling folks it was goblin-trained ever since, and nobody's been able to prove me wrong." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hey, {pet} looks fast. Real fast. Ever thought about racing it against Fizzle's car? We'd sell tickets, I'm just saying." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not officially, but {pet} looks fast, real fast. Ever thought about racing it against Fizzle's car? We'd sell tickets, I'm just saying." },
       },
       choices = {
         { text = "That vulture won fair. Don't claim it for the goblins.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -241,7 +241,7 @@ P:NPC {
       big = true,
       lines = { { id = "y_default", text = "Because some arguments you can't win talking, kid. You need a mile of salt, two rockets and a crowd, plus wagers, mostly wagers." } },
       choices = {
-        { text = "So what does everyone else think of gnomes?", next = "op_gnomes" },
+        { text = "I've an opinion on gnomes, if you want it.", next = "op_gnomes" },
         { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } },
       },
     },
@@ -399,7 +399,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Constantly, and with what I can only call malice, because the scorpids nest in the exhaust and the vultures peck at anything shiny. I once found a tortoise asleep under the chassis, which explained why the car wouldn't go any faster than a tortoise." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, keep {pet} away from the fuel line, please. It smells like venom to a beast, and I've seen what happens when one decides to chew it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Constantly, and {pet} would be no better, so keep it away from the fuel line, please. Venom fuel smells like dinner to a beast, and I've seen what happens when one decides to chew it." },
       },
       choices = {
         { text = "The creatures were here first. Build around them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -511,7 +511,7 @@ P:NPC {
         { text = "I've never heard of MEGA.", next = "mega" },
         { text = "Why race the goblins?", next = "why" },
         { text = "What are you building now?", next = "engine" },
-        { text = "Is it true about your brothers?", next = "brothers" },
+        { text = "I hear you build cars with your brothers.", next = "brothers" },
         { text = "Martek told me about indurium.", next = "indurium", when = { questDone = TODO_QUEST("News for Fizzle") } },
         { text = "I'm an engineer too.", next = "engineer", when = { profession = "Engineering" } },
         { text = "Could a haste spell help your rocket car?", next = "x_mage", when = { class = "MAGE" } },
@@ -541,7 +541,7 @@ P:NPC {
       lines = { { id = "y_default", text = "Because they're there, and because they're wrong. Mostly the second." } },
       choices = {
         { text = "What do you make of goblins, Fizzle?", next = "op_goblins" },
-        { text = "Good to know. I'll keep clear of the salt.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } },
+        { text = "Fair enough. Being wrong is a good reason.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } },
       },
     },
     engine = {
@@ -589,7 +589,7 @@ P:NPC {
     x_mage = {
       lines = {
         { id = "xm_default", text = "A spell, on my engine? Absolutely not, the tolerances are tuned to a hair, and one sparkle of arcane would throw off every gauge on the dash! Although, between us, if you could make the goblin car go slower, I'd call that science." },
-        { id = "xm_orc", when = { race = "Orc", class = "MAGE" }, text = "An orc who studies magic instead of hitting things with it? That's a marvelous inversion, and I'd love to see your notes, though please don't cast anything near the fuel." },
+        { id = "xm_orc", when = { race = "Orc", class = "MAGE" }, text = "An orc mage offering to hasten my engine? Marvelous, but absolutely not, because the tolerances are tuned to a hair. Please don't cast anything near the fuel." },
       },
       choices = {
         { text = "Slowing the goblins would be cheating, Fizzle.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
@@ -651,7 +651,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Who walks intae the gnome tent after dark, who drinks wi' which goblin, an' who's got a new purse they shouldnae have. I watch it all, an' I make a decent livin' tellin' the right folk what I've seen." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours doesnae miss much either, does it? A beast like that would be worth its weight in gold, keepin' watch outside the right tent." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Who walks intae the gnome tent after dark, mostly, an' that {pet} o' yours would see it too. A beast like that would be worth its weight in gold, keepin' watch outside the right tent." },
       },
       choices = {
         { text = "What I see, I keep to myself. I'm no informer.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -735,10 +735,10 @@ P:NPC {
       },
     },
     hush = {
-      lines = { { id = "hu_default", text = "Now, now, nobody's rigged a thing. Here, for yer trouble an' yer short memory; we understand each other." } },
+      lines = { { id = "hu_default", text = "Now, now, nobody's rigged a thing, an' a friend wi' a short memory is a friend I'd remember kindly. We understand each other?" } },
       choices = {
         { text = "We do.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "Keep your coin, Kravel. I saw what I saw.", next = "END", fx = { align = { order = 1 } } },
+        { text = "No, Kravel. I saw what I saw.", next = "END", fx = { align = { order = 1 } } },
       },
     },
     laugh = {

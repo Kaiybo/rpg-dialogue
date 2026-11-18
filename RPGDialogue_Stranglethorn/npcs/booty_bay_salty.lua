@@ -18,12 +18,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_pirates", when = { gossip = { topic = "pirates", stance = "hate" } }, text = "Seahorn says you told him pirates are pirates, code or no code. He laughed it off, but he's been very quiet at the rail since, so I hope you meant it." },
+    { id = "g_op_pirates", when = { gossip = { topic = "pirates", stance = "hate" } }, text = "Fleet Master Seahorn says you told him pirates are pirates, code or no code. He laughed it off, but he's been very quiet at the rail since, so I hope you meant it." },
     { id = "g_tavern", text = "Pull up a stool if you're staying, and mind the third one, because it bites." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Sit down, then, and tell me something more interesting than the tide tables." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece, which is better than most who leave this tavern on business. Sit, and tell me where you've been." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors in the Salty Sailor, and nobody's thrown a chair yet. The night's young, so sit down before somebody does." },
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "You came in along the wall like one of Strom's lot. Sit where I can see your hands, and I'll do you the same courtesy." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "You came in along the wall like one of Ian Strom's rogues. Sit where I can see your hands, and I'll do you the same courtesy." },
   },
 
   notice = {
@@ -82,17 +82,17 @@ P:NPC {
         { id = "h_key", tags = { "news" }, when = { questActive = TODO_QUEST("Ansirem's Key") },
           text = "You've come from my father, haven't you? Only Dalaran ink smells like that, and only Ansirem Runeweaver would send a stranger halfway across the world to ask me about a knife." },
         { id = "h_duncan", tags = { "news" }, when = { questActive = TODO_QUEST("\"Pretty Boy\" Duncan") },
-          text = "Duncan's camp is down on the Southern Savage Coast, among the Bloodsail, and he'll be wearing my knife as if he won it fairly. Bring it back to me, and if his pretty face gets a scratch on the way, I won't weep." },
+          text = "Duncan, the Bloodsail rat who took my knife, has his camp down on the Southern Savage Coast, and he'll be wearing it as if he won it fairly. Bring it back to me, and if his pretty face gets a scratch on the way, I won't weep." },
         { id = "h_tides", tags = { "news" }, when = { questActive = TODO_QUEST("The Curse of the Tides") },
-          text = "That knife at your belt is on loan, remember, and I want it back once the trolls' altar is rubble. Vile Reef is cold and deep, so go in with a full breath and come out with both of us still owning it." },
+          text = "That knife at your belt is on loan, remember, and I want it back once the troll altar in the Vile Reef is rubble. The reef is cold and deep, so go in with a full breath and bring my knife back out with you." },
         { id = "h_tides_done", when = { questDone = TODO_QUEST("The Curse of the Tides") },
-          text = "The Baron has his Stone of the Tides on a shelf, and he's been admiring my knife beside it as though it came with the set. You did good work in the reef, friend, so I'll only half blame you for that." },
+          text = "You broke the curse on the Stone of the Tides, and now the Baron keeps the stone on a shelf, and he's been admiring my knife beside it as though it came with the set. You did good work in the reef, friend, so I'll only half blame you for that." },
         { id = "h_duncan_done", when = { questDone = TODO_QUEST("\"Pretty Boy\" Duncan") },
           text = "You're the one who took my blade back off Duncan. I owe you a drink for that, and I keep a ledger of my debts like any good Booty Bay girl." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage in a pirate tavern! Don't tell me you studied in Dalaran, or I'll have to ask whether you knew my father, and then we'll both be embarrassed." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "One of the quiet trade, and a decent one by the look of your boots. Strom says the good ones always find my table eventually, and I'm starting to believe him." },
+          text = "One of the quiet trade, and a decent one by the look of your boots. Ian Strom, who trains the rogues here, says the good ones always find my table eventually, and I'm starting to believe him." },
         { id = "h_human", when = { race = "Human" },
           text = "A northern face, by the look of you, and you're staring at me as if you've seen my father's portrait somewhere. You haven't, and if you have, please don't tell me where it hangs." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -263,7 +263,7 @@ P:NPC {
     },
 
     regulars = {
-      lines = { { id = "rg_default", text = "Deeg's at the bar complaining about his snuff, Dizzy's at the window looking for a ship he can't see, and Strom's in the corner pretending not to watch any of us. Sly Garrett sells poison by the stairs, and he's the only honest crook I know." } },
+      lines = { { id = "rg_default", text = "Deeg's at the bar complaining about his snuff, Dizzy's at the window looking for a ship he can't see, and Ian Strom, the rogue trainer, is in the corner pretending not to watch any of us. Sly Garrett sells poison by the stairs, and he's the only honest crook I know." } },
       choices = {
         { text = "Why can't Dizzy see the ships?", next = "regulars_dizzy" },
         { text = "An honest crook? Garrett?", next = "regulars_garrett" },
@@ -303,7 +303,7 @@ P:NPC {
     rogue_strom = {
       lines = { { id = "ros_default", text = "Strom offered to teach me once, and I told him I'd learned all my knife work from the end of a Bloodsail cutlass. He laughed and said that's how all the best ones learn, and then he stole my pipe to make a point." } },
       choices = {
-        { text = "Did you ever get the pipe back?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I hope you made him give the pipe back.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +461,7 @@ P:NPC {
       },
     },
     origin_choice = {
-      lines = { { id = "orc_default", text = "Not really, since my ship's captain had sold me out to the Bloodsail for a cut of the cargo. Turns out the pirates were more honest than he was, which says something about Menethil, though I'm not sure what." } },
+      lines = { { id = "orc_default", text = "Not really, since my ship's captain had sold me out to the Bloodsail for a cut of the cargo. Turns out the Blackwater were more honest than he was, which says something about Menethil, though I'm not sure what." } },
       choices = {
         { text = "A man should keep his word, pirate or not.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your captain played the odds. That's business.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -504,7 +504,7 @@ P:NPC {
     },
 
     folk = {
-      lines = { { id = "fk_default", text = "Catelyn's the one with her boots on the table, and she's better with a knife than anyone in the fleet, though she'll tell ye different since she lost one. Dizzy's by the window, and the poor lad can't see a thing without his glass eye, which the Bloodsail also took." } },
+      lines = { { id = "fk_default", text = "Catelyn's the one with her boots on the table, and she's better with a knife than anyone in the fleet, though she'll tell ye different since she lost her best knife. Dizzy's by the window, and the poor lad can't see a thing without his glass eye, which the Bloodsail also took." } },
       choices = {
         { text = "The Bloodsail take a lot from this crew.", next = "folk_bloodsail" },
         { text = "Something else.", next = "BACK" },
@@ -757,7 +757,7 @@ P:NPC {
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "Strom's sent you, or will soon, because every rogue in this town ends up at my counter sooner or later. Look around, and ask if you've questions." },
+      text = "Ian Strom has sent you, or soon will, because every rogue in this town ends up at my counter sooner or later. Look around, and ask if you've questions." },
     { id = "n_poor", cat = "purse", when = { money = { max = 2000 } },
       text = "Your purse is light for this counter, friend, and good poison's not cheap. Browse all you like, though, since looking's free." },
   },
@@ -852,7 +852,7 @@ P:NPC {
     },
 
     rogue_strom = {
-      lines = { { id = "rs_default", text = "He's right, and that's why I'm human and not a goblin. The ones on the docks cut their poisons with seawater and charge you extra for the vial, and I've lost count of the rogues who came to me afterward asking why their blades stopped working." } },
+      lines = { { id = "rs_default", text = "He's right, and it's why he sends his students to me. The ones on the docks cut their poisons with seawater and charge you extra for the vial, and I've lost count of the rogues who came to me afterward asking why their blades stopped working." } },
       choices = {
         { text = "Then I'll buy from you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -1002,7 +1002,7 @@ P:NPC {
       },
     },
     brothers_where = {
-      lines = { { id = "brw_default", text = "Out working off the debt, pal, since they're the ones who left the chest unguarded. Last I heard, Rix was hauling crates on the docks and Frix was haggling with Kebok, and losing, which is good for him." } },
+      lines = { { id = "brw_default", text = "Out working off the debt, pal, since they're the ones who left the chest unguarded. Last I heard, Rix was hauling crates on the docks and Frix was haggling with old Kebok over cargo, and losing, which is good for him." } },
       choices = {
         { text = "Family should work together, Pix.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If they lost your money, cut them loose.", next = "BACK", fx = { align = { order = -1 } } },

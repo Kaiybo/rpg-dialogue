@@ -9,14 +9,14 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
   impression = {
-    first = "With enemies on three sides, High Executor Hadrec has no time to spare for a fourth. He lists the worgen, the Scourge, the gnolls and Dalaran's mages among them, and seems entirely undaunted by the list.",
+    first = "High Executor Hadrec holds the Sepulcher against the worgen, the Scourge, the gnolls and Dalaran's mages all at once, and he recites the list without a flicker of worry.",
     third = "{name} met High Executor Hadrec, who holds the Sepulcher and Silverpine Forest for the Dark Lady.",
   },
 
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "A mage. Arugal was a mage, and his wolves are howling in my forest because of it, and Dalaran's people still tramp through Silverpine as though they own it. You'll forgive me if I keep you in sight." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've done more good in Silverpine than the whole Kirin Tor ever did, mage. That isn't high praise, but it's sincere." },
-    { id = "g_sepulcher", text = "Speak. The Sepulcher has enemies on three sides, and I have little time for the fourth." },
+    { id = "g_sepulcher", text = "Speak quickly. The Sepulcher has enemies on every side, and I can spare little time from any of them." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the forest, are you? Report, and be brief." },
     { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You served the Scourge and you remember it; I can always tell, because the ones who remember never sit with their backs to a door. Good, so make that memory useful in this forest." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and our enemies made good use of every day of it. Report what you saw, and be brief." },
@@ -73,7 +73,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_hillsbrad_r3 = {
-      lines = { { id = "ophb_r3", text = "Then you've more right to them than any farmer from Stormwind. Remember the boundary stones, and bring me back the names on the deeds." } },
+      lines = { { id = "ophb_r3", text = "Then you've more right to them than any farmer from Stormwind. Go south and see who's living on them now." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xcl_sfk = {
@@ -172,7 +172,7 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "ma_default", text = "Then Dalar will want you, though he'll talk your ear off first. Dalaran's mages at Ambermill are building something, and I don't care what it is so long as it doesn't work. Find out, and break it." },
+        { id = "ma_default", text = "Then Dalar Dawnweaver, our own archmage, will want you, though he'll talk your ear off first. Dalaran's mages at Ambermill are building something, and I don't care what it is so long as it doesn't work. Find out, and break it." },
         { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
           text = "Dalaran-trained, and they'd know your face. Good; let them see you, and wonder how much of their work you can still read." },
       },
@@ -192,7 +192,7 @@ P:NPC {
     threats = {
       big = true,
       lines = {
-        { id = "t_default", text = "The worgen of the south, Arugal's beasts, and the Scourge to the east, and Dalaran's mages poking about Ambermill. And the gnolls, who don't know when to stop." },
+        { id = "t_default", text = "The worgen of the south, Arugal's beasts, and the Scourge to the east, and Dalaran's mages poking about Ambermill, and on top of all that the gnolls, who don't know when to stop." },
       },
       choices = {
         { text = "Is the Alliance a threat out here, High Executor?", next = "op_hillsbrad" },
@@ -221,7 +221,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "One front would be a mercy, since I have four and too few Deathguard to hold any of them well. Send your demons at the Rot Hide gnolls, who are too stupid to be frightened of anything and will at least keep them busy." },
-        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You'd have heard of the Cult in life, and perhaps more than heard, but the Dark Lady has given you a new master and a new purpose. Use your demons for her, and I'll not care where you learned to call them." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You'd have heard of the Cult of the Damned in life, and perhaps more than heard, but the Dark Lady has given you a new master and a new purpose. Use your demons for her, and I'll not care where you learned to call them." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "The Warchief sends orcs to help, and here is one who brought fel fire with him, which I didn't expect. Point it at the Rot Hides and I'll see your name in my report." },
       },
       choices = {
@@ -237,7 +237,7 @@ P:NPC {
       { id = "tp_knows", text = "Every deathstalker report in Silverpine ends on my desk. Ask what you need to know, and I'll tell you what they found." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get the short version, since I've no time for the long one with you." },
     },
-    worgen = { { id = "tp_worgen", text = "Arugal's creatures, a Dalaran mage's mistake loose in my forest. I'd like the mage, too." } },
+    worgen = { { id = "tp_worgen", text = "The worgen are Arugal's creatures, a Dalaran mage's mistake let loose in my forest. I'd like the mage as well." } },
     scourge = {
       { id = "tp_scourge", text = "The Scourge pushes in from the north and east, and the Deathguard pushes back every day. It doesn't tire and neither do we, so it becomes a question of who has the better commanders." },
       { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what they are, because you were one. Use that, and you'll last longer than the living ones I send out." },
@@ -249,7 +249,7 @@ P:NPC {
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady trusts me with the Sepulcher, and I've never given her reason to doubt it. I don't intend to start now." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's people come through Silverpine now and then, on their way somewhere else. They fight well enough, and I'm glad of any blade that points at my enemies." } },
     lordaeron = { { id = "tp_lordaeron", text = "Silverpine was Lordaeron's western forest, and its people fled or died when the plague came. The forest has forgotten them, but I haven't." } },
-    _none = { { id = "tp_none", text = "Ask Allister; information is his business, not mine." } },
+    _none = { { id = "tp_none", text = "Ask Shadow Priest Allister; information is his business, not mine." } },
   },
 }
 
@@ -330,13 +330,13 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_udimprove", tags = { "news" }, when = { opinion = { topic = "undeath", stance = "improvement" } }, text = "Faranell's letters say you think undeath an improvement on the alternative. He's thrilled, and I'm inclined to agree, though I'd never tell him so." },
+        { id = "o_udimprove", tags = { "news" }, when = { opinion = { topic = "undeath", stance = "improvement" } }, text = "Master Apothecary Faranell writes from the Undercity that you think undeath an improvement on the alternative. He's thrilled, and I'm inclined to agree, though I'd never tell him so." },
         { id = "h_default", key = true,
           text = "Apothecary Renferrel, of the Royal Apothecary Society. Our work goes on here, far from the Undercity's eyes and nose, and just now it's the sickness the Rot Hide gnolls carry." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Delivery to Silverpine Forest") },
-          text = "Johaan's package, and intact, too. He'll be pleased, and I'm relieved." },
+          text = "Apothecary Johaan's package from Brill, and intact, too. He'll be pleased, and I'm relieved." },
         { id = "h_recipe", tags = { "news" }, when = { questActive = TODO_QUEST("A Recipe For Death") },
-          text = "A recipe for death, though not mine; I only improve on it. Bring me what it calls for." },
+          text = "That's the recipe I sent for. It's a recipe for death, though not mine; I only improve on it, so bring me what it calls for." },
         { id = "h_rothide", when = { any = { { questActive = TODO_QUEST("Rot Hide Ichor") }, { questActive = TODO_QUEST("Rot Hide Origins") } } },
           text = "The Rot Hide gnolls carry a sickness, and I want to know where it came from, because someone made it." },
         { id = "h_thule", when = { questActive = TODO_QUEST("Thule Ravenclaw") },
@@ -385,7 +385,7 @@ P:NPC {
     },
     warlock = {
       lines = {
-        { id = "wl_default", text = "Does it? Then you've seen the Cult's work closer than I'd like to ask about. Yes, it's the same hand, or someone who learned from it. Tell me what else you recognize when you bring the ichor." },
+        { id = "wl_default", text = "Does it? Then you've seen the Cult's work closer than I'd like to ask about. Yes, it's the same hand, or someone who learned from it. Tell me what else you recognize when you bring me the gnolls' ichor." },
         { id = "wl_cult", when = { origin = "forsaken_cult_remnant" },
           text = "You'd know, wouldn't you? I've heard what you were. Help me trace this sickness back to whoever made it, and you'll be undoing a little of your own work." },
       },
@@ -611,7 +611,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you still feel any loyalty to Dalaran?", next = "op_kirin_tor" },
-        { text = "And now?", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "I'm sorry nobody listened, Archmage.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
     xhsham = {
@@ -647,7 +647,7 @@ P:NPC {
   },
 
   topics = {
-    worgen = { { id = "tp_worgen", text = "Arugal's mess, and a fool with power is the most dangerous creature in any forest." } },
+    worgen = { { id = "tp_worgen", text = "The worgen are Arugal's mess, and a fool with power is the most dangerous creature in any forest." } },
     dalaran = { { id = "tp_dalaran", text = "I was an archmage of Dalaran, and I warned the Kirin Tor of what was coming, and nobody listened. Now they rebuild behind their shields and send their apprentices to squat in Ambermill, and they still don't listen." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor stopped calling me Archmage the moment I died, which I find extraordinarily rude. I haven't forgotten a single one of their names." } },
     shadowfang = { { id = "tp_shadowfang", text = "Arugal was one of ours, a fine mage once, and the Kirin Tor let him summon the worgen to fight the Scourge. He lost his mind, and now he hides in Shadowfang Keep calling the wolves his children." } },
@@ -723,7 +723,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_vmdistrust", tags = { "news" }, when = { gossip = { topic = "varimathras", stance = "distrust" } }, text = "Erland says you don't trust the dreadlord. Neither do I, but the shadow teaches patience, and so should you." },
+        { id = "o_vmdistrust", tags = { "news" }, when = { gossip = { topic = "varimathras", stance = "distrust" } }, text = "Deathstalker Erland says you don't trust Varimathras, the dreadlord at the Dark Lady's side. Neither do I, but the shadow teaches patience, and so should you." },
         { id = "h_default", key = true,
           text = "Shadow Priest Allister. I keep watchers in every corner of Lordaeron, and what moves in Silverpine, I learn of first." },
         { id = "h_border", tags = { "news" }, when = { questActive = TODO_QUEST("Border Crossings") },
@@ -731,7 +731,7 @@ P:NPC {
         { id = "h_ambermill", when = { questActive = TODO_QUEST("Ambermill Investigations") },
           text = "Dalaran's mages have taken an interest in Ambermill, and I'd like to know why before they finish whatever it is." },
         { id = "h_weaver", when = { questActive = TODO_QUEST("The Weaver") },
-          text = "The Weaver is Dalaran's, and dangerous. Remove that problem, and quietly, if you can." },
+          text = "The Weaver is a Dalaran mage at Ambermill, and a dangerous one. Remove that problem, and quietly, if you can." },
         { id = "h_watchers", when = { metBefore = true }, text = "One of my watchers came back from the north with a story I don't believe, and I wrote it down anyway. That's the work." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I heard you were coming, of course, and I heard your spirits were noisy, which I'd ask you to keep in mind near the border." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I heard a tauren had come to Silverpine, and I heard you'd been sniffing about Pyrewood, so I assume you've something to tell me." },
@@ -762,7 +762,7 @@ P:NPC {
       lines = {
         { id = "ro_default", text = "You might be, in time. My watchers go where they're sent and report what they see, not what they think, and the second part is harder than it sounds. Start with the border, and tell me only what happened." },
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
-          text = "Hadrec has the deathstalkers, and I have the watchers, and they're not quite the same trade. His kill quietly; mine listen quietly. Try mine for a while." },
+          text = "Hadrec has the deathstalkers, and I have the watchers, and they're not quite the same trade. His kill quietly, and mine listen quietly. Try mine for a while." },
       },
       choices = {
         { text = "Only what happened. No opinions.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -842,7 +842,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in out of the pines. There's a chair by the fire and nothing out here that bites. Mostly." },
+    { id = "g_inn", text = "Come in out of the pines. There's a chair by the fire, and nothing in here bites, mostly." },
     { id = "g_home", when = { homeInn = { "The Sepulcher" } }, text = "Back to the crypt, are you? Your slab's made up, I mean your bed; it's habit." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You've a knight's bearing, even now, and I can't think where else you'd have learned it. There's a chair by the fire, sir, and nobody here will ask what oath you swore." },
     { id = "g_away", when = { away = 14 }, text = "Back to the crypt after {away}, are you? Your slab's made up, I mean your bed, and the spiders kept to their side of the arrangement." },

@@ -43,7 +43,7 @@ P:NPC {
       choices = {
         { text = "Then keep Ironforge out. The Hinterlands should stay wild.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Ironforge is kin. Work with them, not against them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Somethin' else.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -59,7 +59,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Depends on the beast an' the bird, same as people. A wolf they'll tolerate an' a cat they'll watch, but anythin' wi' feathers they'll fight, so if yer companion's an owl, keep it well away from the roost." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet}, is it? My birds are lookin' at it already, an' I'll say it's lucky they've eaten this mornin'." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Depends on the beast an' the bird: a wolf they'll tolerate, a cat they'll watch, an' anythin' wi' feathers they'll fight. My birds are lookin' at {pet} already, so it's lucky they've eaten this mornin'." },
       },
       choices = {
         { text = "Beasts deserve respect, whether they carry us or hunt beside us.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -183,7 +183,7 @@ P:NPC {
     },
     sky_lost = {
       lines = {
-        { id = "sl_default", text = "Two this year, shot down over Jintha'Alor, and their birds came home alone. A gryphon whose rider doesn't come back won't eat for a week, and some of them never fly again." },
+        { id = "sl_default", text = "Four this season, shot down over Jintha'Alor, and some of their birds came home alone. A gryphon whose rider doesn't come back won't eat for a week, and some of them never fly again." },
       },
       choices = {
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -258,7 +258,7 @@ P:NPC {
       choices = {
         { text = "Kinder isn't kind enough. Mine less, Harggan.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A town needs iron. A few holes are the cost.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Somethin' else.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -274,7 +274,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Twice this season, an' both times they went for the mules first, which is cleverer than I'd like. A troll knows a cart wi'out a mule is just a pile o' iron sittin' in the road, waitin' for them tae come back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would make a fine guard for a cart, an' I'd pay it in scraps if ye'd lend it tae me, though I suppose ye wouldnae." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Twice this season, an' both times they went for the mules first. Yer {pet} would make a fine guard for a cart, an' I'd pay it in scraps if ye'd lend it tae me, though I suppose ye wouldnae." },
       },
       choices = {
         { text = "I'll watch your road. Aerie Peak needs that iron.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -401,7 +401,7 @@ P:NPC {
     },
     road_owl = {
       lines = {
-        { id = "ro_default", text = "Sat on it, ate some of it, and then flew off looking very sorry for itself. Ye'd think the beast would learn, but they never do, and neither do I, because I keep driving that road." },
+        { id = "ro_default", text = "Sat on it, ate some of it, and then wandered off looking very sorry for itself. Ye'd think the beast would learn, but they never do, and neither do I, because I keep driving that road." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },

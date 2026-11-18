@@ -64,7 +64,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Itharius, of Ysera's flight, and this cave is mine, as are the whelps you were wise enough not to provoke. You will not find the gentleness of the red dragons among my kin, so do not mistake my patience for welcome." },
+          text = "I am Itharius, of Ysera's flight, and this cave is mine, as are the whelps you were wise enough not to provoke. I am patient, mortal, but do not mistake my patience for welcome." },
         { id = "h_essence", tags = { "news" }, when = { questActive = TODO_QUEST("The Essence of Eranikus") },
           text = "You bring the Chained Essence of Eranikus, and the Oathstone has spoken in your mind. Relinquish the gem to me, and we will work together to redeem a soul worthy of redemption." },
         { id = "h_words", tags = { "news" }, when = { questActive = TODO_QUEST("In Eranikus' Own Words") },
@@ -119,7 +119,7 @@ P:NPC {
     },
     temple_atalai = {
       lines = {
-        { id = "ta_default", text = "They linger in the ruins still, chanting for Hakkar, and the Horde at Stonard watches them through one of its own, Fel'zerul, who is wiser than his masters know. The trolls are a lesser danger than what they serve." },
+        { id = "ta_default", text = "They linger in the ruins still, chanting for Hakkar, and the Horde at Stonard watches them through Fel'zerul, a troll of its own who is wiser than his masters know. The trolls are a lesser danger than what they serve." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -246,7 +246,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I have watched this swamp and the world beyond it for a long while, mortal. I will tell you what a dragon thinks a mortal should know." },
     },
-    background = { { id = "tp_ba", text = "A servant of Ysera, keeper of whelps, and watcher at the edge of a ruined temple. That is all I am at present." } },
+    background = { { id = "tp_ba", text = "I am a servant of Ysera, keeper of whelps, and watcher at the edge of a ruined temple. That is all I am at present." } },
     advice = { { id = "tp_ad", text = "Do not sleep near the sunken temple, mortal. Your dreams are not as private as you believe." } },
     atalhakkar = { { id = "tp_temple", text = "The Temple of Atal'Hakkar lies beneath the Pool of Tears, sunk by the trolls' own folly, and my kin who guard it are lost to madness." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it was meant to be, green and unbroken, and my mistress Ysera watches over it from within. Mortals glimpse its edges when they sleep, and most of them forget by morning." } },

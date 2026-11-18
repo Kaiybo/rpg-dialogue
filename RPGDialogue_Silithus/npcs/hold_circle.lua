@@ -61,7 +61,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, they leave plenty, because crazies never think anybody's watching, and they drag their robes through the sand like brooms. Follow the robe-marks west and you'll find a camp, and bring me back any papers you find, even if neither of us can read them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if {pet} likes chasing crazies, I'll count its kills too, because I keep score of everything, and it'd be rude to leave a good beast off the tally." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, plenty, because they drag their robes through the sand like brooms, so follow the robe-marks west and you'll find a camp. And if {pet} likes chasing crazies, I'll count its kills too, because I keep score of everything." },
       },
       choices = {
         { text = "I'll scout first and report. Rushing in helps nobody.", next = "BACK", fx = { align = { order = 1 } } },
@@ -199,7 +199,7 @@ P:NPC {
       },
     },
     brother_argue = {
-      lines = { { id = "ba_default", text = "Every night! He says the land's the bigger problem, I say the crazies are, and Aurel tells us we're both giving her a headache. Then we go out and fight whichever one's closer." } },
+      lines = { { id = "ba_default", text = "Every night! He says the land's the bigger problem, I say the crazies are, and Aurel Goldleaf tells us we're both giving her a headache. Then we go out and fight whichever one's closer." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     council = {
@@ -234,8 +234,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "Bor Wildmane, little brother of Huum, druid of the Circle, son of Mulgore and professional cultist-watcher. That's it, that's the story!" } },
     advice = { { id = "tp_ad", text = "Check every cultist's pockets. You'd be amazed what crazy people write down." } },
     twilights_hammer = { { id = "tp_hammer", text = "Crazies with a plan, which is the worst kind of crazies.", next = "crazies" } },
-    abyssal_council = { { id = "tp_council", text = "Elementals with titles. Ask Aurel; she's the one who figured out how to knock on their door." } },
-    cairne = { { id = "tp_cairne", text = "Cairne would like these crazies, I think, the way he likes a good hunt. He would not like the smell, and neither do I." } },
+    abyssal_council = { { id = "tp_council", text = "Elementals with titles. Ask Aurel Goldleaf; she's the one who figured out how to knock on their door." } },
+    cairne = { { id = "tp_cairne", text = "Cairne would enjoy hunting these crazies, I think, the way he enjoys any good hunt. He would not like the smell, and neither do I." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The bugs come up out of the hives in waves, and the crazies dance around them like it's a festival. One day the bugs will eat the crazies, and I will laugh." } },
     ortell = { { id = "tp_ortell", text = "The hermit in the hills used to be a crazy, and now he's a nervous man in a cave. I trust him more than the crazies, but less than my own boots." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is angry with this desert, and I don't blame her. I'd be angry too if crazies danced on my back all day." } },
@@ -289,7 +289,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "There is, though many warriors never learn it until the land has bled dry around them. The Twilight's Hammer fight upon Silithus for their own ends, and you may strike them down, but only if you remember the land is not your enemy." } },
+      lines = { { id = "xwarcl_default", text = "They are not the same, though many warriors never learn the difference until the land has bled dry around them. The Twilight's Hammer fight upon Silithus for their own ends, and you may strike them down, but only if you remember the land is not your enemy." } },
       choices = {
         { text = "I fight for the land, not for myself.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A fight's a fight. The land can look after itself.", next = "BACK", fx = { align = { light = -1 } } },
@@ -300,7 +300,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Their camps foul the ground and their rituals shake the earth, and the creatures that once wandered freely now flee or turn savage. When you hunt here, take only what you need, for this land has little left to give." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks with the old spirits close about it, and I see they are pleased with how you keep it, so listen when it grows uneasy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Their camps foul the ground and their rituals shake the earth, so the creatures here flee or turn savage. Your {pet} walks with the old spirits close about it, so listen when it grows uneasy." },
       },
       choices = {
         { text = "I take only what I need from this land.", next = "BACK", fx = { align = { light = 1 } } },
@@ -377,7 +377,7 @@ P:NPC {
         { text = "What is the cult doing in the west?", next = "geolords" },
         { text = "Your brother calls them crazies.", next = "brother", when = { heardLine = "bor_wildmane.h_default" } },
         { text = "The dead here are restless. Can they be helped?", next = "spirit_help", when = { class = { "PRIEST", "SHAMAN" } } },
-        { text = "Who did you send me to see next?", next = "aurel", when = { questDone = TODO_QUEST("Vyral the Vile") } },
+        { text = "Who can help me reach the cult's masters?", next = "aurel", when = { questDone = TODO_QUEST("Vyral the Vile") } },
         { text = "My people speak with the loa, not the Earth Mother.", next = "x_troll", when = { race = "Troll" } },
         { text = "The spirits must judge me for my power.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How should a mage speak to the spirits?", next = "xmage", when = { class = "MAGE" } },
@@ -426,7 +426,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     spirit_help = {
-      lines = { { id = "sh_default", text = "Some can be freed, as Layo frees the dead of Southwind. Others are bound too tightly to this place, and we can only bear witness, and remember them, and make sure their war was not for nothing." } },
+      lines = { { id = "sh_default", text = "Some can be freed, as Layo Starstrike frees the dead of Southwind. Others are bound too tightly to this place, and we can only bear witness, and remember them, and make sure their war was not for nothing." } },
       choices = {
         { text = "I'll pray for them before I leave.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
         { text = "Then I'll remember them.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -490,7 +490,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I hope not, or my work is wasted. Still, a dwarf who listens to stone might know whether the stone I'm working wants to be a lie, and I'd value that." } },
+      lines = { { id = "xdsham_default", text = "I hope not, or my work is wasted. Still, a shaman who listens to stone might know whether the stone I'm working wants to be a lie, and I'd value that." } },
       choices = {
         { text = "A lie is a lie, even one told to the cult.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A disguise that stops the cult is no sin.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -510,7 +510,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I could try, but the cult keeps few animals, and a disguised wolf among them would draw more eyes than an honest one. The better trick is to hide yourself well and let your beast be what it is, since a stray in the desert surprises no one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Though I confess {pet} has a certain dignity that would look very well in a small Twilight robe, if only the cult were the sort to be fooled by it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I could try, but the cult keeps few animals, and a disguised beast would draw more eyes than an honest one. I confess {pet} would look very fine in a small Twilight robe, though, if only the cult were the sort to be fooled by it." },
       },
       choices = {
         { text = "Hiding my beast feels like a lie. I'd rather not.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -584,7 +584,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your companion would be a problem if I ever had to disguise you, for I have yet to make a cult robe for a beast." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Then you're kin to my best customers, and I'll treat you as well as I treat them, which is to say fairly and without haste." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The druids say shamans hear the earth as they do, in a rougher dialect, and I'd like to hear that dialect spoken in Ironforge's accent." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance. The druids say shamans hear the earth as they do, in a rougher dialect, and I'd like to hear that dialect for myself." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and work at once; I have had a few centuries to practise." },
@@ -631,7 +631,7 @@ P:NPC {
       },
     },
     council_climb = {
-      lines = { { id = "cc_default", text = "Exactly so. Each one you fall gives me the pieces to fool the next: a crest, a signet, a ring of lordship. It's a ladder made of their own regalia, and I find that rather satisfying." } },
+      lines = { { id = "cc_default", text = "Exactly so. Each one you fell gives me the pieces to fool the next: a crest, a signet, a ring of lordship. It's a ladder made of their own regalia, and I find that rather satisfying." } },
       choices = { { text = "So do I.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     honor = {
@@ -730,7 +730,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A thousand years past I stood among many, and I fell among many, and the master's breath bound me to watch where I would otherwise have died. The courage of those who held that day is why the wall still stands, and I remember every one of them." } },
+      lines = { { id = "xwarcl_default", text = "A thousand years past I stood among many, and I fell among many, and a bronze dragon's breath bound me to watch where I would otherwise have died. The courage of those who held that day is why the wall still stands, and I remember every one of them." } },
       choices = {
         { text = "I'd hold the line as they did, whatever the cost.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Holding lines buys time. Breaking the enemy ends wars.", next = "BACK", fx = { align = { order = -1 } } },
@@ -741,7 +741,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "By watching the sand where nothing walks, for it shifts when the hive stirs below, as a pool shivers before the rain. The Brood taught me to watch for it, and I have watched for a thousand years, and it shifts more now than ever." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} feels it already, I think, for it will not lie flat upon this ground, and the beasts of the field have always known the swarm before we did." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By watching the sand where nothing walks, for it shifts when the hive stirs below, and it shifts more now than ever. Your {pet} feels it already, I think, for it will not lie flat upon this ground." },
       },
       choices = {
         { text = "Some threats are too great to hunt. Watch, and warn.", next = "BACK", fx = { align = { order = 1 } } },
@@ -769,7 +769,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "They see the threads of time that every spell disturbs, as a stone disturbs a pond. You shape the world a little each time you cast, mortal, and the master watches every ripple." } },
+      lines = { { id = "xmage_default", text = "They see the threads of time that every spell disturbs, as a stone disturbs a pond. You shape the world a little each time you cast, mortal, and the Brood watches every ripple." } },
       choices = {
         { text = "Then I'll cast carefully, and respect time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Time can bend to my will.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -801,7 +801,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "The land around us shudders, and the hive answers. I made a promise a thousand years past, mortal, and the time to keep it draws near, for the sands are shifting once more." },
         { id = "h_tomorrow", tags = { "news" }, when = { questActive = TODO_QUEST("What Tomorrow Brings") },
-          text = "Go to the Caverns of Time, in the deserts of Tanaris, and see whether the master has returned. I must be certain before I may act." },
+          text = "Go to the Caverns of Time, in the deserts of Tanaris, and see whether the great bronze one I serve has returned. I must be certain before I may act." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. I have seen warriors stand before the hive, mortal, and I have seen the sand cover them, and still they came, for that is what your kind does." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -824,7 +824,7 @@ P:NPC {
         { text = "What can a priest do against the swarm, Baristolth?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You speak as one who stood before the hive yourself.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How does one read the tracks of the hive, Baristolth?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What has a dragon seen of the Light, Baristolth?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What have you seen of the Light in your long watch?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What have you watched for a thousand years, Baristolth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "C'Thun is dead, Baristolth. Is your watch over?", next = "xcl_aq40", when = { cleared = "Ahn'Qiraj" } },
         { text = "Farewell, Baristolth.", next = "END" },
@@ -896,7 +896,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When the ground hums, step away from it. When it falls silent, run." } },
     bronze_dragonflight = { { id = "tp_bronze", text = "They watch over time itself, and they do not forget a debt, owed or owing." } },
     ahn_qiraj = { { id = "tp_aq", text = "The city behind the wall. I was there when the wall was raised." } },
-    cthun = { { id = "tp_cthun", text = "There is something sleeping beneath Ahn'Qiraj that dreams the silithid into being. I will not say its name, though I have heard you already know it." } },
+    cthun = { { id = "tp_cthun", text = "There is something sleeping beneath Ahn'Qiraj that dreams the silithid into being. I will not say its name, and I would ask you not to say it here." } },
     silithid_hives = { { id = "tp_silithid_hives", text = "The hives are the fingers of a hand, and the hand is buried beneath the old city. When the fingers move, the hand is waking." } },
     elune = { { id = "tp_elune", text = "I prayed to Elune at the Scarab Wall a thousand years ago, and she listened, and the wall held. I hope she is still listening." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande does not remember me, I think, but I remember her, and I remember why we came here. One day she will need to remember too." } },

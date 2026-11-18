@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Have you come to free me? Please say that you have, by the Earth Mother, because I've run out of bottles." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned! Is the great Skymane dealt with, or have you simply come to admire my predicament?" },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned! Is that gorilla king dealt with yet, or have you simply come to admire my predicament?" },
     { id = "g_freed", when = { questDone = TODO_QUEST("Message in a Bottle") }, text = "Thank you again for your aid. May the winds always be at your back, and may the eternal sun shine upon your travels." },
   },
 
@@ -31,7 +31,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Princess Poobah, and a great Skymane holds me captive on this wretched island, which is no way to treat a daughter of the plains. I threw messages in bottles toward the ships for days, and you're the first to answer." },
+          text = "I am Princess Poobah, and a great Skymane, the gorilla king Mukla, holds me captive on this wretched island, which is no way to treat a daughter of the plains. I threw messages in bottles toward the ships for days, and you're the first to answer." },
         { id = "h_bottle", tags = { "news" }, when = { questActive = TODO_QUEST("Message in a Bottle") },
           text = "You found one of my bottles! I knew my throwing arm was good for something. King Mukla is the beast who keeps me here, and as long as he lives, I'll never leave this beach." },
         { id = "h_free", tags = { "news" }, when = { questRecent = { TODO_QUEST("Message in a Bottle"), days = 3 } },
@@ -123,7 +123,7 @@ P:NPC {
     },
     bottles_note = {
       lines = {
-        { id = "bn_default", text = "That a great Skymane holds me captive, and that on the clearest days I could see the Wild Shore to the northwest and big sailing ships to the southwest. It isn't poetry, but it worked, didn't it?" },
+        { id = "bn_default", text = "That a great gorilla holds me captive, and that on the clearest days I could see the Wild Shore to the northwest and big sailing ships to the southwest. It isn't poetry, but it worked, didn't it?" },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

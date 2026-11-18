@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again! Come in, come in, an' mind the hatchlings underfoot." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}! Two gryphon chicks hatched while ye were away, an' both o' them bit me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown, like a chick out o' the nest. Ye'll be ready tae fly on yer own soon enough." },
-    { id = "g_food", when = { questActive = TODO_QUEST("Food for Baby") }, text = "Silvermane stalker flanks, five o' them, raw an' juicy. Yer egg's gettin' close!" },
+    { id = "g_food", when = { questActive = TODO_QUEST("Food for Baby") }, text = "Bring me five Silvermane stalker flanks, raw an' juicy, for yer egg's gettin' close!" },
     { id = "g_word_helped", when = { word = "helped" }, text = "The riders say ye've been helpin' about the Peak. The birds have noticed, too, for they've stopped hissin' at ye." },
   },
 

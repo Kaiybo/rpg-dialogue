@@ -22,9 +22,9 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest. The Circle prayed that one of your kind would come, and here you stand. The how does not matter, only the why." },
+      text = "A priest. The Circle hoped one of your kind would come, and here you stand, so I will not ask how you found me, only whether you will help." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid of the Circle! Then you know the work I do here, and why I do it so far from the moonglade." },
+      text = "A druid of the Circle! Then you know the work I do here, and why I do it so far from Moonglade." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. Good; I am one also. We will understand each other, I think, if you understand the prey as well as the kill." },
     { id = "n_pet", cat = "pet", when = { pet = true },
@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Perhaps you, of all who come, would know how. The courser ghosts walk the paths they walked before the sea took their city, and you walked back from death yourself, so Ogtinc hopes you understand what they want." } },
+      lines = { { id = "xfpala_default", text = "Perhaps you, of all who come, would know how. The Highborne ghosts walk the paths they walked before the sea took their city, and you walked back from death yourself, so Ogtinc hopes you understand what they want." } },
       choices = {
         { text = "I'll grant them rest. They've wandered long enough.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some ghosts don't want rest. I'll let them be.", next = "BACK", fx = { align = { light = -1 } } },
@@ -98,7 +98,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "The Circle needs their hearts for its work in Felwood, and Ogtinc grieves each one, for they were beautiful before the corruption touched them. Kill them swiftly and cleanly, and they suffer less, which is the only mercy Ogtinc can give." } },
+      lines = { { id = "xrogue_default", text = "The Circle needs what is in their blood for its work in Felwood, and Ogtinc grieves each one, for they are beautiful and did nothing to deserve it. Kill them swiftly and cleanly, and they suffer less, which is the only mercy Ogtinc can give." } },
       choices = {
         { text = "I'll make it swift and clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They're just beasts. Let them suffer.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -107,10 +107,10 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Very little that a healer can give, I fear, for the Highborne ghosts there do not want healing, and the coursers are sick in ways no salve can reach. But Felwood still waits for the Circle's medicines, and every herb gathered here goes south to the sick woods." } },
+      lines = { { id = "xhcast_default", text = "Very little that a healer can give, I fear, for the Highborne ghosts there do not want healing. But Felwood still waits for the Circle's medicines, and every herb gathered here goes south to the sick woods." } },
       choices = {
         { text = "Then I'll gather for Felwood, and pray it helps.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Leave the sick coursers be. Let the strong survive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Felwood isn't my concern. Let it fend for itself.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Ogtinc smells the arcane on you, as he smells it on the ruins, and he hopes you will not go poking at what the Highborne left behind." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
-          text = "A paladin. Ogtinc has seen your kind fight the dead, and he is glad, for the courser ghosts in the ruins below are restless, and they do not rest for Ogtinc's words." },
+          text = "A paladin. Ogtinc has seen your kind fight the dead, and he is glad, for the Highborne ghosts in the ruins below are restless, and they do not rest for Ogtinc's words." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Ogtinc sees how heavy your blade is, and how often it is used, and he hopes you know that not every creature in these ruins must die." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
@@ -136,7 +136,7 @@ P:NPC {
         { id = "h_ichor", when = { questActive = TODO_QUEST("The Ichor of Undeath") },
           text = "The lingering Highborne below carry the ichor in them, green and foul. I need only one; do not take more of that evil than you must." },
         { id = "h_morphaz", tags = { "news" }, when = { questActive = TODO_QUEST("Blood of Morphaz") },
-          text = "A courier has taken the rest to the Circle. Only the drake's blood is missing now, and it waits for you in the drowned temple, with the drake still around it." },
+          text = "A courier has taken the rest to the Circle. Only the drake's blood is missing now, and it waits for you in the drowned temple in the Swamp of Sorrows, with the drake still around it." },
         { id = "h_antlers", when = { questActive = TODO_QUEST("Courser Antlers") },
           text = "Perfect antlers, whole and unbroken, are rare as a quiet night here. Watch the coursers a long while before you choose." },
         { id = "h_waves", when = { questActive = TODO_QUEST("Wavethrashing") },
@@ -177,7 +177,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "w_default", fx = { learn = { "furbolgs", "cenarion_circle" } },
-          text = "Yes. I left my tribe to serve the Circle, because the Circle is fighting the sickness that has been taken from my people. The druids did not ask what I had been, only what I would do, and I have been answering that question ever since." },
+          text = "Yes. I left my tribe to serve the Circle, because the Circle is fighting the sickness that took my people. The druids did not ask what I had been, only what I would do, and I have been answering that question ever since." },
       },
       choices = {
         { text = "Why did you leave your tribe?", tag = "Persuade", next = "tribe",
@@ -408,7 +408,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A few, and they're the only customers whose names I've never had to put on the list. They watch the whelps and the drakes for days, learn which way they fly, and strike when the beast is tired, and that's the only sane way to go after anything with wings and teeth." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the dragon, though, because a beast charges in without thinking, and I've seen a hunter come home with dragonscale and without his wolf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A few, and they're the only customers whose names I've never had to put on the list. Keep {pet} back from the dragon, though, because a beast charges in without thinking, and I've seen a hunter come home with dragonscale and without his wolf." },
       },
       choices = {
         { text = "I'll face the drake openly when I take its scales.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -562,7 +562,7 @@ P:NPC {
 
   notice = {
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
-      text = "Whoa, whoa, an elf! You're not one of Rimtori's, right? You don't look stuck-up enough, partner, and no offence, which is free." },
+      text = "Whoa, whoa, an elf! You're not one of Magus Rimtori's crowd, right? You don't look stuck-up enough, partner, and no offence, which is free." },
     { id = "n_purse", cat = "purse", when = { money = { min = 1000000 } },
       text = "Now there's somebody who knows what a gold coin's for! Let's talk, partner, let's talk." },
   },
@@ -600,7 +600,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The elves hired me to find a rune, then decided they didn't need to pay me, then decided to stab me, and I ran, which I'm very good at. They kept my compass, my scope, my wizzlegoober and my chicken, and I want them all back, especially the chicken." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, can it sniff out a stuffed chicken? If it can, Kim'jael will be very grateful, and if it eats the chicken, Kim'jael will be very upset." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The elves hired me to find a rune, then decided they didn't need to pay me, then decided to stab me, and I ran, which I'm very good at. And that {pet} of yours, can it sniff out a stuffed chicken? If it can, Kim'jael will be very grateful, and if it eats the chicken, Kim'jael will be very upset." },
       },
       choices = {
         { text = "I'll bring your things back as they were, chicken included.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -664,7 +664,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Worse, much worse! The Legashi dug at the Highborne stones and poured something nasty into the ground, and everywhere they stepped the grass went grey. Kim'jael just counted crates and kept his head down, but a druid would've cried, I think, if a druid had seen it." } },
+      lines = { { id = "xdruid_default", text = "Worse, much worse! The elves dug at the Highborne stones and poured something nasty into the ground, and everywhere they stepped the grass went grey. Kim'jael just counted crates and kept his head down, but a druid would've cried, I think, if a druid had seen it." } },
       choices = {
         { text = "You took their coin and looked away. That was wrong, Kim'jael.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "You stayed alive with bullies around you. That's no crime.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -683,7 +683,7 @@ P:NPC {
           text = "A hunter! You track things, yes? Then track Kim'jael's equipment, because those elves hid it all over their camp, and I swear they did it to spite me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, partner, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally and itemize it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! Kim'jael indeed, a rogue! Now you're the sort who knows the value of an employee's equipment, and how easily it goes missing." },
+          text = "A rogue! Now you're the sort who knows the value of an employee's equipment, and how easily it goes missing." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Don't tell me, you work for one of those pointy-eared mages too, and you're here to finish what they started. No? Good, because Kim'jael is fresh out of patience for spellcasters." },
         { id = "h_default", key = true,
@@ -714,7 +714,7 @@ P:NPC {
         { text = "Do you want vengeance on the elves, Kim'jael?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why didn't you fight the elves yourself, Kim'jael?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How did you lose all your equipment, Kim'jael?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Did the satyrs treat the land as badly as they treated you?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Did the elves treat the land as badly as they treated you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The elves did something to you, Kim'jael.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you want my demon to frighten the elves, Kim'jael?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Later, Kim'jael.", next = "END" },
@@ -761,7 +761,7 @@ P:NPC {
     },
     rune_bluster = {
       lines = { { id = "rb_default", text = "Walk, then! There are plenty of employees in the sea, and some of them don't make threats. Well, they do, but they're naga, so it's expected." } },
-      choices = { { text = "Fine. Something else.", next = "BACK" } },
+      choices = { { text = "Fine.", next = "BACK" } },
     },
     leave = {
       lines = { { id = "l_default", text = "And go back to Booty Bay with nothing but a story about elves? The Baron would laugh me off the pier. No, I leave Azshara richer than I came, or I don't leave at all." } },
@@ -830,7 +830,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Better than my crew, I'd wager, because you'd see the naga coming through the surf before my lookouts did. They come at dusk, mostly, sliding up out of the water, and if someone could thin them before they reach the barricade, I'd lose fewer sailors." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And bring {pet} up to the barricade with you. My sailors have been jumpy since the wreck, and a beast with sharp ears is worth two lookouts." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better than my crew, I'd wager, because you'd see the naga coming through the surf before my lookouts did. And bring {pet} up to the barricade with you. My sailors have been jumpy since the wreck, and a beast with sharp ears is worth two lookouts." },
       },
       choices = {
         { text = "I'll stand at the barricade with your crew until the naga break.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -966,7 +966,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know ships, the sea and this cursed bit of shore. Ask what you like." } },
-    background = { { id = "tp_bg", text = "Captain of the Horizon Scout, out of Stormwind's waters. I'll be a captain again when I have a ship.", next = "wreck" } },
+    background = { { id = "tp_bg", text = "Captain of the Horizon Scout, out of Theramore. I'll be a captain again when I have a ship.", next = "wreck" } },
     advice = { { id = "tp_ad", text = "Never anchor off Azshara after dark. If I'd known that a week ago, I'd still have a ship, and my cabin boy would still have both his boots." } },
     horizon_scout = { { id = "tp_scout", text = "My ship, and the best on the coast, until the reef and the naga had her.", next = "wreck" } },
     spitelash = { { id = "tp_spite", text = "They came out of the water in the dark and took my ship. I'll not forget their faces, if you can call them faces." } },
@@ -1036,8 +1036,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than I'd like, because there's somethin' big sleepin' in the bay that I've seen twice now, an' I've no intention o' seein' it a third time. The hippogryphs at Talrendis won't fly over the water after dark either, an' I'm startin' tae think they're right." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ye can bring {pet} along some day, if it doesn't mind heights. My last passenger's cat clawed a hole in the seat, an' I'm still findin' fur in the engine." },
+        { id = "xhuntcl_default", text = "More than I'd like. From up there ye can see every naga camp along the shore, an' there's somethin' big sleepin' in the bay that I've seen twice now an' have no wish tae see again. The hippogryphs at Talrendis won't fly over the water after dark either, an' I'm startin' tae think they're right." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than I'd like. From up there ye can see every naga camp along the shore, an' ye can bring {pet} along some day to see them too, if it doesn't mind heights." },
       },
       choices = {
         { text = "I'll find the camps on foot and face them head-on.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1051,7 +1051,7 @@ P:NPC {
       },
       choices = {
         { text = "Without our plans, you'd be walking.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "Fair. Something else.", next = "BACK" },
+        { text = "Fair enough.", next = "BACK" },
       },
     },
     xmage = {
@@ -1092,7 +1092,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Knowledge, lad or lass, and maybe a few relics for the Hall o' Explorers. Tymor reckons the Highborne wrote down what they did before yer people's world broke, and if the rubbings tell us how they did it, maybe we'll know better than to try it again, which yer Circle would like, I'd think." } },
+      lines = { { id = "xdruid_default", text = "Knowledge, {g:lad|lass}, and maybe a few relics for the Hall o' Explorers. Tymor reckons the Highborne wrote down what they did before yer people's world broke, and if the rubbings tell us how they did it, maybe we'll know better than to try it again, which yer Circle would like, I'd think." } },
       choices = {
         { text = "Leave the Highborne stones alone. Some knowledge deserves burying.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Better to learn from their mistakes than repeat them. Keep digging.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1108,7 +1108,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! Ye'll be wantin' tae see the coast from the air, I'll bet, because from up there ye can spot every naga camp along the shore." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage, eh, lad or lass? Tymor of the Mystic Ward'll want tae hear about ye, since he's the one sendin' me after these rubbings in the first place." },
+          text = "A mage, eh? Tymor of the Mystic Ward'll want tae hear about ye, since he's the one sendin' me after these rubbings in the first place." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! Ye'll be quiet in the ruins, then, which is more than the last lot managed, wi' all their clankin' armour." },
         { id = "h_default", key = true,
@@ -1119,7 +1119,7 @@ P:NPC {
           text = "A priest, out on the cliffs! Say a word for the gyrocopter, would ye, because the wind off this coast has opinions, an' so do the naga below." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I'd offer ye a ride, but the gyrocopter's a wee thing, an' all that plate would put the both of us in the bay." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the Circle, flyin' with me over this coast? I've seen yer kind sprout feathers and keep pace wi' me gryphon, and I'll not pretend I wasn't jealous." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the Circle, flyin' with me over this coast? I've seen yer kind sprout feathers and keep pace wi' me gyrocopter, and I'll not pretend I wasn't jealous." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Now there's a sight! Keep the lightning away from my flyin' machine, mind, or Tymor'll be pickin' bits o' me out o' the sea." },
       },
       again = { { id = "h_again", text = "Anythin' else, before the naga notice the noise?" } },
@@ -1143,7 +1143,7 @@ P:NPC {
     },
     tymor = {
       lines = { { id = "t_default", fx = { learn = { "highborne" } },
-        text = "The Highborne left runes all over Eldarath, with their rules for magic carved right into the stone for anyone to read. Tymor's mad for the stuff, and the League wants to know what the old elves knew, so here I am." } },
+        text = "The Highborne left runes all over Eldarath, with their rules for magic carved right into the stone for anyone to read. Tymor's mad for the stuff, the League wants to know what the old elves knew, and I owe Tymor a favour, so here I am." } },
       choices = {
         { text = "Why do you owe him a favour?", next = "tymor_favour" },
         { text = "Something else.", next = "BACK" },

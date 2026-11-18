@@ -20,7 +20,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I believe I can, faintly. It mourns. Your spirits might hear it more clearly." } },
+      lines = { { id = "xdsham_default", text = "I believe I can, faintly, and it is mourning. Your spirits might hear it more clearly than I do." } },
       choices = {
         { text = "Then we should honour it, Asterion.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Ruins are ruins. Let them be.", next = "BACK", fx = { align = { light = -1 } } },
@@ -40,7 +40,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "In the cellars of the old houses and among the fallen pillars on the eastern side, where they think I cannot see. Follow the hoof marks in the soft ground at dusk, because that is when they come out to dig." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will smell them before you see them, so let it lead. Satyrs hate beasts that hunt them, which is the best reason I know to bring one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In the cellars of the old houses and among the fallen pillars on the eastern side, where they think I cannot see. Your {pet} will smell them before you see them, so let it lead. Satyrs hate beasts that hunt them, which is the best reason I know to bring one." },
       },
       choices = {
         { text = "I'll root them out of the cellars, face to face.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -138,7 +138,7 @@ P:NPC {
     },
     satyrs2 = {
       lines = {
-        { id = "satyrs2_default", text = "Because it calls to them, and I think it always will, the way a drunkard hears a tavern door. Some say we should forgive them their shape, and some say we should finish what the war began." },
+        { id = "satyrs2_default", text = "Because the old magic calls to them, and I think it always will, the way a drunkard hears a tavern door. Some say we should forgive them their shape, and some say we should finish what the war began." },
       },
       choices = {
         { text = "Whatever they were, they chose this. Drive them out.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
@@ -167,7 +167,7 @@ P:NPC {
         { id = "druid_default", text = "By listening to the trees instead of the stones, mostly. The ruins grieve, but the forest around them is still young and stubborn, and a druid can lean on that when the nights are long." },
       },
       choices = {
-        { text = "Thank you. Something else.", next = "BACK" },
+        { text = "Thank you.", next = "BACK" },
       },
     },
   },
@@ -223,7 +223,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We're fascinated, laddie! The old stone talks to us through runes, and maybe your spirits hear what the runes don't say. Come dig with me sometime!" } },
+      lines = { { id = "xdsham_default", text = "Fascinated, {g:lad|lass}! The old stone talks to us through runes, and maybe your spirits hear what the runes leave out. Come and dig with me sometime!" } },
       choices = {
         { text = "I'll dig with you honestly, Prospector, and share what I find.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Runes are enough. Spirits only muddy the record.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Great things, {g:lad|lass}, wi' teeth like spades an' bones as thick as my arm, an' not one o' them left alive tae hunt. A hunter's eye could tell me how they moved from the bones alone, an' that'd be worth a chapter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' your {pet} is sniffin' at my trench, which is grand, because if there's a bone down there it'll find it before I do. Just don't let it bury the thing again." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Great things, {g:lad|lass}, wi' teeth like spades an' bones as thick as my arm, an' not one o' them left alive tae hunt. An' your {pet} is sniffin' at my trench, which is grand, because if there's a bone down there it'll find it before I do. Just don't let it bury the thing again." },
       },
       choices = {
         { text = "Let the old beasts rest. Some ground should stay undug.", next = "BACK", fx = { align = { light = 1 } } },
@@ -326,12 +326,12 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "Now, where was I? Ah, yes, you were asking something." },
-        { id = "h_again2", text = "Carry on, carry on, I'm listening with at least one ear, which is more than Gorbold gets." },
+        { id = "h_again2", text = "Carry on, carry on, I'm listening with at least one ear." },
       },
       choices = {
         { text = "Who do you think built these ruins, really?", next = "op_ask" },
         { text = "What are you digging for?", next = "dig" },
-        { text = "The Explorers' League has come a long way to dig here.", next = "league" },
+        { text = "What does the Explorers' League hope to find here?", next = "league" },
         { text = "It seems dangerous out here alone.", next = "danger" },
         { text = "I'm from Ironforge, and I brought a pick.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Your dig's wide open. Anyone could walk off with your finds.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -348,7 +348,7 @@ P:NPC {
     },
     dig = {
       lines = {
-        { id = "dig_default", text = "Bones, lad, old ones, from beasts that walked this shore before the elves ever did. Gorbold back in Auberdine thinks I've gone soft in the head, but the League pays for curiosity, not common sense." },
+        { id = "dig_default", text = "Bones, {g:lad|lass}, old ones, from beasts that walked this shore before the elves ever did. Gorbold back in Auberdine thinks I've gone soft in the head, but the League pays for curiosity, not common sense." },
       },
       choices = {
         { text = "Did you find anything?", next = "dig2" },
@@ -365,7 +365,7 @@ P:NPC {
     },
     league = {
       lines = {
-        { id = "league_default", text = "The whole history of the world, lad, and Darkshore has more of it lying about than most. Brann Bronzebeard himself would give his beard to see this coast, though don't tell him I said so." },
+        { id = "league_default", text = "The whole history of the world, {g:lad|lass}, and Darkshore has more of it lying about than most. Brann Bronzebeard himself would give his beard to see this coast, though don't tell him I said so." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -373,7 +373,7 @@ P:NPC {
     },
     danger = {
       lines = {
-        { id = "danger_default", text = "Dangerous? Oh, terribly, what with the murlocs and the Blackwood furbolgs and the gnolls of the hills. But I've a stout hat and a good sense of direction, and half the League can't claim either." },
+        { id = "danger_default", text = "Dangerous? Oh, terribly, what with the murlocs and the Blackwood furbolgs and the moonkin gone mad on the ridge. But I've a stout hat and a good sense of direction, which is more than most of my colleagues can say, mind." },
       },
       choices = {
         { text = "If you say so.", next = "BACK" },
@@ -384,13 +384,13 @@ P:NPC {
         { id = "dwarf_default", text = "Bless your beard! Then you'll know the Hall of Explorers smells of old paper and older ale, and you'll forgive a fellow for missing it out here among all these trees." },
       },
       choices = {
-        { text = "I do miss it. What else?", next = "BACK" },
+        { text = "I do miss it.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Explorers' League, thirty years in the field, and only lost twice, whatever Gorbold tells you." } },
+    background = { { id = "tp_bg", text = "Explorers' League, thirty years in the field, and only lost twice, whatever Gorbold back in Auberdine tells you." } },
     magni = {
       { id = "tp_magni", text = "King Magni funds the League, and I've a letter from him on my wall that says 'Find something, Remtravel.' I'm working on it." },
       { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king's a fine patron, {g:lad|lass}, and I'd say so even if he weren't. He wants results, though, and I'd sooner he never heard how often I get lost." },
@@ -420,7 +420,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We have known them since the world was young. Your people listen through stone; mine through root. Both hear the same song." } },
+      lines = { { id = "xdsham_default", text = "We have known them since the world was young, little one. Your people listen through stone and mine through root, and we both hear the same song." } },
       choices = {
         { text = "Then I will listen with respect, Onu.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Old songs are old. I will make my own.", next = "BACK", fx = { align = { light = -1 } } },
@@ -440,7 +440,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The healthy ones do, and they come to sleep in our shade as they always have. The sick ones no longer know us, and that is a grief I have not felt since the trees here were saplings." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is healthy and unafraid of me, which is good to see. Bring it to the grove whenever you pass, and let it rest among the roots." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The healthy ones do, and they come to sleep in our shade as they always have. Your {pet} is healthy and unafraid of me, which is good to see. Bring it to the grove whenever you pass, and let it rest among the roots." },
       },
       choices = {
         { text = "I'll seek a cure for them, not a quick death.", next = "BACK", fx = { align = { light = 1 } } },
@@ -566,7 +566,7 @@ P:NPC {
         { id = "druidq_default", text = "Then carry mine back to Moonglade, and tell Remulos that Onu still stands. A message from an Ancient is slow, but it arrives." },
       },
       choices = {
-        { text = "I will. May I ask something else?", next = "BACK" },
+        { text = "I will.", next = "BACK" },
       },
     },
   },
@@ -600,7 +600,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Something poisoned them; I do not know what. They turned on everyone. Your spirits might tell you more." } },
+      lines = { { id = "xdsham_default", text = "Something poisoned them, though I do not know what, and they turned on everyone. Your spirits might tell you more than I can." } },
       choices = {
         { text = "Then I will help you escape, Volcor.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Fight your own way out.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -618,7 +618,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Too many to count when they're all howling, but they come in twos and threes along the path, if we're quick. Stay in front of me and don't stop to finish the stragglers, because we're here for the road, not the wolves." } },
+      lines = { { id = "xwarcl_default", text = "Too many to count when they're all howling, but they come in twos and threes along the path, if we're quick. Stay in front of me and don't stop to finish the stragglers, because we're here for the road, not the furbolgs." } },
       choices = {
         { text = "I'll stay in front and keep you safe.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll finish every one. No stragglers behind us.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -629,7 +629,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "On the high ground, mostly, with their scouts on the trails that lead toward the road. If we keep low and move between their patrols we might slip past, and your bow can deal with the rest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will hear them before we do, so keep it close and watch its ears. I'd trust a beast's warning over my own right now." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "On the high ground, mostly, with their scouts on the trails that lead toward the road. Your {pet} will hear them before we do, so keep it close and watch its ears. I'd trust a beast's warning over my own right now." },
       },
       choices = {
         { text = "We go quietly and spare what we can.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -750,7 +750,7 @@ P:NPC {
         { id = "rogue_default", text = "Then you'll lead and I'll follow, and Elune keep us both out of their noses. I've never been gladder to meet someone who sneaks for a living." },
       },
       choices = {
-        { text = "Before that, something else.", next = "BACK" },
+        { text = "Before we go, one more question.", next = "BACK" },
       },
     },
   },
@@ -782,7 +782,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It is beautiful and frightening. I lose myself there. Your spirits might help me wake." } },
+      lines = { { id = "xdsham_default", text = "It is beautiful and frightening at once, and I lose myself there. Perhaps your spirits could help me wake." } },
       choices = {
         { text = "Then I will help you wake, Kerlonian.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Stay in the Dream. It is safer.", next = "BACK", fx = { align = { light = -1 } } },
@@ -801,8 +801,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some of them sniff at me and wander off, which is kind of them, and some of them don't, so I'm glad of company. In the Dream they're all much friendlier, but I can't stay there, because Liladris is waiting." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks as if it would wake me before anything nasty arrived. I'd be very grateful, and so would Liladris." },
+        { id = "xhuntcl_default", text = "Some of them sniff at me and wander off, which is kind of them, and some of them don't, which is why I'm glad of company. In the Dream they're all much friendlier, but I can't stay there, because Liladris is waiting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of them sniff at me and wander off, which is kind of them, and some of them don't, which is why I'm glad of company. Your {pet} looks as if it would wake me before anything nasty arrived. I'd be very grateful, and so would Liladris." },
       },
       choices = {
         { text = "My companion and I will keep watch over you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -841,7 +841,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, and a paladin sooner than most. Only mind the cubs in the woods, for I don't want them hurt while I'm snoring." } },
+      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, and I'd trust a paladin more than most. Only mind the bears in the woods, for I'd rather you didn't fight them while I'm snoring." } },
       choices = {
         { text = "I'll get you home to Liladris, I swear it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll take you part way. Then you're on your own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -917,7 +917,7 @@ P:NPC {
     },
     road = {
       lines = {
-        { id = "road_default", text = "Not for a man who sleeps in the middle of it, no. There are bears gone mad and Blackwood furbolgs about, so do keep an eye out while I'm dreaming." },
+        { id = "road_default", text = "Not for anyone who sleeps in the middle of it, no. There are bears gone mad and Blackwood furbolgs about, so do keep an eye out while I'm dreaming." },
       },
       choices = {
         { text = "I'll watch the road.", next = "BACK" },
@@ -928,7 +928,7 @@ P:NPC {
         { id = "druidk_default", text = "Then you know it's no sin to love it, only to forget the people waiting for you. Promise me you'll remember that, when it's your turn." },
       },
       choices = {
-        { text = "I promise. What else?", next = "BACK" },
+        { text = "I promise.", next = "BACK" },
       },
     },
   },

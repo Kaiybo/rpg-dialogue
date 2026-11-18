@@ -28,7 +28,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I hope so, or I'm in trouble. The Light is gentle with honest failings. I'd guess your spirits are too." } },
+      lines = { { id = "xdsham_default", text = "I hope so, or I'm in trouble, but the Light is gentle with honest failings, and I'd guess your spirits are too." } },
       choices = {
         { text = "Honest failings are forgivable, Brother. The Light knows.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The Light demands better, Brother. Try harder.", next = "BACK", fx = { align = { light = -1 } } },
@@ -46,7 +46,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "It did, before the Defias took the vineyard, and now I'm pouring the last of the good years one careful cup at a time. I've noted it in the tally under hardship, though I confess the tally is mostly me." } },
+      lines = { { id = "xdruid_default", text = "It did, from Milly Osworth's vineyard, before the Defias took it, and now I'm pouring the last of the good years one careful cup at a time. I've noted it in the tally under hardship, though I confess the tally is mostly me." } },
       choices = {
         { text = "Save the last casks for the Brothers who've earned them.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Pour freely, Brother. Wine's for drinking, not hoarding.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The wolves, twice this spring, when someone left the cellar door open. One ate a whole wheel of cheese and fell asleep on the potatoes, which I've recorded under losses, with a note." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks very interested in my potatoes. I'll ask it, kindly, to look elsewhere." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The wolves, twice this spring, when someone left the cellar door open. Your {pet} looks very interested in my potatoes too, so I'll ask it, kindly, to look elsewhere." },
       },
       choices = {
         { text = "I'll keep my beast out of your stores, Brother.", next = "BACK", fx = { align = { order = 1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of her students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." } },
+      lines = { { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." } },
       choices = {
         { text = "I'll respect the brothers' wishes and keep to the surface.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Coincidence or not, your wine was never mine to guard.", next = "BACK", fx = { align = { light = -1 } } },
@@ -113,12 +113,12 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've a quiet step, friend, and the Abbey's cellars are full of quiet things, so I'll be watching where you put it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like La Salle's students in the cellars." },
+          text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like Drusilla La Salle's students in the cellars." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my cellar! Do mind the barrels, friend; each one is accounted for, and you are not." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please, your animal stays on the stairs; it has been known for creatures to discover the cheese." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in the Abbey's cellars, and welcome, friend! We've wine, cheese and a fair amount of quiet, though the wolves took one of the cheeses." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of Northshire! Brother Bremen's students are a thirsty lot, I find, though I couldn't say why." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come, have a taste. I've failed at moderation again, I confess. The Light forgives, and so should your spirits." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come and have a taste, for I've failed at moderation again, I confess. The Light forgives it, and so should your spirits." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? The bells won't ring for an hour." },
@@ -194,7 +194,7 @@ P:NPC {
     },
     library = {
       lines = {
-        { id = "l_default", text = "Prayers, histories and our own records. A Guardian once slept ten years in the clerics' care, here in this valley: Medivh, long before everything that came after." },
+        { id = "l_default", text = "Prayers, histories and our own records, including the years young Medivh, who became the Guardian, lay asleep in our clerics' care, long before everything that came after." },
       },
       choices = {
         { text = "Medivh? Here?", next = "library_medivh" },
@@ -227,7 +227,7 @@ P:NPC {
     },
     faith_none = {
       lines = {
-        { id = "fn_default", text = "Then you're the one who walks in, for somebody else. That's what the clerics did in the First War. Unarmed, and they never once hung back." },
+        { id = "fn_default", text = "Then you're the one who walks in, for somebody else. That's what the clerics did in the First War, unarmed, and they never once hung back." },
       },
       choices = {
         { text = "Then I'll be the one who walks in.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 } } },
@@ -270,7 +270,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A brother of Northshire. I keep the stores and climb the bell tower, and only one of those is good for my knees." } },
     advice = { { id = "tp_ad", text = "Keep a careful tally of everything: barrels, prayers and debts. The Light loves a careful tally, and so do creditors." } },
-    northshire_abbey = { { id = "t_abbey", text = "Rebuilt by Archbishop Faol after the wars. Its foundations are older than most of the walls in Stormwind, and better kept." } },
+    northshire_abbey = { { id = "t_abbey", text = "Archbishop Faol rebuilt the Abbey after the wars, and its foundations are older than half the walls in Stormwind, and better kept." } },
     defias = { { id = "t_defias", text = "I pray for them, and then I lock the cellar." } },
     _none = { { id = "t_none", text = "I'd have to look that up, and the library closes at dusk." } },
     brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire is Archbishop Faol's work, raised on the ruins after the Second War, and I keep its records. Most of them are about barrels, which is how you know it's a real holy order and not a story." } },

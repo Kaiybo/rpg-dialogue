@@ -14,11 +14,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_elements", when = { gossip = { topic = "the_elements", stance = "respect" } }, text = "Lotwil tells me you think he should let his rocks go. He sulked into his notebook for an hour, so thank you, because that was the quietest hour I've had all month." },
+    { id = "g_op_elements", when = { gossip = { topic = "the_elements", stance = "respect" } }, text = "Lotwil Veriatus, the gnome up in Arathi who binds elementals, writes that you told him to let them go. His letters have been shorter since, so thank you for that." },
     { id = "g_default", text = "Welcome to the finest camp in the Badlands, {g:lad|lass}, which isn't saying much, so mind the anvil and don't ask what's for supper." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and a welcome sight ye are! Pull up a crate, if ye can find one the ogres didn't carry off." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and we've been eating dust and salt pork gone green at the edges. Any word from Ironforge on your travels?" },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've hardened up since I saw ye last, like good steel after the quench. I'd know, by my beard, for it's the only thing I do well." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've hardened up since I saw ye last, like good steel after the quench. I'd know good steel, by my beard, for it's the one thing I do well." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Prospector says you've been a help to folk out here, and he doesn't hand out compliments, so I'll pass that one along." },
   },
 
@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_mirage_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mirages"), days = 3 } },
           text = "We ate! Actual food, and only a little sand in it, which after this week tastes like seasoning. Thank you, friend." },
         { id = "h_scrap", tags = { "news" }, when = { questActive = TODO_QUEST("Scrounging") },
-          text = "Scrap metal, seven good pieces from the ogres at Dustbelch Grotto, and I can start putting up some proper defenses. The Prospector's worried, and a worried Prospector is a loud Prospector." },
+          text = "Scrap metal, seven good pieces from the ogres at Dustbelch Grotto, and I can start putting up some proper defenses. Prospector Ryedol's worried, and a worried Prospector is a loud Prospector." },
         { id = "h_heart", tags = { "news" }, when = { questActive = TODO_QUEST("Fiery Blaze Enchantments") },
           text = "A black drake whelp's heart, still beating when you take it, from Lethlor Ravine. Bring it fresh and I'll show you what Feranor taught me." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -77,7 +77,7 @@ P:NPC {
     },
     dig_hammertoe = {
       lines = {
-        { id = "dh_default", text = "The Prospector's been trying, and he'll talk your ear off about it if you let him. I'm a smith, not a soldier, so the best I can do is keep the camp standing for when Hammertoe walks out of there, and I'm still saying 'when'." },
+        { id = "dh_default", text = "Prospector Ryedol's been trying, and he'll talk your ear off about it if you let him. I'm a smith, not a soldier, so the best I can do is keep the camp standing for when Hammertoe walks out of there, and I'm still saying 'when'." },
         { id = "dh_hope", when = { questDone = TODO_QUEST("A Sign of Hope") },
           text = "You found his map, didn't you? Then he's alive in there, or was when he dropped it, and that's more hope than we've had in weeks." },
       },
@@ -97,7 +97,7 @@ P:NPC {
     },
     dig_stone = {
       lines = {
-        { id = "ds_default", text = "Proud, aye, and a little frightening, for if the titans made us once they might come back to look at their work. Feranor used to say a good smith is never ashamed of a blade, but he's always checking it for flaws." },
+        { id = "ds_default", text = "Proud, aye, and a little frightening, for if the titans made us once they might come back to look at their work. Feranor used to say a good smith is proud of a blade but still checks it for flaws, and I'd guess the titans are no different." },
       },
       choices = {
         { text = "Whatever we were, we chose what we became.", next = "BACK", fx = { align = { order = -1 } } },
@@ -143,7 +143,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you need salt?", next = "needs_salt" },
-        { text = "That scrap could make something useful.", next = "needs_build" },
+        { text = "What would you build, with enough metal?", next = "needs_build" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -155,7 +155,7 @@ P:NPC {
     },
     needs_build = {
       lines = {
-        { id = "nb_default", text = "Stakes, a bit of a wall, a gate that shuts, and maybe a spit for roasting if we ever have something to roast. The ogres carry so much scrap metal I've started to think the old stories about siege engines out here weren't far off." },
+        { id = "nb_default", text = "Stakes, a bit of a wall, a gate that shuts, and maybe a spit for roasting if we ever have something to roast. The ogres at Dustbelch Grotto are carrying plenty of scrap metal that would do the job." },
         { id = "nb_done", when = { questDone = TODO_QUEST("Scrounging") },
           text = "Thanks to you there's a wall going up, crooked but standing, which describes most of us here. It'll have to do until we hear from the League." },
       },
@@ -205,7 +205,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm Ironforge born and Feranor Steeltoe's apprentice, and now I'm the camp smith at a dig nobody's digging. It's been a strange year, and not one I'd drink to." } },
     advice = { { id = "tp_ad", text = "Never leave a dig without your supper, friend, because the ogres won't save you any." } },
-    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real digging is, and I'd go there if I had the gold. Here I just sharpen the shovels." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real digging was, until the troggs and the Dark Irons ran us out. Here I just sharpen shovels nobody's using." } },
     magni = { { id = "tp_magni", text = "King Magni's a good king, and I'd make him a sword if I ever got the chance. I've got the design all worked out." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, and I'd learn their secrets if they weren't so busy trying to kill us." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, {g:lad|lass}; I know steel and sand, and lately it's been mostly sand." } },

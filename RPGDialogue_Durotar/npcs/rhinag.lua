@@ -15,10 +15,10 @@ P:NPC {
 
   greetings = {
     { id = "g_sweat", text = "Don't mind the sweat, mon. The poison makes it, not the weather, though the weather helps." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Need for a Cure") }, text = "Kor'ghan, Cleft of Shadow, antidote. I be counting the minutes, so you count them too." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Need for a Cure") }, text = "Kor'ghan in Orgrimmar's Cleft of Shadow can make the antidote, mon. I be counting the minutes, so you count them too." },
     { id = "g_saved", when = { questDone = TODO_QUEST("Need for a Cure") }, text = "Still alive, mon, thanks to you. Kor'ghan say I owe him forty boars for being careless, and he be counting, mon, out loud, every morning." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, mon, and I still be breathing, which you can take some credit for. Sit, if the boars let you." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You got tougher since you ran to Orgrimmar for me, mon. I hope the venomtails noticed, because I sure did." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You got tougher since I last saw you, mon. I hope the venomtails noticed, because I sure did." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk say good things about you around here, mon. I tell them I knew you before you was famous, when you was just running errands for a dying troll." },
   },
 
@@ -114,7 +114,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry the antidote before you need it, mon, because by the time you need it, you can't walk to get it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's got the finest axe in Durotar, and he's never once been stung by a venomtail. That's the kind of leader I want, one who doesn't step on scorpids." } },
     darkspear = { { id = "tp_darkspear", text = "The trolls at Sen'jin know more about poisons than anybody in Durotar. I wish I'd asked one about venomtails before I got stung." } },
-    centaur = { { id = "tp_centaur", text = "The Kolkar have their own poisons, and they're worse than a scorpid's. That's the only good news I've had all day." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar centaur brew poisons worse than any venomtail, mon, so I suppose I got stung by the gentle kind." } },
     _none = { { id = "tp_none", text = "Don't know that one, mon. My head be full of poison and boars right now." } },
   },
 }

@@ -187,7 +187,7 @@ P:NPC {
     xarkul = {
       lines = {
         { id = "xk_default", text = "A doomguard named Xarkul, who has made Dae'gun his kingdom since the battle. The lesser demons answer to him, and when he falls, they will scatter like crows." },
-        { id = "xk_dead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Xarkul was a doomguard who made Dae'gun his kingdom, and now he is a carcass that Marrosis would probably refuse to eat. The lesser ones are scattering, and I will hunt them as they go." },
+        { id = "xk_dead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Xarkul was a doomguard who made Dae'gun his kingdom, and now he is a carcass that even Marrosis, the vulture at Mourning's Rest, would refuse to eat. The lesser ones are scattering, and I will hunt them as they go." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

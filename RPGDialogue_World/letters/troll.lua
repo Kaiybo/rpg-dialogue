@@ -144,7 +144,7 @@ P:Letter {
   id = "origin_troll_raptor_rider_1", from = "Pen-Keeper Ozzi", stranger = true, delay = 1200,
   when = { origin = "troll_raptor_rider", minLevel = 6 },
   subject = "Your raptor's sisters",
-  body = "{name},\n\nThe pens at Sen'jin have three new clutches, and one of the eggs is speckled the same way your girl's egg was. I am keeping an eye on it, and if the hatchling bites everybody but one troll, I will know whose fault it is.\n\nOld Kezjin fell asleep in the pen again and woke up with a raptor sitting on his chest, staring at him. He says it was a vision from the loa. I say it was a raptor that wanted his breakfast.\n\nYou and your girl go far and run hard. Feed her well, scratch behind the crest where she likes it, and do not let anyone tell you a raptor is only a beast.\n\nOzzi, the Sen'jin pens",
+  body = "{name},\n\nThe pens at Sen'jin have three new clutches, and one of the eggs is speckled the same way your raptor's egg was. I am keeping an eye on it, and if the hatchling bites everybody but one troll, I will know whose fault it is.\n\nOld Kezjin fell asleep in the pen again and woke up with a raptor sitting on his chest, staring at him. He says it was a vision from the loa. I say it was a raptor that wanted his breakfast.\n\nYou and your girl go far and run hard. Feed her well, scratch behind the crest where she likes it, and do not let anyone tell you a raptor is only a beast.\n\nOzzi, the Sen'jin pens",
 }
 
 P:Letter {

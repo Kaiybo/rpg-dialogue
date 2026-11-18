@@ -373,7 +373,7 @@ P:NPC {
 
     -- The Bulwark
     bulwark = {
-      lines = { { id = "b_default", text = "It's the last wall between Tirisfal and the Plaguelands, and the Scourge test it every night with whatever they can drag out of Andorhal. Derrington holds the gate, Vandis keeps our spirits up, and the Argent Dawn has set up beside us, which some of the Deathguard don't care for." } },
+      lines = { { id = "b_default", text = "It's the last wall between Tirisfal and the Plaguelands, and the Scourge test it every night with whatever they can drag out of Andorhal. High Executor Derrington holds the gate, the apothecaries work on the cauldrons, and the Argent Dawn has set up beside us, which some of the Deathguard don't care for." } },
       choices = {
         { text = "Why don't they care for the Argent Dawn?", next = "bulwark2" },
         { text = "Something else.", next = "BACK" },

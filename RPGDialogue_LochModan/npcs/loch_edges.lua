@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Shh, friend, for they're bitin'. Warg Deepwater, an' if ye've come tae learn fishin', sit down an' be quiet, for that's the first lesson." },
+    { id = "g_default", text = "Shh, friend, for they're bitin'. I'm Warg Deepwater, an' if ye've come tae learn fishin', sit down an' be quiet, for that's the first lesson." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Sit, then, an' tell me what ye caught, an' I'll tell ye what ye did wrong." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "Mornin'. Best hour on the loch, this, before the wind comes up an' the mountaineers start shoutin' on the road." },
   },
@@ -97,7 +97,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born on this bank, an' I mean tae die on it, wi' a rod in my hand if I've any say." } },
+    background = { { id = "tp_bg", text = "I was born on this bank, an' I mean tae die on it, wi' a rod in my hand if I've any say." } },
     advice = { { id = "tp_ad", text = "Sit still. Most things in life go better if ye sit still a moment first." } },
     _none = { { id = "tp_none", text = "I couldnae say, friend. Ask me about fish." } },
   },
@@ -116,7 +116,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Khara Deepwater, fishin' supplies, an' I've a lot o' chores today, so what can I get ye?" },
+    { id = "g_default", text = "I'm Khara Deepwater, an' I sell fishin' supplies, but I've a lot o' chores today, so what can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Lost another lure tae the big one, have ye? Everyone does." },
     { id = "g_clip", when = { questActive = TODO_QUEST("Silver of the Waves") }, text = "Ye've somethin' in yer hand that's glintin' like a fish scale, an' I'd know that glint anywhere." },
   },
@@ -131,7 +131,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hooks, lines, lures an' fish food, an' a recipe or two for when ye've caught somethin' worth cookin'. My brother Warg teaches, I sell, an' between us the loch's kept fed." },
+          text = "I sell hooks, lines, lures an' fish food, an' a recipe or two for when ye've caught somethin' worth cookin'. My brother Warg teaches, I sell, an' between us the loch's kept fed." },
         { id = "h_clip", tags = { "news" }, when = { questActive = TODO_QUEST("Silver of the Waves") },
           text = "Is that my hair clip? It is, wi' my letters on it an' all! I lost it off the boat last spring an' I'd given up hope." },
         { id = "h_clip_done", when = { questDone = TODO_QUEST("Silver of the Waves") },
@@ -181,7 +181,7 @@ P:NPC {
     },
     chores = {
       lines = {
-        { id = "ch_default", text = "Up before Warg, which isnae hard, nets tae mend, worms tae dig, tackle tae count, an' then the Stoutlager wants fish for supper. Somewhere in there I try tae eat." },
+        { id = "ch_default", text = "I'm up before Warg, which isnae hard, an' then there's nets tae mend, worms tae dig, tackle tae count, an' then the Stoutlager wants fish for supper. Somewhere in there I try tae eat." },
       },
       choices = {
         { text = "Who wants the fish at the Stoutlager?", next = "chores_inn" },
@@ -190,7 +190,7 @@ P:NPC {
     },
     chores_inn = {
       lines = {
-        { id = "ci_default", text = "Innkeeper Hearthstove, though Vidra would rather sell ye sausages than fish, an' says so tae anyone in earshot. I bring the fish anyway, an' the mountaineers eat every scrap." },
+        { id = "ci_default", text = "Innkeeper Hearthstove, though Vidra the cook would rather sell ye sausages than fish, an' says so tae anyone in earshot. I bring the fish anyway, an' the mountaineers eat every scrap." },
       },
       choices = {
         { text = "Fish over sausage, any day.", next = "BACK", fx = { affinity = 1 } },
@@ -221,9 +221,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Before ye ask, the answer's no. I will NOT open that gate, so save yer breath for the walk round." },
     { id = "g_back", when = { metBefore = true }, text = "You again, an' I can see the question in yer face from here. It's still no." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' ye've come back tae ask about the gate again, I suppose. My answer hasnae moved, an' neither have I." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye've come back tae ask about the gate again, I suppose. My answer hasnae moved, an' neither have I." },
     { id = "g_horn", when = { questActive = TODO_QUEST("The Horn of the Beast") }, text = "Is that a horn ye're carryin'? Wait, let me see it, for there's somethin' stuck in it I'd know anywhere." },
-    { id = "g_key", when = { questDone = TODO_QUEST("At Last!") }, text = "So Thorius gave ye a key, did he? Then ye can open that gate yerself, an' I'll still no' do it for ye." },
+    { id = "g_key", when = { questDone = TODO_QUEST("At Last!") }, text = "So Curator Thorius gave ye a key, did he? Then ye can open that gate yerself, an' I'll still no' do it for ye." },
   },
 
   notice = {
@@ -238,9 +238,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Pebblebitty, an' my orders are tae keep this gate shut, for beyond it lies the Searing Gorge an' every Dark Iron who'd like tae walk intae Loch Modan. If I let one o' ye through, I'll have tae let ye all through, an' then where would we be?" },
+          text = "I'm Mountaineer Pebblebitty, an' my orders are tae keep this gate shut, for beyond it lies the Searing Gorge an' every Dark Iron who'd like tae walk intae Loch Modan. If I let one o' ye through, I'll have tae let ye all through, an' then where would we be?" },
         { id = "h_horn", tags = { "news" }, when = { questActive = TODO_QUEST("The Horn of the Beast") },
-          text = "That's Margol's horn, an' that's MY axe head buried in it! I left it there when I ran, an' I've been waitin' for somebody daft enough tae go back for it." },
+          text = "That's the horn o' Margol the Rager, an' that's MY axe head buried in it! I left it there when I ran, an' I've been waitin' for somebody daft enough tae go back for it." },
         { id = "h_proof", tags = { "news" }, when = { questActive = TODO_QUEST("Proof of Deed") },
           text = "Take my word tae Curator Thorius in Ironforge, at the Hall o' Explorers. He keeps the keys tae more doors than I'd like, an' he'll know what tae do." },
         { id = "h_after", when = { questDone = TODO_QUEST("Proof of Deed") },
@@ -290,7 +290,7 @@ P:NPC {
     },
     gate_king = {
       lines = {
-        { id = "gk_default", text = "Then I'd say the king can come an' tell me himself, an' bring a letter wi' his seal, an' I'd still check the seal twice. Don't push it, friend, or I'll go medieval on ye." },
+        { id = "gk_default", text = "Then I'd say the king can come an' tell me himself, an' bring a letter wi' his seal, an' I'd still check the seal twice. Don't push it, friend, or ye'll see how far the drop is from this ledge." },
       },
       choices = {
         { text = "Fair. I'll stop pushing.", next = "BACK" },
@@ -321,7 +321,7 @@ P:NPC {
 
     gorge = {
       lines = {
-        { id = "gg_default", text = "The Searing Gorge, an' it's well named. Fire from the ground, Dark Iron slavers in the Cauldron, an' things in the rocks that I've no names for an' don't want any." },
+        { id = "gg_default", text = "That's the Searing Gorge, an' it's well named. Fire from the ground, Dark Iron slavers in the Cauldron, an' things in the rocks that I've no names for an' don't want any." },
       },
       choices = {
         { text = "Dark Iron slavers?", next = "gorge_slaves" },
@@ -370,7 +370,7 @@ P:NPC {
     },
     margol_axe = {
       lines = {
-        { id = "mx_default", text = "The axe I can do without, but I'd like that horn, for then everybody who laughed would know I hit him. Bring me Margol's horn, an' I'll put in a word wi' Thorius that might be worth more than ye'd think." },
+        { id = "mx_default", text = "The axe I can do without, but I'd like that horn, for then everybody who laughed would know I hit him. Bring me Margol's horn, an' I'll put in a word wi' Curator Thorius that might be worth more than ye'd think." },
       },
       choices = {
         { text = "I'll bring you that horn.", next = "BACK", fx = { affinity = 1 } },
@@ -410,9 +410,9 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know this gate, an' what's behind it, an' who's tried tae get through. That's enough for anyone." } },
-    background = { { id = "tp_bg", text = "Thelsamar Mountaineer, an' the gate's been mine since I came back from the Gorge without my axe." } },
+    background = { { id = "tp_bg", text = "I'm a Thelsamar Mountaineer, an' the gate's been mine since I came back from the Gorge without my axe." } },
     advice = { { id = "tp_ad", text = "Go round through the Badlands. Ye'll get there slower, but ye'll get there." } },
-    dark_iron = { { id = "tp_di", text = "They'd come up this pass in a heartbeat if I let them, so I don't." } },
+    dark_iron = { { id = "tp_di", text = "The Dark Irons would come up this pass in a heartbeat if I let them, so I don't." } },
     _none = { { id = "tp_none", text = "I'm a gate guard, friend, no' a scholar. Ask me about the gate, an' I'll still say no." } },
   },
 }

@@ -34,13 +34,13 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Galvan the Ancient, of the Mithril Order, and for many long years Galvan has gathered more knowledge of armorsmithing than any dwarf alive. The Order sends Galvan its best, and Galvan sends them away better." },
         { id = "h_smelt", tags = { "news" }, when = { questActive = TODO_QUEST("Smelt On, Smelt Off") },
-          text = "Forty bars of iron and forty of mithril, and every one dug and smelted yourself, or Galvan will know! There can be no blacksmithing without mining, and that's the first lesson." },
+          text = "Bring Galvan forty bars of iron and forty of mithril, every one dug and smelted yourself, or Galvan will know! There can be no blacksmithing without mining, and that's the first lesson." },
         { id = "h_silver", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Silver Deceiver") },
-          text = "Forty bars of mithril and five of truesilver, and you'll learn that truesilver is a liar! She's a cruel mistress, and Galvan has the burned eyebrows to prove it." },
+          text = "Bring Galvan forty bars of mithril and five of truesilver, and you'll learn for yourself that truesilver is a liar! She's a cruel mistress, and Galvan has the burned eyebrows to prove it." },
         { id = "h_expert", tags = { "news" }, when = { questRecent = { TODO_QUEST("Expert Blacksmith!"), days = 3 } },
-          text = "One of Galvan's finest pupils, and Galvan knew it the day you walked in! You gave up a trinket of power just to meet Galvan, and such devotion deserves a better one." },
+          text = "One of Galvan's finest pupils, and Galvan knew it the day you walked in! You've earned the title of expert, and such devotion deserves a reward." },
         { id = "h_felbane", tags = { "news" }, when = { questActive = TODO_QUEST("Enchanted Azsharite Fel Weaponry") },
-          text = "Give Galvan a moment, for fel steel takes its time and burns the hand that rushes it. Release the Felcurse only when the moment's right, because it won't come again for a while." },
+          text = "Give Galvan a moment with your fel weapon, for fel steel takes its time and burns the hand that rushes it. Galvan won't hurry a blade meant for demons." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Then you know there's no shame in a beard full of soot. Sit by the forge, cousin, and let Galvan tell you about mithril." },
       },
@@ -128,7 +128,7 @@ P:NPC {
 
     fel = {
       lines = {
-        { id = "fe_default", text = "Galvan can, with Azsharite and patience, though very few smiths in the world would admit to trying. The Felcurse weakens the demon lord Razelikh and his minions, and that's the only reason Galvan would touch such a thing." },
+        { id = "fe_default", text = "Galvan can, with Azsharite and patience, though very few smiths in the world would admit to trying. Fel steel can weaken the demon lord Razelikh, who lurks in the Blasted Lands, and his minions too, and that's the only reason Galvan would touch such a thing." },
       },
       choices = {
         { text = "Is it dangerous to forge?", next = "fel_danger" },

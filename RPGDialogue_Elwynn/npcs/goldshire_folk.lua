@@ -16,7 +16,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_op_refugees", when = { gossip = { topic = "westfall_refugees", stance = "trouble" } }, text = "Falkhaan says you reckon the Westfall folk bring trouble. Well, the trouble last night was a Goldshire man, so keep your eye on the bar as well as the road." },
-    { id = "g_op_varian", when = { gossip = { topic = "varian", stance = "alive" } }, text = "The Marshal says you reckon the king's alive. I'll pour to that, and so will the whole common room, if you'll say it loud enough." },
+    { id = "g_op_varian", when = { gossip = { topic = "varian", stance = "alive" } }, text = "Marshal Dughan says you reckon the king's alive. I'll pour to that, and so will half the room, if you'll say it loud enough." },
     { id = "g_pour", text = "What'll it be? The ale's good, and the ale's always good, but don't ask about the wine." },
     { id = "g_regular", when = { timesTalked = { min = 5 } }, text = "The usual? I'll pretend I remember what that is." },
   },
@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Longer ones, but not better, because a farmer's wolf took his lamb and that's a story with teeth in it. Hunters tell you how big the wolf was, and it grows a hand every round I pour." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet}'s been eyeing the cheese on the bar. I'll pretend I didn't see it, once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Longer ones, but not better, because a farmer's wolf took his lamb and that's a story with teeth in it. And your {pet}'s been eyeing the cheese on the bar, which I'll pretend I didn't see, once." },
       },
       choices = {
         { text = "I'll tell it straight, wolf and all.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -93,7 +93,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "I think ye're welcome in the Lion's Pride, same as anybody. I'd only ask ye not to turn into anythin' too large, because the floorboards are old." } },
+      lines = { { id = "dq_default", text = "I think you're welcome in the Lion's Pride, same as anybody. I'd only ask you not to turn into anything too large, because the floorboards are old." } },
       choices = {
         { text = "I'll keep my shape. It's your house.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "No promises. The bear does as it likes.", next = "BACK", fx = { align = { order = -1 } } },
@@ -124,14 +124,14 @@ P:NPC {
           text = "A table for the lot of you, then? Sit where you like, but I'd keep away from the corner by the stairs, because the folk who sit there tend to be the sort who leave without paying." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want water, I'd guess, or a quiet corner, and we've one of each, though the corner's damp." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit near the door, if you would, because the rowdy ones settle when there's plate in the room." },
-        { id = "h_default", key = true, text = "Dobbins. When Farley shouts my name I fetch, and when he doesn't I pour, and it's a good life." },
+        { id = "h_default", key = true, text = "I'm Dobbins. When Farley shouts my name I fetch, and when he doesn't I pour, and it's a good life." },
         { id = "h_farley", when = { heardLine = "farley.h_default" },
           text = "Farley told you the family's never watered a drink? It's true; I've seen him check, holding the mug up to the lamp." },
         { id = "h_armwrestle", when = { metBefore = true }, text = "Lively night last night: a lad fresh from Northshire tried to arm-wrestle a dwarf. The dwarf's still at the bar, and the lad's still under it." },
         { id = "h_forget", when = { metBefore = true }, text = "People think a barkeep hears everything, and I do, but then I forget it. That's the real job, the forgetting." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "This is the hour the farmers come in, and the adventurers start telling lies about wolves. The farmers tell better lies." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid! I've never served one o' yer lot before, so ye'll tell me if ye want somethin' other than ale." },
+          text = "A druid! I've never served one of your lot before, so you'll tell me if you want something other than ale." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Farley says count the spoons when your sort comes in, so I'll count them, but I'll count them slowly so you know I'm not in a hurry about it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -139,7 +139,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You're not the one who wants to arm-wrestle the dwarf, are you? Because I've only the one bucket." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Farley lets beasts by the hearth, but if it drinks from the slop bucket, that's on you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Zaldimar's upstairs, if you're looking for him, and he takes his tea strong and his visitors quiet." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down. Whatever your spirits told you today, I'll help you forget it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down, and whatever your spirits told you today, I'll help you forget it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've three mugs to fill and one to find." },
@@ -165,7 +165,7 @@ P:NPC {
     news = {
       lines = {
         { id = "n_westfall", text = "Westfall folk keep passing through on their way to Stormwind. They don't say much, and they don't need to; you can see it on them." },
-        { id = "n_dughan", text = "The Marshal comes in now and then for one cup, which he makes last an hour while he watches the door the whole time." },
+        { id = "n_dughan", text = "Marshal Dughan comes in now and then for one cup, which he makes last an hour while he watches the door the whole time." },
       },
       choices = {
         { text = "There's bound to be a Defias or two in here.", next = "news_defias" },
@@ -174,7 +174,7 @@ P:NPC {
     },
     news_defias = {
       lines = {
-        { id = "nd_default", text = "Not in red, they're not. Plenty of folk drink here I wouldn't trust with a spoon. I pour for them anyway, and count the spoons." },
+        { id = "nd_default", text = "Not in red, they're not, but plenty of folk drink here I wouldn't trust with a spoon. I pour for them anyway, and count the spoons." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
     },
@@ -192,11 +192,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Behind this bar I hear every rumour in Goldshire, usually three times, and louder each time. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "I pour at the Lion's Pride. Have done for years. Farley does the talking; I do the lifting." } },
+    background = { { id = "tp_bg", text = "I've poured at the Lion's Pride for years. Farley does the talking and I do the lifting." } },
     advice = { { id = "tp_ad", text = "Drink one water for every ale; that's Farley's rule, and he doesn't follow it either." } },
     lions_pride = { { id = "tp_inn", text = "Best inn in Elwynn, and near enough the only inn in Elwynn, but still the best." } },
     _none = { { id = "tp_none", text = "Ask Farley. He hears it all; I just hear him." } },
-    defias = { { id = "tp_defias", text = "Westfall folk talk about the Defias like bad weather. Bad weather that steals your plough and your boots." } },
+    defias = { { id = "tp_defias", text = "Westfall folk talk about the Defias like bad weather, the kind that steals your plough and your boots." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's in town I pour until my arms ache, and Farley does the talking, same as ever, only louder. You'd not believe how much a juggler drinks." } },
     booty_bay = { { id = "tp_booty_bay", text = "A sailor from Booty Bay told me there's a tavern on the docks where the goblins water the rum twice. I don't water ours at all, which makes me a saint by comparison." } },
     scourge = { { id = "tp_scourge", text = "A fellow at the end of the bar used to talk about the plague every night, until Farley quietly paid his tab and sent him on his way. Nobody wanted to hear it, me included." } },
@@ -307,19 +307,19 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want candles and bandages, and I've both, because your sort always runs out of the second before the first." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want rope too, I expect, because everybody does, and nobody tells me why." },
-        { id = "h_default", text = "Hamfist. If an adventurer needs it and it isn't a sword, I've probably got it. If I haven't, I'll have it next week." },
+        { id = "h_default", text = "I'm Brog Hamfist. If an adventurer needs it and it isn't a sword, I've probably got it, and if I haven't, I'll have it next week." },
         { id = "h_rope", when = { metBefore = true }, text = "I sold six coils of rope yesterday, six, and nobody ever tells me what they're climbing." },
-        { id = "h_flint", when = { metBefore = true }, text = "Adventurers always buy the flint last. Then they're back at midnight, because they forgot the flint." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Shop stays open as long as the inn does. Someone always needs a torch at this hour." },
+        { id = "h_flint", when = { metBefore = true }, text = "Adventurers always buy the flint last, and then they're back at midnight, because they forgot the flint." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The shop stays open as long as the inn does. Someone always needs a torch at this hour." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "Rope, grappling hooks, black cloth by the yard. I sell it to everyone, and I don't ask what it's for." },
+          text = "Rope, grappling hooks and black cloth by the yard: I sell it to everyone, and I don't ask what it's for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be wanting water and bread, because your lot always forget to eat, and I sell plenty of both." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want rope, I'd guess, and you won't tell me what for; nobody does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Rope for snares, flint for the fire, and a sack for whatever you bring back, I'd guess." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you look like someone who lives off berries and moonlight. Everyone forgets something, though, so take a look round before you go." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell rope, flour and the like, and I sell them to Crowe's lot same as anyone, though they buy more candles than seems healthy." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You've forgotten something, I'd wager. Rope, perhaps, or water. Your spirits won't pack for you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell rope, flour and the like, and I sell them to Maximillian Crowe's lot same as anyone, though they buy more candles than seems healthy." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and you've forgotten something, I'd wager, rope or water most likely, because your spirits won't pack for you." },
       },
       again = {
         { id = "h_again", text = "Anything else? Can I interest you in bags? You'll need more than you think." },
@@ -430,7 +430,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If it's a Stonetusk and it was killed clean, yes, and gladly. A boar that's been run half across Elwynn before it drops is tough as a boot, so take it quick or don't bring it to me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks like it knows good meat. Keep it off my chopping block and we'll stay friends." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If it's a Stonetusk and it was killed clean, yes, and gladly. That {pet} of yours looks like it knows good meat, so keep it off my chopping block and we'll stay friends." },
       },
       choices = {
         { text = "I'll take them quick and clean, for the meat's sake.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -467,7 +467,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "They took two of the Brackwells' hogs last week, right out of the pen, and left the gate open on purpose, I swear it. Riverpaw, the Marshal says, and they're getting bolder, since he can't spare men to chase them past the river." } },
+      lines = { { id = "xapala_default", text = "The gnolls took two of the Brackwells' hogs last week, right out of the pen, and left the gate open on purpose, I swear it. Riverpaw, Marshal Dughan says, and they're getting bolder, since he can't spare men to chase them past the river." } },
       choices = {
         { text = "Then I'll hunt them down, for the farmers' sake.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A few lost hogs aren't worth a paladin's time.", next = "BACK", fx = { align = { light = -1 } } },
@@ -482,7 +482,7 @@ P:NPC {
         { id = "h_princess", when = { questDone = TODO_QUEST("Princess Must Die!") },
           text = "You did for the Brackwells' prize sow? Pity you didn't bring her here. I'd have made Goldshire's finest sausages." },
         { id = "h_boar", when = { metBefore = true }, text = "The boar's good this week, but the wolf's not. Don't let anyone sell you wolf, not even me." },
-        { id = "h_second", when = { metBefore = true }, text = "Farley says my sausages are the second-best thing in this inn. I asked him what the first was. He pointed at himself." },
+        { id = "h_second", when = { metBefore = true }, text = "Farley says my sausages are the second-best thing in this inn. and when I asked him what the first was, he pointed at himself." },
         { id = "h_dobbins", when = { heardLine = "dobbins.h_default" }, text = "Dobbins says he fetches when Farley shouts? He fetches when I shout too, only slower, much slower." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've quick hands, and I've quicker cleavers, so keep yours where I can see them." },
@@ -602,7 +602,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Dark dye and good thread, mostly, for mending leathers that have to stay quiet. Sylvius's students come in looking for anything that doesn't shine, and I sell it to them without a word, because crafters buy forever and so do people who'd rather not be seen." } },
+      lines = { { id = "xrogue_default", text = "Dark dye and good thread, mostly, for mending leathers that have to stay quiet. Keryn Sylvius's students come in looking for anything that doesn't shine, and I sell it to them without a word, because crafters buy forever and so do people who'd rather not be seen." } },
       choices = {
         { text = "Discretion's good business. I'll keep coming back.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll mend my own gear in the open, with no secrets in it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -620,7 +620,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because a fighter who can mend his own mail saves a fortune, and one who can't spends it at Argus's forge. The clever ones learn blacksmithing; the rest keep Argus very comfortable." } },
+      lines = { { id = "xwarcl_default", text = "Because a fighter who can mend his own mail saves a fortune, and one who can't spends it at Smith Argus's forge. The clever ones learn blacksmithing, and the rest keep Argus very comfortable." } },
       choices = {
         { text = "I'll learn to mend my own gear.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll pay the smith and spend my time fighting.", next = "BACK", fx = { align = { order = -1 } } },
@@ -630,8 +630,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Most of the good ones, since they bring home the hides anyway. Adele will teach you, and I'll sell you the thread, and between us we'll keep you in boots for years." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would look grand in a collar of your own make, if it'd let you near its neck." },
+        { id = "xhuntcl_default", text = "Most of the good ones, since they bring home the hides anyway. Adele Fielder by the lake will teach you, and I'll sell you the thread, and between us we'll keep you in boots for years." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Most of the good ones, since they bring home the hides anyway, and Adele Fielder by the lake will teach you. Your {pet} would look grand in a collar of your own make, if it'd let you near its neck." },
       },
       choices = {
         { text = "I'll learn to work what I take.", next = "BACK", fx = { align = { order = 1 } } },
@@ -668,7 +668,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Twice this year, by men with red bandanas and very good manners, which somehow made it worse. I don't need a hammer, thank you; I need the Marshal to have more than four men, and that's not something you can fix with a prayer." } },
+      lines = { { id = "xapala_default", text = "Twice this year, by men with red bandanas and very good manners, which somehow made it worse. I don't need a hammer, thank you; I need Marshal Dughan to have more than four men, and that's not something you can fix with a prayer." } },
       choices = {
         { text = "Then I'll lend the Marshal my hammer, and you'll have your road.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Marshal can't help you. Carry a blade and handle it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -679,8 +679,8 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want ink and parchment for copying prayers, I expect, and mine's the cheapest in Goldshire, though not the best." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll buy once and never come back, like the warriors, unless your order's taken up tailoring." },
-        { id = "h_default", text = "Bouden, and I sell what crafters need and nothing they don't. Fighters buy once, but crafters buy forever." },
-        { id = "h_shop", when = { metBefore = true }, text = "One day I'll have a shop in the Trade District. Proper sign, gold letters. Until then, a wagon at the edge of the road." },
+        { id = "h_default", text = "I'm Tharynn Bouden, and I sell what crafters need and nothing they don't. Fighters buy once, but crafters buy forever." },
+        { id = "h_shop", when = { metBefore = true }, text = "One day I'll have a shop in the Trade District, with a proper sign in gold letters, but until then it's a wagon at the edge of the road." },
         { id = "h_gossip", when = { metBefore = true }, text = "Crafters gossip more than anyone. A tailor in here last week knew every wedding in Elwynn for the next year." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll want parchment and ink, I expect, because your lot write more than they cast." },
@@ -705,7 +705,7 @@ P:NPC {
         { text = "Why would a warrior take up a craft at all?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do many hunters take up leatherwork?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "A merchant like you must pray now and then, Bouden.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Has anyone cheated you on the road, Bouden?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has anyone robbed you on the road, Bouden?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do crafters ever ask for things only the forest provides?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does a rogue buy from a trade supplier, Tharynn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you dream of, Tharynn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -738,7 +738,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "A trader with a wagon and a plan. Ask me again when the plan's a shop." } },
+    background = { { id = "tp_bg", text = "I'm a trader with a wagon and a plan, so ask me again when the plan's a shop." } },
     advice = { { id = "tp_ad", text = "Pick a trade, friend; fighters spend, but crafters earn." } },
     _none = { { id = "tp_none", text = "That's not a trade good, so I can't help you." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the real trade happens, friend, with goblin docks and goods from every shore. When my wagon becomes a ship, that's where I'm sailing." } },
@@ -776,7 +776,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a pair of gloves for one of Crowe's students who kept burning his hands, and I lined them twice. He thanked me, and then his little demon chewed the left one, so I've not been asked again and I haven't offered." } },
+      lines = { { id = "xlock_default", text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. He thanked me, and then his little demon chewed the left one, so I've not been asked again and I haven't offered." } },
       choices = {
         { text = "You did him a kindness. He should have minded his imp.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps chew. You should have lined them three times.", next = "BACK", fx = { align = { order = -1 } } },
@@ -805,7 +805,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Light mail, if you can carry it, because a hunter gets caught by what he shoots more often than he admits. A bear that reaches you won't care how good your aim was a moment ago." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours takes the blows for you, I see. Treat it well; it's the best armor you'll own." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Light mail, if you can carry it, because a hunter gets caught by what he shoots more often than he admits. That {pet} of yours takes the blows for you, I see, so treat it well; it's the best armor you'll own." },
       },
       choices = {
         { text = "I'll wear the mail and not trust my aim alone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -815,7 +815,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Oiled leather, stitched tight, with no buckles where a buckle would rattle, and that's the whole secret. I made a set for one of Sylvius's students and he walked right past me in my own shop, which I took as a compliment." } },
+      lines = { { id = "xrogue_default", text = "Oiled leather, stitched tight, with no buckles where a buckle would rattle, and that's the whole secret. I made a set for one of Keryn Sylvius's students and he walked right past me in my own shop, which I took as a compliment." } },
       choices = {
         { text = "I'll pay your price, Krighton, and use it for honest work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I need armor that doesn't clank. I'll find a bargain.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -842,7 +842,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "That it's been used to cover someone else, mostly, because a shield held for its owner alone comes back scratched in all the wrong places. Wilhelm's shields always come back scarred on the outer edge, from guarding the man beside him, and that tells me everything about him." } },
+      lines = { { id = "xapala_default", text = "That it's been used to cover someone else, mostly, because a shield held for its owner alone comes back scratched in all the wrong places. Brother Wilhelm's shields always come back scarred on the outer edge, from guarding the man beside him, and that tells me everything about him." } },
       choices = {
         { text = "A shield should guard others before its bearer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A shield guards its bearer first. Anything else is foolish.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -853,8 +853,8 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want nothing I make, though I've seen what a good shield does for the healer standing behind it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now there's somebody who knows what a shield is for, and it isn't hiding." },
-        { id = "h_default", text = "Krighton. Argus makes things sharp and I make things that stop sharp things, so we get on." },
-        { id = "h_plate", when = { metBefore = true }, text = "Every recruit from Northshire walks in wanting plate. Then they try to lift it." },
+        { id = "h_default", text = "I'm Andrew Krighton. Smith Argus makes things sharp and I make things that stop sharp things, so we get on." },
+        { id = "h_plate", when = { metBefore = true }, text = "Every recruit from Northshire walks in wanting plate, and then they try to lift it." },
         { id = "h_shield", when = { class = { "PALADIN", "WARRIOR" } }, text = "A shield isn't for hiding behind; it's for being the thing everyone else hides behind, and you'd do well to remember it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Leather, then, and something quiet. I don't make anything that clanks for your sort, because nobody would buy it twice." },
@@ -863,7 +863,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Mail, then, and something that lets you draw a bow without your shoulders creaking." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a shield on you, which I suppose means you've some trick that serves instead. I'd like to hear it, so long as it doesn't put me out of business." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I make armor, and you wear cloth, so I expect you've come to stand by my forge and get warm." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shields are for those who stand in front, and I wonder where a shaman stands. Behind, I'd guess, calling lightning." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shields are for those who stand in front, and I wonder where a shaman stands; behind, I'd guess, calling lightning." },
       },
       again = {
         { id = "h_again", text = "Anything else? The forge doesn't stoke itself, you know." },
@@ -905,7 +905,7 @@ P:NPC {
     },
     shield_paint = {
       lines = {
-        { id = "sp_default", text = "The lion of Stormwind, mostly, because recruits want the lion. But the lion doesn't stop arrows; the oak does." },
+        { id = "sp_default", text = "The lion of Stormwind, mostly, because recruits want the lion, but the lion doesn't stop arrows; the oak does." },
       },
       choices = { { text = "I'll take the oak.", next = "BUSINESS", fx = { affinity = 1 } } },
     },
@@ -940,7 +940,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "A little, but nothing a proper smith can't fix. Spirits might keep you alive, but balance keeps your arm from aching." } },
+      lines = { { id = "xdsham_default", text = "It is, a little, but nothing a proper smith can't fix. Spirits might keep you alive, but balance keeps your arm from aching." } },
       choices = {
         { text = "Then fix it properly, Corina. I trust your eye.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "It works well enough. Leave it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -949,7 +949,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Not much, because a mage needs a staff to lean on more than a blade to swing, and my brother says I should stop stocking them. I keep them anyway, because Zaldimar's students come in here looking lost, and it's good for a shop to have something for everybody." } },
+      lines = { { id = "xmage_default", text = "Not much, because a mage needs a staff to lean on more than a blade to swing, and my brother Kurran says I should stop stocking them. I keep them anyway, because Zaldimar's students come in here looking lost, and it's good for a shop to have something for everybody." } },
       choices = {
         { text = "That's a kind way to run a shop, Corina.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your brother's right. Stock what sells.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -967,7 +967,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Whichever you can still swing when you're tired, because that's when the fight's decided. Lyria's students find that out on their first long sparring day, and then they come back to me with a sore wrist and the right question." } },
+      lines = { { id = "xwarcl_default", text = "Whichever you can still swing when you're tired, because that's when the fight's decided. Lyria Du Lac's students find that out on their first long sparring day, and then they come back to me with a sore wrist and the right question." } },
       choices = {
         { text = "I'll choose the blade I can swing when I'm tired.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take the heaviest you've got and grow into it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -978,7 +978,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something long, so you can keep a boar at the end of it while your beast does the work. A short blade's fine for skinning, but a hunter who has to fight close has already made a mistake." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} does the close fighting, doesn't it? Then buy something long and let it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something long, so you can keep a boar at the end of it while your beast does the work. Your {pet} does the close fighting, doesn't it? Then buy something long and let it." },
       },
       choices = {
         { text = "I'll keep my distance and fight close only when I must.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1038,7 +1038,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my rack. You'll be wanting a polearm, or an axe for close work, I'd guess." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and those hands have never held anything heavier than a staff, if you'll forgive my saying so. I'm Corina Steele, and before you laugh, I've heard it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You'll be after a staff, then, not a sword, and I keep one or two at the back for people who'd rather not swing anything." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Corina Steele, and yes, I've heard every joke. Let me see that weapon; your spirits haven't kept it balanced." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'm Corina Steele, and yes, I've heard every joke. Let me see that weapon; your spirits haven't kept it balanced." },
       },
       again = {
         { id = "h_again", text = "Another question? Ask away; the grinding stone doesn't mind." },
@@ -1111,7 +1111,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We never do, and I hope we never will. An argument shared is a friendship kept. Your spirits must argue too, I'd guess." } },
+      lines = { { id = "xdsham_default", text = "We never will, I hope, because an argument shared is a friendship kept. Your spirits must argue too, I'd guess." } },
       choices = {
         { text = "Then keep it friendly, Kurran. Old arguments make good bonds.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "End it. Life's too short for old grudges.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1129,7 +1129,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Most of it, because Eagan and Helene skin whatever the hunters bring in and I sell it on as jerkins. Wolf, boar and the odd bear, though I'd sooner not say that last one too loudly in front of you." } },
+      lines = { { id = "xdruid_default", text = "Most of it, because Helene Peltskinner and her husband Eagan skin whatever the hunters bring in and I sell it on as jerkins. Wolf, boar and the odd bear, though I'd sooner not say that last one too loudly in front of you." } },
       choices = {
         { text = "Hunted cleanly and used fully, that's honest work.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Say it however you like. A hide's a hide.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1149,7 +1149,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Arrowheads, flint, a bit of jerky for the beast, and whatever they've found that might be worth something. I sold a jerkin with fourteen pockets last month, and the fellow came back and asked for more." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has a nose for my jerky, I see. The pocket on the left, if you're keeping some." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Arrowheads, flint, a bit of jerky for the beast, and whatever they've found that might be worth something. That {pet} has a nose for my jerky, I see, so use the pocket on the left, if you're keeping some." },
       },
       choices = {
         { text = "I'll carry only what I need.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1195,10 +1195,10 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Cloth, then, and I've good robes, though Dermot up at the Abbey will tell you his are better." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Cloth, then, and I've good robes, though Dermot Johns up at the Abbey will tell you his are better." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want nothing I sell, unless it's a tabard, but Corina's next door, and she'll sell you something heavy." },
         { id = "h_default", key = true, text = "Kurran, the other Steele. Corina sells you the sword and I sell you the coat you'll bleed on, so it's a family business, in a way." },
-        { id = "h_corina", when = { metBefore = true }, text = "Corina says leather's for people who can't commit. I say plate's for people who can't run." },
+        { id = "h_corina", when = { metBefore = true }, text = "Corina says leather's for people who can't commit, and I say plate's for people who can't run." },
         { id = "h_buyers", when = { metBefore = true }, text = "Rogues buy dark colors, druids buy anything that stretches, and hunters buy whatever's got the most pockets." },
         { id = "h_heard_corina", when = { heardLine = "corina.h_default" }, text = "Corina told you the juggling joke? She tells everyone, and I've heard it a hundred times; it's getting better, slowly." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1209,7 +1209,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Pockets, then, and plenty of them; I knew it before you said a word." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're wearing leather already, so I'll not pretend you need mine. Sit down a moment, though, because nobody else will." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I've a coat or two that won't scorch, if you're buying, and I won't ask how the last one burned." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I'm the other Steele, by the way. Corina does the work, and I do the sitting. Your spirits look like they do the work." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I'm the other Steele, by the way: Corina does the work and I do the sitting, and your spirits look like they do the work for you." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm not going anywhere, and neither is she." },
@@ -1233,7 +1233,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_quiet", text = "Quiet, light, and you can mend it yourself by a campfire. Try mending plate by a campfire." },
+        { id = "w_quiet", text = "It's quiet and light, and you can mend it yourself by a campfire. Try mending plate by a campfire." },
       },
       choices = {
         { text = "Corina says leather doesn't count.", next = "why_corina" },
@@ -1258,7 +1258,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I'm the other Steele, and I sell coats. Ask Corina for the rest; she tells it louder." } },
-    advice = { { id = "tp_ad", text = "Wear what you can run in. Then wear it while running." } },
+    advice = { { id = "tp_ad", text = "Wear what you can run in, and then wear it while running." } },
     _none = { { id = "tp_none", text = "I sell coats, not answers." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold a coat to a Faire acrobat once who wanted it two sizes small, and by the end of the week she was wearing it upside down. I've stopped asking what people do in my coats." } },
     everlook = { { id = "tp_everlook", text = "If you're going anywhere like Winterspring, don't buy from me, buy from somebody who's been cold. I've only ever been damp." } },
@@ -1286,7 +1286,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They sense everything. A horse knows a shaman before I do. I'll keep your spirits out of my stalls, mind." } },
+      lines = { { id = "xdsham_default", text = "They sense everything, and a horse knows a shaman before I do, so I'll ask you to keep your spirits out of my stalls." } },
       choices = {
         { text = "Your beasts come first, Erma. I'll respect your stalls.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Spirits go where they please. I can't stop them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1324,7 +1324,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mostly, once they've sniffed each other and decided not to bother. The cats take longest, since a horse remembers being hunted, but I've a mare who sleeps beside a lynx now, which I'd never have believed." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well kept. I can always tell a hunter who brushes from one who doesn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mostly, once they've sniffed each other and decided not to bother, though the cats take longest. Your {pet} looks well kept, and I can always tell a hunter who brushes from one who doesn't." },
       },
       choices = {
         { text = "I'll keep my beast as well as you keep yours.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1361,7 +1361,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A knight from Lordaeron who came south after the plague, rode in half-dead and left the horse with me against his bill. He said someone would come for it one day, and I've been watching who asks ever since." } },
+      lines = { { id = "xapala_default", text = "It was a knight's from Lordaeron, who came south after the plague, rode in half-dead and left the horse with me against his bill. He said someone would come for it one day, and I've been watching who asks ever since." } },
       choices = {
         { text = "Keep him for the knight, Erma. A promise is a promise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The knight isn't coming back. Sell the horse to someone who'll use him.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1372,7 +1372,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've a blessing for horses, I'll take it, because I've a gelding with colic and he's past my remedies." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a warhorse in the end stall who'll be glad to see plate again; he was a knight's, once." },
-        { id = "h_default", text = "Erma, and I keep the stables. Most of my guests have four legs and better manners than the ones with two." },
+        { id = "h_default", text = "I'm Erma, and I keep the stables. Most of my guests have four legs and better manners than the ones with two." },
         { id = "h_hunter", when = { race = "Human", class = "HUNTER" }, text = "Not many humans keep a beast at heel. Bring yours by anytime; I'll treat it like visiting royalty." },
         { id = "h_sing", when = { metBefore = true }, text = "Had a mare in last week who wouldn't eat unless someone sang to her, so I sang, and you didn't hear that from me." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Shh, they're settling. Horses sleep standing up, did you know, and lightly, like old soldiers." },
@@ -1417,13 +1417,13 @@ P:NPC {
     },
     favorite_wait = {
       lines = {
-        { id = "fw_default", text = "Every evening, ears to the road. Then he eats his supper and forgets. Horses are wiser than us that way." },
+        { id = "fw_default", text = "Every evening, with his ears to the road, and then he eats his supper and forgets. Horses are wiser than us that way." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     guests = {
       lines = {
-        { id = "g_default", text = "Hunters' beasts, more and more. Wolves, boars, a cat that thinks it owns the hayloft. They behave better than their owners." },
+        { id = "g_default", text = "Hunters' beasts, more and more: wolves, boars and a cat that thinks it owns the hayloft, and they all behave better than their owners." },
       },
       choices = {
         { text = "I'll bring mine.", next = "BUSINESS", when = { class = "HUNTER" } },
@@ -1432,9 +1432,9 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Stables and hay and whatever's in them. That's my life, and the animals don't complain about it." } },
+    background = { { id = "tp_bg", text = "I keep stables and hay and whatever's in them, and that's my life, and the animals don't complain about it." } },
     advice = { { id = "tp_ad", text = "Feed your animal before you feed yourself, and it'll remember you for it." } },
-    hogger = { { id = "tp_hogger", text = "The horses won't go southwest, and I don't make them." } },
+    hogger = { { id = "tp_hogger", text = "The horses won't go southwest, where Hogger roams, and I don't make them." } },
     _none = { { id = "tp_none", text = "If it doesn't eat hay, I'm the wrong person." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire brings strange beasts to Goldshire, and every horse in my stable sulks for the whole week. I don't blame them, because I've seen what the Faire feeds those things." } },
     wildhammer = { { id = "tp_wildhammer", text = "The dwarves up in the Hinterlands keep gryphons the way I keep horses, and they say the Wildhammer talk to them like family. I talk to mine too, but they don't answer." } },
@@ -1454,13 +1454,13 @@ P:NPC {
   greetings = { { id = "g_bandage", text = "If you're bleeding, sit, and if you're not, sit anyway and learn how to stop it." } },
   notice = {
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.25 } },
-      text = "Look at the state of you. Linen, a clean hand and five minutes. That's all it takes. Most people won't spare the five minutes." },
+      text = "Look at the state of you! Linen, a clean hand and five minutes is all it takes, and most people won't spare the five minutes." },
   },
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I think both have their place. But I count everyone who skips the lesson, and spirits won't help them when they bleed." } },
+      lines = { { id = "xdsham_default", text = "I think both have their place, but I count everyone who skips my lesson, and spirits won't help them when they bleed." } },
       choices = {
         { text = "Then teach me properly, Michelle. Every life matters.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Spirits heal faster. Bandages are for those without them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1498,7 +1498,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wash it at once, in clean water, not the pond, and wrap it tight. Wolves on the Goldshire road eat whatever's dead, and their mouths show it, so a bite left a day can cost you the arm." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} gets bitten too, I imagine. The same linen works on fur, if you're patient with it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wash it at once, in clean water, not the pond, and wrap it tight, because a bite left a day can cost you the arm. Your {pet} gets bitten too, I imagine, and the same linen works on fur, if you're patient with it." },
       },
       choices = {
         { text = "I'll tend my beast's wounds as well as my own.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1517,7 +1517,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Crowe's students who'd cut too deep for a spell, and I tell them all the same thing: a bandage can only do so much." } },
+      lines = { { id = "xlock_default", text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I tell them all the same thing: a bandage can only do so much." } },
       choices = {
         { text = "I'll be more careful with my blood, Michelle.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Blood is a fair price for power. I'll pay it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1536,8 +1536,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your lot heal with a touch and think linen's beneath you, until the Light runs thin halfway to Redridge." },
-        { id = "h_default", text = "Michelle Belle, and I teach bandaging. It's not glamorous, but it's why you'll still be alive next week." },
-        { id = "h_josetta", text = "Josetta prays over the wounded; I wrap them. Between us, most of Goldshire's adventurers go home on their own feet." },
+        { id = "h_default", text = "I'm Michelle Belle, and I teach bandaging. It's not glamorous, but it's why you'll still be alive next week." },
+        { id = "h_josetta", text = "Priestess Josetta prays over the wounded and I wrap them, and between us, most of Goldshire's adventurers go home on their own feet." },
         { id = "h_faint", when = { metBefore = true }, text = "Most of my students faint the first time. The ones who don't, I keep a closer eye on." },
         { id = "h_linen", when = { metBefore = true }, text = "Linen's cheap, so carry plenty; the wolves out there don't care what it costs." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1556,7 +1556,7 @@ P:NPC {
       },
       choices = {
         { text = "Why teach bandaging?", next = "why" },
-        { text = "Sam on the road says you teach camp kits.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
+        { text = "Sam Sarsaparilla says you teach camp kits.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "I'd have thought the Light could do what linen does.", next = "priest", when = { class = "PRIEST" } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "Why do rogues end up with such awkward wounds?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1587,7 +1587,7 @@ P:NPC {
     },
     camp = {
       lines = {
-        { id = "c_default", text = "A first aid kit for the fire. Bandages, salve, a bit of thread. A camp with a kit beside it sends people home." },
+        { id = "c_default", text = "A first aid kit to keep by the fire, with bandages, salve and a bit of thread, because a camp with a kit beside it sends people home." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", fx = { learn = { "camping" } } },
@@ -1607,7 +1607,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I wrap wounds upstairs at the Lion's Pride. Josetta prays; I tie the knots." } },
     advice = { { id = "tp_ad", text = "Bandage first and brag later, in that order, every time." } },
-    camping = { { id = "tp_camping", text = "Every camp needs a kit. Somebody always cuts a thumb on the first night." } },
+    camping = { { id = "tp_camping", text = "Every camp needs a kit, because somebody always cuts a thumb on the first night." } },
     _none = { { id = "tp_none", text = "I only know how to stop the bleeding. The rest is beyond me." } },
     scourge = { { id = "tp_scourge", text = "A soldier back from the north showed me a bite that wouldn't close whatever I tied on it, and Josetta prayed over it three nights before it healed. I've kept extra bandages ever since." } },
     holy_light = { { id = "tp_holy_light", text = "Josetta has the Light and I have linen, and between the two of us most folk walk out of here. I'd not want to be without either one." } },
@@ -1633,7 +1633,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Power is a debt, and some debts are paid in different coin. The spirits are generous, until they aren't. Then the clever look elsewhere." } },
+      lines = { { id = "xdsham_default", text = "Power is a debt, and some debts are paid in different coin. The spirits are generous until they aren't, and then the clever ones look elsewhere." } },
       choices = {
         { text = "I'll keep to honest power, Crowe. No debts.", next = "BACK", reply = "Everyone owes something, shaman. You simply haven't been sent the bill yet.", fx = { align = { order = 1 } } },
         { text = "Power's power. I'll take it where I find it.", next = "BACK", reply = "Then you'll find this cellar more welcoming than the rest of Goldshire. Read the terms before you sign them.", fx = { align = { order = -1 } } },
@@ -1662,7 +1662,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very, and I'll not pretend otherwise. Yours follows you for food and fondness; ours follow because we hold the leash tight. Let go of yours and it might stay, and let go of ours and you'll wish you hadn't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the cellar, I see. It's wiser than most of my students." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very, and I'll not pretend otherwise; yours follows you for food and fondness, and ours follow because we hold the leash tight. Your {pet} doesn't care for the cellar, I see, which makes it wiser than most of my students." },
       },
       choices = {
         { text = "My beast follows me by choice. That matters.", next = "BACK", reply = "It matters to you. I doubt the beast has given it a moment's thought.", fx = { align = { light = 1 } } },
@@ -1672,7 +1672,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "We share a taste for shadows and a distaste for questions, which makes for a fine sort of truce. Sylvius and I nod to each other on the stairs, and that's as warm as either of us gets." } },
+      lines = { { id = "xrogue_default", text = "We share a taste for shadows and a distaste for questions, which makes for a fine sort of truce. Keryn Sylvius and I nod to each other on the stairs, and that's as warm as either of us gets." } },
       choices = {
         { text = "A truce is worth keeping. I'll respect your cellar.", next = "BACK", reply = "Good. Sylvius will be glad to hear his students have manners.", fx = { align = { order = 1 } } },
         { text = "Truces are for the weak. Shadows belong to whoever takes them.", next = "BACK", reply = "Take any shadow you like, then, but not one of mine. Mine bite back.", fx = { align = { order = -1 } } },
@@ -1700,7 +1700,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, on my stairs. You'll have heard what we do down here and decided already, so let's not waste each other's time." },
-        { id = "h_default", text = "Crowe. Marcot handles the introductions; I handle the lessons. Darkheart handles the things that come when called." },
+        { id = "h_default", text = "I'm Maximillian Crowe. Remen Marcot handles the introductions and I handle the lessons, while Cylina Darkheart handles the things that come when called." },
         { id = "h_debt", when = { metBefore = true, class = "WARLOCK" }, text = "Remember what I told you: power is a debt, and you pay it on your terms, never theirs." },
         { id = "h_lost", when = { metBefore = true, ["not"] = { class = "WARLOCK" } }, text = "Still lost? The stairs are behind you, and they go up, so use them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1710,7 +1710,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my stairs. You've the look of someone who settles things with a sword, which is crude, but honest." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've a beast on a leash too, I see, though yours was born and ours were summoned." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid has come down among the barrels, I see. You'll find very little that grows in this cellar, and nothing I'd care to show you in daylight." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The orcs had shamans before they found us. Perhaps you'll find us too, one day." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The orcs had shamans too, before they found the warlock's path, and perhaps you'll find it too, one day." },
       },
       again = {
         { id = "h_again", text = "Another question? Then lean closer and whisper it." },
@@ -1745,13 +1745,13 @@ P:NPC {
     },
     cellar_marcot = {
       lines = {
-        { id = "cm_default", text = "Marcot speaks for us upstairs, so I don't have to. He has the face for it. I have the patience for nothing." },
+        { id = "cm_default", text = "Marcot speaks for us upstairs, so I don't have to; he has the face for it, and I have the patience for nothing." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     teach = {
       lines = {
-        { id = "t_default", text = "That the arcane corrupts only the weak. Strength first, then pacts. Reverse the order and you end in a tower in Redridge, talking to gnolls." },
+        { id = "t_default", text = "That the arcane corrupts only the weak. Strength first, then pacts. Reverse the order and you end up like Morganth, in a tower in Redridge, talking to gnolls." },
         { id = "t_other", when = { ["not"] = { class = "WARLOCK" } },
           text = "Nothing you'd want, because the darkness hasn't chosen you. Be grateful for that, and go back up the stairs." },
       },
@@ -1762,7 +1762,7 @@ P:NPC {
     },
     priest = {
       lines = {
-        { id = "p_default", text = "The Light has had words with me, and I listened politely. Go back upstairs, priest; Josetta keeps better company than I do." },
+        { id = "p_default", text = "The Light has had words with me, and I listened politely. Go back upstairs, priest; Priestess Josetta keeps better company than I do." },
       },
       choices = {
         { text = "The door's open, if you ever want it.", next = "BACK", reply = "Kind of you. I'll remember it when the debt comes due, and I suspect you will too.", fx = { align = { light = 1 } } },
@@ -1855,7 +1855,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "No, because your beast learns tricks the honest way, and mine learn them the other way. You'll want a hunter's trainer for that, though I'll admit I'm curious what your beast would do with a little fel in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't stopped growling at my imp. Good, because it's the only sensible creature in this cellar." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No, because your beast learns tricks the honest way, and mine learn them the other way, so you'll want a hunter's trainer. Your {pet} hasn't stopped growling at my imp, which makes it the only sensible creature in this cellar." },
       },
       choices = {
         { text = "My beast stays clean of anything fel.", next = "BACK", reply = "Then keep it well away from my imp, because he's been eyeing it the way Dobbins eyes a pie.", fx = { align = { light = 1 } } },
@@ -1903,8 +1903,8 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, down here among my pets. Be careful what you say, because they understand more than you'd like, and they hold grudges." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my training room. Keep your hand off your hammer, and my imp will keep his fire off your boots." },
-        { id = "h_default", text = "Darkheart. I teach your pets new tricks. Not the kind you'd show a crowd." },
-        { id = "h_keys", when = { metBefore = true }, text = "My imp took Dobbins' keys again. Dobbins thinks he's losing his mind. I haven't had the heart to tell him." },
+        { id = "h_default", text = "I'm Cylina Darkheart, and I teach your demons new tricks, though not the kind you'd show a crowd." },
+        { id = "h_keys", when = { metBefore = true }, text = "My imp took Dobbins' keys again, and Dobbins thinks he's losing his mind. I haven't had the heart to tell him." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue. Your shadows are thin compared to what I keep down here, but they're shadows all the same." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -1924,11 +1924,11 @@ P:NPC {
         { text = "Show me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What should I be teaching my demons first?", next = "practise", when = { class = "WARLOCK" } },
         { text = "Do you ever let a demon go free?", next = "free" },
-        { text = "What do you mean, your shadows are deeper?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do you keep down here that's darker than my shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Your demons look like they hold grudges against mages.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have your demons ever fought a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you teach my beast new tricks, Darkheart?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I'd fear what my demons might do to me one day.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever fear the demons you keep, Darkheart?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How can you keep demons beneath the inn the whole town drinks in?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why keep a creature that bites you?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Your imp seems very fond of biting, Cylina.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -2024,7 +2024,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Still plenty, because I teach every youngster to throw back the little ones, though Matt throws back the big ones by accident. The Goldshire pond's another matter, so try Crystal Lake if you want supper." } },
+      lines = { { id = "xdruid_default", text = "Still plenty, because I teach every youngster to throw back the little ones, though Matt, the boy by the pond, throws back the big ones by accident. The Goldshire pond's another matter, so try Crystal Lake if you want supper." } },
       choices = {
         { text = "Throw back the young and the lake feeds you forever.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "If the fish bite, keep them. Lean seasons come regardless.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -2044,7 +2044,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Just the same, only wetter, and the prey's dumber, though don't tell the fish I said so. You watch, you wait, you know the water, and when it comes you don't fumble, same as with a deer." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps watching the water, I see. Does it fish? Some of the cats do, and they're better at it than me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Just the same, only wetter: you watch, you wait, you know the water, and when it comes you don't fumble. Your {pet} keeps watching the water, I see, so perhaps it fishes; some of the cats do, and better than me." },
       },
       choices = {
         { text = "I'll take only what I can eat.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -2081,7 +2081,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not since the murlocs came up the river and two of Thomas's guards went to look and didn't come back. I fish the pond by the inn now, which is smaller and duller, but nothing in it has ever tried to drown me." } },
+      lines = { { id = "xapala_default", text = "It isn't, since the murlocs came up the river and two of Guard Thomas's men went to look and didn't come back. I keep to this end of the lake now, by the pier, where nothing has ever tried to drown me." } },
       choices = {
         { text = "I'll clear the lake so the fishers can go back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The lake's the murlocs' now. Fish where it's safe.", next = "BACK", fx = { align = { light = -1 } } },
@@ -2092,7 +2092,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the pond! Sit and fish a while, and you'll find it's not so different from praying, only with a line." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Put the hammer down a while, because you can't smite a fish, believe me, I've tried." },
-        { id = "h_default", text = "Lee Brown. I fish, and I teach fishing, and on good days I can't tell which I'm doing." },
+        { id = "h_default", text = "I'm Lee Brown. I fish, and I teach fishing, and on good days I can't tell which I'm doing." },
         { id = "h_long", when = { metBefore = true }, text = "I caught one this long yesterday, no, longer. It grows every time I tell it, and that's fishing." },
         { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "This is the best hour there is, with mist on the lake and fish rising and nobody here but me, and now you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -2112,7 +2112,7 @@ P:NPC {
       choices = {
         { text = "Fishing seems a quiet life.", next = "why" },
         { text = "Any murlocs in Crystal Lake?", next = "murlocs" },
-        { text = "Sam on the road says fishing helps a camp.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
+        { text = "Sam Sarsaparilla says fishing helps a camp.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "Fishing seems much like a rogue's waiting game.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Freezing the pond would be a clever way to fish.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -2137,19 +2137,19 @@ P:NPC {
     },
     why_spot = {
       lines = {
-        { id = "ws_default", text = "This pier, at dawn. Jason down the end will tell you otherwise. Jason's wrong, and he knows it." },
+        { id = "ws_default", text = "This pier, at dawn. Jason at the far end will tell you otherwise, but Jason's wrong, and he knows it." },
       },
       choices = { { text = "Good fishing.", next = "BACK", fx = { affinity = 1 } } },
     },
     murlocs = {
       lines = {
-        { id = "m_default", text = "Plenty, on the far shore. They take my bait and they hoard kelp, of all things. Pestle at the inn sends folk after the kelp." },
+        { id = "m_default", text = "Plenty, on the far shore, and they take my bait and hoard kelp, of all things. William Pestle at the inn sends folk after that kelp." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "murlocs_east" } } } },
     },
     camp = {
       lines = {
-        { id = "c_default", text = "A fish bowl by the fire. Laugh all you like. Watch a fish go round for a while and tell me you're not calmer." },
+        { id = "c_default", text = "A fish bowl by the fire, so laugh all you like, but watch a fish go round for a while and tell me you're not calmer." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", fx = { learn = { "camping" } } },
@@ -2159,7 +2159,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I'm a fisherman: this pier, this lake and these fish, mostly these fish." } },
-    advice = { { id = "tp_ad", text = "Patience. The fish have more of it than you, so you'll need to borrow some." } },
+    advice = { { id = "tp_ad", text = "Patience, because the fish have more of it than you, so you'll need to borrow some." } },
     _none = { { id = "tp_none", text = "Ask me about bait; anything else and I'm out of my depth, ha." } },
     booty_bay = { { id = "tp_booty_bay", text = "I hear the fishing off Booty Bay is the finest in the world, if you can keep the sharks off the line and the pirates off the boat. Here I only have to worry about Matt." } },
     murlocs_east = { { id = "tp_murlocs_east", text = "Something's been chewing my nets near the eastern shore, and I've heard gurgling in the reeds after dark. Remy says murlocs, and for once I believe Remy." } },
@@ -2203,7 +2203,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Gladly, because it's the same hide whether a hunter took it or the winter did, and I'd rather it kept someone warm than rotted in the bracken. Eagan says I'm sentimental about it, but he's the one who buries the ones too far gone." } },
+      lines = { { id = "xdruid_default", text = "Gladly, because it's the same hide whether a hunter took it or the winter did, and I'd rather it kept someone warm than rotted in the bracken. My husband Eagan says I'm sentimental about it, but he's the one who buries the ones too far gone." } },
       choices = {
         { text = "Better used than wasted. That's a fair thanks to give.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Old or young, a hide's worth coin. Take whatever comes.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -2223,7 +2223,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A clean kill, first, with no holes where a dozen arrows went in. The Prowlers south of Goldshire have the best coats this side of the river, and they're worth twice a mangy wolf, if they're whole." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet}'s coat is glossy as anything. Somebody's feeding it right, and I'm guessing that's you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, first, with no holes where a dozen arrows went in. Your {pet}'s coat is glossy as anything, so somebody's feeding it right, and I'm guessing that's you." },
       },
       choices = {
         { text = "One clean shot. A good coat deserves it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -2271,7 +2271,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want to watch me work, I expect, so I'll keep the knife low." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll have stripped a few gnolls of their gear, I expect, but never a wolf of its coat." },
-        { id = "h_default", key = true, text = "Helene Peltskinner. Wolves, boars and the odd bear: everything out there has a coat, and every coat's worth something." },
+        { id = "h_default", key = true, text = "I'm Helene Peltskinner. Wolves, boars and the odd bear: everything out there has a coat, and every coat's worth something." },
         { id = "h_eagan", when = { heardLine = "eagan.h_default" },
           text = "You've met Eagan up in Northshire? He's my husband, and he's busy up by the abbey, so the wolves down here are mine." },
         { id = "h_pelts", when = { metBefore = true }, text = "Wolf pelts sell best in winter and boar hides all year, but murloc skin never, so don't bring me murloc." },
@@ -2292,7 +2292,7 @@ P:NPC {
       choices = {
         { text = "How did you learn?", next = "learn" },
         { text = "Adele says you've been her strength.", next = "adele", when = { heardLine = "adele.hb_default" } },
-        { text = "Sam on the road says hides make a camp.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
+        { text = "Sam Sarsaparilla says hides make a camp.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "A skinning knife would serve a rogue well enough.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What strange requests have you had for pelts?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -2317,7 +2317,7 @@ P:NPC {
     },
     learn_advice = {
       lines = {
-        { id = "la_default", text = "Work with the grain, not against it. And skin it while it's warm. Cold hides fight you." },
+        { id = "la_default", text = "Work with the grain, not against it, and skin it while it's warm, because cold hides fight you." },
       },
       choices = { { text = "Makes sense.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -2343,7 +2343,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know hides, but not that." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys every pretty pelt I can spare for their tents and costumes, and they pay better than the tailors in the city. I like their people, too, even the loud ones." } },
     hogger = { { id = "tp_hogger", text = "Hogger's hide would make a fine rug and a finer story, but I wouldn't want to be the one to fetch it. A gnoll that clever has earned a bit of respect." } },
-    holy_light = { { id = "tp_holy_light", text = "Adele and I go to Josetta's prayers when there's word from the front, and when there isn't, we go anyway. It helps to sit somewhere quiet together." } },
+    holy_light = { { id = "tp_holy_light", text = "Adele and I go to Priestess Josetta's prayers when there's word from the front, and when there isn't, we go anyway. It helps to sit somewhere quiet together." } },
   },
 }
 
@@ -2355,7 +2355,7 @@ P:NPC {
     first = "Adele Fielder spends half her days mending what adventurers stitched for themselves, and she told me so cheerfully without looking up from her awl. Her patience seems endless, though her opinions are not.",
     third = "{name} met Adele Fielder, the leatherworking trainer by Crystal Lake, who stitches and listens at the same time.",
   },
-  greetings = { { id = "g_leather", text = "Helene skins it, I stitch it. Want to learn the stitching half?" } },
+  greetings = { { id = "g_leather", text = "Helene skins it and I stitch it, so do you want to learn the stitching half?" } },
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "Your seams are crooked, as everyone's are at first. They'll be straighter by midsummer, if you practise." },
@@ -2382,7 +2382,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every hide I've got, because the loggers strip the bark before the logs go to Stormwind and sell it to me by the sack. It's the one good thing to come out of that mill, though I'd not say so to Raelen." } },
+      lines = { { id = "xdruid_default", text = "Every hide I've got, because the loggers strip the bark before the logs go to Stormwind and sell it to me by the sack. It's the one good thing to come out of that mill, though I'd not say so to Supervisor Raelen." } },
       choices = {
         { text = "Good. A trade that uses every part keeps things in balance.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Trade or not, the mill takes too much. Somebody should stop it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -2402,7 +2402,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Gladly, if you'll learn patience, because leather's slow and won't be hurried. Bring me boar hide from the Elwynn hills to start, since it's thick and forgiving, and you'll have a belt by Sunday." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want a collar soon. Make it yourself, and it'll fit better than anything I sell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Gladly, if you'll learn patience, because leather's slow and won't be hurried. Your {pet} will want a collar soon, and if you make it yourself, it'll fit better than anything I sell." },
       },
       choices = {
         { text = "I'll learn the craft properly, however slow.", next = "BACK", fx = { align = { order = 1 } } },
@@ -2412,7 +2412,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Soft leather and a sole stitched in a way I won't tell you about, because Krighton would steal it. Half of Sylvius's students wear my boots, and I sleep a little worse for knowing it." } },
+      lines = { { id = "xrogue_default", text = "Soft leather and a sole stitched in a way I won't tell you about, because Andrew Krighton the armorer would steal it. Half of Keryn Sylvius's students wear my boots, and I sleep a little worse for knowing it." } },
       choices = {
         { text = "I'll keep your secret safe from Krighton, Adele.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Krighton could pay me well for that stitch.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -2430,7 +2430,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Once, when a logger came through bleeding and Michelle was out on the road, and I stitched him with waxed thread like a saddle. He lived, and he still limps, and he's never once bought boots from anyone else." } },
+      lines = { { id = "xapriest_default", text = "Once, when a logger came through bleeding and Michelle Belle, our physician, was out on the road, and I stitched him with waxed thread like a saddle. He lived, and he still limps, and he's never once bought boots from anyone else." } },
       choices = {
         { text = "You should have waited for a proper healer, Adele.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You did right. Need comes before anyone's rules.", next = "BACK", fx = { align = { order = -1 } } },
@@ -2439,7 +2439,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Sword belts for Dughan's men, and boots for Rainer's, when the kingdom remembers to pay. I sent twenty pairs to Westbrook last month and got a letter back that said thank you and nothing else, which is a soldier's way of saying they're still owed." } },
+      lines = { { id = "xapala_default", text = "Sword belts for Marshal Dughan's men, and boots for Deputy Rainer's at Westbrook, when the kingdom remembers to pay. I sent twenty pairs to Westbrook last month and got a letter back that said thank you and nothing else, which is a soldier's way of saying they're still owed." } },
       choices = {
         { text = "The kingdom keeps its debts, Adele. It will pay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Don't wait on the crown. Sell to whoever pays.", next = "BACK", fx = { align = { order = -1 } } },
@@ -2460,8 +2460,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your bracers are cracking at the buckle; I can see it from here, and so will a gnoll." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be bringing me hides, I hope, and better ones than the adventurers drag in." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and those are boots I'd like to take apart and learn from, if you'd ever let me. Who stitched them, and with what?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I make soft boots and quiet belts, and Crowe's students wear them, so I suppose I'm part of your trade, whether I like it or not." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Let me guess, you stitched your own armour too. I spend half my days mending adventurers' work." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I make soft boots and quiet belts, and Maximillian Crowe's students wear them, so I suppose I'm part of your trade, whether I like it or not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Let me guess: you stitched your own armour too, and I spend half my days mending adventurers' work like that." },
       },
       again = {
         { id = "h_again", text = "Anything else? Hand me that awl while you think." },
@@ -2470,7 +2470,7 @@ P:NPC {
       choices = {
         { text = "What's hardest to make?", next = "hard" },
         { text = "This must be your house by the lake.", next = "home" },
-        { text = "Sam on the road says leatherworkers make tents.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
+        { text = "Sam Sarsaparilla says leatherworkers make tents.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "What makes your boots so quiet, Adele?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I doubt many mages buy boots from you.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -2486,7 +2486,7 @@ P:NPC {
     },
     hard = {
       lines = {
-        { id = "h_boots", text = "Boots. Everyone's feet are different, and everyone's sure theirs are normal." },
+        { id = "h_boots", text = "Boots, because everyone's feet are different, and everyone's sure theirs are normal." },
       },
       choices = {
         { text = "Are mine normal?", next = "hard_feet" },
@@ -2501,7 +2501,7 @@ P:NPC {
     },
     home = {
       lines = {
-        { id = "hb_default", key = true, text = "Mine, by the lake. My husband went off to the front, and Helene's held me up ever since. Soft heart, and she keeps a sword by the door." },
+        { id = "hb_default", key = true, text = "It's mine, by the lake. My husband went off to the front, and Helene's held me up ever since; she has a soft heart, and she keeps a sword by the door." },
       },
       choices = {
         { text = "I'll pray for his safe return.", next = "home_priest", when = { class = "PRIEST" } },
@@ -2529,11 +2529,11 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Leatherworker. The house by the lake is mine. My husband's at the front, and Helene keeps me company." } },
+    background = { { id = "tp_bg", text = "I'm a leatherworker, and the house by the lake is mine. My husband's at the front, and Helene keeps me company." } },
     advice = { { id = "tp_ad", text = "Buy boots a little big, because feet swell on the march, and blisters will beat you before any gnoll does." } },
     _none = { { id = "tp_none", text = "Can you stitch it? If you can't, I'm afraid I'm no help to you." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Helene drags me to the Faire every time it's in Goldshire, and every time I come home with a pair of boots I didn't need. They make lovely boots, and that's the trouble." } },
-    holy_light = { { id = "tp_holy_light", text = "I light a candle at Josetta's for my husband every week. I can't tell you if the Light listens, but it's better than staring at the road." } },
+    holy_light = { { id = "tp_holy_light", text = "I light a candle at Priestess Josetta's for my husband every week. I can't tell you if the Light listens, but it's better than staring at the road." } },
     varian = { { id = "tp_varian", text = "If the king himself can go missing, a husband at the front can go missing too, and I try not to think about it more than once a day." } },
   },
 }

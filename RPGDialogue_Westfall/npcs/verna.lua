@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },
     { id = "g_oats", when = { questActive = TODO_QUEST("Poor Old Blanchy") }, text = "Any oats? She's been looking at me like I've forgotten her." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Poor Old Blanchy") }, text = "Blanchy's put on a little weight, thanks to you. Don't tell her I said." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Poor Old Blanchy") }, text = "Blanchy's put on a little weight, thanks to you. Don't tell her I said so." },
     { id = "g_away", when = { away = 14 }, text = "There you are, dear, after {away}! Blanchy's been looking up the road for somebody, and I think it was you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've grown since you brought oats for Blanchy, dear. You stand like someone folk can lean on, and Westfall has need of that." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I've been hearing kind things about you from the neighbours, dear, and it's done my heart good. There's little enough to smile about out here." },
@@ -171,7 +171,7 @@ P:NPC {
     },
     elwynn = {
       big = true,
-      lines = { { id = "el_default", text = "Start over, Theodore says. As if a farm were a coat you could take off. Elwynn isn't what I want, dear. It's what's left." } },
+      lines = { { id = "el_default", text = "Theodore says we'll start over, as if a farm were a coat you could take off. Elwynn isn't what I want, dear; it's what's left." } },
       choices = {
         { text = "Salma thinks you'll love the city.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "salma.rv_default" } },
         { text = "Then don't give up on the farm.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -227,14 +227,14 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "You hear all sorts when you're stuck by the road waiting on a wagon wheel, dear. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "A pumpkin farmer's wife, a horse's nursemaid, and the one in this family who remembers where things are." } },
+    background = { { id = "tp_bg", text = "I'm a pumpkin farmer's wife, a horse's nursemaid, and the one in this family who remembers where things are." } },
     advice = { { id = "tp_ad", text = "Feed the animal first, dear, because it can't ask and you can." } },
     old_blanchy = {
       { id = "tp_blanchy", text = "She's over by the wagon, dear, but mind her back legs. She kicks when she's hungry, and she's always hungry." },
       { id = "tp_blanchy2", text = "My Blanchy? Ask away, dear.", next = "blanchy" },
     },
     defias = { { id = "tp_defias", text = "They took our farm and Theodore's nerve. I've decided they'll not have mine." } },
-    harvest_watchers = { { id = "tp_watchers", text = "Nasty things, and they're stuffed with oats, you know. It's a waste of good oats." } },
+    harvest_watchers = { { id = "tp_watchers", text = "Those Harvest Watchers are nasty things, and they're stuffed with oats, you know, which is a waste of good oats." } },
     westfall = { { id = "tp_westfall", text = "It's home, dear, even now. Especially now." } },
     _none = { { id = "tp_none", text = "Couldn't say, dear. Ask Salma; she hears everything over that stove." } },
   },

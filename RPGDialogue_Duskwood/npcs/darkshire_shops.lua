@@ -210,7 +210,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Mostly it has. Wagons don't come, and folk don't buy. Your spirits won't bring the sun back, I'd guess." } },
+      lines = { { id = "xdsham_default", text = "Mostly it is, because the wagons don't come and folk don't buy. Your spirits won't bring the sun back, I'd guess." } },
       choices = {
         { text = "Keep counting, Gunder. Order keeps hope alive.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stop counting. Close the shop and leave.", next = "BACK", fx = { align = { order = -1 } } },
@@ -241,7 +241,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I buy the clean ones and turn them into leather, though I'll not pay much for a pelt with a hole through the middle. A hunter who shoots clean brings me a hide worth twice what a sloppy one does." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would fetch a fine price as leather, {class}, though I can see from your face you'd not take kindly to the thought. My apologies." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I buy the clean ones, and a hunter who shoots clean brings me a hide worth twice what a sloppy one does. That {pet} would fetch a fine price as leather too, {class}, though I can see from your face you'd not take kindly to the thought." },
       },
       choices = {
         { text = "I'll bring you clean hides from clean kills.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -295,7 +295,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Now you're a customer worth having, for skins need salt and thread and tanning, and I've got every one of those." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't stock much a night elf would need, unless your folk have taken up tailoring, and I'll be surprised if they have." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ink, parchment, vials for your powders, and I've a fair stock of each, if you'll stand still while I count it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've thread, vials and flux, so count them with me. Darkshire's trade died with the sunlight, but I keep counting." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've thread, vials and flux, and you're welcome to count them with me, because Darkshire's trade died with the sunlight and I keep counting anyway." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've stock to count." },
@@ -383,7 +383,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They grow worse every month. I outfit fighters, and I want them back. Your spirits won't stop claws, but my armour might." } },
+      lines = { { id = "xdsham_default", text = "They grow worse every month, and I outfit fighters because I want them back. Your spirits won't stop claws, but my armour might." } },
       choices = {
         { text = "Your armour's good work, Morg. I'll wear it proudly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Claws are claws. Armour won't matter.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -414,7 +414,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It'll slow you a step, and a step is cheaper than a throat. I've watched too many hunters go out in leathers because it's quiet, and the worgs don't care how quiet you were once they've caught you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} won't wear my armour, {class}, more's the pity. Keep it close, then, so it can stand between you and the teeth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It'll slow you a step, and a step is cheaper than a throat, because the worgs don't care how quiet you were once they've caught you. Your {pet} won't wear my armour, more's the pity, so keep it close to stand between you and the teeth." },
       },
       choices = {
         { text = "Mail, then. I'll take the step slower.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -459,7 +459,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Mail's what you want, and I'll not hear otherwise, because the things out there aren't stopping at a bit of leather." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Let me see your hide, then, since I'm told it's armour enough for your kind, and I'll judge whether it's armour enough for Duskwood." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, then, by the look of you, and quiet leather at that. Let me see the claw marks before you say anything." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me see your gear for claw marks. Good. You've not fought worgen yet. You will." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me see your gear for claw marks... none, so you've not fought worgen yet, but you will." },
       },
       again = {
         { id = "h_again", text = "What else? The forge won't keep." },
@@ -544,7 +544,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The dead are in the mines too, mostly. Your earth spirits might tell you where it's safe." } },
+      lines = { { id = "xdsham_default", text = "Because the dead are in the mines now, as well as the worgen. Your earth spirits might tell you where it's safe." } },
       choices = {
         { text = "I'll mine safely, Matt, and teach others.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The mines are lost. Don't waste your time.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -575,7 +575,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Spiders, mostly, since they love the dark, and a few worgs where the shafts open into caves. Brightwood Grove had a fine copper seam once, and now it's thick with webs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would sniff out a nest of spiders before you walked into one, {class}, so I'd let it go first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Spiders, mostly, since they love the dark, and a few worgs where the shafts open into caves. Your {pet} would sniff out a nest of spiders before you walked into one, {class}, so I'd let it go first." },
       },
       choices = {
         { text = "I'll clear the shafts so the miners can go back.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -584,7 +584,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "They did, and that's where the trouble starts, since every old seam round here has something hiding in it now, worgen or worse. Nobody goes down without wondering who's waiting in the dark." } },
+      lines = { { id = "xro_default", text = "They do, and that's half the trouble, since every old seam round here has something hiding in it now, worgen or worse. Nobody goes down without wondering who's waiting in the dark." } },
       choices = {
         { text = "I'll clear one, and do it openly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Hiding in one suits me fine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -637,7 +637,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know the trails better than I do now. Do you see old mine shafts out there, in the trees?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll not be keen on mining, I'd guess, but if you're willing to learn, I'm willing to teach, and there's precious few of either in Darkshire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll teach you to swing a pick if you like, but don't bring that imp down a shaft, there's enough fire in the bad air already." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A student, at last. Nobody dares go down a mine here anymore. Your earth spirits might help." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a student at last! Nobody dares go down a mine here anymore, so your earth spirits might be a help." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I've no students waiting, more's the pity." },
@@ -766,7 +766,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Buy it? I'd kiss you for it, because good silk thread from those great spiders out by the Darkened Bank sews finer than anything from Stormwind. Gather it clean, mind, and not covered in whatever the spider was eating." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is lovely, {class}, but it's looking at Sheri's yarn the way a cat looks at a mouse. Hold it tight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Buy it? I'd kiss you for it, because silk from those great spiders by the Darkened Bank sews finer than anything from Stormwind. Your {pet} is lovely, {class}, but it's looking at Sheri's yarn the way a cat looks at a mouse, so hold it tight." },
       },
       choices = {
         { text = "I'll bring you clean silk. Good work deserves good thread.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -900,7 +900,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "In Darkshire, everything does. I'm the careful one. Your spirits might calm me, if they're kind." } },
+      lines = { { id = "xdsham_default", text = "In Darkshire, everything does, and I'm the careful one. Your spirits might calm me, if they're kind." } },
       choices = {
         { text = "Careful is wise, Sheri. Keep your accounts tidy.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stop jumping. Fear makes you weak.", next = "BACK", fx = { align = { order = -1 } } },
@@ -988,7 +988,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh! A druid. You came up the stairs so quietly that I didn't hear a thing, and I'd thank you to stomp next time." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Oh, a mage. Please don't do anything bright in here, because the last time the scissors went flying." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! You've something with you, haven't you? Something that breathes. Please keep it on the landing." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Oh, the stairs creaked. Sorry. I keep the accounts and the scissors. Do your spirits make the stairs creak?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Oh, it was only the stairs creaking, I'm sorry. Do your spirits make stairs creak, by any chance? Something does." },
       },
       again = {
         { id = "h_again", text = "What else? Only quietly, please." },
@@ -1079,7 +1079,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "I'd ask you to stand in front of that council and tell them what's actually raising the dead, because they don't believe a farmer and they won't believe a priest. Somebody with books in his head might shame them into doing something before my fence comes down." },
+        { id = "xmage_default", text = "I'd ask you to stand in front of that council and tell them what's actually raising the dead, because they don't believe a farmer and they won't believe a priest. Somebody with books in their head might shame them into doing something before my fence comes down." },
       },
       choices = {
         { text = "I'll speak to the council, Hogan, and make them listen.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1100,7 +1100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Worgs, three of them, on a night with no moon, and they took the whole flock but the ram. I'd ask the council for compensation, but I'd get another letter, and I can't eat a letter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have kept my sheep safe, {class}, I'm sure of it. I'd buy a dog, but the last two ran off into the woods and never came back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Worgs, three of them, on a night with no moon, and they took the whole flock but the ram. Your {pet} would have kept my sheep safe, {class}, I'm sure of it, but my last two dogs ran off into the woods and never came back." },
       },
       choices = {
         { text = "I'll hunt down the worgs that took your flock.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1161,7 +1161,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves took my sheep and the dead took my neighbour, so start with the wolves, if you please, since those I understand." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people know about putting things back the way nature meant, I'm told, so perhaps you'll answer where the council won't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Do you know anything about the dead, then, or are you just here for the council like the rest of us?" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I wait every day to ask the council about the dead. Nobody answers. Will your spirits?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I wait here every day to ask the council about the dead, and nobody answers, so perhaps your spirits will." },
       },
       again = {
         { id = "h_again", text = "What else? I've nowhere better to be, more's the pity." },
@@ -1294,7 +1294,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Do I buy 'em? I buy anything rare, pal, and a pelt off one of those big worgs would sell twice over in Booty Bay, so there's margin in it for both of us. Keep it clean and keep it whole, and Kzixx'll make you a deal you'll talk about for years." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would fetch a fortune in Booty Bay, pal, no offence. I'm only sayin' what I see, and everything I see comes with a price tag." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do I buy 'em? I buy anything rare, pal, and a big worg pelt would sell twice over in Booty Bay, so keep it clean and whole. That {pet} of yours would fetch a fortune there too, no offence, because everything I see comes with a price tag." },
       },
       choices = {
         { text = "I'll bring you pelts, but I'll set the price myself.", next = "BACK", fx = { align = { order = 1 } } },

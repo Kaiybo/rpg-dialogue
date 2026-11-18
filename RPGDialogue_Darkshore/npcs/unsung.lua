@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It is for fishing, yes. Nessa Shadowsong would argue, but she is wrong. Your spirits might know better fish." } },
+      lines = { { id = "xdsham_default", text = "It is, for fishing, though Nessa Shadowsong over in Rut'theran would argue. Ask your water spirits, and I'd wager they side with me." } },
       choices = {
         { text = "Fair fishing on a fair coast, Laird.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Fish wherever pays best.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Closer every season, and they'll snap at a line hard enough to pull a man in. I'd not swim off the Darkshore docks for any wager, and I've lost a few wagers to Nessa in my time." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks hungry, and I'd swear it knows exactly which basket is the fresh one. Clever beast, cleverer than half my customers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Closer every season, and they'll snap at a line hard enough to pull a man in. Your {pet} looks hungry, and I'd swear it knows exactly which basket is the fresh one. Clever beast, cleverer than half my customers." },
       },
       choices = {
         { text = "I'll leave the threshers be. The sea is theirs.", next = "BACK", fx = { align = { light = 1 } } },
@@ -223,7 +223,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They always do, and it worries me. A shaman must remember everything; the elements will not forgive carelessness." } },
+      lines = { { id = "xdsham_default", text = "They always do, and it worries me, because carelessness gets people killed out here. I'd guess your elements forgive it no more than Darkshore does." } },
       choices = {
         { text = "You are right, Dalmond. Preparation saves lives.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I travel light and trust the spirits.", next = "BACK", fx = { align = { order = -1 } } },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Water for themselves and the beast, because the coast is salt and the streams near the Blackwood camps aren't fit to drink. I'd hate for you to reach the cliffs and find you've nothing clean between you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will need feeding too, won't it? Please tell me you've something for it in your pack." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Water for themselves and the beast, because the coast is salt and the streams near the Blackwood camps aren't fit to drink. And your {pet} will need feeding too, won't it? Please tell me you've something for it in your pack." },
       },
       choices = {
         { text = "I'll stock up. Better safe than parched.", next = "BACK", fx = { align = { order = 1 } } },
@@ -407,7 +407,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I do. Troubles look smaller after a cup, and the furbolgs look further away. Your spirits might agree." } },
+      lines = { { id = "xdsham_default", text = "I do, because troubles look smaller after a cup and the furbolgs look further away. Perhaps your spirits would agree." } },
       choices = {
         { text = "Kindness in a cup, Taldan. I accept.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Drinks do not fix troubles.", next = "BACK", fx = { align = { light = -1 } } },
@@ -436,7 +436,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Moonberries from the hills behind Auberdine, picked fresh, though the pickers won't go far now that the thistle bears have gone mad. If you're hunting out that way, a few safe pickers would do us all a world of good." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks thirsty, and there's a trough behind the inn where the Sentinels water their sabers. It's cleaner than anything you'll find in the streams." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Moonberries from the hills behind Auberdine, picked fresh, though the pickers won't go far now that the thistle bears have gone mad. Your {pet} looks thirsty, and there's a trough behind the inn where the Sentinels water their sabers. It's cleaner than anything you'll find in the streams." },
       },
       choices = {
         { text = "I'll keep the bears away from your pickers.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -446,7 +446,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "That's kind, but the groves give it to me cool enough, and the Sentinels would rather not see magic over the counter. My elders remember the Highborne at their worst, and none of them likes a spell anywhere near a drink." },
+        { id = "xma_default", text = "That's kind, but the cellar keeps it cool enough, and the Sentinels would rather not see magic over the counter. My elders remember the Highborne at their worst, and none of them likes a spell anywhere near a drink." },
       },
       choices = {
         { text = "Of course. Nothing over the counter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -526,7 +526,7 @@ P:NPC {
     },
     best = {
       lines = {
-        { id = "be_default", text = "Moonberry juice, without question. It comes from the groves on Teldrassil, and it tastes like a clear night, if a night could have a taste." },
+        { id = "be_default", text = "Moonberry juice, without question. It comes from a clean grove up the coast, and it tastes like a clear night, if a night could have a taste." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -588,7 +588,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They tell me that you have fought, and lived. Your spirits might help, but a good blade helps more." } },
+      lines = { { id = "xdsham_default", text = "They tell me you have fought and lived, which is all I ask. Your spirits may guard you, but a good blade guards you better." } },
       choices = {
         { text = "Then I will choose a blade fairly, Naram.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits are blade enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -617,7 +617,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "An axe or a spear, something with reach and weight, because when a thistle bear gets inside your bow it won't care about your aim. I've sold plenty of hunters a spear, and none of them came back to complain." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better teeth than anything I sell, I'll give it that. Still, carry something for the times it can't reach you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An axe or a spear, something with reach and weight, because when a thistle bear gets inside your bow it won't care about your aim. Your {pet} has better teeth than anything I sell, I'll give it that. Still, carry something for the times it can't reach you." },
       },
       choices = {
         { text = "I'll carry a spear for when the bear gets close.", next = "BACK", fx = { align = { order = 1 } } },
@@ -667,7 +667,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Nothing, until it turns on you, and from what I've heard of the Dark Strand up at Ameth'Aran, they always do sooner or later. Buy a dagger at least, so that when it happens you've something better than a curse in your hand." },
+        { id = "xlock_default", text = "Nothing, until it turns on you, and from what I've heard of the Dark Strand up at the Tower of Althalaxx, they always do sooner or later. Buy a dagger at least, so that when it happens you've something better than a curse in your hand." },
       },
       choices = {
         { text = "Fair advice. I'll take a dagger.", next = "BACK", fx = { align = { order = 1 } } },
@@ -727,7 +727,7 @@ P:NPC {
     },
     where = {
       lines = {
-        { id = "wh_default", text = "Some I make, some come over from Darnassus, and some come on the boat from Menethil, made by dwarves. The dwarven steel is good, I'll admit, though I'd never say so to Elisa." },
+        { id = "wh_default", text = "Some I make, some come over from Darnassus, and some come on the boat from Menethil, made by dwarves. The dwarven steel is good, I'll admit, though I'd never say so to Elisa Steelhand at the forge." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -801,7 +801,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I miss it every day, but I like being the loudest voice on the docks. A shaman's spirits would fit right in here." } },
+      lines = { { id = "xdsham_default", text = "I miss it every day, but I like being the loudest voice on the docks. Some old-timers at home grumble about dwarves talking to spirits, but yours would fit right in here." } },
       choices = {
         { text = "We dwarves stick together, Elisa.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The old-timers have a point. Spirits aren't dwarvish.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -830,7 +830,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and the elves glare at the noise as if it had personally insulted them. Me, I say a good rifle's an honest tool, but I'll admit the bears hereabouts don't seem to care what shot them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care much for my forge smoke, I see, because it's sneezing. Stand upwind, the pair of you, and we'll get on fine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and the elves glare at the noise as if it had personally insulted them. Your {pet} doesn't care much for my forge smoke, I see, because it's sneezing. Stand upwind, the pair of you, and we'll get on fine." },
       },
       choices = {
         { text = "Out of respect, I'll keep things quiet here.", next = "BACK", fx = { align = { order = 1 } } },

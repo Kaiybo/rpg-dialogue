@@ -19,7 +19,7 @@ P:Rumors {
 P:Rumors {
   id = "ironforge_inns", roles = { "innkeeper" }, zones = { "Ironforge", "Dun Morogh" },
   lines = {
-    { id = "magni", text = "The King's been pacing the throne room half the night, they say, over his daughter again. The princess ran off with a Dark Iron, and nobody's sure she went willing." },
+    { id = "magni", text = "King Magni's been pacing the throne room half the night, they say, over his daughter again. The princess ran off with a Dark Iron, and nobody's sure she went willing." },
     { id = "gnomes", text = "The gnomes in Tinker Town blew the lights out in three streets yesterday. They called it a successful test, and they meant it." },
     { id = "explorers", text = "The Explorers' League dug up another statue nobody can read. Brann wrote to say it was important, from somewhere very far off, as always." },
     { id = "gnomeregan", text = "There's still a smell of something wrong coming down the tunnels from Gnomeregan. The gnomes say it's the radiation, and they say it like that's better." },

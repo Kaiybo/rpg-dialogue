@@ -130,7 +130,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Hillsbrad Fields, where the farmers have been handed swords and told they are soldiers. Kill the ones who fight, let the rest run to Southshore with the story, and the Marshal will spend a month deciding what to do while we take another field." } },
+      lines = { { id = "xwarcl_default", text = "Hillsbrad Fields, where the farmers have been handed swords and told they are soldiers. Kill the ones who fight, let the rest run to Southshore with the story, and Marshal Redpath will spend a month deciding what to do while we take another field." } },
       choices = {
         { text = "Kill those who fight and spare those who run.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Spare none. Fear spreads faster when no one escapes.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -141,7 +141,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Their patrols, their couriers, and the gryphons that come down from the Wildhammer aeries, because Southshore's messages go north by air. Bring down a rider, and the dwarves will think twice before they offer the humans more help." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will be useful to the front as long as it obeys you. The Dark Lady has no patience for beasts that run wild, or for those who cannot hold their leash." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Southshore's patrols and couriers, and your {pet} will be useful to the front as long as it obeys you. The Dark Lady has no patience for beasts that run wild, or for those who cannot hold their leash." },
       },
       choices = {
         { text = "The Dark Lady's orders come first. I'll follow them to the letter.", next = "BACK", fx = { align = { order = 1 } } },
@@ -186,7 +186,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Soldiers who don't fall, first, and soldiers who fall and rise again, second. The Deathguard who die in Hillsbrad's fields are carried back to the Mill, and I would rather a priest mend them in the evening than Lydon stitch them in the morning, for he enjoys it far too much." } },
+      lines = { { id = "xhpriest_default", text = "Soldiers who don't fall, first, and soldiers who fall and rise again, second. The Deathguard who die in Hillsbrad's fields are carried back to the Mill, and I would rather a priest mend them in the evening than Apothecary Lydon stitch them in the morning, for he enjoys it far too much." } },
       choices = {
         { text = "I'll mend your soldiers, High Executor. That's the work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll heal who I choose. Your line is your affair.", next = "BACK", fx = { align = { order = -1 } } },
@@ -198,7 +198,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid, among the dead. Your people make their oaths to the Earth Mother, I'm told, and I have yet to decide whether she would count us among her children." },
         { id = "h_default", key = true,
-          text = "High Executor Darthalia. I hold Tarren Mill for the Dark Lady and Lord Varimathras, and I push the line against the humans of Southshore. One field at a time, if I must." },
+          text = "High Executor Darthalia. I hold Tarren Mill for the Dark Lady and Lord Varimathras, and I push the line against the humans of Southshore, one field at a time if I must." },
         { id = "h_strike", tags = { "news" }, when = { questActive = TODO_QUEST("Time to Strike") },
           text = "The humans are slow and comfortable. Time we reminded them otherwise, before they notice how far we've come." },
         { id = "h_syndicate", when = { questActive = TODO_QUEST("WANTED: Syndicate Personnel") },
@@ -210,11 +210,11 @@ P:NPC {
         { id = "h_dangerous", when = { questActive = TODO_QUEST("Dangerous!") },
           text = "There are four names on that list. Each one killed one of mine and hides among the farmers, but the living are very bad at hiding from the dead." },
         { id = "h_lydon", when = { heardLine = "lydon.h_default" },
-          text = "You've met Lydon, then: brilliant, devoted, and forever complaining about the fresh air. Leave him his complaints, for the plague will need them." },
+          text = "You've met Lydon, then: brilliant, devoted, and forever complaining about the fresh air. Leave him his complaints, for the Society needs his work." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The living sleep and we do not, so every night the line moves a little closer to Southshore." },
         { id = "h_krusk", when = { questDone = TODO_QUEST("Gol'dir") },
-          text = "Krusk's leader is free, I hear, and the orcs are grateful. Gratitude from Orgrimmar is a currency I intend to spend." },
+          text = "Gol'dir, Krusk's captain, is free, I hear, and the orcs are grateful. Gratitude from Orgrimmar is a currency I intend to spend." },
         { id = "h_xsoldier", when = { origin = "forsaken_lordaeron_soldier" },
           text = "You carried Lordaeron's colours once; it shows in how you stand. Southshore's watchmen once served the same king, so try to remember which side of the line you are on now." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because Southshore's farms are best taken quietly, and I have no patience for soldiers who announce themselves with a battle cry." },
@@ -225,7 +225,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 40 } }, text = "The farms below the Mill are emptier than they were, and Southshore's grain carts have started coming back half full. Your work, I'm told. Keep at it, for arithmetic favours the patient." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
-          text = "The Crusade's monastery has lost its masters, I'm told, and the bat riders say you were among those who saw to it. Tirisfal will breathe easier, and I'll have fewer zealots coming down out of Alterac to bother my line." },
+          text = "The Crusade's monastery has lost its masters, I'm told, and the bat riders say you were among those who saw to it. Tirisfal will breathe easier, and I'll have fewer zealots coming down the road to bother my line." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -233,7 +233,7 @@ P:NPC {
       },
       choices = {
         { text = "Does the Earth Mother turn her back on the Forsaken?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why fight for Southshore?", next = "why" },
+        { text = "Why fight over Southshore?", next = "why" },
         { text = "What are your orders, High Executor?", next = "orders" },
         { text = "The Syndicate seem to be a thorn in your side too.", next = "syndicate" },
         { text = "You must answer to someone in the Undercity.", next = "command" },
@@ -307,7 +307,7 @@ P:NPC {
     farms = {
       big = true,
       lines = {
-        { id = "fa_default", text = "Food, iron and nerve. Take the farms and they lose the first; kill the smith and they lose the second. The third leaves on its own." },
+        { id = "fa_default", text = "It comes down to food, iron and nerve. Take the farms and they lose the first; kill the smith and they lose the second. The third leaves on its own." },
       },
       choices = {
         { text = "Cold, but sound.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -425,7 +425,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I will answer what it serves the Dark Lady for you to know. Choose your questions carefully." },
     },
-    new_plague = { { id = "tp_plague", text = "The Society's work. Until it is ready, we hold the fields.", next = "plague" } },
+    new_plague = { { id = "tp_plague", text = "The plague is the Society's work. Until it is ready, we hold the fields.", next = "plague" } },
     background = { { id = "tp_bg", text = "I died for Lordaeron, and now I take it back for the Dark Lady. The account is simple.", next = "why" } },
     advice = { { id = "tp_ad", text = "Do not linger near Southshore's walls. Their guards are bored, and bored men shoot first." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on our minds, and she gave us a kingdom from the ruins of the old. Every field I take from Southshore is a field I lay at her feet." }, { id = "tp_sylvanas2", when = { faction = "Alliance" }, text = "You serve the living kings who left us to rot, and you ask me about my queen? She will outlast them all, and I will be standing beside her to watch." } },
@@ -470,7 +470,7 @@ P:NPC {
   nodes = {
     opn_plague = {
       lines = {
-        { id = "opn_plague_q", text = "Right? Nobody's asked me that since I died. The Society says it's justice, the orcs pretend it's medicine, and Umpi says nothing because she's dead again. You seem to have a view, so go on, it might be interesting." },
+        { id = "opn_plague_q", text = "Right? Nobody's asked me that since I died. The Society says it's justice, the orcs pretend it's medicine, and Umpi, my frog, says nothing because she's dead again. You seem to have a view, so go on, it might be interesting." },
       },
       choices = {
         { text = "The Scourge must be stopped, by any means. It's necessary.", next = "opn_plague_r_necessary", fx = { align = { light = -1 }, opinion = { new_plague = "necessary" } } },
@@ -514,7 +514,7 @@ P:NPC {
     },
     opn_plague_r_justice = {
       lines = {
-        { id = "opn_plague_r_justice", text = "Choke on it. Faranell would hug you, if he hugged, which he doesn't, because things fall off." },
+        { id = "opn_plague_r_justice", text = "Choke on it. Master Apothecary Faranell would hug you, if he hugged, which he doesn't, because things fall off." },
       },
       choices = {
         { text = "Something else, Lydon.", next = "BACK" },
@@ -602,11 +602,11 @@ P:NPC {
         { id = "h_agony", when = { questActive = TODO_QUEST("Elixir of Agony") },
           text = "Master Apothecary Faranell in the Undercity wants this finished. When the Master wants something, one finishes it." },
         { id = "h_helbrim", when = { heardLine = "helbrim.h_default" },
-          text = "Helbrim, in the Barrens, bottling cactus? Good for him; someone in the Society should be getting a tan." },
+          text = "Apothecary Helbrim, at the Crossroads, bottling cactus? Good for him; someone in the Society should be getting a tan." },
         { id = "h_spring", when = { timeOfDay = "day" },
           text = "Flowers again, and birdsong, and fresh clean air in every direction. Hillsbrad is unbearable in this weather." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Night, finally, and fewer birds." },
+          text = "Night, finally, and the birds have mostly stopped." },
         { id = "h_innocents", tags = { "news" }, when = { questActive = TODO_QUEST("Blood of Innocents") },
           text = "A toxin to bleed the violence out of goblins. It needs innocent blood, and the Syndicate's shadow mages have been collecting it for me. How generous of them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them by smell, and a few of them are meant to be found out exactly that way." },
@@ -629,7 +629,7 @@ P:NPC {
         { text = "Who do you work with?", next = "society" },
         { text = "Your shelves are full of strange reagents.", next = "alch", when = { profession = "Alchemy" } },
         { text = "The Earth Mother would weep at your work.", next = "tauren", when = { race = "Tauren" } },
-        { text = "Troll's blood? For your elixir?", next = "troll", when = { race = "Troll" } },
+        { text = "Is there troll's blood in any of those bottles?", next = "troll", when = { race = "Troll" } },
         { text = "Do you miss anything, from before?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I studied in Dalaran before I died.", next = "xmage", when = { race = "Scourge", class = "MAGE" } },
         { text = "Do you make poisons for rogues too, Lydon?", next = "xrogue", when = { class = "ROGUE" } },
@@ -689,13 +689,13 @@ P:NPC {
     },
     society = {
       lines = {
-        { id = "so_default", text = "Master Apothecary Faranell in the Undercity adds his colloid of decay to my best work. Renferrel at the Sepulcher sends his findings. I read them in the dark." },
+        { id = "so_default", text = "Master Apothecary Faranell in the Undercity adds his colloid of decay to my best work, and Apothecary Renferrel at the Sepulcher sends me his findings, which I read in the dark." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     alch = {
       lines = {
-        { id = "al_default", text = "Mountain lion blood, gray bear tongue, and mudsnout blossom from the gnoll fields at Nethander Stead. And patience, which is the rarest of them." },
+        { id = "al_default", text = "Mountain lion blood, gray bear tongue, and mudsnout blossom from the gnoll fields at Nethander Stead, and patience, which is the rarest of them." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
@@ -744,9 +744,9 @@ P:NPC {
     },
     new_plague = { { id = "tp_plague", text = "We're close, so very close, and I'd be excited if I still did that.", next = "plague" } },
     syndicate = { { id = "tp_syndicate", text = "Their shadow mages collect innocent blood, and I collect it from them; it's a sort of partnership." } },
-    background = { { id = "tp_bg", text = "Royal Apothecary Society, and before that, alive. I think I preferred it, though I can't recall why.", next = "misery" } },
+    background = { { id = "tp_bg", text = "I'm of the Royal Apothecary Society, and before that I was alive. I think I preferred it, though I can't recall why.", next = "misery" } },
     advice = { { id = "tp_ad", text = "Never test on yourself; use a frog. Frogs complain less, and they come back." } },
-    venture_company = { { id = "tp_venture", text = "Goblins in Stonetalon, cutting down everything that grows. I'd almost admire them, if they'd do it quietly." } },
+    venture_company = { { id = "tp_venture", text = "The Venture Company are goblins in Stonetalon, cutting down everything that grows. I'd almost admire them, if they'd do it quietly." } },
     forsaken = { { id = "tp_forsaken", text = "We are what the plague left behind, and I am what my work has made of me. I feel very little now, except about Umpi, and about my vials." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's plague is crude, and wasteful, and I could do better in an afternoon. That is not a boast, merely a statement of fact." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady funds my work, and I am grateful, insofar as I am anything. I serve her with my vials and my patience." } },
@@ -767,9 +767,9 @@ P:NPC {
 
   greetings = {
     { id = "o_sylvanas_distrust", tags = { "news" }, when = { gossip = { topic = "sylvanas", stance = { "distrust", "dangerous" } } },
-      text = "The High Executor mentioned your views on the Dark Lady. Rest here if you like, but I would not sleep too soundly, and I would not sleep near the window." },
+      text = "High Executor Darthalia mentioned your views on the Dark Lady. Rest here if you like, but I would not sleep too soundly, and I would not sleep near the window." },
     { id = "o_plague_wrong", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } },
-      text = "Lydon tells everyone you think his plague is an abomination. He sounded almost pleased about it; you may be the first thing that's interested him in a year." },
+      text = "Apothecary Lydon tells everyone you think his plague is an abomination. He sounded almost pleased about it; you may be the first thing that's interested him in a year." },
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You look out at the fields the way a farmer does, Brill-born, I'd guess. The farms below the Mill grew much the same before the plague, and now the living fight us for every furrow." },
     { id = "g_home", when = { homeInn = { "Tarren Mill" } }, text = "Back at the Mill, then. Your bed's where you left it, and nobody's slept in it, since nobody here sleeps." },
@@ -834,7 +834,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "All of them, really, since this is Tarren Mill and the living are always one bad day from a Southshore pike. The rogues sit closest to the back door, which I've always considered sensible." } },
+      lines = { { id = "xrogue_default", text = "All of them, really, since this is Tarren Mill and a Southshore scout could be outside any window. The rogues sit closest to the back door, which I've always considered sensible." } },
       choices = {
         { text = "I'll sit near the back door too. Old habits.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll sit in the open. I've nothing to hide.", next = "BACK", fx = { align = { order = 1 } } },
@@ -861,7 +861,7 @@ P:NPC {
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },
-        { id = "h_skulls", when = { questDone = TODO_QUEST("Souvenirs of Death") }, text = "Samsa's hung his skulls on the wall behind my inn, thanks to you. I've asked him to at least line them up straight." },
+        { id = "h_skulls", when = { questDone = TODO_QUEST("Souvenirs of Death") }, text = "Deathguard Samsa has hung his skulls on the wall behind my inn, thanks to you. I've asked him to at least line them up straight." },
         { id = "h_krusk", when = { heardLine = "krusk.h_default" }, text = "You've met Krusk, then. He's the only one in town who orders a hot meal, and he eats it with his back to the wall." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll find the inn makes a fine hiding place, since nobody looks twice at the corner tables anymore, and the dead don't gossip much." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want something warm, I suppose, though warmth is wasted on most of my guests, and I've stopped heating the kettle out of habit." },
@@ -898,7 +898,7 @@ P:NPC {
       },
     },
     remember = {
-      lines = { { id = "re_default", text = "The way you remember a map. I know where everything was. I couldn't tell you how it smelled." } },
+      lines = { { id = "re_default", text = "I remember it the way you remember a map, where everything was, but I couldn't tell you how it smelled." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     guests = {
@@ -911,7 +911,7 @@ P:NPC {
       },
     },
     guests_strange = {
-      lines = { { id = "gs_default", text = "Lydon's frog, who has a stool of her own by the fire, and Humbert, who sat in the corner a whole week without his sword. Neither of them tips." } },
+      lines = { { id = "gs_default", text = "Lydon's frog, who has a stool of her own by the fire, and a Deathguard called Humbert, who sat in the corner a whole week without his sword. Neither of them tips." } },
       choices = {
         { text = "The frog has a stool?", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

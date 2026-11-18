@@ -42,7 +42,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
+      lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
       choices = {
         { text = "Right. A smith should keep his forge clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", fx = { align = { light = -1 } } },
@@ -71,7 +71,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Skinning knives, traps and arrowheads, when somebody brings me the iron. The wolves on the Goldshire road have taken more than one lamb this spring, so a trap that holds is worth its weight." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine set of teeth, but even teeth dull. Keep it fed and it'll do the work of three of my traps." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Skinning knives, traps and arrowheads, when somebody brings me the iron. Your {pet} has a fine set of teeth, mind, so keep it fed and it'll do half the work my traps would." },
       },
       choices = {
         { text = "I'll take only what the wolves cost the farmers. No more.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -90,7 +90,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "There's iron for the foot of a staff, which I'll forge for anyone who asks, but your lot mostly buy from the tower and leave the honest work to me. When the kobolds come up out of Fargodeep, though, I notice it's my steel they hide behind." } },
+      lines = { { id = "xmage_default", text = "There's iron for the foot of a staff, which I'll forge for anyone who asks, but your lot mostly buy their staves in Stormwind and leave the honest work to me. When the kobolds come up out of Fargodeep Mine, though, I notice it's my steel they hide behind." } },
       choices = {
         { text = "Steel and spells both keep Goldshire standing. I respect your trade.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Steel's a blunt answer. A good spell does the work cleaner.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -111,19 +111,19 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate will want to look like it means what it promises, so let me see the dents before you say a word." },
         { id = "h_default", text = "Argus. I mend what's bent and make what's needed, but I don't do miracles." },
         { id = "q_elmore", when = { questActive = TODO_QUEST("Elmore's Task") },
-          text = "Grimand Elmore, the dwarf in Stormwind's Dwarven District. Best weaponsmith in the city, and he knows it. Help him with his delivery. We need the dwarves." },
+          text = "Grimand Elmore's the dwarf in Stormwind's Dwarven District, the best weaponsmith in the city, and he knows it. Help him with his delivery, because we need the dwarves on our side." },
         { id = "q_verner", tags = { "news" }, when = { questActive = TODO_QUEST("The Price of Shoes") },
-          text = "A note from Verner, of course. He wants shoes and he wants them yesterday, and he'll get them, so don't tell him I didn't complain." },
+          text = "A note from Verner Osgood in Lakeshire, of course. He wants shoes and he wants them yesterday, and he'll get them, so don't tell him I didn't complain." },
         { id = "q_verner_back", when = { questActive = TODO_QUEST("Return to Verner") },
-          text = "Take those up to Lakeshire. Tell Verner they're the best shoes he'll see this year. He'll say his are better. He's wrong." },
+          text = "Take those horseshoes up to Lakeshire and tell Verner they're the best he'll see this year. He'll say his own are better, and he'll be wrong." },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "Go on, say it. Every dwarf who walks past my forge says it." },
+          text = "Go on, tell me my quench is too fast, the way every dwarf who walks past my forge does." },
         { id = "h_deaf", when = { metBefore = true },
           text = "Eh? Speak up, the anvil's had my good ear for years, and the other one's only for show." },
         { id = "h_plate", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 20 },
           text = "Now that's plate that's been somewhere, dented in all the honest places. Whoever mended it last knew their trade, nearly as well as me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "Soft boots and a short blade, so you're one of Jorik's lot or one of Sylvius's. I'll mend your knives, but I don't want to hear what they were for." },
+          text = "Soft boots and a short blade, so you've trained with Keryn Sylvius at the inn or Jorik Kerridan up in Northshire. I'll mend your knives, but I don't want to hear what they were for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and not a scrap of steel on you anywhere. You'll want a stout staff and somebody tall to stand in front of you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and that blade's been put to honest use, by the nicks in it. Leave it on the bench and I'll take the worst of them out." },
@@ -200,6 +200,6 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "Lordaeron had the best smiths in the north, and their steel didn't save them, so don't tell me good armor is the whole answer. They say the dead up there don't feel a blade at all, and you can't put an edge on that." } },
     stonemasons = { { id = "tp_stonemasons", text = "Good builders, the lot, and they raised the city walls with their own hands. If the nobles had paid what they owed, I'd not be hearing about masked men on my road." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps by Goldshire I shoe more horses in a week than in a month, because half of Stormwind rides out to gawk at the strongman. I'd like to see him bend one of my shoes." } },
-    magni = { { id = "tp_magni", text = "King Magni's smiths make the finest steel I've ever held, and I hate admitting it. Janos up at the Abbey never lets me forget it, either." } },
+    magni = { { id = "tp_magni", text = "King Magni's smiths make the finest steel I've ever held, and I hate admitting it. Janos Hammerknuckle, the dwarf who sells weapons up at the Abbey, never lets me forget it." } },
   },
 }

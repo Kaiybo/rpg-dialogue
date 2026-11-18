@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over, {g:lad|lass}." },
-    { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Auberdine, {g:lad|lass}, and look for any sign of my crew. Weeks without a letter isn't like Remtravel, even for Remtravel." },
+    { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Go to Auberdine, {g:lad|lass}, and look for any sign of my crew. Remtravel forgets most things, but he's never gone weeks without a letter." },
     { id = "g_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel's safe and his fossil's on its way to Ironforge, thanks to you. I may even forgive him for not writing." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}! Still no letter from Darkshore, so I'm glad of any face that's been somewhere." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've a bit more weight in your stride than when I sent you off to Auberdine. The League could use a {class} like you, if you ever fancy a dig." },
@@ -39,7 +39,7 @@ P:NPC {
       choices = {
         { text = "History belongs to everyone, Archaeologist. Dig it up.", next = "op_r1", fx = { affinity = 2, align = { honor = -1 }, opinion = { explorers_league = "admire" } } },
         { text = "Those are their dead. Leave the ruins alone.", next = "op_r2", fx = { affinity = -1, align = { honor = 1 }, opinion = { explorers_league = "wrong" } } },
-        { text = "Magni wants his titans. The rest is courtesy.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { explorers_league = "self_serving", magni = "distrust" } } },
+        { text = "Magni wants to learn about the titans. The rest is courtesy.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { explorers_league = "self_serving", magni = "distrust" } } },
         { text = "Bronzebeards go where the stone calls, and that's all there is.", next = "op_r4", fx = { affinity = 1, opinion = { explorers_league = "proud", magni = "trust" } }, when = { race = "Dwarf" } },
         { text = "Your League digs with care. My people notice that.", next = "op_r5", fx = { affinity = 1, trait = { kind = 1 }, opinion = { explorers_league = "tolerate" } }, when = { race = "NightElf" } },
         { text = "I've no stake in it either way.", next = "BACK" },
@@ -191,7 +191,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Forty years with a brush and a trowel, and I'm only now being taken half seriously. That's the League for you." } },
     advice = { { id = "tp_ad", text = "Write down where you found a thing before you pick it up. You'll thank me in ten years." } },
-    explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the Wetlands lot say.", next = "warning" } },
+    explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the gossips in Menethil say.", next = "warning" } },
     uldaman = { { id = "tp_uldaman", text = "There's a vault in the Badlands that's had the League up all night arguing. I'll say no more in a city of elves." } },
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Now there's a name to make an archaeologist's hands shake, {g:lad|lass}. Old walls in Silithus with carvings nobody can read, and the night elves won't talk about them, which is the best sign of all." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's got the finest library in the human kingdoms and a lock on every door. I've written to the Kirin Tor four times, and they've answered once, to say no." } },

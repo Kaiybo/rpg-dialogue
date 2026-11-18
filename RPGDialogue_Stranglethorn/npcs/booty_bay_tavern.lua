@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "If you're looking for the bar, it's behind you, and if you're looking for me, I'd wonder why." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you came in by the side stair this time. Somebody's been paying attention." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde or Alliance makes no difference at my table, since a purse cuts the same either way." },
-    { id = "g_eye_resolved", when = { thread = { id = "bloodsail_eye", state = "resolved" } }, text = "There's a new lad drying cups behind the bar, and he can't read a word, I checked. I find I've nobody to nod to in the evenings now, and I miss it more than I expected." },
+    { id = "g_eye_resolved", when = { thread = { id = "bloodsail_eye", state = "resolved" } }, text = "The Bloodsail's man is gone, and the new lad drying cups behind the bar can't read a word, I checked. I find I've nobody to nod to in the evenings now, and I miss it more than I expected." },
   },
 
   notice = {
@@ -135,7 +135,7 @@ P:NPC {
       lines = { { id = "gs_default", text = "Gossip is the one thing this tavern serves more of than rum, and most of it's worth less. What are you after: the Bloodsail, the Defias, or the folk who sit in here with no colors on at all?" } },
       again = {
         { id = "gs_again", text = "Who else do you want to hear about? I've only so many ears, but they're good ones." },
-        { id = "gs_again2", text = "More? You're as bad as Krazek, though at least you don't charge me for asking." },
+        { id = "gs_again2", text = "More? You're as bad as Krazek upstairs, though at least you don't charge me for asking." },
       },
       choices = {
         { text = "The Bloodsail.", next = "g_bloodsail" },
@@ -156,7 +156,7 @@ P:NPC {
       },
     },
     g_defias = {
-      lines = { { id = "gd_default", text = "Not many, and never openly, but Westfall's coast is a short sail north and the Brotherhood keeps ships of its own. Now and then a lad comes in with a red bandana in his pocket instead of on his face, asking who buys Stormwind silver, and Kebok usually answers before I can." } },
+      lines = { { id = "gd_default", text = "Not many, and never openly, but Westfall's coast is a short sail north and the Brotherhood keeps ships of its own. Now and then a lad comes in with a red bandana in his pocket instead of on his face, asking who buys Stormwind silver, and Kebok, who'll buy anything, usually answers before I can." } },
       choices = {
         { text = "The Brotherhood are traitors, and they should hang for it.", next = "BACK", fx = { align = { order = 1 }, learn = { "defias" } } },
         { text = "Stormwind cheated the masons. I can't blame them much.", next = "BACK", fx = { align = { order = -1 }, learn = { "defias" } } },
@@ -478,7 +478,7 @@ P:NPC {
   greetings = {
     { id = "g_corner", text = "Something you want? Say it quickly, then, because an orc doesn't sit in a goblin tavern for the company." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit down if you're sitting, and keep your voice low." },
-    { id = "g_alliance", when = { faction = "Alliance" }, text = "You're not riding with that marshal, are you? No, you haven't got the boots for it." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "You're not riding with that marshal out of Desolace, are you? No, you haven't got the boots for it." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors. Don't salute me, because I stopped saluting when I struck my sergeant, and I haven't missed it." },
   },
 
@@ -775,7 +775,7 @@ P:NPC {
     },
 
     k_alliance = {
-      lines = { { id = "ka_default", text = "Because you'd have to get him here first, and Booty Bay doesn't hand anyone over to anybody without the Baron's say-so. And because I've told you it wasn't for the Horde, which ought to count for something with you, even if it doesn't count for much." } },
+      lines = { { id = "ka_default", text = "Because you'd have to get him here first, and Booty Bay doesn't hand anyone over to anybody without the Baron's say-so. And because what I did, I didn't do for the Horde, which ought to count for something with you, even if not much." } },
       choices = {
         { text = "The law still matters, even in Booty Bay.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'm no marshal's hound. Your secret stays here.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },

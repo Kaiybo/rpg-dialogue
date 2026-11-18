@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("The Restless Dead"), minLevel = 10 },
           text = "Something's disturbed the tombs in the Hall of Thanes, and the keepers swear they hear the dead walkin' in the vaults. I need someone with a strong arm and a short memory tae go down and settle things." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Restless Dead") },
-          text = "Apparitions, tormented souls, and somethin' wearin' the Anvilmar name that ought tae be dust. Put them all back down, and mind the carvings while you do it." },
+          text = "Apparitions, tormented souls, and somethin' wearin' the Anvilmar name that ought tae be dust, all down in the Hall of Thanes. Put them back down, and mind the carvings while you do it." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Restless Dead"), days = 3 } },
           text = "It's done, then, and the keepers can stop refusin' tae do their duty on account of angry dead. I've already had two of them back at work this mornin', and only one of them fainted." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Restless Dead") },
@@ -83,7 +83,7 @@ P:NPC {
     },
     hall_families = {
       lines = {
-        { id = "hf_default", text = "Bronzebeards, of course, and the Anvilmars, who sat the high throne before the clans split and still have their seat in the Senate. There's a whole rest of Anvilmar dead down there, and the eldest of them was never a quiet sleeper." },
+        { id = "hf_default", text = "Bronzebeards, of course, and the Anvilmars, one of the oldest clans in the mountain, and a hundred lesser families besides. There's a whole row of Anvilmar dead down there, and the eldest of them was never a quiet sleeper." },
       },
       choices = {
         { text = "The clans split? Tell me about it.", next = "hall_war" },
@@ -105,7 +105,7 @@ P:NPC {
         { id = "hb_default", text = "To the lowest vault, once, with a lamp and a younger set of knees. It's cold and it's dark and it smells of old stone, and I never once heard a ghost, so you'll understand why I find all this talk tryin'." },
       },
       choices = {
-        { text = "And now?", next = "woke" },
+        { text = "So what woke them now?", next = "woke" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +114,7 @@ P:NPC {
       lines = {
         { id = "wo_default", text = "Noise, I'd say, and plenty of it. The spirits are light sleepers, and somethin' down in the deep vaults has been diggin' and bangin' where nobody's dug in centuries." },
         { id = "wo_map", when = { questDone = TODO_QUEST("Underground Map") },
-          text = "You've seen that Wildhammer's map, haven't you? Dark Iron tunnels, right under my vaults, and the dead woke up cross because of it, which is exactly how I'd feel." },
+          text = "You've seen the map of those tunnels, haven't you? Dark Iron diggings, right under my vaults, and the dead woke up cross because of it, which is exactly how I'd feel." },
       },
       choices = {
         { text = "Dark Irons, under Ironforge?", next = "woke_dark" },
@@ -124,7 +124,7 @@ P:NPC {
     },
     woke_dark = {
       lines = {
-        { id = "wd_default", text = "Mole machines, the gnome says, and for once I believe him. If Thaurissan's lot can dig under the High Seat, they can dig anywhere, and nobody up here wants tae think about that.",
+        { id = "wd_default", text = "Mole machines, Thom Filch says, and for once I believe that gnome. If Thaurissan's lot can dig under the High Seat, they can dig anywhere, and nobody up here wants tae think about that.",
           fx = { learn = { "dark_iron" } } },
       },
       choices = {
@@ -136,7 +136,7 @@ P:NPC {
       lines = {
         { id = "wk_default", text = "Someone has, I'm told, and he's not pleased. There's a commander down there by the sound of it, and if you're the sort who goes lookin' for commanders, the King will want his head more than I want my quiet." },
         { id = "wk_done", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
-          text = "And you brought it tae him, I hear, the Dirgehammer fellow's head in a sack. The King sent me a note sayin' the lower vaults are tae be sealed and walled, and I've never been so glad tae lose access tae my own records." },
+          text = "And you brought it tae him, I hear, the Dark Iron commander's head in a sack. The King sent me a note sayin' the lower vaults are tae be sealed and walled, and I've never been so glad tae lose access tae my own records." },
       },
       choices = {
         { text = "I'll see to it.", next = "BACK" },
@@ -377,7 +377,7 @@ P:NPC {
     },
     heirlooms_sold = {
       lines = {
-        { id = "hs_default", text = "Sold? Sold! I'd never, not to just anybody. There are collectors in Gadgetzan who'd pay a fortune for a dwarven goblet, I'm told, by people, not that I'd know any of them." },
+        { id = "hs_default", text = "Sold? Sold! I'd never, not to just anybody. There are collectors in Gadgetzan who'd pay a fortune for a dwarven goblet, or so I'm told, not that I'd know any of them." },
       },
       choices = {
         { text = "The dead's goods belong to the dead.", next = "BACK", fx = { align = { honor = 1 } } },

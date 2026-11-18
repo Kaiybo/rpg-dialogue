@@ -45,7 +45,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bears in the hills and boars along the shore, but the best sport is the kobolds, for they scurry like rats and bite like them too. When I was your age I'd bag a dozen before breakfast, and I'll thank you not to check that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a fine tracker. Point it at the mine's mouth and it'll smell the candle wax before you see a single kobold." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bears in the hills and boars along the shore, but the best sport is the kobolds, for they scurry like rats and bite like them too. Your {pet} has the look of a fine tracker. Point it at the mine's mouth and it'll smell the candle wax before you see a single kobold." },
       },
       choices = {
         { text = "I hunt for the valley's sake, not for the boasting.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -58,7 +58,7 @@ P:NPC {
         { id = "xro_default", text = "Quiet's well and good in a tunnel, I'll grant ye, for the vermin hear a mail shirt comin' a mile off. In the Second War we had a few of your sort scoutin' the Horde's camps, and half of them came back with better stories than mine." },
       },
       choices = {
-        { text = "I'll cut down the foreman before the rest wake.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll cut down their leader before the rest wake.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'll face them openly. Vermin or not, it's a fair fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What's in the mine, exactly?", next = "mine" },
       },
@@ -103,7 +103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Stormpike, an' I've held this valley against worse than kobolds in my day, by my beard. Still, the vermin in the Silver Stream Mine have got to go, and I've only two hands." },
+          text = "I'm Mountaineer Stormpike, an' I've held this valley against worse than kobolds in my day, by my beard. Still, the vermin in the Silver Stream Mine have got to go, and I've only two hands." },
         { id = "h_paws", when = { questActive = TODO_QUEST("Filthy Paws") },
           text = "The kobolds took our mining gear into the Silver Stream Mine, up north. Get it back before they dull every pick we own." },
         { id = "h_order", when = { questActive = TODO_QUEST("Stormpike's Order") },
@@ -179,7 +179,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     stories = {
-      lines = { { id = "s_default", text = "Kadrell talks too much, but he's no' wrong. I fought orcs in this valley in the Second War, when they held the dam and we took it back stone by stone." } },
+      lines = { { id = "s_default", text = "Mountaineer Kadrell talks too much, but he's no' wrong. I fought orcs in this valley in the Second War, when they held the dam and we took it back stone by stone." } },
       choices = {
         { text = "What was that like?", next = "stories_war" },
         { text = "Something else.", next = "BACK" },
@@ -190,7 +190,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     loch = {
-      lines = { { id = "l_default", text = "Troggs to the south, kobolds to the north and Dark Irons sniffin' round the dam. It's a fine place, mind, and that's why it's worth the trouble." } },
+      lines = { { id = "l_default", text = "There's troggs to the south, kobolds to the north and Dark Irons sniffin' round the dam. It's a fine place, mind, and that's why it's worth the trouble." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     warrior = {
@@ -265,7 +265,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bears and boars, and the odd buzzard picking at whatever the troggs leave behind. But it's the troggs I'd have you track, for they come up from the Badlands by trails I've never found, and I'd dearly like to know where." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours could follow a trogg's stink back to its hole, I'd wager, and then we'd know where they're coming from." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bears and boars, and the odd buzzard picking at whatever the troggs leave behind. That {pet} of yours could follow a trogg's stink back to its hole, I'd wager, and then we'd know where they're coming from." },
       },
       choices = {
         { text = "I'll follow the trail to their hole and face them there.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -315,9 +315,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Cobbleflint, an' this tower watches the pass south to the Badlands. The troggs swarm the hills round here like ants on a dropped pie, an' they've about as much sense." },
+          text = "I'm Mountaineer Cobbleflint, an' this tower watches the pass south to the Badlands. The troggs swarm the hills round here like ants on a dropped pie, an' they've about as much sense." },
         { id = "h_def", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
-          text = "Stonesplinter troggs, out in the hills round the gate. Thin them out for me, an' the King's Lands will be a wee bit safer tonight." },
+          text = "The Stonesplinter troggs are out in the hills round the gate, so thin them out for me, an' the King's Lands will be a wee bit safer tonight." },
         { id = "h_done", when = { questDone = TODO_QUEST("In Defense of the King's Lands") },
           text = "The hills are quieter since ye went through them, and my lads are sleepin' sound for once." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, for I need a shield on the south wall more than I need another letter from Ironforge." },
@@ -357,7 +357,7 @@ P:NPC {
       },
     },
     troggs_league = {
-      lines = { { id = "tl_default", text = "Ironband's dig near the dam turned up more of them than old stones, so ask him. He'll talk yer ear off about Titans, but there's sense in it somewhere." } },
+      lines = { { id = "tl_default", text = "Prospector Ironband's dig east o' the loch turned up more of them than old stones, so ask him. He'll talk yer ear off about Titans, but there's sense in it somewhere." } },
       choices = {
         { text = "They're beasts. Kill them and be done with it.", next = "troggs_end", fx = { align = { light = -1 } } },
         { text = "If they're kin to us somehow, we should learn why.", next = "troggs_end", fx = { align = { light = 1 } } },
@@ -386,7 +386,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Can't help ye there, but somebody in Thelsamar might know." } },
     troggs = { { id = "tp_troggs", text = "Troggs come up out o' the ground faster than we can put them back. Ask in Thelsamar where they came from, for I only know where they're goin'." } },
     magni = { { id = "tp_magni", text = "We serve King Magni from this tower, an' he's a good king. Somebody in Thelsamar can tell ye more about him than a gatekeeper can." } },
-    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons skulk about near the dam, I hear, but I've only seen troggs on my stretch. Ask Kadrell; he keeps the posters." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons skulk about near the dam, I hear, but I've only seen troggs on my stretch. Ask Mountaineer Kadrell in Thelsamar; he keeps the posters." } },
   },
 }
 
@@ -485,7 +485,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Rockgar, and this is Algaz Station, the last friendly roof before the Wetlands. North of here there's trolls in the hills, orcs in the marsh and mud up to yer knees." },
+          text = "I'm Mountaineer Rockgar, and this is Algaz Station, the last friendly roof before the Wetlands. North of here there's trolls in the hills, orcs in the marsh and mud up to yer knees." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Mountaineer Rockgar") },
           text = "Kadrell sent ye, did he? Good, I've been short of able hands since the pass got busy." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -537,7 +537,7 @@ P:NPC {
       },
     },
     pass_few = {
-      lines = { { id = "pf_default", text = "Stubbornness, mostly, and a good wall. Ironforge sends what it can, but Gnomeregan and the Dark Irons take the rest." } },
+      lines = { { id = "pf_default", text = "It takes stubbornness, mostly, and a good wall. Ironforge sends what it can, but Gnomeregan and the Dark Irons take the rest." } },
       choices = {
         { text = "Ironforge should hold its borders before anything else.", next = "pass_end", fx = { align = { honor = 1 } } },
         { text = "Then cut what corners you must to survive.", next = "pass_end", fx = { align = { honor = -1 } } },
@@ -545,11 +545,11 @@ P:NPC {
       },
     },
     pass_end = {
-      lines = { { id = "pe_default", text = "Hands, and ye've got two of them. Travel the pass in pairs if ye can, and keep to the road." } },
+      lines = { { id = "pe_default", text = "I need hands, and ye've got two of them. Travel the pass in pairs if ye can, and keep to the road." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     wetlands = {
-      lines = { { id = "w_default", text = "Menethil Harbor on the far coast, and the Dragonmaw orcs at Grim Batol behind it. Between them, there's crocolisks the size of rowboats." } },
+      lines = { { id = "w_default", text = "There's Menethil Harbor on the far coast, and the Dragonmaw orcs at Grim Batol behind it. Between them, there's crocolisks the size of rowboats." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     station = {
@@ -628,7 +628,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, I should think so! The crocolisks on the shore swallow anything shiny, so my hammer is probably inside one of them, and the kobolds took the rest toward the hills, leaving tracks even I could follow if I knew how to follow tracks." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does your {pet} eat crocolisk? Only, if it does, you could feed it and fetch my hammer in the same afternoon, which is very efficient." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, I should think so, for the crocolisks on the shore swallow anything shiny, and my hammer is probably inside one of them. Does your {pet} eat crocolisk? If it does, you could feed it and fetch my hammer in the same afternoon, which is very efficient." },
       },
       choices = {
         { text = "I'll follow the tracks carefully and bring everything back.", next = "BACK", fx = { align = { order = 1 } } },
@@ -679,7 +679,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Bingles Blastenheimer, inventor, and I'm on a very important geological survey for Gnoarn. Unfortunately, my supplies have wandered off around the loch, and I can't take a single measurement without them." },
+          text = "I'm Bingles Blastenheimer, inventor, and I'm on a very important geological survey for Gnoarn, my colleague in Tinker Town. Unfortunately, my supplies have wandered off around the loch, and I can't take a single measurement without them." },
         { id = "h_find", when = { questActive = TODO_QUEST("Find Bingles") },
           text = "Gnoarn sent you? Oh, wonderful, he does worry so, and I'm perfectly fine apart from the tools." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("Bingles' Missing Supplies") },
@@ -751,6 +751,6 @@ P:NPC {
     gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan! Oh, the workshops were marvellous, and now they're full of troggs and worse, so I've set up beside a lake. Lakes are very nice, though, very reflective." } },
     magni = { { id = "tp_magni", text = "King Magni let us gnomes live in Ironforge after we lost our city, which was terribly kind of him, though his dwarves do complain about the noise. And the smoke, and the occasional small fire." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a gnome who makes clockwork toys, and I've always wanted to borrow his gears to see how they spin. I'd return them, mostly, eventually." } },
-    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "The dam is a lovely bit of engineering, and Hinderweir won't let me near it with anything that goes bang. I can't think why!" } },
+    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "The dam is a lovely bit of engineering, and Chief Engineer Hinderweir won't let me near it with anything that goes bang. I can't think why!" } },
   },
 }

@@ -59,8 +59,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because every scout in the Plaguelands shoots at shadows, and the shadows here are usually worth shooting. The fletchers are working day and night, but good feathers are hard to come by when the birds fall out of the sky with plague." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And I'll thank you to keep {pet} off the sacks of meal, {class}. They're entered in the ledger as feed for soldiers, and I'd hate to rewrite the ledger." },
+        { id = "xhuntcl_default", text = "Because every scout in the Plaguelands shoots at shadows, and the shadows here are usually worth shooting. The fletchers are working day and night, but good feathers are hard to come by when half the birds are plagued." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every scout in the Plaguelands shoots at shadows, and the shadows here are usually worth shooting. The fletchers are working day and night, but good feathers are hard to come by when half the birds are plagued. And I'll thank you to keep {pet} off the sacks of meal, {class}." },
       },
       choices = {
         { text = "I'll gather my arrows and keep an honest count of what I take.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -248,7 +248,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something, mange or worse, and they stink to the treeline." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine coat on {pet}, {class}, and I'm a leatherworker, so I'll say that once and never again. Keep it away from the Felstone wolves, for their sickness gets into the fur first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something, mange or worse, and they stink to the treeline. That's a fine coat on {pet}, {class}, and I'm a leatherworker, so I'll say that once and never again." },
       },
       choices = {
         { text = "Then I'll leave the last clean packs alone to breed.", next = "BACK", fx = { align = { light = 1 } } },

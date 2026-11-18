@@ -39,15 +39,15 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "It came from a dwarf, and the dwarf came from Ironforge, and that's close enough for a traveling man. It sharpens, it hasn't snapped on anybody yet, and I'll not charge you Ironforge prices for it." } },
       choices = {
         { text = "I'll take it, and I'll take your word.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll take it, but I'll not believe a word.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll take it, but I don't believe a word of that.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Only the once, and the man said it was a coincidence, so I've decided to believe him. Hunters like a story with their goods, and that's the best one I've got this week." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} perked its ears at the call! Either it knows the tune, or it's as alarmed as I was." },
+        { id = "xhuntcl_default", text = "It brought wolves only the once, and the man who carved it swore that was coincidence, so I've decided to believe him. Hunters like a story with their goods, and that's the best one I've got this week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It brought wolves only the once, and the man who carved it swore that was coincidence, so I've decided to believe him. Your {pet} perked its ears at the call, though, so either it knows the tune or it's as alarmed as I was." },
       },
       choices = {
         { text = "I'll hunt without tricks, thank you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -114,7 +114,7 @@ P:NPC {
         { text = "Let's see what you carry.", next = "BUSINESS" },
         { text = "The road must be dangerous for a man alone.", next = "danger" },
         { text = "You'd do better with a shop in town.", next = "shop" },
-        { text = "Where did a crystal from Duskwood come from?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Where did you come by that humming crystal, Antonio?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are you afraid of my demon, Antonio?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I doubt your whetstone is really from Ironforge, Perelli.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "They say your deer call brings the wolves.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -141,7 +141,7 @@ P:NPC {
       },
     },
     shop = {
-      lines = { { id = "s_default", text = "A shop sits still, and customers have to come to it. I'd rather go to them, and besides, Farley would charge me rent for a corner of his inn." } },
+      lines = { { id = "s_default", text = "A shop sits still, and customers have to come to it. I'd rather go to them, and besides, Farley would charge me rent for a corner of the Lion's Pride." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scrolls of agility, mostly, and the odd flask for a long night in the hills. Hunters who come up here usually want something for the eye and the hand, and they never stay long enough to sit." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing at the reagent shelf, so do call it back. Some of those powders make a nose very unhappy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scrolls of agility, mostly, and the odd flask for a long night in the hills. Your {pet} is sniffing at the reagent shelf, though, and some of those powders make a nose very unhappy." },
       },
       choices = {
         { text = "A steady hand matters more than any scroll, I think.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -103,7 +103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up all those stairs in plate! Sit down a moment, because Theocritus won't offer you a chair, and I won't tell him I did." },
-        { id = "h_default", text = "Dawn Brightstar. I keep the tower's stores and sell what we can spare to whoever climbs this far, which is mostly alchemists after empty vials and travellers after a scroll to see them home." },
+        { id = "h_default", text = "I'm Dawn Brightstar, and I keep the tower's stores and sell what we can spare to whoever climbs this far, which is mostly alchemists after empty vials and travellers after a scroll to see them home." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "Oh, a gnome who isn't carrying a tray! Forgive me; the tower's servants are your people, and I forget there are gnomes who aren't sweeping our stairs." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, up here among the scrolls? We don't get many of the Cathedral's people, though Master Theocritus would say the Light and the arcane are cousins who don't speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -152,7 +152,7 @@ P:NPC {
       },
     },
     gnomes = {
-      lines = { { id = "gn_default", text = "The Servants of Azora, he calls them. They came to him after their city fell, and they cook, clean and carry in exchange for a roof and a quiet place to tinker, and I'd be lost without them." } },
+      lines = { { id = "gn_default", text = "The Servants of Azora, he calls them. They came to him after Gnomeregan fell, and they cook, clean and carry in exchange for a roof and a quiet place to tinker, and I'd be lost without them." } },
       choices = {
         { text = "They seem content enough here.", next = "gnomes_happy" },
         { text = "Something else.", next = "BACK" },
@@ -167,7 +167,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mage = {
-      lines = { { id = "m_default", text = "Buy scrolls you understand before scrolls you admire, and carry a spare vial for water you can trust. Kitta downstairs will tell you the same, though she'll take longer about it." } },
+      lines = { { id = "m_default", text = "Buy scrolls you understand before scrolls you admire, and carry a spare vial for water you can trust. Kitta Firewind, who teaches enchanting downstairs, will tell you the same, though she'll take longer about it." } },
       choices = {
         { text = "Practical advice. Thank you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -246,7 +246,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, all sorts, a sharper eye or a steadier string, though Theocritus says I'm too eager to try things on other people's weapons. Bring me one someday and we'll find out together." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! I wonder whether a collar could take an enchantment, though I suspect it would rather you didn't try." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, all sorts, a sharper eye or a steadier string, so bring me a bow someday and we'll find out together. And your {pet}! I wonder whether a collar could take an enchantment, though I suspect it would rather you didn't try." },
       },
       choices = {
         { text = "I'll trust my own aim before any enchantment.", next = "BACK", fx = { align = { order = 1 } } },
@@ -294,7 +294,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have you ever wondered whether a blessing and an enchantment are really so different? I have, constantly, and nobody up here will discuss it with me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'd give a week's dust to enchant a hammer like yours, though I suspect it's already got something in it that I couldn't improve." },
-        { id = "h_default", text = "Kitta Firewind, and I teach enchanting, which is the finest craft there is, whatever the blacksmiths say. If you've come to learn, you've climbed to exactly the right floor." },
+        { id = "h_default", text = "I'm Kitta Firewind, and I teach enchanting, which is the finest craft there is, whatever the blacksmiths say. If you've come to learn, you've climbed to exactly the right floor." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "A night elf! Your people never did care for our sort of magic, did they? I'd love to know what you think of it, even if you think it's dreadful." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior! You'll want your sword to cut a little deeper, I expect, and that's where an enchanter comes in, so you'll be glad you climbed the stairs." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -316,7 +316,7 @@ P:NPC {
         { text = "Why teach in this tower?", next = "tower" },
         { text = "Where do I get the materials?", next = "dust" },
         { text = "The arcane seems a dangerous thing to toy with.", next = "danger" },
-        { text = "Then every mage ought to learn enchanting.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should every mage learn enchanting, Kitta?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'd guess fel magic ruins an enchantment.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could an enchantment really make my sword cut deeper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would an enchanter do to a hunter's bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -355,7 +355,7 @@ P:NPC {
       },
     },
     dust = {
-      lines = { { id = "d_default", text = "From anything with a green or blue shimmer to it that you don't mean to keep. Bring me a few and I'll show you how to unmake them, and Dawn upstairs sells the vials and odds and ends you'll want later." } },
+      lines = { { id = "d_default", text = "From anything with a green or blue shimmer to it that you don't mean to keep. Bring me a few and I'll show you how to unmake them, and Dawn Brightstar upstairs sells the vials and odds and ends you'll want later." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger = {

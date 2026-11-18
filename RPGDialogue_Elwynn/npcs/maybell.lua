@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hush", text = "Shh, not so loud, please! They'll hear you up at the house." },
-    { id = "g_news", when = { questActive = TODO_QUEST("Young Lovers") }, text = "Did you find him? Oh, tell me he's all right." },
+    { id = "g_news", when = { questActive = TODO_QUEST("Young Lovers") }, text = "Did you find Tommy Joe? Oh, tell me he's all right." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "Oh! It's you, hello. I'm not blushing, it's only the sun." },
   },
 
@@ -61,7 +61,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "No, nobody, not really. It's only that the murlocs sometimes come up the bank at dusk, and I'm meant to be counting grapes, and nobody would think to look for me if they got me." } },
+      lines = { { id = "xwarcl_default", text = "No, nothing, not really. It's only that the murlocs sometimes come up the bank at dusk, and I'm meant to be counting grapes, and nobody would think to look for me if they got me." } },
       choices = {
         { text = "I'll keep watch by the river while you're there.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You shouldn't be out there at all, Maybell.", next = "BACK", fx = { align = { order = -1 } } },
@@ -72,7 +72,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "No reason, no reason at all, only that sometimes a girl wants to walk by the river without her whole family knowing. You must know which way the wind blows and where the brambles are thinnest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, look at {pet}! If it came with me to the river, I'd never be frightened of the murlocs again." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No reason at all, only that sometimes a girl wants to walk by the river without her whole family knowing. Oh, and look at {pet}! If it came with me to the river, I'd never be frightened of the murlocs again." },
       },
       choices = {
         { text = "I'll not help you sneak about, Maybell.", next = "BACK", fx = { align = { order = 1 } } },
@@ -111,21 +111,21 @@ P:NPC {
         { id = "h_pt_maybell", tags = { "news" }, when = { party = { race = "Human", gender = "male" } },
           text = "Is that your companion? {companion} is very handsome, if you don't mind me saying, though not as handsome as Tommy Joe, and please don't tell my father I said either of those things." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You won't tell Pa I've been at the river, will you? You've got an honest face, and that's the trouble with honest faces." },
-        { id = "h_default", text = "Maclures and Stonefields don't speak. That's the rule, older than me. I've never been very good at rules." },
+        { id = "h_default", text = "Maclures and Stonefields don't speak; that's the rule, and it's older than me. I've never been very good at rules." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Young Lovers") },
           text = "There's someone across the river I'm not allowed to see. If anyone asks, I'm out here counting grapes." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Young Lovers") },
-          text = "He'll be down by the river near the Stonefield farm. Tell Tommy Joe I'm thinking of him, and please don't let anyone hear you say it." },
+          text = "Tommy Joe will be down by the river near the Stonefield farm. Tell him I'm thinking of him, and please don't let anyone hear you say it." },
         { id = "h_waiting", when = { questDone = TODO_QUEST("Young Lovers"), questBefore = TODO_QUEST("The Escape") },
-          text = "He spoke to his Gramma? Oh, either that's very good news or very, very bad, and I can't tell which." },
+          text = "Tommy Joe spoke to his Gramma? Oh, either that's very good news or very, very bad, and I can't tell which." },
         { id = "h_escape", tags = { "news" }, when = { questActive = TODO_QUEST("The Escape") },
           text = "Is that it, the potion? My hands are shaking, so give it here quickly before I lose my nerve." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
-          text = "I keep waiting for someone to catch me. Then I think of him, and I find I don't much care." },
+          text = "I keep waiting for someone to catch me, and then I think of Tommy Joe, and I find I don't much care." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Escape"), days = 7 } },
-          text = "I hate lying to my family, I really do. But it's a smaller lie than pretending I don't love him." },
+          text = "I hate lying to my family, I really do, but it's a smaller lie than pretending I don't love him." },
         { id = "h_far", when = { minLevel = 25, questDone = TODO_QUEST("The Escape") },
-          text = "You came all the way back here? From wherever adventurers go? Then you should know: nobody's caught us yet." },
+          text = "You came all the way back here, from wherever adventurers go? Then you should know that nobody's caught Tommy Joe and me yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Oh, a druid! Are you one of those who can talk to the animals? I've always wondered if the cows have opinions." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -163,7 +163,7 @@ P:NPC {
 
     feud = {
       lines = {
-        { id = "f_default", text = "I asked once, when I was twelve, and got sent to bed without supper for it. I've stopped asking since." },
+        { id = "f_default", text = "Nobody will tell me. I asked once, when I was twelve, and got sent to bed without supper for it, so I've stopped asking." },
       },
       choices = {
         { text = "Does anyone remember why it started?", next = "feud_why" },
@@ -194,7 +194,7 @@ P:NPC {
     },
     tommy_meet = {
       lines = {
-        { id = "tm_default", text = "Across a fence. That's all I'll say, or I'll go red, and Billy will see, and ask why, and then the whole vineyard knows." },
+        { id = "tm_default", text = "Across a fence, and that's all I'll say, or I'll go red, and Billy will see, and ask why, and then the whole vineyard knows." },
       },
       choices = {
         { text = "I won't press.", next = "BACK", fx = { affinity = 1 } },
@@ -218,7 +218,7 @@ P:NPC {
       lines = {
         { id = "b_default", text = "My little brother, and the worst-kept secret-keeper in Elwynn. If Billy ever finds out about Tommy Joe, the vineyard hears it by supper." },
         { id = "b_necklace", when = { questDone = TODO_QUEST("Lost Necklace") },
-          text = "And now Auntie Bernice thinks he stole her necklace, which he didn't, probably. He's been very nice to me all week, though, and that's a bad sign." },
+          text = "And now Bernice Stonefield thinks Billy stole her necklace, which he didn't, probably. He's been very nice to me all week, though, and that's a bad sign." },
       },
       choices = {
         { text = "Did he take it?", next = "billy_took", when = { questDone = TODO_QUEST("Lost Necklace") } },
@@ -259,7 +259,7 @@ P:NPC {
     },
     escape_guilt = {
       lines = {
-        { id = "eg_default", text = "It sits with me at supper. But I'd rather feel guilty and have him than feel nothing at all." },
+        { id = "eg_default", text = "It sits with me at supper, but I'd rather feel guilty and have him than feel nothing at all." },
       },
       choices = {
         { text = "That's honest.", next = "BACK", fx = { affinity = 1 } },
@@ -334,13 +334,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I don't get much past the vineyard, but you'd be surprised what people say over the grapes. Ask me about any of this, only quietly, please." },
     },
-    background = { { id = "tp_bg", text = "I'm a Maclure. I grew up in the vines. That's all there is, apart from one boy across the river, and I'm not telling you about him." } },
+    background = { { id = "tp_bg", text = "I'm a Maclure, and I grew up in the vines, and that's all there is, apart from one boy across the river, and I'm not telling you about him." } },
     advice = { { id = "tp_ad", text = "If you love someone, find a friend who can keep a secret. Then find a second one, in case the first is Billy." } },
     maybell_tommy = {
       { id = "tp_us", text = "Is it that obvious? Don't answer that, I know it is." },
       { id = "tp_us2", text = "Him? He's... oh, ask me properly and I'll tell you.", next = "tommy" },
     },
-    lions_pride = { { id = "tp_inn", text = "William Pestle works out of the inn. He's kind to me, and he never asks questions." } },
+    lions_pride = { { id = "tp_inn", text = "William Pestle works out of the inn, and he's kind to me, and he never asks questions." } },
     kobolds = { { id = "tp_kobolds", text = "Billy plays near the mines, though I've told him not to. It's like telling the sun not to come up." } },
     _none = { { id = "tp_none", text = "I'm sorry, I only know about grapes and one boy across the river." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire is the one week Pa doesn't watch the river, because he's too busy selling wine. I'm not saying what I do with that week, only that I like the Faire very much." } },

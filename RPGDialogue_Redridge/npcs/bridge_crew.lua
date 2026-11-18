@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Gnolls, mostly, with their dogs, sniffing round the stone piles for tools to steal. And there's a great boar that roots about the lake shore, Bellygrub the children call him, who's knocked over two of my scaffolds already." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is eyeing my lunch, {class}, and I'll not share it with a beast, though I might share it with you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Gnolls, mostly, with their dogs, and a great boar the children call Bellygrub, who's knocked over two of my scaffolds already. Your {pet} is eyeing my lunch, {class}, and I'll not share it with a beast, though I might share it with you." },
       },
       choices = {
         { text = "I'll keep the gnolls off your stone piles.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -177,7 +177,7 @@ P:NPC {
     },
   },
   topics = {
-    stonemasons = { { id = "tp_stonemasons", text = "I learned my trade beside men who later joined the Stonemasons' Guild in Stormwind, and some of them went west and wore red after the nobles stiffed them. I don't defend them, but I know what unpaid work does to a man." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I learned my trade beside men who later joined the Stonemasons' Guild in Stormwind, and some of them went west and joined the Defias after the nobles refused to pay them. I don't defend them, but I know what unpaid work does to a man." } },
     thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span to last a thousand years, and they did it without a foreman shouting at them, which I'd like Oslow to hear. Now the Dark Irons have been blowing chunks out of it, and that is a sin against good masonry." } },
     second_war = { { id = "tp_second_war", text = "Half this valley was rebuilt after the Second War with hands like mine, and I remember laying stone over ash. I'd sooner the Everstill Bridge were the last thing I build for the orcs to burn." } },
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I carried stone for the gate at the Valley of Heroes when I was younger than Jess is now. The statues came later, from finer hands than mine, and I still look up at them when I'm in the city." } },
@@ -232,7 +232,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only from the bridge, but I've seen condors as big as a cart, and boars with tusks like scythes, and once a spider the size of my head! The foreman says I imagine half of it, but I didn't imagine the spider." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can I pet your {pet}? Just once? I'll be careful, I promise, and if it bites me I won't tell the foreman." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only from the bridge, but I've seen condors as big as a cart and once a spider the size of my head! Can I pet your {pet}? Just once? I'll be careful, I promise." },
       },
       choices = {
         { text = "Watch the beasts from the bridge, Jess. That's the safe way.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -259,7 +259,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I think so, I hope so, though Dmitri says the hoping is the part that matters and the standing comes after. I carried a stone right up the scaffold the last time the horns blew, and I didn't drop it, so that's something, isn't it?" } },
+      lines = { { id = "xapala_default", text = "I hope so, and Dmitri says the hoping is how the standing starts. I carried a stone right up the scaffold the last time the horns blew, and I didn't drop it, so that's something, isn't it?" } },
       choices = {
         { text = "That's courage, Jess. Stand by your crew and you'll do fine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Run if they come. A dead hero builds no bridges.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -279,7 +279,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I'm Jess, and I carry stone for Foreman Oslow, which isn't very exciting, but it's for the bridge, and the bridge is important. Everyone says so, especially the foreman." },
         { id = "h_bridge", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "You're the one who got our iron back from the gnolls! I told everyone at the inn about it, and I made it sound even better than it was, I hope you don't mind." },
-        { id = "h_rogue", when = { class = "ROGUE" }, text = "Are you one of Lucius's lot from down on the docks? I'm not supposed to know about them, so please forget I asked." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Are you one of Lucius's lot? He teaches the quiet trade down on the docks, and I'm not supposed to know about it, so please forget I asked." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! A real one, with real armour and everything! Is it heavy? It looks heavy, but I suppose you're used to it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! With a real beast and everything! Can it do tricks? I bet it can do tricks, and I bet it bites gnolls." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Are you here to bless the bridge? Somebody should, because Dmitri says it's cursed, though I think he's only joking." },
@@ -329,7 +329,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     oslow = {
-      lines = { { id = "os_default", text = "He shouts a lot, but he's never once let anyone work on the edge without a rope. Trent says he bought him an ale for a straight stone once, and I've been trying to lay a straight one ever since." } },
+      lines = { { id = "os_default", text = "He shouts a lot, but he's never once let anyone work on the edge without a rope. Trent says Oslow once bought him an ale for laying a straight stone, and I've been trying to lay a straight one ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     adventure = {

@@ -112,7 +112,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. A hunter who remembers that will never want for a loyal companion, and the Horde could stand to remember it too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely. Treat it as kin, {class}, and it will stand by you when others will not." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely, so treat it as kin, {class}." },
       },
       choices = {
         { text = "My companion is my equal, Warchief, not my servant.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -161,7 +161,7 @@ P:NPC {
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "A full war band at my door, and every one of you armed. When I was a slave in Durnholde I dreamed of orcs gathering like this by their own choice and not at a warlord's order, so forgive me if I look at you a moment longer than I should." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
-          text = "You travel with one of Sylvanas's people, I see. Some of my warriors still make the sign against the dead when the Forsaken pass, and I would rather they learned from you than from me." },
+          text = "You travel with one of Sylvanas's people, I see. Some of my warriors still make the sign against the dead when the Forsaken pass, and I would rather they learned better by watching the two of you than by hearing it from me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Darkspear brought their healers across the sea with them, and now the Forsaken bring theirs from Lordaeron, and I am still learning what each of them prays to." },
         { id = "h_default", key = true,
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
@@ -170,7 +170,7 @@ P:NPC {
         { id = "h_op_soft", when = { gossip = { topic = "warchief", stance = "soft" } },
           text = "I'm told you think your Warchief has gone soft. Say it to me, if you believe it, because I'd rather hear it in this hall than have it muttered in the Drag." },
         { id = "h_garthok", when = { heardLine = "garthok.h_default" },
-          text = "You've reported to Gar'Thok at Razor Hill. Nazgrel trained him well, and I sleep easier knowing he holds the crossroads." },
+          text = "You've reported to Gar'Thok at Razor Hill. Nazgrel trained him well, and I sleep easier knowing he holds Razor Hill." },
         { id = "h_cl_rend", tags = { "news" }, when = { killed = { name = "Rend Blackhand" }, faction = "Horde" }, text = "Word has come down from Blackrock that Rend Blackhand is dead. He called himself Warchief and called my Horde a pack of slaves, and I hope he understood at the end who had sent you." },
         { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You've been to the bottom of Ragefire Chasm and come back up the stairs, and the Searing Blade will think twice before they light another fire under my city." },
         { id = "h_hidden", tags = { "news" }, when = { questActive = TODO_QUEST("Hidden Enemies") },
@@ -182,7 +182,7 @@ P:NPC {
         { id = "h_plague_soured", tags = { "news" }, when = { thread = { id = "new_plague", state = "soured" } },
           text = "A plague is a plague, you told me, and I haven't stopped hearing it. Every rider from Lordaeron gets a longer hearing in this hall than they used to." },
         { id = "h_neeru", when = { heardLine = "neeru.h_default" },
-          text = "The Cleft, was it? Neeru Fireblade is very helpful, isn't he? Keep being helpful back, quietly, and tell me what he says." },
+          text = "You've met Neeru Fireblade down in the Cleft, I hear. He's very helpful, isn't he? Keep being helpful back, quietly, and tell me what he says." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "The Windshapers, then. The Earthen Ring vouched for you and the tauren took you in, and that's good enough for me. Welcome to the Horde." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome to my hall, druid. Cairne's people taught mine more about this land than we would ever have learned alone, and I count every tauren in Orgrimmar as kin." },
@@ -500,7 +500,7 @@ P:NPC {
       },
     },
     sylvanas_truth = {
-      lines = { { id = "st_default", text = "Trust is the wrong word, and I wouldn't say this in front of Vol'jin, who already says it for me. I believe she hates the Lich King more than anything alive or dead, but I don't know what she'll want once that hatred is spent, and her apothecaries brew plague beneath Lordaeron, and a plague is a plague whoever it's aimed at. I watched the last one empty a kingdom." } },
+      lines = { { id = "st_default", text = "Trust is the wrong word, though Vol'jin says so more loudly than I would. I believe she hates the Lich King more than anything alive or dead, but her apothecaries brew plague beneath Lordaeron, and a plague is a plague whoever it's aimed at, because I watched the last one empty a kingdom." } },
       choices = {
         { text = "Then why keep her close?", next = "sylvanas_truth2" },
         { text = "I'll say nothing of this, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },
@@ -724,7 +724,7 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've earned straight answers from me, and I'll give you as many as I have." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because a Warchief answers his people, even the ones he isn't sure of yet." },
     },
-    cenarion_circle = { { id = "tp_circle", text = "The tauren walk with them, and I'm glad of it; the world needs more who heal than wound." } },
+    cenarion_circle = { { id = "tp_circle", text = "The tauren walk with the Cenarion Circle, and I'm glad of it; the world needs more who heal than wound." } },
     wailing_caverns = { { id = "tp_caverns", text = "The tauren have told me of something sick under the Barrens. When our young warriors are ready, they'll go in." } },
     burning_blade = { { id = "tp_blade", text = "Some of my own people still kneel to the old fire. They hide better than they think, and not as well as they hope." } },
     echo_isles = { { id = "tp_isles", text = "The Darkspear will have their home back. I gave Vol'jin my word, and I don't give it lightly." } },
@@ -837,7 +837,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "More often than the priests of either would like to admit. Both say the land remember everything you do to it, and both say it don't forgive easy." } },
+      lines = { { id = "dq_default", text = "They agree more often than the priests of either would like to admit. Both say the land remember everything you do to it, and both say it don't forgive easy." } },
       choices = {
         { text = "The old spirits deserve the old respect.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Spirits or not, the Horde does what it must.", next = "BACK", fx = { align = { order = -1 } } },
@@ -998,7 +998,7 @@ P:NPC {
     },
     isles = {
       lines = {
-        { id = "i_default", text = "Zalazane be my friend since we was small, and now he wear our home like a mask. Gadrin work to take it back, and one day we do it, mon. One day." },
+        { id = "i_default", text = "Zalazane be my friend since we was small, and now he hold our home with an army of hexed Darkspear. Master Gadrin in Sen'jin work to take it back, and one day we do it, mon." },
       },
       choices = {
         { text = "I'll help when that day comes.", next = "END", fx = { affinity = 2, learn = { "echo_isles" } } },
@@ -1176,7 +1176,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "I make sure they remember whom they serve, which is more than they'd manage on their own. Your people never had to learn what fel magic does to a land, but we orcs left Draenor dry and dying because of it." } },
+      lines = { { id = "dq_default", text = "I watch them, and I make sure they remember whom they serve, which is more than they'd manage on their own. Your people never had to learn what fel magic does to a land, but we orcs left Draenor dry and dying because of it." } },
       choices = {
         { text = "Fel magic should be forbidden in the Horde.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Power is a tool. Let them use it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1548,7 +1548,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit and tell me where you shot it, because I like to know whose kodo I'm roasting." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "And {pet} wants the bones, I can see it in those eyes. Go on, then, one bone, and don't tell the grunts I'm soft." },
+          text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit, and yes, {pet} can have one bone, but don't tell the grunts I'm soft." },
       },
       choices = { { text = "Out past the Crossroads, in the Barrens.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -1644,7 +1644,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunt? I used to run plainstriders through the grass of Mulgore with my brothers, and I could bring one down faster than any of them. Now the only thing I track is the ale barrel, and Tazan says I'm losing the scent of that too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week. Can it stay a while? It's warmer than the floor." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I used to run plainstriders through the grass of Mulgore with my brothers, faster than any of them. Now I only track the ale barrel, and that {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week." },
       },
       choices = {
         { text = "Get up, Gamon. A hunt would do you good.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1708,7 +1708,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! A dead paladin. I've been knocked down by everything else in this inn, so I suppose you're next, are you?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
         { id = "h_default", key = true,
-          text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again. My herd is a long way off in Mulgore, and it's better they don't see me like this." },
+          text = "I'm Gamon. I help Tazan the troll with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again. My herd is a long way off in Mulgore, and it's better they don't see me like this." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and a bear would round the list off badly." },

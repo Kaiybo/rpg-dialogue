@@ -55,8 +55,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not much, because the beasts here eat things that glow, and I don't trust anything that's been near those old elf ruins. The coursers are clean enough, I think, but the furbolg on the cliff gets cross if you take too many." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} can have the scraps, if it doesn't mind fruit peel, because that's mostly what we've got." },
+        { id = "xhuntcl_default", text = "Not much, because half the beasts here eat things that glow, and I don't trust anything that's been near those old elf ruins. The coursers are clean enough, I think, but Ogtinc, the furbolg on the cliff, gets cross if you take too many." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not much, because half the beasts here eat things that glow, and I don't trust anything that's been near those old elf ruins. And {pet} can have the scraps, if it doesn't mind fruit peel, because that's mostly what we've got." },
       },
       choices = {
         { text = "I'll hunt what the land can spare and no more.", next = "BACK", fx = { align = { light = 1 } } },
@@ -69,7 +69,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit in those woods looks fine and the water looks clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'll pay goblin freight before I bury another orc." } },
       choices = {
         { text = "Keep your rules, Kurll. Discipline keeps this camp alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the warriors have their grog. They've earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let the warriors forage. They've earned fresh food.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -224,8 +224,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Axes and knives, and I'll put an edge on anything that has one, though I leave the bowstrings to the hunters themselves. A hunter's knife does more work than his bow, because every kill still has to be skinned." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from my whetstone. The last beast that came by here chewed the handle off a perfectly good axe." },
+        { id = "xhuntcl_default", text = "Axes and knives, and I'll put an edge on anything that has one, though I leave the bowstrings to the hunters themselves. A hunter's knife does more work than anyone thinks, because the skinning is half the job." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Axes and knives, and I'll put an edge on anything that has one, though I leave the bowstrings to the hunters themselves. And keep {pet} away from my whetstone. The last beast that came by here chewed the handle off a perfectly good axe." },
       },
       choices = {
         { text = "I'll keep my blades sharp and my kills clean, Gruul.", next = "BACK", fx = { align = { light = 1 } } },

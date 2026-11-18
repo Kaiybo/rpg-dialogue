@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_op_vengeance", when = { gossip = { topic = "vengeance", stance = "wrong" } }, text = "My master says you lectured him on vengeance. He laughed afterwards, which he never does, and I still haven't decided whether to thank you or challenge you." },
-    { id = "g_default", text = "You stand in the presence of my master's squire, so stand straight, and speak with respect when you speak of him." },
+    { id = "g_default", text = "You stand before the squire of Kalaran Windblade, so stand straight, and speak with respect when you speak of my master." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! Have you come with more fire for the Dark Iron? Say that you have." },
     { id = "g_ablaze", when = { questDone = TODO_QUEST("Set Them Ablaze!") }, text = "I can still see the smoke from here, and it's beautiful. You did that, and my master was pleased, which is the highest thing that can be said of anyone." },
   },

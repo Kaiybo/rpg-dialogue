@@ -49,7 +49,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Linen comes up from the farms, but the forest gives me dye, walnut for brown and elderberry for the purple the tower folk pay double for. The loggers think I'm mad, picking berries between the stumps." } },
+      lines = { { id = "xdruid_default", text = "Linen comes up from the farms, but the forest gives me dye, walnut for brown and elderberry for the purple the folk at the Tower of Azora pay double for. The loggers think I'm mad, picking berries between the stumps." } },
       choices = {
         { text = "Take only the berries, Sara, and let the bushes grow back.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Charge the tower triple. They'll pay whatever you ask.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -69,7 +69,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Cloaks in a dull green, so the bears around the camp don't see you before you see them. The loggers won't wear anything but red, and then they wonder why every bear in Eastvale knows where they are." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has burrs in its coat from the woods. Brush those out before they mat, or it'll be scratching all week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Cloaks in a dull green, so the bears around the camp don't see you before you see them. And your {pet} has burrs in its coat from the woods, so brush those out before they mat." },
       },
       choices = {
         { text = "I'll wear the green and stay out of their way.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -88,7 +88,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not openly, but there's red linen drying on the line behind the mill some mornings, and nobody claims it. I'd tell the Marshal, only I'm fond of the loggers, and I'd hate to find out which of them it belongs to." } },
+      lines = { { id = "xapala_default", text = "Not openly, but there's red linen drying on the line behind the mill some mornings, and nobody claims it. I'd tell Marshal Dughan, only I'm fond of the loggers, and I'd hate to find out which of them it belongs to." } },
       choices = {
         { text = "The truth must come out, whoever it touches.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leave it be, Sara. A man's past is his own.", next = "BACK", fx = { align = { order = -1 } } },
@@ -98,11 +98,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your tabard's been torn and stitched by somebody who didn't know what they were doing, and I can see it from my step." },
-        { id = "h_default", text = "Sara Timberlain. The loggers cut wood; I cut cloth. Somebody in this camp has to make something you'd want to wear, even if I cut it from thieves' red bandanas." },
+        { id = "h_default", text = "I'm Sara Timberlain. The loggers cut wood and I cut cloth, because somebody in this camp has to make something you'd want to wear, even if I cut it from thieves' red bandanas." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Linen Goods") },
-          text = "The Defias in Elwynn wear the best red linen I've ever seen. Wasted on thieves. Bring me their bandanas and I'll make something honest of them." },
+          text = "The Defias in Elwynn wear the best red linen I've ever seen, and it's wasted on thieves. Bring me their bandanas and I'll make something honest of them." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Red Linen Goods") },
-          text = "Six. Red, not burlap; the Northshire lot wear sacks on their heads, and I can't do anything with sacks." },
+          text = "I need six red linen bandanas, not the burlap ones; the Northshire lot wear sacking, and I can't do anything with sacking." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Red Linen Goods"), days = 3 } },
           text = "A sash and a shirt out of six thieves' bandanas. If any of them come asking for their linen back, send them to me." },
         { id = "h_thread", when = { metBefore = true }, text = "I ran out of blue thread halfway through a hem and finished it in brown. Nobody's noticed, and you didn't either until I told you." },
@@ -116,7 +116,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting pockets, and plenty of them, because your sort always do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Kaldorei, by the ears, and that leather's never seen a tanner's vat unless I'm much mistaken. Nobody in Eastvale stitches like that, so I'd love to know who did." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Those robes of yours have seen better days, and so have the hems, which I'd guess have been near something hot." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I make clothes out of bandit bandanas, so I'm in no position to judge anyone's strange habits. What do you need?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I make clothes out of bandit bandanas, so I'm in no position to judge anyone's strange habits. What do you need?" },
       },
       again = {
         { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
@@ -141,7 +141,7 @@ P:NPC {
     },
 
     grim = {
-      lines = { { id = "g_default", text = "Grim is leaving good cloth on a dead thief. I'm practical, Raelen says, and she says almost nothing nice about anyone." } },
+      lines = { { id = "g_default", text = "Grim is leaving good cloth on a dead thief. I'm practical, Supervisor Raelen says, and she says almost nothing nice about anyone." } },
       choices = {
         { text = "Where do the bandanas come from?", next = "grim_where" },
         { text = "Ha. Fair.", next = "BACK", fx = { affinity = 1 } },
@@ -149,14 +149,14 @@ P:NPC {
     },
     grim_where = {
       lines = {
-        { id = "gw_default", text = "Defias camps, tucked all over Elwynn. Off the ones you've dealt with, preferably. I don't ask, and they don't complain." },
+        { id = "gw_default", text = "From Defias camps tucked all over Elwynn, off the ones you've dealt with, preferably. I don't ask, and they don't complain." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
     },
 
     cloth = {
       lines = {
-        { id = "c_default", text = "Dyed deep and woven tight. Somebody in that Brotherhood knows cloth, or stole from someone who did." },
+        { id = "c_default", text = "It's dyed deep and woven tight, so somebody in that Brotherhood knows cloth, or stole from someone who did." },
       },
       choices = {
         { text = "The Defias Brotherhood, you mean.", next = "cloth_defias" },
@@ -175,7 +175,7 @@ P:NPC {
 
     camp = {
       lines = {
-        { id = "cp_default", text = "Sawdust and deadlines, mostly. Raelen counts logs, the lads count days to payday, and I count what everyone says on the way past." },
+        { id = "cp_default", text = "Sawdust and deadlines, mostly. Supervisor Raelen counts logs, the lads count days to payday, and I count what everyone says on the way past." },
       },
       choices = {
         { text = "Hear anything worth knowing?", next = "camp_gossip" },
@@ -184,7 +184,7 @@ P:NPC {
     },
     camp_gossip = {
       lines = {
-        { id = "cg_default", text = "Thomas lost two men up the river. Old Haggard lost his badge to a man in a borrowed tabard. And nobody's seen the Brackwells in weeks." },
+        { id = "cg_default", text = "Guard Thomas lost two men up the river, old Marshal Haggard lost his badge to a man in a borrowed tabard, and nobody's seen the Brackwells in weeks." },
       },
       choices = {
         { text = "That's a lot of losing.", next = "BACK", fx = { affinity = 1, learn = { "lost_footmen" } } },
@@ -194,13 +194,13 @@ P:NPC {
 
     tailor = {
       lines = {
-        { id = "t_default", text = "Then here's a secret. Wash it twice in cold water and never press red linen hot. Thieves' dye runs if you rush it." },
+        { id = "t_default", text = "Then here's a secret: wash it twice in cold water and never press red linen hot, because thieves' dye runs if you rush it." },
       },
       choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2 } } },
     },
     priest = {
       lines = {
-        { id = "p_default", text = "Why not? The cloth didn't choose who wore it. Bless it if it bothers you. It'll still be good linen afterwards." },
+        { id = "p_default", text = "Why not? The cloth didn't choose who wore it. Bless it if it bothers you, and it'll still be good linen afterwards." },
       },
       choices = {
         { text = "Fair. Cloth can be redeemed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -217,10 +217,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I sew. I sit out front so I can see the road. That's all a person needs to know about me." } },
+    background = { { id = "tp_bg", text = "I sew, and I sit out front so I can see the road. That's all a person needs to know about me." } },
     advice = { { id = "tp_ad", text = "Mend a tear the day you get it. A small hole is a stitch; a week-old hole is a new coat." } },
     defias = { { id = "tp_defias", text = "Dreadful people with excellent taste in fabric. Life's complicated like that." } },
-    eastvale = { { id = "tp_eastvale", text = "Sawdust in everything. My thread, my bread, my hair." } },
+    eastvale = { { id = "tp_eastvale", text = "Eastvale gets sawdust in everything: my thread, my bread and my hair." } },
     _none = { { id = "tp_none", text = "Can I sew it? If not, I've no opinion on it." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's costumes are the best stitching I see all year, and I've begged their seamstress for her patterns twice. She says they're a family secret, which means she stole them." } },
     stonemasons = { { id = "tp_stonemasons", text = "Those red bandanas I buy off adventurers came off stonemasons' sons, I'd wager, and that's a waste of good hands. Cutting stone or cutting purses, it's the same pair of hands either way." } },
@@ -283,7 +283,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The crows take the first, and the boars take the rest when they root along the bottom rows. I'd sooner a hunter thinned them than watch another season go into their bellies." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} out of the rows, if you would. It'll chase a crow straight through a trellis." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The crows take the first, and the boars take the rest when they root along the bottom rows, so I'd sooner a hunter thinned them. Keep your {pet} out of the rows, though, or it'll chase a crow straight through a trellis." },
       },
       choices = {
         { text = "I'll take the boars cleanly and leave the vines standing.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -321,7 +321,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! All that plate in this sun? You'll be thirstier than me by noon, and I didn't think that was possible." },
-        { id = "h_default", text = "Gerard, and I work the vines. The sun's hot, the rows are long and the well's a long walk, so a man could die of thirst out here, slowly." },
+        { id = "h_default", text = "I'm Gerard, and I work the vines. The sun's hot, the rows are long and the well's a long walk, so a man could die of thirst out here, slowly." },
         { id = "h_trade", tags = { "news" }, when = { questActive = TODO_QUEST("Give Gerard a Drink") },
           text = "Spring water's the good stuff. Bring me a flask and I'll give you an apple for it, and that's the best trade in Elwynn." },
         { id = "h_lovers", when = { topicKnown = "maybell_tommy" },
@@ -361,7 +361,7 @@ P:NPC {
 
     vines = {
       lines = {
-        { id = "v_default", text = "Maclure grapes, in long rows under a hot sun, with crows. The family works hard and pays fair, and they never mention the Stonefields if they can shout instead." },
+        { id = "v_default", text = "They're Maclure grapes, in long rows under a hot sun, with crows. The family works hard and pays fair, and they never mention the Stonefields if they can shout instead." },
       },
       choices = {
         { text = "You must be caught in the middle of the feud.", next = "vines_feud" },
@@ -379,14 +379,14 @@ P:NPC {
     },
     vines_opinion = {
       lines = {
-        { id = "vo_default", text = "I do. I keep it in my mouth with my tongue. A vine-hand who talks about the family doesn't stay a vine-hand." },
+        { id = "vo_default", text = "I do, and I keep it behind my teeth, because a vine-hand who talks about the family doesn't stay a vine-hand." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
 
     water = {
       lines = {
-        { id = "w_default", text = "Spring water's clean and the well's a walk, and I've got more apples than I can eat. That's trade." },
+        { id = "w_default", text = "Spring water's clean and the well's a walk, and I've got more apples than I can eat, so that's trade." },
       },
       choices = {
         { text = "That seems a poor deal for you.", next = "water_deal" },
@@ -410,7 +410,7 @@ P:NPC {
       lines = {
         { id = "b_default", text = "The young Maclure? He's mostly harmless and mostly hungry. If something goes missing round here, ask where Billy was playing." },
         { id = "b_necklace", when = { questActive = TODO_QUEST("Lost Necklace") },
-          text = "Auntie Bernice thinks he took her necklace? I couldn't say, or I could, but I won't." },
+          text = "Bernice Stonefield thinks Billy took her necklace? I couldn't say, or I could, but I won't." },
       },
       choices = {
         { text = "You know something.", next = "billy_know" },
@@ -459,7 +459,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a vine-hand on Maclure vines for Maclure wages, and that's me, top to bottom." } },
     advice = { { id = "tp_ad", text = "Carry water, more than you think you'll need, and then a bit more." } },
-    maybell_tommy = { { id = "tp_lovers", text = "I see things from the vines. I don't say things. That's how a vine-hand keeps his job." } },
+    maybell_tommy = { { id = "tp_lovers", text = "I see things from the vines, but I don't say things, and that's how a vine-hand keeps his job." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. Have you got any water?" } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I'd like to go to the Faire when it's at Goldshire, but the Maclures don't stop picking for jugglers. Maybe when I'm old and they've stopped needing me." } },
     holy_light = { { id = "tp_holy_light", text = "I say my prayers to the Light at night, and I ask for rain and fewer kobolds. Some years I get one of the two, and I'm grateful for it." } },

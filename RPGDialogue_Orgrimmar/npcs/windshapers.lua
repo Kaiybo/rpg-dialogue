@@ -408,7 +408,7 @@ P:NPC {
   },
 
   topics = {
-    burning_blade = { { id = "tp_bb", text = "I've heard the name whispered in the Cleft, and seen people go quiet when someone else said it. That tells me more than any answer would." } },
+    burning_blade = { { id = "tp_bb", text = "I've heard the Burning Blade whispered of in the Cleft, and seen people go quiet when it was said aloud. That tells me more than any answer would." } },
     background = { { id = "tp_bg", text = "I'm a Windshaper who came down with the rest, and I've chosen to keep my own company since. That's as much as I share in the Cleft." } },
     advice = { { id = "tp_ad", text = "Anyone who tells you a secret for free has already sold it to someone else. Remember that down here." } },
     _none = { { id = "tp_none", text = "I don't know, and in the Cleft it's wiser not to guess." } },

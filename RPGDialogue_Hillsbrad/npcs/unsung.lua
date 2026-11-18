@@ -127,7 +127,7 @@ P:NPC {
           text = "A paladin, and in all that plate! If you fall off my dock you'll sink like an anchor, so mind the loose board by the third post." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want fishing line, I expect, though it makes a handy bowstring in a pinch, and a handier tripwire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want snares and line, I suppose, and maybe a hook or two in case the hills turn out stingy." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Donald says your people fish with a spear and a prayer. I sell only one of those, but I've plenty of spears." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Donald says your people fish with a spear and a prayer, and I can't sell you the prayer, but I've plenty of spears." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock buying fishing gear, now I've seen everything. You'll want the sturdy line, I'd guess, because something tells me you won't be patient with the snags." },
       },
       again = {
@@ -163,7 +163,7 @@ P:NPC {
     },
     donald_guess = {
       lines = {
-        { id = "dg_default", text = "That's what Bilger thinks, and Kelly thinks we're brother and sister, and the magistrate once asked me in court, which I didn't answer either. Keep guessing; it does you credit." },
+        { id = "dg_default", text = "That's what Brewmeister Bilger thinks, and Barkeep Kelly thinks we're brother and sister, and Magistrate Maleb once asked me in court, which I didn't answer either. Keep guessing; it does you credit." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -184,7 +184,7 @@ P:NPC {
     },
     tense = {
       lines = {
-        { id = "t_default", text = "It's the Forsaken in Tarren Mill, love, just up the hill. They came out of nowhere and took the town, and now the farms in the fields are sickening and the marshal has every man who can hold a spear standing at the walls." },
+        { id = "t_default", text = "It's the Forsaken in Tarren Mill, love, just up the hill. They came out of nowhere and took the town, and now the farms in the fields are sickening and Marshal Redpath has every man who can hold a spear standing at the walls." },
       },
       choices = {
         { text = "Tarren Mill should be taken back.", next = "BACK", fx = { align = { order = 1 }, trait = { brave = 1 } } },
@@ -215,7 +215,7 @@ P:NPC {
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got hooks that'll catch anything, and line that'll hold a shark, so the sailors say. I'd sell them here, if I could get them up the coast." } },
     forsaken = { { id = "tp_forsaken", text = "The dead up the hill don't fish, which is a pity, since they've got all the patience in the world for it. Donald says I shouldn't joke about them, and I tell him I'm not joking." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet sends hooks up the coast now and then, and they rust in a week, because that's goblin goods for you." } },
-    _none = { { id = "tp_none", text = "That's not something they talk about on the docks, dear. Ask the loremaster; he knows all sorts." } },
+    _none = { { id = "tp_none", text = "That's not something they talk about on the docks, dear. Ask Loremaster Dibbs; he knows all sorts." } },
   },
 }
 
@@ -276,7 +276,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The ones running down from Tarren Mill, by the smell, and the ones near the Hillsbrad farms, by the dead fish. A gatherer brought me a bundle from the lower banks last month, and I burned the lot, because I'll not sell anything that might have drunk the plague." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Don't let {pet} drink from those streams, please, because a beast can't read a warning, and I'd hate to dig a grave that size." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The ones running down from Tarren Mill, and don't let {pet} drink from them, please, because a beast can't read a warning, and I'd hate to dig a grave that size." },
       },
       choices = {
         { text = "Better burned than risked. You were right to be careful.", next = "BACK", fx = { align = { order = 1 } } },
@@ -376,7 +376,7 @@ P:NPC {
     },
     buyers = {
       lines = {
-        { id = "b_default", text = "The marshal's men, mostly, because they buy healing draughts by the crate before every patrol to Alterac. And the mages from Dalaran who pass through, though they turn their noses up at everything and buy it anyway." },
+        { id = "b_default", text = "Marshal Redpath's men, mostly, because they buy healing draughts by the crate before every patrol to Alterac. And the mages from Dalaran who pass through, though they turn their noses up at everything and buy it anyway." },
       },
       choices = {
         { text = "I didn't know Dalaran's mages came this way.", next = "buyers_dalaran" },
@@ -454,7 +454,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The careful ones do, and the rest wait until something falls off in the middle of a fight. Kundric swears a lost buckle once decided a battle in these hills, and I don't believe him, but I've sold more buckles since he started telling it." } },
+      lines = { { id = "xwarcl_default", text = "The careful ones do, and the rest wait until something falls off in the middle of a fight. Kundric Zanden, our town historian, swears a lost buckle once decided a battle in these hills, and I don't believe him, but I've sold more buckles since he started telling it." } },
       choices = {
         { text = "Mend your gear every night. Discipline keeps you alive.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Gear breaks. A good fighter adapts and keeps swinging.", next = "BACK", fx = { align = { order = -1 } } },
@@ -465,7 +465,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bear and lion, mostly, since the soldiers want sturdy jerkins and the farmers want gloves that won't tear on a fence. I keep a list of who's waiting on what, and it's longer than the Magistrate's list of Syndicate camps." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a lovely coat, and before you glare at me, I only mean someone's clearly been brushing it. I'd never sell a hunter's companion, I promise." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bear and lion, mostly, and your {pet} has a lovely coat, so before you glare at me, I only mean someone's clearly been brushing it. I'd never sell a hunter's companion, I promise." },
       },
       choices = {
         { text = "I'll take only what the crafters need. Waste is a sin.", next = "BACK", fx = { align = { light = 1 } } },
@@ -566,7 +566,7 @@ P:NPC {
     },
     sells_soldiers = {
       lines = {
-        { id = "ss_default", text = "Busier than I'd like, because it means there's fighting. Every time the marshal sends a patrol up toward Tarren Mill or into Alterac, they come back in rags, and I'd trade it all for a quiet year." },
+        { id = "ss_default", text = "Busier than I'd like, because it means there's fighting. Every time Marshal Redpath sends a patrol up toward Tarren Mill or into Alterac, they come back in rags, and I'd trade it all for a quiet year." },
       },
       choices = {
         { text = "So would I.", next = "BACK", fx = { affinity = 1 } },
@@ -584,7 +584,7 @@ P:NPC {
     },
     carts_syndicate = {
       lines = {
-        { id = "cs_default", text = "Alterac's old nobility and the thieves who work for them, holed up in the old keep. They call it reclaiming their lands, and everyone else calls it banditry, and I call it a tax I never voted for." },
+        { id = "cs_default", text = "Alterac's old nobility and the thieves who work for them, holed up in Durnholde Keep. They call it reclaiming their lands, and everyone else calls it banditry, and I call it a tax I never voted for." },
       },
       choices = {
         { text = "They're no better than bandits.", next = "BACK", fx = { align = { order = 1 } } },
@@ -667,7 +667,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scare it? They chase it, pal, and then they walk into trees, which is how I lost a perfectly good Overwatch unit to a bear last spring, and those units ain't cheap. The bear's fine, in case you're wonderin', and it's still got one of my gears." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the robots, will ya, buddy, 'cause they got a thing about anything with fur, and I'm still payin' off the last one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scare it? They chase it, pal, so keep {pet} away from the robots, will ya, 'cause they got a thing about anything with fur, and I'm still payin' off the last one." },
       },
       choices = {
         { text = "Your machines should stay on the road where they belong.", next = "BACK", fx = { align = { order = 1 } } },

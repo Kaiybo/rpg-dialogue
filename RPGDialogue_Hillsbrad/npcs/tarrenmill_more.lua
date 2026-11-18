@@ -38,7 +38,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every day I think it, and every day I'm told the Dark Lady's people need me here instead. The Syndicate killed my brothers in the very keep where the Warchief was once held prisoner, and I won't rest well until that courtyard is ours." } },
+      lines = { { id = "xwarcl_default", text = "Every day I think it, and every day I'm told the Dark Lady's people need me here instead. The Syndicate took my brothers in the very keep where the Warchief was once held prisoner, and I won't rest well until that courtyard is ours." } },
       choices = {
         { text = "Then we go when you're ordered, and not before.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget orders. Your brothers deserve vengeance now.", next = "BACK", fx = { align = { order = -1 } } },
@@ -49,7 +49,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If you can follow their scouts back to the keep, I'll know which gate they watch and which they don't. They saw us coming because we marched straight up the road like fools, and I won't make that mistake twice." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have smelled them behind those broken walls long before we walked into that courtyard. Keep it close at Durnholde, and listen when it growls." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd be glad of it, and your {pet} would have smelled them behind those broken walls long before we walked into that courtyard. Keep it close at Durnholde, and listen when it growls." },
       },
       choices = {
         { text = "I'll find them, and you can face them openly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -59,7 +59,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Swordsmen in black, more than we could count, and behind them a few men in robes throwing shadow at us from the walls. I could fight the swords, but those casters knocked Tog'thar flat before he ever reached them." } },
+      lines = { { id = "xhcast_default", text = "Swordsmen in black, more than we could count, and behind them a few men in robes throwing shadow at us from the walls. I could fight the swords, but those casters knocked my brother Tog'thar flat before he ever reached them." } },
       choices = {
         { text = "Tell the High Executor. Durnholde needs a proper assault.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "No need to wait for orders. I'll go tonight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -70,7 +70,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "We did, and he was the first to fall, because the Syndicate knew to aim at the one calling the lightning. If the spirits could not save him, I have to wonder whether these hills are too full of the dead for them to hear us." } },
       choices = {
-        { text = "Then I'll honor him by freeing Drull and Tog'thar.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll honor him by freeing your brothers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Next time I'll knife the Syndicate before they nock an arrow.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. The Syndicate had spellcasters in Durnholde's ruins, and if you can burn theirs before they burn yours, I'll call you friend." },
         { id = "h_default", key = true,
-          text = "Krusk. The Warchief sent a band of us from Durotar to retrieve something from Durnholde and to learn what this Syndicate is, and the humans caught us in the ruins with three times our number. I got away, and the others didn't, our leader Gol'dir among them." },
+          text = "I am Krusk. The Warchief sent a band of us from Durotar to retrieve something from Durnholde and to learn what this Syndicate is, and the humans caught us in the ruins with three times our number. I got away, and the others didn't, our leader Gol'dir among them." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("The Rescue") },
           text = "Drull and Tog'thar are held in Durnholde, southeast across the river. Get them out before the Syndicate decide they're not worth feeding." },
         { id = "h_infil", when = { questActive = TODO_QUEST("Infiltration") },
@@ -160,7 +160,7 @@ P:NPC {
       },
     },
     syndicate = {
-      lines = { { id = "sy_default", text = "Human nobles who lost their lands when Alterac fell and turned thieves to get them back. They hold Durnholde now, the same keep where the humans once caged my people." } },
+      lines = { { id = "sy_default", text = "They're human nobles who lost their lands when Alterac fell and turned thieves to get them back. They hold Durnholde now, the same keep where the humans once caged my people." } },
       choices = {
         { text = "That's a bitter irony.", next = "syndicate_irony" },
         { text = "Something else.", next = "BACK" },
@@ -179,7 +179,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     forsaken = {
-      lines = { { id = "f_default", text = "They're Horde, and the Warchief says that's enough. They fight hard and they don't eat my rations, but I don't like how the apothecary looks at me." } },
+      lines = { { id = "f_default", text = "They're Horde, and the Warchief says that's enough. They fight hard and they don't eat my rations, but I don't like how Apothecary Lydon looks at me." } },
       choices = {
         { text = "Lydon looks at everyone that way.", next = "forsaken_lydon", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -201,10 +201,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the Syndicate's camps, and I know Durnholde better than I'd like. Ask." } },
-    background = { { id = "tp_bg", text = "One of the Warchief's warriors, sent from Durotar. The rest of the story is unfinished.", next = "ambush" } },
+    background = { { id = "tp_bg", text = "I'm one of the Warchief's warriors, sent from Durotar, and the rest of the story is unfinished.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never go into Durnholde with fewer than you'd need. Count, then double it." } },
-    syndicate = { { id = "tp_syn", text = "Thieves with noble names.", next = "syndicate" } },
-    thrall = { { id = "tp_thrall", text = "The Warchief sent me here, and I came, and my companions died at Durnholde for it. I'd follow him into the sea, but I'd rather he'd sent me somewhere with fewer dead." } },
+    syndicate = { { id = "tp_syn", text = "The Syndicate are thieves with noble names.", next = "syndicate" } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me here, and I came, and my companions fell at Durnholde for it. I'd follow him into the sea, but I'd rather he'd sent me somewhere with fewer dead." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken fight the Scourge, and they fight the humans, and they smell like both. I share a town with them because the Warchief asks it, and that's all I'll say." } },
     internment = { { id = "tp_internment", text = "Durnholde was my prison once, before the Warchief broke it open. Going back there with my companions and losing them in its shadow was the worst thing I've ever done." } },
     _none = { { id = "tp_none", text = "I'm a warrior, not a scholar of this land. Ask one of the dead; they've been here longer." } },
@@ -264,8 +264,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The mob dragged them out and burned them in the yard, because they said anything a necromancer loved must be cursed. They were only dogs, and they howled for him, and I think that's what the peasants couldn't stand." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close if you go near Southshore, hunter. They've killed loyal beasts before for the master they served, and I doubt they've grown any kinder since." },
+        { id = "xhuntcl_default", text = "The mob dragged most of them out and burned them in the yard, because they said anything a necromancer loved must be cursed. They were only dogs, and they howled for him, and I think that's what the peasants couldn't stand." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Southshore's mob burned them, so keep {pet} close if you go near that town, hunter. They've killed loyal beasts before for the master they served, and I doubt they've grown any kinder since." },
       },
       choices = {
         { text = "Grief is no reason to raise the dead. Let him rest.", next = "BACK", fx = { align = { light = 1 } } },
@@ -298,13 +298,13 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Novice Thaivand, apprentice to the great Helcular. He was nearly a lich when a mob from Southshore found his lair in the hills and butchered him, and then they buried him in their own churchyard as if he were one of their farmers. His three pyres still burn, though, and with them I mean to raise him." },
         { id = "h_rod", tags = { "news" }, when = { questActive = TODO_QUEST("Helcular's Revenge") },
-          text = "The yeti took over his ritual lair in the Alterac hills, and one of the brutes must have the rod. Bring it to me before it's chewed into splinters." },
+          text = "The yeti took over his ritual lair in the Alterac hills, and one of the brutes must have his rod. Bring it to me before it's chewed into splinters." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helcular's Revenge"), days = 3 } },
           text = "They say Southshore's guards fought something in their churchyard, and that it called up the dead around it. I wish I had been there to see it, but I'll settle for hearing it from you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You could slip into Southshore far more easily than I can, and there are things buried in their graveyard that belong to my master." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The peasants of Southshore struck down my master with pitchforks and torches, and I'd dearly love to see how they fare against real steel." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My master kept hounds once, great black beasts the peasants burned along with him, and I've never forgiven them for that either." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You talk to the beasts, don't you? Helcular's hounds still wander the hills, and they won't come to me, though I've tried and tried." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My master kept hounds once, great black beasts the peasants burned, most of them, along with him, and I've never forgiven them for that either." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You talk to the beasts, don't you? The few of Helcular's hounds that escaped the mob still wander the hills, and they won't come to me, though I've tried and tried." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Helcular hated your kind, and I suspect you'd hate what I'm doing here, so let's agree not to stand too close to each other." },
       },
       again = {
@@ -369,7 +369,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know my master's rites and Southshore's sins. Ask about either." } },
-    background = { { id = "tp_bg", text = "Helcular's apprentice, and his avenger.", next = "helcular" } },
+    background = { { id = "tp_bg", text = "I am Helcular's apprentice, and his avenger.", next = "helcular" } },
     advice = { { id = "tp_ad", text = "Never let the living bury your dead. They do it wrong on purpose." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken gave me a place to work, and a master to raise, and I'll serve them as long as they let me. Southshore killed Helcular, and I'll see them pay for it." } },
     scourge = { { id = "tp_scourge", text = "The Scourge are slaves, and we are free, and the difference is everything to me. I'll raise my master as one of the free dead, or not at all." } },
@@ -390,7 +390,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ah. Yes. Please don't look at my belt; I know there's nothing on it." },
+    { id = "g_default", text = "Ah, yes, please don't look at my belt; I know there's nothing on it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Have you seen my sword? I'm asking everyone." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You were a knight, weren't you, a real one, with an oath and everything? Then you'll understand a man missing his sword better than most, so if you see it, please do tell me." },
   },
@@ -422,7 +422,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "To dwarves from Dun Garok, who crept into camp while I was on watch and took everything that wasn't strapped to me. A warrior without his blade is a scarecrow with a grudge, and the other Deathguards have started calling me exactly that." } },
+      lines = { { id = "xwarcl_default", text = "I lost it to dwarves from Dun Garok, who crept into camp while I was on watch and took everything that wasn't strapped to me. A warrior without his blade is a scarecrow with a grudge, and the other Deathguards have started calling me exactly that." } },
       choices = {
         { text = "Report it truthfully and take your punishment. That's a soldier's way.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget the report. Raid Dun Garok and take it back.", next = "BACK", fx = { align = { order = -1 } } },
@@ -474,11 +474,11 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage! Could you conjure me a sword, only for a little while? No, I didn't think so, but you can't blame a Deathguard for asking." },
         { id = "h_default", key = true,
-          text = "Deathguard Humbert. I came back to camp one evening and my gear was gone, and the tracks led to Dun Garok. Dwarven scouts, sneaking past while I was busy elsewhere, and now I stand guard with a borrowed club." },
+          text = "Deathguard Humbert. I came back to camp one evening and my gear was gone, and the tracks led to Dun Garok. It was dwarven scouts, sneaking past while I was busy elsewhere, and now I stand guard with a borrowed club." },
         { id = "h_sword", when = { questActive = TODO_QUEST("Humbert's Sword") },
           text = "One of those dwarves at Dun Garok has my sword, but I don't know which one, so you may have to ask a great many of them. Ask firmly." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Humbert's Sword"), days = 3 } },
-          text = "My sword! I've been wearing it everywhere, even indoors. Samsa says I'm overdoing it, but Samsa never lost his." },
+          text = "My sword! I've been wearing it everywhere, even indoors. Deathguard Samsa says I'm overdoing it, but Samsa never lost his." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been standing watch with me, perhaps those dwarves wouldn't have walked off with my gear, so I'll not pretend I'm glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which I can't claim to be. Don't look at my belt, please, because there's no sword on it, and I know." },
@@ -512,7 +512,7 @@ P:NPC {
       },
     },
     lost_down = {
-      lines = { { id = "ld_default", text = "For one patrol. The dead don't tire, they say, but armor still weighs what it weighs, and I thought the camp was safe. I won't think that again." } },
+      lines = { { id = "ld_default", text = "Only for one patrol. The dead don't tire, they say, but armor still weighs what it weighs, and I thought the camp was safe. I won't think that again." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     dungarok = {
@@ -532,7 +532,7 @@ P:NPC {
     },
     teasing = {
       big = true,
-      lines = { { id = "t_default", text = "Samsa asks if I'd like to borrow a skull to throw. The apothecary asked if he could study my embarrassment, since he hasn't felt any in years." } },
+      lines = { { id = "t_default", text = "Samsa, who collects skulls at the gate, asks if I'd like to borrow one to throw. Apothecary Lydon asked if he could study my embarrassment, since he hasn't felt any in years." } },
       choices = {
         { text = "Laugh with them. It's the best defense.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "A guard who loses his weapon should be disciplined.", next = "BACK", fx = { align = { order = 1 }, affinity = -2 } },
@@ -547,7 +547,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the town and the road to Dun Garok. Ask." } },
-    background = { { id = "tp_bg", text = "Deathguard of Tarren Mill, presently unarmed.", next = "lost" } },
+    background = { { id = "tp_bg", text = "I'm a Deathguard of Tarren Mill, presently unarmed.", next = "lost" } },
     advice = { { id = "tp_ad", text = "Keep your gear on, and trust me on that." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken guard their own, and I'm a Deathguard of Tarren Mill, which sounds grander when I've a sword to go with it. Ask me again once I've got my gear back from those dwarves." } },
     scourge = { { id = "tp_scourge", text = "The Scourge are slow and stupid, and we fight them whenever they come south. I'd fight them now, if I had a sword." } },
@@ -602,7 +602,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The good ones do, I'm sure, since a hunter without a trophy is just someone who went for a walk with a bow. I named my skulls after the farms they came from, which I thought was clever, though Darthalia says it's morbid, and she's dead." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like skulls? I'd let it have one of the small ones, but I've grown attached to them all, so perhaps just a sniff." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The good ones do, I'm sure. Does {pet} like skulls? I'd let it have one of the small ones, but I've grown attached to them all, so perhaps just a sniff." },
       },
       choices = {
         { text = "A hunter honors the kill. Skulls on a gate are mockery.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -659,7 +659,7 @@ P:NPC {
         { id = "h_skulls", when = { questActive = TODO_QUEST("Souvenirs of Death") },
           text = "Thirty human skulls, that's all I ask, and you'll be fighting humans long enough to find them. Bring them by whenever your bag gets heavy." },
         { id = "h_skulls_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Souvenirs of Death"), days = 3 } },
-          text = "Thirty! I've arranged them on the wall behind the inn, and Shay says it puts the customers off. The customers here are dead, Shay." },
+          text = "Thirty! I've arranged them on the wall behind the inn, and Innkeeper Shay says it puts the customers off. The customers here are dead, Shay." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'd be good at collecting skulls, I think, since you could get close enough to take them without anyone noticing." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you make one of my skulls glow? I've always wanted a lantern with a face, and the apothecaries won't help me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Do you take trophies? I've a dozen skulls by the gate, and I'd love to hear how a proper hunter keeps them clean." },
@@ -709,7 +709,7 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "I'm sure they are, and I'm sure you'd enjoy it, but the High Executor wants raids planned, not wandered into. Ask Darthalia first, and then go and test them as hard as you like." } },
+      lines = { { id = "xhwar_default", text = "I'm sure they are, and I'm sure you'd enjoy it, but the High Executor wants raids planned, not wandered into. Ask her first, and then go and test them as hard as you like." } },
       choices = {
         { text = "Understood. I'll ask before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't wait for permission to fight humans.", next = "BACK", fx = { align = { order = -1 } } },
@@ -723,7 +723,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know everyone who comes and goes from this town, since I'm always here. Ask." } },
-    background = { { id = "tp_bg", text = "Deathguard, collector, and doorman. Not by choice, the last.", next = "post" } },
+    background = { { id = "tp_bg", text = "I'm a Deathguard, a collector and a doorman, though not the last by choice.", next = "post" } },
     advice = { { id = "tp_ad", text = "Clean the skulls before you bring them. I'm not a barbarian." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken all need a purpose, and mine for now is standing at this post and collecting Hillsbrad's skulls. It passes the time, and the skulls never argue." } },
     scourge = { { id = "tp_scourge", text = "The Scourge are boring, really, all shambling and groaning and no conversation at all. I'd rather fight humans, they at least scream interestingly." } },
@@ -779,7 +779,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Watch the Stromgarde roads and count the soldiers marching on them, since the orcs are poor at counting and worse at waiting. The Witherbark in the hills will want your scalp, so don't spend too long admiring the view." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks sturdier than the last batch of reinforcements I sent east. Bring it back alive if you can, because a good beast is harder to replace than a recruit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scout the Stromgarde roads for the orcs, and bring {pet}, since it looks sturdier than half the reinforcements I've sent east. Bring it back alive if you can, because a good beast is harder to replace than a recruit." },
       },
       choices = {
         { text = "Send help that can survive, Tallow. Lives aren't cheap.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -789,7 +789,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Their magi, who throw fire from the back of the mound while the brutes swing clubs at the front. Kill the magi first and the rest fall apart, or so Drum Fel tells me, and he's lived long enough to be right about these things." } },
+      lines = { { id = "xhcast_default", text = "Watch for their magi, who throw fire from the back of the mound while the brutes swing clubs at the front. Kill the magi first and the rest fall apart, or so Drum Fel, who holds Hammerfall, tells me, and he's lived long enough to be right about these things." } },
       choices = {
         { text = "I'll take their magi first, as Drum Fel advises.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hit whatever's closest. Plans don't survive ogres.", next = "BACK", fx = { align = { order = -1 } } },
@@ -832,9 +832,9 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. The Boulderfist ogres are big, slow and stupid, which is exactly the kind of target your sort ought to enjoy." },
         { id = "h_default", key = true,
-          text = "Tallow. Hammerfall's under attack in Arathi, and the orcs there need help before they're overrun. I'd go myself, but this town keeps me so busy I can barely keep an edge on my axe." },
+          text = "I'm Tallow. Hammerfall's under attack in Arathi, and the orcs there need help before they're overrun. I'd go myself, but this town keeps me so busy I can barely keep an edge on my axe." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
-          text = "The Boulderfist mound northeast of Stromgarde. Kill enough ogres and enforcers there to prove you won't die on the road, then report to Drum Fel in Hammerfall." },
+          text = "Go to the Boulderfist mound northeast of Stromgarde and kill enough ogres and enforcers to prove you won't die on the road. Then report to Drum Fel in Hammerfall." },
         { id = "h_hammer_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Hammer May Fall") },
           text = "You came back from Arathi on your own legs. Drum Fel must be pleased, or desperate; probably both." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be no use at Hammerfall, where the orcs need shields and axes, but I suppose you could slip past the Stromgarde lines and see what they're planning." },
@@ -879,7 +879,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     axe = {
-      lines = { { id = "a_default", text = "Nothing that a quiet week wouldn't fix, and I haven't had one since I died. Weaklings everywhere, all needing orders." } },
+      lines = { { id = "a_default", text = "Nothing that a quiet week wouldn't fix, and I haven't had one since I died. This town is full of weaklings, all needing orders." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     warrior = {
@@ -890,8 +890,8 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know who's weak. Ask about anything else and I'll decide if you're worth answering." } },
-    background = { { id = "tp_bg", text = "Warrior before, warrior after. The middle part was unpleasant." } },
-    advice = { { id = "tp_ad", text = "Hit first. The ogres will hit harder." } },
+    background = { { id = "tp_bg", text = "I was a warrior before I died and I'm one after, and the middle part was unpleasant." } },
+    advice = { { id = "tp_ad", text = "Hit first, because the ogres will hit harder." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need your pity or your admiration, so keep both. If you want to prove you're worth talking to, go to Hammerfall and come back with fewer limbs than you'd like." } },
     scourge = { { id = "tp_scourge", text = "The Scourge come south, and we cut them down, and they come again. I don't tire of it, and I hope you don't either." } },
     thrall = { { id = "tp_thrall", text = "The Warchief sends his orcs to Hammerfall and asks us for help, and I send what I can. I don't much care if they survive, but the Dark Lady does." } },
@@ -953,7 +953,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You could try, and some hunters tame bats out in the wild, where they're fewer and hungrier. Mine were raised in the Undercity, though, and they'd sooner bite you than follow you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is staring at my bats the way a cat stares at a bird, and the bats are staring back the same way. I'd step between them if I were you, because nobody wins that argument." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You could try, though {pet} is staring at my bats the way a cat stares at a bird, and the bats are staring back the same way. I'd step between them if I were you, because nobody wins that argument." },
       },
       choices = {
         { text = "Bats bred and trained in the Undercity serve better.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1182,7 +1182,7 @@ P:NPC {
       },
     },
     shelf = {
-      lines = { { id = "s_default", text = "The apothecaries' orders. Vials, mostly, and some things in jars I'd rather not open. Lydon picks them up himself." } },
+      lines = { { id = "s_default", text = "That's the apothecaries' orders: vials, mostly, and some things in jars I'd rather not open. Apothecary Lydon picks them up himself." } },
       choices = {
         { text = "I'd like to know what's in those jars.", next = "shelf_jars" },
         { text = "Something else.", next = "BACK" },
@@ -1210,8 +1210,8 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Stock and prices, and who buys what. Ask." } },
-    background = { { id = "tp_bg", text = "I kept a shop before the plague. I keep one after. It's the same shop, nearly." } },
+    knows = { { id = "tp_knows", text = "I know stock and prices, and who buys what. Ask." } },
+    background = { { id = "tp_bg", text = "I kept a shop before the plague and I keep one after, and it's nearly the same shop." } },
     advice = { { id = "tp_ad", text = "Buy rope. Everyone always needs rope, and nobody ever has it." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken have very different appetites to yours, so the living allies' food sits on its own shelf. Please don't reach past it, because nothing on the other shelves is for eating, not by you." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's orcs come through Tarren Mill now and then, and they eat like wolves. I keep the shelf stocked, and I don't ask what they think of our cooking." } },

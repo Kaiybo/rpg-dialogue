@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_ready", when = { class = "WARRIOR", questBefore = TODO_QUEST("Speak with Dillinger") },
           text = "You're coming along. Deathguard Dillinger at the west end of town has a task that wants a warrior, and I think you might be ready for it." },
         { id = "h_ulag", tags = { "news" }, when = { questDone = TODO_QUEST("Ulag the Cleaver") },
-          text = "Dillinger tells me Ulag is dead and you're the one who did it. I said you'd do, and I'm glad I wasn't wrong in front of him." },
+          text = "Dillinger tells me Ulag the Cleaver is dead and you're the one who did it. I said you'd do, and I'm glad I wasn't wrong in front of him." },
         { id = "h_other", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
           text = "Not one of mine, by the look of you. Still, a caster who knows how to take a hit lives twice as long as one who doesn't." },
       },
@@ -55,7 +55,7 @@ P:NPC {
     },
 
     good = {
-      lines = { { id = "go_default", text = "Getting up, mostly. Anyone can swing a sword, but a warrior is the one still standing in the line when everyone sensible has run." } },
+      lines = { { id = "go_default", text = "Getting back up, mostly. Anyone can swing a sword, but a warrior is the one still standing in the line when everyone sensible has run." } },
       choices = {
         { text = "And when the line breaks?", next = "good_line" },
         { text = "Something else.", next = "BACK" },
@@ -103,6 +103,6 @@ P:NPC {
     second_war = { { id = "tp_second_war", text = "I held a pike at Lordaeron's gates when the Horde came up out of the south. We beat them, and I'll tell you plainly that I'd sooner face a hundred orcs than one more field of walking dead." } },
     arthas = { { id = "tp_arthas", text = "I saluted the prince on parade, back when he was a fine boy with a fine seat on a horse. Don't ask me more than that, because I've no wish to think on it." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are what's left of Lordaeron's people when you take away the warmth and keep the stubbornness. I'll take a stubborn recruit over a warm one any day." } },
-    _none = { { id = "tp_none", text = "I teach fighting, and I stopped caring about much else when I died. Ask Renee at the bar." } },
+    _none = { { id = "tp_none", text = "I teach fighting, and I stopped caring about much else when I died. Ask Innkeeper Renee at the bar." } },
   },
 }

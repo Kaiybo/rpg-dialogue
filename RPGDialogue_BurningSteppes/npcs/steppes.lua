@@ -63,7 +63,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We hunt, little one, as you never could, with the whole sky for a blind and fire for a bow. Your hunters track a stag for a day, while I have tracked a single enemy for a hundred years, and I am patient enough to wait a hundred more." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the good sense to be afraid of me. You would do well to learn from it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We hunt, little one, as you never could, with the whole sky for a blind and fire for a bow. Your {pet} has the good sense to be afraid of me, and you would do well to learn from it." },
       },
       choices = {
         { text = "Patience is a hunter's first virtue. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
@@ -195,7 +195,7 @@ P:NPC {
       choices = { { text = "Here it is.", next = "BACK", fx = { affinity = 1 } } },
     },
     light = {
-      lines = { { id = "l_default", text = "Then the Light is a fool, and so are you, which is at least consistent. Walk carefully, priest; the dark is very large, and it has been patient for a very long time." } },
+      lines = { { id = "l_default", text = "Then the Light is a fool, and so are you, which is at least consistent. Walk carefully, little one; the dark is very large, and it has been patient for a very long time." } },
       choices = {
         { text = "So has the Light.", next = "BACK", fx = { align = { light = 2 }, affinity = -1 } },
         { text = "You might be right. The dark does seem to keep winning.", next = "BACK", fx = { align = { light = -2 } } },

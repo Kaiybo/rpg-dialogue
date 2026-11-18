@@ -182,7 +182,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I was a lieutenant of Thrall's Grasp, and then a demon's plaything, as our fathers were before Thrall freed them, and now I'm neither, which I'm grateful for." } },
     advice = { { id = "tp_ad", text = "If they cage you, don't listen to the voice that says it would be easier to agree. That's how they get in." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's name was on our banner, and I like to think he'd have laughed at how I went out. Maybe not, he's a serious sort." } },
-    second_war = { { id = "tp_second_war", text = "I was too young for the Second War, so this swamp was my first real fight. I'd have liked a better one." } },
+    second_war = { { id = "tp_second_war", text = "I was too young for the Second War, so these wastes were my first real fight. I'd have liked a better one." } },
     dark_portal = { { id = "tp_dark_portal", text = "The Portal's shadow is where the demons waited for us, and they knew our names before we knew theirs. Don't go near the Tainted Scar unless you mean to kill something." } },
     dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres watched the demons take us and didn't lift a finger. I'd have done the same, in their place, but I still hope you kill a few." } },
     _none = { { id = "tp_none", text = "I don't know that, and a dead warrior hasn't time to wonder about it." } },

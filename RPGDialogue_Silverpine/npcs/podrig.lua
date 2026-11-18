@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_count", text = "Forty-one, forty-two... yes? Speak up, but don't make me lose my place." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I've recounted since you were last here, so if anything's gone missing, I'll know." },
     { id = "g_order", when = { questActive = TODO_QUEST("Supplying the Sepulcher") }, text = "The order goes to Karos Razok first, for the bat, and then to Gordon Wendham in the Undercity. Don't lose it, because I'll have to write it again." },
-    { id = "g_crate", when = { questActive = TODO_QUEST("Return to Podrig") }, text = "Have you got Gordon's crate? You appear to be on official business, which is how I like people to appear." },
+    { id = "g_crate", when = { questActive = TODO_QUEST("Return to Podrig") }, text = "Have you got Gordon Wendham's crate from the Undercity? You appear to be on official business, which is how I like people to appear." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time we lost six blades and a shield in the woods, plus one helmet a ghoul is still wearing. I'm keeping a list." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're better armed than when you first ran errands for me. I'd like to know where it came from, purely for the records." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word is you've been useful about the Sepulcher. Useful people are the only kind my ledger has room for." },
@@ -124,7 +124,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A soldier who turned out to be a better clerk. The Deathguard needs both, whatever the young ones think." } },
     advice = { { id = "tp_ad", text = "Count your arrows before the fight, not after, because after is too late to send for more." } },
-    worgen = { { id = "tp_worgen", text = "They cost me more blades than everything else in Silverpine put together, and I've the numbers to prove it." } },
+    worgen = { { id = "tp_worgen", text = "The worgen cost me more blades than everything else in Silverpine put together, and I've the numbers to prove it." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken need every sword I can find, and I keep the Sepulcher's racks full because no one else bothers. You'd be amazed how quickly a soldier loses track of his blade when he can't feel his hand." } },
     shadowfang = { { id = "tp_shadowfang", text = "Arugal's keep is full of worgen and worse, and the Deathguard keeps a close eye on its gates. If they ever come out in force, I mean for us to be overstocked, not caught short." } },
     scourge = { { id = "tp_scourge", text = "The Scourge still wanders in from the north and east, and each one that does gets a blade through the skull. I count those too, though I count the blades more carefully." } },

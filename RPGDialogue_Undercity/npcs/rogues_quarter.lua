@@ -57,7 +57,7 @@ P:NPC {
       },
     },
     purse = {
-      lines = { { id = "pu_default", text = "The best in the Merchants' Row, if I say so myself, and I do. The watch caught me twice in ten years, and the second time I'd already spent the money." } },
+      lines = { { id = "pu_default", text = "I was, and the best in the Merchants' Row, if I say so myself, and I do. The watch caught me twice in ten years, and the second time I'd already spent the money." } },
       choices = {
         { text = "Do you regret it?", next = "purse_regret" },
         { text = "Something else.", next = "BACK" },
@@ -128,7 +128,7 @@ P:NPC {
       },
     },
     noble = {
-      lines = { { id = "no_default", text = "A lord with lands near Andorhal, who paid well and trusted me completely. When the grain came, he ate the bread like everyone else, and there was no blade I could put between him and that." } },
+      lines = { { id = "no_default", text = "A lord with lands near Andorhal, who paid well and trusted me completely. When the plagued grain came, he ate the bread like everyone else, and there was no blade I could put between him and that." } },
       choices = {
         { text = "That wasn't your failing.", next = "noble_fail" },
         { text = "Something else.", next = "BACK" },

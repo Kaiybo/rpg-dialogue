@@ -78,7 +78,7 @@ P:NPC {
       },
     },
     eg_where = {
-      lines = { { id = "egw_default", text = "All over the islands southeast of Sen'jin, but they bury some too deep to dig out safely. Take the ones on top, and stay away from the trolls in the middle, because those aren't the friendly kind." } },
+      lines = { { id = "egw_default", text = "All over the islands southeast of Sen'jin, but they bury some too deep to dig out safely. Take the ones on top, and stay away from the hexed trolls in the middle, Zalazane's lot, because those aren't the friendly kind." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -148,10 +148,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Food, fire, and which grunt steals from the pot. Ask." } },
-    background = { { id = "tp_bg", text = "Warband cook, camp cook, garrison cook. Same pot, different walls." } },
+    knows = { { id = "tp_knows", text = "I know food, fire, and which grunt steals from the pot, so ask." } },
+    background = { { id = "tp_bg", text = "I cooked for a warband, then in the camps, and now for the garrison, and it's the same pot inside different walls." } },
     advice = { { id = "tp_ad", text = "Eat when you can. The Barrens won't feed you, and neither will I if you're late." } },
-    echo_isles = { { id = "tp_echo", text = "Best eggs in Durotar and the worst trolls. I send others." } },
+    echo_isles = { { id = "tp_echo", text = "The Echo Isles have the best eggs in Durotar and the worst trolls, so I send others to fetch them." } },
     _none = { { id = "tp_none", text = "You can't eat it, so I don't care about it." } },
   },
 }
@@ -173,7 +173,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hmm, you look pretty strong. Stay a moment, I may have a road for you." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the road, or not on it yet? Either way, sit, and tell me what you saw." },
-    { id = "g_letter", when = { questActive = TODO_QUEST("Conscript of the Horde") }, text = "Kargal's waiting on that letter. The western road, over the bridge, and the outpost on the far side." },
+    { id = "g_letter", when = { questActive = TODO_QUEST("Conscript of the Horde") }, text = "Kargal's waiting on that letter. Take the western road over the bridge, and you'll find his outpost on the far side." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. A scout notices who leaves and who comes back, and I'm glad you came back." },
   },
 
@@ -280,10 +280,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Roads, tracks, and which outpost is short of grunts this week." } },
-    background = { { id = "tp_bg", text = "Camp-born, road-raised. I've walked more of Durotar than most of its scorpids." } },
+    knows = { { id = "tp_knows", text = "I know roads, tracks, and which outpost is short of grunts this week." } },
+    background = { { id = "tp_bg", text = "I was born in the camps and raised on the road, and I've walked more of Durotar than most of its scorpids." } },
     advice = { { id = "tp_ad", text = "Carry more water than you think you need. Everybody laughs at that until the Barrens." } },
-    burning_blade = { { id = "tp_bb", text = "I give their caves a wide berth, and so should you until you're strong enough not to." } },
+    burning_blade = { { id = "tp_bb", text = "I give the Burning Blade's caves a wide berth, and so should you until you're strong enough not to." } },
     _none = { { id = "tp_none", text = "Never seen tracks of that one. Ask me another." } },
   },
 }
@@ -380,9 +380,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Beasts, mon, and the hunters who forget them." } },
-    background = { { id = "tp_bg", text = "Darkspear, from the isles, and the only troll in Razor Hill who know a wolf's moods." } },
+    knows = { { id = "tp_knows", text = "I know beasts, mon, and the hunters who forget them." } },
+    background = { { id = "tp_bg", text = "I be Darkspear, from the isles, and the only troll in Razor Hill who know a wolf's moods." } },
     advice = { { id = "tp_ad", text = "Never feed a wolf from your hand while it be hungry, mon. It will not mean to take the fingers." } },
-    _none = { { id = "tp_none", text = "That not eat hay or meat, mon, so I not know it." } },
+    _none = { { id = "tp_none", text = "If it not eat hay or meat, mon, I not know it." } },
   },
 }

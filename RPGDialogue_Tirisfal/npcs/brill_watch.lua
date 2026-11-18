@@ -16,9 +16,9 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Another one fresh up from Deathknell. Stand still a moment and let me see whether you'll do." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Fields of Grief") }, text = "Pumpkins, corpse, not excuses. Solliden's west of here, and they don't walk over on their own." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Fields of Grief") }, text = "You're the pumpkin thief. The apothecary's still smiling about it, and I'd not thought his face could do that." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Crusade's planted a fresh row at Solliden in the meantime. They never learn, and I'm grateful for it." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Fields of Grief") }, text = "I want pumpkins, corpse, not excuses. Solliden Farmstead is west of here, and the pumpkins won't walk over on their own." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Fields of Grief") }, text = "You're the pumpkin thief. Apothecary Johaan's still smiling about it, and I'd not thought his face could do that." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade's planted a fresh row at Solliden in the meantime. They never learn, and I'm grateful for it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've filled out since you were stealing vegetables for me. Funny how the Glades does that to the ones who don't fall apart." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word in Brill is you've been useful. Useful's the best thing a Deathguard can say about anyone, so don't let it go to your head." },
   },
@@ -93,7 +93,7 @@ P:NPC {
       },
     },
     sol_take = {
-      lines = { { id = "st_default", text = "Because the Executor's got more Crusade than he's got Deathguard, and the farmhouse isn't worth what we'd lose taking it. Better to bleed them slowly, and steal their vegetables, and let them sit in their tower wondering who's next." } },
+      lines = { { id = "st_default", text = "Because Executor Zygand's got more Crusade than he's got Deathguard, and the farmhouse isn't worth what we'd lose taking it. Better to bleed them slowly, and steal their vegetables, and let them sit in their tower wondering who's next." } },
       choices = {
         { text = "Slow bleeding is a coward's war.", next = "sol_stance" },
         { text = "Something else.", next = "BACK" },
@@ -117,7 +117,7 @@ P:NPC {
       },
     },
     patrols_caught = {
-      lines = { { id = "pc_default", text = "Then you'll come back to Deathknell the long way, and Mordo will say welcome back, and you'll try again. Dying's less of a setback for us than it is for them, and that's the one advantage I'll ever brag about." } },
+      lines = { { id = "pc_default", text = "Then you'll come back to Deathknell the long way, and Undertaker Mordo will say welcome back, and you'll try again. Dying's less of a setback for us than it is for them, and that's the one advantage I'll ever brag about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -146,15 +146,15 @@ P:NPC {
       },
     },
     brill_who = {
-      lines = { { id = "bw_default", text = "Johaan, if you don't mind his questions, and Coleman at the inn, if you don't mind his grudges. Burgess by the hall wants Crusader rings, and Linnea out east wants the Scourge kept off her road, so nobody here is short of things for you to kill." } },
+      lines = { { id = "bw_default", text = "Apothecary Johaan, if you don't mind his questions, and Coleman Farthing at the inn, if you don't mind his grudges. Deathguard Burgess by the hall wants Crusader rings, and Linnea out east wants the Scourge kept off her road, so nobody here is short of things for you to kill." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "They plant pumpkins and burn people, and they're better at the pumpkins." } },
-    new_plague = { { id = "tp_plague", text = "Ask Johaan. I only carry his vegetables." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and I watch a road for a living. Ask the magistrate." } },
+    new_plague = { { id = "tp_plague", text = "Ask Apothecary Johaan. I only carry his vegetables." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I watch a road for a living. Ask Magistrate Sevren." } },
   },
 }
 
@@ -171,10 +171,10 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep your voice down; I'm listening to the road. What is it?" },
-    { id = "g_duties", when = { questActive = TODO_QUEST("Forsaken Duties") }, text = "The magistrate sent you for a report, did he? He'll have one, and it's not a cheerful one." },
-    { id = "g_patrol", when = { questActive = TODO_QUEST("Rear Guard Patrol") }, text = "Balnir Farmstead, east of here. Horrors and spirits both, and they don't stop coming because you've killed a few." },
+    { id = "g_duties", when = { questActive = TODO_QUEST("Forsaken Duties") }, text = "Magistrate Sevren sent you for a report, did he? He'll have one, and it's not a cheerful one." },
+    { id = "g_patrol", when = { questActive = TODO_QUEST("Rear Guard Patrol") }, text = "Balnir Farmstead is east of here, full of horrors and spirits both, and they don't stop coming because you've killed a few." },
     { id = "g_done", when = { questDone = TODO_QUEST("Rear Guard Patrol") }, text = "The road's been quieter since your patrol. I sent your name on to Executor Zygand, so don't make me regret it." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away. I've been here the whole time, in case you wondered, and I've counted every one of the dead that came down the road." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've been here the whole time, in case you wondered, and I've counted every one of the dead that came down the road." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your armor. When you first came out here, I'd have bet a week's pay on the horrors." },
   },
 
@@ -291,7 +291,7 @@ P:NPC {
   },
 
   topics = {
-    andorhal = { { id = "tp_andorhal", text = "East past the Bulwark, and full of Scourge. That's all I know, and more than I'd like." } },
+    andorhal = { { id = "tp_andorhal", text = "Andorhal lies east past the Bulwark, and it's full of Scourge. That's all I know, and more than I'd like." } },
     _none = { { id = "tp_none", text = "Ask in Brill. Out here I only know the road." } },
   },
 }
@@ -335,7 +335,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "For their potions. The apothecaries bring a new one every few days and watch to see whether I live, and so far I have, which seems to disappoint them." } },
+      lines = { { id = "w_default", text = "They keep me for their potions. The apothecaries bring a new one every few days and watch to see whether I live, and so far I have, which seems to disappoint them." } },
       choices = {
         { text = "Do you know what they're testing?", next = "why_test" },
         { text = "Something else.", next = "BACK" },

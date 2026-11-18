@@ -11,7 +11,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Well met, well met! Sit a moment, if ye can stand the smell of the mash." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, lad? Ye've a nose for a good brew, I'll give ye that." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, {g:lad|lass}? Ye've a nose for a good brew, I'll give ye that." },
   },
   start = "hello",
   nodes = {
@@ -37,7 +37,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bears, mostly, and the apes down in the Lower Wilds, who eat everything ripe and throw the rest at me. I've started brewing faster just to beat them to it, and the ale's been better for the hurry, oddly enough." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of my mash tub, though, because a beast that gets a taste of fermented fruit comes back for more, and I've lost a whole barrel to a tipsy bear before." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bears, mostly, and the apes down in the Lower Wilds, who eat everything ripe and throw the rest at me. Keep {pet} out of my mash tub, though, because I've lost a whole barrel to a tipsy bear before." },
       },
       choices = {
         { text = "The beasts were here first. Share the fruit with them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -141,7 +141,7 @@ P:NPC {
       choices = { { text = "Can I help?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "So I pay in the only coin I've got, which is honest thanks and the first taste of whatever comes out of the barrel." } },
+      lines = { { id = "b1_3_l", text = "Ye can, if ye bring me fruit from the wild places, and I'll pay in the only coin I've got, which is honest thanks and the first taste of whatever comes out of the barrel." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -153,7 +153,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Aye, and I miss Ironforge, more than I'd admit to anyone but a dwarf. Tell the lads at the Stonefire I'm alive and fermenting." } },
+      lines = { { id = "x_1_l", text = "Aye, and I miss Ironforge, more than I'd admit to anyone but a dwarf. Tell the lads at the Stonefire Tavern I'm alive and fermenting." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
@@ -184,7 +184,7 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron brew with fire salts and spite, and you can taste both. I'd not drink a drop of it if you paid me, and I've been paid to drink worse." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's rum would strip the paint off a ship and the hair off a goblin, and I've seen it do both. It's no brew for a civilized dwarf." } },
     dire_maul = { { id = "tp_dire_maul", text = "There's ogres in Dire Maul brewin' something foul in the old elf halls, and I'd give my left boot to see their recipe, just to know what not to do." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a cider that's more sugar than apple, and I've told Silas so to his face. He just laughed and charged me double." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a cider that's more sugar than apple, and I've told Silas Darkmoon so to his face. He just laughed and charged me double." } },
     _none = { { id = "tp_none", text = "Can't say I know, friend. If it doesn't ferment, I don't pay it much mind." } },
   },
 }
@@ -215,7 +215,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not as far as I know, boss, which isn't far, because they tend to stomp off in a very small rage. But the thought of a hunter with a pocket-sized giant at heel keeps me up at night, in a good way, mostly, because I can smell the market." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that {pet} needs replacing, mind, because it looks like a fine beast, but think of its face if you came home with a giant the size of a cat, and think what I'd charge for one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not as far as I know, boss, because they tend to stomp off in a very small rage. Not that {pet} needs replacing, mind, but think of its face if you came home with a giant the size of a cat." },
       },
       choices = {
         { text = "Giants aren't toys. Leave them as nature made them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -354,7 +354,7 @@ P:NPC {
     },
   },
   topics = {
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the center of the world, pal, if the world's a ledger, and I'm out here on the edge of it in a swamp of giants. You can see how a guy gets bitter." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the center of the world, pal, if the world's a ledger, and I'm out here on the edge of it on a beach full of giants. You can see how a guy gets bitter." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best auction house in Kalimdor, but the overhead's murder, so I keep my own little shop out here. Lower costs, higher risk, and the giants are the risk." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel keeps things civilized, and civilized is good for business, and business is good for me. You see how it all works out, friend." } },
     dire_maul = { { id = "tp_dire_maul", text = "Dire Maul's a gold mine with ogres in it, and nobody's figured out how to get the gold out without the ogres getting it first. I'll be the first, someday, when I hire the right muscle." } },
@@ -407,7 +407,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They break them, or try to, and I believe they trade away whatever will not break. A hunter earns a beast's trust and is chosen by it, but the Grimtotem only take, and the creatures know the difference." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} chose you, I can see it, and that bond is the very thing the Grimtotem will never understand." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They break them, or try to, and I believe they trade away whatever will not break. Your {pet} chose you, I can see it, and that bond is the very thing the Grimtotem will never understand." },
       },
       choices = {
         { text = "A beast must be won by trust, never by a cage.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -515,15 +515,15 @@ P:NPC {
       choices = { { text = "Not all tauren are like that.", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "I have watched them drag sprites and beasts into those pens for months. Each night I hear them crying out, and each morning there are fewer." } },
+      lines = { { id = "b1_2_l", text = "No, and I know it, but these ones are. I have watched them drag sprites and beasts into those pens for months, and each night I hear them crying out, and each morning there are fewer." } },
       choices = { { text = "I'll help.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "So I ask you to do what I cannot do alone. Free them, and let the Grimtotem learn the forest has friends." } },
+      lines = { { id = "b1_3_l", text = "Then I ask you to do what I cannot do alone. Free them, and let the Grimtotem learn the forest has friends." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "A daughter of Elune who has spent her life in these forests. Feathermoon guards the coast, but somebody must guard the creatures, and that duty fell to me." } },
+      lines = { { id = "b2_1_l", text = "I am a daughter of Elune who has spent her life in these forests. Feathermoon guards the coast, but somebody must guard the creatures, and that duty fell to me." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
@@ -543,7 +543,7 @@ P:NPC {
     grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem trap the beasts of Feralas and pen them for their own ends. I free what I can, and I mark the hills where they camp." } },
     cenarion_circle = { { id = "tp_cenarion_circle", text = "I keep the Circle's watch over the beasts of this forest, and the forest is wide and we are very few. Every hand helps." } },
     green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Dream's gate here in Feralas, and they have grown angry of late. I would not walk near them until they calm.", fx = { learn = { "emerald_dream" } } } },
-    elune = { { id = "tp_elune", text = "Elune watches over the hunted as well as the hunter. I try to remember that when I set my traps." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the hunted as well as the hunter. I try to remember that whenever the Grimtotem hunters cross my path." } },
     malfurion = { { id = "tp_malfurion", text = "Malfurion taught the first druids to listen to the land, and he still sleeps in the Dream while we keep his lessons. I hope he finds us worthy when he wakes." } },
     _none = { { id = "tp_none", text = "That I cannot say. The forest keeps its own secrets." } },
   },
@@ -584,7 +584,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They sense the old magic still bleeding from the stones, I think, the way a deer senses a storm before it breaks. Even the ogres who live there seem changed by it, and I would not let a beast I loved wander within those walls." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely if you ever go near the ruins, and if it refuses to go further, turn back, because its instincts are older and wiser than ours." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They sense the old magic still bleeding from the stones, I think, the way a deer senses a storm. Watch {pet} closely if you ever go near the ruins, and if it refuses to go further, turn back." },
       },
       choices = {
         { text = "Respect the beasts' warning. Leave that magic buried.", next = "BACK", fx = { align = { light = 1 } } },
@@ -708,11 +708,11 @@ P:NPC {
       choices = { { text = "What happened to the Highborne?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Now the naga and the ogres crawl over them, and worse things stir beneath. The magic the Highborne used still clings to the stones like a sickness." } },
+      lines = { { id = "b1_2_l", text = "Their magic broke the world, and now the naga and the ogres crawl over their cities, and worse things stir beneath. The magic the Highborne used still clings to the stones like a sickness." } },
       choices = { { text = "Should I go there?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "We keep watch so no one wakes what sleeps there. Treat those places with care, and never with greed." } },
+      lines = { { id = "b1_3_l", text = "If you must, go carefully. We keep watch so no one wakes what sleeps there, so treat those places with care, and never with greed." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -924,7 +924,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Armor that bends when you draw and holds when the yeti swings, which is harder to make than either alone. I use the hides of the Feralas bears, for they are thick and they shed the rain, and the hunters who follow Hadoken trust nothing else." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could use a collar of soft hide, too, for the brush here tears at fur, though I suspect it would rather chew one than wear one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Armor that bends when you draw and holds when the yeti swings, made from the hides of the Feralas bears. And your {pet} could use a collar of soft hide too, though I suspect it would rather chew one than wear one." },
       },
       choices = {
         { text = "Wear the hide of what you hunt. It honours the beast.", next = "BACK", fx = { align = { light = 1 } } },
@@ -934,7 +934,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "They're loud, little one, and a rogue in loud leather is a rogue who doesn't live long. The hides from these forests are soft and strong, and armor worked from them moves like the wind and whispers like the grass." } },
+      lines = { { id = "xrogue_default", text = "Your leathers are loud, little one, and a rogue in loud leather is a rogue who doesn't live long. The hides from these forests are soft and strong, and armor worked from them moves like the wind and whispers like the grass." } },
       choices = {
         { text = "Quality is worth the wait.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll make do with what I've got.", next = "BACK", fx = { align = { order = -1 } } },

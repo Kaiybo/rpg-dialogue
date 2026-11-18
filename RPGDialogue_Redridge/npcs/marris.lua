@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_demons_forbid", when = { opinion = { topic = "demons", stance = "forbid" } }, text = "You again, the one who'd close the Slaughtered Lamb. My fourth report went off with your opinion in it; I said a sensible traveller agreed." },
+    { id = "g_op_demons_forbid", when = { opinion = { topic = "demons", stance = "forbid" } }, text = "You again, the one who'd close the warlocks' cellar under the Slaughtered Lamb. My fourth report went off with your opinion in it; I said a sensible traveller agreed." },
     { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Keeshan says you've no time for any orc, Thrall's or otherwise. Good, because my walls have no time for them either, so take a post." },
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
     { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },
@@ -39,7 +39,7 @@ P:NPC {
   nodes = {
     op_demons = {
       lines = {
-        { id = "op_demons_a", text = "Sit right? There's a cellar under the Slaughtered Lamb where they teach demon-calling to anyone with the coin, and the same orbs are killing my men up on that ridge. The Keep says it's better to know the enemy's tricks. What do you say?" },
+        { id = "op_demons_a", text = "Sit right? There's a cellar under the Slaughtered Lamb where they teach demon-calling to anyone with the coin, and the same dark arts that fill those orbs are killing my men up on that ridge. The Keep says it's better to know the enemy's tricks. What do you say?" },
       },
       choices = {
         { text = "Demons are demons. Stormwind should shut that cellar down.", next = "op_demons_1", fx = { opinion = { demons = "forbid" }, align = { light = 1 }, trait = { pious = 1 }, affinity = 2 } },
@@ -82,7 +82,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "If I had the men, yes. Give me numbers, shaman. Your spirits won't win this, but they might help." } },
+      lines = { { id = "xdsham_default", text = "If I had the men, yes, so give me numbers, shaman. Your spirits won't win this alone, but they might help." } },
       choices = {
         { text = "Then count me among your numbers, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Numbers don't win. Courage does.", next = "BACK", fx = { align = { order = -1 } } },
@@ -155,7 +155,7 @@ P:NPC {
         { id = "h_keeshan_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Missing In Action"), days = 3 } },
           text = "Keeshan's sleeping it off in the barracks. He told me what you did twice over, and he never tells anything twice." },
         { id = "h_orbs", when = { questActive = TODO_QUEST("Shadow Magic") },
-          text = "Their shadowcasters carry midnight orbs, and every orb has cost me a guard. Bring them here to be destroyed, and don't carry them close to your skin." },
+          text = "The Blackrock shadowcasters carry midnight orbs, and every orb has cost me a guard. Bring them here to be destroyed, and don't carry them close to your skin." },
         { id = "h_tharilzun", when = { questActive = TODO_QUEST("Tharil'zun") },
           text = "Tharil'zun runs their Outrunners, the ones ambushing the road to Stonewatch. Take friends with you, and more of them than you think you need." },
         { id = "h_tharilzun_done", tags = { "news" }, when = { questDone = TODO_QUEST("Tharil'zun") },
@@ -317,7 +317,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "Good, because my guards stomp like oxen and the orcs hear them a mile off. Keep your beast quiet, watch for smoke from the camps, and don't go near Stonewatch on your own." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "That animal of yours has better ears than any guard I've got. Take it up Render's Valley and see what it smells; I'll want to know where the camps have moved." },
+          text = "Good, because my guards stomp like oxen and the orcs hear them a mile off. That animal of yours has better ears than any guard I've got, so take it up Render's Valley and tell me where the camps have moved." },
       },
       choices = {
         { text = "I'll go alone. I'm quieter that way.", next = "BACK", fx = { trait = { brave = 1 } } },

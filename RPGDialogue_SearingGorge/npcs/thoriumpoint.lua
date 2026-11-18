@@ -429,7 +429,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. If ye've come tae talk tae the rocks, go ahead, but they'll no' answer, for I've tried on the long nights." },
         { id = "h_default", key = true,
-          text = "Hansel Heavyhands. I'm the one Lolo sends when somebody needs a firm word, or a firm fist, an' I'm very firm, an' also very tired." },
+          text = "Hansel Heavyhands. I'm the one Captain Lolo sends when somebody needs a firm word, or a firm fist, an' I'm very firm, an' also very tired." },
         { id = "h_spiders", tags = { "news" }, when = { questActive = TODO_QUEST("Fiery Menace!") },
           text = "The Overseer says the lava spiders are frightenin' the bairns, so now twenty of 'em are my job. Ye do it, an' I'll supervise from this chair." },
         { id = "h_incendosaurs", when = { questActive = TODO_QUEST("Incendosaurs? Whateverosaur is More Like It") },

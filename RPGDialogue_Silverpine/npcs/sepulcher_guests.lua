@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Walk softly here, friend. The roots under the Sepulcher are older than its stones, and they are very tired." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "Earth Mother keep you, child of the plains. It does my heart good to hear hooves on this soil that aren't my own." },
-    { id = "g_shell", when = { questActive = TODO_QUEST("Mura Runetotem") }, text = "You carry something from Tonga, I think. I can feel it from here, like warmth from a banked fire." },
+    { id = "g_shell", when = { questActive = TODO_QUEST("Mura Runetotem") }, text = "You carry something from Tonga Runetotem at the Crossroads, I think. I can feel it from here, like warmth from a banked fire." },
     { id = "g_done", when = { questDone = TODO_QUEST("Mura Runetotem") }, text = "The shell still glows on my table, and some nights I sit with it the way you'd sit with a sick friend. Thank you again for carrying it so far." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, and in that time I coaxed one sapling out of the ash by the north wall. It's small, but it's green, and green is rare here." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, the way a young tree grows when nobody is watching it. The forest has noticed, even if you haven't." },
@@ -157,7 +157,7 @@ P:NPC {
       },
     },
     neigh_others = {
-      lines = { { id = "no_default", text = "Gwyn Farrow sells mushrooms and wants to know which ones I'd eat, which is none of them. Wallace sits out in the cold and says the trees whisper to him, and I haven't the heart to tell him I hear them too." } },
+      lines = { { id = "no_default", text = "Gwyn Farrow, who sells mushrooms here, wants to know which ones I'd eat, which is none of them. Old Wallace the Blind sits out in the cold and says the trees whisper to him, and I haven't the heart to tell him I hear them too." } },
       choices = {
         { text = "What do the trees say?", next = "neigh_trees" },
         { text = "Something else.", next = "BACK" },
@@ -212,7 +212,7 @@ P:NPC {
     wailing_caverns = { { id = "tp_caverns", text = "Tonga's worry, and now mine. Druids went there to dream and the land around the caves began to change, and I'm not certain the dreamers are the ones in charge of it." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle taught our people much of what we know of healing land. I think they'd call this work hopeless, so I haven't written to ask." } },
     background = { { id = "tp_bg", text = "A Runetotem from Thunder Bluff who listened to her elders and then went somewhere they hadn't thought to send her." } },
-    _none = { { id = "tp_none", text = "That's beyond my roots, friend. Ask Allister, perhaps; he collects what people know." } },
+    _none = { { id = "tp_none", text = "That's beyond my roots, friend. Ask Shadow Priest Allister, perhaps; he collects what people know." } },
   },
 }
 
@@ -271,7 +271,7 @@ P:NPC {
     },
 
     letters = {
-      lines = { { id = "l_default", text = "Official ones, mostly, sealed and dull. Requisitions for the High Executor, reports for Magistrate Sevren, and the odd private note from a Deathguard to someone he used to love, which I find very touching and never open." } },
+      lines = { { id = "l_default", text = "Official ones, mostly, sealed and dull. Requisitions for the High Executor, reports for Magistrate Sevren in Brill, and the odd private note from a Deathguard to someone he used to love, which I find very touching and never open." } },
       choices = {
         { text = "You never open any of them?", next = "letters_never" },
         { text = "Something else.", next = "BACK" },

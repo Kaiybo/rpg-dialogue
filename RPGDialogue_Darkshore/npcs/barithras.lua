@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cave Mushrooms"), days = 3 } },
           text = "You have my mushrooms, and you have seen the cave. Tell me nothing yet, because if the Ancients feared it, it is Onu who should hear it first." },
         { id = "h_onu", tags = { "news" }, when = { questActive = TODO_QUEST("Onu") },
-          text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he is in a hurry, I fear it is urgent." },
+          text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he asks for you quickly, it must be urgent." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid. Then you may hear what the Ancients hear better than I can, and perhaps you will tell me whether I was a coward to stay away from that cave." },
       },

@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest! Perhaps you'll understand, since you've a calling yourself. Mine is greater things than this shovel, though the shovel hasn't heard yet." },
+      text = "A priest! Perhaps you'll understand, since you've a calling yourself. My calling is greater than this shovel, though the shovel hasn't heard yet." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "One of the Circle's own. Tell the Arch Druid I'm still out here, would you? He forgets, and I suspect it's on purpose." },
     { id = "n_dirty", cat = "kit", when = { durability = { max = 0.3 } },
@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every night, and I've no idea what, because I'm far too important to stay up and watch. Something small with clever paws, I think, and if you caught it I'd name a dirt pile after you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is eyeing my piles right now, isn't it? I can see it thinking, and I'll thank it to think about something else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every night, and I've no idea what, though I think it's something small with clever paws. And your {pet} is eyeing my piles right now, isn't it? I'll thank it to think about something else." },
       },
       choices = {
         { text = "I'll catch your little digger and let it go elsewhere.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -277,7 +277,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They do, though few listen. Corruption creeps in. If your spirits feel it, you are less useless than most." } },
+      lines = { { id = "xdsham_default", text = "They do, though few listen, and the corruption creeps further every season. If your spirits feel it, you're less useless than most." } },
       choices = {
         { text = "Then I will help guard the forests, Syurna.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Corruption is the druids' problem, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -315,7 +315,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Close enough that I've lost marks to hunters who got there first. You stalk to kill a beast and I stalk to finish a job, but the forest doesn't care which, so long as you keep off the dry leaves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} moves more quietly than you do, which you should take as a lesson rather than an insult." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Close enough that I've lost marks to hunters who got there first, and the forest doesn't care which of us is stalking. Your {pet} moves more quietly than you do, which you should take as a lesson rather than an insult." },
       },
       choices = {
         { text = "I hunt in the open. My quarry sees me coming.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -379,7 +379,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my shade. Your kind speak loudly of justice, and I'm always curious how much of it survives a dark alley." },
         { id = "h_default", text = "I'm Syurna, and I train rogues. If you aren't one, I can't teach you anything, and I rarely talk for the pleasure of it, so choose your questions well." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "We are darkness and shadow, rogue, and the forest needs both now more than it did. Ask what you came to ask." },
+          text = "We are darkness and shadow, rogue, and the forest needs both now more than ever. Ask what you came to ask." },
         { id = "h_rose", tags = { "news" }, when = { questActive = TODO_QUEST("The Apple Falls") },
           text = "Another rose, and I suppose it's from Jannok. If I'd kept every flower that fool sent, I could have opened a shop, but his latest courier may prove more useful than he is." },
         { id = "h_sethir", tags = { "news" }, when = { questActive = TODO_QUEST("Destiny Calls") },
@@ -468,7 +468,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach rogues. What I did before that isn't anyone's business." } },
     advice = { { id = "tp_ad", text = "Watch the hands, not the face. The face lies more often." } },
     satyrs = { { id = "tp_satyrs", text = "Old enemies, twisted from our own people. They hide on the edges of Teldrassil, and they know more than they should." } },
-    ravenholdt = { { id = "tp_ravenholdt", text = "I've heard the name, and I've heard it from people who were careful to say it quietly. If they want you, they'll find you, so don't go looking." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "I've heard of Ravenholdt, always from people who were careful to say it quietly. If they want you, they'll find you, so don't go looking." } },
     highborne = { { id = "tp_highborne", text = "Azshara's court had its knives too, you know, more of them than anyone admits. Some of what I teach is older than this tree." } },
     booty_bay = { { id = "tp_booty_bay", text = "A goblin port where the law is whoever paid last. It's a useful place to sell what you'd rather not explain, though I'd never recommend it." } },
     onyxia = { { id = "tp_onyxia", text = "A black dragon in the southern marsh, the stories go. Rogues who go after a dragon's hoard tend to become part of it." } },
@@ -507,7 +507,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some do, by asking too much. Your spirits must give as they take. That is the law, and I enforce it." } },
+      lines = { { id = "xdsham_default", text = "Some do, by asking too much of the spirits. Yours must give as much as they take, because that is the law of the wild, and I keep it." } },
       choices = {
         { text = "Balance is wise, Jocaste. I will respect it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Balance is for hunters. My spirits have their own law.", next = "BACK", fx = { align = { order = -1 } } },
@@ -565,7 +565,7 @@ P:NPC {
     },
     sabers = {
       lines = {
-        { id = "sb_default", text = "Then you learned the first lesson before you came to me: a saber carries you because it chooses to. Riders make patient hunters, and impatient ones, which are you?" },
+        { id = "sb_default", text = "Then you learned the first lesson before you came to me: a saber carries you because it chooses to. Riders make patient hunters or impatient ones, so which are you?" },
       },
       choices = {
         { text = "Patient. A hunt is won in the waiting.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -672,7 +672,7 @@ P:NPC {
       choices = {
         { text = "The wild should be left to itself.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Someone has to keep the wild in order.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Some must break the balance on purpose.", next = "balance2" },
+        { text = "And those who break the balance on purpose?", next = "balance2" },
       },
     },
     balance2 = {
@@ -787,7 +787,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some see you as crude imitators, others as distant kin. I see a seeker of the world's voices, and a seeker gets my blessing, crude or not." } },
+      lines = { { id = "xdsham_default", text = "Some in the Enclave see you as crude imitators of our craft, others as distant kin. I see a seeker of the world's voices, and a seeker gets my blessing, crude or not." } },
       choices = {
         { text = "I accept your blessing gladly, Denatharion.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I need no blessing. My spirits are enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -825,7 +825,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and I tell them it's a different bond, because they become the beast for a while and you walk beside one for years. The best of them come to respect you for it, and the rest grow up eventually." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the calm of a well-loved animal, and Cenarius would be glad of it. Treat it as one of his children, for in a way it is." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and I tell them it's a different bond, because they become the beast for a while and you walk beside one for years. Your {pet} has the calm of a well-loved animal, and Cenarius would be glad of it." },
       },
       choices = {
         { text = "My companion is family, as Cenarius would want.", next = "BACK", fx = { align = { light = 1 } } },

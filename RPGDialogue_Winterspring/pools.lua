@@ -5,7 +5,7 @@ P:Pool {
   id = "guard_everlook", role = "guard", community = "everlook",
   barks = {
     { id = "b_cold", text = "Can't feel my ears and can't feel my toes, but I can still feel my paycheck, barely." },
-    { id = "b_yeti", text = "If you hear a yeti in town, pal, it's probably one of Umi's, probably, and I'm not paid enough to find out which." },
+    { id = "b_yeti", text = "If you hear a yeti in town, pal, it's probably one of Umi Rumplesnicker's mechanical ones, and I'm not paid enough to find out which." },
   },
   greetings = {
     { id = "g_everlook", text = "This is Everlook, pal, and it's Cartel ground, so Horde, Alliance or whoever you are, you trade here, you pay your fees here, and you fight somewhere else." },

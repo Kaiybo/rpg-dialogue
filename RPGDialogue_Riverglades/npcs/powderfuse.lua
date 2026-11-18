@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_engineer", when = { profession = "Engineering" }, text = "A fellow engineer! That's lovely, pal, really lovely, but touch nothin' anyway." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, pal, and in that time I've put up two new walls, so keep your hands off those too." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the port is you sold somebody a story and they paid full price for it, which is good business, I gotta say. Just don't try it on me, kid, because I own the building you'd be lying in." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round down at the port, kid, and talent like that's worth coin, so I'd hate to see you give it away for nothin'." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round here in the port, kid, and talent like that's worth coin, so I'd hate to see you give it away for nothin'." },
   },
 
   notice = {
@@ -84,7 +84,7 @@ P:NPC {
       },
     },
     built_push = {
-      lines = { { id = "bp_default", text = "I built it the way the Baron built Booty Bay: by being the one who owns it afterwards. That's what building means, kid." } },
+      lines = { { id = "bp_default", text = "I built it the way Baron Revilgaz built Booty Bay: by being the one who owns it afterwards. That's what building means, kid." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     deal = {
@@ -128,7 +128,7 @@ P:NPC {
       },
     },
     wc_ask_pay = {
-      lines = { { id = "wqp_default", text = "Every copper, he says! You sound like the Cartel's own collector, kid, and he's the only goblin I know with a smile I'd pay to wipe off. Fine, fine, peace is good for business, I'll give you that one." } },
+      lines = { { id = "wqp_default", text = "Every copper, says you! You sound like the Cartel's own collector, kid, and he's the only goblin I know with a smile I'd pay to wipe off. Fine, fine, peace is good for business, I'll give you that one." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     wc_ask_cut = {
@@ -221,7 +221,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Give? Like, for free? I gave the Brotherhood a discount on rope once, and Demar still hasn't thanked me, so there you go; that's what giving gets you." },
+        { id = "xpa_default", text = "Give? Like, for free? I gave the Brotherhood a discount on rope once, and the Knight Commander still hasn't thanked me, so there you go; that's what giving gets you." },
       },
       choices = {
         { text = "Charity isn't about thanks, Melbin.", next = "BACK", fx = { align = { light = 1 } } },
@@ -243,7 +243,7 @@ P:NPC {
     xpriest = {
       big = true,
       lines = {
-        { id = "xpr_default", text = "Look after? Sure, Zizplink feeds whoever she likes and puts it on my tab, and Fimbo gives away the stew nobody bought. I pretend not to notice, which costs me plenty, so I'm basically a saint." },
+        { id = "xpr_default", text = "Look after? Sure, Zizplink at the inn feeds whoever she likes and puts it on my tab, and Fimbo at the cafe gives away the stew nobody bought. I pretend not to notice, which costs me plenty, so I'm basically a saint." },
       },
       choices = {
         { text = "Then stop pretending. It's good of you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -330,13 +330,13 @@ P:NPC {
     { id = "g_default", text = "Another explorer! Come in, come in, honey, and mind the smell, because it's the sea, mostly, and the sea doesn't pay for cleaning." },
     { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready, explorer! I aired it out, but the air came back in, so it smells like fish again, and I'm not knocking anything off for that." },
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}, explorer, and right on time, because I aired your room this mornin' and only the fish smell came back, which is half the rent's worth of fresh air." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word off the boat is somebody caught you in a fib, explorer, and in this port a rumour gets round faster than Argo's sea monsters, so I'd lie low a while and keep your tab paid." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word off the boat is somebody caught you in a fib, explorer, and in this port a rumour gets round faster than one of Captain Argo's sea-monster stories, so I'd lie low a while and keep your tab paid." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody sat at the bar tonight grinning about somethin' you'd said, explorer, and good moods sell stew, so come in and say something nice to me too, honey, it's good for business." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Oh, you've been at Argo's bottle! Sit down before the floor comes up to meet you, honey, because it does that here, and broken chairs go on the bill." },
+      text = "Oh, you've been drinking with Captain Argo, I can tell! Sit down before the floor comes up to meet you, honey, because it does that here, and broken chairs go on the bill." },
   },
 
   start = "hello",
@@ -345,17 +345,17 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Zizplink, innkeeper, at your service and at very fair rates! Beds upstairs, food down here, and everybody off the Tanaris boat comes through that door, so you hear things, explorer, and a good rumour's worth more than a bed." },
         { id = "h_list", tags = { "news" }, when = { questActive = TODO_QUEST("Zizplink's Grocery List") },
-          text = "You've got my list! Don't lose it, explorer, and don't read it out loud, because some of those are for Fimbo, and he's sensitive about his budget." },
+          text = "You've got my list! Don't lose it, explorer, and don't read it out loud, because some of those are for Fimbo's cafe, and he's sensitive about his budget." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, back from the fields! Sit down, explorer, the stew's hot and the chairs are sturdy, mostly, and if one breaks under you, we'll talk." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We don't get many of you down here, explorer, because the Brotherhood's knights mostly stay up at their keep and drink their own ale, which is a terrible loss of custom." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "Oh, a hunter, and a pet! Your friend can sleep by the fire, explorer, for a small fee, so long as it leaves Fimbo's fish alone." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "Oh, a hunter, and a pet! Your friend can sleep by the fire, explorer, for a small fee, so long as it leaves the kitchen's fish alone." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! I didn't hear you come in, explorer, and I hear everything, so that's a real talent, and talents like that could make somebody a lot of money." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way from Stormwind, I'd guess! Sit, honey, sit, because the Brotherhood boys at the bar could use a kind word, and they drink more when they're cheered up." },
         { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest, off the Tanaris boat? Welcome, explorer, the inn's neutral, and so's the stew, and so's the price." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you smell the sea in here? Course you can, honey, everybody can, and the spirits must love it, so tell 'em the rooms are cheap." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! If you can conjure water, explorer, we can talk about a room for a barrel, because the well's gone brackish again and Melbin won't pay to fix it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Oh my, a warlock, and your little friend too. Welcome, explorer, but the little one sleeps outside, and that's a house rule I just made and I'll be charging for." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Please don't turn into anything in the dining room, explorer, because Argo gets confused enough as it is, and he never pays for what he breaks." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Please don't turn into anything in the dining room, explorer, because Captain Argo gets confused enough as it is, and he never pays for what he breaks." },
       },
       again = { { id = "h_again", text = "Anything else, explorer? Ask away, honey, the questions are free and the soup is not." }, { id = "h_again2", text = "More? I'll top you up while you think, and I'll only charge you for half." } },
       choices = {
@@ -390,7 +390,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gray = {
-      lines = { { id = "gr_default", text = "Gray? He's Brotherhood, honey. He comes down from the keep, drinks, grumbles, tips well and goes back up again, and don't sit in his chair, because he doesn't own it, but a good tipper gets a chair." } },
+      lines = { { id = "gr_default", text = "That's Gray Dawnbright, honey, a Brotherhood rider. He comes down from the keep, drinks, grumbles, tips well and goes back up again, and a good tipper gets his own chair, so don't sit in it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } } },
     },
     melbin = {
@@ -444,7 +444,7 @@ P:NPC {
     xpriest = {
       big = true,
       lines = {
-        { id = "xpr_default", text = "Gray, every night, though he'd throw his mug at you for saying so, and I'd charge him for the mug. And Argo, who laughs a little too loud for a man who's not frightened of anything." },
+        { id = "xpr_default", text = "Gray, every night, though he'd throw his mug at you for saying so, and I'd charge him for the mug. And Captain Argo, who laughs a little too loud for a man who says he's not frightened of anything." },
       },
       choices = {
         { text = "Then I'll sit with them both tonight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -455,7 +455,7 @@ P:NPC {
     xhsham = {
       big = true,
       lines = {
-        { id = "xsc_default", text = "That it's bigger than it used to be, which is silly, and that somethin' lives off the murloc islands, which is Argo's story, so that's silly too, except his boat came back with teeth marks. I keep the shutters closed on stormy nights, explorer, just in case, because shutters are cheaper than walls." },
+        { id = "xsc_default", text = "That somethin' big lives off the murloc islands, which is Captain Argo's story, so it's probably silly, except his boat came back with teeth marks. I keep the shutters closed on stormy nights, explorer, just in case." },
       },
       choices = {
         { text = "Respect the sea, and it'll leave you be.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -477,7 +477,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlk_default", text = "Because the last guest with a little friend like that let it loose in the pantry, and it ate three silver's worth of cheese and Fimbo didn't speak to me for a week! I'm sure yours is lovely, explorer, but rules are rules." },
+        { id = "xlk_default", text = "Because the last guest with a little friend like that let it loose in the pantry, and it ate three silver's worth of cheese, and Fimbo the cook didn't speak to me for a week! I'm sure yours is lovely, explorer, but rules are rules." },
       },
       choices = {
         { text = "Fair. It'll stay outside.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -488,7 +488,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Murlocs, more than anybody wants, and crabs the size of cartwheels off the islands, and once a turtle so old it had barnacles on its barnacles. Fimbo wanted to cook it, and I wouldn't let him, honey, and that's the only meal I ever turned down for free." },
+        { id = "xdr_default", text = "Murlocs, more than anybody wants, and crabs the size of cartwheels off the islands, and once a turtle so old it had barnacles on its barnacles. Fimbo from the cafe wanted to cook it, and I wouldn't let him, honey, and that's the only meal I ever turned down for free." },
       },
       choices = {
         { text = "Good. Something that old deserves to live.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -555,7 +555,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not unless your spirits can make the Brotherhood forget what I did. Go on, ask Zizplink for my drink, if the spirits are busy." } },
+      lines = { { id = "xdsham_default", text = "Not unless your spirits can tell me whether to go back up to the keep. If they're busy, ask Zizplink to fill this mug." } },
       choices = {
         { text = "Go back to the Brotherhood and face it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Drink, then. The Brotherhood can wait.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -564,15 +564,15 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Gray Dawnbright, Brotherhood of the Horse, on leave from it, or it's on leave from me; I haven't decided. Make yourself useful and get Zizplink to fill this." },
+        { id = "h_default", key = true, text = "Gray Dawnbright, Brotherhood of the Horse, on leave from it, or it's on leave from me; I haven't decided. Make yourself useful and get Zizplink, the innkeeper, to fill this." },
         { id = "h_resolved", tags = { "news" }, when = { thread = { id = "farholde_lost", state = "resolved" } },
-          text = "I went up to the keep and sat with Demar. We didn't talk about her, not really; we drank to her, alive or not, and that's the first time in years." },
+          text = "I went up to the keep and sat with Demar. We didn't talk about Fern, not really; we drank to her, alive or not, and that's the first time in years." },
         { id = "h_soured", when = { thread = { id = "farholde_lost", state = "soured" } },
           text = "Don't. Whatever it is, I've heard it." },
         { id = "h_tessa", when = { metBefore = true }, text = "I wrote Tessa a letter, tore it up and wrote another, and that one's in the stew, I think. Don't eat the stew." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Howard was one of you, and the last thing I need tonight is reminding of Howard, so sit if you're sitting." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sir Howard, who led our charge at the siege, was one of you, and the last thing I need tonight is reminding of him, so sit if you're sitting." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. If that animal drinks out of my mug, you're buying the next one." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've got the walk. Fern had that walk, so don't do it in here, please; it makes me look up." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've got the walk. Fern Crimsonleaf, our old agent, had that walk, so don't do it in here, please; it makes me look up." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you're here to save my soul, it's at the bottom of this mug, so you'll have to wait your turn." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Can you turn water into ale? No? Then what good are you?" },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Whatever that thing is, it's looking at my drink, so tell it to stop." },
@@ -865,7 +865,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fighters = {
-      lines = { { id = "f_default", text = "Ogres, if Bolder'ok'll sign, and Brotherhood knights, if they'd stop bein' so noble about it. Pirates, if I can get 'em to fight one at a time, and you, champ, if you've got a gimmick." } },
+      lines = { { id = "f_default", text = "Ogres, if the Bolder'ok clan'll sign, and Brotherhood knights, if they'd stop bein' so noble about it. Pirates, if I can get 'em to fight one at a time, and you, champ, if you've got a gimmick." } },
       choices = {
         { text = "A gimmick?", next = "gimmick" },
         { text = "Something else.", next = "BACK" },
@@ -932,7 +932,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "Big and loud, that's all I ask! Blink around, freeze the other guy, set a little fire, but nothing near the snack cart, because Fimbo's catering and he's very sensitive." },
+        { id = "xmg_default", text = "Big and loud, that's all I ask! Blink around, freeze the other guy, set a little fire, but nothing near the snack cart, because Fimbo from the cafe is catering and he's very sensitive." },
       },
       choices = {
         { text = "I'll fight fair, with no tricks for the crowd.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1002,7 +1002,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Fimbo Greasemitz, and welcome to my cafe on the water, buddy! Today we have roast boar and roast fish, and tomorrow, roast boar and roast fish, and I'm dyin' inside, but the prices are very reasonable." },
         { id = "h_stew", tags = { "news" }, when = { questActive = TODO_QUEST("A Taste of the Sea") },
-          text = "Murloc eyes and crab meat, off the beaches, buddy. Fast in the pan with the eyes, that's the secret, because it keeps the sea in 'em, and the sea's the only ingredient I get for free." },
+          text = "For the stew I need murloc eyes and crab meat off the beaches, buddy. The eyes go in the pan fast, that's the secret, because it keeps the sea in 'em." },
         { id = "h_stew_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("A Taste of the Sea"), days = 3 } },
           text = "Seafood stew, on the menu, at two silver a bowl! Three customers tried it and two came back, which is the best return this cafe has ever done." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You look hungry, buddy, and hungry is my favourite kind of customer, because hungry doesn't haggle. Boar or fish? I already know your answer." },
@@ -1054,7 +1054,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     customers = {
-      lines = { { id = "c_default", text = "Sailors, goblins, Gray when Zizplink cuts him off, and Argo, who eats anything if you call it a toast and never asks the price, bless him." } },
+      lines = { { id = "c_default", text = "Sailors, goblins, Gray from the Brotherhood when Zizplink at the inn cuts him off, and Captain Argo, who'll eat anything you raise a toast to and never asks the price, bless him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     recipes = {
@@ -1104,7 +1104,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "One, and I'll tell you because you look like you can keep it, buddy: a splash of Argo's rum in every stew. That's why the stew's good, and it's why Argo thinks he's buying his own rum back from me at a markup, which he is." },
+        { id = "xro_default", text = "One, and I'll tell you because you look like you can keep it, buddy: a splash of Captain Argo's rum in every stew. That's why the stew's good, and it means Argo buys his own rum back from me in every bowl, at a markup." },
       },
       choices = {
         { text = "You should tell Argo. It's his rum.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1207,7 +1207,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Argo Brinewhistle, captain of the finest boat in the port, matey. *hic* Well, the finest boat with a monster problem, which is the only kind of boat I can afford." },
         { id = "h_monster", tags = { "news" }, when = { questActive = TODO_QUEST("The Monster Surfaces") },
-          text = "The bait goes in by the fresh wreckage off the murloc islands, matey, not here, out there! Then it comes up, and you take its head for my stern, and I'll pay in rum till you can't stand." },
+          text = "Drop the bait by the fresh wreckage off the murloc islands, matey, not here, out there! When the monster comes up, you take its head for my stern, and I'll pay in rum till you can't stand." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Monster Surfaces"), days = 3 } },
           text = "Look at 'er, up on my stern! Ugliest, finest figurehead on the whole coast, worth more than the boat, and drinks are on me, again, matey." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! *hic* You've got the arms for a harpoon, matey, and I've got a harpoon, slightly used, so that's fate, that is." },
@@ -1239,7 +1239,7 @@ P:NPC {
       },
     },
     monster = {
-      lines = { { id = "m_default", text = "Big, with teeth, and more teeth than that, matey. It sank three boats I know of, and one I made up to scare Gritta into lowerin' her chum prices." } },
+      lines = { { id = "m_default", text = "Big, with teeth, and more teeth than that, matey. It sank three boats I know of, and one I made up to scare Gritta, who sells the bait, into lowerin' her chum prices." } },
       choices = {
         { text = "Which one did you make up?", next = "monster_lie" },
         { text = "Something else.", next = "BACK" },
@@ -1326,7 +1326,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "So the monster can't get under her, matey! *hic* Freeze a ring round my boat, she sits pretty, the monster bangs its head, and I sell tickets to Jazzle's lot at two silver a head." },
+        { id = "xmg_default", text = "So the monster can't get under her, matey! *hic* Freeze a ring round my boat, she sits pretty, the monster bangs its head, and I sell tickets to Jazzle's arena crowd at two silver a head." },
       },
       choices = {
         { text = "Ice won't hold it. Face the thing properly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1427,7 +1427,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     chum = {
-      lines = { { id = "c_default", text = "Fimbo buys it for soup and Argo for his monster, and they both pay on time, kid, which is all I need to know. I don't ask which pot it ends up in, and neither should you." } },
+      lines = { { id = "c_default", text = "Fimbo buys it for his cafe's soup and Captain Argo baits his monster with it, and they both pay on time, kid, which is all I need to know. I don't ask which pot it ends up in, and neither should you." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xwarcl = {
@@ -1466,7 +1466,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "Pirates from Windstead, when they think nobody's watching, and they're always watching, kid. They pay in good coin and never haggle, so I don't ask where the coin came from, because that's bad for business." },
+        { id = "xro_default", text = "Pirates from up the coast, when they think nobody's watching, and they're always watching, kid. They pay in good coin and never haggle, so I don't ask where the coin came from, because that's bad for business." },
       },
       choices = {
         { text = "Coin from pirates is still stolen coin.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1499,7 +1499,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "Some fool off the Tanaris boat, showin' off for Jazzle, kid. He froze my bait barrel solid and laughed about it, and I charged him for the barrel, the bait and the laugh." },
+        { id = "xmg_default", text = "Some fool off the Tanaris boat, showin' off for Jazzle at the arena, kid. He froze my bait barrel solid and laughed about it, and I charged him for the barrel, the bait and the laugh." },
       },
       choices = {
         { text = "Good. Show-offs should pay for their fun.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1530,7 +1530,7 @@ P:NPC {
       },
     },
     biggest = {
-      lines = { { id = "bg_default", text = "A river catfish as long as Melbin's dock is wide, kid, up where the rivers meet. It took me all morning to land and all afternoon to sell, for a very nice sum, and Fimbo cried when he cooked it, though he says that was the onions." } },
+      lines = { { id = "bg_default", text = "A river catfish as long as Melbin's dock is wide, kid, up where the rivers meet. It took me all morning to land and all afternoon to sell, for a very nice sum, and Fimbo at the cafe cried when he cooked it, though he says that was the onions." } },
       choices = {
         { text = "You must let the big ones go now and then.", next = "biggest_go" },
         { text = "Something else.", next = "BACK" },

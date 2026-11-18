@@ -40,7 +40,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_before", when = { questBefore = TODO_QUEST("Encroaching Wildlife") },
-          text = "My caravan was bound for the eastern coast and Nethergarde Keep, and the Lost Ones fell on us here. I'm the only one left, and I swore to guard what's left of the supplies, but the beasts grow bolder every night." },
+          text = "My caravan was bound for Nethergarde Keep in the Blasted Lands, and the Lost Ones fell on us here. I'm the only one left, and I swore to guard what's left of the supplies, but the beasts grow bolder every night." },
         { id = "h_wild", when = { questActive = TODO_QUEST("Encroaching Wildlife") },
           text = "The jaguars, the spinners and the young sawtooths, that's what keeps creeping up on this camp. Thin them out for me and I'll sleep for the first time in a week." },
         { id = "h_chest", when = { questActive = TODO_QUEST("The Lost Caravan") },
@@ -83,7 +83,7 @@ P:NPC {
     },
     lostones = {
       lines = {
-        { id = "lo_default", text = "Tall, grey, and broken somehow, and they live in a village to the north they call the Fallow Sanctuary. They speak, which is the worst of it, because I heard them talking to each other while they dragged our wagon away." },
+        { id = "lo_default", text = "They're tall and grey and broken somehow, and they live in a village to the north they call the Fallow Sanctuary. They speak, which is the worst of it, because I heard them talking to each other while they dragged our wagon away." },
         { id = "lo_magtoor", when = { heardLine = "magtoor.h_default" },
           text = "You've met the ones at the Harborage, then, and you know the Lost Ones were their kin once. I can't decide whether that makes it better or worse, and I've had a lot of nights to think about it." },
       },
@@ -104,7 +104,7 @@ P:NPC {
     },
     survive_guilt = {
       lines = {
-        { id = "sg_default", text = "That's what I tell myself, and some days I believe it. But I was the watcher, you see, and the watcher's job is to see them coming, and I didn't." },
+        { id = "sg_default", text = "Maybe, and some days I can believe it. But I was the watcher, you see, and the watcher's job is to see them coming, and I didn't." },
       },
       choices = {
         { text = "No one could have seen them in those reeds.", next = "BACK", fx = { align = { light = 1 }, affinity = 2, trait = { kind = 1 } } },
@@ -256,7 +256,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A footman from the Old Town, a watcher on the caravan, and now the caravan's last guard. That's the whole of it." } },
+    background = { { id = "tp_ba", text = "I was a footman from the Old Town, then a watcher on the caravan, and now I'm its last guard. That's the whole of it." } },
     advice = { { id = "tp_ad", text = "Keep away from the reeds near Fallow Sanctuary, and if you hear talking where nobody should be, run." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend. I know the road from Darkshire and this patch of mud, and very little else." } },
   },
@@ -390,7 +390,7 @@ P:NPC {
 
     harborage = {
       lines = {
-        { id = "ha_default", text = "A handful of huts on the high ground, where the water does not reach and the Lost Ones do not often come. Masat works hides there, better than any of us, and trades them to whoever comes by without a blade drawn." },
+        { id = "ha_default", text = "A handful of huts on the high ground, where the water does not reach and the Lost Ones do not often come. Masat T'andr works hides here, better than any of us, and trades them to whoever comes by without a blade drawn." },
       },
       choices = {
         { text = "Who else comes by here?", next = "harborage_visitors" },
@@ -452,7 +452,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hides, patterns, fine work. Look as long as you like, but do not touch the drying racks, please." },
+    { id = "g_default", text = "I have hides, patterns and fine work here. Look as long as you like, but do not touch the drying racks, please." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, because I have finished something since you were last here, and I would like someone to see it." },
     { id = "g_lw", when = { profession = { name = "Leatherworking", min = 200 } }, text = "Ah, you have the hands of a worker, scarred in the right places. Come, I will show you the good patterns, not the ones I sell to tourists." },
   },

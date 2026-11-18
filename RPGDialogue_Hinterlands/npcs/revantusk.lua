@@ -36,7 +36,7 @@ P:NPC {
   nodes = {
     opn_wildhammer = {
       lines = {
-        { id = "opn_wildhammer_q", text = "Otho says we bleed them until they leave us be, and Markhor says we hunt the Vilebranch and let the dwarves come to us. My mate sits in a Vilebranch cage, mon, and I be tired of choosin' which enemy to hate first. Tell me what you would do in my place." },
+        { id = "opn_wildhammer_q", text = "Otho Moji'ko, who sells to our cooks, says we bleed them until they leave us be, and Huntsman Markhor says we hunt the Vilebranch and let the dwarves come to us. My mate sits in a Vilebranch cage, mon, and I be tired of choosin' which enemy to hate first. Tell me what you would do in my place." },
       },
       choices = {
         { text = "Strike Aerie Peak. They hunt you from the sky.", next = "opn_wildhammer_r_war", fx = { affinity = 1, align = { honor = -1 }, opinion = { wildhammer = "war" } } },
@@ -124,7 +124,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Owls for feathers, wolves for hides, and Vilebranch for the blood they owe us. My mate be in a cage at Jintha'Alor, and every trail I follow lead back up those stairs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} got the eyes of a Hinterlands beast, mon, sharp and patient. Torntusk would trust it to find a trail she couldn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Owls for feathers, wolves for hides, and Vilebranch for the blood they owe us. {pet} got the eyes of a Hinterlands beast, mon, and I would trust it to find a trail up those stairs that I couldn't." },
       },
       choices = {
         { text = "Your mate comes first. I'll find the way to him.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -159,15 +159,15 @@ P:NPC {
         { id = "h_hills_resolved", tags = { "news" }, when = { faction = "Horde", thread = { id = "hinterlands_trolls", state = "resolved" } },
           text = "The Vilebranch keep their heads down on that hill since Hexx fell, mon, and my scouts can walk the river without lookin' over their shoulders. It won't last, but Revantusk will enjoy it while it does." },
         { id = "h_hexx", when = { questActive = TODO_QUEST("Wanted: Vile Priestess Hexx and Her Minions") },
-          text = "You read the poster, then. Hexx and her Aman'zasi guards sit at the summit as if the hill belongs to them, so show them it don't." },
+          text = "You read the notice I posted, then. Hexx and her Aman'zasi guards sit at the summit as if the hill belongs to them, so show them it don't." },
         { id = "h_job", when = { questActive = TODO_QUEST("Job Opening: Guard Captain of Revantusk Village") },
           text = "You want Malkhor's post? Then kill the Vilebranch that killed him, the berserkers and shadow hunters and blood drinkers and soul eaters, and come tell me how many." },
         { id = "h_home", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Return to Primal Torntusk"), days = 3 } },
-          text = "He walked in last night, thin as a reed and sore in every joint, and the first thing he asked was who brought him home. I told him your name, and Revantusk will not forget it." },
+          text = "My mate walked in last night, thin as a reed and sore in every joint, and the first thing he asked was who brought him home. I told him your name, and Revantusk will not forget it." },
         { id = "h_later", when = { questDone = TODO_QUEST("Return to Primal Torntusk") },
           text = "My mate sleeps in his own hut again, though he wakes at every drum, and I be Primal Torntusk still. The Vilebranch learned what Revantusk does when it be wronged." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Midnight again. That be the hour they came for him, so the watchers stand double on the walls now, and I stand with them." },
+          text = "It be near midnight again. That be the hour they came for him, so the watchers stand double on the walls now, and I stand with them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "There be a dark thing hangin' off your shoulder, {class}, and the Vilebranch got plenty of those already. What you call it, and what it eat?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -241,7 +241,7 @@ P:NPC {
     raid = {
       big = true,
       lines = {
-        { id = "ra_default", text = "They came up from the south in the dark, quiet as fog, and they knew where every hut stood. Malkhor met them at the gate with a spear, and they took him and my mate both up the hill." },
+        { id = "ra_default", text = "They came up from the south in the dark, quiet as fog, and they knew where every hut stood. Malkhor met them at the gate with a spear, and they cut him down there, and they took my mate up the hill." },
       },
       choices = {
         { text = "How did they know the village so well?", next = "raid_spies" },
@@ -295,12 +295,12 @@ P:NPC {
       },
     },
     horde_word = {
-      lines = { { id = "hw_default", text = "It sends us you, and the wind riders, and Gorkas, who fishes more than he flies. It be a small help for a small tribe, but it be more than the Witherbark ever gave anyone." } },
+      lines = { { id = "hw_default", text = "It sends us you, and the wind riders, and Gorkas, the wind rider master, who fishes more than he flies. It be a small help for a small tribe, but it be more than the Witherbark ever gave anyone." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     wildhammer = {
       big = true,
-      lines = { { id = "wh_default", text = "The dwarves at Aerie Peak hate all trolls the same, Revantusk or Vilebranch, and their gryphons kill our hunters in the hills. Otho wants to send them messages in blood; Markhor wants their birds. I want my mate back first, and then we see." } },
+      lines = { { id = "wh_default", text = "The dwarves at Aerie Peak hate all trolls the same, Revantusk or Vilebranch, and their gryphons kill our hunters in the hills. Otho the spice seller wants to send them messages in blood, and Markhor wants their birds dead. I want my mate back first, and then we see." } },
       choices = {
         { text = "What should the Revantusk do about the dwarves?", next = "opn_wildhammer" },
         { text = "The Wildhammer fight the Vilebranch too. Use that.", next = "BACK", fx = { align = { order = 1 } } },
@@ -309,7 +309,7 @@ P:NPC {
       },
     },
     malkhor = {
-      lines = { { id = "mk_default", text = "My guard captain, and Markhor's twin. The Vilebranch did not want him for any altar, so they killed him where he stood and fed him to their beasts, and his post be empty now." } },
+      lines = { { id = "mk_default", text = "My guard captain, and Huntsman Markhor's twin. The Vilebranch did not want him for any altar, so they killed him where he stood and fed him to their beasts, and his post be empty now." } },
       choices = {
         { text = "Who will take his post?", next = "malkhor_job" },
         { text = "Something else.", next = "BACK" },
@@ -368,8 +368,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the Hinterlands and every tribe in them. Ask, and I tell you what serves Revantusk." } },
     background = { { id = "tp_bg", text = "Revantusk born, Revantusk chief, and Horde since the runners came home with Thrall's word.", next = "horde" } },
     advice = { { id = "tp_ad", text = "Never sleep in the open near Jintha'Alor. The Vilebranch like their meat fresh." } },
-    vilebranch = { { id = "tp_vile", text = "Cannibals and traitors who drink what they should bury. Ask Yayo'jin, if you want the long tellin'.", next = "tribes" } },
-    darkspear = { { id = "tp_darkspear", text = "The Darkspear and the Revantusk are cousins, and Vol'jin brought us into the Horde. We paid for that with blood, twice over, and we'd pay again." } },
+    vilebranch = { { id = "tp_vile", text = "Cannibals and traitors who drink what they should bury. Ask Mystic Yayo'jin, if you want the long tellin'.", next = "tribes" } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear and the Revantusk are cousins, and Vol'jin's people stood with Thrall before we did. We paid for our place in the Horde with blood, twice over, and we'd pay again." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin is a true leader, and he knows what it is to lose everything and build again. He sent word to me when my mate was taken, and I'll not forget it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief of the Horde welcomed my tribe when no one else would, and we fight for him now. My mate sits in a Vilebranch cage, and I'll see him freed in the Horde's name." }, { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You fly with the Wildhammer and ask me about my warchief? He gave my people a home and a cause, and that is more than your kings have ever given anyone." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are our enemies, and they've been our enemies since before your grandfather was born. They kill our people, and we kill theirs, and that is the way of the Hinterlands." } },
@@ -438,7 +438,7 @@ P:NPC {
         { id = "xhcast_default", text = "The Vilebranch witch doctors' magic, worst of all, because it smell of blood and old gods, and the wolves near Jintha'Alor gone wild from it. The arcane I hate for my own reasons, but that Vilebranch filth be worse, and I don't say that lightly." },
       },
       choices = {
-        { text = "I'll ask the village elders before I strike at Jintha'Alor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll strike at Jintha'Alor when the Primal gives the word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I need nobody's leave to kill Vilebranch.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -528,7 +528,7 @@ P:NPC {
     wilds_silvermane = {
       lines = { { id = "ws_default", text = "You think like them. They wait downwind and they strike when you look away, so you never look away, and you strike first." } },
       choices = {
-        { text = "And Zul'jin? The trolls say he'll return.", next = "wilds_zuljin" },
+        { text = "The trolls say Zul'jin will return. Do you believe it?", next = "wilds_zuljin" },
         { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -737,7 +737,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Owl bones, tossed in the fire, and the way they crack point to the nest, or so the old hunters say. Yayo'jin don't promise it work, mon, but she promise the owl don't need them anymore." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} be sniffin' at the bones, mon, so maybe they work after all. Keep it off the table, though, because some of these be for curses and not for supper." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Owl bones, tossed in the fire, and the way they crack point to the nest, or so the old hunters say. {pet} be sniffin' at them already, mon, but keep it off the table, because some of these be for curses and not for supper." },
       },
       choices = {
         { text = "The old ways kept the tribe alive. I'll trust them.", next = "BACK", fx = { align = { order = 1 } } },
@@ -940,7 +940,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The fish, mon, that be the whole point. Your arrow be no good under the waves and my hook be no good against a wolf, so we each keep to our own and nobody go hungry." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} been watchin' my bucket like it be the best show on the coast, mon. Katoom spare it a small one, but only one, because the turtles already took their share." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The fish, mon, that be the whole point, and your arrow be no good under the waves. {pet} been watchin' my bucket, so Katoom spare it a small one, but only one, because the turtles already took their share." },
       },
       choices = {
         { text = "Share the catch with those who go hungry.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1053,7 +1053,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     snapjaws = {
-      lines = { { id = "s_default", text = "The saltwater snapjaws, mon, big hungry fish vacuums with shells on. And their queen, Gammerita, be the worst thief on the whole coast." } },
+      lines = { { id = "s_default", text = "The saltwater snapjaws, mon, big hungry turtles that swallow bait whole, and their queen, Gammerita, be the worst thief on the whole coast." } },
       choices = {
         { text = "I'll deal with them.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -1267,7 +1267,7 @@ P:NPC {
       },
     },
     orc = {
-      lines = { { id = "oc_default", text = "Some ogres, yes, the ones at Hammerfall and in the mountains. Lard is not those ogres; Lard only want fish, and a nap, and no fightin'." } },
+      lines = { { id = "oc_default", text = "Some ogres, yes, the ones near Hammerfall and in the mountains. Lard is not those ogres; Lard only want fish, and a nap, and no fightin'." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -1330,7 +1330,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I mend anything broken, and a bow is just a long thing that breaks more often. The Vilebranch stole my best tools, the ones the gnome gave me, so I make do with an old file and a lot of cursing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is sniffing at my bellows, which is the only part of the forge that smells like an animal. Keep it back from the coals, hunter, because I don't mend fur." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I mend anything broken, and a bow is just a long thing that breaks more often. Keep {pet} back from the coals while I work, hunter, because I don't mend fur." },
       },
       choices = {
         { text = "Your tools should come back. A debt like that matters.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1373,7 +1373,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "The old Horde had warlocks, {class}, and every orc my age remembers what their fire cost us. Stand on the far side of the anvil and we'll get along fine." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
-          text = "Light fingers, {class}? The Vilebranch took my best tools up to Jintha'Alor, and nothing would please me more than a quiet pair of hands bringing them home." },
+          text = "Light fingers, {class}? The Vilebranch took my best tools into the hills, and nothing would please me more than a quiet pair of hands bringing them home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring that bow here and I'll restring it, because I can see it's been fighting the damp, and the damp in the Hinterlands always wins." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You don't need a shield, I'd wager, for a bear's hide is better than any I could forge." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. Bring me your plate if it's dented; I've mended worse for stranger folk, though I'll admit I've never hammered on armour that glows." },
@@ -1516,7 +1516,7 @@ P:NPC {
     },
     opn_revenge_r_strike = {
       lines = {
-        { id = "opn_revenge_r_strike", text = "Now that be talk Otho understands. Come back when you ready, and we start with the elves." },
+        { id = "opn_revenge_r_strike", text = "Now that be talk Otho understands. Come back when you ready, and we start with the elves at Quel'Danil, the dwarves' friends." },
       },
       choices = {
         { text = "Something else, Otho.", next = "BACK" },
@@ -1569,7 +1569,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Want, mon, want very much, but the Primal say no, because the Revantusk got enough enemies without startin' on the birds. So Otho just dream about it and cook wolf instead, which be almost as satisfyin'." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} want a bite, mon? Otho got wolf scraps, and a beast that hunt beside a friend of the Revantusk be welcome at this table, not like them dwarf birds." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Want, mon, want very much, but the Primal say no, so Otho just dream about it and cook wolf instead. {pet} want a bite of it? A beast that hunt beside a friend of the Revantusk be welcome at this table." },
       },
       choices = {
         { text = "The Primal is right. The gryphons aren't our enemy.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1693,7 +1693,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     peak = {
-      lines = { { id = "pk_default", text = "Tough, sure, but they ain't stupid, mon. Now they know a troll can walk right into the middle of their town, and they gonna sleep a little worse every night." } },
+      lines = { { id = "pk_default", text = "Tough, sure, but tough don't mean watchful, mon. Once they learn a troll can walk right into the middle of their town, they gonna sleep a little worse every night." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { revantusk = 1 } } } },
     },
     troll = {
@@ -1767,7 +1767,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I've tried baiting it, tricking it and begging it, everything but a spear, and a spear would be cheating. A hunter understands that some prey you take with honor or you don't take at all." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the pier, hunter, because the last beast that jumped in the water scared off every grouper from here to Hammerfall." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I've tried baiting it, tricking it and begging it, everything but a spear, and a spear would be cheating. And keep {pet} off the pier, hunter, because the last beast that jumped in scared off every grouper on the coast." },
       },
       choices = {
         { text = "Catch it fairly or not at all. You're right.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1808,7 +1808,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage, eh? Don't you dare freeze my pier, {class}, because that grouper is down there somewhere and I want him fair and square." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
-          text = "You sneak up on a troll fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
+          text = "You sneak up on an orc fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you want to fly somewhere and hit something, I'd wager. Lok'tar, but wait till I finish this cast, because the grouper is close today, and I can feel it in the line." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Maybe you know something about grouper, because I've been hunting one for three seasons and it's still laughing at me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
@@ -1844,7 +1844,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "And you'd miss the coast, the Highlands and the Undercity's towers from above, all for the sake of an hour. Teleport if you like, but you'll never know what the world look like, and you'll never see my grouper." } },
+      lines = { { id = "xmage_default", text = "And you'd miss the coast, the Highlands and the Undercity's towers from above, all for the sake of an hour. Teleport if you like, but you'll never know what the world looks like, and you'll never see my grouper." } },
       choices = {
         { text = "You're right. Some roads should be taken slowly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "There's no shame in the quick way.", next = "BACK", fx = { align = { order = -1 } } },

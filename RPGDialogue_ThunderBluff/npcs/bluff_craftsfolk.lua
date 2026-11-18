@@ -75,7 +75,7 @@ P:NPC {
       },
     },
     set = {
-      lines = { { id = "se_default", text = "Velora Nitely in the Undercity makes the legguards, and she tells jokes while she works, Thun'grim says, though he's never heard one land. I have never met her, and I think I am content with that." } },
+      lines = { { id = "se_default", text = "Velora Nitely in the Undercity makes the legguards, and Thun'grim says she tells jokes while she works, though none of them ever land. I have never met her, and I think I am content with that." } },
       choices = { { text = "Something else, Orm.", next = "BACK" } },
     },
     kin = {
@@ -188,9 +188,9 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Ahanu, and I work the hides that come up from the plains, and I sell what I make here and down at the Crossroads. Thank you for stopping, because most travellers walk straight past to the lift." },
         { id = "h_after", when = { questDone = TODO_QUEST("Ride to Thunder Bluff") },
-          text = "The hides you brought were good ones, brother, and I've already turned half of them into jerkins. You did me a great service, and I hope the coin was enough for your travels." },
+          text = "The hides you brought were good ones, friend, and I've already turned half of them into jerkins. You did me a great service, and I hope the coin was enough for your travels." },
         { id = "h_tal", when = { questActive = TODO_QUEST("Tal the Wind Rider Master") },
-          text = "Take the leather goods to Tal at the top of the tower, and he'll arrange a wind rider to the Crossroads. Jahan has been waiting on them all week." },
+          text = "Take the leather goods to Tal at the top of the tower, and he'll arrange a wind rider to the Crossroads. Jahan Hawkwing, who sells my goods there, has been waiting on them all week." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? I can stitch and talk." },

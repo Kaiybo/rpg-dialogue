@@ -230,7 +230,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_joke = {
-      lines = { { id = "hj_default", text = "Ha! A kindred spirit, and I'd say a lost soul, but that's my line. Lankester would tell us both we're cracking the walls, and he'd be right, and I'd still do it." } },
+      lines = { { id = "hj_default", text = "Ha! A kindred spirit, and I'd say a lost soul, but that's my line. Lankester would tell us both that every joke is a crack in the wall, and he'd be right, and I'd still do it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hold_nothing = {
@@ -471,7 +471,7 @@ P:NPC {
     },
 
     fowler = {
-      lines = { { id = "fo_default", text = "Baltus takes on his face what belongs on his shield, and then he laughs about it, and the recruits think that's the lesson. I like him well enough, but I'd not put him on a gate." } },
+      lines = { { id = "fo_default", text = "Baltus takes blows on his face that belong on his shield, and then he laughs about it, and the recruits think that's the lesson. I like him well enough, but I'd not put him on a gate." } },
       choices = {
         { text = "A good soldier blocks the blow. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fighting's not a drill, Angela. Let him brawl.", next = "BACK", fx = { align = { order = -1 } } },
@@ -505,7 +505,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You've a question, or you'd not be standing there. Ask it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit down; my legs aren't what they were, and they were never much." },
-    { id = "g_fowler", when = { timeOfDay = { "dusk", "night" } }, text = "Keep your voice down, if you would. Fowler's been bellowing since dusk, and I'd like one quiet corner in this quarter." },
+    { id = "g_fowler", when = { timeOfDay = { "dusk", "night" } }, text = "Keep your voice down, if you would. Baltus Fowler's been bellowing since dusk, and I'd like one quiet corner in this quarter." },
   },
 
   notice = {

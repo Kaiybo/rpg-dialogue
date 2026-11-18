@@ -181,7 +181,7 @@ P:NPC {
         { id = "h_betrayal_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Grand Betrayal") },
           text = "So Thermaplugg is finished. I expected to feel lighter, and instead I mostly feel tired, but thank you all the same." },
         { id = "h_gnomeregan_resolved", tags = { "news" }, when = { thread = { id = "gnomeregan_lost", state = "resolved" } },
-          text = "I read it out at the assembly, every word, with his lenses on my nose. Nobody threw anything, which in Tinker Town is a standing ovation, and Gnoarn has stopped holding meetings and started holding planning sessions, which are louder." },
+          text = "I read it out at the assembly, every word, with Thermaplugg's old lenses on my nose. Nobody threw anything, which in Tinker Town is a standing ovation, and Gnoarn has stopped holding meetings and started holding planning sessions, which are louder." },
         { id = "h_gnomeregan_soured", when = { thread = { id = "gnomeregan_lost", state = "soured" } },
           text = "I gave them Thermaplugg, as you said, and they cheered, and I went home early. It was the right speech for them, I expect, and I've filed it in the drawer with the others I'm not proud of." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -502,7 +502,7 @@ P:NPC {
     },
     mage = {
       lines = {
-        { id = "mg_default", text = "Then you're one of the few who got out with their spellbooks, and I'd guess you left half your class behind. Bink keeps a list in the Hall of Mysteries of every student who made it to the surface, and it's a short list." },
+        { id = "mg_default", text = "Then you're one of the few who got out with their spellbooks, and I'd guess you left half your class behind. Bink, our mage trainer, keeps a list in the Hall of Mysteries of every student who made it to the surface, and it's a short list." },
         { id = "mg_last", when = { origin = "gnome_last_student" },
           text = "The last one up from the lecture halls, I'm told, still carrying a satchel of notes nobody else lived to read. I'm so sorry, and I'm so glad you're here, both at once." },
       },
@@ -526,7 +526,7 @@ P:NPC {
       lines = {
         { id = "ro_default", text = "Back down? Into the city, past the troggs and the leper gnomes, without an expedition or a permit? I ought to scold you, and instead I want to know whether my workshop on the fourth tier is still standing." },
         { id = "ro_scav", when = { origin = "gnome_scavenger" },
-          text = "Oh, you're one of the ones who slips down for parts and sells them in Tinker Town. Castpipe complains about you weekly, and weekly I tell him to buy what you bring." },
+          text = "Oh, you're one of the ones who slips down for parts and sells them in Tinker Town. Master Mechanic Castpipe complains about you weekly, and weekly I tell him to buy what you bring." },
       },
       choices = {
         { text = "Your workshop's picked clean, High Tinker. I'm sorry.", next = "rogue_shop" },
@@ -626,7 +626,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, for the first rams ever ridden in Khaz Modan were tamed by hunters in the high snows, long before the Three Hammers fell out. A hunter with a rifle on a ram's back is as old an Ironforge picture as a smith at the Forge, whatever the smiths tell ye." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I can hear yer {pet} breathin' at yer heel, slow an' easy, which tells me it trusts ye." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, for the first rams ever ridden in Khaz Modan were tamed by hunters in the high snows. An' I can hear yer {pet} breathin' at yer heel, slow an' easy, which tells me it trusts ye." },
       },
       choices = {
         { text = "Then I'll carry that tradition with pride.", next = "BACK", fx = { align = { order = 1 } } },
@@ -776,10 +776,10 @@ P:NPC {
     dam = {
       lines = {
         { id = "d_default", key = true,
-          text = "There's an irony there. The stonewrought method of building was a Dark Iron architect's, one Franclorn Forgewright. Draw yer own conclusions about the Stonewrought Dam." },
+          text = "Perhaps because they think it's theirs. The stonewrought method of building came from a Dark Iron architect, one Franclorn Forgewright, so draw yer own conclusions about the Stonewrought Dam." },
       },
       choices = {
-        { text = "Does the dam's engineer know that?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I doubt the dam's keepers like that story.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
     },
@@ -874,7 +874,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write down what ye saw on the day ye saw it. By the next day ye'll have improved it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They were our kin once, and our enemies for far longer. History doesn't forgive, but it remembers both.", next = "thaurissan" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes kept poor records and lost the rest, so I've offered my scribe to Mekkatorque. He's still thinking about it." } },
-    explorers_league = { { id = "tp_league", text = "They dig it up and I write it down, and Magellas and I argue about which is the harder job. I'm right, of course." } },
+    explorers_league = { { id = "tp_league", text = "They dig it up and I write it down, and High Explorer Magellas and I argue about which is the harder job. I'm right, of course." } },
     stonewrought_dam = { { id = "tp_dam", text = "A wonder of the world, built by a method its keepers would rather not trace.", next = "dam" } },
     second_war = { { id = "tp_second_war", text = "I was on these walls when the Horde came through Dun Morogh, and I heard the guns of Ironforge for weeks on end. The mountain held because we held it, and every dwarf who stood there has a name in my books." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer left Ironforge before the Three Hammers war and made their home at Grim Batol, and when that was cursed they took to the Hinterlands and the open sky. They kept the old shamanic ways we let go of, and they're proud of it." } },
@@ -1063,7 +1063,7 @@ P:NPC {
         { id = "h_discs", tags = { "news" }, when = { questActive = TODO_QUEST("The Platinum Discs") },
           text = "Discs from Uldaman, and they speak? Do you understand what this might mean, where we came from and what we really are? Let me sit down." },
         { id = "h_brann", key = true, when = { minLevel = 30 },
-          text = "Brann should be here for this. He's been gone too long in the field, even for Brann. I keep a chair for him all the same." },
+          text = "Brann Bronzebeard should be here to see the League's work, but he's been gone too long in the field, even for Brann. I keep a chair for him all the same." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "We have no entry for you, none at all! An entire people, and the League's never written a line about you, so please sit and let me fix that." },
         { id = "h_prism", tags = { "news" }, when = { questRecent = { TODO_QUEST("Prehistoric Prism"), days = 7 } },
@@ -1173,7 +1173,7 @@ P:NPC {
 
     sites = {
       lines = {
-        { id = "si_default", text = "Ironband's dig by Thelsamar, slower than I'd like, and Gol'Bolar, and Uldaman, where the troggs and the Dark Irons got in first. And Darkshore, of all places." },
+        { id = "si_default", text = "Prospector Ironband's dig by Thelsamar, slower than I'd like, and Gol'Bolar, and Uldaman, where the troggs and the Dark Irons got in first. And Darkshore, of all places." },
       },
       choices = {
         { text = "Ironband's dig sounds like slow going.", next = "sites_ironband" },
@@ -1312,7 +1312,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Enough. Troggs in Loch Modan, Dark Irons in the Badlands, an' I've scars from both, though I'll no' be showin' them. If ye're offerin' tae guard a dig, speak tae Magellas, for I've no time tae hire anyone." } },
+      lines = { { id = "xwarcl_default", text = "Enough. Troggs in Loch Modan, Dark Irons in the Badlands, an' I've scars from both, though I'll no' be showin' them. If ye're offerin' tae guard a dig, speak tae High Explorer Magellas, for I've no time tae hire anyone." } },
       choices = {
         { text = "I'll offer my axe to the League properly, then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I don't need a ledger to guard a dig.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1322,8 +1322,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out, which is three uses more than the clerks Magellas usually sends me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
+        { id = "xhuntcl_default", text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out, which is three uses more than most o' the folk Magellas sends me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out. An' that {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
       },
       choices = {
         { text = "I'll scout for the League, and gladly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1387,7 +1387,7 @@ P:NPC {
         { id = "h_uldaman", tags = { "news" }, when = { questActive = TODO_QUEST("Stormpike's Deciphering") },
           text = "Somethin' out o' Uldaman that needs readin'. Bring it here an' leave me be for a week." },
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("Letter to Stormpike") },
-          text = "A cipher from Dibbs, is it? Hand it here, then. Hm, somebody clever wrote this, though no' clever enough." },
+          text = "A cipher from Loremaster Dibbs, is it? Hand it here, then. Hm, somebody clever wrote this, though no' clever enough." },
         { id = "h_chamber", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Hidden Chamber"), days = 7 } },
           text = "So ye saw Khaz'mul's chamber. Baelog was right an' I had my doubts, but don't repeat that tae him." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -1535,7 +1535,7 @@ P:NPC {
     { id = "g_prej", when = { prejudiced = true }, text = "A night elf in the High Seat. Say your piece quickly, if you please; the senate sits within the hour, and I'll not keep it waiting on ten thousand years of manners." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I've told the senate twice now that at least one Kaldorei knows how to pull their weight, and they look at me as though I've grown a second beard." },
     { id = "g_quarry", text = "Watch yer footing, for the troggs come up out o' the quarry like water from a cracked pipe." },
-    { id = "g_back", when = { metBefore = true }, text = "There are fewer o' the beasts since ye were last here, I'll grant ye, though no' none, mind." },
+    { id = "g_back", when = { metBefore = true }, text = "There are fewer o' the troggs since ye were last here, I'll grant ye, though no' none, mind." },
   },
 
   notice = {
@@ -1678,7 +1678,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "It's the other way round: Ironforge wants Ashenvale wood for its forges an' the kaldorei will no' hear of it. The Senate thinks yer people are stubborn, an' they think the same o' us." } },
+      lines = { { id = "dq_default", text = "Because the kaldorei will no' see their trees fed tae our forges, an' I cannae say I blame them. The Senate thinks yer people are stubborn, an' they think the same o' us." } },
       choices = {
         { text = "Ashenvale isn't Ironforge's to cut.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A fair treaty could serve both peoples.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1706,7 +1706,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "o_league_dangerous", tags = { "news" }, when = { gossip = { topic = "explorers_league", stance = "dangerous" } },
-          text = "I hear ye told Magellas his diggin' wakes things best left asleep. Ye're no' wrong, an' I've said the same in the Senate till they stopped listenin'." },
+          text = "I hear ye told High Explorer Magellas his diggin' wakes things best left asleep. Ye're no' wrong, an' I've said the same in the Senate till they stopped listenin'." },
         { id = "h_pt_stonehallow", tags = { "news" }, when = { party = true },
           text = "Ye've brought friends tae the quarry, which is more than the Senate ever does. If any o' them can swing an axe, the troggs are on the lower shelf, an' I'll no' complain if ye thin them out on yer way through." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my quarry! Well, ye'll find plenty tae mend, for the troggs bite an' my diggers bleed, an' the Senate sends nothin' but letters." },
@@ -1719,7 +1719,7 @@ P:NPC {
         { id = "h_campfire", when = { questActive = TODO_QUEST("A Visitor to Dun Morogh") },
           text = "A campfire on the ridge above my quarry? I saw it, an' I took it for troggs learnin' fire. Go an' look, then, for I'm busy." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid in the Senate halls is a rare sight, so I'll be brief, friend: Darnassus asks Ironforge for timber rights it doesn't care tae grant." },
+          text = "A druid in the Senate halls is a rare sight, so I'll be brief, friend: Ironforge wants timber rights in Ashenvale, an' Darnassus doesnae care tae grant them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "The Senate has its own sort o' quiet folk, an' I'd guess ye know a few o' them. Speak softly in this hall; the walls have long ears." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -1736,7 +1736,7 @@ P:NPC {
       },
       choices = {
         { text = "You don't trust my people, Senator.", next = "prej", when = { prejudiced = true } },
-        { text = "Why won't Ironforge grant the timber rights?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Why won't Darnassus grant the timber rights?", next = "druid_q", when = { class = "DRUID" } },
         { text = "This sounds like a job for the guards.", next = "why" },
         { text = "Where did the troggs come from?", next = "troggs" },
         { text = "What does the Senate do, exactly?", next = "senate" },
@@ -1922,7 +1922,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The loudest, anyway, for every bear grows a foot taller wi' every pint, an' I've heard o' rams that could leap the Great Forge. I like a hunter's story, though, for there's usually a true one hidin' underneath." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll wager yer {pet} has a story or two o' its own, if only it could talk an' drink." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The loudest, anyway, for every bear grows a foot taller wi' every pint, though there's usually a true story hidin' underneath. An' I'll wager yer {pet} has a story or two o' its own, if only it could talk an' drink." },
       },
       choices = {
         { text = "My stories stay the size they were.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1967,7 +1967,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Half true, as I said, for a paladin will never lie, but he'll leave out the bits where he was frightened. I like those best o' all, mind, the ones where somebody admits they were scared an' did it anyway." } },
+      lines = { { id = "xapala_default", text = "Half true, for a paladin will never lie, but he'll leave out the bits where he was frightened. I like those best o' all, mind, the ones where somebody admits they were scared an' did it anyway." } },
       choices = {
         { text = "A true story should include the fear. That's honest.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A soldier's fear is nobody's business. Leave it out.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1994,7 +1994,7 @@ P:NPC {
         { id = "o_warchief_gossip", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "trust" } },
           text = "Word from the High Seat is ye told the King tae trust the orc warchief! Brave thing tae say in that room, an' braver tae say in mine, so keep it quiet by the fire." },
         { id = "o_senate_corrupt", tags = { "news" }, when = { gossip = { topic = "ironforge_senate", stance = "corrupt" } },
-          text = "They're sayin' ye told old Stonehallow there's rot in the Senate. Ye'll no' find a senator drinkin' at the Stonefire tonight, I'll tell ye that." },
+          text = "They're sayin' ye told Senator Stonehallow there's rot in the Senate. Ye'll no' find a senator drinkin' at the Stonefire tonight, I'll tell ye that." },
         { id = "h_pt_firebrew", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five o' ye! Now that's a proper party, an' the Stonefire's the place for it. Sit yerselves down by the big hearth, an' the first one who tells a lie about a dragon has tae tell a better one after." },
         { id = "h_pt_firebrew2", tags = { "news" }, when = { party = { size = { min = 1, max = 3 } } },

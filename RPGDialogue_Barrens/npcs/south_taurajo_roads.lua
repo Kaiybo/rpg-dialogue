@@ -132,14 +132,14 @@ P:NPC {
       },
     },
     zankaja = {
-      lines = { { id = "za_default", text = "Zankaja, on her bluff, watching the wind riders, I know she is. She's young and beautiful and she deserves better than what's left of me, and I've been lying here working out how to tell her that." } },
+      lines = { { id = "za_default", text = "I know she is, up on the bluff in Orgrimmar watching the wind riders come in. She's young and beautiful and she deserves better than what's left of me, and I've been lying here working out how to tell her that." } },
       choices = {
         { text = "She gave you a pendant, didn't she?", next = "pendant" },
         { text = "Something else.", next = "BACK" },
       },
     },
     pendant = {
-      lines = { { id = "pe_default", text = "Under my armour, where nobody could see it, and the quilboar never found it, since they only took what shone. It's dirty now, caked in Barrens mud, but it's the only thing I've got left that's hers." } },
+      lines = { { id = "pe_default", text = "She did, and I wore it under my armour where nobody could see it, so the quilboar never found it; they only took what shone. It's dirty now, caked in Barrens mud, but it's the only thing I've got left that's hers." } },
       choices = { { text = "Something else, Dogran.", next = "BACK" } },
     },
     raid = {
@@ -162,7 +162,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Grunt in Orgrimmar, promoted to the Crossroads, sent on to Taurajo, and now this. It was a short climb and a long fall." } },
+    background = { { id = "tp_bg", text = "I was a grunt in Orgrimmar, then promoted to the Crossroads and sent on to Taurajo, and now this. It was a short climb and a long fall." } },
     advice = { { id = "tp_ad", text = "Count them twice before you charge, brother. I counted once." } },
     _none = { { id = "tp_none", text = "I don't know, and I've other things on my mind just now." } },
   },
@@ -188,7 +188,7 @@ P:NPC {
 
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf. Are you one of Khazgorm's, come to tell me again how much silver lies under my ancestors' bones?" },
+      text = "A dwarf. Are you one of Prospector Khazgorm's diggers, come to tell me again how much silver lies under my ancestors' bones?" },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the people, walking these roads. Then you'll hear the blasting the way I hear it, in your chest." },
   },
@@ -201,7 +201,7 @@ P:NPC {
         { id = "h_before", when = { faction = "Horde", questBefore = TODO_QUEST("Gann's Reclamation") },
           text = "I tried words, and words failed, so now I mean to act. Drive the dwarves out of the Bael Modan dig by force, and bring me their prospector's journal, so I can learn what they want with my land." },
         { id = "h_revenge", when = { questDone = TODO_QUEST("Gann's Reclamation") },
-          text = "Khazgorm met the fate he earned, and I feel no remorse for the fool. His journal tells me exactly how they blast the ground apart, and I mean to give them a taste of their own medicine." },
+          text = "Prospector Khazgorm met the fate he earned, and I feel no remorse for the fool. His journal tells me exactly how they blast the ground apart, and I mean to give them a taste of their own medicine." },
         { id = "h_done", when = { questDone = TODO_QUEST("Revenge of Gann") },
           text = "The flying machine is burning wreckage, and the dwarves will know this land has defenders. May you be honoured in Thunder Bluff as a champion of a lost tribe." },
       },
@@ -243,7 +243,7 @@ P:NPC {
     },
     blast = {
       big = true,
-      lines = { { id = "bl_default", text = "Nitroglycerin, wood pulp and sodium nitrate, according to their own plans, and their soldiers carry all of it. The flying machine is the heart of that place and an insult to the memory of my tribe, and I want it burning." } },
+      lines = { { id = "bl_default", text = "I would. Their own plans call for nitroglycerin, wood pulp and sodium nitrate, and their soldiers carry all of it. The flying machine is the heart of that place and an insult to the memory of my tribe, and I want it burning." } },
       choices = {
         { text = "Fire for fire. They started it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

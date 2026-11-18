@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "A guest from the Horde, and very welcome! For these few days the glade belongs to everyone, and I've never once asked a customer which banner they fight under, because a rocket doesn't care." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "One of the Circle, home for the festival! The druids here pretend they don't like the noise, but I've caught Loganaar watching the rockets with his mouth open." },
+          text = "One of the Circle, home for the festival! The druids here pretend they don't like the noise, but I've caught Loganaar, their trainer, watching the rockets with his mouth open." },
       },
       again = {
         { id = "h_again1", text = "What else can I tell you? I've got all night, and so has the moon." },

@@ -61,7 +61,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A little more, perhaps, because a good hunter knows the land as well as any druid, and cares for it as much. But a bad hunter takes too much and leaves the land poorer, and the Circle remembers that too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is well cared for, I see. The Circle notices such things, and so do I." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A little more, perhaps, and {pet} speaks well for you, because it's plainly well cared for. The Circle notices such things, and so do I." },
       },
       choices = {
         { text = "I take only what I need. The land deserves that.", next = "BACK", fx = { align = { light = 1 } } },

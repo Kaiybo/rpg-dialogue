@@ -33,9 +33,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Craven Drok, and before you ask, the name was my grandfather's joke and I've stopped arguing with it. Our Warchief is a wiser orc than most of his grunts give him credit for, and there are people in this city working quietly to prove it." },
+        { id = "h_default", key = true, text = "Craven Drok, and before you ask, the name is the clan's old joke about my grandfather, and I've stopped arguing with it. Our Warchief is a wiser orc than most of his grunts give him credit for, and there are people in this city working quietly to prove it." },
         { id = "h_before", when = { minLevel = 28, questBefore = TODO_QUEST("Alliance Relations") },
-          text = "Be still a moment and hear me, because what I have to say matters to our people, though it won't look like it at first. Thrall is a diplomat at heart, and he learned more than the humans' cruelty in their camps. Keldran, near the Valley of Spirits, could use someone like you." },
+          text = "Be still a moment and hear me, because this matters to our people, though it won't look like it at first. The Warchief means to make peace one day, and Keldran, near the Valley of Spirits, needs someone like you to help make it possible." },
         { id = "h_active", when = { questActive = TODO_QUEST("Alliance Relations") },
           text = "Keldran is north of the Valley of Spirits, near the water, and he'll be expecting you. Go on, and don't shout his business about on the way." },
       },
@@ -160,7 +160,7 @@ P:NPC {
         { text = "Why does it matter what the Alliance believes?", next = "why" },
         { text = "Does the Warchief know about this?", next = "thrall" },
         { text = "What sort of magic do you study?", next = "magic" },
-        { text = "A Forsaken warlock hunting warlocks? Explain Maurin.", next = "maurin", when = { race = "Scourge" } },
+        { text = "I hear a Forsaken warlock works for you. Who is Maurin?", next = "maurin", when = { race = "Scourge" } },
         { text = "I'll take my leave, Keldran.", next = "END" },
       },
     },

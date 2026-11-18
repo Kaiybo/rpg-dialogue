@@ -97,7 +97,7 @@ P:NPC {
       },
     },
     el_youth = {
-      lines = { { id = "ely_default", text = "Young and tired, mostly, until I found a thistle growing by the shore that made a tea to put fire back in my limbs. I've drunk it ever since, and if you help me, I'll share some with you." } },
+      lines = { { id = "ely_default", text = "Young and tired, mostly, until I found a thistle growing by the shore that made a tea to put fire back in my limbs. I've drunk it ever since, on every shore I've searched." } },
       choices = {
         { text = "Thistle tea?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -125,7 +125,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "The horns, the orcs who have them, and little else I'd share." } },
     background = { { id = "tp_bg", text = "A kaldorei of Ravenholdt. That is all you need." } },
-    advice = { { id = "tp_ad", text = "Never stand in the moonlight on a dock. The water doubles you." } },
+    advice = { { id = "tp_ad", text = "Never stand in the moonlight on a dock, because the water shows your shape to anyone watching." } },
     blackrock = { { id = "tp_br", text = "Thieves who don't know what they stole. That makes them easier to rob back." } },
     _none = { { id = "tp_none", text = "I don't know, and if I did, I wouldn't say." } },
   },
@@ -325,8 +325,8 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Fish, mostly, and where they aren't." } },
-    background = { { id = "tp_bg", text = "Lakeshire born, lake fished. Not much else to tell." } },
-    advice = { { id = "tp_ad", text = "Patience. Then more patience. Then go home and try again tomorrow." } },
-    _none = { { id = "tp_none", text = "Doesn't swim, so I don't know it." } },
+    background = { { id = "tp_bg", text = "Born in Lakeshire and fished the lake ever since, and there's not much else to tell." } },
+    advice = { { id = "tp_ad", text = "Patience, then more patience, and then go home and try again tomorrow." } },
+    _none = { { id = "tp_none", text = "If it doesn't swim, I wouldn't know it." } },
   },
 }

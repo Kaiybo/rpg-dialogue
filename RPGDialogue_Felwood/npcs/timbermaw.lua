@@ -64,7 +64,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We hunt to eat, as all furbolgs did before the corruption, and we give thanks to the spirits for each kill. The Deadwood hunt for the joy of killing now, and they give no thanks, and that is how Grazle knows they are lost." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the Deadwood on the wind, and it does not like them. Beasts know corruption before we do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We hunt to eat, as all furbolgs did before the corruption, and we give thanks to the spirits for each kill. Your {pet} smells the Deadwood on the wind, and it does not like them. Beasts know corruption before we do." },
       },
       choices = {
         { text = "A hunter gives thanks for each kill. That's how it should be.", next = "BACK", fx = { align = { light = 1 } } },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Our shamans hear the earth crying under the Deadwood camps, where the corruption soaked in deepest. The spirits there no longer answer the Deadwood, and Grazle thinks that is how the madness took them: they stopped listening, and something else began to talk. You understand this, shaman, better than the others who come to Grazle's door." } },
+      lines = { { id = "xhsham_default", text = "Our shamans hear the earth crying under the Deadwood camps, where the corruption soaked in deepest. The spirits there no longer answer the Deadwood, and Grazle thinks that is how the madness took them: they stopped listening, and something else began to talk. You understand this, shaman, though Grazle's elders still argue over what can be done." } },
       choices = {
         { text = "Your elders should decide what's done here, not outsiders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Waiting on elders heals nothing. Someone has to act.", next = "BACK", fx = { align = { order = -1 } } },
@@ -350,7 +350,7 @@ P:NPC {
           text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Then you have sat beside the dying, and you will understand why Nafien takes no joy in the hunting he must do." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The Timbermaw remember when the Circle and the furbolgs were friends, and Nafien remembers it too, though many of his people have forgotten." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, but Nafien smells the dead on you. Nafien has heard your kind fight the dead, so he wonders what you are, fighting from inside one." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, but Nafien smells the dead on you. Nafien has heard your kind fight the dead, so he wonders how one of the dead came to fight them." },
       },
       again = {
         { id = "h_again1", text = "What else?" },
@@ -360,7 +360,7 @@ P:NPC {
         { text = "What did the Deadwood do to their totems?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You seem very interested in feathers and totems.", next = "totems" },
         { text = "Are the Timbermaw at war?", next = "tribe" },
-        { text = "Nowhere in Felwood looks clean anymore.", next = "felwood" },
+        { text = "Is anywhere in Felwood still clean?", next = "felwood" },
         { text = "I'll track them for you.", next = "hunterq", when = { class = "HUNTER" } },
         { text = "Wouldn't it be kinder to drive the Deadwood off than kill them?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there any way to cure the Deadwood?", next = "xmage", when = { class = "MAGE" } },
@@ -464,7 +464,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Impsy is my servant, my apprentice and my footstool, and he would be insulted to be called a pet, if he were allowed to have opinions. Your beast follows you because it loves you, which is sweet, but Impsy follows Niby because the alternative is so much worse." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours keeps sniffing at Impsy, so call it off, before Impsy sets it alight and Niby has to listen to you whine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Impsy is my servant, my apprentice and my footstool, and he would be insulted to be called a pet, if he were allowed to have opinions. And that {pet} of yours keeps sniffing at Impsy, so call it off, before Impsy sets it alight and Niby has to listen to you whine." },
       },
       choices = {
         { text = "A beast that follows for love is worth ten slaves, imp.", next = "BACK", fx = { align = { light = 1 } } },
@@ -483,7 +483,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Niby is biding his time, as the great ones do, and choosing his servants with care. Kroshius will rise again, and when he does, those who helped Niby will be remembered, and those who mocked him will be remembered much less fondly." } },
+      lines = { { id = "xmage_default", text = "Niby is biding his time, as the great ones do, and choosing his servants with care. Kroshius, the great doomguard who fell near here, will rise again, and when he does, those who helped Niby will be remembered, and those who mocked him will be remembered much less fondly." } },
       choices = {
         { text = "I serve no imp. Keep your threats.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fine, I'll play along, for now.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -492,7 +492,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Niby wants nothing stolen, because Niby is owed everything already. But if a certain mighty doomguard's remains happened to need waking, and a certain sneaky someone happened to help, Niby might consider that very loyal, very loyal indeed." } },
+      lines = { { id = "xrogue_default", text = "Niby wants nothing stolen, because Niby is owed everything already. But if the remains of Kroshius, a mighty doomguard, happened to need waking, and a certain sneaky someone happened to help, Niby might consider that very loyal, very loyal indeed." } },
       choices = {
         { text = "I steal for myself, not for imps.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Loyalty to the Almighty it is, if it pays.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -501,7 +501,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Niby wants nothing from priests, since they are always trying to banish things, which is very rude. Still, a Forsaken who dabbles in shadow might see that Kroshius' remains are a great opportunity, and Niby rewards those who see opportunity." } },
+      lines = { { id = "xhcast_default", text = "Niby wants nothing from priests, since they are always trying to banish things, which is very rude. Still, a priest who dabbles in shadow might see that the remains of Kroshius, the doomguard who fell near here, are a great opportunity, and Niby rewards those who see opportunity." } },
       choices = {
         { text = "I banish demons, Niby. I don't wake them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Shadow is shadow. Tell me about this opportunity.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -593,7 +593,7 @@ P:NPC {
         { id = "warlock_default", text = "Of course you could, and Niby is generous, in his way. Do as Niby asks, bring Niby what he needs, and one day you will have a steed the Legion itself would envy." },
       },
       choices = {
-        { text = "We'll see. Something else.", next = "BACK" },
+        { text = "We'll see.", next = "BACK" },
       },
     },
   },
@@ -604,6 +604,6 @@ P:NPC {
     timbermaw = { { id = "tp_timbermaw", text = "The furbolgs throw things at Niby, which is very disrespectful to the Almighty. Niby will remember it when Niby rules the world, which should be any day now." } },
     satyrs = { { id = "tp_satyrs", text = "Satyrs are dreadful company, mortal, all hooves and no manners. Niby has standards, even in Felwood." } },
     elune = { { id = "tp_elune", text = "The elves' moon goddess! Niby has never met her, but Niby is sure she's heard of Niby. Everyone has, or will, very shortly." } },
-    _none = { { id = "tp_none", text = "Niby knows everything, of course, but Niby chooses not to tell you that." } },
+    _none = { { id = "tp_none", text = "Niby knows everything, of course, but Niby chooses not to tell you." } },
   },
 }

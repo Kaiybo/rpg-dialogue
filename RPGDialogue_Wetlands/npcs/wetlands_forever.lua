@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Agriel Firebrew, an' this is the Drunken Dwarf. We converted an old lookout the kingdom was tired o' maintainin', an' it's been well over a year now." },
+        { id = "h_default", key = true, text = "Agriel Firebrew, an' this is the Drunken Dwarf. We converted an old lookout the kingdom was tired o' maintainin', an' we've been pourin' here well over a year now." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Ye're Horde, an' I can see that from here. I serve whoever sits quiet an' pays, an' I'll thank ye tae do both." },
       },
@@ -49,7 +49,7 @@ P:NPC {
         { text = "What can I get here?", next = "BUSINESS" },
         { text = "Does it get busy here?", next = "busy" },
         { text = "Why turn a lookout into a tavern?", next = "lookout" },
-        { text = "What are Aetherstill Spirits?", next = "spirits" },
+        { text = "What are the Aetherstill Spirits on your shelf?", next = "spirits" },
         { text = "Any news from the road?", next = "road" },
         { text = "Good day, Agriel.", next = "END" },
       },
@@ -138,7 +138,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "You came just in time! We ran into some trouble, and then some problems, and then there were several accidents!" },
-    { id = "g_back", when = { metBefore = true }, text = "Still here, still alive, still not starting a garden. What do you need?" },
+    { id = "g_back", when = { metBefore = true }, text = "Still here, still alive, and still not moving any faster. What do you need?" },
     { id = "g_heart", when = { questActive = TODO_QUEST("Heartwoven") }, text = "Have you still got the heart? Don't squash it; I braided it with shaking hands." },
     { id = "g_home", when = { questDone = TODO_QUEST("Heartwoven") }, text = "Caitlin got the heart? Then she'll be cooking, and I'd better hurry home before it gets cold." },
   },
@@ -157,7 +157,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Ardin Grassman, of Menethil Harbor, and very glad to be of anywhere at all right now. The excavation team's in shambles, but thanks to you we've a chance to make it out alive." },
+        { id = "h_default", key = true, text = "Ardin Grassman, of Menethil Harbor, and very glad to be alive at all right now. The excavation team's in shambles, but thanks to you we've a chance to make it out." },
         { id = "h_found", tags = { "news" }, when = { questReady = TODO_QUEST("Lost in the Thicket Things") },
           text = "Caitlin sent you? Of course she did, she must be worried sick. Light, I told her a week and it's been, well, I've lost count, actually." },
         { id = "h_heart", when = { questActive = TODO_QUEST("Heartwoven") },
@@ -259,7 +259,7 @@ P:NPC {
 
     relic = {
       lines = {
-        { id = "re_default", text = "Something under the guardian, the dwarves said, old as the mountains and carved by hands that weren't dwarven. The big stone thing that guards it hasn't let anyone close, and I'm not inclined to try." },
+        { id = "re_default", text = "Something old as the mountains, the dwarves said, carved by hands that weren't dwarven. A great stone guardian stands over it and hasn't let anyone close, and I'm not inclined to try." },
       },
       choices = {
         { text = "Some things should stay buried.", next = "BACK", fx = { align = { light = 1 } } },
@@ -330,11 +330,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Deathstalker, on the Dark Lady's business, and that's as much of a name as you'll need. The Dragonmaw are in the excavation below us, and I'm here to learn why." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Open the Maw") },
-          text = "The remnants of the dragon-wrangling clan think they've found something that will raise them to their former power. Power in whose eyes, I wonder; their false warchief's?" },
+          text = "The Dragonmaw, what's left of the old dragon-riding clan, think they've found something here that will raise them to their former power. Power in whose eyes, I wonder, their false warchief's?" },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Open the Maw") },
           text = "Clear out their saboteurs and warders inside so my Deathstalkers can move in unseen. If they carry anything written, it comes to me, and to nobody else." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Open the Maw"), days = 3 } },
-          text = "So they hope to appease Rend. A fruitless and wasted effort, but valuable knowledge all the same, and the Dark Lady will consider it." },
+          text = "So they hope to appease Rend Blackhand. A fruitless and wasted effort, but valuable knowledge all the same, and the Dark Lady will consider it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep it short." },
@@ -343,7 +343,7 @@ P:NPC {
       choices = {
         { text = "Who are the Dragonmaw?", next = "dragonmaw" },
         { text = "Why does Undercity care about orcs in the Wetlands?", next = "why" },
-        { text = "Who is this false warchief?", next = "rend" },
+        { text = "Who is this false warchief the Dragonmaw serve?", next = "rend" },
         { text = "What's in the excavation?", next = "dig" },
         { text = "I serve the Dark Lady as well.", next = "xrecruit", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "The Dragonmaw are orcs. Thrall would want to know.", next = "xorc", when = { race = "Orc" } },

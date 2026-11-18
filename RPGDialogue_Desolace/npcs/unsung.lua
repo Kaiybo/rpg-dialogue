@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scorpid shells, mostly, and hides so dry they crack when you fold them, and the occasional story nobody believes. One fellow swore he'd seen a centaur riding a kodo, and I've decided I'd rather not know whether he was lying." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it's had quite enough of the dust already, poor thing. They all do, after a day down there." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scorpid shells, mostly, and hides so dry they crack when you fold them, and the occasional story nobody believes. And {pet} looks like it's had quite enough of the dust already, poor thing. They all do, after a day down there." },
       },
       choices = {
         { text = "Desolace still has life in it, if you look.", next = "BACK", fx = { align = { light = 1 } } },
@@ -69,7 +69,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Candles, flour, string and a box of chalk I bought from a Reclaimer who swore it came from a Dalaran estate. It's probably just chalk, but it's very good chalk, and it's the closest thing to an arcane supply you'll find for a hundred miles." } },
+      lines = { { id = "xmage_default", text = "Candles, flour, string and a box of chalk I bought from a dwarven salvager who swore it came from a Dalaran estate. It's probably just chalk, but it's very good chalk, and it's the closest thing to an arcane supply you'll find for a hundred miles." } },
       choices = {
         { text = "I'll take the chalk and believe the story. It's half the value.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Sell it as chalk, and you'll have nothing to answer for.", next = "BACK", fx = { align = { order = 1 } } },
@@ -120,7 +120,7 @@ P:NPC {
           text = "A hunter. I sell arrows by the quiver and rope by the coil, and in Desolace you'll need more of both than you planned." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, I don't stock holy water, but I've got bandages, bread and enough water skins to get you to the bottom of Desolace and back, which round here is about the same as a miracle." },
         { id = "h_default", key = true,
-          text = "Christi Galvanis, general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
+          text = "I'm Christi Galvanis, and I keep the general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, because in Desolace most thieves can't be bothered to pretend." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you could conjure me a shipment that arrives on time, because the caravan certainly can't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want more water than you think and less armor than you're wearing, though I don't expect you'll take my advice on the second." },
@@ -185,7 +185,7 @@ P:NPC {
     },
     why_demons = {
       lines = {
-        { id = "wd_default", text = "Orcs who never gave up their old ways, holed up in a fortress to the north and calling themselves the Burning Blade. Vahlarriel can tell you more, if you can find her, and if you'd rather not sleep tonight." },
+        { id = "wd_default", text = "Orcs who never gave up their old ways, holed up in Thunder Axe Fortress to the southwest and calling themselves the Burning Blade. Vahlarriel Demonslayer, the night elf who hunts them, can tell you more, if you can find her, and if you'd rather not sleep tonight." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -198,7 +198,7 @@ P:NPC {
     maraudon = { { id = "tp_maraudon", text = "The druids say Maraudon is a poisoned tomb full of crystals, and a fellow came up last week with his pockets full of them and his face full of thorns. I bought the crystals, I'm not proud." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships charge me double for everything because Desolace is so far from anywhere. They're right, which doesn't make me like it." } },
     theramore = { { id = "tp_theramore", text = "I hear Theramore has a market with fish and vegetables and roofs, all at once. I'll go someday, when the dust lets me out." } },
-    _none = { { id = "tp_none", text = "No idea, friend. Ask the innkeeper; travelers tell her everything." } },
+    _none = { { id = "tp_none", text = "No idea, friend. Ask Innkeeper Lyshaerya; travelers tell her everything." } },
   },
 }
 
@@ -320,7 +320,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, thank goodness. Most of the soldiers here haven't had a proper blessing since they left Stormwind, so if you've a moment after supper, I'd count it a kindness if you sat with them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! You'll eat first, no arguments, because I've never yet seen anybody protect anything on an empty stomach." },
         { id = "h_default", key = true,
-          text = "Janet Hommers, and I feed this outpost. Bread, cheese, water and something stronger for the evenings, and I make sure nobody goes down into Desolace on an empty stomach, because it's hard enough on a full one." },
+          text = "I'm Janet Hommers, and I feed this outpost with bread, cheese, water and something stronger for the evenings. I make sure nobody goes down into Desolace on an empty stomach, because it's hard enough on a full one." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Sit down and eat, dear, because there's nothing growing down there worth putting in your mouth." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Are you a mage? Then promise me you'll eat my bread before you eat that conjured stuff, because it can't be good for you to live on magic and water." },

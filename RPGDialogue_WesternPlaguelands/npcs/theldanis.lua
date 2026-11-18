@@ -83,7 +83,7 @@ P:NPC {
       },
     },
     uther_rest = {
-      lines = { { id = "ur_default", text = "Those who loved him built this tomb on the hill above the place where the land sorrows, and set his likeness over the door. I came later, to keep it, when there was no one left who could." } },
+      lines = { { id = "ur_default", text = "Those who loved him built this tomb on Sorrow Hill and set his likeness over the door. I came later, to keep it, when there was no one left who could." } },
       choices = {
         { text = "No one else came to keep it?", next = "stay" },
         { text = "Something else.", next = "BACK" },

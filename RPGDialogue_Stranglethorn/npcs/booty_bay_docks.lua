@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That it's too old and too smelly, same as me, and still better than whatever the youngsters are throwing. I've fished this bay since before the goblins came, friend, and the fish have changed a sight less than the town has." } },
       choices = {
-        { text = "Take only what you need, Heming. The bay feeds everyone that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then you've fished it gently. Keep taking only what you need.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good fisherman takes what bites. The sea's big enough.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Name's Heming, and I've fished these waters since before the goblins carved this bay into a town. Every Sunday the Baron holds his fishing tournament, and I like to think I taught most of the winners how to bait a hook, though none of them ever thank me." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Old Man Heming") },
-          text = "Still at it, are you? Keep your line slack and your temper slacker, and the fish will come round in time." },
+          text = "Still working on the fishing I set you, are you? Keep your line slack and your temper slacker, and the fish will come round in time." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, out on my docks. You'll make a fine fisherman, I reckon, since you already know how to sit still and wait for something to bite." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't you go freezing my fish in the water, now, because I've been fishing these docks for years and I've never once needed magic to fill my bucket." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, out on my docks. Sit a while if you like, because a fishing line teaches the patience a sword never will." },
@@ -172,8 +172,8 @@ P:NPC {
         { id = "ta_default", text = "Fish where the water churns, near the wrecks and the rocks, because that's where the big ones feed. And don't waste time on little fish; the big ones never fill up on minnows." },
       },
       choices = {
-        { text = "Winning is all that matters.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather fish fair and lose.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll crowd the best spot before anyone else gets there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll find my own spot and leave the others theirs.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll remember that, thanks.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -254,8 +254,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren across the way will tell you a bow's quieter, and I'll tell you quiet is overrated." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren across the way will tell you a bow's quieter, and I'll tell you quiet is overrated. Your {pet} will get used to the bang soon enough, they all do, and then it'll come running at every shot because it knows supper's down." },
+        { id = "xhuntcl_default", text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren the bowyer across the way will tell you a bow's quieter, and I'll tell you quiet is overrated." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren the bowyer across the way will tell you a bow's quieter, and I'll tell you quiet is overrated. Your {pet} will get used to the bang soon enough, they all do, and then it'll come running at every shot because it knows supper's down." },
       },
       choices = {
         { text = "A quiet, clean shot honors the beast. Noise is lazy.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -265,7 +265,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "The Kurzen deserters, if you can believe it, and they pay in Stormwind silver, so draw your own conclusions. Second place is the Bloodsail, who buy through middlemen and think I don't notice, and I mark it up twenty percent for the insult. I sell to both and sleep fine." } },
+      lines = { { id = "xhcast_default", text = "The rebels who walked out on Colonel Kurzen, if you can believe it, and they pay in Stormwind silver, so draw your own conclusions. Second place is the Bloodsail, who buy through middlemen and think I don't notice, and I mark it up twenty percent for the insult. I sell to both and sleep fine." } },
       choices = {
         { text = "Selling to both sides is just good business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Arming the Bloodsail puts all of Booty Bay at risk.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -469,7 +469,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I do, since every bow starts as a living tree and ends as something that sings when you draw it. The goblins call it wood and string, but a mage should understand that the shaping is half the power, and I think you do." } },
+      lines = { { id = "xmage_default", text = "It is, since every bow starts as a living tree and ends as something that sings when you draw it. The goblins call it wood and string, but a mage should understand that the shaping is half the power, and I think you do." } },
       choices = {
         { text = "The craft is the magic. You're right about that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "It's wood and string. Magic is something else entirely.", next = "BACK", fx = { align = { light = -1 } } },
@@ -517,7 +517,7 @@ P:NPC {
       choices = {
         { text = "Does the jungle's wood carry any spirit in it, do you think?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there any magic that would keep the jungle's damp out of your bows?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Do the sea creatures here suffer from the cartels' fishing?", next = "druid_talk", when = { class = "DRUID" } },
+        { text = "Do the sea creatures here suffer from the Cartel's fishing?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "You seem to prefer a bow over a gun.", next = "bowgun" },
         { text = "How do you work in this damp?", next = "damp" },
         { text = "Show me your bows.", next = "BUSINESS" },
@@ -532,7 +532,7 @@ P:NPC {
     },
     bowgun = {
       lines = {
-        { id = "bg_default", text = "A bow is silent, and in the jungle, silent keeps you alive. Mazk will tell you otherwise, loudly, but every tiger in Stranglethorn hears his customers coming a mile away." },
+        { id = "bg_default", text = "A bow is silent, and in the jungle, silent keeps you alive. Mazk the gunsmith will tell you otherwise, loudly, but every tiger in Stranglethorn hears his customers coming a mile away." },
       },
       choices = {
         { text = "Loud or quiet, dead is dead.", next = "BACK", fx = { align = { honor = -1 } } },

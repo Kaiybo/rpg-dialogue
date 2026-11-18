@@ -62,7 +62,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Just that he's well, an' eatin', an' no' doin' anythin' daft, for he's a dwarf who'd charge a red dragon if it insulted his beard. Ye'll know him by his voice before ye see him, I promise ye." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} might find him first, for he always smells o' boot grease an' gun oil, the great lump." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Just that he's well, an' eatin', an' no' doin' anythin' daft, for he'd charge a red dragon if it insulted his beard. Yer {pet} might find him first, for he always smells o' boot grease an' gun oil, the great lump." },
       },
       choices = {
         { text = "I'll find him and bring you word, Sara.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -106,7 +106,7 @@ P:NPC {
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("Sully Balloo's Letter") },
           text = "Ye've the look o' someone carryin' somethin' heavy, an' ye keep lookin' at me as if it belongs tae me. These are tryin' times for the soul, so tell me plain: what news d'ye bring?" },
         { id = "h_grief", tags = { "news" }, when = { questRecent = { TODO_QUEST("Sully Balloo's Letter"), days = 3 } },
-          text = "I've read his letter so often the ink's goin' soft. He wrote it in case, ye see, an' then the case came, an' he was right tae write it." },
+          text = "I've read his letter so often the ink's goin' soft. He wrote it in case he didnae come home, ye see, an' then he didnae, so he was right tae write it." },
         { id = "h_plea", tags = { "news" }, when = { questActive = TODO_QUEST("Sara Balloo's Plea") },
           text = "Have ye taken my note tae the King? I'd go myself, but I couldnae stand before him like this an' say what needs sayin' wi'out breakin' in half." },
         { id = "h_tribute", tags = { "news" }, when = { questActive = TODO_QUEST("A King's Tribute") },
@@ -190,7 +190,7 @@ P:NPC {
 
     days = {
       lines = {
-        { id = "da_default", text = "I keep the house, an' I walk the Ward, an' I go up tae the gates when a courier's due. Some evenin's Brother Toldren lets me sit in the back o' the Hall, an' doesnae ask me anythin', which is a mercy." },
+        { id = "da_default", text = "I keep the house, an' I walk the Ward, an' I go up tae the gates when a courier's due. Some evenin's Brother Toldren lets me sit in the back o' the Hall o' Mysteries, an' doesnae ask me anythin', which is a mercy." },
         { id = "da_after", when = { questDone = TODO_QUEST("Sully Balloo's Letter") },
           text = "I keep the house, though there's less o' it tae keep. I still go up tae the gates when a courier's due, out o' habit, an' then I remember halfway up the road." },
       },
@@ -243,7 +243,7 @@ P:NPC {
       lines = {
         { id = "sd_default", text = "Then ye'll have someone waitin' for ye an' all, somewhere, askin' strangers the same question I ask. Write tae them, will ye, even a line, for I've learned what a line weighs." },
         { id = "sd_ward", when = { origin = "dwarf_military_ward" },
-          text = "Ward-born, are ye? Then ye'll know my Sully, or know o' him; he drilled wi' Kelstrum's lot afore they sent him tae the Span." },
+          text = "Ward-born, are ye? Then ye'll know my Sully, or know o' him; he drilled under Kelstrum Stonebreaker in the Hall o' Arms afore they sent him tae the Span." },
       },
       choices = {
         { text = "I'll write. I promise.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -294,11 +294,11 @@ P:NPC {
     { id = "n_human_war", cat = "class", when = { class = "WARRIOR", race = "Human" },
       text = "A human warrior. Ye're taller than my usual lot, so ye'll be gettin' hit in the head more; mind yer helmet." },
     { id = "n_gnome_war", cat = "class", when = { class = "WARRIOR", race = "Gnome" },
-      text = "A gnome warrior! Bilban says ye're all the best at gettin' under a guard, an' I'll admit he has a point, low as it is." },
+      text = "A gnome warrior! Bilban, the gnome who trains alongside me, says ye're all the best at gettin' under a guard, an' I'll admit he has a point, low as it is." },
     { id = "n_dwarf_war", cat = "class", when = { class = "WARRIOR", race = "Dwarf" },
       text = "A dwarf warrior, standin' like the Ward taught ye, more or less. Shoulders back; ye're no' carryin' a keg." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "One o' Brandur's lot, by the shine on ye. Mind ye don't blind my students, for they've enough trouble seein' a punch comin'." },
+      text = "One o' Brandur Ironhammer's paladins, by the shine on ye. Mind ye don't blind my students, for they've enough trouble seein' a punch comin'." },
   },
 
   start = "hello",
@@ -325,7 +325,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plenty, for the day yer beast falls an' the bear's still standin', ye'll want tae know how tae take a blow. Come tae the yard an' I'll knock ye down a few times, an' ye'll thank me in the high snows." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours has more fight in its eyes than half my recruits, I'll say that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plenty, for the day yer beast falls an' the bear's still standin', ye'll want tae know how tae take a blow. Mind, that {pet} o' yours has more fight in its eyes than half my recruits." },
       },
       choices = {
         { text = "I'll take the training. Every hunter should stand firm.", next = "BACK", fx = { align = { order = 1 } } },
@@ -463,7 +463,7 @@ P:NPC {
     },
     paladin = {
       lines = {
-        { id = "pa_default", text = "Hold it, aye, an' then stop tae pray over the fella beside ye, an' the line's got a hole in it. I'm teasin' ye, mostly; Brandur's lot are the only ones who come in here an' don't flinch when I shout." },
+        { id = "pa_default", text = "Hold it, aye, an' then stop tae pray over the fella beside ye, an' the line's got a hole in it. I'm teasin' ye, mostly; Brandur Ironhammer's paladins are the only ones who come in here an' don't flinch when I shout." },
         { id = "pa_dwarf", when = { race = "Dwarf" },
           text = "Hold it, aye, wi' a hammer in one hand an' the Light in the other, an' I'll admit I've seen dwarves o' the Silver Hand hold the Span when my own lads broke. Don't tell Brandur I said so." },
       },
@@ -543,7 +543,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, quite simply: your weak point is the gap between your rifle and your beast, where an enemy can close before you've reloaded. Close the gap with footwork and a sharp knife, and you'll be a much better-tuned machine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a remarkable piece of engineering, by the way, even if nobody designed it, which I find unsettling." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, quite simply: close the gap between your rifle and your beast with footwork and a sharp knife, and you'll be a much better-tuned machine. Your {pet} is a remarkable piece of engineering, by the way, even if nobody designed it, which I find unsettling." },
       },
       choices = {
         { text = "Footwork and a knife, then. I'll practise.", next = "BACK", fx = { align = { order = 1 } } },
@@ -674,7 +674,7 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gn_default", text = "Because a gear does not care whether you are frightened, and a trogg very much does, and I discovered I could use that. You chose a different specification yourself, so you understand that the old plans did not survive Gnomeregan." },
+        { id = "gn_default", text = "Because a gear will not run from you, but a trogg will, and I discovered I had a talent for making it. You chose a different path from the workshops yourself, so you understand that the old plans did not survive Gnomeregan." },
         { id = "gn_mage", when = { class = "MAGE" },
           text = "Because I failed my first-year arcana examination twice, and the second time I set the examiner's beard alight. You passed yours, clearly, so you will appreciate that the Hall of Arms is far less flammable." },
       },
@@ -910,7 +910,7 @@ P:NPC {
     },
     rams = {
       lines = {
-        { id = "ra_default", text = "Because they're the only beast in Dun Morogh as stubborn as we are, an' they'll climb where a horse would sit down an' weep. Veron Amberstill breeds the best o' them out past Kharanos, an' he'll tell ye so himself." },
+        { id = "ra_default", text = "Because they're the only beast in Dun Morogh as stubborn as we are, an' they'll climb where a horse would sit down an' weep. Veron Amberstill sells the best o' them out past Kharanos, an' he'll tell ye so himself." },
       },
       choices = {
         { text = "A ram would make a fine hunting companion.", next = "rams_pet" },

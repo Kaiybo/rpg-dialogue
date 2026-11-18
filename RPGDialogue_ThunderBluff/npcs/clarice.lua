@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_active", when = { questActive = TODO_QUEST("Until Death Do Us Part") }, text = "The Sepulcher, in Silverpine. Put it on his tomb and walk away; that's what he did." },
     { id = "g_done", when = { questDone = TODO_QUEST("Until Death Do Us Part") }, text = "It's on his grave, then. Good. I thought I'd feel something, and I don't, which is also good." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone. I noticed, which surprises me, since the grave cured me of noticing most things." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than the errand-runner who took my pendant. The grave does that to some of us, and life does it to others, for a while." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when we first met. The grave does that to some of us, and life does it to others, for a while." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody on the rises is angry with you. Welcome to my world, though at least yours might forgive you." },
   },
 
@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Until Death Do Us Part") },
           text = "He left me for his blasted crusade, because the Light was the most important thing we had against the undead, he said. Well, he's dead now, and I'm the very thing he was trying to stop, so take this pendant to his tomb at the Sepulcher. I want nothing more to do with it, or with him." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Until Death Do Us Part"), days = 3 } },
-          text = "You put it on his tomb? And the gem dulled, you say. Fitting, really, because so did everything else about that man, eventually." },
+          text = "You put it on his tomb, and the gem went dull? Fitting, really, because so did everything else about that man, eventually." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "Another one of the Dark Lady's lost souls, so far from the Undercity. Sit, if you like; the tauren won't mind, and I've stopped caring who does." },
       },
@@ -56,7 +56,7 @@ P:NPC {
       },
     },
     yuriv = {
-      lines = { { id = "y_default", text = "Yuriv. He took up the Light and a crusade with it, and every night I sat waiting while he went out to fight the dead. Always second to his blasted duty, and now he lies in a tomb in Silverpine." } },
+      lines = { { id = "y_default", text = "Yuriv. He took up the Light and a crusade with it, and every night I sat waiting while he went out to fight the dead. I always came second to his blasted duty, and now he lies in a tomb in Silverpine." } },
       choices = {
         { text = "He was trying to protect you.", next = "protect" },
         { text = "He sounds like a fool.", next = "fool" },
@@ -102,7 +102,7 @@ P:NPC {
       choices = { { text = "Then we'll keep talking.", next = "BACK", fx = { affinity = 2 } } },
     },
     light = {
-      lines = { { id = "l_default", text = "Right? Perhaps. And dead, and I'm still here, so you tell me what his Light bought him. Go ahead and pray for him if you like, because I've given up doing it." } },
+      lines = { { id = "l_default", text = "Right? Perhaps, but he's dead and I'm still here, so you tell me what his Light bought him. Go ahead and pray for him if you like, because I've given up doing it." } },
       choices = {
         { text = "I'll pray for him, and for you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

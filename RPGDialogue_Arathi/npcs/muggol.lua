@@ -121,7 +121,7 @@ P:NPC {
     },
     clan_alliance = {
       lines = {
-        { id = "ca_default", text = "Aye, in the Second War, wi' Falstad an' the gryphon riders over every battlefield. We fight when we're needed an' go home when we're not, an' that's how a free clan should be." },
+        { id = "ca_default", text = "Aye, in the Second War, wi' Falstad Wildhammer an' the gryphon riders over every battlefield. We fight when we're needed an' go home when we're not, an' that's how a free clan should be." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

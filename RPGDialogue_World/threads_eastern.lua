@@ -59,7 +59,7 @@ P:Thread {
       when = { faction = "Alliance", minLevel = 18,
                any = { { thread = { id = "gnomeregan_lost", beat = "b1_razzle" } }, { thread = { id = "gnomeregan_lost", beat = "b2_stonehallow" } }, { thread = { id = "gnomeregan_lost", beat = "b3_bingles" } } },
                ["not"] = { thread = { id = "gnomeregan_lost", beat = "b4_gnoarn" } } },
-      text = "Every night in Tinker Town it's the same argument, friend: the troggs did it, Thermaplugg did it, the High Tinker signed the order, and round it goes until somebody's kettle boils over. I say it doesn't matter whose hand was on the lever while the city's still down there waiting for us, though I lost my hair to that lever, so perhaps I've earned a little shouting.",
+      text = "Every night in Tinker Town it's the same argument, friend: the troggs did it, Thermaplugg did it, the High Tinker signed the order, and round it goes until somebody's kettle boils over. I say it doesn't matter whose hand was on the lever while the city's still down there waiting for us, though the poison from that lever took my hair, so perhaps I've earned a little shouting.",
       fx = { thread = { id = "gnomeregan_lost", beat = "b4_gnoarn", state = "unfolding" } },
     },
     {
@@ -113,7 +113,7 @@ P:Thread {
     {
       id = "b3_kirith", npc = "kirith",
       when = { minLevel = 45, thread = { id = "portal_watch", notBeat = "b3_kirith" } },
-      text = "Thrall's Grasp came into these wastes because there are still those, orc and human both, who can't believe the Portal is finished, and they gather here to hope at it. The Shadowsworn were the worst of them, and you've seen what they made of me, so tell whoever keeps your watch that the stones may be cold but the people around them are not.",
+      text = "My company, Thrall's Grasp, came into these wastes after those, orc and human both, who can't believe the Portal is finished and gather here to pray at it. The Shadowsworn were the worst of them, and you've seen what they made of me, so tell whoever keeps your watch that the stones may be cold but the people around them are not.",
       fx = { thread = { id = "portal_watch", beat = "b3_kirith", state = "unfolding" }, learn = { "dark_portal" } },
     },
     {
@@ -139,7 +139,7 @@ P:Thread {
     {
       id = "b7_ruag", npc = "ruag",
       when = { faction = "Horde", minLevel = 45, thread = { id = "portal_watch", beat = "b6_malosh" }, ["not"] = { thread = { id = "portal_watch", beat = "b7_ruag" } } },
-      text = "I sent two scouts as far as the steps of the Portal, and they came back to tell me the stones are cold and nothing came out of the gate but wind. I wrote it in the dispatch book under the names, and I'll send them again next moon, because cold stones are exactly what I want to read every time.",
+      text = "I sent two scouts as far as the steps of the Portal, and they came back to tell me the stones are cold and nothing came out of the gate but wind. I wrote it in the dispatch book under their names, and I'll send them again next moon, because cold stones are exactly what I want to read every time.",
       fx = { thread = { id = "portal_watch", beat = "b7_ruag", state = "resolved" }, standing = { stonard = 3 } },
     },
   },
@@ -189,7 +189,7 @@ P:Thread {
     {
       id = "b3_keeshan", npc = "keeshan",
       when = { faction = "Alliance", questDone = TODO_QUEST("Missing In Action"), thread = { id = "blackrock_down", notBeat = "b3_keeshan" } },
-      text = "In the cells at Stonewatch I heard them talk of the Spire, of Rend sitting up there like a king and sending the young ones down to Redridge to earn their blood. The men I served with held that keep as long as men could, and the orcs who took it were only the ones Rend could spare.",
+      text = "In the cells at Stonewatch I heard them talk of the Spire, of Rend sitting up there like a king and sending the young ones down to Redridge to prove themselves. The men I served with held that keep as long as men could, and the orcs who took it were only the ones Rend could spare.",
       fx = { thread = { id = "blackrock_down", beat = "b3_keeshan", state = "unfolding" }, learn = { "blackrock_spire", "keeshan" } },
     },
     {

@@ -108,7 +108,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Less than people do, to my mind, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this must be {pet}. Theramore was built by people who came from very far away, and I'd like to think there's room here for every companion they brought." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Less than people do, to my mind, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me. And this must be {pet}." },
       },
       choices = {
         { text = "Learn the marsh's ways. Burning it would only make enemies.", next = "BACK", fx = { align = { light = 1 } } },
@@ -262,7 +262,7 @@ P:NPC {
 
     theramore = {
       lines = {
-        { id = "t_default", text = "An island, because islands are easy to defend. I'd rather it were easy to visit. Everyone here comes from somewhere that isn't there any more." },
+        { id = "t_default", text = "We built on an island because islands are easy to defend, though I'd rather it were easy to visit. Everyone here comes from somewhere that isn't there any more." },
       },
       choices = {
         { text = "Who should I know here?", next = "theramore_who" },
@@ -271,7 +271,7 @@ P:NPC {
       },
     },
     theramore_who = {
-      lines = { { id = "tw_default", text = "Tervosh, if you need something understood. Captain Vimes, if you need something solved. Janene, if you need feeding. I rely on all three." } },
+      lines = { { id = "tw_default", text = "Archmage Tervosh if you need something understood, Captain Vimes if you need something solved, and Janene at the inn if you need feeding. I rely on all three." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     theramore_safe = {
@@ -281,7 +281,7 @@ P:NPC {
 
     father = {
       lines = {
-        { id = "f_default", text = "He came to fight a war I had already ended. I couldn't stop him, and I couldn't follow him. Please, ask me something else." },
+        { id = "f_default", text = "My father, Admiral Proudmoore, came to fight a war I had already ended. I couldn't stop him, and I couldn't follow him. Please, ask me something else." },
       },
       choices = {
         { text = "Of course.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -816,7 +816,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} looks a sight more sensible than the tortoises, though I'd still ask you to keep it on the path. The garden has suffered enough this season." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally. {pet} looks a sight more sensible than the tortoises, though I'd still ask you to keep it on the path." },
       },
       choices = {
         { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", fx = { align = { light = 1 } } },
@@ -933,7 +933,7 @@ P:NPC {
       },
     },
     diplomat = {
-      lines = { { id = "d_default", text = "Someone we were expecting never arrived. Diplomats don't simply wander off. Somebody wanted him gone, and somebody else wanted it to look like nobody did." } },
+      lines = { { id = "d_default", text = "A Stormwind diplomat we were expecting never arrived, and diplomats don't simply wander off. Somebody wanted him gone, and somebody else wanted it to look like nobody did." } },
       choices = {
         { text = "Who do you suspect?", next = "diplomat_who" },
         { text = "Something else.", next = "BACK" },
@@ -1172,9 +1172,9 @@ P:NPC {
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Inspecting the Ruins") },
           text = "Go to what's left of the inn and look at everything. Don't decide what it means until you've seen it all." },
         { id = "h_hoofprints", when = { questActive = TODO_QUEST("Suspicious Hoofprints") },
-          text = "Hoofprints, around a building orcs supposedly burned. Interesting, and let's not tell the taverns yet." },
+          text = "You found hoofprints around a building orcs supposedly burned? Interesting, and let's not tell the taverns yet." },
         { id = "h_reethe", when = { questActive = TODO_QUEST("Lieutenant Paval Reethe") },
-          text = "Paval Reethe was one of ours, until he wasn't. If he's involved, I want to hear it from him." },
+          text = "Lieutenant Paval Reethe was one of our officers until he deserted. If he's involved, I want to hear it from him." },
         { id = "h_shield", when = { questActive = TODO_QUEST("The Black Shield") },
           text = "A black shield, found where it shouldn't be. Somebody's trying very hard to make this look like something it isn't." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You read a room before you walked into it, and I noticed. That's useful, because I need someone who sees what's hidden rather than what's convenient." },
@@ -1206,7 +1206,7 @@ P:NPC {
     why = {
       big = true,
       lines = {
-        { id = "w_default", text = "Because it's too convenient. Because the Lady and the Warchief have a peace that someone would dearly like to break. And because I've been a soldier long enough to know a setup." },
+        { id = "w_default", text = "Because it's too convenient, and because the Lady and the Warchief have a peace that someone would dearly like to break. I've been a soldier long enough to know a setup when I see one." },
       },
       choices = {
         { text = "Then who benefits?", next = "why_who" },
@@ -1227,7 +1227,7 @@ P:NPC {
       },
     },
     hyal = {
-      lines = { { id = "hy_default", text = "James kept the Shady Rest: good ale, honest prices. He came home to ash and two graves, and he hasn't said a word to me since. I don't blame him." } },
+      lines = { { id = "hy_default", text = "James Hyal kept the Shady Rest, with good ale at honest prices. He came home to ash and two graves, and he hasn't said a word to me since, and I don't blame him." } },
       choices = {
         { text = "Then let's give him an answer.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "An answer won't bring his family back.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1239,14 +1239,14 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     orcish = {
-      lines = { { id = "o_default", text = "Enough to be understood and not enough to be poetic. Orcs respect a man who tries. They respect him more if he gets the insults right." } },
+      lines = { { id = "o_default", text = "Enough to be understood, though not enough to be poetic. Orcs respect a man who tries, and they respect him more if he gets the insults right." } },
       choices = {
         { text = "Teach me an insult.", next = "orcish_insult", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     orcish_insult = {
-      lines = { { id = "oi_default", text = "No. You'd use it at the wrong moment, and I'd be the one explaining it to Krog." } },
+      lines = { { id = "oi_default", text = "No. You'd use it at the wrong moment, and I'd be the one explaining it to Krog, the orc who commands Brackenwall." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     tracks = {
@@ -1341,7 +1341,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the raptors hunt in threes, the crocolisks lie up in the shallows, and the black whelps come a little further north every season. I file it all, though I sometimes wonder whether anyone reads it but me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'll note {pet} in your file, if you don't object. I've never yet had a scout's companion on record that didn't end up mattering." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the raptors hunt in threes, the crocolisks lie up in the shallows, and the black whelps come a little further north every season. I file it all, though I sometimes wonder whether anyone reads it but me. I'll note {pet} in your file, if you don't object." },
       },
       choices = {
         { text = "Keep filing. Someone will need those records one day.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1394,7 +1394,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Adjutant Tesoran. Every soldier in the Theramore Guard has a record, and I keep it, including the ones who walked away." },
         { id = "h_reethe", when = { questActive = TODO_QUEST("Lieutenant Paval Reethe") },
-          text = "Reethe's file. Here, read it, and then tell the Captain I never said you could." },
+          text = "You'll want Lieutenant Reethe's file. Here, read it, and then tell the Captain I never said you could." },
         { id = "h_daelin", tags = { "news" }, when = { questActive = TODO_QUEST("Daelin's Men") },
           text = "Some of the Admiral's men never accepted that his war was over, and our records say where they went. Our records are very thorough." },
         { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
@@ -1428,7 +1428,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     deserters = {
-      lines = { { id = "d_default", text = "Men who came over with the Admiral and couldn't stomach the Lady's peace. They didn't resign. They just stopped turning up, and started turning up elsewhere." } },
+      lines = { { id = "d_default", text = "Men who came over with Admiral Proudmoore and couldn't stomach the Lady's peace. They didn't resign; they just stopped turning up here and started turning up elsewhere." } },
       choices = {
         { text = "Where?", next = "deserters_where" },
         { text = "Something else.", next = "BACK" },
@@ -1439,7 +1439,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     system = {
-      lines = { { id = "s_default", text = "Three ledgers, one for who they are, one for where they are, one for what they've done. When the three disagree, someone's lying. Usually the second ledger." } },
+      lines = { { id = "s_default", text = "I keep three ledgers: one for who they are, one for where they are and one for what they've done. When the three disagree someone's lying, usually in the second ledger." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     file = {
@@ -1555,8 +1555,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of the mud it came out of, and no amount of pepper fixes that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} can lie by the hearth if it behaves, because the sailors like a beast in the room. They say it reminds them of the ship's dog." },
+        { id = "xhuntcl_default", text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan Stern the cook swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of the mud it came out of, and no amount of pepper fixes that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan Stern the cook swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of the mud it came out of, and no amount of pepper fixes that. And {pet} can lie by the hearth if it behaves, because the sailors like a beast in the room." },
       },
       choices = {
         { text = "I hunt for the pot, never for sport.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1650,7 +1650,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     food = {
-      lines = { { id = "f_default", text = "Fish stew, because we're on an island, and bread, because the dwarves insisted. And something the quel'dorei like that nobody else will touch." } },
+      lines = { { id = "f_default", text = "Fish stew, because we're on an island, bread, because the dwarves insisted, and something the quel'dorei like that nobody else will touch." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sailors = {

@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When you're strong enough not to notice the weight, and not a day before, because mail on a young hunter just slows the draw. Theresa says I'll talk you out of a sale, and she's right, but I'd rather sell to someone who comes back alive." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its own armour, doesn't it, in a manner of speaking? Thick fur and good teeth, and it never needs refitting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When you're strong enough not to notice the weight, and not a day before, because mail on a young hunter just slows the draw. Your {pet} has its own armour, doesn't it, in a manner of speaking? Thick fur and good teeth, and it never needs refitting." },
       },
       choices = {
         { text = "I'll wait until I'm ready, as you say.", next = "BACK", fx = { align = { order = 1 } } },
@@ -138,7 +138,7 @@ P:NPC {
         { text = "Do rogues ever buy from you, Agustus?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A new warrior can't afford every piece at once, Agustus.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "When should a hunter start wearing mail, Agustus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do the paladins give your customers trouble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the paladins give warlocks trouble here, Agustus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do you bless the armour you sell, Agustus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why call your shop Righteous Plates, Agustus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "A bear in armour hardly seems like a prayer, Agustus.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -258,7 +258,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A good wool cloak for the cold nights, and that's about it, because Agustus has the mail and Lisbeth has the hunting greens. Still, I like to see a hunter come in, because you always bring the smell of the woods with you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} shedding on my robes? Oh, never mind, the priests won't notice, and if they do, I'll tell them it's a blessing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A good wool cloak for the cold nights, and that's about it, because Agustus has the mail and Lisbeth has the hunting greens. Is that {pet} shedding on my robes? Oh, never mind, the priests won't notice, and if they do, I'll tell them it's a blessing." },
       },
       choices = {
         { text = "A good plain cloak is all I need.", next = "BACK", fx = { align = { order = 1 } } },
@@ -532,7 +532,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They'd better, or my workshop's in trouble. Lilliam says they don't, but she's no fun." } },
+      lines = { { id = "xdsham_default", text = "Of course they mix, because half my workshop runs on fire and lightning! Lilliam says they don't, but she's no fun." } },
       choices = {
         { text = "Lilliam's right. Some things are best kept apart.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Mix them! Let's see what happens.", next = "BACK", fx = { align = { order = -1 } } },
@@ -590,7 +590,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mostly, and the ones that don't work make a very loud noise, which frightens the beast away, which counts as working, if you squint. The dwarves use rifles, and the elves use bows, but a gnome uses everything at once!" },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, please keep {pet} away from my stock, because some of it is armed and none of it is labelled very well." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mostly, and the ones that don't work make a very loud noise, which frightens the beast away, which counts as working, if you squint. Oh, please keep {pet} away from my stock, because some of it is armed and none of it is labelled very well." },
       },
       choices = {
         { text = "A trap should be clean and quick. No needless suffering.", next = "BACK", fx = { align = { light = 1 } } },

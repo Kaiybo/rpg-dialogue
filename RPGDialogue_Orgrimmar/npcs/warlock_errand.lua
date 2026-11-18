@@ -81,7 +81,7 @@ P:NPC {
     },
     zankaja = {
       big = true,
-      lines = { { id = "za_default", text = "I'll tell her that Dogran died bravely, fighting the quilboar, which is what he wanted and will soon enough be true. She's young, and grief will pass faster than a lifetime spent nursing a broken mate." } },
+      lines = { { id = "za_default", text = "I'll tell her that Dogran died bravely fighting the quilboar, which is how he wanted it told, and soon enough it will be true. She's young, and grief will pass faster than a lifetime spent nursing a broken mate." } },
       choices = {
         { text = "That's a kindness. Let her grieve and move on.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "She deserves the truth, whatever he asked.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -175,7 +175,7 @@ P:NPC {
       },
     },
     bait = {
-      lines = { { id = "ba_default", text = "I'd use whatever works, and so will you, or you'll go back to Gan'rul with empty hands. Go and speak with her, help her if you can, and see what devotion looks like when it's held in a fist." } },
+      lines = { { id = "ba_default", text = "I'd use whatever works, and so will you, or you'll go back to Gan'rul with empty hands. Go and speak with her, help her if you can, and see how tightly she holds on to him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     succubus = {

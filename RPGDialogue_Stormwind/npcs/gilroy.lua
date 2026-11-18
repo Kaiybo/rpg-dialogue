@@ -126,7 +126,7 @@ P:NPC {
     },
     milton_right = {
       lines = {
-        { id = "mr_default", text = "Neither, and so the suppers have gone on for nineteen years. He came to me once with a scroll of Protection for his own use, sheepish as a boy, the night the Defias were rumoured in the Keep. I've never let him forget it." },
+        { id = "mr_default", text = "Neither, which is why the suppers have gone on for nineteen years. He came to me once for a scroll of Protection of his own, sheepish as a boy, the night the Defias were rumoured in the Keep. I've never let him forget it." },
       },
       choices = {
         { text = "Milton's right. Books belong on shelves.", next = "BACK", fx = { align = { order = 1 } } },

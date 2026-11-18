@@ -25,7 +25,7 @@ P:NPC {
   nodes = {
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Left to the wild? But it's our farm, and Pa says we'll plant again in spring, once the sickness passes. Oh, but the sickness doesn't pass, does it? I keep forgetting that." } },
+      lines = { { id = "xdruid_default", text = "Left to the wild? But it's our farm, and John says we'll plant again in spring, once the sickness passes. Oh, but the sickness doesn't pass, does it? I keep forgetting that." } },
       choices = {
         { text = "Let the wild have it, Janice. It's time to rest.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Your family's farm should stay yours, even now.", next = "BACK", fx = { align = { order = 1 } } },
@@ -34,7 +34,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Men from Andorhal, John said, to march the families south before the sickness reached the fields. You'll wait for the package, won't you, because I can't leave without it, and I can't think why the horse is so quiet." } },
+      lines = { { id = "xwarcl_default", text = "Men from Andorhal, John said, coming to march the families south before the sickness reached the fields. They should have been here days ago, and I can't think why the horse is so quiet." } },
       choices = {
         { text = "I'll stand guard here, Janice, for as long as you need.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "No army is coming, Janice. Andorhal fell long ago.", next = "BACK", fx = { align = { light = -1 } } },
@@ -45,7 +45,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They come right up to the door in broad daylight and stare, and they don't run when John shouts, and their eyes have all gone cloudy. I'm sure it's only the cold, it's been terribly cold, but I do wish John would take his bow out and see them off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} won't come any closer, will it? It keeps looking at me so strangely, as if I were the one who'd gone cloudy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They come right up to the door in broad daylight and stare, and they don't run when John shouts, and their eyes have all gone cloudy. I'm sure it's only the cold, it's been terribly cold, but I do wish John would take his bow out and see them off. Your {pet} won't come any closer, will it?" },
       },
       choices = {
         { text = "I'll see the foxes off for you, Janice. Rest easy.", next = "BACK", fx = { align = { light = 1 } } },
@@ -303,7 +303,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Like the wind in the grass, and twice as swift. Now they cough and limp between Northridge and Dalson's Tears and snap at their own shadows, and the ones that can still hunt do it badly, which is a cruel thing to see in a hunter." } },
+      lines = { { id = "xrogue_default", text = "Quiet as the wind in the grass, and twice as swift. Now they cough and limp between Northridge and Dalson's Tears and snap at their own shadows, and the ones that can still hunt do it badly, which is a cruel thing to see in a hunter." } },
       choices = {
         { text = "I'll give them a clean end. They deserve that much.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A crippled wolf is an easy kill. That's all.", next = "BACK", fx = { align = { light = -1 } } },
@@ -524,7 +524,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Only that it's cold and still, and the birds won't fly over it. I've not found the courage to walk east since, but some nights I hear Pamela singing, very far away, and I'd give anything to know whether she's really out there." } },
+      lines = { { id = "xhsham_default", text = "Only that it feels cold and still from here, and the birds won't fly over it. I've not found the courage to walk east since, but some nights I hear Pamela singing, very far away, and I'd give anything to know whether she's really out there." } },
       choices = {
         { text = "I'll ask the spirits, and I'll find her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some answers are worse than silence, Marlene.", next = "BACK", fx = { align = { light = -1 } } },
@@ -533,7 +533,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Only that the dead came down the road from Corin's Crossing, and Joseph took his soldiers to the square to hold them, and I took Pamela and hid her in the house. After that I ran, and I've been on this hill ever since, waiting for word." } },
+      lines = { { id = "xmage_default", text = "All I know is that the dead came down the road from Corin's Crossing, and Joseph took his soldiers to the square to hold them, and I took Pamela and hid her in the house. After that I ran, and I've been on this hill ever since, waiting for word." } },
       choices = {
         { text = "Joseph held the square bravely. I'll find what remains.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The truth would only hurt you, Marlene.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -699,7 +699,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Big grey mastiffs, kept hungry, with handlers who know these hills better than I'd like. I lost them by wading half a mile down a freezing stream below Northridge, and I'm still not sure I'll ever be warm again." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'll admit {pet} gave me a start when you walked up, {class}. After those mastiffs, I see teeth and start looking for water." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Big grey mastiffs, kept hungry, with handlers who know these hills better than I'd like. I lost them by wading half a mile down a freezing stream below Northridge, and I'm still not sure I'll ever be warm again. I'll admit {pet} gave me a start when you walked up, {class}." },
       },
       choices = {
         { text = "Dogs are honest hunters. It's their masters I'd fault.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -715,7 +715,7 @@ P:NPC {
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("Unfinished Business") },
           text = "Their camp's south of here, by the little barricade, full of medics, hunters, magi and knights. Thin them out for me, and then we'll talk about the real job." },
         { id = "h_elling", when = { heardLine = "elling.h_default" },
-          text = "You've been to the Trade District in Stormwind, haven't you, so you've probably had the cheese. Don't look at me like that, everyone in Stormwind has had the cheese." },
+          text = "You've met Elling Trias, the cheesemonger in Stormwind's Trade District, haven't you? Don't look at me like that, everyone in Stormwind has had his cheese." },
         { id = "h_crusade", when = { metBefore = true },
           text = "I believe in the Light as much as anyone in Stormwind, but I watched them hang a farmer for not praying loudly enough. That isn't the Light, that's just a uniform." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -932,8 +932,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Every autumn the master rode out with the hounds and most of the household, and Lucien and I had a feast waiting when they returned. The hounds are still in the kennels, after a fashion, and I would not go near them if I were you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its hackles up, {class}, and it's quite right to. Animals feel this island, and they never did like the master's guests." },
+        { id = "xhuntcl_default", text = "Every autumn the master rode out with the hounds and half the household, and Lucien and I had a feast waiting when they returned. The hounds are still in the kennels, after a fashion, and I would not go near them if I were you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every autumn the master rode out with the hounds and half the household, and Lucien and I had a feast waiting when they returned. The hounds are still in the kennels, after a fashion, and I would not go near them if I were you. Your {pet} has its hackles up, {class}, and it's quite right to." },
       },
       choices = {
         { text = "I'll lay the hounds to rest, for your sake and theirs.", next = "BACK", fx = { align = { light = 1 } } },
@@ -958,7 +958,7 @@ P:NPC {
         { id = "h_butcher", tags = { "news" }, when = { questActive = TODO_QUEST("Doctor Theolen Krastinov, the Butcher") },
           text = "Krastinov, the Butcher, is still in there, doing to others what he did to us. Please end him, and burn whatever is left of us if you find it, because we would like to stop being here." },
         { id = "h_bag", tags = { "news" }, when = { questActive = TODO_QUEST("Krastinov's Bag of Horrors") },
-          text = "The Butcher answered to another, called Kirtonos, and to summon him you'll need what Jandice Barov carries. She was such a quiet girl once, but bring it to me all the same." },
+          text = "The Butcher answered to another, called Kirtonos, and to summon him you'll need what Jandice Barov, the master's daughter, carries. She was such a quiet girl once, but bring it to me all the same." },
         { id = "h_herald", tags = { "news" }, when = { questActive = TODO_QUEST("Kirtonos the Herald") },
           text = "Kirtonos is the last of them, for us, and when he falls I believe we can finally go." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" },

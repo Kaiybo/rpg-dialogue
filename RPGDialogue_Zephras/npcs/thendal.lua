@@ -33,7 +33,7 @@ P:NPC {
     { id = "n_young", cat = "kin", when = { race = "Skyborne", maxLevel = 3 },
       text = "You've only just been given your relic, and already you're out among the vuldren. Carry it carefully, child; it has outlived better hurries than yours." },
     { id = "n_druidform", cat = "class", when = { form = { "cat", "bear", "travel" } },
-      text = "Xyton's teaching shows on you, I see. Take your own shape when you speak to me, if you would; I like to see who I'm scolding." },
+      text = "Xyton's druid teaching shows on you, I see. Take your own shape when you speak to me, if you would; I like to see who I'm scolding." },
     { id = "n_stranger", cat = "stranger", when = { ["not"] = { race = "Skyborne" } },
       text = "You came up on the skycutter, I take it. We've had more strangers in a season than this grove saw in a thousand years." },
   },
@@ -58,7 +58,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } }, text = "A priest. I'm slow to warm to the robe, I'm afraid, because the only priests this isle has known are the Al'Aketh's, and they've made the word an ugly one." },
         { id = "h_pala", when = { class = "PALADIN" }, text = "You wear your faith like armor, guest. We've nothing like you on Zephras, and I'll admit I'm curious what holds it up." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "There's a smell of the Nether about you, guest. Our ancestors fled a prince who meddled with such things, and the grove remembers it even if you don't." },
-        { id = "h_oshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } }, text = "A shaman from below the clouds! Boro will want to talk your ears off, because the spirits stopped speaking to us years ago and you may still hear them." },
+        { id = "h_oshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } }, text = "A shaman from below the clouds! Windshaper Boro will want to talk your ears off, because the spirits stopped speaking to us years ago and you may still hear them." },
         { id = "h_rangerorigin", when = { origin = "skyborne_thendal_ranger" }, text = "You walked the paths round this village longer than most of the rangers, child, and you brought back more lost young than any of them. The forests below will be bigger than ours, I'm told, but a path is a path, and you never once lost yours." },
       },
       again = {
@@ -323,7 +323,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_winds", text = "The winds told me you'd come back. They're not always right, but they were today." },
+    { id = "g_winds", text = "The winds told me someone would come up the path today. They're not always right, but they were this time." },
     { id = "g_guest", when = { ["not"] = { race = "Skyborne" } }, text = "Gale's greetings, traveller. You've come a long way up to stand in our wind." },
     { id = "g_away", when = { away = 14 }, text = "The winds told me you'd been gone {away}, and they were right for once, so I'm curious to see what the time away has made of you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since I last weighed you, and I see it plainly, though strength is the easy part of any test, so show me what you do with it." },
@@ -588,7 +588,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "The Council hears everything, and I hear what the Council does. Ask." } },
     background = { { id = "tp_bg", text = "I sit on the Council of Elders, and I read the winds, which is a colder job than it sounds, up on that ridge.", next = "council" } },
-    advice = { { id = "tp_ad", text = "Go to Shen'dar with your eyes open, and trust Aonda before you trust anyone in robes." } },
+    advice = { { id = "tp_ad", text = "Go to Shen'dar with your eyes open, and trust Constable Aonda before you trust anyone in robes." } },
     shal_nan = { { id = "tp_shal", text = "He gave up his rule when the Shrine of the Four Winds was begun. Then he gave up us, or we lost him.", next = "shalnan" } },
     al_aketh = { { id = "tp_aketh", text = "Zealots of a Windlord our spirits wouldn't even name. Brutal, and growing bolder." } },
     two_orders = { { id = "tp_orders", text = "They're two halves of one people, and each is certain the other is the trouble." } },
@@ -633,7 +633,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Myriaal Mistwake, Rangers of Thendal Grove, at your service and terribly bored. I can only tease Halaan so much before even that loses its charm, so you've arrived at exactly the right moment." },
+        { id = "h_default", key = true, text = "Myriaal Mistwake, Rangers of Thendal Grove, at your service and terribly bored. I can only tease Halaan, our stuffiest ranger, so much before even that loses its charm, so you've arrived at exactly the right moment." },
         { id = "h_game", tags = { "news" }, when = { questActive = TODO_QUEST("Falling With Style") },
           text = "Go on, step up to the ledge! Walk on the air and see how far you float, and if you land right in front of Rorian, you get the most points of all." },
         { id = "h_gamedone", tags = { "news" }, when = { questDone = TODO_QUEST("Falling With Style") },
@@ -751,7 +751,7 @@ P:NPC {
     rangers_cult = {
       big = true,
       lines = {
-        { id = "rc_default", text = "Al'Aketh, with their shaved heads and their Windlord. A brute called Malduko Cloudcrush leads the ones by the temple ruins, and Hanaa's posted on the road south to warn travellers. I'd go down there myself if I weren't stuck on this tower." },
+        { id = "rc_default", text = "Al'Aketh, with their shaved heads and their Windlord. A brute called Malduko Cloudcrush leads the ones by the temple ruins, and a ranger called Hanaa is posted on the road south to warn travellers. I'd go down there myself if I weren't stuck on this tower." },
       },
       choices = {
         { text = "I'll go down there and clear them out myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, learn = { "al_aketh" } } },
@@ -816,7 +816,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Halaan, of the Rangers of Thendal Grove. I come here most days to look upon the anchor pylon out yonder, for the wind spirits left them to bind and sustain our island, and someone ought to keep an eye on them." },
+        { id = "h_default", key = true, text = "I am Halaan, of the Rangers of Thendal Grove. I come here most days to look upon the anchor pylon out yonder, for the wind spirits left the pylons to bind and sustain our island, and someone ought to keep an eye on them." },
         { id = "h_anchors", tags = { "news" }, when = { questDone = TODO_QUEST("The Anchors of Zephras") },
           text = "Thank you for looking with me, the other day. Few people take the time, and the pylon deserves to be seen by someone other than an old ranger." },
         { id = "h_ranger", when = { origin = "skyborne_thendal_ranger" },
@@ -937,7 +937,7 @@ P:NPC {
       lines = {
         { id = "xh_default", text = "Perhaps, but your eyes were made by training and mine by a gift, and I'd wager yours are the more honest of the two. Tell me, is the sky below the clouds as wide as it is up here?" },
         { id = "xh_sky", when = { race = "Skyborne" },
-          text = "Perhaps, for Tai'ree trained you well. Tell me, when you go down to the mainland, will you miss watching the pylons, or will you be glad to be rid of them?" },
+          text = "Perhaps, for Tai'ree trained you well. You'll see the sky below the clouds before I do, I expect, so tell me: do you think it's as wide as ours?" },
       },
       choices = {
         { text = "Wider. You'd like it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },

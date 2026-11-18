@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_scourge", when = { race = "Scourge" },
           text = "You're one of them. I've nothing to say to you, nothing at all, and if you've come to finish what your friends started, the orcs will want to know why." },
         { id = "h_alliance", when = { faction = "Alliance" },
-          text = "Listen, there's no time. I was sent to watch the roads near Deadwind, and I saw something there that Stormwind needs to know, and the orcs need to know it too, strange as that sounds." },
+          text = "Listen, there's no time. I was sent to watch the roads in Duskwood, and I saw something there that Stormwind needs to know, and the orcs need to know it too, strange as that sounds." },
         { id = "h_brew", when = { questReady = TODO_QUEST("Nothing But The Truth") },
           text = "A drink for me? How kind. Let me drink it down, and then I'll tell you what I've learned, because I've a feeling you're the one they'll actually listen to." },
         { id = "h_default", key = true,
@@ -105,7 +105,7 @@ P:NPC {
 
     guards = {
       lines = {
-        { id = "gu_default", text = "Better than I'd treat them, if I'm honest. Tharlak growls at me and Zuul pretends I'm not here, but they feed me, and nobody's cut anything off yet, which is more than the stories promised." },
+        { id = "gu_default", text = "Better than I'd treat them, if I'm honest. My guards, Tharlak and Zuul, growl at me or ignore me by turns, but they feed me, and nobody's cut anything off yet, which is more than the stories promised." },
       },
       choices = {
         { text = "The Horde keeps its prisoners fairly.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },

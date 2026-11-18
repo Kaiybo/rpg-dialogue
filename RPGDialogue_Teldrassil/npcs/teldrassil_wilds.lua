@@ -23,7 +23,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They grow strangely, twisted and sickly. I study them, but I cannot find the cause. Your spirits might know." } },
+      lines = { { id = "xdsham_default", text = "The plants and timberlings here grow twisted and sickly, and I cannot find the cause. Perhaps your spirits know it." } },
       choices = {
         { text = "Then study them carefully, Denalan. Find the cause.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Burn them. Sickness spreads.", next = "BACK", fx = { align = { order = -1 } } },
@@ -61,7 +61,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, and that troubles me more than their tempers, because a plant has no business hunting. Something in the young tree's growth has gone strange, and I can't yet tell whether it's sickness or simply youth." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't trust them either, I see, for it has been watching the trees since you came. Animals feel these things before scholars do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, and that troubles me, because a plant has no business hunting. Your {pet} doesn't trust them either, I see, for it has been watching the trees since you came." },
       },
       choices = {
         { text = "Let me track them for you. Their patterns may help.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -86,7 +86,7 @@ P:NPC {
       choices = {
         { text = "I'll watch them, and harm none needlessly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Easier to cut a few open and look inside.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Why work by the lake?", next = "lake" },
+        { text = "What is this lake like?", next = "lake" },
       },
     },
     xlock = {
@@ -199,7 +199,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I am, but kindness helps. Every one who stops gives me hope. Your spirits might help more." } },
+      lines = { { id = "xdsham_default", text = "I am, but kindness helps, and everyone who stops gives me a little more hope. Perhaps your spirits could ease the venom." } },
       choices = {
         { text = "I will help you, Iverron. Rest now.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "You should not have gone near the spiders.", next = "BACK", fx = { align = { light = -1 } } },
@@ -217,7 +217,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Keep them off the path, if you can, because they've grown bolder every day since I was bitten. Dirania worries that they'll take the next fool who wanders by, and I'd hate to be proven only the first of many." } },
+      lines = { { id = "xwarcl_default", text = "Keep them off the path, if you can, because they've grown bolder every day since I was bitten. Dirania worries that they'll take the next fool who wanders by, and I'd hate to be only the first of many." } },
       choices = {
         { text = "I'll keep the path clear for whoever comes next.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Fools who wander near spider caves learn quickly.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -227,8 +227,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Mushrooms and moonpetal lilies, Dirania says, and ichor from the great spider deep in the cave. A hunter would find the herbs quicker than anyone, and as for the spider, well, someone has to." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from the cave mouth, because the webs will hold it and the venom works on beasts just as it works on fools like me." },
+        { id = "xhuntcl_default", text = "Dirania, my friend in Shadowglen, can brew one from hyacinth mushrooms, moonpetal lilies and ichor from the great spider deep in the cave. A hunter would find the herbs quicker than anyone, and as for the spider, well, someone has to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dirania, my friend in Shadowglen, can brew one from mushrooms, moonpetal lilies and ichor from the great spider in the cave. Keep your {pet} away from the cave mouth, though, because the venom works on beasts just as it works on fools like me." },
       },
       choices = {
         { text = "I'll gather what Dirania needs and bring it back.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -335,7 +335,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     glen = {
-      lines = { { id = "g_default", text = "Young druids, sentinels and a great many grells, which the elders say are the work of the Burning Legion's leftovers. It's peaceful, mostly, if you stay away from caves." } },
+      lines = { { id = "g_default", text = "Young druids, sentinels and a great many grells, which the elders say are leftovers of the Burning Legion. It's peaceful, mostly, if you stay away from caves." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     priest = {
@@ -347,7 +347,7 @@ P:NPC {
   topics = {
     elune = { { id = "tp_elune", text = "I prayed to Elune the whole time that spider's venom was in me, and Dirania prayed louder. I'm not sure which of us she listened to." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When my legs work properly again, I'm going to the Darkmoon Faire. Dirania says I'll come back poorer, and I say it'll be worth it." } },
-    blackfathom = { { id = "tp_blackfathom", text = "I've heard Blackfathom Deeps has spiders too, and nagas, and cultists. I think I'll stay on Teldrassil for a while yet." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've heard Blackfathom Deeps has spiders too, and naga, and cultists. I think I'll stay on Teldrassil for a while yet." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. I've spent too long lying in the grass to hear the news." } },
   },
 }
@@ -438,7 +438,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Thistle boar, if you ask me, and the stags from the high slopes when I can get them. The recipes of the kaldorei need a few things you can only find in the wilds, so a hunter is the best friend a cook can have." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it has been eating well already, so I suspect you're a good hunter. Just keep it away from my pots." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Thistle boar, if you ask me, and the stags from the high slopes when I can get them. Your {pet} looks like it has been eating well already, so I suspect you're a good hunter, but don't let it near my pots." },
       },
       choices = {
         { text = "I'll hunt with respect and bring you the best cuts.", next = "BACK", fx = { align = { light = 1 } } },
@@ -505,7 +505,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, friend; I can talk and cook at once." },
       },
       choices = {
-        { text = "Do you miss the old days, before Teldrassil?", next = "op_ask" },
+        { text = "Do you miss the days when your people were immortal?", next = "op_ask" },
         { text = "What is the kaldorei recipe?", next = "recipe" },
         { text = "You must cook for a good many hungry folk.", next = "guests" },
         { text = "You must remember life before Teldrassil.", next = "before" },
@@ -523,7 +523,7 @@ P:NPC {
       },
     },
     recipe = {
-      lines = { { id = "r_default", text = "A stew we made under the stars of Kalimdor, before the World Tree was planted. The ingredients are found here now, so the taste is a little different, but the heart is the same." } },
+      lines = { { id = "r_default", text = "A stew we made under the stars of Ashenvale, long before Teldrassil was planted. The ingredients are found here now, so the taste is a little different, but the heart is the same." } },
       choices = {
         { text = "Perhaps the old ways should change for a new land.", next = "recipe_change" },
         { text = "Something else.", next = "BACK" },

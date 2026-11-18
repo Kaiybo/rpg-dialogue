@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_default", text = "Welcome to Bandarion Keep. Mind the stairs on your way up; we haven't mended half of them yet." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. Sit, if you've a moment, and tell me what the glades are saying about us." },
     { id = "g_paladin", when = { class = "PALADIN", race = "Scourge" }, text = "Welcome, {g:brother|sister}. Come up and sit with me; the Light is easier to bear in company." },
-    { id = "g_tarnished", when = { questActive = TODO_QUEST("The Tarnished") }, text = "Shadowvale is southwest, past the lake. Come back with Gelhardt's head or not at all." },
+    { id = "g_tarnished", when = { questActive = TODO_QUEST("The Tarnished") }, text = "Shadowvale is southwest, past the lake. Come back with the head of Gelhardt, who leads the Tarnished, or not at all." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd begun to worry. We're few enough that I notice when one of us goes quiet." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8, class = "PALADIN" }, text = "You carry the Light more easily than when you first came up the hill, though I doubt it burns any less." },
   },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "dw_default", text = "Dawn's Watch, raised by Lordaeron's army on Northface Rock. The Argent Dawn held it after the fall, until they went east to the Plaguelands and left it to the weeds and the murlocs, and we've been patching it up ever since." },
       },
       choices = {
-        { text = "Evin must have his hands full.", next = "BACK" },
+        { text = "That's a great deal of patching.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -193,7 +193,7 @@ P:NPC {
 
     divinity = {
       lines = {
-        { id = "dv_default", text = "Divinity, which isn't the pursuit of godhood but the pursuit of good itself, for its own sake. We've all come here through one tragedy or another, and it would be easy to lose the grace that made us paladins in the first place." },
+        { id = "dv_default", text = "It means divinity, which isn't the pursuit of godhood but the pursuit of good itself, for its own sake. We've all come here through one tragedy or another, and it would be easy to lose the grace that made us paladins in the first place." },
       },
       choices = {
         { text = "Good for its own sake, even for those who hate you?", next = "divinity_hate" },
@@ -246,7 +246,7 @@ P:NPC {
     knight = {
       big = true,
       lines = {
-        { id = "kn_default", text = "Then you know the oath, and you know the people we swore it to are the Forsaken now, whatever they think of us. Leonid calls our state a condition to be cured, but I call it who we are, and I'd sooner serve Lordaeron as I am than wait for a cure." },
+        { id = "kn_default", text = "Then you know the oath, and you know the people we swore it to are the Forsaken now, whatever they think of us. Leonid of the Argent Dawn calls our state a condition to be cured, but I call it who we are, and I'd sooner serve Lordaeron as I am than wait for a cure." },
       },
       choices = {
         { text = "The oath still holds. I'll keep it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -320,7 +320,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "If you've come seeking the fellowship of your fellow paladins, you've come to the right place. I'm Breton Samuels, and I meet whoever climbs the hill, which lately has been more murlocs than recruits." },
         { id = "h_secondhome", tags = { "news" }, when = { questActive = TODO_QUEST("A Second Home") },
-          text = "Another fresh recruit? Shari sent you, I'd wager, and she sends only the good ones. Welcome to Bandarion Keep, {g:brother|sister}, and welcome home." },
+          text = "Another fresh recruit? Shari Stilwell sent you, I'd wager, and she sends only the good ones. Welcome to Bandarion Keep, {g:brother|sister}, and welcome home." },
         { id = "h_murloc_before", when = { questBefore = TODO_QUEST("Murlocs at the Gates"), class = "PALADIN" },
           text = "Normally we'd show a newcomer more hospitality, but the Vile Fins are at our gates again. You look like you've seen some action, and I could use a hand driving them back." },
         { id = "h_murloc_active", tags = { "news" }, when = { questActive = TODO_QUEST("Murlocs at the Gates") },
@@ -370,7 +370,7 @@ P:NPC {
         { id = "ms_default", text = "Once, and I'd like to say it worked. The last time I left a few of them be, they came over the wall at night and stabbed our cook, and he's still sore about it." },
       },
       choices = {
-        { text = "What does Hilda say about it?", next = "murloc_drive" },
+        { text = "What does Hilda the Breaker say about it?", next = "murloc_drive" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -454,7 +454,7 @@ P:NPC {
     },
     xhorde = {
       lines = {
-        { id = "xh_default", text = "Not much. Most Forsaken remember the living burning them in the Light's name, and they see us and remember it all over again. We'll earn it slowly, I think, one murloc and one favour at a time." },
+        { id = "xh_default", text = "Not much, no. Most Forsaken remember the living burning them in the Light's name, and they see us and remember it all over again. We'll earn it slowly, I think, one murloc and one favour at a time." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -479,12 +479,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Mind the crates. They're the only thing standing between us and starving, and I've counted them twice." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Unless you're carrying lumber, I'm afraid I've nothing to give you." },
-    { id = "g_repairs", when = { questActive = TODO_QUEST("Making Repairs") }, text = "Shadowvale, the root cellar, twelve pieces of good lumber. I'll be here counting what we haven't got." },
+    { id = "g_repairs", when = { questActive = TODO_QUEST("Making Repairs") }, text = "I need twelve pieces of good lumber from the root cellar in Shadowvale. I'll be here counting what we haven't got." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Your armour's coming apart at the seams. Angus can mend it, though he'll charge you for the iron, because I won't give him any more." },
+      text = "Your armour's coming apart at the seams. Angus, our smith, can mend it, though he'll charge you for the iron, because I won't give him any more." },
     { id = "n_soldier", cat = "soldier", when = { origin = "forsaken_lordaeron_soldier" },
       text = "You've the look of a soldier who once stood in a supply line and wondered why the bread never came. I was the one who didn't send it." },
   },
@@ -495,7 +495,7 @@ P:NPC {
       hub = true,
       lines = {
         { id = "h_default", key = true,
-          text = "There's much lurking out there in the dark, and the Light is needed now more than ever. If only the poor souls in Brill could see that a changed world doesn't make us the monsters the living say we are." },
+          text = "I'm Jorin Croge, and I keep the stores here. There's much lurking out there in the dark, and the Light is needed now more than ever, if only the poor souls in Brill could see that we aren't the monsters the living say we are." },
         { id = "h_touring", tags = { "news" }, when = { questActive = TODO_QUEST("Touring the Grounds") },
           text = "Breton sent you round, did he? I'm Jorin Croge, and I keep us fed, armed and roofed, more or less in that order." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Making Repairs"), questDone = TODO_QUEST("Touring the Grounds") },
@@ -591,7 +591,7 @@ P:NPC {
     },
     shadowvale = {
       lines = {
-        { id = "sv_default", text = "It is, and something's stirring in the cellars below them besides, which Hilda doesn't like one bit. Go armed and go in daylight, though I suppose daylight matters less to us than it used to." },
+        { id = "sv_default", text = "It is, and something's stirring in the cellars below them besides, which Hilda the Breaker doesn't like one bit. Go armed and go in daylight, though I suppose daylight matters less to us than it used to." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -622,7 +622,7 @@ P:NPC {
   },
 
   topics = {
-    scarlet_crusade = { { id = "tp_crusade", text = "Their dead carry better kit than ours, which I hate to admit. Angus has been beating their plate into something we can use." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "Their dead carry better kit than ours, which I hate to admit. Angus, our smith, has been beating their plate into something we can use." } },
     _none = { { id = "tp_none", text = "If it isn't in my ledger, I don't know about it, and it isn't in my ledger." } },
   },
 }
@@ -661,7 +661,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("The One That Got Away"), race = "Scourge", minLevel = 7 },
           text = "Oi, you! Word travels quickly in our ranks, and I heard about your work with those cultists by the old battlefield. Trouble is, one of them got away, and I've a job for you." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The One That Got Away") },
-          text = "Beneath Shadowvale, that's our best guess. The fragment's still got some juice in it, and it's either raising the dead down there or making them stronger, and you don't want either one." },
+          text = "The cultist's gone to ground beneath Shadowvale, that's our best guess, and the crystal fragment he took still has some juice in it, and it's either raising the dead down there or making them stronger, and you don't want either one." },
         { id = "h_ready", tags = { "news" }, when = { questReady = TODO_QUEST("The One That Got Away") },
           text = "Well done, and quick, too! Hand it over, because now comes my favourite part." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("The One That Got Away"), days = 3 } },
@@ -714,14 +714,14 @@ P:NPC {
     },
     smash = {
       lines = {
-        { id = "sm_default", text = "Because a hammer doesn't argue, doesn't listen to whispers, and doesn't care how powerful something is. Best tool ever made, a hammer, and Angus agrees with me, which is the only thing we've ever agreed on." },
+        { id = "sm_default", text = "Because a hammer doesn't argue, doesn't listen to whispers, and doesn't care how powerful something is. A hammer's the best tool ever made, and Angus the smith agrees with me, which is the only thing we've ever agreed on." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     horses = {
       lines = {
-        { id = "ho_default", text = "Risen chargers and a warhorse or two, dead as us and twice as stubborn. They remember the old commands, mostly, though they bite now, which they never used to." },
+        { id = "ho_default", text = "They're risen chargers and a warhorse or two, dead as us and twice as stubborn. They remember the old commands, mostly, though they bite now, which they never used to." },
       },
       choices = {
         { text = "Were any of them yours, in life?", next = "horses_life" },
@@ -799,7 +799,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Refuge") },
           text = "Stay close; the Crusaders and their farmhands will see me coming from the road and won't wait to ask questions. Brill is east, and Bandarion Keep is up the path past Solliden, if you ever want to visit." },
         { id = "h_done", when = { questDone = TODO_QUEST("Seeking Refuge") },
-          text = "Shari tells me you saw my word safely to Brill. Our ranks are thin, and you kept them from growing thinner, so whatever brings you back to this cursed tower, the Light go with you." },
+          text = "Shari Stilwell tells me you saw my word safely to Brill. Our ranks are thin, and you kept them from growing thinner, so whatever brings you back to this cursed tower, the Light go with you." },
         { id = "h_paladin", when = { class = "PALADIN", race = "Scourge" },
           text = "Another of us! Then you know why they hate us most of all: we hold their Light, and they can't bear to see it in our hands." },
       },
@@ -835,13 +835,13 @@ P:NPC {
         { id = "cw_default", text = "They tested me, as they call it, with holy water and sermons and the Light turned on me until I couldn't stand. When I answered with the Light myself, one of them dropped his torch and ran, and I think that frightened them more than any ghoul ever has." },
       },
       choices = {
-        { text = "My pain is my strength, as you say.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You frightened them with their own Light.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     message = {
       lines = {
-        { id = "me_default", text = "To Brill, carrying word to Shari Stilwell from the keep. The letter's in some Crusader's pocket now, but I remember every word of it, and I'll deliver it with my own mouth if you'll help me get there." },
+        { id = "me_default", text = "I was headed to Brill, carrying word from the keep to Shari Stilwell. The letter's in some Crusader's pocket now, but I remember every word of it, and I'll deliver it with my own mouth if you'll help me get there." },
       },
       choices = {
         { text = "Who is Shari Stilwell?", next = "shari" },
@@ -857,14 +857,14 @@ P:NPC {
     },
     danitha = {
       lines = {
-        { id = "da_default", text = "Danitha Morr. She gathered up knights who'd lost their way after death and showed us the Light still answers, even if it burns. Our order is still taking root, and she'd not thank me for getting myself killed on an errand." },
+        { id = "da_default", text = "Danitha Morr leads us. She gathered up knights who'd lost their way after death and showed us the Light still answers, even if it burns. Our order is still taking root, and she'd not thank me for getting myself killed on an errand." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     self = {
       lines = {
-        { id = "se_default", text = "A paladin, now, though the Light hurts to hold. My pain is my strength, or so I tell myself when the Crusaders are listening, and most days it's even true." },
+        { id = "se_default", text = "I'm a paladin now, though the Light hurts to hold. My pain is my strength, or so I tell myself when the Crusaders are listening, and most days it's even true." },
       },
       choices = {
         { text = "What were you before you died?", next = "self_before" },
@@ -925,7 +925,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Why do they call me the Breaker? Trust me, you don't want to know." },
     { id = "g_back", when = { metBefore = true }, text = "Still standing, recruit? Good. Stand straighter." },
-    { id = "g_active", when = { questActive = TODO_QUEST("As Above, So Below") }, text = "Glowing bones, recruit. Not dull ones, not nice ones, glowing ones." },
+    { id = "g_active", when = { questActive = TODO_QUEST("As Above, So Below") }, text = "Bring me glowing bones, recruit, not dull ones and not nice ones, glowing ones." },
   },
 
   notice = {
@@ -1200,7 +1200,7 @@ P:NPC {
     },
     farm = {
       lines = {
-        { id = "fa_default", text = "My family's name, and still my family's farm, after a fashion. The Solliden working it now has taken the Crusade's protection, and he'd put a pitchfork through me if he saw me at the fence." },
+        { id = "fa_default", text = "It's my family's name, and still my family's farm, after a fashion. The Solliden working it now has taken the Crusade's protection, and he'd put a pitchfork through me if he saw me at the fence." },
       },
       choices = {
         { text = "Do you hate him for it?", next = "farm_hate" },

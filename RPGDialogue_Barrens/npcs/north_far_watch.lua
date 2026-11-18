@@ -24,7 +24,7 @@ P:NPC {
     { id = "g_prej", when = { prejudiced = true }, text = "Skyborne. I've got a whole border to watch, and now there's people coming down out of the sky that nobody told me about. Don't take it personally that I keep an eye on you." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You know, I wrote to Orgrimmar about you lot the first time you came through. I might write again and tell them you're all right, if I can find the ink." },
     { id = "g_watch", text = "Far Watch Post. If you're lost, the Crossroads is west, and if you're not, state your business." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good, because nobody else climbs up here unless Sergra sends them, and you don't look like one of hers." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, because nobody else climbs up here unless Sergra Darkthorn sends them, and you don't look like one of hers." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece? Most of the runners who leave this post can't say that." },
   },
 
@@ -86,7 +86,7 @@ P:NPC {
       },
     },
     tried = {
-      lines = { { id = "t_default", text = "Kolkar, mostly, and once a band of Razormane who thought the river was shallower than it is. We pulled a few of them out downstream and sent them home to the Thorn Hill with their tusks tied together, which I'm told caused some talk among the quilboar." } },
+      lines = { { id = "t_default", text = "Kolkar, mostly, and once a band of Razormane who thought the river was shallower than it is. We pulled a few of them out downstream and sent them home to Thorn Hill with their tusks tied together, which I'm told caused some talk among the quilboar." } },
       choices = {
         { text = "Sending them home was a mercy worth giving.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "You should have left them in the river.", next = "BACK", fx = { align = { light = -1 } } },
@@ -110,14 +110,14 @@ P:NPC {
       },
     },
     useful = {
-      lines = { { id = "u_default", text = "Ha! You sound like the Warchief's runner who brought my orders. Maybe you're both right, and maybe I'd sleep better if I didn't think it, so let's say no more about it." } },
+      lines = { { id = "u_default", text = "Ha! You sound like the Warchief's runner who brought my orders. Maybe you're both right, but I sleep better not thinking about it, so let's say no more." } },
       choices = {
         { text = "Then something else.", next = "BACK" },
         { text = "I'll leave you to your hill.", next = "END" },
       },
     },
     scar = {
-      lines = { { id = "sc_default", text = "An internment camp guard, outside Durnholde, with a sword he'd taken off a better soldier than he was. I got this scar, he got my axe in his ribs, and the Warchief got one more orc who was done with cages." } },
+      lines = { { id = "sc_default", text = "From an internment camp guard outside Durnholde, swinging a sword he'd taken off a better soldier than he was. I got this scar, he got my axe in his ribs, and the Warchief got one more orc who was done with cages." } },
       choices = {
         { text = "So you were in the internment camps.", next = "camps" },
         { text = "Something else.", next = "BACK" },
@@ -148,7 +148,7 @@ P:NPC {
       },
     },
     hers = {
-      lines = { { id = "hr_default", text = "Ran her plainstriders down for her, did you? Then you know she gives good orders, and you can carry one back from me, which is that Far Watch could use more than six grunts." } },
+      lines = { { id = "hr_default", text = "Ran her plainstriders down for her, did you? Then you know she gives good orders, and you can carry a message back from me: Far Watch could use more than six grunts." } },
       choices = {
         { text = "I'll tell her.", next = "BACK", fx = { affinity = 1 } },
         { text = "Tell her yourself.", next = "BACK", fx = { affinity = -1 } },
@@ -165,8 +165,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Internment camps, then the Warchief's crossing, then every wall in Durotar that needed holding. Now this hill." } },
-    sergra = { { id = "tp_sergra", text = "Commands the Crossroads, and does it well, and I'll deny I said that.", next = "sergra" } },
+    background = { { id = "tp_bg", text = "I did my years in the internment camps, crossed the sea with the Warchief, and held every wall in Durotar that needed holding. Now I hold this hill." } },
+    sergra = { { id = "tp_sergra", text = "Sergra commands the Crossroads, and she does it well, and I'll deny I ever said that.", next = "sergra" } },
     burning_blade = { { id = "tp_bb", text = "A cult of demon-lovers who should have died with the old Horde. They squat on Dreadmist Peak to the north." } },
     _none = { { id = "tp_none", text = "Never heard of it, grunt, and up on this hill, I hear about everything eventually." } },
   },
@@ -223,14 +223,14 @@ P:NPC {
       },
     },
     seed = {
-      lines = { { id = "s_default", text = "A power stone, flawed but still potent, that the Burning Blade on Dreadmist Peak use to draw on the Twisting Nether. Take it from them and destroy it at the altar I'll show you, and whatever they've been calling up there loses its anchor." } },
+      lines = { { id = "s_default", text = "A flawed but potent power stone called the Demon Seed, which the Burning Blade on Dreadmist Peak use to draw on the Twisting Nether. Take it from them and destroy it at the altar I'll show you, and whatever they've been calling up there loses its anchor." } },
       choices = {
         { text = "What have they been calling?", next = "calling" },
         { text = "Something else.", next = "BACK" },
       },
     },
     calling = {
-      lines = { { id = "c_default", text = "Small things for now, imps and felhounds' whispers, because they lack the strength for more. But the old Horde started small too, and I was there to see how quickly small became Mannoroth." } },
+      lines = { { id = "c_default", text = "Small things for now, imps mostly, because they lack the strength for more. But the old Horde started small too, and I was there to see how quickly small became Mannoroth." } },
       choices = {
         { text = "Then it ends with that stone.", next = "BACK", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
         { text = "Power is power. Let them draw it, and we'll take it.", next = "BACK", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
@@ -324,7 +324,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Thun'grim Firegaze, and I keep this fire for those who would learn its ways. Fire is the hungriest of the elements, and the most honest, because it never pretends to be anything but what it is." },
-        { id = "h_shaman", when = { class = "SHAMAN" }, text = "A young shaman, come up the hill at last. Telf sent you, I expect, and he'll have told you the fire spirits test hard, which is the only thing about them he got right." },
+        { id = "h_shaman", when = { class = "SHAMAN" }, text = "A young shaman, come up the hill at last. Telf Joolam sent you up from Durotar, I expect, and he'll have told you the fire spirits test hard, which is the only thing about them he got right." },
         { id = "h_fire_done", tags = { "news" }, when = { questDone = TODO_QUEST("Call of Fire") }, text = "You carry the fire's mark now, and I can see it in how you stand closer to the coals than you used to. Use it well, and never use it in anger." },
       },
       again = {
@@ -394,8 +394,8 @@ P:NPC {
   },
 
   topics = {
-    elements = { { id = "tp_el", text = "Earth, fire, water and air, and the shamans who ask instead of command. The asking is the whole of it." } },
-    burning_blade = { { id = "tp_bb", text = "Fel fires on Dreadmist Peak. I'd put them out myself if I were thirty years younger." } },
+    elements = { { id = "tp_el", text = "There are four, earth, fire, water and air, and a true shaman asks them rather than commands them. The asking is the whole of it." } },
+    burning_blade = { { id = "tp_bb", text = "The Burning Blade light fel fires on Dreadmist Peak, and I'd put them out myself if I were thirty years younger." } },
     _none = { { id = "tp_none", text = "The fire doesn't speak of that, and so neither do I." } },
   },
 }
@@ -448,7 +448,7 @@ P:NPC {
       },
     },
     path = {
-      lines = { { id = "p_default", text = "Taking a blow and still being there to give one back. The young ones want to charge in and win in one swing, and the ones who live long enough to get old learned to wait." } },
+      lines = { { id = "p_default", text = "It's taking a blow and still being there to give one back. The young ones want to charge in and win in one swing, and the ones who live long enough to get old learned to wait." } },
       choices = {
         { text = "The one who strikes first usually wins.", next = "first" },
         { text = "Something else.", next = "BACK" },
@@ -488,7 +488,7 @@ P:NPC {
       },
     },
     lizards = {
-      lines = { { id = "lz_default", text = "Big, thick-hided, and short-tempered, and they spit lightning when they're angry. Fight one without a shield and you'll find out why I keep sending young warriors after them." } },
+      lines = { { id = "lz_default", text = "They're big, thick-hided and short-tempered, and they spit lightning when they're angry. Fight one without a shield and you'll find out why I keep sending young warriors after them." } },
       choices = {
         { text = "I'll bring my shield.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -504,7 +504,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Second War, then the camps, then Thrall. Now I teach, which is easier on the knees." } },
+    background = { { id = "tp_bg", text = "I fought in the Second War, rotted in the camps, and followed Thrall out of them. Now I teach, which is easier on the knees." } },
     _none = { { id = "tp_none", text = "Don't know. Ask some grunt who isn't busy." } },
   },
 }

@@ -27,9 +27,9 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "Shadowbreaker's sending me paladins again, and good. I asked him for twenty, but I'll gladly take one who doesn't flinch at a ghoul." },
+      text = "Lord Shadowbreaker's sending me paladins again, and good. I asked him for twenty, but I'll gladly take one who doesn't flinch at a ghoul." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Your armor's in worse shape than my palisade, {class}. Get it mended before Sorrow Hill finishes the job for you." },
+      text = "Your armor's in worse shape than my palisade, {class}. Get it mended before the dead on Sorrow Hill finish the job for you." },
   },
 
   start = "hello",
@@ -173,7 +173,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "They operate wherever Stormwind has a worry, and Hearthglen worries someone. Kirsta Deepshadow's out in the Northridge Hills testing the Crusade's defenses now, and if she doesn't come back, I'll want somebody quiet to find out why." } },
+      lines = { { id = "xrogue_default", text = "They operate wherever Stormwind has a worry, and Hearthglen, the Crusade's stronghold, worries someone. Kirsta Deepshadow's out in the Northridge Hills testing the Crusade's defenses now, and if she doesn't come back, I'll want somebody quiet to find out why." } },
       choices = {
         { text = "Spies win wars that armies can't.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Spying on the Crusade shames an honest army.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -200,7 +200,7 @@ P:NPC {
     },
     need = {
       lines = {
-        { id = "nd_default", text = "I need soldiers I don't have, and people like you who'll go where soldiers can't. MacDonnell has the cauldrons in hand, and Arbington has the rest, if you can stand him." },
+        { id = "nd_default", text = "I need soldiers I don't have, and people like you who'll go where soldiers can't. High Priestess MacDonnell has the plague cauldrons in hand, and Arbington the alchemist has the rest, if you can stand him." },
       },
       choices = {
         { text = "I'll find them.", next = "BACK", fx = { affinity = 1 } },
@@ -464,7 +464,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I believe so, though it will take years and more than prayer. Arbington's counter agent breaks the cauldrons, but the ground they've soaked will need tending like a sickbed, and that's work your people know better than mine." } },
+      lines = { { id = "xdruid_default", text = "I believe so, though it will take years and more than prayer. Arbington the alchemist's counter agent breaks the cauldrons, but the ground they've soaked will need tending like a sickbed, and that's work your people know better than mine." } },
       choices = {
         { text = "Then let's tend it together, Light and Moon alike.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Break the cauldrons first. Cleansing can come after.", next = "BACK", fx = { align = { order = 1 } } },
@@ -484,7 +484,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Precious little near the fields, though the soldiers swear the deer up in the hills still look healthy. The cauldrons poison everything downwind, so the sooner we dose them, the sooner the beasts can drink without dying of it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Don't let it drink from any trough between here and Andorhal, {class}, for I've buried more than one good dog this year and I've no wish to bury yours." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Precious little near the fields, though the soldiers swear the deer up in the hills still look healthy. The cauldrons poison everything downwind, so the sooner we dose them, the sooner the beasts can drink without dying of it. Is that {pet}?" },
       },
       choices = {
         { text = "Then I'll put the sick beasts down and pray they rest.", next = "BACK", fx = { align = { light = 1 } } },
@@ -511,9 +511,9 @@ P:NPC {
         { id = "h_gahrron", tags = { "news" }, when = { questActive = TODO_QUEST("Target: Gahrron's Withering") },
           text = "Gahrron's Withering is the last of the four and the worst of them, full of ghosts and wraiths. You'll want the Light close by when you go." },
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme", faction = "Alliance" },
-          text = "I hear Stratholme has lost its masters, and Pureheart can't stop smiling about it. If you were the one who went in, {class}, the Light's been busy with you, and I'd like to shake your hand." },
+          text = "I hear Stratholme has lost its masters, and Officer Pureheart of the Argent Dawn can't stop smiling about it. If you were the one who went in, {class}, the Light's been busy with you, and I'd like to shake your hand." },
         { id = "h_returned", when = { questRecent = { TODO_QUEST("Return to Chillwind Camp"), days = 2 } },
-          text = "Arbington's been up all night with your sample, and he smells like a crypt, but he's happier than I've seen him in months. Well done, friend." },
+          text = "Arbington, our alchemist, has been up all night with your sample, and he smells like a crypt, but he's happier than I've seen him in months. Well done, friend." },
         { id = "h_jars", when = { metBefore = true },
           text = "I label every sample jar myself, Felstone and Dalson's and the Haunt and Gahrron's. Arbington says my handwriting's worse than the plague, and Arbington is welcome to write his own labels." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -743,7 +743,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If my books are right, the Scholomance stinks of necromancy to anything with a good nose, so even the plagued wolves give the island a wide berth. I'd trust a wolf's nose over a book, frankly, but the wolves won't sit still to be questioned." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} bristle when the wind comes off Darrowmere, {class}? If it does, please write it down for me, because that's precisely the sort of thing I can't learn from a book." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If my books are right, the Scholomance stinks of necromancy to anything with a good nose, so even the plagued wolves give the island a wide berth. I'd trust a wolf's nose over a book, frankly, but the wolves won't sit still to be questioned. Does {pet} bristle when the wind comes off Darrowmere, {class}?" },
       },
       choices = {
         { text = "Trust the beasts. They know evil better than any book.", next = "BACK", fx = { align = { order = -1 } } },
@@ -764,9 +764,9 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't call any lightning in here, {class}, because most of what's on this table would explode at once, and the rest would explode a little later." },
         { id = "h_default", key = true,
-          text = "Arbington, alchemist, at your service. I make the counter agent for MacDonnell's cauldrons and the quickener, and I've done more reading about the Scholomance than anyone ever should, so please don't ask me what I've read." },
+          text = "Arbington, alchemist, at your service. I brew the counter agent High Priestess MacDonnell pours into the plague cauldrons, among other things, and I've done more reading about the Scholomance than anyone ever should, so please don't ask me what I've read." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("Skeletal Fragments") },
-          text = "Yes, a skeleton key made from skeletons, I hear it, and everyone says it. Just bring me the fragments, and the ones from Andorhal hold up best." },
+          text = "A skeleton key made from skeletons, yes, everyone makes that joke. Just bring me the bone fragments, and the ones from Andorhal hold up best." },
         { id = "h_mold", tags = { "news" }, when = { questActive = TODO_QUEST("Mold Rhymes With...") },
           text = "Krinkle Goodsteel in Gadgetzan makes molds for nasty things and charges accordingly. I'd pay him myself, but if I had any gold of my own, would I be living here?" },
         { id = "h_scarab", tags = { "news" }, when = { questActive = TODO_QUEST("Araj's Scarab") },
@@ -882,13 +882,13 @@ P:NPC {
     },
     alch = {
       lines = {
-        { id = "al_default", text = "You carry it with you while you fight, and it catches what the creatures leave behind when they come apart. Leave it in your tent and you'll be bringing me plain bones, and I'll have to be polite about it." },
+        { id = "al_default", text = "You carry my focuser with you while you fight, and it catches what the creatures leave behind when they come apart. Leave it in your tent and you'll be bringing me plain bones, and I'll have to be polite about it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
     x_mage = {
       lines = {
-        { id = "xm_default", text = "I wish I had, but no, I learned from books, and half of those burned with Dalaran, so mostly I learned from what was left. You'd know the arcane quickener better than I do, frankly, and if you could look at my measures without laughing I'd be ever so grateful." },
+        { id = "xm_default", text = "I wish I had, but no, I learned from books, and half of those burned with Dalaran, so mostly I learned from what was left. You'd know the arcane side of my quickener brew better than I do, frankly, and if you could look at my measures without laughing I'd be ever so grateful." },
         { id = "xm_gnome", when = { origin = "gnome_last_student" }, text = "You studied in Gnomeregan, before it fell? Then you and I both learned from books that don't exist anymore, and I think that makes us colleagues of a sort." },
       },
       choices = {
@@ -905,7 +905,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm an alchemist who studied the wrong school for too many years, and now Stormwind finds that useful, which I suppose is a sort of compliment." } },
     advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, since it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
     scholomance = { { id = "tp_scholomance", text = "Don't go in without a key and don't go in without friends, and if you can possibly manage it, don't go in at all." } },
-    plague_cauldrons = { { id = "tp_cauldrons", text = "Bring me what the creatures carry, with the focuser on you, or it's just bones. Osseous, somatic and ectoplasmic sound terribly grand, but I promise you they aren't." } },
+    plague_cauldrons = { { id = "tp_cauldrons", text = "The counter agent that spoils the cauldrons is brewed from what the dead leave behind, bone and ectoplasm and worse. It sounds terribly grand, but I promise you it isn't." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's necromancers learn their craft at Scholomance, and I've spent years studying how they do it. I wash my hands after every chapter and still don't feel clean." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned and taught the Barovs to bargain away their own island. Every horror in Scholomance traces back to him, and I try not to say his name too often." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran had the finest libraries in the world, and some of what they kept would have helped us here. They're rebuilding behind closed gates, and they don't answer my letters." } },
@@ -934,7 +934,7 @@ P:NPC {
 
   notice = {
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "Stay back, guards, guards! Oh, a Forsaken, wearing the Alliance's colors? No, you're not, are you, and how you got past the sentries I don't care to know, so stay right there." },
+      text = "Guards! Oh, a Forsaken, here in an Alliance camp? How you got past the sentries I don't care to know, so stay right there." },
     { id = "n_fine", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look dreadful, all rags and dents. Find the family fortune for me and you'll never have to dress like a peasant again." },
   },
@@ -1020,7 +1020,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "So the rumour goes, and I believe every unpleasant rumour about that island. If you happen to put down one of the Barov hounds, do bring me the collar, because the silver alone was worth a small fortune." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} well away from my tent, would you? I've nothing against beasts, {class}, I simply can't sleep with anything in camp that bites." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So the rumour goes, and I believe every unpleasant rumour about that island. If you happen to put down one of the Barov hounds, do bring me the collar, because the silver alone was worth a small fortune. Keep {pet} well away from my tent, would you?" },
       },
       choices = {
         { text = "I'll put the hounds to rest. The silver can stay with them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1039,7 +1039,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Alexi says we were promised immortality, and I say we were promised nothing worth having, and the truth is somewhere between, as it always is with family. I left before the bargain was sealed, and I'll thank you to remember that I left." } },
+      lines = { { id = "xapriest_default", text = "My father did, and Alexi says we were promised immortality for it, while I say we were promised nothing worth having. I left before the bargain was sealed, and I'll thank you to remember that I left." } },
       choices = {
         { text = "Leaving isn't atonement. You owe the Light more than that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "You chose to live. The Light can't fault you for that.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1052,18 +1052,18 @@ P:NPC {
           text = "A full company of hardened adventurers, and here I am without a contract to offer you, which is a tragedy for us both. My brother at the Bulwark would hire you in a heartbeat, so do remember which Barov spoke to you first." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to spirits? Then perhaps you can tell my brother's spirit to stop walking about and accept that Caer Darrow is mine, {class}, because he certainly isn't listening to me." },
         { id = "h_default", key = true,
-          text = "I am Weldon Barov, the last living Barov and the rightful heir to Caer Darrow, Brill, Tarren Mill and Southshore. My brother disagrees, but my brother is also dead, he simply refuses to lie down.",
+          text = "I am Weldon Barov, the last living Barov and the rightful heir to Caer Darrow, Brill, Tarren Mill and Southshore. My brother Alexi disagrees, but he's also dead; he simply refuses to lie down.",
           fx = { hear = "barov_heir" } },
         { id = "h_fortune", tags = { "news" }, when = { questActive = TODO_QUEST("Barov Family Fortune") },
-          text = "There are four deeds somewhere in the Scholomance, and you must find them before Alexi's hired cutthroats do. I spared his life once, because that corpse wore my brother's face, and I won't make that mistake again." },
+          text = "There are four deeds somewhere in the Scholomance, and you must find them before Alexi's hired cutthroats do. I spared Alexi once, because his corpse still wore my brother's face, and I won't make that mistake again." },
         { id = "h_last", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Barov") },
-          text = "The deeds are mine, and now only one thing stands between me and the fortune, sitting at the Bulwark like a vulture on a fence. End him for me." },
+          text = "The deeds are mine, and now only my brother Alexi stands between me and the fortune, sitting at the Bulwark like a vulture on a fence. End him for me." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Alliance" },
           text = "So the Darkmaster's dead, and someone finally had the decency to finish what my family started when they let him in. I'd like to say I feel something about it, and I do, and the something is mostly relief." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Last Barov") },
           text = "So Alexi's gone, properly gone at last. I thought I'd feel something about it, but I find I mostly feel rich, and that will have to do." },
         { id = "h_sleep", when = { metBefore = true },
-          text = "I sleep with my back to the cliff and a sword under my blanket, because of the assassins, you understand. He sends them, and in his place I'd do the same." },
+          text = "I sleep with my back to the cliff and a sword under my blanket, because of the assassins, you understand. My brother Alexi sends them, and in his place I'd do the same." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. You're not one of Alexi's, are you, {class}? He keeps unpleasant company now that he's dead, and I sleep with a sword under the blanket for good reason." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -1257,7 +1257,7 @@ P:NPC {
     { id = "n_horde", cat = "race", when = { faction = "Horde" },
       text = "Horde, in an Alliance camp, so easy, everyone, because nobody draws steel at my table. The Dawn doesn't ask what colors you wear, only whether you'll fight the dead." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "Silver Hand? I was too, until Mograine fell and the order went red. Tyrosus and I walked out the same day, and don't let anyone tell you which side the Light chose." },
+      text = "Silver Hand? I was too, until Mograine fell and the order went red. Lord Tyrosus and I walked out the same day, and the Light walked out with us, whatever the Crusade says." },
   },
 
   start = "hello",
@@ -1268,7 +1268,7 @@ P:NPC {
         { id = "opsh_default", text = "I ask myself that most mornings. The Crusade wears the order's tabards and the Dawn tries to keep its vows, and the name belongs to neither of us now. You've heard the stories, so what do you think: can the Silver Hand rise again?" },
       },
       choices = {
-        { text = "Yes, if men like you keep its vows.", next = "op_silver_hand_r1", fx = { align = { order = 1 }, opinion = { silver_hand = "hope" } } },
+        { text = "Yes, if people like you keep its vows.", next = "op_silver_hand_r1", fx = { align = { order = 1 }, opinion = { silver_hand = "hope" } } },
         { text = "It died with Uther. Let the name go.", next = "op_silver_hand_r2", fx = { align = { order = -1 }, opinion = { silver_hand = "dead" } } },
         { text = "I carry its teachings, whatever the order calls itself.", next = "op_silver_hand_r3", fx = { affinity = 1, trait = { pious = 1 }, opinion = { silver_hand = "faith" } }, when = { class = "PALADIN" } },
         { text = "I'll leave that to paladins, officer.", next = "BACK" },
@@ -1349,11 +1349,11 @@ P:NPC {
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },
           text = "Wear the commission, and you'll find the Scourge carry stones, the dark power that binds them made solid. Bring those stones to me, and the Dawn will remember who helped." },
         { id = "h_everlook", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
-          text = "Gregor's report? He's a good man, and I sent him to Everlook to keep the Dawn's ear among the goblins. Let me read it while it's still warm." },
+          text = "Gregor Greystone's report? He's a good man, and I sent him to Everlook to keep the Dawn's ear among the goblins. Let me read it while it's still warm." },
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
           text = "The word from Light's Hope is that Stratholme's masters have fallen, and the officers there are toasting with water because nobody remembered the wine. If you were in that city, sit at my table, and you needn't wear anyone's colours to do it." },
         { id = "h_gregor", when = { heardLine = "gregor.h_default" },
-          text = "You've been to Everlook, then you've met Gregor Greystone, who's one of mine. Tell me he's eating properly, because he forgets." },
+          text = "You've been to Everlook, then, and met Gregor Greystone, who's one of mine. Tell me he's eating properly, because he forgets." },
         { id = "h_tyrosus", when = { heardLine = "tyrosus.h_default" },
           text = "You've spoken with Lord Tyrosus? Then you've had more of his time than I have this year. Is he well? He'd never say if he wasn't." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -1421,7 +1421,7 @@ P:NPC {
     left = {
       big = true,
       lines = {
-        { id = "l_default", text = "When Mograine died, the order's grief turned to hate, and the hate turned on anyone who wasn't them, and that's the Scarlet Crusade. Some of us wanted to fight the plague, not every face that looked different.", fx = { learn = { "argent_dawn", "scarlet_crusade" } } },
+        { id = "l_default", text = "When Mograine died, the Silver Hand's grief turned to hate, and the hateful part became the Scarlet Crusade. Those of us who wanted to fight the plague, not every face that looked different, left and became the Dawn.", fx = { learn = { "argent_dawn", "scarlet_crusade" } } },
       },
       choices = {
         { text = "You chose rightly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -1557,7 +1557,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Gone south with the rest of us, or gone under with the plague, and I never learned which. The woods are full of sick wolves now, so if you're out that way, it won't be deer you find." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} would have loved the mill yard when I was a boy, {class}, with sawdust to roll in and the dogs to chase. I hope it's that kind of place again one day." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Gone south with the rest of us, or gone under with the plague, and I never learned which. The woods are full of sick wolves now, so if you're out that way, it won't be deer you find. {pet} would have loved the mill yard when I was a boy, {class}, with sawdust to roll in and the dogs to chase." },
       },
       choices = {
         { text = "The woods will come back, Nathaniel. I'll help clear the way.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1787,7 +1787,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mostly, though they think every cat is a chick they've misplaced and every wolf is a rude neighbour. The plague air makes them cross, so I keep pets well away from the roost until the birds have had their breakfast." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, and that's {pet}! The grey gryphon's watching it very closely, {class}, so keep it this side of the post until they've been properly introduced." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mostly, though they think every cat is a chick they've misplaced and every wolf is a rude neighbour. The plague air makes them cross, so I keep pets well away from the roost until the birds have had their breakfast. Oh, and that's {pet}!" },
       },
       choices = {
         { text = "Rules first, then. I'll keep my beast on this side of the post.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1806,7 +1806,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I think they feel something, because Thundermane won't fly over Uther's tomb at all, he just circles wide and goes quiet. I asked a dwarf about it once and he said a gryphon knows a holy place better than a priest does, and then he told me I owed him an ale." } },
+      lines = { { id = "xapriest_default", text = "I think they feel something, because Thundermane, my oldest bird, won't fly over Uther's tomb at all, he just circles wide and goes quiet. I asked a dwarf about it once and he said a gryphon knows a holy place better than a priest does, and then he told me I owed him an ale." } },
       choices = {
         { text = "Every creature knows holy ground. The Light is in all things.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They're animals, Bibilfaz. They just don't like the smell.", next = "BACK", fx = { align = { light = -1 } } },

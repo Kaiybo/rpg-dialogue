@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} had better keep its head down near the roost, because my old hen has snatched a hare out of a man's arms before now." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back. {pet} had better keep its head down near the roost, because my old hen has snatched a hare out of a man's arms before now." },
       },
       choices = {
         { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", fx = { align = { order = 1 } } },
@@ -133,7 +133,7 @@ P:NPC {
     },
     birds = {
       lines = {
-        { id = "b_default", text = "Badly, and they'll tell you so at the top of their lungs. Gryphons are mountain birds, and every morning I'm out here oiling feathers and scraping mold off the perches so they don't take sick." },
+        { id = "b_default", text = "They take it badly, and they'll tell you so at the top of their lungs. Gryphons are mountain birds, and every morning I'm out here oiling feathers and scraping mold off the perches so they don't take sick." },
       },
       choices = {
         { text = "Why keep them here at all?", next = "birds_why" },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience to catch one, because a tortoise with its head in its shell can wait you out till nightfall." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Don't let {pet} near the shell pile out back, or it'll crack a tooth, and then you'll be in here asking me for a soup it can drink." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience to catch one, because a tortoise with its head in its shell can wait you out till nightfall. Don't let {pet} near the shell pile out back, or it'll crack a tooth, and then you'll be in here asking me for a soup it can drink." },
       },
       choices = {
         { text = "Take only what the kitchen needs. Leave the rest be.", next = "BACK", fx = { align = { light = 1 } } },
@@ -365,13 +365,13 @@ P:NPC {
         { id = "s_default", text = "Because it's hot, it's filling and it keeps, and on an island in a swamp that's everything you want. Mudrock tongue's tough as leather until it's stewed half a day, and then it melts." },
       },
       choices = {
-        { text = "And the bugs?", next = "soup_bugs" },
+        { text = "Is it true you put bugs in it?", next = "soup_bugs" },
         { text = "Something else.", next = "BACK" },
       },
     },
     soup_bugs = {
       lines = {
-        { id = "sb_default", text = "Ah, you read the name. Don't make that face; a good crunch is a fine thing in a soup, and half the guards eat worse on patrol without knowing it." },
+        { id = "sb_default", text = "Ah, you've heard. Don't make that face; a good crunch is a fine thing in a soup, and half the guards eat worse on patrol without knowing it." },
       },
       choices = {
         { text = "I'll try anything once.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -380,7 +380,7 @@ P:NPC {
     },
     eaters = {
       lines = {
-        { id = "e_default", text = "The Guard, mostly, and the sailors off the Kul Tiras ships who swear nothing tastes right after salt pork. Janene feeds the inn, and I feed the walls, and we argue about bread." },
+        { id = "e_default", text = "The Guard, mostly, and the sailors off the Kul Tiras ships who swear nothing tastes right after salt pork. Janene feeds the inn, and I feed the soldiers on the walls, and we argue about bread." },
       },
       choices = {
         { text = "Who wins the bread argument?", next = "eaters_bread" },
@@ -500,7 +500,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More often than my training ever prepared me for, because the scouts bring their wolves and cats to me when the marsh fever takes them. A bite is a bite and a fever is a fever, and I've found the stitches hold just as well in fur." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet}'s paws a moment. Swamp rot starts between the pads, and a beast won't tell you it hurts until it's already limping." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More often than my training ever prepared me for, because the scouts bring their wolves and cats to me when the marsh fever takes them. A bite is a bite and a fever is a fever, and I've found the stitches hold just as well in fur. Let me see {pet}'s paws a moment." },
       },
       choices = {
         { text = "Every creature that's hurt deserves your care, Doctor.", next = "BACK", fx = { align = { light = 1 } } },

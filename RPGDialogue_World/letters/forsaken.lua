@@ -84,7 +84,7 @@ P:Letter {
   id = "origin_forsaken_chapel_priest_2", from = "Wendel Harrow", stranger = true, delay = 2400,
   when = { origin = "forsaken_chapel_priest", cleared = "Scarlet Monastery" },
   subject = "The monastery",
-  body = "{name},\n\nThey say you went into the Scarlet Monastery and walked out again, which the Crusade would tell you is impossible for one of us. I used to dream of seeing its chapel, you know, back when it was a holy place and the pilgrims came up from Southshore with their candles.\n\nI hope you looked at the windows before you burned them. They were the finest glass in Lordaeron, and the men who made them believed every word you used to preach.\n\nThe Crusade will say the Light abandoned you for what you did there. I'd say the Light stood beside you while you did it, since it still answers when you call, and they'll have to explain that to themselves.\n\nWendel",
+  body = "{name},\n\nThey say you went into the Scarlet Monastery and walked out again, which is more than most of us managed while we were alive. I used to dream of seeing its chapel, you know, back when it was a holy place and the pilgrims came up from Southshore with their candles.\n\nI hope you looked at the windows while you were there. They were the finest glass in Lordaeron, and the men who made them believed every word you used to preach.\n\nThe Crusade will say the Light abandoned you for what you did there. I'd say the Light stood beside you while you did it, since it still answers when you call, and they'll have to explain that to themselves.\n\nWendel",
 }
 
 ---------------------------------------------------------------------------

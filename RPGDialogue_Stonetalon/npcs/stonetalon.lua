@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Bloodfury harpies are not beasts, though they fight like them, and they come at us from the cliffs. Below, the Pridewing wyverns are hunting closer than they used to, and they will take a kodo calf if they can." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a steady eye, {class}, and I trust a beast that does not flinch from the wind. It will serve you well on these cliffs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Bloodfury harpies are not beasts, though they fight like them, and they come at us from the cliffs. Your {pet} has a steady eye, {class}, and I trust a beast that does not flinch from the wind. It will serve you well on these cliffs." },
       },
       choices = {
         { text = "I'll guard Sun Rock's herds from the wyverns.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -64,7 +64,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I'd send you down into the Charred Vale ahead of the braves, because the Bloodfuries scatter when they see spears coming and stand when they don't. Find where the Ripper roosts and come back to tell me, and leave the killing to whoever I send after you." } },
+      lines = { { id = "xrogue_default", text = "I'd send you down into the Charred Vale ahead of the braves, because the Bloodfuries scatter when they see spears coming and stand when they don't. Find where Bloodfury Ripper, their leader, roosts and come back to tell me, and leave the killing to whoever I send after you." } },
       choices = {
         { text = "I'll bring you her roost, and the braves can finish it openly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If she sleeps when I find her, she won't wake again.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -270,10 +270,10 @@ P:NPC {
     },
     work = {
       lines = {
-        { id = "wo_default", text = "Orcs and tauren together, mending what the Venture Company and worse did to these mountains. Tammra plants, the braves fight, and I keep the rock standing while they do it." },
+        { id = "wo_default", text = "Orcs and tauren together, mending what the Venture Company and worse did to these mountains. Tammra Windfield plants, the braves fight, and I keep the rock standing while they do it." },
       },
       choices = {
-        { text = "And the mage by the fire?", next = "braelyn" },
+        { text = "Who's the mage by the fire?", next = "braelyn" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -318,7 +318,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gt_roads = {
-      lines = { { id = "gtr_default", text = "A soldier's answer, and one I can act on. Kaya Flathoof walked that road to Camp Aparaje with an escort for exactly that reason." } },
+      lines = { { id = "gtr_default", text = "A soldier's answer, and one I can act on. It's exactly why Kaya Flathoof needed an escort home from Camp Aparaje." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gt_tauren = {
@@ -416,7 +416,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A few, and slowly: deer first, then the cats that hunt them, and that's how I know the land is mending. If you hunt in the vale, take the old and the sick, and leave the young to grow." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my seedlings, {class}, and I don't mind, because it'll be the first of its kind to walk through them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A few, and slowly: deer first, then the cats that hunt them, and that's how I know the land is mending. Your {pet} is sniffing my seedlings, {class}, and I don't mind, because it'll be the first of its kind to walk through them." },
       },
       choices = {
         { text = "I'll take only the old and the sick.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -454,7 +454,7 @@ P:NPC {
     xhpriest = {
       big = true,
       lines = {
-        { id = "xhpriest_default", text = "Not the soil, but the people who work it, because my helpers come back burned and cut from the Charred Vale and I can't plant and bandage at the same time. Stay a night and look after them, and I'll count it with the shoots, five living against two dead." },
+        { id = "xhpriest_default", text = "Not the soil, but the people who work it, because my helpers come back burned and cut from the Charred Vale and I can't plant and bandage at the same time. Stay a night and look after them, and I'll count every one you mend the way I count my shoots." },
       },
       choices = {
         { text = "I'll tend your helpers, Tammra.", next = "BACK", fx = { align = { light = 1 } } },
@@ -602,7 +602,7 @@ P:NPC {
     },
     kaya = {
       lines = {
-        { id = "k_default", text = "Safe with her father, my brother-in-law Makaba, and that's all I'll ask of the world this year. The Grimtotem took her from Camp Aparaje and kept her at their post, and I still can't think of it without shaking." },
+        { id = "k_default", text = "Safe with her father, my brother-in-law Makaba, and that's all I'll ask of the world this year. The Grimtotem fell on Camp Aparaje while she was there, and I still can't think of it without shaking." },
       },
       choices = {
         { text = "She's home with Makaba. Revenge can wait.", next = "BACK", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
@@ -640,7 +640,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never step on a green shoot up here. It might be the only one for a mile." } },
     venture_company = { { id = "tp_venture", text = "They cut until there's nothing left to cut, and then they move on and leave the burning for us." } },
     cenarion_circle = { { id = "tp_circle", text = "They want the same thing I want, a living mountain. I wish we could plant side by side instead of glaring across the ridges." } },
-    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem took my niece Kaya from Camp Aparaje, and they would have killed her if no one had come. I do not know what has become of the tauren who could do that." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem fell on my niece Kaya's camp at Aparaje, and they would have killed her if no one had come. I do not know what has become of the tauren who could do that." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is patient, and so am I. Five shoots living and two dead is a good night, and the next night will be better." } },
     cairne = { { id = "tp_cairne", text = "Cairne trusts us to heal Stonetalon, and I mean to prove him right. Every shoot I raise is a promise to him." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is greener than the waking world, and I believe them. I would like Stonetalon to look like the Dream one day, and I mean to help it." } },
@@ -666,7 +666,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! Then you'll understand. Magic is being choked out of these mountains by druids who think every spell is a crime." },
     { id = "n_druid", cat = "form", when = { class = "DRUID" },
-      text = "A druid, though in the Horde, at least, which I suppose is something. You'll not like what I'm about to ask, so don't ask what it is." },
+      text = "A druid, though in the Horde, at least, which I suppose is something. You'll not like the work I hand out, so I won't trouble you with it." },
   },
 
   start = "hello",
@@ -692,8 +692,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Bird, cat and bear, and they hunt in those shapes, so you'll never catch them on the road. A hunter who can tell a real beast from a druid in disguise would be very useful to me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would know the difference, {class}, and the fools who've walked into the Talon Den never could." },
+        { id = "xhuntcl_default", text = "Bird, cat and bear, and they hunt in those shapes, which is why you'll never catch them on the road. A hunter who can tell a real beast from a druid in disguise would be very useful to me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bird, cat and bear, and they hunt in those shapes, which is why you'll never catch them on the road. Your {pet} would know the difference, {class}, and that's more than I can say for most people who've walked into the Talon Den." },
       },
       choices = {
         { text = "I'll tell you what I find, but I won't murder for you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -754,7 +754,7 @@ P:NPC {
     hate = {
       big = true,
       lines = {
-        { id = "h2_default", text = "Because they decide what magic may live and what must die, and call it balance. I've seen what balance costs. I'll not pay it twice." },
+        { id = "h2_default", text = "Because they decide what magic may live and what must die, and call it balance. I've seen what their balance costs, and I'll not pay it twice." },
       },
       choices = {
         { text = "That sounds like a grudge.", next = "grudge", fx = { trait = { skeptical = 1 } } },
@@ -940,7 +940,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. The dead be dangerous, and the Light be dangerous, and you be both, mon. But you be Horde, and I be Horde, and if you ever need a cage for somethin', I got plenty empty ones. Most." } },
+      lines = { { id = "xfpala_default", text = "Jin'Zil don't fear you, mon, but he watch you. The dead be dangerous, and the Light be dangerous, and you be both, mon. But you be Horde, and I be Horde, and if you ever need a cage for somethin', I got plenty empty ones. Most." } },
       choices = {
         { text = "I'll not be needing your cages, Jin'Zil.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep a cage ready. I may bring you something.", next = "BACK", fx = { align = { light = -1 } } },
@@ -969,7 +969,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Da spiders, for da venom, and da harpy feathers, for da curse, and da wyvern's tail, for da flavour, mon. Jin'Zil be better than Darsok at dis, and Darsok know it, even if he never say." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ah, your {pet} be a fine beast, mon, and Jin'Zil promise not to put it in da pot, at least not today." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Da spiders, for da venom, and da harpy feathers, for da curse, and da wyvern's tail, for da flavour, mon. Ah, your {pet} be a fine beast, mon, and Jin'Zil promise not to put it in da pot, at least not today." },
       },
       choices = {
         { text = "I'll hunt for you, but only what we need.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -998,7 +998,7 @@ P:NPC {
     warlock_j = {
       big = true,
       lines = {
-        { id = "wj_default", text = "Ah, so you be one of dose. Jin'Zil keep elves in cages and boil dere eyes, so I ain't gonna lecture you, but the loa know who you talk to, nephew, and dey don't forget it." },
+        { id = "wj_default", text = "Ah, so you be one of dose. Jin'Zil keep elves in cages and boil dere eyes, so I ain't gonna lecture you, but the loa know who you talk to, {g:nephew|niece}, and dey don't forget it." },
         { id = "wj_voice", when = { origin = "troll_other_voice" },
           text = "Dat other voice been with you since you were small, eh? Some witch doctors say send it back, some say make it work for you, and Jin'Zil say find out what it want before it find out what you want." },
       },
@@ -1225,7 +1225,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the wyverns are hunting closer to the road, and the harpies have grown bold enough to swoop at caravans. A hunter who could thin them out would have every traveller in Sun Rock buying them a drink." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome by my fire, {class}, and if it snores, it'll not be the loudest in here." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the wyverns are hunting closer to the road, and the harpies have grown bold enough to swoop at caravans. Your {pet} is welcome by my fire, {class}, and if it snores, it'll not be the loudest in here." },
       },
       choices = {
         { text = "I'll thin them out for the travellers' sake.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1289,7 +1289,7 @@ P:NPC {
     },
     news = {
       lines = {
-        { id = "n_default", text = "Maggran's still after the Bloodfuries, Tammra's still on her knees in the dirt, and the mage by the fire still won't eat my stew. Same as every week, and I'm glad of it." },
+        { id = "n_default", text = "Maggran's still after the Bloodfuries, Tammra's still on her knees in the dirt, and Braelyn, the mage by the fire, still won't eat my stew. Same as every week, and I'm glad of it." },
       },
       choices = {
         { text = "The mage won't eat?", next = "braelyn" },
@@ -1387,7 +1387,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They do, and so do the goblins' saws. Crimes are done with hands, not banners, so I will not blame your Alliance for them, but I would ask you to tell the earth that not all of us forget." } },
+      lines = { { id = "xdsham_default", text = "They do, little one, and so do the goblins' saws. The earth's spirits were here before any banner, so tell them, if you can, that not all of us have forgotten them." } },
       choices = {
         { text = "I'll tell it, Keeper, and help the forest heal.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The goblins will pay for those fires, in full.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1416,7 +1416,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You may, little one, if you take what you need and no more, and thank what you take. The fires in the vale have driven many creatures up the slopes, and the forest cannot feed them all." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the bearing of the old forest's creatures, little one, and the trees take note of it. They're glad it walks with you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You may, little one, if you take what you need and no more, and thank what you take. Your {pet} has the bearing of the old forest's creatures, little one, and the trees take note of it. They're glad it walks with you." },
       },
       choices = {
         { text = "I'll take what I need and thank what I take.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1577,7 +1577,7 @@ P:NPC {
     },
     age = {
       lines = {
-        { id = "a_old", text = "Older than the mountain's name, and older than the Horde's coming, or the Alliance's, though young, for a tree. The trees would laugh at you for asking." },
+        { id = "a_old", text = "Older than the mountain's name and older than the Horde's coming, though that's young, for a tree. The oldest trees here would laugh at you for asking." },
       },
       choices = {
         { text = "What was here before the grove?", next = "temple" },
@@ -1707,7 +1707,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not in words. But the wind changes when the fires burn below, and I've learned to read it like a letter. You'd read it better, I'd guess." } },
+      lines = { { id = "xdsham_default", text = "Not in words, but the wind changes when the fires burn below, and I've learned to read it like a letter. You'd read it better than I do, I'd guess." } },
       choices = {
         { text = "Trust the wind, Faralia. It knows more than we do.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Trust the Sentinels' scouts, not the wind.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1736,7 +1736,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mostly birds, and the hippogryphs Teloren keeps, though the cats from the forest come up now and then when they're hungry. Since the vale burned, more of them climb up here every season." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can sleep by the hearth, {class}, and I'll put out a dish of water. It must be tired after that climb." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mostly birds, and the hippogryphs Teloren keeps, though the cats from the forest come up now and then when they're hungry. Your {pet} can sleep by the hearth, {class}, and I'll put out a dish of water. It must be tired after that climb." },
       },
       choices = {
         { text = "I'll keep the cats off the path for your guests.", next = "BACK", fx = { align = { honor = 1 } } },

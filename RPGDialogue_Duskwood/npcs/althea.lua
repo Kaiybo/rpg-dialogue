@@ -50,7 +50,7 @@ P:NPC {
       },
     },
     prej_a = {
-      lines = { { id = "prej_a_default", text = "Useful, yes, I suppose you are, and I've never turned down a useful blade. I'll still have Sorigal count the strongbox when you leave." } },
+      lines = { { id = "prej_a_default", text = "Useful, yes, I suppose you are, and I've never turned down a useful blade. I'll still have Watchmaster Sorigal count the strongbox when you leave." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
     prej_b = {
@@ -82,7 +82,7 @@ P:NPC {
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_3 = {
-      lines = { { id = "op_dead_r3", text = "Now that's an answer I can act on. Sven Yorgen's been saying the same for years; go and find him, and then go up Forlorn Rowe with a good blade." } },
+      lines = { { id = "op_dead_r3", text = "Now that's an answer I can act on. Sven Yorgen, out at his camp in the western woods, has been saying the same for years; go and find him, and then go up Forlorn Rowe with a good blade." } },
       choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     op_dead_4 = {
@@ -163,11 +163,11 @@ P:NPC {
         { id = "h_watch_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Night Watch"), days = 3 } },
           text = "My watchers slept a full night, and two of them didn't know what to do with themselves." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "It's an old murder of some visiting nobles, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
+          text = "The Stalvan business is an old murder of some visiting nobles, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
         { id = "h_morgan", when = { questActive = TODO_QUEST("Morgan Ladimore") },
-          text = "Sirra sent you with a name, did he? Ladimore. Most of us stopped using it; we call what's left of him Mor'Ladim, when we call him anything at all." },
+          text = "Sirra Von'Indi sent you with a name, did he? Ladimore. Most of us stopped using it; we call what's left of him Mor'Ladim, when we call him anything at all." },
         { id = "h_ladim", tags = { "news" }, when = { questActive = TODO_QUEST("Mor'Ladim") },
-          text = "He walks the cemetery in a slow, crooked circle and always ends at his own grave. He's killed some of my strongest, so don't go alone." },
+          text = "Mor'Ladim walks the cemetery in a slow, crooked circle and always ends at his own grave. He's killed some of my strongest, so don't go alone." },
         { id = "h_ello", text = "The mayor writes to Stormwind while I train farmers to hold a pike. One of us will save this town, and it won't be the letters." },
         { id = "h_new", when = { maxLevel = 22 },
           text = "You're green for Duskwood. Keep to the road, keep a torch lit, and don't follow lights into the trees." },
@@ -194,7 +194,7 @@ P:NPC {
         { text = "Who's been killing your watchers on patrol?", next = "morladim" },
         { text = "You and the mayor are kin?", next = "ello" },
         { text = "Let me tend your wounded watchers.", next = "priest", when = { class = "PRIEST" } },
-        { text = "Did Stalvan Mistmantle do it?", next = "stalvan", when = { topicKnown = "stalvan" } },
+        { text = "Did Stalvan Mistmantle murder those nobles, Commander?", next = "stalvan", when = { topicKnown = "stalvan" } },
         { text = "That stitched thing on the road...", next = "stitches", when = { questDone = TODO_QUEST("Translation to Ello") } },
         { text = "Put me on the roster, Commander. I'll stand a night watch.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I've been tracking the wolves out past the lamps.", next = "hunter", when = { class = "HUNTER" } },
@@ -210,7 +210,7 @@ P:NPC {
     },
     xorig_nightwatch = {
       lines = {
-        { id = "xonightwatch_default", text = "I remember. You were the one who'd swing a hammer with the torch still lit in your other hand, and Ladimore swore you'd burn the gatehouse down before you ever hit a ghoul. Now you come back wearing the Light, so tell me, will you stand a night with us again?" },
+        { id = "xonightwatch_default", text = "I remember. You were the one who'd swing a hammer with the torch still lit in your other hand, and Watcher Ladimore swore you'd burn the gatehouse down before you ever hit a ghoul. Now you come back wearing the Light, so tell me, will you stand a night with us again?" },
       },
       choices = {
         { text = "Any night you need me, Commander.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
@@ -250,7 +250,7 @@ P:NPC {
       },
       choices = {
         { text = "Could Darkshire burn its dead, so Fel can't raise them?", next = "op_dead" },
-        { text = "Why hasn't the Watch gone after him?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll leave Fel to Sven, for now.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -308,7 +308,7 @@ P:NPC {
     },
     morladim_who = {
       lines = {
-        { id = "mw_default", text = "Morgan Ladimore. Sirra knew him before the war and keeps the whole sorry tale on a shelf, so read it, then come back and ask me for the hard part.",
+        { id = "mw_default", text = "Morgan Ladimore. Sirra Von'Indi, our historian, knew him before the war and keeps the whole sorry tale on a shelf, so read it, then come back and ask me for the hard part.",
           fx = { learn = { "ladimore" } } },
       },
       choices = {
@@ -318,7 +318,7 @@ P:NPC {
     },
     morladim_know = {
       lines = {
-        { id = "mk_default", text = "No, it always makes it harder, but know it anyway. The ones who don't end up swinging at shadows, and he isn't one." },
+        { id = "mk_default", text = "No, it always makes it harder, but know it anyway. Watchers who go in ignorant end up swinging at shadows, and he's no shadow." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -399,7 +399,7 @@ P:NPC {
     },
     stitches_guilt = {
       lines = {
-        { id = "sg_default", text = "Nobody did; he was sweet to half this town. Next time a hermit wants thread, ask him what he's sewing." },
+        { id = "sg_default", text = "Nobody did, because old Abercrombie was sweet to half this town. Next time a hermit wants thread, ask him what he's sewing." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 }, learn = { "embalmer" } } } },
     },
@@ -450,7 +450,7 @@ P:NPC {
         { id = "hu_default", fx = { learn = { "worgen" } },
           text = "Then you've learned the first lesson faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one the way you track the other. What did you find?" },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "Keep {pet} on a short leash past the lamps; the worgen have been known to call a beast away from its master. I've seen a mastiff walk into the trees and not come back." },
+          text = "Then you've learned faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one like the other. Keep {pet} on a short leash past the lamps, though, because the worgen have been known to call a beast away from its master." },
       },
       choices = {
         { text = "Prints that walk on two legs, then four.", next = "hunter_prints" },

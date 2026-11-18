@@ -104,7 +104,7 @@ P:NPC {
         { text = "Your vaults must tempt a few thieves, Mister Montague.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages bank their reagents with you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "My gear might be safer in your vaults than on my back.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do hunters bank much with you, Mister Montague?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do hunters bank with you, Mister Montague?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do warlocks keep strange things in your vaults?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I seem to unsettle you, Mister Montague.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Mister Montague.", next = "END" },
@@ -129,7 +129,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     vaults = {
-      lines = { { id = "v_default", text = "The royal family of Lordaeron, after a fashion. These were catacombs and crypts beneath the palace, and some of the vaults were already full of very old kings when we moved in. We've since made other arrangements for them." } },
+      lines = { { id = "v_default", text = "They are, and they belonged to the royal family of Lordaeron, after a fashion. These were catacombs and crypts beneath the palace, and some of the vaults were already full of very old kings when we moved in. We've since made other arrangements for them." } },
       choices = {
         { text = "That seems disrespectful.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The dead kings don't need the space.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
@@ -426,7 +426,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Because your demon will die, and you'll be left with your own hands, which don't work properly, being dead. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
+        { id = "xwarlock_default", text = "Because one day your demon will fall, and you'll be left with nothing but your own hands. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
       },
       choices = {
         { text = "Yes, sir. I'll drill every day.", next = "BACK", fx = { align = { order = 1 } } },
@@ -833,7 +833,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
     },
     city = {
-      lines = { { id = "c_default", text = "The catacombs were, long ago, by the builders of old Lordaeron. The Scourge started on the rest and we finished it. Every tunnel down here was dug by somebody's hands, and some of those hands are still working." } },
+      lines = { { id = "c_default", text = "The catacombs were miners' work, dug long ago by the builders of old Lordaeron, and the Scourge started on the rest and we finished it. Every tunnel down here was dug by somebody's hands, and some of those hands are still working." } },
       choices = {
         { text = "The dead built their own city. I admire that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Scourge dug it. That's not much to admire.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1183,7 +1183,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     disloyal = {
-      lines = { { id = "d_default", text = "The Syndicate, in Alterac, who were living nobles once and sell their knives to anyone now. And a few of ours who forgot whose city this is. We don't speak of those last ones, and neither should you." } },
+      lines = { { id = "d_default", text = "No, and the worst are the Syndicate in Alterac, who were nobles once and sell their knives to anyone now. A few of ours forgot whose city this is, too, and we don't speak of them, and neither should you." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } } },
     },
     xhsham = {
@@ -1446,7 +1446,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Everything, but mostly they ignore the small ones until the small ones fester. A Forsaken warrior can walk around for a week with a crossbow bolt in his back, so check yourself after every fight, and if you can't reach, ask someone." } },
+      lines = { { id = "xwarcl_default", text = "They do, mostly by ignoring the small ones until the small ones fester. A Forsaken warrior can walk around for a week with a crossbow bolt in his back, so check yourself after every fight, and if you can't reach, ask someone." } },
       choices = {
         { text = "I'll check, Mary, and ask when I can't reach.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A wound is just a wound. I'll keep fighting.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1713,7 +1713,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Every time, friend, but I've made my peace with it. The fish goes to the inn and the apothecaries and I keep the stillness and the lake smell, which is the better half of fishing anyway, and you'll eat what you catch, at least, so do it properly and thank the lake." } },
+      lines = { { id = "dq_default", text = "Every time, friend, but I've made my peace with it, because the stillness is the better half of fishing anyway. You'll eat what you catch, at least, so do it properly and thank the lake." } },
       choices = {
         { text = "I always thank the lake. It's only right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A fish is a fish. I'll eat it and thank no one.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1735,7 +1735,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "You could, I suppose, and you'd be the first person ever to ice-fish in the Undercity, which is a sort of distinction. Mind you don't freeze the fish along with it, though; they're tough, but the poison in them gets sluggish." },
+        { id = "xmage_default", text = "You could, I suppose, and you'd be the first person ever to ice-fish in the Undercity, which is a sort of distinction. Mind you don't freeze the fish along with it, though, if anything in that sludge can still be called a fish." },
         { id = "xmage_troll", when = { race = "Troll" }, text = "A troll who wants to freeze my canal, now there's something to tell the other trainers. You could do it, I suppose, but I'd sooner you learned the line, since frost won't help you on the coast at Echo Isles." },
       },
       choices = {

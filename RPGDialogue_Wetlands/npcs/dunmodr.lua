@@ -17,9 +17,9 @@ P:NPC {
     { id = "g_default", text = "Keep yer head down, friend, for the Dark Irons have archers on the walls. What brings ye tae Dun Modr, besides bad luck an' a bad map?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece, which on this road is a feat worth a toast." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' Dun Modr's still standin', just about. Any word o' reinforcements on yer travels?" },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown fierce since I sent ye out tae look for Rustlocke. Longbraid could use a hundred like ye." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown fierce since we last spoke. Longbraid could use a hundred like ye." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Menethil's talkin' about ye, an' even out here we hear it. Good deeds travel faster than reinforcements, it seems." },
-    { id = "g_span", when = { questActive = TODO_QUEST("The Thandol Span") }, text = "The Span business is still open, then. Whatever ye find out there, bring it straight back tae me." },
+    { id = "g_span", when = { questActive = TODO_QUEST("The Thandol Span") }, text = "Ye're still lookin' intae what happened at the Span, then. Whatever ye find out there, bring it straight back tae me." },
   },
 
   notice = {
@@ -53,7 +53,7 @@ P:NPC {
     },
     opn_stromgarde_r_retake = {
       lines = {
-        { id = "opn_stromgarde_r_retake", text = "Aye, an' I'll drink tae it, if I ever get leave tae drink. Tell Nials that if ye pass Refuge Pointe; he'll like hearin' it from someone who isnae under his command." },
+        { id = "opn_stromgarde_r_retake", text = "Aye, an' I'll drink tae it, if I ever get leave tae drink. Tell Captain Nials that if ye pass Refuge Pointe; he'll like hearin' it from someone who isnae under his command." },
       },
       choices = {
         { text = "Something else, Rhag.", next = "BACK" },
@@ -78,7 +78,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Rhag Garmason, one o' Longbraid's. A tremendous explosion roared through these hills when the Dark Irons hit the Thandol Span, an' good soldiers died defendin' it, so now we hold what's left o' Dun Modr an' wait." },
+          text = "Rhag Garmason, one o' Longbraid the Grim's soldiers. A tremendous explosion roared through these hills when the Dark Irons hit the Thandol Span, an' good soldiers died defendin' it, so now we hold what's left o' Dun Modr an' wait." },
         { id = "h_found", tags = { "news" }, when = { questReady = TODO_QUEST("The Thandol Span") },
           text = "Ye've found somethin', I can see it on yer face. Tell me straight, for I've had enough o' waitin'." },
         { id = "h_plea_back", tags = { "news" }, when = { questRecent = { TODO_QUEST("Plea To The Alliance"), days = 5 } },
@@ -104,7 +104,7 @@ P:NPC {
       },
       choices = {
         { text = "The Thandol Span looks badly broken.", next = "span" },
-        { text = "Who did you lose defending the Span?", next = "rustlocke" },
+        { text = "Is anyone missing from your company?", next = "rustlocke" },
         { text = "Tell me about Longbraid.", next = "longbraid" },
         { text = "Ironforge seems slow to send help.", next = "help" },
         { text = "I've spoken with King Magni about Dun Modr.", next = "king_word",
@@ -148,7 +148,7 @@ P:NPC {
 
     rustlocke = {
       lines = {
-        { id = "ru_default", text = "Ebenezer Rustlocke, though no one called him anythin' but Ol' Rustlocke. Longbraid sent him tae scout the eastern bridge, for he had the best eyes o' any o' us an' the oldest knees." },
+        { id = "ru_default", text = "Ebenezer Rustlocke, though no one called him anythin' but Ol' Rustlocke. Longbraid sent him tae scout the eastern bridge, for he had the best eyes o' any o' us, an' he's no' come back." },
         { id = "ru_dead", when = { any = { { questReady = TODO_QUEST("The Thandol Span") }, { questDone = TODO_QUEST("Plea To The Alliance") } } },
           text = "He walked straight intae a Dark Iron ambush, an' he died wi' the enemy's orders in his fist. That's Rustlocke for ye, stubborn tae the very end." },
       },
@@ -160,7 +160,7 @@ P:NPC {
     rustlocke_more = {
       big = true,
       lines = {
-        { id = "rm_default", text = "Kind o' ye. We cannae spare the dwarves tae bring him home, so he lies where he fell for now, an' that sits worse wi' me than the dyin'." },
+        { id = "rm_default", text = "Kind o' ye. If he's fallen, we cannae spare the dwarves tae bring him home, an' that sits worse wi' me than the dyin'." },
       },
       choices = {
         { text = "A soldier's body matters less than the bridge.", next = "BACK", fx = { align = { light = -1 } } },
@@ -180,14 +180,14 @@ P:NPC {
     },
     longbraid_hold = {
       lines = {
-        { id = "lh_default", text = "The edge of it, aye, for a while yet. The fortress itself is lost tae the Dark Irons, an' Motley up by the Span would tell ye it was lost the day the bridge went." },
+        { id = "lh_default", text = "The edge of it, aye, for a while yet. The fortress itself is lost tae the Dark Irons, an' Motley Garmason up by the Span would tell ye it was lost the day the bridge went." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
 
     help = {
       lines = {
-        { id = "he_default", text = "Ironforge's sendin' reserves, they say, an' we believe them because we must. Roggo knew o' an Alliance camp north at Refuge Pointe, so we've asked there as well." },
+        { id = "he_default", text = "Ironforge's sendin' reserves, they say, an' we believe them because we must. One o' the lads knew o' an Alliance camp north at Refuge Pointe, so we've asked there as well." },
       },
       choices = {
         { text = "What did Refuge Pointe say?", next = "help_nials", when = { questDone = TODO_QUEST("Plea To The Alliance") } },

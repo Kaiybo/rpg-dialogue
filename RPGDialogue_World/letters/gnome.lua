@@ -195,7 +195,7 @@ P:Letter {
   id = "origin_gnome_arcane_engineer_1", from = "Doctor Nimsy Voltwhisker", stranger = true, delay = 1200,
   when = { origin = "gnome_arcane_engineer", minLevel = 6 },
   subject = "Faculty news",
-  body = "{name},\n\nFaculty news, such as it is. Professor Holloway's eyebrows have grown back, though only the left one grew back entirely the right shape, and he refuses to tell anyone what happened to the right. You may have a guess.\n\nThe dwarven mages have asked three separate times for the schematics of your arcane-capacitor coil, and I've told them three separate times that you took the only copy. They don't believe me, and they've started searching the workshop at night, which is very rude, though they do tidy up after themselves.\n\nPlease write down how the thing works before you blow yourself up, because I want to finish it. I'm only half joking.\n\nDoctor Nimsy Voltwhisker",
+  body = "{name},\n\nFaculty news, such as it is. Professor Holloway's eyebrows have grown back, though the right one came back a very odd shape, and he refuses to tell anyone why. You may have a guess.\n\nThe dwarven mages have asked three separate times for the schematics of your arcane-capacitor coil, and I've told them three separate times that you took the only copy. They don't believe me, and they've started searching the workshop at night, which is very rude, though they do tidy up after themselves.\n\nPlease write down how the thing works before you blow yourself up, because I want to finish it. I'm only half joking.\n\nDoctor Nimsy Voltwhisker",
 }
 
 P:Letter {

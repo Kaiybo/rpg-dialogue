@@ -40,7 +40,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Driven 'em right up the slopes, pal, and now the Deepmoss spiders are nesting closer to my hut than I'd like. If you're thinning them out anyway, take a swing past the Venture camp, because their operators hate spiders more than I do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hey, keep that {pet} away from my blueprints, pal. It's got the look of something that chews paper, and I've only got the one copy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Driven 'em right up the slopes, pal, and now the Deepmoss spiders are nesting closer to my hut than I'd like. Hey, keep that {pet} away from my blueprints, pal. It's got the look of something that chews paper, and I've only got the one copy." },
       },
       choices = {
         { text = "I'll hunt the spiders and leave the forest be.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -136,10 +136,10 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gnome_default", text = "A peek, he says, as if a gnome ever stopped at a peek! Fine, bring me the blueprints and you can look, pal, but no taking notes, because I've got the patent pending in my head." },
+        { id = "gnome_default", text = "A peek, says the gnome, as if a gnome ever stopped at a peek! Fine, bring me the blueprints and you can look, pal, but no taking notes, because I've got the patent pending in my head." },
       },
       choices = {
-        { text = "Deal. Something else.", next = "BACK" },
+        { text = "Deal.", next = "BACK" },
       },
     },
     xhcast = {
@@ -229,7 +229,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Up the slopes, and into each other's hunting grounds, which means they fight where they once lived side by side. The Pridewing wyverns have grown bolder too, because the forest no longer hides their prey." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks lightly among my seedlings, {class}, and the earth is glad of it. Feed it well; the land will remember." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up the slopes, and into each other's hunting grounds, which means they fight where they once lived side by side. Your {pet} walks lightly among my seedlings, {class}, and the earth is glad of it. Feed it well; the land will remember." },
       },
       choices = {
         { text = "I'll hunt only what I need, and the rest can recover.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -263,7 +263,7 @@ P:NPC {
         { text = "How can the land here heal, Tsunaman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could magic help the land here heal faster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "The Venture Company must keep their fuel and machines somewhere close.", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "The Venture Company will have to be fought, Tsunaman.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should the Venture Company be fought or driven off, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where have the beasts gone since the vale burned, Tsunaman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a druid's magic help the seedlings take root, Tsunaman?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Can the Light heal the forest, Tsunaman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -368,7 +368,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "My uncle told me the Forsaken were our allies, but he never said anything about the Light. I don't care, though, not really. If you'll walk me home to Sun Rock, you can glow all you like." } },
+      lines = { { id = "xfpala_default", text = "My aunt told me the Forsaken were our allies, but he never said anything about the Light. I don't care, though, not really. If you'll walk me home to Sun Rock, you can glow all you like." } },
       choices = {
         { text = "I'll walk you home and keep you safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Keep up. I won't wait for stragglers.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -397,7 +397,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, and they set snares the way my father taught me, because they're tauren and they learned the same as we did. If you see a snare, there's a Grimtotem watching it, and we should go around." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} makes me feel safer, {class}, because it would hear the Grimtotem before I would. May I walk on its side?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, and they set snares the way my father taught me, because they're tauren and they learned the same as we did. Your {pet} makes me feel safer, {class}, because it would hear the Grimtotem before I would. May I walk on its side?" },
       },
       choices = {
         { text = "We'll go around the snares, and keep you safe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -408,7 +408,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're... you're dead, and you're glowing. Are you here to help me, or are you another thing I should hide from?" },
-        { id = "h_default", text = "I'm Kaya Flathoof, and the Grimtotem fell on our camp, and I've been hiding ever since. My uncle is at Sun Rock, and I think he must believe I'm dead, so will you walk me home?" },
+        { id = "h_default", text = "I'm Kaya Flathoof, and the Grimtotem fell on our camp, and I've been hiding ever since. My aunt Tammra is at Sun Rock, and I think she must believe I'm dead, so will you walk me home?" },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo! You'll know the Grimtotem are tauren too, which makes this worse, doesn't it? They're our own people, and they did this." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman, aren't you? The Grimtotem had shamans too, but they never looked at anyone kindly, so please be different." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You're a priest? Could you say a prayer for the people at the camp, please, because I don't think anyone else has yet." },
@@ -457,7 +457,7 @@ P:NPC {
     },
     uncle = {
       lines = {
-        { id = "uncle_default", text = "My uncle, and he worries about everything, so he'll be beside himself by now. I'd like to see his face when I walk in, even if he shouts at me after." },
+        { id = "uncle_default", text = "My aunt Tammra, and she worries about everything, so she'll be beside herself by now. I'd like to see her face when I walk in, even if she shouts at me after." },
       },
       choices = {
         { text = "He'll be glad to see you.", next = "BACK" },
@@ -510,7 +510,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Kaya, from Camp Aparaje, though there isn't much of the camp left now." } },
-    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem killed my family at Camp Aparaje and took me, and they did it smiling. I do not understand how a tauren could do that, and I do not want to." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem fell on Camp Aparaje and killed people I knew, and they did it smiling. I do not understand how a tauren could do that, and I do not want to." } },
     cairne = { { id = "tp_cairne", text = "Cairne will punish the Grimtotem for what they did, I know he will. He is the High Chieftain, and he does not forgive cruelty." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother saw what the Grimtotem did, and she will judge them. I only want to go home, and let her do the judging." } },
     centaur = { { id = "tp_centaur", text = "The centaur were the monsters of my grandmother's stories, but the Grimtotem are worse. They look like us, and that is the most frightening thing of all." } },

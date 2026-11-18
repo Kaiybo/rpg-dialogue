@@ -20,8 +20,8 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Come closer, so old Vornal can see what the tide wash in today. Closer, mon, my eyes be older than the rest of me." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, I know that shape. You be the one who keep comin' back, and most of de young ones don't bother." },
-    { id = "g_solvent", when = { questActive = TODO_QUEST("A Solvent Spirit") }, text = "The makrura eyes, mon, and the crawler mucus. They be on the beaches, not in my hut, so why you be standin' here?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, I know that shape. You be the one who keep comin' back, which be more than most of the young ones manage." },
+    { id = "g_solvent", when = { questActive = TODO_QUEST("A Solvent Spirit") }, text = "I still need the makrura eyes and the crawler mucus, mon. They be on the beaches, not in my hut, so why you be standin' here?" },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and Vornal thought maybe the crawlers got you. Good, good, they did not." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word come along the shore that you tell a lie and get caught at it. A bad liar be worse than a liar, mon, so either stop or practise." },
   },
@@ -42,9 +42,9 @@ P:NPC {
         { id = "h_solvent_done", when = { questDone = TODO_QUEST("A Solvent Spirit") },
           text = "The tincture you help me make be workin', mon, and I can see the edge of the isles again on a clear morning. I do not see Zalazane on them, but I know he be there." },
         { id = "h_idols", when = { questActive = TODO_QUEST("Forgotten Loa Idols") },
-          text = "The idols, mon, the loa idols we leave behind when we flee. Take them to Gadrin when you find them, because the loa be watchin' how we treat their faces." },
+          text = "The idols, mon, the loa idols we leave behind when we flee. Take them to Master Gadrin when you find them, because the loa be watchin' how we treat their faces." },
         { id = "h_paljuh", when = { questDone = TODO_QUEST("Lost in the Shadows") },
-          text = "You bring Pal'juh home from the Kolkar Crag, and she come in here sulkin' like a scolded cub. She be a good hunter, but she act more like a raptor than a tiger, and raptors run into things." },
+          text = "You bring the young huntress Pal'juh home from Kolkar Crag, and she come in here sulkin' like a scolded cub. She be a good hunter, but she act more like a raptor than a tiger, and raptors run into things." },
         { id = "h_troll", when = { race = "Troll" },
           text = "A child of the tribe, come to see old Vornal. Sit, but do not touch the green bottles, because the last young one who touch them be blue for a week." },
         { id = "h_orc", when = { race = "Orc" },
@@ -178,10 +178,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Alchemy, old wars, and which crawler on the beach be the fattest. Ask, mon." } },
+    knows = { { id = "tp_knows", text = "I know alchemy, old wars, and which crawler on the beach be the fattest. Ask, mon." } },
     background = { { id = "tp_bg", text = "I fight beside Sen'jin, I come off the boats with Vol'jin, and now I stir pots. That be the whole life, mon.", next = "senjin" } },
     advice = { { id = "tp_ad", text = "Never taste a potion to see if it be done. Smell it, and if you still not sure, let somebody else taste it." } },
-    echo_isles = { { id = "tp_echo", text = "Our home, mon, and Zalazane's prison for our people now. I look at it every morning." } },
+    echo_isles = { { id = "tp_echo", text = "The Echo Isles be our home, mon, and Zalazane's prison for our people now. I look at them every morning." } },
     _none = { { id = "tp_none", text = "Vornal cannot see that one clearly, mon, with his eyes or his mind." } },
   },
 }
@@ -203,8 +203,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Mind the drying racks, mon. The hides be wet and the flies be hungry." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. You bring me furs, or you bring me questions?" },
-    { id = "g_prey", when = { questActive = TODO_QUEST("Practical Prey") }, text = "The tigers be on the islands south of here, mon. Four good furs, not shredded ones." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, mon. The racks fill up and empty again while you be away." },
+    { id = "g_prey", when = { questActive = TODO_QUEST("Practical Prey") }, text = "The tigers be on the islands south of here, mon. Bring me four good furs, not shredded ones." },
+    { id = "g_away", when = { away = 14 }, text = "You be gone {away}, mon, and the racks fill up and empty again while you be away." },
   },
 
   notice = {
@@ -223,7 +223,7 @@ P:NPC {
         { id = "h_prey_done", when = { questDone = TODO_QUEST("Practical Prey") },
           text = "The furs you bring be on three bedrolls and a tent now, mon. When the wind turn cold off the sea, somebody sleep warm because of you." },
         { id = "h_leg_active", when = { questActive = TODO_QUEST("Legging It") },
-          text = "The spiders on the north road, mon, the creepers and the lurkers. Thin them out, then tell Gar'Thok in Razor Hill the road be safer." },
+          text = "The spiders on the north road need thinnin', mon, the creepers and the lurkers both. Do it, then tell Gar'Thok in Razor Hill the road be safer." },
         { id = "h_leg_done", when = { questDone = TODO_QUEST("Legging It") },
           text = "The peons be walkin' south again, mon, so the road be safer. Gar'Thok will never thank me, but I hear he say your name." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -288,7 +288,7 @@ P:NPC {
       },
     },
     cull_more = {
-      lines = { { id = "cum_default", text = "I do, mon, by countin' tracks at the waterholes every new moon, and Master Gadrin when I ask him. The orcs in the valley do not count, and the boars up there know it." } },
+      lines = { { id = "cum_default", text = "I do, mon, by countin' tracks at the waterholes every new moon, and Master Gadrin when I ask him. The orcs in the valley do not count, and the boars up there be gettin' thin because of it." } },
       choices = {
         { text = "That's careful work.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -317,10 +317,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Hides, beasts, and how many of each the shore can spare, mon." } },
+    knows = { { id = "tp_knows", text = "I know hides, beasts, and how many of each the shore can spare, mon." } },
     background = { { id = "tp_bg", text = "I be a hunter on the isles before the isles go bad. Now I be the hide-man, and it be a better job than it sound." } },
     advice = { { id = "tp_ad", text = "Salt the hide the same day you take it, mon, or the flies take it from you." } },
-    echo_isles = { { id = "tp_echo", text = "The tigers there be the fattest, mon, and the only ones I never hunt, because Zalazane's people hunt hunters." } },
+    echo_isles = { { id = "tp_echo", text = "The tigers on the Echo Isles be the fattest, mon, and the only ones I never hunt, because Zalazane's people hunt hunters." } },
     _none = { { id = "tp_none", text = "That not have fur or hide, mon, so I not know it." } },
   },
 }
@@ -458,10 +458,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Iron, mon, and what the spirits whisper while I beat it." } },
-    background = { { id = "tp_bg", text = "Smith's grandson from the isles, smith myself in Sen'jin. The spirits come with the trade." } },
+    knows = { { id = "tp_knows", text = "I know iron, mon, and what the spirits whisper while I beat it." } },
+    background = { { id = "tp_bg", text = "I be a smith's grandson from the isles and a smith myself in Sen'jin, and the spirits come with the trade." } },
     advice = { { id = "tp_ad", text = "Never let somebody else quench your blade, mon. They will do it wrong, and you will blame the steel." } },
-    satyrs = { { id = "tp_satyrs", text = "Horned leeches, mon, and their hooves make good gauntlets.", next = "hooves" } },
+    satyrs = { { id = "tp_satyrs", text = "Satyrs be horned leeches, mon, and their hooves make good gauntlets.", next = "hooves" } },
     _none = { { id = "tp_none", text = "The spirits say nothin' about that, mon, and neither will I." } },
   },
 }

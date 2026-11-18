@@ -87,7 +87,7 @@ P:NPC {
     },
 
     men = {
-      lines = { { id = "me_default", text = "As many as Sildanair trains women, or near enough. The Sentinels are the Sisterhood's and they're mostly women, but the terrace is anyone's who'll pick up a blade, and the men of Darnassus have found a place here." } },
+      lines = { { id = "me_default", text = "Plenty. The Sentinels are the Sisterhood's and they're mostly women, but the terrace is anyone's who'll pick up a blade, and the men of Darnassus have found a place here." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -328,7 +328,7 @@ P:NPC {
       },
     },
     name = {
-      lines = { { id = "na_default", text = "Magical things, mostly, deposited unwrapped by people in a hurry. I once sat up all night watching a wand hum in its box, and Garryeth still tells the story at every opportunity." } },
+      lines = { { id = "na_default", text = "Magical things, mostly, deposited unwrapped by people in a hurry. I once sat up all night watching a wand hum in its box, and Garryeth, who keeps the vaults with me, still tells the story at every opportunity." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -115,7 +115,7 @@ P:NPC {
     },
     council_think = {
       lines = {
-        { id = "ct_default", text = "Trading in nonsense, which suits me nicely. Syral Bladeleaf passes their orders round Dolanaar, and if she ever learns what I really do, I suppose I'll find out how patient they are." },
+        { id = "ct_default", text = "Trading in nonsense, which suits me nicely. Syral Bladeleaf passes their orders round Dolanaar, and if he ever learns what I really do, I suppose I'll find out how patient they are." },
       },
       choices = {
         { text = "I could tell Syral myself.", next = "council_tell" },
@@ -124,7 +124,7 @@ P:NPC {
     },
     council_tell = {
       lines = {
-        { id = "cl_default", text = "You could, and she'd thank you, and then she'd ask why you know so much about my business. That's how I keep friends in this forest, little one: I make sure they have something to lose." },
+        { id = "cl_default", text = "You could, and he'd thank you, and then he'd ask why you know so much about my business. That's how I keep friends in this forest, little one: I make sure they have something to lose." },
       },
       choices = {
         { text = "That sounds like a threat.", next = "BACK", fx = { trait = { brave = 1 } } },

@@ -59,7 +59,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A Thunderbrew Lager, as dark as the night, with a head like the foam on a sea at its height! The Goretusk is tough, but the lager is smooth, and between them there's nothing a body can't soothe." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And there's {pet}, poor beast, with a nose for my still! Keep it away, for it'll drink, and it will!" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A Thunderbrew Lager, as dark as the night, with a head like the foam on a sea at its height! But keep {pet} away from my still, for it'll drink, and it will!" },
       },
       choices = {
         { text = "I'll share the boar and the barrel with the militia.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -94,7 +94,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I sell to whoever comes up the hill with some coin, be it farmer or thief or a dwarf with a groan. But I've never yet had a Defias pay, for they'd rather just take it and then run away!" } },
+      lines = { { id = "xapala_default", text = "I sell to whoever comes up the hill with some coin, be it farmer or thief or a dwarf with a groan. But the Defias pay only when they've a mind, and the rest of the time they leave nothing behind!" } },
       choices = {
         { text = "Then turn them away. Coin from thieves is stolen twice.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Coin is coin, Grimbooze. Sell to anyone who pays.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -155,7 +155,7 @@ P:NPC {
     },
     why_barley = {
       big = true,
-      lines = { { id = "wb_default", text = "The farmers are gone, and the fields would go wild, or else feed the gnolls, who'd leave not a child. I pay what I can to the ones still about, and Saldean's had barrels, I'll tell ye, no doubt." } },
+      lines = { { id = "wb_default", text = "The farmers are gone, and the fields would run wild, or the gnolls would have trampled the sheaves where they're piled. I pay what I can to the ones still about, and Saldean's had barrels, I'll tell ye, no doubt." } },
       choices = {
         { text = "Then pay them more. It's their land.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Abandoned fields belong to whoever works them.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -163,7 +163,7 @@ P:NPC {
       },
     },
     rhyme = {
-      lines = { { id = "r_default", text = "Since I was a lad in the halls of my clan, and my mother said rhyming would make me a man. It never quite did, but it sells a fair keg, so I'll rhyme till I'm buried, or lose my last leg." } },
+      lines = { { id = "r_default", text = "I've rhymed since a lad in the halls of my clan, for my mother said rhyming would make me a man. It never quite did, but it sells a fair keg, so I'll rhyme till I'm buried, or lose my last leg." } },
       choices = {
         { text = "Can you stop if you try?", next = "rhyme_stop" },
         { text = "Something else.", next = "BACK" },
@@ -261,7 +261,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only when they come for my nets, and then I hit them with an oar. They're slippery and they shriek, but they're cowards mostly, so a beast at your side will scatter them faster than any spear." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make short work of a murloc. Keep it away from my catch, though; it's all I've got." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only when they come for my nets, and then I hit them with an oar, but they're cowards mostly, so a beast at your side will scatter them. Your {pet} would make short work of a murloc, though keep it away from my catch." },
       },
       choices = {
         { text = "I'll clear the shore so you can fish in peace.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -396,7 +396,7 @@ P:NPC {
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sail past the lighthouse now and then, and I keep my head low in the boat when they do. They've no need of a fisherman, but they'd take one anyway, for the fun of it." } },
     deadmines = { { id = "tp_deadmines", text = "Sometimes at night I hear hammering from the hills behind Moonbrook, slow and steady, like a shipwright. I tell myself it's my ears, and then I row a little faster." } },
     gilneas = { { id = "tp_gilneas", text = "The fish off the Gilnean coast are cold and sweet, the old sailors say, but nobody's fished there in years. They built a wall, and the sea didn't care, and I suppose the fish didn't either." } },
-    background = { { id = "tp_bg", text = "Born in a shack above this beach, and I'll likely die in it, but I'll have eaten well." } },
+    background = { { id = "tp_bg", text = "I was born in a shack above this beach, and I'll likely die in it, but I'll have eaten well." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the water, friend. Something's always coming out of it." } },
     defias = { { id = "tp_defias", text = "I hear hammering from the cliffs down the shore at night, and I see masked men on the path. I don't go and look, and they don't bother me." } },
     _none = { { id = "tp_none", text = "Don't know it. If it doesn't swim, I don't keep track of it." } },

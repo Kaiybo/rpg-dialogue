@@ -60,7 +60,7 @@ P:NPC {
       },
     },
     xcl_sfk2 = {
-      lines = { { id = "xcl_sfk2_default", text = "Rane Yorick says they will, and Rane Yorick is never wrong, except about how dangerous things are, which he always says are less dangerous than they are. I'll keep my blade out either way, because a scattered worgen still has teeth." } },
+      lines = { { id = "xcl_sfk2_default", text = "Rane Yorick says they will, and Rane Yorick is never wrong, except about how dangerous things are, which she always says are less dangerous than they are. I'll keep my blade out either way, because a scattered worgen still has teeth." } },
       choices = {
         { text = "Keep your blade out, Erland. That's wise.", next = "BACK" },
       },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Want it? I'd beg for it, if deathstalkers were allowed to beg. Walk in front where the worgen can see you, and I'll stay behind where they can't, and between us we might reach Yorick with all our limbs." } },
+      lines = { { id = "xwarcl_default", text = "Use one? I'd beg for one, if deathstalkers were allowed to beg. Walk in front where the worgen can see you, and I'll stay behind where they can't, and between us we might reach Yorick with all our limbs." } },
       choices = {
         { text = "I'll walk in front. Someone has to take the first blow.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "You walk in front, Erland. I'll watch from behind.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -233,7 +233,7 @@ P:NPC {
     gilneas = { { id = "tp_gilneas", text = "The Gilneans built a wall to keep the world out, and now they've got worgen inside it, I hear. Serves them right, though I wouldn't say so near the woods at night." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are meant to be fearless, and mostly we are. Silverpine at night is the exception, and you'll understand once you've heard the howling." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady wants her enemies dead and her roads safe. I'm working on the roads, and I'd appreciate a little company while I do it." } },
-    _none = { { id = "tp_none", text = "Ask Yorick; she knows the woods, and I know the road." } },
+    _none = { { id = "tp_none", text = "Ask Rane Yorick; she knows the woods, and I know the road." } },
   },
 }
 
@@ -402,9 +402,9 @@ P:NPC {
 
   topics = {
     shadowfang = { { id = "tp_shadowfang", text = "Shadowfang Keep sits on the hill above Pyrewood, and its master breeds the wolves that walk on two legs. I watch the road for them, and I've seen enough to fill a ledger." } },
-    forsaken = { { id = "tp_forsaken", text = "My brother and I came back together, and most of the Forsaken woke alone in a grave with nobody's name on their lips. I'd take that over a full heart any day." } },
+    forsaken = { { id = "tp_forsaken", text = "My brother Quinn and I rose together, which is more than most Forsaken can say, and I'd take that over a beating heart any day." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's ghouls shamble past the farm sometimes, and I let them pass if they don't stop. Worgen are a different story." } },
-    _none = { { id = "tp_none", text = "That's not my concern, for Pyrewood is my concern." } },
+    _none = { { id = "tp_none", text = "That's not my concern. Pyrewood is my concern, and it keeps me busy enough." } },
   },
 }
 
@@ -444,7 +444,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "They sense everything, and they never pretend otherwise, so I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're waiting to see if you'll make a meal." } },
+      lines = { { id = "xhpriest_default", text = "They sense everything, which is why I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're wondering whether you'd make a meal." } },
       choices = {
         { text = "Then I'll walk past gently and let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them stay wary. Fear keeps a creature obedient.", next = "BACK", fx = { align = { light = -1 } } },

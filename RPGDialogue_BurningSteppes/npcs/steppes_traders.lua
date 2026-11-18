@@ -59,7 +59,7 @@ P:NPC {
     },
     ironfoe = {
       lines = {
-        { id = "ir_default", text = "Ironfoe, aye, everybody's heard of it. Made by a Dark Iron architect for Windsor's family, generations back, and it went with him when the orcs took him, which is a crime twice over as far as I'm concerned." },
+        { id = "ir_default", text = "Ironfoe, aye, everybody's heard of it. Made by a Dark Iron architect for Windsor's family, generations back, and it went with him when the Dark Irons took him, which is a crime twice over as far as I'm concerned." },
         { id = "ir_seen", when = { questDone = TODO_QUEST("Jail Break!") },
           text = "You saw him come out, didn't you? I'd have given anything to see that hammer back in his hand, but I don't suppose the Dark Irons handed it over politely." },
       },
@@ -70,7 +70,7 @@ P:NPC {
     },
     ironfoe_maker = {
       lines = {
-        { id = "im_default", text = "A Dark Iron by the name of Forgewright, John says, back when some of the Dark Irons still had friends on this side of the mountain. Ragged John says a lot of things, mind, but that one I believe, because nobody would make it up." },
+        { id = "im_default", text = "A Dark Iron by the name of Forgewright, Ragged John says, back when some of the Dark Irons still had friends on this side of the mountain. John says a lot of things, mind, but that one I believe, because nobody would make it up." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "windsor" } } } },
     },
@@ -160,7 +160,7 @@ P:NPC {
     },
     flour = {
       lines = {
-        { id = "fl_default", text = "From Kargath, on Vahgruk's wind riders, a sack at a time, and they complain about the weight the whole way. Nothing grows up here but thorns and trouble, so every loaf I sell flew in first." },
+        { id = "fl_default", text = "From Kargath, a sack at a time, on the wind riders Vahgruk keeps here, and they complain about the weight the whole way. Nothing grows up here but thorns and trouble, so every loaf I sell flew in first." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -182,7 +182,7 @@ P:NPC {
     },
     visitors = {
       lines = {
-        { id = "vi_default", text = "Riders going north to Kargath, goblins going anywhere there's coin, and fools heading for the mountain with their swords out. Kibler's in the cave out back with his beasts and that foul-mouthed bird, and if the bird tells you something, don't repeat it." },
+        { id = "vi_default", text = "Riders going north to Kargath, goblins going anywhere there's coin, and fools heading for the mountain with their swords out. Kibler the goblin is in the cave out back with his beasts and that foul-mouthed bird, and if the bird tells you something, don't repeat it." },
       },
       choices = {
         { text = "What about the fools heading for the mountain?", next = "fools" },

@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Bad enough that I'm cheerful on purpose. The Blackrock have their own shamans up in those hills, and folk here flinch at the word, so mind how you say it." } },
+      lines = { { id = "xdsham_default", text = "Bad enough that I'm cheerful on purpose, and folk are jumpy besides. The Blackrock have their own shamans up in those hills, so mind how you say the word in here." } },
       choices = {
         { text = "I'll show them a shaman can be a friend, Daniels.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let them flinch. They'll learn what I am soon enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar, if you can get it, and condor if you can't, though condor's tough as a saddle. Sherman over at the inn's block takes whatever's clean, so bring it to him and tell him I sent you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a beast that eats better than my customers, {class}. I'd not say no to a share of its supper." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar, if you can get it, and condor if you can't, so take it to Sherman at the inn's block and tell him I sent you. Your {pet} has the look of a beast that eats better than my customers, {class}." },
       },
       choices = {
         { text = "I'll hunt for the soldiers. They've earned a good meal.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -118,16 +118,16 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Daniels. I keep the bar, or I did when there was something to keep, but the orcs hit the road and my shipment never came." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Dry Times") },
-          text = "Thunderbrew lager from the hills in Westfall, merlot from Stormwind, moonshine from Darkshire, sweet rum from Goldshire. A proper bar needs all four, and I've got none." },
+          text = "A proper bar needs four bottles: Thunderbrew lager from the Westfall hills, merlot from Stormwind, moonshine from Darkshire and sweet rum from Goldshire. Right now I've got none of them." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dry Times") },
-          text = "Bring each one, mind, and don't drink them on the way. I'll know; I always know." },
+          text = "Bring me all four bottles, mind, and don't drink them on the way. I'll know; I always know." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dry Times"), days = 3 } },
           text = "Listen to that room. That's the sound of Lakeshire forgetting about orcs for an evening, and you did that." },
         { id = "h_wiley", when = { metBefore = true },
-          text = "Wiley's in the corner, if you're looking for him. Nobody's ever looking for Wiley. Except the ones who are." },
+          text = "Wiley's in the corner, if you're looking for him. Nobody's ever looking for Wiley, except the ones who are." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Do sky folk drink? I'd wager they do, and whatever they pour up there, down here you'll get whatever I've got left." },
-        { id = "h_barrel", when = { metBefore = true }, text = "A whole barrel came in yesterday, full, and I almost cried. The regulars did cry; Lakeshire's had a hard year." },
+        { id = "h_barrel", when = { metBefore = true }, text = "Back again! Lakeshire's had a hard year, so a familiar face at my bar is worth more than you'd think." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting a drink, and I'll be wanting to give you one, and the Blackrock have made sure neither of us gets what we want." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've no drink to sell, but I'd gladly buy some meat for the table, because the soldiers are sick of bread." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've nothing to pour you, but I've a few regulars who could do with a kind word more than a drink." },
@@ -295,7 +295,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Good hunting, and bad company, because the gnolls hunt the same hills you will. Chef Breanna buys condor and boar for the soldiers' stew, and she pays fair, though she'll tell you what's wrong with every cut." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome under my roof, {class}, and I'll put a blanket down for it. It's more polite than half my guests." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Good hunting, and bad company, because the gnolls hunt the same hills, and Chef Breanna buys condor and boar for the soldiers' stew. Your {pet} is welcome under my roof, {class}, and I'll put a blanket down for it." },
       },
       choices = {
         { text = "I'll hunt for Breanna's stew. The soldiers need feeding.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -370,7 +370,7 @@ P:NPC {
       },
     },
     narnie = {
-      lines = { { id = "n_default", text = "My pet, and the real owner of this inn. I just pay the bills." } },
+      lines = { { id = "n_default", text = "That's Narnie, and she's the real owner of this inn. I just pay the bills." } },
       choices = {
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
         { text = "Does she like guests?", next = "narnie_guests" },
@@ -381,7 +381,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     town = {
-      lines = { { id = "t_default", text = "Better on a full stomach. Worse when the drums start in the hills. Mostly we keep the fire lit and the door open, and hope that's enough." } },
+      lines = { { id = "t_default", text = "Better on a full stomach, and worse when the drums start in the hills. Mostly we keep the fire lit and the door open, and hope that's enough." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
     },
     wounded = {

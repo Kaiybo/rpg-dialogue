@@ -59,7 +59,7 @@ P:NPC {
       },
     },
     woken = {
-      lines = { { id = "w_default", text = "One of us believes so, and he's gone down to try. If someone strong enough walks with him past the Fang and the beasts, he says he can call Naralex back, though I've buried enough hope in those caves not to count on it." } },
+      lines = { { id = "w_default", text = "One of us believes so, and he's gone down to try. If someone strong enough walks with him past the Druids of the Fang and the beasts, he says he can call Naralex back, though I've buried enough hope in those caves not to count on it." } },
       choices = {
         { text = "Then I'll help him try.", next = "BACK", fx = { align = { light = 1 }, learn = { "naralex" } } },
         { text = "Some sleepers are better left alone.", next = "BACK", fx = { align = { light = -1 }, learn = { "naralex" } } },
@@ -105,8 +105,8 @@ P:NPC {
   },
 
   topics = {
-    naralex = { { id = "tp_nar", text = "Our teacher, a night elf of the Cenarion Circle, asleep in the caverns below and dreaming badly.", next = "naralex" } },
-    wailing_caverns = { { id = "tp_wc", text = "Below us. Wet, winding and full of things that used to be gentle." } },
+    naralex = { { id = "tp_nar", text = "Naralex is our teacher, a night elf of the Cenarion Circle, asleep in the caverns below and dreaming badly.", next = "naralex" } },
+    wailing_caverns = { { id = "tp_wc", text = "The caverns lie below us, wet and winding and full of things that used to be gentle." } },
     _none = { { id = "tp_none", text = "I'm sorry, but my thoughts are with the caverns. I can't help you with that." } },
   },
 }
@@ -202,7 +202,7 @@ P:NPC {
   },
 
   topics = {
-    oases = { { id = "tp_oasis", text = "Fouled from below. The caverns' sickness rises through the water, I'm nearly sure of it." } },
+    oases = { { id = "tp_oasis", text = "The oases are being fouled from below, because the caverns' sickness rises through the water. I'm nearly sure of it." } },
     _none = { { id = "tp_none", text = "Not my study, I'm afraid. Ask me about hides." } },
   },
 }
@@ -300,8 +300,8 @@ P:NPC {
   },
 
   topics = {
-    naralex = { { id = "tp_nar", text = "A night elf who dreamed of green Barrens and found a nightmare. He still sleeps below." } },
-    wailing_caverns = { { id = "tp_wc", text = "The caves beneath us, where the wind weeps and the beasts grow strange." } },
+    naralex = { { id = "tp_nar", text = "Naralex is a night elf who dreamed of a green Barrens and found a nightmare instead. He still sleeps below us." } },
+    wailing_caverns = { { id = "tp_wc", text = "The Wailing Caverns are the caves beneath us, where the wind weeps and the beasts grow strange." } },
     _none = { { id = "tp_none", text = "The wind hasn't told me about that, little one." } },
   },
 }
@@ -382,7 +382,7 @@ P:NPC {
       },
     },
     stay = {
-      lines = { { id = "s_default", text = "Because he would have stayed for me. He brought us here to heal a land that wasn't even ours, as the druids have tended this world since the War of the Ancients, and if I left him to rot in his own dream, I'd be no disciple at all." } },
+      lines = { { id = "s_default", text = "Because he would have stayed for me. He brought us here to heal a land that wasn't even ours, and if I left him to rot in his own dream, I'd be no disciple at all." } },
       choices = {
         { text = "Then let's get him out.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -398,7 +398,7 @@ P:NPC {
   },
 
   topics = {
-    naralex = { { id = "tp_nar", text = "My teacher. He sleeps below, and I mean to wake him.", next = "wake" } },
+    naralex = { { id = "tp_nar", text = "Naralex is my teacher. He sleeps below, and I mean to wake him.", next = "wake" } },
     _none = { { id = "tp_none", text = "I can't think of that now. Naralex is all that matters, and Elune grant I reach him in time." } },
   },
 }

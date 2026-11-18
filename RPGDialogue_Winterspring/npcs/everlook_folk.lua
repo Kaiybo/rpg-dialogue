@@ -35,7 +35,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Of course it is, because a demon's real and Umi's yeti is just fur on a pile of gears! Not that I'd want it in my room, so if it starts sniffing about my door, I'll scream, and that'll only be because I'm being polite." } },
       choices = {
         { text = "A demon is nothing to laugh about, Legacki. Keep away from mine.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Want me to set my imp on Umi's yeti? It'd be funny.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Want me to set my demon on Umi's yeti? It'd be funny.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -52,7 +52,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I think Umi wants me to think so, darling, which is worse! There were tracks in the snow outside my window this morning, big ones, and if they're real yeti tracks I'll scream, and if they're Umi's I'll scream louder and send her the bill for my nerves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if {pet} could sniff around my door and tell me whether those tracks smell of fur or of oil, I'd be ever so grateful." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I think Umi wants me to think so, darling, which is worse, because there were big tracks outside my window this morning. If {pet} could sniff them and tell me whether they smell of fur or of oil, I'd be ever so grateful." },
       },
       choices = {
         { text = "Tracks don't lie. I'll read them and tell you the truth, Legacki.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -163,7 +163,7 @@ P:NPC {
       },
     },
     umi_laugh = {
-      lines = { { id = "ul_default", text = "Somebody has to keep her humble, sugar, and it might as well be me. If she ever builds something that works, I'll be the first to clap, from a safe distance." } },
+      lines = { { id = "ul_default", text = "Somebody has to keep her humble, darling, and it might as well be me. If she ever builds something that works, I'll be the first to clap, from a safe distance." } },
       choices = {
         { text = "Mocking a friend's work isn't kind.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Friends tease. She'll get you back.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -189,7 +189,7 @@ P:NPC {
     everlook = { { id = "tp_everlook", text = "Everlook's a lovely little town, cold as a banker's heart and twice as profitable. I've got no complaints, except for Umi and whatever she's building this week." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the place to be if you want to get rich or get stabbed, and usually both. I prefer the snow." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's gone, and every gnome in the world wants to tell you about it. I'd rather they told me something useful, like where they hid the treasure." } },
-    _none = { { id = "tp_none", text = "No idea, sugar, and if Umi told you about it, don't believe a word, and don't pay for any of it either." } },
+    _none = { { id = "tp_none", text = "No idea, darling, and if Umi told you about it, don't believe a word, and don't pay for any of it either." } },
   },
 }
 
@@ -201,7 +201,7 @@ P:NPC {
 
   impression = {
     first = "Felnok Steelspring builds parts for a scholar in the Burning Steppes and won't touch anything without gloves. He cares more about an uncracked horn than about why anybody wants it.",
-    third = "{name} met Felnok Steelspring, the careful goblin who builds parts for Tinkee Steamboil in Everlook.",
+    third = "{name} met Felnok Steelspring, the careful gnome who builds parts for Tinkee Steamboil in Everlook.",
   },
 
   greetings = {
@@ -250,7 +250,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because you can bring a chillwind down from a distance and choose where the arrow lands, can't you? The last fellow I sent swung his axe at the head and brought me eight horns in about thirty pieces." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} off the carcass until you've got the horns free, would you? Teeth on a horn are just as bad as an axe, and I've seen what a hungry cat does to a chimaera's skull." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because you can bring a chillwind down from a distance and choose where the arrow lands, and the horns stay whole. Keep {pet} off the carcass until you've got them free, though, because teeth on a horn are as bad as an axe." },
       },
       choices = {
         { text = "A clean shot is the only honest way to bring down a chimaera.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -440,7 +440,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every day, though Winterspring is colder and quieter, and nobody here has ever heard of it. I'm glad the old ways are reaching good folk, because the Scourge took enough of mine." } },
+      lines = { { id = "xdsham_default", text = "Every day, though nobody up here has even heard of it. I'd like to think your spirits remember places like that, because the Scourge took everything else of mine." } },
       choices = {
         { text = "The spirits stand against the Scourge too, Jessica.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Hope won't bring them back. Only vengeance matters.", next = "BACK", fx = { align = { light = -1 } } },
@@ -478,7 +478,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "After all this time, I know it's foolish, and the Plaguelands have swallowed every trail there ever was. But you people read the ground the way I read letters, and I can't help hoping it still has something to say." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Pamela would have loved {pet}, I think. She was always bringing home strays and hiding them in the barn, and I was always the one who found them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I know it's foolish after all this time, but you read the ground the way I read letters, and I can't help hoping. My sister Pamela would have loved {pet}, I think, because she was always hiding strays in the barn." },
       },
       choices = {
         { text = "Some trails are worth following, however old they are. I'll look.", next = "BACK", fx = { align = { light = 1 } } },
@@ -500,8 +500,8 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Not that I know of, but mages travel farther than anyone, so every one who comes through Everlook, I ask whether they've heard any news of the folk from Darrowshire. They all shake their heads, and I keep asking anyway." } },
       choices = {
         { text = "Don't stop asking. Someone may know.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He's probably dead. You should let go.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "I'm sorry. I don't know him.", next = "BACK" },
+        { text = "They're probably dead. You should let go.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'm sorry. I've heard nothing of them.", next = "BACK" },
       },
     },
     xrogue = {
@@ -579,7 +579,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. If you're one of the Forsaken, I'll ask you plainly whether you ever walked near Darrowshire, and I'll try to bear whatever answer you give." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I've heard your kind can make dead ground grow again, and I can't stop wondering whether that could ever reach the fields around Darrowshire." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of the Forsaken. My father said the Silver Hand would never let Lordaeron fall, and now here you stand, one of Lordaeron's dead, with the Light still on you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're a shaman, and a dwarf? I was raised in Darrowshire to think only orcs called on spirits, and here you are, as kind-faced as anybody." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're a shaman? I was raised in Darrowshire to think only orcs called on spirits, and here you are, as kind-faced as anybody." },
       },
       again = {
         { id = "h_again", text = "Is there something else? I don't mind talking; it passes the time." },
@@ -769,8 +769,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The hide of the Beast in Blackrock Spire, for one, and I've told you the odds of that already. An arrow at least leaves a smaller hole than a warrior's axe, so if anyone brings me that hide whole, I expect it will be one of your kind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours stays outside my forge. Beasts chew leather, and I have no patience left for anything that chews my work." },
+        { id = "xhuntcl_default", text = "The hide of the Beast in Blackrock Spire, for one, though few who go after it come back with anything. An arrow at least leaves a smaller hole than a warrior's axe, so if anyone brings me that hide whole, I expect it will be one of your kind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The hide of the Beast in Blackrock Spire, for one, and if anyone brings me that whole, it will be one of your kind. That {pet} of yours stays outside my forge, though, because beasts chew leather." },
       },
       choices = {
         { text = "I'll bring you a clean hide or none at all.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -995,7 +995,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r4 = {
-      lines = { { id = "op_r4_default", text = "She did, and she walks with you so far north, which I am glad to see." } },
+      lines = { { id = "op_r4_default", text = "She did, and I am glad to see she walks with you even this far north." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xlock = {
@@ -1029,7 +1029,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Shy-Rotam, the old frostsaber, for she has been hunted many times and has never been found unless she wished it. I followed her tracks for three days and lost them on bare stone, and I was not ashamed, for she is cleverer than I am." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has good feet for snow, I see. Keep it downwind of the frostsabers, or Shy-Rotam will know you are coming before you have strung your bow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Shy-Rotam, the old frostsaber, who has never been found unless she wished it. Your {pet} has good feet for snow, I see, but keep it downwind, or she will know you are coming before you have strung your bow." },
       },
       choices = {
         { text = "A beast like that deserves to be faced, not trapped.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1229,7 +1229,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Blankets, three each, and meat twice a day, because a cold wind rider is a hungry one and a hungry one bites. I've asked the goblins for a stove twice, and they've quoted me a price both times that I won't repeat." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks like it could use a blanket too. Bring it round by the perch at night, and it can sleep against my riders, if they don't decide it's dinner." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Blankets, three each, and meat twice a day, because a cold wind rider is a hungry one and a hungry one bites. That {pet} of yours could use a blanket too, so bring it by the perch at night, if my riders don't decide it's dinner." },
       },
       choices = {
         { text = "Beasts that serve us are owed warmth and care, Yugrek.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1260,7 +1260,7 @@ P:NPC {
       choices = {
         { text = "I'll keep my demon away. The beasts come first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon stays with me. They'll get used to it.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "Downwind it is.", next = "BACK" },
+        { text = "Fair enough.", next = "BACK" },
       },
     },
     xmage = {
@@ -1300,7 +1300,7 @@ P:NPC {
           text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde, and no orc should stay in this cold longer than his honor demands." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "My riders don't carry the Alliance. The night elf with the hippogryphs will see to you; she's just over there." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, this far north! The wind riders will carry you south over Felwood, though I'd keep my eyes shut over the worst of it, because the trees down there aren't right." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far north! If you fly south over Felwood, keep your eyes shut over the worst of it, because the trees down there aren't right." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've a prayer against the cold, say it over my riders, because they shiver all night under three blankets and still glare at me in the morning." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, in the snow. My riders are wrapped in blankets and still they shiver, but you won't feel the cold at all, I suppose." },
       },
@@ -1379,7 +1379,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They are not kind to anything. The goblins of Everlook would sell the wind if they could catch it, and I wonder whether you'd let them." } },
+      lines = { { id = "xdsham_default", text = "They are not kind to anything, but my birds ride the wind rather than fight it. Only the goblins think the wind is something to sell, and they would if they could catch it." } },
       choices = {
         { text = "The wind isn't the goblins' to sell.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If they can catch it, let them profit.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1416,8 +1416,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some, though not the great cats, who look at them the way they look at a wounded owlbeast. The owlbeasts of Winterspring are their true enemies, and my birds will scream at an owlbeast's scent long before I see one in the snow." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} may stay close, so long as it doesn't chase the feathers that blow off the roost. The birds take that very personally." },
+        { id = "xhuntcl_default", text = "Most, if the beast is calm and its keeper calmer. Owlbeasts are another matter, for they are the birds' true enemies here, and my birds will scream at an owlbeast's scent long before I see one in the snow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Most, if the beast is calm and its keeper calmer, though owlbeasts are their true enemies here. {pet} may stay close, so long as it doesn't chase the feathers that blow off the roost." },
       },
       choices = {
         { text = "Every beast deserves a keeper it can trust, Maethrya.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1481,7 +1481,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. My hippogryphs fly south over Felwood every day, and they always climb higher over the worst of it, as if they can smell what's wrong with the trees." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. My hippogryphs have never flown one of you, but the winds of Winterspring seem to know you already, and they are older than either of our peoples." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the Alliance. My hippogryphs have rarely flown one of you, but the winds of Winterspring seem to know you already, and they are older than either of our peoples." },
       },
       again = {
         { id = "h_again", text = "Is there something else you wish to know? Ask; Elune has granted me patience enough for the cold." },

@@ -52,7 +52,7 @@ P:Thread {
       id = "b3_garthok", npc = "garthok",
       when = { faction = "Horde", any = { { thread = { id = "darkspear_isles", beat = "b1_gadrin" } }, { thread = { id = "darkspear_isles", beat = "b2_larprowltusk" } } },
                ["not"] = { thread = { id = "darkspear_isles", beat = "b3_garthok" } } },
-      text = "Half the scouts who watch my roads are Darkspear, and they do it without complaint, though they lost their whole home and I only lost a few grunts to Tiragarde. When a troll asks me for leave to sit on the shore at Sen'jin for a night, I give it, and I don't ask what for.",
+      text = "Half the scouts who watch my roads are Darkspear, and they do it without complaint, though they lost their whole home and I only lost a few grunts to the Kul Tirans at Tiragarde Keep. When a troll asks me for leave to sit on the shore at Sen'jin for a night, I give it, and I don't ask what for.",
       fx = { thread = { id = "darkspear_isles", beat = "b3_garthok", state = "unfolding" } },
     },
     {
@@ -128,7 +128,7 @@ P:Thread {
       id = "b4_emissary", npc = "zandalari_emissary",
       when = { any = { { cleared = "Zul'Gurub" }, { questDone = TODO_QUEST("The Heart of Hakkar") } },
                thread = { id = "blood_god", notBeat = "b4_emissary" } },
-      text = "De drums are silent, and Molthor has raised de Spirit of Zandalar over dis coast because of what you did in dat city. But de Gurubashi have a long memory and very few gods left to them, stranger, and a people with no gods will go looking for new ones.",
+      text = "De drums are silent, and Molthor on Yojamba Isle has raised de Spirit of Zandalar over dis coast because of what you did in dat city. But de Gurubashi have a long memory and very few gods left to them, stranger, and a people with no gods will go looking for new ones.",
       fx = { thread = { id = "blood_god", beat = "b4_emissary", state = "resolved" } },
     },
   },
@@ -185,7 +185,7 @@ P:Thread {
     {
       id = "b1_torntusk", npc = "torntusk",
       when = { minLevel = 40, faction = "Horde", thread = { id = "hinterlands_trolls", notBeat = "b1_torntusk" } },
-      text = "The Vilebranch call the Revantusk traitors, mon, because we keep faith with the orcs and they keep faith with nothing but their altars. Up on Jintha'Alor they got my mate, and down on Aerie Peak the dwarves got their birds, and the Revantusk sit in the middle with spears pointed both ways.",
+      text = "The Vilebranch call the Revantusk traitors, mon, because we keep faith with the orcs and they keep faith with nothing but their altars. The Vilebranch hold my mate up on Jintha'Alor, the dwarves of Aerie Peak fly their gryphons over our heads, and the Revantusk sit in the middle with spears pointed both ways.",
       fx = { thread = { id = "hinterlands_trolls", beat = "b1_torntusk", state = "stirring" } },
     },
     {

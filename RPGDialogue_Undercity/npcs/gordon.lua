@@ -26,9 +26,9 @@ P:NPC {
     { id = "g_softened", when = { npcFlagBefore = "gw_softened" }, priority = 10,
       text = "You're the one who made me say Davin's name aloud. I've been sharpening the same knife for three nights since, and I've no idea why." },
     { id = "g_order", when = { questActive = TODO_QUEST("Ride to the Undercity") },
-      text = "That's Podrig's hand on that order, I'd know his tidy little numbers anywhere. Let's see how many blades the Sepulcher has lost to the worgen this month." },
+      text = "That's Podrig's hand on that order from the Sepulcher, I'd know his tidy little numbers anywhere. Let's see how many blades they've lost to the worgen this month." },
     { id = "g_garrett", when = { questActive = TODO_QUEST("Michael Garrett") },
-      text = "Still here? Garrett's at the bat roost by the outer gate, and the crates won't fly themselves to Silverpine, though I've asked them nicely." },
+      text = "Still here? Michael Garrett's at the bat roost by the outer gate, and the crates won't fly themselves to Silverpine, though I've asked them nicely." },
   },
 
   notice = {
@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_softened", when = { npcFlagBefore = "gw_softened", race = { "Orc", "Troll", "Tauren" } },
           text = "I suppose you'll want a decent blade, then, and not the ones I keep for the warm ones who annoy me. Don't tell anyone; I've a reputation to keep." },
         { id = "h_sepulcher", tags = { "news" }, when = { questRecent = { TODO_QUEST("Michael Garrett"), days = 3 } },
-          text = "Podrig's crates went out on Garrett's bats, and one of them came back bitten. The Sepulcher will have its swords, and I'll have the bill sent to Hadrec." },
+          text = "Podrig's crates went out to the Sepulcher on Garrett's bats, and one of them arrived bitten. The Sepulcher will have its swords all the same, and a bill for the bite marks." },
       },
       again = {
         { id = "h_again", text = "Something else? I've a whetstone waiting, and it's better company than most." },
@@ -76,7 +76,7 @@ P:NPC {
 
     living = {
       lines = {
-        { id = "l_default", text = "Against them? Nothing at all, any more than I've anything against a stopped clock. They're loud and frightened and they love you dearly, right up until your heart stops, and then they find a torch." },
+        { id = "l_default", text = "Against them? Nothing at all, beyond knowing what they are. They're loud and frightened and they love you dearly, right up until your heart stops, and then they find a torch." },
         { id = "l_dead", when = { race = "Scourge" }, text = "You know as well as I do. They loved us, and they wept for us, and then we came home and they barred the doors and called for the priests." },
       },
       choices = {
@@ -165,7 +165,7 @@ P:NPC {
     horde = {
       lines = {
         { id = "ho_default", text = "Big, green and grateful, mostly, and the tauren pray over us as if we were ghosts that need laying. The Dark Lady says they're our allies, so I sell them axes and I don't ask what they say about us at their fires." },
-        { id = "ho_orc", when = { race = "Orc" }, text = "Your Warchief's a decent sort, by all accounts, and he made a home for the dead when nobody else would. I'm grateful, after a fashion, but gratitude isn't trust, orc, and I've buried the difference." },
+        { id = "ho_orc", when = { race = "Orc" }, text = "Your Warchief's a decent sort, by all accounts, and he made a home for the dead when nobody else would. I'm grateful, after a fashion, but gratitude isn't trust, orc, and I learned the difference the hard way." },
       },
       choices = {
         { text = "So the alliance is only convenience?", next = "horde_conv" },
@@ -240,7 +240,7 @@ P:NPC {
 
     xliving = {
       lines = {
-        { id = "xl_default", text = "Bled, have you? So did the boy I trained, and the next time he bled it was on my doorstep with a crossbow in his hands. Your blood's your own affair, warm one; it isn't a receipt." },
+        { id = "xl_default", text = "Bled, have you? So did the boy I trained, and the next time I saw him he was on the Brill road with a crossbow aimed at me. Your blood's your own affair, warm one; it isn't a receipt." },
         { id = "xl_agreed", when = { npcFlagBefore = "gw_agreed" },
           text = "Last time you told me the living can't be trusted, and now you want me to trust you. Make up your mind, warm one, and then I'll make up mine." },
       },

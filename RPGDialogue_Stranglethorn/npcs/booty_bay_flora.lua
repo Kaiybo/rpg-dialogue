@@ -110,7 +110,7 @@ P:NPC {
       },
     },
     danger_advice = {
-      lines = { { id = "da_default", text = "Look up before you kneel, because the panthers hunt from the trees, and keep your back to open ground when you dig. Wear thick gloves for the Goldthorn, cut the Liferoot above the root so it grows back, and never stop to pick anything you can't explain to the Bruisers if you're carried home." } },
+      lines = { { id = "da_default", text = "Look up before you kneel, because the panthers hunt from the trees, and keep your back to open ground when you dig. Wear thick gloves for the Goldthorn, cut the Liferoot above the root so it grows back, and never kneel anywhere you can't see a way out." } },
       choices = { { text = "Good advice. Something else.", next = "BACK" } },
     },
     danger_greed = {
@@ -245,7 +245,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the jungle's herbs, where they grow and what's sitting beside them, and I know this port from the top of the stairs." } },
     background = { { id = "tp_bg", text = "A Stormwind herbalist who came south with a sailor, and who stayed on at All Things Flora when he didn't come home.", next = "why" } },
     advice = { { id = "tp_ad", text = "Look up before you kneel, friend, because in Stranglethorn the panthers hunt from the branches." } },
-    bloodsail = { { id = "tp_blood", text = "I've asked them, in a manner of speaking, by asking everyone who's fought them, and none of them ever took a ship by his description." } },
+    bloodsail = { { id = "tp_blood", text = "I've asked everyone who's fought the Bloodsail whether they ever took his ship, and nobody has heard of it." } },
     _none = { { id = "tp_none", text = "I'm afraid I only know leaves and roots, friend, and that isn't either of them." } },
   },
 }

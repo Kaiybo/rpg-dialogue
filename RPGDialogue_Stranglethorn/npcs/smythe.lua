@@ -63,7 +63,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Go on, then, I'm listening. Listening is most of what I do for a living." },
         { id = "h_again2", text = "What else? I've nowhere to be until somebody starts a wager." },
-        { id = "h_again3", text = "Ask away. The Bruisers won't need me to read for them until the evening ships come in." },
+        { id = "h_again3", text = "Ask away. Nobody will need a witness until the evening ships come in." },
       },
       choices = {
         { text = "What's a human doing in a goblin port?", next = "salvage" },
@@ -187,7 +187,7 @@ P:NPC {
     baron_ledger = {
       lines = { { id = "bl_default", text = "Twice a year, when the Cartel's men come over from Undermine to check his books, he has me stand in the corner and swear the counts are honest. They always are, mind, because the Baron's far too clever to cheat where anyone's looking." } },
       choices = {
-        { text = "And where nobody's looking?", next = "BACK", fx = { trait = { skeptical = 1 }, learn = { "steamwheedle" } } },
+        { text = "I'd hate to see what he does where nobody's looking.", next = "BACK", fx = { trait = { skeptical = 1 }, learn = { "steamwheedle" } } },
         { text = "Let's talk about someone else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
       },
     },
@@ -208,7 +208,7 @@ P:NPC {
         { id = "sl_home", when = { homeInn = { "Booty Bay", "The Salty Sailor Tavern" } }, text = "You've a bed there yourself, so you know the place: rum below, the Baron above and the parrots everywhere in between. Skindle's honest, as tavern keepers go, but count your change and sit with your back to the wall." },
       },
       choices = {
-        { text = "Any advice for drinking there?", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'll count my change and keep my back to the wall.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "I'll buy you a rum there sometime.", next = "BACK", fx = { affinity = 1, trait = { generous = 1 } } },
       },
     },
@@ -411,7 +411,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Get it in writing, get it witnessed, and never sign anything a goblin hands you after dark." } },
     bloodsail = { { id = "tp_bloodsail", text = "They took my ship and my boots, and they'd take this cove if the Blackwater let them. I watch every red sash that floats in, friend, and I'm still looking for my boots." } },
     steamwheedle = { { id = "tp_steam", text = "The Cartel runs on contracts, and contracts run on witnesses, which is the only reason a human has a trade in this town." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the Bloodsail spend their money and where I keep track of how much. The Baron would rather I didn't, but the Baron would rather a lot of things." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where every sailor in the South Seas spends his money, and I keep track of how much. The Baron would rather I didn't, but the Baron would rather a lot of things." } },
     theramore = { { id = "tp_theramore", text = "Theramore's navy is the only one in the South Seas that takes the Bloodsail seriously. I've sent them reports, and they've actually read them." } },
     bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is too busy with the court to worry about pirates, which is how the Bloodsail grew so bold. I've written letters, and I'll keep writing them." } },
     second_war = { { id = "tp_second_war", text = "I was a boy in Stormwind during the Second War, and I watched the fleet sail out to meet the orcs. I wanted to be on those ships more than anything, and I got my wish, eventually." } },

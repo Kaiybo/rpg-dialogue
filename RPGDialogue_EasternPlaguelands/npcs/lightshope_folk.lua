@@ -438,7 +438,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Dawn's wagons bring salt pork up from the south, but fresh meat's as rare as a dry morning here. A hunter who brings in a clean deer is the most popular person in the chapel for a week, and the soldiers cheer them all the way up the stairs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can lie by the hearth tonight, {class}, if it doesn't mind sharing with the inn cat. She's old and terrible and has never once lost a fight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Salt pork off the Dawn's wagons, mostly, since fresh meat's rare here. Your {pet} can lie by the hearth tonight, {class}, if it doesn't mind sharing with the inn cat, who is old and terrible and has never once lost a fight." },
       },
       choices = {
         { text = "I'll bring in what clean meat I can for the soldiers.", next = "BACK", fx = { align = { light = 1 } } },
@@ -640,7 +640,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not as much as I'd like, since the beasts round here are mostly plague and teeth. The best pelts come from the high ground north of the chapel, where the wind's cleaner, but the hunters who go up there don't always come back down." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome in the shop, {class}, so long as it keeps its teeth off the bolts of cloth. I lost a good roll of wool to a hungry wolf last month." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fewer than I'd like, since clean pelts are scarce. Your {pet} is welcome in the shop, {class}, so long as it keeps its teeth off the bolts of cloth, because I lost a good roll of wool to a hungry wolf last month." },
       },
       choices = {
         { text = "I'll bring what clean hides I find, and trade them fairly.", next = "BACK", fx = { align = { honor = 1 } } },

@@ -28,7 +28,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Devilsaur, no question, because a thing that size has no business moving that quietly, and it hunts by feel through the ground. I've lain in the ferns with my rifle on one for an hour and never once found the nerve to fire." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close and quiet when the ground starts to shake, because a devilsaur will take a beast before it takes a hunter, and it won't stop to tell the difference." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Devilsaur, the worst of them, and it hunts by feel through the ground. Keep {pet} close and quiet when the ground starts to shake, because a devilsaur will take a beast before it takes a hunter." },
       },
       choices = {
         { text = "A beast that fearsome deserves respect, not a trophy hunt.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -221,7 +221,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the greatest hunter does not need to chase, for Lar'korwi waits by the water where the prey must come, and he never wastes a step. I have learned more from following him than from all the elders of Mulgore, though I would not say so in Thunder Bluff." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches the tree line the way Lar'korwi does, and that is a fine thing to see. The Earth Mother made it to hunt, and you have not trained that out of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the greatest hunter waits where the prey must come, and your {pet} watches the tree line the way he does. The Earth Mother made it to hunt, and you have not trained that out of it." },
       },
       choices = {
         { text = "A worthy quarry deserves a hunter's respect, even in death.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -484,7 +484,7 @@ P:NPC {
       choices = { { text = "Isn't that dangerous?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "And very dangerous, of course, but exciting! Science is often both." } },
+      lines = { { id = "b1_3_l", text = "Oh, very dangerous, of course, but exciting! Science is often both." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -566,7 +566,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Everything has seen me, I think, and most of it was hungry, but the gorillas were the worst because they kept throwin' things. I tried following a stegodon back to water once, and it turned round and looked at me like I owed it money, and believe me, I know that look." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} friendly? Please say yes, buddy, because I've been lonely enough out here to talk to the ferns, and I'd much rather talk to something on our side." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Everything has seen me, buddy, and most of it was hungry. Is {pet} friendly? Please say yes, because I've been lonely enough out here to talk to the ferns." },
       },
       choices = {
         { text = "Stay close and follow my lead. That's how we get home.", next = "BACK", fx = { align = { order = 1 } } },
@@ -707,7 +707,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the water can boil a raptor's foot clean off, which is a selling point I'm still working on. The big beasts won't come near it, but the little lizards love lying on the warm rocks, and I've started charging them rent in my head." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now, {pet} looks like it'd enjoy a warm soak, so keep it well back from the hot ones, because I don't have the paperwork to explain a boiled companion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the water can boil a raptor's foot clean off. {pet} looks like it'd enjoy a warm soak, so keep it well back from the hot ones, because I don't have the paperwork to explain a boiled companion." },
       },
       choices = {
         { text = "The springs belong to the crater. They aren't yours to sell.", next = "BACK", fx = { align = { honor = 1 } } },

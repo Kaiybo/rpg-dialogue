@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "useful" } }, text = "Mok'thardin tells me you think demons can be bound and put to work. The last orcs who believed that are why my grandfather died with green skin, so keep that thinking out of my camp." },
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "useful" } }, text = "Far Seer Mok'thardin tells me you think demons can be bound and put to work. The last orcs who believed that are why my grandfather died with green skin, so keep that thinking out of my camp." },
     { id = "g_camp", text = "This is Grom'gol, and every orc, troll and tauren behind these walls works for the Horde. Are you here to work, {class}?" },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good, because the last grunt I sent to the river came back without his boots, and I need hands." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Grom'gol bled and sweated your share while you were away. Now you're back, so earn it." },
@@ -463,17 +463,17 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Your fire be welcome against the Bloodscalp, and Nimboya hope your eyes be sharp for one lost young troll among them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Pray for Yenniku, then, because the Bloodscalp hold him somewhere in this jungle, and Nimboya need every voice that can reach the spirits." },
         { id = "h_default", key = true,
-          text = "The chief's son be lost in this jungle, Yenniku. I come from Orgrimmar to find him, and I don't go back without him." },
+          text = "Yenniku, the chief's son, be lost in this jungle. I come from Orgrimmar to find him, and I don't go back without him." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("Hunt for Yenniku") },
           text = "The Bloodscalp got him, I think, so hunt them to the north and bring me their tusks. Show Nimboya you can make prey of them before we go further." },
         { id = "h_heads", when = { questActive = TODO_QUEST("Headhunting") },
           text = "Bring me the shrunken heads the Bloodscalp headhunters carry, many of them, and Nimboya look at every one. I pray to the Great Serpent his face not be among them." },
         { id = "h_clanheads", when = { questActive = TODO_QUEST("Bloodscalp Clan Heads") },
-          text = "Gan'zulah and Nezzliok sit deep in Zul'Kunda, and they know where the boy be. Bring their heads to the cauldron, and we make the dead talk." },
+          text = "Gan'zulah the Bloodscalp chief and Nezzliok his witch doctor sit deep in Zul'Kunda, and they know where the boy be. Bring their heads to the cauldron, and we make the dead talk." },
         { id = "h_grim", when = { questActive = TODO_QUEST("Grim Message") },
           text = "Time the Witherbark learn what Darkspear do to those who betray the Warchief. Make it a message they remember." },
         { id = "h_saving", when = { questActive = TODO_QUEST("Saving Yenniku") },
-          text = "Kin'weelay tell me you go after Yenniku with the gem. Whatever they done to him, we undo it, and I be waiting right here." },
+          text = "Kin'weelay tell me you go after Yenniku with the soul gem. Whatever they done to him, we undo it, and I be waiting right here." },
         { id = "h_saved", tags = { "news" }, when = { questRecent = { TODO_QUEST("Saving Yenniku"), days = 7 } },
           text = "The chief's son's soul be free of Zanzil, because of you. The Darkspear will sing your name, and we carve your tale in stone so it never wash away." },
         { id = "h_trolkalar", when = { questDone = TODO_QUEST("Trol'kalar") },
@@ -692,8 +692,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They do, mon, and a hunter who take only what he need be left alone, but one who kill for fun get bad luck on the trail. Mok'thardin pull old power out of the bones, and I tell him to thank them, but he just nod at me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, mon, and a hunter who take only what he need be left alone, but one who kill for fun get bad luck on the trail. Mok'thardin pull old power out of the bones, and I tell him to thank them, but he just nod at me. Your {pet} got a strong spirit in it, mon, and it like you, so treat it right and it never let you down." },
+        { id = "xhuntcl_default", text = "They do, mon, and a hunter who take only what he need be left alone, but one who kill for fun get bad luck on the trail. The beasts out here got old spirits, and they remember who thanked them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, mon, and a hunter who take only what he need be left alone, but one who kill for fun get bad luck on the trail. The beasts out here got old spirits, and they remember who thanked them. Your {pet} got a strong spirit in it, mon, and it like you, so treat it right and it never let you down." },
       },
       choices = {
         { text = "I take what I need and thank the beast for it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -748,7 +748,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Kin'weelay, witch doctor of the Darkspear. Orgrimmar send me to help Nimboya: he use his spear, and I use what can't be seen." },
         { id = "h_reef", when = { questActive = TODO_QUEST("The Vile Reef") },
-          text = "Under the water at the Vile Reef, old troll carving be waiting. Bring me a piece of it. Mind the murlocs; they don't read." },
+          text = "Under the water at the Vile Reef, old troll carving be waiting. Bring me a piece of it. Mind the murlocs, because they guard it like it be theirs." },
         { id = "h_necklaces", when = { questActive = TODO_QUEST("Bloody Bone Necklaces") },
           text = "The Bloodscalp wear bloody bone round their necks. Bring me enough, and I make something useful out of something ugly." },
         { id = "h_split", when = { questActive = TODO_QUEST("Split Bone Necklace") },
@@ -761,7 +761,7 @@ P:NPC {
           text = "Them crystals sing, if you know how to listen. I need their song for what come next." },
         { id = "h_eye", when = { questActive = TODO_QUEST("The Mind's Eye") },
           text = "Mai'Zoth hold the Mind's Eye deep in the Mosh'Ogg mound, and he be strong even without it. Take friends, mon, and take them all the way in." },
-        { id = "h_spirits", when = { metBefore = true }, text = "De jungle spirits be loud here, mon, louder than at home. Dey not friendly and dey not unfriendly, dey just loud." },
+        { id = "h_spirits", when = { metBefore = true }, text = "The jungle spirits be loud here, mon, louder than at home. They not friendly and they not unfriendly, they just loud." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, mon! You move quiet like the spirits do, and they be noticing you too, so watch your step around Kin'weelay's fire." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! Your magic be loud and bright, and the spirits don't like that much, so keep it quiet around Kin'weelay's fire." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! The spirits like your kind more than you think, because you be loud and honest, and they always know where you are." },
@@ -879,7 +879,7 @@ P:NPC {
 
     marg = {
       lines = {
-        { id = "mg_default", text = "Ah, I see him now, bound to this world and boiling with rage, an orc spy with his task still undone. Nazeer want to know how he die, so let us have words with this angry orc." },
+        { id = "mg_default", text = "Ah, I see him now, bound to this world and boiling with rage, an orc spy with his task still undone. Nazeer back in Dustwallow want to know how he die, so let us have words with this angry orc." },
       },
       choices = {
         { text = "What does he say?", next = "marg_speaks" },
@@ -957,7 +957,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Aggro'gosh tells me you stand behind the Warchief without a doubt in you. The spirits favour a steady heart, so come and sit, steady one." },
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Commander Aggro'gosh tells me you stand behind the Warchief without a doubt in you. The spirits favour a steady heart, so come and sit, steady one." },
     { id = "g_fire", text = "The camp is loud with grunts and drums, but here by the fire the spirits are quieter. Speak, and I'll listen." },
     { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you, and the ancestors watched it burn. Sit." },
     { id = "g_away", when = { away = 14 }, text = "The fire kept your place for {away}, and now you're back to sit in it. Sit, then." },
@@ -1047,8 +1047,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, for it watches the trees more closely than you do." },
+        { id = "xhuntcl_default", text = "Not my power, hunter, but an old power from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not my power, hunter, but an old power from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, which is why it watches the trees more closely than you do." },
       },
       choices = {
         { text = "Clean kills only. The beasts deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1102,7 +1102,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Far Seer Mok'thardin, of Orgrimmar. Thrall taught us to ask the spirits before we take, and the beasts of Stranglethorn carry old power in their blood and bones that I'm learning to ask for." },
         { id = "h_ench", when = { questActive = TODO_QUEST("Mok'thardin's Enchantment") },
-          text = "The enchantment needs what only those beasts can give. Bring it, and I'll show you what it becomes." },
+          text = "The choker I'm enchanting needs what only Stranglethorn's beasts can give. Bring it, and I'll show you what it becomes." },
         { id = "h_ench_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mok'thardin's Enchantment"), days = 2 } },
           text = "Every piece you've brought has been perfect, and I thanked the spirits of each beast for it. A little more patience, and the choker will be ready." },
         { id = "h_bones", when = { metBefore = true }, text = "A raptor's bones sing differently than a panther's, and I can hear it now. At night, I wish I couldn't." },
@@ -1353,7 +1353,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Innkeeper Thulbek. As long as Grom'gol stands, there's a bed here for any blood of the Horde. All I ask is a story of the fighting while you eat, because an orc's dinner goes down easier with a battle in it." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he wrestled a gorilla. By morning it was two gorillas, and by noon, a gorilla king, which makes a good story and a bad liar." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The jungle never sleeps. Listen, and you'll hear that everything out there is either hunting or hiding, the way it was on the old world before the Horde came through the Portal, so eat your stew." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The jungle never sleeps. Listen, and you'll hear that everything out there is either hunting or hiding, the way it was on Draenor, so eat your stew while it's hot." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Sit down and tell me a story, and make it a good one, since I trade beds for stories and you look like you've got a few." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could light the fire with a flick of your hand, I suppose, but I'd rather you told me a story instead, since I've plenty of wood." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit, eat, and tell me who you've fought this week, because a warrior always has the best stories and the worst table manners, and I've never held either against one." },

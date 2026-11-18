@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Peace, friend. My captain called, and I came, as I always did when he called." },
+    { id = "g_default", text = "Peace, friend. My captain's spirit called, and I came, as I always did when he called." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to a dead soldier's road. The Earth Mother keeps you, I see." },
     { id = "g_relic", when = { questDone = TODO_QUEST("Heroes of Old") }, text = "Does the relic serve you well? I hope it does. It was never meant to sit in a box." },
   },
@@ -113,7 +113,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll carry it with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's a good blade. That's all that matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "It's a useful thing. That's all that matters.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,7 +139,7 @@ P:NPC {
 
     grasp = {
       lines = {
-        { id = "gr_default", text = "The Warchief asked for soldiers to watch the old lands, and my tribe owed the orcs a debt from the centaur wars in Mulgore. I went to pay it, and I'd go again, though perhaps I'd pack warmer." },
+        { id = "gr_default", text = "The Warchief asked for soldiers to watch the road to the Dark Portal, and my tribe owed the orcs a debt from the centaur wars in Mulgore. I went to pay it, and I'd go again, though perhaps I'd pack warmer." },
       },
       choices = {
         { text = "Has the Horde been good for the tauren, do you think?", next = "op_horde" },
@@ -161,10 +161,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
+    background = { { id = "tp_ba", text = "I am a tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
     advice = { { id = "tp_ad", text = "Keep the friends who stand beside you in the worst of it, and let the rest go." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of us, and I was proud to fight under his blessing in Thrall's Grasp. Tell him a Splithoof died well, if you ever see him." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother called me back to the swamp, and I didn't mind, because she was waiting. Death is just another kind of rest." } },
+    earth_mother = { { id = "tp_earth_mother", text = "My captain called me back to this road, and I didn't mind, because the Earth Mother will still be waiting. Death is just another kind of rest." } },
     thrall = { { id = "tp_thrall", text = "The Warchief named our regiment for himself, and we were proud of it. We still are, those of us that are left." } },
     _none = { { id = "tp_none", text = "I don't know, friend. The dead hear less than the living think." } },
   },

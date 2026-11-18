@@ -37,13 +37,13 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "The Light shines for all of us, paladin, though some of us feel it more sharply than others. What can I do for you?" },
         { id = "h_fresh", tags = { "news" }, when = { questActive = TODO_QUEST("Continue Your Training") },
-          text = "Aramis sent you from Deathknell, didn't he? Welcome to Brill, paladin. There are many here who need an adventurer's help, so find work, grow stronger in the Light, and come back to me whenever you need training." },
+          text = "Aramis Hammerhand sent you from Deathknell, didn't he? Welcome to Brill, paladin. There are many here who need an adventurer's help, so find work, grow stronger in the Light, and come back to me whenever you need training." },
         { id = "h_ready", when = { questBefore = TODO_QUEST("A Second Home"), class = "PALADIN", minLevel = 8 },
           text = "You've proven yourself to me and to Brill, paladin, and so I have something to tell you. We've begun a new order of our own here in Tirisfal, and there's a place in it for you." },
         { id = "h_home", tags = { "news" }, when = { questActive = TODO_QUEST("A Second Home") },
           text = "Bandarion Keep stands on the bluffs northwest of the Solliden Farmstead, at the edge of the Whispering Woods. Report to Breton Samuels when you get there, and tell him I sent you." },
         { id = "h_homedone", when = { questDone = TODO_QUEST("A Second Home") },
-          text = "You've been to the Keep, then, and seen what Danitha is building there. I hope it felt a little like coming home." },
+          text = "You've been to the Keep, then, and seen what Danitha Morr is building there. I hope it felt a little like coming home." },
         { id = "h_bareth", tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Refuge") },
           text = "You have news of Bareth Dawnstone? Please tell me he's safe, because the Keep has been waiting on his message for days, and I've feared the worst." },
         { id = "h_barethdone", tags = { "news" }, when = { questRecent = { TODO_QUEST("Seeking Refuge"), days = 3 } },
@@ -146,7 +146,7 @@ P:NPC {
     burn = {
       big = true,
       lines = {
-        { id = "b_default", text = "Every time. The Light was never meant to dwell in a body like this one, and it lets me know it, but it still comes when I call, and I've decided that matters more than the pain." },
+        { id = "b_default", text = "It does, every time. The Light was never meant to dwell in a body like this one, and it lets me know it, but it still comes when I call, and I've decided that matters more than the pain." },
         { id = "b_fpal", when = { class = "PALADIN", race = "Scourge" },
           text = "You know it does, because it hurts you too. Aramis calls it a forge, and I've come to think of it more as a fever; it hurts because something in us is fighting to mend." },
       },
@@ -278,7 +278,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "William Pickman, cook of the Gallows' End. I can teach you how to cook, and I'd be glad to, because there's nothing better for an adventurer to know." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Cooking") },
-          text = "Eleanor sent you, did she? Good, because a good campfire is the foundation of any good camp, and I'll teach you to build one and cook over it." },
+          text = "Eleanor Shackleton sent you, did she? Good, because a good campfire is the foundation of any good camp, and I'll teach you to build one and cook over it." },
         { id = "h_campdone", when = { questDone = TODO_QUEST("Camping 101: Cooking") },
           text = "You can set up camp anywhere in the wild now, though only a small one to start. Raise your cooking and you'll learn to build bigger fires, and the other trainers can show you how to furnish the place." },
         { id = "h_cook", when = { profession = "Cooking" },
@@ -318,7 +318,7 @@ P:NPC {
     },
     taste2 = {
       lines = {
-        { id = "t2_default", text = "Then I've overdone the salt again. It happens more than I'd like to admit, and Renee is kind enough to say nothing about it." },
+        { id = "t2_default", text = "Then I've overdone the salt again. It happens more than I'd like to admit, and Innkeeper Renee is kind enough to say nothing about it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -371,7 +371,7 @@ P:NPC {
 
   notice = {
     { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
-      text = "One of Shari's paladins. Mind the Deathguard; they pretend not to stare, and they're very bad at pretending." },
+      text = "One of Shari Stilwell's paladins. Mind the Deathguard; they pretend not to stare, and they're very bad at pretending." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Off the zeppelin, I'd guess. You'll get used to the smell of Tirisfal, though the smell of Tirisfal will never quite get used to you." },
   },
@@ -435,7 +435,7 @@ P:NPC {
     },
     trouble = {
       lines = {
-        { id = "t_default", text = "The Scarlets to the west, the Scourge to the east, and the farmhands in the fields who'd happily see us all burned. Take your pick, because Brill has more trouble than it has guards to handle it, and Deathguard Dillinger will tell you so at length." },
+        { id = "t_default", text = "The Scarlets to the west, the Scourge to the east, and the Scarlet converts in the fields who'd happily see us all burned. Take your pick, because Brill has more trouble than it has guards to handle it, and Deathguard Dillinger will tell you so at length." },
       },
       choices = {
         { text = "Then I'll help where I can.", next = "BACK", fx = { affinity = 1, learn = { "scarlet_crusade" } } },

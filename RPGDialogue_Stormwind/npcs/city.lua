@@ -62,7 +62,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "SI:7 keeps a file on everything new, and you are new. The last shamans this kingdom met came in war paint. Habit, not malice." } },
+      lines = { { id = "xdsham_default", text = "SI:7 keeps a file on everything new, and you are new. The last shamans this kingdom met came in orcish war paint, so call it habit, not malice." } },
       choices = {
         { text = "Keep your file. The kingdom is right to be careful.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your files breed suspicion, Master Shaw. Spend your care elsewhere.", next = "BACK", fx = { align = { order = -1 } } },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
           text = "So you found the building, which is good, because finding things people would rather you didn't is the whole job. You'll be doing it until your feet ache." },
         { id = "h_defias", when = { topicKnown = "defias", minLevel = 15 },
-          text = "The Brotherhood wants Stormwind hollowed out from the inside. Every gang has a weak link, and my people find it; then I decide what to do with it." },
+          text = "The Defias Brotherhood wants Stormwind hollowed out from the inside. Every gang has a weak link, and my people find it; then I decide what to do with it." },
         { id = "h_deadmines", when = { deed = "dungeon:The Deadmines" },
           text = "VanCleef. I trained him once, you know, and I thought he'd come over to us, but he went somewhere else entirely. I don't make that mistake twice." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -171,7 +171,7 @@ P:NPC {
     },
 
     si7 = {
-      lines = { { id = "s_default", text = "We worry, so the king doesn't have to. Currently that's a regent and a boy. So we worry twice as hard." } },
+      lines = { { id = "s_default", text = "We worry so the king doesn't have to, and currently that's a regent and a boy, so we worry twice as hard." } },
       choices = {
         { text = "That's a heavy job.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'd like to help, if I can.", next = "help" },
@@ -275,7 +275,7 @@ P:NPC {
       },
     },
     defias_masons = {
-      lines = { { id = "dm_default", text = "Stonemasons. The guild that rebuilt this city and was never paid. Their guildmaster led a riot and walked out with half of them. I knew him well." } },
+      lines = { { id = "dm_default", text = "The Stonemasons, the guild that rebuilt this city and was never paid. Their guildmaster led a riot and walked out with half of them, and I knew him well." } },
       choices = {
         { text = "Who was their guildmaster?", next = "defias_edwin" },
         { text = "Something else.", next = "BACK", fx = { opinion = { defias = "masons_wronged" } } },
@@ -352,7 +352,7 @@ P:NPC {
     lamb = {
       big = true,
       lines = {
-        { id = "lamb_l", text = "Of course it does. Gakin knows we watch, I know he knows, and so long as nothing with horns walks up the cellar stairs into the Mage Quarter, the arrangement suits the crown." },
+        { id = "lamb_l", text = "Of course it does. Gakin the Darkbinder knows we watch, I know he knows, and so long as nothing with horns walks up the cellar stairs into the Mage Quarter, the arrangement suits the crown." },
         { id = "lamb_cellar", when = { origin = "human_lamb_cellar" },
           text = "You went down those cellar stairs young, didn't you; your name's in a ledger of mine with a question mark beside it. Gakin knows we watch, and so long as nothing with horns walks up into the Mage Quarter, the arrangement suits the crown." },
       },
@@ -434,10 +434,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Count the doors in every room you walk into. Then count the people who know about them." } },
     rumors = { { id = "tp_ru", text = "Rumours are my trade, and I don't hand out samples." } },
     defias = {
-      { id = "tp_defias", text = "Organized, funded and patient. Funded by whom is the question, and I'm working on it.", next = "defias_masons" },
+      { id = "tp_defias", text = "The Defias are organized, funded and patient, and who funds them is the question I'm working on.", next = "defias_masons" },
       { id = "tp_defias2", text = "They smuggle through Jerod's Landing and Klaven's tower and anywhere else nobody's watching. I'm watching." },
     },
-    westfall = { { id = "tp_westfall", text = "Stoutmantle's a good man doing the crown's job without the crown's money. I send him what I can. Quietly." } },
+    westfall = { { id = "tp_westfall", text = "Stoutmantle's a good man doing the crown's job without the crown's money. I send him what I can, quietly." } },
     _none = { { id = "tp_none", text = "If SI:7 knew, it wouldn't be my place to say. If we didn't, it wouldn't be my place to admit it." } },
   },
 }
@@ -505,7 +505,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rarely, though they ought to; a mage who can't read a trail is lost the moment she leaves a road. I learned that in Alterac, where the snow hid everything and the only guide worth having was a hunter from Hillsbrad." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at the arcane focus as if it means to eat it. I'd rather it didn't; the last creature that tried glowed for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rarely, though they ought to; a mage who can't read a trail is lost the moment she leaves a road. Your {pet} keeps looking at the arcane focus as if it means to eat it. I'd rather it didn't; the last creature that tried glowed for a week." },
       },
       choices = {
         { text = "Every trade has something to teach the others, Magus.", next = "BACK", fx = { align = { order = 1 } } },
@@ -582,7 +582,7 @@ P:NPC {
       },
     },
     currents = {
-      lines = { { id = "cu_default", text = "The great magical struggles of the last wars tore the old currents loose. Elwynn's flow has shifted. I want to know whether it's seeping into what people drink." } },
+      lines = { { id = "cu_default", text = "The great magical struggles of the last wars tore the old ley currents loose, and Elwynn's flow has shifted. I want to know whether it's seeping into what people drink." } },
       choices = {
         { text = "And if it is?", next = "currents_if" },
         { text = "Something else.", next = "BACK" },
@@ -593,18 +593,18 @@ P:NPC {
       choices = { { text = "Better you than them. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     recluse = {
-      lines = { { id = "re_default", text = "A mana rift opened in a tavern cellar, in the middle of the Mage Quarter. Invisible things wandered among the tables. The regulars blamed the ale for a week." } },
+      lines = { { id = "re_default", text = "A mana rift opened in the cellar of the Blue Recluse, a tavern in the middle of the Mage Quarter, and invisible things wandered among the tables. The regulars blamed the ale for a week." } },
       choices = {
         { text = "Where did they come from?", next = "recluse_from" },
         { text = "Something else.", next = "BACK" },
       },
     },
     recluse_from = {
-      lines = { { id = "rf_default", text = "That's what the coffers are for: catch them, study them, and learn how they slipped through. Closing the door is easy, but knowing who opened it isn't." } },
+      lines = { { id = "rf_default", text = "That's what I mean to find out, so catch them in the coffers I gave you, and we'll study how they slipped through. Closing the door is easy, but knowing who opened it isn't." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger = {
-      lines = { { id = "da_default", text = "To the untrained, yes, it burns. I've watched it burn people who were certain they'd be the exception." } },
+      lines = { { id = "da_default", text = "It is to the untrained, because it burns. I've watched it burn people who were certain they'd be the exception." } },
       choices = {
         { text = "The Light burns the careless too.", next = "danger_light", when = { class = "PRIEST" } },
         { text = "I'll keep my distance.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -639,7 +639,7 @@ P:NPC {
       },
     },
     limits_who = {
-      lines = { { id = "limits_who_l", text = "In this building, I do, and in Dalaran, the Six. Beyond that, you do, alone, at night, with the book open; that's the moment every teacher fears." } },
+      lines = { { id = "limits_who_l", text = "In this building, I do, and in Dalaran, the Council of Six. Beyond that, you do, alone, at night, with the book open; that's the moment every teacher fears." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     gnome_mage = {
@@ -695,7 +695,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "My history is dull, and I won't waste your lesson on it when the magic is the interesting part, so ask about that." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you couldn't explain to a child. If you can't explain it, you don't understand it, and it will notice." } },
-    morganth = { { id = "tp_morganth", text = "His name is not spoken lightly in this building, because he stole from us, and he will be stopped." } },
+    morganth = { { id = "tp_morganth", text = "Morganth's name is not spoken lightly in this building, because he stole from us, and he will be stopped." } },
     _none = { { id = "tp_none", text = "Not a question for the Sanctum, I'm afraid. Try the library." } },
   },
 }
@@ -776,7 +776,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It is and it isn't, because your beast chose to stay and mine had no choice at all. Some of my students sneer at hunters, but I've noticed that a hunter's pet never turns on its master at an awkward moment." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} trusts you entirely, I can see that. How very rare, and how very difficult to teach." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It is and it isn't, because your beast chose to stay and mine had no choice at all. Your {pet} trusts you entirely, I can see that. How very rare, and how very difficult to teach." },
       },
       choices = {
         { text = "A bond freely given is stronger than any chain.", next = "BACK", fx = { align = { light = 1 } } },
@@ -812,7 +812,7 @@ P:NPC {
         { id = "h_surena", when = { questActive = TODO_QUEST("Surena Caledon") },
           text = "Surena was my student, and she took something of mine and ran. Bring it back; what becomes of her is your business, mostly." },
         { id = "h_incubus", when = { class = "WARLOCK", minLevel = 20 },
-          text = "There's a circle prepared in the crypts below. When you're ready to bind a sayaad we'll talk, and not before, because they eat the ones who aren't." },
+          text = "There's a circle prepared in the crypts below. When you're ready to bind a succubus we'll talk, and not before, because they eat the ones who aren't." },
         { id = "h_strahad", when = { class = "WARLOCK", minLevel = 30 },
           text = "Felhunters are beyond what I can teach in this cellar, but Strahad Farsan keeps the means in Ratchet. He's one of ours, and he'll have heard of you." },
         { id = "h_priest", when = { class = "PRIEST" },
@@ -860,14 +860,14 @@ P:NPC {
       },
     },
     lamb_noble = {
-      lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth is keeping him busy, and don't ask how." } },
+      lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth, upstairs, is keeping him busy, and don't ask how." } },
       choices = {
         { text = "I won't ask.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Blackmail, then.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     khaz = {
-      lines = { { id = "k_default", text = "Gnomeregan trained the warlocks of Khaz Modan, once. Now Gnomeregan is poison and Ironforge watches its own too closely. So they send them here.",
+      lines = { { id = "k_default", text = "Gnomeregan trained the warlocks of Khaz Modan, once. Now Gnomeregan is poison and Ironforge watches its own too closely, so they send them here.",
         fx = { learn = { "gnomeregan" } } } },
       choices = {
         { text = "Is that a problem?", next = "khaz_attention" },
@@ -886,7 +886,7 @@ P:NPC {
       },
     },
     surena_erlan = {
-      lines = { { id = "se_default", text = "Drudgemoor. A thief with good teeth and no talent. I told you not to ask. Now you know why." } },
+      lines = { { id = "se_default", text = "Erlan Drudgemoor, a thief with good teeth and no talent. I told you not to ask, and now you know why." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     church = {
@@ -970,7 +970,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "My past is my business. Discretion is the first lesson, remember, and you've just failed it by asking." } },
     advice = { { id = "tp_ad", text = "Whatever a demon offers you, it's lying. Even the things that turn out true. Especially those." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "It sent us its warlocks once. Now it sends us its refugees. I take both." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan sent us its warlocks once, and now it sends us its refugees. I take both." } },
     _none = { { id = "tp_none", text = "I don't trade in answers I don't have. I barely trade in the ones I do." } },
   },
 }
@@ -1072,8 +1072,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I would and I have, love, and the cook does a venison pie with Elwynn mushrooms that keeps folk coming back from as far as Lakeshire. Bring me something fresh and you'll find the price of supper rather friendlier." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And who's this handsome thing? Keep {pet} by the hearth and out of the kitchen, and I'll find it a bone or two." },
+        { id = "xhuntcl_default", text = "I would and I have, love, and the cook does a venison pie with Elwynn mushrooms that's half the reason anyone stays here. Bring me something fresh and you'll find the price of supper rather friendlier." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I would and I have, love, and the cook does a venison pie with Elwynn mushrooms that's half the reason anyone stays here. And who's this handsome thing? Keep {pet} by the hearth and out of the kitchen, and I'll find it a bone or two." },
       },
       choices = {
         { text = "I'll bring you good meat, cleanly hunted.", next = "BACK", fx = { align = { honor = 1 } } },

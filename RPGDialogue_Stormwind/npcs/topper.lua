@@ -338,7 +338,7 @@ P:NPC {
       },
     },
     coin_spend = {
-      lines = { { id = "cs_default", text = "Bread, ale or the Duchess's supper, friend, whichever reaches me first. I'll raise a crust or a cup to you either way, and nobody will know which." } },
+      lines = { { id = "cs_default", text = "Bread, ale or supper for the Duchess, my cat, friend, whichever reaches me first. I'll raise a crust or a cup to you either way, and nobody will know which." } },
       choices = {
         { text = "People can't give you much.", next = "coin_who" },
         { text = "Good enough. Something else.", next = "BACK" },
@@ -1218,7 +1218,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rabbits for the pot and foxes when they came for the hens, and I was never much good at either. My wife was the shot in our house; she could take a pheasant at fifty paces with a borrowed bow." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine beast, that {pet}. We had a dog once that would have chased it right up a tree and then sat under it barking until supper." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rabbits for the pot and foxes when they came for the hens, and I was never much good at either. That's a fine beast, that {pet}. We had a dog once that would have chased it right up a tree and then sat under it barking until supper." },
       },
       choices = {
         { text = "A farm's beasts deserve protecting from the foxes.", next = "xhunt2", fx = { align = { order = 1 } } },
@@ -1228,7 +1228,7 @@ P:NPC {
       },
     },
     xhunt2 = {
-      lines = { { id = "xhu2_default", text = "I was a terrible shot, friend, and you talk like a hunter and not like a poet, which I like. Keep that beast of yours away from the canal, mind, because the Duchess doesn't share." } },
+      lines = { { id = "xhu2_default", text = "I was a terrible shot myself, friend, and the foxes knew it. Keep that beast of yours away from the canal, mind, because the Duchess, my cat, doesn't share." } },
       choices = { { text = "You speak of the Duchess as if she's family.", next = "lv_duchess" }, { text = "Something else.", next = "BACK" } },
     },
     xapriest = {
@@ -1265,7 +1265,7 @@ P:NPC {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire comes to Goldshire every so often, and I go and watch the lights from the road. I've never had the copper to go in, but the lights are free." } },
     second_war = { { id = "tp_second_war", text = "I was a farmer before the Second War and a farmer after it, and then the Defias came and I wasn't a farmer at all. The orcs never managed that, and I'll not forgive the Defias for doing what the orcs couldn't." } },
     background = { { id = "tp_bg", text = "Farmer, then not. The middle bit changes depending on who's listening and what they've got in their purse.", next = "farm" } },
-    advice = { { id = "tp_ad", text = "Never build your house in front of anyone's tower; that one's free. The rest costs a copper." } },
+    advice = { { id = "tp_ad", text = "Never farm in front of an army's guard tower; that one's free. The rest costs a copper." } },
     defias = { { id = "tp_defias", text = "They asked me to join, once, and I said I'd think about it. I'm still thinking, and it's very restful, thinking." } },
     westfall = { { id = "tp_westfall", text = "Forty acres south of Sentinel Hill and a pumpkin with a ribbon on it, friend. Ask me about the farm and I'll tell you a version.", next = "farm" } },
     stonemasons = { { id = "tp_masons", text = "They built the bridge I sleep under, friend, and never got paid for it, and now they're wearing masks. I try not to think about it when it rains.", next = "n_masons" } },

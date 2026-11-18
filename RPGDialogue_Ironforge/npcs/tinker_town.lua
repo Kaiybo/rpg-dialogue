@@ -103,7 +103,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It chased a trogg back into Gnomeregan and never came out, which I choose to believe was an act of great heroism. Your beasts have one advantage over mine, at least, which is that they come back when you call them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would put my poor hound to shame, I'm sure, but please don't tell it I said so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It chased a trogg back into Gnomeregan and never came out, which I choose to believe was great heroism. Your {pet} would put my poor hound to shame, I'm sure, but please don't tell it I said so." },
       },
       choices = {
         { text = "Then your hound died a hero. I'll believe that too.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -194,7 +194,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Tinkmaster Overspark, master of gnomish engineering, the one true discipline. Forgive my melodrama, but our situation is dire, what with my poor Techbot gone wrong, and dire situations deserve a bit of drama." },
         { id = "h_techbot", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
-          text = "It's true, then, Sarno told you. Techbot has gone rogue, my Techbot, who used to help everyone, and now he's down in Gnomeregan doing who knows what. Will you help me?" },
+          text = "So Brother Sarno told you, then. Techbot has gone rogue, my Techbot, who used to help everyone, and now he's down in Gnomeregan doing who knows what. Will you help me?" },
         { id = "h_brain", tags = { "news" }, when = { questActive = TODO_QUEST("Save Techbot's Brain!") },
           text = "Techbot's still in the city, near the entrance, and the memory core is the part that matters. Bring me his brain, and gently, if you can; I'd like to know what went wrong." },
         { id = "h_brain_done", when = { questDone = TODO_QUEST("Save Techbot's Brain!") },
@@ -363,7 +363,7 @@ P:NPC {
 
   greetings = {
     { id = "g_data", text = "Are you here for the data mission? Please be here for the data mission." },
-    { id = "g_back", when = { metBefore = true }, text = "Have you any punch cards at all? Even a white one would cheer me up." },
+    { id = "g_back", when = { metBefore = true }, text = "Have you brought any punch cards up from Gnomeregan? Even a plain white one would cheer me up." },
   },
 
   notice = {
@@ -406,7 +406,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The approaches, mostly, for the troggs have dug their own tunnels into ours, and nobody knows where half of them lead. If you mark them for me, I'll fold them into the procedure, which is complicated, but improving." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hear the machines before we did, I expect, which would save us a great many unpleasant surprises." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The approaches, mostly, for the troggs have dug their own tunnels into ours, and nobody knows where half of them lead. Your {pet} would hear the machines before we did, I expect, which would save us many unpleasant surprises." },
       },
       choices = {
         { text = "I'll mark every tunnel and follow your procedure.", next = "BACK", fx = { align = { order = 1 } } },
@@ -459,7 +459,7 @@ P:NPC {
         { id = "h_task", tags = { "news" }, when = { questActive = TODO_QUEST("Castpipe's Task") },
           text = "You came! The Assembly told you it was important, I suppose, and for once they've undersold it. Let me explain about the punch cards." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Data Rescue") },
-          text = "Not back with the prismatic card yet? Then remember: white card, terminal A; yellow card, terminal B; then blue, then red, and the prismatic's deep in the city on the D." },
+          text = "Not back with the prismatic card yet? Then remember: white card in terminal A, yellow in terminal B, then blue, then red, and the prismatic card waits deep in the city at terminal D." },
         { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("Data Rescue") },
           text = "You found the prismatic card and brought back the data, data so important I haven't a big enough word for it! Gnomeregan will remember you, and so will I, every time I open the archive." },
         { id = "h_low", when = { maxLevel = 24 },
@@ -665,7 +665,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because every time I make one lighter it bends, and every time I make one stronger it gains a pound. Somewhere between the two is the perfect barrel, and I mean to find it before the dwarves stop buying rifles, which I suspect is never." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could carry a heavy one for you, I suppose, which is an engineering solution I hadn't considered." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every time I make one lighter it bends, and every time I make one stronger it gains a pound. Your {pet} could carry a heavy one for you, I suppose, which is an engineering solution I hadn't considered." },
       },
       choices = {
         { text = "I'd carry a heavy barrel that never bends.", next = "BACK", fx = { align = { order = 1 } } },
@@ -712,7 +712,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Oh, not really, no, because Mathiel in Darnassus would never write to me again, and I'd likely melt my own eyebrows off. But I do wonder, which is the trouble with being an inventor, so if you ever learn the answer, write it down for me." },
+        { id = "xlock_default", text = "Oh, not really, no, because my friend Mathiel, a smith in Darnassus, would never write to me again, and I'd likely melt my own eyebrows off. But I do wonder, which is the trouble with being an inventor, so if you ever learn the answer, write it down for me." },
       },
       choices = {
         { text = "Some things shouldn't be learned, Klockmort.", next = "BACK", fx = { align = { light = 1 } } },
@@ -957,8 +957,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, and between them they've cost me my hair and my patience both. If you count them and tell me which tunnels they use, I'll put it in the plans." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the radiation, if you would, for I'd hate for it to lose its fur the way I lost my hair." },
+        { id = "xhuntcl_default", text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, which is why I've lost my hair and my patience both. If you count them and tell me which tunnels they use, I'll put it in the plans." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, so count them and tell me which tunnels they use. And keep your {pet} away from the radiation, for I'd hate for it to lose its fur the way I lost my hair." },
       },
       choices = {
         { text = "I'll count them carefully and bring you the numbers.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1002,9 +1002,9 @@ P:NPC {
         { id = "h_day_after", tags = { "news" }, when = { questActive = TODO_QUEST("The Day After") },
           text = "Ozzie Togglevolt and Razzle are working on a cure in Kharanos, so go to them and tell them Gnoarn sent you. Perhaps it isn't too late to save the city." },
         { id = "h_bingles", tags = { "news" }, when = { questActive = TODO_QUEST("Find Bingles") },
-          text = "Bingles Blastenheimer went scouting over the Loch and hasn't reported for more than a week. I'd bet my last sprocket he's exploded himself again." },
+          text = "Bingles Blastenheimer went scouting over Loch Modan and hasn't reported for more than a week. I'd bet my last sprocket he's exploded himself again." },
         { id = "h_shoni", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Shoni") },
-          text = "Shoni the Shilent commands our underground assault crew, down in Stormwind among the dwarves. She needs help with her gyrodrillmatic excavationators, and nobody can say that word but her." },
+          text = "Shoni the Shilent commands our underground assault crew, down in Stormwind's Dwarven District. She needs help with her gyrodrillmatic excavationators, and nobody can say that word but her." },
         { id = "h_bingles_done", when = { questDone = TODO_QUEST("Find Bingles") },
           text = "Bingles is alive, and unexploded, even! He says I don't trust his reconnaissance abilities, and he's right, but I'm glad all the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1095,7 +1095,7 @@ P:NPC {
     save = {
       big = true,
       lines = {
-        { id = "sa_default", text = "Think it? I know it, recruit, right down to my boots! I don't know when, or how, or which of us will be left to do it, but we'll walk back through those gates, and I'll stand in my old workshop and shake my fist at the ceiling." },
+        { id = "sa_default", text = "A tall order? It's the only order, recruit, and I believe in it right down to my boots! I don't know when, or how, or which of us will be left to do it, but we'll walk back through those gates, and I'll stand in my old workshop and shake my fist at the ceiling." },
       },
       choices = {
         { text = "I'll walk in beside you.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, trait = { brave = 1 } } },

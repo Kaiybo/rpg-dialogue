@@ -255,7 +255,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     horde_war = {
-      lines = { { id = "hw_default", text = "That's the truth of it. They're cutting down the elves' forest in Ashenvale even now, I hear, and I'd say the elves deserve it, if it weren't orcs doing the cutting." } },
+      lines = { { id = "hw_default", text = "That's the truth of it. They're cutting down the elves' forest in Ashenvale even now, I hear, and that's what a treaty with an orc is worth." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     horde_met = {
@@ -328,7 +328,7 @@ P:NPC {
 
     xrefugee = {
       lines = {
-        { id = "xr_default", text = "Then you'll have smelled the camps on the wind and heard the guards' horns at night. Your folk took us in when Stormwind burned, and we paid it back with soldiers and a fence. I'm glad you're here, though I'd rather you'd had a better reason to come." },
+        { id = "xr_default", text = "Then you'll have smelled the camps on the wind and heard the guards' horns at night. Your folk took us in when Stormwind burned, and we paid it back with soldiers and a fence. Tell me, what did your people make of the orcs behind that wire?" },
       },
       choices = {
         { text = "We pitied them, behind the wire.", next = "BACK", fx = { align = { light = 1 } } },

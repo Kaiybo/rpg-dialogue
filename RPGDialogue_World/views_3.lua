@@ -10,7 +10,7 @@ P:Views { topic = "grim_batol", views = {
   } },
   { id = "retake", text = "Stone doesn't stay cursed forever. The dwarves should take it back.", fx = { opinion = { grim_batol = "reclaim" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Plenty have said so over an ale, {class}, and none of them have gone. A witch's dying curse isn't something you dig out with a pick." },
-    { id = "b", when = { race = "Dwarf" }, text = "Aye, and one day maybe we will. But it'll take more than one stout heart, and the Wildhammer would want their say first.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "Dwarf" }, text = "Aye, and one day maybe your people will. But it'll take more than one stout heart, and the Wildhammer would want their say first.", fx = { affinity = 1 } },
   } },
   { id = "dragons", text = "If the Dragonmaw still chain dragons in there, someone ought to free them.", fx = { opinion = { grim_batol = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "A red dragon in chains is still a red dragon, friend, and I'd not want to be the one who unlocks it. Still, it's a kind thought.", fx = { affinity = 1 } },
@@ -23,8 +23,8 @@ P:Views { topic = "third_fleet", views = {
     { id = "a", text = "No, it isn't, and the Warchief would say so himself. The Dragonmaw that did it still answer to no one but their own cruelty.", fx = { affinity = 1 } },
     { id = "b", text = "True enough, but the dead in that bay don't know the difference, and they're not inclined to ask." },
   } },
-  { id = "pity", text = "Those poor sailors drowned far from home, and then the curse took them.", fx = { opinion = { third_fleet = "pity" }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "Aye, and most of them were Kul Tiran lads who'd never seen a dragon before that day. Fitzsimmons is about the only one left who still says their names.", fx = { affinity = 1 } },
+  { id = "pity", text = "Poor sailors. Drowned far from home, and cursed after that.", fx = { opinion = { third_fleet = "pity" }, trait = { kind = 1 } }, replies = {
+    { id = "a", text = "Aye, and most of them were Kul Tiran lads who'd never seen a dragon before that day. Old Fitzsimmons at the Menethil docks is about the only one left who still says their names.", fx = { affinity = 1 } },
     { id = "b", text = "The curse is the worst of it. They keep their watch out there as if the war never ended, and I suppose for them it didn't." },
   } },
   { id = "salvage", text = "Sunken ships mean sunken cargo. Someone ought to go diving.", fx = { opinion = { third_fleet = "profit" }, trait = { greedy = 1 } }, replies = {
@@ -33,7 +33,7 @@ P:Views { topic = "third_fleet", views = {
   } },
   { id = "doubt", text = "Ghost ships sound like a tale told for free drinks.", fx = { opinion = { third_fleet = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Then go and stand on the shore at night, and tell me what you see in the fog. I'll buy you the drink after, if you're still laughing." },
-    { id = "b", text = "Fitzsimmons does tell it for drinks, aye. But he tells it the same way every time, and drunks don't usually manage that." },
+    { id = "b", text = "Old Fitzsimmons does tell it for drinks, I'll grant you that. But he tells it the same way every time, and drunks don't usually manage that." },
   } },
 } }
 
@@ -44,7 +44,7 @@ P:Views { topic = "thandol_span", views = {
   } },
   { id = "hate", text = "The Dark Irons blew it apart, and they'll answer for it.", fx = { opinion = { thandol_span = "hate" }, trait = { stern = 1 } }, replies = {
     { id = "a", text = "They will, if there's any justice under the mountains. They're still crawling over what's left of it, so you'll not have far to look." },
-    { id = "b", when = { race = "Dwarf" }, text = "Aye, {g:lad|lass}, and it goes on the long list of things the Dark Irons owe us. That bridge was the pride of Khaz Modan.", fx = { affinity = 1 } },
+    { id = "b", when = { race = "Dwarf" }, text = "Every Bronzebeard alive says the same, {g:lad|lass}. Add it to the long list of things the Dark Irons owe Ironforge.", fx = { affinity = 1 } },
   } },
   { id = "awe", text = "It must have been something to see, back when it stood whole.", fx = { opinion = { thandol_span = "admire" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "It was. You could drive a cart across with the sea far below you, and you'd swear the dwarves had built it to show off." },
@@ -76,7 +76,7 @@ P:Views { topic = "syndicate", views = {
 P:Views { topic = "alterac", views = {
   { id = "horde", when = { faction = "Horde" }, text = "A human king who sold out his own. That says plenty about humans.", fx = { opinion = { alterac = "scorn" }, trait = { stern = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "It says plenty about Perenolde, at least. The Horde has had its own traitors, and the Warchief remembers every one of them." },
-    { id = "b", when = { race = "Scourge" }, text = "Most of us were human once, and I recall what we thought of Perenolde. Your contempt is nothing beside ours." },
+    { id = "b", when = { race = "Scourge" }, text = "Your people were human once, and they remember what they thought of Perenolde. Anyone else's contempt is nothing beside theirs." },
   } },
   { id = "earned", text = "Perenolde betrayed the Alliance. Alterac earned its ruin.", fx = { opinion = { alterac = "condemn" }, trait = { stern = 1 }, align = { honor = 1 } }, replies = {
     { id = "a", text = "The king earned it, and Lordaeron's armies saw to it. The rest of the place just went down with him.", fx = { affinity = 1 } },
@@ -160,7 +160,7 @@ P:Views { topic = "frostmane", views = {
   } },
   { id = "drive", text = "Dun Morogh belongs to the dwarves now. Drive them into the mountains.", fx = { opinion = { frostmane = "hate" }, trait = { stern = 1 }, align = { order = 1, light = -1 } }, replies = {
     { id = "a", text = "That's the plan, more or less, though the mountains are where they came from. Every winter they creep back down to Coldridge." },
-    { id = "b", when = { race = { "Dwarf", "Gnome" } }, text = "Aye, and the sooner the better. They've been raiding our herds since before my grandfather's grandfather.", fx = { affinity = 1 } },
+    { id = "b", when = { race = { "Dwarf", "Gnome" } }, text = "Aye, and the sooner the better. They've been raiding the herds of Dun Morogh since before anyone's grandfather was born.", fx = { affinity = 1 } },
   } },
   { id = "pity", text = "They lived up there long before the dwarves. It's their snow too.", fx = { opinion = { frostmane = "pity" }, trait = { kind = 1 }, align = { light = 1 } }, replies = {
     { id = "a", text = "Maybe so, but they'd have your head on a pole for your trouble. Pity's a fine thing until it's your herd they're stealing.", fx = { affinity = -1 } },
@@ -175,7 +175,7 @@ P:Views { topic = "frostmane", views = {
 P:Views { topic = "stonewrought_dam", views = {
   { id = "admire", text = "Dwarven work at its finest. That dam will stand a thousand years.", fx = { opinion = { stonewrought_dam = "admire" }, trait = { proud = 1 } }, replies = {
     { id = "a", text = "It will, if we keep the Dark Irons off it. The engineers polish every stone as if Magni himself were coming to inspect it.", fx = { affinity = 1 } },
-    { id = "b", text = "Seven generations of Hinderweirs say so, and they ought to know. They've never once let it crack." },
+    { id = "b", text = "Seven generations of the Hinderweir family have kept that dam, and they ought to know. They've never once let it crack." },
   } },
   { id = "fear", text = "If the Dark Irons ever crack that dam, Thelsamar drowns.", fx = { opinion = { stonewrought_dam = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Aye, and the whole lower loch with it. There are guards on the walls day and night, and they don't laugh much." },
@@ -306,7 +306,7 @@ P:Views { topic = "silithid", views = {
     { id = "b", text = "Somebody will have to, someday. Better you than me, though, because I've seen what they leave of a caravan." },
   } },
   { id = "curious", text = "Bugs don't plan like that. Something must be driving them.", fx = { opinion = { silithid = "curious" }, trait = { curious = 1 } }, replies = {
-    { id = "a", text = "That's what the scholars in Darnassus fear as well. Gracina has been asking for samples from every hive anyone can reach." },
+    { id = "a", text = "That's what the scholars in Darnassus fear as well. Gracina Spiritmight there has been asking for samples from every hive anyone can reach." },
     { id = "b", text = "A sharp thought, and an uncomfortable one. Bring back a few samples and let wiser heads puzzle it out." },
   } },
 } }
@@ -347,7 +347,7 @@ P:Views { topic = "dark_strand", views = {
     { id = "b", text = "That's a warlock's answer, and not a comforting one. I'll take your word that there's a difference." },
   } },
   { id = "hate", text = "Anyone who calls on demons should be put down. No exceptions.", fx = { opinion = { dark_strand = "hate" }, trait = { stern = 1 }, align = { light = 1, order = 1 } }, replies = {
-    { id = "a", text = "Delgren the Purifier preaches that at Maestra's Post every day. The Legion burned the world once already, and these fools want to let it back in.", fx = { affinity = 1 } },
+    { id = "a", text = "Delgren the Purifier at Maestra's Post would agree with every word. The Legion burned the world once already, and these fools want to let it back in.", fx = { affinity = 1 } },
     { id = "b", text = "No exceptions is a big promise. Still, I'll not argue for the Dark Strand; they'd sell us all for a scrap of power." },
   } },
   { id = "curious", text = "I'd like to know what they found in that tower first.", fx = { opinion = { dark_strand = "curious" }, trait = { curious = 1 }, align = { light = -1 } }, replies = {
@@ -472,7 +472,7 @@ P:Views { topic = "windsor", views = {
     { id = "b", text = "Courage, aye, and maybe a little too much of it. The Dark Irons were waiting for him all the same." },
   } },
   { id = "rescue", text = "If he's still alive, somebody should go and fetch him back.", fx = { opinion = { windsor = "rescue" }, trait = { kind = 1 }, align = { honor = 1 } }, replies = {
-    { id = "a", when = { faction = "Alliance" }, text = "Somebody should, and Maxwell would give his eyeteeth to be that somebody. He just hasn't the soldiers to spare.", fx = { affinity = 1 } },
+    { id = "a", when = { faction = "Alliance" }, text = "Somebody should, and Marshal Maxwell would give his eyeteeth to be that somebody. He just hasn't the soldiers to spare.", fx = { affinity = 1 } },
     { id = "b", text = "Somebody should. The Dark Irons don't keep prisoners out of kindness, so whatever they want from him, time is short." },
     { id = "c", when = { faction = "Alliance" }, text = "That's the hope we cling to at Morgan's Vigil. Go deep enough into the mountain and you might find out." },
   } },
@@ -489,7 +489,7 @@ P:Views { topic = "thaurissan", views = {
   } },
   { id = "pity", text = "The Dark Irons have paid for his folly for centuries. I almost pity them.", fx = { opinion = { thaurissan = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Almost is the right word. They serve the thing that ruined them, and they seem to like it well enough." },
-    { id = "b", when = { race = "Dwarf" }, text = "Pity a Dark Iron, would ye? Keep that well away from Ironforge, {g:lad|lass}, or ye'll be drinking alone.", fx = { affinity = -1 } },
+    { id = "b", when = { race = "Dwarf" }, text = "Pity a Dark Iron, would you? Keep that well away from Ironforge, {g:lad|lass}, or you'll be drinking alone.", fx = { affinity = -1 } },
   } },
   { id = "awe", text = "To call up Ragnaros himself. Whatever else he was, he had power.", fx = { opinion = { thaurissan = "awe" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "Power enough to burn a kingdom, and not enough to send it home again. The Steppes are still paying for it." },
@@ -559,7 +559,7 @@ P:Views { topic = "burning_legion", views = {
 P:Views { topic = "nethergarde", views = {
   { id = "respect", text = "Holding a keep at the edge of the world's worst wound. They earn their pay.", fx = { opinion = { nethergarde = "respect" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Every coin of it, and then some. The supplies come late, the ogres come early, and the soldiers still stand their watch.", fx = { affinity = 1 } },
-    { id = "b", text = "They do. Lungertz will tell you so himself, and then he'll tell you what they're short of this week." },
+    { id = "b", text = "They do. Quartermaster Lungertz will tell you so himself, and then he'll tell you what they're short of this week." },
   } },
   { id = "pity", text = "Stuck in a wasteland, watching a dead gate. I'd go mad.", fx = { opinion = { nethergarde = "pity" }, trait = { witty = 1 } }, replies = {
     { id = "a", text = "Some of them have, a little. The Blasted Lands do that to you, and the red dust gets in everything." },
@@ -573,7 +573,7 @@ P:Views { topic = "nethergarde", views = {
 
 P:Views { topic = "dreadmaul", views = {
   { id = "thin", text = "Ogres raiding Nethergarde's supply lines. Somebody needs to thin them out.", fx = { opinion = { dreadmaul = "hate" }, trait = { brave = 1 } }, replies = {
-    { id = "a", text = "Somebody does, and Lungertz has been asking for weeks. Every wagon they take is a week of short rations at the keep.", fx = { affinity = 1 } },
+    { id = "a", text = "Somebody does, and Quartermaster Lungertz has been asking for weeks. Every wagon they take is a week of short rations at the keep.", fx = { affinity = 1 } },
     { id = "b", text = "Take a few friends if you mean it. The Dreadmaul hunt in packs out there, and they've no fear of a lone sword." },
   } },
   { id = "mock", text = "Ogres picking fights with a fortress. They're not the brightest sort.", fx = { opinion = { dreadmaul = "mock" }, trait = { witty = 1 } }, replies = {

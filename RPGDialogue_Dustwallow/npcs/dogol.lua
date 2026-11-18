@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_jaina_dist", when = { gossip = { topic = "jaina", stance = "distrust" } }, text = "Krog say you no trust the human lady. Do'gol no trust her either, but Do'gol trust a good shield, so you buy one, yes?" },
+    { id = "o_jaina_dist", when = { gossip = { topic = "jaina", stance = "distrust" } }, text = "Krog says you do not trust the human lady Jaina. Do'gol does not trust her either, but Do'gol trusts a good shield, so you buy one, yes?" },
     { id = "g_default", text = "Do'gol is busy hitting metal, so you talk loud." },
     { id = "g_active", when = { questActive = TODO_QUEST("The Black Shield") }, text = "You have the spider sacs? Do'gol is waiting, and the shield is waiting, and nobody likes waiting." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Black Shield") }, text = "Ah, the shield one. Did Krog find out who Mosarn is? Nobody tells Do'gol anything." },
@@ -36,11 +36,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Do'gol makes shields, good ones, big and heavy, for ogres and for anybody strong enough to lift them. Do'gol does not buy shields and does not sell them to fools." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Black Shield") },
-          text = "Krog sends people to Do'gol when he finds a strange piece of metal, because Krog knows nothing about metal. Do'gol knows everything about metal." },
+          text = "Krog, who leads Brackenwall, sends people to Do'gol when he finds a strange piece of metal, because Krog knows nothing about metal. Do'gol knows everything about metal." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Black Shield") },
           text = "There is writing on the rim of that black shield, but it is all burned over. Acid will clean it, and the darkmist spiders in the old mine northwest of here are full of acid." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Black Shield"), days = 3 } },
-          text = "Maybe Do'gol used too much acid, but the name came up, and the smell is almost gone from Do'gol's hands. Mosarn, it said, and Do'gol never heard of him." },
+          text = "Do'gol maybe used too much acid on the black shield, but the name on the rim came up, and the smell is almost gone from Do'gol's hands. Mosarn, it said, and Do'gol never heard of him." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "A warrior! Then you know a shield is not for hiding behind, it is for hitting people with when the axe is busy." },
       },
@@ -62,7 +62,7 @@ P:NPC {
     shield = {
       lines = { { id = "s_default", text = "It is a good shield, heavy and strong, the kind Do'gol would make if Do'gol had better iron. Somebody important carried it, and somebody important dropped it in the burned inn, and that is all a shield can say by itself." } },
       choices = {
-        { text = "Somebody important must have carried that shield.", next = "shield_who" },
+        { text = "Who do you think carried it?", next = "shield_who" },
         { text = "Something else.", next = "BACK" },
       },
     },

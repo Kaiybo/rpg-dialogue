@@ -41,11 +41,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Molthor, de Hand of King Rastakhan, and I speak for de Zandalar on dis shore. De Gurubashi priests have called Hakkar de Soulflayer back into Zul'Gurub, and if he grows strong enough to leave it, every troll and every outsider in dis world will bleed to feed him." },
         { id = "h_hand", tags = { "news" }, when = { questActive = TODO_QUEST("The Hand of Rastakhan") },
-          text = "You were sent by de prospector, Ironboot? His words are wise, and wiser still to send you here. Speak with all of my people on dis isle, and heed dem, for de task before you is soaked in blood." },
+          text = "You were sent by Ironboot, de dwarf prospector? He was wise to send you here. Speak with all of my people on dis isle, and heed dem, for de task before you is soaked in blood." },
         { id = "h_low", when = { maxLevel = 55 },
           text = "You are young yet, and Zul'Gurub would swallow you whole. Go, grow strong, and come back when de jungle has stopped frightening you, for I will still be here." },
         { id = "h_heart_ready", tags = { "news" }, when = { questActive = TODO_QUEST("The Heart of Hakkar") },
-          text = "You carry it. I can feel it from here, beating where no heart should beat. Give it to me, quickly, before it learns your name." },
+          text = "You carry de heart of Hakkar. I can feel it from here, beating where no heart should beat. Give it to me, quickly, before it learns your name." },
         { id = "h_heart_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Heart of Hakkar"), days = 3 } },
           text = "De Soulflayer's heart is in Zandalari hands, and de Spirit of Zandalar has been called down over dis whole coast. You did dat, and every troll who remembers de old empire will know it." },
         { id = "h_cleared", when = { cleared = "Zul'Gurub" },
@@ -119,7 +119,7 @@ P:NPC {
       },
     },
     zg_spoils = {
-      lines = { { id = "zs_default", text = "De coins and de bijous of de old empire, which Vinchaxa and Jin'rokh and de others will trade for. Speak with dem, and with Exzhal, for each of my people has a part in dis, and dey will tell you dat part better dan I can." } },
+      lines = { { id = "zs_default", text = "De coins and de bijous of de old empire, which my people here on de isle will trade for. Speak with dem, and with Exzhal, for each of my people has a part in dis, and dey will tell you dat part better dan I can." } },
       choices = {
         { text = "I'll speak with them.", next = "BACK" },
       },
@@ -276,7 +276,7 @@ P:NPC {
       },
     },
     pride = {
-      lines = { { id = "pd_default", text = "I speak highly of de king, and I happen to be standing in front of him when I do it. If you hear pride in dat, you are hearing de king's, not mine, and you would be wise not to mock it." } },
+      lines = { { id = "pd_default", text = "I speak highly of de king, because his voice is de one you hear when I speak. If you hear pride in dat, you are hearing de king's, not mine, and you would be wise not to mock it." } },
       choices = {
         { text = "No mockery meant, Servitor.", next = "BACK", fx = { affinity = 1 } },
         { text = "I hear a little of yours too.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -408,7 +408,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I am Jin'rokh de Breaker, envoy of Mugamba, de Fist of Rastakhan. My dealings are with warriors and heathens, so tell me which you are." },
+    { id = "g_default", text = "I am Jin'rokh de Breaker, envoy of Mugamba, de Fist of Rastakhan. My dealings are with warriors and paladins, so tell me which you are." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did you kill anything since I last saw you, or only talk?" },
   },
 
@@ -473,8 +473,8 @@ P:NPC {
     armor = {
       lines = {
         { id = "ar_default", text = "Bracers first, when de tribe calls you friend, den a belt when it honors you, and de breastplate when it reveres you. Nothing comes free, and nothing comes early, so do not ask me twice." },
-        { id = "ar_paladin", when = { class = "PALADIN" }, text = "For you, de Freethinker's pieces, bracers and belt and breastplate, one as de tribe trusts you more. De name was not my idea, so do not ask me what it means." },
-        { id = "ar_warrior", when = { class = "WARRIOR" }, text = "For you, de Vindicator's pieces, armguards, belt and breastplate, one as de tribe trusts you more. Each one is heavy, and each one is worth it." },
+        { id = "ar_paladin", when = { class = "PALADIN" }, text = "For you, de Freethinker's pieces, bracers and belt and breastplate, one at a time as de tribe trusts you more. De name was not my idea, so do not ask me what it means." },
+        { id = "ar_warrior", when = { class = "WARRIOR" }, text = "For you, de Vindicator's pieces, armguards, belt and breastplate, one at a time as de tribe trusts you more. Each one is heavy, and each one is worth it." },
       },
       choices = {
         { text = "I'll earn every piece.", next = "BACK", fx = { affinity = 1 } },

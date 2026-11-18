@@ -99,7 +99,7 @@ P:NPC {
     gnarlpine = {
       big = true,
       lines = {
-        { id = "gn_default", text = "They were a peaceful tribe once, and they suffered this corruption before, back before Teldrassil was cleansed. That it has returned means the blessing of the aspects did not take root as deeply as we told ourselves." },
+        { id = "gn_default", text = "They were a peaceful tribe once, and we believed the new tree would keep them so. That this madness has taken them means Teldrassil is not as whole as we told ourselves." },
       },
       choices = {
         { text = "Then they're victims. Spare those you can.", next = "BACK", fx = { align = { light = 1 } } },
@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "You did your duty. There's no shame in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "It looks as though they carried off whatever they could.", next = "village_take" },
+        { text = "Did they take anything that matters?", next = "village_take" },
       },
     },
     village_take = {
@@ -181,7 +181,7 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were good neighbours before the fel moss, and I would like to believe they will be again.", next = "gnarlpine" } },
     fel_moss = { { id = "tp_felmoss", text = "It grows where something rotten feeds it, and it rots whatever eats it. Keep it off your hands." } },
     teldrassil = { { id = "tp_tree", text = "We were told the tree was blessed and whole, and I believed it, and I would still like to." } },
-    emerald_dream = { { id = "tp_emerald_dream", text = "The Sleepers in the barrows dream of the Emerald Dream, and some of them have walked so far into it that I am no longer sure they are coming back. I keep watch anyway." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Sleepers in the barrows walk the Emerald Dream, and some of them have walked so far into it that I am no longer sure they are coming back. I keep watch anyway." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil kept our Sleepers for ten thousand years beneath Hyjal. Teldrassil keeps them now, and I hope it keeps them as gently." } },
     malfurion = { { id = "tp_malfurion", text = "Malfurion sleeps the deepest of all our druids, and I watch the barrows partly in his honour. When he wakes, I hope he finds the watch was kept." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are what the Gnarlpine were, before the madness came. I find it comforting that some furbolgs remain whole." } },

@@ -442,7 +442,7 @@ P:Thread {
       id = "b3_raleigh", npc = "raleigh",
       when = { any = { { thread = { id = "scarlet_path", beat = "b2_anton" } }, { questActive = TODO_QUEST("Down the Scarlet Path") } },
                ["not"] = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
-      text = "Anton sends me the faithful, and I send them home with the truth. He thinks I'm still one of them. I was, until the Monastery.",
+      text = "Brother Anton sends me the faithful, and I send them home with the truth. He thinks I'm still one of them. I was, until the Monastery.",
       fx = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = "unfolding" }, learn = { "scarlet_monastery" } },
     },
     {

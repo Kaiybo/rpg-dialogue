@@ -22,7 +22,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Greetings, friend! Can I interest you in some ectoplasmic capacitors, or perhaps a nice omni-directional spectral assimilator?" },
     { id = "g_back", when = { metBefore = true }, text = "My favorite investor's back! Well, my favorite errand-runner, but in this town that's practically the same thing, pal." },
-    { id = "g_ecto", when = { questActive = TODO_QUEST("Hunting for Ectoplasm") }, text = "Scorched from Silithus, frozen from Winterspring, stable from the Plaguelands, and don't forget to set the distiller down first, chum!" },
+    { id = "g_ecto", when = { questActive = TODO_QUEST("Hunting for Ectoplasm") }, text = "Scorched ectoplasm from Silithus, frozen from Winterspring and stable from the Plaguelands, and don't forget to set the distiller down first, chum!" },
     { id = "g_away", when = { away = 21 }, text = "Gone {away}, and not a single ghost revealed in all that time. The machine's lonely, friend, and so's my ledger." },
   },
 
@@ -56,7 +56,7 @@ P:NPC {
         { text = "What's a ghost revealer for?", next = "revealer" },
         { text = "What do you need to build it?", next = "parts", when = { minLevel = 55 } },
         { text = "Where do I find the right ghosts?", next = "ghosts", when = { minLevel = 55 } },
-        { text = "Tell me about this imp in Winterspring.", next = "imp", when = { minLevel = 55 } },
+        { text = "Where would I find the rod you need?", next = "imp", when = { minLevel = 55 } },
         { text = "Do you actually believe in ghosts?", next = "believe" },
         { text = "I'll see you around, Mux.", next = "END" },
       },
@@ -164,7 +164,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the Gizmorium, pal. Touch nothing that's ticking, and if it's not ticking, still don't touch it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still got all your fingers? Good, keep it that way, it's bad for business when customers lose 'em in my shop." },
-    { id = "g_booster", when = { questActive = TODO_QUEST("Safety First") }, text = "That's Razzeric's booster in your bag, isn't it? Hand it over carefully, pal, like it's an egg made of fire." },
+    { id = "g_booster", when = { questActive = TODO_QUEST("Safety First") }, text = "That's Razzeric the racer's booster in your bag, isn't it? Hand it over carefully, pal, like it's an egg made of fire." },
     { id = "g_away", when = { away = 21 }, text = "Gone {away}, and Razzeric's still alive, against every engineering principle I know." },
   },
 
@@ -206,7 +206,7 @@ P:NPC {
     },
     bo_do = {
       big = true,
-      lines = { { id = "bod_default", text = "He's paying, so I'll do it, and you can tell him to be careful when he sets it off. Who knows if our nineteenth driver would be any good, and I'd hate to train in another one." } },
+      lines = { { id = "bod_default", text = "He's paying, so I'll do it, and you can tell him to be careful when he sets it off. Who knows if our nineteenth driver would be any good, and I'd hate to break in a new one." } },
       choices = {
         { text = "You should refuse. It'll kill him.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "His neck, his choice, his gold.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -474,7 +474,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Jhordy Lapforge, engineer! With some of the technology recovered by bold gnomes venturing back into Gnomeregan, I've built my greatest invention: the Matter Transporter! All I need now is a skilled gnomish engineer to build a beacon attuned to it." },
+          text = "Jhordy Lapforge, engineer! With some of the technology recovered by bold gnomes venturing back into Gnomeregan, I've built my greatest invention: the Ultrasafe Matter Transporter! All I need now is a skilled gnomish engineer to build a beacon attuned to it." },
         { id = "h_goblin_eng", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
           text = "Oh! A Horde visitor, in Gadgetzan, of course, everyone's welcome here. The transporter doesn't care what you are, though it might care how much you've eaten." },
       },

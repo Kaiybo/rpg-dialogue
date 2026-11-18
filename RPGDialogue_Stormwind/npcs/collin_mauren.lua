@@ -145,7 +145,7 @@ P:NPC {
       lines = { { id = "gm_default", text = "He came through Stormwind years ago selling a device that sorted reagents by weight, and it sorted my whole shelf onto the floor in about a second. I bought it anyway, because nobody had ever tried to help me so enthusiastically, and we've written to each other ever since." },
       },
       choices = {
-        { text = "Does the device still work?", next = "BACK" },
+        { text = "I'd have bought it too.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

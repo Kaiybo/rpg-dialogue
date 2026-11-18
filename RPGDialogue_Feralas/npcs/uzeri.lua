@@ -91,7 +91,7 @@ P:NPC {
     },
     head_stance = {
       big = true,
-      lines = { { id = "hs_default", text = "Explorin', diggin', stealin' from da old elf ruins, who knows? Dat forest is full of people who don't belong in it, and da forest takes care of some of dem, and I take care of da rest." } },
+      lines = { { id = "hs_default", text = "Ghoulish, maybe, but he was explorin', diggin', or stealin' from da old elf ruins, who knows? Dat forest is full of people who don't belong in it, and da forest takes care of some of dem, and I take care of da rest." } },
       choices = {
         { text = "Intruders deserve what they get out there.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "A lost traveller deserved better than that.", next = "BACK", fx = { align = { light = 1 } } },

@@ -163,7 +163,7 @@ P:NPC {
     },
     scars_best = {
       lines = {
-        { id = "sb_default", text = "This one, along the jaw, from a Sentinel's glaive on the Falfarren. I don't remember her name, but I hope she remembers mine." },
+        { id = "sb_default", text = "This one, along the jaw, from a Sentinel's glaive by the Falfarren River. I don't remember her name, but I hope she remembers mine." },
       },
       choices = {
         { text = "That's a good story, Torek.", next = "BACK", fx = { affinity = 1 } },
@@ -193,12 +193,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A raider of the Horde, born in the camps and freed by Thrall. Since then I've been looking for a good fight, and Ashenvale's full of them." } },
+    background = { { id = "tp_bg", text = "I'm a raider of the Horde, born in the camps and freed by Thrall. Since then I've been looking for a good fight, and Ashenvale's full of them." } },
     advice = { { id = "tp_ad", text = "In these woods, the arrow comes before the sound. Keep your shield up even when it's quiet." } },
     warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and it may as well be me." } },
     sentinels = { { id = "tp_sentinels", text = "Good fighters, every one, and quieter than any orc. I like them better than I should." } },
     thrall = { { id = "tp_thrall", text = "Thrall broke the chains on my people and gave us back our honour. I raid these woods because he needs the timber, and I'd raid anywhere he asked." } },
-    tyrande = { { id = "tp_tyrande", text = "The night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande is the night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion used my people once, and Grom paid for our freedom with his life at Ashenvale. I'll fight the demons any day, and I'll laugh while I do it." } },
     centaur = { { id = "tp_centaur", text = "Centaur are a good fight, all charge and fury. I'd raid them for sport if the Warchief allowed it." } },
     _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking, and I do the bleeding." } },

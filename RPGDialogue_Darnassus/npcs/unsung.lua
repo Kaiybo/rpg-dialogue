@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Both require care. Both are trust held for others. Your spirits might understand that." } },
+      lines = { { id = "xdsham_default", text = "It is, because both are trust held for others, and both require care. Your spirits might understand that." } },
       choices = {
         { text = "Trust kept carefully is honourable, Garryeth.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Coin is not prayer.", next = "BACK", fx = { align = { order = -1 } } },
@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Once, a crate of webwood spider eggs from Shadowglen, which the owner insisted were dormant. They were not, and I have recorded the event in some detail, should you ever doubt me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome to wait by the door, where it can't be mistaken for a deposit. I say that with every respect for the animal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Once, a crate of webwood spider eggs that the owner insisted were dormant, and they were not. Your {pet} is welcome to wait by the door, where it can't be mistaken for a deposit." },
       },
       choices = {
         { text = "Those eggs should have been burned in Shadowglen.", next = "BACK", fx = { align = { order = 1 } } },
@@ -257,7 +257,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Where to stand when the fight closes in, because the Warsong don't care that you'd rather shoot from forty paces. Every hunter who's come back from Ashenvale with stitches learned that lesson too late, so learn it here." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps lunging at my sparring dummies, and I'll admit it has better footwork than half my students. Keep it close when the fight comes to you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where to stand when the fight closes in, because the Warsong don't care that you'd rather shoot from forty paces. Your {pet} keeps lunging at my sparring dummies, though, and I'll admit it has better footwork than half my students." },
       },
       choices = {
         { text = "I'll learn to hold my ground when they close.", next = "BACK", fx = { align = { order = 1 } } },
@@ -268,7 +268,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Not into a fight, perhaps, but carry the idea of one, which is knowing what will protect you when everything goes wrong. Every rogue I've buried thought they would never be caught, and most of them were buried in cheaper leathers than they could afford." },
+        { id = "xrogue_default", text = "Not a real shield, perhaps, but carry something that will protect you when everything goes wrong. Every rogue I've buried thought they would never be caught, and most of them died in cheaper leathers than they could afford." },
       },
       choices = {
         { text = "Fair point. I'll plan for being caught.", next = "BACK", fx = { align = { order = 1 } } },
@@ -408,7 +408,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Perhaps it is. A shaman needs a weapon that answers like the elements: honest and steady. Let me show you another." } },
+      lines = { { id = "xdsham_default", text = "Perhaps it is, because a shaman needs a weapon that answers like the elements, honest and steady. Let me show you another." } },
       choices = {
         { text = "Show me, Ariyell. I trust your judgement.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I will keep my own weapon.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -446,7 +446,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because sooner or later a nightsaber or a Gnarlpine will close the distance, and you'll want something better than the end of your bow. Every Sentinel carries a blade on her hip for that moment, and so should you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its own blades, of course, and good ones. Still, it can't always be between you and the claw, so carry a dagger for its sake." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because sooner or later a nightsaber or a Gnarlpine will close the distance, and you'll want more than the end of your bow. Your {pet} has its own blades, of course, but it can't always be between you and the claw." },
       },
       choices = {
         { text = "A blade on the hip is wise. I'll carry one.", next = "BACK", fx = { align = { order = 1 } } },
@@ -497,7 +497,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see your grip, because I can tell more from that than from any story you'd tell me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I don't sell bows, but I've a few good daggers for when the beast gets inside your reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Most of your Circle buy one good staff and keep it for a hundred years, which is wonderful for the staff and terrible for my trade." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance and grip have been family to me for longer than I can remember, so let me see how you hold your weapon." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I judge a fighter by balance and grip, so let me see how you hold your weapon." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? Ask before you buy, never after." },
@@ -593,7 +593,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Only to one who would treat it as kin. Your spirits might help; I will watch." } },
+      lines = { { id = "xdsham_default", text = "Only to one who would treat it as kin, and I will be watching to see whether you do." } },
       choices = {
         { text = "I would treat it as kin, Lelanai. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A mount is a mount.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -631,7 +631,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The same blood runs in them as in the wild nightsabers of Teldrassil, and the Sentinels' hunters have ridden beside them for as long as there have been Sentinels. Mine are raised to carry riders and yours chose you in the wild, and I honor both." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} and my sabers are eyeing each other, and I think they're deciding who's in charge. Don't worry, they always settle it without us." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The same blood runs in them, though mine are raised to carry riders and yours chose you in the wild, and I honor both. Your {pet} and my sabers are eyeing each other now, deciding who's in charge." },
       },
       choices = {
         { text = "A companion chosen in the wild is a sacred bond.", next = "BACK", fx = { align = { light = 1 } } },
@@ -673,7 +673,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "To a kaldorei, or to someone the city honors as exalted, and only if I believe they'll treat it as a companion. A mage who teleports everywhere and leaves a saber pining in a stable is not someone I'd trust with one of mine." },
+        { id = "xmage_default", text = "To a kaldorei, or to someone the city counts as one of its own, and only if I believe they'll treat it as a companion. A mage who teleports everywhere and leaves a saber pining in a stable is not someone I'd trust with one of mine." },
       },
       choices = {
         { text = "I'd never leave a companion behind.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -789,7 +789,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They always do, and I laugh every time. But they learn. Your spirits might soften the fall." } },
+      lines = { { id = "xdsham_default", text = "They always do, and I laugh every time, but they learn. Perhaps your spirits will soften the fall." } },
       choices = {
         { text = "Falling teaches, Jartsam. I will learn.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I will not fall.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -827,7 +827,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It does, because you won't treat her like a chair, which is the mistake most riders make. The trouble is that your companion will want to run alongside, and a saber hates being raced by something smaller than she is." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want to keep up when you ride, I can see it already. Let it, but don't let it win, or my sabers will sulk for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It does, because you won't treat her like a chair, which is the mistake most riders make. Your {pet} will want to keep up when you ride, I can see it already, so let it, but don't let it win, or my sabers will sulk for a week." },
       },
       choices = {
         { text = "I'll let her set the pace and learn it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1003,7 +1003,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The best, once they join, because a hunter knows what it means to keep faith with something that can't sign a charter. I've seen hunters stay with a guild long after its founders left it, out of plain loyalty." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine member, if I could get it to sign. Some guilds count their companions on the roll, I'm told, and I've stopped arguing with them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The best, once they join, because a hunter knows what it means to keep faith with something that can't sign a charter. Your {pet} would make a fine member too, if I could get it to sign." },
       },
       choices = {
         { text = "A hunter keeps faith with those beside them.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1159,7 +1159,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I love it very much. Each one is a promise of colour. Your spirits might favour earth tones." } },
+      lines = { { id = "xdsham_default", text = "I love it very much, because each one is a promise of colour. I suspect your spirits would favour earth tones." } },
       choices = {
         { text = "Take your time, Shalumon. Good work needs it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Colours do not matter.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1197,7 +1197,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I could, though it breaks my heart, because a guild's colors are meant to be seen. Greens and browns, then, with the emblem small, and I'll pretend I made it for a druid so that nobody asks." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would look rather fine in a tabard, though I've never made one a beast would keep on. If you ever manage it, bring it back so I can see." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I could, though it breaks my heart: greens and browns, with the emblem small, and I'll pretend I made it for a druid. Your {pet} would look rather fine in a tabard as well, though I've never made one a beast would keep on." },
       },
       choices = {
         { text = "Proud colors. A hunter shouldn't hide what they stand for.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1369,7 +1369,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunters from Dolanaar and Shadowglen, mostly, who take the stags on Teldrassil's slopes and bring them down cleanly. The druids grumble, but the herds would grow too thick for the young tree without them, and every hunter knows it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been staring at my counter since you walked in, and I'd swear it's choosing a cut. Keep it on its own side, if you'd be so kind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunters from Dolanaar and Shadowglen, mostly, who take the stags on Teldrassil's slopes and bring them down cleanly. Your {pet} has been staring at my counter since you walked in, and I'd swear it's choosing a cut." },
       },
       choices = {
         { text = "I hunt for the forest's balance as much as for meat.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1510,7 +1510,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "No, they cannot. Spirits help, but linen saves lives. Learn both." } },
+      lines = { { id = "xdsham_default", text = "No, they cannot, because spirits help but linen saves lives, so learn both." } },
       choices = {
         { text = "I will learn both, Dannelor. Every life matters.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Spirits are enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1548,7 +1548,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not with my linen, I'm afraid, because a beast pulls at anything it doesn't understand. Mending your companion is your own art and not mine, but I'll teach you to bind yourself, so that you're standing when it needs you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have my bandage off in a heartbeat, and I can't blame it. Look after yourself, and it'll have someone to come home to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not with my linen, I'm afraid, because your {pet} would have my bandage off in a heartbeat. Mending your companion is your own art, but I'll teach you to bind yourself, so that you're standing when it needs you." },
       },
       choices = {
         { text = "Then I'll learn, so I'm standing when it needs me.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1708,7 +1708,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I am suspicious of anything unmeasured. Spirits are unpredictable. Prove otherwise." } },
+      lines = { { id = "xdsham_default", text = "I am suspicious of anything I can't measure, and spirits are unpredictable, so prove me wrong." } },
       choices = {
         { text = "I will prove it with care, Ainethil.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Unpredictable is fine.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1746,7 +1746,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The best ones grow where the beasts walk and the people don't, so yes, hunters bring me peacebloom and silverleaf from places I'd never find. Just mark where you picked them, because the same herb from two groves can brew two different potions." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing my earthroot, and I'd prefer it didn't eat any. Earthroot does very strange things to animals." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The best ones grow where the beasts walk and the people don't, so yes, just mark where you picked them. Your {pet} has been sniffing my earthroot, though, and I'd prefer it didn't eat any." },
       },
       choices = {
         { text = "I'll mark every grove. Your work deserves care.", next = "BACK", fx = { align = { order = 1 } } },

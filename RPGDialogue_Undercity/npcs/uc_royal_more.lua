@@ -18,13 +18,13 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "You are standing in the Dark Lady's court. Speak quickly, and speak to the point." },
-    { id = "g_crown", when = { questActive = TODO_QUEST("The Crown of Will") }, text = "Melisara waits in Tarren Mill, and Mug'Thol still wears what belongs to the Dark Lady. Why are you still here?" },
+    { id = "g_crown", when = { questActive = TODO_QUEST("The Crown of Will") }, text = "My lieutenant Melisara waits for you in Tarren Mill, and the ogre Mug'Thol still wears the Dark Lady's crown. Why are you still here?" },
     { id = "g_done", when = { questDone = TODO_QUEST("The Crown of Will") }, text = "The Dark Lady has heard of you. Do not let it go to your head, because she hears of a great many people." },
   },
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "You carry the shadow well, priest, for one who still has a heartbeat. Or was it someone else's?" },
+      text = "You carry the shadow well, priest, for one who still has a heartbeat." },
   },
 
   start = "hello",
@@ -62,7 +62,7 @@ P:NPC {
       choices = { { text = "Something else, Sharlindra.", next = "BACK" } },
     },
     mugthol = {
-      lines = { { id = "mu_default", text = "The chieftain of the Crushridge ogres, whom we bound to our service and sent to fetch the crown from Alterac. He's an irritant now, and Melisara will deal with him quickly, thoroughly, and without incident." } },
+      lines = { { id = "mu_default", text = "The chieftain of the Crushridge ogres, whom we bound to our service and sent to fetch the crown from Alterac. He's an irritant now, and my lieutenant Melisara will deal with him quickly, thoroughly, and without incident." } },
       choices = {
         { text = "You possessed an ogre warband?", next = "possession" },
         { text = "Something else.", next = "BACK" },
@@ -178,7 +178,7 @@ P:NPC {
       choices = { { text = "Something else, Jorah.", next = "BACK" } },
     },
     strahad = {
-      lines = { { id = "st_default", text = "Strahad in Ratchet writes to me now and then, and his letters are the best reading I get. I've hinted that he might send me a copy of the tome when he's finished with it, and I'll keep hinting." } },
+      lines = { { id = "st_default", text = "Strahad Farsan, who trains warlocks down in Ratchet, writes to me now and then, and his letters are the best reading I get. I've hinted that he might send me a copy of the tome when he's finished with it, and I'll keep hinting." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

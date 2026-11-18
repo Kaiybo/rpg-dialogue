@@ -48,11 +48,11 @@ P:NPC {
       },
     },
     op_kaldorei_1 = {
-      lines = { { id = "op_kaldorei_r1", text = "That is what Shandris says, and she has been right more often than I have. I'll keep my arrows on this map, then, and not on the practice range." } },
+      lines = { { id = "op_kaldorei_r1", text = "That is what Shandris Feathermoon says, and she has been right more often than I have. I'll keep my arrows on this map, then, and not on the practice range." } },
       choices = { { text = "Something else, scout.", next = "BACK" } },
     },
     op_kaldorei_2 = {
-      lines = { { id = "op_kaldorei_r2", text = "Half my sisters would embrace you for that. Ashenvale bleeds while I count bandanas here, and I think of it every night when the wind turns east." } },
+      lines = { { id = "op_kaldorei_r2", text = "Half my kin would embrace you for that. Ashenvale bleeds while I count bandanas here, and I think of it every night when the wind turns east." } },
       choices = { { text = "Something else, scout.", next = "BACK" } },
     },
     op_kaldorei_3 = {
@@ -65,7 +65,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Defias camps, gnoll dens, and roads that cross too often. My notes are precise. I'd be curious whether your spirits would agree with them." } },
+      lines = { { id = "xdsham_default", text = "They show Defias camps, gnoll dens and roads that cross too often, and my notes are precise. I'd be curious whether your spirits would agree with them." } },
       choices = {
         { text = "Precise maps save lives, Galiaan. Keep them exact.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Maps miss what the spirits see. Trust the wind instead.", next = "BACK", fx = { align = { order = -1 } } },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "By following my maps, and hitting where they've just been, not where they are now. They pull back toward Moonbrook each time, and a warrior who chases them blindly ends up in a ditch with an arrow in him." } },
+      lines = { { id = "xwarcl_default", text = "By following my maps and striking where they're heading, not where they were. They pull back toward Moonbrook each time, and a warrior who chases them blindly ends up in a ditch with an arrow in him." } },
       choices = {
         { text = "I'll follow your maps and strike where you say.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll go straight at them and break the line.", next = "BACK", fx = { align = { order = -1 } } },
@@ -185,14 +185,14 @@ P:NPC {
       },
     },
     coast = {
-      lines = { { id = "co_default", text = "Smugglers, running dark past the lighthouse. The ghost down there claims he's watched them for years. I don't believe in ghosts, but my eyes agree with him." } },
+      lines = { { id = "co_default", text = "Smugglers, I'd expect, running dark past the lighthouse. The ghost who keeps it claims he's watched them for years. I don't believe in ghosts, but my eyes agree with him." } },
       choices = {
         { text = "A ghost?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     bandanas = {
-      lines = { { id = "ba_default", text = "Red leather, on most of them, worn like a uniform. Pride's a weakness in a thief, and I collect weaknesses." } },
+      lines = { { id = "ba_default", text = "Most of them wear red leather like a uniform, and pride's a weakness in a thief, and I collect weaknesses." } },
       choices = {
         { text = "Do their leaders wear something different?", next = "silk" },
         { text = "So that's why you want fifteen.", next = "BACK", fx = { learn = { "defias" } } },
@@ -201,7 +201,7 @@ P:NPC {
     silk = {
       lines = { { id = "si_default", text = "The cloth's the rank: leather on the road, silk on the ones who give orders. Silk never comes up to the farms. It stays under Moonbrook and sends the leather out." } },
       choices = {
-        { text = "Do your sisters think the humans worth the trouble?", next = "op_kaldorei" },
+        { text = "Do your people think the humans worth the trouble?", next = "op_kaldorei" },
         { text = "Then I'll stick to asking about the silk.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -264,18 +264,18 @@ P:NPC {
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail Buccaneers have been seen along the coast near the lighthouse, and I've started marking their sails. If they ever make common cause with the Defias, I'll need a bigger map and a lot more pins." } },
     si7 = { { id = "tp_si7", text = "SI:7 sends a man to ask for my maps now and then, and he never says why or gives them back. I've started making a second copy, and I'd advise any scout to do the same." } },
     the_stockade = { { id = "tp_the_stockade", text = "Every Defias I've ever seen taken in for the Stockade has been back in Westfall within the season. I mark it on my map with a little black pin, and I'm running out of black pins." } },
-    background = { { id = "tp_bg", text = "I'm a scout, and before that I was a man who liked walking. The militia found a use for the walking." } },
+    background = { { id = "tp_bg", text = "I'm a scout, and before that I was an elf who liked walking. The militia found a use for the walking." } },
     advice = { { id = "tp_ad", text = "Count the bandanas in a camp before you go in, then count them again, because someone's always lying down." } },
-    defias = { { id = "tp_defias", text = "Red bandanas, good boots, better discipline than they've any right to." } },
+    defias = { { id = "tp_defias", text = "They wear red bandanas and good boots, and they've better discipline than they've any right to." } },
     moonbrook = {
       { id = "tp_moonbrook", text = "Every road on my map ends there. That's not a coincidence." },
       { id = "tp_moonbrook2", text = "It's where every thread on my map ends. Want to see?", next = "map" },
     },
     harvest_watchers = {
       { id = "tp_watchers", text = "They don't move like gnolls or men, so I don't map them; I avoid them." },
-      { id = "tp_watchers2", text = "Machines in a farmer's field. I've thoughts on that.", next = "watchers" },
+      { id = "tp_watchers2", text = "Machines in a farmer's field, and I've thoughts on that.", next = "watchers" },
     },
-    people_militia = { { id = "tp_militia", text = "Farmers, mostly. I'm the one who tells them where not to walk." } },
+    people_militia = { { id = "tp_militia", text = "They're farmers, mostly, and I'm the one who tells them where not to walk." } },
     _none = { { id = "tp_none", text = "I wouldn't know. My business ends where the coast does." } },
   },
 }

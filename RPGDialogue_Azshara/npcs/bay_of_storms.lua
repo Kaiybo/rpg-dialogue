@@ -73,7 +73,7 @@ P:NPC {
     xcl_mc2 = {
       lines = { { id = "xcl_mc2_default", text = "Fire boils us, mortal, and turns our substance into steam that drifts away without a mind. Every elemental lord makes war on the others, but only fire makes war by unmaking, and I will not forgive Ragnaros for the servants I lost beneath Blackrock." } },
       choices = {
-        { text = "Understood, Duke. Something else.", next = "BACK" },
+        { text = "Understood, Duke.", next = "BACK" },
       },
     },
     xapala = {
@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Waterlords do not hunt, mortal; we drown, and patience is our whole art. A hunter who can wait for the right moment understands the tide better than any warrior, and is a little more useful to me for it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} does not like the smell of salt, I see. Keep it from the water's edge, because what lives in the bay does not distinguish between a beast and a meal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Waterlords do not hunt, mortal; we drown, and patience is our whole art. Your {pet} does not like the smell of salt, I see. Keep it from the water's edge, because what lives in the bay does not distinguish between a beast and a meal." },
       },
       choices = {
         { text = "Patience and an honest shot. That's the whole of the hunter's art.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -178,7 +178,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Hydraxis, Duke of the Waterlords. Your kind were not born of the deep, mortal, and our war is beyond you, but a mortal may still be useful to it, and be rewarded for it." },
         { id = "h_poison", when = { questActive = TODO_QUEST("Poisoned Water") },
-          text = "The aspect of Neptulon will drive the plague from my scouts, and the struggle will drive them mad. Defeat the madness and bring me their bracers; I will not suffer that affront to our purity any longer." },
+          text = "Plague has fouled my scouts in the east. Use the aspect of Neptulon to drive it out of them, destroy the madness that remains, and bring me their bracers; I will not suffer that affront to our purity any longer." },
         { id = "h_silithus", when = { questActive = TODO_QUEST("Stormers and Rumblers") },
           text = "In the Crystal Vale of Silithus, the wind's creatures and the stone's stand guard over things they keep from your kind. Go there, prove your conviction, and break them." },
         { id = "h_ember", when = { questActive = TODO_QUEST("Eye of the Emberseer") },
@@ -445,7 +445,7 @@ P:NPC {
     xcl_dm2 = {
       lines = { { id = "xcl_dm2_default", text = "A few of them keep books, and books are not sins, though they lead to one often enough. I spent my youth among people like that, and I left before the worst of it, which is the only wisdom I can boast of." } },
       choices = {
-        { text = "Then you chose well. Something else, Loramus.", next = "BACK" },
+        { text = "Then you chose well, Loramus.", next = "BACK" },
       },
     },
     xapala = {
@@ -459,7 +459,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "He trusts someone who can see, and he swings where he's told, and he doesn't argue. My hounds smell the Legion's servants long before your eyes would find them, and what Galvan forges for you will put an edge on your steel that demons feel." } },
+      lines = { { id = "xwarcl_default", text = "He trusts someone who can see, and he swings where he's told, and he doesn't argue. My hounds smell the Legion's servants long before your eyes would find them, and the felbane steel that Galvan the Ancient forges will put an edge on yours that demons feel." } },
       choices = {
         { text = "Then I'll trust your eyes and strike where you tell me.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll trust my own blade. I don't take orders from anyone.", next = "BACK", fx = { align = { order = -1 } } },
@@ -490,7 +490,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Ruins, bones and debts, mortal. The Highborne opened this land to demons ten thousand years ago, and something of that door still hangs open around Eldarath and the old palaces. Your spirits feel it as a wrongness and look away, while I look straight at it, and that is the whole difference between us." } },
       choices = {
-        { text = "Then I'll look at it too, whatever my elders say.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then I'll look at it too, whatever my spirits prefer.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Spirits keep their distance for a reason. That's wisdom, not fear.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -795,7 +795,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The makrura hunt the shallows and the murlocs hunt the reefs, and all of them bring the best of the catch to the one. A hunter who brings the one what the one asks will be remembered in the songs of the deep folk, which are very long." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And the small beast, {pet}, is it yours, or is it the one's now? Everything that comes into the temple's waters belongs to the one, little hunter, but Arkkoroc will make an exception." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The makrura hunt the shallows and the murlocs hunt the reefs, and all of them bring the best of the catch to the one. And the small beast, {pet}, is it yours, or is it the one's now? Everything that comes into the temple's waters belongs to the one, little hunter, but Arkkoroc will make an exception." },
       },
       choices = {
         { text = "I'll do what you ask and honour the deep folk's ways.", next = "BACK", fx = { align = { order = 1 } } },

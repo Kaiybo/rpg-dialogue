@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I miss those orchards something fierce, and they're full of gnolls now. Your earth spirits might know whether they'll grow again." } },
+      lines = { { id = "xdsham_default", text = "I miss every tree, and the orchards are full of gnolls now. Your earth spirits might know whether they'll grow again." } },
       choices = {
         { text = "They'll grow again, Lamar. Hold on to hope.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The orchards are gone. Grow something new.", next = "BACK", fx = { align = { light = -1 } } },
@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boars, mostly, rooting up the windfalls, and they've grown fat and bold since the farmers fled. I'd not mind a boar or two, but they've started knocking the young trees down, and those take years to grow back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it'd enjoy an apple, {class}, though I'd rather it didn't eat the whole crate. Here, a small one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boars, mostly, rooting up the windfalls and knocking the young trees down now that the farmers have fled. Your {pet} looks like it'd enjoy an apple, {class}, so here, a small one, but not the whole crate." },
       },
       choices = {
         { text = "I'll clear the boars and spare the trees.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Take an apple, and don't take two when I'm not looking, because I always know." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you make an apple grow faster? No? Then can you keep one from going soft? I'd be glad of that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, take an apple anyway; I'd think even warlocks get hungry." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! An apple? Polished, of course. The orchards were old friends once, before the orcs." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have an apple, polished, of course, from orchards that were old friends of mine before the orcs came." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the basket; it's my last good one." },
@@ -199,7 +199,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not much, no. A smith works with honest hands. Your spirits might help, but I'd still like to see you strike iron." } },
+      lines = { { id = "xdsham_default", text = "Not much, no, because a smith works with honest hands. Your spirits may be handy, but I'd still like to see you strike iron." } },
       choices = {
         { text = "Honest work earns respect. I'll swing a hammer gladly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Lightning's just as honest. Hammers aren't everything.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -228,7 +228,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every one, every time, and anyone who tells you otherwise has never put an arrow through a goretusk's hide. A dull arrowhead skids off the bone, and a skidding arrow means a charging boar." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has teeth that could use a whetstone too, {class}, though I'd not try sharpening them myself." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every one, every time, because a dull arrowhead skids off the bone, and a skidding arrow means a charging boar. Your {pet} has teeth that could use a whetstone too, {class}, though I'd not try sharpening them myself." },
       },
       choices = {
         { text = "I'll keep every arrowhead sharp. A clean kill matters.", next = "BACK", fx = { align = { order = 1 } } },
@@ -315,7 +315,7 @@ P:NPC {
       },
     },
     verner = {
-      lines = { { id = "v_default", text = "Because the Guard needs blades and arrowheads, and they come first. So Verner can't shoe a horse to save his life, and the gnolls take every horse that wanders off unshod, and round it goes." } },
+      lines = { { id = "v_default", text = "Because the Guard needs blades and arrowheads, and those come first. That leaves Verner no iron to shoe the horses, and a lame horse ends up as a gnoll's supper, and round it goes." } },
       choices = {
         { text = "The soldiers have to come first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A town needs its horses too. That's poor planning.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -377,7 +377,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It matters more than anything. I strike every one myself before I sell it. Your spirits might protect you, but a shield won't fail." } },
+      lines = { { id = "xdsham_default", text = "It's no small thing, because a shield is what brings a soldier home, and I strike every one myself before I sell it. Your spirits may protect you, but a good shield won't fail you." } },
       choices = {
         { text = "Then I'll trust your shields, Kara. Good work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits protect me well enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -415,7 +415,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now and then, a small buckler for the off arm, because a boar's tusk will open you up quick if you've nothing to catch it on. Most of them laugh until they've been gored once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fine shield in its own right, {class}, and it doesn't need striking to prove it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, a small buckler for the off arm, because a boar's tusk will open you up quick. Your {pet} is a fine shield in its own right, though, {class}, and it doesn't need striking to prove it." },
       },
       choices = {
         { text = "I'll take a buckler. Better safe than gored.", next = "BACK", fx = { align = { order = 1 } } },
@@ -549,7 +549,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They catch most of them, I'd swear. They've overrun the lake shore, and my hooks go unsold." } },
+      lines = { { id = "xdsham_default", text = "They catch most of them, I'd swear, since they've overrun the lake shore, and my hooks go unsold." } },
       choices = {
         { text = "Then we'll drive them back fairly, Vernon.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Poison the water. Murlocs won't last.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -596,7 +596,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The same fish and more besides, and they'll take a fisherman's catch straight off his line if he's slow reeling in. A hunter who could thin them out along the shore would have every angler in Lakeshire buying him a drink." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching the water like it wants to dive in, {class}, and I'd keep hold of it, because the murlocs bite." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The same fish and more besides, and they'll take a catch straight off your line if you're slow reeling in. Your {pet} is watching the water like it wants to dive in, {class}, so keep hold of it, because the murlocs bite." },
       },
       choices = {
         { text = "I'll thin the murlocs so the anglers can fish.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -701,7 +701,7 @@ P:NPC {
     theramore = { { id = "tp_theramore", text = "They fish whole marsh-beasts out of Dustwallow near Theramore, so the sailors say, and they eat them too. I'll stick with trout, thank you, if the murlocs leave me any." } },
     background = { { id = "tp_bg", text = "I've sold tackle on these docks since before the bridge fell, and I'll sell it after they put it back." } },
     advice = { { id = "tp_ad", text = "Fish the morning, friend, when the murlocs are still asleep." } },
-    _none = { { id = "tp_none", text = "Don't know. Doesn't bite, doesn't swim, doesn't interest me." } },
+    _none = { { id = "tp_none", text = "I couldn't say, because if it doesn't bite or swim, it doesn't interest me." } },
   },
 }
 
@@ -727,7 +727,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'd wager so. Every beast I've cut tells me where it lived and what it ate. Your spirits might know the rest." } },
+      lines = { { id = "xdsham_default", text = "I'd wager so, since every beast I cut tells me where it lived and what it ate. Your spirits might know the rest." } },
       choices = {
         { text = "Respect the beasts, Sherman. Waste nothing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Beasts are meat. Cut and sell.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -774,7 +774,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "One arrow behind the shoulder, and none of this hacking at the haunch, because it ruins the meat. The goretusks up in the hills are big enough to take three arrows, so make the first one count." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like a fine hunter, {class}, and I'd wager it knows more about a clean kill than half the men who bring me meat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "One arrow behind the shoulder, and none of this hacking at the haunch, because it ruins the meat. Your {pet} looks like a fine hunter, {class}, and I'd wager it knows more about a clean kill than half the men who bring me meat." },
       },
       choices = {
         { text = "One clean arrow, and nothing wasted.", next = "BACK", fx = { align = { order = 1 } } },
@@ -897,7 +897,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Too many are. I carry bowls to empty seats sometimes, out of habit. Your spirits might know where they've gone." } },
+      lines = { { id = "xdsham_default", text = "Too many are, love, and I still carry bowls to their empty seats sometimes, out of habit. Your spirits might know where they've gone." } },
       choices = {
         { text = "I'll help bring them back, Gretchen. That's a promise.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Stop carrying the bowls. They won't come back.", next = "BACK", fx = { align = { light = -1 } } },
@@ -926,7 +926,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They eat what I can carry to them, which isn't enough, and what they can hunt, which is less. If you'd leave a haunch at a watchtower now and then, I'd count it the kindest thing anyone's done for them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks better fed than the soldiers at the towers, {class}, and I mean that kindly, though it does make me sad." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They eat what I can carry to them, which isn't enough, so leave a haunch at a watchtower now and then if you can. Your {pet} looks better fed than the soldiers at the towers, {class}, and I mean that kindly, though it does make me sad." },
       },
       choices = {
         { text = "I'll leave them game whenever I pass.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -986,7 +986,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be out in the hills, then, and you'll see the watchtowers, so would you tell me if the soldiers there look well fed?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll know some herb for sleep, I hope, because half my soldiers lie awake every night and I've only soup to give them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could you conjure a few loaves for the soldiers on the far posts? I've walked my feet raw carrying the kitchen's bread." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every soldier's name, and which of them are missing. Will you be one I remember?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every soldier's name in Lakeshire, and I'll learn yours too, if you're staying to fight." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've six more bowls to carry." },
@@ -1032,7 +1032,7 @@ P:NPC {
       },
     },
     breanna_soup = {
-      lines = { { id = "bs_default", text = "Not with her soup, I don't. Crystal and I eat better than most of the town, and there's always a bowl to carry home, so I'd say Chef's the best employer in Redridge." } },
+      lines = { { id = "bs_default", text = "Not with her soup, it isn't. Crystal and I eat better than most of the town, and there's always a bowl to carry home, so I'd say Chef's the best employer in Redridge." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rest = {

@@ -67,7 +67,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A gryphon's no pet, friend, for it chooses ye as much as ye choose it, an' if it decides ye're no' worth carryin' ye'll know it. Yer beasts an' my birds have that much in common: ye cannae fool them for long." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep yer {pet} on the ground side o' the roost, mind, for my birds would take it for supper an' feel no shame about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A gryphon's no pet, friend, for it chooses ye as much as ye choose it, an' if it decides ye're no' worth carryin' ye'll know it. Keep yer {pet} on the ground side o' the roost, mind, for my birds would take it for supper an' feel no shame about it." },
       },
       choices = {
         { text = "Trust is earned slowly, with birds and beasts alike.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -116,7 +116,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Thorgrum Borrelson, gryphon master o' Thelsamar. From here my birds fly tae Ironforge an' over the mountains tae Menethil Harbor, an' they fly it faster than any road." },
+          text = "I'm Thorgrum Borrelson, gryphon master o' Thelsamar. From here my birds fly tae Ironforge an' over the mountains tae Menethil Harbor, an' they fly it faster than any road." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? My birds like warriors, for ye sit heavy an' still, an' ye don't scream on the landin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand the birds better than most, for ye know what it is tae trust a beast." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? My birds dinnae mind priests, for ye sit quiet an' ye pray through the bumpy bits." },
@@ -158,7 +158,7 @@ P:NPC {
     },
     loch_dam = {
       lines = {
-        { id = "ld_default", text = "Then the loch empties intae the Wetlands an' takes half o' Menethil wi' it, so Hinderweir sleeps on the thing. I fly over it every day, an' I've never seen a crack, but I'm no engineer." },
+        { id = "ld_default", text = "Then the loch empties intae the Wetlands an' takes half o' Menethil wi' it, which is why Chief Engineer Hinderweir sleeps on the thing. I fly over it every day, an' I've never seen a crack, but I'm no engineer." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "stonewrought_dam" } } } },
     },
@@ -204,7 +204,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mail, friend, the finest in Loch Modan, an' I'll tell ye why if ye've a minute." },
+    { id = "g_default", text = "I sell mail, friend, the finest in Loch Modan, an' I'll tell ye why if ye've a minute." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I knew ye'd come back for the heavier coat." },
   },
 
@@ -255,7 +255,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A good mail shirt, light enough tae shoulder a rifle in, for the dwarven hunters I know won't give up their guns for anythin'. Bears an' troggs both go for the chest, so that's where I put the iron." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could use a collar, now I look at it, though I'll admit I've never made one an' ye'd be my first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A good mail shirt, light enough tae shoulder a rifle in, for the dwarven hunters I know won't give up their guns for anythin'. An' yer {pet} could use a collar, now I look at it, though I'll admit I've never made one an' ye'd be my first." },
       },
       choices = {
         { text = "I'll take the heavier shirt. The hills are no place for chances.", next = "BACK", fx = { align = { order = 1 } } },
@@ -305,7 +305,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Morhan Coppertongue, metalsmith, an' the mountaineers o' Thelsamar wear my mail when they go out after troggs. That's the best advertisement I could ask for, for none o' them has complained yet." },
+          text = "I'm Morhan Coppertongue, metalsmith, an' the mountaineers o' Thelsamar wear my mail when they go out after troggs. That's the best advertisement I could ask for, for none o' them has complained yet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's a customer who knows what mail's for, so come an' feel the weight o' this coat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want somethin' lighter than my mountaineers wear, but ye'll still want somethin', for bears have claws." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want no mail, I'd guess, but ye'll know the lads who wear it, an' that's near as good." },
@@ -376,7 +376,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "Now that's one thing I cannae talk about, an' there aren't many." } },
     magni = { { id = "tp_magni", text = "King Magni's smiths in the Great Forge think they're the only metalworkers in Khaz Modan. The Coppertongues have been tellin' them otherwise for generations, an' loudly." } },
     dark_iron = { { id = "tp_dark_iron", text = "Dark Iron ore's the finest in the world an' the most cursed, an' I'll no' touch it. My grandfather did once, an' he never stopped talkin' about the heat in it." } },
-    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "My family sold the bolts for the Stonewrought Dam, an' no' one o' them has failed yet. I tell Hinderweir that every time he looks worried, which is daily." } },
+    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "My family sold the bolts for the Stonewrought Dam, an' no' one o' them has failed yet. I tell Chief Engineer Hinderweir that every time he looks worried, which is daily." } },
   },
 }
 
@@ -424,7 +424,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Most of it comes by cart through Dun Algaz, an' some by ship tae Menethil when the Wetlands road is clear. I'll no' waste a single crumb, for I know what it cost tae get here." } },
+      lines = { { id = "xdruid_default", text = "Most of it comes by cart from Ironforge, an' some by ship tae Menethil an' down the Wetlands road when it's clear. I'll no' waste a single crumb, for I know what it cost tae get here." } },
       choices = {
         { text = "Never waste what the land gives. That's wisdom.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Bread is bread. A crumb won't matter to anyone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -444,7 +444,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dark bread, baked hard, for it'll last a week in a pack an' it'll no' crumble when ye're crouched in the bracken waitin' on a boar. Bring me back a nice haunch, an' Vidra will turn it intae somethin' worth comin' home for." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a crust for yer {pet}, if it'll eat bread, though most o' the beasts I've met would rather have the sausage." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dark bread, baked hard, for it'll last a week in a pack an' it'll no' crumble when ye're crouched in the bracken waitin' on a boar. An' a crust for yer {pet}, if it'll eat bread, though most o' the beasts I've met would rather have the sausage." },
       },
       choices = {
         { text = "I'll share whatever I bring back with the inn.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -493,7 +493,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Honni Goldenoat, baker at the Stoutlager Inn, an' I've had flour on my hands since before the sun came up. If ye're hungry, ye've come tae the right counter." },
+          text = "I'm Honni Goldenoat, baker at the Stoutlager Inn, an' I've had flour on my hands since before the sun came up. If ye're hungry, ye've come tae the right counter." },
         { id = "h_dawn", when = { timeOfDay = "dawn" },
           text = "Mornin'! Ye're up early, so ye get the first loaf, still too hot tae hold, so mind yer fingers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be wantin' bread, then, for ye cannae swing an axe on an empty stomach." },
@@ -633,8 +633,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Mo'grosh, up in the north-east, for the ogres there would sooner eat ye than look at ye. Everywhere else it's bears an' boars an' the odd spider, an' ye'll handle those wi' a steady rifle." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} looks like it could handle a bear, though I'd no' send it intae Mo'grosh either." },
+        { id = "xhuntcl_default", text = "Stay out o' Mo'grosh, up in the north-east, for the ogres there would sooner eat ye than look at ye. Everywhere else it's bears an' boars an' the odd spider, an' ye'll handle those wi' a steady rifle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Stay out o' Mo'grosh, up in the north-east, for the ogres there would sooner eat ye than look at ye. Yer {pet} looks like it could handle a bear, though I'd no' send it intae Mo'grosh either." },
       },
       choices = {
         { text = "I'll stay clear of Mo'grosh until I'm ready.", next = "BACK", fx = { align = { order = 1 } } },
@@ -684,7 +684,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Karm Ironquill, minin' supplies. If ye're goin' intae the hills tae dig, ye'll want a good pick an' a better reason, for it's no' safe out there these days." },
+          text = "I'm Karm Ironquill, an' I sell minin' supplies. If ye're goin' intae the hills tae dig, ye'll want a good pick an' a better reason, for it's no' safe out there these days." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; the mines need clearin' more than diggin' these days." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know the hills, then, an' ye'll want tae know which ones tae stay out o'." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll no' be needin' a pick, I'd say, but ye might say a word for those that do." },

@@ -15,9 +15,9 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Listen, do you hear them? No, I suppose you don't, and I envy you, for I have not slept a whole night since I left Orgrimmar." },
-    { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The Windshear Crag, beyond the Greatwood Vale. Show the loggers the language they understand, the one the Horde speaks with steel." },
-    { id = "g_shred", when = { questActive = TODO_QUEST("Shredding Machines") }, text = "XT:4 and XT:9, the marks I saw in my vision. Find those machines, and stop them." },
-    { id = "g_crone", when = { questActive = TODO_QUEST("The Elder Crone") }, text = "Magatha, on Elder Rise in Thunder Bluff. Tell her what the spirits suffer here, and ask for her wisdom." },
+    { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The loggers are at Windshear Crag, beyond the Greatwood Vale, so show them the language they understand, the one the Horde speaks with steel." },
+    { id = "g_shred", when = { questActive = TODO_QUEST("Shredding Machines") }, text = "Find the machines marked XT:4 and XT:9, the ones I saw in my vision, and stop them." },
+    { id = "g_crone", when = { questActive = TODO_QUEST("The Elder Crone") }, text = "Go to Magatha Grimtotem on Elder Rise in Thunder Bluff, tell her what the spirits suffer here, and ask for her wisdom." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the spirits still rage, though a little less, I think. Perhaps that's your doing." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since we first stood here and listened to the trees. The spirits would know you now, and so would any orc of the Horde." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The braves at the Crossroads say you've been a help to folk. The spirits hear that kind of thing, whatever else they hear." },
@@ -108,7 +108,7 @@ P:NPC {
 
     elders = {
       lines = {
-        { id = "el_default", text = "The tauren have lived with the spirits of this land longer than any orc, and their elders know rites I've never learned. My own people threw the spirits away for the demons' fire, and we are still learning our way back." },
+        { id = "el_default", text = "The tauren have lived with the spirits of this land longer than any orc, and their elders know rites I've never learned. The name I hear spoken with the most respect is Magatha's, so she is the one I would ask." },
       },
       choices = {
         { text = "What else do you know of her?", next = "elders_magatha" },

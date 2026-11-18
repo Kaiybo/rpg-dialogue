@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The duskbats nest in the old houses, and the spiders come down out of Night Web Hollow when they're hungry, though they don't care much for what they find. I'd be glad of fewer of both, because a grave that's been dug twice is a grave I have to fill twice." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of the fresh graves, if you'd be so kind. The spiders from Night Web Hollow come sniffing as it is, and a grave that's been dug twice is a grave I have to fill twice." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, so keep {pet} out of the fresh graves, if you'd be so kind. The spiders from Night Web Hollow come sniffing as it is, and a grave that's been dug twice is a grave I have to fill twice." },
       },
       choices = {
         { text = "I'll keep them off your graves. The dead deserve their rest.", next = "BACK", fx = { align = { light = 1 } } },
@@ -107,8 +107,8 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "wa_default", text = "Perfectly normal. The hands remember longer than the head does, and I've watched a fellow who couldn't recall his own name pick up a shovel and dig a perfect grave. Arren will be glad of whatever your hands remember." } },
-      choices = { { text = "Then I'll go to Arren.", next = "BACK", fx = { affinity = 1 } } },
+      lines = { { id = "wa_default", text = "Perfectly normal. The hands remember longer than the head does, and I've watched a fellow who couldn't recall his own name pick up a shovel and dig a perfect grave. Executor Arren will be glad of whatever your hands remember." } },
+      choices = { { text = "Then I'll go to Executor Arren.", next = "BACK", fx = { affinity = 1 } } },
     },
     remember = {
       lines = { { id = "re_default", text = "Some do, and those ones dig the deepest when I hand them a shovel, I notice. It's quiet in your head now, isn't it? Hold on to that quiet, and don't go looking for the voice again." } },
@@ -120,7 +120,7 @@ P:NPC {
     what = {
       big = true,
       lines = {
-        { id = "w_default", text = "The plague took you, and the Scourge raised you. The Dark Lady broke their hold, so now you're your own again. Mostly." },
+        { id = "w_default", text = "The plague took you, and the Scourge raised you, and then the Dark Lady broke their hold, so now you're your own again, mostly." },
       },
       choices = { { text = "Mostly?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } } },
     },
@@ -185,7 +185,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge keeps the dead walking without a thought in their heads, and I spend my days putting them back in the ground where they belong. It's honest work, and the pay never changes, since there isn't any." } },
     lordaeron = { { id = "tp_lordaeron", text = "Deathknell was a village before the plague, with a church and a well and a churchyard I kept tidy. I keep it tidy still, though the residents are less patient than they used to be." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us, so I bury what she tells me to and leave the thinking to her. That suits an undertaker." } },
-    _none = { { id = "tp_none", text = "I bury things; I don't explain them. Ask Sarvis." } },
+    _none = { { id = "tp_none", text = "I bury things; I don't explain them. Ask Shadow Priest Sarvis in the chapel." } },
   },
 }
 
@@ -254,7 +254,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Scourge's leftovers, mostly, and the spiders in Night Web Hollow, which have grown fat on things I'd rather not name. Hunt them if you like, because nothing out there is going to be mourned, least of all by me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You've a beast at your heel already, I see. {pet} won't be troubled by what lives in Night Web Hollow, I expect, and the spiders there could do with a fright." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The spiders in Night Web Hollow, mostly, and you've a beast at your heel already. {pet} won't be troubled by what lives there, I expect, and the spiders there could do with a fright." },
       },
       choices = {
         { text = "I'll clear the Hollow. Deathknell needs safe paths.", next = "BACK", fx = { align = { order = 1 } } },
@@ -267,11 +267,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Shadow Priest Sarvis. We Forsaken have already died once, and it's hard to take death seriously after that." },
         { id = "h_mindless", tags = { "news" }, when = { questActive = TODO_QUEST("The Mindless Ones") },
-          text = "Not everyone wakes as themselves. The mindless shamble about the graves. Put them back down; they're past helping." },
+          text = "Not everyone wakes as themselves, and the mindless ones shamble about the graves. Put them back down, because they're past helping." },
         { id = "h_rattle", when = { questActive = TODO_QUEST("Rattling the Rattlecages") },
-          text = "Rattlecage skeletons wander the fields, Scourge leftovers. Break them; they won't mind." },
+          text = "Rattlecage skeletons, the Scourge's leftovers, still wander the fields. Break them; they won't mind." },
         { id = "h_path", when = { questActive = TODO_QUEST("A Difficult Path") },
-          text = "A scroll came for you, and it reeks of the Light. Read it over there, please, not here, and then go to Aramis." },
+          text = "A scroll came for you, and it reeks of the Light. Read it over there, please, not here, and then go to Aramis Hammerhand in the church." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here. You talk to spirits, I'm told, and the spirits talk back, which is more than the Light ever did for me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my chapel. You serve the land, I gather, and the land around here has been rather busy serving the Scourge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen and still looking for tracks. The Light never taught anyone to read a trail, so you've kept the more useful habit." },
@@ -441,7 +441,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Solliden Farmstead, where the Crusade's scouts shoot from the hedges and run before we can answer them. Keep my soldiers on their feet out there, and leave the sermons for Sarvis, who seems to enjoy them." } },
+      lines = { { id = "xhpriest_default", text = "At Solliden Farmstead, where the Crusade's scouts shoot from the hedges and run before we can answer them. Keep my soldiers on their feet out there, and leave the sermons for Sarvis, who seems to enjoy them." } },
       choices = {
         { text = "Your soldiers will stand, Executor. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll mend who I choose, Executor, and preach as I please.", next = "BACK", fx = { align = { order = -1 } } },
@@ -452,7 +452,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Watch it, count them, and shoot the ones who wander off alone. The Crusaders patrol in pairs and talk loudly about the Light, so you'll hear them well before you see them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} low in the grass. The Crusaders patrol in pairs and talk loudly about the Light, so you'll hear them long before your beast has to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch it from the trees, and keep {pet} low in the grass. The Crusaders patrol in pairs and talk loudly about the Light, so you'll hear them long before your beast has to." },
       },
       choices = {
         { text = "I'll report what I see, and shoot on your word.", next = "BACK", fx = { align = { order = 1 } } },
@@ -484,18 +484,18 @@ P:NPC {
         { text = "Give me a post, Executor. I can fight.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Point me at a Crusade camp, Executor. They won't see me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My fire is yours to aim, Executor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "I'd guess the Executor would take a warlock's help.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you take a warlock's help, Executor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I could shame the Crusade with the Light, Executor.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Brief." },
+        { id = "h_again", text = "Anything else? Keep it brief." },
       },
     },
     warrior = {
       lines = {
-        { id = "wa_default", text = "Good. The gate, then the camp to the southeast. You'll hit harder than the living Crusaders expect, and you won't flinch when they scream. Use both." },
+        { id = "wa_default", text = "Good. Hold the gate first, then take the fight to their camp to the southeast. You'll hit harder than the living Crusaders expect, and you won't flinch when they scream, so use both." },
         { id = "wa_soldier", when = { origin = "forsaken_lordaeron_soldier" },
           text = "I see Lordaeron drill in your stance, and that is good. It is the same drill on a different side, so hold the gate." },
       },
@@ -565,7 +565,7 @@ P:NPC {
   },
 
   topics = {
-    scarlet_crusade = { { id = "tp_crusade", text = "Zealots in red. Ask Executor Zygand in Brill; he's been fighting them longer than I have." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "They're zealots in red. Ask Executor Zygand in Brill; he's been fighting them longer than I have." } },
     forsaken = { { id = "tp_forsaken", text = "We are what the Dark Lady made of the Lich King's leavings, and we serve her alone. That's all you need to know on your first day." } },
     scourge = { { id = "tp_scourge", text = "The mindless dead still wander these fields, and they'll come at you without a thought. Put them down, and don't mistake them for your old neighbors, because your neighbors are gone." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gives the orders, and I carry them out. If you want to know her mind, prove yourself useful and you may live long enough to hear it." } },
@@ -644,7 +644,7 @@ P:NPC {
         { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("A Difficult Path") },
           text = "You read the scroll, so your training can begin. Whatever you do, don't turn away from the Light; it hasn't turned away from you." },
         { id = "h_rediscover", when = { any = { { questActive = TODO_QUEST("Rediscovering the Light") }, { questActive = TODO_QUEST("Coming to Terms") } } },
-          text = "The pain is a forge. It burns, and what's left is stronger. That's the whole of the lesson, and it takes years." },
+          text = "The pain is a forge: it burns, and what's left is stronger. That's the whole of the lesson, and it takes years to learn." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You keep your own faith in the spirits, and I won't try to turn you from it, because I know what it is to hold to something while others mock it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come into the church. Your people have been kinder to mine than we had any right to expect, so sit, and be welcome." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can still tell a soldier by how they stand, {class}, and you stand like someone who means to stay standing." },

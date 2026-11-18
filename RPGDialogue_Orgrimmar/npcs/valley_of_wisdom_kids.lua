@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Migi, and this is the war, and I'm winning, mostly. Mogra says she's winning but that's because she makes up rules when she's losing." },
         { id = "h_food", tags = { "news" }, when = { questActive = TODO_QUEST("Favorite Food") },
-          text = "Borstan's Meats? Is that for one of us? Oh, it's for me! It smells really good, like the sweetglaze but different, and my father sent you, didn't he?" },
+          text = "Borstan's Meats? Is that for one of us? Oh, it's for me! It smells really good, and my father sent you, didn't he?" },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Favorite Food"), days = 3 } },
           text = "I can tell what Borstan's making from the road now, just by the smell, and today it's the sweetglaze again! We stop the game at midday and all eat together, it was Mogra's rule but I thought of it first." },
         { id = "h_rocks", tags = { "news" }, when = { questDone = TODO_QUEST("Rocks to Rests") },

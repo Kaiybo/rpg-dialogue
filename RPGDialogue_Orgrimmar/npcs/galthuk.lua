@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_default", text = "Two hands, a good grip and a blade with some weight behind it, that's what wins a fight. Have a look if you've the coin." },
     { id = "g_dead", when = { race = "Scourge" }, text = "Keep your hands where I can see them, Forsaken. You'll touch my steel when you've paid for it, and not before." },
     { id = "g_troll", when = { race = "Troll" }, text = "Leave the charms and the shrunken heads at the edge of the stall, troll. My blades don't need blessing, only a strong arm." },
-    { id = "g_orc", when = { race = "Orc" }, text = "Lok'tar, {g:brother|sister}. It's good to see a proper orc face among all the tusks and bones in this city." },
+    { id = "g_orc", when = { race = "Orc" }, text = "Lok'tar, {g:brother|sister}. It's good to see a proper orc face in a city this full of trolls and walking corpses." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Either you liked my steel or you liked my company, and nobody likes my company." },
     { id = "g_back_dead", when = { metBefore = true, race = "Scourge" }, text = "You again. I'll say this for you, corpse, you don't scare off, and I've seen living grunts run from my stall for less." },
     { id = "g_soft", priority = 20, when = { npcFlagBefore = "told_brother", race = "Scourge" },
@@ -54,7 +54,7 @@ P:NPC {
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "A warlock. You know what your kind did to my people the last time we listened to them, and still the Warchief lets you keep your hole in the Cleft of Shadow." },
         { id = "h_soft", priority = 20, when = { npcFlagBefore = "told_brother" },
-          text = "You're the one I told about Grukar. I've not told anyone else and I'd like it kept that way, but I'm glad I said it out loud once." },
+          text = "You're the one I told about my brother Grukar. I've not told anyone else and I'd like it kept that way, but I'm glad I said it out loud once." },
         { id = "h_agreed", priority = 10, when = { npcFlagBefore = "agreed_dead", ["not"] = { race = "Scourge" } },
           text = "Ah, the one with sense, who sees the Forsaken for what they are. Thrall's a great orc, but he trusts too easily, and that's how the Horde gets hurt." },
       },
@@ -102,7 +102,7 @@ P:NPC {
     },
     forsaken_why = {
       lines = {
-        { id = "fw_default", text = "Because I've seen what the plague does. I was still in Lordaeron when it came, and the grain carts went out full and the dead came back walking, and nobody can tell me which of those dead woke up one morning and decided to be friends." },
+        { id = "fw_default", text = "Because I've seen what the plague does. I was still in Lordaeron when it came, and I watched the dead climb out of the grain towns, and nobody can tell me which of them woke up one morning and decided to be friends." },
         { id = "fw_defended", when = { npcFlag = "defended_dead" },
           text = "Hard as anyone, aye, and they'd fight us just as hard if their queen said so. I was in Lordaeron when the plague came, and I watched the dead get up out of the grain towns, so don't tell me what they are." },
         { id = "fw_agreed", when = { npcFlag = "agreed_dead" },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "l_default", text = "I didn't say I lost anyone, did I? Every orc who came out of the camps left someone behind in that country, and it's no business of yours who mine was." },
       },
       choices = {
-        { text = "You fear one of them might be someone you buried.", tag = "Persuade", next = "brother",
+        { text = "You fear one of the Forsaken might be someone you buried.", tag = "Persuade", next = "brother",
           check = { pass = { any = { { disposition = { min = 65 } }, { trait = "kind" }, { class = "SHAMAN" }, { race = "Scourge", affinity = { min = 2 } } } } },
           fail = { next = "lost_closed", fx = { affinity = -1 } } },
         { text = "Fair enough. Something else.", next = "BACK" },
@@ -149,10 +149,10 @@ P:NPC {
     },
     brother_fear = {
       lines = {
-        { id = "bf_default", text = "It raised every grave it found. So when a Forsaken walks up to my stall, I look at its face, and I'm afraid I'll know it, and that's the whole of it." },
+        { id = "bf_default", text = "The plague raised every grave it found in that country. So when a Forsaken walks up to my stall, I look at its face, and I'm afraid I'll know it, and that's the whole of it." },
       },
       choices = {
-        { text = "If he walks, he's still your brother. Ask them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If he walks, he's still your brother. Ask the Forsaken about him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then burn any that come near. It's what he'd want.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Most of us don't remember who we were. Some do.", next = "BACK", fx = { affinity = 2 }, when = { race = "Scourge" } },
         { text = "Something else.", next = "BACK" },

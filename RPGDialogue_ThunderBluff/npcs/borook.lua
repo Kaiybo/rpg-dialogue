@@ -77,16 +77,16 @@ P:NPC {
     },
     islands = {
       lines = {
-        { id = "is_default", text = "Thrall's ships washed up there in a storm, and old Sen'jin welcomed them, and then the murlocs took them both down under the islands for their sea witch. Sen'jin died there, and the mountain blew, and the Darkspear left with the Horde." },
+        { id = "is_default", text = "Thrall's ships washed up there in a storm, and old Sen'jin welcomed them, and then murlocs dragged them both into the caves below as offerings to their sea witch. Sen'jin died down there, the island's volcano blew, and the Darkspear left with the Horde." },
       },
       choices = {
-        { text = "And now Theramore holds them?", next = "islands_now" },
+        { text = "And now Theramore wants them?", next = "islands_now" },
         { text = "Something else.", next = "BACK" },
       },
     },
     islands_now = {
       lines = {
-        { id = "in_default", text = "Theramore wants them, and the Raiders want them, and nobody holds them for long. Some of our people never left, you know, and Borook would like to know they be safe before he goes back to complaining about the wind." },
+        { id = "in_default", text = "Theramore wants them and the Raiders want them, but nobody holds them for long. Some of our people never left the islands, and Borook would like to know they be safe before he goes back to complaining about the wind." },
       },
       choices = {
         { text = "Then we'll go and make sure.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },

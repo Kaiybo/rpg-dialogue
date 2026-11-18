@@ -73,7 +73,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I trust any who heal. Only arcane magic troubles me; spirits are a gentler thing, I hope." } },
+      lines = { { id = "xdsham_default", text = "I trust any who heal, and spirits are a gentler thing than the arcane, I hope, which is the only magic that truly troubles me." } },
       choices = {
         { text = "The spirits are gentle, Alathea. I will prove it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Trust whom you like. I need no approval.", next = "BACK", fx = { align = { light = -1 } } },
@@ -93,7 +93,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "She lights the night so that hunter and hunted can both see, and I think that is her answer. Take what you need with a clean shot and a grateful heart, and the goddess will not mind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome under the Temple's roof, so long as it keeps its paws out of the fountain. Elune loves her creatures, though the Sisters love their floors." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She lights the night so that hunter and hunted can both see, so take what you need with a clean shot and a grateful heart. Your {pet} is welcome under the Temple's roof, too, so long as it keeps its paws out of the fountain." },
       },
       choices = {
         { text = "A clean shot, and thanks after. Always.", next = "BACK", fx = { align = { light = 1 } } },
@@ -329,7 +329,7 @@ P:NPC {
     },
     mortal_answer = {
       lines = {
-        { id = "ma_default", text = "I tell them that A'moora names the lost by the pool every night, and that Elune hears every name. Some nights that is enough for them, and some nights it is not enough for me, though I'd thank you not to repeat that to the High Priestess." },
+        { id = "ma_default", text = "I tell them that Priestess A'moora names the lost by the pool every night, and that Elune hears every name. Some nights that is enough for them, and some nights it is not enough for me, though I'd thank you not to repeat that to the High Priestess." },
       },
       choices = { { text = "It stays with me.", next = "BACK", fx = { affinity = 3, trait = { discreet = 1 } } } },
     },
@@ -356,7 +356,7 @@ P:NPC {
     },
     arcane_divine = {
       lines = {
-        { id = "ad_default", text = "Be it divine-inspired or not, magic that pulls on the world's threads makes me uneasy. Your Church would tell you some of its own wonders lean that way; ask Laurena about it when you're home, and watch her face." },
+        { id = "ad_default", text = "Divine or not, magic that pulls on the world's threads makes me uneasy. Your Church would tell you some of its own wonders lean that way; ask Laurena about it when you're home, and watch her face." },
       },
       choices = {
         { text = "I will. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -434,7 +434,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I do, with all my heart. Even those who served darkness. A shaman is far from darkness." } },
+      lines = { { id = "xdsham_default", text = "I do, with all my heart, even those who served darkness, and a shaman is a long way from that." } },
       choices = {
         { text = "Then I share your hope, Astarii. Every soul matters.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some souls are beyond saving.", next = "BACK", fx = { align = { light = -1 } } },
@@ -472,7 +472,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Sometimes, usually about a beast they couldn't save or one they had to put down. That kind of grief is real, and Elune doesn't weigh it any less because it was for an animal." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a companion that's been through a few things with you. Be kind to each other; that's all I'd ask of either of you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Sometimes, usually about a beast they couldn't save, and Elune doesn't weigh that grief any less because it was for an animal. Your {pet} has the look of a companion that's been through a few things with you, so be kind to each other." },
       },
       choices = {
         { text = "I grieve every companion I've lost.", next = "BACK", fx = { align = { light = 1 } } },
@@ -505,7 +505,7 @@ P:NPC {
     warlock_s = {
       big = true,
       lines = {
-        { id = "ws_default", text = "She heard a man who served the Twilight's Hammer, and he'd done worse than summon an imp, I promise you. Whether you want her to listen is the harder question, and only you can answer it." },
+        { id = "ws_default", text = "Elune once heard a man who served the Twilight's Hammer, and he'd done worse than summon an imp, I promise you. Whether you want her to listen is the harder question, and only you can answer it." },
       },
       choices = {
         { text = "I want to be heard. Even like this.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
@@ -693,7 +693,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They will, though most forget to try until the hunter shouts. I tell my students to watch your beast as closely as they watch you, because a hunter whose companion falls usually follows it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fighter, I can see that much. Keep it where the healer can see it and tell them its name, because people heal what they've been introduced to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They will, though most forget to try until the hunter shouts. Keep your {pet} where the healer can see it and tell them its name, because people heal what they've been introduced to." },
       },
       choices = {
         { text = "I'll watch my companion's back as it watches mine.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1067,7 +1067,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The squirrels do, and a white owl who sits on the moonwell some evenings as though he were a priestess himself. I'm not allowed to feed them, but I may have dropped a few seeds by accident once or twice." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is lovely, and it's looking at me as if it knows I'm a soft touch. I won't feed it, I promise, though I'd like to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The squirrels do, and a white owl who sits on the moonwell some evenings as though he were a priestess himself. Your {pet} is lovely, too, and it's looking at me as if it knows I'm a soft touch." },
       },
       choices = {
         { text = "Rules are rules. Wild things should find their own food.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1318,7 +1318,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Trophies, mostly, claws and teeth and once a whole stuffed owl, which I recorded as one stuffed owl, wings slightly damaged. I don't ask why anyone wants such things kept safe, only that they're listed properly." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} may not come behind the counter, however politely it asks. The ledgers are very old and very chewable." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Trophies, mostly, claws and teeth and once a whole stuffed owl, wings slightly damaged. And your {pet} may not come behind the counter, however politely it asks, because the ledgers are very old and very chewable." },
       },
       choices = {
         { text = "I keep only what I need from a hunt.", next = "BACK", fx = { align = { honor = 1 } } },

@@ -67,7 +67,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I guard it fiercely. She is missing, and I will not let her be forgotten. Your spirits might find her where we cannot." } },
+      lines = { { id = "xdsham_default", text = "I guard it fiercely. Velinde Starsong, a priestess who was also a Sentinel, went missing, and I will not let her be forgotten. Your spirits might find her where we cannot." } },
       choices = {
         { text = "Then I will help you search, Thyn'tel.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Some memories should fade.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -313,7 +313,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I will trust only one with resolve. Your spirits must not trouble the waters. Prove yourself, and you will be welcome." } },
+      lines = { { id = "xdsham_default", text = "I will trust anyone with resolve, so long as your spirits do not trouble the waters. Prove yourself, and you will be welcome." } },
       choices = {
         { text = "I will prove my resolve, Elanaria.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits go where they please.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -342,7 +342,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The same as it means to a warrior: holding when every part of you wants to run. A hunter whose companion falls must still loose the next arrow, and I have seen Sentinels do it in Ashenvale with tears on their faces." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has resolve of its own; I can see it in how it stands its ground. Be worthy of it, {class}, because it will stand for you to the end." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The same as it means to a warrior: holding when every part of you wants to run, and loosing the next arrow even when your companion falls. Your {pet} has resolve of its own, {class}, so be worthy of it." },
       },
       choices = {
         { text = "I'll hold my ground, whatever falls beside me.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -448,7 +448,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You'll find no stances to learn here, but resolve is the same in any profession." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't train your kind, but I've seen a druid in bear shape hold a line I'd have been proud of, so you're welcome to watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on the Warrior's Terrace. Resolve is the first thing I ask of anyone, and I'd like to know whether yours is your own or borrowed." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me resolve first, for Teldrassil's moonwells are home to me, and I guard them as my mothers guarded the wells of old." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I guard Teldrassil's moonwells as my mothers guarded the wells of old, so show me resolve before you go near them." },
       },
       again = {
         { id = "h_again", text = "What else, warrior? Speak quickly; the Terrace doesn't sit still." },
@@ -496,7 +496,7 @@ P:NPC {
         { id = "vo_default", text = "Because the moonwells are holy, and a satyr in one is a filth in our goddess's cup. Young warriors eager to keep Teldrassil free of corruption are what this tree needs most." },
       },
       choices = {
-        { text = "Then it was well cleansed.", next = "BACK", fx = { align = { light = 1 }, learn = { "satyrs" } } },
+        { text = "Then the well must be cleansed.", next = "BACK", fx = { align = { light = 1 }, learn = { "satyrs" } } },
         { text = "A wall would have saved the trouble.", next = "BACK", fx = { align = { light = -1 }, trait = { witty = 1 }, learn = { "satyrs" } } },
       },
     },
@@ -570,7 +570,7 @@ P:NPC {
     { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "By Elune, what have you been hitting with that? Leave it with me before it leaves you." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
-      text = "A fellow smith! Tell me, does your forge run hot or slow? Furen in Stormwind swears by slow, and I'm half convinced." },
+      text = "A fellow smith! Tell me, does your forge run hot or slow? Furen Longbeard, the dwarf smith in Stormwind, swears by slow, and I'm half convinced." },
     { id = "n_dwarf", cat = "craft", when = { race = "Dwarf" },
       text = "A dwarf at my forge! Please, have a look and show me where I'm going wrong. Furen says I fold too often, but he's polite about it." },
   },
@@ -579,7 +579,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I do, and gladly. A dwarven colleague taught me a new technique. Your spirits might teach me another." } },
+      lines = { { id = "xdsham_default", text = "I do, and gladly, because a dwarven colleague taught me a new technique. Your spirits might teach me another." } },
       choices = {
         { text = "Shared knowledge is a fine thing, Mathiel.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep your secrets. Elunite is yours.", next = "BACK", fx = { align = { order = -1 } } },
@@ -608,7 +608,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It could, though it's too precious to leave in a Gnarlpine, and the priestesses would have words with me if I tried. A dwarven friend in Ironforge swears by rifle shot instead, and I'll admit his methods interest me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing at my anvil since you came in, and I think it smells the coal. Tell it there's nothing here to eat but iron." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It could, though elunite is too precious to leave in a Gnarlpine, and the priestesses would have words with me. Your {pet} has been sniffing at my anvil since you came in, so tell it there's nothing here to eat but iron." },
       },
       choices = {
         { text = "Elunite is sacred. Keep it for blades of honor.", next = "BACK", fx = { align = { light = 1 } } },
@@ -686,7 +686,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll repair your gear, warlock, because coin is coin and I need an anvil of my own. But tell your servant to stay outside the forge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Elunite holds an edge like nothing else, and I've always wondered how it would sit on an arrowhead." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need much from my forge, I suppose, but buckles snap on bears as easily as on anyone, so bring them to me when they do." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! I have friends in every forge, even Ironforge's, so tell me, do your fire spirits enjoy elunite?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I have friends in every forge, even Ironforge's, so tell me, do your fire spirits enjoy elunite?" },
       },
       again = {
         { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
@@ -826,7 +826,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I can, and yours is unusual. Spirits walk with you, and they shape you. Be careful they do not lead." } },
+      lines = { { id = "xdsham_default", text = "I can, and yours is unusual, because spirits walk with you and shape you. Be careful they do not lead you." } },
       choices = {
         { text = "I will lead my spirits, not follow them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits lead well. I trust them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -855,7 +855,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some of it, perhaps, for you do not flinch when I look at you, and most do. But your spirit lives in the bow and in your bond with the wild, and that is a different strength, though no lesser one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} carries a warrior's spirit, I think, more than you do. Do not take offense, for that is high praise from me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of it, perhaps, but your spirit lives in the bow and in your bond with the wild, and that is no lesser strength. Your {pet} carries a warrior's spirit, I think, more than you do, and that is high praise from me." },
       },
       choices = {
         { text = "My beast and I trust each other. I need nothing else.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1026,7 +1026,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The news says they are orcish, mostly. But a dwarven shaman is new, and I shall proclaim it." } },
+      lines = { { id = "xdsham_default", text = "The news says shamans are mostly orcs and trolls of the Horde, so a shaman of the Alliance is news in itself, and I shall proclaim it." } },
       choices = {
         { text = "Shout only what's true, Herald. People believe you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep me out of your proclamations.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1046,7 +1046,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Word from Darkshore says the thistle bears have gone mad, foaming and turning on their own cubs, and Tharnariun Treetender in Auberdine would welcome a steady bow. I'd proclaim it louder, but frankly the bears frighten me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And may your {pet} be proclaimed the finest beast on the Terrace, at least until the next one walks past. I say that to all the companions, but I mean it every time." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Word from Darkshore says the thistle bears have gone mad, and Tharnariun Treetender in Auberdine would welcome a steady bow. And may your {pet} be proclaimed the finest beast on the Terrace, at least until the next one walks past!" },
       },
       choices = {
         { text = "I'll go and help Tharnariun with his bears.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1102,7 +1102,7 @@ P:NPC {
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A Call to Arms: The Plaguelands!") },
           text = "Hear ye! Stormwind calls heroes to the Plaguelands, where the Scourge stirs again. Commander Ashlam Valorfist keeps his camp at Chillwind, north of the Alterac Mountains." },
         { id = "h_frontier", tags = { "news" }, when = { questActive = TODO_QUEST("The New Frontier") },
-          text = "The Cenarion Circle seeks brave proxies for the wastes west of Tanaris! The Arch Druid will tell you more, though I'd go in prepared for his manner." },
+          text = "The Cenarion Circle seeks brave explorers for the crater west of Tanaris! The Arch Druid will tell you more, though I'd go in prepared for his manner." },
         { id = "h_feather", tags = { "news" }, when = { questActive = TODO_QUEST("Feathermoon Stronghold") },
           text = "Your aid is needed in Feralas! An outlaw mage has fled into the ruins of Eldre'Thalas with something dangerous, and Latronicus Moonspear at Feathermoon wants it back." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Hear ye, hear ye, a rogue has crept onto the Terrace! I'm only teasing, of course, though you did startle me." },
@@ -1265,7 +1265,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I do, and I'm proud of it: dried meat for the cats, fish for the ones who'll eat it, and bread for the strange ones who won't eat either. A hero's companion is a hero too, as far as I'm concerned." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it eats well, and I'd like to keep it that way. Tell me what it favors, and I'll see whether it's on my shelves." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I do, and I'm proud of it: dried meat for the cats, fish for the ones who'll eat it, and bread for the strange ones. Your {pet} looks like it eats well, so tell me what it favors, and I'll see whether it's on my shelves." },
       },
       choices = {
         { text = "My companion eats before I do. Always.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1403,7 +1403,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I fear for him every day. Grief makes me fierce, not weak. If your spirits know where he is, tell me." } },
+      lines = { { id = "xdsham_default", text = "I fear for him every day, but fear makes me fierce, not weak. If your spirits know where he is, please tell me." } },
       choices = {
         { text = "I will search for him, Treshala. Hold on.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Prepare yourself for the worst.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1441,7 +1441,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "He studied the quilboar and the tales of their fallen boar god, Agamaggan, but he wrote about the zhevras and the great kodos in every letter. He would have liked you, because you'd have known which beasts he was describing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have fascinated him, and he'd have asked you a hundred questions about it before you'd taken your boots off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "He studied the quilboar mostly, but he wrote about the zhevras and the great kodos in every letter. Your {pet} would have fascinated him, and he'd have asked you a hundred questions about it before you'd taken your boots off." },
       },
       choices = {
         { text = "If I'm in the Barrens, I'll look for his trail.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1579,7 +1579,7 @@ P:NPC {
     grief = {
       big = true,
       lines = {
-        { id = "gr_default", text = "It isn't fair. A cruel world, and he walked into the worst of it for a boar god nobody else cared about. Thank you for coming so far from such a dangerous place to tell me, but I need you to give me a little time." },
+        { id = "gr_default", text = "It isn't fair, and it's a cruel world, and he walked into the worst of it for a boar god nobody else cared about. Thank you for coming so far from such a dangerous place to tell me, but I need you to give me a little time." },
         { id = "gr_after", when = { questDone = TODO_QUEST("Mortality Wanes") },
           text = "Thank you. Some days it sits lighter, and some days I find his handwriting in a margin and it's as if you'd only just come up the stairs." },
       },
@@ -1680,8 +1680,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They're very particular, because Telonis says a badly skinned stag is an insult to the stag, but a clean hide from a hunter who knows the work always gets a smile. Radnaal Maneweaver taught most of the skinners on Teldrassil, so if he taught you, say so!" },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is beautiful, but please don't let it near the hides in the back, because the last companion took a whole bolt of leather for a bed." },
+        { id = "xhuntcl_default", text = "They're very particular, because Telonis says a badly skinned stag is an insult to the stag, but a clean hide from a hunter who knows the work always gets a smile. Radnaal Maneweaver taught half the skinners on Teldrassil, so if he taught you, say so!" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They're very particular, but a clean hide from a hunter who knows the work always gets a smile. Please don't let your {pet} near the hides in the back, though, because the last companion took a whole bolt of leather for a bed." },
       },
       choices = {
         { text = "I take only what I can use, and skin it cleanly.", next = "BACK", fx = { align = { honor = 1 } } },

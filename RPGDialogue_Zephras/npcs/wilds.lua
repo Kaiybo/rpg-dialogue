@@ -125,7 +125,7 @@ P:NPC {
     },
     xcat = {
       lines = {
-        { id = "xc_default", text = "Saeyleenan's shape, sleek and quick, and it suits you, though I'd not tell the cat I said so. The cat teaches you when to strike and the bear teaches you when to stand, and a druid who knows only one of those will not live to learn the other." },
+        { id = "xc_default", text = "The shape of Saeyleenan, the Great Windborne Cat, sleek and quick, and it suits you, though I'd not tell the cat I said so. The cat teaches you when to strike and the bear teaches you when to stand, and a druid who knows only one of those will not live to learn the other." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -202,7 +202,7 @@ P:NPC {
     { id = "n_alaketh", cat = "origin", when = { origin = "skyborne_former_alaketh" },
       text = "I know that face. You sat three rows behind me at Lorthuna's sermons and fell asleep during the long one. Your hair's grown back nicely." },
     { id = "n_peace", cat = "origin", when = { origin = "skyborne_peacekeeper" },
-      text = "A Peacekeeper. Before you reach for anything, I've never hurt a soul, and I can't say that about the cut of my hems." },
+      text = "A Peacekeeper. Before you reach for anything, I've never hurt a soul; I only sew." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, in robes, saying prayers. You'll get looks on this isle, friend, and I say that as a man in grey robes who also gets looks." },
   },
@@ -314,7 +314,7 @@ P:NPC {
 
   notice = {
     { id = "n_young", cat = "kin", when = { race = "Skyborne", maxLevel = 6 },
-      text = "Aetheen sent you, didn't she? She sends me the ones with that look about them, the restless one. I had it too, and it never went away." },
+      text = "Elder Aetheen sent you, didn't she? She sends me the ones with that look about them, the restless one. I had it too, and it never went away." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! I hear your people can make camp in a snowdrift with nothing but a hammer and a sour temper. Teach me that one before you go." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },

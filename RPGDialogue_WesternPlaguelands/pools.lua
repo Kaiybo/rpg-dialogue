@@ -24,7 +24,7 @@ P:Pool {
   choices = { { text = "Keep watch.", next = "END", fx = { standing = { chillwind_camp = 1 } } } },
   topics = {
     andorhal = { { id = "t_andorhal", text = "Andorhal's north of here, friend, and there's a cart in the ditch on the way that nobody's had the stomach to clear. You shouldn't go alone, or at all, if the commander hasn't sent you." } },
-    argent_dawn = { { id = "t_dawn", text = "They're Pureheart's lot, and good soldiers, though a bit preachy for my taste, and they still owe me three silver from dice." } },
+    argent_dawn = { { id = "t_dawn", text = "They're Officer Pureheart's lot, and good soldiers, though a bit preachy for my taste, and they still owe me three silver from dice." } },
     _none = { { id = "t_none", text = "Ask the commander. I'm paid to watch the road, friend, not to know things, and I've not been paid since the thaw, either." } },
   },
 }
@@ -33,7 +33,7 @@ P:Pool {
   id = "guard_bulwark", role = "guard", community = "bulwark",
   barks = {
     { id = "b_wall", text = "There's another one shambling at the wall, the third today, and they never learn, which is their whole problem." },
-    { id = "b_living", text = "The living ones snore all night long, and I can't say I missed snoring." },
+    { id = "b_living", text = "The living soldiers here snore all night long, and I can't say I missed snoring." },
   },
   greetings = {
     { id = "g_wall", text = "This is the Bulwark, and past this gate everything wants you dead, even more than usual." },

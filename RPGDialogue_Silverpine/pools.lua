@@ -4,8 +4,8 @@ local P = RPGDialogueAPI:Pack("rpgd.silverpine")
 P:Pool {
   id = "guard_sepulcher", role = "guard", community = "sepulcher",
   barks = {
-    { id = "b_howl", text = "Howling from the south again. The worgen dragged off a pack mule last night, and they'll be back for the saddle." },
-    { id = "b_lights", text = "Strange lights by Ambermill, which means Dalaran's people are up to something." },
+    { id = "b_howl", text = "The worgen are howling in the south again. They dragged off a pack mule last night, and they'll be back for the saddle." },
+    { id = "b_lights", text = "There are strange lights over Ambermill again, so Dalaran's mages are up to something." },
   },
   greetings = {
     { id = "g_crypt", text = "You're at the Sepulcher, which was a graveyard once. It still is, but now the dead keep it." },

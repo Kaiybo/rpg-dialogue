@@ -88,7 +88,7 @@ P:NPC {
       },
     },
     wilds_dragon = {
-      lines = { { id = "wid_default", text = "Green ones, around the temple in the Pool of Sorrow, and they don't sleep the way they ought to. Fel'zerul says the trolls in the temple are behind something, so if you want the rest of that story, ask him and not me." } },
+      lines = { { id = "wid_default", text = "Green ones, around the sunken temple in the Pool of Tears, and they don't sleep the way they ought to. Fel'zerul, our troll who watches the temple, says the trolls in the temple are behind something, so if you want the rest of that story, ask him and not me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     wilds_log = {
@@ -151,7 +151,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Rartar, and these are my supplies: vials, flasks, a few reagents that keep in the damp. If you're an alchemist, you'll know what you need, and if you're not, you'll want to ask Rogvar first." },
+          text = "Rartar, and these are my supplies: vials, flasks, a few reagents that keep in the damp. If you're an alchemist, you'll know what you need, and if you're not, you'll want to ask Rogvar the alchemist first." },
         { id = "h_alch", when = { profession = "Alchemy" },
           text = "An alchemist, and a working one by the look of you, so you'll know that the swamp air ruins anything that isn't stoppered. I keep the stoppers tight, so what do you need?" },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -283,12 +283,12 @@ P:NPC {
     ledger = {
       lines = { { id = "le_default", text = "I don't name names, but I'll say that a certain cook buys more salt than any orc could eat and pays for it in stew. And a certain smith pays on time to the day, so he gets the good flux." } },
       choices = {
-        { text = "Thultash pays in stew?", next = "ledger_stew" },
+        { text = "This cook pays you in stew?", next = "ledger_stew" },
         { text = "Something else.", next = "BACK" },
       },
     },
     ledger_stew = {
-      lines = { { id = "les_default", text = "I didn't say his name, and you didn't hear it from me, but aye, and it's good stew. My ledger says he owes me forty bowls, and I'm eating my way through the debt." } },
+      lines = { { id = "les_default", text = "Aye, and it's good stew, though you didn't hear it from me. My ledger says he owes me forty bowls, and I'm eating my way through the debt." } },
       choices = { { text = "Sounds like a good bargain. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -357,7 +357,7 @@ P:NPC {
         { text = "Let me see the supplies.", next = "BUSINESS" },
         { text = "Why is the swamp a bad place to work iron?", next = "swamp" },
         { text = "Where does your ore come from?", next = "ore" },
-        { text = "You and Hartash work together?", next = "hartash" },
+        { text = "Do you work with Hartash, the weaponsmith?", next = "hartash" },
         { text = "What's the secret to working iron in the damp?", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -398,6 +398,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I worked a forge for a war band, and when the war band settled, so did I. The forge is all I've ever really wanted." } },
-    _none = { { id = "tp_none", text = "I know iron. Ask Thultash about the rest, he'll talk for hours." } },
+    _none = { { id = "tp_none", text = "I know iron. Ask Thultash the cook about the rest, because he'll talk for hours." } },
   },
 }

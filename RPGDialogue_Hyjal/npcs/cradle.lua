@@ -86,7 +86,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid of the Circle, come to look at the outcast. Tell your elders I am still here, and still killing what they would rather pray away." },
         { id = "h_windwalk", tags = { "news" }, when = { questRecent = { TODO_QUEST("Yashiro's Windwalk"), days = 3 } },
-          text = "The orc killed his doomguard, and you were with him. Good work, but do not mistake one dead warlord for a clean mountain." },
+          text = "Yashiro killed his doomguard, and you were with him. Good work, but do not mistake one dead warlord for a clean mountain." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The night is when they move, the things the Legion left behind. I sleep in the day, when I sleep at all." },
         { id = "h_hyjal", when = { origin = "nightelf_hyjal_survivor" },
@@ -229,7 +229,7 @@ P:NPC {
     yashiro = {
       big = true,
       lines = {
-        { id = "ya_default", text = "The orc is a good hunter and a better killer, and his grief makes him careless with his own life. I have watched him from the ridge; we want the same thing, and neither of us would say so to the other." },
+        { id = "ya_default", text = "Yashiro, the orc blademaster in Dae'gun, is a good hunter and a better killer, and his grief makes him careless with his own life. I have watched him from the ridge; we want the same thing, and neither of us would say so to the other." },
       },
       choices = {
         { text = "Does everyone distrust you the way Yashiro does?", next = "op_ask" },

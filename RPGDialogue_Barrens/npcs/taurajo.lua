@@ -50,12 +50,12 @@ P:NPC {
       },
     },
     xcl_rfk2 = {
-      lines = { { id = "xcl_rfk2_default", text = "The scouts say her Death's Head priests deal in death magic now, and the Downs beyond the Kraul are full of things that won't stay dead. A quilboar crone bargaining with that kind of power is something I'd never have believed, and I still don't like to say it aloud." } },
+      lines = { { id = "xcl_rfk2_default", text = "The scouts say her Death's Head priests deal in death magic now, and Razorfen Downs beyond the Kraul is full of things that won't stay dead. A quilboar crone bargaining with that kind of power is something I'd never have believed, and I still don't like to say it aloud." } },
       choices = { { text = "Then I'll watch the Downs as well, Jorn.", next = "BACK" } },
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "A stranger. The tauren never needed the Light; we live by the Earth Mother and the hunt. But stillness teaches, and you are very still, as the dead are. Perhaps the Light is something like that: a stillness inside that waits." } },
+      lines = { { id = "xfpala_default", text = "They see a stranger, because the tauren never needed the Light; we live by the Earth Mother and the hunt. But you are very still, as the dead are, and perhaps the Light is something like that, a stillness inside you that waits." } },
       choices = {
         { text = "Perhaps. I'll learn your stillness, Jorn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light isn't stillness. It's a weapon.", next = "BACK", fx = { align = { light = -1 } } },
@@ -82,9 +82,9 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The strongest I know. Lakota'mani has walked the plains so long that the herders say the earth spirits walk with him, and when you face him you face something older than the tauren, so face him with respect." } },
+      lines = { { id = "xhsham_default", text = "The strongest I know belongs to Lakota'mani, the great kodo. He has walked the plains so long that the herders say the earth spirits walk with him, and when you face him you face something older than the tauren, so face him with respect." } },
       choices = {
-        { text = "I'll face them honorably, however old they are.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll face him honorably, however old he is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A spirit's age won't save a beast from a careful hunter.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -133,7 +133,7 @@ P:NPC {
         { id = "h_ishamuhale", tags = { "news" }, when = { questActive = TODO_QUEST("Ishamuhale") },
           text = "Ishamuhale is a thunder lizard, older and fiercer than the rest. Bring me proof that you faced it, and we'll talk about what's next." },
         { id = "h_lakota", when = { questActive = TODO_QUEST("Lakota'mani") },
-          text = "Lakota'mani walks the plains like a moving hill. Bring me his hoof. It's a lesson in patience as much as courage." },
+          text = "Lakota'mani walks the plains like a moving hill. Bring me his hoof, because that hunt is a lesson in patience as much as courage." },
         { id = "h_owatanka", when = { questActive = TODO_QUEST("Owatanka") },
           text = "Owatanka is the thunderhawk who rules the sky over the southern Barrens. Face it, and you'll have learned something no one can teach." },
         { id = "h_washte", when = { questActive = TODO_QUEST("Washte Pawne") },
@@ -217,7 +217,7 @@ P:NPC {
       },
     },
     skyborne = {
-      lines = { { id = "sk_default", text = "I'd like to hear of them one day, though I suspect your hawks were bigger than ours. The Windshapers' hunters who came through Taurajo walk the grass as if they expect it to blow away beneath them, and I find that charming." } },
+      lines = { { id = "sk_default", text = "I'd like to hear of them one day, though I suspect your hawks were bigger than ours. The Windshaper hunters who came through Taurajo walked the grass as if they expected it to blow away beneath them, and they asked me the strangest questions." } },
       choices = {
         { text = "The ground here is very still.", next = "BACK", fx = { affinity = 2 } },
         { text = "What did they ask you?", next = "skyborne_ask" },
@@ -228,11 +228,11 @@ P:NPC {
       choices = { { text = "Maybe I'll ask him.", next = "BACK", fx = { affinity = 1 } } },
     },
     druid = {
-      lines = { { id = "dr_default", text = "Hamuul's druids come to sit with me now and then, to learn how a hunter reads the grass. A druid who can wear a cat's body still has to learn to think like one, and the cats here are very good teachers." } },
+      lines = { { id = "dr_default", text = "Not only hunters. Hamuul Runetotem's druids come to sit with me now and then, to learn how a hunter reads the grass. A druid who can wear a cat's body still has to learn to think like one, and the cats here are very good teachers." } },
       choices = { { text = "Then teach me how a cat thinks.", next = "BACK", fx = { affinity = 2 } } },
     },
     first = {
-      lines = { { id = "f_default", text = "Stillness. Anyone can run and anyone can shoot, but stillness is what lets you choose when to do either." } },
+      lines = { { id = "f_default", text = "No, a hunter learns stillness first. Anyone can run and anyone can shoot, but stillness is what lets you choose when to do either." } },
       choices = { { text = "I'll practice.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } } },
     },
   },
@@ -272,7 +272,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_mangletooth_default", text = "Not fear, no, because they fear only Charlga and the voices she listens to, but they will count you, and quilboar who are busy counting enemies make mistakes. Go in many and come out many, and Mangletooth will hear the squealing from here and be glad." } },
       choices = {
-        { text = "We'll free your people, Mangletooth. That's why we're going.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "We go to break Charlga's hold on your people, Mangletooth.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "We go for plunder. Your people are your own problem.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Mangletooth.", next = "BACK" },
       },
@@ -292,7 +292,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "*snort* Mangletooth fears nothing in a cage. But shining dead make Razormane nervous, and nervous Razormane talk. Kill Bristlebacks, and Mangletooth will tell you where the Razormane are nervous." } },
+      lines = { { id = "xfpala_default", text = "*snort* Mangletooth fears nothing, not even from inside a cage. But shining dead make the Razormane nervous, and nervous Razormane talk, so kill Bristlebacks for Mangletooth and he will tell you what they say." } },
       choices = {
         { text = "I'll strike at the Bristlebacks, and keep my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll do what I like, pig. Talk now.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -303,8 +303,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The Razormane have geomancers who speak with the earth, and Death's Head priests who speak with older things, and Mangletooth does not like either. Charlga Razorflank listens to something under the Razorfen, and it is not the Earth Mother, whatever the tauren say." } },
       choices = {
-        { text = "Then I'll bless your bruises, prisoner or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A Razormane in chains has earned his bruises.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Whatever your priests serve, I'll still tend your sores.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A Razormane in chains has earned his sores.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Mangletooth.", next = "BACK" },
       },
     },
@@ -321,7 +321,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "*snort* Every Razormane hunter has a boar, and the boars are Agamaggan's children too, so they fight harder than any of your little pets. Free Mangletooth, and Mangletooth will show you how the quilboar call them, but you won't, because you're like the others." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "*snort* Your {pet} smells better than you do. Mangletooth would trade you for it, if Mangletooth had anything to trade." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "*snort* Every Razormane hunter has a boar, and your {pet} would not last long against one. Free Mangletooth, and he will show you how the quilboar call their boars." },
       },
       choices = {
         { text = "You'll stay caged. The Horde keeps its prisoners.", next = "BACK", fx = { align = { order = 1 } } },
@@ -346,7 +346,7 @@ P:NPC {
       choices = {
         { text = "Maybe I will, if you make it worth my while.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "You'll stay in that cage where the Horde put you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Who is this Agamaggan you keep mentioning?", next = "agamaggan" },
+        { text = "Who do the quilboar worship, then?", next = "agamaggan" },
       },
     },
     xwarlock = {
@@ -362,7 +362,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "*snort* Because the land is ours, and Agamaggan's blood gave us the thorns before any tauren walked here. Mangletooth sits in a cage, but the Razormane remember it, and the Bristlebacks forget, so they are weak." } },
+      lines = { { id = "xdruid_default", text = "*snort* Because the land is ours, and Agamaggan's blood gave us the thorns before any tauren walked here. Mangletooth sits in a cage, but the Razormane still remember that, and the Bristlebacks have forgotten, which is why they are weak." } },
       choices = {
         { text = "The Horde holds this land now, and that's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your people were here first. Their claim deserves a hearing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -383,7 +383,7 @@ P:NPC {
           text = "The Bristlebacks carry blood shards. Bring them to Mangletooth, and he will give you the boar god's gifts." },
         { id = "h_betrayal", when = { questActive = TODO_QUEST("Betrayal from Within") },
           text = "*snort* Nak, Kuz and Lok were Mangletooth's own, and they left him to the cow-folk's axes. Now they learn what Mangletooth thinks of that." },
-        { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns. Great thorns, taller than the cow-folk's poles. One day Mangletooth goes home to them." },
+        { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns, great thorns taller than the cow-folk's poles, and one day Mangletooth goes home to them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "*snort* A spirit-talker. The Razormane have geomancers who talk to the thorns and the earth, and they are stronger than you, so do not wave your little totems at Mangletooth." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "*snort* A shape-changer. The Razormane geomancers say your kind are only beasts pretending to be tall folk, so Mangletooth asks which one is pretending." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "*snort* A big one with an axe, good. Mangletooth knows which Bristlebacks need killing, and you look like you enjoy killing." },
@@ -440,10 +440,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "*snort* Mangletooth knows nothing about that. Ask again with blood shards." } },
-    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Razormane are my people, and the Razorfen are our home, and you've been killing both. Bring me what I want and maybe I'll tell you which of my brothers to kill next." } },
-    razorfen = { { id = "tp_razorfen", text = "Charlga Razorflank leads the Razorfen Kraul, and she listens to the death-thing from the Downs now. I didn't like it then, and I like it less from a cage." } },
-    centaur = { { id = "tp_centaur", text = "The centaur hate us and we hate them, and the tauren hate both of us. It's the one thing on the Barrens everybody agrees on." } },
-    scourge = { { id = "tp_scourge", text = "There's a cold thing in Razorfen Downs that wears bones and talks like a priest, and it's turning my people into its servants. I'll trade you something good if you kill it, and I mean that." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "*snort* The Razormane are Mangletooth's people, and the Razorfen is their home, and you have been killing both. Bring Mangletooth what he wants, and maybe he tells you which brothers to kill next." } },
+    razorfen = { { id = "tp_razorfen", text = "*snort* Charlga Razorflank leads the Razorfen Kraul, and now she listens to the death-thing in Razorfen Downs. Mangletooth did not like it when he was free, and he likes it less from a cage." } },
+    centaur = { { id = "tp_centaur", text = "*snort* The centaur hate the quilboar and the quilboar hate them, and the tauren hate both. Hating is the one thing everybody on the Barrens agrees on." } },
+    scourge = { { id = "tp_scourge", text = "There's a cold thing in Razorfen Downs that wears bones and talks like a priest, and it's turning Mangletooth's people into its servants. Kill it, and Mangletooth will trade you something good, and he means that." } },
   },
 }
 
@@ -472,7 +472,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "The weapons first: a paladin's hammer is a human weapon, made by human smiths to break orcs in the old wars. Seeing it in Forsaken hands, for the Horde, tells me more than any book. I'll write it down for the Warchief, who may never read it." } },
+      lines = { { id = "xfpala_default", text = "Your hammer, for a start, because a paladin's hammer is a human weapon, made by human smiths to break orcs in the old wars. Seeing it swing for the Horde in Forsaken hands tells me more than any book, and I'll write it down for the Warchief, who may never read it." } },
       choices = {
         { text = "Tell him it swings for the Horde now.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Tell him it swings for the Light, not the Horde.", next = "BACK", fx = { align = { order = -1 } } },
@@ -492,7 +492,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That you shoot more than you clean, which is true of most hunters I've met. The dwarves at Bael Modan carry guns finer than anything we make, and the quilboar use bows of bone and sinew, and I've learned from both, so don't think a weapon's worth depends on who made it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a weapon too, in a way, and a better one than most I've studied. Steel doesn't love its wielder." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your weapon tells me you shoot more than you clean, but your {pet} is the better weapon, and the one I can't study. Steel doesn't love its wielder." },
       },
       choices = {
         { text = "I'll learn from every people's weapons, as you have.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -573,7 +573,7 @@ P:NPC {
     },
     warrior = {
       lines = {
-        { id = "wa_default", text = "Let me see the edge. Hm, you've been fighting things with hide, not armor, because it's dull in the middle and sharp at the tip. You stab more than you think you do, warrior." },
+        { id = "wa_default", text = "Let me see the edge. It's dull in the middle and still sharp at the tip, so you stab more than you think you do, warrior." },
         { id = "wa_tauren", when = { race = "Tauren" },
           text = "A tauren warrior's grip wears the haft smooth just above the middle, every time, because you swing from the shoulders like a kodo. I've written a whole page on it." },
       },
@@ -627,7 +627,7 @@ P:NPC {
   nodes = {
     xpt_byula = {
       big = true,
-      lines = { { id = "xpt_byula_default", text = "Dangerous enough that I count the braves who ride out each morning and count them again at dusk, and the numbers don't always match. Companies that travel close come home, so I tell everyone who drinks here the same thing." } },
+      lines = { { id = "xpt_byula_default", text = "Dangerous enough that I count the braves who ride out each morning and count them again at dusk, and the numbers don't always match. Companies that travel close come home, and I tell that to everyone who drinks here." } },
       choices = {
         { text = "Then we'll ride close and come home together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Danger is the price of glory. We'll ride as we like.", next = "BACK", fx = { align = { order = -1 } } },
@@ -678,7 +678,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the lions are bolder here and the thunder lizards are larger, and the quilboar of Razorfen set traps in the brush for anything that walks. Rest well tonight, because the southern Barrens rewards a hunter who's slept." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can rest by the fire. The kodo herders bring their beasts in at night too, and they all seem to get along." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can rest by the fire tonight, and so should you, because the lions are bolder down here and the quilboar set traps in the brush." },
       },
       choices = {
         { text = "I'll take only what the land can spare.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -745,7 +745,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, the way the herds stop at water, and I make sure they leave rested." },
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when Mu'sha's eye is open. I've never once found it funny." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon, Mu'sha's eye, is open. I've never once found it funny." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at Taurajo's fire, and welcome. Sit and eat, and if the hyenas start laughing out past the walls, I hope you will not mind if I do not laugh along." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
@@ -776,7 +776,7 @@ P:NPC {
     },
     camp = {
       lines = {
-        { id = "c_fires", text = "Quieter than the Crossroads, and hungrier. Centaur and quilboar both test the palisade. We keep the fires high and the spears close, and we still sing at night." },
+        { id = "c_fires", text = "It's quieter than the Crossroads, and hungrier. Centaur and quilboar both test the palisade, so we keep the fires high and the spears close, and we still sing at night." },
       },
       choices = { { text = "I'd like to hear that.", next = "END", fx = { affinity = 1 } } },
     },
@@ -785,7 +785,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "Ask Jorn; he knows the Barrens, and I only know soup. May the eternal sun shine upon you." } },
     earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sends rain to the herds and hyenas to the herders, and I have never understood the second part. Still, I thank her for the stew, and the stew has never failed me." } },
-    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "Bael'dun's dwarves dig to the west and the Razormane prowl to the south, and our herders face both every day. The quilboar warrens at Razorfen are so close you can smell them when the wind turns." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The dwarves at Bael Modan dig nearby and the Razormane prowl to the south, and our herders face both every day. The quilboar warrens at Razorfen are so close you can smell them when the wind turns." } },
     cairne = { { id = "tp_cairne", text = "Cairne set this camp here to watch the south road, and every kodo herder at my fire would die for him. I would only feed him, but I would feed him very well." } },
     centaur = { { id = "tp_centaur", text = "The centaur leave Taurajo alone mostly, because we are too many and too stubborn. When they don't, the herders come back hungry, and that is when I earn my keep." } },
   },

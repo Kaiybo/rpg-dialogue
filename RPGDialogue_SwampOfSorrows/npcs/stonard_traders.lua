@@ -52,7 +52,7 @@ P:NPC {
 
     supply = {
       lines = {
-        { id = "su_default", text = "Up from Grom'gol, with Commander Aggro'gosh's lot guarding the wagons, through the jungle and past Deadwind Pass, which is a road nobody enjoys. When the caravan's late, Stonard eats crocolisk, and when it's very late, Stonard eats whatever Dar's hunters bring back and doesn't ask." },
+        { id = "su_default", text = "Up from Grom'gol, with Commander Aggro'gosh's lot guarding the wagons, through the jungle and past Deadwind Pass, which is a road nobody enjoys. When the caravan's late, Stonard eats crocolisk, and when it's very late, Stonard eats whatever the hunters bring back and doesn't ask." },
       },
       choices = {
         { text = "What happens if the caravan never comes?", next = "supply_late" },
@@ -65,7 +65,7 @@ P:NPC {
       },
       choices = {
         { text = "A hidden store is wise. Hunger breaks discipline.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "You should tell Ruag. Secrets like that cause trouble.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Tell Commander Ruag. Secrets like that cause trouble.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
 
     rartar = {
       lines = {
-        { id = "ra_default", text = "We sell vials, but not the same vials, whatever Rogvar tells people. Mine are packed in straw and sealed, and his crack if you look at them unkindly, though I'll grant they come off the same wagon." },
+        { id = "ra_default", text = "We sell vials, but not the same vials, whatever Rartar tells people. Mine are packed in straw and sealed, and his crack if you look at them unkindly, though I'll grant they come off the same wagon." },
       },
       choices = {
         { text = "So they're the same vials?", next = "rartar_same" },
@@ -253,7 +253,7 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Does the rust really get that bad?", next = "rust" },
         { text = "Who are you arming against out here?", next = "ogres" },
-        { text = "Do Malosh's recruits buy from you?", next = "recruits" },
+        { text = "Do the warrior recruits buy from you?", next = "recruits" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -288,7 +288,7 @@ P:NPC {
     },
     ogres_rockard = {
       lines = {
-        { id = "or_default", text = "Every grunt in the great hall says so after his third drink, and Ruag says we've neither the warriors nor the reason. I say I'd sell a great many axes either way, so I keep my opinion to myself and my prices fair." },
+        { id = "or_default", text = "Every grunt in the great hall says so after his third drink, and Commander Ruag says we've neither the warriors nor the reason. I say I'd sell a great many axes either way, so I keep my opinion to myself and my prices fair." },
       },
       choices = {
         { text = "Rockard was ours. The Horde should take it back.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -299,7 +299,7 @@ P:NPC {
 
     recruits = {
       lines = {
-        { id = "rc_default", text = "They do, and they all want the biggest thing on the rack, and Malosh sends them back to buy something they can actually lift. I don't mind, because I sell them twice that way." },
+        { id = "rc_default", text = "They do, and they all want the biggest thing on the rack, and Malosh, their trainer, sends them back to buy something they can actually lift. I don't mind, because I sell them twice that way." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -327,7 +327,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Plate and mail, brigandine and platemail, and a shield or two. Don't listen to Thralosh across the way." },
+    { id = "g_default", text = "Plate and mail, brigandine and platemail, and a shield or two. Don't listen to Thralosh across the square, who sells leather." },
     { id = "g_plate", when = { class = { "WARRIOR", "PALADIN" } }, text = "Now there's someone built to wear proper armor. Come and try the platemail on." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still alive, which I'll put down to good armor whether or not you bought it here." },
   },

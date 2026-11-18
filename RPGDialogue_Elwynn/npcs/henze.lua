@@ -37,7 +37,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Aye, I reckon a wolf's nose would've had me in an hour, an' I'd have been a deal less dead for it. Gazin did his best, but Gazin couldn't smell a fire in a hayloft." } },
+      lines = { { id = "xdruid_default", text = "Aye, I reckon one o' yer beast shapes could've sniffed me out in an hour, an' I'd have been a deal less dead for it. Gazin did his best, but Gazin couldn't smell a fire in a hayloft." } },
       choices = {
         { text = "A friend who comes for you matters more than any nose.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Gazin should've left you. Two dead men help nobody.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -57,7 +57,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, easily, for I left boot prints like a ram on a snowfield. Gazin found me eventually, but a beast with a good nose would've found me before I was quite so dead, I'd wager." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that your {pet}? Grand beast. Ye keep it close, now, the Defias don't play fair with animals either." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, easily, for I left boot prints like a ram on a snowfield. Is that your {pet}? Grand beast, so keep it close, for the Defias don't play fair with animals either." },
       },
       choices = {
         { text = "I'd have come for you, Henze, Defias or not.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ah, now, I said I'd bring one next time, an' here ye are, a mite late but welcome all the same." },
-        { id = "h_default", text = "Henze Faulk. Gazin an' me were watchin' the Defias for the king's advisors, an' when they near enough caught Gazin, I went in after him. They caught me properly." },
+        { id = "h_default", text = "Henze Faulk. Gazin an' me were watchin' the Defias for the king's advisors, an' when they near enough caught Gazin, I went in after him, an' they caught me properly." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Symbol of Life"), days = 3 } },
           text = "I was dead, I know I was: cold an' quiet an' nothin'. Then there was you, an' a light, an' a terrible taste in my mouth, so thank ye, an' I mean it." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Symbol of Life"), days = 7 } },
@@ -103,10 +103,10 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Ye wouldnae have a drop of somethin' warmin' on ye, for medicinal purposes? Strictly medicinal." },
         { id = "h_dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" },
-          text = "A dwarf talkin' to the elements! My granddad would've fallen off his stool. I'm just glad somebody's listenin' to the ground. It's got plenty to say." },
+          text = "A dwarf talkin' to the elements! My granddad would've fallen off his stool, but I'm glad somebody's listenin' to the ground, for it's got plenty to say." },
         { id = "h_dead", when = { metBefore = true }, text = "Still dead-ish? No, still alive; I check every mornin'. It's a good habit once ye've been the other thing." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest. If ye've come to read me the last rites, ye're late. Somebody already read me the first ones again." },
+          text = "A priest. If ye've come to read me the last rites, ye're late, for I've been dead already an' come back." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ye walk like Gazin does, quiet as a cat. Are ye one o' the king's eyes as well, or just a thief wi' good manners?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -163,7 +163,7 @@ P:NPC {
 
     defias = {
       lines = {
-        { id = "df_default", text = "Watchin' them for the king's advisors. Notes, names, who meets who in the woods. They caught Gazin first, an' I couldnae leave him." },
+        { id = "df_default", text = "We were watchin' the Defias for the king's advisors, takin' down names an' who meets who in the woods. They caught Gazin first, an' I couldnae leave him." },
       },
       choices = {
         { text = "What did you find?", next = "defias_found" },
@@ -172,7 +172,7 @@ P:NPC {
     },
     defias_found = {
       lines = {
-        { id = "dfo_default", text = "Enough to get killed for. The rest's in Gazin's head an' the advisors' desks now. Ask him at the Cathedral, if ye want the dull parts." },
+        { id = "dfo_default", text = "Enough to get killed for, an' the rest's in Gazin's head an' the advisors' desks now. Ask him at the Cathedral, if ye want the dull parts." },
       },
       choices = {
         { text = "Do the advisors ever act on it?", next = "defias_advisors" },
@@ -191,7 +191,7 @@ P:NPC {
 
     place = {
       lines = {
-        { id = "pl_default", text = "Heroes' Vigil. A stone for the folk who died when the orcs came through Goldshire in the first war. Fittin' place to die, I thought, while I was doin' it." },
+        { id = "pl_default", text = "This island's Heroes' Vigil, a stone for the folk who died when the orcs came through Goldshire in the First War. It seemed a fittin' place to die, while I was doin' it." },
       },
       choices = {
         { text = "Who holds the island now?", next = "place_wizards" },
@@ -207,14 +207,14 @@ P:NPC {
 
     gazin = {
       lines = {
-        { id = "gz_default", text = "Up at the Cathedral in Stormwind, last I heard, by the altar. Prayin' for me, likely. Tell him it worked an' he can stop." },
+        { id = "gz_default", text = "He's up at the Cathedral in Stormwind, last I heard, prayin' for me by the altar. Tell him it worked an' he can stop." },
       },
       choices = { { text = "I'll tell him.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     heal = {
       lines = {
-        { id = "he_default", text = "Kind of ye. The paladin's Light did the big work, so yours can do the small, an' my ribs'll thank ye loudly." },
+        { id = "he_default", text = "Kind of ye. The paladin who raised me did the big work, so yours can do the small, an' my ribs'll thank ye loudly." },
       },
       choices = {
         { text = "Hold still.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -242,7 +242,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A dwarf far from the mountain, watchin' thieves for the humans. I got killed for it, an' then I got better." } },
-    advice = { { id = "tp_ad", text = "If yer friend's caught, go in after him. But bring a paladin." } },
+    advice = { { id = "tp_ad", text = "If yer friend's caught, go in after him, but bring a paladin." } },
     defias = { { id = "tp_defias", text = "They don't fight fair an' they don't leave witnesses, an' I'm the exception, which I'm very proud of." } },
     tome_of_divinity = { { id = "tp_tome", text = "Whatever's in that book, it brought me back. I'll read it myself one day, maybe." } },
     _none = { { id = "tp_none", text = "I was dead for a bit. I've missed some news." } },

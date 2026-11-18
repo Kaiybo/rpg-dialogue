@@ -19,8 +19,8 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Speak up, friend; the anvils don't stop for visitors, not even for the Earth Mother herself." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did my armor hold, or have you come to complain?" },
-    { id = "g_shield", when = { questActive = TODO_QUEST("The Black Shield") }, text = "Krog sent you with a shield? Let me see it, then, and hold it to the light." },
-    { id = "g_shield_done", when = { questDone = TODO_QUEST("The Black Shield") }, text = "Has Krog found his burners yet? I still think about that shield, which is more than I do about most of them." },
+    { id = "g_shield", when = { questActive = TODO_QUEST("The Black Shield") }, text = "Krog sent you up from Brackenwall with a shield? Let me see it, then, and hold it to the light." },
+    { id = "g_shield_done", when = { questDone = TODO_QUEST("The Black Shield") }, text = "Has Krog found out who burned that inn in Dustwallow yet? I still think about that shield, which is more than I do about most I make." },
   },
 
   notice = {
@@ -92,7 +92,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     krog = {
-      lines = { { id = "k_default", text = "Tell him I'm sorry, but that's the truth of it. Many tauren in Dustwallow carry a shield like that, and the Grimtotem buy more than anyone, if that helps him at all." } },
+      lines = { { id = "k_default", text = "Tell him I'm sorry, but I can't say who carried it. Half the tauren in Dustwallow carry a shield like that, and the Grimtotem buy more than anyone, if that helps him at all." } },
       choices = { { text = "It might. Thank you, Mosarn.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -119,7 +119,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "Taim says you want the dwarves out of Alterac! Good! Then train harder, because they hit like falling rocks!" },
+    { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "My kinsman Taim says you want the dwarves out of Alterac! Good! Then train harder, because they hit like falling rocks!" },
     { id = "g_hi", text = "Shoulders back, like a bull facing the wind! Now, what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing. Good, that's the first lesson." },
   },
@@ -292,7 +292,7 @@ P:NPC {
       },
     },
     beast = {
-      lines = { { id = "b_default", text = "The one that chooses you back. Hesuwa will tell you the same, though he'll take longer about it and sound wiser." } },
+      lines = { { id = "b_default", text = "The one that chooses you back. Hesuwa, who trains our companions, will tell you the same, though he'll take longer about it and sound wiser." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -318,7 +318,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Red dust on your hooves. You've come up from the Barrens, haven't you?" },
+    { id = "g_hi", text = "You've red dust all over you. Come up from the Barrens, have you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Your tracks are cleaner than they were, at least." },
   },
 
@@ -390,7 +390,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Your {pet} is well fed and its coat is clean. You're taking care of it, and I can tell it knows." },
+      text = "{pet} is well fed and its coat is clean. You're taking care of it, and I can tell it knows." },
   },
 
   start = "hello",
@@ -466,7 +466,7 @@ P:NPC {
         { id = "opd_q", text = "The Frostwolves have held that valley since before the dwarves came digging, and now the Stormpike want it all. You've seen the dwarves in your travels, so what do you make of them?" },
       },
       choices = {
-        { text = "They're hard workers and fierce fighters. I'd rather them as friends.", next = "op_dwarves_r1", fx = { align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They're hard workers and fierce fighters. I'd rather have them as friends.", next = "op_dwarves_r1", fx = { align = { light = 1 }, opinion = { dwarves = "respect" } } },
         { text = "They dig up anything that isn't nailed down. Drive them out of Alterac.", next = "op_dwarves_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { dwarves = "hate" } } },
         { text = "I'm a dwarf, and the Stormpike have every right to that valley.", next = "op_dwarves_r3", fx = { affinity = -2, trait = { stubborn = 1 }, opinion = { stormpike = "support" } }, when = { race = "Dwarf" } },
         { text = "It's a valley full of snow. Neither side should bleed for it.", next = "op_dwarves_r4", fx = { trait = { practical = 1 }, opinion = { alterac = "waste" } } },
@@ -491,7 +491,7 @@ P:NPC {
     },
     op_dwarves_r3 = {
       lines = {
-        { id = "op_dwarves_r3", text = "Ha! At least you say it to my face, which is more than the snow does. We'll see whose right holds up when the thaw comes." },
+        { id = "op_dwarves_r3", text = "Ha! At least you say it to my face. We'll see whose right holds up when the thaw comes." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

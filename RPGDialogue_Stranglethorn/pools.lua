@@ -165,7 +165,7 @@ P:Pool {
   },
   topics = {
     bloodsail = { { id = "t_bloodsail", text = "Let 'em come, pal. We've got cannons, a grudge and a whole cellar of powder that's dying to go off." } },
-    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and docks a copper every time a gull messes on the cannons, by my last copper. That's all I need to know about the Cartel." } },
+    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and docks us a copper every time a gull messes on the cannons. That's all I need to know about the Cartel." } },
     _none = { { id = "t_none", text = "Ask Krazek up at the tavern, buddy. He'll tell you whatever you want to know, and then he'll bill you for it." } },
   },
 }
@@ -178,7 +178,7 @@ local TODO_QUEST = P.TODO_QUEST
 P:Pool {
   id = "citizen_bootybay_raiders", role = "citizen", community = "booty_bay",
   barks = {
-    { id = "b_sails", text = "Black sails coming in on the tide! Somebody fetch the Fleet Master before he hears it from the parrot." },
+    { id = "b_sails", text = "Red sails out past the shark's teeth! Somebody fetch the Fleet Master before he hears it from the parrot." },
     { id = "b_red", text = "If you see a red sail out past the shark's teeth, shout, and then run, in that order." },
     { id = "b_song", text = "The Raiders were singing on the pier till dawn again, and not one of them knows the second verse." },
   },
@@ -253,7 +253,7 @@ P:Pool {
     },
     bloodsail_firallon = {
       lines = {
-        { id = "bf_default", text = "The Bloodsail's fleet master, with Keelhaul and Stillwater for his captains, and a ship off our coast you can see from the top of the Salty Sailor on a clear day. First Mate Crazz will tell you more than you want to know, and twice as loud." },
+        { id = "bf_default", text = "The Bloodsail's fleet master, with Keelhaul and Stillwater for his captains, and a ship off our coast you can see from the top of the Salty Sailor on a clear day. First Mate Crazz, up at the Salty Sailor, will tell you more than you want to know, and twice as loud." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
     },

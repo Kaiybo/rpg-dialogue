@@ -46,7 +46,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Never, dearie, and that's the one thing I can't mend. A Crusader's eyes believe what they're shown, but a hound believes what it smells, so if the Crusade ever learns to keep dogs at the gate, old Myranda's out of work." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} knows exactly what I am, dearie, just look at its hackles. Beasts always do, and I've never held it against them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Never, dearie, and that's the one thing I can't mend. A Crusader's eyes believe what they're shown, but a hound believes what it smells, so if the Crusade ever learns to keep dogs at the gate, old Myranda's out of work. {pet} knows exactly what I am, dearie, just look at its hackles." },
       },
       choices = {
         { text = "Then I'll trust my beast's nose over any seeming.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Myranda, they call me, and the Hag behind my back, though not to my face more than once. I trade in seemings, dearie, the art of looking like what you're not." },
         { id = "h_tirion", tags = { "news" }, when = { questActive = TODO_QUEST("Find Myranda") },
-          text = "The old exile by the river sent you, did he? Then you'll want to walk into Hearthglen wearing a Crusader's face, and I can give you one, for a little while." },
+          text = "Old Tirion Fordring, the exile by the river, sent you, did he? Then you'll want to walk into Hearthglen wearing a Crusader's face, and I can give you one, for a little while." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, dearie, with the smell of the Nether on your sleeve. Don't bring your little friend in here, for my cauldron has a temper of its own." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -151,7 +151,7 @@ P:NPC {
     },
     tirion = {
       lines = {
-        { id = "ti_default", text = "Because old Tirion Fordring's son sits at the Crusade's table in Hearthglen, and anything that hurts the Crusade pleases me. That the old man's heart might mend a little is, well, a pleasant accident." },
+        { id = "ti_default", text = "Because anything that hurts the Crusade pleases me, dearie. Old Tirion Fordring's son Taelan sits at their table in Hearthglen, and if my seeming gets you to him, the old man's heart might mend a little, which is a pleasant accident." },
       },
       choices = { { text = "That's kinder than you let on.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -187,7 +187,7 @@ P:NPC {
 
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! How lovely. You'll forgive me if I don't talk about Gnomeregan; I find it all very sad, and I'm told it isn't over yet." },
+      text = "A gnome! How lovely. You'll forgive me if I don't talk about Gnomeregan; I find it all very sad." },
   },
 
   start = "hello",
@@ -224,7 +224,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "He died defending Darrowshire, and what he died as is more complicated, because the Scourge took him afterwards and made him something else. I'd like to think a man is remembered for the stand he made and not for what was done to him later." } },
+      lines = { { id = "xapala_default", text = "He died defending Darrowshire, and that part is simple. What came after is more complicated, because the Scourge took him and made him something else. I'd like to think a man is remembered for the stand he made and not for what was done to him later." } },
       choices = {
         { text = "Then remember the stand. His honour is still his.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What he became matters too. Truth over comfort.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Chromie, and I'm very interested in Darrowshire, the town in the east where so many brave people fell. Things that happened there want to be remembered properly, and I'd like to help them." },
         { id = "h_ring", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange Historian") },
-          text = "Joseph Redpath's ring! Marlene sent you, didn't she? Hold onto it a moment; there's something it still wants to do." },
+          text = "Joseph Redpath's ring! Marlene Redpath sent you, didn't she? Hold onto it a moment; there's something it still wants to do." },
         { id = "h_annals", when = { questActive = TODO_QUEST("The Annals of Darrowshire") },
           text = "The Annals are somewhere in Andorhal's old town hall, among a great many books that aren't the Annals. Look for the one that looks like it's been waiting for you." },
         { id = "h_magecl", when = { class = "MAGE" },

@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_op_red_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "Oh, it's you! You said I could come back from it. I've been saying it to myself every night since, mostly when the howling starts." },
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
-    { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told him, didn't you, and it's fine, really, it's fine." },
+    { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told Sven, didn't you, and it's fine, really, it's fine." },
     { id = "g_ravenhill", when = { questActive = TODO_QUEST("Raven Hill") }, text = "Don't shoot, please don't shoot, it's only me, harmless old Jitters!" },
   },
 
@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. I know it's nonsense, mostly, but a man who's seen what I've seen gets suspicious of the bushes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin. Does it see something?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin." },
       },
       choices = {
         { text = "I'll keep watch tonight, Jitters. You can sleep.", next = "BACK", fx = { align = { light = 1 } } },
@@ -141,7 +141,7 @@ P:NPC {
         { id = "h_sleep", when = { metBefore = true }, text = "I slept two whole hours last night and nobody came for me, and I-I'm almost disappointed... no, no, I'm not, I'm not at all." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Oh, thank the Light, a big strong warrior, and you'll not let anything grab me, will you, not with that sword?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll see things in the dark, won't you, before they see you, because you're trained for it, and I'm not, and it shows." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Food? Please? I'll tell you everything, but food first. The things in the woods... I keep seeing them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Have you any food, please? I'll tell you everything, but food first, because the things in the woods... I keep seeing them." },
       },
       again = {
         { id = "h_again", text = "W-what else? Ask quickly, because something's moving by the well, though it's probably nothing." },
@@ -303,7 +303,7 @@ P:NPC {
       lines = { { id = "dr_default", text = "A druid. That means you turn into things, doesn't it, with fur and teeth, out in the woods where nobody can see? Please don't, not here, not while I'm looking, because I've seen a man go down on four legs once and I can't see it again." } },
       choices = {
         { text = "I won't change in front of you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "What man?", next = "saw" },
+        { text = "What did you see out there, Jitters?", next = "saw" },
       },
     },
   },

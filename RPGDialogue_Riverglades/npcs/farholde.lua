@@ -27,15 +27,15 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin, is it? The last one to walk these halls led the charge that broke the siege, so don't take my noticing as a compliment yet. Earn it first." },
+      text = "A paladin, is it? The last one to walk these halls, Sir Howard, led the charge that broke the siege, so you've a great deal to live up to." },
     { id = "n_noble", cat = "stormwind", when = { origin = "human_minor_noble" },
       text = "You've the look of Stormwind money. Don't take it personally when my riders forget to bow." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "You came over the passes in that? Get it to Alphonse before you meet anything worse than the road." },
+      text = "You came over the passes in that? Get it to Alphonse, our smith, before you meet anything worse than the road." },
   },
 
   react = {
-    { id = "r_mount", on = "mount", text = "Not inside the keep. Wheatley will see to the horse, and he'll take better care of it than you do." },
+    { id = "r_mount", on = "mount", text = "Not inside the keep. Wheatley at the stables will see to the horse, and he'll take better care of it than you do." },
   },
 
   start = "hello",
@@ -58,11 +58,11 @@ P:NPC {
         { id = "h_mugg_before", when = { questBefore = TODO_QUEST("Eye of Mugg") },
           text = "My scouts found caves along the northwest ridge, and the ones who went in haven't come out. I need someone who comes back out." },
         { id = "h_mugg_active", when = { questActive = TODO_QUEST("Eye of Mugg") },
-          text = "Krol'dok, then. Find whoever leads them in there and bring me proof, and my riders get a quiet month, their first in twenty years." },
+          text = "Krol'dok, then. Find whoever leads the ogres in those caves and bring me proof, and my riders get a quiet month, their first in twenty years." },
         { id = "h_mugg_recent", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Eye of Mugg"), days = 3 } },
           text = "I looked at that eye for an hour last night. It wasn't pleasant, but it was still the best hour I've had since the siege." },
         { id = "h_ryan_log", when = { questActive = TODO_QUEST("Field Marshal's Log") },
-          text = "That's Ryan's hand on those pages, I'd know it anywhere. Give it here, and tell me where you found it." },
+          text = "That's Marshal Ryan's hand on those pages, I'd know it anywhere. Give it here, and tell me where you found it." },
         { id = "h_ryan_search", when = { questActive = TODO_QUEST("Saving Marshal Ryan") },
           text = "Ryan's last reports point to a Twilight fortress in the west. Take his log with you and find him, because he's the best eyes this keep has." },
         { id = "h_ryan_dead", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Dying Wish"), days = 3 } },
@@ -76,7 +76,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "There you are. The riders ask after you when you're gone a while, and I've stopped pretending I don't." },
         { id = "h_fern_resolved", tags = { "news" }, key = true, when = { thread = { id = "farholde_lost", state = "resolved" } },
-          text = "Gray came up to the keep, his first time in a year, and we didn't argue about Fern; we drank to her. I'm told that was your doing, so thank you, and don't make me say it twice." },
+          text = "Gray Dawnbright came up from the port, his first time in a year, and we didn't argue about Fern; we drank to her. I'm told that was your doing, so thank you, and don't make me say it twice." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I walk the walls at night, a habit since the siege. The river's loud after dark, and I'll take that noise over silence, because silence was what the siege sounded like before they came." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe will want you for an hour of shop talk, and I'll want you after that for something more useful, like fire on the ridge." },
@@ -90,7 +90,7 @@ P:NPC {
         { id = "h_o_common", once = true, when = { gossip = { topic = "horde", stance = { "common_cause", "useful" } } },
           text = "I hear you've been telling my riders the orcs across the river are some kind of ally. They burned Sunnyglade, and I'll thank you not to say it again inside these walls." },
         { id = "h_o_never", once = true, when = { gossip = { topic = "horde", stance = { "never", "hate" } } },
-          text = "Riftan says you've no more love for the Horde than he has. Good; the Riverglades could use a few more who remember." },
+          text = "Sergeant Riftan says you've no more love for the Horde than he has. Good; the Riverglades could use a few more who remember." },
       },
       again = {
         { id = "h_again", text = "What else? The day's short and the Riverglades are long." },
@@ -110,7 +110,7 @@ P:NPC {
         { text = "Let me bless your riders before they ride out.", next = "priest_bless", when = { class = "PRIEST" } },
         { text = "Put me to work, Commander.", next = "BUSINESS", fx = { affinity = 1, standing = { farholde = 1 } } },
         { text = "A warrior's sword, Commander, if the Brotherhood will have it.", next = "xwarrior", when = { class = "WARRIOR" } },
-        { text = "Your memorial names a Ravenholdt agent. Fern.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "One of your memorials names a Ravenholdt agent, Fern.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I scout. Where do you need eyes?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "A mage can't be much use to a cavalry order.", next = "xmage", when = { class = "MAGE" } },
         { text = "Will the Brotherhood take a warlock's help, Commander?", next = "xlock", when = { class = "WARLOCK" } },
@@ -162,7 +162,7 @@ P:NPC {
     },
     sunnyglade_back = {
       lines = {
-        { id = "sb_default", text = "Roderick held a bridge there with one arm and bought us a night. I'll take it back, or the next commander will. That's how the Brotherhood counts time." },
+        { id = "sb_default", text = "I'll take it back, or the next commander will. Roderick held a bridge there with one arm to buy us a night, and the Brotherhood doesn't forget a debt like that." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "siege_of_farholde" } } } },
     },
@@ -185,7 +185,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     stormwind_agree = {
-      lines = { { id = "sa_default", text = "Unforgivable's a big word. I use smaller ones, every morning, at the gate." } },
+      lines = { { id = "sa_default", text = "Unforgivable's a big word. I use smaller ones, and I mutter them every morning on the wall." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     stormwind_ashe = {
@@ -233,7 +233,7 @@ P:NPC {
       },
     },
     enemy_peace = {
-      lines = { { id = "ep_default", text = "Ask me after they leave Sunnyglade alone for a year. I'll wait." } },
+      lines = { { id = "ep_default", text = "Ask me after they've left my riders alone for a year. I'll wait." } },
       choices = {
         { text = "Peace has to start somewhere.", next = "BACK", fx = { align = { light = 1 }, opinion = { peace = "for" } } },
         { text = "There won't be. Not here.", next = "BACK", fx = { align = { order = 1 }, opinion = { peace = "against" }, affinity = 1 } },
@@ -293,7 +293,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     isolde = {
-      lines = { { id = "is_default", text = "I did, upright and with her banner high, because I wanted the words to be as true as she was. Ask me something else." } },
+      lines = { { id = "is_default", text = "I did, and I wrote her upright with her banner high, because I wanted the words to be as true as she was. Ask me something else." } },
       choices = {
         { text = "She sounds remarkable.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Tell me about Isolde herself, Commander, not the banner.", tag = "Persuade", next = "isolde_true",
@@ -356,7 +356,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     priest_bless = {
-      lines = { { id = "pb_default", text = "Sister Rowland does, when she can leave the chapel, which is rarely. Yes: at the gate, at dawn. They'll stand straighter for it, and some will come back because they did." } },
+      lines = { { id = "pb_default", text = "Sister Rowland blesses them when she can leave the chapel, which is rarely, so yes. Come to the gate at dawn; they'll stand straighter for it, and some will come back because of it." } },
       choices = {
         { text = "At dawn, then.", next = "BACK", fx = { affinity = 3, standing = { farholde = 2 }, align = { light = 1 } } },
         { text = "They'd stand straighter for a hot meal than a blessing.", next = "BACK", fx = { align = { light = -1 } } },
@@ -405,9 +405,9 @@ P:NPC {
     },
     xhunter = {
       lines = {
-        { id = "xhu_default", text = "Everywhere, and nowhere I can spare a rider. Rosalind Ashwood was our lead scout, with eyes as keen as an elf's, and I haven't had one like her since; walk the Bristle Hills for me and tell me what the gnolls are doing." },
+        { id = "xhu_default", text = "Everywhere, and nowhere I can spare a rider. Rosalind Ashwood was our lead scout, with eyes as keen as an elf's, and I haven't had one like her since. Walk the Bristle Hills for me and tell me what the gnolls are doing." },
         { id = "xhu_human", when = { race = "Human" },
-          text = "A Stormwind hunter with a beast at heel; Rosalind would have liked you, since she always said the kingdom wasted its woodsmen. Walk the Bristle Hills for me and tell me what the gnolls are doing." },
+          text = "A Stormwind hunter with a beast at heel. Rosalind Ashwood, our old lead scout, would have liked you; she always said the kingdom wasted its woodsmen. Walk the Bristle Hills for me and tell me what the gnolls are doing." },
       },
       choices = {
         { text = "Who was Rosalind?", next = "memorials" },
@@ -439,7 +439,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Nothing grows right around Sunnyglade any more, and Gretchen's birds won't fly near the old tower. Heal it if you can, druid, though I'd rather you helped me cut out the rot first." },
+        { id = "xdr_default", text = "Nothing grows right around Sunnyglade any more, and Gretchen's gryphons won't fly near the old mage tower there. Heal it if you can, druid, though I'd rather you helped me cut out the rot first." },
       },
       choices = {
         { text = "I'll mend what they've spoiled. The land comes first.", next = "BACK", fx = { align = { light = 1 } } },
@@ -464,7 +464,7 @@ P:NPC {
     krol_dok = { { id = "tp_kroldok", text = "Where they ran after the siege, and where they plan the next one." } },
     fern_crimsonleaf = { { id = "tp_fernnext", text = "Our knife in the dark, and the best of us. Ask what you came to ask.", next = "fern" }, { id = "tp_fern", text = "She's dead, and a hero, and dead all the same. Don't let Gray tell you different." } },
     defias = { { id = "tp_defias", text = "Stormwind's own mess, on its own doorstep, and even then they couldn't be bothered. I'm not surprised." } },
-    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar holds Stormwind for a boy king, and he holds it tight, because he hasn't spared a single rider for the Riverglades. I'll respect him the day he sends us more than letters." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar holds Stormwind for a boy king, and he holds it tight; he hasn't spared a single rider for the Riverglades. I'll respect him the day he sends us more than letters." } },
     varian = { { id = "tp_varian", text = "King Varian went missing, and Stormwind's been run by nobles and committees ever since. If he were here, I'd tell him to his face what his kingdom has done to mine." } },
     prestor = { { id = "tp_prestor", text = "Lord Prestor has the court's ear and the Regent's patience, and he's never once looked east of Stormwind's walls. A noble who's never smelled a battlefield shouldn't decide who gets steel." } },
     second_war = {
@@ -515,7 +515,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "That the orcs gave it up for warlocks and Thrall brought it back, and nothing at all about dwarves. If you'll tell me what the earth sounds like here, I promise not to write it all down." } },
+      lines = { { id = "xdsham_default", text = "They say the orcs gave it up for warlock magic and Thrall brought it back, and they say nothing at all about dwarves. If you'll tell me what the earth sounds like here, I promise not to write it all down." } },
       choices = {
         { text = "Write it all down, Ashe. Truth should be shared.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Keep it to yourself. Some things are better secret.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -527,16 +527,16 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Ashe Amberhall, advisor to the Knight Commander. I answer visitors' questions about Farholde. We get so few visitors that I'm out of practice, and likely to say too much, as my father always warned me." },
         { id = "h_satchel", tags = { "news" }, when = { questActive = TODO_QUEST("Lingering Essence") },
-          text = "Riftan sent you with those? Put them down, but not on that table, on the stone one, and then step back, please." },
+          text = "Sergeant Riftan sent you with those trinkets? Put them down, but not on that table, on the stone one, and then step back, please." },
         { id = "h_satchel_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lingering Essence"), days = 3 } },
-          text = "Riftan's trinkets have been humming at night, so I've moved my bed. I haven't moved the trinkets; I'm not a fool." },
+          text = "The trinkets Riftan sent have been humming at night, so I've moved my bed. I haven't moved the trinkets; I'm not a fool." },
         { id = "h_mugg", tags = { "news" }, when = { questRecent = { TODO_QUEST("Eye of Mugg"), days = 3 } },
-          text = "Demar smiled at breakfast, actually smiled, and I very nearly sent for Sister Rowland." },
+          text = "Since you killed Mugg, Demar smiled at breakfast, actually smiled, and I very nearly sent for Sister Rowland." },
         { id = "h_notes", when = { metBefore = true, timeOfDay = "night" },
           text = "I was reading my father's notes. His handwriting was dreadful. I'm the only one alive who can read it, which I suppose makes them mine now." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Demar will be delighted, and you'll find me far less useful than he is, unless you'd like to know who carved the thing that's trying to kill you, which you really should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I have a hundred questions about how the Light actually works, and you probably can't answer any of them, can you? Nobody ever can; they just say 'faith' and look at me kindly." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with a companion! Please don't let it near the stone table; Riftan's trinkets upset animals, which is a sentence I only learned to say this year." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with a companion! Please don't let it near the stone table; the cult's trinkets on it upset animals, which is a sentence I only learned to say this year." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came in very quietly, which is either good manners or professional habit, and I'm going to assume manners." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sister Rowland will be so relieved, and so will I, because there's a thing on my stone table I'd like someone holy to look at, from a sensible distance." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've read about the Cenarion Circle, though only what the kaldorei let humans write down, which I suspect was the boring half." },
@@ -571,7 +571,7 @@ P:NPC {
     farholde = {
       big = true,
       lines = {
-        { id = "fa_default", text = "When the Horde took these lands in the First War, the Alliance moved on; they judged it lost and spent their soldiers at home. I'd have done the same, and I hate that I would." },
+        { id = "fa_default", text = "When the Horde took these lands in the First War, Stormwind judged them lost and spent its soldiers at home. I'd have done the same, and I hate that I would." },
       },
       choices = {
         { text = "But you stayed.", next = "farholde_stayed" },
@@ -582,7 +582,7 @@ P:NPC {
     },
     farholde_stayed = {
       lines = {
-        { id = "fs_default", text = "It's our home. That isn't strategy; it's stubbornness with a banner. This is a war for what we were born to, and Demar is the man to win it.",
+        { id = "fs_default", text = "It's our home. That isn't strategy, it's stubbornness with a banner on it, and Demar is the man to win a war like that.",
           fx = { learn = { "brotherhood_horse" } } },
       },
       choices = {
@@ -668,7 +668,7 @@ P:NPC {
 
     hammer = {
       lines = {
-        { id = "hm_default", text = "Collecting things: bones, stones, carved figures that hum when you aren't looking. Riftan sends me the ones from their dead. I'd like to know what they're for before they finish doing it.",
+        { id = "hm_default", text = "Busy collecting things: bones, stones, carved figures that hum when you aren't looking. Sergeant Riftan sends me the ones he takes off their dead, and I'd like to know what they're for before they finish doing it.",
           fx = { learn = { "twilights_hammer" } } },
       },
       choices = {
@@ -695,7 +695,7 @@ P:NPC {
     },
 
     shop = {
-      lines = { { id = "sh_default", text = "Wards, against whatever's in Riftan's satchels. And a lamp that doesn't need oil, because Farholde's out of oil. What do you work on?" } },
+      lines = { { id = "sh_default", text = "Wards against the cult trinkets Riftan sends me, and a lamp that doesn't need oil, because Farholde's out of oil. What do you work on?" } },
       choices = {
         { text = "Frost. It's honest.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Fire. It's satisfying.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -799,7 +799,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhc_default", text = "They do, and not only animals that are with a hunter. The dogs at the keep won't walk past my door, and Cady's Aedamas growls at the stairs, so animals notice things before we do, which is useful and a little insulting to scholarship." },
+        { id = "xhc_default", text = "They do, and not only animals that are with a hunter. The dogs at the keep won't walk past my door, and Cady the ranger's dog growls at the stairs, so animals notice things before we do, which is useful and a little insulting to scholarship." },
       },
       choices = {
         { text = "Trust the animals. Get rid of those things.", next = "BACK", fx = { align = { light = 1 } } },
@@ -908,19 +908,19 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Sergeant Riftan, Brotherhood of the Horse. I've been fighting these cultists longer than some of our riders have been alive, and don't ask how long, because I stopped counting. Their dead carry odd carved trinkets, and I send them up to Ashe at the keep." },
         { id = "h_mementos", when = { questActive = TODO_QUEST("Twilight Mementos") },
-          text = "Their dead carry little carved things. Bring me some, and don't hold them longer than you have to." },
+          text = "The cultists' dead carry little carved trinkets. Bring me some, and don't hold them longer than you have to." },
         { id = "h_satchel", when = { questActive = TODO_QUEST("Lingering Essence") },
-          text = "Take those to the keep, now, and find Ashe. She'll talk your ear off, but she'll know what they are." },
+          text = "Take those trinkets to the keep, now, and find Ashe Amberhall. She'll talk your ear off, but she'll know what they are." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Lingering Essence") },
-          text = "Did Ashe say anything about me? She did; I can tell by your face." },
+          text = "Did Ashe say anything about me when you took her the trinkets? She did; I can tell by your face." },
         { id = "h_cages", when = { questActive = TODO_QUEST("No Soldier Left Behind") },
-          text = "My scouts are rotting in cages inside the Shroud. The keys are on their champions, so take them off the bodies, and if you find any Horde in there, leave them where they are." },
+          text = "My scouts are rotting in cages inside the Twilight's Shroud, the cult's fortress. The keys are on their champions, so take them off the bodies, and if you find any Horde in there, leave them where they are." },
         { id = "h_cages_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("No Soldier Left Behind"), days = 3 } },
           text = "Five of my lads back on the line, thanks to you. One soldier can be the difference out here, and today it was you." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good. I could use someone who reads tracks better than my lads, because the cultists come down off that ridge and leave hardly a mark." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up on me quiet, and that's a skill out here, so don't do it again. The next man might not be as slow to draw as I am." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Say one for the lads on the line if you've a prayer to spare, and one for me if you've two." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe will want to talk at you for a week, so get your use out of the front first, while you've still got a voice." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe at the keep will want to talk at you for a week, so be useful on the line first, while you've still got a voice." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know that smell. Keep your pet out of the lads' sight, warlock, because they've seen enough things with horns come crawling off that ridge." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here? The woods by the Shroud have gone quiet, and I'd like to know why from someone who would know." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 30 } }, text = "Word on the line is you've been thinning out the Twilight on the ridge. The chanting's quieter at night and the lads have noticed, though they'd never say thank you, so I will." },
@@ -987,7 +987,7 @@ P:NPC {
     rf_horde = {
       big = true,
       lines = {
-        { id = "rh2_default", text = "Most of the lads would as soon shoot an orc as a cultist, and the old ones remember Sunnyglade. Thing is, Krom'rosh's lot kill Twilight on the far bank the same as we do on this one. You've seen them, so tell me: enemies or not?" },
+        { id = "rh2_default", text = "Most of the lads would as soon shoot an orc as a cultist, and the old ones remember Sunnyglade. Thing is, Krom'rosh's orcs at Rog'mar kill Twilight on the far bank the same as we do on this one. You've seen them, so tell me: enemies or not?" },
       },
       choices = {
         { text = "They kill the same cultists. Leave them be.", next = "rf_horde_leave", fx = { opinion = { horde = "common_cause" }, align = { honor = 1 } } },
@@ -1225,7 +1225,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhc_default", text = "Sometimes. A soldier who's stopped talking to people will still talk to a dog, and I've seen Cady's Aedamas do more for a low spirit than my tea. Bring yours at noon, when they're awake, and keep it off the beds." },
+        { id = "xhc_default", text = "Sometimes. A soldier who's stopped talking to people will still talk to a dog, and I've seen Cady the ranger's dog do more for a low spirit than my tea. Bring yours at noon, when they're awake, and keep it off the beds." },
       },
       choices = {
         { text = "Gladly. They'll be good for each other.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1299,13 +1299,13 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Mind the cradle, please, and mind your voice; elven ears hear everything." },
-    { id = "g_dog", text = "Aedamas likes you. Don't be flattered; he likes everyone." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back. Luna's sitting on the cradle again; don't take it personally." },
+    { id = "g_dog", text = "My dog Aedamas likes you. Don't be flattered; he likes everyone." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. Luna the cat's sitting on the cradle again; don't take it personally." },
   },
 
   notice = {
     { id = "n_pet", cat = "pets", when = { class = "HUNTER", pet = { type = "Beast" } },
-      text = "Your {pet} and Aedamas are sizing each other up, so let them. Dogs settle these things faster than knights." },
+      text = "Your {pet} and my dog Aedamas are sizing each other up, so let them. Dogs settle these things faster than knights." },
     { id = "n_nightelf", cat = "elves", when = { race = "NightElf" },
       text = "A kaldorei, this far east. You'll have questions about me, as most people do, so ask them slowly." },
     { id = "n_skyborne", cat = "elves", when = { race = "Skyborne" },
@@ -1322,7 +1322,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Luna knows when a storm's coming, and she's been looking at you like you're one. Keep your voice down, and she might forgive you." } },
+      lines = { { id = "xdsham_default", text = "My cat Luna knows when a storm's coming, and she's been looking at you like you're one. Keep your voice down, and she might forgive you." } },
       choices = {
         { text = "I'll keep the storm quiet for the little one.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Storms come when they come. Luna will cope.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1332,14 +1332,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cady Lloydriel. I left Quel'Thalas a long time ago to ride with the Brotherhood, and now I keep an eye on the walls, and on this one." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, please; it took an hour to get the little one down. Luna helped, and Luna takes all the credit." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, please; it took an hour to get the little one down. Luna, my cat, helped, and she takes all the credit." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Walk softly past the cradle, if you know how; most of your kind don't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Brotherhood will be glad of you, and the little one likes shiny things, so mind your gauntlets." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're quiet, I'll give you that. Aedamas heard you anyway, which you'll want to know." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Rowland could use you more than I could, though you're welcome to watch the walls with me a while." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're quiet, I'll give you that. My dog Aedamas heard you anyway, which you'll want to know." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sister Rowland in the chapel could use you more than I could, though you're welcome to watch the walls with me a while." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. If you've come for Ashe, she's in the keep, talking to someone, probably herself." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Luna's hissing, and she doesn't hiss at people. I'll take her word for what you are, warlock." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Aedamas can't decide whether you're a person or a smell, so give him a moment." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. My dog Aedamas can't decide whether you're a person or a smell, so give him a moment." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shh. The cat's watching you, and the cat doesn't like strangers, so stand still." },
       },
       again = {
@@ -1452,7 +1452,7 @@ P:NPC {
     xwarcl = {
       big = true,
       lines = {
-        { id = "xwc_default", text = "Eyes, no; you've the wrong kind for fog. But when the bell rings at night, someone has to be on the gate before the riders are out of bed, and that could be you." },
+        { id = "xwc_default", text = "On the wall, no; it takes elf eyes to see through this fog. But when the bell rings at night, someone has to be on the gate before the riders are out of bed, and that could be you." },
       },
       choices = {
         { text = "I'll take the gate when the bell rings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1711,7 +1711,7 @@ P:NPC {
       },
     },
     remounts_goblins = {
-      lines = { { id = "rmb_default", text = "Because a horse raised in these glades knows the fog and the river, and one off a boat from Tanaris knows sand. Melbin calls me sentimental, and he's right, but my horses come home." } },
+      lines = { { id = "rmb_default", text = "Because a horse raised in these glades knows the fog and the river, and one off a boat from Tanaris knows sand. Melbin, the goblin who runs the port, calls me sentimental, and he's right, but my horses come home." } },
       choices = {
         { text = "Raise your own. Patience beats gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Riders need horses now. Pay the goblin.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1824,7 +1824,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "As near as I'll let them, which is the keep's wall above the Shroud road and no further. The Hammer's archers shoot at anything with feathers, and I won't lose a bird to save a few minutes." },
+        { id = "xpa_default", text = "As near as I'll let them, which isn't near: I set riders down on the road to the Twilight's Shroud and no closer. The Hammer's archers shoot at anything with feathers, and I won't lose a bird to save a few minutes." },
       },
       choices = {
         { text = "A few minutes could save a rider's life, Gretchen.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1906,7 +1906,7 @@ P:NPC {
       },
     },
     route_goblins = {
-      lines = { { id = "rtb_default", text = "Twice, to Melbin, who said the sky over his port is his too and offered to sell me a share of it. I told him where he could put his share, politely." } },
+      lines = { { id = "rtb_default", text = "Twice, to Melbin Powderfuse, who said the sky over his port is his too and offered to sell me a share of it. I told him where he could put his share, politely." } },
       choices = {
         { text = "Stand up to him. Your birds come first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Pay him something. It's easier than a feud.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1956,7 +1956,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I'd forge one for anyone on the wall. Iron's short and coal's shorter, so tell your spirits the forge needs feeding." } },
       choices = {
         { text = "Arm the wall first, Alphonse, not me.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Pay is pay. Sell to whoever has the coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Sell to whoever pays most, Alphonse, starting with me.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1964,17 +1964,17 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Alphonse Dumas. I keep the Brotherhood shod and armed, though iron's short and coal's shorter. Patience I have plenty of." },
         { id = "h_mould", tags = { "news" }, when = { questActive = TODO_QUEST("Krol'dok Moulding") },
-          text = "A key mould, ogre work, crude as a boot. Let me look at it." },
+          text = "That's a key mould you've got, ogre work and crude as a boot. Let me look at it." },
         { id = "h_key", when = { questActive = TODO_QUEST("Key Ingredients") },
-          text = "I need thick leather and iron bars. I've got the fire, so you bring the rest." },
+          text = "To cast a key from that mould I need thick leather and iron bars. I've got the fire, so you bring the rest." },
         { id = "h_key_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Key Ingredients"), days = 3 } },
-          text = "That key's ugly, but it'll open their door all the same. Ugly works." },
+          text = "That key's ugly, but it'll open the ogres' door in Krol'dok all the same. Ugly works." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Plate. Good plate, too, though somebody's been mending it with the wrong rivets." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I can do arrowheads if you bring the iron, and I'll do them right." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Your knives want an edge, I'd guess. Leave them on the bench; I don't ask whose they've been in." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. There's not much for you at a forge, but you're welcome to the warmth." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe is always asking me for odd things, rings that don't melt and the like, so I suppose you'll want something odd too." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Warlock. Don't hold that thing near my fire; the embers don't like it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Warlock. Keep your demon away from my fire; the embers don't like it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at a forge. That's new, and I'll not ask what you need iron for." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your totems are good stone, and I'd forge you a mace to match if I had the coal." },
       },
@@ -2017,7 +2017,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     forge = {
-      lines = { { id = "f_default", text = "Long enough to know every sword in this keep by its ring. Ask Bertrand and he'll say I never complain, but he's wrong; I complain to the anvil." } },
+      lines = { { id = "f_default", text = "Long enough to know every sword in this keep by its ring. Ask Bertrand the mason and he'll say I never complain, but he's wrong; I complain to the anvil." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     teach = {
@@ -2056,7 +2056,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "I can, if you blacken it in oil, though it'll rust faster, mind; nothing's free. Fern carried one like that, and she brought it back to me every week to be seen to." },
+        { id = "xro_default", text = "I can, if you blacken it in oil, though it'll rust faster, mind; nothing's free. Fern Crimsonleaf, the Brotherhood's old agent, carried one like that, and she brought it back to me every week to be seen to." },
       },
       choices = {
         { text = "Blacken it. I do my work at night.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -2100,7 +2100,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Turner's camp, from the scraps, mostly. I'll not burn a good tree when a bad branch will do, if that's what you came to ask." },
+        { id = "xdr_default", text = "From the scraps at Turner's logging camp, mostly. I'll not burn a good tree when a bad branch will do, if that's what you came to ask." },
       },
       choices = {
         { text = "Thank you. Take only what's already fallen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },

@@ -38,7 +38,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Where the road narrows by the old farms, and the hedges are thickest. They'll have a man up a tree and two in the ditch, and they'll let you pass, then take me from behind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells them before we see them, I hope. If its hackles go up, trust it more than me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where the road narrows by the old farms and the hedges are thickest, with a man up a tree and two in the ditch. Your {pet} will smell them before we see them, I hope, so if its hackles go up, trust it more than me." },
       },
       choices = {
         { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -47,7 +47,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "Pillagers, they call them, and they throw fire about like it costs nothing, which to them it doesn't. Where they learned it I never asked, but they've no love for Stormwind's towers, I'll tell you that for free." } },
+      lines = { { id = "xma_default", text = "They do: Pillagers, they call them, and they throw fire about like it costs nothing, which to them it doesn't. Where they learned it I never asked, but they've no love for Stormwind's towers, I'll tell you that for free." } },
       choices = {
         { text = "Then they've betrayed the craft as well as the kingdom.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stormwind threw away a lot of good people. That's on the city.", next = "BACK", fx = { align = { order = -1 } } },
@@ -92,7 +92,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", text = "Stoutmantle says you're the one taking me to Moonbrook. I'll show you where the Brotherhood hides, but you keep me alive on the road, because they'll be watching for me." },
+        { id = "h_default", text = "Gryan Stoutmantle says you're the one taking me to Moonbrook. I'll show you where the Brotherhood hides, but you keep me alive on the road, because they'll be watching for me." },
         { id = "h_active", when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Right, we're doing this, then. Stay close, keep your blade out and don't stop for anything, not even if they call my name." },
         { id = "h_rogue", when = { class = "ROGUE" },
@@ -152,9 +152,9 @@ P:NPC {
       },
     },
     why_farm = {
-      lines = { { id = "wf_default", text = "Burned the house with the old man still arguing inside it, over a cart of turnips. I held the torches, and I've not slept right since." } },
+      lines = { { id = "wf_default", text = "They burned the house with the old man still arguing inside it, over a cart of turnips. I held the torches, and I've not slept right since." } },
       choices = {
-        { text = "Then what's your price for the truth?", next = "why_price" },
+        { text = "What do you want in return for helping us?", next = "why_price" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,7 +167,7 @@ P:NPC {
       },
     },
     moonbrook = {
-      lines = { { id = "m_default", text = "An old smithy that looks empty and isn't, and under it a tunnel down into the mines. That's where VanCleef keeps the whole operation, ships and all, if you'll believe it." } },
+      lines = { { id = "m_default", text = "There's an old smithy that looks empty and isn't, and under it a tunnel down into the mines. That's where VanCleef keeps the whole operation, ships and all, if you'll believe it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     vancleef = {
@@ -185,7 +185,7 @@ P:NPC {
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of Defias who got caught, and the ones inside are running the place now, I've heard. I'd sooner die out here than end up in a cell next to someone who knows what I've done." } },
     syndicate = { { id = "tp_syndicate", text = "VanCleef did business with the Syndicate up north, or tried to, and they're worse than us, believe it or not. At least we started honest." } },
     si7 = { { id = "tp_si7", text = "SI:7's had eyes on the Brotherhood since the beginning, and I'd bet my last copper one of us is theirs already. That's why I sleep with my back to a wall and my boots on." } },
-    defias = { { id = "tp_defias", text = "Good men turned bad, and bad men who never needed turning. I was somewhere in between." } },
+    defias = { { id = "tp_defias", text = "They're good men turned bad, and bad men who never needed turning, and I was somewhere in between." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, can we just go?" } },
   },
 }

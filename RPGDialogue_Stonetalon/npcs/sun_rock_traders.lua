@@ -82,7 +82,7 @@ P:NPC {
     sells = {
       lines = {
         { id = "se_default", text = "Water, by a long way, because the springs up here taste of ash since the vale burned. After that it's bags, since everyone who comes through here is carrying something back for somebody." },
-        { id = "se_lock", when = { class = "WARLOCK" }, text = "Water and bags, mostly, though I've had warlocks ask for odder things, and I tell them all the same. Ask Jeeda upstairs in the inn, and don't tell me what it's for." },
+        { id = "se_lock", when = { class = "WARLOCK" }, text = "Water and bags, mostly, though I've had warlocks ask for odder things, and I tell them all the same. Ask Jeeda down at Malaka'jin, and don't tell me what it's for." },
       },
       choices = {
         { text = "The springs taste of ash?", next = "sells_ash" },

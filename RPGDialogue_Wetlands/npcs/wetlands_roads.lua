@@ -42,7 +42,7 @@ P:NPC {
     },
     opn_magni_r_failed = {
       lines = {
-        { id = "opn_magni_r_failed", text = "Aye. There, ye've said it, so I don't have tae, an' I'll feel the worse for agreein' wi' ye. Don't say it near Stoutfist; he'll throw ye in the harbour." },
+        { id = "opn_magni_r_failed", text = "Aye. There, ye've said it, so I don't have tae, an' I'll feel the worse for agreein' wi' ye. Don't say it near Captain Stoutfist in Menethil; he'll throw ye in the harbour." },
       },
       choices = {
         { text = "Something else, Longbraid.", next = "BACK" },
@@ -50,7 +50,7 @@ P:NPC {
     },
     opn_magni_r_loyal = {
       lines = {
-        { id = "opn_magni_r_loyal", text = "Keeps his word tae the Alliance, an' it's his own sons out here payin' for it. I'll hear ye, but ye've no' buried anyone on these walls." },
+        { id = "opn_magni_r_loyal", text = "Keeps his word tae the Alliance, an' it's his own people out here payin' for it. I'll hear ye, but ye've no' buried anyone on these walls." },
       },
       choices = {
         { text = "Something else, Longbraid.", next = "BACK" },
@@ -104,7 +104,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Watch the ruins from the high ground and tell me when the Dark Irons move, for they gather before every push and my sentries never see it. And keep the raptors off the road behind us, for if we have to fall back, I'd rather not fall back into their jaws." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} could sit on the ridge and smell them coming, and I'd sleep better for it, if I slept at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch the ruins from the high ground and tell me when the Dark Irons move. {pet} could sit on the ridge and smell them coming, and I'd sleep better for it, if I slept at all." },
       },
       choices = {
         { text = "I'll watch and warn you, and hold my fire.", next = "BACK", fx = { align = { order = 1 } } },
@@ -124,7 +124,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "Maybe no', but it burned through mine, an' they were good dwarves standin' behind them. If ye've ice enough tae cool a Dark Iron's temper, take it tae the Span an' show them what ye've got." },
+        { id = "xma_default", text = "Maybe no', but it burned through my lines, an' good dwarves were standin' in them. If ye've ice enough tae cool a Dark Iron's temper, take it tae the Span an' show them what ye've got." },
       },
       choices = {
         { text = "I'll stand at the Span with you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -133,7 +133,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "That it was ours once, an' the Dragonmaw have it now, wi' a red dragon chained in the deep. Even the beasts won't go near that mountain." } },
+      lines = { { id = "dq_default", text = "That it was a dwarven hold once, an' the Dragonmaw have it now, wi' a red dragon chained in the deep. Even the beasts won't go near that mountain." } },
       choices = {
         { text = "The red dragon must be freed.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Leave that mountain and its dragons alone.", next = "BACK", fx = { align = { light = -1 } } },
@@ -161,7 +161,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_warrior", tags = { "news" }, when = { party = { class = "WARRIOR" }, faction = "Alliance" },
-          text = "That one with you, {companion}, holds a shield like someone who's stood in a line before, and I've a soft spot for anyone who has. I lost too much of my company at Grim Batol to think a lone hero is worth half a good shield wall." },
+          text = "That one with you, {companion}, holds a shield like someone who's stood in a line before, and I've a soft spot for anyone who has. I lost too much of my company at the Span to think a lone hero is worth half a good shield wall." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, out here? I've wounded enough tae keep ye busy, an' dead enough tae keep ye prayin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Light's a long way from Dun Modr these days, so ye're welcome tae bring some o' it with ye." },
         { id = "h_default", key = true,
@@ -191,7 +191,7 @@ P:NPC {
         { text = "Dark Iron fire won't burn through a mage's ward.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How can a warrior help hold Dun Modr, Longbraid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What could a hunter do for Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I see no healer tending your wounded out here, Longbraid.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who tends your wounded out here, Longbraid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you ask of a paladin, Longbraid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a warlock be any use against the Dark Irons, Longbraid?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call fire at Dun Modr, Longbraid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -200,7 +200,7 @@ P:NPC {
       },
     },
     fall = {
-      lines = { { id = "f_default", text = "They came out of the south in force, with powder and steel, and we were too few. Harlo Barnaby took an axe in the back covering the retreat, and he's lucky he lived." } },
+      lines = { { id = "f_default", text = "They came out of the south in force, with powder and steel, and we were too few. Harlo Barnaby, one of my soldiers, took an axe in the back covering the retreat, and he's lucky he lived." } },
       choices = {
         { text = "You should have been reinforced.", next = "fall_why" },
         { text = "Something else.", next = "BACK" },
@@ -301,7 +301,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "North across the broken Span tae Arathi, or back intae the hills toward Grim Batol, an' I cannae tell which. Find out for me, an' I'll know where tae send the next lot o' axes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would follow a Dark Iron's stink through any bog, I'd wager, for they smell o' brimstone an' they never wash." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "North across the Span or back toward Grim Batol, an' I cannae tell which. {pet} could follow a Dark Iron's stink through any bog, though, for they smell o' brimstone an' never wash." },
       },
       choices = {
         { text = "I'll track them and bring you the truth of it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -380,7 +380,7 @@ P:NPC {
       },
     },
     why_do = {
-      lines = { { id = "wd_default", text = "Find the ones who did it and send them back to Thaurissan in pieces. Or at least in chains, if Longbraid's watching." } },
+      lines = { { id = "wd_default", text = "Find the ones who did it and send them back to their Emperor Thaurissan in pieces. Or at least in chains, if Longbraid's watching." } },
       choices = {
         { text = "In chains. They should face the King's justice.", next = "why_end", fx = { align = { order = 1 } } },
         { text = "In pieces. They earned it.", next = "why_end", fx = { align = { order = -1 } } },
@@ -527,7 +527,7 @@ P:NPC {
         { text = "What's Whelgar digging for?", next = "dig" },
         { text = "There must be a trick to fighting them.", next = "fight" },
         { text = "Raptors are fine prey. I'll hunt them.", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Raptors hunt by smell. I'll have to be cleverer than usual.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Raptors have sharp senses. I'll have to be cleverer than usual.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fire, then. Raptors fear fire, surely?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How do the raptors attack the dig, Ormer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Were the lost diggers given a proper burial, Ormer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -562,7 +562,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
     fight = {
-      lines = { { id = "f_default", text = "Back to a wall and a shield up, for they come in pairs. Kill the first one fast, or the second one kills you." } },
+      lines = { { id = "f_default", text = "Back to a wall and a shield up, for they hunt in packs. Kill the first one fast, or the next one kills you." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hunter = {
@@ -598,7 +598,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Great bones, bigger than any beast walkin' the Wetlands now, an' the deeper we go, the bigger they get. The League says it's the find o' a generation. My diggers say the ground's uneasy, an' the raptors seem tae agree. If the earth wants its dead left alone, ye'd tell me, would ye no'?" } },
+      lines = { { id = "xdsham_default", text = "Great bones, bigger than any beast walkin' the Wetlands now, an' the deeper we go, the bigger they get. My diggers say the ground's uneasy an' the raptors seem tae agree, so if the earth wants its dead left alone, ye'd tell me, would ye no'?" } },
       choices = {
         { text = "I'd tell you. The dead deserve their rest, Prospector.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Dig on. Knowledge is worth a little unease.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -626,8 +626,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They keep my diggers from digging, which comes to the same thing, for nobody works well with one eye on the grass. Ormer's been thinning them, but there are more in the marsh than he has bullets, or patience." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine eye for the grass, I think, and I'd be glad to have it watching ours." },
+        { id = "xhuntcl_default", text = "They keep my diggers from digging, which comes to the same thing, for nobody works well with one eye on the grass. Ormer's been thinning them, but there are more in the marsh than he has patience." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They keep my diggers looking over their shoulders, which comes to the same thing. {pet} has a fine eye for the grass, I think, and I'd be glad to have it watching ours." },
       },
       choices = {
         { text = "I'll thin the pack so your diggers can work.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -734,7 +734,7 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "That's beyond me, I'm afraid, though I'll talk about old stones all day." } },
     explorers_league = { { id = "tp_explorers_league", text = "The League sent me out here wi' Merrin tae dig, an' we turned up bones bigger than anythin' that ought tae walk. Then the raptors came, an' now we're diggin' wi' one eye on the trees." } },
-    uldaman = { { id = "tp_uldaman", text = "Uldaman's the great prize, deep in the Badlands, an' Ironband's lot say its stones are older than Ironforge. I believe them, for I've seen the drawings." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the great prize, deep in the Badlands, an' Prospector Ironband's lot say its stones are older than Ironforge. I believe them, for I've seen the drawings." } },
     grim_batol = { { id = "tp_grim_batol", text = "Old stones are my trade, an' Grim Batol's the oldest in these hills, but I'll no' go near it. Some stones are best studied in books." } },
     magni = { { id = "tp_magni", text = "King Magni reads our reports himself, so I write them neat. That's the only reason my handwritin's improved in fifty years." } },
   },

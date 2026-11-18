@@ -42,7 +42,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Heavy iron, barbed an' hard-tempered, for a basilisk's hide turns a light point aside the way a stone shrugs off rain. I've made a few for hunters passin' through, an' none came back complainin', though one or two didnae come back at all." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the basilisks' eyes, for I'm told it's no' a good idea. I wouldnae know myself, mind, for I've the sense never tae look." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Heavy iron, barbed an' hard-tempered, for a basilisk's hide turns a light point aside the way a stone shrugs off rain. An' keep {pet} back from the basilisks' eyes, for I'm told it's no' a good idea." },
       },
       choices = {
         { text = "I'll leave the basilisks be, unless they come for me.", next = "BACK", fx = { align = { light = 1 } } },
@@ -69,7 +69,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Old stone that wakes when ye touch the wrong thing, and old seals the Explorers' League keeps breakin' because they cannae leave a door shut. Whatever the makers locked away down there, they locked it for a reason, and yer magic would only be one more key in the wrong hand." } },
+      lines = { { id = "xhcast_default", text = "Old stone that wakes when ye touch the wrong thing, and old seals the Explorers' League keeps breakin' because they cannae leave a door shut. Whatever the titans locked away down there, they locked it for a reason, and yer magic would only be one more key in the wrong hand." } },
       choices = {
         { text = "Doors like that should stay shut, Martek. I'll respect the seals.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Old seals are made to be broken. I'll take what's inside.", next = "BACK", fx = { align = { order = -1 } } },
@@ -87,7 +87,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Aye, it does, an' that's why I'll no' let a mage near mine. Metal that's been made strong by a charm forgets how tae be strong on its own, an' the day yer charm fails, the blade fails with it." } },
+      lines = { { id = "xmage_default", text = "Aye, they do, an' that's why I'll no' let a mage near mine. Metal that's been made strong by a charm forgets how tae be strong on its own, an' the day yer charm fails, the blade fails with it." } },
       choices = {
         { text = "Honest steel needs no magic. You're right.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic makes metal better. That's progress, Martek.", next = "BACK", fx = { align = { order = -1 } } },
@@ -181,7 +181,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     indurium = {
-      lines = { { id = "i_default", text = "Indurium, a metal ye'll find only in the deep places round Uldaman, and the troggs carry it like treasure. It's light, and it's strong, and it's perfect for a gnome's mad machine." } },
+      lines = { { id = "i_default", text = "Indurium, a metal ye'll find only in the deep places round Uldaman, and the troggs carry it like treasure. It's light, and it's strong, and every tinker who builds fast machines would pay dear for it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "uldaman" } } } },
     },
     life = {
@@ -233,7 +233,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Off the cliffs round Angor Fortress, mostly, though the Dark Irons up there charge me in arrows every time I go poking about. The big ones nest out by Dustwind Gulch, and they're as mean as they are tasty, which works out to about four silver a wing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the grill, would ya? It's lookin' at my buzzards the way my customers do, and pal, I don't run a tab for anything with paws." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Off the cliffs round Angor Fortress, mostly, and the big ones nest out by Dustwind Gulch, as mean as they are tasty. Keep {pet} away from the grill, though, pal, because I don't run a tab for anything with paws." },
       },
       choices = {
         { text = "I'll bring you buzzards, a fair trade for a fair price.", next = "BACK", fx = { align = { honor = 1 } } },

@@ -116,7 +116,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, and they always have. In Ashenvale the Warsong cut deeper every season, and a hunter who reads the forest can find their scouts before they find us; Shandris Feathermoon would tell you the same, and more sharply." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me as the Sentinels' nightsabers do, calmly and missing nothing. Keep it close, for Elune gave us such companions so that none of us would walk the dark alone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, and they always have, for a hunter who reads the forest can find the Warsong scouts before they find us. Your {pet} watches me as the Sentinels' nightsabers do, calmly and missing nothing, so keep it close." },
       },
       choices = {
         { text = "I'll serve where the Sentinels place me.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1119,7 +1119,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A druid becomes the bear for a while and must remember how to come back, which is harder than it sounds. A hunter stays who they are and earns the beast's trust instead, and I sometimes think yours is the humbler path." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} trusts you; I can see it in how it sits. That trust is not something any druid can take by changing shape, and you should be proud of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A druid becomes the bear for a while, while a hunter stays who they are and earns the beast's trust instead. Your {pet} trusts you; I can see it in how it sits, and no druid can take that by changing shape." },
       },
       choices = {
         { text = "My companion is my equal, not my tool.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1215,7 +1215,7 @@ P:NPC {
         { id = "h_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You move differently since you met the Great Bear, heavier on your feet and lighter in your head, which is exactly how it should be." },
         { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind, usually a question. Yours are good ones, so keep asking them." },
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
-          text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be. I can tell you it plays before it bites." },
+          text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be, only that it plays before it bites." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You smell of the arcane, {class}, like smoke caught in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and in my mind they are all growling at you right now." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students still crash through the underbrush like tauren, and they could stand to watch you." },
@@ -1421,7 +1421,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "She does, for she lights the paths you walk at night and the eyes of every beast you follow. Take only what the hunt needs and thank her for the rest, and she will not turn her face from you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And over your {pet} as well, little star, for the moon shines on the beasts as freely as on us. Let it rest by the pool a while; the Sisters won't mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She does, for she lights the paths you walk at night and the eyes of every beast you follow. She watches over your {pet} as well, little star, so let it rest by the pool a while." },
       },
       choices = {
         { text = "I thank Elune for every hunt.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1737,7 +1737,7 @@ P:NPC {
         { id = "h_low", when = { maxLevel = 40 },
           text = "Things live in the southern deserts that frighten me more than any orc. You're young yet, so come back to me when you're not." },
         { id = "h_fandral", when = { heardLine = "fandral.h_default" },
-          text = "You've met the Archdruid, then. He thinks my insects are a scholar's hobby, and he is very certain of it, but then, so was the hive." },
+          text = "You've met the Archdruid, then. He thinks my insects are a scholar's hobby, and he is very certain of it, which is exactly what worries me." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Another priest. People forget the Sisterhood studies as well as prays. Someone ought to write down everything that crawls under the moon." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, and you've arrived at a fitting moment. I've been reading about creatures that the arcane drew here from elsewhere, and none of them are kind." },
@@ -1849,7 +1849,7 @@ P:NPC {
     },
     ahn_qiraj = { { id = "tp_ahn_qiraj", text = "The Temple has old accounts of a war in the southern desert, before the Sundering, against something that crawled. I've only seen fragments, and the fragments frighten me." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "Human scholars, and very good ones by the letters I've read, though they ask for too much in return. They wanted our Highborne texts, and the Temple said no." } },
-    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears. The Highborne once said the same of magic, and look where that led." } },
+    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears." } },
   },
 }
 
@@ -1920,7 +1920,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Never, though some come close. Your spirits might steady them. Rest well, and do not look down." } },
+      lines = { { id = "xdsham_default", text = "Never, though some come close, and perhaps your spirits could steady them. Rest well, and do not look down." } },
       choices = {
         { text = "I will rest well and heed your warning, Saelienne.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Looking down is half the fun.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1958,7 +1958,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It may, so long as it doesn't sharpen its claws on the posts, because this inn is part of a living tree and the druids notice. Most companions settle well enough once they stop looking over the railing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the rug by the hearth, if it's the sleeping sort. Just keep it away from the railing, because the drop does strange things to animals." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It may, so long as it doesn't sharpen its claws on the posts, because this inn is part of a living tree. Your {pet} can have the rug by the hearth, but keep it away from the railing, because the drop does strange things to animals." },
       },
       choices = {
         { text = "My companion will respect the tree, as I do.", next = "BACK", fx = { align = { order = 1 } } },

@@ -19,7 +19,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Speak up, and speak fast. I have horns to count." },
-    { id = "g_active", when = { questActive = TODO_QUEST("A Grim Discovery") }, text = "Twenty horns, and don't bring me calves' nubs. I'll know." },
+    { id = "g_active", when = { questActive = TODO_QUEST("A Grim Discovery") }, text = "Bring me twenty Grimtotem horns, and don't bring me calves' nubs. I'll know." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Grim Discovery") }, text = "Belgrom has your horns, and the Grimtotem have fewer heads. A good trade." },
   },
 
@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Krueg Skullsplitter, sent from Orgrimmar by Belgrom Rockmaul. My orders were to watch Feralas and report, until somebody found tauren in the hills who weren't any friend of ours." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Grim Discovery") },
-          text = "You came across tauren out there? What did they look like? The Grimtotem! Belgrom has an interest in their kind, and a bounty on them. Go back and bring me their horns, piles of them if you can." },
+          text = "You came across tauren out in the hills? From the look of them, they're Grimtotem. Belgrom has an interest in their kind, and a bounty on them, so go back and bring me their horns, piles of them if you can." },
         { id = "h_active", when = { questActive = TODO_QUEST("A Grim Discovery") },
           text = "The Grimtotem are not to be trifled with or underestimated, {class}. Go in hard and come back with twenty horns, and let the rivers of Feralas carry the rest away." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Grim Discovery"), days = 3 } },
@@ -107,7 +107,7 @@ P:NPC {
     },
 
     camp = {
-      lines = { { id = "ca_default", text = "They don't love it, and Hadoken looks at my sacks like I've filled them with his cousins. But the Grimtotem have raided these braves too, and nobody here is sorry to see them fewer." } },
+      lines = { { id = "ca_default", text = "They don't love it, and Hadoken Swiftstrider looks at my sacks like I've filled them with his cousins. But the Grimtotem have raided these braves too, and nobody here is sorry to see them fewer." } },
       choices = {
         { text = "Be gentle with the tauren here.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -118,7 +118,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "The Grimtotem, the bounty, and my orders. That's all I need." } },
     background = { { id = "tp_bg", text = "Grunt of Orgrimmar, sent west by Belgrom Rockmaul. That's the whole story.", next = "belgrom" } },
-    grimtotem = { { id = "tp_grim", text = "Traitors to their own kind. Bring me their horns." } },
+    grimtotem = { { id = "tp_grim", text = "The Grimtotem are traitors to their own kind, so bring me their horns." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care, so bring me horns or bring me nothing." } },
   },
 }
@@ -232,9 +232,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Elves, ruins, the old roads of the world, and one particular elf who refuses to be found." } },
+    knows = { { id = "tp_knows", text = "I know elves, ruins, the old roads of the world, and one particular elf who refuses to be found." } },
     background = { { id = "tp_bg", text = "A sage of the tauren, too old to stop walking.", next = "why" } },
-    highborne = { { id = "tp_high", text = "Brilliant, proud and ruinous. I study them the way a sailor studies storms." } },
+    highborne = { { id = "tp_high", text = "The Highborne were brilliant, proud and ruinous. I study them the way a sailor studies storms." } },
     _none = { { id = "tp_none", text = "Hm. I have no notes on that, which is rare enough that I'll write it down." } },
   },
 }
@@ -299,7 +299,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The winds of Feralas and every perch between here and Thunder Bluff." } },
+    knows = { { id = "tp_knows", text = "I know the winds of Feralas and every perch between here and Thunder Bluff." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. The rider knows what it's doing." } },
     _none = { { id = "tp_none", text = "I don't know. I'm usually in the air when people talk about things like that." } },
   },

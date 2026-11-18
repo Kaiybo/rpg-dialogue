@@ -40,7 +40,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because it hatched in the middle of a bidding war, and the winning bidder was frozen stiff before he'd paid, which left me with an unpaid lot and a very confused basilisk. Now the Cartel's rule is that I can't list anything alive, which I think is very unfair to hunters, frankly, and to my commission." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that I'd ever list {pet}, of course, so you can stop holding that lead quite so tight, friend; I'm smiling, but I mean it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because it hatched in the middle of a bidding war, and now the Cartel won't let me list anything alive. Not that I'd ever list {pet}, of course, so you can stop holding that lead quite so tight, friend." },
       },
       choices = {
         { text = "The Cartel's right. Live beasts shouldn't go up for bidding.", next = "BACK", fx = { align = { order = 1 } } },
@@ -88,7 +88,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Turn up? Friend, half of Tanaris passes through this house sooner or later, and I don't ask a seller where his boots have been. The Cartel's rule is that a fair sale is a fair sale, and I'd be out of business by sundown if I played judge over every pair of gloves." } },
       choices = {
-        { text = "Selling a dead man's gear without asking is no fair sale.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Selling stolen gear without asking is no fair sale.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Not asking questions is good business, Beardo.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -234,7 +234,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
-      text = "Your {pet} is panting, friend. Let it have a drink before we talk business, because a hot beast is a cranky beast, and cranky beasts break stalls I have to pay for." },
+      text = "{pet} is panting, friend. Let it have a drink before we talk business, because a hot beast is a cranky beast, and cranky beasts break stalls I have to pay for." },
   },
 
   start = "hello",
@@ -258,7 +258,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Badly, and quietly, which is worse. A raptor that stops complaining is a raptor that needs a bucket thrown over it, and the Water Company charges me for every bucket." } },
+      lines = { { id = "dq_default", text = "They bear it badly, and quietly, which is worse. A raptor that stops complaining is a raptor that needs a bucket thrown over it, and the Water Company charges me for every bucket." } },
       choices = {
         { text = "Then pay it. A keeper's beasts come before his purse.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Ration their water. They'll toughen up soon enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -361,7 +361,7 @@ P:NPC {
       },
     },
     heat = {
-      lines = { { id = "he_default", text = "Water, shade and wet cloth over the cages at noon. The water's the costly part, pal, because the Wastewanders hold the best wells and Bilgewhizzle charges for every drop he's got left, and I'm sure he counts them." } },
+      lines = { { id = "he_default", text = "Water, shade and wet cloth over the cages at noon. The water's the costly part, pal, because the Wastewanders hold the best wells and Chief Engineer Bilgewhizzle charges for every drop he's got left, and I'm sure he counts them." } },
       choices = {
         { text = "Surely the animals could manage with less.", next = "heat_less" },
         { text = "Something else.", next = "BACK" },
@@ -441,8 +441,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Bit of black powder in the wrong housing, that's all, and the hunter kept his eye, which I count as a success. These days I test every scope out the back on the dune Blizrik isn't using, and I haven't lost a lens in a month." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the workbench, though, because the last curious nose in here found a fuse, and I had to explain to the bank why the smoke was drifting their way again." },
+        { id = "xhuntcl_default", text = "Bit of black powder in the wrong housing, that's all, and the hunter kept his eye, which I count as a success. These days I test every scope out the back on the dune Blizrik the gunsmith isn't using, and I haven't lost a lens in a month." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bit of black powder in the wrong housing, and the hunter kept his eye, which I count as a success. Keep {pet} away from the workbench, though, because the last curious nose in here found a fuse." },
       },
       choices = {
         { text = "Good hunting is patience and skill. Gadgets won't replace that.", next = "BACK", fx = { align = { order = 1 } } },
@@ -637,7 +637,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every day, because a basilisk will curl up on a vein of mithril like it's guarding gold, and it won't move for anybody. I've lost more good ore to sleeping basilisks than to the Wastewanderers, pal, and the basilisks don't even spend it, which is the real crime." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If {pet} could learn to chase a basilisk off a vein without getting stared stiff, I'd call it the most useful beast in Tanaris." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every day, because a basilisk will curl up on a vein of mithril and won't move for anybody. If {pet} could learn to chase one off without getting stared stiff, I'd call it the most useful beast in Tanaris." },
       },
       choices = {
         { text = "The basilisks were there first. Mine around them.", next = "BACK", fx = { align = { light = 1 } } },

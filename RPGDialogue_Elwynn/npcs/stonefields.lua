@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I know exactly who, and so does everyone else. Your spirits won't change my mind." } },
+      lines = { { id = "xdsham_default", text = "That Maclure boy took it, and everyone knows it, so your spirits won't change my mind." } },
       choices = {
         { text = "Be sure before you blame, Bernice. Honesty matters.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Trust your instinct. You're probably right.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -39,7 +39,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy." } },
+      lines = { { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy Maclure." } },
       choices = {
         { text = "Of course, Auntie. I'll leave it outside.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It goes where I go, Auntie. Sorry.", next = "BACK", fx = { align = { order = -1 } } },
@@ -67,8 +67,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Pies, of course, and the boy who's been hanging round my fence won't stop talking about them. Bring me good meat and I'll bake, though I'll not promise it'll be for him." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks well fed. Don't let it near my window when the pie's cooling, mind." },
+        { id = "xhuntcl_default", text = "For pies, of course, and Billy, the Maclure boy who hangs round my fence, won't stop talking about them. Bring me good meat and I'll bake, though I'll not promise it'll be for him." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "For pies, of course, and Billy, the Maclure boy who hangs round my fence, won't stop talking about them. That {pet} of yours looks well fed, so don't let it near my window when the pie's cooling, mind." },
       },
       choices = {
         { text = "I'll bring you the best boar I can find.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -116,7 +116,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Come in and close the door, the bread's rising, and say a word for my necklace while you're at it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Well, you're just what this farm needs, because nobody believes me about that Maclure boy, and maybe they'll believe you." },
-        { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard, all the more since my necklace went missing." },
+        { id = "h_default", text = "I'm Bernice Stonefield, and everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard, all the more since my necklace went missing." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Lost Necklace") },
           text = "My necklace is gone, and that Maclure boy's been hanging round the fence all week. You do the arithmetic." },
         { id = "h_pie", tags = { "news" }, when = { questActive = TODO_QUEST("Pie for Billy") },
@@ -125,7 +125,7 @@ P:NPC {
           text = "A kobold had it, down in the Fargodeep Mine, a kobold! And how it got from my neck to a mine, nobody can tell me, though I have my suspicions." },
         { id = "h_bread", when = { metBefore = true }, text = "The bread rose proper this morning, first time all week, so don't you dare let that door slam." },
         { id = "h_billy_pie", when = { questActive = TODO_QUEST("Back to Billy") },
-          text = "There, take it to him, and tell him it's poisoned. No, don't; tell him it's good. It is good, and that's the worst of it." },
+          text = "There, take the pie to Billy, and tell him it's poisoned. No, don't; tell him it's good. It is good, and that's the worst of it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Quick hands, I see, and I've a pie cooling on the sill, so I'll be watching both of them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -134,7 +134,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after good boar, the ones out past the Maclure vines are fattest, and I'd thank you to bring me some." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen yard! Look at the turnips if you like, but mind the vineyard side, because the Maclures watch this fence like hawks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, sit down anyway; I've fed worse, and I've fed Billy, which is worse than most." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Mind my kitchen. And no, your spirits won't tell me who stole my necklace; I already know." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Mind my kitchen, and no, your spirits won't tell me who stole my necklace; I already know." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I knead; I can do both." },
@@ -145,7 +145,7 @@ P:NPC {
         { text = "Tell me about the necklace.", next = "necklace" },
         { text = "What sort of pies are those cooling?", next = "pie" },
         { text = "Billy let slip he dropped it.", next = "billy_slip", when = { heardLine = "billy.s_slip" } },
-        { text = "You said those were your husband's.", next = "husband", when = { questDone = TODO_QUEST("Goldtooth") } },
+        { text = "Was the necklace a gift from your husband?", next = "husband", when = { questDone = TODO_QUEST("Goldtooth") } },
         { text = "A gnome could build you a better oven, Auntie.", next = "gnome", when = { race = "Gnome" } },
         { text = "You seem to think I'd steal your pie, Auntie.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Wouldn't a spell spoil the bread somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -240,11 +240,11 @@ P:NPC {
     husband = {
       big = true,
       lines = {
-        { id = "hu_default", text = "His lucky things. He said so every time he put them on. Then he went on his last campaign and left them on the peg." },
+        { id = "hu_default", text = "It was his lucky charm, and he said so every time he put it on. Then he went on his last campaign and left it on the peg." },
       },
       choices = {
         { text = "Would you like a prayer said for him?", next = "husband_priest", when = { class = "PRIEST" } },
-        { text = "He'd be glad they're in use.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "He'd be glad it's back where it belongs.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -276,7 +276,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a Stonefield by marriage, and a widow these years. I bake, and that's the rest of it." } },
     advice = { { id = "tp_ad", text = "Don't rush the crust. It's good advice for more than pies." } },
     maybell_tommy = { { id = "tp_lovers", text = "What about them? There's nothing to tell about them, so why do you ask, and what have you heard?" } },
-    kobolds = { { id = "tp_kobolds", text = "Thieving little candle-heads, and worse than Maclures, nearly." } },
+    kobolds = { { id = "tp_kobolds", text = "Kobolds are thieving little candle-heads, and nearly worse than Maclures." } },
     _none = { { id = "tp_none", text = "I've no idea, but you can ask me about pie." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold pork pies at the Faire one year and came home with an empty basket and a headache from all that music. I didn't go back, but I think of it fondly." } },
     holy_light = { { id = "tp_holy_light", text = "I pray to the Light for patience with that Maclure boy, and some days it comes and some days it doesn't. Today it hasn't, so don't ask me about him." } },
@@ -338,7 +338,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I'd want it killed any way at all, because that sow's eaten more of my cabbages than my family has, but I'd rather it was done quietly so the neighbours don't talk. Whoever's left over there can think she wandered off." } },
+      lines = { { id = "xrogue_default", text = "I'd want it killed any way at all, because that sow's eaten more of my cabbages than my family has, but I'd rather it was done quietly so the neighbours don't talk. Whatever Brackwells are left can think she wandered off." } },
       choices = {
         { text = "I'll kill her openly, Ma. No need for sneaking.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Quiet's best. Nobody needs to know who did it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -365,7 +365,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "They should be, but old Brackwell says Princess is a prize sow and a free creature, and the Marshal won't fine a man over a pig. If there's a law that protects my carrots, I've never heard of it, and believe me, I've asked." } },
+      lines = { { id = "xapala_default", text = "They should be, but old Brackwell says Princess is a prize sow and a free creature, and Marshal Dughan won't fine a man over a pig. If there's a law that protects my carrots, I've never heard of it, and believe me, I've asked." } },
       choices = {
         { text = "There should be. A neighbor must answer for his beast.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The law can't fix this. Deal with the pig yourself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -376,7 +376,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you've a prayer that keeps pigs out of carrots, I've no work for you, but sit, the kettle's on." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you do anything about a pig? I know it's not your usual work, but she's the size of a cart." },
-        { id = "h_default", text = "Ma Stonefield. This is my field, or it was, until the Brackwells' prize pig found it." },
+        { id = "h_default", text = "I'm Ma Stonefield, and this is my field, or it was, until the Brackwells' prize pig found it." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Princess Must Die!") },
           text = "Princess, they call her, Princess! She's the size of a cart and eats like a regiment, and she'll have the whole crop by harvest." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Princess Must Die!") },
@@ -389,7 +389,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Whatever that is at your heel, keep it out of my field, because I've enough trouble with one beast eating my crop." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you're who I need, because that pig of the Brackwells' won't stop for a pitchfork." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you can turn a pig into a sheep, I've one in mind, and he's eaten half my field." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you can turn a pig into a sheep, I've one in mind, and she's eaten half my field." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can your spirits do something about that pig? Princess is eating our whole crop, and I'm not a crier." },
       },
       again = {
@@ -426,7 +426,7 @@ P:NPC {
       lines = {
         { id = "bg_default", text = "Nobody knows. One week there were Brackwells, the next there were men in red masks. Marshal Dughan says he's looking into it." },
         { id = "bg_manhunt", when = { questDone = TODO_QUEST("Manhunt") },
-          text = "Dughan's lot got the one running that patch, they say, but there's still no sign of the Brackwells. I've stopped expecting any." },
+          text = "Marshal Dughan's men got the one running that patch, they say, but there's still no sign of the Brackwells. I've stopped expecting any." },
       },
       choices = {
         { text = "I'll keep an eye out for them.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "defias" } } },
@@ -458,7 +458,7 @@ P:NPC {
 
     farm = {
       lines = {
-        { id = "fa_default", text = "Bernice bakes, Gramma schemes, the boy moons, and I'm the only one actually farming." },
+        { id = "fa_default", text = "Bernice bakes, Gramma schemes, my boy Tommy Joe moons, and I'm the only one actually farming." },
       },
       choices = {
         { text = "Gramma schemes?", next = "farm_gramma" },
@@ -467,7 +467,7 @@ P:NPC {
     },
     farm_gramma = {
       lines = {
-        { id = "fg_default", text = "She hums. When Gramma hums, somebody's about to be surprised. I keep my head down and my hoe moving." },
+        { id = "fg_default", text = "She hums, and when Gramma hums, somebody's about to be surprised. I keep my head down and my hoe moving." },
       },
       choices = { { text = "Wise.", next = "BACK", fx = { learn = { "maybell_tommy" } } } },
     },
@@ -503,12 +503,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I farm. I've farmed since I could hold a hoe. That's the whole of it, and it's enough." } },
+    background = { { id = "tp_bg", text = "I farm, and I've farmed since I could hold a hoe. That's the whole of it, and it's enough." } },
     advice = { { id = "tp_ad", text = "Never name a pig. Once you name it, it thinks it owns the place." } },
     maybell_tommy = { { id = "tp_lovers", text = "Tommy Joe? He's mending the east fence, and he's been mending it for months. It must be a very broken fence." } },
-    defias = { { id = "tp_defias", text = "They took the Brackwell farm whole, pumpkins, house and all. They left the pig, so they've got some sense at least." } },
+    defias = { { id = "tp_defias", text = "The Defias took the Brackwell farm whole, pumpkins, house and all, but they left the pig, which tells you they've got some sense." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, got a pig to worry about." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating the Brackwells' pumpkins instead." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating my cabbages instead." } },
     holy_light = { { id = "tp_holy_light", text = "I've no time for long prayers, so I say a short one to the Light every time I pick up a hoe. It hasn't broken yet, so I reckon it's working." } },
     varian = { { id = "tp_varian", text = "A king's not much use to a farm unless he keeps the roads clear, and this one's been gone so long the roads have noticed. Somebody ought to tell him." } },
   },
@@ -580,7 +580,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Starving, nearly! Ma says I eat too much, but I don't, I'm just growing, and Auntie Bernice's pie is the best in Elwynn. If you bring her boar meat, she'll make one, and then I'll tell you everything." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that your {pet}? Does it eat pie? I'd share, only not very much." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Starving, nearly, and Auntie Bernice's pie is the best in Elwynn, so bring her boar meat and then I'll tell you everything. Is that your {pet}? Does it eat pie? I'd share, only not very much." },
       },
       choices = {
         { text = "I'll bring the meat, Billy, but the pie's not yours.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -633,7 +633,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Have you got a boar? I'm not hungry, I'm just asking, because I'm hungry." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a night elf! I didn't take anything, before you ask, and I've never even seen one of your lot before." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I didn't take anything of yours, I swear, and I didn't even look at your bag." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "I didn't do it! Oh, you're a shaman. Well, I still didn't do it. Whatever it was." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "I didn't do it! Oh, you're a shaman. Well, I still didn't do it, whatever it was." },
       },
       again = {
         { id = "h_again", text = "What? I'm listening, I'm always listening, that's how I know things." },
@@ -658,7 +658,7 @@ P:NPC {
     },
 
     sure = {
-      lines = { { id = "s_default", text = "I'm a Maclure, and we don't steal from Stonefields; we just don't talk to them, which is different. Ma says." } },
+      lines = { { id = "s_default", text = "I'm a Maclure, and we don't steal from Stonefields; we just don't talk to them, which is different, Ma says." } },
       choices = {
         { text = "That's not an answer.", next = "sure_push" },
         { text = "If your ma says so, Billy.", next = "BACK", fx = { affinity = 1 } },
@@ -692,7 +692,7 @@ P:NPC {
     maybell = {
       lines = {
         { id = "m_river", key = true,
-          text = "Maybell's at the river again, she's always at the river. I'm not saying anything, I'm just saying." },
+          text = "There's my sister Maybell, and she's at the river again; she's always at the river. I'm not saying anything, I'm just saying." },
       },
       choices = {
         { text = "Why the river?", next = "maybell_why" },

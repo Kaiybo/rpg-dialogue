@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It was green and alive, before the darkness. Nothing matters much now, but your spirits might remember." } },
+      lines = { { id = "xdsham_default", text = "It was green and alive before the darkness came. Nothing much matters to me now, but your spirits might remember it." } },
       choices = {
         { text = "It can be green again, Sven. Don't lose hope.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "It's gone. Accept the darkness.", next = "BACK", fx = { align = { light = -1 } } },
@@ -98,11 +98,11 @@ P:NPC {
         { id = "h_farm", when = { questBefore = TODO_QUEST("The Shadowy Figure") },
           text = "I came home and they were gone, my wife and my children both. Riders in black, the tracks said, and something was watching from the barn." },
         { id = "h_dig", when = { questActive = TODO_QUEST("Sven's Revenge") },
-          text = "He buried something behind the old stump by my barn and ran, and I was too busy chasing riders to dig it up. Dig for me." },
+          text = "The one watching from my barn buried something behind the old stump and ran, and I was too busy chasing riders to dig it up. Dig for me." },
         { id = "h_jitters", tags = { "news" }, when = { questDone = TODO_QUEST("Return to Sven") },
           text = "Jitters, a thief who hid in my barn and watched, brought this on us, him and his kind, so don't tell me he's sorry." },
         { id = "h_proving", when = { questActive = TODO_QUEST("Proving Your Worth") },
-          text = "His dead guard the crypt south of his house. Break them, and then I'll believe you can break him." },
+          text = "Morbent Fel's dead guard the crypt south of his house. Break them, and then I'll believe you can break him." },
         { id = "h_seeking", when = { questActive = TODO_QUEST("Seeking Wisdom") },
           text = "Go to Bishop Farthing in the Cathedral; Stormwind forgot us, but he didn't. Give him the book and tell him what you mean to do." },
         { id = "h_morbent", when = { questActive = TODO_QUEST("Morbent Fel") },
@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_revenge", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morbent Fel"), days = 3 } },
           text = "I went back to the farm last night and sat on the porch, but I couldn't go in. Maybe next time I will." },
         { id = "h_jitters_heard", when = { heardLine = "jitters.s_default" },
-          text = "He told you he just watched, did he? As if that makes it smaller, when it makes it bigger." },
+          text = "Jitters told you he only watched, did he? As if that makes it smaller, when it makes it bigger." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Pray if you want to, priest; I stopped. I'll stand next to you while you do it, though, and that's as far as I go." },
         { id = "h_quiet", when = { metBefore = true }, text = "You came back, and most don't. Sit if you like, but I don't talk much; the forest does it for me." },

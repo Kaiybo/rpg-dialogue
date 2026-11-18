@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "What? Can't you see I'm busy being ignored by the Almighty? Go and bother him." },
+    { id = "g_default", text = "What? Can't you see I'm busy being ignored by Niby the Almighty? Go and bother him instead." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Oh, a warlock, a real one, not a puffed-up imp with a fancy title. Come closer, I've got a proposition for you." },
     { id = "g_cloth", when = { questActive = TODO_QUEST("The Wrong Stuff") }, text = "Wood and ooze, wood and ooze! Have you got my wood and ooze yet, or are you just standing there?" },
     { id = "g_feathers", when = { questActive = TODO_QUEST("Trolls of a Feather") }, text = "Feathers! Troll feathers, from the sunken temple, and the right colours, mind. My pet won't stuff itself." },
@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "You can summon things, can't you? Real things, with teeth. Niby can too, and it's the only thing he's good at, and it drives me mad." },
+      text = "You can summon things, can't you? Real things, with teeth. So can Niby, my so-called master, and it's the only thing he's good at, which drives me mad." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Is that your {pet}? It follows you about and everything, doesn't it? Some people have all the luck." },
     { id = "n_imp", cat = "pet", when = { pet = { type = "Demon" } },
@@ -74,10 +74,10 @@ P:NPC {
     },
     niby_how = {
       lines = {
-        { id = "nh_default", text = "He says he read it in a book in the ruins. I say he found a warlock's notes after the warlock got eaten, and he didn't understand half of them, and the half he did understand was me." },
+        { id = "nh_default", text = "He says he read it in a book in the ruins. I say he found a warlock's notes after the warlock got eaten, and the only part he understood was how to summon me." },
       },
       choices = {
-        { text = "That's funnier than you think.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "That explains a great deal.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -186,7 +186,7 @@ P:NPC {
     burning_legion = { { id = "tp_bl", text = "Big, important demons who've never once noticed me, which suits me fine." } },
     satyrs = { { id = "tp_sat", text = "They laugh at Niby, too. I like the satyrs a little bit for that." } },
     background = { { id = "tp_bg", text = "I was summoned, I was bound, I was handed a slipper. That's the whole tale." } },
-    advice = { { id = "tp_ad", text = "Never let anybody give you a title. It only goes to their head when they give themselves one." } },
+    advice = { { id = "tp_ad", text = "Never trust anybody who gives himself a title. Niby did, and look at him." } },
     _none = { { id = "tp_none", text = "Ask Niby. He'll say he knows, and he won't, and you'll enjoy watching him try." } },
   },
 }

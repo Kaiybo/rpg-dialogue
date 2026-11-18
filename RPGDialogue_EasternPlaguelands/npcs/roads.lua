@@ -83,7 +83,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "To the end and past it, if that's possible, because he stood his ground at Darrowshire when the order could send him no help. I've heard men say the Silver Hand failed Lordaeron, but it didn't fail at Darrowshire, because Joseph was there." } },
+      lines = { { id = "xapala_default", text = "He was never one of them, but he honoured them to the end, and he stood his ground at Darrowshire when the order could send him no help. I've heard men say the Silver Hand failed Lordaeron, but its spirit didn't fail at Darrowshire, because Joseph was there." } },
       choices = {
         { text = "Then his honour is the order's honour still.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "One brave man can't redeem an order that failed.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -289,7 +289,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "She ran into the woods behind the house when everyone started shouting, and she didn't come back for supper. If you find her, she's grey with one white foot, and you mustn't be cross with her, because she was frightened." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Can I pet it? Oh, it's gone all funny and backed away, so I'll just wave instead, hello, {pet}!" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She ran off when everyone started shouting, and she was grey with one white foot. Is that {pet}? Oh, it's gone all funny and backed away, so I'll just wave instead, hello, {pet}!" },
       },
       choices = {
         { text = "I'll look for her, Pamela, but she may be gone.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -654,7 +654,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I gave it a nose that followed the strongest scent, and the strongest scent in the Plaguelands is always rot, so it ran straight into a ghoul pit. Real beasts know when not to follow their noses, which is something I've never managed to build." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "May I watch {pet} for a minute? Only to see how it decides where to look, {class}, because I think it might solve a problem I've had with my gyroscope for weeks." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Badly wrong, because it followed the strongest scent, and out here that's always rot. May I watch {pet} for a minute, {class}? I'd like to see how a real beast decides where to look." },
       },
       choices = {
         { text = "Some things should stay alive and wild. Leave hounds to nature.", next = "BACK", fx = { align = { order = -1 } } },

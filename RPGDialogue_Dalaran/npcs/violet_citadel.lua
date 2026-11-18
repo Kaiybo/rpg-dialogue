@@ -569,7 +569,7 @@ P:NPC {
     },
     work_help = {
       lines = {
-        { id = "wh_default", text = "Not with the wards, unless you've studied in secret for twenty years. But Alvareaux is always short of something, and the crews on the Path of Renewal could use someone who isn't a magus to tell them which way is up." },
+        { id = "wh_default", text = "Not with the wards, unless you've studied in secret for twenty years. But Archmage Alvareaux, our quartermaster, is always short of something, and the crews on the Path of Renewal could use someone who isn't a magus to tell them which way is up." },
       },
       choices = {
         { text = "I'll look in on them.", next = "BACK", fx = { affinity = 1 } },
@@ -630,7 +630,7 @@ P:NPC {
     xhorde = {
       big = true,
       lines = {
-        { id = "xh_default", text = "Your master in Tarren Mill wanted a seat at our table, and he bargained with our own property to get one. I'd call that a poor beginning, whatever he meant by it." },
+        { id = "xh_default", text = "Your masters in Tarren Mill wanted a seat at our table, and they bargained with our own property, that mote, to get one. I'd call that a poor beginning, whatever they meant by it." },
       },
       choices = {
         { text = "Then let's begin better. I'll deal straight with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

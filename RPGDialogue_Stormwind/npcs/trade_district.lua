@@ -97,8 +97,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They're devouring them, my friend, every grape and the vines besides! I've asked the guards and the guards laugh, so I'm left to ask honest hunters, and here you are, looking very honest indeed." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this must be {pet}! A noble beast, and I'd wager a vintage it could frighten off a boar or two if it had a mind to." },
+        { id = "xhuntcl_default", text = "They're devouring them, my friend, every grape and half the vines besides! I've asked the guards and the guards laugh, so I'm left to ask honest hunters, and here you are, looking very honest indeed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They're devouring them, my friend, every grape and half the vines besides! And this must be {pet}! A noble beast, and I'd wager a vintage it could frighten off a boar or two if it had a mind to." },
       },
       choices = {
         { text = "I'll drive them off, and leave the sows with young.", next = "BACK", fx = { align = { light = 1 } } },
@@ -337,7 +337,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When a hunter brings it in, I do, and nothing goes better with a slice of sharp than a strip of venison. Ben eats more of it than he sells, but that's sons for you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its nose in the air, and I know exactly why. I'll not give it any, mind, or it'll be at my door every morning." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When a hunter brings it in, I do, and nothing goes better with a slice of sharp than a strip of venison. Your {pet} has its nose in the air, and I know exactly why. I'll not give it any, mind, or it'll be at my door every morning." },
       },
       choices = {
         { text = "I'll bring you good venison, fairly taken.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -386,7 +386,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting something that keeps in a pack, and nothing keeps like my dwarven sharp; ask any soldier in the Barracks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'd wager you've some game to trade. Elling won't tell you this, but I smoke the best venison in the Trade District." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'd guess you've a nose sharper than any guard's, so you'll know there's nothing upstairs but cheese." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elling sells cheese. Only cheese. I watch the stairs, so don't let your spirits wander up them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My husband sells cheese, only cheese, and I watch the stairs, so don't let your spirits wander up them." },
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese questions are free; the cheese isn't." },
@@ -576,7 +576,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "A good bag, plenty of salt and a sharp skinning knife, and most hunters remember the knife and forget the salt. A hide goes off in a day without it, and then all you've got is a smelly fur and a long walk home." },
+        { id = "xhuntcl_default", text = "A good bag, plenty of salt and a sharp skinning knife, and most hunters remember the knife and forget the salt. A hide goes off in a day without salt, and a beast goes off its feet without supper, so pack for two." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And food for {pet}, of course, if you're not hunting enough for two. Don't forget it; nobody wants to share a camp with a hungry beast." },
       },
       choices = {
@@ -699,7 +699,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Balance, not shine. A shaman needs a weapon that answers like the elements do: honest and steady." } },
+      lines = { { id = "xdsham_default", text = "A grip that trusts the balance, not the shine. A shaman needs a weapon that answers like the elements do, honest and steady." } },
       choices = {
         { text = "Honest balance beats any shine. I'll pick carefully.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Shine sells, Gunther. Don't knock it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -757,7 +757,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Need one? You'll die without one, because sooner or later something gets past the arrows and the pet both. A good hunter's axe should be light enough to swing one-handed while you're backing away." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will be grateful you can fight up close, I'd wager. Nobody likes being the only one in the brawl." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Need one? You'll die without one, because sooner or later something gets past the arrows and the pet both. And {pet} will be grateful you can fight up close, I'd wager." },
       },
       choices = {
         { text = "I'll fight beside my pet, not hide behind it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -942,7 +942,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wolves in Duskwood, spiders in the Brightwood Grove and murlocs on the Westfall coast, all asking for someone with a sharp eye! I read them out every morning, and I'd dearly love to read out that one had been answered." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And with a fine {pet} at your side, no less! I'll mention it in the next announcement, if you don't mind: a hero, a bow and a faithful beast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wolves in Duskwood, spiders in the Brightwood Grove and murlocs on the Westfall coast, all asking for someone with a sharp eye! And with a fine {pet} at your side, no less! I'll mention it in the next announcement, if you don't mind: a hero, a bow and a faithful beast." },
       },
       choices = {
         { text = "I'll answer them for the people's sake, not the fame.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1184,7 +1184,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Aye, the Wildhammer did it in the Second War, droppin' straight down on the orcs from the clouds. My birds are Aerie Peak stock, an' some o' the old ones still remember carryin' soldiers, so they're braver than ye'd think." } },
+      lines = { { id = "xwarcl_default", text = "Aye, the Wildhammer did it in the Second War, dropping straight down on the orcs from the clouds. My birds are Aerie Peak stock, and some of the old ones still remember carrying soldiers, so they're braver than you'd think." } },
       choices = {
         { text = "I'd be proud to fly with them into battle.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll keep my feet on the ground, thank you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1355,7 +1355,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Same as anyone. My brother in Goldshire would claim otherwise, but he claims a lot. A shaman's body is still a body." } },
+      lines = { { id = "xdsham_default", text = "The same as on anyone, though my brother in Goldshire would claim otherwise, and he claims a lot. A shaman's body is still a body." } },
       choices = {
         { text = "You measure fairly, Morgan. I trust your work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your brother may know something. Don't dismiss him.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1402,7 +1402,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I do, though I'll admit I started it for my own cat, who has an unfortunate habit of fighting things bigger than her. It's peacebloom and a little silverleaf, and it soothes a bite as well on a wolf as on a man." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks healthy enough, I'm glad to say, but if it ever comes home limping, you know where to find me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I do, though I'll admit I started it for my own cat, who has an unfortunate habit of fighting things bigger than her. Your {pet} looks healthy enough, I'm glad to say, but if it ever comes home limping, you know where to find me." },
       },
       choices = {
         { text = "My pet gets the best care I can give it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1447,7 +1447,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, then, and plenty, because I've never met a warrior who came home with as many as he left with." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a salve for beasts as well as men, if your companion's been in a scrape, and nobody else in the city bothers to brew one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll know half my ingredients by their first names, I expect, and you'll want to tell me I've cut them wrong." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me measure you. Hmm. Your spirits must take powders differently from most folk." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've always wondered whether your spirits make my powders work differently on you than on most folk." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a flask on the heat." },
@@ -1604,7 +1604,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Reinforced leather and a good pair of boots, and more of it every month, with so many going out to fight in Westfall and Redridge. I've never seen trade like it, and some nights I count the till and feel a bit sick about where the coin comes from." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't need armour, I suppose, which is a pity, because I'd sell it some. Just a jest, friend, just a jest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Reinforced leather and a good pair of boots, and more of it every month, with so many going out to fight in Westfall and Redridge. Your {pet} doesn't need armour, I suppose, which is a pity, because I'd sell it some. Just a jest, friend, just a jest." },
       },
       choices = {
         { text = "Profit from a war is hard to take pride in.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1737,7 +1737,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "When folk buy armor they tell you where they're going, and why. Ask me what I've heard." } },
     background = { { id = "tp_bg", text = "I keep an armory, and I keep the books for it. There's no more to tell than that, though the books have got thicker this year." } },
     advice = { { id = "tp_ad", text = "Buy the armor before you need it. Everyone's figured that out this year except the ones still standing in my queue." } },
-    defias = { { id = "tp_defias", text = "They're one reason folk buy armor, I'd guess. Westfall's not far enough away for anyone's comfort.", next = "boom" } },
+    defias = { { id = "tp_defias", text = "The Defias are one reason folk buy armor, I'd guess, since Westfall's not far enough away for anyone's comfort.", next = "boom" } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. I sell armor, and I've barely time for that." } },
   },
 }

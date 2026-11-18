@@ -147,7 +147,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_fk_trust", when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Bena says you count the Forsaken as Horde like any of us. The spirits below the rise would be glad of more like you, I think." },
+    { id = "o_fk_trust", when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Bena Winterhoof, the alchemist, says you count the Forsaken as Horde like any of us. The spirits below the rise would be glad of more like you, I think." },
     { id = "g_hi", text = "Oh, hello! Sorry, I was listening to the wind. It's chatty today." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Come and tell me where you've been." },
   },
@@ -167,7 +167,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've time, the wind's settled, and the earth spirits are dozing." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
-        { text = "You must visit the Forsaken below.", next = "below" },
+        { text = "Do you ever visit the Forsaken below?", next = "below" },
         { text = "What does the wind say?", next = "wind" },
         { text = "Farewell, Siln.", next = "END" },
       },
@@ -216,7 +216,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_kt_admire", when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Ghull says you admire the Kirin Tor. They'd admire you right into a cell in the Violet Hold, if you were dead, so think on that." },
+    { id = "o_kt_admire", when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Ursyn Ghull says you admire the Kirin Tor. They'd admire you right into a cell, if you were one of us, so think on that." },
     { id = "g_hi", text = "Mind the wards on the floor. They're not decorative, and I've no interest in scraping up another careless visitor." },
     { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving, which is more than I expected of the living." },
   },
@@ -346,13 +346,13 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? Take your time; the grave left me plenty of it." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "So you studied in Dalaran.", next = "dalaran" },
-        { text = "I studied there too, before.", next = "o_dal", when = { origin = "forsaken_dalaran_apprentice" } },
+        { text = "Where did you study, before?", next = "dalaran" },
+        { text = "I studied in Dalaran too, before.", next = "o_dal", when = { origin = "forsaken_dalaran_apprentice" } },
         { text = "Farewell, Ursyn.", next = "END" },
       },
     },
     dalaran = {
-      lines = { { id = "d_default", text = "Long ago, before the plague, and before Archimonde's armies left the city in ruins. I still dream in its libraries, if the dead can be said to dream." } },
+      lines = { { id = "d_default", text = "In Dalaran, long ago, before the plague, and before Archimonde's armies left the city in ruins. I still dream in its libraries, if the dead can be said to dream." } },
       choices = {
         { text = "What do you make of the Kirin Tor now?", next = "op_kirin_tor" },
         { text = "I'd guess you'd go back, if you could.", next = "dalaran_end" },
@@ -524,7 +524,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_sc_pity", when = { gossip = { topic = "scarlet_crusade", stance = "pity" } }, text = "Cobb tells me you pity the Scarlet Crusade. Pity them when they're tying you to the stake, and see how long it lasts." },
+    { id = "o_sc_pity", when = { gossip = { topic = "scarlet_crusade", stance = "pity" } }, text = "Father Cobb tells me you pity the Scarlet Crusade. Pity them when they're tying you to the stake, and see how long it lasts." },
     { id = "g_hi", text = "Another visitor. State your business, and don't waste my time; I've already lost one life to fools." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your devotion is noted." },
   },
@@ -566,7 +566,7 @@ P:NPC {
     },
     op_light_r3 = {
       lines = {
-        { id = "op_light_r3", text = "Cobb says the same thing, and he says it every morning, and the Light has yet to answer him. Believe what you like." },
+        { id = "op_light_r3", text = "Father Cobb says the same thing, and he says it every morning, and the Light has yet to answer him. Believe what you like." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -600,7 +600,7 @@ P:NPC {
     light = {
       lines = { { id = "l_default", text = "A comfortable faith for the living, and a cruel one for the dead. The Scarlet Crusade burns my people in its name, so I don't light candles to it." } },
       choices = {
-        { text = "What would you have me say about it?", next = "op_light" },
+        { text = "I see the Light differently, Malakai.", next = "op_light" },
         { text = "The Crusade isn't the Light.", next = "light_end", fx = { learn = { "scarlet_crusade" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },
@@ -634,7 +634,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_light_hate", when = { gossip = { topic = "the_light", stance = "hate" } }, text = "Malakai says you've turned your back on the Light. I'll not lecture you, child, but the chapel door is always open, even down here." },
+    { id = "o_light_hate", when = { gossip = { topic = "the_light", stance = "hate" } }, text = "Malakai Cross says you've turned your back on the Light. I'll not lecture you, child, but the chapel door is always open, even down here." },
     { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery, and I've no longer the hands to catch anyone." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping? I ask everyone, though I've stopped expecting good answers." },
   },

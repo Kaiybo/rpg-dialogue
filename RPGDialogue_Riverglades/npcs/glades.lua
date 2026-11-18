@@ -30,15 +30,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Who sent you? Never mind, it doesn't matter now, because it's too late for me, stranger, and I won't be walking out of this one, and Abigail will never know why." },
+          text = "Who sent you? Never mind, it doesn't matter now. I won't be walking out of this one, stranger, and Abigail will never know why." },
         { id = "h_saving", when = { questActive = TODO_QUEST("Saving Marshal Ryan") },
-          text = "You came from Farholde, with my log in your hand. Then Demar read it, and I'm glad, though it's too late for me, stranger, and I won't be walking out of this one." },
+          text = "You've come from Farholde, so Knight Commander Demar must have read my log. I'm glad of it, stranger, though I won't be walking out of this one." },
         { id = "h_dying", when = { questActive = TODO_QUEST("Dying Wish") },
           text = "Take the crest to the Knight Commander. Tell him what I saw in here, and tell him I'm sorry I didn't come back to report it myself." },
         { id = "h_human", when = { race = "Human" },
           text = "A human face, thank the Light. Are you from Stormwind? No, don't tell me; it'll only make me think of her." },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "A dwarf. Thaddeus Brillyard at the keep will take to you, though he never takes to anyone at first, so give him time." },
+          text = "A dwarf. Thaddeus Brillyard, the dwarf who rides with us at the keep, will take to you, though he never takes to anyone at first." },
       },
       again = {
         { id = "h_again", text = "Ask, while I can still answer." },
@@ -55,7 +55,7 @@ P:NPC {
     },
     what = {
       lines = {
-        { id = "wh_default", text = "I followed their supply trains here, to this fortress in the west, and I wrote down every wagon in that log. Then I got too close, as I always said I wouldn't, and they caught me." },
+        { id = "wh_default", text = "I followed the Twilight's supply trains here, to this fortress of theirs in the west, and I wrote down every wagon in my log. Then I got too close, as I always said I wouldn't, and they caught me." },
       },
       choices = {
         { text = "You must have seen a good deal inside.", next = "what_saw" },
@@ -64,7 +64,7 @@ P:NPC {
     },
     what_saw = {
       lines = {
-        { id = "ws_default", text = "More of them than Demar thinks, and better armed than they've any right to be. Our runners never reach the keep, because they're caught on the road, so warn him; he has to know." },
+        { id = "ws_default", text = "More cultists than Demar thinks, and better armed than they've any right to be. Their scouts catch our runners on the road, so warn him yourself; he has to know." },
       },
       choices = {
         { text = "Your scouts are in cages here?", next = "what_cages" },
@@ -73,7 +73,7 @@ P:NPC {
     },
     what_cages = {
       lines = {
-        { id = "wc_default", text = "Some of them, and Riftan's lads besides, if they're still breathing. The keys are on the brutes who guard them, so don't leave them here the way I've been left." },
+        { id = "wc_default", text = "Some of mine, and Sergeant Riftan's lads besides, if they're still breathing. The keys are on the brutes who guard the cages, so don't leave them here the way I've been left." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -125,7 +125,7 @@ P:NPC {
     twilights_hammer = { { id = "tp_th", text = "There are more of them than anyone at Farholde wants to believe. It's all in the log, every wagon of it." } },
     holy_light = { { id = "tp_holy_light", text = "Light keep me. I'm too far gone for prayers to mend, but say one for Abigail, if you would." } },
     bolvar = { { id = "tp_bolvar", text = "Tell Stormwind the Marshal held his post. Tell them that, and tell Abigail I'm sorry." } },
-    second_war = { { id = "tp_second_war", text = "I was a boy in the old war, and I swore I'd never let the glades fall again. I held them as long as I could." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy when the orcs came, and I swore I'd never let the glades fall again. I held them as long as I could." } },
     _none = { { id = "tp_none", text = "I don't know, and I won't be finding out now. Ask Demar." } },
   },
 }
@@ -160,7 +160,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Sleebo Fizzlespout, inventor, visionary and future fuel baron! The fuel of the future isn't coal and it isn't oil, chum, it's gas, and these glades are practically burping it for free." },
         { id = "h_gas", when = { questActive = TODO_QUEST("Gaseous Gold") },
-          text = "Those marshy ponds to the southwest, chum, where it bubbles up by the water. Bottle it and bring it back, and don't light anything on the way, because I can't sell a crater." },
+          text = "The gas is in those marshy ponds to the southwest, chum, where it bubbles up by the water. Bottle it and bring it back, and don't light anything on the way, because I can't sell a crater." },
         { id = "h_gas_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Gaseous Gold"), days = 3 } },
           text = "That gas is perfect, chum, and the engine already sounds less like it wants to explode, which is a big step up from last week. Now, about one more little favour..." },
         { id = "h_orc", when = { race = "Orc" },
@@ -203,7 +203,7 @@ P:NPC {
     },
     gas = {
       lines = {
-        { id = "ga_default", text = "Because it's free, chum! Nobody owns a swamp's burps, not even Melbin, and the ponds out here put out tons of the stuff from vents by the water, which is pure profit if you can catch it." },
+        { id = "ga_default", text = "Because it's free, chum! Nobody owns a swamp's burps, not even Melbin down at the port, and the ponds out here put out tons of the stuff, which is pure profit if you can catch it." },
       },
       choices = {
         { text = "That must be dangerous to collect.", next = "gas_danger" },
@@ -219,7 +219,7 @@ P:NPC {
     melbin = {
       big = true,
       lines = {
-        { id = "me_default", text = "Melbin thinks he owns everything from the port to the horizon, and he'd want a cut of the air if he could bottle it, chum. So no, he doesn't know, and if you tell him, I'll deny I ever met you." },
+        { id = "me_default", text = "Melbin Powderfuse thinks he owns everything from his port to the horizon, and he'd want a cut of the air if he could bottle it, chum. So no, he doesn't know, and if you tell him, I'll deny I ever met you." },
       },
       choices = {
         { text = "Your secret's safe with me.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -317,7 +317,7 @@ P:NPC {
     },
     jazzle = {
       lines = {
-        { id = "jz_default", text = "Cheapshot? Sure, I know him, kid: he's got an arena with no fights and a sign with no paint. He thinks the Riverglades are his turf, and I think Gadgetzan's got deeper pockets and better lawyers." },
+        { id = "jz_default", text = "Cheapshot? Sure, I know him, kid. He's got an arena down at the port with no fights in it, and he thinks the Riverglades are his turf, but Gadgetzan's got deeper pockets." },
       },
       choices = {
         { text = "So you're rivals.", next = "jazzle_rival" },
@@ -337,7 +337,7 @@ P:NPC {
     },
     fighter = {
       lines = {
-        { id = "fi_default", text = "Two things, kid: you've got to win, and you've got to look good doing it. Plenty of folks out here can do one of those, and almost nobody does both, and the ones who do get top billing and the big cut." },
+        { id = "fi_default", text = "Two things, kid: you've got to win, and you've got to look good doing it. Plenty of folks out here can do one of those, but the ones who do both get top billing and the big cut." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -350,7 +350,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Gadgetzan born, ring-raised, kid. I've promoted fights between things you wouldn't believe, and I sold out every one, even the one that blew up the stands." } },
+    background = { { id = "tp_bg", text = "Gadgetzan born, ring-raised, kid. I've promoted fights between things you wouldn't believe, and I sold out every one, even the one where the stands blew up." } },
     advice = { { id = "tp_ad", text = "Never fight for free, kid. The war out here's the worst-paid job in Azeroth, and I've seen the books." } },
     powderfuse_port = { { id = "tp_port", text = "Nice port, small arena, smaller crowds. Cheapshot's got a lot to learn about crowds, kid, and I'm not givin' lessons for free." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's the best show in the world, pal, blood and gold and screaming crowds. I want to bring that kind of excitement to the Riverglades, and the war here's already half the show." } },

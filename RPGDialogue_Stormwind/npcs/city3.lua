@@ -90,7 +90,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very little, unless it touches their estates or their rents. The Westfall farms might all burn tomorrow and the chamber would still argue first about who owns the ash." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} trained? Good. My late father kept hounds, and I never cared for them, but I admired how well they obeyed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very little, unless it touches their estates or their rents. Is that {pet} trained? Good." },
       },
       choices = {
         { text = "The kingdom is more than the nobles' estates, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -133,7 +133,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Clergy, in the library, how refreshing. The Cathedral is so generous with its opinions on the treasury; do give the Archbishop my regards." },
         { id = "h_baros", when = { heardLine = "baros.e_default" },
-          text = "Alexston told you his sad story, I see. He kept his post and his friend kept his pride. Both have done rather well out of the arrangement." },
+          text = "Baros Alexston told you his sad story, I see. He kept his post and Edwin VanCleef kept his pride, and both have done rather well out of the arrangement." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've been looking at my satchel since you came in. It contains nothing of interest, which you may tell whoever asked." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -169,7 +169,7 @@ P:NPC {
     },
     house = {
       lines = {
-        { id = "ho_default", text = "Money, mostly. The kingdom spends like a king and the King isn't here. Someone has to say no. I find I'm very good at saying no." },
+        { id = "ho_default", text = "Money, mostly. The kingdom spends like a king while the King isn't here, and someone has to say no, which I find I'm very good at." },
       },
       choices = {
         { text = "To whom?", next = "whom" },
@@ -207,7 +207,7 @@ P:NPC {
       },
     },
     library = {
-      lines = { { id = "li_default", text = "Because no one shouts in a library. I come to meditate. The guards know to leave me be, and Sheaf knows better than to recommend me books." } },
+      lines = { { id = "li_default", text = "Because no one shouts in a library. I come to meditate. The guards know to leave me be, and Milton Sheaf, the librarian, knows better than to recommend me books." } },
       choices = {
         { text = "Do you feel watched here?", next = "library_watch" },
         { text = "Something else.", next = "BACK" },
@@ -254,10 +254,10 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A senior member of the House of Nobles, with a library to think in. The rest is not the business of adventurers." } },
     advice = { { id = "tp_ad", text = "Never say yes on the first asking. People value what they have to wait for. Even refusals." } },
-    defias = { { id = "tp_defias", text = "Bandits. A Westfall matter. I can't imagine why anyone in this city would trouble themselves over it." } },
-    westfall = { { id = "tp_westfall", text = "Dust and complaints. The farms will recover, or they won't. The House can't plough fields for them." } },
-    seven_kingdoms = { { id = "tp_seven", text = "Seven, then five, then fewer. Kingdoms come and go, but houses endure; noble ones, I mean." } },
-    _none = { { id = "tp_none", text = "I'm sure I couldn't say. Ask a librarian; Sheaf is about somewhere." } },
+    defias = { { id = "tp_defias", text = "The Defias are bandits and a Westfall matter, and I can't imagine why anyone in this city would trouble themselves over them." } },
+    westfall = { { id = "tp_westfall", text = "Westfall is dust and complaints. The farms will recover or they won't, and the House can't plough fields for them." } },
+    seven_kingdoms = { { id = "tp_seven", text = "The Seven Kingdoms became five, and then fewer. Kingdoms come and go, but houses endure; noble ones, I mean." } },
+    _none = { { id = "tp_none", text = "I'm sure I couldn't say. Ask a librarian; Milton Sheaf is about somewhere." } },
   },
 }
 
@@ -288,7 +288,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "My fists don't lie to me. Your spirits might, for all I know. Still, a dwarf who stands his ground, I can respect that." } },
+      lines = { { id = "xdsham_default", text = "My fists dinnae lie tae me, an' yer spirits might, for all I know. Still, I can respect a dwarf who stands his ground." } },
       choices = {
         { text = "Fight fair, Dashel, and I'll stand beside you any day.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Fists are honest enough. I'll buy you the next round.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -337,7 +337,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Once, up in Dun Morogh wi' my uncle, an' I punched a boar on the snout because I dropped my axe. It ran off, I lost two teeth, an' my uncle still tells the story at every wedding." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours looks like it could hold its own in a brawl. If it ever wants a go at the Pig an' Whistle, I'll see it gets a fair fight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Once, up in Dun Morogh wi' my uncle, an' I punched a boar on the snout because I dropped my axe. That {pet} o' yours looks like it could hold its own in a brawl. If it ever wants a go at the Pig an' Whistle, I'll see it gets a fair fight." },
       },
       choices = {
         { text = "I'd sooner settle things at a distance, friend.", next = "BACK", fx = { align = { order = 1 } } },
@@ -367,7 +367,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? Ye'll have come tae patch me up, then, because I've a fight planned for tonight an' I'll want tae be fresh for the next one." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's someone who looks like they could take a punch, though I'd wager ye're not allowed tae throw one back." },
-        { id = "h_default", text = "Dashel. Folk call me Fist, on account o' the fists. I drink in Old Town and I settle arguments in Old Town. Usually the same evening." },
+        { id = "h_default", text = "Dashel Stonefist. Folk call me Fist, on account o' the fists, an' I drink in Old Town an' settle arguments in Old Town, usually the same evening." },
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "A diplomat? Never met one. Ask me again an' ye'll be askin' from the floor." },
         { id = "h_after", when = { questDone = TODO_QUEST("The Missing Diplomat"), heardLine = "dashel.h_diplomat" },
@@ -383,7 +383,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'd do better wi' a pair o' fists in Old Town, but I'll not knock the bow, since it keeps folk well away from ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Folk say ye can turn intae a bear, an' I've always wanted tae know if I could take one in a fair fight." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, eh? Put that wee demon of yours where I can see it, or I'll knock its horns off before it gets a word out." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "What are you looking at? A dwarf who talks to the wind, is it? Well, the wind's got nothing to say to me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "What are ye lookin' at? A dwarf who talks tae the wind, is it? Well, the wind's got nothin' tae say tae me." },
       },
       again = {
         { id = "h_again", text = "What else? Talk's thirsty work." },
@@ -393,7 +393,7 @@ P:NPC {
         { text = "Why do you fight so much?", next = "fight" },
         { text = "You seem to have a few friends about.", next = "friends" },
         { text = "Old Town looks older than the rest of the city.", next = "oldtown" },
-        { text = "You had some part in it, Fist.", next = "plan", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
+        { text = "You had some part in the diplomat's disappearance, Fist.", next = "plan", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "Fancy a round? The other kind.", next = "spar", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Do you have trouble with the rogues in Old Town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I hear you've been polymorphed, Dashel.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -438,11 +438,11 @@ P:NPC {
       },
     },
     oldtown_si7 = {
-      lines = { { id = "os_default", text = "Aye, the barracks, an' they watch me drink. I drink slower, out o' respect." } },
+      lines = { { id = "os_default", text = "Aye, SI:7 keeps the old barracks there, an' they watch me drink. I drink slower, out o' respect." } },
       choices = { { text = "Very considerate.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     plan = {
-      lines = { { id = "pl_default", text = "My bit finished when the first plan went sour, thanks tae adventurers again. The second plan was a Menethil man they called Slim, so go an' bother him, no' me." } },
+      lines = { { id = "pl_default", text = "My part finished when the first plan went sour, thanks tae adventurers again. The next part was a Menethil man they called Slim, so go an' bother him, no' me." } },
       choices = { { text = "Thanks, Fist.", next = "BACK", fx = { affinity = 1 } }, { text = "If you're lying, I'll be back.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
     spar = {
@@ -481,7 +481,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Came tae Stormwind, found the ale an' the arguments, stayed for both. That's the whole tale." } },
     advice = { { id = "tp_ad", text = "Hit first. If ye cannae hit first, hit last. Never hit in the middle." } },
-    defias = { { id = "tp_defias", text = "Westfall lot, an' not my crowd. I work in the city, where the ale's better." } },
+    defias = { { id = "tp_defias", text = "The Defias are a Westfall lot, an' not my crowd. I work in the city, where the ale's better." } },
     _none = { { id = "tp_none", text = "Don't know, don't care. D'ye want a fight instead?" } },
   },
 }
@@ -513,7 +513,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Elmore says I'm not good enough to hear it yet. Maybe your spirits could tell me when I've finally got it right." } },
+      lines = { { id = "xdsham_default", text = "Elmore says I'm no' good enough tae hear it yet. Maybe yer spirits could tell me when I've finally got it right." } },
       choices = {
         { text = "Keep working fair and true, Furen. The fire knows a patient hand.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Elmore's too hard on you. Trust your own work.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -562,7 +562,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, if ye stitch the rings tae padded leather an' oil 'em well, which Master Elmore says is more tailorin' than smithin'. Back in Ironforge the mountaineers want their mail quiet enough tae hear a ram's hoof on the snow." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours has got its own armour, more or less, an' better fitted than any I could make. Keep it fed an' it'll keep ye alive." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, if ye stitch the rings tae padded leather an' oil 'em well, which Master Elmore says is more tailorin' than smithin'. That {pet} o' yours has got its own armour, more or less, an' better fitted than any I could make. Keep it fed an' it'll keep ye alive." },
       },
       choices = {
         { text = "Quiet armour and a steady aim. That's the way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -592,7 +592,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? I've mended more robes than ye'd think, for armour won't stop a dagger if the priest inside it won't wear any." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a set o' plate I'd like a look at, because I can tell ye've been hit, an' I can tell ye didnae fall over." },
-        { id = "h_default", text = "Furen Longbeard. Shields an' armour. I learned from Grimand Elmore, an' I'm still learning, which he tells me daily." },
+        { id = "h_default", text = "Furen Longbeard, maker o' shields an' armour. I learned from Grimand Elmore, an' I'm still learnin', which he tells me daily." },
         { id = "h_elmore", when = { heardLine = "elmore.h_default" },
           text = "Ye've met the master, then. Did he say anything about me? No? That means he's pleased, because when he's not pleased, he'll talk yer ear off till supper." },
         { id = "h_shield", when = { class = { "WARRIOR", "PALADIN" } },
@@ -610,7 +610,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, wantin' armour? Mail rattles in the bushes, ye ken, so I'll fit ye somethin' that sits quiet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've never armoured one o' yer kind, since ye keep changin' shape on me, but I'd like tae try." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Robes an' a demon, an' no use for my shields, though I'll mend a buckle if ye ask nicely." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandfather told stories of the old Wildhammer who spoke to the winds. Never thought I'd see one of ours from Ironforge doing it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandfather told stories o' an old Wildhammer who spoke tae the winds, but I never thought I'd see one o' ours from Ironforge doin' it." },
       },
       again = {
         { id = "h_again", text = "Aye? What else needs fixin'?" },
@@ -756,7 +756,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." } },
+      lines = { { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." } },
       choices = {
         { text = "Chains and gags are wise, Warden. Better safe than burned.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", fx = { align = { order = -1 } } },
@@ -776,7 +776,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Once or twice, through the canals, and every time we've had to send hunters into the sewers to bring them back. A man on the run leaves a trail even in the dark, and a good tracker can follow it right to his door." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours could find a man in the sewers faster than my guards, I'd bet. Keep it in mind; I may come asking." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Once or twice, through the canals, and every time we've had to send hunters into the sewers to bring them back. That {pet} of yours could find a man in the sewers faster than my guards, I'd bet. Keep it in mind; I may come asking." },
       },
       choices = {
         { text = "I'd track an escaped prisoner for the city.", next = "BACK", fx = { align = { order = 1 } } },

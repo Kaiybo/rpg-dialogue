@@ -33,7 +33,7 @@ P:Letter {
   id = "origin_human_minor_noble_2", stranger = true, delay = 2400,
   when = { origin = "human_minor_noble", minLevel = 30 },
   from = "Aldous Prestor-Vane", subject = "Your name at dinner",
-  body = "Dear {name},\n\nA curious thing happened at Lord Ashmere's table last week. A captain home from the field mentioned a {race} {class} who had done some useful work for the Alliance, and gave your name, and the whole table turned to look at Mother.\n\nShe said, without a pause, that she had always known you had it in you. I have never been so proud of her lying in my life.\n\nYou should know that she now keeps the letters you never sent her in a drawer, in the sense that she keeps the drawer empty and looks into it. If you were to write her a short note, and mention the weather and nothing about money, I believe it would be received very well indeed.\n\nYour brother, still on the council,\nAldous",
+  body = "Dear {name},\n\nA curious thing happened at Lord Ashmere's table last week. A captain home from the field mentioned a {race} {class} who had done some useful work for the Alliance, and gave your name, and the whole table turned to look at Mother.\n\nShe said, without a pause, that she had always known you had it in you. I have never been so proud of her lying in my life.\n\nYou should know that she has cleared a drawer for the letters you have never sent her, and she looks into it, empty, most evenings. If you were to write her a short note, and mention the weather and nothing about money, I believe it would be received very well indeed.\n\nYour brother, still on the council,\nAldous",
 }
 
 ---------------------------------------------------------------------------

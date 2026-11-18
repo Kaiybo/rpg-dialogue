@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the scrolls, please, Nerog has them sorted by a system only he understands. Did you need somethin' from me?" },
+    { id = "g_hi", text = "Mind the scrolls, please, because Nerog, who owns this shop, has them sorted by a system only he understands. Did you need somethin' from me?" },
     { id = "g_report", when = { questActive = TODO_QUEST("Zukk'ash Report") }, text = "Is that a report from Camp Mojache under your arm? Hadoken said he'd send one, so give it here, quickly." },
   },
 
@@ -34,7 +34,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Zilzibin Drumlore, scholar, though my friends call me Zil, and I have spent a long time studying the creatures that don't belong to any ordinary part of Azeroth. Lately one kind of creature takes up all my time, and it frightens me more than any Alliance army." },
         { id = "h_zukk", when = { questDone = TODO_QUEST("Zukk'ash Report") },
-          text = "Hadoken was wise to send that report, and you with it. The Zukk'ash in Feralas are nothin' more than silithid, and the Horde keeps choosin' to look the other way." },
+          text = "Hadoken was wise to send that report, and you with it. The Zukk'ash in Feralas are silithid, sure as anything, and the Horde keeps choosin' to look the other way." },
         { id = "h_calm", when = { questDone = TODO_QUEST("Calm Before the Storm") },
           text = "Pestlezugg's report is the clearest yet, and I thank you for carryin' it. I only wish I knew what good it will do, because the Horde ignores every threat that doesn't fly an Alliance banner." },
       },

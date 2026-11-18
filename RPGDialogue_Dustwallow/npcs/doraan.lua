@@ -103,7 +103,7 @@ P:NPC {
         { id = "la_default", text = "There is, in the Wyrmbog, and I do not go there, and I advise you not to either unless you have a great many friends and no wish to see the morning. Ask me something pleasant." },
       },
       choices = {
-        { text = "Then she's no friend of yours?", next = "lair_friend" },
+        { text = "Then the dragon there is no friend of yours?", next = "lair_friend" },
         { text = "Something pleasant, then.", next = "BACK" },
       },
     },

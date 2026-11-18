@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We did, though not as you do, and I will not speak of the land we hunted. Here I hunt nothing but fragments in the dust, and the beasts of this place keep their distance from me, which is wise of them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} watches me with more honesty than you do, hunter. A beast wants its supper and makes no speeches about it, and I find I prefer that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We did, though not as you do, and I will not speak of it. {pet} watches me with more honesty than you do, hunter; a beast wants its supper and makes no speeches about it, and I find I prefer that." },
       },
       choices = {
         { text = "I hunt to eat and nothing more. There's no greed in that.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -641,7 +641,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "redeemed" } }, text = "The Collector tells me you believe the orcs have changed. He spat after he said it, which for him is a kind of respect for your nerve." },
+    { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "redeemed" } }, text = "Kum'isha, the crystal collector, tells me you believe the orcs have changed. He spat after he said it, which for him is a kind of respect for your nerve." },
     { id = "g_default", text = "Quietly, please. I'm observing." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your mind's still in one piece, I trust?" },
   },
@@ -668,7 +668,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I could, and I would learn more from it than from a hundred basilisk brains, though I suspect you would not care for my methods. A beast that trusts its master endures pain that would kill a wild one, and I want to know why." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Look how {pet} watches me, weighing whether I'm prey or threat. Its mind is quicker than you give it credit for, and I'd wager it has already decided I'm neither." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I could, and {pet} would be a fine subject; look how it watches me, weighing whether I'm prey or threat. Its mind is quicker than you give it credit for, and I'd wager it has already decided I'm neither." },
       },
       choices = {
         { text = "Our bond isn't something for your vials, Bloodmage.", next = "BACK", fx = { align = { light = 1 } } },
@@ -761,7 +761,7 @@ P:NPC {
         { text = "What do basilisks know about moving quietly, Lynnore?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do you think a beast's spirit is, Lynnore?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why do the vultures thrive on the taint?", next = "vultures" },
-        { text = "You keep saying 'for a price.' What price?", next = "price" },
+        { text = "You mentioned a price. What price?", next = "price" },
         { text = "What do you make of the mages at Nethergarde?", next = "keep" },
         { text = "Do you miss Quel'Thalas?", next = "home" },
         { text = "Have you met the crystal collector by the Rise?", next = "kumisha" },
@@ -872,7 +872,7 @@ P:NPC {
     keep_thadius = {
       lines = { { id = "kt_default", text = "Because he wants things he isn't supposed to want and admits it, which makes him honest in a way the others aren't. He asked me once how the basilisks heal, and I think he was asking for himself, though he laughed before I could say so." } },
       choices = {
-        { text = "You think he fears growing old?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Perhaps he fears growing old.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
