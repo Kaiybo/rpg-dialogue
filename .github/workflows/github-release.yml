@@ -1,6 +1,7 @@
-# GitHub release on every push to the default branch whose core version has no release yet.
-# Builds the zip with tools/build_zip.py, tags v<version>, and uses that version's CHANGELOG.md
-# section as the notes. Bumping the version (tools/version.py set) and merging is all it takes.
+# GitHub releases: every version in CHANGELOG.md gets one (tag v<version>, that version's zip,
+# its changelog section as notes). Runs on each push to the default branch and creates only
+# the missing ones, so bumping the version and merging is all a release takes.
+# Logic: tools/gh_releases.py.
 name: GitHub release
 
 on:
@@ -21,37 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Read version
-        id: v
-        run: |
-          ver=$(sed -n 's/^## Version: *//p' RPGDialogue/RPGDialogue.toc | tr -d '\r ')
-          echo "version=$ver" >> "$GITHUB_OUTPUT"
-      - name: Skip if released
-        id: exists
+        with:
+          fetch-depth: 0
+      - name: Publish missing releases
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if gh release view "v${{ steps.v.outputs.version }}" >/dev/null 2>&1; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          fi
-      - name: Build zip
-        if: steps.exists.outputs.skip != 'true'
-        run: python3 tools/build_zip.py
-      - name: Release notes
-        if: steps.exists.outputs.skip != 'true'
-        run: |
-          awk -v v="${{ steps.v.outputs.version }}" '
-            $0 ~ "^## " v "( |$)" {on=1; next}
-            on && /^## [0-9]/ {exit}
-            on {print}
-          ' CHANGELOG.md > notes.md
-          [ -s notes.md ] || echo "RPG Dialogue ${{ steps.v.outputs.version }}" > notes.md
-          printf '\n---\nUnzip into Interface/AddOns, then fully restart the game.\n' >> notes.md
-      - name: Publish
-        if: steps.exists.outputs.skip != 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          v="${{ steps.v.outputs.version }}"
-          gh release create "v$v" "tools/out/RPGDialogue-$v.zip" \
-            --target "$GITHUB_SHA" --title "RPG Dialogue $v" --notes-file notes.md --latest
+        run: python3 tools/gh_releases.py
