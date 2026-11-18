@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Sarkoth"), days = 3 } },
           text = "You killed him, and you brought me the claw with my mark still in it. It be a small thing to be proud of, but it be mine, and I thank you for it." },
         { id = "h_later", when = { questLater = { TODO_QUEST("Sarkoth"), days = 7 } },
-          text = "The wound be closing, slow, and Gornek say I might hunt again before the rains. I tell him the next scorpid get a fair warning, mon." },
+          text = "The wound be closing, slow, and Gornek, who run the valley, say I might hunt again before the rains. I tell him the next scorpid get a fair warning, mon." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear face! Good, mon, because if I die here I'd rather a cousin be the one to tell the tribe how it went." },
       },
       again = {
@@ -70,7 +70,7 @@ P:NPC {
     },
     plateau = {
       lines = { { id = "pl_default", text = "South, mon, up on the high ground past the scorpid nests. He sit there like he own the valley, and maybe he do, until somebody take it from him." } },
-      choices = { { text = "Then somebody will. Something else.", next = "BACK" } },
+      choices = { { text = "Then somebody will take it. Something else.", next = "BACK" } },
     },
     honor = {
       big = true,
@@ -106,7 +106,7 @@ P:NPC {
       },
     },
     isles = {
-      lines = { { id = "i_default", text = "Zalazane, mon, a witch doctor gone bad, and now the isles be full of our own people under his hex. Master Gadrin in Sen'jin Village can tell it better, because he teach Zalazane once." } },
+      lines = { { id = "i_default", text = "Zalazane happened, mon, a witch doctor gone bad, and now the isles be full of our own people under his hex. Master Gadrin in Sen'jin Village can tell it better, because he teach Zalazane once." } },
       choices = { { text = "I'll ask Master Gadrin. Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
     },
     gornek = {
@@ -136,12 +136,12 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear hunter, mon, a young one, and right now a bleeding one. Ask me again when I got a better story." } },
     advice = { { id = "tp_ad", text = "Watch the tail, mon, not the claw. I got the scar to prove it, and I limp when it rain." } },
-    echo_isles = { { id = "tp_isles", text = "Our home, across the water, and Zalazane sit in it like a tick. One day the Darkspear go back." } },
+    echo_isles = { { id = "tp_isles", text = "The Echo Isles be our home across the water, and the witch doctor Zalazane sit in it like a tick. One day the Darkspear go back." } },
     burning_blade = { { id = "tp_blade", text = "The recruits say there be cultists in the caves with demon imps, mon. I stay away from demons and stick to scorpids, and look how well that go." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief walked out of a human camp and freed us all, and nobody will ever sing a bigger song than that. I only want a small one, and I'd settle for a verse." } },
-    internment = { { id = "tp_internment", text = "My father died in the camps, and my mother never talks about them. That is why I want a song, so that something in our family is remembered for more than chains." } },
-    second_war = { { id = "tp_second_war", text = "The old ones talk about the Second War like it was a feast, and then they stop talking all at once. I think they lost more than they say." } },
-    centaur = { { id = "tp_centaur", text = "The Kolkar ride along the western ridge, and Lar Prowltusk says they are planning something. If I live through this scorpid, I'd like to be there when he stops them." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief walk out of a human camp and free his people, mon, and nobody ever sing a bigger song than that. I only want a small one, and I settle for a verse." } },
+    internment = { { id = "tp_internment", text = "The Darkspear never sat in the human camps, mon, but the orcs here did, and they don't talk about it. I see what the chains took from them, and it make me want a song even more." } },
+    second_war = { { id = "tp_second_war", text = "The old orcs talk about the Second War like it was a feast, mon, and then they stop talking all at once. I think they lose more than they say." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar centaur ride the western ridge, mon, and Lar Prowltusk, the scout down by Sen'jin, say they be planning something. If I live through this scorpid, I want to be there when he stop them." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask me about scorpids, because now I be an expert." } },
   },
 }

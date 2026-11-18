@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_hostile", when = { reputation = { faction = "Gelkis Clan Centaur", max = "neutral" } }, text = "You stand on Gelkis earth, outsider, and the earth does not know you. You are not welcome." },
     { id = "g_friend", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } }, text = "The earth tells me you have returned, friend of the Gelkis. Come, and speak." },
     { id = "g_jehn", when = { questActive = TODO_QUEST("Khan Jehn") }, text = "Khan Jehn still breathes in Magram Village. The earth is waiting for his blood." },
-    { id = "g_hratha", when = { questDone = TODO_QUEST("Khan Hratha") }, text = "Hratha is dead, and the Kolkar wail. The earth drank deeply that day, friend." },
+    { id = "g_hratha", when = { questDone = TODO_QUEST("Khan Hratha") }, text = "Khan Hratha of the Maraudine is dead, and his clan wails. The earth drank deeply that day, friend." },
     { id = "g_away", when = { away = 14 }, text = "The earth did not feel your feet for {away}, outsider. Now it does again." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown heavy with strength since you first came to Gelkis earth. The ground knows your weight now." },
   },

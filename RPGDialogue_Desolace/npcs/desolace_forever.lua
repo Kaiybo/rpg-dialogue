@@ -26,7 +26,7 @@ P:NPC {
     { id = "g_active", when = { questActive = QAK }, text = "The Hatefury still dance up at Sargeron, mon. Go and stop the music." },
     { id = "g_ready", when = { questReady = QAK }, text = "You stink of satyr, mon, and that's the best smell I've had all week. Come, tell me." },
     { id = "g_done", when = { questDone = QAK }, text = "The satyr-killer comes back to Shadowprey! Sit, mon, the fire is yours." },
-    { id = "g_away", when = { away = 14, questDone = QAK }, text = "Gone {away}, mon, and the Hatefury are breeding again up north. They always do." },
+    { id = "g_away", when = { away = 14, questDone = QAK }, text = "You been gone {away}, mon, and the Hatefury are breeding again up north. They always do." },
   },
   notice = {
     { id = "n_warlock", cat = "fel", when = { class = "WARLOCK" },
@@ -207,9 +207,9 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Darkspear, born on the Echo Isles, come to Desolace to hunt satyrs. That's enough story for anybody, mon." } },
+    background = { { id = "tp_bg", text = "I be Darkspear, born on the Echo Isles, and I came to Desolace to hunt satyrs. That's enough story for anybody, mon." } },
     advice = { { id = "tp_ad", text = "When a satyr laughs, mon, duck. It means something's coming." } },
-    satyrs = { { id = "tp_satyrs", text = "Elves that sold themselves to demons, mon, and got horns for the trouble. Kill them where you find them." } },
+    satyrs = { { id = "tp_satyrs", text = "Satyrs be elves that sold themselves to demons, mon, and got horns for the trouble. Kill them where you find them." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask the tauren up at Ghost Walker, they know this land better than me." } },
   },
 }
@@ -404,7 +404,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I rode with the Kolkar for longer than you have been alive. Now I stand." } },
+    background = { { id = "tp_bg", text = "I rode with the Kolkar for longer than you have been alive. Now I only stand here and wait." } },
     advice = { { id = "tp_ad", text = "Never trust a centaur who smiles, outsider. Except me, perhaps." } },
     _none = { { id = "tp_none", text = "I do not know, and I do not care to. Go and ask some other outsider." } },
   },

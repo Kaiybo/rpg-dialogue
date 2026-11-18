@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Sit a moment, {class}. The sea is loud here, but it is cleaner than what comes up out of Mannoroc Coven." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Hand of Iruxos") }, text = "The red crystal at Thunder Axe, {name}. Strike it with the pick, and the Demon Box will be yours to take." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Hand of Iruxos") }, text = "Find the red crystal in Thunder Axe Fortress, {name}, and strike it with the pick. Then the Demon Box will be yours to take." },
     { id = "g_done", when = { questDone = TODO_QUEST("Hand of Iruxos") }, text = "The Hand is out of the Blade's grip. The coven is quieter, and so are my dreams." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}. I counted the fires at Thunder Axe every night, and there were fewer of them than before." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself differently now. Desolace has tested you, and you're still standing, which is the only grade it gives." },
@@ -144,7 +144,7 @@ P:NPC {
     },
     why_trolls = {
       lines = {
-        { id = "wt_default", text = "The best, when the fighting starts, and the worst when they cook. Drulzegar on the dock would fight the whole sea for what the naga did to his crew, and I've learned not to stand between him and the water." },
+        { id = "wt_default", text = "They're the best, when the fighting starts, and the worst when they cook. Drulzegar on the dock would fight the whole sea for what the naga did to his crew, and I've learned not to stand between him and the water." },
       },
       choices = {
         { text = "I'll go and speak to him.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -154,7 +154,7 @@ P:NPC {
 
     pick = {
       lines = {
-        { id = "pi_default", text = "From a cultist the trolls caught on the coast road, carrying it wrapped in rags as if it might bite him. He wouldn't say what it was for, but the red crystal at Thunder Axe hums when it's near, so I worked the rest out myself." },
+        { id = "pi_default", text = "I took it from a cultist the trolls caught on the coast road, carrying it wrapped in rags as if it might bite him. He wouldn't say what it was for, but the red crystal at Thunder Axe hums when it's near, so I worked the rest out myself." },
       },
       choices = {
         { text = "What happened to the cultist?", next = "pick_cultist" },
@@ -185,7 +185,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "An elder of Thunder Bluff, sent to watch the coast. I've watched it long enough to hate demons properly." } },
+    background = { { id = "tp_bg", text = "I'm an elder of Thunder Bluff, sent to watch the coast. I've watched it long enough to hate demons properly." } },
     advice = { { id = "tp_ad", text = "If the air smells of sulphur, turn back. If it tastes of it, run." } },
     burning_blade = { { id = "tp_bb", text = "They'd open the whole world to their masters for a little power. We must not let them." } },
     _none = { { id = "tp_none", text = "I don't know, {class}, and I'm too old to pretend I do." } },
@@ -204,9 +204,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You climbed up past the skinner, so you must want something. Good; so do I." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Vyletongue Corruption") }, text = "The vial, the orange pool, the vines. Watch for what crawls out when the vines are cleansed, because Vyletongue still holds them." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Vyletongue Corruption") }, text = "Eight vines clean. It isn't much against all of Maraudon, but it's eight more than before." },
+    { id = "g_default", text = "You climbed all the way up here, so you must want something. Good; so do I." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Vyletongue Corruption") }, text = "Fill the vial at the orange pool and pour it on the vines. Watch for what crawls out when the vines are cleansed, because Vyletongue still holds them." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Vyletongue Corruption") }, text = "Eight vines are clean now. It isn't much against all of Maraudon, but it's eight more than before." },
     { id = "g_cleared", when = { cleared = "Maraudon" }, text = "You've been to the bottom of Maraudon and back. I can see it in your eyes, and I'd like to hear about it someday." },
   },
 
@@ -224,7 +224,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Vark Battlescar. I fought centaur for twenty years and now I fight a satyr I've never seen, because a satyr called Vyletongue has corrupted the caverns of Maraudon and stunted everything that grows inside." },
+          text = "I'm Vark Battlescar. I fought centaur for twenty years and now I fight a satyr I've never seen, because a satyr called Vyletongue has corrupted the caverns of Maraudon and stunted everything that grows inside." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Vyletongue Corruption") },
           text = "Take this vial and fill it at the orange crystal pool inside Maraudon. The coating inside counters the poison and turns it into a healing draught, and the corrupted vines will drink it, but know that Vyletongue still holds them and may turn them on you." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Vyletongue Corruption") },
@@ -367,7 +367,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Twenty years fighting centaur on the Barrens' edge. A Kolkar spear gave me my name." } },
+    background = { { id = "tp_bg", text = "I spent twenty years fighting centaur on the Barrens' edge, and a Kolkar spear gave me my name." } },
     advice = { { id = "tp_ad", text = "Don't drink from the pools in Maraudon. Not even the clear ones." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone who didn't spend twenty years with a spear in his hand." } },
   },
@@ -430,7 +430,7 @@ P:NPC {
 
     hemet = {
       lines = {
-        { id = "he_default", text = "Loud, cheerful, and never without his rifle, and he could hit a hawk on the wing from the far side of a canyon. He talked the whole time we hunted, which should have frightened the beasts away, but somehow it never did." },
+        { id = "he_default", text = "He was loud, cheerful and never without his rifle, and he could hit a hawk on the wing from the far side of a canyon. He talked the whole time we hunted, which should have frightened the beasts away, but somehow it never did." },
       },
       choices = {
         { text = "He sounds like a good friend.", next = "hemet_friend" },
@@ -439,7 +439,7 @@ P:NPC {
     },
     hemet_friend = {
       lines = {
-        { id = "hf_default", text = "The best I've had, and I've had good ones. He taught me to read a trail backwards, from where the beast is going to where it's been, and I taught him to thank the beast before he skinned it, though I don't think he still does." },
+        { id = "hf_default", text = "He was the best friend I've had, and I've had good ones. He taught me to read a trail backwards, from where the beast is going to where it's been, and I taught him to thank the beast before he skinned it, though I don't think he still does." },
       },
       choices = {
         { text = "Does that bother you?", next = "hemet_bother" },
@@ -543,7 +543,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Wildmane hunter, Thunder Bluff born. I've hunted every corner of Desolace and half of Feralas." } },
+    background = { { id = "tp_bg", text = "I'm a Wildmane hunter, born in Thunder Bluff, and I've hunted every corner of Desolace and half of Feralas." } },
     advice = { { id = "tp_ad", text = "Read a trail backwards: start with where the beast is going." } },
     _none = { { id = "tp_none", text = "Ha! I don't know, friend, and I've never let that stop me telling a story." } },
   },

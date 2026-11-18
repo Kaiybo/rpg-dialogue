@@ -39,7 +39,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Kagil. I teach the young ones how to take leather off a beast without ruining it, which is harder than killing the beast in the first place. Do you want to learn, or do you need a knife?" },
+        { id = "h_default", key = true, text = "I'm Kagil. I teach the young ones how to take leather off a beast without ruining it, which is harder than killing the beast in the first place. Do you want to learn, or do you need a knife?" },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren at the Den. Your people thank the beast before they skin it, I hear, and I won't stop you, so long as you thank it quickly and keep your knife moving." },
         { id = "h_skin", when = { profession = "Skinning" }, text = "Already skinning, are you? Good. Let me see your knife, then, and we'll talk about what you're doing wrong." },
       },
@@ -85,7 +85,7 @@ P:NPC {
     },
     sells = {
       lines = {
-        { id = "se_default", text = "It sells well enough, and the goblins at Razor Hill will buy whatever you can't use. Go out with an empty pack and come back with a full one, and you'll have more coin than most recruits ever see in the valley." },
+        { id = "se_default", text = "It sells well enough, and the traders at Razor Hill will buy whatever you can't use. Go out with an empty pack and come back with a full one, and you'll have more coin than most recruits ever see in the valley." },
       },
       choices = {
         { text = "Good. Then I'll learn.", next = "BUSINESS" },
@@ -144,7 +144,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Norzsh. I teach mining, and I sell picks to the ones too green to have their own. You think you've got what it takes to break rock all day?" },
+        { id = "h_default", key = true, text = "I'm Norzsh. I teach mining, and I sell picks to the ones too green to have their own. You think you've got what it takes to break rock all day?" },
         { id = "h_forsaken", when = { race = "Scourge" }, text = "A Forsaken with a pick. Your arms won't tire, I suppose, but I've seen your kind's bones, and I'd swing carefully if I were you." },
       },
       again = {
@@ -438,8 +438,8 @@ P:NPC {
     third = "{name} met Pa'zula, the Darkspear enchanter of Sen'jin Village who unpicks Zalazane's binding spells.",
   },
   greetings = {
-    { id = "g_default", text = "What business you have on the Echo Isles, {class}? Ah, don't look at me so, I know we're on the mainland, but my heart hasn't moved yet." },
-    { id = "g_active", when = { questActive = QPZ }, text = "You have the residue, mon? Three of them, and don't you dare put one of those pendants round your neck while you're about it." },
+    { id = "g_default", text = "Welcome to Sen'jin, {class}. Forgive me if I look past you, mon, because my eyes always drift to the Echo Isles across the water." },
+    { id = "g_active", when = { questActive = QPZ }, text = "Do you have the residue yet, mon? I need three, and don't you dare put one of those pendants round your neck while you're about it." },
     { id = "g_ready", when = { questReady = QPZ }, text = "I can see the glow on you from here, mon. Bring it over, quick, before it fades." },
     { id = "g_done", when = { questDone = QPZ }, text = "Ah, the one who freed three spirits for me. Come, sit, the fire is warm." },
     { id = "g_away", when = { away = 14, questDone = QPZ }, text = "Gone {away}, and Zalazane made more pendants while you were gone. He never stops, that one." },
@@ -461,7 +461,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = QPZ, profession = "Enchanting" },
           text = "You're an enchanter, mon, and I need one. Zalazane's slaves wear pendants wrapped in binding spells, and I want them stripped and brought back to me." },
         { id = "h_active", tags = { "news" }, when = { questActive = QPZ },
-          text = "The hexed trolls on the isles wear the pendants, so you'll have to take them from the dead. Strip the magic off with your craft and bring me the residue, mon, three of it." },
+          text = "The hexed trolls on the isles wear the pendants, so you'll have to take them from the dead. Strip the magic off with your craft and bring me the residue, mon, three in all." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { QPZ, days = 3 } },
           text = "It's a shame about the trolls who wore them, mon, and I won't pretty it up. But with the binding gone, their spirits can rest, and that's more than Zalazane ever gave them." },
         { id = "h_done", when = { questDone = QPZ },
@@ -622,7 +622,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I lived on the Echo Isles until Zalazane, and I've worked magic since I was small. Now I unpick his." } },
     advice = { { id = "tp_ad", text = "Never wear what you take off the dead, mon. Not on the isles, anyway." } },
-    echo_isles = { { id = "tp_echo", text = "Our home, mon, and Zalazane's now, until we take it back. Every troll on those beaches wears his chain." } },
+    echo_isles = { { id = "tp_echo", text = "The Echo Isles are our home, mon, and Zalazane's now, until we take them back. Every troll on those beaches wears his chain." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask Master Gadrin, he knows more than me about most things." } },
   },
 }
@@ -640,7 +640,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Psst! Down here, mon, and keep your head low before the centaur see you." },
     { id = "g_active", when = { questActive = QPJ }, text = "We best hurry before more of them show up, mon." },
-    { id = "g_done", when = { questDone = QPJ }, text = "Yes, I'm back in the crag, and yes, Vornal shouted. I'm being careful this time, mon, I swear it." },
+    { id = "g_done", when = { questDone = QPJ }, text = "Yes, I'm back in the crag, and yes, Master Vornal shouted. I'm being careful this time, mon, I swear it." },
   },
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
@@ -741,7 +741,7 @@ P:NPC {
     },
     after = {
       lines = {
-        { id = "af_default", text = "That I got myself in trouble again, mon, and that I should learn my lesson about going alone. Then he thanked you, and then he said the raptor thing again, in front of everybody." },
+        { id = "af_default", text = "That I got myself in trouble again, mon, and that I should learn my lesson about going alone. Then he thanked you, and then he told me again that I act like a raptor and not a tiger, in front of everybody." },
       },
       choices = {
         { text = "And have you learned your lesson?", next = "lesson" },
@@ -750,7 +750,7 @@ P:NPC {
     },
     lesson = {
       lines = {
-        { id = "le_default", text = "Some of it, mon. I came back here, didn't I, but this time I told Vornal first, and I brought three times the magic I need. That's practically a tiger." },
+        { id = "le_default", text = "Some of it, mon. I came back here, didn't I, but this time I told Master Vornal first, and I brought three times the magic I need. That's practically a tiger." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -805,7 +805,7 @@ P:NPC {
     },
     magic = {
       lines = {
-        { id = "m_default", text = "It's what ran out, mon. A trainee only has so much, and I spent mine on a curse to weaken one big centaur and a shadow word to make another one regret chasing me, and then I had nothing left to hide with." },
+        { id = "m_default", text = "Curses and all the rest ran out, mon. A trainee only has so much, and I spent mine on a curse to weaken one big centaur and a shadow word to make another one regret chasing me, and then I had nothing left to hide with." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -824,7 +824,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Darkspear, born on the islands, training under Vornal in Sen'jin. That's all, mon, and I'd like it to stay that way, without the word 'dead' at the end." } },
+    background = { { id = "tp_bg", text = "I'm Darkspear, born on the islands and training under Master Vornal in Sen'jin. That's all, mon, and I'd like it to stay that way, without the word 'dead' at the end." } },
     advice = { { id = "tp_ad", text = "Don't scout alone, mon. I'll learn it eventually, but you should learn it from me first." } },
     _none = { { id = "tp_none", text = "Ask me about that when we're out of the crag, mon, not before." } },
   },
@@ -859,7 +859,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Slizzy Kreeg. This is Morok'ra, and it was left for dead, but it'll start its training soon. Once it's broken and battle-hardened, we'll ride into battle as one, and our enemies will learn to fear us both." },
+        { id = "h_default", key = true, text = "I'm Slizzy Kreeg. This is Morok'ra, and it was left for dead, but it'll start its training soon. Once it's broken and battle-hardened, we'll ride into battle as one, and our enemies will learn to fear us both." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter, so you'll know not to loom over a frightened beast. This is Morok'ra, and once it's strong we'll ride to war together." },
       },
       again = {
@@ -916,7 +916,7 @@ P:NPC {
     },
     farm = {
       lines = {
-        { id = "fa_default", text = "Pigs, mostly, just down the road from Orgrimmar's gates, with the blockade close enough to make the farmers feel safe. It feeds the city and gives me a quiet corner to work, and the swine don't mind Morok'ra so long as it's tied." },
+        { id = "fa_default", text = "It raises boars, mostly, just down the road from Orgrimmar's gates, close enough to the city's guards to make the farmers feel safe. It feeds the city and gives me a quiet corner to work, and the swine don't mind Morok'ra so long as it's tied." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -969,13 +969,13 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Turroc. I keep the barracks and the memory of those who don't come back to them. We lost many brave warriors when we sacked Tiragarde Keep, and the humans are still sitting on their bones." },
+        { id = "h_default", key = true, text = "I'm Turroc. I keep the barracks and the memory of those who don't come back to them. We lost many brave warriors when we sacked Tiragarde Keep, and the humans are still sitting on their bones." },
         { id = "h_before", when = { questBefore = QTU },
           text = "The humans have reinforced the ruins around Tiragarde Keep, and our dead are still lying there where we can't reach them to honor them. Their weapons, at least, I want back, and I want them hung where every grunt can see them." },
         { id = "h_active", tags = { "news" }, when = { questActive = QTU },
           text = "A bow, a battleaxe and a shield, all left in the ruins round the keep. Search the watchtower and the houses, and don't come back with any human's junk instead of ours." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { QTU, days = 3 } },
-          text = "I hung them myself last night, with every grunt in the barracks watching. Nobody said anything for a long while, and then old Gorrak said their names, all of them, and I'll not forget that." },
+          text = "I hung them myself last night, with every grunt in the barracks watching. Nobody said anything for a long while, and then old Gorrak, our oldest grunt, said their names, all of them, and I'll not forget that." },
         { id = "h_done", when = { questDone = QTU },
           text = "Their weapons hang on the barracks wall now. Every recruit who passes through Razor Hill looks at them, and I tell them who carried them, and how they fell." },
       },
@@ -1007,7 +1007,7 @@ P:NPC {
     retake = {
       big = true,
       lines = {
-        { id = "rt_default", text = "Orgnil says not yet, and Orgnil answers to the Warchief. Thrall wants Durotar held and quiet, not a war on every shore, and I understand it even when I don't like it. What would you do?" },
+        { id = "rt_default", text = "Gar'Thok says not yet, and Gar'Thok answers to the Warchief. Thrall wants Durotar held and quiet, not a war on every shore, and I understand it even when I don't like it. What would you do?" },
       },
       choices = {
         { text = "Obey the Warchief. A quiet Durotar is a strong one.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1083,7 +1083,7 @@ P:NPC {
     },
     orgnil = {
       lines = {
-        { id = "og_default", text = "Orgnil Soulscar holds Razor Hill, and he's a careful commander, more careful than I'd be. These days he watches the Burning Blade in the hills more than he watches the humans on the coast, and he may be right to.",
+        { id = "og_default", text = "Orgnil Soulscar hunts the Burning Blade for Razor Hill, and he's a careful one, more careful than I'd be. These days he watches the cultists in the hills more than the humans on the coast, and he may be right to.",
           fx = { learn = { "burning_blade" } } },
       },
       choices = {
@@ -1092,7 +1092,7 @@ P:NPC {
     },
     barracks = {
       lines = {
-        { id = "b_default", text = "Long nights, and green grunts who think a war is a story. I feed them, I drill them, and I send them to Orgnil, and I try to send them out knowing what they're fighting for." },
+        { id = "b_default", text = "Long nights, and green grunts who think a war is a story. I feed them, I drill them, and I send them to Gar'Thok and Orgnil, and I try to send them out knowing what they're fighting for." },
       },
       choices = {
         { text = "Who is Orgnil?", next = "orgnil" },
@@ -1102,7 +1102,7 @@ P:NPC {
     },
     ["for"] = {
       lines = {
-        { id = "fo_default", text = "Durotar, a home of our own, after the camps and the chains. The Warchief gave us that, and every grunt who dies at Tiragarde dies keeping it." },
+        { id = "fo_default", text = "They fight for Durotar, a home of our own, after the camps and the chains. The Warchief gave us that, and every grunt who dies at Tiragarde dies keeping it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1130,6 +1130,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought at Tiragarde. That's the part of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Learn the names of the ones beside you. You'll want them later." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask Orgnil, or somebody who sits in a chair." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask Gar'Thok, or somebody who sits in a chair." } },
   },
 }

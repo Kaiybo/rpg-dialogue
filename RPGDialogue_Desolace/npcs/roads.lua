@@ -19,7 +19,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "From the ridges on the north side, mostly, where the ground's high and the sun's at their backs. A good hunter on the flank sees the dust go up before the arrows come down, and I'll take that warning over a dozen swords any day." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from the kodos' heels, friend, because a kodo spooked by a beast can kick a wagon over, and I've the bills to prove it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "From the ridges on the north side, mostly, where the ground's high and the sun's at their backs. And keep {pet} away from the kodos' heels, friend, because a kodo spooked by a beast can kick a wagon over, and I've the bills to prove it." },
       },
       choices = {
         { text = "I'll warn you first and fight second. The caravan comes first.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -37,7 +37,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Once, a hired guard who thought a crate of Gadgetzan whiskey wouldn't be missed between two centaur raids. Rigger caught it in the ledger by sundown, and we left him at the next waystone with a waterskin and a long walk." } },
+      lines = { { id = "xrogue_default", text = "Once, a hired guard who thought a crate of Gadgetzan whiskey wouldn't be missed between two centaur raids. My brother Rigger caught it in the ledger by sundown, and we left him at the next waystone with a waterskin and a long walk." } },
       choices = {
         { text = "That's fair justice. A caravan runs on trust.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Harsh. Out here, a man takes what he can.", next = "BACK", fx = { align = { order = -1 } } },
@@ -77,7 +77,7 @@ P:NPC {
           text = "A hunter! Walk out on the flank, would you, because if the Kolkar come down off the ridge I want to know before they reach the kodos." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, that's a fine thing to see on the Desolace road, because the Kolkar have hit us twice this season, and my drivers would sleep a sight better knowing somebody up front can patch an arrow wound." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, out here on my road! If you're heading the same way as the caravan, the kodos won't mind the company, and the centaurs might think twice before they come down off the ridge." },
-        { id = "h_default", key = true, text = "Cork Gizelton, and this is the Gizelton caravan, the only honest freight between the Kodo Graveyard and the south road. My brother Rigger runs the back half and I run the front, and the centaurs would happily run off with both." },
+        { id = "h_default", key = true, text = "I'm Cork Gizelton, and this is the Gizelton caravan, the only honest freight between the Kodo Graveyard and the south road. My brother Rigger runs the back half and I run the front, and the centaurs would happily run off with both." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Bodyguard for Hire") }, text = "You're my bodyguard for this stretch, so stay close to the wagons and watch the ridges, because that's where the Kolkar like to come down from." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, eh? If you can talk to kodos, tell mine to walk faster, because they've never once listened to me." },
@@ -188,7 +188,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Twice this year, both to hyenas that followed us for three days before they tried it. The ledger says two kodos lost to wildlife, but it doesn't say how long I sat up watching for them on the third night." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} can walk by the tail wagon with me. The kodos are used to beasts on the road, and frankly yours looks better behaved than some of the drivers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Twice this year, both to hyenas that followed us for three days before they tried it. {pet} can walk by the tail wagon with me. The kodos are used to beasts on the road, and frankly yours looks better behaved than some of the drivers." },
       },
       choices = {
         { text = "Then I'll keep watch on the tail through the night.", next = "BACK", fx = { align = { order = 1 } } },
@@ -207,7 +207,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ever since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." } },
+      lines = { { id = "xlock_default", text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." } },
       choices = {
         { text = "My minion follows my word. Your kodos are safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your kodos will learn. Demons aren't going anywhere.", next = "BACK", fx = { align = { order = -1 } } },
@@ -216,7 +216,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "The Kolkar, mostly, and the odd pack of hyenas that think the kodos are dinner. Cork wants me to pay guards by the centaur killed, but I'd rather pay by the wagon that arrives whole, because that's the number that matters." } },
+      lines = { { id = "xapala_default", text = "We do, from the Kolkar mostly, and from the odd pack of hyenas that think the kodos are dinner. Cork wants me to pay guards by the centaur killed, but I'd rather pay by the wagon that arrives whole, because that's the number that matters." } },
       choices = {
         { text = "Pay by the wagon. Protecting people is the point.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Pay by the kill. Fewer centaur means safer roads.", next = "BACK", fx = { align = { light = -1 } } },
@@ -256,7 +256,7 @@ P:NPC {
           text = "A warrior. Stand at the back with me, then, because the Kolkar like to hit the last wagon and run, and Cork never hears it over his own shouting." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Keep a count of the centaur you see on the ridges and tell me, because I count everything else on this caravan and I'd hate to leave them out." },
-        { id = "h_default", key = true, text = "Rigger Gizelton, the half of the Gizelton caravan that does the counting. Cork shouts at the front and I make sure everything we started with is still here when we stop." },
+        { id = "h_default", key = true, text = "I'm Rigger Gizelton, the half of the Gizelton caravan that does the counting. Cork shouts at the front and I make sure everything we started with is still here when we stop." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Gizelton Caravan") }, text = "You're guarding us through the Kolkar country, then. Stay by the wagons and don't chase them into the hills, because that's exactly what they want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I don't suppose the spirits can count, because I could use a second pair of eyes on this ledger." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, good. If anything goes wrong on this run, you'll be the one patching up the drivers, and I'll write down how many bandages you used." },
@@ -370,7 +370,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Same thing, give or take the paperwork. You bond with your beast and I bond with my buyers, and everybody walks away with something big and loyal, so I really don't see why the tauren get so upset about it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Say, how much for {pet}? I'm kidding, kidding, put the bow down, I can see it's not for sale." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Same thing, give or take the paperwork. Say, how much for {pet}? I'm kidding, kidding, put the bow down, I can see it's not for sale." },
       },
       choices = {
         { text = "A hunter's bond isn't a sale. It's nothing like your trade.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -438,7 +438,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now you'll understand the business, because you tame beasts for a living and I'm just trying to do it at a profit." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now don't go looking at me like that, because I'm not robbing any graves, I'm just rounding up the live kodos before they lie down and join the dead ones, which is practically a mercy if you think about it." },
-        { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur, buddy. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and by my last copper, I've got the buyers and a Kodo Kombobulator to bring 'em in." },
+        { id = "h_default", key = true, text = "Name's Smeed Scrabblescrew, entrepreneur, buddy. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and by my last copper, I've got the buyers and a Kodo Kombobulator to bring 'em in." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap, buddy. Then lead the tame ones back here and I'll do the rest, which is the part with the money." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid? Look, before you start, the kodos don't mind the Kombobulator, or at least none of them has ever complained to me about it." },
@@ -450,7 +450,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Uh oh, a paladin. Now before you say anything, every kodo I take out of here is old, sick, or just plain lost, and I'm basically running a retirement home." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you shrink a kodo, by any chance? Because the shipping costs on these things would make a trade prince weep." },
       },
-      again = { { id = "h_again", text = "Another question? Fine, but every one of 'em costs me a kodo bone I could be hauling." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
+      again = { { id = "h_again", text = "Another question? Fine, but make it quick, buddy, because time's money out here." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
       choices = {
         { text = "What happens to the kodos you tame?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You picked kodos, of all beasts.", next = "b1_1" },
@@ -466,7 +466,7 @@ P:NPC {
         { text = "How dangerous is leading a kodo out of the Graveyard?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Taming kodos for coin sounds like a hunter's work.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is this really a retirement home for kodos, Smeed?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why not just ship them whole, Smeed?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why does shipping a kodo cost so much, Smeed?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -561,8 +561,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They kept me fed, mostly, because they wanted me well enough to answer questions about Nijel's Point. What they wanted most was to know how many soldiers Pentigast had on the ridge, and I'm proud to say I lied about it every time." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close by, please. The cultists' demons hate animals, and I've heard what an imp does to a hound when nobody's watching." },
+        { id = "xhuntcl_default", text = "They kept me fed, mostly, because they wanted me well enough to answer questions about Nijel's Point. What they wanted most was to know how many soldiers Captain Pentigast had on the ridge, and I'm proud to say I lied about it every time." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They kept me fed, mostly, because they wanted me well enough to answer questions about Nijel's Point. Keep {pet} close by, please. The cultists' demons hate animals, and I've heard what an imp does to a hound when nobody's watching." },
       },
       choices = {
         { text = "You held firm under guard. That took real discipline.", next = "BACK", fx = { align = { order = 1 } } },
@@ -612,7 +612,7 @@ P:NPC {
           text = "A warrior! Thank the Light, because the cultists in this fortress keep demons at heel, and I'd much rather they met your shield than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, then, and you tracked me all the way into this place. If you could follow a trail in, you can follow it back out, and I've never been so glad to think it." },
-        { id = "h_default", key = true, text = "Dalinda Malem, and I've been the Burning Blade's guest far longer than I wanted. Vahlarriel Demonslayer at Nijel's Point sent people to find me, and I can only hope you're one of them." },
+        { id = "h_default", key = true, text = "I'm Dalinda Malem, and I've been the Burning Blade's guest far longer than I wanted. Vahlarriel Demonslayer at Nijel's Point sent people to find me, and I can only hope you're one of them." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "If you're taking me out, stay close and watch the corners, because the cultists won't simply let me walk out the front gate." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You got in here without the cultists raising the alarm, so I'm hoping you know how to get us both out the same way." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, thank the Light. The cultists' sorcerers throw fel fire about as if it were nothing, and I'd feel far better with someone who can answer it." },
@@ -642,11 +642,11 @@ P:NPC {
       choices = { { text = "Why keep you alive?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "I heard them chanting at night, and I heard names I wish I hadn't, names of demons I won't say aloud. Whatever they're building here, it isn't finished yet." } },
+      lines = { { id = "b1_2_l", text = "They wanted to know about Nijel's Point, and I think they wanted more than that, because I heard them chanting at night, names of demons I won't say aloud. Whatever they're building here, it isn't finished yet." } },
       choices = { { text = "What are they building?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "Vahlarriel needs to hear everything I've seen. If I don't make it back, tell her the fortress is only the beginning." } },
+      lines = { { id = "b1_3_l", text = "I don't know, and that's what frightens me. Vahlarriel needs to hear everything I've seen, so if I don't make it back, tell her the fortress is only the beginning." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -729,7 +729,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Long enough that I know their marks better than my own name: the scorched grass where they summon, the satyr hoofprints that don't match the rest of the herd. A demon's trail is like any other, except that it runs colder, and it leads you somewhere you'll wish you'd never gone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have their scent within the hour, I think. Demons leave a stink no beast mistakes for prey, and every animal I've ever hunted beside hated it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Long enough that I know their marks better than my own name: the scorched grass where they summon, the satyr hoofprints that don't match the rest of the herd. Your {pet} would have their scent within the hour, I think. Demons leave a stink no beast mistakes for prey, and every animal I've ever hunted beside hated it." },
       },
       choices = {
         { text = "I'll follow the trail to the end, however long it runs.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -738,7 +738,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "What they always do: drunk it dry and left the husk. Their warlocks draw on fel power in the fortress and the Mannoroc Coven, and nothing green grows near either." } },
+      lines = { { id = "dq_default", text = "What they always do, which is drink it dry and leave the husk. Their warlocks draw on fel power in the fortress and the Mannoroc Coven, nothing green grows near either, and they still hold Dalinda Malem inside those walls." } },
       choices = {
         { text = "Free their captives first. Dalinda matters more than revenge.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Kill every warlock. Demon-servants deserve no quarter.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -789,7 +789,7 @@ P:NPC {
           text = "A hunter. You'll know what it is to follow a trail for years and still be glad of the next print, and that's all the Burning Blade have ever left me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because where the Burning Blade has been, the people they leave behind need more than a sword, and Dalinda Malem may need it most of all if anyone ever brings her home." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Burning Blade bow to demons in Thunder Axe Fortress, and I have waited a long time for someone who would walk into that place without flinching." },
-        { id = "h_default", key = true, text = "Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
+        { id = "h_default", key = true, text = "I am Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may serve us better than anything we could take by force." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Ishnu-alah, druid. The Burning Blade has fouled the earth around Thunder Axe Fortress, and you will feel it in your bones before you see it." },
@@ -818,7 +818,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "They are mortals who sold themselves to the Burning Legion's servants, orcs once, and now anyone desperate enough to join them. In Desolace they've made Thunder Axe Fortress their den." } },
+      lines = { { id = "b1_1_l", text = "They are mortals who sold themselves to the Burning Legion's servants, orcs once, and now anyone desperate enough to join them, and they call up demons for their masters. In Desolace they've made Thunder Axe Fortress their den." } },
       choices = { { text = "What are they summoning?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
@@ -910,7 +910,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That's between Misha and me, and she's never told anyone, so neither will I. What I'll say is that she's saved my life more times than I've saved hers, and I've stopped keeping count, because a true bond doesn't keep a ledger." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Misha's watching {pet}, and she hasn't growled yet. That's the highest praise she gives anyone, so take it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's between Misha and me, and she's never told anyone, so neither will I. Misha's watching {pet}, and she hasn't growled yet. That's the highest praise she gives anyone, so take it." },
       },
       choices = {
         { text = "A true companion is family. I'd die for mine.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -992,7 +992,7 @@ P:NPC {
       choices = { { text = "You fought beside Thrall?", next = "b1_2" }, { text = "Don't you miss having kin?", next = "lonely" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Cities are full of people who want something from me. Out here, the only thing that wants something is the land, and it tells you plainly." } },
+      lines = { { id = "b1_2_l", text = "I did, against the centaur and against Admiral Proudmoore's men, and I'd do it again if he asked. But cities are full of people who want something from me, and out here the only thing that wants anything is the land, and it tells you plainly." } },
       choices = { { text = "Why did you leave the old Horde?", next = "war_old" }, { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {

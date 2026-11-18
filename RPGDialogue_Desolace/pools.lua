@@ -17,11 +17,11 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Something moving by the wall, and in Desolace that's never good news. Show yourself." } },
   lines = {
-    { id = "l_default", text = "We hold the pass for the Alliance. The centaur fight each other more than us, and the Captain likes it that way." },
+    { id = "l_default", text = "We hold the pass for the Alliance. The centaur fight each other more than us, and Captain Pentigast likes it that way." },
   },
   choices = { { text = "Hold fast.", next = "END", fx = { standing = { nijels_point = 1 } } } },
   topics = {
-    cenarion_circle = { { id = "t_circle", text = "The keeper and his sisters keep to themselves. They're after something in the south, something big." } },
-    _none = { { id = "t_none", text = "Ask the Captain; he's got the maps, and the Light knows he's earned them." } },
+    cenarion_circle = { { id = "t_circle", text = "Keeper Marandis and his dryads keep to themselves. They're after something in the south, something big." } },
+    _none = { { id = "t_none", text = "Ask Captain Pentigast; he's got the maps, and the Light knows he's earned them." } },
   },
 }

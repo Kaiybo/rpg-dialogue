@@ -45,7 +45,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Which clan is moving and which way, mostly, because the Kolkar, the Gelkis and the Magram spend more time watching each other than watching us. If any of their war parties turn our way, I want to hear about it a day before the Point does." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} low in the scrub. Centaur scouts know a wild animal from a trained one, and they'll come looking for whoever's holding the leash." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Which clan is moving and which way, mostly, because the Kolkar, the Gelkis and the Magram spend more time watching each other than watching us. Keep {pet} low in the scrub. Centaur scouts know a wild animal from a trained one, and they'll come looking for whoever's holding the leash." },
       },
       choices = {
         { text = "I'll scout them, but I won't help set clan against clan.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -85,7 +85,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "I could stand here with a handful of soldiers and wait for the clans to notice us, I suppose. The Kolkar and the Magram and the Gelkis hate each other more than they hate us, and I mean to keep it that way." } },
+      lines = { { id = "dq_default", text = "The alternative is to stand here with a handful of soldiers and wait for the clans to notice us. The Kolkar and the Magram and the Gelkis hate each other more than they hate us, and I mean to keep it that way." } },
       choices = {
         { text = "There's no honor in playing them like cards.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let them bleed each other. It saves our soldiers.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -133,9 +133,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Good, because I need eyes on the centaur camps more than I need another sword, and the Kolkar can smell a soldier a mile off." },
         { id = "h_default", key = true,
-          text = "Captain Pentigast, of the Stormwind Army. We're spread thin out here, and the centaur outnumber us, but luckily they hate each other more." },
+          text = "I'm Captain Pentigast, of the Stormwind Army. We're spread thin out here, and the centaur outnumber us, but luckily they hate each other more." },
         { id = "h_clans_resolved", tags = { "news" }, when = { thread = { id = "desolace_clans", state = "resolved" }, faction = "Alliance" },
-          text = "Hratha's dead, I hear, and the clan you rode with is crowing about it from one end of the valley to the other. The Gelkis and the Magram are still at each other, which suits my ridge, though I'll admit it doesn't make for a pleasant report to write." },
+          text = "Khan Hratha of the Maraudine is dead, I hear, and the clan you rode with is crowing about it from one end of the valley to the other. The Gelkis and the Magram are still at each other, which suits my ridge, though I'll admit it doesn't make for a pleasant report to write." },
         { id = "h_alliance", tags = { "news" }, when = { questActive = TODO_QUEST("Strange Alliance") },
           text = "One of the clans will deal with us, for a price. Pick your partner and earn their trust. We can sort out what we owe them later." },
         { id = "h_politics", when = { questActive = TODO_QUEST("Brutal Politics") },
@@ -171,7 +171,7 @@ P:NPC {
     clans = {
       big = true,
       lines = {
-        { id = "c_default", text = "Kolkar, Magram, Gelkis: three clans, three grudges, one valley. If they spend their arrows on each other, they don't spend them on us, and I'd rather that than a war I can't win." },
+        { id = "c_default", text = "The Kolkar, the Magram and the Gelkis are three clans with three grudges and one valley between them. If they spend their arrows on each other, they don't spend them on us, and I'd rather that than a war I can't win." },
       },
       choices = {
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -231,7 +231,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     point = {
-      lines = { { id = "p_default", text = "The keeper and his sisters, on the Circle's business; Kreldig, on the Reclaimers'; Brother Anton, on the Crusade's. And me, on everyone's." } },
+      lines = { { id = "p_default", text = "Keeper Marandis and his dryads are here on the Circle's business, Kreldig Ungor on the Reclaimers', and Brother Anton on the Scarlet Crusade's. I'm here on everyone's." } },
       choices = {
         { text = "The keeper seems to have business of his own out here.", next = "point_keeper" },
         { text = "Something else.", next = "BACK" },
@@ -253,7 +253,7 @@ P:NPC {
       },
     },
     anton = {
-      lines = { { id = "a_default", text = "Earnest, brave, and very sure of things a long way from here. I don't argue with him; I'd rather he kept his faith than lost it in my camp." } },
+      lines = { { id = "a_default", text = "He's earnest, brave and very sure of things a long way from here. I don't argue with him; I'd rather he kept his faith than lost it in my camp." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } } },
     },
     priest_chaplain = {
@@ -291,9 +291,9 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Keeping three clans at each other's throats means knowing what each one is up to. Ask, and I'll tell you what's safe to tell." },
     },
-    background = { { id = "tp_ba", text = "Stormwind Army, and a long string of postings nobody else wanted. This is the dustiest, though it isn't the worst." } },
+    background = { { id = "tp_ba", text = "I'm Stormwind Army, with a long string of postings nobody else wanted. This is the dustiest, though it isn't the worst." } },
     advice = { { id = "tp_ad", text = "Never let a centaur clan see you leaving another clan's camp. Leave by the back; there's always a back." } },
-    cenarion_circle = { { id = "tp_circle", text = "The keeper's on his own errand. I don't ask and he doesn't explain, and we get along." } },
+    cenarion_circle = { { id = "tp_circle", text = "Keeper Marandis is on his own errand. I don't ask and he doesn't explain, and we get along." } },
     centaur = { { id = "tp_centaur", text = "There are five centaur clans in Desolace, and if they ever stopped hating each other for a week, Nijel's Point would be gone. I spend my days making sure that week never comes." } },
     maraudon = { { id = "tp_maraudon", text = "The centaur call Maraudon a holy place, the tomb of their father, and something down there is poisoning the valley around it. I'd rather it stayed their problem, though I doubt it will." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord writes to say Stormwind has no troops to spare, and he writes it politely. I'd rather he wrote less politely and sent more men." } },
@@ -428,7 +428,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, so far from the cathedrals. The Circle does not pray as you do, but we tend the same wounded world, and Desolace has more wounds than either of us can count." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here among the centaur and the dust. I hope you have come to protect this land and not only to fight upon it, because Desolace has had more than enough of fighting." },
         { id = "h_default", key = true,
-          text = "Keeper Marandis, of the Cenarion Circle. My sisters and I came down from Stonetalon on the Circle's business, and it is not small business." },
+          text = "I am Keeper Marandis, of the Cenarion Circle. My sisters and I came down from Stonetalon on the Circle's business, and it is not small business." },
         { id = "h_corruption", tags = { "news" }, when = { questActive = TODO_QUEST("Corruption of Earth and Seed") },
           text = "The earth here is sick at its root. Bring me proof of what's poisoning it, for the Circle must know." },
         { id = "h_strong", when = { minLevel = 45 },
@@ -440,9 +440,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "You have another question; ask it plainly, as Malfurion's students are taught to." } },
       choices = {
-        { text = "What mission?", next = "mission" },
+        { text = "What business brings the Circle here?", next = "mission" },
         { text = "The earth here feels sick underfoot.", next = "earth" },
-        { text = "Your sisters?", next = "sisters" },
+        { text = "Who travels with you, Keeper?", next = "sisters" },
         { text = "The Circle asks more of me. How do I answer?", next = "druid", when = { class = "DRUID" } },
         { text = "Tell me of Theradras.", next = "theradras", when = { minLevel = 45 } },
         { text = "I hunt these lands. The beasts are wrong here.", next = "hunter_md", when = { class = "HUNTER" } },
@@ -480,7 +480,7 @@ P:NPC {
       },
     },
     sisters = {
-      lines = { { id = "s_default", text = "The dryads of my grove. They walk where I cannot and see what I would rather not. Do not stare at them; they find it tiresome." } },
+      lines = { { id = "s_default", text = "My sisters, the dryads of my grove. They walk where I cannot and see what I would rather not. Do not stare at them; they find it tiresome." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     druid = {
@@ -498,7 +498,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The Circle's business is mine to know, and some of it I may share. Ask, and I will answer as I am able." },
     },
-    background = { { id = "tp_ba", text = "A keeper of the grove, sworn to the Circle. What I was before that does not matter to the work." } },
+    background = { { id = "tp_ba", text = "I am a keeper of the grove, sworn to the Circle. What I was before that does not matter to the work." } },
     advice = { { id = "tp_ad", text = "Watch where the grass will not grow. The land is telling you where not to sleep." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle sees further than any one keeper. I see as far as Desolace, and it is far enough to worry." } },
     maraudon = { { id = "tp_maraudon", text = "Maraudon is where Zaetar, son of Cenarius, lies buried, with Theradras the earth princess watching over him, and something foul has grown in the tomb. The Circle watches it with great concern and very little help." } },
@@ -557,7 +557,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Belt buckles, arrowheads, a centaur's earring, an' once the whole brass compass off a wagon, which I'll swear blind is true. The Scorpashi dig deep in the sand, an' a hunter who knew where they nest could tell me a great deal about what Desolace has lost." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out o' the nests, though, because Scorpashi venom'll lay a beast low faster than a dwarf after a cask o' stout." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Belt buckles, arrowheads, a centaur's earring, an' once the whole brass compass off a wagon, which I'll swear blind is true. Keep {pet} out o' the nests, though, because Scorpashi venom'll lay a beast low faster than a dwarf after a cask o' stout." },
       },
       choices = {
         { text = "What the dead dropped belongs to their kin, not your ledger.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -637,11 +637,11 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Good, because half o' what I salvage out o' this waste was left behind by folk who didnae make it home, an' it'd sit easier wi' me if someone said a word over them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin o' the Silver Hand, out among the dust an' the demon-lovers! Reclaimers Inc. could use a strong back an' a stronger conscience, an' ye look like ye've brought both." },
         { id = "h_default", key = true,
-          text = "Kreldig Ungor, o' Reclaimers Inc., an' we find what others lost an' put it back to use. Desolace has lost a great deal, the Karnitol's cargo not least." },
+          text = "I'm Kreldig Ungor o' Reclaimers Inc., an' we find what others lost an' put it back to use. Desolace has lost a great deal, the Karnitol's cargo not least." },
         { id = "h_karnitol", tags = { "news" }, when = { questActive = TODO_QUEST("The Karnitol Shipwreck") },
           text = "The Karnitol went down off the coast with her cargo, an' the Reclaimers want what's left aboard. Fetch what ye can." },
         { id = "h_reagents", when = { questActive = TODO_QUEST("Reagents for Reclaimers Inc.") },
-          text = "Reagents, from the beasts an' the ruins. The Reclaimers pay fair, an' mostly on time." },
+          text = "I need reagents frae the beasts an' the ruins. The Reclaimers pay fair, an' mostly on time." },
         { id = "h_business", when = { questActive = TODO_QUEST("Reclaimers' Business in Desolace") },
           text = "Ye came all this way on Reclaimers' business? Good, then pull up a crate." },
         { id = "h_salvage", when = { metBefore = true }, text = "Found a perfectly good kettle in the dust yesterday, wi' a centaur arrow through it. I patched it, an' it makes tea fine; that's Reclaimers' work in one kettle." },
@@ -654,7 +654,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anythin' else? Mind the crates, {g:lad|lass}; there's a Karnitol cannonball in one o' them." } },
       choices = {
         { text = "What are the Reclaimers?", next = "reclaimers" },
-        { text = "The Karnitol must have come to a hard end.", next = "karnitol" },
+        { text = "What sank the Karnitol?", next = "karnitol" },
         { text = "How do you get on with the Explorers' League?", next = "league" },
         { text = "I know salvage from scrap.", next = "salvage", when = { profession = "Mining" } },
         { text = "The Explorers' League would call you looters.", next = "dwarf_kr", when = { race = "Dwarf" } },
@@ -671,22 +671,22 @@ P:NPC {
       },
     },
     reclaimers = {
-      lines = { { id = "r_default", text = "Dwarves with shovels an' a head fer business. Somethin' lost is somethin' found, if ye're stubborn enough, an' we're very stubborn." } },
+      lines = { { id = "r_default", text = "We're dwarves wi' shovels an' a head fer business. Somethin' lost is somethin' found, if ye're stubborn enough, an' we're very stubborn." } },
       choices = {
         { text = "It can't be very profitable work.", next = "reclaimers_profit" },
         { text = "Something else.", next = "BACK" },
       },
     },
     reclaimers_profit = {
-      lines = { { id = "rp_default", text = "Some years. Other years we're very rich in kettles." } },
+      lines = { { id = "rp_default", text = "Some years it is. Other years we're very rich in kettles." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     karnitol = {
-      lines = { { id = "k_default", text = "Rocks, weather, or somebody wantin' her cargo more than her crew did. The sea doesnae say, an' neither does what's left aboard, but it's worth askin'." } },
+      lines = { { id = "k_default", text = "Rocks, weather, or somebody wantin' her cargo more than her crew did; nobody knows. The sea doesnae say, an' neither does what's left aboard, but it's worth askin'." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     league = {
-      lines = { { id = "l_default", text = "Fine! They want the past, an' we want what still works. If they find a ruin, we'll take the hinges, an' everybody's happy, mostly." } },
+      lines = { { id = "l_default", text = "We get on fine! They want the past, an' we want what still works. If they find a ruin, we'll take the hinges, an' everybody's happy, mostly." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
     salvage = {
@@ -699,10 +699,10 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "We Reclaimers poke our noses intae everythin', so I know a bit o' all of it. Ask away." },
     },
-    background = { { id = "tp_ba", text = "Ironforge lad, Reclaimer by trade, salvager by nature. Never met a broken thing I didnae want tae look inside." } },
+    background = { { id = "tp_ba", text = "I'm an Ironforge lad, a Reclaimer by trade an' a salvager by nature, an' I never met a broken thing I didnae want tae look inside." } },
     advice = { { id = "tp_ad", text = "Never throw anythin' away in Desolace. Ye'll need it a week later, an' there's no shop for a hundred miles." } },
     explorers_league = { { id = "tp_league", text = "The League digs fer history, an' we dig fer things that still work. Friendly rivals, ye might say." } },
-    magni = { { id = "tp_magni", text = "Magni Bronzebeard is a good king and a better drinker, and he backs the League when he remembers we exist. A dwarf in the field learns to manage on remembered support." } },
+    magni = { { id = "tp_magni", text = "Magni Bronzebeard is a good king and a better drinker, and he backs the League an' the Reclaimers both when he remembers we exist. A dwarf in the field learns to manage on remembered support." } },
     maraudon = { { id = "tp_maraudon", text = "Maraudon's crammed with crystals and old earth magic, and the centaur'll kill you for walking in. If I were twenty years younger I'd go in anyway, and then I'd come out with a beard full of arrows." } },
     dire_maul = { { id = "tp_dire_maul", text = "Dire Maul's the old elf city west of here, and the ogres have it now. There's salvage in there that'd make a man rich, if the ogres would kindly step aside." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron are a shame to the whole race, and every Bronzebeard knows it. I'll fix anything that comes in here, except their gear, which I melt." } },
@@ -764,7 +764,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Follow the silence, the brothers say, because no bird sings where the dead walk and no fox will den near a plague pit. The Valley of Bones down there is just as quiet, and I've asked more than once who is stirring the dead in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will know them before you do. A beast's hackles rise at the dead long before any of us can smell the rot." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Follow the silence, the brothers say, because no bird sings where the dead walk and no fox will den near a plague pit. Your {pet} will know them before you do. A beast's hackles rise at the dead long before any of us can smell the rot." },
       },
       choices = {
         { text = "Then I'll hunt the dead wherever they walk.", next = "BACK", fx = { align = { light = 1 } } },
@@ -818,9 +818,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. The Crusade could use someone who reads tracks, because the Scourge leave a trail of their own, if you know where to look." },
         { id = "h_default", key = true,
-          text = "Brother Anton, an emissary of the Scarlet Crusade. We fight the undead wherever they rise, even in the Valley of Bones to the south. Brother Crowley in Stormwind sends me the willing." },
+          text = "I am Brother Anton, an emissary of the Scarlet Crusade. We fight the undead wherever they rise, even in the Valley of Bones to the south. Brother Crowley in Stormwind sends me the willing." },
         { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("Down the Scarlet Path") },
-          text = "The Valley of Bones, to the south, where the dead walk. Destroy them, and the Crusade will welcome you." },
+          text = "Go to the Valley of Bones to the south, where the dead walk, and destroy them. Then the Crusade will welcome you." },
         { id = "h_crowley", when = { questActive = TODO_QUEST("Brother Anton") },
           text = "Brother Crowley sent you! Good, then you're ready to prove yourself to the Crusade." },
         { id = "h_letter", tags = { "news" }, when = { questDone = TODO_QUEST("Down the Scarlet Path"), ["not"] = { questDone = TODO_QUEST("In the Name of the Light") } },
@@ -857,7 +857,7 @@ P:NPC {
     troubling = {
       big = true,
       lines = {
-        { id = "t_default", text = "Rumors. There are always rumors about anyone who fights hard, but the Crusade's cause is just; I'm sure of it. I've been in Desolace a long while, I admit." },
+        { id = "t_default", text = "Those are rumors, friend. There are always rumors about anyone who fights hard, but the Crusade's cause is just; I'm sure of it. I've been in Desolace a long while, I admit." },
       },
       choices = {
         { text = "Maybe you should go back and see.", next = "troubling_go", fx = { affinity = -1, trait = { skeptical = 1 } } },
@@ -869,7 +869,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     valley = {
-      lines = { { id = "v_default", text = "Bones, more than you can count, and things that won't stay down. The Crusade's sworn to put them down, every one. It's honest work, whatever else you've heard." } },
+      lines = { { id = "v_default", text = "There are bones, more than you can count, and things that won't stay down. The Crusade's sworn to put them down, every one. It's honest work, whatever else you've heard." } },
       choices = {
         { text = "Every one? Even those who think for themselves?", next = "undead_op" },
         { text = "Something else.", next = "BACK" },
@@ -902,7 +902,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     crowley = {
-      lines = { { id = "c_default", text = "Our brother in Stormwind. He finds the brave and sends them to me, and I've never met a better judge of courage." } },
+      lines = { { id = "c_default", text = "He's our brother in Stormwind. He finds the brave and sends them to me, and I've never met a better judge of courage." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     raleigh = {
@@ -951,9 +951,9 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The Light has shown me a good deal out here, friend, and I'm glad to share it. Ask." },
     },
-    background = { { id = "tp_ba", text = "A brother of the Light who took up the Crusade's cause. I came west to hold back the dead where I'm sent.", next = "troubling" } },
+    background = { { id = "tp_ba", text = "I'm a brother of the Light who took up the Crusade's cause. I came west to hold back the dead where I'm sent.", next = "troubling" } },
     advice = { { id = "tp_ad", text = "Bless your blade before the Valley of Bones. The dead there don't stay down for steel alone." } },
-    scarlet_crusade = { { id = "tp_crusade", text = "Brave men and women, fighting the plague where no one else will. Whatever you've heard, that's the heart of it." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "The Crusade is brave men and women, fighting the plague where no one else will. Whatever you've heard, that's the heart of it." } },
     scourge = {
       { id = "tp_scourge", text = "The Scourge killed my village in Lordaeron and raised my neighbors to march against me. The Crusade gave me a sword and a purpose, and I'll carry both until every last corpse is still." },
       { id = "tp_scourge2", when = { race = "Scourge" }, text = "You walk and talk like the living, but I know what you are, and so does the Light. Leave before I forget my orders to keep the peace here." },
@@ -1015,7 +1015,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Thunder lizards on the open plain, scorpids in the sand and the hyenas that trail the old kodos toward the Graveyard. The hunters who stay here say the hyenas are the worst, because they never fight fair and they never give up." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} can lie by the fire with the others, if it doesn't mind the dust. There's no keeping it out of anything here, so the beasts and I have made our peace with it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Thunder lizards on the open plain, scorpids in the sand and the hyenas that trail the old kodos toward the Graveyard. {pet} can lie by the fire with the others, if it doesn't mind the dust. There's no keeping it out of anything here, so the beasts and I have made our peace with it." },
       },
       choices = {
         { text = "I'll hunt the hyenas and leave the old kodos in peace.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1069,7 +1069,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Vahlarriel came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and Dalinda Malem was taken by the same cult. A warlock walking in here reminds them of all that, however polite you are about it." } },
+      lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." } },
       choices = {
         { text = "I'll keep my demon out of sight, for their sake.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "They'll have to get used to me. I've earned my place.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1084,7 +1084,7 @@ P:NPC {
           text = "A hunter. The game is poor down in Desolace, but what's left is hard and hungry, and I'd ask you to come back to this hearth before you're as thin as it is." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, here at the edge of the dust. Sit by the hearth a while, because the people who come up from Desolace often carry more than dust home with them, and I think you would know what to say to them." },
         { id = "h_default", key = true,
-          text = "Innkeeper Lyshaerya. I keep the only warm hearth between Stonetalon and Feralas, and travelers find their way to it eventually." },
+          text = "I'm Innkeeper Lyshaerya, and I keep the only warm hearth between Stonetalon and Feralas, and travelers find their way to it eventually." },
         { id = "h_op_prestor", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } },
           text = "The Captain said you'd a sharp word for Lady Prestor. He's been repeating it to himself all week, so whatever it was, it stuck." },
         { id = "h_op_crusade", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "distrust" } },
@@ -1117,7 +1117,7 @@ P:NPC {
       },
     },
     drums = {
-      lines = { { id = "d_default", text = "One clan telling another it's still there. Louder means angrier, and tonight is loud." } },
+      lines = { { id = "d_default", text = "That's one clan telling another it's still there. Louder means angrier, and tonight is loud." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     why = {
@@ -1130,7 +1130,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Travelers bring news from both ends of the valley to this hearth. Ask, and I'll tell you what I've heard." },
     },
-    background = { { id = "tp_ba", text = "A hearth, a broom, and travellers who need both. I don't need more of a story than that." } },
+    background = { { id = "tp_ba", text = "I have a hearth, a broom, and travellers who need both, and I don't need more of a story than that." } },
     advice = { { id = "tp_ad", text = "Shake out your boots every morning. Desolace has scorpions, and scorpions like boots." } },
     elune = { { id = "tp_elune", text = "I pray to Elune each morning for patience with the dust, and she has given me a great deal of patience and none of the dust's absence. I take it as a lesson." } },
     centaur = { { id = "tp_centaur", text = "The centaur thunder past at night, and the guards count the hoofbeats from the walls. I keep the shutters closed and the tea warm." } },
@@ -1182,7 +1182,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They take the satyrs' paths and the satyrs' caves, and the satyrs take their coin and their demons in return. Follow the hoofprints into the hills and you'll find robed orcs where you expected beasts, and that's where I want arrows." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} downwind of the camps. Satyrs smell beasts better than they smell men, and one warning growl costs us the whole ambush." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They take the satyrs' paths and the satyrs' caves, and the satyrs take their coin and their demons in return. Keep {pet} downwind of the camps. Satyrs smell beasts better than they smell men, and one warning growl costs us the whole ambush." },
       },
       choices = {
         { text = "I'll hunt the cultists, but satyrs who keep away can live.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1252,11 +1252,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Can you track a satyr through broken ground, or only deer through grass? I need the first." },
         { id = "h_default", key = true,
-          text = "Takata Steelblade. Keldran sent me from Orgrimmar to hunt the Burning Blade here, the last orcs who still drink the demons' poison. They hide among the satyrs, so the satyrs die too." },
+          text = "I'm Takata Steelblade. Keldran sent me from Orgrimmar to hunt the Burning Blade here, the last orcs who still drink the demons' poison. They hide among the satyrs, so the satyrs die too." },
         { id = "h_op_necro", when = { gossip = { topic = "necromancy", stance = "wrong" } },
           text = "Maurin says you called his work rot. I'd not say it twice near his tent, but I'll not argue with you either." },
         { id = "h_op_centaur", when = { gossip = { topic = "centaur", stance = "hate" } },
-          text = "Felgur likes you, which is rare. He says you called the centaur beasts, and he's been grinning about it at the fire." },
+          text = "Felgur Twocuts likes you, which is rare. He says you called the centaur beasts, and he's been grinning about it at the fire." },
         { id = "h_satyr", tags = { "news" }, when = { questActive = TODO_QUEST("Befouled by Satyr") },
           text = "The satyrs foul everything they touch, so thin them. The Blade loses its friends one horn at a time." },
         { id = "h_corrupter", when = { questActive = TODO_QUEST("The Corrupter") },
@@ -1292,7 +1292,7 @@ P:NPC {
         { text = "How do you want the Blade hunted, Takata?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "The tauren here seem wary of mages, Takata.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How do the Burning Blade hide among the satyrs, Takata?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "The satyrs' wounds look slow to heal, Takata.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Wounds from satyr claws look slow to heal, Takata.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you take a paladin against the Burning Blade, Takata?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I scouted the Kolkar camps out of this post once, Takata.", next = "xorig_ghost", when = { origin = "tauren_ghost_walker_scout" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
@@ -1305,14 +1305,14 @@ P:NPC {
       choices = {
         { text = "They're bolder than ever, and they're watching this post.", next = "BACK", fx = { affinity = 2 } },
         { text = "I couldn't say. I've been away too long.", next = "BACK" },
-        { text = "Did you ever see the ghosts here, Takata?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "The ghosts of this post still walk in my sleep.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
 
     blade = {
       big = true,
       lines = {
-        { id = "b_default", text = "Members of the Horde who gave their loyalty to the demons and kept practicing their dark magic. They care nothing for the Warchief's vision of our future in Kalimdor, and that is the threat Thrall most wants dealt with." },
+        { id = "b_default", text = "They are members of the Horde who gave their loyalty to the demons and kept practicing their dark magic. They care nothing for the Warchief's vision of our future in Kalimdor, and that is the threat Thrall most wants dealt with." },
       },
       choices = {
         { text = "Who hunts them with you?", next = "blade_maurin" },
@@ -1337,7 +1337,7 @@ P:NPC {
     },
     satyrs_pain = {
       lines = {
-        { id = "sp_default", text = "Never without help. A weak spirit, a hunger for power, a thirst for revenge or even for justice, and when we're in pain, evil comes and offers to ease it." },
+        { id = "sp_default", text = "Never without help. It needs a weak spirit, a hunger for power, a thirst for revenge or even for justice, because when we're in pain, evil comes and offers to ease it." },
       },
       choices = {
         { text = "You sound like you've seen it happen.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -1357,7 +1357,7 @@ P:NPC {
     },
     relations_why = {
       lines = {
-        { id = "rw_default", text = "Because Thrall wants peace with them, and a war started over a lie is still a war. Even helping the centaur, which this does in its way, is better than that, though I'll not pretend I like it." },
+        { id = "rw_default", text = "Because Thrall wants peace with them, and a war started over a lie is still a war. Hunting the Blade helps the centaur too, in its way, and I'll not pretend I like that, but it's better than war." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
@@ -1418,8 +1418,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know what my hunt has taught me. Ask, and I'll answer if it serves the Horde." },
     },
-    burning_blade = { { id = "tp_blade", text = "Orcs who still kneel to the old fire. In Durotar they hide in caves and here they hide behind satyrs, but I find them either way.", next = "blade" } },
-    background = { { id = "tp_ba", text = "A soldier sent by Keldran to clear demons out of Desolace. I'll tell you more about myself when the job is done, which means not soon." } },
+    burning_blade = { { id = "tp_blade", text = "The Blade are orcs who still kneel to the old fire. In Durotar they hide in caves and here they hide behind satyrs, but I find them either way.", next = "blade" } },
+    background = { { id = "tp_ba", text = "I'm a soldier sent by Keldran to clear demons out of Desolace. I'll tell you more about myself when the job is done, which means not soon." } },
     advice = { { id = "tp_ad", text = "Hit a satyr before it speaks. Whatever it says, you'll wish you hadn't heard it." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade still sell themselves to demons, after everything the Legion did to our people. I hunt them because someone must answer for that shame." } },
     thrall = { { id = "tp_thrall", text = "The Warchief broke the demon blood's hold on us and gave us back our souls. Every Burning Blade warlock spits on that gift, and every one I kill spits a little less." } },
@@ -1480,7 +1480,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The thunder lizards on the plains, if you have the stomach for it, and the kodo herds if you have the patience. My people don't hunt the old kodos that walk toward the Graveyard, though, and I'd ask the same of you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows the land it's walking on. That's more than I can say for most hunters who come through Shadowprey." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The thunder lizards on the plains, if you have the stomach for it, and the kodo herds if you have the patience. {pet} has the look of a beast that knows the land it's walking on. That's more than I can say for most hunters who come through Shadowprey." },
       },
       choices = {
         { text = "The old kodos walk in peace. I'll leave them be.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1550,7 +1550,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", race = { "Orc", "Troll" }, faction = "Horde" },
           text = "A hunter of the Horde. Mind the shore when you hunt near Shadowprey, because the surf is rougher than it looks and the things in it don't care what you came for." },
         { id = "h_default", key = true,
-          text = "Nataka Longhorn, of Thunder Bluff. The centaur harass us, the land gives nothing, and still I've grown fond of it. Don't tell anyone." },
+          text = "I'm Nataka Longhorn, of Thunder Bluff. The centaur harass us, the land gives nothing, and still I've grown fond of it. Don't tell anyone." },
         { id = "h_family", tags = { "news" }, when = { questActive = TODO_QUEST("Family Tree") },
           text = "A letter, from my brother at Freewind? I'd given up waiting. Let me sit down before I read it." },
         { id = "h_brother", when = { heardLine = "longhorn.h_default" },
@@ -1621,7 +1621,7 @@ P:NPC {
     },
     brother_worry = {
       lines = {
-        { id = "bw_default", text = "Centaur, stirring around the Needles more than usual, as if I didn't have enough centaur of my own. He always worried more than me, and I always told him he'd go grey early." },
+        { id = "bw_default", text = "He did, about centaur stirring around the Needles more than usual, as if I didn't have enough centaur of my own. He always worried more than me, and I always told him he'd go grey early." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1651,7 +1651,7 @@ P:NPC {
 
     tauren = {
       lines = {
-        { id = "t_default", text = "And for me, to see you. Mulgore feels a long way off from this grey place, but horns and a good laugh bring it a little closer." },
+        { id = "t_default", text = "And it's good for me to see you. Mulgore feels a long way off from this grey place, but horns and a good laugh bring it a little closer." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -1680,7 +1680,7 @@ P:NPC {
     },
     xhrogue = {
       big = true,
-      lines = { { id = "xhrogue_default", text = "The Kolkar and the Magram, who'll kill each other or you without much preference. The Burning Blade watch the roads too, and they're cleverer than the centaur, so don't trust an orc on the road just because he's an orc." } },
+      lines = { { id = "xhrogue_default", text = "There are the Kolkar and the Magram, who'll kill each other or you without much preference. The Burning Blade watch the roads too, and they're cleverer than the centaur, so don't trust an orc on the road just because he's an orc." } },
       choices = {
         { text = "I'll scout their camps and bring the elders word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the centaur bleed each other. I'll pick the bones.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1689,7 +1689,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The Kodo Graveyard is full of ancient bones, the Burning Blade foul the ground around Thunder Axe Fortress, and the centaur clans spill blood over every spring. I fish and I let the land be, because I think it's done enough for one age." } },
+      lines = { { id = "xhsham_default", text = "They have reason to be. The Kodo Graveyard is full of ancient bones, the Burning Blade foul the ground around Thunder Axe Fortress, and the centaur clans spill blood over every spring. I fish and I let the land be, because I think it's done enough for one age." } },
       choices = {
         { text = "Then we should help it rest, and heal what we can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Tired land is still land, and the Horde should take what it gives.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1702,14 +1702,14 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've spent a long time in this dusty land, and I've learned more than I expected to. Ask, and I'll tell you." },
     },
-    grimtotem = { { id = "tp_grimtotem", text = "My brother writes about them, when he writes. He worries; he always worried more than me." } },
-    background = { { id = "tp_ba", text = "A tauren of Thunder Bluff, posted to Desolace, and the brother of a tauren who worries too much. That's about all of it.", next = "brother" } },
+    grimtotem = { { id = "tp_grimtotem", text = "My brother writes about the Grimtotem, when he writes. He worries; he always worried more than me." } },
+    background = { { id = "tp_ba", text = "I'm a tauren of Thunder Bluff, posted to Desolace, and the brother of a tauren who worries too much. That's about all of it.", next = "brother" } },
     advice = { { id = "tp_ad", text = "Travel the roads in the daytime here. The centaur ride at night, and a lone traveler on a dark road is the easiest prey there is." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the oldest and wisest of us, and I hope he lives another hundred years. He would tell you to fish more and worry less, and I listen to him." } },
     earth_mother = { { id = "tp_earth_mother", text = "Desolace looks dead to most eyes, but the Earth Mother is still here, sleeping under the dust. If you are quiet at dawn you can feel her breathing." } },
     centaur = { { id = "tp_centaur", text = "The centaur were once our bitter enemies, and they still are, but out here I almost feel sorry for them. They fight over a land that has nothing left to give." } },
     maraudon = { { id = "tp_maraudon", text = "Maraudon is the tomb of Zaetar, and the centaur hold it sacred, and the Earth Mother weeps for what grows in its heart. I do not go near it." } },
     thrall = { { id = "tp_thrall", text = "The Warchief gave the tauren friendship when no one else would, and we repay it gladly. I would not see him take fish from my net, though." } },
-    _none = { { id = "tp_none", text = "Couldn't say; Desolace doesn't bring much news, and the wind here carries more dust than words." } },
+    _none = { { id = "tp_none", text = "I couldn't say; Desolace doesn't bring much news, and the wind here carries more dust than words." } },
   },
 }

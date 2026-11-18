@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Brock Stoneseeker, o' Brock's School o' Mining an' Surveying, an' aye, the name on the sign is mine. Come in, an' wipe yer boots, for the students have only just swept." },
+    { id = "g_default", text = "I'm Brock Stoneseeker, o' Brock's School o' Mining an' Surveying, an' aye, the name on the sign is mine. Come in, an' wipe yer boots, for the students have only just swept." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Either ye've found a seam ye cannae make sense of, or ye've come tae tell me about one. Both are welcome." },
     { id = "g_away", when = { away = 14 }, text = "There ye are, after {away} away! I'd half decided ye'd fallen down a shaft somewhere, an' I was writin' ye intae my safety lecture." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at the shoulders on ye now! Ye've been swingin' somethin' heavier than a pick, I'd say, or swingin' a pick at somethin' that swung back." },
@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "This is my school, an' these hills are my classroom, for there's copper an' tin an' a wee bit o' silver all round the loch if ye know how tae look. I teach the young ones how tae find it without bringin' the hill down on their heads." },
         { id = "h_honor", tags = { "news" }, when = { questActive = TODO_QUEST("Honor Students") },
-          text = "Ye've still got my list, then? Gryth Thurden keeps the gryphons in Ironforge, an' he knows what tae do wi' it, so off ye go, an' mind ye don't drop it over the Algaz." },
+          text = "Ye've still got my list, then? Gryth Thurden keeps the gryphons in Ironforge, an' he knows what tae do wi' it, so off ye go, an' mind ye don't drop it on the road." },
         { id = "h_return", tags = { "news" }, when = { questActive = TODO_QUEST("Return to Brock") },
           text = "Is that the bundle from Gryth? Oh, I can hear them clinkin' from here! Hand them over, friend, for I've three students who've been waitin' all week." },
         { id = "h_after", when = { questDone = TODO_QUEST("Return to Brock") },
@@ -59,7 +59,7 @@ P:NPC {
         { text = "Tell me about your school.", next = "school" },
         { text = "What ore is there around the loch?", next = "ore" },
         { text = "Do you have work for me?", next = "picks" },
-        { text = "I've brought your honorary picks.", next = "picks_done", when = { questDone = TODO_QUEST("Return to Brock") } },
+        { text = "Did your students like their honorary picks?", next = "picks_done", when = { questDone = TODO_QUEST("Return to Brock") } },
         { text = "I'm a miner myself. Any advice?", next = "xminer", when = { profession = "Mining" } },
         { text = "I worked the deep galleries under Ironforge.", next = "xdeep", when = { origin = "dwarf_ironforge_miner" } },
         { text = "Could a gnome learn mining from you?", next = "xgnome", when = { race = "Gnome" } },
@@ -175,7 +175,7 @@ P:NPC {
     },
     picks_done = {
       lines = {
-        { id = "pd_default", text = "Ye did, an' I'll no' forget it. The youngest of them, wee Tamsin, cried when I put hers in her hands, an' then she pretended it was the dust in her eyes." },
+        { id = "pd_default", text = "They did, an' I'll no' forget what ye did for them. The youngest of them, wee Tamsin, cried when I put hers in her hands, an' then she pretended it was the dust in her eyes." },
       },
       choices = {
         { text = "She'll make a fine miner.", next = "BACK", fx = { affinity = 1, standing = { thelsamar = 1 } } },
@@ -219,10 +219,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know rock, an' I know the folk who dig it, an' that covers most o' Loch Modan." } },
-    background = { { id = "tp_bg", text = "Thirty years in the mines under Ironforge an' Dun Morogh, an' then my knees retired before I did, so I opened a school." } },
+    background = { { id = "tp_bg", text = "I spent thirty years in the mines under Ironforge an' Dun Morogh, an' then my knees retired before I did, so I opened a school." } },
     advice = { { id = "tp_ad", text = "Listen tae the rock before ye hit it, friend, for it usually tells ye what it's goin' tae do." } },
-    troggs = { { id = "tp_troggs", text = "They come up where we dig deep, an' I've never heard a better reason tae dig carefully." } },
-    kobolds = { { id = "tp_kobolds", text = "Tunnel Rats in the Silver Stream, an' they'd steal the candle off yer helmet if ye stood still." } },
+    troggs = { { id = "tp_troggs", text = "Troggs come up where we dig deep, an' I've never heard a better reason tae dig carefully." } },
+    kobolds = { { id = "tp_kobolds", text = "The Tunnel Rats in the Silver Stream would steal the candle off yer helmet if ye stood still." } },
     _none = { { id = "tp_none", text = "If it's no' in the rock, I'm the wrong dwarf tae ask. Try Jern; he writes everythin' down." } },
   },
 }
@@ -240,9 +240,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Kali Healtouch, an' if ye've come for Ghak, he's next door makin' smoke. If ye've come for herbs, ye've found the right one o' us." },
+    { id = "g_default", text = "I'm Kali Healtouch, an' if ye've come for Ghak, he's next door makin' smoke. If ye've come for herbs, ye've found the right one o' us." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did ye find the briarthorn where I told ye, or did ye find the nettles?" },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the silverleaf's come up an' gone over in that time. Ye missed the best o' it." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the silverleaf's come up an' gone over in that time. Ye missed the best o' it." },
   },
 
   notice = {
@@ -307,7 +307,7 @@ P:NPC {
     },
     ghak = {
       lines = {
-        { id = "gh_default", text = "Like livin' wi' a kettle that's always about tae boil over, an' I wouldnae change a thing. He's singed the curtains four times this year, an' I've stopped buyin' nice ones." },
+        { id = "gh_default", text = "It's like livin' wi' a kettle that's always about tae boil over, an' I wouldnae change a thing. He's singed the curtains four times this year, an' I've stopped buyin' nice ones." },
       },
       choices = {
         { text = "Has he ever blown anything up?", next = "ghak_boom" },
@@ -316,7 +316,7 @@ P:NPC {
     },
     ghak_boom = {
       lines = {
-        { id = "gb_default", text = "Only the privy, an' only the once, an' he swears it was a gnome's still that did it. The whole o' Thelsamar heard it, an' Bluntnose made him rebuild it wi' his own two hands." },
+        { id = "gb_default", text = "Only the privy, an' only the once, an' he swears it was a gnome's still that did it. The whole o' Thelsamar heard it, an' Magistrate Bluntnose made him rebuild it wi' his own two hands." },
       },
       choices = {
         { text = "That's a story I'll remember.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },

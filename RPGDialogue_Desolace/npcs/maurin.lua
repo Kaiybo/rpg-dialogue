@@ -16,10 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "Be still a moment, {class}. I was counting something, and I would rather not begin again." },
     { id = "g_gems", when = { questActive = TODO_QUEST("The Burning of Spirits") }, text = "Activate the gem only when they are close to death, or it will be useless. I made the magic simple; do not make it difficult." },
-    { id = "g_corrupter", when = { questActive = TODO_QUEST("The Corrupter") }, text = "Azrethoc's contract was signed in a hand older than his servants know. Its maker must be found." },
+    { id = "g_corrupter", when = { questActive = TODO_QUEST("The Corrupter") }, text = "The demon who signed that contract, Lord Azrethoc, is still out there. Find him before the Blade binds another warlock to him." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Corrupter") }, text = "Azrethoc is gone, and the Blade has lost the hand that held its leash. They will not understand what they have lost, which is the pleasing part." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and though the dead do not notice time as you do, I noticed your absence, which should flatter you." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown more dangerous since I first gave you that gem. Good; Desolace rewards nothing else." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown more dangerous since we first spoke. Good; Desolace rewards nothing else." },
   },
 
   notice = {
@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_burning_before", when = { questBefore = TODO_QUEST("The Burning of Spirits"), questDone = TODO_QUEST("Alliance Relations") },
           text = "Death is too kind for those who turned their backs on their liege for a demon's favour. Take this gem; when one of the Blade lies close to death, activate it, and it will pull the corrupted spirit out and leave a gem behind." },
         { id = "h_burning_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Burning of Spirits"), days = 3 } },
-          text = "You have returned successful, and I shall put these somewhere safe, which is not a place I will tell you. Speak to Takata when you are rested; he may have other work." },
+          text = "You have returned successful, and I shall put these somewhere safe, which is not a place I will tell you. Speak to Takata Steelblade when you are rested; he may have other work." },
         { id = "h_corrupter", tags = { "news" }, when = { questActive = TODO_QUEST("The Corrupter") },
           text = "These runes are an old language, close to the Eredun tongue but drastically different, and this is a contract. The signature at the bottom belongs to a demon: Lord Azrethoc." },
         { id = "h_corrupter_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Corrupter"), days = 3 } },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "co_default", text = "A flayed skin, inked in a language older than the Blade's and kin to the Eredun tongue, binding the cult's warlocks to Lord Azrethoc. They signed away more than they knew, as servants of demons always do." },
       },
       choices = {
-        { text = "Could the contract be broken instead?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then the contract dies with Azrethoc.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } },
       },
     },
@@ -193,6 +193,6 @@ P:NPC {
     },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a necromancer of Dalaran, and now he is the Lich King's voice in the plaguelands. His work is meticulous, and I would very much like to see it unmade." } },
     thrall = { { id = "tp_thrall", text = "The Warchief is a useful ally to the Dark Lady, and the orcs here are courteous enough. They keep their distance from me, which I appreciate." } },
-    _none = { { id = "tp_none", text = "I do not know, and I do not guess. Ask Takata; he guesses for a living." } },
+    _none = { { id = "tp_none", text = "I do not know, and I do not guess. Ask Takata Steelblade; he guesses for a living." } },
   },
 }

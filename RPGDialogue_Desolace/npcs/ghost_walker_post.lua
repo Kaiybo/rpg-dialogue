@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Walk softly, {class}. The kodo come here to die, and their spirits are listening." },
-    { id = "g_magram", when = { questActive = TODO_QUEST("Magram Alliance") }, text = "You've chosen the Magram, then. Every Gelkis you cut down is a word in their ear, and they are listening." },
+    { id = "g_magram", when = { questActive = TODO_QUEST("Magram Alliance") }, text = "You've chosen the Magram, then. Every Gelkis you cut down is a word in the Magram's ear, and they are listening." },
     { id = "g_gelkis", when = { questActive = TODO_QUEST("Gelkis Alliance") }, text = "You walk with the Gelkis now. The Magram will learn to fear your name, and the Gelkis will learn to trust it." },
     { id = "g_done", when = { any = { { questDone = TODO_QUEST("Magram Alliance") }, { questDone = TODO_QUEST("Gelkis Alliance") } } }, text = "One clan calls you friend and the other calls you butcher, and both of them are talking to us now. That is how the Horde wins in Desolace." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Three kodo came to the graveyard while you were away, and I sang for each of them." },
@@ -79,7 +79,7 @@ P:NPC {
     plan_honour = {
       big = true,
       lines = {
-        { id = "ph_default", text = "Some of the braves say so, and Takata would rather ride out and fight them all with the Warchief's blessing. But honour won't bring back the families the centaur trampled in the Barrens, and I'm a shaman, not a song." },
+        { id = "ph_default", text = "Some of the braves say so, and Takata Steelblade would rather ride out and fight them all with the Warchief's blessing. But honour won't bring back the families the centaur trampled in the Barrens, and I'm a shaman, not a song." },
       },
       choices = {
         { text = "Better a clever peace than an honest grave.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -132,7 +132,7 @@ P:NPC {
     choose_g = {
       big = true,
       lines = {
-        { id = "cg_default", text = "Then go and earn their trust in Magram blood. Uthek the Wise is old, and he will want to know why a stranger would spill blood for his clan, so have an answer ready." },
+        { id = "cg_default", text = "Then go and earn their trust in Magram blood. Uthek the Wise is old, and she will want to know why a stranger would spill blood for her clan, so have an answer ready." },
       },
       choices = {
         { text = "For the Horde. That's answer enough.", next = "BACK", fx = { align = { order = 1 } } },
@@ -172,7 +172,7 @@ P:NPC {
 
     origin = {
       lines = {
-        { id = "or_default", text = "The Gelkis say they were born of the earth spirit who sleeps beneath Maraudon, and the Magram say that's nonsense and they came from a great khan. The druids of Nijel's Point say something worse, and I won't repeat it, because they'd likely say it better." },
+        { id = "or_default", text = "The Gelkis say they were born of the earth spirit who sleeps beneath Maraudon, and the Magram say that's nonsense and they came from a great khan. The druids of Nijel's Point tell something stranger, and they tell it better than I do." },
       },
       choices = {
         { text = "What do the druids say?", next = "origin_druids" },
@@ -203,7 +203,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Wildmane by blood and shaman by calling, sent here by Thunder Bluff to watch the clans and sing for the kodo." } },
+    background = { { id = "tp_bg", text = "I'm Wildmane by blood and shaman by calling, sent here by Thunder Bluff to watch the clans and sing for the kodo." } },
     advice = { { id = "tp_ad", text = "Never let a centaur see that you've chosen a side, unless it's theirs." } },
     _none = { { id = "tp_none", text = "The spirits haven't told me that, and I don't guess about things that matter." } },
   },
@@ -280,7 +280,7 @@ P:NPC {
         { id = "gr_default", text = "The shaman say the land is sick, that something under it poisons the roots, and the centaur have trampled what little was left. I tried to plant melons by the totems once, and they came up grey and tasted of dust." },
       },
       choices = {
-        { text = "You tried to grow melons here?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Melons, in Desolace? That was brave, Harnor.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -343,7 +343,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is a great deal. Desolace has little that grows, but plenty that can be taken." },
+          text = "I'm Kireena. I keep the crafters at this post supplied, which isn't many, and I buy what the braves carry back from the camps, which is a great deal. Desolace has little that grows, but plenty that can be taken." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm counting spools." },
@@ -413,8 +413,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Trader's daughter from Bloodhoof. I go where the trade is thin and make it thicker." } },
+    background = { { id = "tp_bg", text = "I'm a trader's daughter from Bloodhoof, and I go where the trade is thin and make it thicker." } },
     advice = { { id = "tp_ad", text = "Never sell to the first buyer. Never buy from the first seller, either." } },
-    _none = { { id = "tp_none", text = "Don't know. It isn't for sale, so I haven't asked." } },
+    _none = { { id = "tp_none", text = "I don't know. It isn't for sale, so I haven't asked." } },
   },
 }

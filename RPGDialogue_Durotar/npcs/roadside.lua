@@ -53,7 +53,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Whatever the hills gave him, boar mostly, and the odd scorpid for its shell. He went out alone because he was proud, and I've thought every day since that if he'd had a beast beside him, someone would have come home to tell me what happened." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close, {class}. A beast at your side is a friend who won't let you walk out into the hills alone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whatever the hills gave him, boar mostly, and the odd scorpid for its shell. Keep your {pet} close, {class}. A beast at your side is a friend who won't let you walk out into the hills alone." },
       },
       choices = {
         { text = "Kron was brave. There's no shame in how he fell.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Gornek says the ancestors keep the ones who die well, and Kron died with his axe in his hand, so perhaps they have him. I don't want a ghost, shaman. I only want to know that he isn't lost out in those hills alone." } },
+      lines = { { id = "xhsham_default", text = "Gornek of the Den says the ancestors keep the ones who die well, and Kron died with his axe in his hand, so perhaps they have him. I don't want a ghost, shaman. I only want to know that he isn't lost out in those hills alone." } },
       choices = {
         { text = "He died fighting, Misha, so the ancestors will have kept him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead are gone, and the spirits won't change that.", next = "BACK", fx = { align = { light = -1 } } },
@@ -191,7 +191,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     co_wary = {
-      lines = { { id = "cow_default", text = "More sons. Yes. I have none left to give, so I'll take your answer and keep it by the door with his amulet." } },
+      lines = { { id = "cow_default", text = "More sons, yes, and I have none left to give, so I'll take your answer and keep it by the door with his amulet." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     co_mixed = {
@@ -206,7 +206,7 @@ P:NPC {
       },
     },
     neighbours = {
-      lines = { { id = "nb_default", text = "There is Margoz, who sits by Skull Rock and watches the cultists come and go, and he is no better company than I am. South, the soldiers at Razor Hill, and past them only scorpids." } },
+      lines = { { id = "nb_default", text = "There is Margoz, who sits by Skull Rock and watches the cultists come and go, and he is no better company than I am. South are the soldiers at Razor Hill, and past them only scorpids." } },
       choices = { { text = "I'll look in on Margoz.", next = "BACK" } },
     },
     camps = {
@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Imps, mostly, running errands for the cultists at night, and they burn the scrub wherever they stop to squabble. Follow them and you'll find the ways into the caves, and once I know every way in, Orgnil can send enough grunts to block every way out." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't like the smell up here either, does it? Good beast; it knows trouble when it smells it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Imps, mostly, running errands for the cultists at night, and they burn the scrub wherever they stop to squabble. Your {pet} doesn't like the smell up here either, does it? Good beast; it knows trouble when it smells it." },
       },
       choices = {
         { text = "I'll map every way in and let Orgnil plan.", next = "BACK", fx = { align = { order = 1 } } },
@@ -369,7 +369,7 @@ P:NPC {
       choices = { { text = "Someone in Orgrimmar, then.", next = "blade_who" } },
     },
     blade_who = {
-      lines = { { id = "bw_default", text = "If I knew a name, I'd have sent it to Thrall already. I only know the cultists go north with full packs and come back with empty ones, and that a cleft in the city is dark enough to hide anything." } },
+      lines = { { id = "bw_default", text = "If I knew a name, I'd have sent it to Thrall already. I only know the cultists go north with full packs and come back with empty ones, and that the Cleft of Shadow in the city is dark enough to hide anything." } },
       choices = {
         { text = "Traitors deserve to be dragged into the light.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Every orc chooses his own masters. That's freedom.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
@@ -381,7 +381,7 @@ P:NPC {
       choices = { { text = "Clever.", next = "BACK" } },
     },
     orders = {
-      lines = { { id = "o_default", text = "Orgrimmar, by way of whoever they send. Gar'Thok at Razor Hill knows I'm here, and Orgnil hunts the same cultists from his end." } },
+      lines = { { id = "o_default", text = "They come from Orgrimmar, by way of whoever they send. Gar'Thok at Razor Hill knows I'm here, and Orgnil Soulscar hunts the same cultists from his end." } },
       choices = {
         { text = "I'll tell them you're still watching.", next = "BACK", fx = { affinity = 1 } },
         { text = "Does Orgrimmar take the Blade seriously enough?", next = "purge_op" },
@@ -406,7 +406,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     po_hang = {
-      lines = { { id = "poh_default", text = "That's the sort of thing I like to hear on a long night. Mind you, Zureetha down in the Valley might argue it with you, and she's earned the right." } },
+      lines = { { id = "poh_default", text = "That's the sort of thing I like to hear on a long night. Mind you, Zureetha Fargaze, the warlock in the Valley of Trials, might argue it with you, and she's earned the right." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     po_lock = {
@@ -422,7 +422,7 @@ P:NPC {
     },
   },
   topics = {
-    burning_blade = { { id = "tp_blade", text = "Cultists, fools and worse. Kill them where you find them, and look hard at who mourns them." } },
+    burning_blade = { { id = "tp_blade", text = "The Burning Blade are cultists, fools and worse. Kill them where you find them, and look hard at who mourns them." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade still pray to the things that cursed us, and they think the demons will make them strong again. They'll make them food." } },
     thrall = { { id = "tp_thrall", text = "The Warchief knows about Skull Rock, and he's let Orgnil and the rest handle it. I'm content, so long as somebody does the killing besides me." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar and the Burning Blade both want something in Durotar, and I hope they find each other first. That would save us all some trouble." } },
@@ -475,7 +475,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, quietly, and they tell me which hunters thank them and which only take. The scorpids and raptors of this land are hard and hungry because the land made them so, and a hunter who kills only what the camp needs keeps the balance the elements ask of us." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks easily beside you. The spirits like that, and so do I." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, quietly, and they tell me which hunters thank them and which only take. Your {pet} walks easily beside you. The spirits like that, and so do I." },
       },
       choices = {
         { text = "I'll give thanks for every beast I take, Swart.", next = "BACK", fx = { align = { light = 1 } } },
@@ -622,7 +622,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Then the hunter finds out how good he is with an axe, usually in a hurry. I lost a friend that way in the Barrens, a good tracker with a fine wolf, and he'd never once practised holding off a raptor with steel, so practise here, where the only thing biting you is me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks sturdy, and I'd still rather you learned to fight without it, because nothing in Durotar stays sturdy forever." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Then the hunter finds out how good he is with an axe, usually in a hurry. Your {pet} looks sturdy, and I'd still rather you learned to fight without it, because nothing in Durotar stays sturdy forever." },
       },
       choices = {
         { text = "I'll practise with steel. I won't lean on my beast alone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -690,10 +690,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman wearing mail, good. Thrall fights in plate with a hammer in his hand, and I've never once seen him wait for the spirits to swing it for him." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my yard. I've seen your kind turn into a bear in the middle of a fight, and the quilboar on the other end never saw it coming." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my training yard, standing where the shadow's longest. You'll find no tricks to learn here, only scars." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Mages always stand behind my warriors and act surprised when the quilboar get round them. Which kind are you?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Mages always stand behind my warriors and act surprised when the quilboar get round them. Will you be any different?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "Back again? Good. Show me where you got hit since I last saw you, because every bruise is a lesson you paid for." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast takes the hits for you, which is clever, but I've seen what happens when the beast goes down first." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in my yard. You won't need my lessons, but you'll need to know how to stand when your demon goes down." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in my yard. You think you won't need my lessons, but you'll need to know how to stand when your demon goes down." },
       },
       choices = {
         { text = "Do you want a priest to heal your recruits mid-lesson?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -728,7 +728,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I teach fighting, recruit, not gossip. Deeds, not talk; ask Grosk at the inn if you want talk." } },
+    _none = { { id = "tp_none", text = "I teach fighting, recruit, not gossip, so ask Grosk at the inn if you want talk." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War and I have the scars to prove it. We lost, and the reason we lost is that we didn't know what we were fighting for." } },
     thrall = { { id = "tp_thrall", text = "The Warchief fought in an arena before he ever fought in a war, and that's where he learned to stand. I watch every recruit for that same thing." } },
     centaur = { { id = "tp_centaur", text = "A centaur charges with its whole weight, so set your feet and take the blow on a shield. Then it's just a horse with an angry face." } },

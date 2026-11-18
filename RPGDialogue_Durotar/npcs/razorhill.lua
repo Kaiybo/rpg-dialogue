@@ -129,7 +129,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {
@@ -156,7 +156,7 @@ P:NPC {
     warrior = {
       big = true,
       lines = {
-        { id = "wa_default", text = "The wall has grunts enough, and what I'm short of is grunts who'll march out to Tiragarde and back without being told twice. Nazgrel taught me that a fort is only as strong as its willingness to leave it." },
+        { id = "wa_default", text = "The wall has grunts enough, and what I'm short of is grunts who'll march out to Tiragarde and back without being told twice. Nazgrel taught me that a fort whose grunts never leave it is only waiting to be besieged." },
         { id = "wa_grunt", when = { origin = "orc_razor_hill_grunt" },
           text = "You already stood a watch on that wall, so you know every stone of it. Now I want you beyond it, where the Kul Tirans are." },
       },
@@ -227,11 +227,11 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've done good work for Razor Hill, so you'll get more than a short answer from me, this once." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask your question, and then get out of my barracks." },
     },
-    burning_blade = { { id = "tp_blade", text = "That's Orgnil's business, and he's good at it. I give him whatever he asks for." } },
+    burning_blade = { { id = "tp_blade", text = "The Burning Blade are Orgnil Soulscar's business, and he's good at it. I give him whatever he asks for." } },
     thrall = { { id = "tp_thrall", fx = { learn = { "internment" } }, text = "The Warchief freed me from the camps with his own hands, and I've followed him ever since. Razor Hill is his, and I'll hold it for him the way he held the line for us." } },
     second_war = { { id = "tp_second_war", text = "I was a grunt in the Second War and a prisoner after it. I learned more about holding ground in the camps than I ever did on a battlefield." } },
     darkspear = { { id = "tp_darkspear", text = "The trolls of Sen'jin are good fighters and better neighbours, and they never ask me for anything they wouldn't give back. I'd trust a Darkspear at my side before half the orcs in this town." } },
-    centaur = { { id = "tp_centaur", text = "The Kolkar have been pushing in from the west, and Lar Prowltusk watches them for me. If they come over the ridge in force, Razor Hill will meet them, and they won't like the meeting." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar have been pushing in from the west, and Lar Prowltusk, the Darkspear scout near Sen'jin, watches them for me. If they come over the ridge in force, Razor Hill will meet them, and they won't like the meeting." } },
     theramore = { { id = "tp_theramore", text = "The humans' fortress is across the water to the south, and Lady Proudmoore keeps her soldiers on her side of it. That's the kind of peace I can respect, as long as it lasts." } },
     forsaken = {
       { id = "tp_forsaken", when = { race = "Undead" }, text = "You're one of the Dark Lady's dead, and the Warchief says you're Horde. That's good enough for me, so keep your hands clean in my town." },
@@ -256,7 +256,7 @@ P:NPC {
     { id = "g_prej", when = { prejudiced = true }, text = "A warlock in Razor Hill. I'll be honest with you, because I'm honest with everyone I might have to kill: every Burning Blade cultist I ever buried started out telling me they could control it." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I've watched you a long while now, warlock, and you've given me nothing to hunt. That's rarer than you'd think, and I'll say so to anyone who asks." },
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow. Our people drank demon blood once; I won't let the Blade pour it for us again." },
-    { id = "g_bb_resolved", when = { thread = { id = "burning_blade", state = "resolved" } }, text = "Word came down from Orgrimmar that the Warchief has heard the Blade's whole road from you, valley to Cleft. Good, then; I'll keep watching the hills, and he can keep watching the smiles." },
+    { id = "g_bb_resolved", when = { thread = { id = "burning_blade", state = "resolved" } }, text = "Word came down from Orgrimmar that the Warchief has heard the whole tale of the Blade from you, from the valley caves to the Cleft of Shadow. Good; I'll keep watching the hills, and he can watch the smiling ones in his own city." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons, or any blood on your blade?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade hasn't rested in that time, so neither have I, and my back has the knots to prove it. Tell me what you saw out there." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your stories didn't hold up in Razor Hill. The Blade lie for a living, and I've learned to listen hardest to the ones who smile." },
@@ -334,7 +334,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "You can track anything that walks, and the imps they summon leave scorched earth wherever they stop. Follow the burn marks north toward Skull Rock and you'll find their summoners, and the summoners are the ones I want." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} back when the summoners start to chant. I've seen a beast go mad from fel magic, and I'd rather not have to put a good one down." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You can track anything that walks, and the imps they summon leave scorched earth wherever they stop. Keep your {pet} back when the summoners start to chant. I've seen a beast go mad from fel magic, and I'd rather not have to put a good one down." },
       },
       choices = {
         { text = "Fel magic is filth. I'll keep my beast well clear.", next = "BACK", fx = { align = { light = 1 } } },
@@ -355,7 +355,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Maybe. Wherever the cultists work their rites the ground goes sour and the spirits flee it, and Gadrin says a shaman feels that the way a hound smells blood. Walk the canyons near Skull Rock and tell me where the earth won't speak to you." } },
+      lines = { { id = "xhsham_default", text = "Maybe. Wherever the cultists work their rites the ground goes sour and the spirits flee it, and Master Gadrin of Sen'jin says a shaman feels that the way a hound smells blood. Walk the canyons near Skull Rock and tell me where the earth won't speak to you." } },
       choices = {
         { text = "I'll cleanse what they've fouled, and not only kill them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The land can wait until every cultist is dead.", next = "BACK", fx = { align = { light = -1 } } },
@@ -363,7 +363,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "It does, though slower than they'd like. Where they work their demon magic the scrub dies and the scorpids go mad, and I've seen the ground around their caves gone black." } },
+      lines = { { id = "dq_default", text = "It is, though slower than they'd like. Where they work their demon magic the scrub dies and the scorpids go mad, and I've seen the ground around their caves gone black." } },
       choices = {
         { text = "Even cultists can be turned back to the Horde.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Root them out, every last one of them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -436,7 +436,7 @@ P:NPC {
       lines = {
         { id = "hd_default", text = "In caves in the canyons, and under rocks like scorpids. Sometimes they hide inside the walls of cities, smiling at you, and those are the ones I'd most like to meet." },
       },
-      choices = { { text = "Inside the cities?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 }, learn = { "burning_blade" } } } },
+      choices = { { text = "Then I'll watch the smiling ones too.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 }, learn = { "burning_blade" } } } },
     },
   },
 
@@ -511,7 +511,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar ribs, mostly, and scorpid tails when they've been clever enough to cut the sting out first. The best stew I ever made came from a crocolisk out of the Southfury, and the hunter who brought it lost two fingers getting it, so I named the stew after him." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the bones. Every beast that comes through my door gets the bones, and I've never had one bite the hand that throws them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar ribs, mostly, and scorpid tails when they've been clever enough to cut the sting out first. Your {pet} can have the bones. Every beast that comes through my door gets the bones, and I've never had one bite the hand that throws them." },
       },
       choices = {
         { text = "I'll bring you game, Grosk. Razor Hill should eat well.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -586,12 +586,12 @@ P:NPC {
         { id = "h_op_jaina", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "distrust" } },
           text = "I hear you don't trust the Proudmoore woman. Neither does anyone who drinks here, but say it outside, because Gar'Thok's under orders and he hates being reminded." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
-          text = "That bundle is for the right hands only. Get it there, and don't let a peon sit on it." },
+          text = "That bundle I gave you goes to Ukor out in the Barrens and nobody else. Get it there, and don't let a peon sit on it." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? If you can talk the sky into raining on Durotar you'll be the first, and I'll want to hear how you did it." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You crept in like a scorpid under a blanket, rogue. Kaplak's burrow is under the floor, if you were looking for it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You crept in like a scorpid under a blanket, rogue. Kaplak the rogue trainer keeps his burrow under the floor, if you were looking for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a thirsty one by the look of you. Sit, and I'll pour something before you tell me how many quilboar you killed today." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
@@ -599,7 +599,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Ask, then, before the next caravan comes in thirsty." },
-        { id = "h_again2", text = "Go on. The ale isn't going anywhere, and neither am I, Throm-ka." },
+        { id = "h_again2", text = "Go on. The ale isn't going anywhere, and neither am I." },
       },
       choices = {
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -638,7 +638,7 @@ P:NPC {
 
   greetings = {
     { id = "g_fire", text = "Throm-ka. Sit, if you're not in a hurry. If you are, sit anyway; the road will keep." },
-    { id = "g_back", when = { metBefore = true }, text = "The one who found my journal, welcome back! Sit down; the fire remembers you." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are you? Sit down; the fire remembers you." },
   },
 
   notice = {
@@ -682,7 +682,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd have given it back, myself. A wanderer needs his coin.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "She earned it fairly. You should have watched your belt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The thief earned it fairly. You should have watched your belt.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -753,7 +753,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "Then you know the best watchman in any camp has four legs and a nose. Mine was a raptor once, until it decided it liked the Barrens better than me, and I can't say I blame it." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "And this must be {pet}! Come sit by the fire, both of you. Every camp I've built was better for a beast lying beside it." },
+          text = "And this must be {pet}! Come sit by the fire, both of you, because the best watchman in any camp has four legs and a nose. Mine was a raptor once, until it decided it liked the Barrens better than me." },
       },
       choices = {
         { text = "Mine stays with me. We look after each other.", next = "BACK", fx = { affinity = 2 } },
@@ -770,7 +770,7 @@ P:NPC {
     },
     why = {
       lines = { { id = "w_default", text = "Walls are for people who've stopped walking, and I had my fill of walls in the camps. Out here, any traveler can share the fire, and a camp belongs to whoever sits at it." } },
-      choices = { { text = "Show me how.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
+      choices = { { text = "Then show me how you make a camp.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
     },
   },
 

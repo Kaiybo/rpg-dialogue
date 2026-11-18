@@ -38,7 +38,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "A few trolls each season, and the odd Forsaken who walked a long way to get here. They're quieter than the orcs and they take longer to settle, but by the time they leave the valley the grunts are asking for them by name." } },
+      lines = { { id = "xhpriest_default", text = "A few each season, mostly trolls, and the odd Forsaken who walked a long way to get here. They're quieter than the orcs and they take longer to settle, but by the time they leave the valley the grunts are asking for them by name." } },
       choices = {
         { text = "I'll earn that name, Kaltunk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need the grunts' approval to do my work.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -57,8 +57,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Whatever stands still long enough to let you, though most start with a boar because a boar forgives mistakes. The scorpids are tougher but meaner, and Thotar in Razor Hill will tell you when you're ready to try either." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it's still learning too. You'll learn together, which is how all the good pairs start." },
+        { id = "xhuntcl_default", text = "Whatever stands still long enough to let you, though most start with a boar because a boar forgives mistakes. The scorpids are tougher and meaner, and Thotar, the hunter trainer in Razor Hill, will tell you when you're ready to try either." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whatever stands still long enough to let you, though most start with a boar because a boar forgives mistakes. Your {pet} looks like it's still learning too. You'll learn together, which is how all the good pairs start." },
       },
       choices = {
         { text = "I'll earn a beast's trust when the time comes.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -69,7 +69,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "It does, and Thrall himself owes his freedom partly to a few locks picked in the dark. Learn your trade with Kaplak in Razor Hill when you're ready, but first do the work Gornek gives you, because every recruit starts there." },
+        { id = "xrogue_default", text = "It does, and Thrall himself owes his freedom partly to a few locks picked in the dark. Learn your trade with Kaplak, the rogue trainer in Razor Hill, when you're ready, but first do the work Gornek gives you, because every recruit starts there." },
       },
       choices = {
         { text = "I'll start with Gornek's work, like everyone else.", next = "BACK", fx = { align = { order = 1 } } },
@@ -80,7 +80,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Some do, and some remember too much of the fel to trust any magic they can't feel in the earth. Show them your fire burns the Blade and not the Horde, and you'll win them over sooner than you think." },
+        { id = "xmage_default", text = "Some trust it well enough, and some remember too much of the fel to trust any magic they can't feel in the earth. Show them your fire burns the Burning Blade and not the Horde, and you'll win them over sooner than you think." },
       },
       choices = {
         { text = "I'll show them. My fire's for the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -90,7 +90,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Quiet, and not the good kind. We had the warlocks and their demons, and then the camps, and then nothing at all, and an orc with nothing to pray to is an orc who drinks. Thrall gave us the spirits back, and I'll not hear a word against him for it." } },
+      lines = { { id = "xhsham_default", text = "It was quiet, and not the good kind. We had the warlocks and their demons, and then the camps, and then nothing at all, and an orc with nothing to pray to is an orc who drinks. Thrall gave us the spirits back, and I'll not hear a word against him for it." } },
       choices = {
         { text = "The old ways are worth holding to, Kaltunk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The past is gone. The Horde should find its own way.", next = "BACK", fx = { align = { order = -1 } } },
@@ -133,7 +133,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, walking into the valley. When I came off the ship there wasn't an orc among us who'd talk to the spirits, and now the Warchief sends your kind to me by the dozen." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, walking into the valley. Durotar won't feel green or gentle to a druid, but the Den takes everyone, and Gornek will find work for you all the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, fresh to the Valley. Don't try your tricks on Gornek, because he catches every one, and he'll make you carry water for it." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa in Sen'jin village eventually, but every recruit starts with Gornek." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa, the mage trainer in Sen'jin Village, eventually, but every recruit starts with Gornek." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, fresh in the valley! Every one of you thinks you'll lead a warband by the end of the week, and every one of you starts with boars." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, new to the valley. You'll walk alone for now, but the day will come when a beast walks with you, and you'll wonder how you managed without it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fresh in the valley. Gornek won't like it, and neither do I, but the Warchief says you can serve, so you'll serve." },
@@ -242,7 +242,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "It's made Horde of stranger. The Silver Hand made orcs into prisoners, and the Valley makes prisoners' sons into warriors. If it can turn the Light into something that serves the Horde, then it's done its best work yet." } },
+      lines = { { id = "xfpala_default", text = "It's made Horde of stranger things than you. The Silver Hand made orcs into prisoners, and the Valley makes prisoners' sons into warriors. If it can turn the Light into something that serves the Horde, then it's done its best work yet." } },
       choices = {
         { text = "Then I'll serve the Horde with the Light.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Light serves no Horde. It serves me.", next = "BACK", fx = { align = { order = -1 } } },
@@ -251,7 +251,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "The same as everyone, which is getting back up after you're knocked down, and helping the next one up after you. A priest who can do both will never want for friends in the Horde, though Frang will still shout at you." } },
+      lines = { { id = "xhpriest_default", text = "The same as everyone, which is getting back up after you're knocked down, and helping the next one up after you. A priest who can do both will never want for friends in the Horde, though I'll still shout at you." } },
       choices = {
         { text = "Then I'll help the next one up, every time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll get up myself. Others can manage on their own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -298,14 +298,14 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Gornek, and I run the Den. The Valley of Trials makes Horde out of whatever walks in, though some days that takes longer than others." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
-          text = "Recruits keep dropping their training weapons out among the boars. Kzan needs every one. Go and pick up after your betters." },
+          text = "Recruits keep dropping their training weapons out among the boars, and Kzan Thornslash, our weaponsmith, needs every one back. Go and pick up after your betters." },
         { id = "h_sarkoth", when = { questActive = TODO_QUEST("Sarkoth") },
-          text = "Sarkoth has been killing in the north for too long. If you've seen his work, you've seen why it ends with you." },
+          text = "Sarkoth, the big scorpid on the plateau, has been killing recruits for too long. If you've seen what he did to Hana'zua, you've seen why it ends with you." },
         { id = "h_parchment", when = { any = { { questActive = TODO_QUEST("Glyphic Parchment") }, { questActive = TODO_QUEST("Tainted Tablet") } } },
           text = "Your trainer left word for you. Read it, then go and find them. The Horde has a place for what you can do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of my Den. The first lesson still holds for you, because the spirits won't pick you up when you fall, so learn to get up yourself." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, in my Den. The first lesson holds even for someone who can grow claws, because a bear that can't get back up is only a rug." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
         { text = "Someone close to me came through the Den, Gornek.", next = "xalt_gornek", when = { alt = true } },
@@ -435,7 +435,7 @@ P:NPC {
   greetings = {
     { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and last week they cut a peon's throat over a sack of cactus apples. Help me put a stop to it." },
     { id = "g_back", when = { metBefore = true }, text = "You've been north? Tell me what you saw, all of it." },
-    { id = "g_bb_unfolding", when = { thread = { id = "burning_blade", state = "unfolding" } }, text = "Orgnil sent word from Razor Hill about orders written in a careful hand, and now I can't stop looking at the road to Orgrimmar. Tell me what else you've seen." },
+    { id = "g_bb_unfolding", when = { thread = { id = "burning_blade", state = "unfolding" } }, text = "Orgnil Soulscar sent word from Razor Hill that the cult's orders come written in a careful, educated hand, and I suspect it belongs to someone in Orgrimmar. Tell me what else you've seen." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade has been busy in that time. Tell me you've seen something useful." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the valley went away furious after talking with you. I don't much care who you anger, so long as it isn't the people fighting the Blade." },
   },
@@ -477,8 +477,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Where the imps go at night, mostly, because they slip out of the caves and come back with things in their claws. A tracker could follow them up the ridges and tell me if the Burning Blade have another way in, and that would be worth more to me than a dozen dead cultists." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} quiet up on the ridge. Imps squeal at the smell of a beast, and then the whole cave knows you're there." },
+        { id = "xhuntcl_default", text = "I've missed where the imps go at night, mostly, because they slip out of the caves and come back with things in their claws. A tracker could follow them up the ridges and tell me if the Burning Blade have another way in, and that would be worth more to me than a dozen dead cultists." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I've missed where the imps go at night, mostly, because they slip out of the caves and come back with things in their claws. Keep your {pet} quiet up on the ridge. Imps squeal at the smell of a beast, and then the whole cave knows you're there." },
       },
       choices = {
         { text = "I'll follow the imps and report back, nothing more.", next = "BACK", fx = { align = { order = 1 } } },
@@ -594,7 +594,7 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "They hide in caves because they know what we'd do to them in daylight." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade wants the demons back, the same ones who drank our blood and gave us fire for it. I'd sooner drink scorpid venom." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade wants the demons back, the same ones whose blood we drank, and who gave us fire for it. I'd sooner drink scorpid venom." } },
     thrall = { { id = "tp_thrall", text = "The Warchief cleansed us of the demon curse, and every cultist in those caves is spitting on his gift. I'll see them burned for that." } },
     dark_portal = { { id = "tp_dark_portal", text = "We came through the Dark Portal from a dying world, and the demons came with us, quietly. Some of them never left, and the Burning Blade are their children." } },
     _none = { { id = "tp_none", text = "I don't know, but I know the Blade, so ask me about them." } },
@@ -645,7 +645,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bother them? The peons sleep through boar charges, which tells you everything. The beasts leave my workers alone because they're too dull to be worth biting, so the only thing that wakes them is me shouting, and even that's wearing off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could make itself useful, you know. One good snarl and half my lumber crew would be on their feet." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bother them? The peons sleep through boar charges, mon, but your {pet} could make itself useful. One good snarl and half my lumber crew would be on their feet." },
       },
       choices = {
         { text = "Treat the peons kindly, Foreman, and they'll work harder.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -739,7 +739,7 @@ P:NPC {
       choices = { { text = "Ha. I'll bring both.", next = "BACK", fx = { affinity = 1 } } },
     },
     rest = {
-      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves, mon. Well, they will if the peons build them, and that be the problem." } },
+      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls need lumber, mon, and these peons be the only ones meant to fetch it. If they rest any more, the walls be made of snores." } },
       choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -859,7 +859,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Galgar, and I feed the Den: recruits, grunts and peons alike. Nobody thanks the cook, but everybody notices when the pot's empty." },
         { id = "h_apples", tags = { "news" }, when = { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") },
-          text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
+          text = "I need cactus apples from the plants around the valley. It's an easy job, and I make it easy on purpose, because you'll get harder ones soon enough." },
         { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face; you'll be asking for it by next week." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you know fire better than I do, so don't tell me how to cook with it, and I won't tell you how to call it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my fire! You'll know which roots out in the scrub are good to eat, I hope, because I'm running out of ways to cook scorpid tail." },
@@ -899,7 +899,7 @@ P:NPC {
       choices = { { text = "I'll try one. Just one.", next = "BACK", fx = { affinity = 2 } } },
     },
     surprise = {
-      lines = { { id = "s_default", text = "That it tastes good. Nobody expects that from a cactus." } },
+      lines = { { id = "s_default", text = "The surprise is that it tastes good. Nobody expects that from a cactus." } },
       choices = { { text = "...", next = "BACK", fx = { affinity = 1 } } },
     },
     cook = {
@@ -961,7 +961,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Arrows, a spare bowstring and something sharp for when the boar gets past your beast, which it will. The recruits drop their weapons in the scrub all day long, but hunters lose arrows faster than anyone, so buy more than you think you'll need." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing my crates. There's nothing to eat in there, I promise, unless it likes leather straps." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Arrows, a spare bowstring and something sharp for when the boar gets past your beast, which it will. Your {pet} keeps sniffing my crates. There's nothing to eat in there, I promise, unless it likes leather straps." },
       },
       choices = {
         { text = "I'll gather my arrows back. Waste helps no one.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1034,7 +1034,7 @@ P:NPC {
         { text = "What does a hunter need from you, Kzan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'd guess you don't sell to warlocks freely.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you arm a Forsaken paladin, Kzan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
-        { text = "I'll find them.", next = "END" },
+        { text = "Back to the scrub, then.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Anything else, recruit, or are you here to spend some coin on a decent edge?" },

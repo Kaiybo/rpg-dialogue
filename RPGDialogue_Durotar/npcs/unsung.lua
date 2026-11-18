@@ -51,7 +51,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "No, Thotar does that down in Razor Hill, but I've knocked a few hunters into the dirt for their own good. The boars of the valley don't care what you call yourself, so learn to keep your feet when they charge, and you'll thank me for the bruises." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a better charge than half my recruits. Don't tell them I said so, because they're sulky enough already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No, Thotar does that down in Razor Hill, but I've knocked a few hunters into the dirt for their own good. That {pet} of yours has a better charge than half my recruits. Don't tell them I said so, because they're sulky enough already." },
       },
       choices = {
         { text = "I'll learn to take a hit. Pride can wait.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -92,7 +92,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I'd like nothing better, so long as you remember they're recruits and not quilboar. Knock them down hard enough to teach them something and gently enough that Ken'jai doesn't come shouting at me." } },
+      lines = { { id = "xdruid_default", text = "I'd like nothing better, so long as you remember they're recruits and not quilboar. Knock them down hard enough to teach them something and gently enough that Ken'jai, our priest, doesn't come shouting at me." } },
       choices = {
         { text = "I'll fight them fairly, and they'll learn something honest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll fight them the way the quilboar will. That's the real lesson.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -119,8 +119,8 @@ P:NPC {
         { id = "h_low", when = { maxLevel = 5 }, text = "You are greener than a cactus apple, but everyone starts green. Just don't stay that way, so get out there and come back hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my Den! Good, because a recruit who's been knocked down by a bear learns to get up faster than one who's only been knocked down by me." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I've seen what the Blade's imps leave of a recruit's face, and I've buried two of them this season." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I've seen what the Burning Blade's imps leave of a recruit's face, and I've buried two of them this season." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in my training ground. Your beast can sit by the wall, and you can stand with my recruits, because it won't hurt you to learn to take a hit." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in the Den! Stand back from my ring, because my recruits throw each other, and I won't have them throwing a spellcaster." },
       },
@@ -227,7 +227,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The Light don't care if a wound be on a troll or a boar, mon, so yes, if the beast hold still. Most of them don't, and I got a scorpid scar on my wrist to prove it, so you learn to mend your own beast and we both be happier." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours be lookin' at my bandages like they be dinner. Keep it close while I work, mon." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Light don't care if a wound be on a troll or a boar, mon, so yes, if the beast hold still. That {pet} of yours be lookin' at my bandages like they be dinner. Keep it close while I work, mon." },
       },
       choices = {
         { text = "I'll learn to mend my own beast, Ken'jai.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -238,7 +238,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "In Sen'jin they do, because Un'Thuwa's students be always singing their own eyebrows off. I don't mind mending them, so long as they learn something, and they always learn to duck." },
+        { id = "xmage_default", text = "In Sen'jin they do, because Un'Thuwa, the mage teacher there, has students who be always singing their own eyebrows off. I don't mind mending them, so long as they learn something, and they always learn to duck." },
       },
       choices = {
         { text = "Then I'll learn to cast carefully, and spare you the work.", next = "BACK", fx = { align = { order = 1 } } },
@@ -344,7 +344,7 @@ P:NPC {
       choices = { { text = "What do the imps do to them?", next = "mend_imps" } },
     },
     mend_imps = {
-      lines = { { id = "mi_default", text = "Burn them and scratch them, mostly, and the burns of a fel creature heal slower than a boar's bite. Zureetha by the hill send recruits to kill the familiars, so Ken'jai sees a lot of singed eyebrows." } },
+      lines = { { id = "mi_default", text = "Burn them and scratch them, mostly, and the burns of a fel creature heal slower than a boar's bite. Zureetha Fargaze up the hill send recruits to kill the familiars, so Ken'jai sees a lot of singed eyebrows." } },
       choices = { { text = "Thank you, Ken'jai. Something else.", next = "BACK" } },
     },
   },
@@ -408,7 +408,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Meat for the cats and wolves, and almost anything for the boars, which is why boars are cheap to keep and cats are not. I keep tough jerky for the hunters heading out to Razor Hill, and I've never seen a beast turn it down, though I've seen a few recruits try." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks hungry, but they always do. Feed it before you feed yourself, and it'll remember." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Meat for the cats and wolves, and almost anything for the boars, which is why boars are cheap to keep and cats are not. Your {pet} looks hungry, but they always do. Feed it before you feed yourself, and it'll remember." },
       },
       choices = {
         { text = "My beast eats first. That's only fair.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -504,7 +504,7 @@ P:NPC {
       choices = { { text = "Cactus apples look fine to me.", next = "carry_apple" } },
     },
     carry_apple = {
-      lines = { { id = "ca_default", text = "Nothing, if you like spines in your tongue, and Galgar makes a fine dish from them when someone gathers enough. Raw off the plant, they are a lesson most recruits only need once." } },
+      lines = { { id = "ca_default", text = "They are fine, if you like spines in your tongue, and Galgar makes a fine dish from them when someone gathers enough. Raw off the plant, they are a lesson most recruits only need once." } },
       choices = {
         { text = "I'll take your bread, then.", next = "BUSINESS" },
         { text = "Something else first.", next = "BACK" },
@@ -582,7 +582,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because scorpids get close and quilboar get closer, and a bow does nothing when a boar's tusk is in your knee. A light axe will save you more often than you'd think, and I'll sell you one that won't pull your shoulder out of joint." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is a weapon too, I suppose, though there's nothing I can sell you for it. Believe me, I've tried to think of something." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because scorpids get close and quilboar get closer, and a bow does nothing when a boar's tusk is in your knee. And your {pet} is a weapon too, I suppose, though there's nothing I can sell you for it. Believe me, I've tried to think of something." },
       },
       choices = {
         { text = "I'll carry a blade, and fight close if I must.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -623,7 +623,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "You'll need one when you're on two legs and out of breath, which happens more than any druid will admit. A good mace has saved more of your kind than will ever thank me for it, so buy one and don't tell the others." } },
+      lines = { { id = "xdruid_default", text = "You'll need one when you're on two legs and out of breath, which happens more than any druid will admit, and the Kul Tirans at Tiragarde won't wait for you to change shape. A good mace has saved more of your kind than will ever thank me for it, so buy one and don't tell the others." } },
       choices = {
         { text = "The Kul Tirans deserve a fair fight, steel against steel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The Kul Tirans deserve nothing. I'll use whatever kills fastest.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -638,7 +638,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in a weapon shop. You'll want a staff or a mace, then, and something heavy enough that the Kul Tirans notice it before they notice the claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in a weapon shop. You'll be after a staff, then, and I'll find you one that won't snap on a quilboar's head." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll sell you a dagger, but I'll not put a curse on it, and I'll not buy back anything that whispers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll sell you a dagger, but I'll not put a curse on it, and I'll not buy back anything that whispers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Put that training axe down before you embarrass us both, and let me show you something with an edge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want a gun or a bow from somebody else, but you'll want something for close work from me." },
       },
@@ -690,7 +690,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know steel and who needs cutting, and nothing else. Try Gar'Thok in the barracks." } },
     centaur = { { id = "tp_centaur", text = "Kolkar hide is thick and their bone is thicker, so you'll want a heavy edge for them. Bring the blade back after and I'll tell you how much it lost." } },
     quilboar = { { id = "tp_quilboar", text = "Quilboar bristles dull a blade faster than any armour. Ask the grunts who came back from the Barrens with chipped axes, and they'll tell you I'm right." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief carries Doomhammer's hammer, and it's the only weapon in Durotar I wouldn't want to sharpen. Some steel you just respect." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the Doomhammer, Orgrim's old weapon, and it's the only weapon in Durotar I wouldn't want to sharpen. Some steel you just respect." } },
   },
 }
 
@@ -758,14 +758,14 @@ P:NPC {
         { id = "xlock_default", text = "A beast follows a hunter because it chooses to, and your demon follows you because it can't do anything else. I won't call you a cultist, but I'll tell you plainly that the land doesn't like what you've chained to you." },
       },
       choices = {
-        { text = "Then I'll keep it far from your wolf.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll keep it far from your beasts.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Choice is overrated. Chains don't break.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "They do, and better than most hunters. My raptor would not cross the dry wash south of here for a week, and when I asked old Gadrin about it he said an angry earth spirit had settled there, so now I listen when my beasts refuse a path." } },
+      lines = { { id = "xhsham_default", text = "They do, and better than most hunters. My raptor would not cross the dry wash south of here for a week, and when I asked old Master Gadrin in Sen'jin about it he said an angry earth spirit had settled there, so now I listen when my beasts refuse a path." } },
       choices = {
         { text = "Then the beasts and the spirits both deserve our respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast that refuses a path should be made to cross it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -908,7 +908,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some of it, though you'll never be as quiet with a boar breathing at your heels. Tracking and stalking aren't so different, because both are about knowing where your prey will look and being somewhere else, and the best hunters in Durotar all have a boar scar to show for it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a terrible thief, by the way, because it can't keep still when it's pleased with itself." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of it, though you'll never be as quiet with a boar breathing at your heels. Your {pet} would make a terrible thief, by the way, because it can't keep still when it's pleased with itself." },
       },
       choices = {
         { text = "I hunt in the open. Stalking is not stealing.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1063,7 +1063,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Fast as milk in the sun, mon, because the scorpids and the raptors carry filth in their claws. Wash every scratch with clean water before you do anything else and come to me if it start to burn, because I seen hunters lose an arm for bein' too proud to ask." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} got scratches too, I see. Bring it here and I clean them, because the Light don't mind fur." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fast as milk in the sun, mon, because the scorpids and the raptors carry filth in their claws. Your {pet} got scratches too, I see. Bring it here and I clean them, because the Light don't mind fur." },
       },
       choices = {
         { text = "I'll tend my wounds and my beast's with care.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1248,7 +1248,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, mon, but Zalazane's magic touch the isles now, and some of the beasts out there act strange. I don't like it, because a beast be honest and a hex make it a liar, so if you hunt there, put down the ones that froth and spare the rest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} not be hexed, I can see that much. Good, mon; keep it far away from Zalazane." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, mon, but Zalazane's magic touch the isles now, and some of the beasts out there act strange. Your {pet} not be hexed, I can see that much. Good, mon; keep it far away from Zalazane." },
       },
       choices = {
         { text = "I'll spare the beasts that aren't hexed.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1280,7 +1280,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Safer? No, mon, but it be honest about what it costs. You ask the fire for help and maybe it say no, but when I call it there be no asking, and that be the trouble with the arcane, because nobody tell you when to stop." } },
+      lines = { { id = "xhsham_default", text = "Safer? No, mon. The spirits be honest about what they cost, because you ask the fire for help and maybe it say no, but when I call fire with the arcane there be no asking, and nobody tell you when to stop." } },
       choices = {
         { text = "Power should answer to something, whether spirits or study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Nobody should tell a caster when to stop.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1335,10 +1335,10 @@ P:NPC {
     },
     learn = {
       lines = { { id = "l_default", text = "Trolls been working magic since the humans were still herding goats, mon, whatever the elves say about it. Mine came from old scraps and a lot of burned fingers, and the Horde gave me a place to teach it." } },
-      choices = { { text = "Before the elves? That's hard to believe.", next = "learn_elves" } },
+      choices = { { text = "Trolls worked magic that long ago?", next = "learn_elves" } },
     },
     learn_elves = {
-      lines = { { id = "le_default", text = "Big and proud, mon, with temples and witch doctors and mages in Zul'Aman and the jungles of Stranglethorn. The Darkspear were never one of the great tribes, but we remember the stories, and a good story teach as much as any spellbook." } },
+      lines = { { id = "le_default", text = "The old troll empires be big and proud back then, mon, with temples and witch doctors and mages in Zul'Aman and the jungles of Stranglethorn. The Darkspear were never one of the great tribes, but we remember the stories, and a good story teach as much as any spellbook." } },
       choices = {
         { text = "Old stories are worth keeping.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Old stories don't matter. What you do now matters.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -1350,7 +1350,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     zalazane = {
-      lines = { { id = "z_default", text = "Fire burns a voodoo puppet same as anything else, mon, but Zalazane's power be his own kind of thing. Gadrin knows it best, so ask him if you want to go to the isles." } },
+      lines = { { id = "z_default", text = "Fire burns a voodoo puppet same as anything else, mon, but Zalazane's power be his own kind of thing. Master Gadrin knows it best, so ask him if you want to go to the isles." } },
       choices = { { text = "I'll ask Gadrin.", next = "BACK" } },
     },
   },

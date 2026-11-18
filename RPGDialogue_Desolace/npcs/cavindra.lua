@@ -15,18 +15,18 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "This place... it's cursed. Please, don't go further without listening to me first." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Legends of Maraudon") }, text = "The rod and the diamond, beyond the orange crystals and the purple. Please hurry; he's still in there." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Legends of Maraudon") }, text = "The rod lies beyond the orange crystals, and the diamond beyond the purple. Please hurry; he's still in there." },
     { id = "g_done", when = { questDone = TODO_QUEST("Legends of Maraudon") }, text = "I have woken from a nightmare that I thought would never end. Thank you, thank you, a hundred times." },
     { id = "g_back", when = { metBefore = true }, text = "You came back out. I'm always so afraid nobody will." },
   },
 
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
-      text = "A child of the kaldorei! My grandfather's people loved yours, long ago. Please, you'll understand what's been done to this place." },
+      text = "A child of the kaldorei! My grandfather Cenarius loved your people, long ago. Please, you'll understand what's been done to this place." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren. You walk softly for something so large, as my father always said your people did, and the earth here remembers that kindly." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid! You've walked the Dream, or you will, and my grandfather is the one who taught your teachers. Please, help my brother." },
+      text = "A druid! You've walked the Dream, or you will, and my grandfather Cenarius taught your teachers. Please, help my brother." },
     { id = "n_lock", cat = "fel", when = { class = "WARLOCK" },
       text = "You smell of the same darkness as the satyr in the purple caves. I'm frightened of you, but I'm more frightened for my brother, so I'll ask you anyway." },
   },
@@ -40,11 +40,11 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Legends of Maraudon") },
           text = "Vyletongue lives beyond the purple crystals, and he made a living symbol of his corruption called Noxxion, who dwells beyond the orange ones. Together they stole the two parts of my brother's scepter; find them, please, and speak to my brother, somehow." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Legends of Maraudon") },
-          text = "The Celebrian Rod, and the Celebrian Diamond, one from each of them. Once you have both, find Celebras, even if he fights you, especially if he fights you." },
+          text = "Bring the Celebrian Rod from Noxxion and the Celebrian Diamond from Vyletongue. Once you have both, find Celebras, even if he fights you, especially if he fights you." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Legends of Maraudon"), days = 3 } },
           text = "Both parts, recovered! Now there's hope that Maraudon may one day be rid of the corruption, and that my brother may know himself again." },
         { id = "h_cleared", tags = { "news" }, when = { cleared = "Maraudon" },
-          text = "I felt it when she fell, deep below, like a stone lifted off my chest. Uncle Zaetar's spirit is free, isn't it? I can almost hear him laughing, the way my father says he used to." },
+          text = "I felt it when Princess Theradras fell, deep below, like a stone lifted off my chest. Uncle Zaetar's spirit is free, isn't it? I can almost hear him laughing, the way my father says he used to." },
         { id = "h_young", when = { maxLevel = 38 },
           text = "You're brave to come this far, but you're not strong enough for what's inside. Please, go back and grow stronger, and then come and find me; I'll still be here." },
       },
@@ -163,7 +163,7 @@ P:NPC {
 
     zaetar = {
       lines = {
-        { id = "za_default", text = "For our uncle, Zaetar, my father's brother. His own children killed him, the first centaur, and the earth princess he loved, Theradras, keeps his spirit trapped down there; Celebras swore to set him free." },
+        { id = "za_default", text = "For our uncle Zaetar, my father's brother. His own children, the first centaur, killed him, and Theradras, the earth princess who loved him, keeps his spirit trapped down there; Celebras swore to set him free." },
       },
       choices = {
         { text = "The centaur killed their own father?", next = "zaetar_kin" },
@@ -184,7 +184,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A dryad of Moonglade, daughter of Remulos. I followed my brother here, and I wish I hadn't." } },
+    background = { { id = "tp_bg", text = "I'm a dryad of Moonglade and a daughter of Remulos. I followed my brother here, and I wish I hadn't." } },
     advice = { { id = "tp_ad", text = "Follow the crystals' colours, and don't listen to the laughter." } },
     cenarion_circle = { { id = "tp_cc", text = "My father keeps Moonglade for them. He doesn't know yet what happened here, and I can't bring myself to send word." } },
     _none = { { id = "tp_none", text = "I don't know. I'm sorry; I don't know much outside these caves anymore." } },

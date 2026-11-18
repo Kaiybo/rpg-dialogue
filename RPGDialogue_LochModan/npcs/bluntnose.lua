@@ -15,10 +15,10 @@ P:NPC {
 
   greetings = {
     { id = "o_orcs_pity", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "pity" } },
-      text = "Kadrell tells me ye've a soft word for the orcs in the camps. I'll thank ye no' tae repeat it at the Stoutlager, for I've enough fights on my ledger." },
-    { id = "g_default", text = "Magistrate Bluntnose. If ye've a complaint, take a number, an' if ye've an axe, come straight in." },
+      text = "Mountaineer Kadrell tells me ye've a soft word for the orcs in the camps. I'll thank ye no' tae repeat it at the Stoutlager, for I've enough fights on my ledger." },
+    { id = "g_default", text = "I'm Magistrate Bluntnose. If ye've a complaint, take a number, an' if ye've an axe, come straight in." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. I've more trouble than hands, as usual." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' still no soldiers from Ironforge in all that time. Ye're a welcome sight, for ye at least came back." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' still no soldiers from Ironforge in all that time. Ye're a welcome sight, for ye at least came back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown into the sort o' blade I wish Ironforge would send me by the dozen." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Half the town's told me what ye've done for them, an' a magistrate listens tae that sort o' thing. Ye've Thelsamar's thanks." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I've had a complaint about ye. I'll no' ask what happened, but I'll ask that it doesnae happen again." },
@@ -93,7 +93,7 @@ P:NPC {
         { id = "h_alt_any", when = { alt = true, metBefore = true }, cooldown = "5d",
           text = "{alt} stopped by my desk no' long ago, an' I set that one tae work just as I'll set ye. Between the pair o' ye, I might yet manage without Ironforge's soldiers." },
         { id = "h_default", key = true,
-          text = "Magistrate Bluntnose, an' Thelsamar's my charge, for my sins. I keep the peace, settle the quarrels an' write tae Ironforge for soldiers who never seem tae come." },
+          text = "I'm Magistrate Bluntnose, an' Thelsamar's my charge, for my sins. I keep the peace, settle the quarrels an' write tae Ironforge for soldiers who never seem tae come." },
         { id = "h_merc_before", when = { questBefore = TODO_QUEST("Mercenaries"), minLevel = 17 },
           text = "Two months tae hear that Ironforge can spare us a handful o' soldiers, an' two more before they arrive! Meanwhile there's ogres camped by the loch, so I've no choice but tae hire arms, an' ye look a likely sort." },
         { id = "h_merc_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mercenaries"), days = 3 } },
@@ -149,14 +149,14 @@ P:NPC {
     },
     rugelfuss = {
       lines = {
-        { id = "ru_default", text = "Captain o' the Mountaineers in the Valley o' Kings, holdin' back the Stonesplinter troggs wi' too few dwarves. He's a good soldier, an' if ye've a spare day, he'll find a use for it." },
+        { id = "ru_default", text = "He's captain o' the Mountaineers in the Valley o' Kings, holdin' back the Stonesplinter troggs wi' too few dwarves. He's a good soldier, an' if ye've a spare day, he'll find a use for it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "troggs" } } } },
     },
 
     ogres = {
       lines = {
-        { id = "og_default", text = "The Mo'grosh, camped on the northeast shore o' the loch, an' there's more o' them every month. Brutes, enforcers an' a few that are just plain big, an' none o' them friendly." },
+        { id = "og_default", text = "The Mo'grosh ogres, camped on the northeast shore o' the loch, an' there's more o' them every month. They've brutes, enforcers an' a few that are just plain big, an' none o' them friendly." },
         { id = "og_done", when = { questDone = TODO_QUEST("Mercenaries") },
           text = "Fewer o' them now, thanks tae you, though ogres breed like rabbits an' fight like bears. Keep an eye on the north shore when ye pass." },
       },
@@ -187,7 +187,7 @@ P:NPC {
     threats_most = {
       big = true,
       lines = {
-        { id = "tm_default", text = "The dam. Troggs an' ogres kill a farmer here an' there, which is bad enough, but if the dam goes, Thelsamar goes wi' it, an' half the Wetlands after." },
+        { id = "tm_default", text = "The Stonewrought Dam. Troggs an' ogres kill a farmer here an' there, which is bad enough, but if the dam goes, Thelsamar goes wi' it, an' half the Wetlands after." },
       },
       choices = {
         { text = "Then guard the dam above all else.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -223,8 +223,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Every quarrel in Thelsamar reaches my table sooner or later, an' every rumour along wi' it. Ask." } },
     background = { { id = "tp_bg", text = "I've been magistrate here long enough tae remember when Thelsamar had more sheep than troubles." } },
     advice = { { id = "tp_ad", text = "Don't wait for help that's been promised, friend. Hire it, or be it." } },
-    stonewrought_dam = { { id = "tp_dam", text = "The most important wall in Khaz Modan, an' Ironforge sends me two guards for it.", next = "dam" } },
-    dark_iron = { { id = "tp_di", text = "There's a poster about him, an' Kadrell's watchin' the road. I'll sleep easier when he's in irons." } },
+    stonewrought_dam = { { id = "tp_dam", text = "The Stonewrought Dam's the most important wall in Khaz Modan, an' Ironforge sends me two guards for it.", next = "dam" } },
+    dark_iron = { { id = "tp_di", text = "There's a poster about a Dark Iron spy by the League's door, an' Mountaineer Kadrell's watchin' the road for him. I'll sleep easier when he's in irons." } },
     _none = { { id = "tp_none", text = "No' a matter for the magistrate, friend. Try the inn, for they know everythin' I don't." } },
     magni = { { id = "tp_magni", text = "King Magni sends tae Thelsamar when it suits him, which is rarely. He's a fine king, but Loch Modan's a long way from the High Seat." } },
     second_war = { { id = "tp_second_war", text = "The orcs came through Loch Modan in the Second War an' burned the valley tae the water's edge. We rebuilt, an' I'll see we never need tae again." } },

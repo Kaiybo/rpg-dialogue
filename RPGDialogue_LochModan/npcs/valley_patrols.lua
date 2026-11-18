@@ -90,7 +90,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the valley, the statues an' every trogg hole between here an' the gate." } },
-    troggs = { { id = "tp_troggs", text = "Ugly, stubborn an' thick in the head, an' still too many of them.", next = "troggs" } },
+    troggs = { { id = "tp_troggs", text = "Troggs are ugly, stubborn an' thick in the head, an' still too many of them.", next = "troggs" } },
     _none = { { id = "tp_none", text = "No idea, friend! Ask Langarr, he reads." } },
   },
 }
@@ -124,9 +124,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Langarr. I walk the valley an' watch the hills, an' I'll tell ye now there are troggs on the slopes tae the east, so stay off the high ground unless ye mean tae fight." },
+          text = "I'm Mountaineer Langarr. I walk the valley an' watch the hills, an' I'll tell ye now there are troggs on the slopes tae the east, so stay off the high ground unless ye mean tae fight." },
         { id = "h_defense", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
-          text = "Cobbleflint's sent ye tae the troggs, has he? Mind the ones wi' the stone teeth round their necks, for those are the ones that hit hardest." },
+          text = "Mountaineer Cobbleflint's sent ye tae the troggs, has he? Mind the ones wi' the stone teeth round their necks, for those are the ones that hit hardest." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Be brief, for I'm watchin' the ridge while we talk." },
@@ -202,7 +202,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Gwarth, two months in the King's Mountaineers an' one in the valley. Langarr says I'll make a fine soldier once I learn tae shut my mouth, an' Wallbang says I'll never learn, for he never did." },
+          text = "I'm Mountaineer Gwarth, two months in the King's Mountaineers an' one in the valley. Langarr says I'll make a fine soldier once I learn tae shut my mouth, an' Wallbang says I'll never learn, for he never did." },
         { id = "h_warrior", when = { class = { "WARRIOR", "PALADIN" } },
           text = "That's proper armour! I've been savin' for a breastplate from Morhan, but at a Mountaineer's pay I'll be grey before I've got it." },
       },

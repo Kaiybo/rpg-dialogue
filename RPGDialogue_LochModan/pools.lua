@@ -13,7 +13,7 @@ P:Pool {
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Troggs had a go at ye? Morhan by the inn'll put ye right, an' then ye can go an' have a go back." },
+      text = "Troggs had a go at ye? Morhan the smith by the inn'll put ye right, an' then ye can go an' have a go back." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' ours! Welcome home, near enough, for Ironforge is just over the hills." },
   },
@@ -23,8 +23,8 @@ P:Pool {
   },
   choices = { { text = "Good luck, Mountaineer.", next = "END", fx = { standing = { thelsamar = 1 } } } },
   topics = {
-    dark_iron = { { id = "t_dark_iron", text = "They've been at the dam, so don't let the engineer tell ye otherwise, though he'll try." } },
-    explorers_league = { { id = "t_league", text = "League folk dig all over the loch, an' Ironband's lot are the loudest of 'em." } },
-    _none = { { id = "t_none", text = "Ask Kadrell, across from the inn; he knows everythin' about the loch." } },
+    dark_iron = { { id = "t_dark_iron", text = "The Dark Irons have been at the Stonewrought Dam, so don't let the dam's engineer tell ye otherwise, though he'll try." } },
+    explorers_league = { { id = "t_league", text = "League folk dig all over the loch, an' Prospector Ironband's lot at the excavation are the loudest of 'em." } },
+    _none = { { id = "t_none", text = "Ask Mountaineer Kadrell, across from the inn; he knows everythin' about the loch." } },
   },
 }

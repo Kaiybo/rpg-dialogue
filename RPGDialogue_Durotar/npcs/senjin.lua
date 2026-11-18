@@ -69,7 +69,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. Zalazane twist the dead on the Echo Isles into his slaves, and you be dead with a power he never touch. Maybe that make you safe, maybe not. The loa decide, and I listen." } },
+      lines = { { id = "xfpala_default", text = "Fear you? No, mon, but watch you, yes. Zalazane twist the dead on the Echo Isles into his slaves, and you be dead with a power he never touch. Maybe that make you safe, maybe not. The loa decide, and I listen." } },
       choices = {
         { text = "I'll prove I'm no one's slave, Master.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I serve the Dark Lady and the Horde. Ask no more.", next = "BACK", fx = { align = { order = 1 } } },
@@ -129,7 +129,7 @@ P:NPC {
         { id = "h_op_sylv", when = { opinion = { topic = "sylvanas", stance = "distrust" } },
           text = "Vol'jin tell me you watch the Dark Lady the way he do. Good, child, because the dead that walk on their own make old Gadrin's bones itch." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Minshina's Skull") },
-          text = "Minshina's skull sit on the isles in bad hands. Bring it to me, because she deserve better." },
+          text = "Minshina be a Darkspear witch doctor long gone, and her skull sit on the isles in Zalazane's hands. Bring it home to me, because she deserve better." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak", faction = "Horde" }, text = "You been to Zul'Farrak and back, eh? The Sandfury be cousins of a sort, mon, but cousins who raise their own dead to guard the gates, so Gadrin won't weep for them." },
         { id = "h_zalazane", tags = { "news" }, when = { questActive = TODO_QUEST("Zalazane") },
           text = "Zalazane be my student once, and now he be the shame of my years. End him, and maybe this old man sleep through the night." },
@@ -226,7 +226,7 @@ P:NPC {
     },
     voljin = {
       lines = {
-        { id = "vj_default", text = "The best I ever have. Zalazane listen too, but to the wrong voices. Now Vol'jin stand by the Warchief, and I watch the isles for him." },
+        { id = "vj_default", text = "Vol'jin be the best student I ever have. Zalazane listen too, but to the wrong voices. Now Vol'jin stand by the Warchief, and I watch the isles for him." },
       },
       choices = {
         { text = "He chose well.", next = "END", fx = { affinity = 2 } },
@@ -316,8 +316,8 @@ P:NPC {
       { id = "tp_knows", text = "Old Gadrin hear everything eventually, because everybody come to the witch doctor sooner or later. Ask me about these, child." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You be good to this old man, so sit, and I tell you all of it, the long way round." },
     },
-    echo_isles = { { id = "tp_isles", text = "Every morning I look at them, and every morning they still there, waiting for us." } },
-    burning_blade = { { id = "tp_blade", text = "Orcs playing with demons, eh? Bad magic be bad magic, whoever play with it, and Orgnil know that." } },
+    echo_isles = { { id = "tp_isles", text = "Every morning I look at the Echo Isles across the water, and every morning they still there, waiting for us." } },
+    burning_blade = { { id = "tp_blade", text = "Orcs playing with demons, eh? Bad magic be bad magic, whoever play with it, and Orgnil in Razor Hill know that." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin was my best student, and he was never the quickest, but he always listened. He leads the Darkspear now, and I am prouder of him than of anything I ever did." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear were a small tribe, and the sea nearly ended us, and Thrall saved what was left. Now we be strong again, but we remember what it was to be few." } },
     thrall = { { id = "tp_thrall", text = "The Warchief took us in when nobody else would, and he never asked us to forget who we are. That is a rare kind of chieftain, and the trolls know it." } },
