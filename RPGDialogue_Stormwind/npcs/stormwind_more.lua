@@ -975,7 +975,7 @@ P:NPC {
     { id = "n_squire", cat = "squire", when = { origin = "human_paladin_squire" }, place = "after",
       text = "You hold your sword like a squire who spent too long polishing someone else's, and I mean that fondly. Whose armour did you carry?" },
     { id = "n_dwarf", cat = "light", when = { race = "Dwarf", class = "PALADIN" }, place = "before",
-      text = "A dwarf of the Hand, and you came all the way from Ironforge to hear an old human woman lecture you. Your High Priest's people fight with a hammer as though it were a prayer, and I've always admired it." },
+      text = "A dwarf of the Hand, and you came all the way from Ironforge to hear an old human woman lecture you. Your people swing a hammer as though it were a prayer, and I've always admired it." },
   },
 
   start = "hello",
@@ -1230,6 +1230,8 @@ P:NPC {
         { text = "Why do mages buy feathers from a priest?", next = "xmage", when = { class = "MAGE" } },
         { text = "I studied here as a novice, Brother.", next = "xnovice", when = { origin = { "human_abbey_novice", "gnome_cathedral_pupil" } } },
         { text = "What do druids buy from you?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Flash powder, from a Brother of the Light?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I may need one of those Symbols someday.", next = "xpal", when = { class = "PALADIN", minLevel = 30 } },
         { text = "Let me see your reagents.", next = "BUSINESS" },
         { text = "Light be with you, Brother.", next = "END" },
       },
@@ -1364,6 +1366,24 @@ P:NPC {
       choices = {
         { text = "It went with me, every step.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I had to find my own way, apart from it.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xr_default", text = "I know, I know, and Bishop Farthing raised an eyebrow so high I worried for it. But a rogue who can vanish is a rogue who can walk away from a fight, and I'd rather sell a way out than see one more body carried up the nave." },
+      },
+      choices = {
+        { text = "That's a generous way to see it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpal = {
+      lines = {
+        { id = "xa_default", text = "I hope you never do, and I'll sell you one all the same, and pray over it twice. Would you truly give your life for another's, if it came to it?" },
+      },
+      choices = {
+        { text = "Without a second thought. That's the oath.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Only if it wins the fight. A dead paladin heals no one.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     xdruid = {
