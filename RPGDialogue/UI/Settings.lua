@@ -318,6 +318,7 @@ local function build()
   -- In the conversation: what the box shows besides the words.
   header(L.OPT_HEADER_CONVO)
   checkbox(L.OPT_ECHO, "echoReply")
+  checkbox(L.OPT_VIEWS, "views")
   cycle(L.OPT_TAGS, "tags", { "available", "always", "never" }, { L.TAGS_AVAILABLE, L.TAGS_ALWAYS, L.TAGS_NEVER })
   checkbox(L.OPT_IDENTITY_TAGS, "identityTags")
   checkbox(L.OPT_LOCKED, "showLocked")

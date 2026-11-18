@@ -486,6 +486,51 @@ function Engine.PickTopic(info, topic, ctx, env)
 end
 
 ---------------------------------------------------------------------------
+-- Speaking your mind (0.82.0): after an answer, a few things the player can say back
+---------------------------------------------------------------------------
+Engine.MAX_VIEWS = 3
+
+-- The views on offer for a topic: the NPC's own, then the topic's, else the "_any" set
+-- (never for "What do you know?"). Nothing once a view on it was given to this NPC. Each
+-- eligible view, in the writer's order, up to MAX_VIEWS.
+function Engine.ViewsFor(info, topic, ctx, env)
+  if topic == "knows" then return {} end
+  local mem = env and env.mem
+  if mem and mem.views and mem.views[topic] then return {} end
+  local def = info and info.def
+  local pools = {}
+  if def and def.views and def.views[topic] then pools[#pools + 1] = def.views[topic] end
+  local data = ns.Data and ns.Data.views or {}
+  if data[topic] then pools[#pools + 1] = data[topic] end
+  if #pools == 0 then
+    local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
+    if tdef and tdef.standard then return {} end
+    if data._any then pools[#pools + 1] = data._any end
+  end
+  local out = {}
+  for _, list in ipairs(pools) do
+    for _, v in ipairs(list) do
+      if #out < Engine.MAX_VIEWS and Cond.Eval(v.when, ctx, env) then out[#out + 1] = v end
+    end
+    if #out >= 2 then break end
+  end
+  return out
+end
+
+-- How the NPC takes it: the view's own replies (the NPC's own first), else a shrug.
+function Engine.PickViewReply(info, view, ctx, env)
+  local cands = {}
+  local def = info and info.def
+  local own = def and def.viewReplies and view.id and def.viewReplies[view.id]
+  add(cands, own, Engine.BASE.own, "own")
+  add(cands, view.replies, 200, "view:" .. tostring(view._topic))
+  local data = ns.Data and ns.Data.views
+  local shrug = data and data._shrug and data._shrug[1]
+  if shrug then add(cands, shrug.replies, 0, "view:_shrug") end
+  return Engine.Pick("view", cands, ctx, env, { node = "view:" .. tostring(view._topic) })
+end
+
+---------------------------------------------------------------------------
 -- "What do you know?" (0.34.0): the topics this NPC has something to say about
 ---------------------------------------------------------------------------
 -- A topic counts when the NPC's own answers, or their role's or community's pools, hold a

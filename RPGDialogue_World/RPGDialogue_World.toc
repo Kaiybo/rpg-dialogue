@@ -12,6 +12,12 @@
 pack.lua
 towns.lua
 topics.lua
+views.lua
+views_1.lua
+views_2.lua
+views_3.lua
+views_4.lua
+views_5.lua
 claims.lua
 threads.lua
 threads_horde_orc.lua
