@@ -48,3 +48,4 @@ npcs\malin.lua
 npcs\osric_strang.lua
 npcs\stormwind_forever.lua
 npcs\city_quests.lua
+npcs\stormwind_more.lua

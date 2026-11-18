@@ -944,6 +944,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've tended this bar longer than I like to count, and I've learned to see nothing in all that time." } },
     advice = { { id = "tp_ad", text = "Stay away from the shadows. I'll keep saying it till somebody listens." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I poured for them while they built this city, and they were good men, badly paid.", next = "years_masons" } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, and I'd be suspicious of any barman who could." } },
   },
 }
@@ -1177,6 +1178,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A knight of the Silver Hand from Lordaeron, come south with what was left of us. That's all the history I like to tell.", next = "name" } },
     advice = { { id = "tp_ad", text = "Renew your seals, and keep your shield arm up. Everything else follows." } },
+    silver_hand = { { id = "tp_silver_hand", text = "My order, scattered but not broken, and being rebuilt in this very room.", next = "silverhand" } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Some of them were my brothers once, and I'd rather not talk about what they've become.", next = "scarlet" } },
     _none = { { id = "tp_none", text = "I don't know, and I'll not guess in the Light's house. Ask Brother Joshua; he reads more than I do." } },
   },
 }
@@ -1626,6 +1629,1665 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A younger son who preferred cards to court. The rest you'll have to steal.", next = "lord" } },
     advice = { { id = "tp_ad", text = "Never play fair, and never tell anyone you didn't." } },
+    defias = { { id = "tp_defias", text = "Someone's paying them, friend, and it isn't Westfall's farmers.", next = "defias" } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. Ask me again when you've something to trade for it." } },
+  },
+}
+
+-- Lina Stover: bow and gun merchant at the Empty Quiver, Trade District; Frederick Stover's sister (authored).
+P:NPC {
+  key = "lina_stover", id = TODO_NPC("Lina Stover"), name = "Lina Stover", title = "Bow & Gun Merchant",
+  bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "brisk", "cheerful" }, values = { "practical", "family" },
+  notices = { "ranged", "hunter" },
+
+  impression = {
+    first = "Lina Stover sells bows and guns just inside the Empty Quiver, and where her brother Frederick talks about yew, she talks about powder, barrels and how many paces a dwarf rifle will carry.",
+    third = "{name} met Lina Stover, who sells bows and guns at the Empty Quiver in Stormwind's Trade District.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Welcome to the Empty Quiver! Bows on the left, guns on the right, and don't point either at my brother, however tempting." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did the last one shoot straight, or have you come to complain?" },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and you've the look of someone who's been sleeping in ditches. What are you shooting with these days?" },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Come and tell me my Ironforge stock is rubbish, because every dwarf does, and then buy it anyway." },
+  },
+
+  notice = {
+    { id = "n_hunter_pet", cat = "hunter", when = { class = "HUNTER", pet = { named = true } }, place = "after",
+      text = "Keep {pet} away from the arrow barrel, would you? The last hunter's cat ate the fletching off a whole bundle, and Frederick wept." },
+    { id = "n_engineer", cat = "ranged", when = { profession = { name = "Engineering", min = 50 } }, place = "before",
+      text = "You've powder burns on your fingers, the honest kind you only get from a workbench. Are you an engineer, then, or just very careless?" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Lina Stover, and this is the Empty Quiver, though it's never empty if I can help it. My brother Frederick makes the bows and fletches the arrows, and I sell the guns, and we argue about which is better from breakfast to supper." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter always knows what they want, which makes you my favourite sort of customer. Bow or gun, friend, and don't say both, because Frederick's listening and he'll sulk." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I've barrels to count." },
+        { id = "h_again2", text = "Go on, ask. I like talking shop." },
+        { id = "h_again3", text = "What else can I tell you?" },
+      },
+      choices = {
+        { text = "Where do your guns come from?", next = "guns" },
+        { text = "You and Frederick really argue that much?", next = "frederick" },
+        { text = "Why call the shop the Empty Quiver?", next = "shop" },
+        { text = "Who buys from you, mostly?", next = "customers" },
+        { text = "Is trade hard these days?", next = "roads" },
+        { text = "Ironforge makes the finest guns in the world, lass.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "I could build you a better rifle than these.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "My people have no need of guns.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "I learned to shoot in Eastvale's woods.", next = "xwoodsman", when = { origin = "human_eastvale_woodsman" } },
+        { text = "I'm an engineer. I make my own guns.", next = "xengineer", when = { profession = { name = "Engineering", min = 1 } } },
+        { text = "Which is better for a hunter, honestly?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Good day, Lina.", next = "END" },
+      },
+    },
+
+    guns = {
+      lines = {
+        { id = "gu_default", text = "Ironforge, mostly, by cart down through the Loch and the Wetlands road, and now and then a gnomish piece that's either brilliant or about to explode. The dwarves have made guns since before my grandmother was born, and they still won't sell me their best ones." },
+      },
+      choices = {
+        { text = "Why won't they sell you the best?", next = "guns_source" },
+        { text = "Are guns really better than bows?", next = "guns_vs_bows" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guns_source = {
+      lines = {
+        { id = "gs_default", text = "Because the best go to the Ironforge mountaineers first, and then to their cousins, and then to any dwarf who asks nicely in a proper accent. I get what's left, which is still better than anything a human smith can bore." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guns_vs_bows = {
+      big = true,
+      lines = {
+        { id = "gb_default", text = "A gun hits harder and a bow shoots faster, and a gun needs powder and a bow needs nothing but a tree. I sell guns because the world's changing, friend, and Frederick sells bows because he's afraid it is." },
+      },
+      choices = {
+        { text = "The old ways last. Give me a good bow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. Powder's the future.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    frederick = {
+      lines = {
+        { id = "f_default", text = "Only on days ending in a sunset. He's my older brother and the best bowyer in the Trade District, and he thinks guns are noisy, smelly and rude, which is true, but so is he before his breakfast." },
+      },
+      choices = {
+        { text = "Is it a real rivalry?", next = "frederick_rivalry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frederick_rivalry = {
+      lines = {
+        { id = "fr_default", text = "We keep a tally on the back wall of who sold more each week, and he's ahead this year, but only because the night elves have come to town. I'd never say a word against him to anyone else, mind you, so don't you try it either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    shop = {
+      lines = {
+        { id = "s_default", text = "Our father named it, as a joke, because he said a quiver should always be empty by the end of a good day's trade. He'd be glad to see the place busy, and furious to see the guns." },
+      },
+      choices = {
+        { text = "What happened to your father?", next = "shop_name" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop_name = {
+      lines = {
+        { id = "sn_default", text = "He went out with the archers when the orcs came in the First War, and he didn't come back. Frederick was old enough to remember him, and I've only the shop and the name, which is why I keep them both well." },
+      },
+      choices = {
+        { text = "I'm sorry. He'd be proud of you both.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    customers = {
+      lines = {
+        { id = "c_default", text = "Hunters, of course, and warriors who want something to throw before they close, and rogues who buy a cheap crossbow and look embarrassed. Lately half the adventurers in the city come through on their way to somewhere dreadful." },
+      },
+      choices = {
+        { text = "Where are they all going?", next = "customers_hunters" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers_hunters = {
+      lines = {
+        { id = "ch_default", text = "Westfall, Redridge, Duskwood, wherever the Crown's not looking, and some of them come back for more arrows and some don't. I've learned not to ask a customer's name until the third visit." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    roads = {
+      lines = {
+        { id = "r_default", text = "Harder than it was; the Wetlands road has trolls and raptors, and the carts that come by Westfall get stopped by men in red kerchiefs. I lost a whole crate of Ironforge rifles last spring, and I'd dearly like to know whose hands they're in." },
+      },
+      choices = {
+        { text = "The Defias have your guns?", next = "roads_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads_stance = {
+      lines = {
+        { id = "rs_default", text = "Someone does, and the Defias are the likeliest. I asked the guard to look into it and they wrote it in a book, which is where Stormwind keeps everything it means to forget." },
+      },
+      choices = {
+        { text = "The guard has bigger troubles. Be patient.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then hire someone and take them back yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "They do, and I'll say so to anyone, so long as you'll tell your cousins in Ironforge to sell me a few. Which clan's gunsmiths do you swear by, then?" },
+      },
+      choices = {
+        { text = "Bronzebeard's own. There's none finer.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "I don't doubt you could, and I don't doubt it'd do something remarkable the first time I fired it. Bring me a design, and if it doesn't take off my eyebrows I'll put it in the window." },
+      },
+      choices = {
+        { text = "Eyebrows are a reasonable risk.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "So Frederick tells me, every time one of you buys a bow from him instead. Your people move so quietly I'd wonder you need either, though I'd hate to be the deer." },
+      },
+      choices = {
+        { text = "Guns are loud and crude. The forest hates them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps it's time my people learned new tools.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xwoodsman = {
+      lines = {
+        { id = "xw_default", text = "Eastvale! Then you learned on a bow and a wolf's trail, and you'll be Frederick's customer, I suppose. I'll make you a deal: try one of my rifles in the yard, and if you don't grin, I'll never mention it again." },
+      },
+      choices = {
+        { text = "All right. One shot.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xengineer = {
+      lines = {
+        { id = "xe_default", text = "Then you're either my best customer or my worst rival, and I've not decided which. If you ever make more than you need, bring them by, and I'll give you an honest price for them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xh_default", text = "Honestly? A bow while you're young and need to keep moving, and a gun once you've learned to stand still and let your pet do the running. Don't tell Frederick I said the first half." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Born over this shop, raised behind its counter, and I'll likely die arguing in it.", next = "shop" } },
+    trade = { { id = "tp_tr", text = "Guns from Ironforge, bows from my brother, and arrows by the bundle. What more does anyone need?", next = "guns" } },
+    _none = { { id = "tp_none", text = "No idea, friend. If it doesn't shoot, I don't follow it." } },
+  },
+}
+
+-- Kathrum Axehand: Wildhammer dwarf, axe merchant in the Dwarven District.
+P:NPC {
+  key = "kathrum_axehand", id = TODO_NPC("Kathrum Axehand"), name = "Kathrum Axehand", title = "Axe Merchant",
+  bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "gruff", "proud" }, values = { "proud", "craft" },
+  notices = { "axe", "wildhammer" },
+
+  impression = {
+    first = "Kathrum Axehand is a Wildhammer dwarf with tattoos up both arms who sells axes in Stormwind's Dwarven District and talks about gryphons the way a homesick man talks about his mother.",
+    third = "{name} met Kathrum Axehand, a tattooed Wildhammer dwarf who sells axes in Stormwind's Dwarven District.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Axes, axes and more axes. If ye want a sword, the humans have plenty, and they'll bend on ye too." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, eh? Either that axe broke, or ye've finally learned to appreciate a proper blade." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior! Come here, {g:lad|lass}, and lift this one; tell me it doesn't sing in yer hands." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "Well met, cousin, Ironforge or no. Mind ye don't stare at the tattoos; it's rude, even among our kind." },
+  },
+
+  notice = {
+    { id = "n_wild", cat = "wildhammer", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } }, place = "before",
+      text = "Ye've the smell of the Hinterlands on ye, cousin, all pine and gryphon. By my beard, it's good to see a face from home in this stone city." },
+    { id = "n_axe", cat = "axe", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 20 }, place = "after",
+      text = "That edge on yer weapon's been ground by someone who hates it. Bring it here before ye go, and I'll tell ye who to blame." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Kathrum Axehand, of the Wildhammer clan, and I sell the finest axes in this human city, which is nae a hard contest. Ye'll find a hand axe for a farmer, a war axe for a soldier, and a few throwing blades for anyone with a good eye." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf of Ironforge, by yer braids, come to buy an axe from a Wildhammer. I'll sell ye one, cousin, and I'll not even charge ye extra for the War of the Three Hammers." },
+        { id = "h_human", when = { race = "Human" }, text = "Kathrum Axehand, Wildhammer, and before ye ask, aye, the tattoos go all the way up. Yer people fought beside mine in the Second War, so I'll give ye my honest axes and save the cheap ones for the gnomes." },
+      },
+      again = {
+        { id = "h_again", text = "Aye? What else?" },
+        { id = "h_again2", text = "Ask away. I've axes to oil." },
+        { id = "h_again3", text = "Go on, then. My ears work fine." },
+      },
+      choices = {
+        { text = "Why axes, and not swords?", next = "axes" },
+        { text = "Where do the Wildhammer live?", next = "aerie" },
+        { text = "Wildhammer and Ironforge don't get along?", next = "hammers" },
+        { text = "How does a Wildhammer end up in Stormwind?", next = "city" },
+        { text = "What do the tattoos mean?", next = "tattoos" },
+        { text = "I'm Wildhammer too, cousin. From the Peak.", next = "xwild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } },
+        { text = "Ironforge forged me. Don't speak ill of it.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Which axe would you give a warrior?", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "Your people live close to nature, like mine.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Cheap ones for the gnomes? I heard that.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "Show me your axes.", next = "BUSINESS" },
+        { text = "Farewell, Kathrum.", next = "END" },
+      },
+    },
+
+    axes = {
+      lines = {
+        { id = "a_default", text = "A sword's for a duel, and an axe is for anything, a door, a tree, a troll's thick head. My father said ye could judge a dwarf by the axe on his wall, and I've never met a sword that would chop me any firewood." },
+      },
+      choices = {
+        { text = "What about throwing axes?", next = "axes_throw" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    axes_throw = {
+      lines = {
+        { id = "at_default", text = "Ah, now ye're talking Wildhammer. We throw hammers from gryphon-back, the storm hammers, and an axe thrown right does nearly the same work from the ground. Most humans throw like they're tossing a cat, mind." },
+      },
+      choices = {
+        { text = "Fighting from a distance isn't real fighting.", next = "axes_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    axes_stance = {
+      big = true,
+      lines = {
+        { id = "as_default", text = "Ha! Tell that to a troll with my hammer in his skull before he's seen me coming. Close or far, a dwarf fights to win, and I'll leave the fair fights to the paladins." },
+      },
+      choices = {
+        { text = "Face to face is the honest way. I'll stand by that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair enough. Win first, boast later.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    aerie = {
+      lines = {
+        { id = "ae_default", text = "Aerie Peak, in the Hinterlands, high up where the gryphons nest and the air's so clean it hurts. We ride the beasts and they ride the wind, and I've nae seen a sky so wide anywhere else in the world." },
+      },
+      choices = {
+        { text = "You ride gryphons yourself?", next = "aerie_gryphons" },
+        { text = "Then why leave?", next = "aerie_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aerie_gryphons = {
+      lines = {
+        { id = "ag_default", text = "Every Wildhammer does, or did; mine was called Stormclaw and she bit everyone but me. Ye don't tame a gryphon, ye earn it, and the humans who fly from the Dwarven District on their trained birds don't know what they're missing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aerie_why = {
+      lines = {
+        { id = "aw_default", text = "The trolls of the Hinterlands, mostly, and the Witherbark and the Vilebranch getting bolder every year, and a bit of a quarrel with a chieftain I'll nae name. Stormwind pays well for axes, and a dwarf can always go home again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hammers = {
+      lines = {
+        { id = "hm_default", text = "We get along fine, so long as nobody mentions the War of the Three Hammers. Bronzebeard, Wildhammer and Dark Iron, all fighting over who'd sit the throne, and when it was done the Dark Irons were cursed, Ironforge kept the mountain, and we took the sky." },
+      },
+      choices = {
+        { text = "And Grim Batol?", next = "hammers_stance" },
+        { text = "And the Dark Irons?", next = "hammers_dark" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hammers_stance = {
+      lines = {
+        { id = "hs_default", text = "Grim Batol was ours, our old hold, until Thaurissan's sorcery poisoned it and the orcs made a dragon pen of it in the Second War. Nobody goes there now, and I'll drink to the day a Wildhammer does.",
+          fx = { learn = { "grim_batol" } } },
+      },
+      choices = {
+        { text = "Then take it back, when the time's right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some places are best left to the dead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hammers_dark = {
+      lines = {
+        { id = "hk_default", text = "Cursed, and they deserve every inch of it, for they called up the fire that made the Burning Steppes out of good green land. They're under Blackrock Mountain now, digging and plotting and selling their axes to orcs, and a Wildhammer spits when he says their name.",
+          fx = { learn = { "dark_iron" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    city = {
+      lines = {
+        { id = "c_default", text = "By gryphon, then by cart, then by being too stubborn to go home after the first winter. The Dwarven District's half Ironforge folk, and they treat me like an uncle who drinks too much, which is fair." },
+      },
+      choices = {
+        { text = "The Ironforge dwarves here treat you well?", next = "city_bronze" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    city_bronze = {
+      lines = {
+        { id = "cb_default", text = "Well enough. Their smiths are the best I know, and their ale's the second best, and they talk about Magni as if the man hung the moon. I'll give them that their king is a fine one, though I'll nae say so in their tavern." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    tattoos = {
+      lines = {
+        { id = "t_default", text = "Each one's a story: the first gryphon I rode, the first troll I killed, my clan's mark, and my mother's name in the old runes. Ironforge dwarves grow their stories in their beards, and we wear ours on our skin." },
+      },
+      choices = {
+        { text = "A good way to keep your history.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xwild = {
+      lines = {
+        { id = "xw_default", text = "From the Peak! By the stone, cousin, sit and tell me, are the nests still full, and is old Falstad still shouting at everyone? I've been gone three winters and I miss even the shouting." },
+      },
+      choices = {
+        { text = "The nests are full, and Falstad still shouts.", next = "BACK", fx = { affinity = 2 } },
+        { text = "The trolls press hard. You'd be needed there.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "I'll speak ill of nae dwarf's home, cousin, so long as he speaks none of mine. We're all of the same stone, whatever the old wars say, and the Dark Irons are enemy enough for both of us." },
+      },
+      choices = {
+        { text = "Agreed. Let the old feud lie.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some grudges are worth keeping, Wildhammer.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xwarrior = {
+      lines = {
+        { id = "xa_default", text = "A two-handed axe, if ye've the shoulders for it, because nothing clears a crowd of gnolls quite like a good wide swing. If ye fight with a shield, then a hand axe, and keep the edge sharp enough to shave with." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "Aye, we've that in common: wind and trees and creatures that fly. Ye'd not cut down a tree for firewood without asking it first, I'm told, and I'd not take an axe to one without a reason, so we're close enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "Ha! A jest, wee one, and a poor one, I'll grant. Truth be told, ye gnomes buy the best of my stock, because ye're the only ones who measure the balance before ye pay." },
+      },
+      choices = {
+        { text = "Balance is everything. I measure twice.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Wildhammer, born at Aerie Peak, raised on gryphon-back, and stuck in a city with nae sky to speak of.", next = "aerie" } },
+    trade = { { id = "tp_tr", text = "Axes, every size, every sort. If it chops, I sell it.", next = "axes" } },
+    grim_batol = { { id = "tp_grim_batol", text = "Our old hold, and our old grief. Ask me properly and I'll tell ye.", next = "hammers_stance" } },
+    dark_iron = { { id = "tp_dark_iron", text = "Cursed, and welcome to it, every last one of them.", next = "hammers_dark" } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, cousin. Ask a human; they know all sorts of useless things." } },
+  },
+}
+
+-- Bryan Cross: shield merchant in Old Town, near the barracks.
+P:NPC {
+  key = "bryan_cross", id = TODO_NPC("Bryan Cross"), name = "Bryan Cross", title = "Shield Merchant",
+  bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "steady", "gruff" }, values = { "practical", "loyal" },
+  notices = { "shield", "guard" },
+
+  impression = {
+    first = "Bryan Cross sells shields in Old Town, a stone's throw from the barracks, and he raps on every one with his knuckles before he lets it go, as though listening for a lie.",
+    third = "{name} met Bryan Cross, a plain-spoken shield merchant in Stormwind's Old Town.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Shields, friend. Wood, iron and steel, and every one of them will take a hit you couldn't." },
+    { id = "g_back", when = { metBefore = true }, text = "Back already? Let's see the shield; I can tell a lot about a fighter from the dents." },
+    { id = "g_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "Ah, someone who'll actually use one. Come in, and mind the rack; it bites." },
+    { id = "g_cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "Lost, are you? Shields are for people who get hit, and your sort tends to be standing at the back." },
+  },
+
+  notice = {
+    { id = "n_broken", cat = "shield", when = { durability = { max = 0.3 } }, place = "before",
+      text = "Light's sake, friend, your gear's held together by habit. Get it to a smith before you take one more blow, or you'll be buying a shield and a coffin." },
+    { id = "n_guard", cat = "guard", when = { origin = "human_city_guard" }, place = "after",
+      text = "You stand like a watchman, feet apart and eyes on the door. I've sold shields to half the City Watch, so I may have sold you your first one." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Bryan Cross, shield merchant, and Old Town's been my corner since the city was rebuilt. A sword wins the fight, but a shield gets you home to eat supper, and I'd rather sell the second." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and you've been using that shield hard, by the look of the rim. I'll sell you a new one, but come and tell me what's been hitting the old one first." },
+        { id = "h_paladin", when = { class = "PALADIN" }, text = "One of the Cathedral's knights, are you? Your lot always want them blessed, and I always tell you the Light doesn't care what the shield's made of, only who's behind it." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, friend?" },
+        { id = "h_again2", text = "Go on. I'll keep rapping on these while you think." },
+        { id = "h_again3", text = "What else, then?" },
+      },
+      choices = {
+        { text = "What makes a good shield?", next = "shields" },
+        { text = "What's Old Town like these days?", next = "oldtown" },
+        { text = "Who buys from you, mostly?", next = "customers" },
+        { text = "Who makes these shields?", next = "craft" },
+        { text = "You've been here since the rebuilding?", next = "war" },
+        { text = "I served in the Watch. You may have armed me.", next = "xguard", when = { origin = "human_city_guard" } },
+        { text = "What shield for someone who fights in the front line?", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "The Light protects me better than any shield.", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "I don't need a shield. I have spells.", next = "xcloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Dwarves make the best shields, surely.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Let's see your shields.", next = "BUSINESS" },
+        { text = "Good day, Bryan.", next = "END" },
+      },
+    },
+
+    shields = {
+      lines = {
+        { id = "s_default", text = "Weight you can carry all day, a rim that won't split, and a grip that doesn't twist when something heavy hits it. Most folk buy for the pretty face on the front, and I tell them the back is what matters." },
+      },
+      choices = {
+        { text = "What kinds do you sell?", next = "shields_kinds" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shields_kinds = {
+      lines = {
+        { id = "sk_default", text = "Bucklers for those who need a hand free, round shields for the common soldier, and kite shields for anyone mounted or anyone who likes being a wall. A heater shield, now, that's a knight's shield, and they pay a knight's price for it." },
+      },
+      choices = {
+        { text = "A shield's no use if you never attack.", next = "shields_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shields_stance = {
+      big = true,
+      lines = {
+        { id = "ss_default", text = "Tell that to the men at the gate when the orcs came in the First War; the ones who held their shields lived, and the ones who charged didn't. A shield's not cowardice, friend; it's the reason there's anyone left to fight tomorrow." },
+      },
+      choices = {
+        { text = "You're right. Holding the line wins wars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Wars are won by striking first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    oldtown = {
+      lines = {
+        { id = "o_default", text = "Rough, honest and loud, which is how I like it. You've the barracks, the Pig and Whistle, and a building down the way where nobody goes in or out by the front door, and nobody asks about it." },
+      },
+      choices = {
+        { text = "Any trouble around here?", next = "oldtown_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldtown_trouble = {
+      lines = {
+        { id = "ot_default", text = "Brawls on paydays, cutpurses on market days, and the Stockade just over the canal full of Defias who'd riot if you looked at them sideways. The guard keeps a lid on it, mostly.",
+          fx = { learn = { "the_stockade" } } },
+      },
+      choices = {
+        { text = "The Stockade? Inside the city walls?", next = "oldtown_stockade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldtown_stockade = {
+      lines = {
+        { id = "os_default", text = "Aye, right in the middle of the canals, and fuller than it's ever been since the Defias started up. Some say the city should hang the lot and be done, and some say half of them were only masons who wanted their wages." },
+      },
+      choices = {
+        { text = "Hang them. Mercy's wasted on traitors.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Pay the masons. Most of them were wronged.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    customers = {
+      lines = {
+        { id = "c_default", text = "The guard, first and always; the Crown buys round shields from me by the hundred and pays by the half-hundred. Then adventurers, then the odd nobleman who wants something shiny to hang over his fire." },
+      },
+      choices = {
+        { text = "The Crown pays slow?", next = "customers_guard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers_guard = {
+      lines = {
+        { id = "cg_default", text = "The Crown pays eventually, which in Stormwind is meant to be a comfort. The masons learned what eventually means, and I don't mean to learn it the same way, so I keep half my trade with folk who pay in coin on the counter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    craft = {
+      lines = {
+        { id = "cr_default", text = "I build the wooden ones myself, glued and bound in the back room, and the iron and steel come from smiths in the Dwarven District. I rap on every one before it leaves, and if it rings wrong it goes back." },
+      },
+      choices = {
+        { text = "Which smiths do you trust?", next = "craft_smiths" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    craft_smiths = {
+      lines = {
+        { id = "cs_default", text = "The Deepforges, mostly, Therum and Kaita, who've never once sold me a bad boss. Dwarves bicker over price like it's a sport, but their steel doesn't lie." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    war = {
+      lines = {
+        { id = "w_default", text = "Since before it, if you want the truth; I was a shield-boy in the old garrison when the Horde came over the walls. Most of the men I carried shields for didn't come out of that day, and the ones who did were the ones who kept them up." },
+      },
+      choices = {
+        { text = "What happened to you, after?", next = "war_story" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_story = {
+      lines = {
+        { id = "ws_default", text = "I went to Lordaeron with the refugees, like everyone, and came back when the city was rebuilt with a trade and a grudge. I sold the grudge long ago, but I've kept the trade." },
+      },
+      choices = {
+        { text = "Some grudges against the Horde should be kept.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Letting it go took more strength than holding it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xguard = {
+      lines = {
+        { id = "xg_default", text = "Likely I did, and I hope it served you. Tell me true: does the Watch still use the round ones with the lion painted crooked, or did someone finally fix the stencil?" },
+      },
+      choices = {
+        { text = "Still crooked. We were proud of it.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarrior = {
+      lines = {
+        { id = "xw_default", text = "A kite shield, steel-faced, and the heaviest you can carry without your arm going numb by noon. Learn to bash with the rim, too; a shield's a weapon if you're not too proud to use it like one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpaladin = {
+      lines = {
+        { id = "xp_default", text = "Maybe it does, but the Light didn't stop an orc axe at the gate that day, and a shield did. Carry both, I say, and thank whichever one you like after." },
+      },
+      choices = {
+        { text = "Faith first. The shield's only a tool.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair. I'll trust the steel as much as the Light.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    xcloth = {
+      lines = {
+        { id = "xc_default", text = "So did the court wizard's apprentices, and I sold them shields all the same after the first winter in the field. If you ever change your mind, I've a little buckler that won't spoil your casting." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "The metal ones, aye, and I'll not argue with a dwarf about steel. The wooden ones, though, the light ones a soldier can march with, are mine, and I'll put them against any in Ironforge." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A shield-boy in the old garrison, a refugee after, and a merchant since the rebuilding.", next = "war" } },
+    trade = { { id = "tp_tr", text = "Shields, friend. Keep it up and you'll keep breathing.", next = "shields" } },
+    the_stockade = { { id = "tp_the_stockade", text = "It's over the canal and full of Defias, and one bad day from a riot. I sell the guards there their shields.", next = "oldtown_stockade" } },
+    _none = { { id = "tp_none", text = "Couldn't say. Ask at the barracks; somebody there always thinks they know." } },
+  },
+}
+
+-- Darian Singh: fireworks and arcane gear vendor at the Pyrotechnics shop, Mage Quarter.
+P:NPC {
+  key = "darian_singh", id = TODO_NPC("Darian Singh"), name = "Darian Singh", title = "Fireworks Vendor",
+  bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "cheerful", "chatty" }, values = { "craft", "trade" },
+  notices = { "arcane", "explosive" },
+
+  impression = {
+    first = "Darian Singh sells fireworks and arcane goods in the Mage Quarter, smells faintly of saltpetre, and lights up talking about rockets the way his rockets light up the sky.",
+    third = "{name} met Darian Singh, the cheerful fireworks seller of Stormwind's Mage Quarter.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Welcome, welcome! Mind the red crate, please; it's not dangerous, but it's sensitive." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more, are you? I knew it. Nobody buys just one rocket." },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! Please don't touch anything until we've discussed it, and please do tell me afterwards what you'd have improved." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Night already? Perfect weather for my wares, if you've a roof and a good excuse." },
+  },
+
+  notice = {
+    { id = "n_mage", cat = "arcane", when = { class = "MAGE" }, place = "after",
+      text = "Your fingertips are singed at the ends, {class}, which means you've been practising fire. My fireworks are tame by comparison, but they're much prettier." },
+    { id = "n_engineer", cat = "explosive", when = { profession = { name = "Engineering", min = 75 } }, place = "before",
+      text = "You've black powder under your nails, friend, and I'd know it anywhere. You're an engineer, aren't you? Then you'll understand my prices." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Darian Singh, and I sell only the finest arcane gear and fireworks, made by the crafters and mages here in the city of Stormwind. Since the fall of Dalaran it's been hard work keeping these shelves full, but I manage." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "A mage! I sell a few things for your trade as well as for festivals, though I'll warn you now that Archmage Malin's students have already bought all the good candles." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I show you?" },
+        { id = "h_again2", text = "Anything more? I love to talk shop." },
+        { id = "h_again3", text = "Go on, I'm listening, and nothing's lit." },
+      },
+      choices = {
+        { text = "Tell me about the fireworks.", next = "fireworks" },
+        { text = "Why has trade been hard since Dalaran fell?", next = "dalaran" },
+        { text = "Who makes your goods now?", next = "lucan" },
+        { text = "When do people buy fireworks?", next = "festivals" },
+        { text = "Don't your neighbours mind the bangs?", next = "neighbors" },
+        { text = "Can a mage use anything you sell?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I could improve these rockets, you know.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "I make my own explosives.", next = "xengineer", when = { profession = { name = "Engineering", min = 1 } } },
+        { text = "I lived in Dalaran before it fell.", next = "xdalaran", when = { origin = "human_dalaran_stray" } },
+        { text = "Dwarves invented black powder, you know.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Good day.", next = "END" },
+      },
+    },
+
+    fireworks = {
+      lines = {
+        { id = "f_default", text = "Rockets in red, blue and green, and a cluster or two for the grand occasions, each one packed by hand and blessed by nobody, because the priests won't come near the shop. A good rocket goes up quiet and comes down loud, and leaves everyone gasping at once." },
+      },
+      choices = {
+        { text = "How are they made?", next = "fireworks_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fireworks_how = {
+      lines = {
+        { id = "fh_default", text = "Powder, paper, a little alchemy for the colours and a pinch of arcane dust to make the shape hold, which is the secret I'll take to my grave. The gnomes do it with gears, and the dwarves do it with too much powder, and I do it with care." },
+      },
+      choices = {
+        { text = "Selling explosives in a crowded city is reckless.", next = "fireworks_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fireworks_stance = {
+      big = true,
+      lines = {
+        { id = "fs_default", text = "Reckless? I've been doing this for twenty years and I've only set fire to the awning twice. People need something to look up at, friend, after all the war and plague, and I think a little danger is worth a lot of wonder." },
+      },
+      choices = {
+        { text = "It's a risk the city shouldn't take.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. People need some wonder.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dalaran = {
+      lines = {
+        { id = "d_default", text = "Dalaran's workshops made half the arcane goods in the Alliance, and the elves of Quel'Thalas made the rest. Then the Scourge came, and Archimonde knocked Dalaran down, and Quel'Thalas burned, and my suppliers went with them." },
+      },
+      choices = {
+        { text = "What happened to your old suppliers?", next = "dalaran_supply" },
+        { text = "Quel'Thalas is gone?", next = "quel" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dalaran_supply = {
+      lines = {
+        { id = "ds_default", text = "Dead, or scattered, or so busy rebuilding they've no time for fireworks, and I don't blame them. I had a man in Dalaran who could make a rocket write your name in the sky, and I've had no letter from him since the summer it fell." },
+      },
+      choices = {
+        { text = "I'm sorry. Perhaps he got out.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quel = {
+      lines = {
+        { id = "q_default", text = "So they say; the Scourge went through it on their way to Dalaran, and the Sunwell with it, though I'm no scholar of such things. The few elves you see in the city now don't talk about it, and I've learned not to ask." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    lucan = {
+      lines = {
+        { id = "l_default", text = "Lucan Cordell and some of our other tradesmen have been doing a fine job of filling my orders, I'm happy to say. Lucan does the enchanted things, the alchemists in the Quarter mix my colours, and I pack the rockets myself." },
+      },
+      choices = {
+        { text = "Is Lucan as good as your Dalaran man?", next = "lucan_view" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lucan_view = {
+      lines = {
+        { id = "lv_default", text = "Not yet, but he's young and careful, which is better than old and brilliant in my trade. Give him ten years and he'll make a rocket write your name, and in the meantime he can make one spell it nearly right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    festivals = {
+      lines = {
+        { id = "fe_default", text = "At midsummer when the fires burn, at the new year when everyone counts down, and whenever a lord marries or a hero comes home. The rest of the year I sell them to apprentices who want to impress somebody and to children who want to frighten their mothers." },
+      },
+      choices = {
+        { text = "Do you work the festivals yourself?", next = "festivals_lillian" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    festivals_lillian = {
+      lines = {
+        { id = "fl_default", text = "My daughter Lillian does, now, and she's better at it than I ever was, with a louder voice and steadier hands. She'll tell you we're the best firework makers Stormwind has ever seen, and she's only half exaggerating." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    neighbors = {
+      lines = {
+        { id = "n_default", text = "The mages blow up far more than I do, believe me, and they don't even make it pretty. The only one who complains is the old gentleman across the street, and he complains about the birds, too." },
+      },
+      choices = {
+        { text = "Some people just want a quiet life.", next = "neighbors_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbors_stance = {
+      lines = {
+        { id = "ns_default", text = "They do, and they chose to live in the Mage Quarter, which was their first mistake. I test my rockets out past the city gates now, out of respect, and I only test the small ones in the yard." },
+      },
+      choices = {
+        { text = "That's fair. A city has to keep its peace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Test them wherever you like. Life should be loud.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xmage = {
+      lines = {
+        { id = "xm_default", text = "A few things, yes, though you'll find better from the Quarter's trainers and less fun. I'll say this, {class}: nothing teaches control of fire like packing a rocket, so come and try it if you ever get bored of fireballs." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "I don't doubt it, but every gnome who says so improves them until they go sideways. Bring me a design, written down, and I'll test it far from anything I love." },
+      },
+      choices = {
+        { text = "Sideways is still a direction.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xengineer = {
+      lines = {
+        { id = "xe_default", text = "Then you'll know how fine a line it is between a celebration and a crater. Engineers buy my rockets to take apart, and I've come to take it as flattery." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdalaran = {
+      lines = {
+        { id = "xd_default", text = "Then you'll have seen the sky over the Violet Citadel on the festival nights, and you'll know what I'm trying to do with my little rockets. Tell me, did you ever see a shop on the north side, with a green door?" },
+      },
+      choices = {
+        { text = "I did. It burned with the rest.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I don't remember. I left in a hurry.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xw_default", text = "So every dwarf tells me, and I've never once won the argument, so I've stopped having it. I'll say only that your powder's for blowing up mountains, and mine's for making people smile." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Twenty years of rockets and only two awnings lost. I call that a career.", next = "fireworks" } },
+    trade = { { id = "tp_tr", text = "Fireworks and arcane gear, made right here in Stormwind since Dalaran fell.", next = "dalaran" } },
+    _none = { { id = "tp_none", text = "I haven't the faintest idea, friend, but I could set off a rocket while you think about it." } },
+  },
+}
+
+-- Major Mattingly: veteran of the Stormwind Army in the Valley of Heroes; hangs Onyxia's head.
+P:NPC {
+  key = "major_mattingly", id = TODO_NPC("Major Mattingly"), name = "Major Mattingly",
+  bible = "bibles/stormwind_more.md", role = "soldier", tier = "quest",
+  communities = { "stormwind" }, temper = { "steady", "gruff" }, values = { "loyal", "dutiful" },
+  notices = { "soldier", "dragon" },
+
+  impression = {
+    first = "Major Mattingly stands in the Valley of Heroes with his longsword and a face lined by long service, and he watches the gate as if the Horde might come over it again before supper.",
+    third = "{name} met Major Mattingly, a veteran officer of the Stormwind Army who keeps watch in the Valley of Heroes.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Move along, citizen, unless you've business with the army. The Valley's for heroes and for those of us who guard them." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Still in one piece, I see, which is more than most who pass through this gate can say." },
+    { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "Stand easy, soldier. Or don't; I like a fighter who keeps their guard up." },
+    { id = "g_onyxia", tags = { "news" }, when = { questDone = ONY_VICTORY }, text = "There's the one who brought down the Black Dragon! Every time I look up at that gate, I think of you." },
+    { id = "g_masq", when = { questDone = MASQUERADE, ["not"] = { questDone = ONY_VICTORY } }, text = "I heard what happened in the throne room. Light help us, she sat beside the king's own son, and none of us saw it." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Your name's been mentioned at the barracks, and favourably. Don't let it go to your head." },
+  },
+
+  notice = {
+    { id = "n_guard", cat = "soldier", when = { origin = { "human_city_guard", "dwarf_military_ward" } }, place = "after",
+      text = "You stand like you've drilled on Stormwind's cobbles. Who was your sergeant? No, don't tell me; I'll only feel sorry for you." },
+    { id = "n_onyxia", cat = "dragon", when = { cleared = "Onyxia's Lair", faction = "Alliance" }, place = "before",
+      text = "You've the look of someone who's stood in a dragon's breath and walked out again. There's a scorch on your armour I'd know anywhere now." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Major Mattingly, Stormwind Army. I've stood guard on this valley since the city was rebuilt, and I'll stand here until they carry me out of it, which won't be soon if I've any say in it." },
+        { id = "h_low", when = { maxLevel = 20 }, text = "Major Mattingly, and you're young to be wandering the Valley of Heroes. Read the statues, recruit, and remember that every one of those men and women started out just as green as you." },
+        { id = "h_onyxia", tags = { "news" }, when = { questDone = ONY_VICTORY }, text = "Citizens and allies of Stormwind, I told them, on this day history has been made. I said it from the gate with your trophy over my head, and I've never been prouder to wear this uniform." },
+        { id = "h_masq", tags = { "news" }, when = { questDone = MASQUERADE, ["not"] = { questDone = ONY_VICTORY } }, text = "Lady Prestor, a dragon, in our own Keep, and she very nearly had the Highlord fooled. If you've any part in hunting her down, soldier, you'll have every blade in this valley behind you." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, soldier?" },
+        { id = "h_again2", text = "Go on. The gate's not going anywhere." },
+        { id = "h_again3", text = "Speak up. I've had a lot of cannon fire in my ears." },
+      },
+      choices = {
+        { text = "What exactly do you guard here?", next = "post" },
+        { text = "Who are the heroes in the statues?", next = "valley" },
+        { text = "What news of King Varian?", next = "king" },
+        { text = "You fought in the Second War?", next = "war" },
+        { text = "What threatens Stormwind most, now?", next = "dragons" },
+        { text = "About Onyxia's head, Major.", next = "head", when = { questDone = ONY_VICTORY } },
+        { text = "I was there when Prestor was unmasked.", next = "xmasq", when = { questDone = MASQUERADE } },
+        { text = "I served in the City Watch, Major.", next = "xguard", when = { origin = { "human_city_guard", "dwarf_military_ward" } } },
+        { text = "Any advice for a warrior, from an old soldier?", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "Ironforge's soldiers would hold this gate too.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Do you have anything for me?", next = "BUSINESS", when = { questDone = ONY_VICTORY } },
+        { text = "Carry on, Major.", next = "END" },
+      },
+    },
+
+    post = {
+      lines = {
+        { id = "p_default", text = "The main gate of Stormwind, the bridge, and the Valley between them, which is the first thing every visitor sees and the last thing every soldier sees on the way out. If it's going to come into this city with a sword, it has to come past me first." },
+      },
+      choices = {
+        { text = "Has anything come through, lately?", next = "post_gate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post_gate = {
+      lines = {
+        { id = "pg_default", text = "Refugees from Lordaeron, Westfall farmers with nothing left, and adventurers like you, more every week. The army's stretched thin, and some days I wonder whether we're guarding the city or just counting who comes in." },
+      },
+      choices = {
+        { text = "The gate should be closed to refugees. We can't feed them.", next = "post_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post_stance = {
+      big = true,
+      lines = {
+        { id = "ps_default", text = "I've heard nobles say that, and I've heard it in the barracks too, from men with families to feed. My orders are to keep the gate open to anyone who comes in peace, and I'd follow those orders even if I weren't told to." },
+      },
+      choices = {
+        { text = "Good. Stormwind should shelter those who need it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy won't feed a city. Close the gate.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    valley = {
+      lines = {
+        { id = "v_default", text = "The heroes of the Second War, who went through the Dark Portal after the Horde and never came back: Turalyon, Alleria, Khadgar, Danath and Kurdran. We put them in stone so we'd never forget what they gave up for us.",
+          fx = { learn = { "valley_of_heroes" } } },
+      },
+      choices = {
+        { text = "Did you know any of them?", next = "valley_statues" },
+        { text = "Are they dead, then?", next = "valley_sons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley_statues = {
+      lines = {
+        { id = "vs_default", text = "I served under Danath Trollbane once, for a season, when I was a corporal with more nerve than sense. He was the hardest man I ever met, and he'd share his last ration with a recruit." },
+      },
+      choices = {
+        { text = "Are they dead?", next = "valley_sons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valley_sons = {
+      lines = {
+        { id = "vn_default", text = "Nobody knows, and that's the worst of it. The Portal closed behind them and that was that, and some say they gave their lives to close it and some say they're still fighting on the other side." },
+      },
+      choices = {
+        { text = "They're still fighting. I believe it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They're gone. Hope won't bring them back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    king = {
+      lines = {
+        { id = "k_default", text = "None that I'm allowed to share, and none I'd share if I had it. The king went on a diplomatic voyage and didn't come back, and the young prince sits the throne with Highlord Bolvar beside him, and the army does as it's told." },
+      },
+      choices = {
+        { text = "And Lady Prestor? She's at court a great deal.", next = "king_prestor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    king_prestor = {
+      lines = {
+        { id = "kp_default", text = "She is, and she's a noblewoman of Alterac, and a soldier doesn't speak against his betters. I'll say only that the army's budget has been short since she started advising on it, and that the Highlord listens to her more than I'd like." },
+        { id = "kp_masq", when = { questDone = MASQUERADE }, text = "Prestor was a dragon, as you well know, sitting at the boy's side all that time. I said it was odd that the budget was always short, and I never once thought to say it louder." },
+      },
+      choices = {
+        { text = "The army should speak up, whatever their rank.", next = "king_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    king_stance = {
+      lines = {
+        { id = "ks_default", text = "Easy to say for someone who doesn't answer to a court. A major who speaks against the regency's advisers ends up a sergeant in Darkshire, and then who guards the gate?" },
+      },
+      choices = {
+        { text = "A soldier follows orders. That's how it should be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some orders deserve to be questioned, Major.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    war = {
+      lines = {
+        { id = "w_default", text = "I did, from the fields of Hillsbrad to the gates of Blackrock, and I was at the Burning of Stormwind in the First War as a boy. That's two wars, and I'd rather not see a third, though I expect I will." },
+      },
+      choices = {
+        { text = "What do you remember of the Burning?", next = "war_scar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_scar = {
+      lines = {
+        { id = "wc_default", text = "Smoke, mostly, and my mother's hand pulling me down to the docks, and the orcs on the walls with torches. When Lothar led us north to Lordaeron I swore I'd come home with a sword, and I did." },
+      },
+      choices = {
+        { text = "Now the orcs live in a land of their own.", next = "war_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_stance = {
+      lines = {
+        { id = "wz_default", text = "Kalimdor, they tell me, under a new warchief, and some at court say we should leave them be. I've seen too much fire to trust a peace with orcs, but I'll confess they've not come over this gate since the internment camps emptied." },
+      },
+      choices = {
+        { text = "Leave them be, unless they strike first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strike them first, while they're still weak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dragons = {
+      lines = {
+        { id = "d_default", text = "The Blackrock orcs and the Black Dragonflight, holed up in Blackrock Mountain with the Dark Irons beneath them. The army can't spare the men to root them out, so they'll keep raiding Redridge and the Burning Steppes until someone braver does.",
+          fx = { learn = { "blackrock" } } },
+      },
+      choices = {
+        { text = "Who leads them?", next = "dragons_spire" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons_spire = {
+      lines = {
+        { id = "ds_default", text = "Rend Blackhand claims to be warchief of the orcs in the spire, and there's a dragon above him called Nefarian, if the reports are true. And Onyxia, who's said to be the Black Dragon's daughter, in her lair in the marshes south of Theramore." },
+        { id = "ds_done", when = { questDone = ONY_VICTORY }, text = "Rend and his orcs, and Nefarian above them, who'll be in a fine temper now his sister's head is on our gate. If you go after him, soldier, go with the best fighters this kingdom has." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    head = {
+      lines = {
+        { id = "hd_default", text = "Hung at the city gate, where every citizen walking in can see it, and every spy can carry the news back to her kin. I've had a dozen children ask me if it's real, and I've told every one that a hero brought it home." },
+      },
+      choices = {
+        { text = "What did the city do when you announced it?", next = "head_hang" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    head_hang = {
+      lines = {
+        { id = "hh_default", text = "Cheered, wept and drank the Pig and Whistle dry, and I saw the Highlord himself smile, which I've not seen since the king went missing. For a day or two the whole city remembered why it was worth defending." },
+      },
+      choices = {
+        { text = "It should stay there forever, as a warning.", next = "head_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    head_stance = {
+      lines = {
+        { id = "hs_default", text = "It'll stay as long as the Highlord orders, and then it'll rot, as heads do. The question is whether we hang trophies to warn our enemies or to comfort ourselves, and I've never been sure." },
+      },
+      choices = {
+        { text = "To warn them. Let the dragons see it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Take it down soon. Victory needs no gloating.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xmasq = {
+      lines = {
+        { id = "xm_default", text = "Then you saw more than I ever will, and I envy you it. Did she look surprised, at the end, when she knew she'd been found out?" },
+      },
+      choices = {
+        { text = "Not surprised. Angry, and very old.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'd rather not speak of it, Major.", next = "BACK" },
+      },
+    },
+    xguard = {
+      lines = {
+        { id = "xg_default", text = "Then you know the long nights and the short pay as well as I do. The Watch keeps the streets and the army keeps the walls, and both of us keep the kingdom standing, whatever the nobles say." },
+      },
+      choices = {
+        { text = "I miss it sometimes. The order of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't. The road's more honest than the Watch.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xwarrior = {
+      lines = {
+        { id = "xw_default", text = "Keep your feet under you, your shield up and your mouth shut until the fighting's done. And never charge a line you haven't counted, because the last man you didn't count is the one who kills you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "They would, and they did, in the Second War, when your mountaineers stood beside us at the Thandol Span. If Ironforge ever needs a gate held, there's a major in Stormwind who'd hold it gladly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Two wars, one gate, and thirty years of standing in the same place.", next = "war" } },
+    advice = { { id = "tp_ad", text = "Count the enemy before you charge. Then count again." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "It's my post and my pride, and every statue in it is someone who did more than I ever will.", next = "valley" } },
+    _none = { { id = "tp_none", text = "Not my business, soldier. Ask at the Keep, and good luck getting an answer." } },
+  },
+}
+
+-- Field Marshal Afrasiabi: Valley of Heroes; closes the Lord of Blackrock; loves plans and steam-engine siege history.
+P:NPC {
+  key = "field_marshal_afrasiabi", id = TODO_NPC("Field Marshal Afrasiabi"), name = "Field Marshal Afrasiabi",
+  bible = "bibles/stormwind_more.md", role = "soldier", tier = "quest",
+  communities = { "stormwind" }, temper = { "proud", "precise" }, values = { "order", "dutiful" },
+  notices = { "soldier", "dragon", "siege" },
+
+  impression = {
+    first = "Field Marshal Afrasiabi stands under an arch in the Valley of Heroes with a sheaf of plans under his arm, and he warned me twice that he does not care for plans that go off track. Then he told me about steam-engine siege tactics for a quarter of an hour.",
+    third = "{name} met Field Marshal Afrasiabi, a precise and talkative officer of the Stormwind Army in the Valley of Heroes.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Ah, a visitor. Do you have an appointment? No? Well, I'll make an exception, but write it down for next time." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, exactly as I'd anticipated. I do like it when things go according to plan." },
+    { id = "g_nef", tags = { "news" }, when = { questDone = NEF }, text = "The slayer of Nefarian! Stand there, if you please, so the recruits can see what a properly executed operation looks like." },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! Splendid. Have you a moment to discuss the steam tank? I've several questions and a diagram." },
+  },
+
+  notice = {
+    { id = "n_nef", cat = "dragon", when = { cleared = "Blackwing Lair", faction = "Alliance" }, place = "before",
+      text = "You've been to the top of Blackrock Spire and come down again, I can tell; nobody stands quite that straight unless they've survived something dreadful. Was it as badly fortified as my reports suggest?" },
+    { id = "n_siege", cat = "siege", when = { profession = { name = "Engineering", min = 150 } }, place = "after",
+      text = "You've an engineer's hands, I see, all burns and calluses. We simply must discuss boiler pressures some time, at length." },
+    { id = "n_soldier", cat = "soldier", when = { pvpRank = 6 }, place = "after",
+      text = "You wear a knight's rank from the Champions' Hall, I see. It's good to see the battlegrounds producing officers and not only scars." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Field Marshal Afrasiabi, Stormwind Army. I plan campaigns, review fortifications and, when I can find a willing ear, explain the fascinating history of steam-engine siege tactics, which nobody ever lets me finish." },
+        { id = "h_low", when = { maxLevel = 40 }, text = "Field Marshal Afrasiabi. You're a long way from the sort of campaign I plan, but I admire anyone who walks into the Valley of Heroes with that much confidence. Have you thought of a career in the army?" },
+        { id = "h_nef", tags = { "news" }, when = { questDone = NEF }, text = "Citizens of the Alliance, I told them from the Valley, the Lord of Blackrock is slain! I'd rehearsed that for six years in case the day came, and you gave me the chance to say it, so thank you." },
+        { id = "h_nef_before", when = { cleared = "Onyxia's Lair", faction = "Alliance", ["not"] = { questDone = NEF } }, text = "You've slain Onyxia, and the Black Dragon's son still sits in his lair above Blackrock Spire. If you mean to finish the family, I have reports on Blackwing Lair, and I'd be delighted to share them." },
+      },
+      again = {
+        { id = "h_again", text = "Next item on the agenda?" },
+        { id = "h_again2", text = "Anything further? I've a whole afternoon blocked out." },
+        { id = "h_again3", text = "Go on, please. I'm taking notes." },
+      },
+      choices = {
+        { text = "You don't like plans going off track?", next = "plans" },
+        { text = "Steam-engine siege tactics? Tell me.", next = "siege" },
+        { text = "What do we know of Blackrock Spire?", next = "spire" },
+        { text = "How is the Stormwind Army faring?", next = "army" },
+        { text = "Nefarian is dead, Field Marshal.", next = "nefdone", when = { questDone = NEF } },
+        { text = "Onyxia was Nefarian's sister. Did you know?", next = "xmasq", when = { questDone = MASQUERADE } },
+        { text = "I've ridden in a steam tank, actually.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "The Dark Irons hold the mountain beneath the spire.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "What do you think of the battlegrounds?", next = "xbattle", when = { pvpRank = 1 } },
+        { text = "Do you have something for me?", next = "BUSINESS", when = { questDone = NEF } },
+        { text = "I must be going.", next = "END" },
+      },
+    },
+
+    plans = {
+      lines = {
+        { id = "p_default", text = "Not in the least, no. A plan is a promise you make to your soldiers that you've thought about their lives before you spent them, and when it goes off track it's usually because someone didn't read it." },
+      },
+      choices = {
+        { text = "What happened when one did go off track?", next = "plans_offtrack" },
+        { text = "What are you planning at the moment?", next = "plans_now" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plans_offtrack = {
+      lines = {
+        { id = "po_default", text = "Grim Batol, in the Second War, when a gnomish battery arrived on the wrong side of a river because someone had copied the map backwards. We lost a day, a bridge and the battery, and I've personally checked every map since." },
+      },
+      choices = {
+        { text = "War never goes to plan. You have to adapt.", next = "plans_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plans_stance = {
+      big = true,
+      lines = {
+        { id = "ps_default", text = "Adapting is what you do when your plan was bad, and I've known commanders who made a career of it. I'll grant you that the enemy rarely reads my plans, which is inconsiderate of them." },
+      },
+      choices = {
+        { text = "A good plan and discipline win wars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Instinct wins wars. Plans are for clerks.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    plans_now = {
+      lines = {
+        { id = "pn_default", text = "Seven things, in order of urgency, beginning with Blackrock and the Westfall garrison and ending with a better drainage scheme for the barracks, and three I'm not permitted to discuss in the open air. The drainage is going best, sadly." },
+        { id = "pn_nef", when = { questDone = NEF }, text = "The aftermath of your work at Blackrock, mostly, and a better drainage scheme for the barracks. I'll confess the drainage is the one I'm enjoying." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    siege = {
+      lines = {
+        { id = "s_default", text = "Oh, splendid, nobody ever asks! In the Second War the gnomes of Gnomeregan gave the Alliance its first steam-driven engines, and it changed how we besieged a fortress forever. Before that, it was rams and ladders and a great many funerals." },
+      },
+      choices = {
+        { text = "How did the steam engines change things?", next = "siege_history" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    siege_history = {
+      lines = {
+        { id = "sh_default", text = "Weight, mostly. A steam engine could carry armour no horse could and push a ram no team of men could, and it didn't panic when the orcs started screaming. The trouble was the boilers, which had a tendency to, well, I'll come to the boilers." },
+      },
+      choices = {
+        { text = "What about the boilers?", next = "siege_more" },
+        { text = "Fascinating. Something else, perhaps?", next = "BACK" },
+      },
+    },
+    siege_more = {
+      lines = {
+        { id = "sm_default", text = "There's a great deal about the boilers, and I'll spare you the pressures and the rivet counts, which is a sacrifice on my part. The short of it is that a gnomish engine wins a siege beautifully, provided you stand well behind it." },
+      },
+      choices = {
+        { text = "Machines will win the next war, not soldiers.", next = "siege_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    siege_stance = {
+      lines = {
+        { id = "ss_default", text = "Machines will help, but a machine has no courage, and it doesn't hold a line when the boiler goes cold. You need both, and the officer who forgets either one ends up with a very expensive pile of scrap." },
+      },
+      choices = {
+        { text = "Then trust the soldiers first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then build better machines and fewer graves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    spire = {
+      lines = {
+        { id = "sp_default", text = "A fortress on top of a mountain on top of another fortress, which is the worst possible siege a man could plan. The Dark Irons hold the depths, the Blackrock orcs hold the spire, and the Black Dragonflight holds whatever's above that.",
+          fx = { learn = { "blackrock" } } },
+      },
+      choices = {
+        { text = "Who leads the orcs up there?", next = "spire_rend" },
+        { text = "And the dragons?", next = "spire_nef" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spire_rend = {
+      lines = {
+        { id = "sr_default", text = "Rend Blackhand, who calls himself Warchief of the Horde and has never been forgiven for it by the other orcs. He's cruel, he's vain and he's kept in power by something larger than him, which is the part that worries me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spire_nef = {
+      lines = {
+        { id = "sn_default", text = "Nefarian, son of Deathwing, if my reports are true, and they're usually true by the third copy. He's making something up there, the scouts say, dragons of every colour bound together, and that is not a plan I would ever like to see succeed." },
+      },
+      choices = {
+        { text = "Then the army should march on him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then send a small band to kill him quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    army = {
+      lines = {
+        { id = "a_default", text = "Stretched, if I'm honest, and I always am in my reports. We've soldiers in Westfall, in Redridge, in Duskwood, in the Wetlands and at Nethergarde, and not one of those garrisons has what it asked for." },
+      },
+      choices = {
+        { text = "Why so thin?", next = "army_thin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    army_thin = {
+      lines = {
+        { id = "at_default", text = "The king is missing, the treasury is careful, and the House of Nobles argues over every copper while the garrisons go hungry. Adventurers fill the gaps, and I'll admit I'm grateful, though it does play havoc with my planning." },
+        { id = "at_masq", when = { questDone = MASQUERADE }, text = "Partly because a dragon sat at court and whispered against every budget we sent up, as it turns out. I've reread three years of rejected requests in a new light, and I was not pleased." },
+      },
+      choices = {
+        { text = "Adventurers should be under the army's command.", next = "army_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    army_stance = {
+      lines = {
+        { id = "as_default", text = "I've proposed it four times, with diagrams, and the Highlord says free folk fight harder than conscripts. He may be right, though it makes my maps very untidy." },
+      },
+      choices = {
+        { text = "The Highlord's right. Leave adventurers free.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. Untidy forces lose battles.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    nefdone = {
+      lines = {
+        { id = "nd_default", text = "Slain, and his head on our gate beside his sister's, which I'd not have dared write into any plan. You'll forgive me if I read your account three times; I wanted to be sure I wasn't dreaming it." },
+      },
+      choices = {
+        { text = "What happens to Blackrock now?", next = "nefdone_hang" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nefdone_hang = {
+      lines = {
+        { id = "nh_default", text = "The orcs will squabble, the Dark Irons will dig deeper, and Redridge will have a quiet summer for the first time in years. I've already drafted three plans for the aftermath, and none of them will survive contact with the House of Nobles." },
+      },
+      choices = {
+        { text = "Then strike the mountain now, while they're weak.", next = "nefdone_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nefdone_stance = {
+      lines = {
+        { id = "ns_default", text = "That is the fourth plan, and the Highlord says the army can't spare the soldiers. You've given us the chance, and I hate to see a chance wasted, but I'll not send men up a mountain without enough of them." },
+      },
+      choices = {
+        { text = "Wait, then. A careless strike wastes the victory.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Strike anyway. Show them no rest and no mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xmasq = {
+      lines = {
+        { id = "xm_default", text = "I knew there was a pattern in the rejected requests, but I'd never have guessed a dragon. Two children of Deathwing, one in the court and one in the mountain; it was a better plan than any of mine, and I'm told I should be ashamed to admire it." },
+      },
+      choices = {
+        { text = "You should be. They nearly destroyed us.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Admire it. Then learn from it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+      },
+    },
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "You have? Inside it, while it was running? Tell me everything, starting with the boiler pressure and ending with whether you still have both eyebrows." },
+      },
+      choices = {
+        { text = "One eyebrow. The left one.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Perhaps another time, Field Marshal.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "They do, and every map I have of Blackrock Depths came from an Ironforge scout who didn't come back the second time. I'd value your people's advice on that mountain above anyone's." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbattle = {
+      lines = {
+        { id = "xb_default", text = "Alterac, Warsong and Arathi are teaching a generation of soldiers to fight the Horde, and that's useful. They're also teaching them to forget the Scourge and the dragons, which is less so, and I've written a memorandum on it." },
+      },
+      choices = {
+        { text = "The Horde is the real enemy. They're right to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You're right. The Scourge matters more.", next = "BACK", fx = { align = { honor = 1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A career officer with a fondness for maps, plans and steam. The rest is in my file, which is very well organised." , next = "plans" } },
+    advice = { { id = "tp_ad", text = "Read the plan. Then read it again. Then stand well behind the steam engine." } },
+    blackrock = { { id = "tp_blackrock", text = "A fortress on a fortress, with dragons on top, and I have a folder on it whose folders have folders.", next = "spire" } },
+    _none = { { id = "tp_none", text = "That's not in any report I've seen, and I've seen most of them. Put it in writing and I'll look into it." } },
+  },
+}
+
+-- Lieutenant Karter: war mount quartermaster outside the Champions' Hall, Old Town.
+P:NPC {
+  key = "lieutenant_karter", id = TODO_NPC("Lieutenant Karter"), name = "Lieutenant Karter", title = "War Mount Quartermaster",
+  bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "brisk", "sharp" }, values = { "dutiful", "proud" },
+  notices = { "rank", "mount" },
+
+  impression = {
+    first = "Lieutenant Karter keeps the war mounts outside the Champions' Hall in Old Town and judges every rider by the rank on their collar before she looks at their face, which she admits is a bad habit and refuses to break.",
+    third = "{name} met Lieutenant Karter, who sells war mounts to the Alliance's highest-ranked soldiers outside Stormwind's Champions' Hall.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Champions' Hall is behind me, and the war mounts are beside me, and both are for officers. What can I do for you?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Let's see if that rank has moved since last time." },
+    { id = "g_commander", when = { pvpRank = 11 }, text = "Commander! Stand easy, sir; you've earned the right to choose your mount, and I've a beauty waiting." },
+    { id = "g_none", when = { pvpRank = false }, text = "No rank on you that I can see. The battlegrounds are calling, soldier, if you've the stomach for them." },
+  },
+
+  notice = {
+    { id = "n_rank", cat = "rank", when = { pvpRank = { min = 6, max = 10 } }, place = "after",
+      text = "You're closing on Commander, I can see it in the stripes. Keep at it; the mounts will still be here, and I'll make sure the best of them waits." },
+    { id = "n_mount", cat = "mount", when = { mounted = true }, place = "before",
+      text = "That's a fine animal you're on, but it's a parade horse, not a war mount. Ride it into Alterac and you'll see the difference by the second charge." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", text = "Lieutenant Karter, war mount quartermaster to the Alliance. I keep the finest battle-trained beasts in the kingdom for those who've earned a Commander's rank, and I keep them away from everyone else." },
+        { id = "h_commander", when = { pvpRank = 11 }, text = "A Commander of the Alliance, at my stall, and not before time. The steed, the ram, the battlestrider or the tiger, sir, and don't let anyone tell you the choice doesn't matter." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, soldier?" },
+        { id = "h_again2", text = "Go on. I'm only grooming." },
+        { id = "h_again3", text = "Next question. Quickly, please." },
+      },
+      choices = {
+        { text = "What makes a war mount different?", next = "mounts" },
+        { text = "Where is the fighting, these days?", next = "fronts" },
+        { text = "Tell me about the Champions' Hall.", next = "hall" },
+        { text = "How does one earn rank?", next = "rank" },
+        { text = "I'm a Commander now. I'm ready.", next = "xcommander", when = { pvpRank = 11 } },
+        { text = "I've no rank. Is that a problem?", next = "xunranked", when = { pvpRank = false } },
+        { text = "Do you keep a war tiger for night elves?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "A war ram? For a dwarf?", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "A battlestrider? Gnomish engineering at its finest.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "I prefer my charger. The Light gave it to me.", next = "xpaladin", when = { class = "PALADIN", minLevel = 60 } },
+        { text = "Show me the mounts.", next = "BUSINESS" },
+        { text = "Good day, Lieutenant.", next = "END" },
+      },
+    },
+
+    mounts = {
+      lines = {
+        { id = "m_default", text = "Armour, training and temper. A war mount wears plate, doesn't flinch at fire or steel, and will go through a line of grunts rather than around it. Any farmer can sell you a horse, but only the Alliance can sell you one that's been to war." },
+      },
+      choices = {
+        { text = "What breeds do you keep?", next = "mounts_breeds" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mounts_breeds = {
+      lines = {
+        { id = "mb_default", text = "Black war steeds from the Stormwind stables, black war rams from Ironforge, battlestriders from the gnomes, and war tigers from Darnassus, each trained for the battlegrounds. They're bred and broken for one thing, and they're very good at it." },
+      },
+      choices = {
+        { text = "Breeding animals only for war is cruel.", next = "mounts_stance" },
+        { text = "Who looks after them?", next = "mounts_care" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mounts_stance = {
+      big = true,
+      lines = {
+        { id = "ms_default", text = "Is it crueller than sending soldiers on a horse that panics at the first fireball? I've seen what happens when they do, and I'd rather a beast that's ready than one that's terrified." },
+      },
+      choices = {
+        { text = "Fair. A ready beast saves lives on both sides.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Still cruel. War shouldn't be bred into anything.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    mounts_care = {
+      lines = {
+        { id = "mc_default", text = "I do, with two grooms and a farrier who drinks, and the tiger has a Sentinel who comes on her rest days to brush it. I was cavalry before I was a quartermaster, and I'd still rather muck out a stall than sign a requisition." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    fronts = {
+      lines = {
+        { id = "f_default", text = "Alterac Valley, where the Stormpike Guard fights the Frostwolf orcs; Warsong Gulch, where the Silverwing Sentinels fight over Ashenvale's timber; and Arathi Basin, where the League of Arathor fights for the old Stromgarde farms. The Horde's on all three, and it doesn't give ground easily." },
+      },
+      choices = {
+        { text = "Which front matters most?", next = "fronts_valley" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fronts_valley = {
+      lines = {
+        { id = "fv_default", text = "Alterac, if you ask me, because whoever holds it holds the road between Lordaeron and the south. The others are skirmishes for timber and grain, and the Horde would say the same thing about our skirmishes." },
+      },
+      choices = {
+        { text = "The Horde forces us to fight. They started this.", next = "fronts_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fronts_stance = {
+      lines = {
+        { id = "fs_default", text = "Some say they did and some say we did, and the Frostwolves will tell you they were there first. I sell war mounts, soldier; I don't settle quarrels between the Stormpikes and the orcs." },
+      },
+      choices = {
+        { text = "Then let's finish it. No quarter to the Horde.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "There might be peace, if anyone tried.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hall = {
+      lines = {
+        { id = "h2_default", text = "The Champions' Hall, where the Alliance honours those who've fought hardest against the Horde, and where the quartermasters keep their best gear. Sergeant Major Clate keeps the armour, and he's a dwarf, so don't argue prices with him." },
+      },
+      choices = {
+        { text = "Tell me about Clate.", next = "hall_clate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall_clate = {
+      lines = {
+        { id = "hc_default", text = "A good soldier and a terrible card player, and he'll measure you for armour as though you were going to a wedding. He keeps the officers' plate and the commanders' tabards, and he makes sure nobody wears what they haven't earned." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    rank = {
+      lines = {
+        { id = "r_default", text = "Honour, earned in battle against the Horde, and counted every week by clerks who've never held a sword. Private first, then Corporal, and so on up through the Knights to Commander and beyond, and every step is harder than the last." },
+      },
+      choices = {
+        { text = "Is it worth it, all that fighting for a title?", next = "rank_worth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rank_worth = {
+      lines = {
+        { id = "rw_default", text = "For a war mount, a seat in the Hall and the respect of every soldier in Stormwind, I'd say so. But I've seen good folk spend a year in the battlegrounds and come out of it with nothing but a rank and a temper." },
+      },
+      choices = {
+        { text = "Glory's worth the price. Rank means something.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A title's nothing. I fight for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xcommander = {
+      lines = {
+        { id = "xc_default", text = "So you are, sir, and it's been a pleasure watching the stripes come in. Take your pick, and ride it into Alterac first, so the Frostwolves know who they're dealing with." },
+      },
+      choices = {
+        { text = "I'll ride it there tomorrow.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xunranked = {
+      lines = {
+        { id = "xu_default", text = "Not a problem, only a fact. You can still look, and I'll even let you pat the ram, but you'll need to earn the rest in Alterac or Warsong or Arathi like everyone else." },
+      },
+      choices = {
+        { text = "Then I'll earn it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "I do, for the Sentinels' sake, and it was trained in Ashenvale before it came here. It doesn't like me, it likes your people, and I've stopped taking it personally." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd_default", text = "A black war ram, armoured from horn to hoof, and the most stubborn creature I've ever shod. You'll get on wonderfully." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "Finest is one word for it, and loudest is another. It never tires, never bolts and never eats, and it threw a cog into my lap last week, so I'll leave the maintenance to you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpaladin = {
+      lines = {
+        { id = "xp_default", text = "A paladin's charger is a fine beast, and I'll not say a word against a gift of the Light. But it's never been trained to charge a line of Frostwolf riders, and mine have." },
+      },
+      choices = {
+        { text = "The Light's charger answers to no one but me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair point. I'd ride whichever wins.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Cavalry first, then quartermaster, then this stall. I miss the cavalry, but the mounts here are better." } },
+    trade = { { id = "tp_tr", text = "War mounts for Commanders and above. Earn the rank and we'll talk.", next = "mounts" } },
+    _none = { { id = "tp_none", text = "Not my department, soldier. Ask a clerk; they've nothing else to do." } },
   },
 }
