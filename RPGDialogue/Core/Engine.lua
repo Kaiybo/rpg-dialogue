@@ -473,10 +473,12 @@ end
 -- A line's `minDisposition` (0.85.0) holds that answer back until they think well enough of you;
 -- its `maxDisposition` (0.90.0) holds it back unless they think that little of you (what comes
 -- out only in anger).
-local function dispFilter(disp)
+-- Cowed (0.90.0): someone who hates you and has just been frightened into talking skips
+-- `minDisposition`.
+local function dispFilter(disp, cowed)
   return function(line)
     local need = line.minDisposition
-    if type(need) == "number" and disp < need then return false, ("disposition %d < %d"):format(disp, need) end
+    if not cowed and type(need) == "number" and disp < need then return false, ("disposition %d < %d"):format(disp, need) end
     local cap = line.maxDisposition
     if type(cap) == "number" and disp > cap then return false, ("disposition %d > %d"):format(disp, cap) end
     return true
@@ -493,7 +495,7 @@ function Engine.PickTopic(info, topic, ctx, env)
   local def = info.def
   local tdef = ns.Data and ns.Data.topics and ns.Data.topics[topic]
   local standard = tdef and tdef.standard
-  local held = dispFilter(currentDisposition(ctx, env))
+  local held = dispFilter(currentDisposition(ctx, env), env and env.cowed)
   if def and def.topics then
     add(cands, def.topics[topic], Engine.BASE.own, "own", held)
     if #cands == 0 and not standard then add(cands, def.topics._none, 90, "own-brushoff") end
@@ -517,6 +519,19 @@ function Engine.PickTopic(info, topic, ctx, env)
     end
   end
   return Engine.Pick("topic", cands, ctx, env, { node = "topic:" .. topic })
+end
+
+-- What slips out in anger (0.90.0, topics with `blurts`): the NPC's own `blurts` lines, else
+-- whatever is going round their town or zone (any role).
+function Engine.PickBlurt(info, ctx, env)
+  local cands = {}
+  local def = info.def
+  if def then add(cands, def.blurts, Engine.BASE.own, "own") end
+  if #cands == 0 and ns.Rumors then
+    for _, set in ipairs(ns.Rumors.SetsFor(info, ctx, true)) do add(cands, set.lines, 300, "rumor:" .. set.id) end
+  end
+  if #cands == 0 then return nil end
+  return Engine.Pick("blurt", cands, ctx, env, { defaultOnce = false })
 end
 
 ---------------------------------------------------------------------------

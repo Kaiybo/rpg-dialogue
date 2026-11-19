@@ -595,6 +595,15 @@ P:Pool { id = "gated_innkeeper", role = "innkeeper", askOnly = true, topics = {
 -- ("spite" only at Hostile), answered by what's turning them against you (`grudge`).
 ---------------------------------------------------------------------------
 P:Generic { id = "grudges", topics = {
+  -- Advice given in spite: rude, and still true.
+  advice = {
+    { id = "adv_sour1", when = { disposition = { max = 34 } }, text = "Advice? Fine. Never fight two at once, never pull more than you can kill, and never come back here." },
+    { id = "adv_sour2", when = { disposition = { max = 34 } }, text = "Keep your bags full of bandages and your mouth shut. The second one you've plainly never managed." },
+    { id = "adv_sour3", when = { disposition = { max = 34 }, maxLevel = 20 }, text = "Train your skills every time you level, whelp. Then at least you'll die for a better reason." },
+    { id = "adv_sour4", when = { disposition = { max = 19 } }, text = "Want some advice? The guards here know your face. Stay out of trouble in this town, or they'll make trouble for you." },
+    { id = "adv_sour5", when = { disposition = { max = 34 }, faction = "Horde" }, text = "Watch the roads near Alliance towns. Their guards don't ask questions first, and nobody here would miss you." },
+    { id = "adv_sour6", when = { disposition = { max = 34 }, faction = "Alliance" }, text = "Stay clear of the Horde's towns. Their guards cut first and ask after, and I'd not lose sleep over it." },
+  },
   grievance = {
     { id = "gr1", text = "My problem? I don't like you, and I don't have to explain myself to you." },
     { id = "gr2", text = "You know full well what you did. Don't stand there pretending you don't." },

@@ -224,6 +224,14 @@ L.PERSUADE_FALLBACK_FAIL = "They don't take it well."
 L.DUI_PERSUADE = "Persuade... (Admire, Joke, Taunt, Intimidate)"
 L.DISP_WHY_PERSUADE = "How you've handled them lately"
 L.GATED_LINE = "I've nothing to say to you about that."
+L.COWED_NOTE = "%s is afraid of you now, and will answer whatever you ask."
+L.BLURT_LEADS = {
+  "And since you love trouble so much, here's some for free:",
+  "You want to be useful? Then go and get yourself killed over this:",
+  "Here, take this and choke on it:",
+  "Go and bother somebody else. Better yet, go and look into this:",
+  "I'll tell you one thing, if it gets you out of my sight:",
+}
 L.GATED_NOTE = "They won't talk about that until they're %s toward you."
 L.ASK_GATED = "won't say"
 L.ASK_GATED_TIP = "They won't talk about this: their disposition toward you is too low. They'd need to be %s."

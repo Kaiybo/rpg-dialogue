@@ -79,9 +79,10 @@ P:Topic { id = "rumors", name = "Latest rumors", category = "anyone", standard =
 P:Topic { id = "whereis", name = "Where is...?", category = "anyone", standard = true, order = 5, learned = "anyone" }
 -- Only when they dislike you (0.90.0): Cold or worse opens the first two, Hostile the third.
 -- Answers in persuade.lua, keyed on what's turning them against you (condition `grudge`).
-P:Topic { id = "grievance", name = "What's your problem with me?", category = "anyone", standard = true, order = 6, maxDisposition = 34, learned = "anyone who dislikes you" }
+-- `blurts`: in anger they let something useful slip after the answer (a chance, or always).
+P:Topic { id = "grievance", name = "What's your problem with me?", category = "anyone", standard = true, order = 6, maxDisposition = 34, blurts = 0.5, learned = "anyone who dislikes you" }
 P:Topic { id = "amends", name = "How do I make this right?", category = "anyone", standard = true, order = 7, maxDisposition = 34, learned = "anyone who dislikes you" }
-P:Topic { id = "spite", name = "Say what you really think of me.", category = "anyone", standard = true, order = 8, maxDisposition = 19, learned = "anyone who hates you" }
+P:Topic { id = "spite", name = "Say what you really think of me.", category = "anyone", standard = true, order = 8, maxDisposition = 19, blurts = true, learned = "anyone who hates you" }
 
 -- Stormwind (Stormwind pack 1.6.0)
 P:Topic { id = "si7", keywords = { "SI:7" }, name = "SI:7", category = "people", learned = "Mathias Shaw, Renzik or Elling Trias in Stormwind" }
