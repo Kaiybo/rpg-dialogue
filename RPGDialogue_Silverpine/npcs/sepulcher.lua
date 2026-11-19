@@ -667,7 +667,7 @@ P:NPC {
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Horde" },
           text = "Arugal is dead, and I didn't even get to watch it happen, which is a disappointment, frankly. I told the Kirin Tor he would come to this, and nobody listened, and now nobody needs to." },
         { id = "h_intentions", when = { any = { { questActive = TODO_QUEST("Dalar's Analysis") }, { questActive = TODO_QUEST("Dalaran's Intentions") } } },
-          text = "Dalaran's mages are in Ambermill. I want to know why. Bring me what they're carrying, and I'll read it better than they wrote it." },
+          text = "Dalaran's mages are in Ambermill, and I want to know why. Bring me what they're carrying, and I'll read it better than they wrote it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Kirin Tor never trusted shamans, and I always thought it was because they couldn't explain what you did, and they hated anything they couldn't explain." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Dalaran's libraries had three shelves on the Cenarion Circle and two of them were wrong, so I'd welcome a correction." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arugal's worgen are beasts only in shape, {class}, and I'd advise you not to treat them like ordinary game." },
@@ -684,6 +684,9 @@ P:NPC {
         { text = "You sound like a man whose warnings went unheard.", next = "warned" },
         { text = "I studied magic too. What would you teach me?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
         { text = "An orc mage, Archmage. Go on, laugh.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
+        { text = "Dalaran's mages at Ambermill. How do I duel them?", next = "m_duel", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A troll mage, taught without Dalaran's books.", next = "m_troll", when = { class = "MAGE", race = "Troll" } },
+        { text = "A tauren mage. Does that amuse you too?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
         { text = "I deal with the Nether, Archmage. Spare me the lecture.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'd guess mages never trust rogues, Archmage.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How should I hunt Arugal's worgen, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -710,8 +713,31 @@ P:NPC {
         { text = "What do they hide?", next = "mage_hide" },
       },
     },
+    m_duel = {
+      big = true,
+      lines = { { id = "mdu_default", text = "Counter them first and burn them second, because a Kirin Tor mage who finishes a spell is a mage who wins. They're taught to duel politely, in circles and by rules, and the Scourge taught all of us that rules are a luxury, so don't give them time to bow." } },
+      choices = {
+        { text = "Then I'll strike before they've finished bowing.", next = "BACK", reply = "Good. They'll call it dishonourable, and they'll be saying it from the ground.", fx = { align = { honor = -1 } } },
+        { text = "I'll give them a fair duel, mage to mage.", next = "BACK", reply = "Admirable and foolish. The ones at Ambermill won't return the courtesy, I promise you.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_troll = {
+      lines = { { id = "mtr_default", text = "Then you've proved the Kirin Tor wrong twice over, once by learning and once by learning without them. The council used to say trolls cast only by blood and bone, and I'd love to watch one of them meet you in a narrow corridor." } },
+      choices = {
+        { text = "Blood and bone work well too, Archmage.", next = "BACK", reply = "I don't doubt it, and I'd like a demonstration one day, somewhere far from my notes.", fx = { trait = { witty = 1 } } },
+        { text = "I'd rather prove it in a library than a corridor.", next = "BACK", reply = "A scholar! Then come back when you've read something, and we'll argue about it.", fx = { affinity = 1 } },
+      },
+    },
+    m_tauren = {
+      lines = { { id = "mta_default", text = "Amuse me? It delights me. Your people were hunting kodo on the plains while Dalaran wrote treatises on why the arcane was a human gift, and now a tauren walks into the Sepulcher with frost on your hands. Write a treatise of your own one day and send it to the Violet Citadel unsigned." } },
+      choices = {
+        { text = "Perhaps I will, Archmage.", next = "BACK", reply = "Do, and copy me in. I want to be there in spirit when they read it.", fx = { affinity = 1 } },
+        { text = "I'd rather send them frost than a treatise.", next = "BACK", reply = "Both, then, in that order. They'll read the treatise more carefully afterwards." },
+      },
+    },
     mage_hide = {
-      lines = { { id = "mh_default", text = "Their mistakes, chiefly. Arugal is the one you can see from here, howling in the woods. There are others in their records, and the Kirin Tor are very good at losing records." } },
+      lines = { { id = "mh_default", text = "Their mistakes, chiefly, and Arugal is only the one you can see from here, howling in the woods. There are others in their records, and the Kirin Tor are very good at losing records." } },
       choices = { { text = "Then I'll go looking for records.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
     orcmage = {
@@ -783,7 +809,7 @@ P:NPC {
     shadowfang = { { id = "tp_shadowfang", text = "Arugal was one of ours, a fine mage once, and the Kirin Tor let him summon the worgen to fight the Scourge. He lost his mind, and now he hides in Shadowfang Keep calling the wolves his children." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Council once, before he chose a different master. I remember him well, and I remember how many of us thought him merely eccentric." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken gave me a place when Dalaran wouldn't, and I serve the Dark Lady gladly. I'd serve her more gladly still if she let me burn Ambermill." } },
-    _none = { { id = "tp_none", text = "Beneath my notice, or above my current research. Either way, not today." } },
+    _none = { { id = "tp_none", text = "That's either beneath my notice or above my current research, and either way, not today." } },
   },
 }
 

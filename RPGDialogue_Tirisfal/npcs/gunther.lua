@@ -86,8 +86,35 @@ P:NPC {
         { text = "Who was Lillith Nefara?", next = "lillith", when = { questDone = TODO_QUEST("Proving Allegiance") } },
         { text = "I was Kirin Tor too, before I died.", next = "kirin", when = { class = "MAGE", race = "Scourge" } },
         { text = "Necromancy, then. Is that what you study?", next = "necro", when = { class = { "WARLOCK", "PRIEST" } } },
+        { text = "The towers teach fire and frost, and little else.", next = "m_towers", when = { class = "MAGE" } },
+        { text = "Teach me something the Kirin Tor never would.", next = "m_forbidden", when = { class = "MAGE", minLevel = 10 } },
+        { text = "I'm a living mage, and I didn't bring a torch.", next = "m_living", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
         { text = "What do you want from me?", next = "BUSINESS" },
         { text = "I'll leave you to your island.", next = "END" },
+      },
+    },
+    m_towers = {
+      lines = { { id = "mt_default", text = "Fire and frost and the polite parts of the arcane, I expect, with a lecture on why the rest is wicked. Did your teachers ever once mention that the line between life and death is only a line, and that somebody drew it?" } },
+      choices = {
+        { text = "A line drawn for good reason. I'll respect it.", next = "BACK", reply = "Bethor says the same, and he's the better man of us, so I'll not argue with you both.", fx = { align = { light = 1 } } },
+        { text = "Lines can be redrawn. I'd like to learn how.", next = "BACK", reply = "Careful. That's very nearly the sentence I said in a cellar, forty years ago, and look at my island.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_forbidden = {
+      big = true,
+      lines = { { id = "mf_default", text = "Nothing you'd thank me for, I suspect. I could show you how a dead man's hand remembers a spell after the mind has gone, but any Kirin Tor tutor who saw it would burn this island to the waterline, and they'd be half right." } },
+      choices = {
+        { text = "Then keep it. Some lessons should die with you.", next = "BACK", reply = "Spoken like a sensible mage. I'm rather relieved, if I'm honest, and a little disappointed.", fx = { align = { light = 1 } } },
+        { text = "Show me. Knowledge is never wicked, only its use.", next = "BACK", reply = "Ha! Come back when you've buried a friend, and ask me again. If you still want it then, we'll talk.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_living = {
+      lines = { { id = "ml_default", text = "You're the first breathing mage to set foot on this beach without a torch in years, and the Horde's alliance with the dead is still very new news to me. Tell me, does the Horde truly let the dead sit at its councils?" } },
+      choices = {
+        { text = "It does, though not everyone likes it.", next = "BACK", reply = "Then the world's grown stranger and kinder while I sulked on an island. I'd not have guessed either.", fx = { affinity = 1 } },
+        { text = "It needs your mages. Liking doesn't enter into it.", next = "BACK", reply = "Need is honest, at least. Dalaran never needed anyone, and look where that got them." },
       },
     },
 

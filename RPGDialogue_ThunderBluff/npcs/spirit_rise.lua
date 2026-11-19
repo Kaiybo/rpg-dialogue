@@ -399,7 +399,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Archmage Shymm, and I teach the arcane to those of the Horde with the wit to learn it. Magic burns the untrained, so if you're not a mage, kindly step back from the wards before something catches." },
-        { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren, down here among the books. Your people don't take up the arcane, which is wise of them, so please don't start in my classroom." },
+        { id = "h_tauren", when = { race = "Tauren", ["not"] = { class = "MAGE" } }, text = "A tauren, down here among the books. Your people don't take up the arcane, which is wise of them, so please don't start in my classroom." },
+        { id = "h_tauren_mage", when = { race = "Tauren", class = "MAGE" }, text = "A tauren who has taken up the arcane, against all the good sense of your elders. I am Archmage Shymm, and since you're here, you may as well be taught properly." },
       },
       again = { { id = "h_again", text = "Something more? Do be brief; even the dead tire of amateurs." } },
       choices = {
@@ -410,7 +411,72 @@ P:NPC {
         { text = "How do you get along with Thurston Xane?", next = "thurston" },
         { text = "What's the most common mistake you see?", next = "mistake", when = { class = "MAGE" } },
         { text = "Do you miss being alive?", next = "fk_miss", when = { race = "Scourge" } },
+        { text = "Tell me the road ahead, Archmage.", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm a tauren mage. Your classroom will have to cope.", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
+        { text = "I'm an orc mage. Am I a fool too?", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
         { text = "Farewell, Archmage.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = { { id = "mr_default", text = "Very well, the road, and I'll be brief about it, which is more than the road will be. Choose the stretch that worries you, and I'll tell you how most of my students failed on it." } },
+      again = { { id = "mr_again", text = "Another stretch? Go on, then; I've nothing better to do until the next amateur arrives." } },
+      choices = {
+        { text = "Polymorph. Can it ever go wrong?", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Ice Block and the frost school. Is it the dead's art?", next = "m_frost", when = { minLevel = 20 } },
+        { text = "Arcane Power. Is it worth the cost?", next = "m_ap", when = { minLevel = 40 } },
+        { text = "Portals. Should I carry anyone who asks?", next = "m_portal", when = { minLevel = 40 } },
+        { text = "Enough of the road, Archmage.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      lines = { { id = "mp_default", text = "It goes wrong when you forget it's there. A careless mage sheeps a man, turns his back, sets the whole room alight with the sheep in it, and then wonders why the sheep is suddenly very cross." } },
+      choices = {
+        { text = "Discipline, then. I'll remember every sheep.", next = "m_road", reply = "Good. Remembering is most of the art, and the rest is not panicking.", fx = { align = { order = 1 } } },
+        { text = "A cross sheep is a minor inconvenience.", next = "m_road", reply = "Until it stops being a sheep. Do try to keep up.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_frost = {
+      lines = {
+        { id = "mfr_default", text = "It suits us, I'll grant. The living freeze their own fingers learning it, while ours were cold already, so we learn faster and complain less, and a Forsaken in a block of ice is merely a Forsaken having a quiet moment." },
+        { id = "mfr_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "You'll freeze your fingers learning it, as the living always do. Persist, because the cold teaches discipline, and your kind tends to arrive here without much of it." },
+      },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_ap = {
+      big = true,
+      lines = { { id = "map_default", text = "Worth it for the few breaths it lasts, and ruinous if you can't afford the mana it devours. It's the arcane's purest lesson: power always costs more than it seems to, and the bill comes due at once." } },
+      choices = {
+        { text = "Then I'll spend it only when it matters most.", next = "m_road", reply = "Correct, and rarer than you'd think. Most students spend it on the first boar they see.", fx = { align = { order = 1 } } },
+        { text = "I'll spend it freely. Victory pays the bill.", next = "m_road", reply = "Victory pays nothing. Dalaran won a great many victories, and I'm teaching in a cave.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_portal = {
+      lines = { { id = "mpo_default", text = "Certainly not. Carry the ones who'll be useful at the other end and let the rest walk; walking builds character, and most of the living could do with more." } },
+      choices = {
+        { text = "I'll carry anyone in need, useful or not.", next = "m_road", reply = "Admirable, and exhausting. Thurston will adore you, which I don't recommend.", fx = { align = { light = 1 } } },
+        { text = "Only the useful ones. You're right.", next = "m_road", reply = "Of course I'm right. It's the only thing the grave didn't take from me.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tauren = {
+      big = true,
+      lines = { { id = "mta_default", text = "Well, someone had to, I suppose, and better in my classroom than unsupervised on a mesa. Your hands are large and your patience is evidently larger, so if you can keep a fireball off the grass, I will teach you everything I know." } },
+      choices = {
+        { text = "I'll be the most careful student you've ever had.", next = "BACK", reply = "That would not be difficult. Do it anyway.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll learn your way, then find my own.", next = "BACK", reply = "Everyone says that. Very few find anything but scorch marks, but you may be the exception.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_orc = {
+      big = true,
+      lines = { { id = "mo_default", text = "A fool, no; a risk, certainly. Your people nearly died of reaching for power they didn't understand, and now you've reached again, so I shall watch your hands very closely, orc." } },
+      choices = {
+        { text = "Watch, then. You'll find nothing fel in them.", next = "BACK", reply = "I hope not. I'd rather be disappointed in my suspicions than proven right.", fx = { align = { honor = 1 } } },
+        { text = "Watch all you like. I'll go my own way.", next = "BACK", reply = "That is exactly what the warlocks said, and I was there to hear some of them say it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     here = {
@@ -436,7 +502,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     thurston = {
-      lines = { { id = "tx_default", text = "He hums. I have asked him not to, in writing, twice. He is a competent mage and an exhausting colleague, and the tauren adore him, which I find faintly insulting to us both." } },
+      lines = { { id = "tx_default", text = "He hums, and I have asked him not to, in writing, twice. He is a competent mage and an exhausting colleague, and the tauren adore him, which I find faintly insulting to us both." } },
       choices = {
         { text = "You're fond of him, really.", next = "thurston_fond" },
         { text = "Something else.", next = "BACK" },
@@ -472,7 +538,7 @@ P:NPC {
   },
 
   topics = {
-    kirin_tor = { { id = "tp_kt", text = "Careful wizards in violet robes who let a kingdom rot while they debated the proper response." } },
+    kirin_tor = { { id = "tp_kt", text = "They are careful wizards in violet robes, who let a kingdom rot while they debated the proper response." } },
     forsaken = { { id = "tp_fk", text = "We are what the Scourge left behind and the living refused, and we've done rather well with it." } },
     background = { { id = "tp_bg", text = "I studied the arcane in life and I study it still. The details are my own affair." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you don't know how to stop." } },
@@ -557,7 +623,94 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Where did you study, before?", next = "dalaran" },
         { text = "I studied in Dalaran too, before.", next = "o_dal", when = { origin = "forsaken_dalaran_apprentice" } },
+        { text = "What lies ahead for me as a mage, Ursyn?", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm tauren, and I've chosen the arcane.", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
+        { text = "What do mages make of those who can't cast?", next = "m_others", when = { ["not"] = { class = "MAGE" } } },
         { text = "Farewell, Ursyn.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "I keep a list of what every mage of the Horde should know by each mark on the road, written in a hand I'm rather proud of. Ask, and I'll read you the relevant page." },
+        { id = "mr_marsh", when = { questActive = TODO_QUEST("Journey to the Marsh") }, text = "You're bound for Tabetha's hut in Dustwallow Marsh, I see. Take the road south out of the Barrens past Brackenwall, and keep your wards up, because the marsh is thick with mana and thicker with things that feed on it." },
+      },
+      again = {
+        { id = "mr_again", text = "Another page? I've plenty, and they're all in order." },
+        { id = "mr_again2", text = "Go on. I'd much rather read to someone than to the walls." },
+      },
+      choices = {
+        { text = "Why should I go to Tabetha?", next = "m_tabetha", when = { minLevel = 24 } },
+        { text = "Why is the rune to Thunder Bluff so slow to learn?", next = "m_tele", when = { minLevel = 20 } },
+        { text = "Counterspell. When should I use it?", next = "m_counter", when = { minLevel = 24 } },
+        { text = "Mana gems. Are they worth conjuring?", next = "m_gem", when = { minLevel = 28 } },
+        { text = "I've learned nearly everything. What's left?", next = "m_sixty", when = { minLevel = 56 } },
+        { text = "That's enough reading for now, Ursyn.", next = "BACK" },
+      },
+    },
+    m_tabetha = {
+      lines = {
+        { id = "mtb_default", text = "Because she knows the marsh's mana better than any of us, and she's the nearest thing to a proper Kirin Tor tutor the Horde can send you to without starting a war. She left the towers long before the plague, I'm told, and she judges students on their spells and nothing else." },
+        { id = "mtb_done", when = { questDone = TODO_QUEST("Journey to the Marsh") }, text = "You've been to her hut, then, and come back with all your fingers. She sends word of every student I send her, and she wrote that you would do, which from Tabetha is high praise indeed." },
+      },
+      choices = {
+        { text = "She's human. Shouldn't I be wary of her?", next = "m_tabetha2" },
+        { text = "Back to the list.", next = "m_road" },
+      },
+    },
+    m_tabetha2 = {
+      big = true,
+      lines = { { id = "mtb2_default", text = "Wary, yes, as you should be of anyone with that much power living alone in a swamp. But she has taught Forsaken and orc and tauren alike and never once reported one of them to Theramore, and I've learned to value that above any banner." } },
+      choices = {
+        { text = "Then I'll trust her as she trusts us.", next = "m_road", reply = "Good. Trust is rare enough between the living and the dead that I'd hate to see it wasted.", fx = { align = { light = 1 } } },
+        { text = "I'll learn from her and keep my wards up.", next = "m_road", reply = "Sensible, if a little sad. She'll notice, and she won't mind; she keeps hers up too.", fx = { align = { light = -1 } } },
+        { text = "Back to the list.", next = "m_road" },
+      },
+    },
+    m_tele = {
+      lines = { { id = "mt_default", text = "Because the bluff is high and the winds never stop worrying at its anchor, so the spell takes more holding than the Undercity's or Orgrimmar's. You'll learn those two first and Thunder Bluff some seasons after, and by then you'll understand why we were so slow to teach it." } },
+      choices = { { text = "Back to the list.", next = "m_road" } },
+    },
+    m_counter = {
+      big = true,
+      lines = { { id = "mco_default", text = "Whenever someone is about to finish a spell that would end you, which in the Barrens means the quilboar's geomancers and later, I'm sorry to say, the Kirin Tor themselves. It's an ugly spell, cutting a mage off mid-sentence, and I've never quite got used to it." } },
+      choices = {
+        { text = "I'd counter a Kirin Tor mage without a second thought.", next = "m_road", reply = "Many of us would. I only hope you'll have the second thought afterwards.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not fight them at all.", next = "m_road", reply = "Nor would I. But they won't ask what either of us would rather.", fx = { align = { light = 1 } } },
+        { text = "Back to the list.", next = "m_road" },
+      },
+    },
+    m_gem = {
+      lines = { { id = "mg_default", text = "Very much, though Shymm calls them a crutch. A gem is mana set aside for the bad moment, the way a farmer sets aside grain, and I've never yet met a mage who regretted saving." } },
+      choices = {
+        { text = "Save for the bad moment. Always.", next = "m_road", reply = "Spoken like a student of Dalaran. They taught us to keep everything, and it was the one lesson that kept me alive.", fx = { align = { order = 1 } } },
+        { text = "I'd rather spend it all and win now.", next = "m_road", reply = "Then you'll win most fights quickly and lose the last one slowly. Conjure a gem anyway.", fx = { align = { order = -1 } } },
+        { text = "Back to the list.", next = "m_road" },
+      },
+    },
+    m_sixty = {
+      lines = { { id = "m60_default", text = "Arcane Brilliance, for one, which lends your wit to everyone around you, and that's the most generous spell I know. After that only the deep places are left to teach you, and I hope you'll write down what you find." } },
+      choices = {
+        { text = "I'll write it down and bring it back here.", next = "m_road", reply = "Then there'll be a page in my list with your name on it, which is the closest thing to a monument a scholar gets.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some things are better left unwritten.", next = "m_road", reply = "Perhaps. Kel'Thuzad wrote very little down, and that was the trouble.", fx = { align = { honor = -1 } } },
+        { text = "Back to the list.", next = "m_road" },
+      },
+    },
+    m_tauren = {
+      big = true,
+      lines = { { id = "mta_default", text = "Then you're one of very few, and I'm honoured you came to us rather than leaving the Bluff for Orgrimmar. Shymm will be rude to you and Thurston will be too kind, so let me simply ask: what did your elders say?" } },
+      choices = {
+        { text = "I'll show them the arcane can honor the land.", next = "BACK", reply = "Then you'll be teaching them something none of us could. I'd like to watch.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I don't need their blessing to cast.", next = "BACK", reply = "No, but you'll miss it, I think. I missed my father's when I went to Dalaran.", fx = { align = { light = -1 } } },
+        { text = "They said the Earth Mother would understand.", next = "BACK", reply = "Then she's wiser than the Kirin Tor, which I'd always suspected of someone.", fx = { affinity = 1 } },
+      },
+    },
+    m_others = {
+      lines = { { id = "mot_default", text = "That they're the reason we're still standing, honestly. A mage alone lasts about as long as a candle in the wind, and every Forsaken mage in this cave owes his second life to a warrior or a hunter who stood in front of him." } },
+      choices = {
+        { text = "Then we'll keep standing in front of you.", next = "BACK", reply = "Thank you. I'll keep the frost off your back in return, which is the least I can do.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Mages should learn to stand alone.", next = "BACK", reply = "Some do, and they're very impressive right up until the second wolf arrives.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dalaran = {
@@ -583,7 +736,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A student of Dalaran, before. A teacher in the Pools of Vision, now." } },
+    background = { { id = "tp_bg", text = "I was a student of Dalaran before the plague, and now I teach in the Pools of Vision, which is quieter and has fewer committees." } },
     advice = { { id = "tp_ad", text = "Write everything down. Memory rots like everything else, especially after death." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. I'll make a note to find out, as I did in Dalaran, back when I had a heartbeat to hurry me." } },
   },
@@ -626,7 +779,77 @@ P:NPC {
         { text = "What do you teach first?", next = "lesson" },
         { text = "My elders are wary of your kind.", next = "tauren_wary", when = { race = "Tauren" } },
         { text = "Do you remember your life before?", next = "before", when = { race = "Scourge" } },
+        { text = "Tell me the road ahead, Thurston.", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm a tauren mage. Will my people ever accept it?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
+        { text = "Darkspear magic and yours. Are they so different?", next = "m_troll", when = { class = "MAGE", race = "Troll" } },
         { text = "Farewell, Thurston.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = { { id = "mr_default", text = "The road! It's a lovely road, mostly downhill once you've got the hang of it. Pick a bit and I'll tell you the cheerful version, and Shymm can tell you the other one afterwards." } },
+      again = {
+        { id = "mr_again", text = "What else? I've got all the time in the world, and then some." },
+        { id = "mr_again2", text = "Go on, go on! This is the most fun I've had since the flowers." },
+      },
+      choices = {
+        { text = "My conjured bread tastes of nothing.", next = "m_food" },
+        { text = "Polymorph. Do the sheep mind?", next = "m_poly", when = { minLevel = 8 } },
+        { text = "I can step home now. Where's home for you?", next = "m_home", when = { minLevel = 20 } },
+        { text = "Ursyn keeps sending people to Tabetha.", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "I'm sixty. Is that the end of the road?", next = "m_sixty", when = { minLevel = 60 } },
+        { text = "Enough of the road, Thurston.", next = "BACK" },
+      },
+    },
+    m_food = {
+      lines = { { id = "mfo_default", text = "Because you're thinking about the spell and not the bread! Think of the best loaf you ever ate, the crust and the steam of it, and it comes out a little better. Mine still taste of nothing to me, but the tauren tell me they're very good." } },
+      choices = {
+        { text = "I'll think of my mother's bread, then.", next = "m_road", reply = "Perfect. That's the whole secret, and Shymm will tell you it's nonsense.", fx = { affinity = 1 } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_poly = {
+      lines = { { id = "mp_default", text = "I've often wondered, and I've decided they don't, because I asked one afterwards and he only shouted at me, which is what he'd been doing beforehand. A sheep hasn't a worry in the world for a whole minute, and I rather envy it." } },
+      choices = {
+        { text = "A minute of peace. That's a kindness.", next = "m_road", reply = "That's what I think! Shymm says I'm sentimental, but Shymm says that about everything.", fx = { align = { light = 1 } } },
+        { text = "It's a trick, Thurston, not a kindness.", next = "m_road", reply = "Can't it be both? Most of the best things are.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_home = {
+      lines = { { id = "mh_default", text = "Home? This cave, I suppose, and the bluff above it, and the calves who leave flowers. I learned the Undercity's rune first like everybody, and I've used it exactly twice, both times by accident." } },
+      choices = {
+        { text = "Home is the Undercity, under the Dark Lady.", next = "m_road", reply = "Oh, quite right, quite right, and do give her my regards; she won't remember me.", fx = { align = { order = 1 } } },
+        { text = "Home is wherever I choose to be.", next = "m_road", reply = "That's the spirit! I chose a cave full of books and tauren, and I've never been happier, if that's the word.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha = {
+      lines = { { id = "mtb_default", text = "Ursyn sends everyone to her, and they all come back a little sterner and with a nicer wand, so I'd say she's doing something right. Take her a joke from me, would you? I'm told nobody in that marsh has laughed in years." } },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_sixty = {
+      lines = { { id = "m60_default", text = "The end of the trainers, maybe, but not of the road! Go and see the places I never will, Dire Maul and Winterspring and the rest, and come back and tell me about the colours, because the dead remember colours very badly." } },
+      choices = {
+        { text = "I'll bring you back every colour I find.", next = "m_road", reply = "Oh, would you? I'll keep a page for them, next to the flowers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll be too busy to come back.", next = "m_road", reply = "They all say that. Then they come back, because everyone comes back to a friend.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tauren = {
+      big = true,
+      lines = { { id = "mta_default", text = "Accept it? They'll do better than that, eventually, and be proud of you, though it may take them twenty winters to say so. Your elders are slow, not unkind, and I've watched them come round to stranger things than a tauren with a spellbook, such as me." } },
+      choices = {
+        { text = "I'll be patient with them, as they were with me.", next = "BACK", reply = "That's the tauren way, and it'll work, I promise. It worked on me, and I'm much harder to love.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I won't wait twenty winters for their blessing.", next = "BACK", reply = "Then don't wait; just keep being yourself where they can see you. They'll catch up.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_troll = {
+      lines = { { id = "mtr_default", text = "Different hats on the same head, I'd say, though your witch doctors would bite me for it. You lot ask the spirits and we ask the books, and the fire doesn't seem to care either way, which I find very fair-minded of it." } },
+      choices = {
+        { text = "The loa would like you, Thurston.", next = "BACK", reply = "Would they? Then tell them I'm very easy to get on with, and that I'm already dead, which saves time.", fx = { affinity = 1 } },
+        { text = "The fire cares. You just can't hear it.", next = "BACK", reply = "Ooh. That's either very wise or very frightening, and I'll be thinking about it all evening." },
       },
     },
     tauren = {
@@ -694,8 +917,8 @@ P:NPC {
 
   topics = {
     cairne = { { id = "tp_ca", text = "The High Chieftain took in a cave full of corpses and asked nothing for it. I'd do almost anything for him, within reason and a little beyond." } },
-    forsaken = { { id = "tp_fk", text = "We're a gloomy lot, mostly. I'm doing my best to bring the average up." } },
-    background = { { id = "tp_bg", text = "A mage, before and after. The middle bit I'd rather not discuss." } },
+    forsaken = { { id = "tp_fk", text = "We're a gloomy lot, mostly, so I'm doing my best to bring the average up." } },
+    background = { { id = "tp_bg", text = "I was a mage before I died and I'm a mage after, and the middle bit I'd rather not discuss." } },
     advice = { { id = "tp_ad", text = "Keep a sense of humor. It's the last thing to rot." } },
     _none = { { id = "tp_none", text = "Haven't the faintest! Isn't that exciting?" } },
   },

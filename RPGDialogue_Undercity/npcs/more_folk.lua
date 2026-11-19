@@ -2337,7 +2337,38 @@ P:NPC {
         { text = "Where can a mage of the Horde travel?", next = "roads" },
         { text = "You've not left the city in a year, I hear.", next = "stay" },
         { text = "I learned the short step in Dalaran.", next = "dalaran", when = { origin = "forsaken_dalaran_apprentice" } },
+        { text = "I can step home alone. Is a portal so different?", next = "m_diff", when = { class = "MAGE", minLevel = 20 } },
+        { text = "My first portal opened crooked. What went wrong?", next = "m_crooked", when = { class = "MAGE", minLevel = 40 } },
+        { text = "I'm living. Will you teach me the Undercity's door?", next = "m_living", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll take the stairs.", next = "END" },
+      },
+    },
+    m_diff = {
+      lines = { { id = "md_default", text = "Entirely. A teleport needs only to be right about one person, who is you, and who will forgive you. A portal must be right about everyone who steps through after you, and none of them will have read the theory." } },
+      choices = {
+        { text = "Then I'll study until I'm right for all of them.", next = "BACK", reply = "That is the only acceptable answer, and I have heard it perhaps four times.", fx = { align = { order = 1 } } },
+        { text = "If they step through, the risk is theirs.", next = "BACK", reply = "They do not know there is a risk. That is precisely why it is yours.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_crooked = {
+      big = true,
+      lines = { { id = "mc_default", text = "You pictured the mark as it looked to you on the day you first arrived, tired and hurried, with the floor seeming to tilt. Picture it as it is: level, cold, scrubbed, and eleven paces from the eastern arch, because a portal wants exactness and not feeling." } },
+      choices = {
+        { text = "I'll practise until it opens true.", next = "BACK", reply = "Good. Come back and open one onto my mark, and I shall measure it.", fx = { align = { order = 1 } } },
+        { text = "Crooked will do. They arrived, didn't they?", next = "BACK", reply = "They arrived on a slant, and one of them arrived in the canal. Exactness is not a vanity.", fx = { align = { order = -1 } } },
+        { text = "I tested it on a rat first.", next = "BACK", reply = "A rat. How very sensible, and how very Forsaken of you, whatever you are.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    m_living = {
+      lines = {
+        { id = "ml_default", text = "I teach our door to any mage of the Horde who can hold it, living or otherwise. You will find our mark hard to picture, because you remember nothing of this place that is not unpleasant, and that is the first thing we must correct." },
+        { id = "ml_orc", when = { race = "Orc" }, text = "I teach our door to any mage of the Horde who can hold it, and an orc mage is rare enough that I shall take notes. Orcs picture places by their smell, I am told, which here will be a disadvantage." },
+      },
+      choices = {
+        { text = "I'll learn your city properly, then.", next = "BACK", reply = "Then walk it once, all of it, and look at the floors. You will open a better door than most of our own.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll picture it as I like. It's only a ruin.", next = "BACK", reply = "Then you will arrive in one, precisely as you pictured it, and I shall not come to fetch you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     theory = {

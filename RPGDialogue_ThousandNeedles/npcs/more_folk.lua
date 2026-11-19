@@ -1621,6 +1621,9 @@ P:NPC {
         { text = "How does a magus come to sell chickens?", next = "how" },
         { text = "Where is your copy of Rituals of Power?", next = "book", when = { any = { { questActive = TODO_QUEST("Get the Scoop") }, { questActive = TODO_QUEST("Rituals of Power") } } } },
         { text = "Tell me about Rituals of Power.", next = "wrote", when = { class = "MAGE" } },
+        { text = "Polymorph wears off. How did Plucky's hold?", next = "m_poly", when = { class = "MAGE", minLevel = 8 } },
+        { text = "A Horde mage, Magus. Does that offend you?", next = "m_horde", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What would you teach an apprentice now?", next = "m_teach", when = { class = "MAGE" } },
         { text = "You have the look of a man who bets.", next = "bets" },
         { text = "Why Ancona chickens, of all things?", next = "ancona" },
         { text = "What do you make of the gnomes' and goblins' machines?", next = "machines" },
@@ -1638,7 +1641,7 @@ P:NPC {
     },
     how_debts = {
       lines = {
-        { id = "how_debts_d", text = "The chickens pay for my supper. The debts are another matter, and I conjure ice for a gnome and water for the pit crews to keep the more impatient of my creditors civil." },
+        { id = "how_debts_d", text = "The chickens pay for my supper, and the debts are another matter, so I conjure ice for a gnome and water for the pit crews to keep the more impatient of my creditors civil." },
       },
       choices = {
         { text = "That is honest work, at least.", next = "BACK", reply = "It is menial work. I shall allow that it is honest, since very little else about my situation is flattering.", fx = { trait = { kind = 1 } } },
@@ -1683,6 +1686,32 @@ P:NPC {
       choices = {
         { text = "You turned your apprentice into a chicken.", next = "BACK", reply = "I decline to discuss the particulars. I shall say only that it was instructive, and that he was warned.", fx = { trait = { stern = 1 } } },
         { text = "I think I'd rather not know.", next = "BACK", reply = "A wise policy, and one I recommend to more people.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      big = true,
+      lines = { { id = "mp_d", text = "A sheep in a skirmish wears off because the caster means it to, whatever the books say about the weave. I wanted Johnson to stay a chicken for a while, rather badly, and a working made in temper holds as long as the temper does, which is the most useful thing I ever learned and the least creditable." } },
+      choices = {
+        { text = "Then I'll never cast in anger.", next = "BACK", reply = "A noble resolve. I made it myself once, before a certain afternoon and a certain apprentice.", fx = { align = { light = 1 } } },
+        { text = "A spell that holds is a good spell. Well done.", next = "BACK", reply = "I would thank you, if I were not so thoroughly ashamed of it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_horde = {
+      lines = { { id = "mh_d", text = "Offend me? A year ago, perhaps, when I had standing enough to be offended with. Now I sell chickens beside goblins and gnomes, and a mage of the Horde is simply a customer who knows what the word magus means, which puts you above most of them." } },
+      choices = {
+        { text = "Then I'll call you Magus, and mean it.", next = "BACK", reply = "That is the first time in a month anyone has said it without laughing. Thank you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll call you the chicken seller.", next = "BACK", reply = "Everyone does. I had rather hoped a mage would be different.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_teach = {
+      big = true,
+      lines = { { id = "mt_d", text = "To read the whole book before trying anything in it, to keep away from racetracks, and to remember that a ritual is a promise you make to the world on your own behalf. Break enough of them and the world stops listening, and then you are a man with a hat and some chickens." } },
+      choices = {
+        { text = "Keep my word to the world. I'll remember.", next = "BACK", reply = "Then you have learned more from me today than Johnson did in a year, and he had a book.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The world doesn't listen. Power does as I say.", next = "BACK", reply = "So I believed, at your age and in your robes. Come and buy a chicken when you're my age.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

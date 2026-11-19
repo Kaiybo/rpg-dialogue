@@ -1,5 +1,5 @@
 -- Thunder Bluff, the outer rises and the bridges: Henen Ragetotem and Kon Yelloweyes on Hunter
--- Rise, Birgitte Cranston in the Pools of Vision, Pand Stonebinder and Pawe Mistrunner on Spirit
+-- Rise (Birgitte Cranston lives in more_folk.lua), Pand Stonebinder and Pawe Mistrunner on Spirit
 -- Rise, Sheza Wildmane on Elder Rise, and the three hunters who walk the walkways.
 -- Voices: bibles/missed.md
 local P = RPGDialogueAPI:Pack("rpgd.thunderbluff")
@@ -124,78 +124,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I hunted for many years and now I mostly watch, which is the better half of hunting anyway." } },
     _none = { { id = "tp_none", text = "I have not seen it, {class}, and I do not speak of what I have not seen." } },
-  },
-}
-
----------------------------------------------------------------------------
--- Birgitte Cranston: Forsaken portal trainer in the Pools of Vision.
----------------------------------------------------------------------------
-P:NPC {
-  key = "birgitte_cranston", id = TODO_NPC("Birgitte Cranston"), name = "Birgitte Cranston", gender = "female", title = "Portal Trainer",
-  bible = "bibles/missed.md", role = "trainer", tier = "service",
-  communities = { "thunder_bluff" }, temper = { "cold", "precise" }, values = { "knowledge", "practical" },
-  notices = { "class", "race" },
-  impression = {
-    first = "Birgitte Cranston teaches the portal spells in the Pools of Vision, beneath Spirit Rise, among the other Forsaken mages. She is exact, unsmiling and visibly tired of the sound of drums coming down through the rock.",
-    third = "{name} met Birgitte Cranston, the Forsaken portal trainer in Thunder Bluff's Pools of Vision.",
-  },
-  greetings = {
-    { id = "g_hi", text = "Yes? If you have come to ask the way out of this cave, it is behind you, and if you have come about portals, do go on." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. I trust you arrived where you intended last time, and with everything attached." },
-  },
-  notice = {
-    { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage, at last, and not another shaman come to stare. You will find I teach quickly and repeat nothing." },
-    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Your people have been very hospitable, and very loud. I don't suppose you could ask them about the drumming." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_default", text = "Birgitte Cranston. I teach mages to fold the distance between two places, which the tauren regard as cheating, since they would prefer everyone walked there and thought about it on the way." },
-        { id = "h_mage", when = { class = "MAGE" }, text = "Birgitte Cranston. I teach the portal and the teleport, and the difference between them is whether you mean to inconvenience only yourself or your friends as well." },
-      },
-      again = {
-        { id = "h_again", text = "Was there something further, or are you merely enjoying the damp?" },
-        { id = "h_again2", text = "Go on, {class}. I have eternity, though I would rather not spend it here." },
-      },
-      choices = {
-        { text = "Teach me the portal spells.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "Why does a Forsaken teach in Thunder Bluff?", next = "why" },
-        { text = "How does a portal work?", next = "portal" },
-        { text = "I'll leave you to the damp.", next = "END" },
-      },
-    },
-    why = {
-      lines = { { id = "w_default", text = "Because the tauren have no mages of their own and the Horde requires a way on and off this rock that does not involve a lift. The Dark Lady's envoys asked for volunteers, and I am told that I volunteered." } },
-      choices = {
-        { text = "You don't care for it here.", next = "care" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    care = {
-      lines = {
-        { id = "c_default", text = "I care for the pools, which are quiet and old and have a certain resonance that is useful to my work. I care rather less for being prayed over by passing shaman, who mean it kindly, which is the worst of it." },
-        { id = "c_scourge", when = { race = "Scourge" }, text = "You know precisely how it is. They look at us with such gentle pity, and offer to help us find peace, and one cannot even be properly rude to them because they gave us this cave." },
-      },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-    portal = {
-      lines = { { id = "p_default", text = "One fixes a place in the mind so exactly that the world is persuaded you are already standing in it, and then one steps through before it thinks better of the matter. A rune holds the door open for others, which is why I am always short of runes." } },
-      choices = {
-        { text = "And if the mind wanders?", next = "wander" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    wander = {
-      lines = { { id = "wa_default", text = "Then the spell simply fails, and you are left standing where you were with a headache, looking foolish. The lurid stories about arriving in halves are told by people who never learned it, though I find them useful for keeping students attentive." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "I studied in Lordaeron when it had a king and I had a pulse. Neither loss has affected my technique." } },
-    _none = { { id = "tp_none", text = "I haven't the faintest idea, and I can't say I am curious. Ask Thurston, who likes to chat." } },
   },
 }
 

@@ -356,6 +356,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Isabella, and I teach the arcane to the risen who still have the knack for it. Most of what you knew is still in there; it simply needs coaxing out, like a cat from under a bed." },
         { id = "h_troll", when = { race = "Troll", class = "MAGE" }, text = "A troll mage, in Deathknell! I've read a little of your people's magic, and I'd like to compare notes one day, if you've the patience for an old scholar." },
+        { id = "h_scroll", when = { questReady = TODO_QUEST("Glyphic Scroll") }, text = "You've brought the scroll, I see, and the glyphs on it are mine, though my hand has grown shakier since I died. Sit down and I'll show you what it says, and then we'll set fire to something." },
       },
       again = {
         { id = "h_again", text = "What else? Don't let me wander off about Dalaran again." },
@@ -368,7 +369,57 @@ P:NPC {
         { text = "Does death change magic?", next = "death" },
         { text = "I remember a little of my old training.", next = "xmemory", when = { class = "MAGE", race = "Scourge" } },
         { text = "Fire's my art too, though mine burns from a darker place.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "What should a risen mage learn first?", next = "m_first", when = { class = "MAGE" } },
+        { text = "Will you teach me to turn people into sheep?", next = "m_poly", when = { class = "MAGE", minLevel = 6 } },
+        { text = "Why would the dead bother conjuring water?", next = "m_water", when = { class = "MAGE" } },
+        { text = "They let me into Dalaran, once. I studied there.", next = "m_inside", when = { class = "MAGE", race = "Scourge" } },
+        { text = "Compare notes with me, then. Ask anything.", next = "m_troll", when = { class = "MAGE", race = "Troll" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    m_first = {
+      lines = { { id = "mf_default", text = "Frost on your skin before anything, because the Scarlet recruits in the fields below swing first and pray afterwards. Then fire, for the reasons I've already bored you with, and water and bread as soon as you can manage them." } },
+      choices = {
+        { text = "Armor first. I'd rather last than impress.", next = "m_first2", reply = "Good, because nobody in Deathknell is impressed by anything, and the lasting is all that counts.", fx = { align = { order = 1 } } },
+        { text = "I'd rather end fights quickly than survive slow ones.", next = "m_first2", reply = "So did half the corpses in those fields, and I'm told they ended very quickly indeed.", fx = { align = { order = -1 } } },
+        { text = "And after Deathknell?", next = "m_first2" },
+      },
+    },
+    m_first2 = {
+      lines = { { id = "mf2_default", text = "After Deathknell comes Brill, and Cain Firesong at the Gallows' End, who teaches well and talks about Dalaran rather less than I do, which you may count a mercy. At twenty you'll learn to step into the Undercity from anywhere, and then you'll never visit poor Brill again." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    m_poly = {
+      big = true,
+      lines = { { id = "mp_default", text = "At eight, yes, and it's the first spell that will truly frighten you, because it works on people. I've watched the Scarlet recruits in the fields and wondered which of them I'd have known in life, and I find a sheep easier to look at than a corpse." } },
+      choices = {
+        { text = "A sheep is kinder. I'll use it where I can.", next = "BACK", reply = "Then you've kept something the plague usually takes first. Hold onto it.", fx = { align = { light = 1 } } },
+        { text = "They'd burn me without a thought. I'll return the favor.", next = "BACK", reply = "They would, and you may. Only don't pretend you're teaching them anything by it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_water = {
+      lines = { { id = "mw_default", text = "Because the orcs who visit the Undercity need it, and because conjuring something out of nothing is the first proof that magic is still yours after everything else was taken. I cried, the first time, or did whatever we do instead of crying." } },
+      choices = {
+        { text = "I'll make it for whoever's thirsty, then.", next = "BACK", reply = "Then you'll be welcome in every camp in the Horde, which is more than most of us can say.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The living can find their own water.", next = "BACK", reply = "They can, and they'll remember that you made them. The dead need friends more than the living do.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_inside = {
+      big = true,
+      lines = { { id = "mi_default", text = "They let you in? Then you walked the halls I only ever saw from the road, and they shut the gates on you at the end, the same as on me. Tell me honestly, was it worth it, being one of the worthy?" } },
+      choices = {
+        { text = "Every hour of it. I'd not trade those years.", next = "BACK", reply = "Then I envy you, and I'm glad someone had them, even if it wasn't me.", fx = { align = { order = 1 } } },
+        { text = "No. Worthy meant obedient, and look where that got us.", next = "BACK", reply = "I knew it! I always suspected the examiner was a terrible bore.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I hardly remember. It comes back in pieces.", next = "xmemory" },
+      },
+    },
+    m_troll = {
+      lines = { { id = "mt_default", text = "Then tell me this: when your witch doctors make a hex, do they write it down? I've a theory that half of Lordaeron's magic was borrowed from the trolls a thousand years ago, and nobody had the manners to say so." } },
+      choices = {
+        { text = "We don't write it. We remember, and we sing.", next = "BACK", reply = "Sing! Oh, that's wonderful, and it explains why I could never find the books. Thank you.", fx = { affinity = 1 } },
+        { text = "Your theory flatters us. Keep it.", next = "BACK", reply = "I shall, and I'll footnote you, once I find someone who still reads footnotes.", fx = { trait = { witty = 1 } } },
       },
     },
     dalaran = {

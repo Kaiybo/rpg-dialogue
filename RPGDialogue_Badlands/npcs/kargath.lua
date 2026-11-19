@@ -940,6 +940,10 @@ P:NPC {
         { text = "What's the Darkstone Tablet?", next = "tablet", when = { any = { { heardLine = "vivian.h_tablet" }, { questActive = TODO_QUEST("Vivian Lagrave and the Darkstone Tablet") }, { questActive = TODO_QUEST("The Darkstone Tablet") } } } },
         { text = "You've noticed my craft, I think.", next = "practitioner", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "An orc who studies the arcane. Surprised?", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
+        { text = "Frost or fire against the mountain's elementals?", next = "m_frost", when = { class = "MAGE", minLevel = 45 } },
+        { text = "I'm Forsaken too. Did you study in Dalaran?", next = "m_dalaran", when = { class = "MAGE", race = "Scourge" } },
+        { text = "A troll mage, Shadowmage. Your report was wrong.", next = "k_troll_report", when = { class = "MAGE", race = "Troll" } },
+        { text = "A tauren mage. Specimen enough for you?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
         { text = "Kargath must seem a long way from the Undercity.", next = "undercity", when = { race = "Scourge" } },
         { text = "A troll who deals with demons. Does that interest you?", next = "k_troll_lock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I could steal that Thunderbrew recipe for you, Vivian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -1039,6 +1043,31 @@ P:NPC {
       },
       choices = { { text = "I'm not a specimen.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } } },
     },
+    m_frost = {
+      big = true,
+      lines = { { id = "mfr_default", text = "Frost, my dear, always frost, because a fire elemental drinks a fireball like tea and thanks you for it. Ward yourself against flame before you go down there, and if a golem's heart starts to glow, stop casting and start running, which I say from experience and with perfect composure." } },
+      choices = {
+        { text = "I'll go carefully, warded and patient.", next = "BACK", reply = "Good. Patient mages bring me essences, and impatient ones bring me nothing at all, ever again.", fx = { align = { order = 1 } } },
+        { text = "I'll burn through them anyway. Fire fights fire.", next = "BACK", reply = "Oh, my dear, no. Well, do write to me from the spirit healer.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_dalaran = {
+      big = true,
+      lines = { { id = "mda_default", text = "Near it, never in it. I took lodgings in a village on the lake and borrowed books from a junior librarian who liked my letters, and when the plague came he stopped writing, and I've never learned whether he lived, and I'm perfectly composed about that too." } },
+      choices = {
+        { text = "Perhaps he lives behind the dome still.", next = "BACK", reply = "Perhaps he does. I'll let myself think so, just for this evening.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better not to know. Let him go.", next = "BACK", reply = "That's the sensible Forsaken answer, and I've given it myself. It doesn't seem to take.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_tauren = {
+      lines = { { id = "mta_default", text = "Specimen! I never said... well, I did say it to an orc, and he took it badly too. But a tauren with a spellbook is a thing no Kirin Tor report ever imagined, and I'd love to know whether the arcane feels different to someone who grew up listening to the land." } },
+      choices = {
+        { text = "It hums, like the plains before a storm.", next = "BACK", reply = "Like the plains before a storm! I'm writing that down, and I'm crediting you, which I almost never do.", fx = { affinity = 1 } },
+        { text = "It feels like power. Nothing more.", next = "BACK", reply = "How disappointingly practical. You'll go far, my dear, and I'll be a little sad about it." },
+      },
+    },
     undercity = {
       lines = {
         { id = "u_default", text = "This place has a certain stark charm, I'll grant it, but it has none of the Apothecarium's amenities. I miss a proper laboratory far more than I ever missed breathing." },
@@ -1088,7 +1117,7 @@ P:NPC {
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are the dead who refused to stay dead, and the living hate us for it. I don't mind, mostly." } },
     scourge = { { id = "tp_scourge", text = "The Scourge made us, and we unmade ourselves. The Apothecarium is working on how to unmake the rest of them." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron fell, and the Undercity grew in its ruins. It's not the same, but it's ours now." } },
-    dalaran = { { id = "tp_dalaran", text = "I studied magic near Dalaran, before. The Kirin Tor wouldn't let me in now, I'm sure." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied magic near Dalaran before the plague, and the Kirin Tor wouldn't let me in now, I'm quite sure." } },
     _none = { { id = "tp_none", text = "Hm! That's not my field, not yet." } },
   },
 }

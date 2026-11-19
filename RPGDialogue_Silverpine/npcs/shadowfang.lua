@@ -277,6 +277,9 @@ P:NPC {
         { text = "Have you heard of a hammer kept in this keep?", next = "hammer", when = { questActive = TODO_QUEST("The Test of Righteousness") } },
         { text = "Which spell holds this cell, sorcerer?", next = "mage", when = { class = "MAGE" } },
         { text = "What are Dalaran's mages doing at Ambermill?", next = "ambermill" },
+        { text = "I was Kirin Tor once too, before the plague.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
+        { text = "A Horde mage rescued you. How does that sit?", next = "m_horde", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Teach me something the Citadel teaches its own.", next = "m_teach", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Open the courtyard door, Ashcrombe.", next = "BUSINESS" },
         { text = "Stay here. I'll clear the way.", next = "END" },
       },
@@ -341,6 +344,31 @@ P:NPC {
       },
     },
 
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mf_default", text = "Then we may have passed in a corridor once, and you're the first of the risen I've met who didn't try to eat me, which I appreciate more than I can say. The council calls your kind the Lich King's leftovers, and I'm finding that harder to believe by the minute." } },
+      choices = {
+        { text = "Tell your council a Forsaken saved you.", next = "BACK", reply = "I shall, in writing, and I'll enjoy their faces when they read it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Tell them nothing. Let them stay afraid.", next = "BACK", reply = "Afraid men build walls, and walls are why you're out here and I'm in a cell. But I'll respect it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_horde = {
+      big = true,
+      lines = { { id = "mh_default", text = "Rather well, all things considered, since the alternative was Rethilgore. Dalaran never taught an orc or a troll or a tauren a single spell, and here you are casting anyway and pulling its sorcerers out of cells, so I shall have some very awkward paragraphs in my report." } },
+      choices = {
+        { text = "Put me in your report, by name.", next = "BACK", reply = "Spell it for me, then, slowly, and I'll underline it twice for the council.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave me out. The Horde needs no thanks from Dalaran.", next = "BACK", reply = "As you like. I'll write that a stranger came, which is true, and nobody will believe it anyway.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_teach = {
+      lines = { { id = "mt_default", text = "In a cell? Well, why not. The Citadel teaches every first-year that a ward is a question you ask the world, and that the world answers honestly if you ask precisely, and Arugal asked his very precisely indeed, which is why this door has taken me a month." } },
+      choices = {
+        { text = "Then I'll learn to ask precise questions.", next = "BACK", reply = "Good, and write the answers down. I wish I'd had ink in here.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hammer = {
       lines = {
         { id = "hm_default", text = "A hammer, yes, a fine old smith's hammer that the guards were boasting about, because one of them tried to lift it and couldn't. They said it was out in the stables, and they argued about who would have to go and fetch it, so I suspect it's still there." },
@@ -400,8 +428,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A sorcerer of Dalaran, of the sort they send when they'd rather not send anyone important. I'm told that's a compliment." } },
-    dalaran = { { id = "tp_dalaran", text = "Still standing behind its shield, last I knew, and still arguing about what to do with itself." } },
+    background = { { id = "tp_bg", text = "I'm a sorcerer of Dalaran, of the sort they send when they'd rather not send anyone important, and I'm told that's a compliment." } },
+    dalaran = { { id = "tp_dalaran", text = "It's still standing behind its shield, last I knew, and still arguing about what to do with itself." } },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my reading, and I've read most of the Violet Citadel's lower library." } },
   },
 }
