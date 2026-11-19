@@ -2,6 +2,9 @@
 # its changelog section as notes). Runs on each push to the default branch and creates only
 # the missing ones, so bumping the version and merging is all a release takes.
 # Logic: tools/gh_releases.py.
+# Tags made here with GITHUB_TOKEN don't start release.yml, so when the current version's
+# release is new, this also runs the packager on that tag: a CurseForge *release* upload.
+# To push an existing tag to CurseForge by hand: Run workflow with curse_tag (e.g. v0.90.0).
 name: GitHub release
 
 on:
@@ -9,6 +12,10 @@ on:
     branches:
       - claude/import
   workflow_dispatch:
+    inputs:
+      curse_tag:
+        description: "Upload this existing tag to CurseForge as a release (e.g. v0.90.0)"
+        required: false
 
 permissions:
   contents: write
@@ -25,6 +32,21 @@ jobs:
         with:
           fetch-depth: 0
       - name: Publish missing releases
+        id: gh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 tools/gh_releases.py
+      - name: Pick the tag for CurseForge
+        id: pick
+        run: echo "tag=${{ inputs.curse_tag || steps.gh.outputs.curse_tag }}" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.pick.outputs.tag != ''
+        with:
+          ref: ${{ steps.pick.outputs.tag }}
+          fetch-depth: 0
+          clean: true
+      - uses: BigWigsMods/packager@v2
+        if: steps.pick.outputs.tag != ''
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
