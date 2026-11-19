@@ -280,6 +280,7 @@ P:NPC {
   key = "sorigal", id = TODO_NPC("Watchmaster Sorigal"), name = "Watchmaster Sorigal",
   bible = "bibles/darkshire_more.md", role = "soldier", tier = "quest",
   communities = { "darkshire" }, temper = { "brisk" }, values = { "dutiful", "practical" },
+  prejudice = { { class = "WARLOCK", amount = 10, why = "Lost drivers and a caravan to felhounds on the road to Nethergarde." }, { class = "WARLOCK", amount = 10, why = "Lost drivers and a caravan to felhounds on the road to Nethergarde." } },
   notices = { "class", "travel" },
 
   impression = {
@@ -288,6 +289,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The last time I saw a felhound, it was eating one of my drivers on the road to Nethergarde. You'll forgive me if I don't shake your hand." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Nethergarde stands where it stands to keep your sort of friends on the far side of the Portal. If you've business, say it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've carried my crates without losing one, which is more than I expected. I still don't like what walks with you." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The last time I saw a felhound, it was eating one of my drivers on the road to Nethergarde. You'll forgive me if I don't shake your hand." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Nethergarde stands where it stands to keep your sort of friends on the far side of the Portal. If you've business, say it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've carried my crates without losing one, which is more than I expected. I still don't like what walks with you." },
     { id = "g_default", text = "If you're here about the caravan, it's late. If you're not, it's still late." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. People I've met twice are worth more to me than wagons." },
     { id = "g_crate", when = { questActive = TODO_QUEST("Supplies for Nethergarde") }, text = "Why are you still here? Those stones are losing their charge while we talk!" },
@@ -379,6 +386,10 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Nethergarde asks for bandages as often as it asks for stone, and I've never once had enough of either." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and you'll want to know why Nethergarde needs so much. I'll tell you, if you'll carry a crate while I do." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Nethergarde's there to watch for the demons you call friends, and I've lost drivers to them on the road. Say your business, and don't expect a smile." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've hauled for Nethergarde and the wagons came back whole. I'll hear you out." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Nethergarde's there to watch for the demons you call friends, and I've lost drivers to them on the road. Say your business, and don't expect a smile." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've hauled for Nethergarde and the wagons came back whole. I'll hear you out." },
         { id = "h_default", key = true,
           text = "Watchmaster Sorigal. Every crate bound for Nethergarde Keep passes through my hands in Darkshire, and too many of them never reach Lungertz at the other end." },
         { id = "h_vital", tags = { "news" }, when = { questActive = TODO_QUEST("Vital Supplies") },

@@ -7,6 +7,7 @@ P:NPC {
   key = "marris", id = TODO_NPC("Marshal Marris"), name = "Marshal Marris",
   bible = "bibles/marris.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "lawful" },
+  prejudice = { { class = "WARLOCK", amount = 12, why = "Blackrock shadowcasters in the hills have killed his guards with the same dark magic." }, { class = "WARLOCK", amount = 12, why = "Blackrock shadowcasters in the hills have killed his guards with the same dark magic." } },
   notices = { "soldier", "trophy" },
 
   impression = {
@@ -15,6 +16,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Blackrock shadowcasters in those hills use the same filth you do, and they've killed three of my guards with it. Keep your hands where my men can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've no welcome for a demon-caller in Lakeshire. State your business, and then get back across the bridge." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more orcs for this town than I can count, so I'll stop counting your sins. I'm still watching what follows you, mind." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Blackrock shadowcasters in those hills use the same filth you do, and they've killed three of my guards with it. Keep your hands where my men can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've no welcome for a demon-caller in Lakeshire. State your business, and then get back across the bridge." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more orcs for this town than I can count, so I'll stop counting your sins. I'm still watching what follows you, mind." },
     { id = "g_op_demons_forbid", when = { opinion = { topic = "demons", stance = "forbid" } }, text = "You again, the one who'd close the warlocks' cellar under the Slaughtered Lamb. My fourth report went off with your opinion in it; I said a sensible traveller agreed." },
     { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Keeshan says you've no time for any orc, Thrall's or otherwise. Good, because my walls have no time for them either, so take a post." },
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
@@ -145,6 +152,10 @@ P:NPC {
           text = "The guards tell me you've been inside Blackrock Spire itself, where the orcs that raid my lake come from. I'll believe it from you, and I'll sleep a little better tonight, which is more than I've managed in a month." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what Blackrock shadow magic does to a man, and I don't care who's casting it. Tell me what you want, and be quick." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a hearing in Lakeshire, more than once. Speak, and I'll listen, though I won't stand too close." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what Blackrock shadow magic does to a man, and I don't care who's casting it. Tell me what you want, and be quick." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a hearing in Lakeshire, more than once. Speak, and I'll listen, though I won't stand too close." },
         { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake, orcs who never sleep and a boar called Bellygrub in the gardens. What do you need?" },
         { id = "h_menace", when = { questBefore = TODO_QUEST("Blackrock Menace") },
           text = "The Blackrock came out of the Burning Steppes and took Stonewatch Keep. Now they raid everything north of town, and there's another nest of them in Render's Valley. I want their numbers down." },

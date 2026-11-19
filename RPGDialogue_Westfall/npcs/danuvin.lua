@@ -7,6 +7,7 @@ P:NPC {
   key = "danuvin", id = TODO_NPC("Captain Danuvin"), name = "Captain Danuvin", title = "The People's Militia",
   bible = "bibles/danuvin.md", role = "questgiver", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "sharp" }, values = { "brave", "stern" },
+  prejudice = { { class = "WARLOCK", amount = 13, why = "His father died when the Horde's warlocks burned Stormwind in the First War." }, { class = "WARLOCK", amount = 13, why = "His father died when the Horde's warlocks burned Stormwind in the First War." } },
   notices = { "trophy", "kit" },
   impression = {
     first = "He counts gnoll paws the way a banker counts coin.",
@@ -14,6 +15,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The orcs' warlocks burned Stormwind with my father inside it, and you carry the same stink. Stand away from my recruits." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know a demon-caller when one walks up my hill. Say what you want and keep that thing on a short leash." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done the work, and my recruits have stopped staring at you. I haven't stopped watching you, but I'll take your help." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The orcs' warlocks burned Stormwind with my father inside it, and you carry the same stink. Stand away from my recruits." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know a demon-caller when one walks up my hill. Say what you want and keep that thing on a short leash." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done the work, and my recruits have stopped staring at you. I haven't stopped watching you, but I'll take your help." },
     { id = "g_op_defias_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "You're the soft-hearted one who'd send thieves home with a warning. Well, we let one go last week, on your account, and we'll see what comes of it." },
     { id = "g_line", text = "Fall in or move along." },
     { id = "g_paws", when = { questActive = TODO_QUEST("Patrolling Westfall") }, text = "Paws, is it? Count them out on the table, and if it isn't eight, back out you go." },
@@ -128,6 +135,10 @@ P:NPC {
 
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, is it? I've heard your kind can turn into bears. If that's true, I'd like a few for the coast road." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father died when the Horde's warlocks burned Stormwind, so don't expect a welcome. Say your piece, and be quick about it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've patrolled like you mean it, whatever walks at your heel. I'll grant you that much and no more." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father died when the Horde's warlocks burned Stormwind, so don't expect a welcome. Say your piece, and be quick about it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've patrolled like you mean it, whatever walks at your heel. I'll grant you that much and no more." },
         { id = "h_default", text = "Captain Danuvin, of the People's Militia. I organize the farmers who were too stubborn to leave, and stubborn makes good soldiers." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Patrolling Westfall") },
           text = "The gnolls aren't just raiding; they work with the thieves in the mines. Somebody feeds them and points them at us." ,

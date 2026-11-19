@@ -6,6 +6,7 @@ P:NPC {
   key = "lungertz", id = TODO_NPC("Quartermaster Lungertz"), name = "Quartermaster Lungertz",
   bible = "bibles/blastedlands.md", role = "soldier", tier = "major",
   communities = { "nethergarde" }, temper = { "brisk" }, values = { "dutiful", "practical" },
+  prejudice = { { class = "WARLOCK", amount = 10, why = "Writes the letters home for every soldier the demons beyond the Portal kill." }, { class = "WARLOCK", amount = 10, why = "Writes the letters home for every soldier the demons beyond the Portal kill." } },
   notices = { "class", "kit", "race" },
 
   impression = {
@@ -14,6 +15,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I write the letters home for every soldier the demons out there kill, and I've written too many lately. Don't bring that thing near my stores." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Cheerful's my job, but I'll not be cheerful at you. What do you need, and how quickly can you leave?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've brought back more supplies than trouble, and the ledger doesn't lie. I'll smile at you, then, but I'll count the crates after." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I write the letters home for every soldier the demons out there kill, and I've written too many lately. Don't bring that thing near my stores." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Cheerful's my job, but I'll not be cheerful at you. What do you need, and how quickly can you leave?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've brought back more supplies than trouble, and the ledger doesn't lie. I'll smile at you, then, but I'll count the crates after." },
     { id = "g_op_arcane", when = { gossip = { topic = "arcane_magic", stance = "dangerous" } }, text = "Mahar Ba's been muttering that you think the mages should lock their books away. He's taken it as a challenge, and I've had three requisitions for new shelves since." },
     { id = "g_default", text = "Mind the crates, friend, and don't mind the shouting; the sergeant lost at dice again, and the recruits are paying for it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing? Come in, come in, and tell me you've brought something I can write down." },
@@ -125,6 +132,10 @@ P:NPC {
           text = "A whole company, and here I am with half a storeroom and the Stormwind wagons three weeks late. Visitors eat what the garrison eats at Nethergarde, which is salt pork and good intentions." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. My crates go missing between Darkshire and here often enough without help, so please tell me you're the kind who brings things back." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The tower lot will be glad of you, and so will I, because every mage up there wants powerstones, and every powerstone comes through my ledger." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've a ledger full of names the demons past the Portal took, and you smell like the things that took them. Tell me what you need." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The ledger says you've helped this keep more than you've cost it. Go on, then, what is it?" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've a ledger full of names the demons past the Portal took, and you smell like the things that took them. Tell me what you need." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The ledger says you've helped this keep more than you've cost it. Go on, then, what is it?" },
         { id = "h_default", key = true,
           text = "Quartermaster Lungertz, keeper of every crate, barrel and sack in Nethergarde Keep. The mages watch the Portal, the soldiers watch the ogres, and I make sure they all eat while they're at it." },
         { id = "h_powerstones", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies for Nethergarde") },
@@ -1191,6 +1202,7 @@ P:NPC {
   bible = "bibles/blastedlands.md", role = "noble", tier = "major",
   communities = { "nethergarde" }, temper = { "proud" }, values = { "wise", "practical" },
   likesTone = "polite", private = { "arthas" },
+  prejudice = { { class = "WARLOCK", amount = 13, why = "Has spent years warning the kingdoms of the Burning Legion; sees a warlock as the Legion's open door." }, { class = "WARLOCK", amount = 13, why = "Has spent years warning the kingdoms of the Burning Legion; sees a warlock as the Legion's open door." } },
   notices = { "race", "class" },
 
   impression = {
@@ -1199,6 +1211,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I have spent years warning the kingdoms of the Burning Legion, and you invite its servants to walk beside you. Do not expect me to call that courage." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Every warlock believes he is master of his demon, right up until he isn't. Say what you came to say." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have fought the Legion's creatures in these wastes, and that counts for something. It does not make me trust the door you keep open." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I have spent years warning the kingdoms of the Burning Legion, and you invite its servants to walk beside you. Do not expect me to call that courage." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Every warlock believes he is master of his demon, right up until he isn't. Say what you came to say." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have fought the Legion's creatures in these wastes, and that counts for something. It does not make me trust the door you keep open." },
     { id = "g_default", text = "Ah, a fresh face, and one that isn't scowling at me yet. How refreshing." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have you come to argue, or have you finally come to listen?" },
     { id = "g_hero", when = { questDone = TODO_QUEST("Petty Squabbles") }, text = "You went and spoke with the orc. I knew there was more sense in you than in this whole garrison." },
@@ -1334,6 +1352,10 @@ P:NPC {
           text = "A hunter, and you've been looking at me the way you'd look at a trail, wondering where it leads. It leads south, if you'd like to know, toward the cultists nobody here cares to talk about." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wondering who I really work for, I expect, and I'll tell you what I tell the captain: someone who would rather you lived." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Then you know, as I do, that Dalaran was not the Legion's first target, and it will not be the last." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I have argued for years that the Legion is coming, and here stands proof that some would rather open the door than bar it. I will speak with you, because I must." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have done more against the Legion here than most who swear they hate it. Very well, I am listening." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I have argued for years that the Legion is coming, and here stands proof that some would rather open the door than bar it. I will speak with you, because I must." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have done more against the Legion here than most who swear they hate it. Very well, I am listening." },
         { id = "h_default", key = true,
           text = "Ambassador Ardalan, at your service, though most here would say I serve nobody they'd care to name. I'm here to tell anyone who'll listen that we fight the wrong enemy in these lands." },
         { id = "h_squabbles", tags = { "news" }, when = { questActive = TODO_QUEST("Petty Squabbles") },

@@ -8,6 +8,7 @@ P:NPC {
   key = "jonathan", id = TODO_NPC("Jonathan Carevin"), name = "Jonathan Carevin",
   bible = "bibles/darkshire_folk.md", role = "questgiver", tier = "quest",
   communities = { "darkshire" }, temper = { "stern" }, values = { "devout", "wary" },
+  prejudice = { { class = "WARLOCK", amount = 15, why = "His household hunts demons and the walking dead; he won't suffer the one who calls up the first." }, { class = "WARLOCK", amount = 15, why = "His household hunts demons and the walking dead; he won't suffer the one who calls up the first." } },
   notices = { "form", "stranger" },
 
   impression = {
@@ -16,6 +17,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My family hunts the things you call up. Stand in the doorway, where I can see both your hands and whatever walks behind you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've put down more of your kind's servants than I can count, and I'd as soon put down their master. Speak, and keep it short." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought the dead beside my family and never turned that power on us. I'll keep a blade near, but you may sit." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My family hunts the things you call up. Stand in the doorway, where I can see both your hands and whatever walks behind you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've put down more of your kind's servants than I can count, and I'd as soon put down their master. Speak, and keep it short." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought the dead beside my family and never turned that power on us. I'll keep a blade near, but you may sit." },
     { id = "g_wary", text = "You're new here. State your business, and keep your hands where I can see them." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, and in Duskwood that counts as a reference." },
     { id = "g_answered", when = { questDone = TODO_QUEST("Answered Questions") }, text = "Sit down; you've earned a chair in this house, and I don't offer many." },
@@ -86,6 +93,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Skeletal", min = 30 } }, text = "The patrols say the cemetery road is quieter, and that the bones lying in the grass were put down by one hand. I'd guess whose hand that was, and I'd thank it, if the Watch said such things." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My household hunts demons, and you've brought one to my door. Give me one good reason not to bar it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've been in this house more than once now, and the Light still burns in it. Say what you came to say." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My household hunts demons, and you've brought one to my door. Give me one good reason not to bar it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've been in this house more than once now, and the Light still burns in it. Say what you came to say." },
         { id = "h_default", key = true,
           text = "I am Jonathan Carevin. The Watch keeps the lamps lit, while my household goes out past them after demons, the walking dead, and worse, because the Light asks it of someone." },
         { id = "h_calor", when = { heardLine = "calor.h_default" },
