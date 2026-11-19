@@ -1326,7 +1326,7 @@ P:NPC {
         { text = "Would you really suspect me of stealing books?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can magic help a warrior, Un'Thuwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts still roam the Echo Isles, Un'Thuwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Is the arcane really so different from the fel?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is the arcane really so different from what I practise?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Light interest a troll mage, Un'Thuwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I learned my first spells from Zandalari scrolls, Un'Thuwa.", next = "xorig_zand", when = { origin = "troll_zandalari_scrolls" } },
         { text = "Goodbye.", next = "END" },
