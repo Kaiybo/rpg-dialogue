@@ -68,3 +68,7 @@ Tharnariun sitting with the caged bear each evening, the sickness worse at the d
 
 ## Prejudices (0.80.0, authored, not canon)
 - Sentinel Glynda Nal'Shea distrusts dwarves (`prejudice` Dwarf 10): Remtravel's diggers carry carvings out of Ameth'Aran and Mist's Edge, and she once found her mother's door lintel propping up a dwarf's cookpot at the dig. Earned affinity wins her round.
+
+## Kaldorei factions (authored, not canon)
+- Elissa: values the Alliance by her ledgers (dwarven iron, Delgren's paladins, gnomish lamp oil) and argues with Glynda and Tysha. Thundris: has made peace with mortality since Hyjal and argues that mortal peoples need each other; names Auberdine's banks (Glynda, Tysha, Elissa, Barithras, Allyndia).
+- Night elves (0.94.0 work): Remtravel thinks the kaldorei forbid digs to hide their past, not out of reverence (claim `remtravel_elves_hide_history`, partly, open); admits the lintel-and-cookpot business with Glynda. A night elf can send him to Thundris (`[Persuade]`, npcFlag `remtravel_soft`), after which every crate goes past Thundris first.

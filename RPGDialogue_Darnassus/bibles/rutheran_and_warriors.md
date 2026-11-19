@@ -13,3 +13,6 @@
 
 ## Prejudice (0.80.0, authored, not canon)
 - Jeen'ra Nightrunner (prejudice, Human): watched a Stormwind hunting party leave four stags on the Darkshore coast with only the antlers taken.
+
+## Isolationist (authored, not canon)
+- Vesprystus would close Rut'theran's gate to everyone, Alliance and Horde alike; the world forgot the kaldorei for ten thousand years and no axe touched their trees. Calls Raedon's grudge "half a gate"; knows Mathiel, the young campers and Tyrande keep it open, and disagrees with Tyrande "quietly, and with love".

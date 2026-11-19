@@ -167,6 +167,7 @@ P:NPC {
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened on the Echo Isles?", next = "isles" },
         { text = "So Vol'jin was your student.", next = "voljin" },
+        { text = "What do the Darkspear remember of the night elves?", next = "kaldorei" },
         { text = "The loa been talking to me again, Master. Loudly.", next = "xloa", when = { origin = "troll_loa_speaker" } },
         { text = "What does the loa want from me, Master? I never asked.", next = "xwant", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "I hear a voice, Master, and it isn't a loa.", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
@@ -183,6 +184,40 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, child? Old Gadrin got nothing but time and a warm fire." },
         { id = "h_again2", text = "Ask, ask. The questions keep this old head from rusting." },
+      },
+    },
+    kaldorei = {
+      lines = {
+        { id = "kd_default", text = "More than they remember of us, child, and that be saying something. Before the world broke, the troll empires ruled from Zul'Aman to the Gurubashi jungles, and the young kaldorei with their magic and their moon pushed against us for land, and the old songs still name them." },
+        { id = "kd_tauren", when = { race = "Tauren" },
+          text = "Your people walked beside them once, child, so you hear a kinder song than Gadrin does. Ours be older, from when the troll empires ruled and the young kaldorei pushed against us with their magic and their moon." },
+        { id = "kd_orc", when = { race = "Orc" },
+          text = "You orcs got your grudge with them from Grom's axe, child, and that be only a few winters old. Ours be from before the world broke, when the troll empires ruled and the young kaldorei pushed against us for land." },
+      },
+      choices = {
+        { text = "What do the old songs say of them?", next = "kaldorei_songs" },
+        { text = "That was ten thousand years ago, Master.", next = "kaldorei_long" },
+        { text = "Something else, Master.", next = "BACK" },
+      },
+    },
+    kaldorei_songs = {
+      lines = {
+        { id = "ks_default", text = "That the elves drank from a well of magic until it drank them back, and when it broke, it broke the whole world with it. The trolls lost land to the sea that night same as the elves did, and the elves still walk about like it be somebody else's fault." },
+      },
+      choices = {
+        { text = "Their pride broke the world. They should answer for it.", next = "BACK", reply = "Gadrin think so too, on his sour days. But careful, child, because a grudge carried too long get heavier than the spear you carry with it.", fx = { align = { light = -1 }, opinion = { night_elves = "responsible" } } },
+        { text = "They lost as much as anyone. Grief isn't a debt.", next = "BACK", reply = "A gentle answer, and the loa like gentle answers more than old Gadrin does. Maybe you be right, child, and maybe the elves need to hear it from a troll someday.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei_long = {
+      lines = {
+        { id = "kl_default", text = "For you, child, not for a kaldorei. They live long enough to remember their grandfathers' wars with their own eyes, so they never forget a troll, and Gadrin tell you to remember them back, because a people that forget their old enemies get surprised by them." },
+      },
+      choices = {
+        { text = "Old grudges make new wars. I'll judge them fresh.", next = "BACK", reply = "Fresh eyes be a gift, child, and Vol'jin had them too at your age. Keep them open, though, because the elves won't judge you fresh.", fx = { align = { honor = 1 } } },
+        { text = "I'll remember, Master. Trolls don't forget.", next = "BACK", reply = "Good, child. Remember them, and remember Zalazane too, because Gadrin learned that the enemy you forget be the one who hurt you worst.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     warlock = {

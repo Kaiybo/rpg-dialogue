@@ -62,6 +62,8 @@ P:NPC {
         { text = "What must be done in Zul'Gurub?", next = "zg" },
         { text = "Tell me about your people on this isle.", next = "isle" },
         { text = "Do you trust outsiders with this, Molthor?", next = "outsiders" },
+        { text = "What do the Zandalar make of the night elves?", next = "kaldorei" },
+        { text = "You look at me as if you know my people, Molthor.", next = "xnelf", when = { race = "NightElf" } },
         { text = "My people were Gurubashi once, Molthor.", next = "darkspear", when = { race = "Troll" } },
         { text = "Hakkar's heart is in your hands now.", next = "heart", when = { questDone = TODO_QUEST("The Heart of Hakkar") } },
         { text = "I will return when I am ready.", next = "END" },
@@ -150,6 +152,49 @@ P:NPC {
       },
     },
 
+    kaldorei = {
+      lines = {
+        { id = "ka_default", text = "We remember dem as children, stranger. When de troll empires were already old, de kaldorei were a young people gathered round a well of magic, and dey grew proud and greedy on it until it swallowed half de world." },
+        { id = "ka_nelf", when = { race = "NightElf" },
+          text = "I remember your people as children, elf, and I do not say it to insult you. When de troll empires were already old, yours was young, and it grew proud on its well of magic until de well swallowed half de world." },
+        { id = "ka_troll", when = { race = "Troll" },
+          text = "Ask your own elders, Darkspear, for de songs of de old empires still name dem. When our empires were already old, de kaldorei were children round a well of magic, and dey grew proud on it until it swallowed half de world." },
+      },
+      choices = {
+        { text = "Were the trolls and the elves at war?", next = "kaldorei_war" },
+        { text = "These days they speak of balance and nature.", next = "kaldorei_balance" },
+        { text = "Something else, Molthor.", next = "BACK" },
+      },
+    },
+    kaldorei_war = {
+      lines = {
+        { id = "kw_default", text = "For land and for pride, as every war is, and de young kaldorei had sorceries our priests could not match. De Gurubashi and de Amani gave ground to dem, and de elves never once asked whose ground it was." },
+      },
+      choices = {
+        { text = "That was ten thousand years ago. Let it lie.", next = "BACK", reply = "De Zandalar do not let things lie, stranger, which is why we are on dis beach and not asleep at home. But I will not ask you to carry our grudges for us; carry your blade instead.", fx = { align = { light = 1 } } },
+        { text = "Then the elves owe the trolls a reckoning.", next = "BACK", reply = "Dey do, and de Zandalar keep de account, as we keep all of dem. Hakkar first, though, and de old debts after.", fx = { align = { light = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "My people paid for that pride when the world broke.", next = "BACK", when = { race = "NightElf" }, reply = "You did, and de Zandalar do not deny it. De sea took from both our peoples dat night, and it did not ask who was to blame." },
+      },
+    },
+    kaldorei_balance = {
+      lines = {
+        { id = "kb_default", text = "Dey do, and dey plant a great tree and send deir druids to sleep in its roots and call it wisdom. Perhaps it is, but de Zandalar remember what dey were before dey learned to be humble, and we do not trust a lesson dat was learned only at de bottom of de sea." },
+      },
+      choices = {
+        { text = "A lesson learned late is still learned.", next = "BACK", reply = "Perhaps. De Zandalar will watch and see if it holds, for we have time, and so do dey.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "I know dem from songs older dan your Teldrassil, elf, and old songs are not kind. Do not fear it, for on dis island I ask only dat de priests of Hakkar die, and I will take your glaive for dat work as gladly as any troll's spear." },
+      },
+      choices = {
+        { text = "Old enmities can wait. Hakkar threatens us all.", next = "BACK", reply = "Dat is de answer I hoped for, and not de one I expected. Fight well in Zul'Gurub, and de Zandalar will remember your name before your people's.", fx = { align = { honor = 1 } } },
+        { text = "My ancestors were right to drive yours back.", next = "BACK", reply = "Den we understand each other, and dat is better dan pretending. Kill de priests all de same, elf, and we can argue about de old wars after.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Molthor.", next = "BACK" },
+      },
+    },
     darkspear = {
       lines = { { id = "dk_default", text = "Dey were, long ago, before dey were driven to de islands and found deir orc chieftain. Dat is no shame. De Gurubashi of today would sacrifice you on deir altars, so you owe dem nothing, and de Zandalar ask only dat you remember your blood when you go up dat stair." } },
       choices = {

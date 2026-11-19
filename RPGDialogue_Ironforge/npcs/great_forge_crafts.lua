@@ -18,6 +18,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "If ye've only come in tae warm yer hands, stand back from the anvil while ye do it." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the forge, are ye? Show me yer hands, then; let's see if they've hardened." },
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A kaldorei at the Great Forge. Come tae tell me it's too hot, or too loud, or too young, have ye?" },
+    { id = "g_soft", when = { npcFlagBefore = "bengus_soft" }, priority = 10,
+      text = "There's my tree-folk apprentice! Show me yer hands, then; I've been tellin' the lads ye hold the tongs better than half o' them." },
   },
 
   notice = {
@@ -123,6 +127,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Great Forge. Let me see yer hands; soft, as I thought, though I'll grant ye a bear's paws were never made for tongs." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Soft hands, I'd wager, but quick ones, an' I've seen a lockpick made by a rogue that was finer work than half my apprentices manage." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Great Forge! Ye'll feel it, I expect, the fire at the heart o' the mountain. Tell me true, does it know us?" },
+        { id = "h_nelf", when = { race = "NightElf", ["not"] = { npcFlagBefore = "bengus_soft" } },
+          text = "Bengus Deepforge, an' this is the Great Forge, which has burned since before yer goddess had a temple in it. Yer folk usually stand at the edge an' look at it like it's a house on fire, so ye'll forgive me if I dinnae stop hammerin'." },
       },
       again = {
         { id = "h_again", text = "Speak up, the bellows are loud." },
@@ -142,6 +148,8 @@ P:NPC {
         { text = "Does the forge ever trouble the mountain, Bengus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a rogue learn anything at your forge, Bengus?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you think the Great Forge's fire is, Bengus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What do you make of the night elves, Bengus?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "Your forge eats the mountain's heart, Bengus.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "bengus_soft" } } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -200,6 +208,71 @@ P:NPC {
       choices = {
         { text = "The Light matters more than the hammer.", next = "BACK", reply = "Maybe it does. Bring me the hammer anyway, for the Light likes a good edge as much as anybody.", fx = { align = { light = 1 } } },
         { text = "A good hammer wins more fights than prayer.", next = "BACK", reply = "Ha, ye'll no' hear me argue, but dinnae tell Brandur I said so, for he'll be in here wi' a sermon before supper.", fx = { align = { light = -1 }, affinity = 1 } },
+      },
+    },
+
+    -- Night elves (0.94.0 work): Bronzebeard pride against ten thousand years of looking down.
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "One o' their envoys came down tae the Great Forge last spring, stood just there, an' told me very kindly that the kaldorei had no need o' fires like this. Then she went back up the hall wi' a Great Forge buckle on her belt an' a dwarven blade on her Sentinel's hip, an' never once thought it funny." },
+        { id = "nee_dwarf", when = { race = "Dwarf" },
+          text = "Ye know the sort, {g:lad|lass}: tall, quiet, an' lookin' at the Great Forge like it's a wound in the rock. One o' their envoys told me last spring they had no need o' fires like this, an' she said it wearin' a buckle I forged maself." },
+      },
+      choices = {
+        { text = "They have their own smiths, Bengus.", next = "ne_smiths" },
+        { text = "They've seen forests burned. Forgive them a little fear of fire.", next = "BACK",
+          reply = "Hmph. Aye, the orcs an' the demons put a torch tae their woods, an' I'll grant them that. But my fire's never burned anythin' it wasnae asked tae.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Ten thousand years, and they still look down on everyone.", next = "BACK",
+          reply = "That's it exactly, an' they dinnae even have the decency tae be rude about it. A dwarf'll tell ye what he thinks o' yer work an' then buy ye an ale.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Bengus.", next = "BACK" },
+      },
+    },
+    ne_smiths = {
+      lines = {
+        { id = "nes_default", text = "Aye, aye, there's one called Mathiel up on their terraces, an' I've had one o' his blades across this anvil. It was good work, curse it, light an' true, an' he sent it wi' a letter askin' about our quench, which is more than any other elf has ever asked me." },
+      },
+      choices = {
+        { text = "So not every elf is an envoy.", next = "BACK", reply = "No, I suppose no'. Though I'll still wager he forged it in a wee polite fire an' apologised tae the coals after." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    ne_x = {
+      narr = "He sets the hammer down on the anvil, slowly, so that you hear it ring.",
+      lines = {
+        { id = "nex_default", text = "Eats it, does it? This fire was burnin' when yer folk were still sleepin' in the Dream, an' it'll be burnin' long after yer tree's dropped its leaves. Every axe that held the line at Hyjal came out o' a fire like this one, so mind how ye talk about it in its own house." },
+      },
+      choices = {
+        { text = "Fire took our forests at Hyjal. You'll forgive us our wariness.", next = "BACK",
+          reply = "Aye, well, maybe I will, for I've seen what a bad fire does, an' I'll no' pretend it's pretty. But dinnae blame the forge for what the arsonist did.",
+          fx = { align = { light = 1 } } },
+        { text = "Then keep your fire in your mountain, and out of our woods.", next = "BACK",
+          reply = "Gladly, an' ye can keep yer lectures in yer tree. We'll get along fine, so long as we each stay home.",
+          fx = { affinity = -1, align = { light = -1 }, opinion = { dwarves = "greedy" } } },
+        { text = "Show me, then. Teach a kaldorei what the fire makes.", tag = "Persuade", next = "ne_x_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { profession = "Blacksmithing" }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "ne_x_fail", fx = { affinity = -1 } } },
+      },
+    },
+    ne_x_soft = {
+      lines = {
+        { id = "nexs_default", key = true, fx = { npcFlag = { set = { "bengus_soft" } } },
+          text = "Teach ye? Well, by my beard, that's the first time one o' yer folk has asked. Pick up those tongs, then, an' hold them like ye mean it, an' if ye can stand the heat for a full minute, I'll admit ye're no' made o' paper after all." },
+      },
+      choices = {
+        { text = "A full minute. Watch me.", next = "BACK", fx = { affinity = 2 } },
+        { text = "And if I stand two?", next = "BACK", reply = "Then I'll tell every smith in this hall, loudly, an' I'll enjoy their faces." },
+      },
+    },
+    ne_x_fail = {
+      lines = {
+        { id = "nexf_default", text = "So ye can go home an' tell the Sentinels the dwarves are as crude as ye thought? No, I've had one envoy smile at my forge this year, an' that's plenty." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Good day, Bengus.", next = "END" },
       },
     },
   },

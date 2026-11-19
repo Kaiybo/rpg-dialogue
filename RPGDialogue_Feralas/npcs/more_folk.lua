@@ -1207,6 +1207,8 @@ P:NPC {
         { text = "I hear a tauren sage is on the same trail.", next = "rival" },
         { text = "What relics did he carry?", next = "relics", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Why should a kaldorei care for a Highborne's fate?", next = "why", when = { race = "NightElf" } },
+        { text = "You call Telmius insufferable. Is that just him, or his people?", next = "quel" },
+        { text = "I hear there are Highborne still living in Eldre'Thalas.", next = "shendralar" },
         { text = "I'll look for him in Dire Maul.", next = "BUSINESS" },
         { text = "Good hunting, Scholar.", next = "END" },
       },
@@ -1282,6 +1284,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    quel = {
+      big = true,
+      lines = {
+        { id = "quel_default", key = true,
+          text = "His people, I am afraid, though he was a fine example of them. The quel'dorei are the children of the Highborne we sent across the sea for refusing to give up the arcane, and the first thing they did on the far shore was make themselves a second Well." },
+        { id = "quel_human", when = { race = "Human" },
+          text = "His people, and your kings were happy to seat them at the Alliance's table. The quel'dorei are the children of Highborne exiles who would not give up the arcane, and they built a second Well in your kingdoms and called it the Sunwell, and I notice how well that ended." },
+        { id = "quel_mage", when = { class = "MAGE" },
+          text = "His people, and if you learned your craft in Dalaran you learned it from them. The quel'dorei are the children of Highborne exiles, and they taught your kind the very arts that broke our world, so forgive me if I do not call it a gift." },
+      },
+      choices = {
+        { text = "Yet you've spent ten years chasing one of them.", next = "quel_chase" },
+        { text = "Children shouldn't be judged by what their ancestors did.", next = "BACK",
+          reply = "A generous rule for a short-lived people, whose ancestors are safely dead. The quel'dorei's ancestors are not, in some cases, and they have not changed their minds.",
+          fx = { align = { light = 1 }, opinion = { quel_dorei = "fair" } } },
+        { text = "They learned nothing. Your contempt is earned.", next = "BACK",
+          reply = "I would not call it contempt, quite, but I would not lend one a lamp in a library. Ask Telmius how his cousins received him, if you find his bones.",
+          fx = { align = { light = -1 }, opinion = { quel_dorei = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quel_chase = {
+      lines = {
+        { id = "quel_chase_default", text = "One may study a wildfire without wishing to warm one's hands at it. Telmius carried the last of something that Quel'Thalas thought worth hiding, and I would rather a kaldorei scholar knew what it was than a quel'dorei mage who wishes to use it." },
+      },
+      choices = {
+        { text = "That sounds a little like envy.", next = "BACK", reply = "It is a great deal like envy, and I am aware of it. I have had a long time to dislike myself for it, and I still have not found the time to stop." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shendralar = {
+      lines = {
+        { id = "shendralar_default", text = "The Shen'dralar, yes, the last of Eldre'Thalas's Highborne, still in their halls and still feeding their old magics after ten thousand years. Feathermoon does not speak of them at supper, and the General's Sentinels would sooner see the whole quarter burned than parley with it." },
+      },
+      choices = {
+        { text = "Would you speak with them?", next = "shendralar_speak" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shendralar_speak = {
+      big = true,
+      lines = {
+        { id = "shendralar_speak_default", text = "In a heartbeat, and that is why I am not invited to the Sentinels' councils. They are a scandal and a danger and the only living witnesses to the Highborne's last days, and I cannot make myself wish them burned before they have been asked a single question." },
+      },
+      choices = {
+        { text = "Then ask your questions, and keep a Sentinel at your back.", next = "BACK",
+          reply = "That is the most sensible thing anyone has said to me on this island, and the General would hate it. I may borrow it.",
+          fx = { align = { order = -1 }, opinion = { highborne = "study" } } },
+        { text = "The Sentinels are right. Highborne who still cling to magic are a threat.", next = "BACK",
+          reply = "They are, and I will not pretend otherwise. I only ask that we burn them knowing what we burn, and not out of habit.",
+          fx = { align = { order = 1 }, opinion = { highborne = "destroy" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     why = {
       lines = {
         { id = "why_default", text = "Because they were ours before they were anyone's, and their folly is our history. A people that will not look at its own mistakes is merely waiting to make them again." },
@@ -1296,6 +1352,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the eastern elves, the Highborne, and every league of one fugitive's road. Ask, and I shall try to be brief." } },
     background = { { id = "tp_background", text = "I am a scholar of Darnassus, on loan to the General until my search is done. She tolerates me because I am quiet and I pay for my own lamp oil." } },
     highborne = { { id = "tp_highborne", text = "Brilliant, and vain, and ours. I study them so that we need not repeat them." } },
+    quel_dorei = { { id = "tp_quel", text = "The Highborne's exiled children, who took their magic east and built another Well. I study them the way a healer studies a fever.", next = "quel" } },
+    shendralar = { { id = "tp_shendralar", text = "The Highborne of Eldre'Thalas who never left. Feathermoon would rather they did not exist, and I would rather they answered my letters.", next = "shendralar" } },
     dire_maul = { { id = "tp_dire_maul", text = "Call it Eldre'Thalas, if you please. Dire Maul is what the ogres call it, and they also call a library a woodpile." } },
     _none = { { id = "tp_none", text = "I have no source for that, and I do not guess." } },
   },

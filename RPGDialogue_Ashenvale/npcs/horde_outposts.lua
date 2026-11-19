@@ -68,6 +68,7 @@ P:NPC {
         { text = "Who are the Twilight's Hammer?", next = "twilight" },
         { text = "Why do the naga want those sapphires?", next = "sapphires" },
         { text = "Why should the Horde care about elf ruins?", next = "xwhy", when = { faction = "Horde" } },
+        { text = "The elves pray to their moon. Does anything answer?", next = "moon" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -113,6 +114,41 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
+    moon = {
+      lines = {
+        { id = "mo_default", text = "Somet'ing answer, mon, I won't lie to you. I feel it on da strand at night when da tide come up silver, and it be no loa I know, but it be no demon either." },
+        { id = "mo_troll", when = { race = "Troll" },
+          text = "Somet'ing answer, cousin, and you feel it too if you stand on da strand when da tide come up silver. It be no loa our grandmothers named, but it be no demon either, and dat be more dan I say for some of what da elves call holy." },
+        { id = "mo_nelf", when = { race = "NightElf" },
+          text = "Your goddess answer, elf, I won't pretend she don't. I feel her on da strand when da tide come up silver, and she be no loa I know, but no demon either, which be more dan your Sentinels ever say of my spirits." },
+      },
+      choices = {
+        { text = "Elune is just the elves' name for a loa.", next = "moon_loa" },
+        { text = "Then why do the elves treat us as enemies?", next = "moon_enemies" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moon_loa = {
+      lines = {
+        { id = "ml_default", text = "Maybe, and maybe a loa be just a troll's name for somet'ing older. My grandmother would slap me for sayin' it, but da spirits don't argue about names, mon, only people do." },
+      },
+      choices = {
+        { text = "Then we've less to fight over than we think.", next = "BACK", reply = "Less over gods, ya, but still plenty over trees. One fight at a time, mon, and maybe dat one get easier.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Their goddess didn't stop their arrows. Names matter.", next = "BACK", reply = "Dey matter to da ones holdin' da bows, I grant you. Keep your shield up, then, and leave da gods to argue by demselves.", fx = { align = { light = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moon_enemies = {
+      lines = {
+        { id = "me_default", fx = { learn = { "elune" } },
+          text = "Because dey remember trolls from da old empires and orcs from Grom's axe, and dey forget nothin'. Yet dey left a temple to deir own goddess drowned in Blackfathom for ten thousand years, mon, and still dey call us da ones who don't respect sacred places." },
+      },
+      choices = {
+        { text = "They abandoned their own temple. They've no right to lecture us.", next = "BACK", reply = "Dat be how I feel on a bad night, mon. Da naga and da cultists keep it now, and no Sentinel ever came to take it back.", fx = { align = { honor = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "The sea took that temple, not the elves. Be fair.", next = "BACK", reply = "Fair, mon, you catch me, because it was da sea dat took it. I still say dey should have come back for it, but I'll say it softer.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwhy = {
       lines = { { id = "xw_default", text = "Because da sea don't care whose ruin it be, and when da water go sick, it be sick at Zoram'gar too. Da elves and us, we drink from da same coast, whether we like it or not." } },
       choices = {

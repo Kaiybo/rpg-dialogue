@@ -31,6 +31,7 @@ Push the Horde into Ashenvale.
 ## Secrets
 None.
 - Counts every life a log costs (authored, not canon).
+- Night elves: hostile. They hate every orc for Grom killing Cenarius; the Warchief's envoys came back with arrows, so the Horde would still live in tents. Believes, without proof, that the elves pay the Kolkar (claim `kadrak_elves_pay_kolkar`, false; Kuray'bin exposes it).
 
 ## Reliability
 Biased toward the Horde's claim to Ashenvale.

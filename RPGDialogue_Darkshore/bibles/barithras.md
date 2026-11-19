@@ -32,3 +32,6 @@ Honest.
 
 ## Topics
 background, advice, _none.
+
+## Kaldorei factions (authored, not canon)
+- Barithras was on Hyjal and has not made peace with the immortality lost when Nordrassil gave up its power. Counts his years; envies humans for laughing anyway. Argues across the square with young Allyndia, who wants to sail.

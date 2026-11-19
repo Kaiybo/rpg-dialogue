@@ -49,3 +49,6 @@ Authored, not canon: she adds salt to Verna's recipe; she fed a hungry Defias bo
 
 ## 0.34.0
 - Salma (Persuade, `fed_boy`): the Defias boy she fed warned her to keep the lamp dark and the door barred on nights the gnolls come up from the river, because the masks ride behind them; she tells her husband it's to save oil.
+
+## Night elves (prejudice pass)
+- Knows nothing true about night elves (Saldean says they live on dew and moonlight); holds no special grudge, since nobody sent Westfall grain.

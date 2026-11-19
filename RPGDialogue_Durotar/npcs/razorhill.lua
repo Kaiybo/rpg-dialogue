@@ -149,6 +149,7 @@ P:NPC {
         { text = "The spirits could help guard Razor Hill, Commander.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you endure this land, Commander?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Razor Hill doesn't look like much.", next = "why" },
+        { text = "Have you ever faced the night elves, Commander?", next = "hyjal" },
         { text = "Put me on the wall, commander.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can scout Tiragarde Keep without being seen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I track well. Where do you need eyes?", next = "hunter", when = { class = "HUNTER" } },
@@ -176,6 +177,38 @@ P:NPC {
         { text = "Then I'll march, and I'll hit them head on.", next = "BACK", reply = "Head on suits the Kul Tirans just fine, because they don't expect it. March, grunt, and show them Razor Hill's teeth.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I'll march, but I'll pick my own fights out there.", next = "BACK", reply = "Pick them well, then, and come back alive to tell me about it. I've buried enough grunts who picked the wrong ones.", fx = { align = { honor = -1 } } },
         { text = "Who was Nazgrel to you?", next = "warrior_nazgrel" },
+      },
+    },
+    hyjal = {
+      lines = {
+        { id = "hy_default", text = "I've stood beside them, which is rarer. I held a line at the foot of Mount Hyjal with Thrall's Horde while the demons came down the mountain, and there were Sentinels on the ridge above us, putting arrows into the same demons I was cutting." },
+        { id = "hy_troll", when = { race = "Troll" },
+          text = "Beside them, once, and your Darkspear were there too. We held a line at the foot of Mount Hyjal while the demons came down the mountain, with Sentinels on the ridge above us shooting the same demons we were cutting." },
+      },
+      choices = {
+        { text = "What were they like as allies?", next = "hyjal_allies" },
+        { text = "And now they kill our woodcutters.", next = "hyjal_now" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    hyjal_allies = {
+      lines = {
+        { id = "ha_default", text = "Cold, and they didn't pretend otherwise. Their priestess kept her word to Thrall for as long as the demons lived, and when Archimonde fell she sent us out of her forest, and a truce made for one war is only good for that war." },
+      },
+      choices = {
+        { text = "A truce kept is honor enough. They owe us nothing.", next = "BACK", reply = "That's how I see it, and how Thrall sees it. They kept their word, and an orc can respect that in an enemy.", fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "We bled on their mountain. They owe us timber for it.", next = "BACK", reply = "Plenty of my grunts say the same, and I don't stop them. But blood sold by the barrel isn't a warrior's, it's a merchant's, so don't say it in my barracks too loudly.", fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hyjal_now = {
+      lines = {
+        { id = "hn_default", text = "They do, and I'd hang any Sentinel I caught at it. But I watched them stand against the Legion when they could have run, so nobody calls them cowards in my barracks, and that includes you." },
+      },
+      choices = {
+        { text = "Respect them and fight them. Both can be honest.", next = "BACK", reply = "Now you sound like a grunt worth keeping. Respect the arrow and kill the archer, and come home to tell me about it.", fx = { align = { light = 1 } } },
+        { text = "An enemy is an enemy. I'll spare none of them.", next = "BACK", reply = "Then spare none, but leave the boasting for the fire. I've seen what happens to grunts who think the elves are easy.", fx = { align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     warrior_nazgrel = {

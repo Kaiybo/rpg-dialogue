@@ -13,6 +13,7 @@ Wiki infoboxes and gossip read 2026-11-16 (warcraft.wiki.gg API). Later-expansio
 Gruff, proud, exacting. Authored, not canon: sends apprentices back four times; Deepforges beside the forge for generations.
 ## What they notice
 Craft: blacksmiths.
+- Night elves (0.94.0 work): Bronzebeard pride; a Darnassian envoy told him the kaldorei need no such fires while wearing his buckle. Grudgingly admits Mathiel's blade was good. A night elf can win him round by asking to be taught (`[Persuade]`, npcFlag `bengus_soft`).
 
 # Geofram Bouldertoe  (key: if_geofram)
 ## Sources

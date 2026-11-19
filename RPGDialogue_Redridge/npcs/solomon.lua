@@ -3,6 +3,14 @@
 local P = RPGDialogueAPI:Pack("rpgd.redridge")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
+-- Solomon's grievance against the kaldorei (authored, not canon): a rumour that suits his letters.
+P:Claim {
+  id = "solomon_ashenvale_soldiers", by = "solomon", truth = "false",
+  text = "Stormwind spares soldiers to guard the night elves' forests in Ashenvale while Lakeshire is left to the orcs.",
+  truthNote = "In Year 1 the Sentinels hold Ashenvale alone; Stormwind's few regiments are at its own borders and none has gone to Ashenvale. Solomon heard it from a clerk in the Keep and believes it because it fits his grievance.",
+  tell = "true",
+  exposedBy = { "vimes.vne_ash", "solomon.sxs_default" },
+}
 P:NPC {
   key = "solomon", id = TODO_NPC("Magistrate Solomon"), name = "Magistrate Solomon",
   bible = "bibles/solomon.md", role = "noble", tier = "major",
@@ -17,6 +25,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "The court recognises a kaldorei visitor, which is rare enough in Lakeshire that the clerk will want to note it. I trust you've not come to ask Redridge for archers." },
+    { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "solomon_nelf_soft" }, priority = 10,
+      text = "Ah, the kaldorei who corrected the court's record. Sit, if you can find a chair; the court has not forgotten that it owes you an apology, and it has paid it once already." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The law of Stormwind names the summoning of demons a crime, and this court has not forgotten it. You may state your matter, but do not mistake my patience for approval." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Lakeshire buried its dead after the Horde's warlocks passed through in the last war. Be brief, and be careful." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The court has watched you serve Lakeshire well, and it is honest enough to say so. It has not, however, changed its opinion of your art." },
@@ -125,8 +137,81 @@ P:NPC {
         { text = "Something else, Magistrate.", next = "BACK" },
       },
     },
+    sol_nelf = {
+      lines = {
+        { id = "sn_default", key = true, fx = { hear = "solomon_ashenvale_soldiers" },
+          text = "The court has no quarrel with the kaldorei as a people; it has a quarrel with being forgotten. I'm told the crown has men to spare for the night elves' forests in Ashenvale, while Lakeshire holds the Everstill bridge with fishermen and a few tired guards." },
+      },
+      choices = {
+        { text = "Who told you Stormwind sends men to Ashenvale?", next = "sol_nelf_2" },
+        { text = "That sounds like a rumour, Magistrate.", next = "sol_nelf_2" },
+      },
+    },
+    sol_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "sn2_default",
+          text = "A clerk in the Keep, over a cup of something, and I grant you that clerks talk. But the letters from Darnassus are answered within the week and mine have waited forty, so the court may be forgiven for drawing its own conclusions." },
+      },
+      choices = {
+        { text = "The Alliance owes the kaldorei for Hyjal. Their claim is fair.", next = "BACK",
+          reply = "Perhaps it is, and the court does not dispute the debt. It disputes the order in which debts are paid.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Stormwind's own towns come before any elf's forest.", next = "BACK",
+          reply = "The court could not have put it better, and it intends to put it exactly so in its forty-first letter.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    sol_xnelf = {
+      lines = {
+        { id = "sx_default", key = true, fx = { hear = "solomon_ashenvale_soldiers" },
+          text = "Resent is a strong word for a court to use, so I'll choose a smaller one: I envy you. Your envoys are heard in Stormwind within the week, and I'm told the crown keeps soldiers in your forests, while my letters wait forty weeks for an answer that never comes." },
+      },
+      choices = {
+        { text = "Darnassus answers to the Alliance, as Lakeshire does. Be patient.", next = "BACK",
+          reply = "The court has been patient for two years, kaldorei, and patience has not yet held a bridge. But it hears you.",
+          fx = { align = { order = 1 } } },
+        { text = "Then go around the crown. Write to Darnassus yourself.", next = "BACK",
+          reply = "Go around the crown? The court will pretend it did not hear that, and then it will think about it all night.",
+          fx = { align = { order = -1 } } },
+        { text = "No Stormwind soldier stands in Ashenvale. The Sentinels hold it alone.", tag = "Persuade", next = "sol_xnelf_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { townStanding = { town = "lakeshire", min = 30 } }, { questDone = TODO_QUEST("The True Masters") } } } },
+          fail = { next = "sol_xnelf_fail", fx = { affinity = -1 } } },
+      },
+    },
+    sol_xnelf_soft = {
+      lines = {
+        { id = "sxs_default", key = true, fx = { npcFlag = { set = { "solomon_nelf_soft" } }, expose = "solomon_ashenvale_soldiers" },
+          text = "Alone? Then my clerk was talking out of his cup, and the court has been sharpening its envy on a rumour. It strikes the remark from the record and apologises to you, which it does not often do." },
+      },
+      choices = {
+        { text = "Thank you, Magistrate. We're both forgotten, it seems.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sol_xnelf_fail = {
+      lines = {
+        { id = "sxf_default", text = "That is precisely what an envoy would say, and the court has heard a great many envoys. Bring the court something it can enter in the record, and it will listen." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+        { text = "I'll leave you to your letters.", next = "END" },
+      },
+    },
+    sol_nsoft = {
+      lines = {
+        { id = "sns_default", text = "One, as it happens, to Astranaar, asking whether the Sentinels have any counsel on holding a line with too few. The court does not expect an answer, but it is a pleasant change to write to someone who isn't Stormwind." },
+      },
+      choices = {
+        { text = "They may surprise you. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll leave you to your letters.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Your people's envoys are heard in Stormwind's court within the week, I'm told, which is more than can be said for mine. You will forgive the magistrate a certain coolness." },
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "The court has had dealings with a {altrace} {altclass} called {alt}, and I note for the record that you bear a strong resemblance. If you share that one's sense of duty, Lakeshire will be glad of you." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
@@ -195,6 +280,9 @@ P:NPC {
         { text = "Stormwind seems slow to answer your letters, Magistrate.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Magistrate. Dragons stood behind the orcs, as you said.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "Who is this other visitor in your record, Magistrate?", next = "xalt_solomon", when = { alt = true } },
+        { text = "Your court seems cool toward the night elves.", next = "sol_nelf" },
+        { text = "You resent my people, Magistrate. Why?", next = "sol_xnelf", when = { race = "NightElf" } },
+        { text = "Any letters to Ashenvale lately, Magistrate?", next = "sol_nsoft", when = { race = "NightElf", npcFlagBefore = "solomon_nelf_soft" } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },
@@ -609,6 +697,7 @@ P:NPC {
     },
   },
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "The court has no quarrel with the night elves, only with how quickly Stormwind answers their letters. It notes the difference, and it notes it often." } },
     _gated = {
       { id = "gt1", text = "That is not a matter I discuss with persons the court has no reason yet to trust. Serve Lakeshire, and you may ask me again." },
       { id = "gt2", text = "I decline to answer, and I am under no obligation to say why. Perhaps I shall when you have shown the township some good will." },

@@ -775,6 +775,9 @@ P:NPC {
         { text = "How do you keep a larder stocked up here?", next = "larder" },
         { text = "Who are your hungriest customers?", next = "hungry" },
         { text = "Sentinels on watch shouldn't be coddled.", next = "coddle" },
+        { text = "Do you ever want to go further than Starfall?", next = "world" },
+        { text = "Rivern Frostwind has no patience for humans and dwarves.", next = "world_rivern", when = { heardLine = "rivern.lo_default" } },
+        { text = "I've come a long way from Stormwind to taste this.", next = "world_human", when = { race = "Human" } },
         { text = "What's in the broth?", next = "broth", when = { profession = "Cooking" } },
         { text = "Have you anything stronger than juice?", next = "stronger", when = { race = { "Dwarf", "Human", "Gnome" } } },
         { text = "Thank you, Lyranne.", next = "END" },
@@ -831,6 +834,51 @@ P:NPC {
       choices = {
         { text = "Warm soldiers fight better. You were right.", next = "BACK", reply = "I thought so, and it is kind of you to say it aloud.", fx = { align = { light = 1 } } },
         { text = "Hardship is what makes a Sentinel.", next = "BACK", reply = "Perhaps it is. They will find hardship enough on that hill without my adding to it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    world = {
+      lines = {
+        { id = "wo_default", key = true,
+          text = "Every day, dear, though I'd not say so in front of the elders. Since Hyjal we have only so many years, and I would like to spend a few of them tasting what the dwarves cook in Ironforge and what the humans eat in their great harbour, before I am old." },
+        { id = "wo_nelf", when = { race = "NightElf" },
+          text = "Every day, {g:brother|sister}, and I suspect you do as well, or you'd be home in Darnassus. Since Hyjal we have only so many years, and I don't mean to spend all of them on one cold hill, however much I love it." },
+      },
+      choices = {
+        { text = "What do the elders say to that?", next = "world_elders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    world_elders = {
+      big = true,
+      lines = {
+        { id = "we_default", text = "That we've lived ten thousand years without human bread and can live a few hundred more, and that the young forget what the world outside did to us. Wynd told me the Highborne were curious too, which I thought was very unfair of him." },
+      },
+      choices = {
+        { text = "Go and see it. Kaldorei have hidden from the world too long.", next = "BACK",
+          reply = "That's what I tell myself over the kettle, and it's lovely to hear someone else say it. One spring, when Starfall can spare me, I'll take the boat from Auberdine.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { kaldorei_immortality = "freed" } } },
+        { text = "The elders have a point. Your place is here, with your people.", next = "BACK",
+          reply = "Perhaps it is, and the Sentinels would go hungry without me, which I take very seriously. I'll stay, for now, but I'll keep the wanting.",
+          fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    world_rivern = {
+      lines = {
+        { id = "wr_default", text = "No, she hasn't, and she'll tell you about the cave and the cubs if you let her, and she's right to grieve it. But Jaron eats at my brazier every evening and toasts my broth as if it were Ironforge ale, and I can't make myself think of him as a fire waiting to happen." },
+      },
+      choices = {
+        { text = "Grief makes people judge whole races.", next = "BACK", reply = "It does, and I try not to blame her for it. I only bring her a bowl and talk about something else.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    world_human = {
+      lines = {
+        { id = "wh_default", text = "From Stormwind! Then sit, and tell me what your people eat there, all of it, and whether it's true you put meat inside bread and bake it. I have wanted to know since I was a novice cook in Darnassus." },
+      },
+      choices = {
+        { text = "It's true. Meat pies are a Stormwind treasure.", next = "BACK", reply = "Then I'll make one this winter and see what the Sentinels say. Wynd will disapprove, and eat two.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

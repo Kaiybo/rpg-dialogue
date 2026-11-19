@@ -67,6 +67,8 @@ P:NPC {
         { text = "Tell me about your family.", next = "family" },
         { text = "The boats here never seem to go out.", next = "murlocs" },
         { text = "I've fished all my life too, Gubber.", next = "fisher_g", when = { profession = { name = "Fishing", min = 75 } } },
+        { text = "Do the elves here treat you well, Gubber?", next = "elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "Do the other dwarves here speak ill of my people?", next = "xnelf", when = { race = "NightElf" } },
         { text = "Can you teach me, or sell me a pole?", next = "BUSINESS" },
         { text = "Bye, Gubber.", next = "END" },
       },
@@ -158,6 +160,41 @@ P:NPC {
       choices = {
         { text = "I'd like that, Gubber.", next = "BACK", fx = { affinity = 2 } },
         { text = "Maybe another time.", next = "BACK" },
+      },
+    },
+
+    -- Night elves (0.94.0 work): the one dwarf in Auberdine with nothing bad to say about them.
+    elves = {
+      lines = {
+        { id = "el_default", text = "Real well! They don't talk much, which is good, 'cause the fish don't like a lot of talking either. And a Sentinel lady showed me where the grouper sit when the tide's out, and she never even asked for none." },
+      },
+      choices = {
+        { text = "Some dwarves here say they're cold and proud.", next = "elves_proud" },
+        { text = "That was kind of her.", next = "BACK", reply = "It was! I gave her a crab after, a real big one, and she looked at it a long time and then she said thank you real polite.", fx = { affinity = 1 } },
+        { text = "Something else, Gubber.", next = "BACK" },
+      },
+    },
+    elves_proud = {
+      lines = {
+        { id = "ep_default", text = "Kurdram says that, and Prospector Remtravel says they keep secrets, and maybe they do. But they sit by the water real still for a long, long time without getting bored, and I figure anybody who can do that is a fisherman inside, even if they never fished." },
+      },
+      choices = {
+        { text = "That's a generous way to see people, Gubber.", next = "BACK",
+          reply = "Ma always said you catch more fish with patience than with yelling, and I guess people are kinda the same.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "Kurdram's not wrong. They do look down on us.", next = "BACK",
+          reply = "Well, they're awful tall, so I guess they gotta look down at somebody. I don't mind it none, so long as they don't look down at my line.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "Some do, I guess. Kurdram says you put fish in everything, and Prospector Remtravel says you got secrets, but I like the fish, and I don't need to know nobody's secrets so long as they tell me where the grouper are." },
+      },
+      choices = {
+        { text = "Thank you for being kind about us, Gubber.", next = "BACK", reply = "I ain't being kind, I'm just being right! You folks were here first, and you let me fish anyhow.", fx = { affinity = 2 } },
+        { text = "Where do the grouper sit, then?", next = "BACK", reply = "Out past the broken pier when the tide's low, but that's a secret, so now we both got one." },
       },
     },
   },

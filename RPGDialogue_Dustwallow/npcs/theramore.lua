@@ -1074,6 +1074,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "You're a long way from Darnassus, kaldorei, and you'll have come by Menethil or the Barrens road, neither of which I'd wish on anyone. Captain Vimes, Theramore Guard; sit, if you've come about the inn." },
     { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you found something." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the inn case hasn't moved an inch in that time. I'm glad you're back, because I've run out of people who look for evidence instead of culprits." },
@@ -1220,8 +1222,52 @@ P:NPC {
         { text = "Then I'll watch for loose threads myself, Captain.", next = "BACK" },
       },
     },
+    vi_nelf = {
+      lines = {
+        { id = "vin_default", key = true,
+          text = "Carefully, and that cuts both ways. We fought beside them at Hyjal, and then they went home to their new tree and shut the door, and Lady Proudmoore's envoys have been knocking politely ever since." },
+      },
+      choices = {
+        { text = "They lost their World Tree. I'd shut the door too.", next = "vi_nelf_2" },
+        { text = "Do they help hold Kalimdor against the Horde?", next = "vi_nelf_2" },
+      },
+    },
+    vi_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "vne_ash", fx = { expose = "solomon_ashenvale_soldiers" },
+          text = "They hold their own forests, and I can't fault them for it. The Sentinels keep Ashenvale against the Warsong alone, with no soldiers from Theramore or from Stormwind beside them, whatever the taverns back east like to say, because neither of us has a man to spare." },
+      },
+      choices = {
+        { text = "Then they're fighting the Alliance's war alone. They deserve better.", next = "BACK",
+          reply = "They do, and I've said so to the Lady, and she agrees. Saying it costs less than sending men, which is the whole trouble.",
+          fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "They wanted to be left alone. Let them have it.", next = "BACK",
+          reply = "That's the Darnassus view too, near enough, so you'd get on with their envoys. I'd only point out that the Horde doesn't leave anyone alone for long.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    vi_xnelf = {
+      lines = {
+        { id = "vix_default", key = true,
+          text = "I don't trust anyone until I've checked their story, and that's the job, not your people. But I'll own I find kaldorei hard to read, because you look at a man as though you'd known his grandfather and found him wanting." },
+      },
+      choices = {
+        { text = "Then check my story, Captain. I've nothing to hide.", next = "BACK",
+          reply = "Good answer, and I will, because I check everyone's. So far you're cleaner than some of my own guard.",
+          fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "We've watched young races ruin things before, Captain.", next = "BACK",
+          reply = "Maybe so, but you'll forgive a young race for wanting to make its own mistakes. We're quite good at it.",
+          fx = { align = { honor = -1 } } },
+        { text = "Some of us did know your grandfathers, Captain.", next = "BACK",
+          reply = "That's exactly what I mean, and it doesn't help. Ask me something with an answer in it." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Theramore and Darnassus have been neighbours since Hyjal, the way two houses at either end of a long street are neighbours. We nod, we keep our dogs in, and we don't borrow sugar." },
         { id = "h_pt_vimes", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Five of you, armed and moving together through my gate. You'd look like a raiding party if you weren't wearing the right colors, so keep your weapons sheathed on the causeway, if you please." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "My guards are telling each other that you went into Onyxia's lair and came back without her. I'd call it a tavern story if Tervosh hadn't confirmed it, so well done, and don't let it go to your head." },
@@ -1262,6 +1308,8 @@ P:NPC {
         { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "That fire smells of magic to me, Captain.", next = "xmage", when = { class = "MAGE" } },
         { text = "Could the spirits help you find who burned the Shady Rest?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "How does Theramore get on with the night elves?", next = "vi_nelf" },
+        { text = "You don't trust my people, Captain.", next = "vi_xnelf", when = { race = "NightElf" } },
         { text = "How does a Theramore guard turn traitor, Captain?", next = "dd_hendel", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "It was the Horde, and everyone knows it.", next = "END", reply = "Then you're no use to me, and you can go. I don't need someone who already knows the answer.", fx = { affinity = -1, align = { order = -1 } } },
       },
@@ -1350,6 +1398,7 @@ P:NPC {
   },
 
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Good neighbours at a distance. They fought beside us at Hyjal and then went home, and the Sentinels hold Ashenvale alone, whatever the taverns say." } },
     knows = {
       { id = "tp_knows", text = "Asking questions is my job, but I'll answer a few of yours for a change. Pick one." },
     },

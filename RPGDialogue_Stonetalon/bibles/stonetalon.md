@@ -47,3 +47,6 @@ Maggran's guarded word on Braelyn and the wind carrying his thoughts off; Jayka 
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Maggran (Persuade, `after_fear`): he fears he's forgotten how to be gentle and that the braves follow him only because he's hard (authored, from canon 'turn to the good').
+
+## Night elves (authored, not canon)
+- Tammra: wants to plant beside the Circle on Stonetalon Peak; Sentinels on the ridge shoot Sun Rock braves who go too far up, since a tauren with a totem looks like an orc with a saw; she leaves seedlings below the Peak and they are always taken.

@@ -457,6 +457,8 @@ P:NPC {
         { text = "Auberdine's stores must run short, this far out.", next = "short" },
         { text = "My people sent those paladins. Do you trust us?", next = "human_e", when = { race = "Human" } },
         { text = "Glynda says the Sentinels are stretched thin.", next = "thin_e", when = { heardLine = "glynda.h_default" } },
+        { text = "Not every Sentinel shares your view of outlanders.", next = "sisters" },
+        { text = "Some of your sisters look at me like a grave-robber.", next = "xdwarf_e", when = { race = "Dwarf" } },
         { text = "Your stores would be easy to lift, Sentinel.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the humans at Maestra's Post fight well, Sentinel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Auberdine need from its hunters, Sentinel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -522,6 +524,47 @@ P:NPC {
       choices = {
         { text = "I'll earn the rest of it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Fair enough.", next = "BACK" },
+      },
+    },
+    -- Kaldorei factions: Elissa values the Alliance and argues with her sisters who don't.
+    sisters = {
+      lines = {
+        { id = "ss_default", key = true,
+          text = "No, and I'll not pretend they do. Glynda watches every dwarf with a pick, Tysha on the Ameth'Aran road calls outlanders children, and half the watch would gladly see the Bravery sail home empty and stay there." },
+      },
+      choices = {
+        { text = "Are they wrong?", next = "sisters2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sisters2 = {
+      lines = {
+        { id = "ss2_default", text = "They aren't wrong about everything, which is what makes them hard to argue with. But I count what comes in, and since the boats began, Auberdine has had dwarven iron for our arrowheads, human paladins hunting the Dark Strand and gnomish oil for the watch lamps, and we've given very little for any of it." },
+      },
+      choices = {
+        { text = "Then tell them so. A ledger beats a grudge.", next = "BACK", reply = "I tell them every week with the ledgers open. Ledgers don't often win an argument with a Sentinel's grief, but I'll keep trying.", fx = { align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Grudges keep a people careful. Let them be.", next = "BACK", reply = "Careful, yes, and alone as well. We tried being alone for ten thousand years, and the Legion still found us.", fx = { align = { honor = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "What have the kaldorei given in return?", next = "sisters3" },
+      },
+    },
+    sisters3 = {
+      lines = {
+        { id = "ss3_default", text = "A harbour, some patience, and the Sentinels who ride guard on the Bravery, which is not nothing. My grandmother would say we owe the humans nothing at all, but a people who lost Lordaeron to the Scourge and still sent Delgren across the sea have paid their share of the account, to my mind." },
+        { id = "ss3_human", when = { race = "Human" },
+          text = "A harbour, some patience, and Sentinels to ride guard on your ships. My grandmother would say we owe your people nothing, but you lost Lordaeron to the Scourge and still sent Delgren across the sea, and that settles the account well enough for me." },
+      },
+      choices = {
+        { text = "Well put, Sentinel.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf_e = {
+      lines = {
+        { id = "xdw_default", text = "Glynda, I expect, and she has reasons you'd better hear from her than from me. For my part, the Bravery brings your iron to my arrowsmiths every week, and I'd sooner have a dwarf at the forge than a grudge on the walls." },
+      },
+      choices = {
+        { text = "Then I'll prove her wrong.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     thin_e = {

@@ -1109,6 +1109,7 @@ P:NPC {
         { text = "What does the Apothecarium want with a paladin, Master Apothecary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the bottom of the Scarlet Monastery, Master Apothecary.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "My companion is a priest. What do you want with them?", next = "xpt_faranell", when = { party = { class = "PRIEST" } } },
+        { text = "Have you ever dealt with the night elves, Faranell?", next = "ne_faranell" },
         { text = "I'll leave you to your work.", next = "END" },
         { text = "Lydon's elixir worked, then. What's it for?", next = "dd_pain", when = { questDone = TODO_QUEST("Elixir of Pain") } },
       },
@@ -1148,6 +1149,31 @@ P:NPC {
       choices = {
         { text = "You're telling me to be careful?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
         { text = "I hope it works.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    ne_faranell = {
+      lines = {
+        { id = "ne_default", text = "Oh, the kaldorei! Their druids have been watching Felwood rot for years now, so they must have the finest notes on corruption ever written, and they won't share a single page of them with the Society. They treat knowledge as if it were one of their sacred groves, fenced off and watered with tears, and it's a terrible waste of a good poison." },
+      },
+      choices = {
+        { text = "Perhaps they fear what you'd do with it.", next = "ne_faranell_fear" },
+        { text = "Knowledge should be shared, even with the Society.", next = "BACK",
+          reply = "Even with the Society! Oh, I like that 'even', it has such a lovely reluctance to it. Yes, my friend, it should, and one day the Circle will learn that hoarding a cure is its own sort of poison.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "They're right to guard it. Some notes are dangerous.", next = "BACK",
+          reply = "Dangerous! Every note worth reading is dangerous, my friend, which is exactly why it ought to be read by professionals. Still, I respect a careful librarian, even an elven one.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Something else, Master Apothecary.", next = "BACK" },
+      },
+    },
+    ne_faranell_fear = {
+      lines = {
+        { id = "nf_default", text = "Of course they fear it, and quite rightly, because I would do marvellous things with it! But they also think a Forsaken in their forest is a ghoul who forgot to lie down, and it's very hard to persuade anyone of your good intentions while she's reaching for her bow." },
+      },
+      choices = {
+        { text = "To them, the Forsaken and the Scourge look alike.", next = "BACK",
+          reply = "A crude classification, but I suppose they've had very little opportunity to examine us closely. I'd volunteer for the study myself, if I could be sure of being let go afterward." },
+        { text = "Something else, Master Apothecary.", next = "BACK" },
       },
     },
     making = {

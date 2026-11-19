@@ -540,6 +540,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A night elf! Sit down, sit down, and tell me whether it's true your people never get drunk, because I've a theory about it, and it's a sad one." },
     { id = "g_tale", text = "Sit down, sit down! A drink and a tale, that's my price. You bring the drink, I'll bring the tale." },
     { id = "g_back", when = { metBefore = true }, text = "My friend, you came back! Nobody ever comes back. Sit down, sit downwind, as they all say, though I can't think why." },
     { id = "g_away", when = { away = 14 }, text = "You came back, after {away}! Nobody ever comes back, and you've done it twice now, so sit down and I'll find a tale worthy of it." },
@@ -626,8 +628,57 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    fz_nelf = {
+      lines = {
+        { id = "fzn_default", key = true,
+          text = "Two, one for each hand, and you'll have to choose. The Auberdine sailors swear a Sentinel shot a murloc through the eye from the end of their pier on a moonless night, and the same sailors swear a kaldorei called their captain a child to his face, and he was sixty if he was a day." },
+      },
+      choices = {
+        { text = "The first one, about the Sentinel.", next = "fz_nelf_2" },
+        { text = "The second. Why call him a child?", next = "fz_nelf_3" },
+      },
+    },
+    fz_nelf_2 = {
+      lines = {
+        { id = "fzn2_default",
+          text = "One arrow, through the eye, from the end of the pier, and she didn't so much as turn round to watch it land. If I'd had a dozen like her aboard the Wave Mistress, I'd still have a ship, and I'd still have my crew." },
+      },
+      choices = {
+        { text = "Then tell me the other one. Why a child?", next = "fz_nelf_3" },
+        { text = "Here's to the Wave Mistress. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    fz_nelf_3 = {
+      big = true,
+      lines = {
+        { id = "fzn3_default",
+          text = "Because to a kaldorei he was a child, friend, and so are you and I and the oldest man in Menethil. They don't mean it cruelly, I think, but it's a hard thing to hear from someone who looks thirty that she was stringing bows before your great-grandfather's great-grandfather was born." },
+      },
+      choices = {
+        { text = "Age earns respect. They've earned theirs.", next = "BACK",
+          reply = "Spoken like a sailor who's been on a ship with an old bosun. Aye, they've earned it, and they know it, which is the part that grates.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Age is no excuse for arrogance.", next = "BACK",
+          reply = "That's what our captain said, only with more swearing. They called him a child again for the swearing, and that ended the conversation.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Fitzsimmons.", next = "BACK" },
+      },
+    },
+    fz_xnelf = {
+      lines = {
+        { id = "fzx_default", key = true,
+          text = "Stare? Ah, they do, and I'm sorry for it, but most of Menethil has never seen anyone taller than a dwarf standing on a barrel. Me, I stare because I'm drunk, and because you put me in mind of the lass who shot that murloc off the Auberdine pier." },
+      },
+      choices = {
+        { text = "What murloc? Tell me.", next = "fz_nelf_2" },
+        { text = "I'd rather not be stared at, Fitzsimmons.", next = "BACK",
+          reply = "Fair enough, and I'll look at my cup instead, which is a sadder sight but a safer one." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Your boat comes in from Auberdine, and every time a few of your folk step off and look at Menethil as if it were a midden. I don't blame them, mind; it is a midden, but it's our midden." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We had a chaplain aboard the Wave Mistress, and he'd have liked you, though he never could hold his drink." },
         { id = "h_default", key = true,
           text = "Fitzsimmons, first mate of the Wave Mistress, Third Fleet of Kul Tiras... was first mate, I should say, since there's no ship left to be first mate of." },
@@ -674,6 +725,8 @@ P:NPC {
         { text = "What would a rogue find worth taking in Menethil, Fitzsimmons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the drowned crews in the bay ever speak to you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do Kul Tiran sailors pray to the sea, Fitzsimmons?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Got a tale about the night elves?", next = "fz_nelf" },
+        { text = "Your townsfolk stare at my people on the docks, Fitzsimmons.", next = "fz_xnelf", when = { race = "NightElf" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -792,6 +845,7 @@ P:NPC {
   },
 
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Tall, quiet and older than the sea, or near enough. They'll shoot a murloc in the dark and call your captain a child in the same breath, and I've never decided whether to toast them or curse them, so I do both." } },
     knows = {
       { id = "tp_knows", text = "I've been sitting outside this tavern so long I've heard every tale in the harbour, twice. Ask me about any of this, friend, and maybe stand upwind." },
     },
@@ -1849,6 +1903,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want a room near the back, then, for I've learned that beasts don't care for the noise o' the bar." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye warm the hearth a bit? The damp gets in the logs, an' the sailors complain the fire's sulkin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Deepwater! Ye'll fit right in, for my regulars are sailors, soldiers an' diggers, an' every one o' them's more superstitious than ye." },
+        { id = "h_nelf", when = { race = "NightElf", ["not"] = { npcFlagBefore = "helbrek_ale" } },
+          text = "Off the Bravery, are ye? There's a stool by the window where yer folk like tae sit an' watch the rain, an' a jug o' water on the sill, for I've learned what ye drink, which is nothin' worth pourin'." },
+        { id = "h_nelf_ale", when = { npcFlagBefore = "helbrek_ale" },
+          text = "There's my kaldorei regular! I've told every sailor in the Wetlands about ye, an' half o' them still don't believe me." },
         { id = "dd_goods", when = { questDone = TODO_QUEST("Reclaiming Goods") },
           text = "Karl Boran's been crowin' in my common room that ye pulled his crates back out o' the murlocs' hands. He bought a round on the strength of it, an' Karl never buys a round." },
         { id = "dd_nekrosh", tags = { "news" }, when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
@@ -1876,6 +1934,9 @@ P:NPC {
         { text = "We're bound for the hills below Grim Batol. Any advice?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Did you ever wonder where my casks came from, Helbrek?", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
         { text = "Do the Dun Modr dwarves ever come down to drink?", next = "dw_modr" },
+        { text = "Do the night elves off the Auberdine boat drink here?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "I'll have an ale, Helbrek. Your strongest.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "helbrek_ale" } } },
+        { text = "The usual, Helbrek.", next = "ne_xale", when = { npcFlagBefore = "helbrek_ale" } },
         { text = "Just drying off.", next = "END" },
       },
     },
@@ -1924,6 +1985,55 @@ P:NPC {
     brewer = {
       lines = { { id = "br_default", text = "Do they, now! Then ye'll know my mead's honest, an' if ye think it's no', ye'll keep it to yerself, like family." } },
       choices = { { text = "It's honest work. Mostly.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
+    },
+
+    -- Night elves (0.94.0 work): a jolly innkeeper's grudge against folk who won't drink or laugh.
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "Drink? They order water, {g:lad|lass}, in a tavern, an' then they sit by the window an' look at my ale the way ye'd look at a bog. Three days the Bravery's crew waits on the tide, an' I've never once heard one o' them laugh at a song, an' my regulars sing very badly on purpose." },
+      },
+      choices = {
+        { text = "Maybe they just don't care for your ale.", next = "ne_ale" },
+        { text = "Let them be. Not everyone needs ale to be good company.", next = "BACK",
+          reply = "Aye, aye, ye're right, an' they pay, an' they never break a stool, which is more than I can say for the marines. I'd just like tae hear one laugh, the once, before I die.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Cold, proud folk. A dry tavern suits them.", next = "BACK",
+          reply = "Ha! Cold as the bay in winter an' twice as wet. Still, I'll no' turn them out, for a stool by the window's no' doin' anybody harm.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "cold" } } },
+        { text = "Something else, Helbrek.", next = "BACK" },
+      },
+    },
+    ne_ale = {
+      lines = {
+        { id = "nea_default", text = "One o' them told me ale dulls the spirit, very politely, an' I told her that was the whole point o' ale, an' she didnae laugh at that either. I've since heard they make a wine out o' moonberries that tastes like a garden, so it's no' that they dinnae drink, it's that they dinnae drink anythin' a dwarf would recognise." },
+      },
+      choices = {
+        { text = "So it's a matter of taste, not temperament.", next = "BACK", reply = "Taste, aye, I'll give ye that, an' maybe I'll order a cask o' that moonberry business, just tae see their faces when I pour it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_x = {
+      narr = "He stops wiping the bar and stares at you as though you had asked for his beard.",
+      lines = {
+        { id = "nex_default", text = "Ale. Ye want an ale, an' no' water, an' no' tea wi' a flower in it? I've kept this tavern twenty years an' ye're the first o' yer folk tae ask, so sit down before I lose my nerve an' pour ye water out o' habit." },
+      },
+      choices = {
+        { text = "It's terrible. I'll go back to water, I think.", next = "BACK",
+          reply = "Terrible! Well, that's honest, an' honest's better than polite. Water it is, but I'll be tellin' the whole bar ye tried.",
+          fx = { npcFlag = { set = { "helbrek_ale" } } } },
+        { text = "It's good. Pour another, and start a song.", next = "BACK",
+          reply = "Lads! Lads, the elf wants a song! No, a proper one, Fitz, no' the one about the goat.",
+          fx = { affinity = 2, npcFlag = { set = { "helbrek_ale" } } } },
+      },
+    },
+    ne_xale = {
+      lines = {
+        { id = "nexa_default", text = "Comin' up, an' I've had a cask o' moonberry wine sent over on the Bravery for yer folk, would ye believe. Nobody's touched it but me, an' I'll admit it's no' as bad as I said, though I'll deny it if ye tell anyone." },
+      },
+      choices = {
+        { text = "Your secret's safe, Helbrek.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

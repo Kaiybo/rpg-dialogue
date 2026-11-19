@@ -121,3 +121,10 @@ Sources: Ian Strom (Rogue Trainer, Salty Sailor Tavern, trains both factions; ca
 - Elril: female; temple-trained in Ashenvale without vows, carried water for the Sentinels, plate from a Menethil Harbor dwarf who charged double for the legs; the paladin question is a running joke she keeps alive (a sailors' song, Krazek's ten-gold offer); knelt once beside a human paladin and felt "something warm" answer, never sure whose. No night-elf paladin order is claimed.
 - Never: confirming Elril as a paladin; Illari's fate or capture; anything about the chain's later rewards.
 - Krazek: grumbles about gnomes (`prejudice`, race Gnome) as a business grudge: they give their plans away; his uncle lost a Ratchet winch contract to a gnome who drew the plans on a napkin.
+
+## Horde views of the kaldorei (authored, not canon)
+- Aggro'gosh: the grunts say Grom'gol was named for Grom Hellscream (not confirmed; he never corrects them). Proud of Grom killing Cenarius, "the first blow the Horde struck for its own survival in Kalimdor"; the elves have every right to their grudge, and so do the orcs.
+- Mok'thardin: the elves' grudge is fair; the Horde's first great deed in Kalimdor was done with a demon's strength, and he carries that shame like the warlock years. Grom's death freed the orcs but repaid nothing to the elves.
+
+## Night elves (authored, not canon)
+- Krazek: night elves are the worst customers (no lumber, no explosives, haggle forever); the Sentinels do pay for Venture Company camp locations.

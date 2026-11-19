@@ -19,3 +19,6 @@
 
 ## Never
 - New Thalanaar, Shadebough, or anything Cataclysm.
+
+## Kaldorei factions (Falfindel)
+Values the Alliance because Henrig Lonebrow, a dwarf, died holding the quilboar off Heralath (node `ally`). Answers the Feathermoon grumbling by reading Sentinels a page of the journal; lets the angry ones speak. Authored, not canon: the journal's line that elves are terrible company.

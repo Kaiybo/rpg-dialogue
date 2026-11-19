@@ -165,6 +165,7 @@ P:NPC {
         { text = "Was Lord Melenas the one fouling the third well?", next = "dd_melenas", when = { questDone = TODO_QUEST("Twisted Hatred") } },
         { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
+        { text = "You speak of Hyjal as if you lost more than a tree.", next = "mortal" },
         { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
         { text = "You must have more than one well to watch over.", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
@@ -208,6 +209,42 @@ P:NPC {
       lines = { { id = "s2_default", text = "With the Circle's approval, Staghelm and the strongest druids grew it. It is magnificent, but it is also young, and I watch it the way you would watch a feverish child." } },
       choices = {
         { text = "I hope the fever breaks.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mortal = {
+      big = true,
+      lines = {
+        { id = "mo_default", key = true,
+          text = "I lost ten thousand years of never counting, which is a thing nobody understands until it is taken. Now my knees ache on the wet stone, and I taste the third well each dawn and wonder how many dawns I have left to taste it." },
+        { id = "mo_outsider", when = { race = { "Human", "Dwarf", "Gnome" } },
+          text = "You were born counting your days, so you'll not understand this, and I don't blame you for it. For ten thousand years I never counted a single one, and now my knees ache on the wet stone and I count every dawn." },
+        { id = "mo_nelf", when = { race = "NightElf" },
+          text = "You lost it too, child, though you may have been too young to feel it go. I had ten thousand years of never counting, and now my knees ache on the wet stone and I count every dawn." },
+      },
+      choices = {
+        { text = "Every day matters more now. That's a kind of gift.", next = "BACK",
+          reply = "Spoken like the young, or the short-lived, who never had the other thing. I would trade every precious day for the dull eternal ones back, and so would most of the elders, if they were honest.", fx = { align = { light = 1 } } },
+        { text = "It was taken from you. You've every right to be bitter.", next = "BACK",
+          reply = "Thank you for not telling me to be grateful, which is what the young do. Bitter is the word, and the wells taste of it some mornings.", fx = { align = { light = -1 } } },
+        { text = "Are you afraid?", next = "mortal2" },
+      },
+    },
+    mortal2 = {
+      lines = {
+        { id = "mo2_default", text = "Yes, and I'll admit it to you, though I'd not admit it to the Sentinels. Nordrassil's blessing went into Archimonde's ruin, and this young tree can't give it back, so I watch these wells for a gift that isn't coming while the young ones go off to see the world as if mortality were a holiday." },
+      },
+      choices = {
+        { text = "Who do you mean, the young ones?", next = "mortal3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mortal3 = {
+      lines = {
+        { id = "mo3_default", text = "Lyreena, camped by the road with her little fire, is the worst of them; she says that if her years have an end she means to spend them everywhere at once. Perhaps she is wiser than I am, but I've never once seen her kneel at a well." },
+      },
+      choices = {
+        { text = "Perhaps she's found her own way to grieve.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1329,6 +1366,7 @@ P:NPC {
         { id = "h_outdoors", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and stay there until you feel rested through. Rest comes slowly, then all at once." },
         { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep, and I got to forty, which is further than usual." },
+        { id = "h_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "Someone from over the water! Sit, please, because I've a hundred questions about your lands and nobody in Dolanaar will answer a single one." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll sleep in the wilds often enough on campaign, so you might as well learn to do it well." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll already know half of what I teach, since your kind sleep under the leaves as easily as most folk sleep in a bed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold about you, out here by my fire. Whatever walks with you can sit on the far side of it if it likes, though I'd rather it didn't count the stars with me." },
@@ -1350,9 +1388,48 @@ P:NPC {
         { text = "Can a paladin learn to camp in full armor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is camping in the wild really so different from a druid's way?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can someone like me camp as you do, Lyreena?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Corithras says the young don't understand what was lost.", next = "young" },
+        { text = "Do the elders mind outsiders at your fire?", next = "fire_out", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Why do you prefer the canopy to a roof, Lyreena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Did our people camp like this before the Sundering?", next = "ne_camp", when = { race = "NightElf" } },
         { text = "Not now.", next = "END" },
+      },
+    },
+    young = {
+      big = true,
+      lines = {
+        { id = "yg_default", key = true,
+          text = "He's right, I don't, and he's never quite forgiven me for it. I was young when Nordrassil gave its strength at Hyjal, too young to have ever felt eternal, and the moment I understood my years had an end, I wanted to spend them somewhere other than under one tree." },
+      },
+      choices = {
+        { text = "The elders lost everything. Show them some patience.", next = "BACK",
+          reply = "I do, every time I pass his wells, and I bring him the first berries I find. Patience is easy; agreeing with him is the hard part.", fx = { align = { order = 1 } } },
+        { text = "Then go. The world's too big to waste on one tree.", next = "BACK",
+          reply = "That's what I keep telling the Sentinels at the gate, and they look at me as though I'd suggested swimming to Stormwind.", fx = { align = { order = -1 } } },
+        { text = "Where would you go first?", next = "young2" },
+      },
+    },
+    young2 = {
+      lines = {
+        { id = "yg2_default", text = "Ironforge, to see a city built inside a mountain, and then Stormwind's harbor, and the goblin towns where they'll sell to anyone. The old ones say the younger races can teach us nothing but hurry, but I've shared my fire with dwarves on the Darkshore road, and they taught me three songs and a better way to bank coals." },
+      },
+      choices = {
+        { text = "I could teach you a fourth song.", next = "BACK", when = { race = "Dwarf" },
+          reply = "Would you? Then sit, and sing it slowly, because the last dwarf sang so fast I only caught the chorus.", fx = { affinity = 2 } },
+        { text = "Mind the gnomes in Tinker Town. They'll talk you deaf.", next = "BACK", when = { race = "Gnome" },
+          reply = "Good, because nobody here talks enough. I'll bring a notebook and let them fill it.", fx = { affinity = 1 } },
+        { text = "Stormwind's harbor is worth the journey.", next = "BACK", when = { race = "Human" },
+          reply = "I knew it would be! Tell me everything, and start with the ships, because I've only ever seen the one to Auberdine.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fire_out = {
+      lines = {
+        { id = "fo_default", text = "Some of them do, and they'd rather you stayed in Darnassus behind the walls with the envoys. But my fire's for anyone who sits by it properly, and the elders never sit by one long enough to learn anyone's name." },
+      },
+      choices = {
+        { text = "Then I'm glad I found your fire.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     teach = {

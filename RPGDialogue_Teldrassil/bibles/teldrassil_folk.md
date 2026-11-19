@@ -30,3 +30,6 @@
 
 ## Never
 Cataclysm-era Teldrassil (Fidelio, Iranis, Irriende, Lor'danel boats), no Gilneas or worgen.
+
+## Contempt (authored, not canon)
+- Arynia is openly contemptuous of outsiders: humans cut, dwarves (Explorers' League in Darkshore's ruins) dig, gnomes poisoned their own city. Sincerely believes every sickness on the tree came over the water (claim `arynia_sickness_from_mainland`, false; Denalan exposes it), and admits arrows are easier to aim at harpies than at trees. Persuade (deeds at the glade) sets npcFlag `arynia_soft`. Rude, never hateful.

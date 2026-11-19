@@ -1,6 +1,6 @@
 -- Darkshore between the towns (0.38.0): Bashal'Aran, the Grove of the Ancients, Remtravel's dig, and two druids in trouble in the wilds. Voice: bibles/auberdine.md
 local P = RPGDialogueAPI:Pack("rpgd.darkshore")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "asterion", id = TODO_NPC("Asterion"), name = "Asterion", title = "",
@@ -187,6 +187,15 @@ P:NPC {
   },
 }
 
+-- Remtravel's grudge (authored, not canon): he thinks the kaldorei forbid digs to hide their history,
+-- not out of reverence. A night elf can talk him round (npcFlag remtravel_soft).
+P:Claim {
+  id = "remtravel_elves_hide_history", by = "remtravel", truth = "partly", open = true,
+  text = "The kaldorei don't object to the League's digs out of reverence; they're afraid of what the ruins would tell the world about them.",
+  truthNote = "The kaldorei do keep the Highborne and the old empire's folly to themselves (canon), so there are things in those ruins they would rather nobody read. But the Sentinels' anger is also plain grief for their dead, and Remtravel hears only the half that makes a better mystery.",
+  tell = "true",
+}
+
 P:NPC {
   key = "remtravel", id = TODO_NPC("Prospector Remtravel"), name = "Prospector Remtravel", title = "Explorers' League",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
@@ -199,6 +208,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ah, a visitor! Mind the trench, {g:lad|lass}, I've only just dug it and I'd hate to lose another one in there." },
     { id = "g_back", when = { metBefore = true }, text = "I know your face, I'm nearly sure of it, which puts you ahead of half my notes!" },
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "Ah. One o' the Sentinels' folk, come tae count my trenches again, I suppose. Count away, {g:lad|lass}, there's eleven, an' I've labelled every one." },
+    { id = "g_soft", when = { npcFlagBefore = "remtravel_soft" }, priority = 10,
+      text = "There's the one who sent me tae Thundris wi' my hat in my hand! He gave me tea an' a story, would ye believe, an' I wrote down every word." },
   },
 
   notice = {
@@ -335,6 +348,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ah, one of the elf druids! You lot can talk to trees, can't you, so ask one of them whether it's seen my fossil, would you?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You there! You haven't seen a pick lyin' about, have ye, or a notebook wi' an ale ring on the cover? An' don't let yer wee beastie eat it if ye do." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! By my beard, that's a first for the Explorers' League! Do your spirits know where I left my notes?" },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Remtravel, Explorers' League, an' before ye say it, aye, I know these are your people's ruins. Your Sentinels have told me so every mornin' since I pitched my tent, an' twice on feast days." },
+        { id = "h_soft", when = { npcFlagBefore = "remtravel_soft" },
+          text = "Every crate goes past Thundris Windweaver now before it goes on a boat, an' he's sent two back wi' a polite note. I've kept the notes, mind, for they're the best history I've had out o' this coast." },
       },
       again = {
         { id = "h_again1", text = "Now, where was I? Ah, yes, you were asking something." },
@@ -355,6 +372,9 @@ P:NPC {
         { text = "Do your digs disturb the land here, Prospector?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Aren't you worried about my companion near your finds?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the Explorers' League make of shamans, Prospector?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Sentinels don't seem fond of your dig.", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "You are digging up our dead, Prospector.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "remtravel_soft" } } },
+        { text = "Has Thundris sent back any more crates?", next = "ne_xsoft", when = { npcFlagBefore = "remtravel_soft" } },
         { text = "Good luck with the digging.", next = "END" },
       },
     },
@@ -397,6 +417,105 @@ P:NPC {
       },
       choices = {
         { text = "I do miss it.", next = "BACK" },
+      },
+    },
+
+    -- Night elves (0.94.0 work): a cheerful grievance, and a claim he can't prove.
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "Fond! A Sentinel stood at the edge o' that trench for three days wi'out blinkin', an' when I offered her a biscuit she called me a grave-robber. We catalogue, we sketch an' we label in triplicate, {g:lad|lass}, an' I've never met a grave-robber who could spell." },
+        { id = "nee_dwarf", when = { race = "Dwarf" },
+          text = "Fond! A Sentinel stood over my trench three days wi'out blinkin', an' then called me a grave-robber tae my face. Ye know how it is wi' them, {g:lad|lass}: they've ten thousand years o' history an' they'd sooner it rotted than see a dwarf write it down." },
+        { id = "nee_gnome", when = { race = "Gnome" },
+          text = "Fond! They look at my pick the way they look at your folk's gadgets, as if it might go off in my hands. A Sentinel called me a grave-robber, an' I've labelled every shard in triplicate, so I ask ye." },
+      },
+      choices = {
+        { text = "Why do they object so strongly?", next = "ne_why" },
+        { text = "These are their dead. They've every right to be angry.", next = "BACK",
+          reply = "Aye, aye, I'll grant ye the dead, an' I fill my holes back in, mostly. Though I'll say there was a bit o' business wi' an old door lintel an' a cookpot, an' Sentinel Glynda's no' forgiven me for that.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "History belongs to everyone, not just whoever's lived longest.", next = "BACK",
+          reply = "That's what I keep tellin' them, an' they keep givin' me that long, slow look. Still, it's grand tae hear it said by somebody who isnae me.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "secretive" } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    ne_why = {
+      lines = {
+        { id = "new_default", fx = { hear = "remtravel_elves_hide_history" },
+          text = "Between you an' me, I dinnae think it's the dead at all. They've ten thousand years o' history an' they share it like a dwarf shares his last pint, which is tae say never, an' when a people guards its past that hard, there's somethin' in it they'd rather ye didnae read." },
+      },
+      choices = {
+        { text = "Or they're grieving, and you won't hear it.", next = "BACK",
+          reply = "Grievin', for ten thousand years? Well, maybe, I suppose, if anybody could manage it, it'd be them. I'll write it down as a theory, but I'll write mine down beside it.",
+          fx = { align = { honor = 1 } } },
+        { text = "Then dig faster, before they bury it deeper.", next = "BACK",
+          reply = "Ha! Dinnae tempt me, {g:lad|lass}, for the Sentinels have the arrows an' I've only got the shovel. I'll dig at a respectable pace an' keep my eyes open.",
+          fx = { align = { honor = -1 } } },
+        { text = "What would they be hiding?", next = "ne_hide" },
+      },
+    },
+    ne_hide = {
+      lines = {
+        { id = "neh_default", text = "If I knew that, I'd be in Ironforge wi' a medal on! There's carvings in the old towers that show elves doin' things wi' magic that no elf in Auberdine will talk about, an' when I asked Thundris Windweaver, he went quiet an' poured me more tea." },
+      },
+      choices = {
+        { text = "Maybe some history should stay buried.", next = "BACK", reply = "That's what High Explorer Magellas says when he's tired, an' he's never meant it once." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    ne_x = {
+      narr = "He leans on his shovel and looks up at you, unrepentant but not unkind.",
+      lines = {
+        { id = "nex_default", text = "Your dead, aye, an' I'll no' argue whose they are. But ye've had ten thousand years tae write their story down, an' ye never did, so now a dwarf wi' a brush an' a notebook is the only one keepin' any record at all." },
+      },
+      choices = {
+        { text = "Our memory needs no ink. Leave our dead in peace.", next = "ne_x_cold",
+          fx = { affinity = -1, align = { order = 1 }, opinion = { explorers_league = "intrusive" } } },
+        { text = "Then write it well, and bring the elders what you find.", next = "BACK",
+          reply = "Now that's a thing I can do! Though your elders have a way o' thankin' a fellow that sounds very like bein' told off.",
+          fx = { align = { order = -1 } } },
+        { text = "Ask Thundris properly, and he may tell you the story himself.", tag = "Persuade", next = "ne_x_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { class = "DRUID" }, { questDone = TODO_QUEST("The Absent Minded Prospector") } } } },
+          fail = { next = "ne_x_fail", fx = { affinity = -1 } } },
+      },
+    },
+    ne_x_cold = {
+      lines = {
+        { id = "nexc_default", text = "Peace, is it? There's murlocs nestin' in your peace an' furbolgs gone mad in it, an' nobody's mindin' it but a dwarf an' a few tired Sentinels. Still, I hear ye, an' I'll keep my pick away from anythin' wi' a name on it." },
+      },
+      choices = {
+        { text = "See that you do.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_x_soft = {
+      lines = {
+        { id = "nexs_default", key = true, fx = { npcFlag = { set = { "remtravel_soft" } } },
+          text = "Ask him? Just... ask? Thirty years in the League an' I've never once thought tae ask the folk whose ruins I was standin' in, which is a terrible thing tae admit tae an elf. Right, then, every crate goes past Thundris before it goes on a boat, an' if he says no, it stays." },
+      },
+      choices = {
+        { text = "That's all we ask, Prospector.", next = "BACK", fx = { affinity = 2 } },
+        { text = "And the cookpot?", next = "BACK", reply = "The lintel's goin' back tae Sentinel Glynda, scrubbed, wi' an apology. I'll be standin' well back when she opens it." },
+      },
+    },
+    ne_x_fail = {
+      lines = {
+        { id = "nexf_default", text = "Ask him, ye say, as if I havenae stood at Thundris's door wi' my hat in my hands an' been told 'perhaps' four times over. Your folk say no very slowly, {g:lad|lass}, an' I've only got the one lifetime." },
+      },
+      choices = {
+        { text = "Then I'll leave it.", next = "BACK" },
+        { text = "Farewell, Prospector.", next = "END" },
+      },
+    },
+    ne_xsoft = {
+      lines = {
+        { id = "nexso_default", text = "Two, an' I've stopped sulkin' about it. He kept a wee carved moon from the second one, an' then he told me what it was for, an' I've three pages o' notes I'd never have got wi' a shovel." },
+      },
+      choices = {
+        { text = "Asking works better than digging, then.", next = "BACK", reply = "Dinnae tell the League, or they'll want me tae write a report about it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

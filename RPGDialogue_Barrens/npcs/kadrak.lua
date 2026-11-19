@@ -3,6 +3,15 @@
 local P = RPGDialogueAPI:Pack("rpgd.barrens")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
+-- Kadrak's suspicion (authored, not canon): the night elves pay the Kolkar to harry his runners.
+P:Claim {
+  id = "kadrak_elves_pay_kolkar", by = "kadrak", truth = "false",
+  text = "The night elves pay the Kolkar centaur to raid the Horde's runners on the Barrens roads.",
+  truthNote = "Nothing supports it: the Kolkar raid everyone on the roads, kaldorei outrunners included, and the Sentinels have no dealings with them. Kadrak believes it because he keeps losing runners, not because he has proof.",
+  tell = "true",
+  exposedBy = { "kuraybin.kk_default" },
+}
+
 P:NPC {
   key = "kadrak", id = TODO_NPC("Kadrak"), name = "Kadrak",
   bible = "bibles/kadrak.md", role = "soldier", tier = "quest",
@@ -146,10 +155,51 @@ P:NPC {
       choices = { { text = "Sounds like you keep that fire well. Something else.", next = "BACK", fx = { affinity = 1, learn = { "warsong" } } } },
     },
     elves = {
-      lines = { { id = "e_default", text = "They're quiet, quick, and patient. Their Sentinels can sit in a tree for a day waiting for one runner, and their dryads and wisps fight like the forest itself hates us, which it might." } },
+      lines = {
+        { id = "e_default", text = "They're quiet, quick and patient, and their Sentinels can sit in a tree for a day waiting for one runner. Their dryads and wisps fight beside them like the forest itself hates us, which it might." },
+        { id = "e_troll", when = { race = "Troll" },
+          text = "Your people knew the elves long before mine did, Darkspear, so you'll know they never let a grudge die. Their Sentinels can sit in a tree for a day waiting for one runner, and the forest fights beside them." },
+        { id = "e_tauren", when = { race = "Tauren" },
+          text = "Your elders call them old friends, I know, and still the Sentinels put arrows in tauren runners the same as mine. They're quiet and patient, and they forgive nothing." },
+        { id = "e_undead", when = { race = "Scourge" },
+          text = "You dead have it easy, because an arrow in the chest only annoys you. The rest of us learn the hard way that a Sentinel can sit in a tree for a day and never miss twice." },
+      },
       choices = {
-        { text = "They sound like worthy enemies.", next = "BACK", fx = { learn = { "sentinels" } } },
+        { text = "Why do they hate us so much?", next = "elves_hate" },
+        { text = "They sound like worthy enemies.", next = "BACK", reply = "Worthy, aye, and I'll say it in front of any grunt on the rampart. A worthy enemy is still an enemy, though, so don't let respect slow your axe.", fx = { learn = { "sentinels" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
+      },
+    },
+    elves_hate = {
+      lines = {
+        { id = "eh_default", text = "Because Grom killed Cenarius, their forest god, in the hills of Ashenvale, and they've hated every orc born since for it. Never mind that he had Mannoroth's blood in him that day, or that he died killing the demon who put it there; to the kaldorei, an orc is an orc." },
+        { id = "eh_orc", when = { race = "Orc" },
+          text = "Because Grom killed Cenarius, their forest god, and to them you carry his axe whether you were born yet or not. They don't care that he died killing the demon who cursed us, so don't expect them to care about you." },
+      },
+      choices = {
+        { text = "Then let them hate. We'll give them reasons.", next = "BACK", reply = "Hah! That's Warsong talk, and the rampart likes it. Give them reasons, then, but come back alive to tell me about it.", fx = { align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Their grief is fair. Grom did kill their god.", next = "BACK", reply = "Fair, maybe, and I've said as much myself on a bad night. But grief doesn't give them the right to shoot my scouts in the back, and they've done plenty of that.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "What do they want from the Horde?", next = "elves_want" },
+      },
+    },
+    elves_want = {
+      lines = {
+        { id = "ew_default", text = "Our absence, and nothing else. The Warchief sent envoys to trade for timber, and the elves sent them back with arrows in their packs, so if we'd waited for their leave, the Horde would still be living in tents on the red rock." },
+      },
+      choices = {
+        { text = "Thrall wants peace someday. Don't make that impossible.", next = "BACK", reply = "The Warchief wants a lot of things, and I'd give him most of them. I'll keep his peace the day the Sentinels stop shooting my runners, and not a day before.", fx = { align = { order = 1 } } },
+        { text = "Nobody tells the Horde to live in tents.", next = "BACK", reply = "Nobody, and certainly not a people who sleep in trees. Orgrimmar has walls now, and every beam in them came out of that forest.", fx = { align = { order = -1 } } },
+        { text = "Are they behind the centaur raids too?", next = "elves_kolkar" },
+      },
+    },
+    elves_kolkar = {
+      lines = {
+        { id = "ek_default", fx = { hear = "kadrak_elves_pay_kolkar" },
+          text = "I'd swear to it, though I can't prove it yet. The Kolkar ride down out of the north just when my runners carry reports, and they always seem to know which road, so somebody is telling them, and the elves have the most to gain." },
+      },
+      choices = {
+        { text = "The centaur raid everyone, Kadrak. Even the Alliance.", next = "BACK", reply = "Maybe they do, and maybe I've lost too many runners to think straight about it. Bring me proof either way, and I'll listen." },
+        { text = "I'll keep my eyes open on the road.", next = "BACK" },
       },
     },
     kin = {

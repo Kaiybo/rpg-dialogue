@@ -527,6 +527,7 @@ P:NPC {
         { text = "What could a spellcaster do on your watch paths?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you miss the islands?", next = "islands" },
         { text = "The fighting looks bad from here.", next = "fighting" },
+        { text = "How do the Darkspear see the night elves?", next = "kaldorei" },
         { text = "The outrunners seem to be after something.", next = "outrun" },
         { text = "Echo Isles born, cousin?", next = "cousin", when = { race = "Troll" } },
         { text = "I can slip past their scouts.", next = "rogue_k", when = { class = "ROGUE" } },
@@ -534,6 +535,49 @@ P:NPC {
         { text = "Stay sharp.", next = "END" },
         { text = "A warrior can't catch an elf runner on foot, Kuray'bin.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "The forest is angry at the axes. Will Splintertree ever listen?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+      },
+    },
+    kaldorei = {
+      lines = {
+        { id = "ka_default", text = "Longer than anybody, mon. Before de kaldorei had a single city, trolls ruled this land from the jungles to the cold north, and the elves be the young ones who pushed us back, so we remember them from long before any orc came over the sea." },
+        { id = "ka_orc", when = { race = "Orc" },
+          text = "You orcs think this war start with Grom and his axe, mon, but trolls been fighting elves since before the world broke. The old songs name them, and none of the names be kind." },
+        { id = "ka_tauren", when = { race = "Tauren" },
+          text = "Your people walked with them once, so you hear a gentler story, mon. Ours be older, from when the troll empires ruled this land and the elves be the young ones pushing us back." },
+      },
+      choices = {
+        { text = "So the Darkspear hate them?", next = "kaldorei_hate" },
+        { text = "You don't sound angry about it.", next = "kaldorei_calm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei_hate = {
+      lines = {
+        { id = "kh_default", text = "Some do, mon, and they say the elves act like de forest be theirs alone, like nobody ever walked under these trees before them. Me, I watch their runners come down the creek at dusk and I think they be just as scared of losing home as we were on the Echo Isles." },
+      },
+      choices = {
+        { text = "They took troll land once. Let them lose some now.", next = "BACK", reply = "Ha, you sound like my uncle, mon, and he never lose an argument or a grudge. Watch the creek, then, and let the old songs keep your spear warm.", fx = { align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Old wars stay old. We fight for today's reasons.", next = "BACK", reply = "Ya, mon, timber and arrows be reason enough without digging up the dead. Better to hate the elf in front of you than the one your grandmother sang about.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Kadrak swears the elves pay the centaur to raid us.", next = "kaldorei_kolkar", when = { heardClaim = "kadrak_elves_pay_kolkar" } },
+      },
+    },
+    kaldorei_kolkar = {
+      lines = {
+        { id = "kk_default", fx = { expose = "kadrak_elves_pay_kolkar" },
+          text = "Kadrak got a long memory and a short list of enemies, mon. I've watched that creek two seasons, and the Kolkar shoot elf outrunners as quick as they shoot ours, so whoever be paying them, it ain't the Sentinels." },
+      },
+      choices = {
+        { text = "I'll tell Kadrak, if he'll listen.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei_calm = {
+      lines = {
+        { id = "kc_default", text = "Angry be for the young, mon. The loa teach that every people get a season, and the elves had a long one, and I don't need to hate them to watch the paths; I only need to see them first." },
+      },
+      choices = {
+        { text = "That's a wise way to fight a war.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fighting = {

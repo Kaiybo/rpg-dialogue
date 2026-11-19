@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A kaldorei in Darkshire. Good, because I'm told your people see in the dark better than any watchman I've got, and the dark is most of what we have here." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried watchmen killed by men who called on the same darkness you do. Stay in the lamplight, where my people can see you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Darkshire has enough shadows without someone bringing more in from the road. Say your business, and keep that creature of yours outside the gate." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood the watch with us and nothing followed you home, so I'll say it plainly: you've earned your place. I'll still be watching it." },
@@ -150,8 +152,61 @@ P:NPC {
         { text = "Let's talk of something else, Commander.", next = "BACK" },
       },
     },
+    al_nelf = {
+      lines = {
+        { id = "aln_default", key = true,
+          text = "Darkshire has opinions about everything, and most of them come out of the Scarlet Raven after dark. Half the town thinks the night elves are aloof tree-folk who left us to the Horde, and the other half has never met one and only knows they're tall and purple." },
+      },
+      choices = {
+        { text = "And what do you think, Commander?", next = "al_nelf_2" },
+        { text = "They did sit out both wars.", next = "al_nelf_2" },
+      },
+    },
+    al_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "aln2_default",
+          text = "They sat out the wars on a continent nobody had sailed to, which isn't the same as hiding. And when the Legion came, they held Hyjal with their women on the walls and their druids waking from a dream, and I'd trade half my watch for one company of them." },
+      },
+      choices = {
+        { text = "The Night Watch could learn a thing or two from the Sentinels.", next = "BACK",
+          reply = "It could, and it is, because I've already stolen their patrol rotations from a report. The watchmen grumble, but they're alive to grumble.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "admire" } } },
+        { text = "Darkshire needs its own people, not elves.", next = "BACK",
+          reply = "Darkshire needs anyone who'll stand a night, and I don't care what shape their ears are. But I take your point, and I'll keep the lamps lit with what I have.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    al_xnelf = {
+      lines = {
+        { id = "alx_default", key = true,
+          text = "Only from paper, which is the trouble with commanding in a forest nobody visits. So tell me something true, kaldorei: do the Sentinels really answer to a woman from top to bottom, or is that a tale the Watch tells to annoy the Stormwind officers?" },
+      },
+      choices = {
+        { text = "No tale. Our women have held the forests for ten thousand years.", next = "BACK",
+          reply = "Then I've a letter to write to a certain captain in Stormwind, and I'm going to enjoy every word of it.",
+          fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Humans wouldn't understand our ways, Commander.", next = "BACK",
+          reply = "Maybe not, but I'd like to try, and you'll find most of us will if you give us longer than a sentence.",
+          fx = { align = { honor = -1 } } },
+        { text = "Why does it matter so much to you?", next = "al_xnelf_2" },
+      },
+    },
+    al_xnelf_2 = {
+      lines = {
+        { id = "alx2_default",
+          text = "Because I wear this rank in a kingdom where half the officers call me Lord Ello's kinswoman before they call me Commander. Knowing there's a whole army across the sea where nobody would blink at me helps on the long nights." },
+      },
+      choices = {
+        { text = "Nobody would blink, Commander. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll keep to the lamplight.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "I've read every report out of Ashenvale I could lay hands on, kaldorei. Your Sentinels hold a whole forest against the Horde with women in command, and nobody in Stormwind thinks that remarkable but me." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" },
           text = "My watchers tell me you've come back from the Scholomance, the school in Caer Darrow where the Scourge teaches men to raise the dead. If you learned anything there about how they do it, I'd like to hear it before the next night on Raven Hill." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -211,6 +266,8 @@ P:NPC {
         { text = "What would you have a shaman do for the Night Watch, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Gandling is dead, Commander. The Scholomance has lost its headmaster.", next = "xcl_scholo", when = { cleared = "Scholomance" } },
         { text = "I stood your wall before the Cathedral took me, Commander.", next = "xorig_nightwatch", when = { origin = "human_darkshire_watch" } },
+        { text = "Darkshire seems to have opinions about night elves.", next = "al_nelf" },
+        { text = "You talk about the Sentinels as if you knew them, Commander.", next = "al_xnelf", when = { race = "NightElf" } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },
@@ -524,6 +581,7 @@ P:NPC {
     },
   },
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Darkshire thinks the night elves are aloof. I think their Sentinels hold a forest against the Horde with fewer people than I have, and I'd like to know how." } },
     _gated = {
       { id = "gt1", text = "That's Watch business, and I don't share Watch business with people I've no cause to trust yet. Prove yourself useful to Darkshire first." },
       { id = "gt2", text = "I'll not talk about that with you, {class}, not yet. Stand a few nights with us and I may change my mind." },

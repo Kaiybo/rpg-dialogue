@@ -615,6 +615,7 @@ P:NPC {
         { text = "Rhapsody seems to be brewing something strong.", next = "rhapsody", when = { any = { { questActive = TODO_QUEST("Rhapsody Shindigger") }, { questDone = TODO_QUEST("Rhapsody Shindigger") } } } },
         { text = "My pet won't bother your birds.", next = "pet", when = { class = "HUNTER" } },
         { text = "My people ride hippogryphs. Are they so different?", next = "xnightelf", when = { race = "NightElf" } },
+        { text = "How do the Wildhammer get on with the night elves?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
         { text = "Couldn't a mage simply teleport, instead of flying?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'd guess the trolls have crept into your aviary before.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the gryphons ever come back hurt from the troll lands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -684,6 +685,48 @@ P:NPC {
       choices = {
         { text = "Pretty and quick wins most fights.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Brawlers have their place.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your Wildhammer and my people both live under the open sky.", next = "xnightelf_sky" },
+      },
+    },
+    xnightelf_sky = {
+      narr = "He grunts, and for once he doesn't look past you toward the aeries.",
+      lines = {
+        { id = "xnes_default", text = "Aye, we do, an' that's more than I can say for my Bronzebeard cousins, who'd roof over the sky if they could find enough stone. They'll tell ye yer folk are stiff-necked an' proud, an' maybe ye are, but ye sleep under trees an' ride wild beasts, an' there's no' a dwarf in Ironforge who understands why a body would want tae." },
+      },
+      choices = {
+        { text = "Then the Wildhammer are closer kin to us than to Ironforge.", next = "BACK",
+          reply = "Careful, now, for I'll no' say that where Falstad can hear it. But I'll no' say ye're wrong, either.",
+          fx = { affinity = 1, align = { honor = 1 }, opinion = { dwarves = "kin" } } },
+        { text = "Don't flatter us. We'd not let your gryphons near Ashenvale.", next = "BACK",
+          reply = "Ha! An' I'd no' let yer hippogryphs near my aerie, so we're square. Two proud peoples on two cliffs, glarin' at each other, an' that's as close tae friendship as it gets in the Hinterlands.",
+          fx = { align = { honor = -1 } } },
+        { text = "Something else, Gryphon Master.", next = "BACK" },
+      },
+    },
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "Better than the Bronzebeards do, I'll tell ye that. Ironforge thinks they're tree-huggin' snobs, an' they think Ironforge is a mine wi' a crown on it, an' the Wildhammer sit up here on the cliff an' laugh at the pair o' them." },
+        { id = "nee_dwarf", when = { race = "Dwarf" },
+          text = "Better than yer lot do, I'll wager. Ironforge thinks they're tree-huggin' snobs, an' they think Ironforge is a mine wi' a crown on it, an' I'll leave ye tae guess which o' those I find funnier." },
+      },
+      choices = {
+        { text = "So you like them?", next = "ne_like" },
+        { text = "The Bronzebeards could learn a thing or two from them.", next = "BACK",
+          reply = "They could, an' they'll no', for there's nothin' harder tae teach than a dwarf who's sure he's right. I should know, I'm one.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "They're as proud as any Bronzebeard, and twice as cold.", next = "BACK",
+          reply = "Proud, aye, I'll give ye proud, an' cold enough at first. But warm up a Sentinel an' she'll drink ye under the table in that flowery wine o' theirs, an' I've the headache tae prove it.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
+    ne_like = {
+      lines = {
+        { id = "nel_default", text = "Like's a strong word for a Wildhammer. They live in the trees an' fly wild beasts an' keep their old ways when the world tells them tae stop, an' that's a thing I understand. The only quarrel I've got wi' them is they think a hippogryph's the finer bird, an' on that they're dead wrong." },
+      },
+      choices = {
+        { text = "Have you ever seen a hippogryph fly?", next = "BACK", reply = "Once, over the sea off Menethil. Pretty, I'll grant, an' quick, but I'd put Keenclaw against it any day, an' Keenclaw would agree." },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

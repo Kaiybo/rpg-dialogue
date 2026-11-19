@@ -165,6 +165,7 @@ P:NPC {
         { text = "What do you need most?", next = "need" },
         { text = "Who are you watching the walls for?", next = "threats" },
         { text = "Who else is in this camp?", next = "camp" },
+        { text = "Grom'gol carries Grom Hellscream's name, Commander.", next = "grom" },
         { text = "The Darkspear came from this jungle, Commander.", next = "darkspear", when = { race = "Troll" } },
         { text = "An orc mage. Does that trouble you?", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "Thunder Bluff sent me. I'm a Windshaper.", next = "skyborne", when = { race = "Skyborne" } },
@@ -178,6 +179,36 @@ P:NPC {
       },
     },
 
+    grom = {
+      lines = {
+        { id = "gr_default", text = "The grunts who raised this palisade say they named it for him, and I've never told them otherwise. In Ashenvale the night elves would tear his name off any stone they found it on, so we carved it into a jungle on the far side of the sea, where they'll never reach it." },
+        { id = "gr_troll", when = { race = "Troll" },
+          text = "The grunts who raised this palisade say it was for him, and the Darkspear who helped them didn't argue. Your people have their own quarrel with the night elves, older than ours, so you'll understand why we put his name where no elf can reach it." },
+      },
+      choices = {
+        { text = "Why do the elves hate Grom so much?", next = "grom_cenarius" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    grom_cenarius = {
+      lines = {
+        { id = "gc_default", text = "Because he killed Cenarius, their forest god, when the elves came at our woodcutters in Ashenvale, and he did it with Mannoroth's strength in his arms. Some grunts call that a shame, but I call it the first blow the Horde ever struck for its own survival in Kalimdor, and I'd strike it again." },
+      },
+      choices = {
+        { text = "Grom did what he had to. So would I.", next = "BACK", reply = "Then you'd have fit in the Warsong, and you'll fit here. The elves can hate us for it as long as they like, because we're still standing.", fx = { align = { light = -1 }, opinion = { grom = "hero", night_elves = "hate" } } },
+        { text = "Killing their god with demon blood is nothing to be proud of.", next = "BACK", reply = "You sound like Mok'thardin at his fire, and he's earned the right to say it. I'll not stop you either, but don't say it in front of the grunts who carved that name.", fx = { align = { light = 1 }, opinion = { grom = "mixed" } } },
+        { text = "Do the elves have any right to their grudge?", next = "grom_right" },
+      },
+    },
+    grom_right = {
+      lines = {
+        { id = "gri_default", text = "Every right, and so do we. They lost a god and we lost the chieftain who freed us from the demons, so nobody in that forest is going to forgive anybody, and the Warchief can only keep the axes and the arrows from flying too far." },
+      },
+      choices = {
+        { text = "Then the Warchief's peace is worth guarding.", next = "BACK", fx = { affinity = 1, opinion = { warchief = "trust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     road = {
       lines = {
         { id = "r_default", text = "Stonard sits in the swamp past the mountains, and every caravan that reaches it in one piece is a victory. I count every one." },
@@ -1177,6 +1208,7 @@ P:NPC {
         { text = "Whatever you're making looks like fine work.", next = "ench" },
         { text = "Why send a far seer to a supply camp?", next = "why" },
         { text = "What do you make of the trolls' magic?", next = "trolls" },
+        { text = "What do you make of the night elves' grudge, Far Seer?", next = "grudge" },
         { text = "The elements speak to me as well.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'm an orc who studies the arcane.", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "My people honor the elements too.", next = "skyborne", when = { race = "Skyborne" } },
@@ -1193,6 +1225,38 @@ P:NPC {
       },
     },
 
+    grudge = {
+      lines = {
+        { id = "gd_default", text = "I make it a fair one, and few in this camp like hearing me say so. Grom killed Cenarius with Mannoroth's blood burning in him, so the Horde's first great deed in Kalimdor was done with a demon's strength, and the elves have never let us forget it." },
+        { id = "gd_heard", when = { heardLine = "aggrogosh.gc_default" },
+          text = "The commander told you he'd strike that blow again, I expect; he tells everyone. I make the elves' grudge a fair one, because Grom killed Cenarius with Mannoroth's blood burning in him, and a deed done with a demon's strength is not one I can be proud of." },
+      },
+      choices = {
+        { text = "You sound ashamed.", next = "grudge_shame" },
+        { text = "Grom broke the curse afterward. Doesn't that count?", next = "grudge_grom" },
+        { text = "Something else, Far Seer.", next = "BACK" },
+      },
+    },
+    grudge_shame = {
+      lines = {
+        { id = "gs_default", text = "I am, and I carry it the way I carry the warlock years, because a shaman who forgets what his people did will let them do it again. The spirits of that forest cried out when Cenarius fell, and the shamans at Splintertree tell me they have not been quiet since." },
+      },
+      choices = {
+        { text = "The shame is fair. We owe that forest something.", next = "BACK", reply = "Then remember it whenever you walk under those trees. The spirits notice who takes with thanks and who takes with an axe and a song.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Shame is a luxury. The Horde survived, and that's enough.", next = "BACK", reply = "Our grandfathers told themselves the same thing with demon blood in their mouths. I will not call you wrong, young one, but I will pray that you never have to learn why I do.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grudge_grom = {
+      lines = {
+        { id = "gg_default", text = "It counts for everything with the orcs and for nothing with the elves, and both of them are right. Grom freed us by killing Mannoroth, but Cenarius was already dead, and you cannot repay one people's loss with a kindness done for another." },
+      },
+      choices = {
+        { text = "Then the Horde owes them peace, if they'll take it.", next = "BACK", reply = "If they'll take it, yes, and the Warchief has tried. Peace offered and refused is still worth more than none offered at all.", fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "They chose to hate us. That burden is theirs.", next = "BACK", reply = "Perhaps it is, and they carry it well enough. But a burden carried by both sides of a forest is still a burden, young one.", fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     power = {
       lines = {
         { id = "p_default", text = "The kind that settles into anything that's lived long in a wild place. Orgrimmar teaches us to ask before we take, so I ask." },

@@ -27,3 +27,6 @@ Daeolyn following a druid who went into the Dream; Malvor's glowing silverleaf a
 - Source: warcraft.wiki.gg (Dargon, Food & Drink Merchant, Nighthaven inn). Quests: none.
 - Voice: unhurried, even-handed; a shared table as the Circle's work. Never assumes the player's faction.
 - Authored, not canon: the first loaf shared by elf and tauren; his learning the tauren blessing.
+
+## Kaldorei factions (Narianna)
+Angered that the Circle shares its secrets with Horde druids while the Warsong cut Ashenvale (node `circle`); not against tauren as people. Tauren players get `xtauren`; [Persuade] (druid, Cenarion Circle honored, or disposition) sets `narianna_soft`. Authored, not canon: two hundred years on watch in Ashenvale.

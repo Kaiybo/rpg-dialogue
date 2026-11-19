@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "Careful of the plans, friend; those are the Mage Quarter's new drains, which I gather your city has no need of. Ishnu-alah, is it? I've been practising." },
+    { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "baros_nelf_soft" }, priority = 10,
+      text = "Ah, my conscience from Darnassus. Come in, and mind the drains; I've stopped writing to your city about timber, if that's what you've come to check." },
     { id = "g_op_nobles_just", when = { opinion = { topic = "defias", stance = "nobles_justified" } }, text = "You're the one who thinks the lords did what they could. Come and look at my ledgers some day, friend, and tell me again." },
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },
     { id = "g_letter", when = { questActive = TODO_QUEST("The Unsent Letter") }, text = "A letter, for me, and from whom? Let me sit down before I open it." },
@@ -150,8 +154,89 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    bx_nelf = {
+      lines = {
+        { id = "bxn_default", key = true,
+          text = "Envy and exasperation, in equal parts. They grew a city on a tree without one mason or one nail, and they sit on the finest timber in the world in Ashenvale and won't sell a plank of it to their own allies." },
+        { id = "bxn_dwarf", when = { race = "Dwarf" },
+          text = "About what you'd make of a people who live in a tree, I expect. They grew a city without one mason, and they sit on the finest timber in the world and won't sell a plank of it to their own allies." },
+      },
+      choices = {
+        { text = "Why won't they sell?", next = "bx_nelf_2" },
+        { text = "Elwynn has forests enough, surely.", next = "bx_nelf_2" },
+      },
+    },
+    bx_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "bxn2_default",
+          text = "They say the trees are sacred, and I believe they mean it, because I've seen their envoys look at a Stormwind roof beam the way a priest looks at a broken altar. Meanwhile the Warsong cut Ashenvale by the cartload, so the only folk who don't get the timber are the ones who'd pay for it." },
+      },
+      choices = {
+        { text = "Their forest, their choice. You should respect it.", next = "BACK",
+          reply = "I do respect it, in the way I respect a cliff I can't build on. It's a very fine cliff, I'll give it that.",
+          fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Allies who won't trade aren't much of allies.", next = "BACK",
+          reply = "That's what the House of Nobles says, only louder and with worse grammar. I'll admit I've said it myself, after a long day.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Architect.", next = "BACK" },
+      },
+    },
+    bx_xnelf = {
+      lines = {
+        { id = "bxx_default", key = true,
+          text = "Not a grievance, only a disappointment. I wrote to Darnassus once, very politely, asking whether a few fallen Ashenvale oaks might be sold for the city's rebuilding, and the answer came back that the trees were not ours to buy and the forest was not theirs to sell." },
+      },
+      choices = {
+        { text = "Did that answer make sense to you, Architect?", next = "bx_xnelf_2" },
+        { text = "You'd never sell the Cathedral's stones. It's the same for us.", tag = "Persuade", next = "bx_xnelf_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { questDone = TODO_QUEST("The Unsent Letter") }, { class = "DRUID" } } } },
+          fail = { next = "bx_xnelf_fail", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bx_xnelf_2 = {
+      lines = {
+        { id = "bxx2_default",
+          text = "As much as a poem makes sense to a man with a ledger, which is to say I admired it and couldn't use it. I've spent my life deciding which trees become houses, and your people seem to think the question is rude." },
+      },
+      choices = {
+        { text = "It is rude, to us. Something else.", next = "BACK" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    bx_xnelf_soft = {
+      lines = {
+        { id = "bxs_default", key = true, fx = { npcFlag = { set = { "baros_nelf_soft" } } },
+          text = "That's fair, and it stings a little that I didn't see it myself. I'd break the man who tried to sell a stone from the Cathedral, and I've been asking your people to sell me their chapel by the plank." },
+      },
+      choices = {
+        { text = "Then we understand each other, Architect.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bx_xnelf_fail = {
+      lines = {
+        { id = "bxf_default", text = "Prettily said, but a forest isn't a cathedral, whatever the druids tell you. Come back when I've had more sleep, and I may agree with you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    bx_nsoft = {
+      lines = {
+        { id = "bxns_default", text = "Only the way a man dreams of a ship he'll never own. I've started drawing Elwynn pine into the plans again, and it's honest wood, even if it creaks." },
+      },
+      choices = {
+        { text = "Honest wood suits an honest city. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "A kaldorei in the Architect's office. I'd ask how Darnassus was built, but I'm told it wasn't built at all, which is the sort of thing that keeps an architect up at night." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have Lady Prestor's ear, I hear, and I'd ask you to be careful with it. When the court is pleased with someone, the rest of us in this office usually find out what it costs." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -210,6 +295,9 @@ P:NPC {
         { text = "Did you leave room for anything green when you drew the city, Architect?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What lies beneath the Mage Quarter that even you won't map, Baros?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you like to know what the stone of this city thinks, Baros?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What does an architect make of the night elves?", next = "bx_nelf" },
+        { text = "You seem to have a grievance with Darnassus, Architect.", next = "bx_xnelf", when = { race = "NightElf" } },
+        { text = "Still dreaming of Ashenvale oak, Architect?", next = "bx_nsoft", when = { race = "NightElf", npcFlagBefore = "baros_nelf_soft" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -318,6 +406,7 @@ P:NPC {
   },
 
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "They grow their buildings instead of raising them, which I find marvellous and slightly insulting. And they won't sell a single Ashenvale oak, not even to their allies." } },
     the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, and I'm told Bazil Thredd is among the ringleaders. He was a stonemason once, and I knew him, and that is the sort of thing a man keeps to himself in this city." } },
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I drew the plans for the Valley of Heroes, or some of them, and I still walk under the arches to see if they've settled. They haven't, and I'm prouder of that than I should be." } },
     stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild rebuilt Stormwind after the orcs tore it down, and the House of Nobles refused to pay the bill. I was one of them, in a way, and I stayed, and that is the difference between me and the men in red." } },

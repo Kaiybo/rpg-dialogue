@@ -141,6 +141,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My frostsabers are calm, but they have no love for the arcane, so cast nothing near the pens, please." },
         { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley, as our people have raised sabers since before Darnassus was a dream. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
+        { id = "h_loud", when = { race = { "Human", "Dwarf", "Gnome" } },
+          text = "Stop there, at the edge of the path, and lower your voice. Your people speak as though the snow were deaf, and the cubs remember a loud stranger for longer than you'll be alive." },
+        { id = "h_soft", when = { npcFlagBefore = "rivern_soft" },
+          text = "Ah, the patient one. The cubs know your step now, and so, I'm a little ashamed to admit, do I." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A child of Elune, so you'll know what a wintersaber means to our people. They are not horses, and we do not sell them as horses." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -157,6 +161,9 @@ P:NPC {
         { text = "A wintersaber must be hard to earn.", next = "sabers" },
         { text = "What trouble do the Winterfall make?", next = "winterfall" },
         { text = "I don't know how you bear the cold.", next = "cold" },
+        { text = "You don't seem to think much of outsiders.", next = "loud" },
+        { text = "The cubs hid from me. Is it my people they fear?", next = "xloud", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Do the young races trouble you, Rivern?", next = "loud_nelf", when = { race = "NightElf" } },
         { text = "My family rode sabers in the old days.", next = "elf", when = { race = "NightElf" } },
         { text = "Could a wintersaber be trained to hunt quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the frostsabers distrust the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -185,6 +192,83 @@ P:NPC {
       choices = {
         { text = "You're right to be strict. Earned is honoured.", next = "BACK", reply = "Thank you, and I'll carry that to the other trainers, who doubt themselves more than they say. If we gave a saber to every Sentinel who asked, Frostsaber Rock would be empty in a year.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Every Sentinel deserves a good mount, earned or not.", next = "BACK", reply = "Every Sentinel deserves a fine mount, I'll grant you, but the sabers grant nothing. They choose their riders, and no order from Darnassus will change their minds.", fx = { align = { order = -1 }, trait = { generous = 1 } } },
+      },
+    },
+    loud = {
+      big = true,
+      lines = {
+        { id = "lo_default", key = true,
+          text = "Outsiders I can bear; it's the young races I find hard. Humans, dwarves and gnomes live a single breath, so they shout, and hurry, and set fires and swing steel at whatever is in their way, because they won't be alive to see what grows back." },
+        { id = "lo_goblin", when = { race = { "Human", "Dwarf", "Gnome" } },
+          text = "Since you ask so plainly, no. Your people live a single breath, so you shout and hurry, and you bring fire and steel to every wood you enter, and you're gone before you see what grew back, or didn't." },
+      },
+      choices = {
+        { text = "Short lives make us brave. You have centuries to be careful.", next = "BACK",
+          reply = "Brave, or merely in a hurry; I've never been able to tell the two apart in your kind. I'll grant that some of your kind held the line at Hyjal beside us, and held it well.",
+          fx = { align = { order = -1 }, opinion = { humans = "mixed" } } },
+        { text = "You're right. They take more than they leave.", next = "BACK",
+          reply = "Look at Everlook, then, all gears and smoke, though the goblins at least admit they're only here for the money. The rest pretend they've come to help.",
+          fx = { affinity = 1, align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "What did they ever do to you?", next = "loud_why" },
+      },
+    },
+    loud_why = {
+      lines = {
+        { id = "lw_default", text = "A party of the Explorers' League came up from Starfall two winters ago, dwarves and a gnome with a smoking device, and they blasted a cave open to see what was inside. It was a den, with a mother and three cubs in it, and only one cub lived." },
+      },
+      choices = {
+        { text = "That was cruel and careless. I'm sorry.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A few fools don't speak for whole peoples.", next = "loud_fools" },
+      },
+    },
+    loud_fools = {
+      lines = {
+        { id = "lf_default", text = "No, and Jaron Stoneshaper at Starfall is a careful one, I'll say that much for him. But I've lived long enough to see the same fools come in every generation, and I'm tired of waiting for the careful ones to outnumber them." },
+      },
+      choices = {
+        { text = "Then judge the next one fairly.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    loud_nelf = {
+      lines = {
+        { id = "ln_default", text = "Between us, yes. The High Priestess says we needed the Alliance after Hyjal, and perhaps we did, but I would have chosen allies who could keep their voices down and their fires small." },
+      },
+      choices = {
+        { text = "They fought for Hyjal too. That counts for something.", next = "BACK", reply = "It counts, and I've not forgotten it. I only wish they'd fight a little more quietly.", fx = { opinion = { alliance = "mixed" } } },
+        { text = "I'd have chosen differently too.", next = "BACK", fx = { affinity = 1, opinion = { alliance = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xloud = {
+      lines = {
+        { id = "xl_default", text = "They fear your step and your voice, and they're right to, from what I've seen of your people in these hills. Don't take it to heart; you'll be dust in a century, and they'll have forgotten you by then, which is more than I can promise." },
+      },
+      choices = {
+        { text = "I can be as quiet and patient as any elf.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'm not here for your approval, only a saber.", next = "BACK", reply = "Then you'll wait a long time for both, since the sabers grant neither. Feed the cubs, and we'll see.", fx = { align = { honor = -1 } } },
+        { text = "I've worked these pens for seasons. Ask the cubs.", tag = "Persuade", next = "xloud_soft",
+          check = { pass = { any = { { reputation = { faction = "Wintersaber Trainers", min = "honored" } }, { disposition = { min = 65 } } } } },
+          fail = { next = "xloud_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xloud_soft = {
+      lines = {
+        { id = "xs_default", key = true, fx = { npcFlag = { set = { "rivern_soft" } } },
+          text = "You have, and the cubs come to your hand now, which they do for almost no one. Very well; I'll judge your people by your seasons and not by that cave, though I'll not pretend it comes easily." },
+      },
+      choices = {
+        { text = "That's all I ask, Rivern.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xloud_fail = {
+      lines = {
+        { id = "xf_default", text = "Seasons? I've seen you here a handful of days, and the cubs still go under the rock when you come up the path. Come back after the snow has turned a few more times." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll come back.", next = "END" },
       },
     },
     winterfall = {
@@ -226,6 +310,7 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Elune blesses the frostsabers of Winterspring, and they're the finest mounts the Kaldorei know. A rider who earns one earns her blessing too." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess rides a frostsaber of her own, and every rider in Kalimdor wants one like it. I tell them it takes seasons of work, and I mean seasons." } },
     sentinels = { { id = "tp_sentinels", text = "The Sentinels ride the cats of Ashenvale and Darnassus, but the best of them ride mine. I raised each one from a blind kit, and I'm proud of them all." } },
+    humans = { { id = "tp_humans", text = "Loud, quick and brave, I'm told, and gone before the forests they cut grow back. I've not much patience for them, and they've no time for mine.", next = "loud" } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw leave my cats alone, and I leave their tunnels alone. It's a fair arrangement, and it's lasted many years." } },
     _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling, and frostsabers keep their secrets well." } },
   },

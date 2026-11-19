@@ -524,6 +524,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow for when the dagger doesn't reach, and I'll not ask what you're aiming at, so long as it's outside the grove." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, at a bowyer's stall. You'll be telling me a fireball does the same work as an arrow, I expect, and you'd be right, but my arrows don't run out of mana." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I've nothing to sell you, since you've never drawn a bow, though the druids would sooner see you try than call up whatever you keep." },
+        { id = "h_soft", when = { npcFlagBefore = "narianna_soft" },
+          text = "Ah, the tauren who told me off. Come and look at the bows; I've been keeping a spare string aside for you, which I'll deny if anyone asks." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You've claws and moonfire, so you'll not need a bow, I suppose, but the roads out of Moonglade are cruel ones, and I'd still feel better if you carried something." },
       },
       again = {
@@ -534,6 +536,10 @@ P:NPC {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Isn't selling bows here a bit odd?", next = "odd" },
         { text = "This must be a crossroads for travellers.", next = "roads" },
+        { text = "The Circle welcomes Horde druids here. Does that sit well with you?", next = "circle" },
+        { text = "I'm a tauren druid. You look at me like an enemy.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "You fought in Ashenvale. Do you still?", next = "circle_ash", when = { race = "NightElf" } },
+        { text = "Still angry at the tauren, Narianna?", next = "xsoft", when = { npcFlagBefore = "narianna_soft" } },
         { text = "A prayer's really no match for an arrow?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You'd sell to a rogue, knowing what they'll do?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "An arrow's no better than a spell.", next = "xmage", when = { class = "MAGE" } },
@@ -567,6 +573,94 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    circle = {
+      big = true,
+      lines = {
+        { id = "ci_default", key = true,
+          text = "Not well, and I'll say so plainly, since nobody else in Nighthaven will. The Circle teaches its oldest secrets to tauren druids, who go home to Thunder Bluff and sit at the same fires as the Warchief's orcs, and those orcs are cutting Ashenvale down while we speak." },
+        { id = "ci_horde", when = { faction = "Horde" },
+          text = "Not well, and since you asked, I'll tell you to your face. The Circle shares its oldest secrets with Horde druids, and the Horde's axes are in Ashenvale tonight, so you'll forgive me if I don't call it wisdom." },
+        { id = "ci_tauren", when = { race = "Tauren" },
+          text = "Since you ask, no. I have nothing against your people, who have never put an axe to a tree that I know of, but you sit at the Warchief's fire, and the Warchief's orcs are cutting Ashenvale down while the Circle teaches you its secrets." },
+      },
+      choices = {
+        { text = "Who decided to share the Circle with the Horde?", next = "circle_who" },
+        { text = "The tauren aren't the Warsong. Don't blame them for orcs.", next = "BACK",
+          reply = "I don't, quite, and that's what makes it hard. But a secret told to a tauren is a secret told to the Horde, whatever the tauren intends.",
+          fx = { align = { light = 1 }, opinion = { cenarion_circle = "trust" } } },
+        { text = "You're right. The Circle is too trusting by half.", next = "BACK",
+          reply = "Say it louder at the moonwell, then, and see how many druids look at their feet. Half of them agree with us and won't say it before the Keeper.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { cenarion_circle = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle_who = {
+      lines = {
+        { id = "cw_default", text = "Shan'do Stormrage himself, when Hamuul Runetotem came asking to learn the old ways, and Keeper Remulos keeps faith with that choice. I won't speak against the Keeper, but I've noticed that it's the druids who share the secrets and the Sentinels who pay for them." },
+      },
+      choices = {
+        { text = "Do the druids ever answer that?", next = "circle_answer" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle_answer = {
+      lines = {
+        { id = "ca_default", text = "Loganaar says that a tauren who learns to feel the forest will never let an orc burn one, and that the Circle is planting seeds in the Horde. It's a pretty idea, and I'll believe it the day I see a tauren druid standing between a Warsong axe and an ancient." },
+      },
+      choices = {
+        { text = "Give the seeds time to grow.", next = "BACK", reply = "Time is the one thing my people have plenty of, I'm told. Ashenvale's trees don't, which is rather my point." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle_ash = {
+      lines = {
+        { id = "cas_default", text = "Two hundred years I stood watch there, and the last eight of them against the orcs. I put down my bow for Moonglade because I was tired, not because I'd changed my mind, and every Horde druid who walks past this stall reminds me of the difference." },
+      },
+      choices = {
+        { text = "Moonglade asks you to set Ashenvale aside here.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      lines = {
+        { id = "xt_default", text = "Not like an enemy, exactly, more like someone I'd have had to watch in Ashenvale. I stood watch there for two hundred years, and I can't unlearn which side of a camp a person comes from just because the Keeper says the grass is neutral." },
+      },
+      choices = {
+        { text = "Then watch me. I'll give you nothing to find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your war isn't my war, and never has been.", next = "BACK", reply = "Perhaps not, but your Warchief's war is in my forest, and you share his banner. I'll sell you a bow, but don't ask me to like it.", fx = { align = { honor = -1 } } },
+        { text = "I've never set foot in Ashenvale. Judge me, not the Warsong.", tag = "Persuade", next = "xtauren_soft",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "DRUID" }, { reputation = { faction = "Cenarion Circle", min = "honored" } } } } },
+          fail = { next = "xtauren_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xtauren_soft = {
+      lines = {
+        { id = "xts_default", key = true, fx = { npcFlag = { set = { "narianna_soft" } } },
+          text = "That's fair, and it stings to hear it from someone who walks the Circle's path as gently as you do. Very well: I'll keep my anger for the axes in Ashenvale and not for you, and if Loganaar hears of this, I'll never hear the end of it." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren_fail = {
+      lines = {
+        { id = "xtf_default", text = "A fine speech, and I've heard it from Horde envoys who came to Astranaar under a white flag. Come back when the Circle speaks for you, and I'll listen more kindly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Narianna.", next = "END" },
+      },
+    },
+    xsoft = {
+      lines = {
+        { id = "xso_default", text = "At the tauren, no, and you're to blame for that. At the Warsong, every day, but I've stopped taking it out on whoever happens to be standing at my stall." },
+      },
+      choices = {
+        { text = "That's progress, Narianna.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     roads = {
       lines = {
         { id = "ro_default", text = "South through the furbolg tunnels to Felwood, or north into the snows of Winterspring. Druids can fly from the hippogryph and wind rider posts here, but everyone else walks, and both roads are rough." },
@@ -591,6 +685,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell bows in Nighthaven. I used to be a Sentinel, and I still like to see people leave well armed." } },
     advice = { { id = "tp_ad", text = "In Felwood, don't drink from anything green. You'll thank me." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the grove at peace, and I'm grateful. I'm less grateful that it teaches the Horde's druids everything we know.", next = "circle" } },
     thrall = { { id = "tp_thrall", text = "I fought orcs in Ashenvale when I was a Sentinel, and I don't forget the faces. Here, they're guests, and I sell them bows." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw use short bows, rough-cut but true. I've traded with them, and I'd trust their aim over mine." } },
     centaur = { { id = "tp_centaur", text = "Centaur bows are strong, I hear, and their archers stronger. I'd rather not find out from the wrong end." } },

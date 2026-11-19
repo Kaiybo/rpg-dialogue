@@ -23,6 +23,7 @@ Craft: engineers of 200+; priests (thanks to Brother Sarno).
 
 ## Topics
 knows, background, advice, gnomeregan
+- Night elves (0.94.0 work): they look at gnomes like a toddler with a lit fuse; Darnassus answered his question about Teldrassil's roots with 'Through balance'. The player can point out his own Pledge of Secrecy. A night elf can soften him (`[Persuade]`, npcFlag `overspark_soft`).
 
 ---
 

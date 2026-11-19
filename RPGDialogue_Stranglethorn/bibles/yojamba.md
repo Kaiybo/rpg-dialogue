@@ -21,3 +21,6 @@ Zandalari dialect as the emissary: "de/dat/dis/dem/dey", whole sentences, proud.
 ## Never
 - Nothing from Zul's later plans, the Zandalari war, the Isle of Thunder or Dazar'alor. Exzhal's later demotion is not foreshadowed.
 - Kezan is not named (Al'tabim's "Kezan's Taint" quests are not mentioned).
+
+## The kaldorei (authored framing of Classic lore)
+- Molthor remembers the kaldorei as a young people beside old troll empires, grown proud on their well until it broke the world; the Gurubashi and Amani gave ground to them. Distrusts their new humility ("a lesson learned only at the bottom of the sea") but takes a night elf's glaive against Hakkar gladly.

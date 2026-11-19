@@ -3,12 +3,14 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## 0.94.0 (2026-11-19): The Moon and the Hunt
-The night elf and hunter patch. **New files in the World pack (`hunter_notice.lua`, `my_beast.lua`): restart the game fully (a /reload won't load them).**
+The night elf and hunter patch. **New files in the World pack (`hunter_notice.lua`, `my_beast.lua`, `claims_kaldorei_frontier.lua`, `claims_darkshore_ashenvale.lua`): restart the game fully (a /reload won't load them).**
 - **Talk to your own beast.** Right-click your pet (or target it and talk) for a full conversation, answered in its actions: look it over, praise or scold it, feed it, remember the day you tamed it, teach it a trick, talk about the dead, the druids and where you're headed next. Every beast family behaves its own way.
 - **People notice a hunter**: guards, townsfolk, innkeepers, vendors, gunsmiths and bowyers, stable masters, children, other class trainers and the spirit healer react to your beast (by family), your aspects, Feign Death, Rapid Fire, an empty quiver, Rhok'delar and Beaststalker armor, and to night elf, dwarf, orc, troll and tauren hunters.
 - **Hunter trainers and quest-givers rewritten and deepened** in both factions, following your road: Aspects and stings, the taming quests at 10 (Dazalar, Grif Wildheart, Thotar, Yaw Sharpmane), loyalty and feeding, Echeyakee, Humar and Broken Tooth, Feign Death at 30, mail at 40, Beaststalker, and Rhok'delar. Hemet Nesingwary now speaks plainly throughout.
 - **The night elves**: Tyrande, Fandral, the Enclave, the Temple, the Sentinels and the folk of Teldrassil, Darkshore, Ashenvale, Felwood, Moonglade, Winterspring and Feathermoon have far more to say, with branches only a night elf hears: Azshara and the Highborne, the Sundering, Malfurion in the Dream, Hyjal, the lost long life, Valstann. New: Hastat and Stoma the Ancient (Felwood) and Artorius the Amiable (Winterspring).
 - **Four new Stories**: The bear at Auberdine (Alliance hunters), The thinning herds (Horde hunters), The kindly strangers (hunters 55+) and The long watch (night elves).
+- **Not every night elf loves the Alliance.** About thirty kaldorei now take a side: some are openly hostile to the humans and their allies, some want the island closed to outsiders, some welcome the Alliance; hawks argue with the druids over the Warsong camps, and the long life lost at Hyjal divides them. A good Persuade can soften the hardest of them, and the town crowds of Darnassus, Teldrassil, Darkshore and Ashenvale now grumble too.
+- **Others have opinions of night elves**: about forty humans, dwarves, gnomes, orcs, trolls, tauren, Forsaken and goblins say what they think of the kaldorei, with their own words if you are one, and the capital crowds join in.
 - About 80 doubled NPCs (mostly night elves) are now one each.
 - Not seen in game yet.
 

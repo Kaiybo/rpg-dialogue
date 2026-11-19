@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.0 (2026-11-19)
+- Some folk here now have a view of the night elves, with their own words for a night elf player.
+
 ## 1.32.0 (2026-11-19)
 - Captain Evencane deepened for warriors; clipped lines rewritten.
 

@@ -1701,7 +1701,69 @@ P:NPC {
         { text = "What did Malfurion teach the first druids, Mathrengyl?", next = "ne_first", when = { race = "NightElf" } },
         { text = "Teldrassil doesn't feel like Nordrassil did.", next = "ne_trees", when = { race = "NightElf" } },
         { text = "My companion is no druid's form. Does the Circle mind?", next = "hunt_m", when = { class = "HUNTER", race = "NightElf" } },
+        { text = "Thyn'tel wants to burn the Warsong lumber camps.", next = "restraint" },
+        { text = "Why are the Sentinels daughters and the druids sons?", next = "roles" },
+        { text = "The old druids look at me oddly, being a woman.", next = "roles_f", when = { class = "DRUID", gender = "female" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    restraint = {
+      big = true,
+      lines = {
+        { id = "rs_default", key = true,
+          text = "She does, and she has written more names for the Temple than I have, so I don't dismiss her lightly. But Malfurion taught us that a forest is defended by what you keep alive, not by what you kill, and a fire set in anger has never once known where to stop." },
+      },
+      choices = {
+        { text = "Balance first. Burning their camps would make us the Warsong.", next = "BACK",
+          reply = "That is the fear exactly, and it is older than the orcs. The Highborne began by deciding that some lives were worth less than their purposes.", fx = { align = { light = 1 } } },
+        { text = "Balance won't stop an axe. Thyn'tel is right.", next = "BACK",
+          reply = "Perhaps she is, this season, and I'll pray over every Sentinel she sends. Only remember who taught you that killing was the simpler answer.", fx = { align = { light = -1 } } },
+        { text = "What would the Circle do instead?", next = "restraint2" },
+      },
+    },
+    restraint2 = {
+      lines = {
+        { id = "rs2_default", text = "Some of us would wake the ancients of Ashenvale and let the forest itself turn the axes, as it did on Hyjal, because the Warsong fear a walking tree more than any glaive. The Arch Druid says the ancients sleep for good reason, and he is not wrong that a forest at war forgets how to be a forest." },
+      },
+      choices = {
+        { text = "So the Circle argues while Ashenvale bleeds.", next = "BACK",
+          reply = "The Circle argues so that Ashenvale bleeds less, or so I tell myself. Go and hear Thyn'tel too, and decide which of us is the fool." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roles = {
+      lines = {
+        { id = "rl_default", key = true,
+          text = "Since long before the Sundering, our daughters have served Elune as priestesses and Sentinels, and the sons who heard the wild followed Malfurion into the Dream. It is an old shape, and it held us together through ten thousand years of watching, though I'll confess old shapes chafe the young." },
+      },
+      choices = {
+        { text = "Old shapes kept your people whole for ten thousand years.", next = "BACK",
+          reply = "They did, and I'm in no hurry to break one that held. But a shape that holds can also bind, and I've seen both.", fx = { align = { order = 1 } } },
+        { text = "A shape that chafes should be let out.", next = "BACK",
+          reply = "You sound like half my students, and like a few of the Sisterhood too, though they'd never say so where Tyrande could hear.", fx = { align = { order = -1 } } },
+        { text = "Who chafes at it?", next = "roles2" },
+      },
+    },
+    roles2 = {
+      lines = {
+        { id = "rl2_default", text = "More than will say so. I've had young men ask why they may not take up the glaive, and the Sisterhood grumbles that the Circle slept in the Dream while the Sentinels bled awake, and I'm not certain the Sisterhood is wrong." },
+      },
+      choices = {
+        { text = "That's a generous thing for a druid to admit.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roles_f = {
+      big = true,
+      lines = {
+        { id = "rf_default", text = "They look because the Circle has had few daughters, and some of the old druids still believe the wild belongs to the sons and the moon to the daughters. I believe the Great Bear chose you, and the Great Bear has never once asked my opinion on anything." },
+      },
+      choices = {
+        { text = "Then I'll prove the old druids wrong.", next = "BACK",
+          reply = "Do, and do it loudly, if a bear can be loud in the Enclave. They'll grumble, and then in a century they'll claim they always thought so.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I'll honour the old ways, even as I walk past them.", next = "BACK",
+          reply = "That is the harder road and the wiser one, and it will win you more friends among the old druids than defiance would. Patience is a bear's gift too.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xorig_dream = {

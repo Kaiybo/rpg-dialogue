@@ -222,11 +222,44 @@ P:NPC {
           when = { thread = { id = "venture_mulgore", beat = "b5_baine", state = { "stirring", "unfolding" } } } },
         { text = "I stood with your braves against the Venture machines, Baine.", next = "xorig_brave", when = { origin = "tauren_bloodhoof_brave" } },
         { text = "The Venture Company has fewer hands in Mulgore now, Baine.", next = "dd_venture", when = { killed = { name = "Venture", min = 30 } } },
+        { text = "What do you make of the night elves, Baine?", next = "ne_baine" },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
         { id = "h_again", text = "What else, friend? The village is quiet for now, and An'she is still high, so ask." },
         { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip round the cookfires, where every plainstrider grows a foot in the telling." },
+      },
+    },
+    ne_baine = {
+      lines = {
+        { id = "ne_default", text = "I know them mostly through Hamuul's stories and the Warsong runners' complaints at the Crossroads, and the two could be talking about different peoples. Hamuul went to Malfurion's people a hunter and came home a druid, and the Warsong went into Ashenvale for timber and came home with arrows in them." },
+        { id = "ne_druid", when = { race = "Tauren", class = "DRUID" },
+          text = "You'd know them better than I do, since you carry their teaching in your bones. Hamuul came home from Malfurion a druid, and the Warsong come home from Ashenvale with arrows in them, and I keep trying to make those two stories fit together." },
+      },
+      choices = {
+        { text = "Could there ever be peace in Ashenvale?", next = "ne_baine_peace" },
+        { text = "The Warsong cut sacred trees. The elves have a right to their anger.", next = "BACK",
+          reply = "They do, and the Earth Mother would say so too, though I'd not say it loudly near a Warsong runner. Anger with good reason is still anger, friend, and it still needs somewhere to go.",
+          fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "The elves shot first. The Horde needs that timber.", next = "BACK",
+          reply = "The Horde needs timber and the elves need their trees, and both are telling the truth, which is the hardest kind of quarrel to settle. I'd only ask that we count the cost before we count the wood.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    ne_baine_peace = {
+      lines = {
+        { id = "nbp_default", text = "My father keeps a peace with Lady Proudmoore across the water, and few believed that could be done either. If the Horde asked the Circle where it might cut, and the Sentinels let a tauren speak before they loosed, I think that forest could feed us both, the way the plains feed the kodo and the plainstrider side by side." },
+      },
+      choices = {
+        { text = "A shared forest is worth trying for, Baine.", next = "BACK",
+          reply = "I think so too, and I'm glad to hear it from someone who has walked further than I have. Hamuul says the elves count time in centuries, so perhaps we only need to start asking early.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Wishes don't stop arrows, Baine.", next = "BACK",
+          reply = "No, they don't, and I've helped pull enough arrows out of braves to know it. But a wish is where every treaty starts, and I would rather begin there than at the end of a spear.",
+          fx = { align = { light = -1 } } },
+        { text = "You should be the one to ask them, Baine.", next = "BACK",
+          reply = "Perhaps one day, when my father thinks me ready and the Warchief thinks it wise. Until then I'll practise on the goblins and the gnolls, who listen even less." },
       },
     },
     dd_venture = {
