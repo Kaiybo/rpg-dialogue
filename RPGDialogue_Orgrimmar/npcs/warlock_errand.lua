@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_again3", text = "Ask, my star pupil. I've told the others to wait, and they're very bad at it." },
       },
       choices = {
-        { text = "What will you teach me next?", next = "lessons", when = { class = "WARLOCK" } },
+        { text = "What will you teach me to bind next?", next = "lessons", when = { class = "WARLOCK" } },
         { text = "Tell me about the dreadsteed.", next = "dread", when = { class = "WARLOCK", minLevel = 60 } },
         { text = "The elders call us Gul'dan's heirs.", next = "heirs", when = { race = "Orc", class = "WARLOCK" } },
         { text = "You call every warlock your star pupil.", next = "star" },
@@ -224,7 +224,7 @@ P:NPC {
     zankaja = {
       lines = { { id = "zk_default", text = "In the bluffs of Orgrimmar, west of the wind rider tower, lives Zankaja, and she waits for the return of her mate. He went to the Crossroads and hasn't come home, and her heart is full of exactly the sort of devotion a succubus craves." } },
       choices = {
-        { text = "You'd use her grief as bait.", next = "bait" },
+        { text = "So her grief is the bait.", next = "bait" },
         { text = "Something else.", next = "BACK" },
       },
     },

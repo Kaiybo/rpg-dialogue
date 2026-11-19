@@ -3983,7 +3983,7 @@ P:NPC {
         { text = "Who are your regulars?", next = "regulars" },
         { text = "You should ask what your reagents are used for.", next = "ask" },
         { text = "Where do reagents come from?", next = "source" },
-        { text = "Do you stock anything for a summoning?", next = "stones", when = { class = "WARLOCK" } },
+        { text = "Do you stock anything for work done by candlelight, behind locked doors?", next = "stones", when = { class = "WARLOCK" } },
         { text = "The druids in the Park buy from you?", next = "seeds", when = { class = "DRUID" } },
         { text = "Good day, Owen.", next = "END" },
       },

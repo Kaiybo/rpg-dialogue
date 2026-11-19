@@ -176,7 +176,7 @@ P:NPC {
         { id = "wm_default", text = "You command your demons, and they beg theirs. Keep it that way, and you will never end up as a gem in my satchel." },
       },
       choices = {
-        { text = "I intend to.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I intend to. They will beg, not me.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

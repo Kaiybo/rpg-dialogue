@@ -79,8 +79,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Older cellars than anyone admits to, and the Lamb's crypt is the deepest of them, which your servant seems to know already from the way it keeps looking at the floor. The Quarter's masters wouldn't let my men dig below a certain line, and having seen that thing up close, I'm beginning to understand why." },
       },
       choices = {
-        { text = "Then the plans stay closed, as they should.", next = "BACK", reply = "They do, and I'll sleep easier for it. There are doors down there that I'd rather nobody remembered, even me.", fx = { align = { order = 1 } } },
-        { text = "Show me the old plans. I'll find out myself.", next = "BACK", reply = "You'll not find them in this office, and if you go poking under the Lamb, you'll be on your own when the floor gives.", fx = { align = { order = -1 } } },
+        { text = "Then keep the plans closed. Some doors should stay forgotten.", next = "BACK", reply = "They do, and I'll sleep easier for it. There are doors down there that I'd rather nobody remembered, even me.", fx = { align = { order = 1 } } },
+        { text = "Show me the old plans, Baros. I'll find those doors myself.", next = "BACK", reply = "You'll not find them in this office, and if you go poking under the Lamb, you'll be on your own when the floor gives.", fx = { align = { order = -1 } } },
         { text = "Something else, Baros.", next = "BACK" },
       },
     },
@@ -186,7 +186,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I draw walls, but someone has to stand on them, and the drawings never mention how cold it gets up there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Do the statues look right from the road, or did I set them too far back?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, and I can't help wondering what someone who shapes living things makes of them." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've chalk dust on your cuffs and a cellar's chill about you. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to stone, they tell me. I've spent my life telling stone where to go, and it has never once answered back." },
       },
       again = {
@@ -208,7 +208,7 @@ P:NPC {
         { text = "Do you ever pray in the Cathedral you helped build?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would justice look like for the Stonemasons, Architect?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did you leave room for anything green when you drew the city, Architect?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What lies beneath the Mage Quarter, Baros?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What lies beneath the Mage Quarter that even you won't map, Baros?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you like to know what the stone of this city thinks, Baros?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },

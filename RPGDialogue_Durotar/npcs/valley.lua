@@ -121,11 +121,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because he's old enough to remember what demon magic did to the Horde, and so am I, near enough. The Warchief says a warlock who serves the Horde is better than one who serves the Burning Blade at Skull Rock, so go and prove him right." },
+        { id = "xlock_default", text = "Because he's old enough to remember what demon magic did to the Horde, and so am I, near enough. The Warchief says one who serves the Horde is better than one who serves the Burning Blade at Skull Rock, so go and prove him right." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because he's old enough to remember what demon magic did to the Horde, and so am I, near enough, which is why I don't like that thing looking at me. The Warchief says a warlock who serves the Horde is better than one who serves the Burning Blade, so go and prove him right." },
       },
       choices = {
-        { text = "I'll serve the Horde and prove the Warchief right.", next = "BACK", reply = "Good, then you'll have friends here soon enough. Go to Skull Rock when you're ready and show them what a warlock of the Horde can do.", fx = { align = { order = 1 } } },
+        { text = "I'll serve the Horde and prove the Warchief right.", next = "BACK", reply = "Good, then you'll have friends here soon enough. Go to Skull Rock when you're ready and show them what you can do for the Horde.", fx = { align = { order = 1 } } },
         { text = "I serve my own power, and the Horde benefits anyway.", next = "BACK", reply = "As long as the Horde benefits, I won't complain. But Gornek will be watching, and so will I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -153,7 +153,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa, the mage trainer in Sen'jin Village, eventually, but every recruit starts with Gornek." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, fresh in the valley! Every one of you thinks you'll lead a warband by the end of the week, and every one of you starts with boars." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, new to the valley. You'll walk alone for now, but the day will come when a beast walks with you, and you'll wonder how you managed without it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fresh in the valley. Gornek won't like it, and neither do I, but the Warchief says you can serve, so you'll serve." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Fresh in the valley, and already there's sulphur on you. Gornek won't like it, and neither do I, but the Warchief says your sort can serve, so you'll serve." },
       },
       choices = {
         { text = "Hana'zua talks about Sarkoth a lot, does he?", next = "dd_sarkoth", when = { killed = { name = "Sarkoth" } } },
@@ -168,7 +168,7 @@ P:NPC {
         { text = "The orcs here don't seem to trust the arcane.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do warriors start with boars, Kaltunk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a new hunter tame first, Kaltunk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Why won't Gornek like a warlock, Kaltunk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why won't Gornek like me, Kaltunk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do I belong in the Valley of Trials, Kaltunk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm on my way.", next = "END" },
       },
@@ -241,7 +241,7 @@ P:NPC {
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },
       text = "Soft hands, I see. That'll change, along with everything else soft about you, here." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock, in my Den. The Burning Blade wear your colors in the caves north of here. Prove you aren't one of them." },
+      text = "There's a stink of sulphur in my Den. The Burning Blade wear that smell in the caves north of here, so prove you aren't one of them." },
     { id = "n_frostwolf", cat = "origin", when = { origin = "orc_frostwolf" },
       text = "Frostwolf, by the fur on you and the way you sniff the wind. Your clan never drank the blood, so you'll be the only one in my Den who doesn't need the first lesson on what the old ways were." },
   },
@@ -347,7 +347,7 @@ P:NPC {
         { text = "What do I need to prove?", next = "prove" },
         { text = "What do the grunts say about the Forsaken?", next = "forsaken_op" },
         { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I'm no cultist, Gornek. What I hold answers to me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "An orc with a spellbook. Say what you're thinking.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "My people hunted the jungles long before this valley.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "I'd guess a rogue gets different work than a warrior.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -378,13 +378,13 @@ P:NPC {
     warlock = {
       big = true,
       lines = {
-        { id = "wl_default", text = "So every cultist in that coven told himself, right up until his power started answering to something else. I watched orcs drink that fire once, and I'm still burying the ones it ruined." },
+        { id = "wl_default", text = "So every cultist in that coven told himself, right up until it started answering to something else. I watched orcs drink that fire once, and I'm still burying the ones it ruined." },
         { id = "wl_troll", when = { race = "Troll" },
           text = "A troll who whispers to demons, and that's new to me. The Darkspear had their witch doctors, but I never heard of one calling up imps, and I'd like to know who taught you." },
       },
       choices = {
         { text = "I'll use it against the Blade and nothing else.", next = "BACK", reply = "Good, and I'll be watching to make sure, every day you're in my valley.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Power is power. The Horde should use what it has.", next = "BACK", reply = "That's exactly what the old warlocks said, and I buried their victims. Watch yourself.", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Power is power. The Horde should use what it has.", next = "BACK", reply = "That's exactly what the old Shadow Council said, and I buried their victims. Watch yourself.", fx = { affinity = -2, align = { light = -1 } } },
         { text = "What did you see it do to them?", next = "warlock_saw" },
       },
     },
@@ -510,7 +510,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. The Blade will try to tempt you; they try with every one of us. Say no, and keep saying it." },
+      text = "The Blade will try to tempt you, the way they try with every one of us who walks this road. Say no, and keep saying it." },
   },
 
   start = "hello",
@@ -635,7 +635,7 @@ P:NPC {
           text = "A Darkspear warlock, which the old orcs will find stranger than I do. If the voice you listen to isn't a loa, be very sure you know what it is before you answer it." },
       },
       choices = {
-        { text = "A demon is a tool. I bind it, it serves.", next = "warlock_bind" },
+        { text = "A demon is a tool. I bind it, it serves, and that's all.", next = "warlock_bind" },
         { text = "I'll never kneel. You have my word.", next = "BACK", reply = "Then you'll be one of the few who keeps it. I'll hold you to that word.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Maybe the Blade understand something the rest of us fear.", next = "BACK", reply = "They understand that power is hungry, and they feed it with their own people. I saw what that did to the clans, and I'll not watch it again.", fx = { affinity = -2, align = { light = -1 } } },
       },
@@ -739,11 +739,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Far more, because every peon grew up hearing about the fel and the old curse. If you want them to work, keep your demon out of sight, and let them think about lumber instead of nightmares." },
+        { id = "xlock_default", text = "Far more, because every peon grew up hearing about the fel and the old curse, and they can smell it on you. If you want them to work, keep that thing out of sight, and let them think about lumber instead of nightmares." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Far more, and you can see why, because every peon in the yard dropped his axe when your demon walked in. If you want them to work, get it out of sight and let them think about lumber instead of nightmares, or I'll be the one carrying the timber." },
       },
       choices = {
-        { text = "Out of sight, then. I'll let them work.", next = "BACK", reply = "Good, mon, and they'll work better for it. Your demon can sit by the fire and sulk.", fx = { align = { light = 1 } } },
+        { text = "Out of sight, then. I'll let them work.", next = "BACK", reply = "Good, mon, and they'll work better for it. Your little friend can sit by the fire and sulk.", fx = { align = { light = 1 } } },
         { text = "Fear makes them work faster than sleep does.", next = "BACK", reply = "Faster, maybe, but they'd never come back. Keep it out of sight, mon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -780,7 +780,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile, mon? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Can you make the trees grow faster? Then my peons would have less to chop and less excuse to nap, though I doubt it would stop them trying." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I need them awake, not trembling." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Keep whatever's lurking behind you away from my peons; they're frightened enough of me already, and I need them awake, not trembling." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? If your beast could wake a sleeping peon, I'd hire it on the spot." },
       },
       choices = {
@@ -792,7 +792,7 @@ P:NPC {
         { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Would you really want me to frighten your peons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "The beasts here must bother your peons, Foreman.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do the peons fear warlocks more than you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the peons fear me more than you, Foreman?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I wake your peons with the Light, Foreman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "There aren't many trees in this valley to cut.", next = "trees" },
         { text = "You were surveying near the Burning Blade's cave.", next = "survey" },
@@ -944,12 +944,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I feed everyone who walks into this Den, because hunger doesn't care what you are. Just keep your imp out of the kitchen, and I'll fill your bowl like anyone's." },
+        { id = "xlock_default", text = "I feed everyone who walks into this Den, because hunger doesn't care what you are. Just keep that little horror out of the kitchen, and I'll fill your bowl like anyone's." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I feed everyone who walks into this Den, because hunger doesn't care what you are, but your demon is already nosing toward my kitchen. Keep it back there by the door, and I'll fill your bowl like anyone's." },
       },
       choices = {
-        { text = "Agreed. The imp stays away from your pot.", next = "BACK", reply = "You'll eat well, then. The imp can lick the pot outside when the grunts are done.", fx = { align = { order = 1 } } },
-        { text = "My imp can eat where it likes, cook.", next = "BACK", reply = "Then it eats outside, and you eat with it. My kitchen, my rules.", fx = { align = { order = -1 } } },
+        { text = "Agreed. It stays away from your pot.", next = "BACK", reply = "You'll eat well, then. Your little friend can lick the pot outside when the grunts are done.", fx = { align = { order = 1 } } },
+        { text = "What's mine eats where it likes, cook.", next = "BACK", reply = "Then it eats outside, and you eat with it. My kitchen, my rules.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -994,7 +994,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you know fire better than I do, so don't tell me how to cook with it, and I won't tell you how to call it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my fire! You'll know which roots out in the scrub are good to eat, I hope, because I'm running out of ways to cook scorpid tail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You can conjure your own bread, I hear, so you won't be wanting my cooking. Your loss, because my scorpid tail is famous." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, keep that imp away from my pot. The last one spat in my stew, and the grunts haven't forgiven me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Keep that little fire-spitter of yours away from my pot. The last one spat in my stew, and the grunts haven't forgiven me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll eat twice what a hunter does and complain half as much, which makes you my favourite kind of customer." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, eh? Keep your fingers out of the pot, because I count every scorpid tail in it." },
       },
@@ -1008,7 +1008,7 @@ P:NPC {
         { text = "Tauren don't eat scorpid where I come from.", next = "tauren", when = { race = "Tauren" } },
         { text = "Do you mind that mages can conjure their own food?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do you feed the recruits, Galgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you still feed me, Galgar, knowing what follows me?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Rogues must steal from your pot, Galgar.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you feed a paladin, Galgar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "That pot looks older than half the recruits.", next = "pot" },
@@ -1164,12 +1164,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I sell to anyone the Den trusts, and Gornek's let you in, so you'll get the same price as anybody. Just keep your demon's claws off my stock, because I've enough trouble with recruits dropping things." },
+        { id = "xlock_default", text = "I sell to anyone the Den trusts, and Gornek's let you in, so you'll get the same price as anybody. Just keep those claws off my stock, because I've enough trouble with recruits dropping things." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell to anyone the Den trusts, and Gornek's let you in, so you'll get the same price as anybody. But your demon's had its face in my shelves since you walked up, and I've enough trouble with recruits dropping things without that thing knocking them over." },
       },
       choices = {
-        { text = "Fair. I'll keep the imp's claws to itself.", next = "BACK", reply = "Then you'll get the same price as anybody. Keep its claws off my anvil.", fx = { align = { order = 1 } } },
-        { text = "My imp does as it pleases, Kzan.", next = "BACK", reply = "Then it pays for anything it breaks, and so do you. Keep it away from my stock.", fx = { align = { order = -1 } } },
+        { text = "Fair. I'll keep its claws to itself.", next = "BACK", reply = "Then you'll get the same price as anybody. Keep its claws off my anvil.", fx = { align = { order = 1 } } },
+        { text = "What's mine does as it pleases, Kzan.", next = "BACK", reply = "Then it pays for anything it breaks, and so do you. Keep it away from my stock.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1203,7 +1203,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you'll want a mace, not one of those training axes the recruits keep losing. I'll sell you one, but you'll pay full price like everyone else." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll want a staff, then, and you'll pay full price for it, claws or no claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my shop. I'll not sell you an axe, because you'll drop it, so how about a staff?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, your imp's eyeing my blades. Tell it I'll sell to you, not to it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your little friend's eyeing my blades. Tell it I'll sell to you, not to it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your arrows in the quiver and your beast out of my stock, and we'll get along fine." },
       },
       choices = {
@@ -1214,7 +1214,7 @@ P:NPC {
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'd guess mages rarely drop their weapons.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a hunter need from you, Kzan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I'd guess you don't sell to warlocks freely.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you don't sell freely to my sort.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you arm a Forsaken paladin, Kzan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Back to the scrub, then.", next = "END" },
       },

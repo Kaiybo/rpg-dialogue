@@ -11,6 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
   likesTone = "polite",
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Faol's student; his mercy is wide, but he will not bless demon-binding." },
   notices = { "light", "affliction", "form" },
   impression = {
     first = "He makes a vast cathedral feel like a small chapel.",
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light's mercy is wide, child, but there is a darkness on you I will not bless. Say what you came to say." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I have sat with the families of those the Horde's warlocks killed, and I cannot pretend I don't remember them. Speak, and I will listen." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I have prayed over you more than once, and still you come back. Perhaps the Light isn't finished with you after all." },
     { id = "g_peace", text = "Peace, child. The Cathedral is open to everyone. Even the tired." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of ours. Sit, if you've a moment, because you rarely will, later." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Duthorian's latest, I suspect, and he speaks well of very few. Welcome." },
@@ -116,6 +120,8 @@ P:NPC {
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
           text = "You've been inside Stratholme, I'm told, and come out again, which is more than the city's own people managed when the plague came. I'll say a prayer tonight for the ones who still walk its streets." },
         { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me, and where he built it to hold people, I try to keep its doors open." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There is a darkness on you that the Cathedral's light shows plainly, child. I will not turn you from these doors, but I will not bless what walks with you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have returned again, and the shadow with you. I still pray you'll set it down one day, and I am still watching for that day." },
         { id = "h_priest", when = { class = "PRIEST", minLevel = 20 },
           text = "You've grown since you first knelt here, child. The Light hasn't changed, but you have, and that is how it's meant to work." },
         { id = "h_eye", when = { questActive = TODO_QUEST("Cleansing the Eye") },
@@ -156,7 +162,7 @@ P:NPC {
         { text = "I've been praying in Lordaeron, Your Grace.", next = "plague_prayer",
           when = { class = { "PRIEST", "PALADIN" }, thread = { id = "plague_light", beat = "b4_benedictus", state = "unfolding" } } },
         { text = "Your Grace, should a paladin ever doubt?", next = "paladin_doubt", when = { class = "PALADIN" } },
-        { text = "Would the Light turn a warlock away, Your Grace?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Is there anything the Light refuses to forgive, Your Grace?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "My people pray to Elune, Your Grace.", next = "elune", when = { race = "NightElf" } },
         { text = "I've done things in the dark for the crown, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I hear the spirits of the earth, Your Grace. Is that wrong?", next = "shaman", when = { class = "SHAMAN" } },
@@ -353,7 +359,7 @@ P:NPC {
       lines = { { id = "warlock_l", text = "The Light doesn't turn anyone away, child, though I'll not lie to you: some of my brothers might. You're standing under this roof, and nobody has struck you down, which tells you something about whose house it is." } },
       choices = {
         { text = "And if I never give up what I've learned?", next = "warlock_keep" },
-        { text = "I don't need the Light's welcome.", next = "BACK", reply = "Perhaps not, child, but it's there all the same. It doesn't need you to need it.", fx = { align = { light = -1 } } },
+        { text = "I've found warmer things than the Light's welcome, Your Grace.", next = "BACK", reply = "Perhaps not, child, but it's there all the same. It doesn't need you to need it.", fx = { align = { light = -1 } } },
         { text = "Then I'll come back, Your Grace.", next = "BACK", reply = "Do, child. The candles will be lit, and I'll be here.", fx = { affinity = 2, align = { light = 1 } } },
       },
     },
@@ -469,6 +475,7 @@ P:NPC {
   key = "gazin", id = TODO_NPC("Gazin Tenorm"), name = "Gazin Tenorm",
   bible = "bibles/gazin.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "lawful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Keeps watch at the altar for Henze's sake; sure demon-callers bring the dark into holy places." },
   notices = { "paladin", "lock_soulstone" },
   impression = {
     first = "He would sooner be out searching for his friend than praying.",
@@ -476,6 +483,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know that stink, an' it's no' incense. Get away from the altar before I drag ye from it by the collar." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Henze nearly went into the dark for good, an' I'll no' have yer kind bringin' more o' it in here. Say what ye want an' be quick." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've kept yer filth out o' this hall every time ye came. Pray, if ye like, but I'm still watchin'." },
     { id = "g_altar", text = "Aye? Make it quick, I've a friend tae worry about." },
     { id = "g_symbol", when = { questActive = TODO_QUEST("The Symbol of Life") }, text = "Ye've got the Symbol? Then go, because Henze cannae wait." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Symbol of Life") }, text = "There's the {g:lad|lass} who brought Henze back. Stand a moment so I can look at ye." },
@@ -531,12 +541,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." },
+        { id = "xlock_default", text = "Ye'd raise him, would ye, wi' whatever ye keep in that satchel? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ye'd raise him, would ye, wi' that thing watchin' me from yer heel as ye ask? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' one look at yer demon tells me exactly whose shadow it'd be." },
       },
       choices = {
         { text = "You're right. Some help costs more than it gives.", next = "BACK", reply = "Aye, it does, an' I'm glad ye see it. Henze would agree wi' me.", fx = { align = { light = 1 } } },
-        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer fel away from him.", fx = { align = { light = -1 } } },
+        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer cellar magic away from him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -576,6 +586,8 @@ P:NPC {
           text = "Ye move like Henze did, quiet an' careful. Did Shaw send ye, or are ye one o' the Defias come tae finish the job?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Keep yer distance from the altar, would ye? I've no quarrel wi' ye, but the priests here go pale when yer kind walks in." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock at the altar, bold as brass. Ye'll keep yer distance, an' ye'll keep that wee beastie further off still." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ach, it's you again. Ye've never brought yer filth near the altar, I'll grant ye, so speak, but I've an eye on ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, aye. If Henze had had a warrior at his back that night, mebbe he'd be standin' here instead o' me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know how tae follow a trail, then, which is more than the king's advisors seem able tae do with the one Henze an' I left 'em." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Ye've a nose for the wild, an' Henze is still out there somewhere wi' the Defias. If ye could track a man by the smell o' him, I'd be in yer debt." },
@@ -594,7 +606,7 @@ P:NPC {
         { text = "You and Henze sound like SI:7 to me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a warrior have saved Henze, Gazin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter track the Defias to their hideouts, Gazin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Would a warlock's help be welcome for Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "There are older ways to bring Henze back, Gazin. Would you want them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the beasts of Elwynn tell us where Henze went, Gazin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have the priests given you any hope for your friend, Gazin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll bring him back.", next = "END", reply = "Bring him back, then, an' I'll be waitin' right here wi' a pint for each o' ye. May the stone keep ye safe.", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
@@ -705,7 +717,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Frighten? They'd climb all over your imp and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
+        { id = "xlock_default", text = "Frighten? They'd climb all over that little creature of yours and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten? They're already pressed up against the window staring at that thing, and they'll be asking its name next and having nightmares for a week. These children have seen enough already, so I'd thank you to take your {pet} round the side of the building before they come out." },
       },
       choices = {
@@ -786,7 +798,7 @@ P:NPC {
           text = "A mage! Oh, the children would go wild for a few sparks, if you've a minute, so long as nothing sets the curtains alight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The boys will want to see your sword, and I'll thank you not to let them hold it, however nicely they ask." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Please don't change into anything in front of the children, love, because I'll never get them to sleep again after a bear." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, near the orphanage. Keep that creature close, please, the little ones will want to pet it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a smell of struck matches about you, love, and something small keeping close. Keep that creature near you, please, the little ones will want to pet it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Well, whatever you do, eat something first. Thirty children, and not one of them knows what a spirit is." },
       },
       again = {
@@ -933,8 +945,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't think so, she's gone all the way down inside my coat, and she's never done that even for the guards' dogs. Dad says demons are bad and people who keep them are worse, but yours is just staring, and you look tired, and maybe that's different." },
       },
       choices = {
-        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when demons go by.", fx = { align = { light = 1 } } },
-        { text = "Your dad doesn't know everything, Timmy.", next = "BACK", reply = "He doesn't! He doesn't know about cats at all. You're right.", fx = { align = { light = -1 } } },
+        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when things like that go by.", fx = { align = { light = 1 } } },
+        { text = "Your dad doesn't know everything, Timmy. Grown-ups rarely do.", next = "BACK", reply = "He doesn't! He doesn't know about cats at all. You're right.", fx = { align = { light = -1 } } },
         { text = "Something else, Timmy.", next = "BACK" },
       },
     },
@@ -1025,7 +1037,7 @@ P:NPC {
         { text = "Would you like me to say a prayer for your kitten, Timmy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I knight your kitten, Timmy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think your kitten would like a cat for a friend, Timmy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would your kitten like my imp, Timmy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your kitten like to meet the thing in my shadow, Timmy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does your kitten really need a home, Timmy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Sorry, Timmy.", next = "END" },
       },
@@ -1215,7 +1227,7 @@ P:NPC {
         { text = "A high priestess must have little time to herself.", next = "duty" },
         { text = "Josetta speaks well of you.", next = "josetta", when = { heardLine = "josetta.h_prayer" } },
         { text = "The Abbey raised me. I'm one of theirs.", next = "novice", when = { origin = "human_abbey_novice" } },
-        { text = "I doubt the Light can mend what a demon has touched.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I doubt the Light can mend what I've let in.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Do the Cathedral's healers ever tend druids?", next = "druid", when = { class = "DRUID" } },
         { text = "I doubt the Light answers a mage, High Priestess.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a priest best help a warrior, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1301,7 +1313,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "Sometimes, if the person wants it mended, and usually they come to my door at night when they've finally decided they do. You're asking in daylight, warlock, which is either a good sign or a very bad one." } },
+      lines = { { id = "warlock_l", text = "Sometimes, if the person wants it mended, and usually they come to my door at night when they've finally decided they do. You're asking in daylight, child, which is either a good sign or a very bad one." } },
       choices = {
         { text = "I'm asking for someone else.", next = "warlock2" },
         { text = "I don't want mending. I want to know my options.", next = "BACK", reply = "Then you'll have them, and the Light will be one of them. Come back when you want it.", fx = { align = { light = -1 } } },
@@ -1432,8 +1444,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It hears everyone, and I've never once seen it turn its face away, though I'll confess I'm finding it hard not to turn mine from the thing beside you. What you bind doesn't decide that, friend, but what you do with it does, and I pray you'll send it away before you kneel." },
       },
       choices = {
-        { text = "Then I'll bind them only to keep worse things away.", next = "BACK", reply = "That's a good reason, if it stays the reason. I'll pray it does.", fx = { align = { light = 1 } } },
-        { text = "I'll do what I must with them, and the Light can watch.", next = "BACK", reply = "Then it will watch, and so will I, with hope.", fx = { align = { light = -1 } } },
+        { text = "Then what I hold will only ever hold back worse things.", next = "BACK", reply = "That's a good reason, if it stays the reason. I'll pray it does.", fx = { align = { light = 1 } } },
+        { text = "I'll use what I hold as I see fit. Let the Light watch.", next = "BACK", reply = "Then it will watch, and so will I, with hope.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1730,11 +1742,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Does it hurt, for a start, and does the demon talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
+        { id = "xlock_default", text = "Does it hurt, for a start, and does the thing you bind talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Does it hurt, for a start, and does the demon talk back, and since yours is right here watching me, does it ever say anything true? Brother Joshua says curiosity is how Morbent Fel and his like began, but a priest who won't ask questions can't answer them either, so I'll keep my eyes on it and keep asking." },
       },
       choices = {
-        { text = "It does hurt, Brother, and it rarely tells the truth.", next = "BACK", reply = "Then I'll pray for you twice, and I'll stop asking. That's terrible.", fx = { align = { light = 1 } } },
+        { text = "It hurts, Brother, and what whispers back rarely tells the truth.", next = "BACK", reply = "Then I'll pray for you twice, and I'll stop asking. That's terrible.", fx = { align = { light = 1 } } },
         { text = "It tells truths you'd rather not hear, Brother.", next = "BACK", reply = "Those are the worst kind, aren't they? I'll not ask more.", fx = { align = { light = -1 } } },
         { text = "Something else, Brother.", next = "BACK" },
       },
@@ -1807,7 +1819,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Walk with me; I think better on my feet, and I suspect you do too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, walking my hall. Keep up, then, because I don't stand still, and I'm told you lot are used to following things that move." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, I've a thousand questions, and I promise to ask only nine hundred of them, so tell me first whether the changing hurts." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the eastern hall! Fascinating, and slightly alarming, and I've so many questions I don't know where to begin." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've ink on your fingers that isn't ink, and the candles lean away from you! Fascinating, and slightly alarming, and I've so many questions I don't know where to begin." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, I have questions. Do the spirits answer in words, or is it more of a feeling? Do they ever argue?" },
       },
       again = { { id = "h_again", text = "Keep walking while you ask. What else?" } },
@@ -1821,7 +1833,7 @@ P:NPC {
         { text = "Do you ever get out of the city, Brother Benjamin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do you care how a paladin feels the Light?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you like to know what it feels like to change shape, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What questions would you ask a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you ask someone who bargains with the dark, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you most want to know about the spirits, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
@@ -1854,6 +1866,7 @@ P:NPC {
   key = "crowley", id = TODO_NPC("Brother Crowley"), name = "Brother Crowley", title = "Scarlet Crusade Emissary",
   bible = "bibles/benedictus.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
+  prejudice = { class = "WARLOCK", amount = 15, why = "Scarlet Crusade emissary; in Lordaeron the Crusade burns demon-callers, and he would gladly." },
   notices = { "light", "race", "form", "lock_taint" },
   impression = {
     first = "His certainty about everything stays with me afterward.",
@@ -1861,6 +1874,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "In Lordaeron we'd have put you to the torch, and the Crusade would have sung while you burned. Speak quickly, and pray Stormwind stays soft." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Legion's craft brought the plague down on my homeland, and you carry it like a purse. I'll not soil my hands on you here." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done the Light's work despite yourself, and the Crusade notes such things. Don't mistake that for forgiveness." },
     { id = "g_default", text = "You've found your way downstairs, good. The Crusade needs people who don't mind a few steps for the Light." },
   },
 
@@ -1995,6 +2011,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The plaguelands are full of beasts twisted by the Scourge, and the Crusade needs eyes that can tell a sick wolf from a healthy one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Crusade has seen what the plague does to beasts and green things in the north, and I'd know whether your craft can burn it out or only soothe it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You reek of the Burning Legion's craft, and you dare to stand in this Cathedral? Speak quickly." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A demon-caller, in the Cathedral of Light, without shame. In Tyr's Hand they'd have you in chains by now, and I'd have held the key." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've returned, and still I've had no cause to call the guard. The Crusade's eyes remain on you all the same." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The orcs who butchered Lordaeron's villages spoke to spirits too, and the Crusade has a long memory for such things." },
       },
       again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },
@@ -2014,7 +2032,7 @@ P:NPC {
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "What would the Crusade ask of a priest, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you believe plagued land can be healed, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would the Crusade have any use for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the Crusade find a use for someone like me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll fight the dead my own way, without your tabard.", next = "END", reply = "Then fight them, and pray the dead don't find you first. You'll learn soon enough why we wear the tabard.", fx = { align = { order = -1 } } },
       },
     },

@@ -111,7 +111,7 @@ P:NPC {
       },
       choices = {
         { text = "Right, then. It can wait outside.", next = "BACK", reply = "Thank you. It's not about you, friend; it's about the Sentinels' noses.", fx = { align = { order = 1 } } },
-        { text = "The Sentinels can learn to tolerate us.", next = "BACK", reply = "They might, in a few centuries. Until then, please, outside.", fx = { align = { order = -1 } } },
+        { text = "The Sentinels can learn to tolerate my kind.", next = "BACK", reply = "They might, in a few centuries. Until then, please, outside.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because too many of the carts that make it here come in with someone hurt aboard, and I'm no healer." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The carts could use one riding alongside them, because the Warsong have turned back more than I'd like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'd guess you came through the woods instead of along the road, and I wish my supply carts could do the same." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you thread and bread like anyone else, though I'd ask you not to bring your companion in among the flour sacks." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll sell you thread and bread like anyone else, though I'd ask you not to bring your companion in among the flour sacks." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The supply carts keep getting turned back by the Horde, but I keep Astranaar stocked all the same, and perhaps your spirits might guard the carts." },
       },
       again = {
@@ -145,7 +145,7 @@ P:NPC {
         { text = "Do the supply carts come in with wounded often?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should I ride escort for your supply carts?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has the war with the Warsong reached your shelves, Haljan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What harm would my servant do among your flour?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What harm would my companion do among your flour?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are the Warsong raiding your supply carts, Haljan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Haljan.", next = "END" },
       },
@@ -195,6 +195,7 @@ P:NPC {
   key = "xaiander", id = TODO_NPC("Xai'ander"), name = "Xai'ander", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "intense", "grim" }, values = { "defense", "vigilance" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Forged blades for Sentinels who died on Warsong axes; blames demon-craft for the orcs' rage." },
   notices = { "class", "race", "lock_taint" },
   impression = {
     first = "His blades are good, and his anger at the orcs is close.",
@@ -202,6 +203,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've forged blades for Sentinels who died on Warsong axes, and it was demon-craft that put the rage behind those axes. Buy what you need and go." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My forge is hot and my patience isn't. You'll get no welcome from me, demon-caller." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've paid honestly and never once called up that creature in my shop. Fine. I'll sell to you without glaring, mostly." },
     { id = "g_default", text = "If you're fighting for Ashenvale, I'll arm you. If you're not, there are other shops, though none this side of the Falfarren that the Sentinels trust." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. How many orcs did that blade see?" },
   },
@@ -295,7 +299,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it, and they're cutting our trees still. You bind your demons rather than drink from them, I'm told, but I've yet to see the difference with my own eyes." },
+        { id = "xlock_default", text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it, and they're cutting our trees still. Your sort binds rather than drinks, I'm told, but I've yet to see the difference with my own eyes." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it. You say you bind your demons rather than drink from them, and here's one bound beside you, staring at me with the same red hunger I saw in Warsong eyes, so I'm still waiting to see the difference." },
       },
       choices = {
@@ -316,7 +320,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, because the orcs won't wait for you to finish your prayers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you've seen orcs at war, and you'll understand why I don't sell anything blunt or badly made." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Warsong are felling the old trees by the dozen, and I'll wager you feel every one of them come down." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Warsong drank demon blood before they ever came to these woods, and I have no wish to see that craft again." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's warlocks gave the orcs their bloodlust, and the orcs gave Ashenvale its graves. Don't expect me to smile at one of his heirs." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You're back. I'd still sooner you weren't, but your coin has been honest. What will it be?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The Warsong drank demon blood before they ever came to these woods, and you carry a whiff of the same. I have no wish to see that craft again." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Orc shamans call lightning down on Astranaar's scouts, so don't be surprised if I flinch at your totems." },
       },
       again = {
@@ -334,7 +340,7 @@ P:NPC {
         { text = "I doubt prayer does much good against the Warsong.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there any end to the war with the Warsong?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think druids are too gentle with the Warsong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Is my craft the same as the Warsong's, Xai'ander?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is what I do the same as the Warsong's, Xai'ander?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you hate all shamans for the orcs' sake, Xai'ander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -498,7 +504,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You'll want a robe with deep sleeves for your reagents, I expect, and I've a few with good hems for these wet paths. I sewed for the moon festivals once, so I know how to make a mage look lovely, though the Sentinels may still stare." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Pardon me, but your imp keeps eyeing my silks, and I'd thank you to keep it from touching them." },
+          text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Pardon me, but that little creature keeps eyeing my silks, and I'd thank you to keep it from touching them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My robes won't stop an axe, but I've a few sturdy cloaks, if you'd like something to keep the rain off your mail." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen how the forest looked before the Warsong cut into it, I hope." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I sell robes the priestesses like, and I'm sure I have something that would suit you, whatever you pray to." },
@@ -518,7 +524,7 @@ P:NPC {
         { text = "The Sentinels seem to stare at mages.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did Ashenvale need warriors before the orcs came?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Was the hunting better in Ashenvale before the orcs came?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does my craft frighten you, Aeolynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do I frighten you, Aeolynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do priests come to you often, Aeolynn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can Astranaar keep anything beautiful while it's at war?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Ashenvale must have been different before the orcs came, Aeolynn.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -669,12 +675,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they summon. Just keep the little one away from the cheese, because the Sentinels count it." },
+        { id = "xlock_default", text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they keep. Just keep the little one away from the cheese, because the Sentinels count it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they summon. That said, your {pet} has its eyes on the cheese, so keep it close, because the Sentinels count every wheel." },
       },
       choices = {
-        { text = "Be careful, Maliynn. Not every warlock is as kind.", next = "BACK", reply = "I know, dear, and I'm careful. But a hungry customer is still a hungry customer.", fx = { align = { light = 1 } } },
-        { text = "There's nothing to fear. My craft is only a tool.", next = "BACK", reply = "That's what they all say, dear, and the cheese still goes missing. Keep it out of the pantry.", fx = { align = { light = -1 } } },
+        { text = "Be careful, Maliynn. Not everyone like me is as kind.", next = "BACK", reply = "I know, dear, and I'm careful. But a hungry customer is still a hungry customer.", fx = { align = { light = 1 } } },
+        { text = "There's nothing to fear. What I keep is only a tool.", next = "BACK", reply = "That's what they all say, dear, and the cheese still goes missing. Keep it out of the pantry.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -690,7 +696,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit and eat, you're thin as a willow, and I'll not have you fainting over some poor scout's bandages." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! That armour must take some feeding, so let me find you something hearty before you go out to the roads." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and thin as a sapling, like all of you who live on berries and moonlight. Sit down and let me find you something with a little more to it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock, and pale as a candle, dear. Whatever you've been dealing with hasn't been feeding you, so sit down and eat something." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you're pale as a candle, dear. Whatever you've been dealing with hasn't been feeding you, so sit down and eat something." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You look too thin, like everyone from the forest, so eat some bread, and your spirits will thank me." },
       },
       again = {
@@ -708,7 +714,7 @@ P:NPC {
         { text = "You seem to look after the wounded as well, Maliynn.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Sentinels ever go hungry on patrol?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the druids eat in town, or live off the forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Aren't you afraid of a warlock in your shop, Maliynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Aren't you afraid of someone like me in your shop, Maliynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you feed everyone who comes in, Maliynn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Maliynn.", next = "END" },
       },

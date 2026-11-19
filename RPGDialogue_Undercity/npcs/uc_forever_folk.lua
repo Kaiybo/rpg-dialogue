@@ -775,7 +775,7 @@ P:NPC {
         { text = "Faith seems fond of you.", next = "faith" },
         { text = "Whose books are you reading?", next = "books" },
         { text = "You and Faith watch this corner together.", next = "corner" },
-        { text = "I hold a demon's leash already.", next = "leash", when = { class = "WARLOCK" } },
+        { text = "I already hold a demon's leash. It pulls back.", next = "leash", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your brooding.", next = "END" },
       },
     },
@@ -844,15 +844,15 @@ P:NPC {
     leash = {
       lines = { { id = "ls_default", text = "Then tell me something no book will. When you first held it, did the creature test you at once, or did it wait until you were tired?" } },
       choices = {
-        { text = "At once. It tried my name within the hour.", next = "leash2" },
-        { text = "It waited. They're patient, the clever ones.", next = "leash2" },
+        { text = "At once. It was whispering my name within the hour.", next = "leash2" },
+        { text = "It waited. The clever ones always wait for weakness.", next = "leash2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     leash2 = {
       lines = { { id = "ls2_default", text = "That agrees with Kerwin, and contradicts two of the texts, which I shall mark accordingly. I am obliged to you. When I draw my own circle at last, I intend that nothing in it shall surprise me, and you have removed one surprise." } },
       choices = {
-        { text = "Something always surprises you. Be ready for that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something always surprises you. Make sure it isn't fatal.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1181,7 +1181,7 @@ P:NPC {
         { text = "Which master do you answer to?", next = "masters" },
         { text = "Those circles look carefully drawn.", next = "circles" },
         { text = "You keep a list of people, I hear.", next = "list" },
-        { text = "I made my first pact young. It cost me.", next = "cost", when = { class = "WARLOCK" } },
+        { text = "I made my first pact young. I'm still paying for it.", next = "cost", when = { class = "WARLOCK" } },
         { text = "I'll mind the chalk. Goodbye.", next = "END" },
       },
     },
@@ -1254,8 +1254,8 @@ P:NPC {
     cost = {
       lines = { { id = "cs_default", text = "Cost you what? No, don't tell me, the masters will say you were put up to it. Fine, tell me. Everyone says it costs, and nobody ever says what, and I'd like to hear it from somebody who isn't trying to keep me sweeping." } },
       choices = {
-        { text = "Sleep, mostly. It whispers when you're tired.", next = "BACK", reply = "I don't sleep. Though I do get tired, in a way. Hm. I'll think about that, and I'm not putting you on the list.", fx = { affinity = 1 } },
-        { text = "Nothing I wouldn't pay again.", next = "BACK", reply = "There, you see? That's what I keep telling them. Say it louder, Pickman's just round the pillar." },
+        { text = "Sleep, mostly. It whispers in the hours before dawn.", next = "BACK", reply = "I don't sleep. Though I do get tired, in a way. Hm. I'll think about that, and I'm not putting you on the list.", fx = { affinity = 1 } },
+        { text = "Nothing I wouldn't pay again, and gladly.", next = "BACK", reply = "There, you see? That's what I keep telling them. Say it louder, Pickman's just round the pillar." },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -133,13 +133,13 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Only if your demon forgets whose road this is. The Warchief allows your kind under watch, and I'll keep that watch myself, so keep the thing leashed and away from the tauren caravans, who've heard enough about the Burning Blade to reach for their spears." },
-        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you know what that power cost our people the first time. The Warchief allows it under watch, and I'll be the watch here, so keep your demon leashed and away from the tauren caravans." },
+        { id = "xwarlock_default", text = "Only if that thing at your heel forgets whose road this is. The Warchief allows your kind under watch, and I'll keep that watch myself, so keep it leashed and away from the tauren caravans, who've heard enough about the Burning Blade to reach for their spears." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you know what that power cost our people the first time. The Warchief allows it under watch, and I'll be the watch here, so keep whatever you've bound leashed and away from the tauren caravans." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Only if your demon forgets whose road this is, and it's already eyeing the tauren caravans like it's counting them. The Warchief allows your kind under watch, so call it back to your heel, because I'm watching it and so are the spears behind me." },
       },
       choices = {
-        { text = "My demon answers to me, and I answer to the Warchief.", next = "BACK", reply = "Then we'll get along, as long as the Warchief keeps answering for you. Keep the thing on a short leash near the caravans.", fx = { align = { order = 1 } } },
-        { text = "My power is my own business, Thork.", next = "BACK", reply = "It's my business too, on my road, with my grunts watching. Keep it quiet and keep it leashed, and we won't need to discuss it again.", fx = { align = { order = -1 } } },
+        { text = "What I bind answers to me, and I answer to the Warchief.", next = "BACK", reply = "Then we'll get along, as long as the Warchief keeps answering for you. Keep the thing on a short leash near the caravans.", fx = { align = { order = 1 } } },
+        { text = "What I carry is my own business, Thork.", next = "BACK", reply = "It's my business too, on my road, with my grunts watching. Keep it quiet and keep it leashed, and we won't need to discuss it again.", fx = { align = { order = -1 } } },
         { text = "Holding the Crossroads must be hard work.", next = "hardest" },
       },
     },
@@ -203,7 +203,7 @@ P:NPC {
         { text = "The Crossroads seems to have enemies on every side.", next = "threats" },
         { text = "I work from the shadows, Thork. Is there a use for that here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the Kolkar scouts move, Thork?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I'm a warlock, Thork. Will that be trouble at the Crossroads?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Some call what I do the old sickness, Thork. Will that be trouble here?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I went to the bottom of the Wailing Caverns, Thork.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "We're a company now. Where are we needed most, Thork?", next = "xpt_thork", when = { party = { size = { min = 2 } } } },
         { text = "I'm loyal to the Horde.", next = "END", reply = "Good, and I'll hold you to it every time you pass through my gate. Keep your blade sharp and your oath sharper, paladin.", fx = { affinity = 2, align = { honor = 1 } } },
@@ -315,6 +315,7 @@ P:NPC {
   key = "sergra", id = TODO_NPC("Sergra Darkthorn"), name = "Sergra Darkthorn",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "fierce" }, values = { "proud", "fair" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Lost kin to the lethargy in the camps and has watched the Burning Blade recruit on the Barrens." },
   notices = { "gender", "kit", "lock_armor" },
   impression = {
     first = "She sends people past the walls with a grin.",
@@ -327,6 +328,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Well, look who's back after {away}! I had a bet going on whether the Barrens would keep you, and I've just lost it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When I first sent you out you were as green as spring grass, and now look at you. The Barrens didn't eat you, so it must have taught you something." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Somebody tells me you stared down one of our own and they blinked first. I like that, just don't make a habit of it inside the walls." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I said I'd judge you by what you bring back from the Barrens, and I will. But I'll be watching what comes back with you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Burning Blade's been stirring out on the Barrens, and every one of them started with a little imp. Prove to me you're not the next." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've brought back more from the Barrens than most, and never anything with horns. I'll call that a start." },
   },
 
   notice = {
@@ -420,12 +424,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "You'll find plenty, though the tauren caravans will keep their distance and I won't blame them. The Burning Blade have a nest up on Dreadmist Peak to the north, so go and show those cultists what a warlock who serves the Horde looks like, and keep your demon on a short chain while you do it." },
+        { id = "xwarlock_default", text = "You'll find plenty, though the tauren caravans will keep their distance and I won't blame them. The Burning Blade have a nest up on Dreadmist Peak to the north, so go and show those cultists what your sort looks like when it serves the Horde, and keep that thing on a short chain while you do it." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "You'll find plenty, though the tauren caravans have already shifted their kodos away from that thing at your heel. The Burning Blade nest up on Dreadmist Peak to the north, so take your {pet} there and let the cultists see what a demon looks like when it serves the Horde." },
       },
       choices = {
-        { text = "I'll keep it leashed. The Crossroads has troubles enough.", next = "BACK", reply = "Good, because they do. Keep it leashed, and show the cultists on Dreadmist what a warlock of the Horde looks like.", fx = { align = { order = 1 } } },
-        { text = "My demon goes where I send it, and nobody else decides.", next = "BACK", reply = "Then send it to Dreadmist and let it eat Burning Blade instead of my patience. The caravans won't forgive a loose demon twice.", fx = { align = { order = -1 } } },
+        { text = "I'll keep it leashed. The Crossroads has troubles enough.", next = "BACK", reply = "Good, because they do. Keep it leashed, and show the cultists on Dreadmist who you really serve.", fx = { align = { order = 1 } } },
+        { text = "What serves me goes where I send it, and nobody else decides.", next = "BACK", reply = "Then send it to Dreadmist and let it eat Burning Blade instead of my patience. The caravans won't forgive a loose one twice.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +465,9 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, out in the Barrens! Then you'll know this land better than any orc, so tell me whether it's really dying or only testing us." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Thork will want you on the wall, but I'll want you past it, out where the Barrens bites back." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then! Good, because the scouts I send past the walls come back with Kolkar arrows in them, when they come back at all." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Crossroads has seen your kind before, and I'll judge you the way I judge anyone, by what you bring back from the Barrens." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The Crossroads has seen your kind before; I can smell the brimstone from here. I'll judge you the way I judge anyone, by what you bring back from the Barrens." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Brimstone, and plenty of it. I lost kin to the lethargy in the camps, and I know whose craft put it there, so you'll forgive me for being short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned your place at the Crossroads, I'll admit. Speak, and I'll listen properly." },
       },
       choices = {
         { text = "Do you really think the spirits test us, Sergra?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -474,7 +480,7 @@ P:NPC {
         { text = "Fire and frost work out here as well as any spear.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where does the Barrens bite hardest, Sergra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you ever send priests past the walls, Sergra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Will a warlock find work at the Crossroads, Sergra?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is there work at the Crossroads for someone the caravans avoid, Sergra?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you send a paladin out past the walls, Sergra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Should a company keep to its own people, Sergra?", next = "xpt_sergra", when = { party = { kin = true } } },
         { text = "I came out here when these walls first went up, Sergra.", next = "xorig_beast", when = { origin = "orc_barrens_beastmaster" } },
@@ -628,13 +634,13 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "I hate the stink of the things, and I hate that the Horde still has to look at them. But if your demon puts its claws in the quilboar who swarmed us, I won't spit when it walks past me, and that's the most you'll get from me." },
-        { id = "xwarlock_orc", when = { race = "Orc" }, text = "Our people sold themselves to those things once, and look what it bought us. But if your demon tears into the quilboar who swarmed us, I'll keep my mouth shut about it, and that's more than I'd give most warlocks." },
+        { id = "xwarlock_default", text = "I hate the stink of the things you keep, and I hate that the Horde still has to look at them. But if yours puts its claws in the quilboar who swarmed us, I won't spit when it walks past me, and that's the most you'll get from me." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "Our people sold themselves to those things once, and look what it bought us. But if yours tears into the quilboar who swarmed us, I'll keep my mouth shut about it, and that's more than I'd give most warlocks." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I hate the stink of the things, and yours is standing close enough that I can taste the sulphur. But if it puts its claws in the quilboar who swarmed us, I won't spit when it walks past me, so get it out of my sight and go do that." },
       },
       choices = {
-        { text = "A demon's claws are still claws, and revenge is revenge.", next = "BACK", reply = "Then let it, and I'll look away when it's done. Just make sure the quilboar know why they're dying.", fx = { align = { light = -1 } } },
-        { text = "I'll do it with my own hands, not a demon's.", next = "BACK", reply = "Good, that's the right way, and I'd have thought less of you otherwise. Leave the thing in its cage and use your own hands.", fx = { align = { light = 1 } } },
+        { text = "Claws are claws, whoever owns them, and revenge is revenge.", next = "BACK", reply = "Then let it, and I'll look away when it's done. Just make sure the quilboar know why they're dying.", fx = { align = { light = -1 } } },
+        { text = "I'll do it with my own hands. Nothing else touches them.", next = "BACK", reply = "Good, that's the right way, and I'd have thought less of you otherwise. Leave the thing in its cage and use your own hands.", fx = { align = { light = 1 } } },
         { text = "Who was the tauren who found you?", next = "tauren" },
       },
     },
@@ -687,7 +693,7 @@ P:NPC {
         { text = "So a tauren found you out on the road.", next = "tauren", when = { race = "Tauren" } },
         { text = "I can slip into the quilboar camps and look for her quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could I pick up Olgra's trail, Mankrik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "My demons could hunt the ones who took her.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What serves me could hunt the ones who took her, Mankrik.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you want a prayer said over Olgra, Mankrik?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "My spells might help you find Olgra, Mankrik.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'm sorry about Olgra, Mankrik.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -876,7 +882,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll use what I know to help cleanse them.", next = "BACK", reply = "That would be a strange and welcome kindness. Use it carefully, and I'll learn to sit easier near you.", fx = { align = { light = 1 } } },
-        { text = "Corruption is only a tool, and I'll use it as I like.", next = "BACK", reply = "That's what the Burning Blade said, I'm sure, and look what came of it. Keep your tools away from the water, warlock.", fx = { align = { light = -1 } } },
+        { text = "Corruption is only a tool, and I'll use it as I like.", next = "BACK", reply = "That's what the Burning Blade said, I'm sure, and look what came of it. Keep your tools away from the water.", fx = { align = { light = -1 } } },
         { text = "What did you find at the oases?", next = "found" },
       },
     },
@@ -1156,12 +1162,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "The Forsaken trust nobody, which makes us admirably fair about it. The Dark Lady keeps a dreadlord of her own on a short chain in Undercity, so a warlock is welcome among us for exactly as long as he remembers who is holding the chain." },
+        { id = "xwarlock_default", text = "The Forsaken trust nobody, which makes us admirably fair about it. The Dark Lady keeps a dreadlord of her own on a short chain in Undercity, so your sort of scholar is welcome among us for exactly as long as he remembers who is holding the chain." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The Forsaken trust nobody, and I've just watched your demon sniff at my reagents, so I trust it rather less than nobody. The Dark Lady keeps a dreadlord of her own on a short chain, and you're welcome here for as long as you keep this one on yours." },
       },
       choices = {
         { text = "Every power needs a master, and I hold my chain tightly.", next = "BACK", reply = "Good, then you'll get on admirably with the Society. Remember who holds the chain, and who holds yours.", fx = { align = { order = 1 } } },
-        { text = "Chains are for the weak. My demon and I need none.", next = "BACK", reply = "Then I'll be watching with considerable interest to see who's holding whom. Do let me know how it ends, if you're able.", fx = { align = { order = -1 } } },
+        { text = "Chains are for the weak. What I keep and I need none.", next = "BACK", reply = "Then I'll be watching with considerable interest to see who's holding whom. Do let me know how it ends, if you're able.", fx = { align = { order = -1 } } },
         { text = "Does the Society send you word from Undercity?", next = "forsaken" },
       },
     },
@@ -1217,7 +1223,7 @@ P:NPC {
         { text = "An apothecary's venoms and a rogue's blades go well together.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What samples does the Society want, Helbrim?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why does the Society care about serpents, Helbrim?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "The Forsaken seem to trust warlocks more than the orcs do.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your people seem easier around my studies than the orcs are, Helbrim.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Society have any use for priests, Helbrim?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Society trust mages, Helbrim?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you doubt my loyalty to the Dark Lady, Helbrim?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1422,12 +1428,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Jealous of a little thing that sets my cloak on fire whenever it gets bored? Not really, friend, because a good blade never asks to be fed and never talks back, and I'll take that over a demon on my shoulder any day." },
+        { id = "xwarlock_default", text = "Jealous of a little thing that would set my cloak on fire whenever it gets bored? Not really, friend, because a good blade never asks to be fed and never talks back, and I'll take that over whatever you've got on your shoulder any day." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Jealous of that? It's been glaring at my cloak since you walked up, friend, and I've a feeling it's deciding whether to set it alight. A good blade never asks to be fed and never looks at me like that, so no, I'll keep my dagger and you can keep your demon." },
       },
       choices = {
-        { text = "A demon is just a sharper knife.", next = "BACK", reply = "Sharper, maybe, but it cuts both ways, and I'd rather mine stayed sheathed when I sleep. Good luck with it, warlock.", fx = { align = { light = -1 } } },
-        { text = "You're right. I'd rather trust my own steel.", next = "BACK", reply = "Good, a reasonable warlock, which is rarer than a quiet harpy. Your steel won't set your cloak on fire, either.", fx = { align = { light = 1 } } },
+        { text = "It's just a sharper knife, Darsok.", next = "BACK", reply = "Sharper, maybe, but it cuts both ways, and I'd rather mine stayed sheathed when I sleep. Good luck with it.", fx = { align = { light = -1 } } },
+        { text = "You're right. I'd rather trust my own steel.", next = "BACK", reply = "Good, a reasonable one, which is rarer than a quiet harpy. Your steel won't set your cloak on fire, either.", fx = { align = { light = 1 } } },
         { text = "Are you really the best around?", next = "best" },
       },
     },
@@ -1469,7 +1475,7 @@ P:NPC {
         { text = "Would a mage be any use to you against the harpies?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you ever fight beside warriors, Darsok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "The harpies must be worth the hunting, Darsok.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "My imp does the dirty work for me. Jealous, Darsok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Something of mine does the dirty work for me. Jealous, Darsok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your partners ever need a priest, Darsok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light bother you, Darsok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do you talk this way to every errand-runner, Darsok?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "dar_fl_rebuff" } } },
@@ -1583,11 +1589,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what demons eat when nobody's feeding them, and I don't want to find out, so I'll sell you meat for your own belly and that's where it stays." },
+        { id = "xwarlock_default", text = "Once, to a fellow who smelled like you, and the thing he kept ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what those things eat when nobody's feeding them, and I don't want to find out, so I'll sell you meat for your own belly and that's where it stays." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. Yours is giving me that same look right now over the cookfire, so I'll sell you meat for your own belly, and you'll keep that thing back from my spit." },
       },
       choices = {
-        { text = "Fair. My demon goes hungry, and I keep it lean.", next = "BACK", reply = "Lean and quiet, that's how I like a demon, if I have to like one at all. Thanks for keeping it out of my stall.", fx = { align = { light = 1 } } },
+        { text = "Fair. Mine goes hungry, and I keep it lean.", next = "BACK", reply = "Lean and quiet, that's how I like those things, if I have to like one at all. Thanks for keeping it out of my stall.", fx = { align = { light = 1 } } },
         { text = "It eats what I let it eat, and it's always hungry.", next = "BACK", reply = "Then keep it far from my stall, because I don't want to be what it's hungry for next. Buy your own meat and leave its supper to you.", fx = { align = { light = -1 } } },
         { text = "You're missing a finger, Zargh.", next = "finger" },
       },
@@ -1639,7 +1645,7 @@ P:NPC {
         { text = "I hunt the plains. Want what I bring back?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I could find out how Gryshka feels about you, quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Horde", heardLine = "zargh.h_meats" } },
         { text = "What's good to eat in the Barrens, Zargh?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do warlocks ever buy meat to feed their demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you sell meat for things that aren't quite animals, Zargh?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The tauren pray over every beast they butcher, Zargh.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd guess a mage's coin spends as well as anyone's here.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you mind serving a paladin, Zargh?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1811,8 +1817,8 @@ P:NPC {
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone's welcome who pays and keeps the peace, though my tauren guests have all put their bowls down to watch the creature in my doorway. Some of them have seen the Burning Blade's work up on Dreadmist Peak, so keep your {pet} by the wall, and they'll give you a wide berth in return." },
       },
       choices = {
-        { text = "I'll keep my distance and my demon quiet.", next = "BACK", reply = "Thank you, friend, that's more than I'd hoped. The tauren will sleep better, and so will I.", fx = { align = { order = 1 } } },
-        { text = "If they fear me, that's their trouble, not mine.", next = "BACK", reply = "Their trouble is my trouble, under my roof. Keep your demon outside, or find another inn.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my distance and my companion quiet.", next = "BACK", reply = "Thank you, friend, that's more than I'd hoped. The tauren will sleep better, and so will I.", fx = { align = { order = 1 } } },
+        { text = "If they fear me, that's their trouble, not mine.", next = "BACK", reply = "Their trouble is my trouble, under my roof. Keep that thing outside, or find another inn.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1847,7 +1853,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you've got the walk of somebody who's spent all day fighting centaur. Sit, friend, before your legs decide it for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Mind your beast on the stairs, because the last one knocked over a tauren and he wasn't happy about it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest under my leaky roof! Sit by the fire, and if any of the grunts by the door start groaning in their sleep, you'll know what to do better than I would." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, under my leaky roof. Keep your demon away from the other guests, friend, and it can sleep by the door like anyone's dog." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Under my leaky roof, are you? Keep whatever follows you away from the other guests, friend, and it can sleep by the door like anyone's dog." },
       },
       choices = {
         { text = "How is Mankrik, Boorand?", next = "dd_olgra", when = { questDone = TODO_QUEST("Lost in Battle") } },
@@ -1861,7 +1867,7 @@ P:NPC {
         { text = "I'd guess warriors rarely rest well at the Crossroads.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bring you game, Boorand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do travellers ever ask you for a priest, Boorand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "A warlock might not be welcome at every inn, Boorand.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Someone like me might not be welcome at every inn, Boorand.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the tauren fear the Light, Boorand?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "You must see a great many companies pass through here.", next = "xpt_boorand", when = { party = { size = { min = 2 } } } },
         { text = "Just resting.", next = "END" },

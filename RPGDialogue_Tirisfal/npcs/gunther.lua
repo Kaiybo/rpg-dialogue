@@ -40,7 +40,7 @@ P:NPC {
         { text = "It's a crime. The dead should be allowed to rest.", next = "op_necromancy_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { necromancy = "wrong" } } },
         { text = "A tool. Kel'Thuzad was the crime, not the craft.", next = "op_necromancy_r2", fx = { affinity = 1, align = { light = -1 }, trait = { practical = 1 }, opinion = { necromancy = "tool" } } },
         { text = "I was raised against my will. I'm not fond of the craft.", next = "op_necromancy_r3", fx = { trait = { stern = 1 }, opinion = { necromancy = "hate" } }, when = { race = "Scourge" } },
-        { text = "Power is power. I'd not lecture a necromancer.", next = "op_necromancy_r4", fx = { affinity = 1, opinion = { necromancy = "tool" } }, when = { class = "WARLOCK" } },
+        { text = "Power is power. I'd not lecture anyone who digs up the dead.", next = "op_necromancy_r4", fx = { affinity = 1, opinion = { necromancy = "tool" } }, when = { class = "WARLOCK" } },
         { text = "I'll not judge it, Gunther.", next = "BACK" },
       },
     },

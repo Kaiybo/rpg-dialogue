@@ -8,6 +8,7 @@ P:NPC {
   key = "talaanis", id = TODO_NPC("Talaanis Shadowsong"), name = "Talaanis Shadowsong", title = "High Elder",
   bible = "bibles/talaanis.md", role = "noble", tier = "major",
   communities = { "zephras_isle" }, temper = { "steady" }, values = { "honest", "lawful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Her ancestors fled Eldre'Thalas rather than serve Tortheldrin's demon-feeding; she will not be warm to his kind of power." },
   notices = { "kin", "stranger", "lock_shadow", "lock_shards" },
 
   impression = {
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Our ancestors fled Eldre'Thalas so they would never share a hall with your kind again, guest. You'll have my courtesy, and that is all." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know what you are, and the Council knows it too. Speak plainly, and be gone before the elders hear you are here." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have kept the Council's peace and kept your creature quiet, and I can't fault you for it. I still remember Tortheldrin, but I no longer see him when I look at you." },
     { id = "g_winds", text = "Winds be with you." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },
     { id = "g_back", when = { metBefore = true, race = "Skyborne" }, text = "Back again, child? The Council can spare me a moment, barely." },
@@ -54,7 +58,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me as any power taken from the Nether troubles me, and the thing at your side troubles me more, because I last saw eyes like those when we fled into hiding ten thousand years ago. I won't judge you by your craft alone, but many on this isle have longer memories than I do, and they will all be looking at it." },
       },
       choices = {
-        { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I understand. What I carry stays hidden while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", reply = "Perhaps they shouldn't, but ten thousand years is a long habit to break, and you'll not break it in an afternoon. Patience, stranger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -119,8 +123,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock, on Zephras Isle. Our ancestors left everything they had rather than serve a prince who fed on demons, and I'll not pretend I'm glad you found your way here." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've come to the Council's door often enough now that I've stopped reaching for the guards. Say what you need, guest." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, on Zephras Isle. I'll speak with you, guest, but you should know that our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether." },
+          text = "You carry the Nether about you, guest, here on Zephras Isle. I'll speak with you, but you should know that our ancestors left Eldre'Thalas rather than kneel to a prince who drank from it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest of the Horde, on Zephras Isle. The Windshapers have gone to your people at Camp Gev'rek, guest, so I suppose we're allies of a sort, and you're welcome here." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },

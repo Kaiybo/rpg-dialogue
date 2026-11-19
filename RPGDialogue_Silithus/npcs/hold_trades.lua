@@ -80,7 +80,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." },
+        { id = "xlock_default", text = "Some do, the ones with cold eyes, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, though I'd ask your demon not to breathe on my wares, and I keep my best formulae for cloaks against the silithid, not curses." },
       },
       choices = {
@@ -114,7 +114,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems carry a little magic of their own, I think, though not the kind I sell, so look all you like, but please don't let them rattle near the vellum." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, browsing my formulae. Some say a priest's power and an enchanter's are distant cousins, and you may tell me if they're wrong." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. If you're buying vellum for anything dark, I'd rather not know, but I'll warn you the sand ruins every scroll unless you wrap it twice." },
+          text = "If you're buying vellum for anything dark, I'd rather not know, and your ink-stained fingers tell me enough. I'll warn you the sand ruins every scroll unless you wrap it twice." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You've come up the stairs very quietly, which I appreciate, because the sand-shakers who stomp up here ruin my dusts." },
         { id = "h_default", key = true,
@@ -135,7 +135,7 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why keep your shop upstairs?", next = "upstairs" },
         { text = "I wouldn't have thought anyone needs enchanting out here.", next = "who" },
-        { text = "Do warlocks buy much from you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Who buys your strongest dusts, Kania? I'd like to know my rivals.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "A rogue could make use of your enchantments, I think.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can enchantment ward against what the cult calls up, Kania?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "An enchanter can't do much for a warrior, I'd guess.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -253,7 +253,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them." },
+        { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and you buy what you buy, and the Earth Mother judges us both by what we do with them." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust everyone the same, which is to say a little, and I trust that creature of yours a good deal less than that. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them, but what the demon does, she will judge you for as well." },
       },
       choices = {
@@ -278,7 +278,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. You'll be wanting arcane powder for your portals, I expect, and I keep plenty, since the Hold's a long way from any city." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. I sell the candles and powders your kind use, and I don't ask what they're for, so long as they're used against the hives." },
+          text = "I sell candles and powders, and I see what kind you reach for. I do not ask what they are for, so long as they are used against the hives." },
         { id = "h_default", key = true,
           text = "I am Khur Hornstriker, and I sell reagents and poisons to those who stand with the Hold. Candles and powders for the casters, venom makings for the rogues, and plain good sense for anyone who'll take it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I sell candles for your prayers, friend, and poisons for less gentle work, and I find no shame in either." },
@@ -299,7 +299,7 @@ P:NPC {
         { text = "A druid's ally who sells poison?", next = "poison" },
         { text = "What do the silithid do to people here?", next = "silithid" },
         { text = "Not many mages would come out this far.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you trust warlocks to use their reagents well?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you trust those who buy your darker reagents, Khur?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does selling poison sit easily beside holy candles, Khur?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A warrior who poisons his blade has no honour, Khur.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What did the hunters teach you on the road from Mulgore?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -435,8 +435,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I hope I never must, though every horse in the stalls is pressed against the far wall now that your demon has come in. A frightened beast in a stall can hurt itself badly, and this is my first post, so I must ask you to take it outside before one of them breaks a leg." },
       },
       choices = {
-        { text = "I understand. I'll keep my demon away.", next = "BACK", reply = "Thank you, truly, because they'd panic the moment they smelled it, and I'd be up all night mending stalls.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon's just as worthy as any beast.", next = "BACK", reply = "Perhaps, but the beasts don't think so, and they'd tell you as much, very loudly, if you brought it inside.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I understand. I'll keep it well away.", next = "BACK", reply = "Thank you, truly, because they'd panic the moment they smelled it, and I'd be up all night mending stalls.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My companion is as worthy as any beast here.", next = "BACK", reply = "Perhaps, but the beasts don't think so, and they'd tell you as much, very loudly, if you brought it inside.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Sorry about that.", next = "BACK" },
       },
     },
@@ -467,7 +467,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Welcome to the stables, and please, if you've a blessing to spare, one of my mounts came back from the Twilight camps and hasn't eaten since." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! I'm sorry, but I can't stable demons, not even little ones, because the beasts here are frightened enough of the desert as it is." },
+          text = "I'm sorry, but whatever that is in your shadow, I can't stable it, not even a little one, because the beasts here are frightened enough of the desert as it is." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could you cool the stables with a spell, perhaps? The desert heat is terrible for the beasts, and I'm running out of water to keep them comfortable." },
         { id = "h_default", key = true,
@@ -487,7 +487,7 @@ P:NPC {
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why call yourself a squire?", next = "squire" },
         { text = "Keeping beasts out here must be hard.", next = "sand" },
-        { text = "Would you really turn away a demon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would you really turn away my companion, squire?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you keep the beasts cool in the desert?", next = "xmage", when = { class = "MAGE" } },
         { text = "What happened to the mount from the Twilight camps, Leoren?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do you take the title of squire so seriously, Leoren?", next = "xwarcl", when = { class = "WARRIOR" } },

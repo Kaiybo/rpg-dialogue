@@ -38,7 +38,7 @@ P:NPC {
     { id = "n_wild", cat = "wildhammer", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } },
       text = "Is that paint on yer arm? Wash it off before ye come up these steps again; this is the High Seat, no' an aerie." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "A warlock. Thaurissan was a sorcerer as well, an' his summonin' burned the Searing Gorge tae glass, so keep yer hands where I can see them." },
+      text = "Ye've the same cold about ye that Thaurissan's sorcerers had, an' his summonin' burned the Searing Gorge tae glass, so keep yer hands where I can see them." },
   },
 
   start = "hello",

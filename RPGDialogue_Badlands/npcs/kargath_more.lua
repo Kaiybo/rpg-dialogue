@@ -110,7 +110,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp's fire would scare the coyotes off the grain sacks, I suppose, if it didn't burn the sacks first." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "That little firebrand of yours would scare the coyotes off the grain sacks, I suppose, if it didn't burn the sacks first." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll move quieter than my scouts, but can you read the ground, or do you only know how to hide on it?" },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. You can tell me which way the wind's turning before I see the dust, and that alone beats half my scouts, who couldn't smell rain in a flood." },

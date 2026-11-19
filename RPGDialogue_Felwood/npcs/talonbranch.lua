@@ -6,6 +6,7 @@ P:NPC {
   key = "golhine", id = TODO_NPC("Golhine the Hooded"), name = "Golhine the Hooded", title = "Druid Trainer",
   bible = "bibles/felwood.md", role = "trainer", tier = "service",
   communities = { "talonbranch" }, temper = { "quiet" }, values = { "wise", "patient" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Druid who watched Felwood rot from fel; guards the last clean moonwell." },
   notices = { "class", "form", "lock_shadow" },
 
   impression = {
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "This forest was green when I was young, before the demons' servants poisoned it. Keep your fire away from my moonwell." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The moonwell stays clear when you visit now. I still don't like what you carry, but I'll hear you." },
     { id = "g_druid", when = { class = "DRUID" }, text = "You've come far to train in a sick forest, which is good. Sit by the well." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "The moonwell is clean, though little else here is. Rest a moment, if you need to." },
   },
@@ -135,8 +138,10 @@ P:NPC {
           text = "A warrior. Lean your shield where you like, but don't foul the moonwell; it's the only clean water for a day's walk." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, at the last clean moonwell. Let your beast drink, if it will." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've watched Felwood rot from the fel your kind trades in. Say your piece quietly, and stay clear of the well." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the well still clean. Speak, then." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
+          text = "The last clean moonwell in Felwood rippled when you came near it. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
         { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river. I remember Felwood when it was still Ashenvale, and I stay for that." },

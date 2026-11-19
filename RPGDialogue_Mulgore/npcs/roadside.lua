@@ -126,8 +126,8 @@ P:NPC {
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "My road was safer before you walked onto it with that thing beside you, and it hasn't taken its eyes off my wagon since. I'll not stop you, because the Warchief's word is our word now, but I've seen caravans burned, and I can feel the wrong fire in it from here." },
       },
       choices = {
-        { text = "I understand. I'll keep it far from your caravans.", next = "BACK", reply = "Thank you, that's all I'll ask of you. The caravans have suffered enough without your demon frightening the kodo.", fx = { align = { light = 1 } } },
-        { text = "Wrong fire burns your enemies just the same.", next = "BACK", reply = "It does, but it burns the grass just as quickly. Keep it off my road, warlock, and use it where the dwarves are.", fx = { align = { light = -1 } } },
+        { text = "I understand. I'll keep it far from your caravans.", next = "BACK", reply = "Thank you, that's all I'll ask of you. The caravans have suffered enough without that thing frightening the kodo.", fx = { align = { light = 1 } } },
+        { text = "Wrong fire burns your enemies just the same.", next = "BACK", reply = "It does, but it burns the grass just as quickly. Keep it off my road, and use it where the dwarves are.", fx = { align = { light = -1 } } },
         { text = "What happened to the caravan?", next = "caravan" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
         { text = "I could get close to the dwarves' digging without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who ravaged the caravan, Morin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What tracks did you find near the caravan, Morin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Your road is safer with a demon on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your road is safer with what walks beside me on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I hope the dead of the caravan received their rites.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have the dwarves at Bael'dun done to the land, Morin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Who threatens the road, Morin?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -306,12 +306,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Balance needs two things that belong to the world, and the creature beside you does not. I won't turn you away from my fire, but a druid feels a demon the way you'd feel a thorn under the skin, and I can't pretend otherwise." },
+        { id = "xwarlock_default", text = "Balance needs two things that belong to the world, and the creature beside you does not. I won't turn you away from my fire, but a druid feels a thing like that the way you'd feel a thorn under the skin, and I can't pretend otherwise." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Balance needs two things that belong to the world, and the creature standing beside you does not, which the grass knows too, because it's wilting where it stands. I won't turn you away from my fire, but a druid feels a demon like a thorn under the skin, and this one is close." },
       },
       choices = {
         { text = "I understand. I'll keep it from your students.", next = "BACK", reply = "Thank you, that's kind of you, and my students will rest easier for it. They are young, and they jump at shadows.", fx = { align = { light = 1 } } },
-        { text = "Then your balance is too narrow for this world.", next = "BACK", reply = "Perhaps it is, and I've wondered that myself on long nights. Still, I'll keep my balance, and you keep your demon close.", fx = { align = { light = -1 } } },
+        { text = "Then your balance is too narrow for this world.", next = "BACK", reply = "Perhaps it is, and I've wondered that myself on long nights. Still, I'll keep my balance, and you keep that creature close.", fx = { align = { light = -1 } } },
         { text = "What does a druid do, exactly?", next = "druid" },
       },
     },
@@ -473,7 +473,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "I'm a hunter, so I can only tell you what I know of companions, which is that a beast trusts you as far as you've earned it. I don't think demons trust at all, so I'd keep it bound tightly and never forget what it is." },
+        { id = "xwarlock_default", text = "I'm a hunter, so I can only tell you what I know of companions, which is that a beast trusts you as far as you've earned it. I don't think your sort of creature trusts at all, so I'd keep it bound tightly and never forget what it is." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'm a hunter, so I watch companions, and yours has never once looked to you since you sat down, only at everything else. A beast trusts you as far as you've earned it, but I don't think demons trust at all, so keep that one bound tightly." },
       },
       choices = {
@@ -492,7 +492,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, one of mine. Show me how your bow arm has grown, and let me see whether your companion still trusts you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You walk without a beast, but I can see you care for the living, and that is the first thing I teach my students." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. My hawk went still the moment you came near, the way she does for the Runetotems, so I think the wild already knows you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon isn't an animal companion, whatever you call it, but I'll judge how you treat it all the same." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Whatever walks at your heel isn't an animal companion, whatever you call it. I'll judge how you treat it all the same." },
       },
       choices = {
         { text = "What makes a good hunter?", next = "good" },
@@ -504,7 +504,7 @@ P:NPC {
         { text = "How do I keep my companion's trust, Yaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'd guess hunters here ask a priest to tend their beasts.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Hunters and druids must argue over the beasts, Yaw.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "How should a warlock treat a demon, Yaw?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "How should one treat a companion that was never a beast, Yaw?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does the Light take from me, Yaw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Yaw.", next = "END" },
       },

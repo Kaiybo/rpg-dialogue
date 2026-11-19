@@ -30,7 +30,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "A warlock, in my hall. Ye'll keep yer pets on a short chain while ye're here, an' ye'll keep yer business short as well." },
+      text = "I know what ye are, an' so do my guards. Ye'll keep yer pets on a short chain while ye're in my hall, an' ye'll keep yer business short as well." },
     { id = "n_shaman", cat = "kin", when = { race = "Dwarf", class = "SHAMAN" },
       text = "A dwarf who speaks wi' the elements. My granddad swore the mountain had a voice. Maybe ye're just the first tae answer it." },
   },
@@ -246,7 +246,7 @@ P:NPC {
         { text = "Farsen sends his regards, my king.", next = "incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") } },
         { text = "I came out of Lordaeron, Your Majesty.", next = "terenas", when = { origin = "human_lordaeron_refugee" } },
         { text = "The mountain speaks to me, Your Majesty. Through the stone.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
-        { text = "I've come about the fel I carry, Your Majesty.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I've come about what I carry, Your Majesty. Better you hear it from me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I served in the Military Ward before I took the road.", next = "soldier", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Darnassus sends its greetings, King Magni.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Why have your guards been arresting the Hidden Circle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

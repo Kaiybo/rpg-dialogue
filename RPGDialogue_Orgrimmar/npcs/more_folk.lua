@@ -639,7 +639,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! The robes on the left are cut for spellwork, with room in the sleeves so your hands move freely." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock! We keep the darker bolts at the back, out of the light, where they hold their colour and nobody stares." },
+      text = "We keep the darker bolts at the back, out of the light, where they hold their colour and nobody stares. I think you'll want those." },
     { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Friend, I say this with respect, but you are wearing rags with a memory of thread in them. Let me help before someone mistakes you for a peon." },
   },
@@ -874,7 +874,7 @@ P:NPC {
   },
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock, of course. You all come to me after Mirket and Zevrost, and you all want the darkest wood I've got." },
+      text = "Come up from Mirket and Zevrost, have you? You all do, and you all want the darkest wood I've got." },
     { id = "n_staff", cat = "kit", when = { class = { "MAGE", "PRIEST", "DRUID", "SHAMAN" } },
       text = "You hold that one too near the top. Drop your hand a span, and it will stop pulling your shoulder." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
@@ -1346,6 +1346,7 @@ P:NPC {
   key = "nazgrel", id = TODO_NPC("Nazgrel"), name = "Nazgrel", title = "Advisor to Thrall",
   bible = "bibles/more_folk.md", role = "soldier", tier = "quest",
   communities = { "orgrimmar" }, temper = { "stern", "watchful" }, values = { "loyal", "honorable" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Frostwolf who has served Thrall since the camps; he saw what Gul'dan's warlocks did to the Horde." },
   notices = { "class", "race" },
   impression = {
     first = "Nazgrel stands near the Warchief's throne and watches the door more than the throne. He is a Frostwolf of the old kind, plain in speech and slow to trust, and he measures everyone who enters by what they might do with a blade.",
@@ -1356,6 +1357,9 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. I remember your face, and I remember that you gave me no cause to." },
     { id = "g_orc", when = { race = "Orc" }, text = "Throm-ka. Stand straight, you are in Grommash Hold, and the name over the door was paid for in blood." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone some weeks. The reports that crossed my table with your name in them were mostly to your credit." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched the Warchief free our people from the sickness Gul'dan's warlocks poured into them. You carry that same sickness in your bag, and I will not forget it." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Warchief allows your craft to serve the Horde. I serve the Warchief, so I allow it too, but nothing more than that." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Your reports have been clean and your demons have stayed leashed. I still keep an eye on you in this hall, but it is one eye now, not two." },
   },
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
@@ -1370,6 +1374,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Nazgrel of the Frostwolves. I rode at the Warchief's side when this land was won, and now I stand at it, and I will tell you plainly that I liked the riding better." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Warchief tolerates warlocks in his Horde, and I am not the Warchief. Say your business, and keep your hands where my guards can see them." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have served the Horde without letting the fel serve itself. I note it, and I am still watching." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "I am Nazgrel of the Frostwolves. Your people stood with us at Stonetalon and at Hyjal, and I do not forget who was beside me when the sky burned." },
         { id = "h_troll", when = { race = "Troll" }, text = "I am Nazgrel of the Frostwolves. Vol'jin sits at the Warchief's right hand and has earned the seat, and I extend to his tribe the trust I give to him." },
       },
@@ -2352,7 +2358,7 @@ P:NPC {
         { text = "Orc enchanters can't have been common before.", next = "orcs" },
         { text = "Who works the Runeworks with you?", next = "shop" },
         { text = "What would you set into a weapon like mine?", next = "weapon", when = { class = { "WARRIOR", "ROGUE", "HUNTER", "SHAMAN", "PALADIN" } } },
-        { text = "This looks close to what warlocks do with souls.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "This looks close to what some do with souls. I would know.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your runes.", next = "END" },
       },
     },
@@ -3530,7 +3536,7 @@ P:NPC {
         { id = "h_again3", text = "Speak. I've had a long life of listening to worse questions than yours." },
       },
       choices = {
-        { text = "I've come for instruction, Grol'dar.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "I've come to learn how to hold it tighter, Grol'dar.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Teach me to call down an infernal.", next = "infernal", when = { class = "WARLOCK", minLevel = 50 } },
         { text = "My imp keeps offering me bargains.", next = "imp_bargain", when = { class = "WARLOCK", pet = { family = "Imp" } } },
         { text = "The elders spit when an orc warlock walks by.", next = "elders", when = { race = "Orc", class = "WARLOCK" } },

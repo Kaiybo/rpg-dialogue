@@ -86,7 +86,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I ask it of them, but I will have to ask very firmly, because they have gone stiff as stone since your demon came onto the landing. I will check their feathers twice tonight, and I hope you understand that it is the fire I mistrust and not, perhaps, you." },
       },
       choices = {
-        { text = "I understand. The fel ruined this land, and I won't excuse it.", next = "BACK", reply = "Thank you for saying it so plainly. The birds will still shy from you, but I'll talk them round.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I understand. That fire ruined this land, and I won't excuse it.", next = "BACK", reply = "Thank you for saying it so plainly. The birds will still shy from you, but I'll talk them round.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. It burns whoever doesn't master it.", next = "BACK", reply = "It burns everyone, eventually, and the Legion proved that. I'll check their feathers all the same.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "I'll keep my distance from the birds.", next = "BACK" },
       },
@@ -130,7 +130,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk softly, which my birds appreciate, because a hippogryph startled in this forest does not always come down where you meant it to." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You smell of the same fire that burned this forest, warlock, and my birds have noticed it before I have. Stand back a little, please, while I calm them." },
+          text = "You smell of the same fire that burned this forest, and my birds have noticed it before I have. Stand back a little, please, while I calm them." },
         { id = "h_default", key = true,
           text = "I am Mishellena, and I keep the hippogryphs of Talonbranch Glade. From here they carry the Alliance to Ashenvale and Darkshore and to Everlook in the snows, and away from the corruption, for a little while." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -197,6 +197,7 @@ P:NPC {
   key = "brakkar", id = TODO_NPC("Brakkar"), name = "Brakkar", title = "Wind Rider Master",
   bible = "bibles/felwood.md", role = "flightmaster", tier = "service",
   communities = { "bloodvenom_post" }, temper = { "gruff" }, values = { "dutiful", "honor" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Drank Mannoroth's blood with his clan and paid for it in the internment camps." },
   notices = { "race", "lock_pact" },
 
   impression = {
@@ -205,6 +206,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I drank the demon's blood with the rest of my clan, and I spent years in the camps paying for it. Take your green fire away from my wind riders." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've flown with me enough times that the riders don't snap at you now. I still won't smile at you, but I'll fly you." },
     { id = "g_default", text = "You want a wind rider? Good, because nobody should stay in this cursed forest a moment longer than they must, and the wyverns agree. One bit a grunt last week for dawdling at the saddle." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind rider for you, Alliance. Your elves keep their birds at Talonbranch Glade, away to the northeast, and you can walk there." },
   },
@@ -273,8 +276,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's what Gul'dan's people said, and the Horde paid for it with its whole spirit until Thrall pulled us out, and the sight of {pet} on my landing brings it back. I'll fly you where you need to go, but that thing goes back where it came from before you mount, and that's not a request." },
       },
       choices = {
-        { text = "You're right. We must never wear those chains again.", next = "BACK", reply = "Aye, never again, and Thrall made sure of it. I'm glad to hear a warlock say it.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Thrall's way is slow. Power wins wars.", next = "BACK", reply = "Slow, and it's kept us free. I'll fly you, but I'll be watching your hands all the way.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "You're right. We must never wear those chains again.", next = "BACK", reply = "Aye, never again, and Thrall made sure of it. I'm glad to hear one of your sort say it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thrall's way is slow. Power wins wars, and power is what I hold.", next = "BACK", reply = "Slow, and it's kept us free. I'll fly you, but I'll be watching your hands all the way.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "No summoning on the landing, then.", next = "BACK" },
       },
     },
@@ -317,8 +320,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. My wind riders like your kind, because you smell of honest beasts instead of the rot in this forest." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. My beasts grow calmer when one of your kind is near, and nothing else in this forest calms them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's warlocks poured that curse into us, and I knew some of them by name. Pay your fare and keep your hands still on the saddle." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The riders have stopped fussing, and I suppose I have too. Where to?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "Warlock. We drank the demon's blood once and it nearly finished us, so don't expect me to smile when I see that green light in your hands." },
+          text = "We drank the demon's blood once and it nearly finished us, so don't expect me to smile when I see that green light in your hands." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Hm, a rogue, and I didn't hear you come up the path, though I hear the satyrs a mile off. Want a ride, or did you just want to prove you could sneak up on an old orc?" },
         { id = "h_default", key = true,
@@ -453,7 +458,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and a warlock gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." },
+        { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and your sort gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell bread and water to anyone of the Horde who is hungry, though I cannot sell to the creature at your side, because I do not know what it eats and would rather not. And I cannot tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." },
       },
       choices = {
@@ -499,7 +504,7 @@ P:NPC {
           text = "A hunter. You'll be careful what you take from this forest, I hope, because the meat of a Felwood beast is as poisoned as its water." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, Earth Mother be thanked. Sit a while, if you can bear it; the ground here weeps, and I think you'll hear it more plainly than I do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "You are a warlock, I think; the land shivers a little where you stand, as it does in the hollows of Jaedenar. I do not judge you, but I would ask you to tread gently here." },
+          text = "You carry something dark, I think; the land shivers a little where you stand, as it does in the hollows of Jaedenar. I do not judge you, but I would ask you to tread gently here." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde, and far from any city. Could you keep my water cold with a spell, I wonder, or is that a foolish question to ask someone who studies the arcane?" },
         { id = "h_default", key = true,
@@ -517,7 +522,7 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Nothing here is fit to eat?", next = "food" },
         { text = "Why is a tauren out here?", next = "why" },
-        { text = "You'd sell goods to a warlock, knowing what fel did here?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You'd sell to someone like me, knowing what was done here?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You carry all the water in, when the springs could be cleansed.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can Felwood's soil be healed at all, Bale?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The water here must be dangerous, Bale.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },

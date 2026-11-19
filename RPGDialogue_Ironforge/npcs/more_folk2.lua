@@ -5594,9 +5594,9 @@ P:NPC {
     third = "{name} met Jubahl Corpseseeker, the demon trainer in the Forlorn Cavern of Ironforge.",
   },
   greetings = {
-    { id = "g_hi", text = "Well, a visitor, and a live one. Keep your voice down and your hands where the imp can see them, because he startles." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, so either you like the company or you need a grimoire, and nobody likes the company." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, good, so tell me which of your servants is giving you trouble, because it's always one of them." },
+    { id = "g_hi", text = "Well, a visitor. Keep your voice down and your hands where the imp can see them, he startles." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Either you like the company or you need a grimoire, and nobody likes the company." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, good. Which of your servants is testing its chains? It's always one of them." },
     { id = "g_succ", when = { class = "WARLOCK", pet = { family = "Succubus" } }, text = "Ah, you've brought her along. Tell her to stop smiling at me, would you, because I've watched better men than me fall for that look." },
   },
   notice = {

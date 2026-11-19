@@ -123,7 +123,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Have ye been tae Dun Modr? Ye'd have seen my Sully if ye had, for he's the one who never stops talkin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll travel the roads, then, an' ye might pass Dun Modr; if ye do, would ye look for my Sully?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard yer kind can talk tae the beasts, an' I've wondered whether a bird might find Dun Modr quicker than the post." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Have ye been anywhere near the Thandol Span? I'll ask anyone, even you, for I've had no word from Sully in too long." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Have ye been anywhere near the Thandol Span? I'll ask anyone, even one wi' eyes as cold as yours, for I've had no word from Sully in too long." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! They say ye can hear things far off through the stone. Could ye hear my Sully at Dun Modr, if ye listened hard enough?" },
       },
       again = {
@@ -142,7 +142,7 @@ P:NPC {
         { text = "Is your Sully a warrior too, Sara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news would you want me to bring from Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you thought of sending word to Dun Modr by gryphon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you really take news from a warlock, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really take news from someone like me, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I ask the stone after your Sully, Sara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Sara.", next = "END" },
       },
@@ -279,6 +279,7 @@ P:NPC {
   key = "kelstrum", id = TODO_NPC("Kelstrum Stonebreaker"), name = "Kelstrum Stonebreaker", title = "Warrior Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "stern", "brave" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Old soldier; lost his company to orcs with warlocks at their backs in the Second War." },
   notices = { "class", "lock_armor" },
 
   impression = {
@@ -287,6 +288,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Brimstone in my yard again. I know what ye are, an' I'll no' have my recruits thinkin' it's welcome here." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I fought orcs who had warlocks behind 'em, an' I'll no' forget how that went. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've trained here an' kept yer beasts out o' my yard. I'll no' cheer for ye, but I'll stop growlin'." },
     { id = "g_ha", text = "Ha! Another one wanderin' intae the Hall o' Arms. State yer business, an' stand up straight while ye do it." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Back for more punishment? Good; punishment's what makes a warrior." },
   },
@@ -349,7 +353,8 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on yer voidwalker." },
+      lines = {
+        { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on that thing o' yours." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Fear it? Look at them, three o' my recruits are already lowerin' their heads at yer demon, for they've been taught tae charge anythin' wi' horns an' they're no' sure it hasnae got any. Get it out o' the yard before they decide, for I'd rather they learned on dummies than on that." },
       },
       choices = {
@@ -377,8 +382,10 @@ P:NPC {
           text = "Look at that, someone who survived my regimen an' kept goin'. I'll no' say I'm proud, for it'd go tae yer head, but I'm no' disappointed." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the Military Ward. Ye'd no' last a day o' my training, I'd wager, but I've seen fire win battles an axe couldnae." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I lost half my company in the Second War tae orcs wi' Gul'dan's warlocks at their backs. I'll train anyone the King sends me, but I'll no' pretend I like it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye fight well enough, I'll give ye that, an' ye've kept yer filth tae yerself. Go on, then, what is it?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
+          text = "Ye've brought a smell o' brimstone intae the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye'll be soft from lettin' yer beast do the fightin', but I'll no' hold it against ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye wouldnae last a day under my regimen either, though I'll admit the bear might." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've trained warriors for longer than ye've been alive an' never once had yer kind come through, so dinnae expect me tae know what tae do wi' ye." },
@@ -396,7 +403,7 @@ P:NPC {
         { text = "A paladin can hold a line as well as any warrior.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do warriors and mages really need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your recruits really fear what follows me, Kelstrum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "A hunter could learn plenty from your warriors, Kelstrum.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you train a druid who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -571,11 +578,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." },
+      lines = {
+        { id = "xlock_default", text = "A little horned something set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. I notice your demon is standing beside my newest target, which is also sawdust, so I'd be grateful if you moved it before we repeat the experiment." },
       },
       choices = {
-        { text = "I'll keep the imp well away from your machines.", next = "BACK", reply = "Thank you, very sensible, and I'll note that you've been warned, which helps with the paperwork if anything should catch light.", fx = { align = { light = 1 } } },
+        { text = "I'll keep my little companion well away from your machines.", next = "BACK", reply = "Thank you, very sensible, and I'll note that you've been warned, which helps with the paperwork if anything should catch light.", fx = { align = { light = 1 } } },
         { text = "Sawdust targets were a poor design choice, Bilban.", next = "BACK", reply = "I've since replaced them with fireproof straw, which I'm told is a contradiction in terms, but it's the best I've got so far.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -618,7 +626,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! Statistically speaking, rogues are the most likely to try climbing the training dummies, so please don't." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock! I'll warn you that the Military Ward's equipment isn't rated for demonic interference, so please keep your companion off my machines." },
+          text = "I'll warn you that the Military Ward's equipment isn't rated for whatever is making my gauges twitch right now, so please keep your companion off my machines." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Unusual. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
@@ -637,7 +645,7 @@ P:NPC {
         { text = "Calibrate me, Bilban. Where am I weakest?", next = "calib", when = { class = "WARRIOR" } },
         { text = "Why not engineering, like the rest of us?", next = "gnome", when = { race = "Gnome", ["not"] = { class = "WARRIOR" } } },
         { text = "Why would a rogue climb your training dummies?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Has a demon ever damaged your machines, Bilban?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has anything you couldn't explain ever wrecked your machines, Bilban?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How would you calibrate a hunter, Bilban?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you measure the Light in your calculations, Bilban?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could you train a paladin to fight better, Bilban?", next = "xapala", when = { class = "PALADIN" } },
@@ -818,7 +826,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Aye, as different as a friend is from a prisoner, an' I only have tae look at yer {pet} tae see it, for it watches ye the way a chained dog watches the man wi' the key. A hunter's beast stays because it wants tae, an' the day yer chain slips, ye'll learn what that thing thought o' ye all along." },
       },
       choices = {
-        { text = "You're right. I'll never trust it.", next = "BACK", reply = "That's the wisest thing a warlock ever said in my yard. It'll keep ye alive longer than any chain.", fx = { align = { order = 1 } } },
+        { text = "You're right. I'll never trust it.", next = "BACK", reply = "That's the wisest thing anyone like ye ever said in my yard. It'll keep ye alive longer than any chain.", fx = { align = { order = 1 } } },
         { text = "A chain is honest. Loyalty can lie.", next = "BACK", reply = "Maybe so, but loyalty that lies is rarer than ye think, an' a chain that slips doesnae give ye a second chance.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -841,7 +849,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, an' I'll ask ye no' tae turn any o' my students' beasts intae sheep. It confuses them for days." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be lookin' for Kelstrum, then, though I'll answer a question if ye've one." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My beasts have their hackles up, an' I'd say that's yer companion they're lookin' at, no' you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My beasts have their hackles up, an' I'd say it's whatever walks behind ye they're lookin' at, no' you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The beasts settle when yer kind walks by, I've noticed, an' my hunters' pets have been sniffin' at ye since ye came in." },
       },
       again = {
@@ -862,7 +870,7 @@ P:NPC {
         { text = "What would a hunter teach a warrior, Daera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing help a wounded beast, Daera?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Is a demon so different from a hunter's beast, Daera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is my companion so different from a hunter's beast, Daera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hunters' beasts behave differently around shamans, Daera?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },

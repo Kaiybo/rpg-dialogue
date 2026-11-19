@@ -45,7 +45,7 @@ P:Views { topic = "satyrs", views = {
   } },
   { id = "study", text = "If they still hold demon secrets, someone should take those secrets from them.", fx = { opinion = { satyrs = "profit" }, trait = { curious = 1 }, align = { light = -2 } }, replies = {
     { id = "a", text = "That's exactly the thought that made the first satyrs, {class}. I'd keep it to myself if I were you.", fx = { affinity = -1 } },
-    { id = "b", when = { class = "WARLOCK" }, text = "Of course a warlock would say that. Just make sure it's you holding the leash when you're done." },
+    { id = "b", when = { class = "WARLOCK" }, text = "Of course you'd say that; I can smell the sulphur on you from here. Just make sure it's you holding the leash when you're done." },
   } },
 } }
 

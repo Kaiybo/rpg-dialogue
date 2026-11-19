@@ -52,7 +52,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. My circle can wait a little longer, though it sulks." },
       },
       choices = {
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Train me. I've tasted enough to want the rest.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Why skulls?", next = "skulls" },
         { text = "What is an imp, really?", next = "imp" },
         { text = "What comes after the imp?", next = "after", when = { class = "WARLOCK" } },
@@ -367,7 +367,7 @@ P:NPC {
         { text = "What's the first spell you teach?", next = "first" },
         { text = "Does death change magic?", next = "death" },
         { text = "I remember a little of my old training.", next = "xmemory", when = { class = "MAGE", race = "Scourge" } },
-        { text = "Fire's my art too, after a fashion.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Fire's my art too, though mine burns from a darker place.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -430,7 +430,7 @@ P:NPC {
     },
     xwarlock = {
       lines = { { id = "xw_default", text = "After a fashion, yes, and a fashion I don't teach and won't, though I'll admit your shadowbolts are tidier than my students' fireballs. Venya can tell you about your fire, and I'll stick to mine." } },
-      choices = { { text = "Fair enough, Isabella.", next = "BACK" } },
+      choices = { { text = "Fair enough, Isabella. Keep to your candles.", next = "BACK" } },
     },
     death = {
       lines = { { id = "de_default", text = "Less than you'd fear. The mind keeps what it used most, and magic is a deep habit, so the risen mages usually find it sooner than they find their own names. That's either comforting or terrible, and I change my mind about which every week." } },

@@ -7,6 +7,7 @@ P:NPC {
   key = "haggard", id = TODO_NPC("Marshal Haggard"), name = "Marshal Haggard",
   bible = "bibles/haggard.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "proud" }, values = { "lawful", "brave" },
+  prejudice = { class = "WARLOCK", amount = 14, why = "Ran the Guard in the Second War and buried men burned by the Horde's warlock fire." },
   notices = { "kit", "lock_shadow" },
   impression = {
     first = "Nearly blind, he listens to the path better than most men watch.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I can't see you well, but I know that sulphur stink, and I smelled it on the field in the Second War. Stand where I can hear you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I buried half my company after the Horde's warlocks rained fire on us. Don't expect an old guardsman to smile at your kind." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come back often enough that I know your step now. I still smell the sulphur, mind, and I still don't like it." },
     { id = "g_squint", text = "Who's that there? Come a little closer, no, closer still... ah, I don't know you at all." },
     { id = "g_back", when = { metBefore = true }, text = "That voice I know! Come up, come up and sit." },
     { id = "g_badge", when = { questDone = TODO_QUEST("Dead-Tooth Jack") }, text = "There's the one who brought my badge home. Stand straight; I'm told I'm wearing it." },
@@ -169,7 +173,9 @@ P:NPC {
           text = "There's a hum in the air when you're near, like a hive. That'll be a mage, then, or else my ears are going the way of my eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few in the Guard, back when, for tracking deserters and gnolls. Handy folk, and quiet." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, by the sound of you, or rather by the lack of it. You walk quieter than any soldier I ever commanded." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I can't see well any more, but I can smell sulphur, and I've smelled it before." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I can't see well any more, but I can smell sulphur on you, and I've smelled it before." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Sulphur, and close. I know a warlock when one stands on my step, blind or not, so say what you want and keep your creature off my porch." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ah, it's you, sulphur and all. I'll grant you've never brought trouble to my door, though I keep my cane handy anyway." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I hear, by the step. I ran the Stormwind Guard once, and I fought orc shamans in the Second War. Forgive an old man if he's wary." },
       },
       again = {

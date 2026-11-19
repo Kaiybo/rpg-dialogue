@@ -102,12 +102,12 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xwl_default", text = "Bound, by you, so that you might loose them again elsewhere? I have seen what comes of mortals who think they can leash the Legion's servants, and so has every kaldorei who lived through the Sundering. Fight them or leave Darkshore, warlock, for there is no third road here." },
+        { id = "xwl_default", text = "Bound, by you, so that you might loose them again elsewhere? I have seen what comes of mortals who think they can leash the Legion's servants, and so has every kaldorei who lived through the Sundering. Fight them or leave Darkshore, for there is no third road here." },
         { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Bound, by you, so that you might loose them again elsewhere? You stand in Auberdine with one of them at your side, and I have seen ten thousand of its kind pour into the world through the Well, so fight them or leave Darkshore, warlock, for there is no third road here." },
       },
       choices = {
         { text = "Then I'll fight them, and bind nothing.", next = "BACK", reply = "That is wiser than you know, and I am glad to hear it. I watched the Highborne try to bind such things, and I watched what came through after.", fx = { align = { light = 1 } } },
-        { text = "Your way only lets them come back, Elder.", next = "BACK", reply = "Perhaps it does, but your way lets them come back stronger. I have seen it, and I would not see it again.", fx = { align = { light = -1 } } },
+        { text = "Your way only lets them come back, Elder. Mine keeps them.", next = "BACK", reply = "Perhaps it does, but your way lets them come back stronger. I have seen it, and I would not see it again.", fx = { align = { light = -1 } } },
         { text = "What remains in the ruins?", next = "ruins" },
       },
     },
@@ -231,7 +231,7 @@ P:NPC {
         { text = "I could read the magic in those Highborne ruins.", next = "mage_th", when = { class = "MAGE" } },
         { text = "The beasts here are sick. I've seen it in their eyes.", next = "hunter_th", when = { class = "HUNTER" } },
         { text = "An elder must hear a great many things. So do I.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Bashal'Aran's demons could be bound instead of fought.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Bashal'Aran's horrors could be bound instead of fought.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You feel the sickness too, Elder? What do you make of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the people of Auberdine fear most, Thundris?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Blackfathom Deeps is cleared, Elder. I've seen the bottom of it.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
@@ -493,8 +493,8 @@ P:NPC {
         { id = "wte_default", text = "I don't doubt that you know it, and I wish you didn't. If you can tell me where the taint is strongest without feeding it, then for once I will be glad of what you are, and I won't ask how you learned to smell it." },
       },
       choices = {
-        { text = "I'll trace it to its source and burn it out.", next = "BACK", reply = "Burn it well, warlock, and Auberdine will be grateful, whatever it thinks of your craft. I never thought I would say that to one of your kind.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "The power in it could be put to use.", next = "BACK", reply = "It could, and that is exactly why it must burn. I will not have the Legion's moss put to use.", fx = { align = { light = -1 }, affinity = -2 } },
+        { text = "I'll trace it to its source and burn it out.", next = "BACK", reply = "Burn it well, and Auberdine will be grateful, whatever it thinks of your craft. I never thought I would say that to one of your kind.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "The power in it could be put to better use.", next = "BACK", reply = "It could, and that is exactly why it must burn. I will not have the Legion's moss put to use.", fx = { align = { light = -1 }, affinity = -2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -546,7 +546,7 @@ P:NPC {
         { text = "Who is Volcor?", next = "volcor" },
         { text = "The furbolgs here seem to have turned savage.", next = "turn" },
         { text = "I can feel the sickness in the land.", next = "druid_t", when = { class = "DRUID" } },
-        { text = "I know fel when I see it. This moss is fel.", next = "warlock_te", when = { class = "WARLOCK" } },
+        { text = "I know that taint when I see it. This moss reeks of it.", next = "warlock_te", when = { class = "WARLOCK" } },
         { text = "This moss isn't arcane. I'd know if it were.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The furbolgs won't see me. I could learn what drives them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How should a warrior fight the Blackwood furbolgs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -679,11 +679,11 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xwl_default", text = "There is grief on that shore, and nothing else that you should touch. Elune keeps the dead, warlock, and if I find you have meddled with them, I will not be as gentle as I am now." },
+        { id = "xwl_default", text = "There is grief on that shore, and nothing else that you should touch. Elune keeps the dead, stranger, and if I find you have meddled with them, I will not be as gentle as I am now." },
         { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "There is grief on that shore, and nothing else that you should touch. Your servant turned toward the water the moment you arrived, as if it hears the dead calling, and if I find it has gone near them, I will not be as gentle as I am now." },
       },
       choices = {
-        { text = "I'll leave the dead in peace.", next = "BACK", reply = "The dead have suffered enough, warlock, and Elune will see that you left them be. So will I.", fx = { align = { light = 1 } } },
+        { text = "I'll leave the dead in peace.", next = "BACK", reply = "The dead have suffered enough, and Elune will see that you left them be. So will I.", fx = { align = { light = 1 } } },
         { text = "The dead don't need what they leave behind.", next = "BACK", reply = "They need their rest, and I will see that they have it. Stay away from that shore.", fx = { align = { light = -1 } } },
         { text = "What killed them?", next = "killing" },
       },
@@ -766,7 +766,7 @@ P:NPC {
         { text = "The murlocs seem to gather on the carcasses.", next = "murlocs" },
         { text = "A priest of the Light might be of help to you.", next = "priest_g", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "I've swum out to the great bodies in seal form.", next = "druid_gw", when = { class = "DRUID" } },
-        { text = "Death on that shore. There's power in it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Death on that shore. There's something in it worth taking.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Sisterhood object to mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Whatever killed those creatures could come ashore next.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter tell what killed the sea creatures?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -828,7 +828,7 @@ P:NPC {
 P:NPC {
   key = "glynda", id = TODO_NPC("Sentinel Glynda Nal'Shea"), name = "Sentinel Glynda Nal'Shea",
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
-  prejudice = { race = "Dwarf", amount = 10, why = "Remtravel's diggers carry off carvings from Ameth'Aran and Mist's Edge; she sees every dwarf with a pick as a grave-robber" },
+  prejudice = { { race = "Dwarf", amount = 10, why = "Remtravel's diggers carry off carvings from Ameth'Aran and Mist's Edge; she sees every dwarf with a pick as a grave-robber" }, { class = "WARLOCK", amount = 12, why = "Watches the groves for corruption; has found what satyrs leave of druids in the north." } },
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit", "lock_shards" },
   impression = {
@@ -837,9 +837,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_pj_dwarf", when = { prejudiced = true }, text = "Another dwarf off the boat. If you're bound for Remtravel's dig, remember that those ruins were our people's houses, and they are not a quarry for your Explorers' League." },
-    { id = "g_pj_dwarf2", when = { prejudiced = true, metBefore = true }, text = "You again, dwarf. I've counted the shovels going north this week and I'm in no mood to count yours, so tell me plainly what you want." },
-    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, and Sentinels don't hand those out often. I took you for one of Remtravel's grave-diggers, and you've done more for this shore than half my own patrols." },
+    { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "I watch the groves for corruption, and here it walks up to my post on two legs. Keep your hands off your bag, demon-caller, because my bow is strung." },
+    { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've been up and down this shore and nothing has rotted behind you. I'll lower my bow, but I'll not put the arrow away." },
+    { id = "g_pj_dwarf", when = { race = "Dwarf", prejudiced = true }, text = "Another dwarf off the boat. If you're bound for Remtravel's dig, remember that those ruins were our people's houses, and they are not a quarry for your Explorers' League." },
+    { id = "g_pj_dwarf2", when = { race = "Dwarf", prejudiced = true, metBefore = true }, text = "You again, dwarf. I've counted the shovels going north this week and I'm in no mood to count yours, so tell me plainly what you want." },
+    { id = "g_pj_over", when = { race = "Dwarf", prejudiced = "overcome" }, text = "I owe you an apology, and Sentinels don't hand those out often. I took you for one of Remtravel's grave-diggers, and you've done more for this shore than half my own patrols." },
     { id = "g_watch", text = "If you're staying in Auberdine, then you're under the Sentinels' eye; don't take it personally, for we watch everyone." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the murlocs haven't stopped coming ashore in that time. Report anything you've seen along the coast." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you first walked these sands. The Sentinels could use a blade like yours on the beach." },
@@ -1016,7 +1018,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because the Sentinels I send up the coast come back with wounds that do not close cleanly, and I have too few hands to mend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post in Ashenvale fight hard, I am told, so I will not waste your strength on small things." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the beach for murlocs and the groves for corruption, and I'll be watching you as well until I know which of the two you are." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've found what the satyrs leave of druids in the north, and satyrs were born of your kind of bargain. Say what you came to say." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again, and the groves still green behind you. Speak, then." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I watch the beach for murlocs and the groves for corruption, and something about you makes my bow hand itch. I'll be watching you as well until I know which of the two you are." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Greymist", min = 30 } },
           text = "The beach has been quieter since you started on the Greymist, and I count fewer tracks each morning. I am still only one Sentinel, but this week I have felt like two." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Sentinels watch everyone, and I will watch you too, so do not take it personally; we watched the Highborne as well." },
@@ -1038,10 +1042,10 @@ P:NPC {
         { text = "Do your Sentinels need a healer's hands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good on this shore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sentinels and the druids work well together here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do you count warlocks among the corruption, Sentinel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you count me among the corruption, Sentinel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you count on the beach each morning, Glynda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Blackfathom, Sentinel.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
-        { text = "You glare at me like I've robbed a tomb, Sentinel.", next = "pj_glynda", when = { prejudiced = true } },
+        { text = "You glare at me like I've robbed a tomb, Sentinel.", next = "pj_glynda", when = { race = "Dwarf", prejudiced = true } },
         { text = "You Sentinels always looked the other way at my cargo. Why?", next = "xorig_smug", when = { origin = "nightelf_auberdine_smuggler" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
@@ -1109,6 +1113,7 @@ P:NPC {
   key = "cerellean", id = TODO_NPC("Cerellean Whiteclaw"), name = "Cerellean Whiteclaw",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Lost Anaya in the war the Highborne's demon-summoning brought down on the Kaldorei." },
   notices = { "class", "lock_shards" },
   impression = {
     first = "He slept thousands of years dreaming of Anaya and grieves her still.",
@@ -1116,6 +1121,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Anaya died in the war the Highborne brought down on us when they called the demons. You've taken up their trade, and I cannot look at you kindly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been gentle with my grief, more than I expected of one who keeps a demon. I'll speak with you, though I'll not forget what you are." },
     { id = "g_dock", text = "Hm? Pardon me; I was watching the water. Since the Sundering, it has never quite stopped surprising me." },
     { id = "g_after", when = { questDone = TODO_QUEST("For Love Eternal") }, text = "You freed her. I will never be able to thank you properly, but I will try, every time I see you." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, have you? I'm afraid I've lost track of days; I've been watching the water." },
@@ -1204,12 +1211,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "The Highborne who called the Legion down, and the restless dead of my people, and somewhere among them, my Anaya. I've heard that warlocks bind spirits to their will, so I'll ask you plainly to leave hers alone." },
+        { id = "xlock_default", text = "The Highborne who called the Legion down, and the restless dead of my people, and somewhere among them, my Anaya. I've heard there are those who bind spirits to their will, and I think you know the kind, so I'll ask you plainly to leave hers alone." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Highborne who called the Legion down, and the restless dead of my people, and somewhere among them, my Anaya. Your servant looks at me the way those spirits do, as if it's waiting for something, so I'll ask you plainly to keep it, and yourself, away from her." },
       },
       choices = {
-        { text = "I swear I'll not touch her spirit.", next = "BACK", reply = "I will hold you to that oath, warlock, for she has suffered enough. Go, then, and walk carefully among my people.", fx = { align = { honor = 1 } } },
-        { text = "The dead can be useful. I'll promise nothing.", next = "BACK", reply = "Then I cannot let you go, and I will not help you. Leave her in peace.", fx = { align = { honor = -1 } } },
+        { text = "I swear I'll not touch her spirit.", next = "BACK", reply = "I will hold you to that oath, for she has suffered enough. Go, then, and walk carefully among my people.", fx = { align = { honor = 1 } } },
+        { text = "The dead can be useful. I'll promise you nothing.", next = "BACK", reply = "Then I cannot let you go, and I will not help you. Leave her in peace.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -1224,7 +1231,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Anaya loved the moonstalkers of these shores, and she would have liked to see you walk among them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Do you know anything of spirits that will not rest? I have asked everyone else, and they look at me as though I were a ghost myself." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order buries its dead with honour, which is more than the ruins of Ameth'Aran ever gave mine." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a cold about you that reminds me of Ameth'Aran, warlock. I hope you've come to Darkshore for some reason other than to stir what sleeps there." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Legion took Anaya from me ten thousand years ago, and here you stand with one of its creatures at your heel. Speak, and then let me be." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You come back, and you have never mocked her memory. Speak, then; I'm listening, after a fashion." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a cold about you that reminds me of Ameth'Aran. I hope you've come to Darkshore for some reason other than to stir what sleeps there." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do your spirits walk the water? I watch it day after day, as if Anaya might step out of it after ten thousand years." },
       },
       again = {
@@ -1379,7 +1388,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair. I'll keep to myself.", next = "BACK", reply = "My other guests will be grateful, and the room by the dock has a lovely view of the boats. You may find it suits you.", fx = { align = { light = 1 } } },
-        { text = "Let them smell it. I'm not ashamed.", next = "BACK", reply = "Then you will sleep alone, and very well, I am sure. The room by the dock is yours.", fx = { align = { light = -1 } } },
+        { text = "Let them smell it. I've nothing to be ashamed of.", next = "BACK", reply = "Then you will sleep alone, and very well, I am sure. The room by the dock is yours.", fx = { align = { light = -1 } } },
         { text = "Any news from the boats?", next = "news" },
       },
     },

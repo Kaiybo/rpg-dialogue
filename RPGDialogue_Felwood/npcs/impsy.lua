@@ -195,7 +195,7 @@ P:NPC {
         { id = "ps_default", text = "Steal? I'm redistributing, warlock. He took my time and my dignity and my afternoons, and I'm only taking back a few shiny things in return. That's fair dealing where I come from." },
       },
       choices = {
-        { text = "I'll take the reward. His loss is my gain.", next = "BACK", reply = "There's a warlock with sense, and I knew I liked you. It's his loss and your gain and my revenge, all in one go.", fx = { align = { honor = -1 } } },
+        { text = "I'll take his things. Let him wake up poorer and wonder why.", next = "BACK", reply = "There's a warlock with sense, and I knew I liked you. His loss, your gain, and my revenge, all in one.", fx = { align = { honor = -1 } } },
         { text = "I'll help, but I won't take stolen goods.", next = "BACK", reply = "Oh, a principled one, how dull. Fine, keep your hands clean, and I'll keep the shiny things.", fx = { align = { honor = 1 } } },
         { text = "I'll take my chances. Something else.", next = "BACK" },
       },

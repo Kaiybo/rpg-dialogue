@@ -67,7 +67,7 @@ P:NPC {
         { text = "Your kind weren't always satyrs, I've heard.", next = "satyrs" },
         { text = "You were one of us once.", next = "kin", when = { race = "NightElf" } },
         { text = "You reek of fel, Zenn.", next = "druid_z", when = { class = "DRUID" } },
-        { text = "What do you know of my sort of magic?", next = "lock_z", when = { class = "WARLOCK" } },
+        { text = "What do you know of my sort of magic, satyr?", next = "lock_z", when = { class = "WARLOCK" } },
         { text = "The Council knows I helped you.", next = "caught", when = { any = { { questActive = TODO_QUEST("Seek Redemption!") }, { questDone = TODO_QUEST("Seek Redemption!") } } } },
         { text = "What do you want me to fetch?", next = "BUSINESS" },
         { text = "I'll be going.", next = "END" },
@@ -178,7 +178,7 @@ P:NPC {
         { id = "lz_default", text = "Enough to know you'll be lonely in Darnassus, and that the kaldorei will smile at you the way they smile at me. Come and talk to Zenn when it gets too quiet, because I never mind your sort." },
       },
       choices = {
-        { text = "I'm nothing like you, satyr.", next = "BACK", reply = "Of course you're not, little one, and the kaldorei will believe that right up until they see what walks behind you. I will be here when they stop smiling.", fx = { align = { light = 1 } } },
+        { text = "I'm nothing like you, goat. Remember that.", next = "BACK", reply = "Of course you're not, little one, and the kaldorei will believe that right up until they see what walks behind you. I will be here when they stop smiling.", fx = { align = { light = 1 } } },
         { text = "Perhaps we do have something in common.", next = "BACK", reply = "More than you'd like to admit, I suspect. Come and visit old Zenn when Darnassus grows cold, and it will.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

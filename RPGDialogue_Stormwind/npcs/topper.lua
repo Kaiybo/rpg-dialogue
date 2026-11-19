@@ -81,7 +81,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, walking by. I've watched a thousand soldiers go past this spot, and you lot always walk a little straighter going out than coming home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You've the farm look about you, a bit, and I like that. Most of the city lot couldn't find a rabbit in a hutch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a kind face too. I had a field once, friend, and I'd have given anything for someone who could make the wheat come up in a dry year." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ah, a warlock, with a generous face like all the rest. Spare a copper for a farmer, and I'll not ask what's following you about." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ah, someone from the Lamb, with a generous face like all the rest. Spare a copper for a farmer, and I'll not ask what's following you about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A generous face, and a shaman too! Spare a coin for an old farmer? The spirits must favour a giving heart." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf, and you've come all the way down the tram to see me! I'm touched, friend, I'm truly touched, and I'll be more touched if you've a copper about you." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "Well, hello down there! Mind the canal, little friend, because it's deeper than it looks and the guards fish things out of it slowly." },
@@ -1149,9 +1149,9 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much frightens me anymore, friend, after losing the farm and sleeping out here through a Stormwind winter. I'll say this for your {pet}, it gives off more warmth than my blanket, so if you're stopping a while, I'd not mind it standing a touch closer." },
       },
       choices = {
-        { text = "Here's a coin for you, Topper, and nothing for the imp.", next = "xlock2", fx = { align = { light = 1 } } },
-        { text = "The imp needs its food more than you do.", next = "xlock2", fx = { align = { light = -1 } } },
-        { text = "Has a warlock ever offered you a bargain?", next = "xlock2" },
+        { text = "Here's a coin for you, Topper, and nothing for my little friend.", next = "xlock2", fx = { align = { light = 1 } } },
+        { text = "My little friend needs feeding more than you do, Topper.", next = "xlock2", fx = { align = { light = -1 } } },
+        { text = "Has anyone like me ever offered you a bargain, Topper?", next = "xlock2" },
       },
     },
     xlock2 = {

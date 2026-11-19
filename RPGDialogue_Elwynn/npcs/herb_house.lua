@@ -78,7 +78,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." },
+        { id = "xlock_default", text = "Because one of the cellar students from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. Your servant has been reading my top shelf since you came in, which is exactly why the poisons stay up there." },
       },
       choices = {
@@ -239,7 +239,7 @@ P:NPC {
       },
       choices = {
         { text = "You're right not to gather there, Pomeroy.", next = "BACK", reply = "I'm glad you agree, because I've no wish to be digging among the dead. The living grow plenty to keep me busy.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Grave herbs have their uses. You're missing out.", next = "BACK", reply = "Maybe I am, but I'll sleep better for it. Let the warlocks dig in Duskwood themselves if they need it that badly.", fx = { align = { light = -1 } } },
+        { text = "Grave herbs have their uses. You're missing out.", next = "BACK", reply = "Maybe I am, but I'll sleep better for it. Let that lot dig in Duskwood themselves if they need it that badly.", fx = { align = { light = -1 } } },
         { text = "Something else, Pomeroy.", next = "BACK" },
       },
     },
@@ -314,7 +314,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the herb house. Stand still, now, because you've knocked my drying rack twice already." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your sort pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ink on your fingers and sulphur on your cloak! I've heard some folk pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The hillsides here are friends of mine, so I wonder if your earth spirits know them too." },
       },
       again = {
@@ -333,7 +333,7 @@ P:NPC {
         { text = "What should a hunter learn to look for underfoot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do herbs and prayer heal the same way, Pomeroy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Elwynn needs your herbs most, Pomeroy?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "I'd guess warlocks buy herbs from you now and then, Pomeroy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess some of your customers want stranger herbs, Pomeroy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The hills here seem to have spirits of their own, Pomeroy.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },

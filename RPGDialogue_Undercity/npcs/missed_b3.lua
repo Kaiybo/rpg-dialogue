@@ -625,7 +625,7 @@ P:NPC {
         { text = "No power of your own?", next = "power" },
         { text = "Which demon unsettles you most?", next = "demon" },
         { text = "What are your classmates like?", next = "class" },
-        { text = "It didn't hurt. It argued.", next = "argued", when = { class = "WARLOCK" } },
+        { text = "It didn't hurt. It argued terms, like a lawyer with teeth.", next = "argued", when = { class = "WARLOCK" } },
         { text = "Mind your notes, Victor.", next = "END" },
       },
     },
@@ -657,7 +657,7 @@ P:NPC {
     },
     argued = {
       lines = { { id = "a_default", text = "It argued! Then Mistress Pruitt has it right, and it is all terms and conditions in the end. You've no idea how much better that makes me feel; I can out-argue anything, given ink." } },
-      choices = { { text = "Read every line twice. Something else.", next = "BACK" } },
+      choices = { { text = "Read every line twice. They hide the hooks in the margins.", next = "BACK" } },
     },
   },
   topics = {
@@ -769,7 +769,7 @@ P:NPC {
         { text = "What does Mistress Pruitt teach?", next = "teach" },
         { text = "You're kin to Richard Kerwin?", next = "richard" },
         { text = "You're hard on your classmates.", next = "mates" },
-        { text = "Which demon would you bind first?", next = "first", when = { class = "WARLOCK" } },
+        { text = "Which demon would you bind first, if you dared?", next = "first", when = { class = "WARLOCK" } },
         { text = "Back to your lesson, then.", next = "END" },
       },
     },
@@ -801,7 +801,7 @@ P:NPC {
     },
     first = {
       lines = { { id = "f_default", text = "The voidwalker, because it obeys and it stands between you and whatever you've angered. Everyone begins with the imp, I know, but I see no merit in starting one's career with a servant who answers back." } },
-      choices = { { text = "The imp teaches patience. Something else.", next = "BACK" } },
+      choices = { { text = "The imp teaches patience, and spite. Something else.", next = "BACK" } },
     },
   },
   topics = {

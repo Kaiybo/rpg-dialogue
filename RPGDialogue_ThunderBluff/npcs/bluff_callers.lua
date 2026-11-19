@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_orc", cat = "race", when = { race = "Orc", class = "SHAMAN" },
       text = "An orc shaman, here on the Spirit Rise. Thrall's people relearned the elements from us and from their own grandmothers both, and I'm glad to see it." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "The fire leans away from you, {class}. It knows the other kind of flame when it smells it." },
+      text = "The fire leans away from you, stranger. It knows the other kind of flame when it smells it." },
   },
 
   start = "hello",

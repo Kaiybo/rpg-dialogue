@@ -422,7 +422,7 @@ P:NPC {
     { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
       text = "You carry a rod, and it has been used. I am glad of it, though I will want to see how you hold it before I teach you anything more." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "I can feel what follows at your heels, warlock. I will teach you, since the Alliance asks it of us, but you will work at arm's length from my bench." },
+      text = "I can feel what follows at your heels, and the air goes stale around it. I will teach you, since the Alliance asks it of us, but you will work at arm's length from my bench." },
   },
   start = "hello",
   nodes = {

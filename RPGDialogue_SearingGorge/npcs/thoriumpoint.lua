@@ -122,7 +122,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind yer imps, warlock, because every fool thinks he's the one holdin' the leash." },
+        { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind what ye keep, because every fool thinks he's the one holdin' the leash." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so look at yer servant now, warlock, standin' there watchin' ye, an' ask yerself which of ye holds the leash." },
       },
       choices = {
@@ -193,7 +193,7 @@ P:NPC {
           text = "A priest o' the Light. We had no priests in the mountain, {class}, only the Firelord's sorcerers, so ye'll forgive the lads if they stare." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Ye'd have been a prize catch for Thaurissan's men, {class}, an' ye're a fine example for my lads o' what a dwarf can serve besides fire." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Our forefathers called the Firelord up out o' the deep places tae win a war, so I'll be watchin' what ye call up in my camp." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Our forefathers called the Firelord up out o' the deep places tae win a war, so I'll be watchin' what ye call up in my camp." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, an' ye'll be eyein' our forges for the enchantments in 'em. We learned that work under the Firelord's eye, an' we keep it for ourselves now." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! We Dark Irons didnae have much use for trees down in the depths, ye understand, but I'll confess the lads have grown fond o' that scrubby bush by the gate." },
@@ -439,13 +439,13 @@ P:NPC {
       },
       choices = {
         { text = "Stand your own watch, Hansel. That's the job.", next = "BACK", reply = "Aye, aye, I know it is. Ye sound like Lolo.", fx = { align = { order = 1 } } },
-        { text = "Happy to help, Hansel. My demon won't tell.", next = "BACK", reply = "Bless ye, friend. Just keep it well clear o' Lolo's nose.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Happy to help, Hansel. It won't tell anyone.", next = "BACK", reply = "Bless ye, friend. Just keep it well clear o' Lolo's nose.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Does yer demon need sleep at all? Because if it doesnae, I'd happily lend it my watch, an' nobody would be any the wiser." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Does that wee beastie o' yers need sleep at all? Because if it doesnae, I'd happily lend it my watch, an' nobody would be any the wiser." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Ask the earth if it'll hold still a while, would ye? The whole Gorge rumbles under my boots all night, an' a dwarf cannae nap on rumblin' ground." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Ye wouldnae have a prayer for sore feet, would ye? I'd take one from anybody just now, Horde or no." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless this chair, would ye, if ye can find one, because my feet have been prayin' for one since dawn an' nobody's answered." },
@@ -482,7 +482,7 @@ P:NPC {
         { text = "No chairs, Hansel, but I could conjure you some water.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you really need a prayer for sore feet, Hansel?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "The Gorge rumbles all night long, Hansel.", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Would you really let my demon stand your watch, Hansel?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would you really let my creature stand your watch, Hansel?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You don't trust Ironforge dwarves much, Hansel.", next = "prej", when = { prejudiced = true } },
         { text = "I'll handle it.", next = "END", fx = { affinity = 2 } },
       },
@@ -632,12 +632,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I can smell the wee beast from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. Keep it close, warlock, an' keep it away from the bairns, for they've seen enough fire for one lifetime." },
+        { id = "xlock_default", text = "I can smell the wee beast from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. Keep it close, stranger, an' keep it away from the bairns, for they've seen enough fire for one lifetime." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I can smell that beast o' yers from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. It's starin' at the bairns by the cookfire now, so call it tae yer side, warlock, for they've seen enough fire for one lifetime." },
       },
       choices = {
-        { text = "It obeys me. Your bairns are safe.", next = "BACK", reply = "I'll hold ye tae that, warlock, an' so will the mothers. Keep it on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My imp goes where it likes. That's its nature.", next = "BACK", reply = "Then its nature had best keep clear o' the bairns, or my nature will meet it at the gate. Mind me.", fx = { align = { order = -1 } } },
+        { text = "It obeys me. Your bairns are safe.", next = "BACK", reply = "I'll hold ye tae that, an' so will the mothers. Keep it on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It goes where it likes. Cruelty is its nature.", next = "BACK", reply = "Then its nature had best keep clear o' the bairns, or my nature will meet it at the gate. Mind me.", fx = { align = { order = -1 } } },
         { text = "Something else, Lolo.", next = "BACK" },
       },
     },
@@ -718,7 +718,7 @@ P:NPC {
         { text = "Maltorius is dead, Captain.", next = "malt_done", when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") } },
         { text = "I bet I could sneak up on the Point.", next = "k_rogue", when = { class = { "ROGUE", "DRUID" } } },
         { text = "I didn't know a mage had a smell.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Does my imp bother you, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does what I keep bother you, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You can actually smell the Light on me?", next = "xapala", when = { class = "PALADIN" } },
         { text = "You can really smell a warrior coming?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "So what does a hunter smell like?", next = "xhuntcl", when = { class = "HUNTER" } },

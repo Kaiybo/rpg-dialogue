@@ -321,7 +321,7 @@ P:NPC {
       },
       choices = {
         { text = "My demon doesn't need a gun. Keep your blunderbuss.", next = "BACK", reply = "Suit yourself, but I'll bet that imp would love a little popgun. It'd be the scariest four inches in Stranglethorn.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Arm the imp. Let's see what happens.", next = "BACK", reply = "Ha! Now there's an idea with a market in it, pal. Bring the little fella round and I'll see if I've got anything in his size.", fx = { align = { order = -1 } } },
+        { text = "Arm the imp. I'd like to see who it shoots first.", next = "BACK", reply = "Ha! Now there's an idea with a market in it, pal. Bring the little fella round and I'll see if I've got anything in his size.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },

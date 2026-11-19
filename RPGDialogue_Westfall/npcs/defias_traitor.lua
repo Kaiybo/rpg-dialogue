@@ -135,7 +135,7 @@ P:NPC {
         { text = "Tell me about Edwin VanCleef.", next = "vancleef" },
         { text = "I ran with the Brotherhood too, once.", next = "kin", when = { class = "ROGUE" } },
         { text = "The Brotherhood have spellcasters of their own, don't they?", next = "xmage", when = { class = "MAGE" } },
-        { text = "You fear your old crew more than you fear me.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You fear your old crew more than you fear me. That's a mistake.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do the Defias fight, if they fight dirty?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where would the Brotherhood set an ambush on our road?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you want to make your peace before we walk, friend?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

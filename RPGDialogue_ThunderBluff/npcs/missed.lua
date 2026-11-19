@@ -272,7 +272,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I am Chepi. Seeds, ankhs, candles, powders and dust, I keep them all, because a spell is a bargain and somebody must sell the other half of it." },
-        { id = "h_lock", when = { class = "WARLOCK" }, text = "I am Chepi. I will sell you what you came for, {class}, because the Horde asks it of me, but I will not ask what you mean to do with it." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "I am Chepi. I will sell you what you came for, because the Horde asks it of me, but I will not ask what you mean to do with it, and I would rather not guess." },
       },
       again = {
         { id = "h_again", text = "What else do you need, {class}?" },

@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "Wards are the useful part. I'll study them.", next = "BACK", reply = "A wise choice, and the one I'd have made at your age. Wards are where all the real cleverness lives.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Wards only teach you what's behind them.", next = "BACK", reply = "Precisely why I'll show you nothing else, {class}. Some doors I prefer to leave closed, and locked, and warded.", fx = { align = { light = -1 } } },
+        { text = "Wards only teach you what's behind them.", next = "BACK", reply = "Precisely why I'll show you nothing else, my friend. Some doors I prefer to leave closed, and locked, and warded.", fx = { align = { light = -1 } } },
       },
     },
     sky_xy = {

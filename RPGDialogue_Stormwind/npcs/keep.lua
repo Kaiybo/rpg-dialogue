@@ -8,6 +8,7 @@ P:NPC {
   key = "delavey", id = TODO_NPC("Bishop DeLavey"), name = "Bishop DeLavey",
   bible = "bibles/keep_court.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "steady", "sharp" }, values = { "discreet", "pious" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "The Church's voice at court; calls demon-binding a sin and won't excuse it in his own chamber." },
   notices = { "priest", "noble", "rogue", "lock_shadow" },
   impression = {
     first = "He trusts a fisherman and a cheesemaker more than the courtiers.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I'll not pretend to welcome you in my own chamber. The Church calls what you do a sin, and so do I." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Every soul the Church has lost to the shadow began by thinking they could master it. Speak, and then go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've proved more honest than I feared, I'll admit. I still won't bless your work, but you may sit." },
     { id = "g_court", text = "Keep your voice low, please. The Chamber has more ears than chairs." },
     { id = "g_diplomat", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "Any word? Quietly, now." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of the Cathedral's own, in this den of petitions. Welcome." },
@@ -118,6 +122,8 @@ P:NPC {
           text = "A mage at court is usually here to petition about the Slaughtered Lamb, and I confess I'm usually on their side. Speak plainly, and quietly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I can tell what you are, and I'll not pretend otherwise in my own chamber. You're welcome to speak, though, because the Light has never closed its ears to anyone." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you practise, and I'll name it plainly in my own chamber: demonology, and a sin. You may speak, but you'll get no blessing from me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've been honest with me, which is more than I expected, so sit, though the Church's judgement hasn't changed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at court. I'm sure you've opinions on how the kingdom's soldiers are spent, and I'm sure no one here has asked for them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, before the throne. I'll ask you to keep your animal close; some of the nobles here startle easily, and complain longer." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at court, so let me lower my voice, because everyone in this hall reports to someone. The Church is glad of the kaldorei, whatever the nobles mutter." },
@@ -137,7 +143,7 @@ P:NPC {
         { text = "I'd guess the Church is wary of the Mage Quarter, Your Grace.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You'd speak with someone like me, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a paladin keep quiet at court, Your Grace?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the nobles mutter about the kaldorei, Your Grace?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you say of me, Bishop, if not for the Church?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -401,7 +407,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my side! Splendid; I never feel so safe in this chamber as when there's someone armed nearby who isn't a guard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, my word! You must come across all kinds of curiosities in the wild, and I'm always, always interested in curiosities." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, how splendid. I've a carved kaldorei bowl in my collection that nobody can date, and I'd simply love your opinion on it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! How deliciously dangerous. Do mind the tapestries, they're older than your entire order." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My, you carry a chill into the room. How deliciously dangerous. Do mind the tapestries, they're older than your entire order." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! How exotic. Do your spirits know where treasure lies? My collection lacks something earthy and old." },
       },
       again = {
@@ -421,7 +427,7 @@ P:NPC {
         { text = "Shouldn't a holy relic be in the Cathedral, Count?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you truly buy a paladin's badge, Count?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How did a kaldorei bowl end up in your collection, Count?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would your collection buy anything a warlock found, Count?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your collection buy relics from places the priests avoid, Count?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you pay for something truly old, Count?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Count.", next = "END" },
       },

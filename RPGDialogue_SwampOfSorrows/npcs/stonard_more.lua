@@ -114,7 +114,7 @@ P:NPC {
       lines = {
         { id = "h_dd_threat", when = { questDone = TODO_QUEST("Continued Threat") },
           text = "Tok'Kar says the murlocs on the coast are scattered and that you did the scattering. He'll want his errands run on time now that he's got no excuse, and that suits me fine." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde raised these stones, and I'd wager a few of your kind walked these halls back then, doing things the walls still remember." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The old Horde raised these stones, and I'd wager a few of your kind walked these halls back then, doing things the walls still remember." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're looking for something worth stealing in Stonard, I wish you luck, because I've been looking for years and found mostly mud." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. There's enough old history in these stones that I'd wager they've got something to say to you, if you've the patience to listen." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },

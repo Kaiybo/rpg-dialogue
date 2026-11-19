@@ -96,7 +96,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep it away and deal with the yeti.", next = "BACK", reply = "The rams thank ye too. If the beast's dealt wi', I might even forgive the brimstone smell when ye come back.", fx = { align = { order = 1 } } },
-        { text = "Your rams can learn to live with it.", next = "BACK", reply = "They can learn it from yer side o' the fence, then, because I'll no' have my herd stampedin' over the hills for the sake o' yer pets.", fx = { align = { order = -1 } } },
+        { text = "Your rams can learn to live with it.", next = "BACK", reply = "They can learn it from yer side o' the fence, then, because I'll no' have my herd stampedin' over the hills for the sake o' yer creature.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -116,7 +116,7 @@ P:NPC {
           text = "A mage, an' I'll ask ye tae keep yer fire away from the rams. They've no' forgotten the last one who blinked in front o' them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I've no' slept right in a week, but I'd sleep a deal better wi' an axe standin' by the pen." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' just when I need one. Somethin' big's comin' down from the hills for my rams, an' I wondered if yer kind could tell me what." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask ye tae keep yer servant well back from the pens, for my rams are skittish enough since the yeti came down, an' I count them twice a day." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll ask ye tae keep whatever trails ye well back from the pens, for my rams are skittish enough since the yeti came down, an' I count them twice a day." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Wendigo", min = 20 } },
           text = "There's fewer o' those wendigo comin' down off the mountain since ye went up there, an' my rams have stopped starin' at the ridge. I only counted the herd once this mornin', an' that's thanks tae you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can ye ask the hills what's been takin' my rams? For I've asked them myself, an' they never answer." },
@@ -136,7 +136,7 @@ P:NPC {
         { text = "How are your herdsmen holding up, Rudra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's taking your rams, and when does it hunt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What kind of tracks has the beast left near your rams?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would my servant really scare your rams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would my little companion really scare your rams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's been taking your rams, Rudra? The earth might know.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
@@ -262,7 +262,8 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trust a warlock as far as I'd trust a frozen pond, which is only as far as I've tested it. Ye'll have tae walk a bit further wi' me before I say more." },
+      lines = {
+        { id = "xlock_default", text = "I'd trust ye as far as I'd trust a frozen pond, which is only as far as I've tested it. Ye'll have tae walk a bit further wi' me before I say more." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd trust a warlock as far as I'd trust a frozen pond, an' I'd trust what's walkin' at yer heel a good deal less, for it's been watchin' my back since we set out. Ye'll have tae walk a bit further wi' me before I say more, an' it'll walk in front, where I can see it." },
       },
       choices = {
@@ -313,7 +314,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage could warm these old bones, I'd wager, but I'd sooner ye found the bear that took my stash." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Ye've a warlock's look, an' the snow's gone grey where ye stood. I'll no' ask, if ye'll no' tell." },
+          text = "Ye've a strange look about ye, an' the snow's gone grey where ye stood. I'll no' ask, if ye'll no' tell." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Ye'd be just the thing for a great black bear, if ye're no' too proud tae fight one for a sack o' food." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now ye're the very one I need, for that bear's got my stash, an' ye'll know how tae follow him." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know bears, then, an' ye might tell me why a great black one would want my smoked cheese." },
@@ -330,7 +331,7 @@ P:NPC {
         { text = "What's the danger in these hills?", next = "hills" },
         { text = "The cold doesn't trouble a gnome, you know.", next = "gnome", when = { race = "Gnome" } },
         { text = "Why not let a mage conjure you new food?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Would you trust a warlock out here in the snows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you trust someone with my secrets out here in the snows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What sort of bear took your food stash, Tundra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which way did the bear go with your stash?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever get lonely out here in the snows, Tundra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -490,7 +491,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because they're full of very flammable things, and your servant is a very flammable sort of thing, and I've done the sums on what happens when the two meet! Steelgrill's Depot has had one explosion this season already, and the next one is not going to be mine." },
+        { id = "xlock_default", text = "Because they're full of very flammable things, and your little companion is a very flammable sort of thing, and I've done the sums on what happens when the two meet! Steelgrill's Depot has had one explosion this season already, and the next one is not going to be mine." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they're full of very flammable things, and your servant is a very flammable sort of thing, and right now it's standing far too close to the nearest fuel cask! Steelgrill's Depot has had one explosion this season already, so would you kindly walk it backwards until I can't smell the sulphur anymore?" },
       },
       choices = {
@@ -516,7 +517,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Splendid, because the depot's larder is empty and the beasts outside are not, and I'm terribly busy with my flier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Oh, perfect, because I need meat for a long trip, and you can get it faster than the depot's cook can find his spoon." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard you can turn into a bear, and I'm deeply curious whether a bear would fit in my cockpit." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can ride the flier if you like, but your servant goes in the cargo hold, and please tell it not to touch the fuel lines, they're very sensitive!" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You can ride the flier if you like, but that hot little thing following you goes in the cargo hold, and please tell it not to touch the fuel lines, they're very sensitive!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Can you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
         { id = "dd_stonegear", when = { questDone = TODO_QUEST("Stonegear's Search") },
           text = "Stonegear tells me you helped him find what he was after! He's a siege man, not a flier like me, but we pilots look after each other, and I'm obliged to you on his behalf." },
@@ -643,11 +644,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because most o' yer lot reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as yer demons, at least the troggs will die clean." },
+      lines = {
+        { id = "xlock_default", text = "Because most o' yer sort reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as whatever else ye keep, at least the troggs will die clean." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because most o' yer lot reckon a curse beats a bullet, an' that creature o' yours is lookin' at my rifles like they're toys, which tells me what it thinks o' honest powder. If ye keep a gun as well as yer demons, at least the troggs will die clean." },
       },
       choices = {
-        { text = "A clean shot is honest work. I'll keep one handy.", next = "BACK", reply = "That's sense, an' it's more than most o' yer lot will admit, so I'll find ye a wee barrel that sits nicely under a cloak.", fx = { align = { light = 1 } } },
+        { text = "A clean shot is honest work. I'll keep one handy.", next = "BACK", reply = "That's sense, an' it's more than most o' yer sort will admit, so I'll find ye a wee barrel that sits nicely under a cloak.", fx = { align = { light = 1 } } },
         { text = "The curse is slower, Hegnar, and that's the point.", next = "BACK", reply = "Slower, aye, an' crueller too, an' I'll no' sell ye anythin' tae make it worse, so take yer business elsewhere for the curses.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -702,7 +704,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! Ye'll be wantin' somethin' quiet, an' I'll tell ye now nothin' on this rack is quiet." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock buyin' a gun? That's a new one, though I'll sell tae anyone wi' coin an' sense." },
+          text = "Cold hands, black ink under the nails, an' ye want a gun? That's a new one, though I'll sell tae anyone wi' coin an' sense." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll swear by yer axe, I've no doubt, but there's no shame in a gun for the troll that's too far tae reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind don't care for guns, an' I'll no' take it personal if ye don't buy one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll no' want a gun, I know, but have ye ever heard a Rumbleshot fire in the snow? It's prettier than any spell." },
@@ -719,7 +721,7 @@ P:NPC {
         { text = "What makes a good gun?", next = "guns" },
         { text = "I'm a hunter. What would you recommend?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do rogues ever buy guns from you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why would a warlock not buy a gun?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would someone like me not buy a gun, Hegnar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior carry a gun as well, Hegnar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should a priest carry a gun, Hegnar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it honourable to shoot a foe from a ridge?", next = "xapala", when = { class = "PALADIN" } },

@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "soldier", tier = "major",
   communities = { "freewind" }, temper = { "grim" }, values = { "dutiful", "protective" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 10, why = "Watchman of Freewind; sees in fel the same darkness as the Galak's dark-hearted shamans." },
   notices = { "kit", "race", "lock_shards", "lock_eyes" },
 
   impression = {
@@ -22,6 +23,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the canyon gave you back, which is more than it does for most. I watched for you from up here more than once." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came up to Freewind a youngster, and now you look like someone the centaur ought to worry about. The canyon has made you hard, and I'm glad of it." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone on the mesas back down with a look. Save it for the centaur, because they're the ones who need to learn it." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watch the cliffs for centaur, and I watch you as well. Do not give me a reason to choose between the two." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Whatever answers your call has no place on this mesa. Speak plainly, and then step back from the edge." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept your fire to yourself every time you climbed up here. I'll still watch you, but I'll stop counting your steps." },
   },
 
   notice = {
@@ -133,7 +137,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I think power that answers to no spirit is a dangerous thing, wherever it comes from. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so I will not turn away any weapon that faces the canyon." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think power that answers to no spirit is a dangerous thing, and that one at your heel is watching the canyon from my lookout like it owns the place. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so let it watch the canyon and not my braves." } },
       choices = {
-        { text = "My power is a weapon. I aim it where it's needed.", next = "BACK", reply = "Aim it well, then, and aim it below, because the Galak have earned it and my people have not.", fx = { align = { light = -1 } } },
+        { text = "What I wield is a weapon. I aim it where it's needed.", next = "BACK", reply = "Aim it well, then, and aim it below, because the Galak have earned it and my people have not.", fx = { align = { light = -1 } } },
         { text = "I understand your caution. I'll earn your trust.", next = "BACK", reply = "Then earn it on the canyon floor. I can see most of it from this ledge, and I will be watching.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -188,7 +192,9 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You came up the lift without a sound, and I watch that lift all day. The Galak would pay well for feet like yours, so I'm glad they belong to the Horde." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock on my watch. The Galak have their own dark-hearted shamans, and I like their fires no better than yours, but you at least stand on the right side of the cliff." },
+          text = "The Galak have their own dark-hearted shamans, and something about your fire reminds me of theirs. I like it no better, but you at least stand on the right side of the cliff." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There's demon-fire on you, and I have seen what the Galak's shamans do with fire like that. Say your business and keep your hands still." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've stood with Freewind against the centaur, and I remember it. Speak, then." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 40 } }, text = "The Galak raid less these days, and the scouts say it's because you've cut down so many of their warriors. Freewind is grateful, though the centaur will remember you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. I've watched many things climb the canyon from up here, but nothing quite like you." },
       },
@@ -212,7 +218,7 @@ P:NPC {
         { text = "The Galak centaur must have shamans of their own, Longhorn.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Galak windchasers seem to call down storms on the canyon.", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Could a rogue be of use against the Galak?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "You think my power no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You think what I wield no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Where do the Galak raiders go after a raid, Cliffwatcher?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would a paladin be useful against the Galak, Cliffwatcher?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Amnennar the Coldbringer is destroyed, Cliffwatcher. The Downs are broken.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
@@ -507,7 +513,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion, even from a warlock." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think I don't know, and that bothers me more than any answer would. Your servant knows the feel of a summoned thing better than either of us, and I notice it keeps turning toward the Grimtotem hold, so I'd value its opinion as well as yours." } },
+      lines = {
+        { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion." },
+      },
       choices = {
         { text = "I'll look. Knowledge serves us all.", next = "BACK", reply = "Thank you, and I will write down whatever you tell me, with your name beside it, if you like.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Some questions are better left unasked, Rau.", next = "BACK", reply = "Perhaps, but I have never been good at leaving questions alone. My mother says I asked the lift operator why the rope was brown before I could walk.", fx = { align = { light = 1 } } },
@@ -549,7 +557,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! You'll want to hear about the flame that guards the Cloven Hoof, because it burns without fuel, and I've never been able to decide whether it's magic or the centaur are simply very good at lying." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock. The Galak call on the spirits of their dead khans before they raid, and I've often wondered whether what answers them is a spirit at all." },
+          text = "The Galak call on the spirits of their dead khans before they raid. You have a look about you that makes me wonder whether what answers them is a spirit at all." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You came up the lift without making the ropes sing, and that is rare. I could use someone who can walk into the Galak hold without being heard." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You'll know something of holy fire, I hope, because the flame that guards the Cloven Hoof burns without wood and without end." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've been staring at centaur carvings all morning, and now I have something even more puzzling to stare at." },
@@ -1011,7 +1019,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like someone who could get up to the pinnacle without the Grimtotem seeing. I've thought of nothing else since Lakota was taken." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "Warlock. I have prayed to the Earth Mother every night for Lakota, and I am starting to wonder if your kind of power answers faster." },
+          text = "I have prayed to the Earth Mother every night for Lakota, and she says nothing. You carry something that answers, I think. Does it answer faster?" },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 30 } }, text = "You've been killing Grimtotem, haven't you? It doesn't bring Lakota home, but I'll admit it helps me sleep, and I'm not proud of that." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'm poor company, and I'm sorry for it, but I find myself hoping the Light reaches the Grimtotem's pinnacle, since nothing else has." },
       },
@@ -1030,7 +1038,7 @@ P:NPC {
         { text = "Have you asked the spirits about Lakota, Thalia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Magic might help find Lakota.", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Could I get Lakota out quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Vengeance doesn't need the Earth Mother's blessing.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Vengeance doesn't need the Earth Mother's blessing. Other things will answer.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "A hunter might follow the Grimtotem up the pinnacle.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Could the Light help you find Lakota, Thalia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -1258,7 +1266,7 @@ P:NPC {
           text = "A druid! You'll want the room by the edge, then; the wind sings through it at night, and the druids who stay here say it's the canyon talking." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know why I love the wind singing over this mesa at night, because you can hear what it's singing about." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in and sit, and if you could bless the bridges on your way out I'd sleep better, because I'm forever telling guests not to look down." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your companion may stay, but not near the blankets, and certainly not near the edge, because I won't be explaining a falling demon to the cliffwatchers." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Whatever walks with you may stay, but not near the blankets, and certainly not near the edge. I won't be explaining a fall like that to the cliffwatchers." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! Would you warm the blankets for my guests? The wind up here cuts through anything, and a little fire in the right place would make their sleep sweeter." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },

@@ -29,7 +29,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." },
+        { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without your sort of company besides." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll fly anyone who pays, but not with that thing in the saddle, and the birds already know it, the way they're clawing at the posts. I fly the wounded out of here as well, so keep it away from the litters, because they've seen enough of gnolls and orcs without demons besides." },
       },
       choices = {
@@ -116,7 +116,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I fly the wounded out, so I'd be grateful if you'd see to them before they go up." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, plate and all, though they'll complain the whole way." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My birds have gone still for you, which they only do for folk who smell of the forest, so I'd say they like you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons don't love the smell of brimstone, so be gentle when you mount, and keep your hands out of their feathers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My gryphons don't love the smell of brimstone, and you're thick with it. Be gentle when you mount, and keep your hands out of their feathers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My gryphons are calm around you, which is rare. Do your wind spirits fly with them?" },
       },
       again = {
@@ -134,7 +134,7 @@ P:NPC {
         { text = "How many wounded have your gryphons carried out, Ariena?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you fly a paladin over Stonewatch to scout it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do your gryphons see of the hills from up there?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Will your gryphons fly a warlock, Ariena?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will your gryphons fly someone they'd rather not carry, Ariena?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What have you seen of the Blackrock from the air, Ariena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Ariena.", next = "END" },
       },
@@ -291,7 +291,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll forgive the feathers on the floor, since every goose in Redridge has given something to the war." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll not be wanting arrows, I expect, unless it's to throw them, and I'll ask you not to." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I could use a little warmth to dry the glue on my fletchings, if you've a spare spark and a steady hand." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your demon's eyeing my feathers, I think, so I'll ask you to keep it on your side of the counter." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something at your heel is eyeing my feathers, I think, so I'll ask you to keep it on your side of the counter." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I make arrows as fast as I can, and it's still not enough for the gnolls. Your lightning would help." },
       },
       again = {
@@ -309,7 +309,7 @@ P:NPC {
         { text = "Where do you get your feathers, with the roads cut?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do rogues ever buy from a fletcher, Kimberly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage really help with your fletching, Kimberly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What do you make of warlocks, Kimberly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do you make of the magic the Church condemns, Kimberly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You can't be keeping up with the watch's need for arrows, Kimberly.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
@@ -380,7 +380,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep my fire far from your shop.", next = "BACK", reply = "That's kind of you, and my powder thanks you. The door's just there, as I said.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fel fire does what I tell it. Don't fret.", next = "BACK", reply = "It's not what it does that worries me, friend, it's what it does near my kegs. Stand by the door anyway.", fx = { align = { order = -1 } } },
+        { text = "My fire does exactly what I tell it. Don't fret.", next = "BACK", reply = "It's not what it does that worries me, friend, it's what it does near my kegs. Stand by the door anyway.", fx = { align = { order = -1 } } },
         { text = "Something else, Henry.", next = "BACK" },
       },
     },
@@ -461,7 +461,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you to step back from the powder kegs, not because I don't trust you, but because I don't trust anything near powder." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Guns are loud, friend, so I'd guess you're here for the powder, and I'll be asking what it's for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Keep your fire away from my powder kegs, if you'd be so kind, because I'd like to keep my fine record." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I'll ask you to keep any fire you're carrying well away from my kegs, green or otherwise." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll ask you to keep any fire you're carrying well away from my kegs, green or otherwise. I know that look." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, and a shaman too! Dwarven blackpowder is like good ale, you know, so tell me, do your fire spirits approve of it?" },
       },
       again = {
@@ -479,7 +479,7 @@ P:NPC {
         { text = "Do your guns frighten the game from the hills, Chapal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do you think a rogue wants with powder, Henry?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever had a mage in the shop before, Henry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do you worry about fel fire near your kegs, Henry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you worry about green fire near your kegs, Henry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You seem to prefer dwarven blackpowder, Henry.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Henry.", next = "END" },
       },

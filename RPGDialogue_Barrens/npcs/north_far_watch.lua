@@ -206,7 +206,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I can smell the Nether on your sleeves, and so can the Burning Blade, so don't go near Dreadmist unless you want them to try to recruit you." },
+      text = "I can smell the Nether on your sleeves, and so can the Burning Blade, so don't go near Dreadmist unless you want them to try to recruit you." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. Good, the elements will tell you what I can't, which is how sick this land gets wherever the cult lights its fires." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -230,7 +230,7 @@ P:NPC {
         { text = "How do you know so much about the Burning Blade?", next = "know" },
         { text = "What happens on Dreadmist Peak?", next = "peak" },
         { text = "What do you make of Neeru Fireblade?", next = "neeru", when = { questDone = TODO_QUEST("Ak'Zeloth") } },
-        { text = "I have dealings with demons myself.", next = "lock", when = { class = "WARLOCK" } },
+        { text = "I have dealings with demons myself. Hungry ones.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Give me the task.", next = "BUSINESS" },
         { text = "I'll be going.", next = "END" },
       },
@@ -293,7 +293,7 @@ P:NPC {
     lock = {
       lines = { { id = "l_default", text = "Then you know the rule I live by: you hold the leash, or the leash holds you. The cultists on the peak forgot which end they had a long time ago, so watch how they die and learn from it." } },
       choices = {
-        { text = "I hold the leash, and I always will.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I hold the leash, and I always will. It knows that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

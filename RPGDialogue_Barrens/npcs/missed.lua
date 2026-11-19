@@ -319,10 +319,10 @@ P:NPC {
       choices = {
         { text = "Why would a seer live out here, among the Horde?", next = "why" },
         { text = "What do you see when you look?", next = "see" },
-        { text = "Those tauren braves have been watching your fire.", next = "tauren" },
-        { text = "Gakin says you can help me bind a succubus.", next = "heart", when = { questActive = TODO_QUEST("Devourer of Souls") } },
+        { text = "The tauren camp is close. Do they trouble you?", next = "tauren" },
+        { text = "Where is this symbol of love?", next = "heart", when = { questActive = TODO_QUEST("Devourer of Souls") } },
+        { text = "What do you know of my craft, Seer? Speak plainly.", next = "craft", when = { class = "WARLOCK" } },
         { text = "What has love to do with binding a demon?", next = "love", when = { class = "WARLOCK" } },
-        { text = "What do you know of my craft?", next = "craft", when = { class = "WARLOCK" } },
         { text = "My voidwalker won't come near your fire.", next = "void", when = { class = "WARLOCK", pet = { family = "Voidwalker" } } },
         { text = "You help warlocks call up demons, seer?", next = "light", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "You're a long way from your own people, human.", next = "horde", when = { faction = "Horde" } },

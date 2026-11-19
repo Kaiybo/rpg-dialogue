@@ -188,7 +188,7 @@ P:NPC {
       lines = {
         { id = "e_default", text = "That's no' my end o' the work, an' I'll no' tell ye anyway. We stole that learnin' a scrap at a time under the Firelord's eye, an' we got out o' the mountain wearin' it, so it stays in the Brotherhood." },
         { id = "e_lock", when = { class = "WARLOCK" },
-          text = "It's no' demon work, if that's what ye're sniffin' after, an' I'll thank ye tae keep yer imp away from my coals. The rest is Brotherhood business." },
+          text = "It's no' demon work, if that's what ye're sniffin' after, an' I'll thank ye tae keep that wee beastie away from my coals. The rest is Brotherhood business." },
       },
       choices = {
         { text = "Then keep your secret.", next = "BACK", fx = { affinity = 1 } },

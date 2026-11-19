@@ -65,7 +65,7 @@ P:NPC {
       },
       choices = {
         { text = "Make it plain, then. I'll not frighten the loggers.", next = "BACK", reply = "Plain grey, then, and a nice collar, and the loggers will think you're a scribe. That's the sort of respectable I like.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Make it dark. Let them think I'm trouble.", next = "BACK", reply = "Dark, with a wide hood, and they'll whisper about you all winter. I'll not stop you, but don't tell them I sewed it.", fx = { align = { order = -1 } } },
+        { text = "Make it dark. Let them wonder what I am.", next = "BACK", reply = "Dark, with a wide hood, and they'll whisper about you all winter. I'll not stop you, but don't tell them I sewed it.", fx = { align = { order = -1 } } },
         { text = "Something else, Sara.", next = "BACK" },
       },
     },
@@ -140,7 +140,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and your tabard's frayed at the hem from all that swinging. I could fix it, if you held still long enough." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting pockets, and plenty of them, because your sort always do." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Kaldorei, by the ears, and that leather's never seen a tanner's vat unless I'm much mistaken. Nobody in Eastvale stitches like that, so I'd love to know who did." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Those robes of yours have seen better days, and so have the hems, which I'd guess have been near something hot." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Those robes of yours have seen better days, and so have the hems, which I'd guess have been near something hot. Brimstone, by the smell of it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I make clothes out of bandit bandanas, so I'm in no position to judge anyone's strange habits. What do you need?" },
       },
       again = {
@@ -161,7 +161,7 @@ P:NPC {
         { text = "What does a tailor make for hunters, Sara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'd guess the Defias come into Eastvale now and then, Sara.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever take cloth or colour from the forest itself?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you make robes for a warlock, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could you make robes that hold up to brimstone, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Using the Defias's cloth must trouble you a little, Sara.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out for red.", next = "END" },
       },
@@ -298,7 +298,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd sooner carry the water myself, Gerard.", next = "BACK", reply = "Suit yourself, friend, and I'll be glad of the company on the walk. The pails don't get any lighter.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows after a boar's been through. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },
+        { text = "I know something that could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows after a boar's been through. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },
         { text = "Something else, Gerard.", next = "BACK" },
       },
     },
@@ -365,7 +365,7 @@ P:NPC {
           text = "A mage! You don't know a spell that makes rain fall on purpose, do you? The well's a long walk and the sun doesn't care." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, out among the vines. Mind your elbows; those rows took me years, and a sword takes them in a second." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the rows. If you've come for crows, you've come to the right place, and I'll thank you for every one." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You wouldn't have a cool drink in that bag, would you, or is it all bones and candles?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "That bag of yours keeps twitching, friend. You wouldn't have a cool drink in it, would you, or is it all bones and candles?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. If you can talk the well into being closer to the rows, I'd be grateful. It's a long walk." },
       },
       again = {

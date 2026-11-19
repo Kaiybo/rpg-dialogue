@@ -115,7 +115,7 @@ P:NPC {
         { text = "You scout like someone who learned young.", next = "scouting" },
         { text = "I'd scout quieter than you, dwarf.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I could carry word to Malin in Stormwind.", next = "priest", when = { race = "Human" } },
-        { text = "The Witherbark must have warlocks of their own.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Witherbark must traffic with dark powers of their own.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What did Trelane leave behind, Skuerto?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does anyone pray for the fallen of Stromgarde, Skuerto?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you want Trelane's wand taken back from the ogres?", next = "xapala", when = { class = "PALADIN" } },
@@ -139,7 +139,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel, an' I'd no call that thing at yer heel anythin' else. Keep it pointed at them an' no at Kryten, for the lad's already starin' at it, an' Malin would have my beard if anythin' happened tae him." },
       },
       choices = {
-        { text = "I'll keep him safe. You have my word.", next = "BACK", reply = "Thank ye. The lad's got enough tae fear wi'out yer friend lookin' at him funny.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep him safe. You have my word.", next = "BACK", reply = "Thank ye. The lad's got enough tae fear wi'out yer shadow lookin' at him funny.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The lad will have to see real power sometime.", next = "BACK", reply = "Aye, but no' today, an' no' from you. Keep it leashed an' we'll get on fine.", fx = { align = { light = -1 } } },
         { text = "Let's talk of other things.", next = "BACK" },
       },
@@ -282,7 +282,7 @@ P:NPC {
         { id = "h_enchant", tags = { "news" }, when = { questActive = TODO_QUEST("An Apprentice's Enchantment") },
           text = "The agate's enchanted, and it should open the tower's defenses, if my reading of Trelane's notes is right. Take it to Skuerto, and do tell him I was right." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock! Archmage Malin says warlocks are mages who stopped asking questions, {class}, but I'm sure that's unfair, probably." },
+          text = "Your fingers are stained black, {class}. Archmage Malin says the ones with stained fingers are mages who stopped asking questions, but I'm sure that's unfair, probably." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh! I didn't hear you come in, {class}, which is either very impressive or very worrying. Skuerto would know which, but he's out scouting." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, how reassuring! Skuerto says I'm too clumsy to scout, which is true, so it's comforting to meet someone even louder than me." },
@@ -299,7 +299,7 @@ P:NPC {
         { text = "Skuerto can't be easy to work with.", next = "skuerto" },
         { text = "I trained in Stormwind's Mage Quarter too.", next = "mage", when = { class = "MAGE" } },
         { text = "Is it wise to study troll magic?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "Do you think your master's right about warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is your master right to scorn the darker schools of magic?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you need anything taken from the Witherbark camps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You might wish you'd trained with a sword, Kryten.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does your journal say about the Highland beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -318,7 +318,8 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think he's right about most things, but he's never met a warlock who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." },
+      lines = {
+        { id = "xlock_default", text = "I think he's right about most things, but he's never met one of your sort who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think he's right about most things, but he's never met a warlock who could explain their craft, and he's certainly never met {pet}, who's looking at my notebook in a way I find flattering and slightly alarming. If you told me how a soul shard holds its charge, I'd listen very politely, and I'd only ask to sketch your demon once." },
       },
       choices = {
@@ -463,7 +464,8 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." },
+      lines = {
+        { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your company out of its sight, and you'll land where you meant to." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but you can see the feathers going flat all along the roost now your demon's in sight. Treat the bird well and send that thing out of the yard before we saddle up, or it'll try to shake you off over the Thandol Span the way the last one did." },
       },
       choices = {
@@ -488,7 +490,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds can carry you, armour and all, though the gryphons do complain about plate when the wind's blowing off the coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The gryphons don't care for whatever you've got following you, {class}, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The gryphons don't care for whatever you've got following you, friend, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
         { id = "h_dd_northfold", when = { questDone = TODO_QUEST("Northfold Manor") },
           text = "My gryphon riders flew over Northfold this morning and saw no Syndicate banners on the walls. Captain Nials says that's your doing, and I've told the riders to give you their best bird." },
         { id = "h_dd_falling", when = { deathCause = "falling" },
@@ -508,7 +510,7 @@ P:NPC {
         { text = "I'd guess gryphons complain about armoured riders, Cedrik.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do you feed the gryphons at Refuge Pointe?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do gryphons and hippogryphs get along, Cedrik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "I doubt your gryphons will carry a warlock, Cedrik.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt your gryphons will carry someone who smells like me, Cedrik.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the Highland winds trouble your gryphons, Cedrik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
@@ -659,7 +661,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Vikki Lonsav, general goods. If the Pointe runs out of something, it's my fault, so I make sure it doesn't run out of much." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Please keep your imp out of my supply tent, {class}, for the last time one came in here, I lost a bolt of linen and two candles." },
+          text = "Please keep that little shadow of yours out of my supply tent, {class}, for the last time something like it came in here, I lost a bolt of linen and two candles." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! I don't suppose you've any spare conjured bread, {class}? The soldiers are tired of mine, and it's the only bread I've got." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -678,7 +680,7 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do supplies reach you?", next = "supplies" },
         { text = "Your shelves look half empty.", next = "first" },
-        { text = "I'll pay for anything my imp breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'll pay for anything my little companion breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd guess the soldiers eat conjured bread.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has anyone actually stolen from you, Vikki?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How are the wounded at Refuge Pointe faring, Vikki?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -711,7 +713,8 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little imp sitting on a crate is enough to start a panic in a camp this tired." },
+      lines = {
+        { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little horned thing sitting on a crate is enough to start a panic in a camp this tired." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's decent of you, and the sooner the better, for the soldiers by the fire have gone quiet watching your demon, and they've jumped at every shadow since Stromgarde fell. A thing like that standing by my crates is enough to start a panic in a camp this tired." },
       },
       choices = {

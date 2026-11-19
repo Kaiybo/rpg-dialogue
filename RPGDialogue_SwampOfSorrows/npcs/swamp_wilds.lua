@@ -252,6 +252,7 @@ P:NPC {
   key = "fallen_hero", id = TODO_NPC("Fallen Hero of the Horde"), name = "Fallen Hero of the Horde",
   bible = "bibles/swampofsorrows.md", role = "questgiver", tier = "quest",
   communities = { "swamp_of_sorrows" }, temper = { "grave", "brooding" }, values = { "honor" },
+  prejudice = { class = "WARLOCK", amount = 15, why = "Remembers Gul'dan's warlocks selling orc blood for power; his grunts feared them more than demons." },
   notices = { "race", "class", "lock_soulstone" },
 
   impression = {
@@ -260,6 +261,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The warlocks of the old Horde sold my people's blood for power, and I watched them do it. Even dead, I will not pretend you are welcome." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You carry the stink of Gul'dan's council. Speak, if you must, and I will listen with my axe in my hand." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have served the Horde and kept that fire leashed. My grudge is older than you are, but I will set it down while we talk." },
     { id = "g_default", text = "You see me, then. Few stop for a dead orc's grief, so stay a moment and listen." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to this road, and to me. Speak, then, for I have nowhere else to be." },
   },
@@ -364,6 +368,8 @@ P:NPC {
           text = "A priest, on this road. Pray for my soldiers, if your gods will listen, for they will not hear me." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage, on this road. The air toward the Portal is thick with old magic, and you will feel it long before you see the stones, so walk carefully." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I remember what Gul'dan's warlocks made of my people, and I see the same fire in you. Say what you want of a dead orc, and do not linger." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have done right by Thrall's Horde, even with that fire in your hands. I will hear you." },
         { id = "h_default", key = true,
           text = "I led a regiment of the Horde called Thrall's Grasp, and it was destroyed in the lands beyond this swamp. Nineteen of my soldiers could have been spared, had the orders reached us, and I cannot rest until I know why they did not." },
         { id = "h_quest", when = { questActive = TODO_QUEST("The Disgraced One") },

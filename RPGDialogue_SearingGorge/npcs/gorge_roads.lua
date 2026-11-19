@@ -112,7 +112,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take any help I can get findin' my team, though I'd ask ye keep yer demon well clear o' the Suntara Stones, for I've enough trouble wi' fire in this place already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've a reek o' brimstone, stranger. I'll take any help I can get findin' my team, though I'd ask ye keep whatever follows ye well clear o' the Suntara Stones, for I've enough trouble wi' fire in this place already." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, thank the Light! I've walked half the Gorge wi' no one tae speak a word over my lost team, an' I'd rest easier knowin' someone would, if it comes tae that." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -147,7 +147,7 @@ P:NPC {
         { text = "Does every Dark Iron in this Gorge answer to the Firelord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do these Dark Iron fight, compared to your lot?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of tracks should I be looking for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "What's your quarrel with my demon, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's your quarrel with what follows me, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the stones here tell me where your team went?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The stone speaks to me, Dorius. It's restless here.", next = "xorig_stone", when = { origin = "dwarf_stone_listener" } },
         { text = "Be careful, Dorius.", next = "END" },

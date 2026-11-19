@@ -45,13 +45,14 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. He's asleep, more or less, and I'd like to enjoy it." },
       },
       choices = {
-        { text = "Teach my demon something new.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach my demon something new. It's grown restless.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "My imp won't listen to a word I say.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "What should I expect from my first imp?", next = "firstimp", when = { class = "WARLOCK", maxLevel = 12 } },
         { text = "How do you teach a demon?", next = "teach" },
         { text = "That imp seems fond of you.", next = "imp" },
         { text = "How does one of the risen end up training demons?", next = "risen" },
         { text = "The rest of Deathknell can't love having demons about.", next = "others" },
+        { text = "My imp ignores every word I say. I'm tempted to unmake it.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Shadow Priest Sarvis can't approve of all this.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Demons are Legion filth. I'd burn the lot.", next = "xlight", when = { class = { "PALADIN", "PRIEST", "MAGE" } } },
         { text = "I'll go.", next = "END" },
@@ -158,8 +159,8 @@ P:NPC {
         { id = "xw_scourge", when = { race = "Scourge" }, text = "Of course he won't, because you've been asking, and he can hear the Lich King's old habits in your voice, waiting to be told. You're nobody's servant now, so stop sounding like one, and give him something to burn later." },
       },
       choices = {
-        { text = "Tell him, don't ask him. I'll try that.", next = "BACK", fx = { affinity = 1 } },
-        { text = "I'd sooner cuff him till he listens.", next = "BACK", reply = "You can, and he'll listen, and he'll remember. Imps have long memories and very small hearts, so pick the lesson you'd like him to keep." },
+        { text = "Tell him, don't ask him. I'll make him want it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xpriest = {

@@ -1599,7 +1599,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "Ah, a student of the art, and one who has kept at their studies, by the look of that focus. It is a relief to be looked at by somebody who knows what a magus is." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I have written on the dangers of your sort of summoning, at length, and I notice you are all still doing it." },
+      text = "I have written on the dangers of your sort of summoning, at length, and I notice you are all still doing it." },
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "That is a heavy purse to carry about a racetrack. Keep it away from the betting stand, I say, and I say it as a man who knows precisely where the stand is." },
   },

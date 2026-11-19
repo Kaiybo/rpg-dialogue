@@ -443,7 +443,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, and trained somewhere reputable by the look of your wards. Then you will understand why I do not permit wandering inside these walls." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "I can smell the fel on you from here. Conduct yourself perfectly, because I have empty cells and very little patience for your kind of study." },
+      text = "I can smell the brimstone on you from here. Conduct yourself perfectly, because I have empty cells and very little patience for your kind of study." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "From the south, I take it. Dalaran still honours its old friendships, but it does not relax its rules for them." },
   },

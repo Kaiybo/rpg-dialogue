@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep it leashed and your trees safe, Daphne.", next = "BACK", reply = "I'd be obliged, love, because those trees are older than our marriage. The Defias are welcome to whatever comes up the hill, though.", fx = { align = { order = 1 } } },
-        { text = "Let them come up the hill. My imp is hungry.", next = "BACK", reply = "Hungry for Defias, I hope, and not for my hens. Keep it out of the orchard either way, if you please.", fx = { align = { order = -1 } } },
+        { text = "Let them come up the hill. It hasn't fed in days.", next = "BACK", reply = "Hungry for Defias, I hope, and not for my hens. Keep it out of the orchard either way, if you please.", fx = { align = { order = -1 } } },
         { text = "Something else, Daphne.", next = "BACK" },
       },
     },
@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time; the tide's turning, and the Brotherhood like to come up with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then you've seen what's left on the beach after the murlocs have been at it, and you know why I keep the gate shut." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my hill! The soil up here is tired, but the apple trees still try, bless them, and I suspect you'll notice." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my hill, and with something smoky trailing behind. Mind my apples, and we'll get along fine." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something smoky trails up my hill behind you, love. Mind my apples, and we'll get along fine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, all the way up here? Have an apple. If your spirits can tell me when Jordan will write again, I'd count it a kindness." },
       },
       again = {
@@ -130,7 +130,7 @@ P:NPC {
         { text = "How do the Defias come at your farm, Daphne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the murlocs come up as far as your farm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your orchard lives where the rest of Westfall died. How?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would the Defias below fear something like my imp?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the Defias below fear what follows me about, Daphne?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You don't seem to fear the Defias down the hill, Daphne.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },

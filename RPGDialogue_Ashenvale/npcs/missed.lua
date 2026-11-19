@@ -684,7 +684,7 @@ P:NPC {
         { text = "Tell me about this cult.", next = "cult" },
         { text = "How do you find sharing a post with humans?", next = "humans" },
         { text = "Who commands here?", next = "command" },
-        { text = "A warlock's word may be of use to you.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I know how the cult thinks. My word may be of use.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Keep your watch, Sentinel.", next = "END" },
       },
     },

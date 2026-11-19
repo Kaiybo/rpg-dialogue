@@ -19,6 +19,7 @@ P:NPC {
   key = "ar_oslight", id = TODO_NPC("Field Marshal Oslight"), name = "Field Marshal Oslight",
   bible = "bibles/arathi_folk.md", role = "soldier", tier = "quest",
   communities = { "refuge_pointe" }, temper = { "proud", "steady" }, values = { "dutiful", "honor" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Arathi officer; his family's farm burned under orcish warlock fire in the Second War." },
   notices = { "race", "class", "reputation" },
 
   impression = {
@@ -27,6 +28,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know a warlock when one walks into my camp. You'll find no welcome here from me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I fought the Horde when its warlocks burned the Arathi farms in the Second War. Say your business quickly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for the League without bringing your arts to my table, and I've noticed. Stand at the map, then, but I'll keep an eye on you." },
     { id = "g_default", text = "Another sword for Arathi? Stand easy, soldier, and look at this map with me." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the table, I see. The Basin has changed hands twice since you were last here." },
     { id = "g_honored", when = { reputation = { faction = "League of Arathor", min = "honored" } }, text = "One of the League's own, and a name I've heard at this table more than once. Welcome back, soldier." },
@@ -53,6 +57,8 @@ P:NPC {
 
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father's farm was burned by orcish warlocks in the Second War, and I saw what their fire left behind. I'll take your sword for the League, but not your company at my table." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled in the Basin for Arathor, and I'll not deny it. Speak, then, though I've not forgotten what you are." },
         { id = "h_default", key = true,
           text = "The League of Arathor has sworn to retake Arathi for the humans of Stromgarde and for the Alliance. It is a hard fight, and a fight worth having, and I mean to see it won before I'm too old to ride." },
         { id = "h_active", tags = { "news" }, when = { questActive = Q_AB },

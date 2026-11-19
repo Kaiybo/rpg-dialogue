@@ -7,6 +7,7 @@ P:NPC {
   key = "rainer", id = TODO_NPC("Deputy Rainer"), name = "Deputy Rainer",
   bible = "bibles/rainer.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "lawful", "brave" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "His brother went through the Dark Portal with the expedition and never came back; blames the warlocks who opened it." },
   notices = { "trophy", "kit", "lock_eyes" },
   impression = {
     first = "He greeted me like the squad he asked for and never got.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My brother went through the Dark Portal with the expedition and never came back, and it was warlocks that opened it. Keep away from my lads." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I asked the crown for soldiers and got a warlock. Stand by the gate where I can see you, and keep your creature on the far side of it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've held this gate with us more than once, and the lads have stopped crossing themselves when you come. I haven't, quite, but I'm getting there." },
     { id = "g_gate", text = "Welcome to Westbrook Garrison, what there is of it." },
     { id = "g_help", when = { questActive = TODO_QUEST("Westbrook Garrison Needs Help!") }, text = "So Marshal Dughan sent you, did he? Good; I asked for a squad, but you'll do." },
     { id = "g_bounty", when = { questActive = TODO_QUEST("Riverpaw Gnoll Bounty") }, text = "Bring me proof off those gnolls, and a good fistful of it." },
@@ -85,7 +89,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. They'll smell that thing at your heel too, I expect, so keep it pointed at them and not at my lads, or Marshal Dughan will have my badge." },
       },
       choices = {
-        { text = "I'll keep my demon from your lads. They'll be safe.", next = "BACK", reply = "Good, and I'll hold you to it. Dughan's fond of my badge, and so am I.", fx = { align = { light = 1 } } },
+        { text = "Nothing of mine will touch your lads. They'll be safe.", next = "BACK", reply = "Good, and I'll hold you to it. Dughan's fond of my badge, and so am I.", fx = { align = { light = 1 } } },
         { text = "Your lads should learn to fear me as much as Hogger.", next = "BACK", reply = "My lads already fear plenty, friend, and they don't need more. Keep it on the gnolls.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -107,7 +111,9 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, here at Westbrook. If you've come about the bounty, Hogger's the one on the notice, not me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
+          text = "You're not from around here, and something about you sets my teeth on edge. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know a warlock when one walks up to my gate. Westbrook needs help, but not your kind of help, so keep your business short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've earned a place at the gate, I'll give you that, but I still count the lads after you've gone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at Westbrook. The gnolls cross the river at night, and I could use someone who sees in the dark better than my lads." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I asked Stormwind for a squad and got a handful of farmers, so I'll take a mage gladly, and I'll not ask for anything else." },
@@ -129,7 +135,7 @@ P:NPC {
         { text = "Westbrook looks to be in danger, Deputy.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help hold the road.", next = "END", fx = { affinity = 1, standing = { goldshire = 1 } } },
         { text = "I'd guess you'd hire a rogue to deal with Hogger.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would a warlock's help with Hogger be welcome here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would help of my sort with Hogger be welcome here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where do the gnolls cross the river, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The gnolls seem to hunt this forest for sport.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How could a mage best help Westbrook, Deputy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

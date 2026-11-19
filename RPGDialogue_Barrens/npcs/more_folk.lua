@@ -531,7 +531,7 @@ P:NPC {
         { text = "You teach Horde and Alliance alike?", next = "both" },
         { text = "What goes into a robe like the one you make?", next = "robe" },
         { text = "Strahad Farsan's acolytes keep a tower nearby.", next = "strahad" },
-        { text = "I'm told you make orbs that hold demons.", next = "orbs", when = { class = "WARLOCK" } },
+        { text = "I'm told your orbs can hold a demon. I may need one.", next = "orbs", when = { class = "WARLOCK" } },
         { text = "My trainer says I'm nearly ready for a succubus.", next = "succ", when = { class = "WARLOCK", minLevel = 18, maxLevel = 30 } },
         { text = "Strahad tells me I'm ready for a felhunter.", next = "felhunter", when = { class = "WARLOCK", minLevel = 28 } },
         { text = "Your study smells of brimstone and lavender.", next = "study" },

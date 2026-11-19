@@ -7,6 +7,7 @@ P:NPC {
   key = "bl_thunderheart", id = TODO_NPC("Thunderheart"), name = "Thunderheart",
   bible = "bibles/kargath_force.md", role = "questgiver", tier = "quest",
   communities = { "kargath" }, temper = { "calm", "grim" }, values = { "wise", "dutiful", "nature" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Tauren shaman who feels the fel as a wound in the earth; the orc shamans told him how it poisoned their world." },
   notices = { "race", "class" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The earth flinches where you step, young one, and so do I. Speak, but do not sit." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The orcs' shamans told me how the fel poisoned their world. I will not let it poison mine, so keep your demon away from my fire." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits have watched you a long while and found less to fear than I did. I will not fear you, then, but I will keep watching." },
     { id = "g_default", text = "Sit a moment, young one, if you have it to spare. The ground here is warm, and not with the sun." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the earth is no calmer for it, though I am glad to see you." },
     { id = "g_away", when = { away = 14 }, text = "{away} you have been gone, and the fire below has not slept a single night of it. Sit, and I will tell you what I have felt." },
@@ -45,6 +49,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The elements here are already sick with fire, and you bring a worse sickness with you. Say what you came to say, and then go." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The ground no longer shudders quite so much when you come. Sit, then, though not too near." },
         { id = "h_default", key = true,
           text = "I am Thunderheart, of the Kargath Expeditionary Force, and I listen to the elements beneath Blackrock Mountain. They are not well; something below has made them sick with anger, and the anger is spreading." },
         { id = "h_flame", tags = { "news" }, when = { questActive = TODO_QUEST("Disharmony of Flame") },

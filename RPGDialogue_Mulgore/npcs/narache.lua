@@ -6,6 +6,7 @@ P:NPC {
   key = "hawkwind", id = TODO_NPC("Chief Hawkwind"), name = "Chief Hawkwind",
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "narache" }, temper = { "resolute" }, values = { "dutiful", "protective" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Guards the young of Narache; a demon-caller near the calves is a danger he won't allow." },
   notices = { "greenness", "race", "origin", "lock_shards", "lock_soulstone" },
   impression = {
     first = "He mourns his mother, the Greatmother, by standing straighter.",
@@ -20,6 +21,9 @@ P:NPC {
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp tells me of the work you've done for us. You honour the Hawkwind's fire, and we will remember it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your words in this camp was found false. The young learn from what they see, so I'd ask you to show them better." },
     { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "Your mother's child, come back to the fire. She brought in more plainstriders off Red Cloud Mesa than any hunter of her season, and she thanked the Earth Mother for every one, loud enough that the whole camp heard." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The young ones of this camp are in my care, and I won't have a demon-caller near them. Speak to me here, at the edge of camp." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My braves have orders to watch you while you walk Narache. I gave those orders myself, and I will not apologise for them." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come and gone from Narache, and no calf has come to harm for it. I still watch you, but I watch you less." },
   },
 
   notice = {
@@ -124,7 +128,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "I'll trust what you do, not what you carry, because my mother taught me that much before the Bristleback took her. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and if you serve something else, I'll remember that too." },
+        { id = "xwarlock_default", text = "I'll trust what you do, not what you carry, because my mother taught me that much before the Bristleback took her. The orcs say their dark casters once nearly destroyed them, so serve the Horde and I'll remember it, and if you serve something else, I'll remember that too." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'll trust what you do, not what you carry, though I'll admit what you carry is staring at me, and I don't like it. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and keep that thing from wandering among my people." },
       },
       choices = {
@@ -154,7 +158,9 @@ P:NPC {
           text = "They came to our camp with fire and spears, and now we go to theirs. Make them remember the Hawkwind." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "The spirits have touched you, young one, and I can see it in the way you stand. My mother would have wanted you beside her at the rites." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Narache. My mother would have welcomed you, because the Greatmother believed every healer was a gift from the Earth Mother, whatever name they gave it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in Narache. My mother would have welcomed you, so I will too, but I will be watching you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "My mother would have welcomed any stranger to Narache, so I will too. But there's a smell of old ash on you, and I will be watching." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Whatever my mother would have done, I know what you carry, and the young ones sleep a stone's throw from here. Be brief with me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have kept your dark craft away from the calves every time, and I'm grateful for it. Speak, then." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bristleback", min = 30 } }, text = "The braves say the Bristleback have gone quiet in the hills since you went among them. My mother would have been proud of you, and so am I." },
       },
       choices = {
@@ -168,7 +174,7 @@ P:NPC {
         { text = "The Bristleback won't see me coming, Chief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Perhaps the arcane could have saved the Greatmother.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you want a prayer said for the Greatmother, Chief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Will you trust a warlock in your camp, Chief?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you trust me in your camp, Chief, knowing what I carry?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would the Greatmother have made of me, Chief?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
       },
@@ -375,12 +381,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "He doesn't trust anything that might bite the hand that feeds it, and the orcs say demons always do. I'm curious, though, so if you and your demon hunt the Bristleback with my braves, I'll judge you by what you bring home." },
+        { id = "xwarlock_default", text = "He doesn't trust anything that might bite the hand that feeds it, and the orcs say your sort of servant always does. I'm curious, though, so if you and that thing hunt the Bristleback with my braves, I'll judge you by what you bring home." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "He doesn't trust anything that might bite the hand that feeds it, and your demon is watching my braves like it wonders how they'd taste. I'm curious, though, so if you and {pet} hunt the Bristleback with us, I'll judge you both by what you bring home." },
       },
       choices = {
         { text = "Then I'll hunt beside your braves and honor your father's camp.", next = "BACK", reply = "Then you'll eat with us, and my father will see what kind of hunter you are. I'm curious, as I said, and I'm patient.", fx = { align = { order = 1 } } },
-        { text = "Your father's trust isn't something I need.", next = "BACK", reply = "Maybe not, but you'll find it easier to hunt here with it. I'll judge you myself, then, and he'll listen to me eventually.", fx = { align = { order = -1 } } },
+        { text = "Your father's trust isn't something I need. Or want.", next = "BACK", reply = "Maybe not, but you'll find it easier to hunt here with it. I'll judge you myself, then, and he'll listen to me eventually.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -402,7 +408,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Narache's hunts come home with plenty of scratches, so stay close, because I'd rather lead a hunt with a healer than without one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You'd make a fine scout for my hunts, if you can keep up." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you light a fire without flint? My hunters would trade a lot for that." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My father would want me to send you away, but I'd rather see what you can do." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "My father would want me to send you away; he's been staring at your shadow since you came in. I'd rather see what you can do." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Battleboar", min = 20 } }, text = "You've been thinning out the battleboars, and the hunters say the plains around the camp are safer for it. I'll make a hunter of you yet, whatever you call yourself." },
         { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Ha, the mesa hunter's calf! Your mother let me carry her spears once when I was small, and I dropped them all in the creek, so I've been trying to outhunt her ever since." },
         { id = "h_dd_sharptusk", tags = { "news" }, when = { questDone = TODO_QUEST("Break Sharptusk!") }, text = "My father told the whole camp you broke Chief Sharptusk and sent the Bristleback running, and he told it twice so the young ones would remember. I'd have liked to be there, but I'm told I'm more use here with the plainstriders." },
@@ -416,7 +422,7 @@ P:NPC {
         { text = "Will you take a priest on your next hunt, Grull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A rogue could scout your hunts, Grull.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would a mage be welcome on your hunts, Grull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Your father doesn't seem to trust warlocks, Grull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your father doesn't seem to trust my kind, Grull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you hunt beside a Forsaken paladin, Grull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Your father talks about Sharptusk a great deal, Grull.", next = "dd_sharptusk", when = { questDone = TODO_QUEST("Break Sharptusk!") } },
         { text = "Tell me how a Narache hunt is run.", next = "hunts" },

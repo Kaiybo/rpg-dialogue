@@ -386,7 +386,7 @@ P:NPC {
   },
   notice = {
     { id = "n_warlock", cat = "arcane", when = { class = "WARLOCK" },
-      text = "Oh, a warlock. I've no quarrel with you, but your school draws power in a way that makes my instruments twitch, so do stand a little further from the reagent shelf." },
+      text = "Oh. Your school draws power in a way that makes my instruments twitch, I'm afraid, so do stand a little further from the reagent shelf." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest! You'll want High Priest Rohan's people on the other side of the Hall, though you're very welcome to stay and listen." },
   },

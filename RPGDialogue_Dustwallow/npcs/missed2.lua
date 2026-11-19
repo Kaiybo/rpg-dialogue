@@ -23,7 +23,7 @@ P:NPC {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
       text = "Well met, {g:brother|sister}. There are few of our order on this side of the sea, and I feel the lack of them every day." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "I know what you traffic in, and I will not pretend it sits easily with me. Lady Proudmoore tolerates much, so I shall hold my tongue and watch your hands." },
+      text = "I think I know what you traffic in, and I will not pretend it sits easily with me. Lady Proudmoore tolerates much, so I shall hold my tongue and watch your hands." },
   },
   start = "hello",
   nodes = {

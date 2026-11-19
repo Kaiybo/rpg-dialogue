@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/easternplaguelands.md", role = "noble", tier = "major",
   communities = { "light_hope", "argent_dawn" }, temper = { "reserved" }, values = { "devout", "pragmatic" },
   likesTone = "polite", private = { "silver_hand" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Old Silver Hand paladin; the Dawn takes all who fight, but he can't forget the Cult's dark-callers." },
   notices = { "race", "class", "form" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Dawn turns no one away who fights the Scourge, and I keep to that. But I know what you deal with, and I'll not pretend it sits easily with me in this chapel." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You are standing on consecrated ground with the Nether in your hands. Say what brings you, and say it quickly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have done more for this chapel than many who pray in it, and I find I can't argue with that. I'll not bless what you carry, but I'll take your hand." },
     { id = "g_rare", text = "I don't often receive visitors here at the chapel, and I'm out of practice at being a host." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Few return from the Plaguelands twice, and fewer bother to call on me." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "A knight of the old Hand, risen. I'm not at ease with it, but the Light answers you, and in this chapel I'll not argue with the Light." },
@@ -130,6 +134,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Cult of the Damned learned its first summonings from people who carried what you carry. I lead the Dawn, so I'll hear you out, but my knights will be watching." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've served the Dawn honestly, whatever you keep at your heel. Sit, if you like; my knights have stopped reaching for their swords when you come in." },
         { id = "h_dd_darrow", tags = { "news" }, when = { questDone = TODO_QUEST("The Battle of Darrowshire") },
           text = "Carlin Redpath tells me Darrowshire's last stand has been fought again, and won this time, with you beside its ghosts. The Dawn owes that town a debt it can never repay, and you have paid some of it for us." },
         { id = "h_dd_exalted", when = { reputation = { faction = "Argent Dawn", min = "exalted" } },
@@ -169,7 +175,7 @@ P:NPC {
         { text = "My training ended when the Hand broke apart.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Gregor Greystone in Everlook sends his regards.", next = "gregor", when = { heardLine = "gregor.h_default" } },
         { text = "What does the Dawn need from a healer?", next = "priest_dawn", when = { class = "PRIEST" } },
-        { text = "Will the Dawn take a warlock's help?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Will the Dawn take help it would rather not name, my lord?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Ironforge sends you little, my lord. I came anyway.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Why would Kirin Tor mages join the Dawn and not Dalaran?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'd guess the Argent Dawn has little use for rogues.", next = "xrogue", when = { class = "ROGUE" } },
@@ -292,10 +298,10 @@ P:NPC {
     },
     x_warlock = {
       lines = {
-        { id = "xw_default", text = "The Dawn will take help from anyone who stands against the Scourge and keeps their word, which is the very reason I left the Silver Hand when it stopped believing that. I ask only that you keep your demons outside these walls; this chapel has seen enough of things that do not belong here." },
+        { id = "xw_default", text = "The Dawn will take help from anyone who stands against the Scourge and keeps their word, which is the very reason I left the Silver Hand when it stopped believing that. I ask only that whatever answers your call stays outside these walls; this chapel has seen enough of things that do not belong here." },
       },
       choices = {
-        { text = "My demons stay outside. You have my word.", next = "BACK", reply = "Thank you. Your word is enough for me, and the stables will be glad of it too.", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
+        { text = "What follows me stays outside. You have my word.", next = "BACK", reply = "Thank you. Your word is enough for me, and the stables will be glad of it too.", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
         { text = "What I bring with me is my own affair, my lord.", next = "BACK", reply = "Within the chapel walls, it's mine. Keep them outside, or keep yourself outside with them.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -514,7 +520,7 @@ P:NPC {
         { id = "h_sacrifice", when = { metBefore = true },
           text = "They call me Revered, though I'd rather they didn't. I only did what anyone would, if they'd already lost everything else." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. The Dawn's living members flinch at us both, {class}, but I think the Scourge flinches more, and that is all I ask of my own darkness." },
+          text = "You and I both carry a darkness, {name}, and the Dawn's living members flinch at us alike. But I think the Scourge flinches more, and that is all I ask of my own." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Forgive my face, {class}, for the plague took it before the Banshee Queen gave me back my mind, and mages in particular tend to stare." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -533,7 +539,7 @@ P:NPC {
         { text = "Who is Ras Frostwhisper?", next = "ras", when = { heardLine = "leonid.h_ras" } },
         { text = "We're the same, you and I.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The Light answers me too, Revered.", next = "x_paladin", when = { race = "Scourge", class = "PALADIN" } },
-        { text = "Do you see your undeath as a weapon too?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you see your undeath as a weapon too, Revered?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Dawn ask of its mages, Leonid?", next = "xmage", when = { class = "MAGE" } },
         { text = "The Dawn's living soldiers can't trust you easily, Leonid.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I doubt beasts can tell you aren't Scourge, Leonid.", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -556,7 +562,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
+        { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. What you keep is a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demon stands there like a weapon waiting to be drawn, so I would ask of you what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
       },
       choices = {

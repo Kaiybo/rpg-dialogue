@@ -140,7 +140,7 @@ P:NPC {
           when = { origin = "human_westfall_farmhand" } },
         { text = "I'll pray the Light watches over your vineyard.", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Could a rogue help you get your harvest back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would you really take a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really take help from someone like me, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "There seem to be a good many Defias in the vineyard, Milly.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the Defias hurt the vines, or only stolen the grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

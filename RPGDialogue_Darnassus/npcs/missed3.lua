@@ -252,7 +252,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, and welcome to the Enclave. I keep seeds for you that are still living, since the old workings will not answer to a dead one." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "I have nothing for your craft, warlock, and I would ask you to stand clear of the seed trays. Some of them are sensitive to that kind of company." },
+      text = "I have nothing for whatever craft you practice, and I would ask you to stand clear of the seed trays. Some of them wilt in that kind of company." },
   },
   start = "hello",
   nodes = {

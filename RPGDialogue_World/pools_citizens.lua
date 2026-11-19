@@ -1717,7 +1717,7 @@ P:Pool {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, all the way out here! It gets lonely being the only voice at prayers in a land this dead, so our chaplain will be glad of you." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "Keep away from the Mannoroc Coven, warlock or not. Whatever's buried there doesn't care whose side you're on." },
+      text = "Keep away from the Mannoroc Coven, whatever it is you read by candlelight. Whatever's buried there doesn't care whose side you're on." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "The kodo graveyard's south of here. Hunters go to look at the bones and come back quiet, and you'll understand why when you see it." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },

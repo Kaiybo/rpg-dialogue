@@ -127,7 +127,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. That thing at your heel is exactly what would bring every troll on the ridges down on us, so keep it inside these walls and out of their sight, because I've no men to spare for that fight." },
       },
       choices = {
-        { text = "I'll keep my demon inside the walls.", next = "BACK", reply = "Wise. Keep it close and quiet, and we will not give the trolls another reason to scream at our walls.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It stays inside the walls, Commander.", next = "BACK", reply = "Wise. Keep it close and quiet, and we will not give the trolls another reason to scream at our walls.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them fear us. Fear makes them cautious.", next = "BACK", reply = "Fear makes a troll cautious and a grunt nervous, and I want neither near my gate. Keep it inside the walls, warlock.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -150,7 +150,7 @@ P:NPC {
         { id = "h_zeppelin", when = { race = "Scourge" },
           text = "Off the zeppelin from the Undercity, are you? Good. The Dark Lady's people don't tire and don't complain, which makes you the best grunts I've had all month." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the Bloodscalp trolls on the ridges are watching Grom'gol day and night, and I need someone who can watch them back without being seen." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll take any strength that keeps Grom'gol standing, but keep your demon inside the walls, because the trolls here are superstitious, and I don't need them any angrier." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll take any strength that keeps Grom'gol standing, but keep that thing at your heel inside the walls, because the trolls here are superstitious, and I don't need them any angrier." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I don't care what you pray to, only whether you're here to work, because the road to Stonard needs keeping." },
       },
       again = {
@@ -172,7 +172,7 @@ P:NPC {
         { text = "The living sweat in this jungle. I don't.", next = "k_scourge", when = { race = "Scourge" } },
         { text = "I can keep the raptors off your caravans.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Why are the Bloodscalp watching Grom'gol, Commander?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "The trolls must fear warlocks, Commander.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The trolls must fear what I keep, Commander.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can a Forsaken paladin serve at Grom'gol, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { gromgol = 1 } } },
       },
@@ -529,7 +529,7 @@ P:NPC {
           text = "Zengu send Trol'kalar down from Hammerfall, the humans' troll-killer sword, and now it hang here waiting for the Gurubashi. You had a hand in that too, I hear." },
         { id = "h_dream", when = { metBefore = true }, text = "Nimboya dream of Yenniku last night, small, like when he was a boy. Nimboya wake up and sharpen the spear." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could slip into the Bloodscalp camps and look for Yenniku, maybe, where a warrior like me only start a war." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your power might frighten the Bloodscalp into giving up Yenniku, but I not risk the boy's life on a demon's temper." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your power might frighten the Bloodscalp into giving up Yenniku, but I not risk the boy's life on a demon's temper." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. Your eyes be good in this jungle, and good eyes might find the tracks of Yenniku where mine see only mud." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid of the tauren, in this jungle. You know the beasts, and the beasts here know where the Bloodscalp hide Yenniku, if only they could tell us." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with the Light, mon. I hear the Forsaken have strange priests now, but you be stranger still." },
@@ -998,6 +998,7 @@ P:NPC {
   key = "mokthardin", id = TODO_NPC("Far Seer Mok'thardin"), name = "Far Seer Mok'thardin",
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "gromgol" }, temper = { "calm" }, values = { "wise", "patient" },
+  prejudice = { class = "WARLOCK", amount = 14, why = "Old enough to remember Gul'dan's warlocks turning the orc shamans from the spirits." },
   notices = { "class" },
 
   impression = {
@@ -1006,6 +1007,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I was young when Gul'dan's warlocks turned our shamans from the spirits, and the spirits did not answer us for a generation. Do not come near my fire." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The ancestors go quiet when you walk into this camp. Speak from where you stand." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits have not fled from you as I thought they would. Sit, then, at the edge of the fire." },
     { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Commander Aggro'gosh tells me you stand behind the Warchief without a doubt in you. The spirits favour a steady heart, so come and sit, steady one." },
     { id = "g_fire", text = "The camp is loud with grunts and drums, but here by the fire the spirits are quieter. Speak, and I'll listen." },
     { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you, and the ancestors watched it burn. Sit." },
@@ -1148,6 +1152,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The beasts of this jungle carry old power, and you'll feel it if you sit by my fire, though it isn't the kind your prayers were made for." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I remember the day the spirits stopped answering us, and I remember who was to blame. Say what you want from an old far seer, and then leave my fire." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The spirits do not flee from you anymore, and I have stopped expecting them to. Sit, if you like." },
         { id = "h_default", key = true,
           text = "Far Seer Mok'thardin, of Orgrimmar. Thrall taught us to ask the spirits before we take, and the beasts of Stranglethorn carry old power in their blood and bones that I'm learning to ask for." },
         { id = "h_ench", when = { questActive = TODO_QUEST("Mok'thardin's Enchantment") },
@@ -1401,7 +1407,7 @@ P:NPC {
 
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Sit by the fire and tell me whether the elements have anything to say about the rain, because it hasn't stopped since I got here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit close to the fire; whether you pray to the loa or the shadows, you'll do it better on a full stomach." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Sit and eat; your demon can have the scraps, and the grunts can stop staring, because I've told them to." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Sit and eat; your demon can have the scraps, and the grunts can stop staring, because I've told them to." },
         { id = "h_default", key = true,
           text = "Innkeeper Thulbek. As long as Grom'gol stands, there's a bed here for any blood of the Horde. All I ask is a story of the fighting while you eat, because an orc's dinner goes down easier with a battle in it." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he wrestled a gorilla. By morning it was two gorillas, and by noon, a gorilla king, which makes a good story and a bad liar." },

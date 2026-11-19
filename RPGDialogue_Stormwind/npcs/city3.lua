@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the garden. Do try not to trample the hedges; the House of Nobles takes its gardens more seriously than its soldiers." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the countryside. I suppose you see a good deal more of the kingdom than the House does." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Royal Library. How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Someone from beneath the Lamb, in the Royal Library? How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How novel. Ironforge sends us all sorts these days, and I suppose some of them must be useful." },
       },
       again = {
@@ -165,7 +165,7 @@ P:NPC {
         { text = "Does the House of Nobles care what the Church thinks, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Silver Hand have friends in the House, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the House of Nobles welcome the night elves, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do the nobles ever have use for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the nobles ever have use for someone with quiet talents, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the nobles think shamans useful, Lord Lescovar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
@@ -303,12 +303,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'd pick a fight with a door if it looked at me wrong, and your imp's got a very rude face. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, and he was green for a week." },
+        { id = "xlock_default", text = "I'd pick a fight with a door if it looked at me wrong, and that wee thing o' yours has got a very rude face. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, and he was green for a week." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd pick a fight with a door if it looked at me wrong, and your {pet}'s been looking at me wrong since you walked in. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, so tell it to keep its eyes to itself before I forget that." },
       },
       choices = {
-        { text = "Leave the imp be, Dashel, and we'll get on fine.", next = "BACK", reply = "Done, so long as it stops makin' faces at me. Deal's a deal, friend.", fx = { align = { honor = 1 } } },
-        { text = "Swing at it, Fist. I'd love to see what happens.", next = "BACK", reply = "Ha! Ye'd like that, would ye? I'd lose an eyebrow an' ye'd never stop laughin'.", fx = { align = { honor = -1 } } },
+        { text = "Leave my little friend be, Dashel, and we'll get on fine.", next = "BACK", reply = "Done, so long as it stops makin' faces at me. Deal's a deal, friend.", fx = { align = { honor = 1 } } },
+        { text = "Swing at it, Fist. I'd love to watch what it does back.", next = "BACK", reply = "Ha! Ye'd like that, would ye? I'd lose an eyebrow an' ye'd never stop laughin'.", fx = { align = { honor = -1 } } },
         { text = "Something else, Dashel.", next = "BACK" },
       },
     },
@@ -407,7 +407,7 @@ P:NPC {
         { text = "Do you ever ask anyone to pray for you, Fist?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do you think paladins don't fight, Fist?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you really square up against a bear, Fist?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you really pick a fight with my imp, Dashel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You'd pick a fight with anything small enough, wouldn't you, Dashel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you ever listen to anything but your fists, Dashel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'm not looking for trouble.", next = "END" },
       },
@@ -618,7 +618,7 @@ P:NPC {
           text = "A mage! Ye'll no' want my armour, then, an' I'll no' be offended, much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, wantin' armour? Mail rattles in the bushes, ye ken, so I'll fit ye somethin' that sits quiet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've never armoured one o' yer kind, since ye keep changin' shape on me, but I'd like tae try." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Robes an' a demon, an' no use for my shields, though I'll mend a buckle if ye ask nicely." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Black robes an' somethin' small hidin' behind 'em, an' no use for my shields, though I'll mend a buckle if ye ask nicely." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandfather told stories o' an old Wildhammer who spoke tae the winds, but I never thought I'd see one o' ours from Ironforge doin' it." },
       },
       again = {
@@ -637,7 +637,7 @@ P:NPC {
         { text = "Should a priest wear armour, Furen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What can you tell from a paladin's dents, Furen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could you fit armour that changes shape along with me, Furen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Is there anything you'd make for a warlock, Furen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there anything you'd make for someone in black robes, Furen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the forge fire speak to you, Furen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
@@ -700,6 +700,7 @@ P:NPC {
   key = "thelwater", id = TODO_NPC("Warden Thelwater"), name = "Warden Thelwater",
   bible = "bibles/city3.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "A warlock prisoner's summoned thing killed one of his guards in the Stockade cells." },
   notices = { "soldier", "stealth", "lock_shards" },
   impression = {
     first = "He looks like a man who has stopped opening his letters.",
@@ -707,6 +708,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "No. No, not in my Stockade. The last warlock in these cells called up something that killed one of my guards, and I'm still writing the reports." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know what you are, and I want you out of here before something follows you in. Say it quickly, please." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been in and out of here a dozen times, and nobody's died. I'll take that, though I'd still like you nearer the door." },
     { id = "g_quiet", text = "Yes? Quickly, and quietly, please, because everything about this place should be quiet, especially lately." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you, good. No, I mean it: you're the only one who's ever made things better down there." },
   },
@@ -768,12 +772,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." },
+        { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, the thing he kept set the straw alight in three cells at once. We hold his kind in the deepest cells now, chained and gagged, and I still don't sleep." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We did, a thief from the Lamb's crowd, and his companion set the straw alight in three cells before we could get the chains on him. Seeing yours stand there looking at my keys, I've half a mind to double the guard on the deep cells tonight, and I still won't sleep." },
       },
       choices = {
         { text = "Chains and gags are wise, Warden. Better safe than burned.", next = "BACK", reply = "Better safe than burned, exactly. I've had enough fire for one career.", fx = { align = { order = 1 } } },
-        { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", reply = "Then you've never seen an imp loose in a cell block, and I hope you never do.", fx = { align = { order = -1 } } },
+        { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", reply = "Then you've never seen something like that loose in a cell block, and I hope you never do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -833,7 +837,9 @@ P:NPC {
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I know your face from the canal sweeps, years back; you were too small to keep and too quick to catch. Don't make me regret letting you go, please, not this week." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Please don't summon anything in here. I've had a warlock in the cells before, and the thing he called up didn't care which side of the bars it was on." },
+          text = "Please don't call up anything in here. I've had one of the Lamb's crowd in the cells before, and the thing he brought didn't care which side of the bars it was on." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my Stockade, of all the places in the city. Keep your hands still and your creature outside, or I'll have you put in a cell of your own." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "It's you, and nothing's gone wrong yet. Please keep it that way, because I can't afford another inquiry." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to sign on with the Stockade guard, I've a place for anyone who can stand a long shift and a bad smell." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't bring the beast near the Stockade gate; the prisoners bang on the bars at anything with four legs." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Stockade. The prisoners will want to see you turn into something, so please don't; they've had trouble enough this season." },
@@ -850,7 +856,7 @@ P:NPC {
         { text = "Thredd had a visitor, I take it.", next = "visitor", when = { questDone = TODO_QUEST("The Stockade Riots") } },
         { text = "Your prisoners could use a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've seen the inside of a cell or two, Warden.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "You had a warlock in your cells, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You had one of the Lamb's crowd in your cells, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The Stockade guard looks short of men, Warden.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have prisoners ever escaped the Stockade, Warden?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How are the Stockade's prisoners treated, Warden?", next = "xapala", when = { class = "PALADIN" } },

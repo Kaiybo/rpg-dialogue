@@ -5,7 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "althea", id = TODO_NPC("Commander Althea Ebonlocke"), name = "Commander Althea Ebonlocke",
-  prejudice = { class = "ROGUE", amount = 8, why = "A smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits; three watchmen died." },
+  prejudice = { { class = "ROGUE", amount = 8, why = "A smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits; three watchmen died." }, { class = "WARLOCK", amount = 12, why = "Has buried watchmen killed by the dark casters of Raven Hill and the Dark Riders." } },
   rivals = { "ello" },
   bible = "bibles/althea.md", role = "soldier", tier = "major",
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
@@ -18,8 +18,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "A rogue in Darkshire. My watchmen already jump at shadows, {class}, so keep to the lamplight while you're in town and we'll get along." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and in the lamplight, as I asked. I don't care much for your trade, but I've come to trust the one practising it." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried watchmen killed by men who called on the same darkness you do. Stay in the lamplight, where my people can see you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Darkshire has enough shadows without someone bringing more in from the road. Say your business, and keep that creature of yours outside the gate." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood the watch with us and nothing followed you home, so I'll say it plainly: you've earned your place. I'll still be watching it." },
+    { id = "g_prej", when = { class = "ROGUE", prejudiced = true }, text = "A rogue in Darkshire. My watchmen already jump at shadows, {class}, so keep to the lamplight while you're in town and we'll get along." },
+    { id = "g_prej_over", when = { class = "ROGUE", prejudiced = "overcome" }, text = "You again, and in the lamplight, as I asked. I don't care much for your trade, but I've come to trust the one practising it." },
     { id = "g_op_dead_fel", when = { opinion = { topic = "duskwood_dead", stance = "kill_fel" } }, text = "There's the one who wants Fel dead before we argue about funerals. Have you been up Forlorn Rowe yet, or are you still sharpening?" },
     { id = "g_watch", text = "Night Watch. State your business, {class}, and then make yourself useful." },
     { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },
@@ -158,6 +161,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Stormwind hasn't sent me one of you in years, so I'll not ask who did; I'll just put you to work." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Good. This forest was green once, and I'd like to hear from someone who can tell me if it can be again." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and I've buried too many watchmen to pretend otherwise. You can help Darkshire, but you'll do it on my terms." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your darkness pointed at the woods and away from my town. That's enough for me to listen to you." },
         { id = "h_default", text = "I'm Commander Ebonlocke of the Night Watch. We're sworn to keep Darkshire's people alive, and some nights that's the whole of the oath, and plenty." },
         { id = "h_watch", tags = { "news" }, when = { questActive = TODO_QUEST("The Night Watch") },
           text = "The dead don't stay in the cemeteries out here, so thin them for me. Every skeleton you put down is one less at our gate." },
@@ -187,7 +192,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then, and keep half an eye on the gate while you do." },
       },
       choices = {
-        { text = "You don't trust rogues, Commander.", next = "prej", when = { prejudiced = true } },
+        { text = "You don't trust rogues, Commander.", next = "prej", when = { class = "ROGUE", prejudiced = true } },
         { text = "Can Duskwood still be healed?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's out in the woods?", next = "woods" },
         { text = "I'd like to help the Watch.", next = "help" },

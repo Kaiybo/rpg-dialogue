@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   likesTone = "polite",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Commanded troops in the Second War and lost men to warlock fire and the Horde's demons." },
   notices = { "soldier", "kit", "lock_shards", "lock_steed" },
   impression = {
     first = "He reads every letter from the provinces twice and answers too few.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I commanded men in the Second War, and too many of them died screaming under warlock fire. You'll forgive me if I don't stand any closer." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The crown tolerates the Lamb's cellar, and so I tolerate you. Don't confuse either one with approval." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Your service to the city speaks for you, and I've read the reports. I still don't trust your craft, but I'll take your report." },
     { id = "g_gate", text = "Well met. The Valley of Heroes is open to all who come in peace. Keep your blade sheathed and you'll find us friendly." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you've come back. I like faces that come back." },
     { id = "g_away", when = { away = 14 }, text = "Welcome back to the Valley of Heroes. You've been gone {away}, and the roads have been hard on good folk, so I'm glad to see you whole." },
@@ -84,7 +88,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll serve where you put me, General.", next = "BACK", reply = "Good. Discipline on the wall is all I ask, and the gates are where they stay.", fx = { align = { order = 1 } } },
-        { text = "Your walls need what I bring, General, gates or not.", next = "BACK", reply = "It may, and I'll use it if the walls are breached. Until then, keep it outside my gates, warlock.", fx = { align = { order = -1 } } },
+        { text = "Your walls need what I bring, General, gates or not.", next = "BACK", reply = "It may, and I'll use it if the walls are breached. Until then, keep it outside my gates.", fx = { align = { order = -1 } } },
         { text = "Something else, General.", next = "BACK" },
       },
     },
@@ -157,7 +161,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of the Lamb's cellar about you. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock, at the gates of Stormwind's army. I've seen what your craft did to my soldiers in the Second War, so speak plainly and don't waste my time." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. Your record speaks well of you, and I'll admit as much, though I still keep an eye on whatever walks at your heel." },
       },
       again = {
         { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
@@ -182,7 +188,7 @@ P:NPC {
         { text = "Why doesn't the army have more mages, General?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where would a paladin serve Stormwind best, General?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would the army ever march beside druids, General?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Has the army any place for warlocks, General?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has the army any place for someone with my talents, General?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Emperor Thaurissan is dead, General. I went down into the Depths.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "Why does the army want people like us, General?", next = "xpt_marcus", when = { party = { class = "WARRIOR" } } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
@@ -525,7 +531,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, huh? You're about as quiet as a dropped anvil, pal, but at least you don't pretend otherwise, and Renzik respects honest merchandise." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, huh? Renzik knows your type, kid: you sit in a bush six hours waitin' for one shot, and Renzik respects a guy who knows what his time's worth." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in SI:7! Renzik's heard your people turn into cats and sneak about, which is a real valuable skill, so Renzik wants to know who's payin' you and how much." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees a warlock, pal, and Renzik wonders if the warlock knows SI:7 keeps a file on every one of 'em who comes up from the Lamb, paid for by the crown." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees ash on your cuffs, pal, and Renzik wonders if you know SI:7 keeps a file on every one who comes up from the Lamb, paid for by the crown." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Renzik sees a dwarf with totems, and Renzik thinks a shaman might be worth somethin' to SI:7, if the shaman can keep quiet. Quiet's the expensive part, chum." },
       },
       again = {
@@ -609,6 +615,7 @@ P:NPC {
   key = "samuelson", id = TODO_NPC("Major Samuelson"), name = "Major Samuelson",
   bible = "bibles/city4.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Guards a boy king; treats any demon-caller near the throne as a threat to be watched." },
   notices = { "soldier", "lock_shadow" },
   impression = {
     first = "He expects visitors to know exactly where they are standing.",
@@ -616,6 +623,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "You'll not set one foot nearer the king with that stink on you. Speak from there, and keep your hands at your sides." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "A demon-caller in the throne room, with the king still a boy. If anything of yours so much as twitches, my guards will put you down." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come and gone from this hall without trouble, and I've noted it. You're still not welcome near the throne." },
     { id = "g_throne", text = "This is the King's throne room. Conduct yourself accordingly." },
   },
 
@@ -726,7 +736,9 @@ P:NPC {
           text = "No spells in the throne room. The last mage who thought to show off for the young king spent a night in the guardroom." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Your animal stays by the door, and you'll keep your bow unstrung while you're in the throne room." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the throne room. You'll keep whatever shape you walked in with, because a bear before the king is not something my guards are paid to handle." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll leave your companion at the doors of the Keep, and you'll keep your hands where my guards can see them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the cellar's smell on you. You'll leave whatever follows you at the doors of the Keep, and you'll keep your hands where my guards can see them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know exactly what you are, and I don't care who vouched for you. Stand where my guards can see you and keep that creature out of this hall." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've given my guards no cause yet, so you may speak, but you'll do it from right where you stand." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in the throne room. Behave as though you know where you are standing, and keep your spirits outside the hall." },
       },
       again = {
@@ -746,7 +758,7 @@ P:NPC {
         { text = "Does the Keep's guard ever ask for prayers, Major?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you guard the young king yourself, Major?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does changing shape count as spellwork in the throne room, Major?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Are warlocks not trusted in the Keep, Major?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Am I not trusted in the Keep, Major?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there a rule against spirits in the hall, Major?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
@@ -946,7 +958,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting a loaf that doesn't crumble in a pack, and I've got just the one, baked hard enough to use as a shield." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be living on what you catch, I suppose, but take a loaf anyway; venison's lonely without bread." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be wanting something wholesome, I expect, because your people look at my sweet rolls as if they'd done something wrong." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Would your little friend like a roll? No? Well, you'll have one, then, because you look half-starved." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of someone who's been below the Lamb all night! Would your little friend like a roll? No? Well, you'll have one, then, because you look half-starved." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Here, have a roll. A shaman needs bread like anyone else. My left foot says rain's coming; maybe your spirits would agree." },
       },
       again = {
@@ -965,7 +977,7 @@ P:NPC {
         { text = "Do you ever bake for the Cathedral, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many soldiers buy bread from you, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you bake for someone who lives on berries, Thomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do warlocks buy much bread, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Lamb's cellar crowd buy much bread, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does your foot really tell the weather, Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not hungry.", next = "END" },
       },

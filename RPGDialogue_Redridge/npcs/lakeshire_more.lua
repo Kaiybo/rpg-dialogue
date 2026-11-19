@@ -278,7 +278,7 @@ P:NPC {
       lines = { { id = "xlo_default", text = "Not the same things, friend. I work in shadows, and you work with the things that live in them, which is a different trade entirely. Mine leaves a man missing a purse, and yours leaves him missing a good deal more." } },
       choices = {
         { text = "Shadows are shadows. Don't be squeamish.", next = "BACK", reply = "I'm not squeamish, friend, I'm careful, which keeps me alive. Keep your friends away from my lads.", fx = { align = { light = -1 } } },
-        { text = "I'll keep my arts well away from Lakeshire's folk.", next = "BACK", reply = "Good, because I'd have to do something about it if you did. We understand each other.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep what I practise well away from Lakeshire's folk.", next = "BACK", reply = "Good, because I'd have to do something about it if you did. We understand each other.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What do you teach down here?", next = "teach" },
       },
     },
@@ -469,12 +469,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A little, but Effsee's more frightened, so I've got to be brave for her. Can your demon swim? Because Hilary's necklace is somewhere at the bottom of the lake, and the murlocs are too scary for us to go in after it." },
+        { id = "xlock_default", text = "A little, but Effsee's more frightened, so I've got to be brave for her. Can that thing of yours swim? Because Hilary's necklace is somewhere at the bottom of the lake, and the murlocs are too scary for us to go in after it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, and more now it's looking straight at me, but Effsee's hiding behind my legs, so I've got to be brave for her. Can {pet} swim? Because Hilary's necklace is at the bottom of the lake, and the murlocs are too scary for us to go in after it." },
       },
       choices = {
         { text = "I'll find the necklace for you myself.", next = "BACK", reply = "Would you? Then I'll tell Hilary you're the bravest person in Lakeshire, and Effsee too.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Demons don't fetch necklaces, kid.", next = "BACK", reply = "Oh, that's all right, it was only an idea. Can it at least do tricks?", fx = { align = { light = -1 } } },
+        { text = "It doesn't fetch necklaces, kid. It fetches worse things.", next = "BACK", reply = "Oh, that's all right, it was only an idea. Can it at least do tricks?", fx = { align = { light = -1 } } },
         { text = "Something else, Shawn.", next = "BACK" },
       },
     },
@@ -535,7 +535,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Wow, a real warrior! Hilary, look, it's a real warrior, with armour! Have you killed an orc? Have you killed lots of orcs?" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? My mom says priests can talk to the Light, so could you ask it where Hilary's necklace went?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you really a druid? Hilary says druids can turn into seals and swim all day, and if that's true, you could find her necklace in no time!" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whoa, a warlock! Is that a real demon? Hilary, look, a real demon, and Effsee's hissing at it!" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whoa, is that a real demon? Hilary, look, a real demon, and Effsee's hissing at it!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Excuse me, are you a shaman? Could your water spirits find Hilary's necklace? It's in the lake." },
       },
       again = {
@@ -554,7 +554,7 @@ P:NPC {
         { text = "Do you want to be a warrior someday, Shawn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you say your prayers at night, Shawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever worry about the murlocs in the lake, Shawn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Aren't you frightened of my demon, Shawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Aren't you frightened of what walks with me, Shawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did Hilary lose her necklace in the lake, Shawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
@@ -757,7 +757,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll understand what I mean, then, when I say Lake Everstill has been out of sorts for years." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Well, a rogue's patience is a fisherman's patience, so you might be better at this than most." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've heard your kind can conjure water, though I don't suppose you can conjure fish in it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'd be surprised how many folk come to fishing to quiet something in their heads, and I'd guess yours is noisier than most." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You'd be surprised how many folk come to fishing to quiet something in their heads, and I'd guess yours is noisier than most." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by the lake. The Everstill's fallen in with bad company, and it's murlocs, mostly." },
       },
       again = {
@@ -1334,7 +1334,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Bless the bridge if you like, but say one for my back while you're at it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be some help with the orcs, I'd wager, and maybe even with the stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Don't let Oslow see you standing about, or he'll have you hauling stone in bear shape before supper." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Can your demon carry stone? Because the foreman would put it to work, and he'd still say it was slow." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that thing at your heel any good at carrying stone? The foreman would put it to work, and he'd still say it was slow." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 20 } }, text = "No Blackrock scouts have come down to the bridge in days, and Oslow's had to find something else to complain about. I hear we've you to thank, so thank you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Oslow's a slave driver, but I love him for it. Can your earth spirits lift a stone or two?" },
       },

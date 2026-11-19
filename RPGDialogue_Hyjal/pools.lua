@@ -17,7 +17,7 @@ P:Pool {
   },
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "Fel, on the sacred mountain. Keep your servant close and your spells to yourself, or I will see to both." },
+      text = "Something foul just walked onto the sacred mountain. Keep whatever follows you close and your hands still, or I will see to both." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. If you are going toward Mourning's Rest, your prayers will be needed more than my bow." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },

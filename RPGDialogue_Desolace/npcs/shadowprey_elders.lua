@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "fel", when = { class = "WARLOCK" },
-      text = "You bear the same mark as the cultists at Thunder Axe, warlock. I won't turn you away, because the Warchief trusts you, but I will watch you." },
+      text = "You bear the same mark as the cultists at Thunder Axe. I won't turn you away, because the Warchief trusts you, but I will watch you." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc. The Burning Blade were your people once, and some of them still wear the old clan colours, so I ask your patience if the braves stare." },
     { id = "n_holy", cat = "class", when = { class = { "PRIEST", "SHAMAN" } },

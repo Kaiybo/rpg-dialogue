@@ -5,7 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "corithras", id = TODO_NPC("Corithras Moonrage"), name = "Corithras Moonrage",
-  prejudice = { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." },
+  prejudice = { { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." }, { class = "WARLOCK", amount = 12, why = "Keeper of Dolanaar's moonwells; one is already fouled and he fears fel taint in the rest." } },
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class", "lock_soulstone" },
@@ -15,8 +15,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
+    { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "You'll stay well clear of the moonwells, demon-caller. One of them is fouled already, and I'll not have you near the others." },
+    { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've walked past my wells many times now and the water stayed clean. I'll stop counting your steps, though I'll keep counting the wells." },
+    { id = "g_prej", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
+    { id = "g_prej_over", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time the third well has not grown any sweeter. Listen to it with me, and tell me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you last carried water for me. Strong enough, I hope, to face whatever is fouling the wells." },
@@ -122,7 +124,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, I don't think so, because the trouble in the third well began before you ever came through Dolanaar. But your servant stands close enough to the water now that I can feel the moon's light pull away from it, so step back and give the Sentinels no reason to wonder." },
       },
       choices = {
-        { text = "Then I'll keep my servant far from the water.", next = "BACK", reply = "You have my thanks, warlock. The Sentinels draw their water here, and they would not drink it if they knew a demon had been near.", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep what follows me far from the water.", next = "BACK", reply = "You have my thanks. The Sentinels draw their water here, and they would not drink it if they knew that thing had been near.", fx = { align = { order = 1 } } },
         { text = "The Sentinels can wonder all they like.", next = "BACK", reply = "They will, and they will remember it too. I would rather you gave them nothing to wonder about.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -150,7 +152,9 @@ P:NPC {
         { id = "h_delivered", when = { questDone = TODO_QUEST("Crown of the Earth") },
           text = "The vessel reached the Archdruid, I hear, and he said we took our time over it. We did, and the wells deserved that much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts drink from the moonwells as we do, and you would notice sooner than I if they had begun to sicken." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at the moonwells of Dolanaar. Keep your servant well back from the water, because something has fouled one well already, and I'll not have it blamed on you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I can name what you carry, and so could any priest in Dolanaar. Keep it far from the water, or I'll send for the Sentinels." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the wells still clear. Say what you need, and keep your creature on the road." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever trails you well back from the moonwells of Dolanaar. Something has fouled one well already, and I'll not have it blamed on you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "One who speaks with spirits. Then perhaps you will taste what I taste in the third moonwell, for the Sentinels think I fuss over nothing." },
       },
       again = {
@@ -159,7 +163,7 @@ P:NPC {
       },
       choices = {
         { text = "Was Lord Melenas the one fouling the third well?", next = "dd_melenas", when = { questDone = TODO_QUEST("Twisted Hatred") } },
-        { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { prejudiced = true } },
+        { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
         { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
         { text = "You must have more than one well to watch over.", next = "which" },
@@ -171,7 +175,7 @@ P:NPC {
         { text = "I can watch the wells unseen and see who fouls them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could sense what has tainted the wells.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have the beasts near the moonwells changed, Corithras?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Could my craft have fouled the moonwells?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think I had a hand in fouling the moonwells?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Wells go stale, and I doubt the tree's in any danger.", next = "END", reply = "I hope you are right, and I would sleep easier if you were. Go, then, and may the Light keep you all the same.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -309,8 +313,8 @@ P:NPC {
         { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "You know it, and with that creature of yours standing in my grove, I can guess how. I watched its kind burn Hyjal, and every root here shrinks from it, yet if you can lead me to where the fel grows thickest, I will still listen before I judge you." },
       },
       choices = {
-        { text = "I'll help you burn it out, and then I'll leave.", next = "BACK", reply = "Then you would be doing more good than I could have hoped for, warlock. Help me, and then go in peace.", fx = { align = { light = 1 } } },
-        { text = "It's power, druid. Fear won't keep it away.", next = "BACK", reply = "Fear has kept my people alive for ten thousand years, warlock. Power without it burned Hyjal.", fx = { align = { light = -1 } } },
+        { text = "I'll help you burn it out, and then I'll leave.", next = "BACK", reply = "Then you would be doing more good than I could have hoped for. Help me, and then go in peace.", fx = { align = { light = 1 } } },
+        { text = "It's power, druid. Your fear won't keep it away.", next = "BACK", reply = "Fear has kept my people alive for ten thousand years. Power without it burned Hyjal.", fx = { align = { light = -1 } } },
         { text = "What is driving the furbolgs mad?", next = "moss" },
       },
     },
@@ -379,7 +383,7 @@ P:NPC {
         { text = "Is anything else in danger from the Gnarlpine?", next = "talon" },
         { text = "I can tell a sick beast from an angry one.", next = "druidtest", when = { class = "DRUID" } },
         { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
-        { text = "There's a stink of fel on the Gnarlpine. I know it well.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "There's a stink on the Gnarlpine. I know that smell well.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'd rather not fight the Gnarlpine, Athridas.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can prayer reach the Gnarlpine, Athridas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -585,7 +589,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Most of them were too young to stand at Hyjal, and all they know of the Legion comes from stories told beside the moonwell. Look how they stare at your {pet}, as though one of those stories walked out of the dark, and I would sooner they kept learning from the grells." },
       },
       choices = {
-        { text = "Then I'll keep it out of their sight.", next = "BACK", reply = "Thank you, warlock. Most of them have never seen a demon outside a story, and I would keep it that way a little longer.", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep it out of their sight.", next = "BACK", reply = "Thank you. Most of them have never seen such a thing outside a story, and I would keep it that way a little longer.", fx = { align = { order = 1 } } },
         { text = "Better they see one leashed than one loose.", next = "BACK", reply = "Perhaps, but they would rather see neither. Keep it out of sight, please.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -618,7 +622,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Gnarlpine hunt my groves now, and I would like to see someone hunt them back." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, guarding the groves as you should. The Gnarlpine have grown bold this season, and I'm glad to see one of the Circle's own standing against it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, here in Dolanaar? You've come a long way from Stormwind or Ironforge, and I hope the young ones guarding the groves didn't stare too hard." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, on Teldrassil. Keep your servant close and quiet, because the young Sentinels here have never seen a demon, and their first should not be yours." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep that creature close and quiet, stranger, because the young Sentinels here have never seen anything like it, and their first should not be yours." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking among my young ones. Your spirits are rougher than our druids' ways, but I sense no harm in them. Have you seen my dreamcatcher?" },
       },
       again = {
@@ -635,7 +639,7 @@ P:NPC {
         { text = "Who tends the wounded the Gnarlpine leave behind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin face the Gnarlpine, Tallonkai?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a mage welcome in Dolanaar, Tallonkai?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Have the young Sentinels really never seen a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have the young Sentinels really never seen the Legion's kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does your dreamcatcher matter so much, Tallonkai?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } },
         { text = "Do you need a blade against the Gnarlpine, Tallonkai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -690,6 +694,7 @@ P:NPC {
   key = "syral", id = TODO_NPC("Syral Bladeleaf"), name = "Syral Bladeleaf",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Carries the Council of the Forest's orders and won't let young Sentinels learn demons from a warlock." },
   notices = { "craft", "lock_armor" },
   impression = {
     first = "He sorts his orders by which ones get someone hurt waiting.",
@@ -697,6 +702,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've made my decision about people who smell of sulphur, and you won't like it. You'll be watched from the moment you leave this tree." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Sentinels here are young, and I'll not have them learn what a demon looks like from you. Speak, and then go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "My reports say you've done honest work around Dolanaar, so I've written you down as tolerated. That is further than most of your kind get." },
     { id = "g_council", text = "Dolanaar welcomes those who welcome the land. Tell me, do you?" },
   },
 
@@ -822,8 +830,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Council would sooner not know you were here, I think, and with that thing standing beside you at my post, I'd find it hard to tell them otherwise. Still, I've more orders than hands, and Denalan's lake doesn't care who clears it, so long as your servant stays on the path and out of the trees." },
       },
       choices = {
-        { text = "I'll do the work and ask for no thanks.", next = "BACK", reply = "Then I will thank you anyway, warlock, quietly. The Council need not know.", fx = { align = { honor = 1 } } },
-        { text = "If the Council won't have me, I'll work for coin.", next = "BACK", reply = "Then you will find few who will pay you here, but I will not stop you. Work honestly, at least.", fx = { align = { honor = -1 } } },
+        { text = "I'll do the work and ask for no thanks.", next = "BACK", reply = "Then I will thank you anyway, quietly. The Council need not know.", fx = { align = { honor = 1 } } },
+        { text = "If the Council won't have me, I'll work for coin and spite.", next = "BACK", reply = "Then you will find few who will pay you here, but I will not stop you. Work honestly, at least.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -842,7 +850,9 @@ P:NPC {
         { id = "h_sort", when = { metBefore = true }, text = "The Council sends more orders than Dolanaar has hands. I sort them by which ones get someone hurt if they wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Council always has more orders than hands, and hunters can carry the ones that lead into the deep wood." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Council of the Forest has work for the Circle's young as well as for the Sentinels, and I have more of it than I have druids to carry it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Council sent me no orders concerning your kind, which means I'll have to decide for myself, so I hope you will make that decision an easy one." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I made my decision about you before you reached the fire, demon-caller. Do your business quickly, and do it where my Sentinels can see." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've given me no reason to change my orders, and no reason to tighten them either. What do you need?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The Council sent me no orders concerning people who smell of sulphur, which means I'll have to decide for myself. I hope you will make that decision an easy one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. I have more orders than hands, and I sort them by which ones will get someone hurt if they wait, so perhaps your spirits can carry one or two." },
       },
       again = {
@@ -864,7 +874,7 @@ P:NPC {
         { text = "Does the Council have any work for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which of the Council's orders suit a hunter, Syral?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Council give orders to druids too, Syral?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would the Council give orders to a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the Council give orders to someone like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help where I see a need, not where the Council points.", next = "END", reply = "Then go where you see it, and may Elune guide you there. The Council will notice either way.", fx = { align = { order = -1 } } },
       },
     },
@@ -1009,7 +1019,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll leave quietly at first light.", next = "BACK", reply = "Thank you, and I am sorry to ask it of you. Rest well, while you are here.", fx = { align = { light = 1 } } },
-        { text = "Hyjal was long ago. The power is still useful.", next = "BACK", reply = "It was, but they remember it as though it were yesterday. Please be gentle with them.", fx = { align = { light = -1 } } },
+        { text = "Hyjal was long ago. The power is still useful, and still mine.", next = "BACK", reply = "It was, but they remember it as though it were yesterday. Please be gentle with them.", fx = { align = { light = -1 } } },
         { text = "What's on the road ahead?", next = "road" },
       },
     },
@@ -1239,7 +1249,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll learn the forest's ways, then.", next = "BACK", reply = "Good. Sit still for an hour tonight and tell me what you heard; most can name three sounds, and there are thirty.", fx = { align = { order = 1 } } },
-        { text = "The forest can keep its silence. I sleep fine.", next = "BACK", reply = "Then you will sleep alone, and very soundly. The forest will not mind.", fx = { align = { order = -1 } } },
+        { text = "The forest can keep its silence. I sleep fine without it.", next = "BACK", reply = "Then you will sleep alone, and very soundly. The forest will not mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1254,7 +1264,7 @@ P:NPC {
         { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep, and I got to forty, which is further than usual." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll sleep in the wilds often enough on campaign, so you might as well learn to do it well." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll already know half of what I teach, since your kind sleep under the leaves as easily as most folk sleep in a bed." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, out here by my fire. Your servant can sit on the far side of it if it likes, though I'd rather it didn't count the stars with me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold about you, out here by my fire. Whatever walks with you can sit on the far side of it if it likes, though I'd rather it didn't count the stars with me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit by my fire, if you like. My people have slept under the stars since before there were roofs, and I'd guess your spirits like the open sky as well." },
       },
       again = {
@@ -1272,7 +1282,7 @@ P:NPC {
         { text = "Do you really prefer to pray under the canopy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can a paladin learn to camp in full armor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is camping in the wild really so different from a druid's way?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Can a warlock camp as you do, Lyreena?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can someone like me camp as you do, Lyreena?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do you prefer the canopy to a roof, Lyreena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },

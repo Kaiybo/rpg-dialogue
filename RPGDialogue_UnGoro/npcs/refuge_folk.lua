@@ -280,7 +280,7 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, chum, and I'd like to keep it that way, so tell your {pet} to stop eyeing my flyer like it's dinner. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because I'm not flying anything over Fire Plume Ridge that might catch." },
       },
       choices = {
-        { text = "Fair terms. My imp will sit still.", next = "BACK", reply = "Sittin' still is all I ask, chum, and you're a reasonable warlock. The flyers will thank you, and so will my insurance.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair terms. My imp will sit still, or suffer.", next = "BACK", reply = "Sittin' still is all I ask, chum, and you're a reasonable warlock. The flyers will thank you, and so will my insurance.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pay in advance? You don't trust anybody, do you?", next = "BACK", reply = "Trust? Chum, trust is free and burned flyers are expensive. Pay first, fly second, and everybody lands happy.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -396,7 +396,7 @@ P:NPC {
         { text = "Do your passengers really pray up there?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Your flyers must get attacked over the crater.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the crater beasts ever go after your flyers?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Has an imp ever actually set a bird alight?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Has an imp ever actually set one of your birds alight?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },

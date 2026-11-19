@@ -165,7 +165,7 @@ P:NPC {
         { text = "You don't seem to care much what happens in Elwynn.", next = "elwynn" },
         { text = "Morganth is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Morganth") } },
         { text = "I'm a mage. Teach me something.", next = "mage", when = { class = "MAGE" } },
-        { text = "I'm not Morganth.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I'm not Morganth, and I'll never be that careless.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "A priest knows something of shadow too.", next = "priest", when = { class = "PRIEST", minLevel = 20 } },
         { text = "Your servants are gnomes. Where are they from?", next = "gnome", when = { race = "Gnome" } },
         { text = "My family would rather I were at court.", next = "noble", when = { origin = "human_minor_noble" } },
@@ -310,7 +310,7 @@ P:NPC {
       },
       choices = {
         { text = "You'll see them.", next = "BACK", reply = "Good. I'll be watching them rather more closely than you'd like.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My power is my business.", next = "BACK", reply = "It's mine too, the moment it comes near this tower. Remember that.", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "What I do with my power is my own business.", next = "BACK", reply = "It's mine too, the moment it comes near this tower. Remember that.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
     priest = {

@@ -6,6 +6,7 @@ P:NPC {
   key = "stormpike_mtn", id = TODO_NPC("Mountaineer Stormpike"), name = "Mountaineer Stormpike",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "gruff" }, values = { "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Held Loch Modan when orc warlocks burned its farms in the Second War." },
   notices = { "class", "lock_shards" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know that stink, an' it's no' the mines. Ye're a warlock, an' I'd sooner ye kept movin'." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I held this valley when the Horde came through wi' their warlocks, an' I've no' forgotten. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've done honest work in this valley, I'll grant that. I'm still keepin' an eye on ye, mind." },
     { id = "g_post", text = "State yer business, and be quick about it. The kobolds don't wait for pleasantries." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, an' ye've the look o' someone who finishes it." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the kobolds didnae miss ye one bit. I did, a wee bit, fer the work's piled up." },
@@ -39,12 +43,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Welcome's a strong word for a dwarf tae use, friend, but I've seen what a gnome warlock can do tae a trogg, an' I'll no' pretend it didnae impress me. Clear the vermin out o' the Silver Stream Mine an' I'll call ye welcome, an' mean it." },
+      lines = {
+        { id = "xlock_default", text = "Welcome's a strong word for a dwarf tae use, friend, but I've seen what yer sort o' talent can do tae a trogg, an' I'll no' pretend it didnae impress me. Clear the vermin out o' the Silver Stream Mine an' I'll call ye welcome, an' mean it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Welcome's a strong word for a dwarf tae use, friend, an' it's harder tae say wi' yer demon standin' there smellin' o' brimstone on my road. I've seen what a gnome warlock can do tae a trogg, though, so clear the vermin out o' the Silver Stream Mine an' I'll call the pair o' ye welcome, an' mean it." },
       },
       choices = {
-        { text = "I'll earn it in the mine, Mountaineer.", next = "BACK", reply = "Earn it, aye, an' the lads will remember ye for it. Mind the candles, for the vermin wear them on their heads an' they'll set yer beard alight.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I don't need your welcome. I'll clear it anyway.", next = "BACK", reply = "Clear it anyway, will ye? Then I'll no' waste my welcome, but I'll still be glad o' the work.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll earn my welcome in that mine, the hard way.", next = "BACK", reply = "Earn it, aye, an' the lads will remember ye for it. Mind the candles, for the vermin wear them on their heads an' they'll set yer beard alight.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep your welcome. The troggs will die all the same.", next = "BACK", reply = "Die all the same, will they? Then I'll no' waste my welcome, but I'll still be glad o' the work.", fx = { align = { honor = -1 } } },
         { text = "Something else, Mountaineer.", next = "BACK" },
       },
     },
@@ -120,7 +125,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? I tracked a cave bear three days through the snow when I was young, and I'd wager you've never bettered that." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for there's lads come back from the Silver Stream wi' more than bruises, an' I've no' the words for them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've stood beside yer kind against worse than kobolds, an' I'll tell ye about it, whether ye ask or no'." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I've held this valley against worse than kobolds, an' I'll no' turn away help, but keep yer beastie off the mine road." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I watched orc warlocks set the Loch's farms burnin' in the war, an' I've no' forgotten the smell o' it. Tell me yer business an' keep that thing off my road." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've cleared enough troggs off my road that I'll answer ye civil. I'll still be watchin' whatever follows ye." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've a smell about ye like a snuffed candle. I've held this valley against worse than kobolds, an' I'll no' turn away help, but keep whatever trails ye off the mine road." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Tunnel Rat", min = 30 } }, text = "The Tunnel Rats are fewer in the Silver Stream these days, an' I'd wager I know whose work that is. Keep it up, an' the miners might get their tunnels back before winter." },
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
           text = "Ye walk like ye've kept a pass in the snow, so ye'll be one o' the Dun Morogh lads. Good, for ye'll know there's no glory in this work, only cold feet an' a long watch, an' the vermin never tire before ye do." },
@@ -143,7 +150,7 @@ P:NPC {
         { text = "Is there game worth tracking near the Silver Stream Mine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'd guess the kobolds have cost you a few good dwarves.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did you fight beside paladins in the Second War, Mountaineer?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would a warlock be welcome in Loch Modan, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would Loch Modan welcome someone with my sort of talents, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the kobolds really listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I kept the high passes in Dun Morogh, Stormpike.", next = "xorig_pass", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll leave you to it.", next = "END" },
@@ -299,13 +306,13 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xwl_default", text = "I've heard what you lot bargain with, and I'll not have it near my tower, troggs or no troggs. Still, the Stonesplinters have cost me good mountaineers this season, so I'll mind my tongue if ye mind yer imp." },
-        { id = "xwl_gnome", when = { race = "Gnome" }, text = "A gnome with a demon at heel, and after what yer people lost under Gnomeregan, I suppose I can see how a body ends up there. Keep the creature away from my tower and do yer killin' out in the hills." },
+        { id = "xwl_default", text = "Something small that burns, is it? I can smell the brimstone on ye from here, and I'll not have it near my tower, troggs or no troggs. Still, the Stonesplinters have cost me good mountaineers this season, so I'll mind my tongue if ye mind yer wee creature." },
+        { id = "xwl_gnome", when = { race = "Gnome" }, text = "A gnome with somethin' small an' burnin' at heel, and after what yer people lost under Gnomeregan, I suppose I can see how a body ends up there. Keep the creature away from my tower and do yer killin' out in the hills." },
         { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I've heard what you lot bargain with, and now I've seen it, standing on my road and staring up at my tower like it wants in. Still, the Stonesplinters have cost me good mountaineers this season, so I'll mind my tongue if ye mind that thing." },
       },
       choices = {
-        { text = "Then I'll do it without the imp, and leave your tower clean.", next = "BACK", reply = "Clean, aye, that's all I ask. Do it yer way wi'out the beastie, an' ye'll be welcome on my tower.", fx = { align = { light = 1 } } },
-        { text = "The imp burns troggs all the same, whatever you think of it.", next = "BACK", reply = "It does, I'll grant ye, an' I've seen it. Keep it away from my tower, though, an' we'll call it even.", fx = { align = { light = -1 } } },
+        { text = "Then my little helper stays away, and your tower stays clean.", next = "BACK", reply = "Clean, aye, that's all I ask. Do it yer way wi'out the beastie, an' ye'll be welcome on my tower.", fx = { align = { light = 1 } } },
+        { text = "What I keep burns troggs all the same, whatever you think.", next = "BACK", reply = "It does, I'll grant ye, an' I've seen it. Keep it away from my tower, though, an' we'll call it even.", fx = { align = { light = -1 } } },
         { text = "What lies south of the tower?", next = "south" },
       },
     },
@@ -353,7 +360,7 @@ P:NPC {
         { text = "You can't be holding this gate all on your own.", next = "people" },
         { text = "The troggs took my home too.", next = "gnome", when = { race = "Gnome" } },
         { text = "I could get into the trogg camps and count them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "The troggs fear fire. My imp could teach them more.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Troggs fear fire. I keep something small that burns hotter.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where would you put a warrior on this tower, Mountaineer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there anything worth tracking in these hills besides troggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who tends your wounded out here at the tower, Cobbleflint?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -409,6 +416,7 @@ P:NPC {
   key = "rockgar", id = TODO_NPC("Mountaineer Rockgar"), name = "Mountaineer Rockgar",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "sharp" }, values = { "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "His brother died at the Thandol Span to an orc warlock's fire." },
   notices = { "class", "lock_taint" },
 
   impression = {
@@ -417,6 +425,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know a warlock when I see one, an' I'm lookin' at one now. Keep walkin', or keep yer hands still." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The orcs that overran this valley in the war had yer sort wi' them, an' I watched what they did tae my friends. Speak fast." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've walked this road enough times wi'out callin' up anythin' foul. I'll stop starin', but I'll no' stop watchin'." },
     { id = "g_pass", text = "Halt, and let me see yer face. Right, ye're no' an orc, so come in." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Still in one piece, I see; the last runner came back missing two fingers and his satchel." },
   },
@@ -443,8 +454,8 @@ P:NPC {
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Trolls in the hills, Dragonmaw in the marsh an' mud up tae yer knees, though I doubt yer demon minds the mud. If ye meet any o' the orcs' old dark sort up there, it'll likely smell them before ye do, so I'll leave them tae the both o' ye." },
       },
       choices = {
-        { text = "I'll fight them, not learn from them, Rockgar.", next = "BACK", reply = "Fight them, aye, an' learn nothin', for there's nothin' worth learnin'. Ye've a good head on ye.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'd learn what I could from them first.", next = "BACK", reply = "Learn first, is it? That's how the orcs came tae their dark sort in the first place. Watch yerself up there, an' come back the same as ye went.", fx = { align = { light = -1 } } },
+        { text = "I'll kill them, Rockgar. Their secrets can rot with them.", next = "BACK", reply = "Kill them, aye, an' learn nothin', for there's nothin' worth learnin'. Ye've a good head on ye.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd pry their secrets loose before I killed them.", next = "BACK", reply = "Pry first, is it? That's how the orcs came tae their dark sort in the first place. Watch yerself up there, an' come back the same as ye went.", fx = { align = { light = -1 } } },
         { text = "Something else, Mountaineer.", next = "BACK" },
       },
     },
@@ -515,7 +526,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at Algaz! The pass needs strong arms, for what comes down it from the Wetlands doesn't knock first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Algaz! What comes back down that pass from the Wetlands could use yer prayers, when it comes back at all." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Algaz! The Dragonmaw would think twice about the pass wi' the likes o' ye standin' in it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, headin' north? The orcs in that marsh had warlocks o' their own back in the war, so I hope ye're the better sort." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My brother died at the Thandol Span when the Horde came through, an' the green fire that killed him came from a warlock's hand. Say what ye need an' move along." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye again. I'll answer ye, for ye've done right by the valley, but dinnae expect me tae be glad o' it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Headin' north, are ye, wi' those cold eyes? The orcs in that marsh had their own dark sort back in the war, so I hope ye're the better kind." },
         { id = "h_smuggler", when = { origin = "dwarf_loch_smuggler" },
           text = "Halt, and let me get a proper look at ye. Aye, I thought so, for I've seen that face slip past this station at midnight wi' a cart o' somethin' that wasnae on any manifest, though this time ye've come in by the front." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at Algaz! Ye'll find the Wetlands' earth a sour thing, all mud an' rot, an' the orcs up there call on powers o' their own." },
@@ -681,8 +694,8 @@ P:NPC {
         { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Is that yours? Er, that's very kind, but the last thing a fellow with flammable reagents wants is a demon going through his bags, and it's already looking at them. Perhaps you could fetch them yourself and leave it over there, ideally upwind?" },
       },
       choices = {
-        { text = "Then I'll fetch them myself.", next = "BACK", reply = "Oh, thank goodness, and thank you. My eyebrows have only just grown back from the last fire.", fx = { align = { light = 1 } } },
-        { text = "The imp goes where I go. It'll behave.", next = "BACK", reply = "It'll behave? That's what Gnoarn said about his prototype, and look where that got his eyebrows. Keep it on a short leash, please.", fx = { align = { light = -1 } } },
+        { text = "Then I'll fetch them myself and spare your nerves.", next = "BACK", reply = "Oh, thank goodness, and thank you. My eyebrows have only just grown back from the last fire.", fx = { align = { light = 1 } } },
+        { text = "My companion goes where I go. It behaves when I tell it to.", next = "BACK", reply = "Behaves when you tell it to? That's what Gnoarn said about his prototype, and look where that got his eyebrows. Keep it on a short leash, please.", fx = { align = { light = -1 } } },
         { text = "Who is Gnoarn?", next = "gnoarn" },
       },
     },
@@ -730,7 +743,7 @@ P:NPC {
         { text = "Who is Gnoarn?", next = "gnoarn" },
         { text = "A gnome on an expedition ought to have an escort.", next = "gnome", when = { race = "Gnome" } },
         { text = "Couldn't you have just conjured your supplies back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "My imp could fetch your things. It's quite good at errands.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "My little companion could fetch your things. It rarely burns anything.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's guarding your lost supplies, Bingles?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter's tracking help you find your supplies?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has your research ever hurt anyone, Bingles?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

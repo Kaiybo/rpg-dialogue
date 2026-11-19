@@ -75,7 +75,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." },
+        { id = "xlock_default", text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a soul in shadow had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a warlock had to starve. I'll sell to you as I'd sell to anyone, though I'd thank you to keep your servant away from the bread, and I'll be praying a good deal more than a little at vespers tonight." },
       },
       choices = {
@@ -135,7 +135,7 @@ P:NPC {
         { text = "Arrows. As many as I can carry.", next = "arrows", when = { class = "HUNTER" } },
         { text = "I can't afford much, Brother.", next = "poor", when = { money = { max = 500 } } },
         { text = "You seem to think a rogue would rob the Abbey.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "I'd guess the Brothers mind you selling to warlocks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess the Brothers mind some of the folk you feed.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a recruit need most from your wagon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Abbey feed the poor from your wagon, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin need from your wagon, Brother?", next = "xapala", when = { class = "PALADIN" } },

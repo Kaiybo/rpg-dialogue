@@ -199,7 +199,7 @@ P:NPC {
         { text = "Do you keep anything from your old church, Father?", next = "collar" },
         { text = "What's in that little box by the altar?", next = "box" },
         { text = "How do you get on with Father Lankester?", next = "lankester" },
-        { text = "I'm a warlock, Father. Am I still welcome?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "You know what follows me, Father. Am I still welcome?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Goodbye, Father.", next = "END" },
       },

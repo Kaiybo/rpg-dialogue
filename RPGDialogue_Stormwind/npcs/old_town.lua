@@ -7,6 +7,7 @@ P:NPC {
   key = "burlguard", id = TODO_NPC("Harry Burlguard"), name = "Harry Burlguard",
   bible = "bibles/old_town.md", role = "soldier", tier = "quest",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Retired soldier who lost his squad at Blackrock Spire to things the Horde's warlocks called up." },
   notices = { "light", "kin", "soldier", "lock_pact" },
   impression = {
     first = "He teaches young warriors by setting them on the tavern regulars.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I lost my whole squad at Blackrock Spire to things your sort called up. Sit in the corner, drink, and don't talk to my regulars." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Every soldier in this tavern has a story about warlock fire, and none of them end well. Mind how you walk in here." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've drunk here quiet often enough that the regulars stopped staring. I haven't, but I've stopped reaching for a bottle to throw." },
     { id = "g_table", text = "Pull up a stool, if you can find one that isn't broken. Most of them are, round here." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, then; my knees won't let me stand for you." },
   },
@@ -133,7 +137,9 @@ P:NPC {
           text = "A mage in the Pig and Whistle, and you're not here for the ale, I'll wager. Sit down anyway; you look like you could use a stool that doesn't float." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few of your sort scouting for us in the Second War, and each of 'em saved my company at least once." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Pig and Whistle! We never had your sort in the Second War, more's the pity, because a bear on the flank would've done wonders for morale." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Pig and Whistle. Sit down where the regulars can see you, or they'll start a fight just to find out what you are." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the Lamb's cellar on your boots, in the Pig and Whistle. Sit down where the regulars can see you, or they'll start a fight just to find out what you are." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in the Pig and Whistle, bold as you like. I fought your kind's demons in the Second War, so keep yours outside and keep your voice down." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never once started trouble in here, so sit down, though I'll keep my eye on you all the same." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit down, I've a regular here who'll test your mettle. You've never fought a shaman, have you, Bartleby? Well, there's a first time for everything." },
       },
       again = {
@@ -153,7 +159,7 @@ P:NPC {
         { text = "Did your company have a priest in the war, Harry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What were paladins like on the battlefield, Harry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a bear on the flank really have helped your company, Harry?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Did warlocks fight in the wars you served in, Harry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did anyone fight with dark magic in your wars, Harry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did you ever fight orc shamans in the war, Harry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your pint.", next = "END" },
       },
@@ -304,7 +310,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep it on a short leash. Sorry about the pint.", next = "BACK", reply = "Apology accepted, and you can buy me the pint back. Fair's fair.", fx = { align = { light = 1 } } },
-        { text = "My imp drinks what it likes. You'll get over it.", next = "BACK", reply = "I'll never get over it, never! Keep that thing away from my end of the bar.", fx = { align = { light = -1 } } },
+        { text = "My companion drinks what it likes, Bartleby. You'll get over it.", next = "BACK", reply = "I'll never get over it, never! Keep that thing away from my end of the bar.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -383,7 +389,7 @@ P:NPC {
         { text = "Has anyone ever stolen that mug off you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You look like you've fought before, Bartleby.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why keep beasts away from your end, Bartleby?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does my imp bother you, Bartleby?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does my little companion bother you, Bartleby?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I pray for you, Bartleby?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you really fight a paladin for that mug?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has a cat really drunk out of your mug, Bartleby?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -528,11 +534,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." },
+        { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for the little horned thing at his elbow, and Reese still hasn't forgiven me for pouring it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays and doesn't set the curtains on fire, love, but I'll not pour for your {pet}, however hard it stares at the taps. The last one of yours ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." },
       },
       choices = {
-        { text = "I'll leave the imp outside. It's only polite.", next = "BACK", reply = "That's very kind, love. Rena will be glad not to serve an imp again.", fx = { align = { light = 1 } } },
+        { text = "I'll leave my companion outside. It's only polite.", next = "BACK", reply = "That's very kind, love. Rena will be glad not to serve one of those again.", fx = { align = { light = 1 } } },
         { text = "My companions drink where I drink, and that's that.", next = "BACK", reply = "Then your companion pays its own way, love, and it sits at the back.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -713,7 +719,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Anybody can learn to cook, if they've the patience and the hands for it, and I've noticed your sort have both. Mind, you can't rush a rib with a fel flame, because it chars on the outside and stays raw in the middle, and I've seen a man try it and seen what it did to his stomach." },
+        { id = "xlock_default", text = "Anybody can learn to cook, if they've the patience and the hands for it, and I've noticed your sort have both. Mind, you can't rush a rib with a green flame, because it chars on the outside and stays raw in the middle, and I've seen a man try it and seen what it did to his stomach." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anybody can learn to cook, and your sort have the patience for it, but I'll ask your servant to stop lurking by my spit. You can't rush a rib with fel heat, and that thing's standing close enough that I can see the fat on the near side spitting already." },
       },
       choices = {
@@ -801,7 +807,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll eat like three men and complain like four, I expect, which makes you my favourite kind of customer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's someone who can bring me fresh meat instead of whatever the butcher's been hiding in his back room." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my kitchen. Your sort don't eat much meat, I'm told, so you'll be giving my ribs a dark look, and I'll take it personally." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll eat at the bar like everyone else, and your friend can wait outside, because I won't cook for something that doesn't have a stomach." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the cellar's smell on you. You'll eat at the bar like everyone else, and your friend can wait outside, because I won't cook for something that doesn't have a stomach." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down and eat. I'm just a cook, and you're just hungry, I'd guess." },
       },
       again = {
@@ -819,7 +825,7 @@ P:NPC {
         { text = "Did you see many healers in the war, Stephen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Were you a soldier before you were a cook, Stephen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you cook for me if I brought only roots and greens, Stephen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Can a warlock learn to cook, Stephen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can someone with my sort of fire learn to cook, Stephen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Were you a soldier once, Stephen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
@@ -930,12 +936,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." },
+        { id = "xlock_default", text = "More than you'd guess, because the claws on what your lot keep go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than you'd guess, because your sort's servants go through cloth like paper, and I've stitched more than one apprentice's robe back together. I'll sell you leather and not ask what you keep at home, but since you've brought it here instead, keep it off my hides while we talk." },
       },
       choices = {
-        { text = "I'd rather my demons never touched anyone. I'll take care.", next = "BACK", reply = "Good. I'd rather stitch leather than apprentices.", fx = { align = { light = 1 } } },
-        { text = "Let the felhunter tear what it likes. Leather's cheap.", next = "BACK", reply = "Cheap, maybe, but my time isn't. I'd keep it on a lead.", fx = { align = { light = -1 } } },
+        { text = "I'd rather what follows me never touched anyone. I'll take care.", next = "BACK", reply = "Good. I'd rather stitch leather than apprentices.", fx = { align = { light = 1 } } },
+        { text = "Let it tear what it likes, Simon. Leather's cheap, and so are apprentices.", next = "BACK", reply = "Cheap, maybe, but my time isn't. I'd keep it on a lead.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -987,7 +993,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so you'll want soft leather that doesn't creak. I can teach you to make it, though I can't promise you'll sit still long enough to learn." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, and there's ash on your sleeves, which makes three of you this week. Leather doesn't like fire, whatever you may have heard." },
+          text = "There's ash on your sleeves, which makes three from the Lamb this week. Leather doesn't like fire, whatever you may have heard." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Leather's lighter than mail, and plenty of soldiers wear a jerkin underneath, so don't turn your nose up at the craft." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be bringing me hides, I hope, and not the ragged sort Randal keeps buying off the canal boys." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Protective Hide. I'll not pretend you'll like everything hanging on my walls, but I'll ask you to look at the stitching before you judge." },
@@ -1005,7 +1011,7 @@ P:NPC {
         { text = "Why does creaking leather matter so much?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I doubt warriors really wear leather under their armour, Simon.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Choosing a good hide is an art, I'd guess, Simon.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I'd not have thought warlocks came to you often, Simon.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd not have thought the Lamb's crowd came to you often, Simon.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does working with the dead ever trouble you, Simon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many paladins buy leather from you, Simon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a hide remembers the animal it came from, Simon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1100,7 +1106,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." },
+        { id = "xlock_default", text = "It's simple enough: you keep what you call up downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths, and you've just brought yours up into Old Town in daylight. Shaw doesn't love the arrangement, and he'll love it less when I write down that I watched it follow you to my door." },
       },
       choices = {
@@ -1167,7 +1173,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in Old Town after dark is either lost or brave, and the Sanctum doesn't teach brave. I'll assume you've a reason." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock out of the Lamb's cellar, two streets from my door. You lot and SI:7 have an understanding, and I'd like it to stay understood." },
+          text = "One of the Lamb's cellar crowd, two streets from my door. You lot and SI:7 have an understanding, and I'd like it to stay understood." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the Night Man's door. Either you're lost, or someone sent you, and I'd like to know which before you say another word." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a quiet one, which I appreciate. You know how to wait and watch, and that's most of my trade too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Old Town after dark. I hear your people can walk as a cat and nobody hears a thing, which makes you competition." },

@@ -40,12 +40,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I would, as long as you didn't summon anything into my stew. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
+        { id = "xlock_default", text = "I would, as long as nothing crawled into my stew. A fellow at the Lion's Pride says folk who keep company like yours are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, as long as your demon didn't sit too near my stew, because it's already made the fire burn funny just by standing there. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
       },
       choices = {
-        { text = "Then I'll share it gladly, and keep the imp out of the stew.", next = "BACK", reply = "That's all I ask of any guest, and you're welcome here. Sit, and tell me about your travels.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your friend has a point, Sam. Be more careful.", next = "BACK", reply = "Perhaps he does, but he's never shared his stew with me either. I'll take my chances with you.", fx = { align = { light = -1 } } },
+        { text = "Then I'll share it gladly, and nothing will crawl into your stew.", next = "BACK", reply = "That's all I ask of any guest, and you're welcome here. Sit, and tell me about your travels.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your friend has a point, Sam. You trust strangers too easily.", next = "BACK", reply = "Perhaps he does, but he's never shared his stew with me either. I'll take my chances with you.", fx = { align = { light = -1 } } },
         { text = "Something else, Sam.", next = "BACK" },
       },
     },
@@ -111,7 +111,7 @@ P:NPC {
           text = "A mage! Could you light my fire for me some evening? I've been at it with flint for an hour some nights, and it's undignified." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down; whoever you fought today, they'll still be there tomorrow, and the fire's warm now." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you ever take your demon camping? I've always wondered whether imps like a fire or just like setting things on one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that little thing with you warm-blooded? I've always wondered whether creatures like that enjoy a fire or just like setting things on one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking the roads like me. Sit by the fire. Do your spirits like a good long rest as much as I do?" },
       },
       again = {
@@ -131,7 +131,7 @@ P:NPC {
         { text = "Do you think warriors rest enough, Sam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is it safe, camping out here alone, Sam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever sleep under the trees without a fire?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "I doubt you'd share your campfire with a warlock, Sam.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt you'd share your fire if you knew what I study, Sam.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Adventuring seems to be mostly walking and sitting, Sam.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy the fire.", next = "END" },
       },

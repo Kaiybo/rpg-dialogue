@@ -79,7 +79,8 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because most o' them stay in the city, where the trainin' is, an' the rest go straight on tae Stormwind. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse." },
+      lines = {
+        { id = "xlock_default", text = "Because most o' yer sort stay in the city, where the trainin' is, an' the rest go straight on tae Stormwind. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because most o' them stay in the city, where the trainin' is, an' the ones that come out here dinnae usually bring their demons intae my shop. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse, an' that thing sniffin' at my lamp oil is makin' me think it might." },
       },
       choices = {
@@ -128,7 +129,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I know every face on the Kharanos road, an' I know when one o' them's countin' my shelves. Buy what ye need, an' we'll get on fine." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in Kharanos is a rare thing, an' I'll tell ye now the recruits will stare. Ignore them, an' they'll get bored soon enough." },
+          text = "Someone like ye in Kharanos is a rare thing, an' I'll tell ye now the recruits will stare. Ignore them, an' they'll get bored soon enough." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want rations an' a whetstone, an' ye'll want them before ye go up intae the high snows." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've shot an' arrows on the back shelf, an' meat for yer beast if ye've one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Kharanos. Ye'll need less from me than most, I expect, but here's advice for free: the wendigo up the hills don't care what shape ye're in." },
@@ -145,7 +146,7 @@ P:NPC {
         { text = "What's Kharanos like?", next = "town" },
         { text = "Plenty of gnomes must come through here.", next = "gnomes" },
         { text = "Do travellers often try to rob you, Kreg?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why are warlocks so rare out here in Kharanos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why are people like me so rare out here in Kharanos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the most useful thing a warrior can buy here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which beasts should a hunter watch for in Dun Morogh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Many young recruits must come back hurt, Kreg.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -305,7 +306,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Somethin' does, a dark bloom on the blade like rust that isnae rust, an' I've seen it twice now after a warlock came tae the counter. Maybe it's my eyes gettin' old, but I'll no' sell a blade wi' a flaw in it, whatever caused it." },
+        { id = "xlock_default", text = "Somethin' does, a dark bloom on the blade like rust that isnae rust, an' I've seen it twice now after a customer like ye came tae the counter. Maybe it's my eyes gettin' old, but I'll no' sell a blade wi' a flaw in it, whatever caused it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Somethin' does, a dark bloom on the blade like rust that isnae rust, an' I'd swear the sword on the end o' the rack has started it since yer demon came near. Maybe it's my eyes gettin' old, but I'll no' sell a blade wi' a flaw in it, so walk the thing outside an' let me look again." },
       },
       choices = {
@@ -328,7 +329,7 @@ P:NPC {
           text = "A mage buyin' a blade! I'd ask what for, but I suppose even mages run out o' spells." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I don't make guns, but I make the blade ye'll want when the bear gets too close for one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind fight wi' claws an' teeth, which is fine, but ye'll still want a good mace for when ye're on two legs." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell ye a dagger or a staff, but I'll ask ye no' tae let yer servant touch the steel, for it leaves a mark on the metal I cannae polish out." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll sell ye a dagger or a staff, but I'll ask ye no' tae let whatever follows ye touch the steel, for it leaves a mark on the metal I cannae polish out." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've a mace or two that would carry a lightnin' strike well, if ye don't mind it scorchin' the grip." },
       },
       again = {
@@ -347,7 +348,7 @@ P:NPC {
         { text = "Do you ever forge weapons blessed for the faithful, Grawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you take back a hammer broken in an unfair fight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a claw any less honest than a blade, Grawn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does my servant really mark your steel, Grawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does my companion really mark your steel, Grawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What weapon suits a shaman best, Grawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Grawn.", next = "END" },
       },
@@ -473,12 +474,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer kind's demons do the fightin' for ye, an' I've no' the trick o' makin' armor for a voidwalker." },
+      lines = {
+        { id = "xlock_default", text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer sort let other things do the fightin', an' I've no' the trick o' makin' armor for a voidwalker." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer {pet} there does yer fightin' for ye, an' I've measured many a dwarf in my time, but I'd no' know where tae start on that, so it'll have tae go bare." },
       },
       choices = {
-        { text = "I fight my own battles, Boran. The demon only helps.", next = "BACK", reply = "Glad tae hear it, an' I'll find ye somethin' that fits, for a warlock who fights his own battles needs armour as much as anybody.", fx = { align = { light = 1 } } },
-        { text = "My demon bleeds so I don't have to. That's the point.", next = "BACK", reply = "That's a cold way tae see it. Still, it means ye'll need less armour than most, so I cannae fault the sums.", fx = { align = { light = -1 } } },
+        { text = "I fight my own battles, Boran. My servant only helps.", next = "BACK", reply = "Glad tae hear it, an' I'll find ye somethin' that fits, for anyone who fights his own battles needs armour as much as anybody.", fx = { align = { light = 1 } } },
+        { text = "My servant bleeds so I don't have to. That's the point.", next = "BACK", reply = "That's a cold way tae see it. Still, it means ye'll need less armour than most, so I cannae fault the sums.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -521,7 +523,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage wantin' armor? I'll sell ye somethin', but ye'll no' be able tae cast in plate, so don't come back complainin'." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in my shop? Ye'll no' be wantin' plate, I'd guess, so what is it ye're after?" },
+          text = "Ye'll no' be wantin' plate, I'd guess, wi' hands that cold, so what is it ye're after?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who'll wear a coat o' mail an' thank me for it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want mail ye can kneel in, for a hunter's always crouchin' in the snow behind somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll want somethin' that fits whether ye're a bear or an elf, an' I'm sorry tae say I've never made such a thing." },
@@ -538,7 +540,7 @@ P:NPC {
         { text = "What's the worst thing out there in Dun Morogh?", next = "worst" },
         { text = "Is heavy armor worth the weight?", next = "weight" },
         { text = "Why can't a mage cast spells in your armor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do you not make armor for warlocks, Boran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you not make armor for my sort, Boran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What armor would you give a warrior heading for the troggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What armor suits a hunter in Dun Morogh, Boran?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has your armour really saved more lives than prayer, Boran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

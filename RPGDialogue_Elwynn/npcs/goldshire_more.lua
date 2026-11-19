@@ -309,7 +309,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll walk you past the dark stretches, if you like.", next = "BACK", reply = "Would you? I'd be glad of it, though I'll not tell Farley why. Just to the edge of town.", fx = { align = { light = 1 } } },
-        { text = "Fear's a good teacher. Keep walking fast.", next = "BACK", reply = "I'll keep walking fast, then, and you keep your demons home. That's fair, isn't it?", fx = { align = { light = -1 } } },
+        { text = "Fear's a good teacher. Keep walking fast.", next = "BACK", reply = "I'll keep walking fast, then, and you keep whatever follows you at home. That's fair, isn't it?", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -622,7 +622,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." },
+        { id = "xlock_default", text = "Not hurt them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not curse them, exactly, only make them a bit less stubborn. Couldn't your {pet} just stand at the edge of the pond and give them a look, because it's already given me one, and I'd have jumped into a net myself." },
       },
       choices = {
@@ -712,7 +712,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You're a warrior! Could you hit the water and make the fish come up stunned? I saw a man do that once, nearly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Can your animal catch fish? Mine can't, because I haven't got one, but if I did it would." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "You're a night elf! Can you talk to fish? Because if you can, tell them I've got a worm and it's a good one." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You couldn't make the fish bite, could you? I'm not saying I'd want you to, but I'm not saying I wouldn't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You look like someone who knows real tricks. You couldn't make the fish bite, could you? I'm not saying I'd want you to, but I'm not saying I wouldn't." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your water spirits know where the fish are? Because they aren't in Crystal Lake today." },
       },
       again = {
@@ -730,7 +730,7 @@ P:NPC {
         { text = "Does your ma worry about you out here, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "You'd make a fine paladin one day, Matt.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I tell you why the fish aren't biting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you really want me to curse the fish, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really want my sort of help with the fish, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Your bucket looks empty today, Matt.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Matt.", next = "END" },
       },

@@ -152,11 +152,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They look at me the same way, and I didn't even bring a demon. The tauren know what fel fire does to grass and to people, so you might as well get used to the looks, because they won't stop." },
+        { id = "xwarlock_default", text = "They look at me the same way, and I didn't bring a pet from the Nether. The tauren know what fel fire does to grass and to people, so you might as well get used to the looks, because they won't stop." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They look at me the same way, and I didn't even bring a demon, though I see you did, and it's leaning over my table like it wants to sample the merchandise. The tauren know what fel fire does to grass and to people, so get used to the looks, and get it away from my vials." },
       },
       choices = {
-        { text = "Their fear is fair. I'll keep my imp leashed.", next = "BACK", reply = "Good, an imp in a cave full of reagents is a recipe for a very short afternoon. The tauren will still stare, but they'll stare less.", fx = { align = { light = 1 } } },
+        { text = "Their fear is fair. I'll keep it on a short leash.", next = "BACK", reply = "Good, an imp in a cave full of reagents is a recipe for a very short afternoon. The tauren will still stare, but they'll stare less.", fx = { align = { light = 1 } } },
         { text = "Let them stare. Fear keeps people polite.", next = "BACK", reply = "Polite, perhaps, but not friendly, and we live by their good grace down here. Stare back if you like, just don't set anything on fire.", fx = { align = { light = -1 } } },
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
       },
@@ -196,7 +196,7 @@ P:NPC {
         { text = "Do the tauren mind mages walking their sacred pools?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What bites in the Wailing Caverns, Zamah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes the beasts in the Wailing Caverns sick, Zamah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "The tauren look at my imp as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The tauren look at my little companion as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do the druids distrust you, Zamah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of the Wailing Caverns, Zamah.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
@@ -275,6 +275,7 @@ P:NPC {
   key = "holt", id = TODO_NPC("Holt Thunderhorn"), name = "Holt Thunderhorn",
   bible = "bibles/thunderbluff.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "patient", "wise" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Hunts beside beasts; a demon at the heel sets every animal on the rise, and him, against you." },
   notices = { "class" },
   impression = {
     first = "His family is known across Mulgore for its archers.",
@@ -282,6 +283,9 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today; the Earth Mother is in a generous mood." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Every beast on this rise has its hackles up, and so have I. Say your business and then go back down the lift." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My students keep their beasts on short leads when you come up the ramp, and I told them to. A hunter trusts what his animals tell him." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The beasts have mostly stopped snarling when you come up the ramp. I haven't stopped watching you, but I'll hear you out." },
   },
   start = "hello",
   nodes = {
@@ -358,12 +362,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Because they smell what doesn't belong in the world, and your demon doesn't belong in it. The Thunderhorns have hunted Mulgore for generations without needing anything from the Twisting Nether, but the Horde takes all kinds, and so will I." },
+        { id = "xwarlock_default", text = "Because they smell what doesn't belong in the world, and something on you doesn't belong in it. The Thunderhorns have hunted Mulgore for generations without needing anything from the Twisting Nether, but the Horde takes all kinds, and so will I." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because they smell what doesn't belong in the world, and they can smell your demon from here, so look how the hounds have their hackles up. The Thunderhorns never needed anything from the Twisting Nether to hunt Mulgore, but the Horde takes all kinds, and so will I, if you keep it still." },
       },
       choices = {
         { text = "Then I'll walk slowly, out of respect.", next = "BACK", reply = "The beasts will thank you for it, and so will I. A slow step tells them you mean no harm, even with that thing at your heel.", fx = { align = { light = 1 } } },
-        { text = "Your beasts will learn their place.", next = "BACK", reply = "They know their place already, and it's far from whatever smells of the Nether. Keep your demon close, warlock, before one of them decides otherwise.", fx = { align = { light = -1 } } },
+        { text = "Your beasts will learn their place.", next = "BACK", reply = "They know their place already, and it's far from whatever smells of the Nether. Keep that thing close, before one of them decides otherwise.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -377,7 +381,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine comes home. Tell me what you've tracked since we last spoke, and let me see how your companion carries itself." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. In my grandfather's day nobody walked among us to tell the hunters how many plainstriders were too many, and some of my students still miss those days." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock on Hunter Rise. My students' beasts will bristle at you, so walk slowly." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Walk slowly on Hunter Rise, stranger. My students' beasts are bristling already, and I'd like to know why." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You keep a demon where a hunter keeps a companion, and I know the difference when I smell it. Be quick, stranger." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've never once loosed that thing on Hunter Rise, and I've noticed. Ask what you came to ask." },
         { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Narache blood, by the way you came up the ramp, slow and watching the ground for tracks. Your mother tracked the mesa for the Hawkwind's camp, I think, and the old hunters still argue over whether she or a Thunderhorn took the most plainstriders in a season." },
       },
       choices = {
@@ -500,12 +506,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They're trained to fight whatever threatens the herd, and a demon off its leash would qualify. I'll not hide that some of my warriors look at your kind and think of the Burning Blade, so be glad the Warchief speaks for you, warlock." },
+        { id = "xwarlock_default", text = "They're trained to fight whatever threatens the herd, and anything off its leash would qualify. I'll not hide that some of my warriors smell the sulphur on you and think of the Burning Blade, so be glad the Warchief speaks for your kind." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They're trained to fight whatever threatens the herd, and three of them have already shifted their feet toward your demon. I'll not hide that my warriors look at that thing and think of the Burning Blade, so keep it close, warlock, and be glad the Warchief speaks for you." },
       },
       choices = {
-        { text = "I'm grateful for his word. I'll keep my demon leashed.", next = "BACK", reply = "Good, then we'll have no trouble between us, and my warriors will learn to stop staring. The Warchief's word is a strong shield, but your own conduct is a stronger one.", fx = { align = { order = 1 } } },
-        { text = "I don't need the Warchief's word to defend myself.", next = "BACK", reply = "You'll need something, if your demon slips its leash on Hunter Rise. My warriors will defend the herd first, and ask about your words afterward.", fx = { align = { order = -1 } } },
+        { text = "I'm grateful for his word. What I keep stays leashed.", next = "BACK", reply = "Good, then we'll have no trouble between us, and my warriors will learn to stop staring. The Warchief's word is a strong shield, but your own conduct is a stronger one.", fx = { align = { order = 1 } } },
+        { text = "I don't need the Warchief's word to defend myself.", next = "BACK", reply = "You'll need something, if that thing slips its leash on Hunter Rise. My warriors will defend the herd first, and ask about your words afterward.", fx = { align = { order = -1 } } },
         { text = "Who do the warriors fight?", next = "fight" },
       },
     },
@@ -551,7 +557,7 @@ P:NPC {
         { text = "Strength isn't everything. Speed and silence count too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Are your warriors trained to fight things from beyond this world?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do any tauren still scorn the druid's path, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How can a mage protect the herd, Ker?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Must the Light be used carefully, Ker?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },

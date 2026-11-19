@@ -590,6 +590,80 @@ P:NPC {
   },
 }
 
+-- Dane Winslow: demon trainer in the Northshire graveyard, beside Drusilla La Salle.
+P:NPC {
+  key = "dane_winslow", id = TODO_NPC("Dane Winslow"), name = "Dane Winslow", title = "Demon Trainer", gender = "male",
+  bible = "bibles/missed.md", role = "trainer", tier = "service", communities = { "northshire" },
+  temper = { "dry", "tidy" }, values = { "discretion", "craft" }, notices = { "craft" },
+  impression = {
+    first = "Dane Winslow stands among the graves beside Northshire Abbey, close to Drusilla La Salle and well out of the brothers' sight. He speaks of demons the way a kennel master speaks of hounds, and he has no business with anyone who doesn't keep one.",
+    third = "{name} met Dane Winslow, who trains warlocks' demons in the graveyard at Northshire.",
+  },
+  greetings = {
+    { id = "g_default", when = { ["not"] = { class = "WARLOCK" } }, text = "You've wandered into the wrong corner of the abbey grounds, {class}. There's nothing here that you would care to buy." },
+    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Come closer, and keep your voice down. The brothers tolerate us best when they can pretend we aren't here." },
+    { id = "g_back", when = { metBefore = true, class = "WARLOCK" }, text = "Back again, I see. I trust your servant has been minding its manners?" },
+  },
+  notice = {
+    { id = "n_pet", cat = "craft", when = { class = "WARLOCK", pet = true },
+      text = "Your creature is slouching, which means it has stopped being afraid of you. We can mend that." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", when = { ["not"] = { class = "WARLOCK" } }, text = "Dane Winslow. I teach a certain kind of servant its lessons, on behalf of a certain kind of master, and since you aren't one of them we have very little to discuss." },
+        { id = "h_warlock", when = { class = "WARLOCK" }, text = "Dane Winslow. Drusilla teaches you how to call a demon, and I teach the demon what it's for, which is the half of the work that students always forget to pay for." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something more? Quietly, if you please." },
+        { id = "h_again2", text = "Go on, then, while there's nobody at the chapel door." },
+      },
+      choices = {
+        { text = "What does a demon trainer teach?", next = "teach" },
+        { text = "Why keep shop in a graveyard?", next = "graves" },
+        { text = "My imp has started talking back. Is that usual, or is it testing me?", next = "imp", when = { class = "WARLOCK" } },
+        { text = "A foul trade, beside an abbey.", next = "foul", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    teach = {
+      lines = { { id = "t_default", text = "An imp arrives knowing how to throw fire and how to complain, and everything else it must be shown. I sell the grimoires that do the showing, a page at a time, to those with the right to open them." } },
+      choices = {
+        { text = "And what if the demon won't learn?", next = "wontlearn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wontlearn = {
+      lines = { { id = "wl_default", text = "It always learns, because the alternative is a master who has lost patience with it, and every demon understands that arrangement perfectly. The warlock who won't learn is the rarer problem, and by far the messier one." } },
+      choices = { { text = "A sobering thought. Something else.", next = "BACK" } },
+    },
+    graves = {
+      lines = { { id = "g_default", text = "It's quiet, the brothers seldom walk here after the morning prayers, and nobody lingers to ask what's in the books. Drusilla chose the spot before I came, and I've never seen a reason to argue with her choice." } },
+      choices = {
+        { text = "Do the brothers know what you teach?", next = "brothers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brothers = {
+      lines = { { id = "b_default", text = "They know, and they have decided that a warlock taught under their eye is safer than one who teaches himself in a cellar. I happen to agree with them, though I doubt they'd thank me for saying so." } },
+      choices = { { text = "A strange truce. Something else.", next = "BACK" } },
+    },
+    imp = {
+      lines = { { id = "i_default", text = "Entirely usual, and you're not to mistake it for wit. An imp chatters to learn where your temper lies, so answer it seldom, feed it less, and never once let it choose the subject." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    foul = {
+      lines = { { id = "f_default", text = "So I'm told, usually by people standing exactly where you are. The abbey has borne my presence longer than it has borne yours, {class}, and I've yet to trouble a single grave." } },
+      choices = { { text = "See that it stays so.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I see to the schooling of demons, for those in Northshire who keep them. It's quieter work than you'd suppose." } },
+    _none = { { id = "tp_none", text = "That's no concern of mine, and I'd advise you to make it no concern of yours." } },
+  },
+}
+
 -- Donni Anthania: the Crazy Cat Lady, in her cottage between Northshire, Goldshire and Stormwind.
 P:NPC {
   key = "donni_anthania", id = TODO_NPC("Donni Anthania"), name = "Donni Anthania", title = "Crazy Cat Lady", gender = "female",

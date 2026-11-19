@@ -13,6 +13,7 @@ P:NPC {
   key = "zep_rorian", id = TODO_NPC("Rorian the Dayseeker"), name = "Rorian the Dayseeker",
   bible = "bibles/zephras.md", role = "questgiver", tier = "quest",
   communities = { "zephras_isle" }, temper = { "steady", "proud" }, values = { "dutiful", "patient" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Guards the young and the old gifts; warlockry is the Highborne sin his people fled." },
   notices = { "kin", "stranger", "class" },
 
   impression = {
@@ -21,6 +22,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "We came through ten thousand years without your sort of power, and we'll come through ten thousand more. Say your piece and keep away from the young." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I will not have a demon-caller near the children on the day they take their relics. State your business, stranger." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've walked this grove a good while, and not one of the young has come to harm by you. I'm still watching, mind, but I'll stop calling the rangers." },
     { id = "g_child", when = { race = "Skyborne" }, text = "Speak, child of Zephras, and tell me what you need. The grove is never quiet for long." },
     { id = "g_guest", when = { ["not"] = { race = "Skyborne" } }, text = "A guest in Thendal Grove. Gale's greetings to you, and mind the edges of the paths." },
     { id = "g_again", when = { metBefore = true }, text = "Back again. Good; I'd rather see you twice than hear of you once from a ranger." },
@@ -42,6 +46,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you call on, stranger. Our forebears ran from Eldre'Thalas to be free of it, and I'll not see it brought into Thendal Village where the young can watch." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the rangers didn't send for me first this time. Speak, then, and keep it short." },
         { id = "h_default", key = true, text = "I am Rorian, and Thendal Village is in my keeping, which mostly means the young are. Our people have come through ten thousand years of hardship, and I mean to see this generation come through it as well." },
         { id = "h_coming", tags = { "news" }, when = { questActive = TODO_QUEST("Coming of Age") },
           text = "So you've come for your relic. Stand straight, child; this happens only once in a life, and I'd like you to remember it kindly." },
@@ -72,7 +78,7 @@ P:NPC {
         { text = "Myriaal says jumping off the watchtower is good practice.", next = "gifts", when = { any = { { heardLine = "zep_myriaal.ga_default" }, { questActive = TODO_QUEST("Falling With Style") }, { questDone = TODO_QUEST("Falling With Style") } } } },
         { text = "Who should I train with?", next = "trainers", when = { race = "Skyborne" } },
         { text = "What is this village, and who are your people?", next = "village", when = { ["not"] = { race = "Skyborne" } } },
-        { text = "Something about my craft troubles you, I can tell.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Something about me troubles you, I can tell. Speak.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the Al'Aketh make you wary of priests?", next = "xpriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } } },
         { text = "The Light holds me up. Shall I tell you of it?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Winds be with you, Rorian.", next = "END" },
@@ -265,7 +271,7 @@ P:NPC {
       lines = { { id = "xl_default", text = "Prince Tortheldrin wished to drink from a demon world, and our ancestors died in the streets of Eldre'Thalas to stop him. I won't turn you out of the grove for your craft, guest, but I'd thank you not to practise it near the children." },
       },
       choices = {
-        { text = "That's fair. I'll keep my craft out of sight.", next = "BACK", reply = "Thank you, guest. The children will be none the wiser.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's fair. What I practise stays out of sight.", next = "BACK", reply = "Thank you, guest. The children will be none the wiser.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your ancestors feared what they didn't understand.", next = "BACK", reply = "They understood it perfectly well, guest, and they paid for that understanding in blood. Mind your words in this grove.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

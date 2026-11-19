@@ -1553,7 +1553,7 @@ P:NPC {
         { text = "Is cloth truly armor at all?", next = "armor" },
         { text = "What do outlanders make of our dress?", next = "outl" },
         { text = "Show me those gloves with the doubled weave.", next = "xpriest", when = { class = "PRIEST" } },
-        { text = "You'd sell to a warlock without a word?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You'd sell to me without a single question?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good day, Vinasia.", next = "END" },
       },
     },

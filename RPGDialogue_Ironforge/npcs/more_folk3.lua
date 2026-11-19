@@ -1441,7 +1441,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Hello! Don't mind the smell, it's only brimstone, and you stop noticing after about a fortnight." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Nothing's followed you in, has it? No, good, though one does have to ask." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, lovely! Bring it out, then, and let's see what sort of manners it has." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock! Lovely. Bring it out, then, and let's see whether it fears you yet." },
     { id = "g_void", when = { class = "WARLOCK", pet = { family = "Voidwalker" } }, text = "Oh, a voidwalker, and a big gloomy one too! Mind the beam, dear, it's only six feet up and they never look." },
   },
   notice = {
