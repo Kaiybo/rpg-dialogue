@@ -243,3 +243,4 @@ P:Topic { id = "quel_dorei", keywords = { "quel'dorei", "high elves" }, name = "
 P:Topic { id = "shendralar", keywords = { "Shen'dralar" }, name = "The Shen'dralar", category = "lore", learned = "Scholar Runethorn at Feathermoon" }
 P:Topic { id = "humans", linkName = false, name = "Humans", category = "people", learned = "kaldorei with an opinion of them" }
 P:Topic { id = "tauren", linkName = false, name = "The tauren", category = "people", learned = "the Cenarion Circle in Moonglade" }
+P:Topic { id = "kaldorei", keywords = { "kaldorei" }, name = "The night elves", category = "people", learned = "anyone with an opinion of them, and most have one" }
