@@ -1849,6 +1849,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want a room near the back, then, for I've learned that beasts don't care for the noise o' the bar." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye warm the hearth a bit? The damp gets in the logs, an' the sailors complain the fire's sulkin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Deepwater! Ye'll fit right in, for my regulars are sailors, soldiers an' diggers, an' every one o' them's more superstitious than ye." },
+        { id = "h_nelf", when = { race = "NightElf", ["not"] = { npcFlagBefore = "helbrek_ale" } },
+          text = "Off the Bravery, are ye? There's a stool by the window where yer folk like tae sit an' watch the rain, an' a jug o' water on the sill, for I've learned what ye drink, which is nothin' worth pourin'." },
+        { id = "h_nelf_ale", when = { npcFlagBefore = "helbrek_ale" },
+          text = "There's my kaldorei regular! I've told every sailor in the Wetlands about ye, an' half o' them still don't believe me." },
         { id = "dd_goods", when = { questDone = TODO_QUEST("Reclaiming Goods") },
           text = "Karl Boran's been crowin' in my common room that ye pulled his crates back out o' the murlocs' hands. He bought a round on the strength of it, an' Karl never buys a round." },
         { id = "dd_nekrosh", tags = { "news" }, when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
@@ -1876,6 +1880,9 @@ P:NPC {
         { text = "We're bound for the hills below Grim Batol. Any advice?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Did you ever wonder where my casks came from, Helbrek?", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
         { text = "Do the Dun Modr dwarves ever come down to drink?", next = "dw_modr" },
+        { text = "Do the night elves off the Auberdine boat drink here?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "I'll have an ale, Helbrek. Your strongest.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "helbrek_ale" } } },
+        { text = "The usual, Helbrek.", next = "ne_xale", when = { npcFlagBefore = "helbrek_ale" } },
         { text = "Just drying off.", next = "END" },
       },
     },
@@ -1924,6 +1931,55 @@ P:NPC {
     brewer = {
       lines = { { id = "br_default", text = "Do they, now! Then ye'll know my mead's honest, an' if ye think it's no', ye'll keep it to yerself, like family." } },
       choices = { { text = "It's honest work. Mostly.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
+    },
+
+    -- Night elves (0.94.0 work): a jolly innkeeper's grudge against folk who won't drink or laugh.
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "Drink? They order water, {g:lad|lass}, in a tavern, an' then they sit by the window an' look at my ale the way ye'd look at a bog. Three days the Bravery's crew waits on the tide, an' I've never once heard one o' them laugh at a song, an' my regulars sing very badly on purpose." },
+      },
+      choices = {
+        { text = "Maybe they just don't care for your ale.", next = "ne_ale" },
+        { text = "Let them be. Not everyone needs ale to be good company.", next = "BACK",
+          reply = "Aye, aye, ye're right, an' they pay, an' they never break a stool, which is more than I can say for the marines. I'd just like tae hear one laugh, the once, before I die.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Cold, proud folk. A dry tavern suits them.", next = "BACK",
+          reply = "Ha! Cold as the bay in winter an' twice as wet. Still, I'll no' turn them out, for a stool by the window's no' doin' anybody harm.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "cold" } } },
+        { text = "Something else, Helbrek.", next = "BACK" },
+      },
+    },
+    ne_ale = {
+      lines = {
+        { id = "nea_default", text = "One o' them told me ale dulls the spirit, very politely, an' I told her that was the whole point o' ale, an' she didnae laugh at that either. I've since heard they make a wine out o' moonberries that tastes like a garden, so it's no' that they dinnae drink, it's that they dinnae drink anythin' a dwarf would recognise." },
+      },
+      choices = {
+        { text = "So it's a matter of taste, not temperament.", next = "BACK", reply = "Taste, aye, I'll give ye that, an' maybe I'll order a cask o' that moonberry business, just tae see their faces when I pour it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_x = {
+      narr = "He stops wiping the bar and stares at you as though you had asked for his beard.",
+      lines = {
+        { id = "nex_default", text = "Ale. Ye want an ale, an' no' water, an' no' tea wi' a flower in it? I've kept this tavern twenty years an' ye're the first o' yer folk tae ask, so sit down before I lose my nerve an' pour ye water out o' habit." },
+      },
+      choices = {
+        { text = "It's terrible. I'll go back to water, I think.", next = "BACK",
+          reply = "Terrible! Well, that's honest, an' honest's better than polite. Water it is, but I'll be tellin' the whole bar ye tried.",
+          fx = { npcFlag = { set = { "helbrek_ale" } } } },
+        { text = "It's good. Pour another, and start a song.", next = "BACK",
+          reply = "Lads! Lads, the elf wants a song! No, a proper one, Fitz, no' the one about the goat.",
+          fx = { affinity = 2, npcFlag = { set = { "helbrek_ale" } } } },
+      },
+    },
+    ne_xale = {
+      lines = {
+        { id = "nexa_default", text = "Comin' up, an' I've had a cask o' moonberry wine sent over on the Bravery for yer folk, would ye believe. Nobody's touched it but me, an' I'll admit it's no' as bad as I said, though I'll deny it if ye tell anyone." },
+      },
+      choices = {
+        { text = "Your secret's safe, Helbrek.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
