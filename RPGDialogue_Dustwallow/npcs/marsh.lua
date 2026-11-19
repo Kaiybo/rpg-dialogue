@@ -11,7 +11,12 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Come in, come in, and wipe your boots, though in this marsh I suppose there's little point, and mind the frog in the kettle, he's a guest." },
-    { id = "g_back", when = { metBefore = true }, text = "You found your way back through the mire! Most don't bother twice." },
+    { id = "g_back", when = { metBefore = true }, text = "You found your way back through the mire! Most people don't bother twice, so you'd better come in and have some tea." },
+  },
+  notices = { "class" },
+  notice = {
+    { id = "n_imp", cat = "class", when = { class = "WARLOCK", pet = { family = "Imp" } },
+      text = "Your imp has been eyeing my frog since you walked in, and I'll thank you to tell it that the frog is a guest and not a snack." },
   },
   notice = {
     { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
@@ -26,7 +31,7 @@ P:NPC {
       choices = {
         { text = "I'll guard any caster gladly. That's what a sword is for.", next = "BACK", reply = "Then you'll be popular with my students, and I'll send the next one out with you. Mind the raptors, they go for the robes first.", fx = { align = { honor = 1 } } },
         { text = "Mages ought to fight their own battles, Tabetha.", next = "BACK", reply = "Some of us do, and some of us come back singed. I'd rather my students came back whole, if it's all the same to you.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xhuntcl = {
@@ -38,7 +43,7 @@ P:NPC {
       choices = {
         { text = "I'll drive those whelps back toward the Wyrmbog for you.", next = "BACK", reply = "Would you? That would be a kindness, and a brave one, because they burn hotter than they look. Come back and tell me how many you turned.", fx = { align = { honor = 1 } } },
         { text = "Your hut's your problem, Tabetha. I hunt what pays.", next = "BACK", reply = "Fair enough, and the whelps don't pay, I'm afraid. I'll keep my wards up and hope they get bored of me.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to other matters, then.", next = "BACK" },
       },
     },
     xhcast = {
@@ -49,7 +54,7 @@ P:NPC {
       choices = {
         { text = "Power without care is a poison. I'll be careful.", next = "BACK", reply = "Good, then you'll last out here, which most don't. I found the last careless one face-down in the pool behind my hut.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then I'll drink deep. Power is for using.", next = "BACK", reply = "Then drink, and I'll be here to bury what's left. The pools out here aren't kind to the greedy.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     xhsham = {
@@ -58,7 +63,7 @@ P:NPC {
       choices = {
         { text = "Then be a quiet neighbor, Tabetha. The spirits deserve that.", next = "BACK", reply = "I try, and I like to think they've noticed. It's the ogres they ought to be complaining about.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The spirits can adapt. Your research matters more.", next = "BACK", reply = "Spoken like a Kirin Tor apprentice, and I'll take it as a compliment. Still, I'll keep my voice down, just in case.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Something else, Tabetha.", next = "BACK" },
       },
     },
     druid_q = {
@@ -66,7 +71,7 @@ P:NPC {
       choices = {
         { text = "Take only what you need, and the marsh will forgive you.", next = "BACK", reply = "That's my rule too, and I'm glad to hear it from a druid. A cupful, and no more, and the marsh and I get along.", fx = { align = { light = 1 } } },
         { text = "Mana is there to be used. Take all you like.", next = "BACK", reply = "That's how the pools fester, as I said. I'll keep my cupful and leave the rest for wiser heads.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xrogue = {
@@ -75,7 +80,7 @@ P:NPC {
       choices = {
         { text = "Good wards. A woman alone out here should have them.", next = "BACK", reply = "They're the best company I've got out here, and they never tell tales. Thank you for noticing.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Next time I'll find a way past them, just to prove it.", next = "BACK", reply = "You're welcome to try, and they're welcome to tell me about it. I'll have the kettle on when you fail.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'll leave your wards be. Something else.", next = "BACK" },
       },
     },
     xlock = {
@@ -87,8 +92,38 @@ P:NPC {
       choices = {
         { text = "Your home, your rules. I'll keep my craft elsewhere.", next = "BACK", reply = "Thank you, that's more courtesy than I expected. Come for tea, if you like, and leave the imp behind.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Mana is mana. It'll forgive a little fel.", next = "BACK", reply = "It won't, and I've seen the pools to prove it. Cast elsewhere, warlock, and we'll stay friends.", fx = { align = { order = -1 } } },
+        { text = "Menara Voidrender in Ratchet says you're the better theorist.", next = "tmenara" },
+        { text = "Fel and arcane aren't so far apart, surely.", next = "xlock2" },
         { text = "Let me ask something else.", next = "BACK" },
       },
+    },
+    xlock2 = {
+      lines = { { id = "xlock2_default", text = "Further than you'd think, and closer than I'd like. The arcane is a river you draw from, and the fel is a river someone else has poisoned upstream, and the trouble is that both taste of power when you're thirsty." } },
+      choices = {
+        { text = "Someone has to drink from the poisoned one.", next = "xlock3" },
+        { text = "Back to other matters, then.", next = "BACK" },
+      },
+    },
+    xlock3 = {
+      big = true,
+      lines = { { id = "xlock3_default", text = "That's what Menara used to say, and what Dalaran's warlocks said before the Kirin Tor threw them out, and what the dreadful old orcs said at the Dark Portal. I don't doubt someone has to, dear, I only wonder why it's always the cleverest ones who volunteer." } },
+      choices = {
+        { text = "Because the clever ones know what's at stake.", next = "BACK", reply = "Perhaps, and perhaps they only like being the one who knows. I'll grant you the benefit of the doubt, since you've been polite about my frog.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're right. It's a road I should walk carefully.", next = "BACK", reply = "Carefully, and with someone who'll tell you when you've gone too far. Every warlock I ever liked had one of those, and the rest didn't last.", fx = { align = { light = 1 } } },
+        { text = "Let's not argue over tea.", next = "BACK" },
+      },
+    },
+    tmenara = {
+      lines = { { id = "tmenara_default", text = "Does she now? She's never once said it to my face, the wretch. We studied together long ago, she and I, until she went down into the shadow and I went off in a huff, and we've been writing each other very polite letters ever since." } },
+      choices = {
+        { text = "You sound fond of her, still.", next = "tmenara2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    tmenara2 = {
+      narr = "She sets the teapot down a little too hard, and the frog in the kettle blinks.",
+      lines = { { id = "tmenara2_default", text = "I'm fond of her and I'm frightened for her, which in my experience is what friendship with a warlock comes to in the end. Tell her I'm well, and tell her the gold thread on those robes of hers is still vulgar." } },
+      choices = { { text = "I'll pass both messages along.", next = "BACK", fx = { affinity = 1 } } },
     },
     xapriest = {
       big = true,
@@ -105,7 +140,7 @@ P:NPC {
       choices = {
         { text = "Jaina's trust is good enough for me.", next = "BACK", reply = "I'm glad to hear it, and so would she be. It's nice to be trusted by someone, for a change.", fx = { align = { order = 1 } } },
         { text = "A mage alone with this much power should be watched.", next = "BACK", reply = "Watch me, then, and you'll see a great deal of tea and very little power. I'm not the danger in this marsh.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     hello = {
@@ -125,7 +160,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You've come to a house built on mana, so please don't spill anything fel near it, because I'd have to clean the whole ley pool and I've only just finished." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting to know whether a woman living alone in the swamp with all this mana is up to anything wicked, and the answer, dear, is no." },
       },
-      again = { { id = "h_again", text = "What else, dear? Visitors are so rare out here that I'm glad of every question." }, { id = "h_again2", text = "Ask, dear. I've time." } },
+      again = { { id = "h_again", text = "What else, dear? Visitors are so rare out here that I'm glad of every question." }, { id = "h_again2", text = "Ask away, dear, because I've all the time in the world and nobody to spend it on." } },
       choices = {
         { text = "Does all your magic out here disturb the marsh's spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does all the mana in this swamp do to a spellcaster?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
@@ -146,14 +181,14 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Theramore is a fine city, but it's full of people with opinions about how a mage should work. Out here I have quiet, the mana pools and the occasional crocolisk at the door." } },
-      choices = { { text = "What dangers do you ward against?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What dangers do you ward against?", next = "b1_2" }, { text = "Let's talk about something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The marsh has its dangers, of course, from the black dragonflight's whelps to the Grimtotem in the south. I've learned which ones to ward against and which ones to simply avoid." } },
-      choices = { { text = "Do you help the travellers who come by?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Do you help the travellers who come by?", next = "b1_3" }, { text = "Back to other matters, then.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "And when someone like you comes by needing help with a spell, I'm glad to give it. A hermit isn't the same as a hater of company." } },
+      lines = { { id = "b1_3_l", text = "When someone like you comes by needing help with a spell, I'm glad to give it, because a hermit isn't the same thing as a hater of company." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
@@ -166,7 +201,7 @@ P:NPC {
     },
     x_1 = {
       lines = { { id = "x_1_l", text = "Only the basics, I'm afraid, since the rest takes years of patience. Feel for the current under your feet, and never draw from it faster than it flows." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Never faster than it flows. What else?", next = "BACK" } },
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some say a mage should serve the city that shelters her, but I've found I serve better from out here, where no one tells me how." } },

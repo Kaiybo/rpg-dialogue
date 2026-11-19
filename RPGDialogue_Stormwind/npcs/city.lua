@@ -736,40 +736,45 @@ P:NPC {
   },
 }
 
--- Gakin the Darkbinder: the Slaughtered Lamb. Guarded; pays for discretion.
+-- Gakin the Darkbinder: the Slaughtered Lamb. Guarded; pays for discretion; Surena's betrayal still stings.
 P:NPC {
   key = "gakin", id = TODO_NPC("Gakin the Darkbinder"), name = "Gakin the Darkbinder", title = "Warlock Trainer",
   bible = "bibles/city.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "ambitious" },
-  notices = { "pet", "watch" },
+  notices = { "pet", "watch", "fel" },
   impression = {
     first = "Every word seems to cost him something he means to have repaid.",
     third = "{name} met Gakin the Darkbinder, the warlock trainer beneath the Slaughtered Lamb, who pays well for silence.",
   },
 
   greetings = {
-    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Close the door behind you, quietly. The people upstairs drink to forget us." },
+    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Close the door behind you, and do it quietly, because the people upstairs drink to forget we're down here." },
+    { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're lost, friend, and I'd suggest you go and be lost somewhere with more light in it." },
+    { id = "g_back", when = { metBefore = true, class = "WARLOCK" }, text = "Still whole, I see, and still yourself. You'd be surprised how few students manage both." },
     { id = "g_surena_resolved", when = { class = "WARLOCK", thread = { id = "lock_surena", state = "resolved" } }, text = "There you are. Tell me what you refused this week, before you ask me for anything new." },
     { id = "g_surena_soured", when = { class = "WARLOCK", thread = { id = "lock_surena", state = "soured" } }, text = "You're back. Close the door, and keep whatever you came to say about the past to yourself." },
-    { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're lost. Stay lost, somewhere else." },
   },
 
   notice = {
     { id = "n_void", cat = "pet", when = { pet = { family = "Voidwalker" } },
-      text = "Your voidwalker's doing what it's told, which is good. Remember that obedience is a habit, not a nature, and keep it in the habit." },
+      text = "Your voidwalker's doing what it's told, which is good. Remember that obedience is a habit and not a nature, and keep the thing in the habit." },
+    { id = "n_succ", cat = "pet", when = { pet = { family = "Succubus" } },
+      text = "Tell her to keep her eyes off my students. She knows perfectly well I'm talking to her, and she knows I mean it." },
+    { id = "n_taint", cat = "fel", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've been drinking deep, I can smell it on you from here. Go slower, because the fel doesn't send a bill until it's too late to argue with it." },
     { id = "n_watch", cat = "watch", when = { ["not"] = { class = "WARLOCK" }, minLevel = 20 },
-      text = "You've a look of someone who reports to someone. Whoever it is, tell them the Lamb is just a tavern." },
+      text = "You've the look of someone who reports to someone. Whoever it is, tell them the Lamb is just a tavern." },
   },
 
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Only that power changes hands, and those who bargain with the world one day may bargain with something worse the next. I speak from experience." } },
+      lines = { { id = "xdsham_default", text = "Only that power changes hands, and those who bargain with the world one day may find themselves bargaining with something worse the next. I speak from experience, shaman, though not from mine alone." } },
       choices = {
         { text = "I'll keep my bargains clean and my spirits honest.", next = "BACK", reply = "Clean bargains are the hardest to keep, shaman. I'll be curious to see how long yours stay that way.", fx = { align = { order = 1 } } },
         { text = "Every bargain has its price. I'll pay mine as I choose.", next = "BACK", reply = "Then we understand each other better than you might like. Come back if the spirits ever stop answering.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave the spirits out of it.", next = "BACK" },
       },
     },
     xrogue = {
@@ -778,9 +783,9 @@ P:NPC {
         { id = "xrogue_default", text = "Silence, chiefly, and the occasional errand to places where a robe would draw too much attention. The city's guard ignores my door because it suits them, but SI:7 watches it, and a rogue who keeps both sides happy is worth paying." },
       },
       choices = {
-        { text = "I'll keep your secrets and stay clear of SI:7's business.", next = "BACK", reply = "Good. SI:7 and I have an understanding, and I'd hate to have it complicated by a careless guest.", fx = { align = { order = 1 } } },
+        { text = "I'll keep your secrets and stay clear of SI:7's business.", next = "BACK", reply = "Good, because SI:7 and I have an understanding, and I'd hate to see it complicated by a careless guest.", fx = { align = { order = 1 } } },
         { text = "SI:7 pays better than you, Gakin. Remember that.", next = "BACK", reply = "I'll remember, and so will they. Mind which side of this cellar you're standing on when they call.", fx = { align = { order = -1 } } },
-        { text = "Something else, Gakin.", next = "BACK" },
+        { text = "I'll think about it. What else is there?", next = "BACK" },
       },
     },
     xdruid = {
@@ -789,7 +794,7 @@ P:NPC {
       choices = {
         { text = "Then keep your fel contained, or I'll see it rooted out.", next = "BACK", reply = "Contained it is, druid, and you're welcome to come and sniff for leaks. You'll find none.", fx = { align = { order = 1 } } },
         { text = "What you do in your cellar is your own affair, Gakin.", next = "BACK", reply = "A sensible view. Perhaps you'll mention it to your Sentinels, who seem less convinced.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xmage = {
@@ -797,38 +802,38 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Because we take openly what they only study from a safe distance, and they'd rather not admit the two paths share a door. Every mage who's read too far into a forbidden book knows exactly what waits at the bottom of the stairs." } },
       choices = {
         { text = "Some doors should stay shut, Darkbinder.", next = "BACK", reply = "Then keep them shut, mage, and wonder for the rest of your life what was behind them.", fx = { align = { light = 1 } } },
-        { text = "Any door worth having is worth opening, Darkbinder.", next = "BACK", reply = "Now that is a mage I could teach something. Come down whenever you tire of the Sanctum's politeness.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Any door worth having is worth opening, Darkbinder.", next = "BACK", reply = "Now there's a mage I could teach something. Come down whenever you tire of the Sanctum's politeness.", fx = { align = { light = -1 } } },
+        { text = "Never mind the Sanctum.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every warlock needs something between him and his enemies, and most of us summon it. But a living shield remembers your face afterwards, which is a cost I've learned to weigh." } },
+      lines = { { id = "xwarcl_default", text = "Every warlock needs something between himself and his enemies, and most of us summon it. A living shield remembers your face afterwards, though, which is a cost I've learned to weigh." } },
       choices = {
-        { text = "I'd stand for anyone who fought on our side.", next = "BACK", reply = "Good. Remember it when the thing standing beside you has horns.", fx = { align = { light = 1 } } },
-        { text = "I'd never stand for a warlock. Find your own shield.", next = "BACK", reply = "Then you'll fall alone, warrior, and so will I. At least we'll both know why.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'd stand for anyone who fought on our side.", next = "BACK", reply = "Good, and remember you said so when the thing standing beside you has horns.", fx = { align = { light = 1 } } },
+        { text = "I'd never stand for a warlock. Find your own shield.", next = "BACK", reply = "Then you'll fall alone, warrior, and so will I, and at least we'll both know why.", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It is and it isn't, because your beast chose to stay and mine had no choice at all. Some of my students sneer at hunters, but I've noticed that a hunter's pet never turns on its master at an awkward moment." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It is and it isn't, because your beast chose to stay and mine had no choice at all. Your {pet} trusts you entirely, I can see that. How very rare, and how very difficult to teach." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It is and it isn't, because your beast chose to stay and mine had no choice at all. Your {pet} trusts you entirely, I can see that, and it's a rare thing and a very difficult one to teach." },
       },
       choices = {
         { text = "A bond freely given is stronger than any chain.", next = "BACK", reply = "Stronger, perhaps, but softer too. A chained beast never betrays you; it only waits.", fx = { align = { light = 1 } } },
-        { text = "Will is will. A leash is a leash, however you tie it.", next = "BACK", reply = "You understand the craft better than most of my students. That's either a compliment or a warning.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Will is will. A leash is a leash, however you tie it.", next = "BACK", reply = "You understand the craft better than most of my students, and that's either a compliment or a warning.", fx = { align = { light = -1 } } },
+        { text = "Let's leave the beasts out of it.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "I respect it the way a careful man respects fire, and I don't let it near my books. The Church calls what we do a sin, but the Church was glad enough of any weapon when the orcs came, and nobody writes that in their hymnals." } },
       choices = {
-        { text = "What you bind will consume you. There's still time to turn back.", next = "BACK", reply = "Many have said so, priest, and most of them are still saying it. I'll keep my demon, and you'll keep praying.", fx = { align = { light = 1 } } },
-        { text = "Power is power. I won't judge where it comes from.", next = "BACK", reply = "A priest who doesn't judge? Light, the Cathedral must be short of staff. I'll take it gladly.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "What you bind will consume you. There's still time to turn back.", next = "BACK", reply = "Many have told me so, priest, and most of them are still saying it. I'll keep my demon, and you'll keep praying.", fx = { align = { light = 1 } } },
+        { text = "Power is power. I won't judge where it comes from.", next = "BACK", reply = "A priest who doesn't judge? Light, the Cathedral must be short of staff, but I'll take it gladly.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll pray on it. Something else.", next = "BACK" },
       },
     },
     xapala = {
@@ -836,44 +841,54 @@ P:NPC {
       lines = { { id = "xapala_default", text = "The crown knows what it chooses to know, and it chooses very carefully. We've been useful to Stormwind more than once, and a kingdom with so many enemies can't afford to throw away a useful weapon." } },
       choices = {
         { text = "The crown's law allows you, so I'll respect it, for now.", next = "BACK", reply = "For now is a fair term. The crown will keep allowing it, as long as we keep being useful.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Laws that shelter demon-binders are no laws of mine.", next = "BACK", reply = "Then you'll have a long war ahead of you, paladin, and the crown won't be on your side of it.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Laws that shelter demon-binders are no laws of mine.", next = "BACK", reply = "Then you've a long war ahead of you, paladin, and the crown won't be on your side of it.", fx = { align = { order = -1 } } },
+        { text = "We'll come back to the crown.", next = "BACK" },
       },
     },
     hello = {
+      hub = true,
+      narr = "He doesn't look up from the ledger at first, and the imp on the shelf behind him does it for him.",
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, down here. Either you've lost your way or someone sent you, and in either case I'd suggest you keep your prayers inside your mouth." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my cellar. I'd ask whether this is a visit or a raid, but I doubt you'd give me an honest answer to either." },
-        { id = "h_default", text = "Gakin. I teach those who bind what others fear to name. Discretion is the first lesson and the last, and I pay well for it." },
+        { id = "h_default", text = "I'm Gakin the Darkbinder, and I teach those who bind what others fear to name. Discretion is the first lesson and the last, and I pay well for it." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Gakin's Summons") },
-          text = "Marcot says you're ready for something from the Void. We'll see. The Void doesn't care what Marcot says." },
+          text = "Marcot writes that you're ready for something from the Void, and we'll see whether he's right. The Void has never once cared what Marcot thinks." },
         { id = "h_surena", when = { questActive = TODO_QUEST("Surena Caledon") },
-          text = "Surena was my student, and she took something of mine and ran. Bring it back; what becomes of her is your business, mostly." },
+          text = "Surena was my student, and she took my Bloodstone Choker and ran off to Elwynn with it. Bring it back to me, and what becomes of her is mostly your business." },
         { id = "h_incubus", when = { class = "WARLOCK", minLevel = 20 },
           text = "There's a circle prepared in the crypts below. When you're ready to bind a succubus we'll talk, and not before, because they eat the ones who aren't." },
         { id = "h_strahad", when = { class = "WARLOCK", minLevel = 30 },
-          text = "Felhunters are beyond what I can teach in this cellar, but Strahad Farsan keeps the means in Ratchet. He's one of ours, and he'll have heard of you." },
+          text = "Felhunters are beyond what I can teach in this cellar, but Strahad Farsan keeps the means in Ratchet. He's one of ours, after his fashion, and he'll have heard of you." },
+        { id = "h_steed", when = { class = "WARLOCK", minLevel = 40 },
+          text = "You've come a long way from your first imp, and the cellar has noticed. I can teach you to call a felsteed now, and the guards at the gate will hate you for it." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Vestments, in the Lamb's cellar? Did the Archbishop send you, or did you find the stairs yourself? Either way, lower your voice." },
         { id = "h_lamb", when = { origin = "human_lamb_cellar" },
           text = "You first came down those stairs with your eyes wide and your mouth shut, and I've never had a better pupil for it. Keep both habits." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, in my cellar. The Quarter sends its apprentices down to sneer at us now and then, but they always leave with more questions than sneers." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my cellar. Bold of you, and I appreciate boldness, though I'd appreciate discretion more." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You bind a beast with patience, and I bind mine with will, and I've always wondered which of us the creature resents less." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my cellar, which is bold of you. I appreciate boldness, though I'd appreciate discretion more." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You bind a beast with patience and I bind mine with will, and I've always wondered which of us the creature resents less." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, beneath the Slaughtered Lamb. Your kind usually smells the fel on these stairs and turns back, so either you're brave or your nose is failing." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "One of the quiet folk. You keep your secrets as well as my students do, I see, and that alone earns you a word." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'm told the orcs had shamans before they had warlocks. You might ask yourself which of us your people should fear." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'm told the orcs had shamans before they had warlocks, and you might ask yourself which of us your people ought to fear." },
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
-        { id = "h_again2", text = "Something else? Keep your voice down." },
+        { id = "h_again2", text = "Is there something else? Keep your voice down when you ask it." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Go on, then, but remember that every question you ask down here is one somebody else can overhear." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "This place feels like more than a tavern cellar.", next = "lamb" },
         { text = "There are a lot of dwarves and gnomes down here.", next = "khaz" },
         { text = "You spoke of Surena as if she mattered.", next = "surena", when = { questDone = TODO_QUEST("Surena Caledon") } },
+        { text = "Why did Surena steal from you?", next = "surena_why", when = { questActive = TODO_QUEST("Surena Caledon") } },
+        { text = "Marcot says I'm ready for a voidwalker.", next = "void", when = { class = "WARLOCK", minLevel = 10, maxLevel = 19 } },
+        { text = "You said a succubus eats the ones who aren't ready.", next = "succ", when = { class = "WARLOCK", minLevel = 20, maxLevel = 39 } },
+        { text = "I hear there's more to learn than the felsteed.", next = "ritual", when = { class = "WARLOCK", minLevel = 50 } },
+        { text = "My family thinks I study at the Sanctum.", next = "family", when = { class = "WARLOCK", race = "Human" } },
         { text = "Ursula and Demisette told me their side of Surena.", next = "surena_end",
           when = { class = "WARLOCK", thread = { id = "lock_surena", beat = "b2_gakin", state = "unfolding" },
                    any = { { thread = { id = "lock_surena", beat = "b3_ursula" } }, { thread = { id = "lock_surena", beat = "b4_demisette" } } } } },
@@ -887,43 +902,74 @@ P:NPC {
         { text = "Is a hunter's bond anything like a warlock's binding?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you fear holy power, Gakin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the crown know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does the fel down here seep into the soil beneath the city, Gakin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the fel down here seep into the soil, Gakin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does the Slaughtered Lamb want from someone like me?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you mean by that, Darkbinder?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
     lamb = {
-      lines = { { id = "l_default", text = "There's a tavern upstairs and a crypt downstairs. The drinkers upstairs don't ask, and we don't serve drinks, and most of the time that arrangement holds." } },
+      lines = { { id = "l_default", text = "There's a tavern upstairs and a crypt downstairs, and that's all most people need to know. The drinkers don't ask questions and we don't serve drinks, and most of the time the arrangement holds." } },
       choices = {
         { text = "And when it doesn't?", next = "lamb_noble" },
-        { text = "Something else.", next = "BACK" },
+        { text = "A crypt? Under a tavern?", next = "lamb_crypt" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    lamb_crypt = {
+      lines = { { id = "lc_default", text = "The Lamb was built over older graves, the way half of Stormwind was, and the dead down there have been very good neighbours. That's where we keep the binding circles, well away from anyone's ale." } },
+      choices = {
+        { text = "And the Defias? I heard they took books from here.", next = "lamb_defias" },
+        { text = "Back to the cellar, then.", next = "BACK" },
+      },
+    },
+    lamb_defias = {
+      lines = { { id = "ld_default", text = "They took a few, and they took Surena with them, which I minded rather more. A thief with a stolen grimoire is a danger mostly to himself, but a trained warlock in the Defias's pocket is a danger to all of Westfall." } },
+      choices = {
+        { text = "Then the cellar has a debt to the kingdom.", next = "BACK", reply = "It does, and I'm paying it, one quiet student at a time. Don't expect the kingdom to notice.", fx = { align = { order = 1 } } },
+        { text = "Westfall isn't your problem. The books are.", next = "BACK", reply = "You think like a warlock already, and I'm not sure that's a compliment. I'll have them back either way.", fx = { align = { order = -1 } } },
+        { text = "I'll leave the Defias to Westfall.", next = "BACK" },
       },
     },
     lamb_noble = {
-      lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth, upstairs, is keeping him busy, and don't ask how." } },
+      lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth is keeping him busy, and I'd advise you not to ask him how." } },
       choices = {
-        { text = "I won't ask.", next = "BACK", reply = "Wise. Questions in this cellar have a way of being answered in person.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "I won't ask.", next = "BACK", reply = "That's wise, because questions in this cellar have a way of being answered in person.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Blackmail, then.", next = "BACK", reply = "Such an ugly word. I prefer to call it the slow persuasion of a man with too many debts.", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
     khaz = {
-      lines = { { id = "k_default", text = "Gnomeregan trained the warlocks of Khaz Modan, once. Now Gnomeregan is poison and Ironforge watches its own too closely, so they send them here.",
+      lines = { { id = "k_default", text = "Gnomeregan trained the warlocks of Khaz Modan, once. Now Gnomeregan is poison and Ironforge watches its own too closely, so they send them here, and I take them.",
         fx = { learn = { "gnomeregan" } } } },
       choices = {
         { text = "Is that a problem?", next = "khaz_attention" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     khaz_attention = {
-      lines = { { id = "ka_default", text = "Crowded gets noticed, and noticed gets an inquiry. I'd rather teach ten students in the dark than forty in the light." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "ka_default", text = "A crowded cellar gets noticed, and a noticed cellar gets an inquiry. I'd rather teach ten students in the dark than forty in the light." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    surena_why = {
+      lines = { { id = "sw_default", text = "Because a Defias rogue named Erlan Drudgemoor told her she was wasted in a cellar, and she believed him because she wanted to. You'll find them both at the Brackwell pumpkin patch in Elwynn, and I'll want the choker back without a scratch on it." } },
+      choices = {
+        { text = "Do you want her dead?", next = "surena_dead" },
+        { text = "I'll bring it back.", next = "BACK" },
+      },
+    },
+    surena_dead = {
+      narr = "He closes the ledger and rests his hand flat on it.",
+      lines = { { id = "sd_default", text = "I want the choker, and I've said so. Whatever you do about Surena, do it quickly, because she was the best student I ever had and I'd rather not hear that she suffered." } },
+      choices = {
+        { text = "I'll be quick, then.", next = "BACK", reply = "Thank you. I don't say that often down here, so don't spend it.", fx = { affinity = 1 } },
+        { text = "If she yields, I'll let her go.", next = "BACK", reply = "Then she'll come back for it, or for me, and I'll have to finish what you didn't. Do as you like.", fx = { trait = { kind = 1 } } },
+      },
     },
     surena = {
-      lines = { { id = "s_default", text = "A good student, better than good, and that's what made it hurt. Don't bring her up again." } },
+      lines = { { id = "s_default", text = "She was a good student, better than good, and that's what made it hurt. I'd thank you not to bring her up again." } },
       choices = {
         { text = "She ran off with a Defias thief.", next = "surena_erlan", fx = { affinity = -1 } },
-        { text = "I won't. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I won't, then. Let's talk about something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     surena_end = {
@@ -952,26 +998,118 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
     surena_erlan = {
-      lines = { { id = "se_default", text = "Erlan Drudgemoor, a thief with good teeth and no talent. I told you not to ask, and now you know why." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "se_default", text = "Erlan Drudgemoor, a thief with good teeth and no talent to speak of. I told you not to ask, and now you know why I said it." } },
+      choices = { { text = "I'll let it lie.", next = "BACK" } },
+    },
+    void = {
+      lines = {
+        { id = "v_default", text = "Then you'll need my Bloodstone Choker to anchor the binding, and Surena has it, so the lesson begins in Elwynn. Bring it back, and I'll open the crypt below for you." },
+        { id = "v_done", when = { questDone = TODO_QUEST("Surena Caledon") }, text = "You brought my choker home, so the crypt below is open to you. Take it down to the circle, call the thing up, and beat it until it agrees to serve." },
+      },
+      choices = {
+        { text = "Beat it? I thought binding was a spell.", next = "void_fight" },
+        { text = "What is a voidwalker, exactly?", next = "void_what" },
+        { text = "Back to the other lessons.", next = "BACK" },
+      },
+    },
+    void_fight = {
+      lines = { { id = "vf_default", text = "The spell opens the door and the choker holds it, but the thing that comes through will test you first, every time. If you win, it serves; if you lose, the crypt keeps you, and I lose another student." } },
+      choices = {
+        { text = "And if I win?", next = "void_what" },
+        { text = "I'll win.", next = "BACK", reply = "Say it again when you're standing in the circle, because that's the only place it counts.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    void_what = {
+      big = true,
+      lines = { { id = "vw_default", text = "A servant made of nothing that hates being something, and so it throws itself between you and every blade without a word of complaint. It will never love you, and it will never forgive you, and it will take the blow meant for your head." } },
+      choices = {
+        { text = "Then it's only a shield. I'll use it like one.", next = "BACK", reply = "Good, and don't name it anything fond. The ones who name them fondly start to talk to them.", fx = { align = { light = -1 } } },
+        { text = "Something that suffers for me deserves some pity.", next = "BACK", reply = "Pity it if you must, but never let it see, because it'll find a use for that too.", fx = { align = { light = 1 } } },
+        { text = "I'll think on it. Something else.", next = "BACK" },
+      },
+    },
+    succ = {
+      lines = {
+        { id = "sc_default", text = "I did, and I meant it. A succubus is the cleverest servant you'll bind before the felhunter, and she spends every hour of her service looking for the one thing you want more than you want to be free of her." },
+        { id = "sc_pet", when = { pet = { family = "Succubus" } }, text = "You've already bound her, so you know what I mean. She's watching you while I talk, and she isn't listening to me at all." },
+      },
+      choices = {
+        { text = "What does she want from me?", next = "succ_want" },
+        { text = "She'll find nothing. I want nothing.", next = "succ_want" },
+        { text = "Let's get back to the lessons.", next = "BACK" },
+      },
+    },
+    succ_want = {
+      big = true,
+      lines = { { id = "sw2_default", text = "Everybody wants something, and she's better at finding it than you are at hiding it. Surena thought she wanted nothing, too, right up until a pretty liar told her what it was." } },
+      choices = {
+        { text = "Then I'll keep her on the shortest leash I can.", next = "BACK", reply = "Shorter than that, and check the knot every morning. You'll outlast most who come through that door.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A servant who wants something can be bargained with.", next = "BACK", reply = "That's how it begins, with a reasonable bargain, and I've watched the rest of it happen twice.", fx = { align = { order = -1 } } },
+        { text = "You still think about Surena.", next = "surena_think" },
+      },
+    },
+    surena_think = {
+      lines = { { id = "st_default", text = "Every time I teach this lesson, I do. That's what the lesson costs me, and I'd rather you didn't mention it to Ursula." } },
+      choices = { { text = "I won't. Back to the lessons.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ritual = {
+      lines = { { id = "r_default", text = "There is, and it isn't taught in this cellar lightly. An infernal stone calls down a burning giant from the sky, and it lands angry, so you'll have to enslave it before it remembers who it is." } },
+      choices = {
+        { text = "And the doomguard?", next = "ritual_doom" },
+        { text = "Let's leave rituals for another night.", next = "BACK" },
+      },
+    },
+    ritual_doom = {
+      big = true,
+      lines = { { id = "rd_default", text = "The Ritual of Doom needs a demonic figurine and four others to hold the circle with you, and the Legion takes its fee from whoever's standing nearest. I'd choose my friends very carefully before I asked them to stand in that circle." } },
+      choices = {
+        { text = "Then I'll only ask those who know the risk.", next = "BACK", reply = "That's the honest way, and the lonely one. You'll find out how few will say yes.", fx = { align = { honor = 1 } } },
+        { text = "Whoever falls was useful to the end.", next = "BACK", reply = "That's how the orcs talked, near the end, and you've read how that ended for them.", fx = { align = { honor = -1 } } },
+        { text = "And after that, Mor'zul?", next = "ritual_dread", when = { minLevel = 60 } },
+      },
+    },
+    ritual_dread = {
+      lines = { { id = "rdr_default", text = "Spackle will send you to Mor'zul Bloodbringer in the Burning Steppes, and Mor'zul will send you into Dire Maul for a dreadsteed. That's further than I ever went, and I'll admit I'm envious." } },
+      choices = { { text = "Back to the cellar's business.", next = "BACK" } },
+    },
+    family = {
+      lines = { { id = "fa_default", text = "Half the students down here tell their mothers that, and the Sanctum would be very surprised by the size of its enrolment. Does your family suspect anything?" } },
+      choices = {
+        { text = "No. I'll keep it that way.", next = "family_lie" },
+        { text = "My mother knows. She hasn't spoken to me since.", next = "family_truth" },
+      },
+    },
+    family_lie = {
+      big = true,
+      lines = { { id = "fl_default", text = "Then you're already practising the first lesson, and you're better at it than most. Only don't come to believe your own story, because a warlock who forgets what he is gets reminded by his demon." } },
+      choices = {
+        { text = "A lie that keeps them safe is no sin.", next = "BACK", reply = "I've told myself the same for twenty years, and nobody has yet proved me wrong.", fx = { align = { honor = -1 } } },
+        { text = "One day I'll tell them the truth.", next = "BACK", reply = "Pick the day carefully, and bring someone who can talk faster than you.", fx = { align = { honor = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    family_truth = {
+      lines = { { id = "ft_default", text = "Then she's braver than most mothers, because most only pretend not to know. Come down here when the silence at home gets heavy; nobody upstairs will ask where you've been." } },
+      choices = { { text = "Thank you, Gakin.", next = "BACK", fx = { affinity = 1 } } },
     },
     church = {
       big = true,
-      lines = { { id = "c_default", text = "The Church prays the dark away. We bind it and put it where it can't wander. Ask your Archbishop which of us has fewer demons loose in Elwynn." } },
+      lines = { { id = "c_default", text = "The Church prays the dark away, and we bind it and put it where it can't wander. Ask your Archbishop which of us has fewer demons loose in Elwynn." } },
       choices = {
-        { text = "Binding a demon is still using it.", next = "church_use", fx = { align = { light = 1 } } },
+        { text = "Binding a demon is still using it.", next = "church_use" },
         { text = "You have a point.", next = "BACK", reply = "A point is all I need. Come down when you want the rest of the argument.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light will judge you, not me.", next = "BACK", reply = "Then the Light and I will have a long talk one day, and I've been preparing my side of it for years.", fx = { align = { light = 1 } } },
       },
     },
     church_use = {
-      lines = { { id = "cu_default", text = "Yes. So is a sword, and the Church blesses those. Go home. We'll both keep doing what we do, and the city will keep not asking." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "cu_default", text = "It is, and so is a sword, and the Church blesses those. Go home, and we'll both keep doing what we do while the city keeps not asking." } },
+      choices = { { text = "We'll see. Something else.", next = "BACK" } },
     },
     practise = {
       lines = {
         { id = "practise_l", text = "Saying no to your imp. It'll ask for things, small things, every day, and the warlock who says yes to small things will say yes to large ones without noticing. After that, your curses, because a curse cast in haste lands on the caster." },
         { id = "practise_old", when = { minLevel = 30 },
-          text = "Your circles, and your sleep. A tired warlock draws a crooked circle, and a crooked circle is an invitation. I've buried two students who forgot that." },
+          text = "Your circles, and your sleep. A tired warlock draws a crooked circle, and a crooked circle is an invitation, and I've buried two students who forgot that." },
       },
       choices = {
         { text = "My imp doesn't ask for things.", next = "practise_imp" },
@@ -979,31 +1117,30 @@ P:NPC {
       },
     },
     practise_imp = {
-      lines = { { id = "practise_imp_l", text = "Then it's asking quietly, which is worse. Listen to it for a day and tell me I'm wrong." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+      lines = {
+        { id = "practise_imp_l", text = "Then it's asking quietly, which is worse. Listen to it for a day, and then come and tell me I'm wrong." },
+        { id = "practise_imp_pet", when = { pet = { family = "Imp" } }, text = "Then it's asking quietly, which is worse, and it's grinning at me over your shoulder as you say it. Listen to {pet} for a day and tell me I'm wrong." },
+      },
+      choices = { { text = "I'll listen. Back to the lessons.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     master = {
       big = true,
       lines = { { id = "master_l", text = "Whoever forgets first. The demon never forgets what it is, so the work is all on your side: remember, every hour, that it hates you, and that it's yours." } },
       choices = {
-        { text = "Then I'll never forget.", next = "BACK", reply = "Good. Say it every morning, and you'll outlive most who come through that door.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little freedom makes a demon more useful.", next = "master_free", fx = { align = { order = -1 } } },
+        { text = "Then I'll never forget.", next = "BACK", reply = "Good, and say it every morning, and you'll outlive most who come through that door.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little freedom makes a demon more useful.", next = "BACK", reply = "That's what Surena said. Go on, then, and when the Watch asks me who taught you, I'll say I never met you.", fx = { align = { order = -1 } } },
         { text = "It might stop hating me one day.", next = "master_hate" },
       },
     },
-    master_free = {
-      lines = { { id = "master_free_l", text = "That's what Surena said. Go on, then, and when the Watch asks me who taught you, I'll say I never met you." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
     master_hate = {
       lines = { { id = "master_hate_l", text = "Then it's learned to lie better, and you've learned nothing. A demon that seems fond of you is studying you." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+      choices = { { text = "I'll remember that.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     gnome_lock = {
       lines = {
         { id = "gnome_lock_l", text = "Then you learned from the books nobody was guarding when the city fell, and the books didn't tell you what they cost their last owners. I'll teach you that part, at least." },
         { id = "gnome_lock_texts", when = { origin = "gnome_forbidden_texts" },
-          text = "You took them off the shelves while everyone else was running, I'd guess; I've had three gnomes down here with the same story. The books didn't tell you what they cost their last owners, so I will." },
+          text = "You took them off the shelves while everyone else was running, I'd guess, and I've had three gnomes down here with the same story. The books didn't tell you what they cost their last owners, so I will." },
       },
       choices = {
         { text = "A demon is only a system with inputs.", next = "gnome_lock_sys" },
@@ -1012,32 +1149,37 @@ P:NPC {
     },
     gnome_lock_sys = {
       lines = { { id = "gnome_lock_sys_l", text = "Systems don't want anything, and demons want you. Keep thinking like an engineer if it calms you, but check your gauges twice." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Twice it is. Something else.", next = "BACK" } },
     },
     others = {
-      lines = { { id = "others_l", text = "Ursula is stricter than I am and thinks I'm soft, Spackle sells grimoires like sweets, and Jennea Cannon would close this cellar tomorrow if she could. The Cathedral prays for us, which I've never once asked it to do." } },
+      lines = { { id = "others_l", text = "Ursula is stricter than I am and thinks I'm soft, Demisette has outlived everyone who disagreed with her, and Sandahl counts shards while he talks. Spackle sells grimoires like sweets, and the Cathedral prays for all of us, which I've never once asked it to do." } },
       choices = {
         { text = "Maybe their prayers help.", next = "BACK", reply = "Perhaps they do, and I'll not tell the Archbishop otherwise. My demons have never minded.", fx = { align = { light = 1 } } },
         { text = "Prayers never bound a demon.", next = "BACK", reply = "No, they never have, though they've comforted a great many people standing behind my wards.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "And Zardeth?", next = "others_zardeth" },
       },
+    },
+    others_zardeth = {
+      lines = { { id = "oz_default", text = "Zardeth keeps the peace with the people upstairs, and I've learned not to ask what that costs or who pays it. I teach, and he tidies, and we both sleep better for not comparing notes." } },
+      choices = { { text = "I'll keep out of his way.", next = "BACK" } },
     },
   },
 
   topics = {
     burning_legion = {
       { id = "tp_burning_legion", text = "The Burning Legion is the source of all fel magic, and those of us who study it know exactly what we're touching. Respect it, and it may serve you, but forget for an instant and it will devour you whole." },
-      { id = "tp_burning_legion2", when = { class = "WARLOCK" }, text = "Never forget that the power you draw comes from the Legion's own fire. Bind it, master it, and never trust the voice that tells you you've mastered it." },
+      { id = "tp_burning_legion2", when = { class = "WARLOCK" }, text = "Never forget that the power you draw comes from the Legion's own fire. Bind it and master it, and never trust the voice that tells you you've mastered it." },
     },
-    dark_portal = { { id = "tp_dark_portal", text = "The orcs came through the Dark Portal because a warlock opened it, and that's the reason Stormwind hates my kind. I don't blame them, but I'd note that the city still needed us when the demons came." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs came through the Dark Portal because a warlock opened it, and that's the reason Stormwind hates my kind. I don't blame the city, but I'd note that it still needed us when the demons came." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad made a bargain with the dead, and he paid for it with his life and his soul. I've made bargains too, but I always read the terms before I sign them." } },
     shadowfang = { { id = "tp_shadowfang", text = "Arugal summoned beasts he couldn't control and called it a defence against the Scourge. That's the sort of mistake that gives my kind a bad name, and he deserves every word of it." } },
     knows = {
       { id = "tp_knows", text = "I know more than I say, which is the only sensible way to know anything in this cellar. Ask about these, and keep your voice down." },
     },
     background = { { id = "tp_bg", text = "My past is my business. Discretion is the first lesson, remember, and you've just failed it by asking." } },
-    advice = { { id = "tp_ad", text = "Whatever a demon offers you, it's lying. Even the things that turn out true. Especially those." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan sent us its warlocks once, and now it sends us its refugees. I take both." } },
-    _none = { { id = "tp_none", text = "I don't trade in answers I don't have. I barely trade in the ones I do." } },
+    advice = { { id = "tp_ad", text = "Whatever a demon offers you, it's lying, and that goes double for the things that turn out to be true." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan sent us its warlocks once, and now it sends us its refugees, and I take both." } },
+    _none = { { id = "tp_none", text = "I don't trade in answers I don't have, and I barely trade in the ones I do." } },
   },
 }
 

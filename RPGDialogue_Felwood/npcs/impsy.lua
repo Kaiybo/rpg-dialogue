@@ -49,7 +49,8 @@ P:NPC {
           text = "You're not a warlock, are you? You've got that clean, shiny look, like somebody scrubbed you. I've nothing for you, unless you want to hear about Niby, and everybody wants to hear about Niby." },
       },
       again = {
-        { id = "h_again", text = "Still here? Fine, what?" },
+        { id = "h_again", text = "Still here? Fine, then, what do you want now?" },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "More questions, warlock? You lot never stop asking things, which is more than I can say for Niby." },
         { id = "h_again2", text = "Go on, then, ask. Niby's not listening; he never is." },
       },
       choices = {
@@ -58,6 +59,8 @@ P:NPC {
         { text = "What exactly are you building?", next = "build" },
         { text = "Why are you out here in Felwood?", next = "felwood" },
         { text = "What will you pay me with?", next = "pay", when = { class = "WARLOCK" } },
+        { text = "My imp never complains like you do.", next = "myimp", when = { class = "WARLOCK", pet = { family = "Imp" } } },
+        { text = "What do imps really think of warlocks?", next = "imps", when = { class = "WARLOCK" } },
         { text = "I could banish you right now, imp.", next = "xholy", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'm leaving, Impsy.", next = "END" },
       },
@@ -69,7 +72,7 @@ P:NPC {
       choices = {
         { text = "How did Niby learn to summon?", next = "niby_how" },
         { text = "Why not just leave him?", next = "niby_leave" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     niby_how = {
@@ -78,7 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "That explains a great deal.", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to your pet, then.", next = "BACK" },
       },
     },
     niby_leave = {
@@ -89,7 +92,7 @@ P:NPC {
       choices = {
         { text = "A bargain is a bargain. Serve him well.", next = "BACK", reply = "Serve him well? Serve him well, says the fool who doesn't fetch slippers! I'll serve him as well as he deserves, which is barely.", fx = { align = { order = 1 } } },
         { text = "Then find a way to break the binding.", next = "BACK", reply = "Ooh, now you're thinking, and I've been thinking it for years. If you find the trick, I'll owe you something nasty.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the pet, then.", next = "BACK" },
       },
     },
     pet = {
@@ -98,16 +101,16 @@ P:NPC {
       },
       choices = {
         { text = "Why not catch a real animal?", next = "pet_real" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     pet_real = {
       lines = {
-        { id = "pr_default", text = "Tried it. The squirrels round here are all corrupted and the last one bit my tail, and the wolf I tried to tame ate my lunch and then tried to eat me. A made pet doesn't bite and doesn't run off and doesn't tell Niby." },
+        { id = "pr_default", text = "I tried that, and the squirrels round here are all corrupted, and the last one bit my tail. The wolf I tried to tame ate my lunch and then tried to eat me, and a made pet doesn't bite or run off or tell Niby." },
       },
       choices = {
         { text = "So you're building a stuffed one.", next = "build" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Something else, Impsy.", next = "BACK" },
       },
     },
     build = {
@@ -117,7 +120,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does a pet need to smell like a demon?", next = "build_smell" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     build_smell = {
@@ -128,7 +131,7 @@ P:NPC {
       choices = {
         { text = "Be proud of what you are, Impsy.", next = "BACK", reply = "I am proud, thank you very much, and it's about time someone noticed. Brimstone is a perfectly respectable perfume.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Maybe try being something better than a demon.", next = "BACK", reply = "Better than a demon? There's no such thing, you twit, and I'd know. Go and preach at a priest.", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     felwood = {
@@ -137,7 +140,7 @@ P:NPC {
       },
       choices = {
         { text = "Do the satyrs or the Shadow Council bother you?", next = "felwood_council" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Something else, Impsy.", next = "BACK" },
       },
     },
     felwood_council = {
@@ -146,7 +149,7 @@ P:NPC {
       },
       choices = {
         { text = "Keep your heads down, then.", next = "BACK" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     pay = {
@@ -155,8 +158,36 @@ P:NPC {
       },
       choices = {
         { text = "You'd steal from your own master?", next = "pay_steal" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the deal, then.", next = "BACK" },
       },
+    },
+    myimp = {
+      narr = "He leans round your legs to squint at your imp, and your imp squints back.",
+      lines = { { id = "mi_default", text = "Never complains to you, you mean, because you've got the soul shard and the leash. Ask it what it says about you when you're asleep, go on, and watch it go all innocent." } },
+      choices = {
+        { text = "Does mine talk about me?", next = "myimp2" },
+        { text = "I'd rather not know. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    myimp2 = {
+      big = true,
+      lines = { { id = "mi2_default", text = "All of us do, every one, it's practically a union. The ones with decent masters say 'mine's all right, I suppose', and the rest say worse, so which sort of master are you, then?" } },
+      choices = {
+        { text = "A fair one. It gets rest and it gets thanks.", next = "BACK", reply = "Thanks? Out loud? I'd faint, I would, and then I'd follow you anywhere. Don't tell Niby that, he'll only get jealous and make me fetch more slippers.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A strict one. It does as it's told, nothing more.", next = "BACK", reply = "Then it's calling you names right now, behind that innocent little face. Proper warlock, you are, and the trainers would be proud.", fx = { align = { order = 1 } } },
+        { text = "That's between me and my imp.", next = "BACK" },
+      },
+    },
+    imps = {
+      lines = { { id = "im_default", text = "That you're all very tall and very loud, and that you summon us to throw fireballs at things that throw fireballs back. Nobody ever asks an imp if he'd rather be at home in the Nether with his feet up, which I would, most days." } },
+      choices = {
+        { text = "What's it like, being summoned?", next = "imps2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    imps2 = {
+      lines = { { id = "im2_default", text = "Like being yanked out of a warm bath by your tail and dropped in a cold field, and then somebody shouts 'firebolt' at you before you've even found your feet. The shard's the worst bit, though, because once a warlock's got one of those you can feel him thinking about you, and it itches." } },
+      choices = { { text = "I'll try to think about mine more kindly.", next = "BACK", fx = { affinity = 1 } } },
     },
     pay_steal = {
       big = true,
@@ -164,9 +195,9 @@ P:NPC {
         { id = "ps_default", text = "Steal? I'm redistributing, warlock. He took my time and my dignity and my afternoons, and I'm only taking back a few shiny things in return. That's fair dealing where I come from." },
       },
       choices = {
-        { text = "I'll take the reward. His loss is my gain.", next = "BACK", reply = "There's a warlock with sense, and I knew I liked you. His loss, your gain, and my revenge, all in one.", fx = { align = { honor = -1 } } },
+        { text = "I'll take the reward. His loss is my gain.", next = "BACK", reply = "There's a warlock with sense, and I knew I liked you. It's his loss and your gain and my revenge, all in one go.", fx = { align = { honor = -1 } } },
         { text = "I'll help, but I won't take stolen goods.", next = "BACK", reply = "Oh, a principled one, how dull. Fine, keep your hands clean, and I'll keep the shiny things.", fx = { align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'll take my chances. Something else.", next = "BACK" },
       },
     },
     xholy = {
@@ -177,7 +208,7 @@ P:NPC {
       choices = {
         { text = "A demon is a demon. Begone from this world.", next = "BACK", reply = "Go on, then, and I'll be back sooner than you'd like, and grumpier for it. Niby always gets bored.", fx = { affinity = -2, align = { light = 1 } } },
         { text = "You're harmless enough. Make your pet, imp.", next = "BACK", reply = "Harmless? I'm deeply offended, but I'll take it. Off you go, and don't tell anyone I was polite.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
   },

@@ -1175,25 +1175,30 @@ P:Pool {
 
 P:Pool {
   -- Faction-neutral: human and gnome warlocks for the Alliance; orc, troll and Forsaken
-  -- warlocks for the Horde.
+  -- warlocks for the Horde. Warlocks get the deepest talk: the next step on the path by level
+  -- (imp, voidwalker 10, succubus 20, felhunter 30, felsteed 40, infernal and doomguard 50,
+  -- dreadsteed 60), soul shards, and the whispering; outsiders get the door held half shut.
   id = "trainer_warlock", role = "trainer", subtitle = "warlock trainer", tier = "service",
   greetings = {
-    { id = "g_quiet", text = "Shut that door first. Now, what is it you want?" },
-    { id = "g_vet", when = { class = "WARLOCK", minLevel = 40 }, text = "Still yourself, I see. Good; not everyone who comes back is." },
+    { id = "g_quiet", text = "Shut that door behind you first, and then tell me what you want." },
+    { id = "g_vet", when = { class = "WARLOCK", minLevel = 40 }, text = "You're still yourself, I see, and not everyone who comes back from where you've been can say that." },
     { id = "g_away", when = { away = 7 }, text = "You've been away {away}, and you're still yourself. Shut the door and sit." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've grown stronger since our last lesson, and something has noticed. Let's make certain you stay the master of it." },
+    { id = "g_outsider", when = { ["not"] = { class = "WARLOCK" } }, text = "You're not one of mine, so say what you came to say, and keep your hands off the books while you say it." },
   },
   notice = {
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "WARLOCK" },
-      text = "A troll with a grimoire instead of a fetish. The spirits won't like it, and the demons won't care." },
+      text = "A Darkspear with a grimoire instead of a fetish. The loa won't thank you for it, and the demons won't know the difference." },
     { id = "n_imp", cat = "pet", when = { pet = { family = "Imp" } },
-      text = "Your imp is looking at my books. Tell it to stop looking at my books." },
+      text = "Your imp is looking at my books. Tell it to stop looking at my books, or I'll find out what it looks like inside a jar." },
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "WARLOCK" },
       text = "A gnome who reads grimoires. Your people like to know how things work, and I'll warn you now that some things work better when you don't look too closely." },
     { id = "n_orc", cat = "class", when = { race = "Orc", class = "WARLOCK" },
       text = "An orc at this trade, after everything it cost your people. Either you're very brave or you haven't heard the stories, and I hope it's the first." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "WARLOCK" },
       text = "The dead make careful warlocks, since there's not much left in you for a demon to bargain over. Don't let that make you careless." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "WARLOCK" },
+      text = "Another one from the kingdoms, and I'd guess you learned your first words of this in a cellar with the door barred. Most of us did." },
     { id = "n_void", cat = "pet", when = { pet = { family = "Voidwalker" } },
       text = "Your voidwalker keeps drifting toward the candles. Tell it the dark in this room belongs to me." },
     { id = "n_succubus", cat = "pet", when = { pet = { family = "Succubus" } },
@@ -1222,20 +1227,26 @@ P:Pool {
   nodes = {
     hello = {
       lines = {
-        { id = "l_default", text = "Power is power. The ones who sneer at where it comes from never have enough of it." },
+        { id = "l_default", text = "Power is power, and the ones who sneer at where it comes from never seem to have enough of it." },
         { id = "l_young", when = { class = "WARLOCK", maxLevel = 20 }, text = "Your imp still talks back to you, doesn't it? Good; the day it goes quiet is the day you should start worrying." },
         { id = "l_veteran", when = { class = "WARLOCK", minLevel = 45 }, text = "You've bound things I'd hesitate to name aloud. Tell me how, quietly, and then tell me what they asked for in return." },
         { id = "l_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're no warlock, so I'll not explain myself. Most people who ask what I do don't really want to know." },
+        { id = "l_holy", when = { class = { "PALADIN", "PRIEST" } }, text = "A servant of the Light, in my room, with that look on your face. Say your piece and go, and try not to bless anything on your way out." },
       },
       again = {
         { id = "a_again", text = "Something else? Keep your voice low." },
         { id = "a_again2", text = "Go on, while the door's still shut." },
+        { id = "a_again3", when = { class = "WARLOCK" }, text = "What else is on your mind, student? Better you ask me than the thing at your heel." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "What comes next for me?", next = "path", when = { class = "WARLOCK" } },
         { text = "I'd guess the demon is never really the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "Some nights I hear it whispering.", next = "whisper", when = { class = "WARLOCK", minLevel = 20 } },
         { text = "Some would call this work hard to justify.", next = "justify" },
+        { text = "The Light would see your whole craft burned.", next = "holy", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "What does it take to become a warlock?", next = "recruit", when = { ["not"] = { class = "WARLOCK" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1243,20 +1254,70 @@ P:Pool {
       lines = {
         { id = "p_default", text = "Patience with your curses. Lay them, step back and let them work, because a warlock standing in the thick of the fight has forgotten what the craft is for." },
         { id = "p_young", when = { maxLevel = 20 }, text = "Learn to trade your own health for power and back again, and learn exactly how far you can push it. You'll find the line by falling over it once, so do that somewhere safe." },
+        { id = "p_mid", when = { minLevel = 21, maxLevel = 39 }, text = "Learn to drain, life and mana both, so that a long fight feeds you instead of bleeding you dry. And learn to fear, because a foe running in terror is a foe who isn't hitting you." },
         { id = "p_veteran", when = { minLevel = 40 }, text = "Learn to send your servant where you'd never go yourself. That's the whole art, and it's also the whole danger." },
       },
       choices = {
         { text = "And if the demon turns on me?", next = "practise_turn" },
-        { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Tell me about soul shards.", next = "shards" },
+        { text = "Back to the other lessons, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
     practise_turn = {
       lines = { { id = "pt_default", text = "Then you were weak, or careless, or it was cleverer than you, and you'll find out which while it's eating you. Bind it again, tighter, and never let it see you flinch." } },
-      choices = { { text = "I won't flinch.", next = "BACK", fx = { trait = { brave = 1 } } } },
+      choices = {
+        { text = "I won't flinch.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather it never came to that.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    shards = {
+      narr = "The trainer turns a small violet stone over in one hand, then sets it down very carefully.",
+      lines = {
+        { id = "sh_default", text = "Every shard is the last of something that died under your hand while you were drinking from it, pulled out and set in stone. You'll spend them on the greater summonings and on healthstones and soulstones, and you'll never have quite enough, so take them when the killing's easy." },
+        { id = "sh_undead", when = { race = "Scourge" }, text = "You'll find the harvest easier than the living do, I expect, since you know better than most what a soul is worth once it's loose. Every shard is the last of something you killed, set in stone, and you'll spend them faster than you'd like." },
+      },
+      choices = {
+        { text = "Whose soul is it, though?", next = "shards_whose" },
+        { text = "I'll keep my bag full.", next = "BACK", fx = { trait = { practical = 1 } } },
+      },
+    },
+    shards_whose = {
+      big = true,
+      lines = { { id = "sw_default", text = "A wolf's, a bandit's, a murloc's, whatever was dying under your hand. Some trainers will tell you a beast has no soul worth worrying about, and I won't tell you that, because I don't know, and neither do they." } },
+      choices = {
+        { text = "It was dying anyway. I waste nothing.", next = "BACK", reply = "Spoken like a warlock who'll still be alive in ten years, and I'm not sure I mean that as praise.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "I'll take them only from things that deserve it.", next = "BACK", reply = "Then you'll be choosy, and you'll go short some days. I've known worse rules to live by, so keep it if you can.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Back to the lessons.", next = "BACK" },
+      },
+    },
+    path = {
+      lines = {
+        { id = "pa_default", text = "More of the same, done better, and then something worse to bind. That's the whole path, and it doesn't end where you'd like it to." },
+        { id = "pa_imp", when = { maxLevel = 9 }, text = "Your imp first, and learn it well, because everything after it is bigger and less forgiving. When you're ready, I'll send you to bind a voidwalker, and you'll have to beat it in the circle before it will serve you." },
+        { id = "pa_void", when = { minLevel = 10, maxLevel = 19 }, text = "The voidwalker, if you haven't bound it yet, and the succubus after that. She'll fight you for the binding as the voidwalker did, but she fights with her tongue as well as the whip, so don't believe a word she says." },
+        { id = "pa_succ", when = { minLevel = 20, maxLevel = 29 }, text = "The felhunter comes next, a hound that eats magic, and you'll be glad of it the first time a mage or a priest stands against you. Binding one will take you a long way from this room, so settle your affairs before you go." },
+        { id = "pa_hunter", when = { minLevel = 30, maxLevel = 39 }, text = "A mount of your own, before long. When you're ready, I can teach you to call a felsteed out of the Nether, and you'll never have to pay a stable hand again." },
+        { id = "pa_steed", when = { minLevel = 40, maxLevel = 49 }, text = "The great rituals are next: the infernal, which you call down out of the sky with a stone, and the doomguard, which takes a circle of five and one life to open the door. Master banishing and enslaving before you try either, because neither of them arrives friendly." },
+        { id = "pa_ritual", when = { minLevel = 50, maxLevel = 59 }, text = "There's a warlock in the Burning Steppes called Mor'zul Bloodbringer, and he'll set you after a dreadsteed when you're ready for it. It's a long road through Scholomance and Dire Maul, and at the end of it waits a lord of Xoroth who would very much like to keep his horse." },
+        { id = "pa_top", when = { minLevel = 60 }, text = "I've nothing left to show you that you haven't bound already, and I'll admit that frightens me a little. Whatever comes next, you'll find on your own." },
+      },
+      choices = {
+        { text = "Does it get easier?", next = "path_easier" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    path_easier = {
+      big = true,
+      lines = { { id = "pe_default", text = "The binding gets easier, but what you're binding gets cleverer, so the work stays exactly as hard as it was. The only thing that changes is how far you fall when you get it wrong." } },
+      choices = {
+        { text = "Then I'll keep climbing. I want what's at the top.", next = "BACK", reply = "Everyone who climbed before you wanted it too. Some of them are still up there, and some of them are what's up there now.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "I'll climb only as far as fighting the Legion needs.", next = "BACK", reply = "A sensible limit, and a hard one to keep. Write it down somewhere, and read it to yourself on the nights it whispers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
     master = {
       big = true,
-      lines = { { id = "m_default", text = "The warlock is, always, right up until the moment the warlock isn't. Every one of us believes we hold the leash, and every one who fell believed it until they were on the other end of it." } },
+      lines = { { id = "m_default", text = "The warlock is, always, right up until the moment the warlock isn't. Every one of us believes we hold the leash, and every one who fell believed it until they found themselves on the other end of it." } },
       choices = {
         { text = "I hold the leash. That's what mastery means.", next = "BACK", reply = "Then hold it tightly, and never let the thing on the other end hear you say that, because they all keep a careful count of every boast.", fx = { align = { order = 1, light = -1 }, trait = { stern = 1 } } },
         { text = "Maybe I'm being used. I'll use it right back.", next = "BACK", reply = "That's the honest answer, and the one that keeps most of us alive, so long as you remember the demon is thinking exactly the same thing.", fx = { align = { order = -1, honor = -1 }, trait = { witty = 1 } } },
@@ -1264,14 +1325,53 @@ P:Pool {
       },
     },
     master_lost = {
+      narr = "The trainer glances, without meaning to, at a patch of fresh paint on the far wall.",
       lines = { { id = "ml_default", text = "Once, and the room still has scorch marks under the new paint. I bound it again before it reached the door, and you're the first student I've told how close it came." } },
-      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    whisper = {
+      lines = {
+        { id = "wh_default", text = "Of course you do; they all whisper, and the ones that don't are the ones you should really worry about. What does yours say?" },
+        { id = "wh_void", when = { pet = { family = "Voidwalker" } }, text = "From that one? Voidwalkers don't whisper, student, so whatever you're hearing is coming from somewhere else, and that's worse. What does it say?" },
+      },
+      choices = {
+        { text = "That I'm stronger than the one who taught me.", next = "whisper_flattery" },
+        { text = "It whispers. I don't listen, and that's the end of it.", next = "BACK", reply = "Good, and keep it that way. Not listening is a skill, and most of us are worse at it than we admit.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Some nights I think it's right.", next = "BACK", reply = "Then come and see me on those nights, before you do anything about it. I mean that, student; my door's shut, but it isn't locked.", fx = { affinity = 1, align = { order = -1 }, trait = { honest = 1 } } },
+      },
+    },
+    whisper_flattery = {
+      lines = { { id = "wf_default", text = "Then it's lying, or it's telling the truth, and both are dangerous. A demon that flatters you is measuring how much rope you'll give it, so give it none, and come and tell me the next time it says something kind." } },
+      choices = {
+        { text = "I'll come to you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Back to the lessons.", next = "BACK" },
+      },
     },
     justify = {
-      lines = { { id = "j_default", text = "The demons are coming whether we study them or not. I'd rather the one who understands them stood on our side than theirs, and if it costs me a little of my soul, that's mine to spend." } },
+      lines = {
+        { id = "j_default", text = "The demons are coming whether we study them or not. I'd rather the one who understands them stood on our side than theirs, and if it costs me a little of my soul, that's mine to spend." },
+        { id = "j_mage", when = { class = "MAGE" }, text = "This from a mage? Your Kirin Tor have dabbled in worse behind closed doors, and the only difference between us is that I don't pretend otherwise. The demons are coming either way, and I'd rather understand them." },
+        { id = "j_lock", when = { class = "WARLOCK" }, text = "You'll hear that all your life, student, so you'd better have an answer ready. Mine is that the demons are coming whether we study them or not, and I'd rather it was one of us who understood them." },
+      },
       choices = {
         { text = "That's a dangerous bargain.", next = "BACK", fx = { trait = { cautious = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    holy = {
+      big = true,
+      lines = { { id = "ho_default", text = "It would, and plenty of your kind have tried. Meanwhile the Legion's servants walk the roads in daylight wearing borrowed faces, and I'm the one who knows what they are, so you'll forgive me if I keep my books." } },
+      choices = {
+        { text = "Then turn what you know on the Legion, and nothing else.", next = "BACK", reply = "That's all I've ever done. Tell your Light that, and tell it I'd welcome its help the day the Legion comes back.", fx = { align = { light = 1 } } },
+        { text = "Knowledge is knowledge. I won't judge you for it.", next = "BACK", reply = "From a servant of the Light, that's nearly a kindness. Don't say it too loudly at your temple.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll pray for you anyway.", next = "BACK" },
+      },
+    },
+    recruit = {
+      lines = { { id = "rc_default", text = "A strong will, a weak conscience, or the wit to tell the two apart, and a teacher who'll throw you out the first time you lie to them. Most who ask me that want power quickly, and the quick way is the way that eats you." } },
+      choices = {
+        { text = "I'll stay as I am, thank you.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I was only curious.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
   },
@@ -1284,6 +1384,7 @@ P:Pool {
     },
     second_war = {
       { id = "w_secondwar_h", when = { faction = "Horde" }, text = "Gul'dan's warlocks led the old Horde to ruin in that war, and no orc has forgotten it. We teach the craft differently now, and we watch our students very closely." },
+      { id = "w_secondwar_a", when = { faction = "Alliance" }, text = "Gul'dan raised dead knights to ride for the Horde in that war, and the kingdoms have never forgiven our craft for it. It's the reason we teach in cellars, and the reason we keep the door shut." },
     },
     knows = {
       { id = "t_kn1", text = "I make it my business to know what others would rather keep hidden. Some of it I can share, so choose carefully." },
@@ -1291,7 +1392,7 @@ P:Pool {
     },
     _none = { { id = "t_none", text = "I don't share what I don't know, and I share very little of what I do." } },
     background = { { id = "t_bg", text = "I found the wrong book in the right library and read it twice before anyone noticed. By then I knew too much to stop." } },
-    advice = { { id = "t_ad", text = "Never make a bargain you haven't read to the bottom. Demons write the important part small." } },
+    advice = { { id = "t_ad", text = "Never make a bargain you haven't read to the bottom, because demons write the important part small." } },
   },
 }
 

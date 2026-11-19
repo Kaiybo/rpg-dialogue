@@ -935,16 +935,19 @@ P:NPC {
 
   greetings = {
     { id = "g_1", text = "You need not announce yourself, for I heard your boots choose this direction some time ago." },
-    { id = "g_2", when = { class = "WARLOCK" }, text = "There is a small dark flame standing where you stand. A warlock, then. Come closer, since Carendin said one would be along." },
-    { id = "g_3", when = { questActive = TODO_QUEST("Hearts of the Pure") }, text = "You have come back, but you are no heavier than when you left. The hearts, {class}. I can't begin without them." },
-    { id = "g_4", when = { metBefore = true }, text = "The same step as before, a little surer. Welcome back." },
+    { id = "g_2", when = { class = "WARLOCK" }, text = "There is a small dark flame standing where you stand, so you are a warlock. Come closer, since Carendin said one would be along." },
+    { id = "g_devourer", when = { questActive = TODO_QUEST("Devourer of Souls") }, text = "Carendin sent you, I think, about the succubus. Do not think less of me because my sight is gone, for I see what lies behind things now, more clearly than I ever did with eyes." },
+    { id = "g_3", when = { questActive = TODO_QUEST("Hearts of the Pure") }, text = "You have come back, but you are no heavier than when you left. I need those two hearts, {class}, and Carendin needs them more." },
+    { id = "g_4", when = { metBefore = true }, text = "The same step as before, a little surer, and welcome back." },
   },
 
   notice = {
-    { id = "n_1", cat = "class", when = { class = "WARLOCK" },
+    { id = "n_1", cat = "class", when = { class = "WARLOCK", pet = { family = "Imp" } },
       text = "Your imp is making faces at me. They always do, since they suppose a blind man cannot tell, and they are always wrong." },
+    { id = "n_succ", cat = "class", when = { class = "WARLOCK", pet = { family = "Succubus" } },
+      text = "Your succubus burns very prettily, and she is trying to work out what I want, and finding nothing to hold. It vexes her, and I confess I enjoy it." },
     { id = "n_2", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
-      text = "You are very bright to stand beside. I do not mean it as praise. It is something like standing too near a forge." },
+      text = "You are very bright to stand beside, and I do not mean it as praise. It is something like standing too near a forge." },
     { id = "n_3", cat = "race", when = { race = "Tauren" },
       text = "The floor told me a tauren had come in before the air did. You walk heavily, and you walk kindly, and that is a rare pairing." },
   },
@@ -952,104 +955,125 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
+      narr = "He turns his face toward you a moment before you speak, his clouded eyes fixed a little to the left of yours.",
       lines = {
         { id = "hello_1", key = true, text = "Godrick Farsan. I keep Carendin Halgar's notes and his circles in order, and I see to the students he has no patience for. My eyes went in the plague, and I have found I do not much miss them." },
-        { id = "hello_2", when = { all = { { class = "WARLOCK" }, { questBefore = TODO_QUEST("Hearts of the Pure") }, { minLevel = 20 } } }, text = "Godrick Farsan. Carendin tells me you are ready to bind a devourer of souls, and that I am to prepare you. I shall need the hearts of the pure for it, and Tirisfal has no shortage of those who believe themselves so." },
-        { id = "hello_3", when = { questDone = TODO_QUEST("Hearts of the Pure") }, text = "Godrick Farsan, and I remember what you brought me. They were still warm with conviction. You did that part well." },
+        { id = "hello_2", when = { all = { { class = "WARLOCK" }, { questBefore = TODO_QUEST("Hearts of the Pure") }, { minLevel = 20 } } }, text = "Godrick Farsan. Carendin tells me you are ready to bind a devourer of souls, and that I am to prepare you, and for that I shall need the hearts of two good men, which are harder to find in Lordaeron than you would think." },
+        { id = "hello_3", when = { questDone = TODO_QUEST("Hearts of the Pure") }, text = "Godrick Farsan, and I remember what you brought me. The heart of a good man looks much like any other, once it is out, and I think that troubled you less than it should have." },
       },
       again = {
         { id = "hello_a1", text = "Yes? I am listening, and I am never doing anything else." },
         { id = "hello_a2", text = "Ask what you like. I am not easily tired." },
-        { id = "hello_a3", text = "Go on." },
+        { id = "hello_a3", text = "Go on, then, and take your time, since I have plenty of it." },
       },
       choices = {
+        { text = "Carendin sent me about the succubus.", next = "hearts", when = { class = "WARLOCK", minLevel = 20 } },
+        { text = "Farsan. There's a warlock of that name in Ratchet.", next = "name", when = { class = "WARLOCK", minLevel = 28 } },
         { text = "How do you see, without eyes?", next = "sight" },
         { text = "What is it like, working for Carendin Halgar?", next = "halgar" },
-        { text = "Why the hearts of the pure?", next = "hearts", when = { class = "WARLOCK" } },
-        { text = "Farsan. I've met a Farsan in Ratchet.", next = "name", when = { class = "WARLOCK" } },
         { text = "You tend the circles by touch.", next = "circles" },
         { text = "I'll go quietly, Godrick.", next = "END" },
       },
     },
+
     sight = {
-      lines = { { id = "sight_1", text = "Differently. I do not see the wall, or your face, or the lamp. I see what burns. The living are a steady yellow, the Forsaken a low grey, and those who traffic with demons carry a second, smaller flame that is not their own." } },
+      lines = { { id = "sight_1", text = "Differently, and not the wall or your face or the lamp, but whatever burns. The living are a steady yellow, the Forsaken a low grey, and those who traffic with demons carry a second, smaller flame that is not their own." } },
       choices = {
         { text = "What do the demons look like?", next = "sight2" },
         { text = "That sounds like a poor trade for eyes.", next = "sight2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     sight2 = {
-      lines = { { id = "sight2_1", text = "It was a fair trade, to my mind. Demons are holes in the shape of creatures, with heat pouring through them from somewhere else. It is the reason I am useful to Carendin. A binding that looks sound to him may leak where only I can tell." } },
+      lines = { { id = "sight2_1", text = "It was a fair trade, to my mind. Demons are holes in the shape of creatures, with heat pouring through them from somewhere else, and that is why I am useful to Carendin, because a binding that looks sound to him may leak where only I can tell." } },
       choices = {
         { text = "And what do you see in me?", next = "sight3" },
-        { text = "Another matter.", next = "BACK" },
+        { text = "Another matter, then.", next = "BACK" },
       },
     },
     sight3 = {
       lines = {
-        { id = "sight3_1", text = "A flame that leans forward, as if into wind. You are going somewhere and you are impatient with the road. I have seen that shape go out quickly, and I have seen it grow very large. I can't tell you which yours will do." },
-        { id = "sight3_2", when = { class = "WARLOCK" }, text = "Your own flame, steady enough, and the little one beside it, pulling at its leash. It pulls less than most, which tells me you bound it properly. Do not let that make you fond of it." },
+        { id = "sight3_1", text = "A flame that leans forward, as if into wind, because you are going somewhere and you are impatient with the road. I have seen that shape go out quickly, and I have seen it grow very large, and I can't tell you which yours will do." },
+        { id = "sight3_2", when = { class = "WARLOCK" }, text = "Your own flame, steady enough, and the little one beside it, pulling at its leash. It pulls less than most, which tells me you bound it properly, but do not let that make you fond of it." },
       },
       choices = {
-        { text = "I intend to grow large.", next = "BACK", reply = "Most do. I shall listen for how it goes.", fx = { trait = { brave = 1 } } },
-        { text = "I'd rather not know.", next = "BACK", reply = "Wise. I often wish I didn't." },
+        { text = "I intend to grow large.", next = "BACK", reply = "Most do, and I shall listen for how it goes.", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather not know.", next = "BACK", reply = "That is wise of you. I often wish I didn't." },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+
     halgar = {
-      lines = { { id = "halgar_1", text = "Restful, oddly. He is short with everyone and expects nothing kind in return, so no one has to pretend. He reads, I listen, and now and then he says \"Farsan, is that line whole?\" and I tell him, and he grunts. It is as near to friendship as he comes." } },
+      lines = { { id = "halgar_1", text = "Restful, oddly, because he is short with everyone and expects nothing kind in return, so no one has to pretend. He reads and I listen, and now and then he says \"Farsan, is that line whole?\" and I tell him, and he grunts, which is as near to friendship as he comes." } },
       choices = {
         { text = "Do you trust him?", next = "halgar2" },
         { text = "Tell me about something else.", next = "BACK" },
       },
     },
     halgar2 = {
-      lines = { { id = "halgar2_1", text = "I trust him to be exactly what he is, which is more than I could say of anyone I knew while I was breathing. He wants knowledge and he does not much care what it costs other people. I know where I stand, even if I can't see where that is." } },
+      lines = { { id = "halgar2_1", text = "I trust him to be exactly what he is, which is more than I could say of anyone I knew while I was breathing. He wants knowledge and does not much care what it costs other people, and I know where I stand, even if I can't see where that is." } },
       choices = {
         { text = "An honest villain is easier company.", next = "BACK", reply = "I should not say villain within his hearing, but yes.", fx = { trait = { witty = 1 } } },
         { text = "You deserve a kinder master.", next = "BACK", reply = "Kindness is very difficult to see. I prefer what I can find in the dark." },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+
     hearts = {
-      lines = { { id = "hearts_1", text = "A succubus is drawn to what she can spoil. Those zealots of the Crusade who haunt the Glades burn with a clean certainty, and she can smell it from the other side of the Nether. Three such hearts in the circle, and she will come to see what all the brightness is about." } },
+      lines = { { id = "hearts_1", text = "A succubus cannot be dragged across without a lure, and nothing lures her like goodness she can spoil. It took me a long while of listening to travellers' talk, but I found two men who should do, and I shall show you their faces as I see them." } },
       choices = {
-        { text = "And then I bind her.", next = "hearts2" },
+        { text = "Who are they?", next = "hearts_who" },
         { text = "That's a grim sort of bait.", next = "hearts2" },
-        { text = "Another matter.", next = "BACK" },
+        { text = "Another matter, then.", next = "BACK" },
+      },
+    },
+    hearts_who = {
+      narr = "He lifts one hand and holds it flat in the air, as though resting it on a head you cannot see.",
+      lines = { { id = "hw_1", text = "This is Dalin Forgewright, who fled Lordaeron with his love when the plague came, and stayed at the Greymane Wall to tend the refugees his own kin turn away. And this is Comar Villard, whose wife was taken from Menethil Harbor two weeks after their wedding, and who still walks the Wetlands looking for her." } },
+      choices = {
+        { text = "They sound like good men.", next = "hearts2" },
+        { text = "Then I'll bring their hearts to Carendin.", next = "BACK", reply = "Do. He will hold them up to the lamp and tell you they look like anyone's, and he will be right." },
       },
     },
     hearts2 = {
       big = true,
-      lines = { { id = "hearts2_1", text = "It is bait, and then it is binding, yes. The Scarlets would burn you and me alike and call it a kindness, so I do not weep for them. Still, I ask every student the same thing before they go. Does it sit easily with you?" } },
+      lines = { { id = "hearts2_1", text = "They are, and fools for it, and that is the whole of why she will come. The living would call this murder and I suppose it is, so I ask every student the same thing before they go: does it sit easily with you?" } },
       choices = {
-        { text = "They chose this war. It sits easily.", next = "BACK", reply = "Then you will sleep, and she will find less to work with. Good.", fx = { align = { light = -1 } } },
-        { text = "No, and I hope it never does.", next = "BACK", reply = "Keep that. A warlock who has stopped minding is very nearly a demon's meal already.", fx = { align = { light = 1 } } },
+        { text = "Good men are a luxury. It sits easily.", next = "BACK", reply = "Then you will sleep, and she will find less to work with, which is something.", fx = { align = { light = -1 } } },
+        { text = "No, and I hope it never does.", next = "BACK", reply = "Keep that, because a warlock who has stopped minding is very nearly a demon's meal already.", fx = { align = { light = 1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+
     name = {
-      lines = { { id = "name_1", text = "Strahad, yes, my kinsman, and a living man still, and a far grander warlock than I. We wrote, before the plague. He has not written since, and I do not blame him, for there is no good way to begin a letter to a dead cousin." } },
+      lines = { { id = "name_1", text = "Strahad, yes, my kinsman, and a living man still, and a far grander warlock than I. We wrote before the plague, and he has not written since, and I do not blame him, for there is no good way to begin a letter to a dead cousin." } },
       choices = {
-        { text = "He spoke well of the old country.", next = "BACK", reply = "Did he? That is something. Thank you for carrying it this far." },
+        { text = "Carendin's sending me to him for a felhunter.", next = "name2" },
         { text = "Tell me about something else.", next = "BACK" },
       },
     },
-    circles = {
-      lines = { { id = "circles_1", text = "By touch and by heat. Chalk is cool, and a line with power in it is faintly warm, like a sill the sun has just left. I walk each circle barefoot before Carendin uses it, and I have never yet let him step into a cold one." } },
+    name2 = {
+      lines = { { id = "name2_1", text = "Then you will hear his voice before I do again, which is a strange thing to envy. Tell him nothing of me unless he asks, and if he asks, tell him I see well enough." } },
       choices = {
-        { text = "He's fortunate to have you.", next = "BACK", reply = "He would say he is adequately served. From him, it is the same thing." },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'll tell him, if he asks.", next = "BACK", reply = "Thank you. He will not ask, I think, but I like knowing the answer is ready.", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+
+    circles = {
+      lines = { { id = "circles_1", text = "By touch and by heat. Chalk is cool, and a line with power in it is faintly warm, like a sill the sun has just left, and I walk each circle barefoot before Carendin uses it and have never yet let him step into a cold one." } },
+      choices = {
+        { text = "He's fortunate to have you.", next = "BACK", reply = "He would say he is adequately served, and from him it is the same thing." },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
   },
   topics = {
     demons = { { id = "tp_demons", text = "Do not look at them too long. I am spared that mistake, and I count it the chief advantage of my condition." } },
-    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "They are very bright and very certain. From a distance their monastery looks like a town on fire." } },
-    forsaken = { { id = "tp_forsaken", text = "We burn low and long, like banked coals. It is not an unpleasant colour." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "They are very bright and very certain, and from a distance their monastery looks like a town on fire." } },
+    forsaken = { { id = "tp_forsaken", text = "We burn low and long, like banked coals, and it is not an unpleasant colour." } },
     advice = { { id = "tp_advice", text = "Listen before you enter any room. Rooms tell you who is in them, if you are patient for the space of a breath." } },
-    sylvanas = { { id = "tp_sylvanas", text = "I have been near her once. She does not burn grey like the rest of us. I should not like to say what colour it was." } },
+    sylvanas = { { id = "tp_sylvanas", text = "I have been near her once, and she does not burn grey like the rest of us. I should not like to say what colour it was." } },
     _none = { { id = "tp_none", text = "I can't see that far, I fear. Ask Carendin, when he is in a tolerable humour." } },
   },
 }

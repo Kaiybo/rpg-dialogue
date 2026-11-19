@@ -1380,7 +1380,8 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "You are standing in my light, {race}; speak, or move aside and let me work." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Have you found a libram, or only more of my time to waste?" },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and I wonder whether you've brought a libram or only more of my time to waste." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "I can smell brimstone on you over all this ash, warlock, which takes some doing in the Steppes. Stand downwind, if you would." },
   },
 
   notice = {
@@ -1476,10 +1477,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The rangers of Quel'Thalas walked as you walk, and they went to war with a bow and a hawk, and very few of them came home." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Your people warned mine, long ago, that magic has a cost, and mine did not listen, and now I stand in the ash of a dwarf's kingdom asking strangers for books." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, out of Mor'zul's direction, I suppose, with the Altar of Storms at your back. Your kind and mine both hunger for what isn't ours, but at least I was born to mine." },
       },
       again = {
         { id = "h_again", text = "Is there more? Be quick; I don't care for idle company." },
-        { id = "h_again2", text = "Ask, then. I'll answer what I choose to." },
+        { id = "h_again2", text = "Ask, then, and I'll answer what I choose to." },
       },
       choices = {
         { text = "What are these librams?", next = "librams" },
@@ -1540,7 +1542,7 @@ P:NPC {
       choices = {
         { text = "What do others make of your people now?", next = "op_quel" },
         { text = "Then I won't say it.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     mage = {
@@ -1578,9 +1580,22 @@ P:NPC {
         { id = "xlk_default", text = "Then you know nothing of it, for mine is a thirst and yours is a bargain. I drink what the librams give and pay for it in my own hands shaking, while you pay in something you will not see the bill for until the end." },
       },
       choices = {
-        { text = "At least I chose my price.", next = "BACK", reply = "You did, and I did not, and perhaps that is the difference. I envy you a little.", fx = { align = { light = -1 } } },
+        { text = "At least I chose my price.", next = "BACK", reply = "You did, and I did not, and perhaps that is the difference. I find I envy you a little, which I dislike.", fx = { align = { light = -1 } } },
         { text = "Perhaps neither of us should be drinking.", next = "BACK", reply = "Perhaps not, and yet here we both are. Good evening to you.", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "The Highborne called demons long before any orc did.", next = "k_lock2" },
       },
+    },
+    k_lock2 = {
+      narr = "His fingers close on the edge of the libram until the knuckles whiten.",
+      lines = { { id = "xlk2_default", text = "They did, in Zin-Azshari, ten thousand years ago, and the ones who survived it were my ancestors, sent across the sea for loving magic too well. I know exactly whose sins sit at my door, warlock, and I'll thank you not to point at them." } },
+      choices = {
+        { text = "And yet you hunger as they did.", next = "k_lock3" },
+        { text = "I meant no insult. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    k_lock3 = {
+      lines = { { id = "xlk3_default", text = "Yes, I do, and you've found the thing that keeps me awake, which I'll not forgive you for. The difference is that I know where the hunger leads, and I stop at librams, while your kind keep going until something answers." } },
+      choices = { { text = "Something always answers. Let's leave it there.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
   },
 

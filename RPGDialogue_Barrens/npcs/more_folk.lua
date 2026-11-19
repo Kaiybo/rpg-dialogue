@@ -495,7 +495,8 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "You may come in, provided you touch nothing on the lower shelves. Some of it is fragile, and some of it is listening." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah. One of ours. Leave your minion by the door, if you please; mine dislikes competition, and I dislike scorch marks." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah, one of ours. Leave your minion by the door, if you please, because mine dislikes competition and I dislike scorch marks." },
+    { id = "g_gnome", when = { class = "WARLOCK", race = "Gnome" }, text = "A gnome who calls demons, and not a single scorch mark on you yet. Do sit, and tell me what Gnomeregan would have made of your choice of study." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and in one piece. I shall take that as evidence you were listening last time." },
     { id = "g_search", when = { questActive = TODO_QUEST("In Search of Menara Voidrender") }, text = "You have been looking for me, I gather. Most who do have been sent by someone who would rather not be seen asking." },
   },
@@ -521,8 +522,9 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes? Ask, and I shall decide whether the answer is safe for you." },
-        { id = "h_again2", text = "Something further. Very well; I have the afternoon." },
-        { id = "h_again3", text = "You are thorough. I approve of thoroughness, within reason." },
+        { id = "h_again2", text = "Something further? Very well, I have the afternoon, and the student due at four is always late." },
+        { id = "h_again3", text = "You're thorough, and I approve of thoroughness, within reason." },
+        { id = "h_again4", when = { class = "WARLOCK" }, text = "Go on, then. I'd sooner you ask me than learn the answer from the thing at your heel." },
       },
       choices = {
         { text = "A human warlock, teaching in a goblin port.", next = "ratchet" },
@@ -530,6 +532,10 @@ P:NPC {
         { text = "What goes into a robe like the one you make?", next = "robe" },
         { text = "Strahad Farsan's acolytes keep a tower nearby.", next = "strahad" },
         { text = "I'm told you make orbs that hold demons.", next = "orbs", when = { class = "WARLOCK" } },
+        { text = "My trainer says I'm nearly ready for a succubus.", next = "succ", when = { class = "WARLOCK", minLevel = 18, maxLevel = 30 } },
+        { text = "Strahad tells me I'm ready for a felhunter.", next = "felhunter", when = { class = "WARLOCK", minLevel = 28 } },
+        { text = "Your study smells of brimstone and lavender.", next = "study" },
+        { text = "Gnomeregan would've called this field research.", next = "gnome", when = { class = "WARLOCK", race = "Gnome" } },
         { text = "Stormwind would hang you for this, I think.", next = "human", when = { race = "Human" } },
         { text = "The Forsaken find your art less shocking than most.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
@@ -540,52 +546,122 @@ P:NPC {
       lines = { { id = "ra_default", text = "It is the one town on this coast where I am judged solely on whether my coin is good. In Stormwind my kind practise in a cellar beneath a tavern. In Orgrimmar we are kept in a cleft and watched. Here I have a window, a sea view, and neighbours who think a demon is merely an unusual employee." } },
       choices = {
         { text = "You left Stormwind by choice, then.", next = "ratchet2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     ratchet2 = {
-      lines = { { id = "ra2_default", text = "I left before the choice was made for me. The Church tolerates us only so long as we are useful and quiet, and I was becoming neither. A colleague of mine, Tabetha, went to the marsh for much the same reasons. I preferred somewhere with a market." } },
+      lines = { { id = "ra2_default", text = "I left before the choice was made for me, since the Church tolerates us only so long as we are useful and quiet, and I was becoming neither. An old friend of mine, Tabetha, went off to the Dustwallow marsh for much the same reasons, but I preferred somewhere with a market." } },
       choices = {
         { text = "Do you miss it?", next = "ratchet3" },
+        { text = "Tabetha? The mage in the marsh?", next = "tabetha" },
         { text = "Something else, Menara.", next = "BACK" },
       },
     },
     ratchet3 = {
       big = true,
-      lines = { { id = "ra3_default", text = "I miss the libraries. I do not miss lowering my voice. One may be free or one may be respectable, and I have found that the people who insist one can be both have generally not attempted my profession." } },
+      lines = { { id = "ra3_default", text = "I miss the libraries, though I don't miss lowering my voice in them. One may be free or one may be respectable, and the people who insist one can be both have generally not attempted my profession." } },
       choices = {
-        { text = "Freedom is worth the exile. You chose well.", next = "BACK", reply = "I think so, on most mornings. It is pleasant to hear it from someone with no reason to flatter me.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Freedom is worth the exile. You chose well.", next = "BACK", reply = "I think so, on most mornings, and it's pleasant to hear it from someone with no reason to flatter me.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Those rules exist because of what your art has done.", next = "BACK", reply = "They do, and I do not pretend otherwise. I only observe that the rules were never written by anyone who understood it.", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     both = {
       lines = { { id = "bo_default", text = "I teach whoever arrives sober, solvent and frightened enough. A demon makes no distinction between an orc and a dwarf when it is deciding whom to devour, and I see no reason to be more particular than the demon. The goblins find this very sensible." } },
       choices = {
-        { text = "Knowledge shared across the lines keeps everyone safer.", next = "BACK", reply = "Precisely. An ignorant warlock on either side is a hole through which something may crawl into both.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowledge shared across the lines keeps everyone safer.", next = "BACK", reply = "That's my view exactly, since an ignorant warlock on either side is a hole through which something may crawl into both.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're arming both sides of a war for coin.", next = "BACK", reply = "I am teaching both sides not to burn down the world by accident. If they then use it on each other, that is hardly my invention.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Fair enough. Something else, Menara.", next = "BACK" },
       },
     },
     robe = {
-      lines = { { id = "ro_default", text = "Cloth that has been somewhere unpleasant, thread drawn fine enough to carry a ward, and several things I shall not name until you need to fetch them. No one place has all of it. That is deliberate; the making is the last lesson, and it is a lesson in asking favours of difficult people." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "ro_default", text = "Cloth that has been somewhere unpleasant, thread drawn fine enough to carry a ward, and several things I shan't name until you need to fetch them. No one place has all of it, and that's deliberate, because the making is the last lesson and it's a lesson in asking favours of difficult people." } },
+      choices = {
+        { text = "Why gold thread? It seems vain.", next = "robe2", when = { class = "WARLOCK" } },
+        { text = "Back to other matters, then.", next = "BACK" },
+      },
+    },
+    robe2 = {
+      lines = { { id = "ro2_default", text = "Gold takes a ward and holds it, where silver sulks and copper forgets, and a demon looking for a way into your will tries the cuffs and the collar first. Vanity is a happy accident, and I see no reason to apologise for it." } },
+      choices = { { text = "A happy accident it is. Something else.", next = "BACK" } },
     },
     strahad = {
-      lines = { { id = "st_default", text = "They do, up on the hill, and Strahad and I maintain a correct and distant friendship. He concerns himself with the binding of greater demons and I with keeping students alive long enough to attempt it. We refer pupils to one another, and criticise each other's diagrams by letter." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "st_default", text = "They do, up in his tower, and Strahad and I keep a correct and distant friendship. He concerns himself with the binding of greater demons and I with keeping students alive long enough to attempt it, and we criticise each other's diagrams by letter, though we live a street apart." } },
+      choices = { { text = "Let's talk about something else.", next = "BACK" } },
     },
     orbs = {
-      lines = { { id = "or_default", text = "You are told correctly. A demon bound into an orb is a demon that is nowhere else, and there are occasions when that is the kindest thing one can do for a district. The craft is exacting. A flaw the width of a hair, and one has made a very expensive door." } },
-      choices = { { text = "I'll remember where to come. Something else.", next = "BACK" } },
+      lines = { { id = "or_default", text = "You're told correctly. A demon bound into an orb is a demon that is nowhere else, and there are times when that's the kindest thing one can do for a district, though the craft is unforgiving: leave a flaw the width of a hair and one has made a very expensive door." } },
+      choices = {
+        { text = "Doan Karhan in the south mends old orbs, I hear.", next = "orbs2" },
+        { text = "I'll remember where to come. Something else.", next = "BACK" },
+      },
+    },
+    orbs2 = {
+      big = true,
+      lines = { { id = "or2_default", text = "Doan mends the Legion's own orbs, the ones they made to feed their warlocks, and I make new ones that hold their soldiers instead. He calls my work timid and I call his reckless, and so which of us would you trust with your soul, warlock?" } },
+      choices = {
+        { text = "Yours. A prison is safer than a weapon.", next = "BACK", reply = "Thank you, though Doan would say a prison is only a weapon that hasn't been opened yet. He isn't wrong, which is the most irritating thing about him.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "His. A weapon wins fights; prisons only wait.", next = "BACK", reply = "Then go south and help him, and come back when the orb starts to whisper. I'll have tea waiting, and I won't say I told you so more than twice.", fx = { align = { light = -1 } } },
+        { text = "I'd trust neither of you with it.", next = "BACK", reply = "Spoken like a warlock who intends to live, and I can't argue with that.", fx = { trait = { cautious = 1 } } },
+      },
     },
     human = {
-      lines = { { id = "hu_default", text = "Hang, no. Stormwind does not hang its warlocks; it keeps them beneath the Slaughtered Lamb and consults them when something goes badly wrong. I simply declined to live in a cellar. You are welcome to tell the Cathedral where I am. They know, and they write when they need me." } },
+      lines = { { id = "hu_default", text = "Stormwind doesn't hang its warlocks, it keeps them beneath the Slaughtered Lamb and consults them when something goes badly wrong, and I simply declined to live in a cellar. You're welcome to tell the Cathedral where I am, though they know already and write when they need me." } },
       choices = { { text = "I've no wish to tell anyone. Something else.", next = "BACK" } },
     },
     forsaken = {
-      lines = { { id = "fo_default", text = "So I have observed, and I confess it makes you agreeable students. You do not flinch and you do not moralise. I would only caution that a people with nothing left to fear are the ones a demon finds easiest to bargain with, since it need only offer what was lost." } },
+      lines = { { id = "fo_default", text = "So I've observed, and I confess it makes you agreeable students, since you neither flinch nor moralise. I'd only caution that a people with nothing left to fear are the ones a demon finds easiest to bargain with, because it need only offer what was lost." } },
       choices = { { text = "A fair caution. Something else.", next = "BACK" } },
+    },
+    tabetha = {
+      lines = { { id = "tb_default", text = "The very same, and she's the better theorist, which she knows and I don't dispute. We studied side by side once, until I took up the shadow and she took it personally, and now we write each other long, polite letters full of things we don't say." } },
+      choices = {
+        { text = "Does she disapprove of your art?", next = "tabetha2" },
+        { text = "Back to other matters, then.", next = "BACK" },
+      },
+    },
+    tabetha2 = {
+      lines = { { id = "tb2_default", text = "She disapproves of it the way one disapproves of a friend's husband, carefully and at length. If you go out to her hut, give her my regards and don't mention the robe, because she thinks gold thread is vulgar." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    study = {
+      narr = "She closes a ledger over a page of circle diagrams before you can read it.",
+      lines = { { id = "sd_default", text = "Lavender for the goblins, who complain, and brimstone for the work, which doesn't. I've tried to train my imp to air the room each evening, and it has learned to open the window and then set fire to the curtains." } },
+      choices = { { text = "A familiar problem. What else is there?", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    succ = {
+      lines = {
+        { id = "su_default", text = "Then your trainer will send you off to fetch some token of love to lure her, and you'll think that the hard part. It isn't, because the hard part begins the first evening she's at your side and you catch yourself enjoying the company." },
+        { id = "su_horde", when = { faction = "Horde" }, text = "Then your masters in the Cleft or the Magic Quarter will send you off to fetch some lure for her, and you'll think that the hard part. It isn't, because the hard part begins the first evening you catch yourself enjoying her company." },
+      },
+      choices = {
+        { text = "How do I keep her at arm's length?", next = "succ2" },
+        { text = "I'll be careful. Something else, Menara.", next = "BACK" },
+      },
+    },
+    succ2 = {
+      big = true,
+      lines = { { id = "su2_default", text = "Never thank her, never ask her opinion, and dismiss her the moment the work is done, even when she's been useful. Some of my colleagues treat their succubi like courtiers and swear it makes them loyal, so tell me which way you mean to go about it." } },
+      choices = {
+        { text = "Your way. A servant, nothing more.", next = "BACK", reply = "Good, then you'll keep her longer than most and like her less, which is the proper balance. Come back and tell me how the first month goes.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A loyal servant is worth a little flattery.", next = "BACK", reply = "Loyal is not a word that belongs anywhere near a succubus, but you'll learn that from her quicker than from me. Do keep your purse and your secrets in separate pockets.", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    felhunter = {
+      lines = { { id = "fh_default", text = "Then he's told you about the one that nearly killed him, I hope, or he will once you're in his tower. A felhunter eats magic the way a hound eats meat, and it is not at all particular about whose magic it eats." } },
+      choices = {
+        { text = "He nearly died binding one?", next = "felhunter2" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    felhunter2 = {
+      lines = { { id = "fh2_default", text = "He'll tell you it was a near thing and laugh, and he won't show you the scars, but I helped dress them. Go to him rested, go with your wards fresh, and don't let him hurry you because he's bored." } },
+      choices = { { text = "Rested and warded. What else?", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "They would have, and they'd have built a machine to do it and lost three fingers to the prototype. I find gnome students quick and fearless, which is lovely, and fearless, which is the problem, so promise me you'll measure twice before you summon once." } },
+      choices = { { text = "Twice, at least. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -593,7 +669,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never summon anything while angry. It can tell, and it will make use of it." } },
     burning_legion = { { id = "tp_legion", text = "Every creature I bind was a soldier of it once. I regard my work as a very small and continuing act of desertion on their behalf." } },
     burning_blade = { { id = "tp_blade", text = "Amateurs with ambitions, which is the most dangerous kind. Their summoning circles in the hills north of here would shame a first-year." } },
-    theramore = { { id = "tp_theramore", text = "Tabetha lives in the marsh near it and pretends she does not. We correspond. She is the better theorist, and knows it." } },
+    theramore = { { id = "tp_theramore", text = "Tabetha lives in the marsh outside it and pretends she doesn't. We correspond, and she's the better theorist, which she knows perfectly well." } },
     ratchet = { { id = "tp_ratchet", text = "An honest town, in the sense that everyone's price is posted. I find that restful." } },
     _none = { { id = "tp_none", text = "That lies outside my field, and I make a point of never speculating aloud." } },
   },

@@ -91,18 +91,22 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Another adventurer, off to chase wolves while Gnomeregan sits poisoned a day's walk north. Well, say what you came to say." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah, one of mine. Come closer and keep your voice down, because the dwarves tolerate our studies approximately as well as they tolerate water in their ale." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back, and Gnomeregan is precisely as lost as it was when you left. I did check." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah, one of mine. Come closer and keep your voice down, because the dwarves tolerate our studies about as well as they tolerate water in their ale." },
+    { id = "g_memo", when = { questActive = TODO_QUEST("Tainted Memorandum") }, text = "Sten handed you my memorandum, I see, which means somebody in this hall still delivers what he's given. Come here and let me look at you." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and Gnomeregan is every bit as lost as it was when you left. I did check." },
   },
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, at least. You understand, then, what it is to be a guest in somebody else's mountain and be told to be grateful for it." },
     { id = "n_holy", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
       text = "I can feel the Light coming off you like heat off a boiler. Stand a little further away, if you please, because it upsets the imp." },
+    { id = "n_human", cat = "race", when = { class = "WARLOCK", race = "Human" },
+      text = "A human warlock in Coldridge Valley is a long way from the Slaughtered Lamb. I won't ask who sent you north, but I will expect you to keep up." },
   },
   start = "hello",
   nodes = {
     hello = {
+      narr = "He doesn't look up at first; he's scraping old chalk out of a circle on the flagstones with a bent screwdriver.",
       lines = {
         { id = "h_lock", when = { class = "WARLOCK" }, text = "I am Alamar Grimm, and I teach the summoning arts to those few with the nerve for them. We are not liked here, so we shall have to be useful instead, which is a far more reliable arrangement." },
         { id = "h_default", text = "Alamar Grimm. I teach warlocks, which you are not, so I can offer you only my opinions, and I have those in considerable quantity." },
@@ -110,12 +114,18 @@ P:NPC {
       again = {
         { id = "h_again", text = "Was there more? I have calculations waiting, and they're better company than most." },
         { id = "h_again2", text = "Go on, then. I've nowhere to be, which is rather the problem." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Ask what you need to ask, apprentice, because I'd rather answer it now than read about it in a casualty list." },
       },
       choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach me what I need to know first.", next = "lessons", when = { class = "WARLOCK" } },
+        { text = "Most of the warlocks I meet are gnomes.", next = "gnomes", when = { class = "WARLOCK" } },
+        { text = "Where do I go once I've outgrown Coldridge?", next = "onward", when = { class = "WARLOCK", minLevel = 8 } },
+        { text = "You keep demons in a hall full of recruits.", next = "holy", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Marryk calls warlocks mages who cheated.", next = "marryk", when = { class = "MAGE" } },
         { text = "What have you got against adventurers?", next = "blame" },
         { text = "The dwarves took your people in.", next = "dwarves" },
         { text = "Why does a warlock teach out here?", next = "post" },
-        { text = "Teach me what I need to know.", next = "lessons", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your opinions.", next = "END" },
       },
     },
@@ -124,51 +134,129 @@ P:NPC {
       choices = {
         { text = "Nobody outside knew until it was over.", next = "knew" },
         { text = "I'm here now. That counts for something.", next = "now" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     knew = {
-      lines = { { id = "k_default", text = "That is true, and it is the part I cannot forgive us for. We were too proud to ask for help while the Alliance was busy in Kalimdor, and pride turned out to be a poor filter against poison gas." } },
-      choices = { { text = "That's a hard thing to admit. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      lines = { { id = "k_default", text = "That is true, and it is the part I cannot forgive us for. We were too proud to ask for help while the Alliance was busy elsewhere, and pride turned out to be a poor filter against poison gas." } },
+      choices = {
+        { text = "Is that what brought you to the dark arts?", next = "knew2" },
+        { text = "That's a hard thing to admit.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    knew2 = {
+      lines = { { id = "k2_default", text = "It brought a good many of us to it. When every engine you trusted has failed you, a power that needs no boiler and no supply line starts to look very reasonable, and I'll thank you not to tell me how it looks from the outside." } },
+      choices = {
+        { text = "I wasn't going to judge.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Back to the matter at hand, then.", next = "BACK" },
+      },
     },
     now = {
-      lines = { { id = "n_default", text = "It counts for one adventurer, which is a measurable improvement on none. Go north to the gates when you're stronger, look at the lepers who used to be my neighbours, and then tell me how much it counts." } },
-      choices = { { text = "I will. Something else.", next = "BACK" } },
+      big = true,
+      lines = { { id = "n_default", text = "It counts for one adventurer, which is a measurable improvement on none. So let me ask you plainly: if nothing else would take Gnomeregan back, would you take it back with demons?" } },
+      choices = {
+        { text = "Whatever it takes. The city comes first.", next = "BACK", reply = "Then we understand each other, and you should never repeat that sentence in front of a paladin.", fx = { align = { light = -1 } } },
+        { text = "No. We'd lose more than a city that way.", next = "BACK", reply = "Hm. Wren says the same thing, and she's usually right, which I find very tiresome.", fx = { align = { light = 1 } } },
+        { text = "I'll go and look at the gates first.", next = "BACK", reply = "Do. Look at the lepers who used to be my neighbours, and then come and tell me how much one adventurer counts." },
+      },
     },
     dwarves = {
       lines = { { id = "d_default", text = "They did, and they gave us a corner of Ironforge and a great deal of sympathy. What they have not given us is an army, because their king would sooner send his soldiers to help the humans than march them a few miles to our door." } },
       choices = {
         { text = "Magni has troggs and Dark Irons of his own.", next = "magni" },
-        { text = "Something else.", next = "BACK" },
+        { text = "How do they take to a gnome warlock?", next = "dwarves2" },
+        { text = "Let's leave the dwarves be.", next = "BACK" },
       },
     },
     magni = {
       lines = { { id = "m_default", text = "So everyone tells me, and they're probably right, which does not make it any easier to hear. High Tinker Mekkatorque is patient about it, and I've decided that one of us being patient is sufficient." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Somebody has to be patient, I suppose.", next = "BACK" } },
+    },
+    dwarves2 = {
+      lines = { { id = "d2_default", text = "Badly, though politely, because a dwarf can be rude and polite in the same breath. They think a warlock is something you'd find under a Dark Iron forge, and the rare dwarf who takes it up keeps it from his own clan, which tells you everything." } },
+      choices = { { text = "Then you're braver than they are.", next = "BACK", reply = "I'm more desperate than they are, which looks the same from a distance.", fx = { trait = { kind = 1 } } }, { text = "Something else, then.", next = "BACK" } },
     },
     post = {
       lines = { { id = "p_default", text = "Because this is where the young ones start, and a young warlock with nobody to teach them is a danger to everyone within thirty yards. I'd rather be in a proper laboratory, but I'd rather still that nobody's apprentice gets eaten." } },
-      choices = { { text = "That's almost kind of you. Something else.", next = "BACK" } },
+      choices = { { text = "That's almost kind of you.", next = "BACK", reply = "Don't spread it about, because I've a reputation to keep." } },
     },
     lessons = {
       lines = {
-        { id = "l_gnome", when = { race = "Gnome" }, text = "Then start with the first rule: you command the demon, and never the reverse. I'll want proof you can take what you need from the Frostmane before I trust you with a summoning circle, so listen carefully when I set you a task.", fx = { learn = { "frostmane" } } },
+        { id = "l_imp", when = { pet = { family = "Imp" } }, text = "Your imp is listening to every word, so I'll say it plainly for both of you: you command the demon, and never the reverse. Everything else I teach is a longer way of saying that." },
+        { id = "l_gnome", when = { race = "Gnome" }, text = "Then start with the first rule: you command the demon, and never the reverse. I'll want proof you can take what you need from the Frostmane before I trust you with more, so listen carefully when I set you a task.", fx = { learn = { "frostmane" } } },
         { id = "l_default", text = "Then start with the first rule: you command the demon, and never the reverse. Everything else I teach you is merely a longer way of saying it." },
       },
       choices = {
         { text = "What happens to those who forget it?", next = "forget" },
-        { text = "Something else.", next = "BACK" },
+        { text = "My imp already talks back.", next = "imp" },
+        { text = "What are soul shards actually for?", next = "shards", when = { minLevel = 6 } },
+        { text = "Back to the other questions.", next = "BACK" },
       },
     },
     forget = {
-      lines = { { id = "f_default", text = "They become a cautionary tale, usually a short one. I keep a list, and I'd be obliged if you stayed off it." } },
-      choices = { { text = "I'll do my best. Something else.", next = "BACK" } },
+      lines = { { id = "f_default", text = "They become a cautionary tale, usually a short one. I keep a list of them, and I'd be obliged if you stayed off it." } },
+      choices = {
+        { text = "Who's on the list?", next = "forget2" },
+        { text = "I'll do my best to stay off it.", next = "BACK" },
+      },
+    },
+    forget2 = {
+      narr = "His hand goes to his breast pocket, where a folded paper sits, and stops there.",
+      lines = { { id = "f2_default", text = "Three names, and the first is a lad from the residential levels who opened a circle in a flooded corridor during the evacuation, hoping something would come and carry the wounded out. Something came, and it did not carry anybody, and I was the one who had taught him the circle." } },
+      choices = {
+        { text = "He was desperate. You can't carry that alone.", next = "BACK", reply = "I can, and I do, and it keeps me careful, so let me keep it.", fx = { trait = { kind = 1 } } },
+        { text = "Then I'll learn the rule properly.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+      },
+    },
+    imp = {
+      lines = { { id = "i_default", text = "Of course it does, because talking back is the only weapon it's allowed. Take it to Wren Darkspring at the next bench and let her bore it into manners, and in the meantime, never once answer it in anger." } },
+      choices = { { text = "Wren first, then. Back to the lessons.", next = "lessons" } },
+    },
+    shards = {
+      lines = { { id = "s_default", text = "A soul shard is what's left in your keeping when you drain the life out of something as it dies, and the bigger demons want one before they'll answer. Your voidwalker will cost you a shard every time you call it, so don't waste them on rabbits, and don't carry so many that your bags start to whisper." } },
+      choices = { { text = "Bags that whisper. I'll keep it in mind.", next = "lessons" } },
+    },
+    gnomes = {
+      lines = { { id = "gn_default", text = "Of course they are, because after the fall we needed a power that didn't depend on a working boiler, and some of us found one. Humans have their cellar under the Slaughtered Lamb, but in Ironforge nearly every warlock you'll meet stands about three feet tall." } },
+      choices = {
+        { text = "And the dwarves never took it up?", next = "dwarves2" },
+        { text = "Does Mekkatorque know?", next = "gnomes2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    gnomes2 = {
+      lines = { { id = "g2_default", text = "The High Tinker knows exactly how many of us there are, because he counts everything, and he's decided that a gnome with an imp is still a gnome. That's more than some of our own council would say, so I don't complain about him, which you'll notice is rare." } },
+      choices = { { text = "I did notice.", next = "BACK", reply = "Good, you're observant, which is the second rule." } },
+    },
+    onward = {
+      lines = { { id = "o_default", text = "To Kharanos first, where Gimrizz Shadowcog teaches behind the Thunderbrew casks and will tell you I'm bitter. When you're ready to bind a voidwalker, go down to the Forlorn Cavern in Ironforge and find Lago Blackwrench, who sends our people on to Stormwind." } },
+      choices = {
+        { text = "Gimrizz says you're bitter? Is he right?", next = "onward2" },
+        { text = "Kharanos, then the Forlorn Cavern. Something else.", next = "BACK" },
+      },
+    },
+    onward2 = {
+      lines = { { id = "o2_default", text = "He's careful to the point of tedium and right more often than I'd like, and yes, he's right about that too. Bitterness keeps me awake at night, and a warlock who's awake at night is a warlock who notices when the circle hums." } },
+      choices = { { text = "That's one way to make use of it.", next = "BACK" } },
+    },
+    holy = {
+      lines = { { id = "hy_default", text = "I keep an imp the size of a cat in a corner of a hall that the troggs would overrun in a week without us. You may tell me it's a stain on Anvilmar, and I'll tell you how many recruits it's kept alive, and we'll both go to bed believing ourselves." } },
+      choices = {
+        { text = "It's a stain all the same. The Light would find another way.", next = "BACK", reply = "The Light had a long while to find one in Gnomeregan, and it was busy.", fx = { align = { light = 1 } } },
+        { text = "If it keeps recruits alive, I won't judge you.", next = "BACK", reply = "Then you're a rarer sort of priest than Branstock, and he's the rarest I know.", fx = { align = { light = -1 } } },
+        { text = "Let's leave that for now.", next = "BACK" },
+      },
+    },
+    marryk = {
+      lines = { { id = "mk_default", text = "Marryk Nurribit says a great many things after his third tankard. A mage borrows from the arcane and pays in headaches, while I borrow from something that wants paying in a different coin, and I keep my accounts rather better than he keeps his bar tab." } },
+      choices = { { text = "I'll tell him you said so.", next = "BACK", reply = "Please do, and watch his face, because it's the only entertainment this valley offers.", fx = { trait = { witty = 1 } } } },
     },
   },
   topics = {
     background = { { id = "tp_bg", text = "I had a workshop in Gnomeregan with excellent ventilation. Now I have a corner of a dwarven hall and a great many grievances." } },
     gnomeregan = { { id = "tp_gn", text = "It's a day's walk north of here, and it might as well be on the moon. Nobody is coming to take it back for us." } },
     frostmane = { { id = "tp_fm", text = "The trolls in the western caves carry little feathered charms. They're crude things, though there's real power worked into them." } },
+    wren = { { id = "tp_wren", text = "Wren Darkspring teaches the imps their manners and me mine, though she's had less luck with me." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and I'm not inclined to speculate without data. Ask a dwarf; they're never short of an answer." } },
   },
 }
