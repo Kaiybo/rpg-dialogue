@@ -763,6 +763,10 @@ P:NPC {
         { text = "Do the histories speak of dwarven hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do your histories say of the Silver Hand's dwarves?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I was there when Thaurissan fell, Historian.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
+        { text = "What happened to Ironforge in the Second War?", next = "sw" },
+        { text = "What will your histories say of Princess Moira?", next = "moira" },
+        { text = "Will my clan's name be in your books, Historian?", next = "dw_clan", when = { race = "Dwarf" } },
+        { text = "Have you written of Gnomeregan's fall, Historian?", next = "gn_fall", when = { race = "Gnome" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -844,6 +848,7 @@ P:NPC {
         { id = "th_default", text = "There were three clans under one high king, Modimus Anvilmar, and when he died the Bronzebeards, Wildhammers and Dark Irons fought for his throne. We kept the mountain, but nobody kept the peace." },
       },
       choices = {
+        { text = "How did the war actually end?", next = "th_end" },
         { text = "What became of the Anvilmars?", next = "anvilmar" },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
@@ -898,6 +903,94 @@ P:NPC {
         { text = "The old ways were never lost. Only ignored.", next = "BACK", reply = "Ignored is the right word. An' it's good tae hear a Bronzebeard admit it, for the Wildhammer have been sayin' it for centuries.", fx = { align = { order = -1 } } },
         { text = "Bronzebeard and Wildhammer should keep to their own roads.", next = "BACK", reply = "Maybe they should, an' they have for a long while, but I've always thought we'd both be stronger if we walked together.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    th_end = {
+      big = true,
+      lines = {
+        { id = "the_default", text = "In two halves, and both of them terrible. The Dark Irons struck at Ironforge and at Grim Batol together and were broken at both, and then their sorcerer-thane, Thaurissan, went into the Redridge mountains and called up Ragnaros to win back what they'd lost. The Firelord came, and the Dark Iron kingdom became the Burning Steppes in a single night." },
+      },
+      choices = {
+        { text = "The Dark Irons brought it on themselves.", next = "BACK", reply = "Thaurissan did, certainly, but his people paid for it, and the ones paying now weren't born when he spoke the words. History is very hard on children for what their grandsires did.", fx = { align = { light = -1 } } },
+        { text = "They were kin. Someone should have offered peace.", next = "BACK", reply = "Someone did, more than once, by my reading, and I'll grant ye it was never offered very hard. Mercy is easier to write about than to give to a dwarf who's just burned yer hall.", fx = { align = { light = 1 } } },
+        { text = "And Grim Batol?", next = "th_batol" },
+      },
+    },
+    th_batol = {
+      lines = {
+        { id = "thb_default", text = "Khardros Wildhammer held it, and Thaurissan's wife, the sorceress Modgud, fell at its gates and left her curse in the stone. The Wildhammer abandoned it for the Hinterlands, and in my own lifetime the Dragonmaw orcs used it to keep a captured dragonqueen, which tells ye what sort of place it had become." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK", fx = { learn = { "grim_batol" } } },
+      },
+    },
+    sw = {
+      big = true,
+      lines = {
+        { id = "sw_default", text = "The Horde came over the mountains like a forest fire, and Khaz Modan burned from the Wetlands to the Loch. They chained our people in the mines to dig for their war, and Ironforge held its gates shut and fought from the walls until Lothar's Alliance came up the roads and broke the siege." },
+        { id = "sw_human", when = { race = "Human" }, text = "Yer people came, that's what happened, though not before the Horde had burned Khaz Modan from the Wetlands to the Loch and chained our miners in our own shafts. Ironforge held its gates until Lothar's Alliance broke the siege, and we've not forgotten it, whatever our Senate grumbles about Stormwind's taxes." },
+      },
+      choices = {
+        { text = "And afterward the dwarves fought for the Alliance everywhere.", next = "sw_after" },
+        { text = "What of Muradin, Historian?", next = "sw_muradin" },
+        { text = "Something else, Historian.", next = "BACK", fx = { learn = { "second_war" } } },
+      },
+    },
+    sw_after = {
+      lines = {
+        { id = "swa_default", text = "Everywhere they were asked and some places they weren't, and my book has a page for every company that marched. When the Alliance began to crack after the war, we stayed in it longer than almost anyone, because a dwarf pays his debts, and then he keeps paying them out of stubbornness." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    sw_muradin = {
+      lines = {
+        { id = "swm_default", text = "I have a page for him with nothing written on it. He went north to Northrend with Prince Arthas, and the prince came home and Muradin did not, and I won't put a death in my book that nobody saw with their own eyes." },
+      },
+      choices = {
+        { text = "A blank page is better than a wrong one.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    moira = {
+      big = true,
+      lines = {
+        { id = "mo_default", text = "For now, what the court tells me: that the King's only daughter went down toward Blackrock and was taken by Dagran Thaurissan, the Dark Iron emperor, and is held in Shadowforge City still. I write what's known, and I leave a wide margin, for the histories of royal daughters are seldom as simple as the court would like." },
+      },
+      choices = {
+        { text = "Then someone must bring her home.", next = "BACK", reply = "The King has said so, and so have a good many brave dwarves who went down that road and didn't come back up it. Be careful how ye say it, for it's a promise once ye've said it in this hall.", fx = { align = { honor = 1 } } },
+        { text = "Why leave a margin? What do you suspect?", next = "moira_margin" },
+        { text = "A princess isn't worth a war with the Dark Irons.", next = "BACK", reply = "Say that a little more quietly, if ye'd be so good, for there are guards at that door who carried her on their shoulders when she was a girl. But I've heard it said in the Senate too, in kinder words.", fx = { align = { honor = -1 } } },
+      },
+    },
+    moira_margin = {
+      lines = {
+        { id = "mom_default", text = "Nothing at all, and I'd thank ye not to repeat that I said so. I only know that Moira was clever and proud and not easily frightened, and that she quarrelled with her father the way clever, proud daughters do, so I'll wait for the end of the story before I write the middle." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    dw_clan = {
+      lines = {
+        { id = "dwcl_default", text = "If it's done something worth remembering, it's in there already, and if it hasn't, then ye're standing in front of the dwarf who'd write it down. Tell me yer clan's name and where yer grandsire held, and I'll tell ye which page to look for." },
+        { id = "dwcl_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } }, text = "Wildhammer blood, by that burr, and yer clan has more pages in my books than it would like, most of them written by Bronzebeards. Tell me yer grandsire's name, and I'll make sure the next page is written by someone who's actually listened to a Wildhammer." },
+      },
+      choices = {
+        { text = "My clan fought in the Second War. Every one of them.", next = "BACK", reply = "Then they're in the long chapter, the one my scribe complained about for a year, and I'm proud to have them. Come back with names and I'll read ye the page myself.", fx = { affinity = 1 } },
+        { text = "We're miners and brewers. Nothing worth a book.", next = "BACK", reply = "Miners and brewers kept this mountain fed and dug while the heroes were busy dying, and that's worth a book, it's only that nobody's written it yet. Perhaps I'll start.", fx = { affinity = 1 } },
+        { text = "I'll give them something worth writing, Historian.", next = "BACK", reply = "Good, then go and do it, and come back and tell me plainly, without improvements. The best chapters always start with a young dwarf saying exactly that.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    gn_fall = {
+      lines = {
+        { id = "gnf_default", text = "I've tried, and yer people keep me honest by correcting every line. What I have is this: something rose up from the deep places under Gnomeregan, the troggs came with it, and Mekkatorque, on Thermaplugg's counsel, flooded the city with poison to drive them out. It killed more gnomes than troggs, and Thermaplugg stayed behind in the ruin, which I find very interesting indeed." },
+      },
+      choices = {
+        { text = "Thermaplugg betrayed us. Write it plainly.", next = "BACK", reply = "Then I'll write it plainly, with yer name beside it as the witness, for a history needs more than one blind dwarf's suspicion. Thank ye.", fx = { align = { order = -1 } } },
+        { text = "Write what's proven. The rest can wait.", next = "BACK", reply = "Spoken like a historian, and I'll do just that. Yer High Tinker would approve, I think, though he'd want the numbers checked twice.", fx = { align = { order = 1 } } },
+        { text = "Something else, Historian.", next = "BACK" },
       },
     },
   },

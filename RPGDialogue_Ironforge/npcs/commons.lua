@@ -619,6 +619,8 @@ P:NPC {
         { text = "Does the Explorers' League ever need hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have a paladin do about the Shadowforge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you buy relics from a rogue, Historian?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Shadowforge are dwarves, Historian. Our own kin.", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "What does a League historian actually do all day?", next = "kn_day" },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -709,6 +711,51 @@ P:NPC {
         { id = "xshh_default", text = "Then I've been too short wi' him, an' he never once complained. I'll go back tae the Badlands when my work lets me, an' I'll say it all slower." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    dw_kin = {
+      big = true,
+      lines = {
+        { id = "dwk_default", text = "Aye, they are, an' that's the part that keeps me up at night more than any fire-lord. Every Dark Iron diggin' in Uldaman had a grandsire who drank in the same halls as mine, before the War o' the Three Hammers, an' I'd give a good deal tae know whether they dig for Ragnaros because they want tae, or because they cannae stop." },
+      },
+      choices = {
+        { text = "Thralls or not, they killed Hammertoe. No pity.", next = "dw_kin_hard", fx = { align = { light = -1 } } },
+        { text = "If they're thralls, some of them might be freed.", next = "dw_kin_soft", fx = { align = { light = 1 } } },
+        { text = "Can't they stop?", next = "dw_kin_bound" },
+      },
+    },
+    dw_kin_bound = {
+      lines = {
+        { id = "dwkb_default", text = "When Thaurissan called the Firelord up, the old accounts say Ragnaros didnae go home again; he stayed under Blackrock an' made the survivors his. Two hundred years an' more o' servin' fire will change a clan's heart, an' I'm no' sure there's a Dark Iron alive who remembers what it was like before." },
+      },
+      choices = {
+        { text = "That's a grim kind of kinship.", next = "BACK", fx = { learn = { "dark_iron" } } },
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    dw_kin_hard = {
+      lines = {
+        { id = "dwkh_default", text = "No, an' I'll no' ask ye for any, for I've buried my partner an' I've no pity left tae spare. Only mind that the line between us an' them was drawn by a war an' a fire, an' no' by the stone we were made from." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    dw_kin_soft = {
+      lines = {
+        { id = "dwks_default", text = "That's a kinder thought than I've heard in this library in a year, an' I hope ye're right. If ever ye meet a Dark Iron who'll lay down his pick an' talk, bring him tae me, an' I'll listen before the guards do." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    kn_day = {
+      lines = {
+        { id = "knd_default", text = "Reads what the Prospectors send back an' tells them where they've got it wrong, mostly, an' then writes tae the High Explorer tae tell him the same. The rest o' the time I'm matchin' rubbings from Uldaman against rubbings from Ironband's dig, lookin' for the same mark in two places, for that's how ye find out what was one thing once." },
+      },
+      choices = {
+        { text = "That sounds slower than digging.", next = "BACK", reply = "It's slower, aye, an' it's where every find actually becomes knowledge. A dug-up relic wi' no reader is just a heavy stone in a crate.", fx = { affinity = 1 } },
+        { text = "Something else, Historian.", next = "BACK" },
+      },
     },
   },
 

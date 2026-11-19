@@ -145,41 +145,61 @@ P:NPC {
   key = "if_kelv", id = TODO_NPC("Kelv Sternhammer"), name = "Kelv Sternhammer", title = "Warrior Trainer", gender = "male",
   bible = "bibles/missed_b.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "stern", "fair" }, values = { "discipline", "duty" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "kit" },
   impression = {
-    first = "Kelv Sternhammer drills warriors in the Hall of Arms with his arms folded and his voice level, and nobody in the hall seems to want to disappoint him. He corrects a stance with the toe of his boot.",
+    first = "Kelv Sternhammer drills warriors in the Hall of Arms with his arms folded and his voice level, and nobody in the hall seems to want to disappoint him. He corrects a stance with the toe of his boot and has never been heard to praise anyone twice.",
     third = "{name} met Kelv Sternhammer, a warrior trainer in Ironforge's Hall of Arms.",
   },
   greetings = {
     { id = "g_default", text = "Ye're standin' in a drill hall, so stand like ye mean it. What brings ye tae the Hall of Arms?" },
-    { id = "g_war", when = { class = "WARRIOR" }, text = "Feet apart an' shoulders down, warrior. Good, now tell me what ye've come tae learn." },
-    { id = "g_back", when = { metBefore = true }, text = "Back in the hall, I see. Let's find out whether ye practised or only meant tae." },
+    { id = "g_war", when = { class = "WARRIOR" }, text = "Feet apart an' shoulders down, warrior, an' the shield arm higher than that. Good, now tell me what ye've come tae learn." },
+    { id = "g_back", when = { metBefore = true }, text = "Back in the hall, I see, an' still breathin', so somethin' I said must have stuck. Let's find out whether ye practised or only meant tae." },
     { id = "g_islander", when = { questActive = TODO_QUEST("The Islander") }, text = "Ye've no' sailed for Fray Island yet? Klannoc doesnae wait on anyone, {g:lad|lass}, so don't keep him." },
+    { id = "g_spirit", when = { questActive = TODO_QUEST("A Troubled Spirit") }, text = "The swamp's a long road, an' that ghost's waited years already, but I'd still sooner ye didnae dawdle." },
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { class = "WARRIOR", maxLevel = 12 },
       text = "Ye grip that like ye're afraid it'll bite. Loosen the hand an' tighten the wrist, an' come back when it feels wrong the other way." },
     { id = "n_gnome", cat = "class", when = { class = "WARRIOR", race = "Gnome" },
       text = "A gnome in mail! Bilban'll be pleased, for he's forever tellin' me the best warriors in this hall come up tae my belt." },
+    { id = "n_kit", cat = "kit", when = { class = "WARRIOR", durability = { max = 0.3 } },
+      text = "Look at the state o' that gear, warrior, for a fighter who neglects his kit is only a corpse wi' a delay on it. See an armourer at the Great Forge today, before ye see me again." },
   },
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
-        { id = "h_default", text = "Kelv Sternhammer, an' I train warriors for Ironforge. I'll teach any soldier o' the Alliance who'll sweat for it, but I'll no' flatter ye, for flattery never turned a blade." },
+        { id = "h_default", key = true, text = "Kelv Sternhammer, an' I train warriors for Ironforge. Kelstrum teaches them tae hit an' Bilban teaches them tae be quick, but I teach them tae hold a line when everythin' in them wants tae run, an' I'll no' flatter ye while I do it." },
         { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } },
           text = "Kelv Sternhammer, warrior trainer. Ye're no' one o' mine, by the look o' ye, but ye're welcome tae watch the drills so long as ye keep off the sand." },
+        { id = "h_stance", when = { class = "WARRIOR", minLevel = 10, maxLevel = 19 },
+          text = "Ye've the look o' someone who's just been handed a second stance an' doesnae trust it yet. Good, for trust is earned in this hall, even by a stance." },
+        { id = "h_islander", tags = { "news" }, when = { class = "WARRIOR", minLevel = 30, maxLevel = 39 },
+          text = "Ye're ready for somethin' harder than my sand, {g:lad|lass}, an' I've a name for ye across the sea. Ask me about it when ye've a moment." },
+        { id = "h_plate", when = { class = "WARRIOR", minLevel = 40, maxLevel = 59 },
+          text = "Plate on ye, an' worn proper, wi' the straps tight an' the shoulders square. I'll say it once, as is my habit: that's adequate." },
+        { id = "h_sixty", when = { class = "WARRIOR", minLevel = 60 },
+          text = "There's nothin' left in this hall that ye couldnae teach better than me, an' the recruits know it, for they've all stopped drillin' tae stare. Stand there a moment an' let them look." },
       },
       again = {
-        { id = "h_again", text = "What else? The recruits are slackin' while I talk." },
-        { id = "h_again2", text = "Go on, then, an' keep it short." },
+        { id = "h_again", text = "What else? The recruits are slackin' while I talk, so be quick about it." },
+        { id = "h_again2", text = "Go on, then, an' keep it short, for my patience is drilled as hard as they are." },
+        { id = "h_again3", when = { class = "WARRIOR" }, text = "Ask, warrior, an' keep yer shield arm up while ye do it. I'm watchin'." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What do you teach a recruit first?", next = "first" },
+        { text = "What does holding a line take?", next = "line" },
         { text = "Your recruits look worn out.", next = "recruits" },
+        { text = "You don't hand out much praise, drill master.", next = "praise" },
+        { text = "I've earned Defensive Stance from Muren.", next = "k_stance", when = { class = "WARRIOR", minLevel = 10, maxLevel = 29 } },
+        { text = "What should I be drilling now, at my age?", next = "k_mid", when = { class = "WARRIOR", minLevel = 20, maxLevel = 39 } },
         { text = "Is there a harder test than the drill hall?", next = "islander", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "I've earned my plate, drill master.", next = "k_plate", when = { class = "WARRIOR", minLevel = 40 } },
         { text = "You look troubled, trainer.", next = "spirit", when = { class = "WARRIOR", minLevel = 50 } },
+        { text = "A gnome warrior trainer must have surprised you.", next = "bilban", when = { race = "Gnome" } },
+        { text = "I came up from Stormwind to train under dwarves.", next = "k_human", when = { race = "Human", class = "WARRIOR" } },
         { text = "I'll leave you to your drills.", next = "END" },
       },
     },
@@ -199,12 +219,29 @@ P:NPC {
     },
     first3 = {
       lines = { { id = "f3_default", text = "Aye, that's it said plainly. The priest heals an' the mage burns, an' neither does it for long unless somebody stubborn is standin' in front o' them, an' stubborn is somethin' Ironforge has never run short o'." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Stubborn I can manage. Something else.", next = "BACK" } },
+    },
+    line = {
+      lines = { { id = "li_default", text = "Trust in the dwarf on yer left, an' nothin' else. Yer shield covers him an' his covers ye, an' the moment one o' ye steps back the whole wall becomes a row o' dead heroes, so I drill it till they can do it asleep." } },
+      choices = {
+        { text = "Have you ever seen a line break?", next = "line_break" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line_break = {
+      big = true,
+      lines = { { id = "lb_default", text = "Once, at the gates o' Dun Modr, when one lad ran an' eleven died for it. He lived, an' he came tae me after, askin' tae be drilled again, an' I've never decided whether I was right tae take him back." } },
+      choices = {
+        { text = "You were. Everyone deserves a second stand.", next = "BACK", reply = "He's a sergeant now, an' he's never stepped back since. Maybe ye're right.", fx = { align = { light = 1 } } },
+        { text = "You weren't. Eleven dead is past forgiving.", next = "BACK", reply = "Their mothers would say the same, an' I hear them most nights.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not judge that, drill master.", next = "BACK" },
+      },
     },
     recruits = {
       lines = { { id = "r_default", text = "Good, they should be. The troggs under Dun Morogh don't rest an' the Dark Irons don't rest, so I'd sooner these lads were tired in my hall than fresh an' dead in the Searing Gorge." } },
       choices = {
         { text = "Do many of them wash out?", next = "recruits2" },
+        { text = "Which of them make the best warriors?", next = "recruits_best" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -212,19 +249,126 @@ P:NPC {
       lines = { { id = "r2_default", text = "Fewer than ye'd think, for a dwarf will bleed before he'll quit in front o' his cousins. The ones who go usually find they've better hands for the forge or the rifle, an' there's nae shame in either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    recruits_best = {
+      lines = { { id = "rb_default", text = "The ones who are a wee bit feared, for the fearless ones break formation tae be heroes, an' I've buried enough o' those. Give me a lad who kens he can die, an' I'll make him a wall." } },
+      choices = {
+        { text = "And what becomes of the fearless ones?", next = "recruits_fearless" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruits_fearless = {
+      lines = { { id = "rf_default", text = "I send them tae Kelstrum, who'll put them on the floor till they've learned some fear. If that doesnae take, there's always the siege brigade, for they like a dwarf wi' nae sense." } },
+      choices = { { text = "A place for everyone, then.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    praise = {
+      lines = { { id = "pr_default", text = "No, I don't, for praise makes a recruit think he's finished learnin', an' the day he thinks that is the day before his funeral. I tell them when they've done a thing right, once, an' they remember it better for the rarity." } },
+      choices = {
+        { text = "Who was the last to earn it?", next = "praise_last" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    praise_last = {
+      lines = { { id = "pl_default", text = "A human lass up from Stormwind, half my weight, who held the centre against six o' my best for the count of a hundred. I told her it was adequate, an' she grinned as if I'd handed her a medal." } },
+      choices = { { text = "From you, it was one.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    bilban = {
+      lines = { { id = "bi_default", text = "He did, an' I laughed, an' then he put me on the floor by goin' between my knees. He fights like a ferret in a pipe, an' there's lessons in it for dwarves who think height is strength." } },
+      choices = { { text = "You learned something from a gnome.", next = "BACK", reply = "I did, an' if ye repeat that in this hall I'll have ye runnin' laps till Winter Veil.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    k_stance = {
+      big = true,
+      lines = {
+        { id = "ks_default", text = "So ye have, an' Muren doesnae hand it out for nothin', so ye'll have brought him Vejrek's head from Frostmane Hold. Now ye'll learn that takin' a stance is the easy bit, an' holdin' it while three troggs try tae walk round ye is the work." },
+        { id = "ks_gnome", when = { race = "Gnome" }, text = "So ye have, an' Muren tells me ye went up against Vejrek at Frostmane Hold when the troll stood three times yer height. Now ye'll learn that takin' a stance is the easy bit, an' holdin' it is the work." },
+      },
+      choices = {
+        { text = "Then I'll hold it, whatever walks round me.", next = "k_stance_hold", fx = { align = { order = 1 } } },
+        { text = "I'd sooner kill them fast than hold anything.", next = "BACK", reply = "Then ye'll kill two, an' the third'll be eatin' yer healer. Think on it.", fx = { align = { order = -1 } } },
+        { text = "How do I keep them from walking round me?", next = "k_stance_hold" },
+      },
+    },
+    k_stance_hold = {
+      lines = { { id = "ksh_default", text = "Taunt the one that strays, an' Sunder the one ye want them all tae follow, an' put yer back tae a wall whenever there's a wall tae be had. Ironforge was built by folk who understood walls, an' ye'd do well tae think like them." } },
+      choices = { { text = "Back to the wall. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    k_mid = {
+      lines = {
+        { id = "km_default", text = "Shield Bash, for the shaman who thinks he'll heal his friends while ye're busy, an' Disarm, for the brute wi' the bigger axe. By twenty-eight ye'll have Shield Wall too, an' that's the one I want ye practisin' till yer arm forgets how tae drop." },
+        { id = "km_dwarf", when = { race = "Dwarf" }, text = "Shield Bash an' Disarm, an' then Shield Wall when it comes, for a dwarf who cannae stand still under a hammer is a disgrace tae the clan. I want ye practisin' till Kelstrum himself cannae move ye." },
+      },
+      choices = {
+        { text = "Klockmort in Tinker Town is making gauntlets for warriors.", next = "k_klockmort", when = { minLevel = 25 } },
+        { text = "I'll drill Shield Wall until my arm aches.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_klockmort = {
+      lines = { { id = "kk_default", text = "He is, an' they're good, which I'll no' say twice, for he wants searing coral off the Wetlands coast south o' Menethil, an' a deal o' patience from ye before he'll make them. Gnomish work fits a fist better than ye'd think, an' it's never once caught fire on me, which is more than I can say for their other inventions." } },
+      choices = { { text = "Searing coral, then. Something else.", next = "BACK" } },
+    },
     islander = {
-      lines = { { id = "i_default", text = "There is, an' ye're near ready for it. Off the coast by Ratchet, in the Barrens, there's a wee rock called Fray Island where a man named Klannoc Macleod tests warriors against all comers, an' I send him the ones I think will come back.", fx = { learn = { "fray_island" } } } },
-      choices = { { text = "Then I'll look for his island. Something else.", next = "BACK" } },
+      lines = {
+        { id = "i_default", text = "There is, an' ye're near ready for it. Off the coast by Ratchet, in the Barrens, there's a wee rock called Fray Island where a man named Klannoc Macleod tests warriors against all comers, an' I send him the ones I think can stand." },
+        { id = "i_done", when = { questDone = TODO_QUEST("The Affray") }, text = "Ye've stood Klannoc's Affray already, an' come back wi' the berserker's stance on ye like a fever. I'll no' pretend tae love it, but I'll teach ye tae use it without losin' yer head." },
+      },
+      choices = {
+        { text = "What will Klannoc teach me that you can't?", next = "islander_berserk" },
+        { text = "Then I'll look for his island. Something else.", next = "BACK" },
+      },
+    },
+    islander_berserk = {
+      big = true,
+      lines = { { id = "ib_default", text = "Berserker Stance, an' how tae fight wi' nae shield in yer heart, which isnae a thing I'm fit tae teach. A dwarf in that stance hits like a falling mountain an' bleeds like a cut barrel, so ye'll need tae decide what ye are when ye're angry." },
+      },
+      choices = {
+        { text = "I'll keep the shield in my heart, stance or no.", next = "BACK", reply = "Then ye'll be a fine warrior, an' a long-lived one. Go wi' my blessin'.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "When I'm angry, I'm a mountain falling. Good.", next = "BACK", reply = "Aye, an' mountains bury their own as often as their enemies. Mind that.", fx = { align = { honor = -1 } } },
+        { text = "Something else, drill master.", next = "BACK" },
+      },
+    },
+    k_plate = {
+      lines = {
+        { id = "kp_default", text = "Ye have, an' it'll change how ye fight whether ye like it or no', for a warrior in plate stops dodgin' an' starts leanin' intae the blow. Lean too far an' ye'll fall, so drill yer feet as if ye still wore leather." },
+        { id = "kp_dwarf", when = { race = "Dwarf" }, text = "Ye have, an' it sits on ye like it was forged at the Great Forge for yer shoulders alone, which perhaps it was. Mind ye don't stop movin' just because ye're hard tae hurt, for a dwarf who stands too still gets surrounded." },
+      },
+      choices = {
+        { text = "I'll move as if I wore none.", next = "BACK", reply = "Adequate. Ye'll note I said that once.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Plate is for standing still and taking it.", next = "BACK", reply = "Plate is for livin' through the blows ye couldnae avoid, an' that's a different thing.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     spirit = {
       lines = { { id = "sp_default", text = "I've had word of a warrior's ghost that cannae rest, down where the Swamp of Sorrows meets the Blasted Lands. It's one o' the other side's dead, an orc, but a restless warrior troubles me whatever banner he fell under." } },
-      choices = { { text = "A warrior's rest is worth the road. Something else.", next = "BACK" } },
+      choices = {
+        { text = "An orc? Why should a dwarf care?", next = "spirit_why" },
+        { text = "A warrior's rest is worth the road. Something else.", next = "BACK" },
+      },
+    },
+    spirit_why = {
+      big = true,
+      lines = { { id = "spw_default", text = "Because I fought orcs for thirty years an' I ken what they were like at their best, which was brave, an' at their worst, which was the demons' doin'. A warrior who died fightin' the right enemy deserves tae be heard, an' I'd want the same if it were me." },
+      },
+      choices = {
+        { text = "Then I'll hear him out, for a warrior's sake.", next = "BACK", reply = "Good. Come back an' tell me what he wanted, if ye can bear tae.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A dead orc is one less orc. I'll leave him.", next = "BACK", reply = "That's how I'd have answered at yer age, an' I was wrong then too.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    k_human = {
+      lines = { { id = "kh_default", text = "Ye're no' the first, for the last human I praised was a Stormwind lass who held the centre against six o' my best. Humans reach too far an' dwarves don't reach far enough, an' between the two there's a decent warrior." } },
+      choices = {
+        { text = "Then I'll learn to reach less.", next = "BACK", reply = "Good, an' I'll teach ye tae reach when it counts. Back tae the sand.", fx = { affinity = 1 } },
+        { text = "Wu Shen taught me differently.", next = "BACK", reply = "Wu Shen's a fine teacher an' a stubborn one. So am I. Take what works from both.", fx = { trait = { witty = 1 } } },
+      },
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I carried a shield for Ironforge through the Second War, an' I've been teachin' others tae carry one ever since." } },
-    fray_island = { { id = "tp_fray", text = "Klannoc Macleod keeps it, off Ratchet. He's a hard judge, an' that's why I trust his word on a warrior." } },
-    _none = { { id = "tp_none", text = "That's no' a thing I can drill intae ye. Ask someone wi' more books an' fewer bruises." } },
+    background = { { id = "tp_bg", text = "I carried a shield for Ironforge through the Second War, thirty years in the line in all, an' I've been teachin' others tae carry one ever since." } },
+    fray_island = { { id = "tp_fray", text = "Klannoc Macleod keeps it, off Ratchet, an' he's a hard judge, which is why I trust his word on a warrior." } },
+    hall_of_arms = { { id = "tp_hall", text = "It's where Ironforge makes its soldiers, an' it's loud an' it stinks o' sweat an' ram, an' I'd have it nae other way." } },
+    kelstrum = { { id = "tp_kelstrum", text = "Kelstrum Stonebreaker's the senior o' us, an' he hits like a rockslide, so go tae him when ye want tae learn how tae end a fight." } },
+    muren = { { id = "tp_muren", text = "Muren Stormpike sets the tests for the ones who think they're ready, an' most find out they werenae." } },
+    _none = { { id = "tp_none", text = "That's no' a thing I can drill intae ye, so ask someone wi' more books an' fewer bruises." } },
   },
 }
 
