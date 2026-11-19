@@ -1801,6 +1801,9 @@ P:Pool {
     { id = "g_vet", when = { class = "MAGE", minLevel = 40 }, text = "You've still got both eyebrows, I see, which means you've been careful. Come in." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and nothing's exploded in your absence. Make of that what you will." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you; I can feel it in the air around you. Let's not waste it." },
+    { id = "g_frosty", when = { class = "MAGE", aura = { 168, 7300, 7301, 7302, 7320, 10219, 10220 } }, text = "Shut the door behind you, would you? You've brought your frost in with you, and my ink's already thickening." },
+    { id = "g_conjured", when = { class = "MAGE", carrying = { 5350, 2288, 2136, 3772, 8077, 8078, 8079 } }, text = "You've been conjuring, I see, and the innkeepers will be cursing your name. Good; come in and let's see what else you can make out of nothing." },
+    { id = "g_tabetha", when = { class = "MAGE", minLevel = 26, maxLevel = 32 }, text = "Have you been out to see Tabetha in the marsh yet? Come in either way, and tell me if you have." },
   },
   notice = {
     { id = "n_orc", cat = "class", when = { race = "Orc", class = "MAGE" },
@@ -1823,6 +1826,10 @@ P:Pool {
       text = "A kaldorei mage. Your people forbade this magic after the Highborne nearly ended the world, and I'd not blame you for glancing over your shoulder while you study it, only study it properly." },
     { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "MAGE" },
       text = "A tauren mage, with a spellbook that looks very small in those hands. The arcane is a long way from the Earth Mother's ways, but I'll teach you as gently as I can." },
+    { id = "n_mg_noportal", cat = "carry", when = { class = "MAGE", minLevel = 20, ["not"] = { carrying = { 17031 } } },
+      text = "Not a rune of teleportation on you? Then you'll walk home like a farmer tonight, so stop by the reagent vendor before you leave." },
+    { id = "n_mg_wand", cat = "gear", when = { class = "MAGE", minLevel = 20, equipped = { 11287, 11288, 11290, 11289 } },
+      text = "An enchanter's wand on your belt. It's a fine thing for finishing a fight, and a poor excuse for not learning to end one properly." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
       text = "There's a stink of brimstone and a cold draught coming off you, and my wards just flickered. Dalaran expelled students for less, you know, and most of them deserved it." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
@@ -1848,6 +1855,7 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
+        { text = "What comes next for me?", next = "m_path", when = { class = "MAGE" } },
         { text = "All this knowledge must come at a cost.", next = "price", when = { class = "MAGE", minLevel = 10 } },
         { text = "You must think about Dalaran often.", next = "dalaran" },
         { text = "My people's warlocks ruined us. Is this any different?", next = "race_warlocks", when = { race = "Orc" } },
@@ -1959,6 +1967,159 @@ P:Pool {
       choices = {
         { text = "That's a heavy thing to carry.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- The mage's road (mage patch): the class journey, level by level.
+    m_path = {
+      hub = true,
+      lines = {
+        { id = "mp_default", text = "A mage's road is one book after another, and every chapter costs you something before it gives you anything back. That's the whole of it, and nobody has ever found a shorter way through." },
+        { id = "mp_start", when = { maxLevel = 7 }, text = "Fireball and Frostbolt are where it starts, and your Frost Armor besides, so wear it every hour you're awake. Learn to conjure your own water before anything else, because a mage who has to stop and buy a drink is a mage who's always a step behind." },
+        { id = "mp_eight", when = { minLevel = 8, maxLevel = 19 }, text = "You've Polymorph now, and Arcane Missiles, and Frost Nova is close behind. Use the sheep before the fight begins, not halfway through it, and you'll find that most battles go the way you planned them." },
+        { id = "mp_twenty", when = { minLevel = 20, maxLevel = 29 }, text = "Twenty is where a mage stops being an apprentice. Blink and Evocation are in your book now, and Mana Shield, and best of all you can carry yourself home to the city with a word and a rune, so ask me about it." },
+        { id = "mp_thirty", when = { minLevel = 30, maxLevel = 39 }, text = "Ice Armor's yours now, and Mage Armor not long after, and it's time you chose which school you'll give your heart to. If you've not been to see Tabetha in the marshes yet, then go, because she teaches what I can't." },
+        { id = "mp_forty", when = { minLevel = 40, maxLevel = 49 }, text = "You can open portals now, which means other people will start asking you for favours. The deepest gifts of your chosen school are in reach as well, the kind I can only point you towards and never truly teach." },
+        { id = "mp_fifty", when = { minLevel = 50, maxLevel = 59 }, text = "There's little left in my book that you couldn't work out for yourself. The rest you'll find in old ruins and older libraries, in Scholomance and the Spire and the broken halls of Eldre'Thalas, if you're careful about what you read." },
+        { id = "mp_sixty", when = { minLevel = 60 }, text = "You've read every page I have and a good many I don't, so there's nothing left I can teach you from a book. What remains is out in the world, in places that would rather not be studied." },
+      },
+      again = {
+        { id = "mpa_again", text = "What else about the road ahead? Ask while the candle lasts." },
+        { id = "mpa_again2", text = "Go on, then; there's more of the road than I've told you, and most of it is uphill." },
+      },
+      choices = {
+        { text = "Why a sheep, of all things?", next = "m_poly", when = { minLevel = 6 } },
+        { text = "You said I could go home with a word.", next = "m_tele", when = { minLevel = 16 } },
+        { text = "Who is this Tabetha?", next = "m_tabetha", when = { minLevel = 24 } },
+        { text = "Fire, frost or the arcane: which should I choose?", next = "m_schools", when = { minLevel = 18 } },
+        { text = "Tell me about portals.", next = "m_portal", when = { minLevel = 36 } },
+        { text = "What's left for me once your book runs out?", next = "m_end", when = { minLevel = 50 } },
+        { text = "Does the study ever end?", next = "m_never" },
+        { text = "Back to the other lessons.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      lines = {
+        { id = "mpo_default", text = "Because a sheep is a simple shape, and the simpler the shape, the harder it is for the poor creature to fight its way back out of it. It also can't bite, cast or call for help, which is more than you can say for most things you'll meet." },
+        { id = "mpo_horde", when = { faction = "Horde" }, text = "Because a sheep is a simple shape, and the simpler the shape, the harder it is to fight back out of. The Kirin Tor chose it long ago, and I'll admit a centaur bleating in the Barrens is one of the finer sights I know." },
+      },
+      choices = {
+        { text = "Are there other beasts than sheep?", next = "m_poly2" },
+        { text = "It's cruel, whatever they've done to deserve it.", next = "m_path", reply = "Crueller than a fireball to the face? Perhaps, but they walk away from a sheep, and that's more mercy than most battles offer.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "A sheep can't stab me. That's all I need to know.", next = "m_path", reply = "Practical, if not very poetic. Keep thinking like that and you'll outlive a good many poets.", fx = { align = { light = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_poly2 = {
+      lines = { { id = "mpo2_default", text = "I've heard of old books that teach the same spell with a different beast in it, a pig in one and a turtle in another, though I've never held either one and I can't tell you where they lie. If you ever find one, read it slowly, and then come and tell me whether the pig squeals." } },
+      choices = {
+        { text = "A pig would be a fine insult to a paladin.", next = "m_path", reply = "Ha! It would, and I'd pay to watch, though not to be the one who explained it to the Silver Hand afterwards." },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_tele = {
+      lines = {
+        { id = "mt_default", text = "At twenty you'll learn to fold the road between here and the city into a single step. You'll need a rune of teleportation for it, and you'll need to be standing still, and you'll need to forgive yourself the first time you arrive with your stomach still back where you started." },
+        { id = "mt_alliance", when = { faction = "Alliance" }, text = "At twenty you'll learn to fold the road between here and the city into a single step: Stormwind, Ironforge or Darnassus, whichever you like. Each takes a rune of teleportation and a quiet moment, and the first one leaves your stomach somewhere behind you." },
+        { id = "mt_horde", when = { faction = "Horde" }, text = "At twenty you'll learn to fold the road between here and the city into a single step: Orgrimmar, the Undercity or Thunder Bluff, whichever you like. Each takes a rune of teleportation and a quiet moment, and the first one leaves your stomach somewhere behind you." },
+      },
+      choices = {
+        { text = "Where do I get these runes?", next = "m_tele2" },
+        { text = "A mage who teleports out of a fight abandons friends.", next = "m_path", reply = "That's an honest thing to say, and I hope you mean it on the day it's tested. The spell takes long enough to cast that you'll have time to change your mind.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Living to fight again beats dying for pride.", next = "m_path", reply = "Most old mages would agree with you, and that's rather how they got old. Just be sure your friends know which kind of mage you are before you go into the dark with them.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_tele2 = {
+      lines = { { id = "mt2_default", text = "Any reagent vendor worth the name keeps them, and they'll charge you for the privilege, so buy them in stacks. While you're there, learn Evocation and Blink as well, because a mage who can step away from danger and then catch her breath back again will see a great many more birthdays than one who can't." } },
+      choices = {
+        { text = "Blink feels like being thrown down a stair.", next = "m_path", reply = "It does, and it never stops feeling that way, but you'll be glad of it the first time a boar's tusk closes on empty air." },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_tabetha = {
+      big = true,
+      lines = { { id = "mtb_default", text = "Tabetha is a mage who lives out in the Quagmire of Dustwallow Marsh, on a little farm with two apprentices and more wards than I'd care to count. Trainers of both the Alliance and the Horde send their students to her around your age, and she sets them tasks that teach more than any lecture of mine, with something worth carrying at the end of it, a wand or the like." } },
+      choices = {
+        { text = "Why would a mage live alone in a swamp?", next = "m_tabetha2" },
+        { text = "What sort of tasks does she set?", next = "m_tabetha3" },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_tabetha2 = {
+      lines = { { id = "mtb2_default", text = "Because nobody comes to a swamp to argue with her about whose side she's on, I'd imagine. She teaches whoever comes to her door with a trainer's letter, Alliance or Horde, and she seems to like it that way." } },
+      choices = {
+        { text = "A mage should serve her people, not hide in a bog.", next = "m_path", reply = "Plenty of the Kirin Tor would agree with you, and they'd say it louder. Tabetha would only say that she serves the arcane, and that the arcane has no king.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "She's wise to stay out of kings' quarrels.", next = "m_path", reply = "I've thought the same on bad nights, and then the bells ring for a war and I find I'm in the quarrel whether I like it or not.", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_tabetha3 = {
+      lines = { { id = "mtb3_default", text = "Rituals mostly, and the gathering of what a ritual needs, which in that marsh means wading about among things with too many teeth. I'll not spoil it for you, but go with your wits about you, and go with your boots laced tight." } },
+      choices = { { text = "Something else about the road.", next = "m_path", fx = { trait = { curious = 1 } } } },
+    },
+    m_schools = {
+      hub = true,
+      lines = { { id = "msc_default", text = "Every mage learns all three, but sooner or later the heart picks one. Fire burns things down, frost holds them still, and the arcane bends the rules underneath them both, so tell me which you'd like to hear about." } },
+      again = { { id = "msca_again", text = "Another school? They all have their charms, and their scars." } },
+      choices = {
+        { text = "Tell me about fire.", next = "m_fire" },
+        { text = "Tell me about frost.", next = "m_frost" },
+        { text = "Tell me about the arcane.", next = "m_arcane" },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_fire = {
+      lines = { { id = "mf_default", text = "Fire is the loudest school and the least forgiving, and its masters learn a thing called Combustion that turns every flame they throw into a killing one. It ends fights quickly, which is its virtue, and it sometimes ends the forest as well, which is its other side." } },
+      choices = {
+        { text = "Fire is honest. Everything burns the same.", next = "m_schools", reply = "That's a fire mage talking already. Just remember that your friends burn the same as everything else, so watch where you're aiming.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Fire's careless. It takes the innocent with the guilty.", next = "m_schools", reply = "It does, which is why the best fire mages are also the most careful ones. Frost or the arcane might suit your conscience better.", fx = { align = { order = 1 }, trait = { kind = 1 } } },
+        { text = "Tell me about another school.", next = "m_schools" },
+      },
+    },
+    m_frost = {
+      lines = { { id = "mfr_default", text = "Frost is the patient school, and the one that keeps its students alive the longest. Its masters learn to wrap themselves in a block of ice when the blades come in, and to stand inside a barrier of it the rest of the time, and they rarely fight anything that can actually reach them." } },
+      choices = {
+        { text = "Patience suits me well enough.", next = "m_schools", reply = "Then you'll make a fine frost mage, and a dull guest at parties, which is the usual price." },
+        { text = "Tell me about another school.", next = "m_schools" },
+      },
+    },
+    m_arcane = {
+      lines = { { id = "mar_default", text = "The arcane is the oldest school, the one that drowned the Highborne and built Dalaran both. Its masters learn Presence of Mind, to cast in an instant what takes others a breath, and Arcane Power, which pours more into every spell than is altogether safe." } },
+      choices = {
+        { text = "Power is power. I'd take every drop of it.", next = "m_schools", reply = "So said a great many magisters, ten thousand years ago, and the sea's very deep where their city used to be. Take it, then, but count the cost.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "I'll take only what I can hold.", next = "m_schools", reply = "Good, though you'll find that what you can hold grows a little every year. Keep asking yourself the question.", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "Tell me about another school.", next = "m_schools" },
+      },
+    },
+    m_portal = {
+      lines = { { id = "mpt_default", text = "At forty you'll learn to open a door that others can walk through, and it costs a rune of portals each time, which is not cheap. Before long every adventurer in town will know your name and want a favour, and you'll have to decide how generous you mean to be." } },
+      choices = {
+        { text = "I'll open them for anyone who asks.", next = "m_path", reply = "That's generous, and you'll be poorer for it and well liked, which is a trade some people never learn to make.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Runes cost coin. Anyone who walks through can pay.", next = "m_path", reply = "The goblins would hire you on the spot, and I can't say you're wrong, though I'd not expect many thank-you letters.", fx = { align = { light = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_end = {
+      lines = { { id = "me_default", text = "Rumours, mostly, and old books. There's said to be a tome somewhere that teaches a mage to brighten a whole company at once instead of one soldier at a time, and stranger talk of robes woven in a fire that burns deep under the Blackrock, where nobody sane would go looking." } },
+      choices = {
+        { text = "Where would I find such a tome?", next = "m_end2" },
+        { text = "I'll go wherever the knowledge is, however deep.", next = "m_path", reply = "That's the spirit that built Dalaran, and the spirit that broke a few of its towers as well. Go, then, and take friends who can carry you out.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "No book is worth dying for in the dark.", next = "m_path", reply = "Plenty of mages have said so and been right, and plenty more have said so and gone down anyway, a year later, with a lantern and a list.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Something else about the road.", next = "m_path" },
+      },
+    },
+    m_end2 = {
+      lines = { { id = "me2_default", text = "I've heard it said that the ogres in the ruins of Eldre'Thalas guard more books than they can read, and that the Highborne left their libraries behind when they fell. Whether the tome is there or somewhere deeper, I couldn't tell you, but those halls would be my first guess." } },
+      choices = { { text = "Something else about the road.", next = "m_path", fx = { trait = { curious = 1 } } } },
+    },
+    m_never = {
+      lines = {
+        { id = "mn_default", text = "No, and anyone who tells you otherwise has stopped learning and doesn't know it yet. Antonidas was still reading on the day the Scourge came to Dalaran's walls, and I'd like to think he was in the middle of a good chapter." },
+        { id = "mn_elf", when = { race = { "NightElf", "Skyborne" } }, text = "No, and your people's long lives only make it longer. Some of your Highborne ancestors studied for thousands of years and still hadn't reached the bottom of the Well, which ought to comfort you and frighten you in equal measure." },
+      },
+      choices = {
+        { text = "Then I'll keep reading until the last page.", next = "m_path", reply = "Good, though I hope your last page is a long way off. Mind the candle while you do." },
+        { text = "Something else about the road.", next = "m_path" },
       },
     },
   },
