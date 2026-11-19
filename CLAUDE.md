@@ -17,7 +17,7 @@ WoW (Forever, Classic-based client 1.60) addon: CRPG-style NPC conversations. Co
 
 ## Release (the user says "put it in the x.y.0 release")
 1. `python3 tools/version.py set RPGDialogue x.y.z` (and `set RPGDialogue_<Pack> a.b.c` for each changed pack).
-2. Add `## x.y.z (date)` to `CHANGELOG.md` (and each changed pack's own `CHANGELOG.md`): user-facing, short.
+2. Add `## x.y.z (date): Patch Name` to `CHANGELOG.md` (and each changed pack's own `CHANGELOG.md`): user-facing, short. **Every release gets a short, evocative name** (the user asked after 0.92.0), e.g. `## 0.93.0 (2026-11-20): Voices of the Barrens`. The name becomes the GitHub release title.
 3. Update `HANDOFF.md` (state + next step only; history lives in the changelog and git).
 4. `python3 tools/build_zip.py` (zip in `tools/out/`; send it to the user).
 5. Commit, push to the session branch, open a draft PR. Once merged to `claude/import`, `.github/workflows/github-release.yml` publishes the GitHub release (tag `v<version>`, zip, changelog notes) automatically, via `tools/gh_releases.py`, which also backfills any version without one.
