@@ -31,3 +31,8 @@ Both honest; Vestia openly unsure about the relic.
 
 ## Topics
 Latronicus: background, advice, sentinels, _none. Vestia: background, advice, highborne, _none.
+
+## Kaldorei factions (Alliance stance)
+- Latronicus: hostile to the Alliance as a bargain. Stormwind borrows Sentinels and sent no ship when the naga rose; Shandris privately agrees (node `ally`, `ally_shandris`, claim `alliance_takes_sentinels`). Human players get `xhuman_lat`; [Persuade] passes after the Hatecrest/Shalzaru quests and sets `latro_soft`. Blind spot: obeys Tyrande, who chose the Alliance.
+- Vestia: argues the other side (node `ally`): the Alliance woke a proud people up; Stormwind has no ships while it fights the Defias and Blackrock; she wants the Stronghold's young to see the world. Admires the Explorers' League (`ally_dwarf`).
+- Authored, not canon: the couple's long argument about the Alliance; two young Sentinels asking about Theramore.

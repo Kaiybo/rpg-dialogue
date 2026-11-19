@@ -63,6 +63,8 @@ P:NPC {
         { text = "The Needles begin just beyond your gate.", next = "needles" },
         { text = "Tell me what you'd have said to Lonebrow.", next = "thanks", when = { race = "Dwarf" } },
         { text = "Is there word from Feathermoon?", next = "word", when = { race = "NightElf" } },
+        { text = "At Feathermoon they say the Alliance only takes from us.", next = "ally" },
+        { text = "Commander Moonspear says Stormwind never sent a ship.", next = "ally_latro", when = { heardLine = "latronicus.al_default" } },
         { text = "Farewell, Falfindel.", next = "END" },
       },
     },
@@ -158,6 +160,54 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ally = {
+      big = true,
+      lines = {
+        { id = "al_default", key = true,
+          text = "I hear it from every Sentinel who rests here on the way to the isle, and I understand why they say it. But Henrig Lonebrow was a dwarf of Ironforge, and he held a thicket in the Barrens so that one of our scouts might live, and nobody asked him to." },
+        { id = "al_dwarf", when = { race = "Dwarf" },
+          text = "They say it at Feathermoon, and they'll say it to your face, so you may as well hear my answer first. Henrig Lonebrow was one of yours, and he died in the Barrens holding the quilboar off a kaldorei scout he had known for a month." },
+        { id = "al_human", when = { race = "Human" },
+          text = "They say it, and some of them will say it to you, so forgive them in advance. They've buried a great many sisters on that shore, and grief looks for someone far away to blame." },
+      },
+      choices = {
+        { text = "What do you say to them?", next = "ally_answer" },
+        { text = "One brave dwarf doesn't make an alliance fair.", next = "BACK",
+          reply = "No, it doesn't, and I won't pretend the bargain is even. But it's one more brave soul than the Sentinels were counting on, and I've learned to be grateful for those.",
+          fx = { align = { light = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Lonebrow's sacrifice is what an alliance means.", next = "BACK",
+          reply = "That's what I tell them, and it's why his journal stays on my shelf instead of going to Darnassus. Thank you for understanding it.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ally_answer = {
+      lines = {
+        { id = "aa_default", text = "I read them a page of the journal, the one where Lonebrow writes that elves are terrible company and that he'd follow Heralath anywhere. Most of them go quiet after that, and one or two have asked to read the rest." },
+      },
+      choices = {
+        { text = "And the ones who don't go quiet?", next = "ally_hard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ally_hard = {
+      lines = {
+        { id = "ah_default", text = "Then I let them say their piece, because they've earned the right to their anger on that shore. A way-station keeper listens to everyone, and I have found that the angriest Sentinels are usually the ones who were closest to someone who fell." },
+      },
+      choices = {
+        { text = "That's a generous way to see it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ally_latro = {
+      lines = {
+        { id = "alr_default", text = "Latronicus says it more often than anyone, and he isn't wrong about the ship. But he wasn't here the evening a stranger walked through my gate with a dwarf's journal, stained with Barrens dust, and read me the last page Heralath ever lived to see, and I was." },
+      },
+      choices = {
+        { text = "Tell him that, next time he passes.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     word = {
       lines = {
         { id = "b_word_default", text = "Ginro's dispatches come when the couriers do, which is less often than either of us would like. The General holds the isle against the naga, the ogres hold the hills, and Thalanaar holds the road between them and the world." },
@@ -172,6 +222,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the road, the couriers, and the names of the scouts who didn't come back." } },
     background = { { id = "tp_bg", text = "A sentry of the Kaldorei, keeper of a small post on a long road.", next = "post" } },
+    alliance = { { id = "tp_alliance", text = "A dwarf died in the Barrens for one of our scouts, and I keep his journal on my shelf. That is most of what I think of the Alliance.", next = "ally" } },
     grimtotem = { { id = "tp_b_grimtotem", text = "They watch us from the cliffs to the west and send riders to test the gate at dusk. I do not know what they want with a way-station, and I would rather not learn." } },
     razorfen = { { id = "tp_b_razorfen", text = "The Kraul lies north and east in the Barrens, a tangle of great thorns with quilboar under every root. Two of ours went to look at it, and you know how that ended." } },
     _none = { { id = "tp_none", text = "No courier has brought me word of that." } },

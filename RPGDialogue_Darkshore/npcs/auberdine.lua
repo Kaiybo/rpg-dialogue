@@ -220,6 +220,7 @@ P:NPC {
       choices = {
         { text = "Tharnariun's bears were sick with something unnatural, Elder.", next = "dd_plague", when = { questDone = TODO_QUEST("Cleansing of the Infected") } },
         { text = "How does Auberdine feel about its new allies?", next = "op_ask" },
+        { text = "Your people seem divided about outsiders, Elder.", next = "divided" },
         { text = "The land here looks sick.", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand", when = { class = "PALADIN" } },
         { text = "There are old ruins all along this coast, I've noticed.", next = "ruins" },
@@ -236,6 +237,27 @@ P:NPC {
         { text = "What do the people of Auberdine fear most, Thundris?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Blackfathom Deeps is cleared, Elder. I've seen the bottom of it.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
+      },
+    },
+    -- Kaldorei factions: Thundris has made peace with mortality, and with mortal allies.
+    divided = {
+      lines = {
+        { id = "dv_default", key = true,
+          text = "Divided as a forest is divided by a river, traveller, and both banks are green. Glynda and Tysha remember what outsiders have broken, Elissa remembers what they have mended, Barithras fears the years, and the young like Allyndia only want to see the far shore." },
+      },
+      choices = {
+        { text = "And you, Elder? Which bank are you on?", next = "divided2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    divided2 = {
+      lines = {
+        { id = "dv2_default", text = "Since Hyjal I count my years as the humans count theirs, and it has made me kinder toward them, not more afraid. We are a mortal people now, and mortal peoples need one another; those who would close the harbour forget that the Legion did not spare us for standing alone." },
+      },
+      choices = {
+        { text = "You're right. No one survives the Legion alone.", next = "BACK", reply = "No one ever has, though a great many have tried. Say it to Glynda, gently, if you pass her on the beach.", fx = { align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Close the harbour. Outsiders bring their wars with them.", next = "BACK", reply = "They do, and they bring their hands to fight them, too. I would rather share a war than face one alone.", fx = { align = { honor = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sick = {

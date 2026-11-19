@@ -204,7 +204,60 @@ P:NPC {
         { text = "How can a druid best serve the Sentinels in Ashenvale?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you need from a mage in Ashenvale?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you guard a priestess's memory, Thyn'tel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Should the Sentinels carry the war to the Warsong?", next = "war" },
+        { text = "Would the Sentinels take my people into that war?", next = "war_ally", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I'll let you return to your duties.", next = "END" },
+      },
+    },
+    war = {
+      big = true,
+      lines = {
+        { id = "wr_default", key = true,
+          text = "Yes, and not a season from now. We hold the clearings and they come back with more axes, so I would take the Sentinels down the Barrens road, burn the lumber camps at Splintertree, and teach the Warsong what it costs to come north." },
+        { id = "wr_nelf", when = { race = "NightElf" },
+          text = "Yes, {g:brother|sister}, and I'd have done it last spring. We hold the clearings and they come back with more axes, so I would burn the lumber camps at Splintertree and teach the Warsong what it costs to come north." },
+      },
+      choices = {
+        { text = "Then strike, and finish what they started in Ashenvale.", next = "BACK",
+          reply = "That is what I tell the High Priestess every moonrise, in more careful words. Go to Astranaar, and you'll see why my patience has worn so thin.", fx = { align = { light = -1 }, opinion = { ashenvale = "war" } } },
+        { text = "Burn their camps and the forest burns with them.", next = "BACK",
+          reply = "Spoken like a druid, and the druids have never had to write the names. I'd burn one clearing to save a hundred, and sleep afterward.", fx = { align = { light = 1 } } },
+        { text = "Do the druids agree with you?", next = "war2" },
+      },
+    },
+    war2 = {
+      lines = {
+        { id = "w2b_default", text = "The druids counsel balance, which is an easy thing to counsel from the Enclave. Mathrengyl Bearwalker will tell you that a forest defended in hatred grows back crooked, and I'll tell you every orc we spare comes back with an axe, so hear him out and then tell me which of us sleeps better." },
+      },
+      choices = {
+        { text = "Restraint kept the forest alive for ten thousand years.", next = "BACK",
+          reply = "Restraint, and the fact that nobody knew where we were. The world knows now, and it carries axes.", fx = { align = { light = 1 } } },
+        { text = "Mathrengyl hasn't buried Sentinels. You have.", next = "BACK",
+          reply = "He has buried his share, to be fair to him, though fewer than I have. Say that to him and he'll only nod, which is the worst of it.", fx = { align = { light = -1 } } },
+        { text = "What does the High Priestess say?", next = "war3" },
+      },
+    },
+    war3 = {
+      lines = {
+        { id = "w3_default", text = "She says we hold, because she remembers what the last war of extermination cost our people, and she is older and wiser than I am. So I obey her, and every night I write the order I would give if I commanded, and then I put it in the fire." },
+      },
+      choices = {
+        { text = "That takes more discipline than any charge.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_ally = {
+      lines = {
+        { id = "wa_default", fx = { expose = "raedon_alliance_brought_horde" },
+          text = "Gladly, and I'd put you at the front where heavy steel does the most good. Some on the Craftsmen's Terrace say the Alliance brought the orcs to our shores, but Thrall's people came on their own, and humans and orcs alike stood with us at Hyjal, so I'll take every ally who still remembers it." },
+        { id = "wa_dwarf", when = { race = "Dwarf" },
+          text = "Gladly, and twice over if you bring a rifle, because a dwarf on a ridge with a rifle is worth a dozen of my archers in the rain. The druids frown at your powder smoke, but they've never watched a Warsong charge break on it." },
+        { id = "wa_gnome", when = { race = "Gnome" },
+          text = "Gladly, provided whatever you build explodes in the right direction. Nerve counts for more than height among the trees, and the Warsong have never known what to make of a gnome who refuses to run." },
+      },
+      choices = {
+        { text = "Then I'll go to Astranaar.", next = "BACK", fx = { affinity = 1, learn = { "warsong" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     velinde = {
@@ -490,6 +543,8 @@ P:NPC {
         { text = "Could a druid in bear shape learn anything from your warriors?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think someone like me can show resolve, Elanaria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Will you trust a shaman near the moonwells, Elanaria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "How do you find our allies, Elanaria?", next = "el_allies" },
+        { text = "Must we call the high elves kin now, Elanaria?", next = "el_quel", when = { race = "NightElf" } },
         { text = "I'll leave you to the Terrace.", next = "END" },
       },
     },
@@ -577,6 +632,59 @@ P:NPC {
       choices = {
         { text = "A line that isn't a line. Show me.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'd rather bring the line with me.", next = "BACK", reply = "Then find a clearing, and pray the satyrs come to it. They rarely oblige.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    el_allies = {
+      big = true,
+      lines = {
+        { id = "ea_default", key = true,
+          text = "Dwarves and gnomes I can stand beside, for they fight honestly and never pretend to be what they are not. It is the Alliance's older blood I cannot stomach: the high elves, who are the children of the Highborne we cast out, and the human mages who learned their arts at Quel'Thalas's knee." },
+        { id = "ea_mage", when = { class = "MAGE" },
+          text = "You'll not like my answer, mage, so I'll give it straight. The high elves are the children of the Highborne we cast out, and every human mage I've met learned his arts from them, so when I look at you I see a spark that was lit in Zin-Azshari." },
+      },
+      choices = {
+        { text = "The exiles' children aren't the exiles. Judge them themselves.", next = "BACK",
+          reply = "You speak as if ten thousand years were long enough to change a hunger. I was there, and I've seen how little it takes to wake it.", fx = { align = { light = 1 } } },
+        { text = "You're right. That hunger runs in the blood.", next = "BACK",
+          reply = "It does, and the Alliance would rather not hear it said aloud on its own Terrace. Remember it when one of them smiles at you over a spellbook.", fx = { align = { light = -1 } } },
+        { text = "Why does it weigh on you so heavily?", next = "el_allies2" },
+      },
+    },
+    el_allies2 = {
+      lines = {
+        { id = "ea2_default", text = "Because I stood on the shore when the Highborne sailed east, and they did not go sorrowing; they went clutching their spells and promising to build again. They did build again, and the old Alliance of Lordaeron called their kingdom a friend, and now their mages walk the halls of Stormwind while ours are buried in the Temple's records as a warning." },
+      },
+      choices = {
+        { text = "Then you'll hate me too, for I'm a mage.", next = "el_mage", when = { class = "MAGE" } },
+        { text = "The Alliance needs every hand, old blood or not.", next = "BACK",
+          reply = "It needs them, I'll grant, and it has them, and I train beside them when I must. Need is not trust, though, and I'll not pretend it is.", fx = { align = { order = 1 } } },
+        { text = "Then the Alliance asks too much of our people.", next = "BACK",
+          reply = "It asks us to forget, which is the one thing a kaldorei cannot do. Tyrande may forgive the Highborne's children; I'll keep watch on them for her.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    el_mage = {
+      lines = {
+        { id = "em_default", text = "Not hate, though I'll watch your hands the way my mothers watched the towers of Zin-Azshari. Show me the arcane serves you and not the other way round, and the Terrace will make room for you." },
+        { id = "em_nelf", when = { race = "NightElf" },
+          text = "A kaldorei mage, Elune help us, and you've no idea how the old Sentinels whisper about you. Show me the arcane serves you and not the other way round, and I'll make them stop, or at least whisper more quietly." },
+      },
+      choices = {
+        { text = "Watch, then. You'll find nothing to fear.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    el_quel = {
+      big = true,
+      lines = {
+        { id = "eq_default", text = "Kin? They are Dath'Remar's children, and he was banished for the very hunger that broke the world, so they may call me cousin on the day they give up the arcane, which will be never. Tyrande is wiser than I am in most things, but I would not have taken a seat at any table where they once sat." },
+      },
+      choices = {
+        { text = "High elves fought the Horde for the Alliance. That counts.", next = "BACK",
+          reply = "It counts for something, I suppose, as a debt paid to humans and not to us. I'll honour their dead and keep my distance from their living.", fx = { align = { light = 1 } } },
+        { text = "Agreed. We should keep well clear of them.", next = "BACK",
+          reply = "Well clear, and well watched, for the two go together. You have your foremothers' sense, {g:brother|sister}.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sentinels = {
@@ -760,7 +868,69 @@ P:NPC {
         { text = "What would you do to a paladin's hammer, Mathiel?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a smith's work trouble the Circle, Mathiel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you work elunite with dwarven methods, Mathiel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Not everyone in Darnassus is as fond of outsiders as you.", next = "allies" },
+        { text = "Some on these terraces look at me like a stray dog.", next = "stray", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Good luck at the forge.", next = "END" },
+      },
+    },
+    allies = {
+      big = true,
+      lines = {
+        { id = "al_default", key = true,
+          text = "No, and I hear it every day, from Raedon over his manifests and Erion in his shade and half the old Sentinels besides. But we hid behind the Sundering for ten thousand years and learned nothing new, and in a handful of years Furen and Klockmort have taught me more about the forge than any kaldorei smith alive." },
+        { id = "al_nelf", when = { race = "NightElf" },
+          text = "No, and you'll have heard it yourself, from Raedon over his manifests and Erion in his shade. But we hid behind the Sundering for ten thousand years and learned nothing new, and a dwarf in Stormwind has taught me more in a few letters than our own smiths did in a thousand years." },
+      },
+      choices = {
+        { text = "The Alliance makes your people stronger. They should see it.", next = "BACK",
+          reply = "They will, one letter at a time, and I mean to write a great many. Even Raedon nodded at Furen's armor, though he pretended he was only checking the stitching.", fx = { align = { order = 1 } } },
+        { text = "Your people may be right to keep their distance.", next = "BACK",
+          reply = "Perhaps, but distance is how we came to be the last to hear that the world had moved on. I'd rather be the first to hear, even if I don't like the news.", fx = { align = { order = -1 } } },
+        { text = "What do they say against the outsiders?", next = "allies2" },
+      },
+    },
+    allies2 = {
+      lines = {
+        { id = "al2_default", text = "That the dwarves dig and the humans burn and the gnomes blew up their own city, and that a people who live a hundred years can't keep a promise meant to last ten thousand. Some of it is even true, and none of it is the whole truth." },
+      },
+      choices = {
+        { text = "Which part is true?", next = "allies3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    allies3 = {
+      lines = {
+        { id = "al3_default", text = "Humans do forget, because they must, and their grandchildren inherit oaths they never swore. But a human who knows she has sixty years tends to mean what she promises within them, and I'd rather have sixty honest years from a friend than ten thousand polite ones from a neighbour." },
+      },
+      choices = {
+        { text = "A short life makes a promise more precious.", next = "BACK",
+          reply = "That's how Furen put it, near enough, only with more ale stains on the page. I've kept the letter.", fx = { align = { honor = 1 } } },
+        { text = "Promises outlive the people who make them. That's the trouble.", next = "BACK",
+          reply = "It is, and I won't pretend otherwise to you. Then we'll have to keep reminding their grandchildren, and that's what letters are for.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stray = {
+      lines = {
+        { id = "st_default", text = "Then come and stand by my forge, where nobody looks at anyone but the iron. The old ones remember a world that was only ours, and every stranger reminds them it isn't, so it's the change they're glaring at, mostly, and not you." },
+        { id = "st_dwarf", when = { race = "Dwarf" },
+          text = "Then come and stand by my forge, where nobody looks at anyone but the iron, and where a dwarf is the most welcome sight on the Terrace. The old ones have heard about the digging in Darkshore, and they glare at every beard as though it held a shovel." },
+        { id = "st_gnome", when = { race = "Gnome" },
+          text = "Then come and stand by my forge, where nobody looks at anyone but the iron. They've heard how Gnomeregan fell and they think every gnome carries the same trouble in a pocket, which Klockmort says is unfair, though he admits his pockets do hum." },
+      },
+      choices = {
+        { text = "I can bear it. Thank you, Mathiel.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Who glares the hardest?", next = "stray2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stray2 = {
+      lines = {
+        { id = "st2_default", text = "Out on Teldrassil, Sentinel Arynia at the Oracle Glade, who'd shut the docks if she could, and here in the city Erion Shadewhisper, who counts every human's fingers. Neither is cruel underneath, though, and both have thawed for someone before." },
+      },
+      choices = {
+        { text = "Then perhaps they'll thaw for me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     elunite = {

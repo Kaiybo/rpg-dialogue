@@ -23,3 +23,8 @@
 
 ## Authored, not canon
 Haljan's two lost carts and the bow behind the counter; Xai'ander's lost friends and Ironforge axes; Aeolynn sewing for festivals before the war; Maliynn's oven and the bread wrapped for the bridges.
+
+## Kaldorei factions (authored, not canon)
+- Haljan: grateful to the outlanders who keep Astranaar fed (Feero, a Wetlands dwarf's harness, a human carter who took an arrow for his driver).
+- Xai'ander: blames the humans for the orcs (Lordaeron's camps; claim `humans_brought_orcs`, partly true) and wants open war now; names Shindrell. Humans can soften him (`xaiander_soft`).
+- Aeolynn: a gentle isolationist; would have every outsider leave, orc and Alliance alike. Argues with Raene at Kimlya's.

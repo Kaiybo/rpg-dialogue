@@ -55,3 +55,6 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Prejudices (0.80.0, authored, not canon)
 - Loganaar is uneasy around the Forsaken (`prejudice` Scourge 12): a druid of balance, he feels nothing return to the earth from them, and admits he sees the plague-makers' work instead of the face.
+
+## Kaldorei factions (Loganaar)
+Would sooner share a bench with a tauren druid than a human envoy: the tauren came asking to learn, humans hurry (node `kin`). Concedes when pushed that his own people's Highborne did worse than any human (`kin_harsh`); answers Narianna with "seeds in the Horde" (`kin_narianna`).

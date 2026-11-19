@@ -24,6 +24,10 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've changed since I last saw you, and I can see it in how you stand, like someone the Warsong would think twice about. Teronis carried himself like that, and I'd be glad of more of it at my side." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Half of Astranaar is talking about what you did for us, and I'm glad of it. Most who promise us help get as far as the first furbolg camp and turn back." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone here left a talk with you looking like a storm cloud, and in a town this small I hear about it before supper. I'll judge you for myself, but I'd rather the forest's friends weren't at odds with each other." },
+    { id = "g_human", when = { race = "Human" }, priority = 3,
+      text = "A human on my bridge. Welcome, and tell me Stormwind has sent more like you, because I've been waiting on that promise a long while." },
+    { id = "g_soft", when = { npcFlagBefore = "raene_soft" }, priority = 10,
+      text = "There you are, my one exception. I've told three outlanders about you this week instead of about that letter, and Thenysil says I'm going soft." },
   },
 
   notice = {
@@ -211,6 +215,8 @@ P:NPC {
           text = "You took up Teronis's work when no one else would, and I will not forget it. He would have been proud of whoever finishes it." },
         { id = "h_thundris", when = { heardLine = "thundris.h_ashenvale" },
           text = "Thundris Windweaver sent you down from Auberdine? Then he thinks well of you, and he doesn't think well of many." },
+        { id = "h_soft", when = { npcFlagBefore = "raene_soft" },
+          text = "I still have Stormwind's letter, but I've stopped reading it aloud. Most days now I tell the outlanders about you, and it puts them in a better mood for the eastern road." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, good. My scouts come back from the Thistlefur hills with wounds that need more than bandages." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -233,6 +239,9 @@ P:NPC {
         { text = "The furbolgs seem to have turned against you.", next = "furbolgs" },
         { text = "Tell me about Teronis.", next = "teronis", when = { any = { { questActive = TODO_QUEST("Raene's Cleansing") }, { questDone = TODO_QUEST("Raene's Cleansing") } } } },
         { text = "What about the Horde?", next = "horde" },
+        { text = "The Alliance must be sending you help, surely.", next = "alliance_r" },
+        { text = "Should Darnassus leave the Alliance, Raene?", next = "xnelf_leave", when = { race = "NightElf" } },
+        { text = "Still telling outlanders about that letter, Raene?", next = "xsoft_r", when = { npcFlagBefore = "raene_soft" } },
         { text = "How do you keep two companions at once?", next = "hunter_r", when = { class = "HUNTER" } },
         { text = "What do you need from a druid?", next = "druid_r", when = { class = "DRUID" } },
         { text = "Your scouts must need a healer.", next = "priest_r", when = { class = "PRIEST" } },
@@ -246,6 +255,70 @@ P:NPC {
         { text = "Blackfathom Deeps is quiet now, Raene.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "I pray for the Warsong wounded too, Raene. Does that trouble you?", next = "xorig_well", when = { origin = "nightelf_astranaar_moonwell" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
+      },
+    },
+    -- Kaldorei factions: Raene is bitter that the Alliance asks kaldorei to bleed and sends little back.
+    alliance_r = {
+      lines = {
+        { id = "al_default", key = true, fx = { hear = "stormwind_sends_nothing" },
+          text = "Help? The Alliance asked our Sentinels to guard its ships at Auberdine and its pilgrims on the road to Darnassus, and in return Stormwind sent Darnassus a letter of thanks with a very fine seal on it. Tyrande had it copied to every post, and I have buried eleven scouts since mine came." },
+        { id = "al_human", when = { race = "Human" }, fx = { hear = "stormwind_sends_nothing" },
+          text = "You'd think so, and I'll not blame you for believing it. Stormwind asked Darnassus to stand beside it, and Darnassus did, and in return I've had a letter with a fine seal and not one company of your king's soldiers on my eastern road, and I have buried eleven scouts since it came." },
+      },
+      choices = {
+        { text = "Stormwind has wars of its own. The Defias, the Blackrock.", next = "alliance_r2" },
+        { text = "Then the Alliance is using you.", next = "BACK", reply = "It is, and politely, which is the worst kind of using. Tyrande signs their treaties and I sign the death notices.", fx = { align = { honor = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Delgren's paladins came. That isn't nothing.", next = "BACK", reply = "It isn't nothing, and Delgren is worth ten of his kingdom's lords. But one company of paladins is a kindness, not an alliance.", fx = { align = { honor = 1 }, opinion = { alliance = "trust" } } },
+      },
+    },
+    alliance_r2 = {
+      lines = {
+        { id = "al2_default", text = "So every human who crosses my bridge tells me, and perhaps it's even true. I'd still like one human king, just once, to tell Tyrande that our dead count the same as his, and then prove it with something heavier than ink." },
+      },
+      choices = {
+        { text = "Their soldiers are bleeding in Westfall and Redridge, Raene.", next = "BACK", reply = "I know they are, and I don't wish them dead for it. I only wish their lords would admit that a Sentinel's grave is as deep as a footman's.", fx = { align = { light = 1 } } },
+        { text = "Then stop guarding their ships. Let them learn.", next = "BACK", reply = "Don't tempt me, {class}; I've said it aloud in Thenysil's hearing and she wrote it down. Tyrande won't do it, and I'm a soldier.", fx = { align = { light = -1 } } },
+        { text = "Then I'll be the help Stormwind didn't send.", tag = "Persuade", next = "raene_soft",
+          check = { pass = { any = { { questDone = TODO_QUEST("Raene's Cleansing") }, { questDone = TODO_QUEST("Culling the Threat") }, { disposition = { min = 65 } } } } },
+          fail = { next = "raene_fail", fx = { affinity = -1 } } },
+      },
+    },
+    raene_soft = {
+      lines = {
+        { id = "rs_default", key = true, fx = { npcFlag = { set = { "raene_soft" } } },
+          text = "You've already been that, whether you meant to be or not, and I'm too honest to pretend otherwise. Fine: I'll stop telling every outlander on my bridge about that letter, and I'll start telling them about you instead." },
+      },
+      choices = {
+        { text = "That's more than enough for me.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raene_fail = {
+      lines = {
+        { id = "rf_default", text = "Every outlander says that on the bridge, and most of them are on a boat home within the month. Stay a season, and then say it to me again." },
+      },
+      choices = {
+        { text = "Then I'll stay the season.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf_leave = {
+      lines = {
+        { id = "xnl_default", text = "Leave it? No, and I'd box the ears of any Sentinel who said so in front of the humans. But between us, {g:brother|sister}, I'd like Tyrande to remind Stormwind now and then that we were holding this forest against demons while their ancestors were still building huts." },
+      },
+      choices = {
+        { text = "We need them more than we like to admit.", next = "BACK", reply = "Perhaps, and I'll admit it on the day they need us less. Until then I'll keep my pride and my scouts.", fx = { align = { order = 1 } } },
+        { text = "We held Ashenvale alone once. We can again.", next = "BACK", reply = "We did, and it cost us the Well and half the world. I'm angry, {g:brother|sister}, not foolish.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsoft_r = {
+      lines = {
+        { id = "xsr_default", text = "Less often than I did. Haljan caught me telling the old story to a dwarf last week, and he made me finish it with the part about you, so now the whole market knows." },
+      },
+      choices = {
+        { text = "Haljan has good sense.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xorig_well = {

@@ -236,3 +236,10 @@ P:Topic { id = "holy_light", keywords = { "Holy Light" }, name = "The Holy Light
 P:Topic { id = "elune", keywords = { "Elune" }, name = "Elune", category = "lore", learned = "the night elves" }
 P:Topic { id = "earth_mother", keywords = { "Earth Mother" }, name = "The Earth Mother", category = "lore", learned = "the tauren" }
 P:Topic { id = "the_elements", keywords = { "elemental spirits" }, name = "The spirits and the elements", category = "lore", learned = "any shaman" }
+
+-- Night elf factions (0.94.0): what the kaldorei argue about among themselves.
+P:Topic { id = "alliance", linkName = false, name = "The Alliance", category = "people", learned = "kaldorei who doubt it, like Raene Wolfrunner or Latronicus Moonspear" }
+P:Topic { id = "quel_dorei", keywords = { "quel'dorei", "high elves" }, name = "The high elves", category = "people", learned = "night elves wary of the Highborne's children" }
+P:Topic { id = "shendralar", keywords = { "Shen'dralar" }, name = "The Shen'dralar", category = "lore", learned = "Scholar Runethorn at Feathermoon" }
+P:Topic { id = "humans", linkName = false, name = "Humans", category = "people", learned = "kaldorei with an opinion of them" }
+P:Topic { id = "tauren", linkName = false, name = "The tauren", category = "people", learned = "the Cenarion Circle in Moonglade" }

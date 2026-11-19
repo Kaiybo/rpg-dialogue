@@ -97,6 +97,8 @@ P:NPC {
         { text = "What is the Shadow Council?", next = "council" },
         { text = "What do you know about Jaedenar?", next = "jaedenar" },
         { text = "That's a fine wolf at your side.", next = "della" },
+        { text = "Plenty of kaldorei say humans can't be trusted.", next = "humans" },
+        { text = "Some of your people look at me like a thief.", next = "xhuman", when = { race = "Human" } },
         { text = "What happened to Trey in there?", next = "trey", when = { questDone = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "Trey was of my order. I'll see him avenged.", next = "xpala", when = { class = "PALADIN" } },
         { text = "I've seen the Council's work. I am nothing like them.", next = "xlock", when = { class = "WARLOCK" } },
@@ -212,6 +214,52 @@ P:NPC {
         { text = "She deserves peace, and Rakaiah deserves justice.", next = "BACK", reply = "She does, and I hope she gets both, one after the other. Thank you for seeing her grief, and not just her anger.", fx = { align = { light = 1 } } },
         { text = "Grief is for later. Rakaiah dies first.", next = "BACK", reply = "I know you're right about the order, and I know Arko'narin would say the same. Just don't let her forget to grieve when it's done.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "They do, and my own uncle is one of them; he served at Feathermoon and says the humans only ever come to Kalimdor to ask for something. Trey walked into Shadow Hold behind Arko'narin when nobody had asked him to, and I would like my uncle to explain that to me." },
+        { id = "hu_after", when = { questDone = TODO_QUEST("The Remains of Trey Lightforge") },
+          text = "They do, and my own uncle says the humans only come to Kalimdor to take. Trey came to Felwood and gave everything he had for a kaldorei friend, and I buried what was left of him myself, so I've stopped listening to my uncle." },
+      },
+      choices = {
+        { text = "What did you tell your uncle?", next = "humans_uncle" },
+        { text = "One good knight doesn't make a whole kingdom trustworthy.", next = "humans_one" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans_uncle = {
+      big = true,
+      lines = {
+        { id = "hun_default", text = "That I'd watched a human knight follow a kaldorei girl into the dark because she was his friend, and that if that is what the Alliance costs us, it's cheap. He told me I was young and would learn better, and I told him I hoped I never would." },
+      },
+      choices = {
+        { text = "Trey is what the Alliance is meant to be.", next = "BACK",
+          reply = "He is, and I'll say so in the Temple of the Moon if I have to. Thank you; it helps to hear it from someone who isn't grieving him.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Your uncle has buried more Sentinels than you. Hear him out.", next = "BACK",
+          reply = "I know he has, and I know why he's bitter. But he's grieving ships that never came, and I'm grieving a man who did, and I can't make those weigh the same.",
+          fx = { align = { light = -1 }, opinion = { alliance = "mixed" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans_one = {
+      lines = {
+        { id = "huo_default", text = "No, and I'm not a fool about it, because there are humans among the cultists in Jaedenar too, wearing the Council's robes. But one good knight is enough to show me the rest aren't all one thing, and that's more than my uncle will admit." },
+      },
+      choices = {
+        { text = "That's fair.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xhu_default", text = "I'm sorry for that; some of us have long memories and short patience, and Felwood wears the patience thinner. You'll get no such look from me, because a human knight was the bravest friend I ever had." },
+      },
+      choices = {
+        { text = "Tell me about him.", next = "friends" },
+        { text = "Thank you, Jessir.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     della = {

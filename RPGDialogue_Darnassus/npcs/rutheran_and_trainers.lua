@@ -14,6 +14,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the roots of Teldrassil. Where will the wind take you this time?" },
+    { id = "g_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, priority = 5,
+      text = "Another face off the boat from Auberdine. The hippogryphs will carry you, traveler, though I confess I've stopped trying to learn all your names." },
   },
   start = "hello",
   nodes = {
@@ -124,6 +126,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My hippogryphs have never carried so much armor, {class}, but they're stronger than they look, and they won't let you fall." },
         { id = "h_default", text = "I am Vesprystus, keeper of the hippogryphs. They carry our people from the roots of Teldrassil to Auberdine across the water, and from there to the rest of a world that has grown very large since the Sundering." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, here at the roots of our tree! Our hippogryphs are gentler than your gryphons, I think, though I would not say so in Ironforge." },
+        { id = "h_nelf", when = { race = "NightElf" }, text = "Elune-adore, child of the kaldorei. It is a comfort to see one of our own on this dock, for most of the faces coming off the boat these days have never seen a moonwell." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "My hippogryphs are fond of you, rogue, which is odd, since they're usually wary of anyone who walks that quietly." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage taking the long way! I'd heard your kind can step from one place to another with a word, so it's a compliment that you'd choose my birds." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, flying on to Auberdine? Hold on tight and don't lean, because armor makes the birds nervous." },
@@ -140,6 +143,8 @@ P:NPC {
         { text = "I've had a bad fall before. How safe is the flight?", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Why live at the roots, not in the city?", next = "a" },
+        { text = "Many strangers must come through Rut'theran now.", next = "gate" },
+        { text = "Do you wish my kind hadn't come, Vesprystus?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Are the hippogryphs hard to train?", next = "b" },
         { text = "Why would a hippogryph trust someone who walks quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the kaldorei ever travel by magic instead?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -165,6 +170,68 @@ P:NPC {
       choices = {
         { text = "The Alliance is our strength now. We must stand with them.", next = "BACK", reply = "Perhaps we must, and Elune knows the humans and dwarves bled for Hyjal. I only pray we keep our own ways while we learn theirs.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Our people should keep to our own ways and our own forest.", next = "BACK", reply = "I feel it too when the wind blows from the human cities. Yet the forest that hid us for ten thousand years was not enough to stop the Legion.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gate = {
+      big = true,
+      lines = {
+        { id = "gt_default", key = true,
+          text = "More every season, off the boat from Auberdine, and the ships from Menethil before that. Each one climbs up to my roost smelling of coal smoke and powder, and I swear the young tree shivers a little more with every boatload." },
+      },
+      choices = {
+        { text = "Strangers bring trade and allies. That's good for Darnassus.", next = "BACK",
+          reply = "Trade and allies, yes, and their wars and their sicknesses folded in among the cloth. I hope you are right, and I watch the boats in case you are not.", fx = { align = { order = 1 } } },
+        { text = "Strangers bring their troubles with them.", next = "BACK",
+          reply = "They do, and they never declare those at the dock. The birds smell it on them before I do.", fx = { align = { order = -1 } } },
+        { text = "Would you turn them away?", next = "gate2" },
+      },
+    },
+    gate2 = {
+      lines = {
+        { id = "gt2_default", text = "I would close the gate to all of them, and I mean all: the humans and the dwarves and the gnomes, and the orcs and the tauren too, if they ever came asking. For ten thousand years the world forgot we existed, and in all that time no axe was ever raised against our trees." },
+      },
+      choices = {
+        { text = "Hiding didn't stop the Legion. You said so yourself.", next = "BACK",
+          reply = "I did, and it is the stone in my shoe every night. But the Legion came for the Well, and the Well is gone, so perhaps this time the world would leave us be.", fx = { align = { order = 1 } } },
+        { text = "Then speak for it. Others in Darnassus feel the same.", next = "BACK",
+          reply = "Some do, and they speak more loudly than an old bird-keeper. I keep my gate the only way I can, by watching every face that comes up from the water.", fx = { align = { order = -1 } } },
+        { text = "Who else feels as you do?", next = "gate3" },
+      },
+    },
+    gate3 = {
+      lines = {
+        { id = "gt3_default", text = "Half the old ones who never wanted to leave Hyjal, and Sentinels like Arynia at the Oracle Glade, who blames the mainland for every harpy on the tree. Raedon Duskstriker on the Craftsmen's Terrace would shut the gate on Stormwind and leave it open for Theramore's coin, though, and that is only half a gate." },
+      },
+      choices = {
+        { text = "And who would keep it open?", next = "gate4" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gate4 = {
+      lines = {
+        { id = "gt4_default", text = "Mathiel the smith, who writes to dwarves, and the young ones who camp by the Dolanaar road and dream of Ironforge. And the High Priestess, which is the end of the argument for most, though not, I'm afraid, for me." },
+      },
+      choices = {
+        { text = "You'd disagree with Tyrande herself?", next = "BACK",
+          reply = "Quietly, and with love, as one disagrees with the moon for setting. She has never once asked me to stop." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout = {
+      big = true,
+      lines = {
+        { id = "xo_default", text = "I wish none of you had needed to, which is not the same thing, and I'll fly you as gently as any kaldorei. But every stranger who learns the way here teaches it to ten more, and one day the wrong ten will come." },
+        { id = "xo_dwarf", when = { race = "Dwarf" },
+          text = "I'll fly you as gently as any kaldorei, so don't fear the birds. But your Explorers' League has been digging in Darkshore's hills for our oldest ruins, and I wonder what the next dwarf off the boat will want to dig up." },
+        { id = "xo_gnome", when = { race = "Gnome" },
+          text = "I'll fly you as gently as any kaldorei, and I am sorry for the city you lost. But a people who lost a mountain to their own machines will forgive me for keeping them far from a young tree." },
+      },
+      choices = {
+        { text = "Then I'll be one who keeps your secrets.", next = "BACK",
+          reply = "That is a kind promise, and I'll hold you to it for longer than you'll live, which is the trouble with promising a kaldorei anything.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The way is already known. Closing it now helps no one.", next = "BACK",
+          reply = "You may be right, and that is what frightens me. A secret can't be unlearned, only outlived.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

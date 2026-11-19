@@ -88,6 +88,7 @@ P:NPC {
         { text = "Is the Cenarion Circle right to stay neutral?", next = "op_ask" },
         { text = "Why are the naga on the Zoram Strand?", next = "naga" },
         { text = "Are we at war with the Horde or not?", next = "horde" },
+        { text = "Some in Astranaar want open war with the Warsong.", next = "restraint" },
         { text = "I don't know this Kayneth Stillwind.", next = "kayneth", when = { minLevel = 25 } },
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
         { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
@@ -144,6 +145,39 @@ P:NPC {
         { text = "Quiet war is still war. I'll do my part.", next = "BACK", reply = "Then Elune keep you in the shadows, friend. Quiet war is the only kind we can afford.", fx = { align = { honor = -1 } } },
         { text = "I'd rather face them openly, blade to blade.", next = "BACK", reply = "So would I, and so would every Sentinel I know. But Darnassus decides, and we wait.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Kaldorei factions: Shindrell keeps to Tyrande's restraint against the hawks of Astranaar.
+    restraint = {
+      lines = {
+        { id = "re_default", key = true,
+          text = "Xai'ander does, and he tells every customer so, and some days I understand him better than I'd like. But the day we go to open war, the Warsong will stop sending axes and start sending armies, and Astranaar has one bridge." },
+      },
+      choices = {
+        { text = "So you'd let them cut, to keep the peace?", next = "restraint2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    restraint2 = {
+      lines = {
+        { id = "re2_default", text = "I'd let them keep what they've already cut, I'd shoot every foreman who crosses the river, and I'd hold to the treaty that keeps Orgrimmar's warchief at home. Tyrande has seen one war that ended the world, and she weighs her Sentinels' lives more carefully than her Sentinels do." },
+      },
+      choices = {
+        { text = "That's wisdom. A wider war would drown Ashenvale.", next = "BACK", reply = "It would, and I'd be the one writing the names to Darnassus. I'm glad someone sees it who isn't wearing a Sentinel's cloak.", fx = { align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "Half-measures. The Warsong read restraint as weakness.", next = "BACK", reply = "They might, and Raene would tell you so before I'd finished my sentence. I still think our dead count for more than our pride.", fx = { align = { honor = -1 }, opinion = { peace = "war" } } },
+        { text = "Does Raene agree with you?", next = "restraint3" },
+      },
+    },
+    restraint3 = {
+      lines = {
+        { id = "re3_default", text = "Raene agrees with no one until she's buried somebody over it. She wants the war, and she wants Stormwind to fight it beside us, and when Stormwind doesn't come she blames the humans, though it's Tyrande's order that holds her back and not Stormwind's absence." },
+        { id = "re3_human", when = { race = "Human" },
+          text = "Raene agrees with no one until she's buried somebody over it. She'll tell you Stormwind abandoned us, and she'll mean it, but it's Tyrande's order that holds her back and not your king's absence, and she knows that better than she admits." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Elune guide you, Sentinel.", next = "END" },
       },
     },
 

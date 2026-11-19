@@ -66,3 +66,7 @@ See bibles/timbermaw_hold.md, bibles/talonbranch_folk.md, bibles/banehollow.md. 
 
 ## Prejudices (0.80.0, authored, not canon)
 - Arathandris Silversky fears warlocks carry the curse back into Felwood (`prejudice` WARLOCK 12); she once tended an ash grove near Jaedenar that the satyrs and the fel ruined.
+
+## Kaldorei factions
+- Arathandris: the bitter elder. Since Nordrassil's blessing was spent on Archimonde, she ages, and a forest that needs three hundred years may outlast her (node `years`); resents the young who sail for Stormwind. Authored, not canon: a niece who sailed for Menethil.
+- Golhine: hostile to the Alliance. Says the humans' wars brought the orcs and the Legion's servants to Kalimdor (claim `humans_brought_the_war`, partly true; he concedes the Highborne point in `before_highborne`); would sooner the kaldorei stood alone. Human players get `xhuman`; [Persuade] sets `golhine_soft`.

@@ -329,6 +329,8 @@ P:NPC {
         { text = "The hunters can't be bringing you much meat.", next = "meat" },
         { text = "I've only just left Teldrassil. Is the mainland always so loud?", next = "xnelf", when = { race = "NightElf" } },
         { text = "I cook. What do you do with strider meat?", next = "xcook", when = { profession = "Cooking" } },
+        { text = "You sound like you'd sail on the next boat yourself.", next = "sail" },
+        { text = "Come to Stormwind sometime. I'll show you the cathedral.", next = "xhuman", when = { race = "Human" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -345,6 +347,50 @@ P:NPC {
       choices = {
         { text = "Strangers bring new ideas. Good for you.", next = "BACK", reply = "That's what I keep telling the elders. They keep not listening.", fx = { align = { order = -1 } } },
         { text = "Your elders have reason to be careful.", next = "BACK", reply = "They do, I suppose. Ten thousand years of careful is still a lot of careful.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Kaldorei factions: the young who want to see the world the elders fear.
+    sail = {
+      lines = {
+        { id = "sa_default", key = true,
+          text = "I would, and I've packed twice and unpacked twice. I'm barely two centuries old, which makes me a child to the elders, and I've never seen snow on a mountain, or a city built of stone instead of grown." },
+      },
+      choices = {
+        { text = "What stops you?", next = "sail_stop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sail_stop = {
+      lines = {
+        { id = "ss_default", text = "My mother, mostly, and Barithras across the square, who says the world is shorter for us now than it used to be and I shouldn't waste it on boats. I tell him that's exactly why I should go, and he looks at me as if I'd knocked over one of his jars." },
+      },
+      choices = {
+        { text = "Go. The world won't wait for you any longer.", next = "BACK", reply = "That's what I keep saying, and you said it better. Perhaps the next boat, then, if Kyndri will mind my stall.", fx = { align = { order = -1 } } },
+        { text = "Your elders remember the Sundering. Listen to them.", next = "BACK", reply = "I do listen, I promise, but they remember the Sundering so hard there's no room left for anything else. Somebody has to remember Stormwind.", fx = { align = { order = 1 } } },
+        { text = "What would you see first?", next = "sail_first" },
+      },
+    },
+    sail_first = {
+      lines = {
+        { id = "sf_default", text = "The cathedral in Stormwind, where the humans pray to a Light that isn't even the moon, and then Ironforge, where Thelgrum swears the forges never go out. The elders call the humans children, but children built those, and I want to see what they built." },
+        { id = "sf_human", when = { race = "Human" },
+          text = "Your city first, the cathedral in Stormwind, and then Ironforge, where Thelgrum swears the forges never go out. The elders call your people children, but children built those, and I want to see them with my own eyes." },
+        { id = "sf_dwarf", when = { race = "Dwarf" },
+          text = "Ironforge first, where Thelgrum swears the forges never go out, and then the cathedral in Stormwind. The elders say your people only dig, but I've heard of halls carved so high they have their own weather, and I want to stand in one." },
+      },
+      choices = {
+        { text = "I'll tell you about it when I'm back this way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xh_default", text = "Don't say that unless you mean it, because I'll hold you to it, and then I'll have to tell my mother. Tell me about it instead, so I know what I'm missing; is it true the windows are made of coloured glass?" },
+      },
+      choices = {
+        { text = "It's true. The light comes through in every colour.", next = "BACK", reply = "Every colour! Our temple has only moonlight, and I love it, but I should like to see a window that remembers the sun.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

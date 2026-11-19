@@ -34,3 +34,6 @@ Honest; her Theramore report is second-hand.
 
 ## Topics
 background, advice, sentinels, warsong, _none.
+
+## Kaldorei factions (authored, not canon)
+- Shindrell holds to Tyrande's restraint against Astranaar's hawks (Xai'ander, Raene): no open war while Astranaar has one bridge. Says it is Tyrande's order, not Stormwind's absence, that holds Raene back.

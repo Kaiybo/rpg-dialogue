@@ -233,6 +233,9 @@ P:NPC {
         { text = "Have you any family nearby?", next = "argos" },
         { text = "What does the change look like, at the start?", next = "change", when = { questDone = TODO_QUEST("Researching the Corruption") } },
         { text = "Power is a tool. It only twists the weak.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The Alliance is full of mages. Does that trouble you?", next = "mages" },
+        { text = "I'm a mage. Do you see horns on me already?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Your brother lives among humans. Does he share your fears?", next = "argos_fears", when = { heardLine = "gershala.ar_default" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -289,6 +292,52 @@ P:NPC {
       lines = { { id = "ch_default", text = "Pride, first, and a growing certainty that rules are for lesser minds, and then a hunger that nothing seems to feed. By the time horns grow or tails form, the one who's changing has stopped thinking of it as a change at all." } },
       choices = {
         { text = "That could describe half the scholars I know.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Kaldorei factions: Gershala distrusts the arcane in the Alliance and the quel'dorei who carry it.
+    mages = {
+      lines = {
+        { id = "ma_default", key = true,
+          text = "It troubles me more than I say aloud in Auberdine. The humans of Dalaran learned their arts from the high elves, and the high elves are the children of Highborne exiles who sailed away rather than give up the Well's magic, so every mage in the Alliance drinks, at some remove, from the cup that sank Zin-Azshari.",
+          fx = { learn = { "highborne" } } },
+      },
+      choices = {
+        { text = "Magic is a tool. It's the hand that matters.", next = "BACK", reply = "Azshara's court said that nearly word for word, and theirs were very fine hands. I would sooner the tool were put down.", fx = { align = { order = -1 }, opinion = { arcane = "tool" } } },
+        { text = "Then the Alliance should keep its mages on a short leash.", next = "BACK", reply = "Dalaran would never stand for it, and Darnassus hasn't the voice to insist. Still, I'd be glad to hear someone say it in Stormwind.", fx = { align = { order = 1 }, opinion = { arcane = "distrust" } } },
+        { text = "The quel'dorei are our cousins. Why fear them?", next = "quel" },
+      },
+    },
+    quel = {
+      lines = {
+        { id = "qu_default", text = "Because I know exactly who their ancestors were. Malfurion's people sent the last Highborne across the sea rather than let them build another Well, and they built one anyway in Quel'Thalas, and now that the Scourge has taken it from them, I hear the survivors are starving for magic like drunkards for wine." },
+        { id = "qu_mage", when = { class = "MAGE" },
+          text = "Because their ancestors taught yours, and I know what they were. Malfurion's people exiled the last Highborne rather than let them build another Well, they built one anyway in Quel'Thalas, and now that the Scourge has taken it, the survivors starve for magic like drunkards for wine." },
+      },
+      choices = {
+        { text = "Exile was cruel. Perhaps we made them what they are.", next = "BACK", reply = "Perhaps we did, and I've lost sleep over it more than once. But I would sooner be cruel once than drown twice.", fx = { align = { light = 1 } } },
+        { text = "They chose magic over their people. Let them live with it.", next = "BACK", reply = "They chose it, and I fear they'll keep choosing it. That's why I read their history as a warning and not as a grievance.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    argos_fears = {
+      lines = {
+        { id = "af2_default", text = "He does not, and we argue about it in every letter. Argos says the Alliance is the only reason Darnassus has a voice beyond its own shores, but he lives a short walk from the Mage Quarter in Stormwind, and he writes that the air there tastes of copper as though that were charming." },
+      },
+      choices = {
+        { text = "Argos is right. Darnassus needs the Alliance.", next = "BACK", reply = "Needs it, yes, the way a wounded man needs a surgeon, and I'd still count the knives. Tell him I said so, if you pass him.", fx = { align = { honor = 1 }, opinion = { alliance = "useful" } } },
+        { text = "You're right to worry. Copper today, horns tomorrow.", next = "BACK", reply = "That's blunter than I would put it, but not wrong. The change always begins as a pleasant taste.", fx = { align = { honor = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xm_default", text = "Not horns, no, only the way you glanced at my lamp just now, as if you were weighing how much power was in the flame. That glance is where it starts, and I'd ask you to notice yourself doing it." },
+      },
+      choices = {
+        { text = "Fair warning. I'll mind my glances.", next = "BACK", reply = "Then you're already wiser than half of Dalaran. Come back in ten years and let me look at you again.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I control my power. That's what study is for.", next = "BACK", reply = "Every one of Azshara's court studied, and harder than you ever will. Control is the first thing it takes from you, and you never feel it go.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -1392,6 +1392,8 @@ P:NPC {
         { text = "What brought you to Nighthaven?", next = "why" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Balance seems hard to find these days.", next = "balance" },
+        { text = "Do you trust the tauren more than our allies?", next = "kin" },
+        { text = "Narianna says the Circle gives its secrets to the Horde.", next = "kin_narianna", when = { heardLine = "narianna.ci_default" } },
         { text = "In Darnassus they call Moonglade's druids fools.", next = "darnassus_lg", when = { race = "NightElf", class = "DRUID" } },
         { text = "Can a priest of shadow keep the balance?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could someone like me find balance just by sitting still?", next = "xrogue", when = { class = "ROGUE" } },
@@ -1403,6 +1405,61 @@ P:NPC {
         { text = "What does balance mean to a druid?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You flinch when you look at me, druid.", next = "pj_logan", when = { race = "Scourge", prejudiced = true } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    kin = {
+      big = true,
+      lines = {
+        { id = "kin_default", key = true,
+          text = "Trust is a large word, but I'll tell you honestly which I'd sooner sit with. A tauren druid comes to Nighthaven to listen, and a human envoy comes to ask how much timber Ashenvale can spare for Theramore's walls, and I know which of the two has learned anything about balance." },
+        { id = "kin_human", when = { race = "Human" },
+          text = "I'll answer honestly, since you've asked it honestly. The tauren listen to the land before they build on it, and your people build first and listen afterwards, if at all, so yes, I'm easier on a bench beside a tauren." },
+        { id = "kin_tauren", when = { race = "Tauren" },
+          text = "Between us, yes, and I'd say it in Darnassus if anyone there asked me. Your people came to the Circle asking to learn, which no other people has done in ten thousand years, and that has earned you a bench beside me." },
+        { id = "kin_gnome", when = { race = { "Gnome", "Dwarf" } },
+          text = "I'll be honest, since honesty sits easier here than politeness. The tauren learned the land by walking it for a thousand generations, and your people learned it by tunnelling under it, and I'm easier on a bench beside the ones who walked." },
+      },
+      choices = {
+        { text = "What have the humans done to earn that?", next = "kin_why" },
+        { text = "The tauren listen. Allies should be chosen by heart, not banner.", next = "BACK",
+          reply = "That's the whole of the Circle in one sentence, and I wish I'd said it so neatly. The banners change; the forest doesn't.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { tauren = "kin" } } },
+        { text = "The humans bled with us at Hyjal. The tauren are still Horde.", next = "BACK",
+          reply = "They did bleed with us, and I honour them for it, though Cairne's braves bled on that mountain too. I'll grant that a druid of balance ought to weigh both, and I may have let my bench decide for me.",
+          fx = { align = { order = 1 }, opinion = { alliance = "loyal" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_why = {
+      lines = {
+        { id = "kw_default", text = "Nothing cruel, only hurried. They live a single breath, so they fell a grove to build a keep and never stay long enough to see what the hillside does without it, and the next generation builds again on the mud." },
+      },
+      choices = {
+        { text = "That's harsh, for a druid of balance.", next = "kin_harsh" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_harsh = {
+      lines = {
+        { id = "kh_default", text = "It is, and you're right to say it. I'm old enough to remember that my own people burned the world for the Highborne's pride, and the humans have never done anything half so foolish, so perhaps I should sit with one of them before I judge." },
+      },
+      choices = {
+        { text = "Perhaps you should.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_narianna = {
+      lines = {
+        { id = "kn_default", text = "She does, and she has every right; she stood two hundred years in Ashenvale while I sat by this lake. But I'd rather teach a tauren to feel what an axe does to a forest than leave the Horde with nobody who knows it." },
+      },
+      choices = {
+        { text = "You're planting seeds in the Horde, then.", next = "BACK",
+          reply = "Seeds, yes, and they're slow, and some will never come up. The Circle has always been patient with seeds.",
+          fx = { align = { light = 1 } } },
+        { text = "And while they grow, Ashenvale burns.", next = "BACK",
+          reply = "It does, and I'll not pretend otherwise to someone who's seen it. I've no better answer than seeds, and I've looked for one.",
+          fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     balance = {
@@ -1423,6 +1480,7 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other, and for some who have." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is stillness itself, and that's why the young druids find it so hard to reach. They try too hard, and it slips away from them." } },
+    tauren = { { id = "tp_tauren", text = "They came to the Circle asking to learn, and they listen better than most of my own people. I'd sooner share a bench with a tauren than with most envoys.", next = "kin" } },
     earth_mother = { { id = "tp_earth_mother", text = "The tauren call her the Earth Mother, and the way they speak of her has taught me more of stillness than many a druid has. Peace, friend, by any name." } },
     elune = { { id = "tp_elune", text = "Elune's moon over the lake is the best teacher of stillness I know. Sit, and watch it, and let it teach you." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil's roots go deeper than any of us can feel, and I find that comforting. Some things are steady whatever happens." } },

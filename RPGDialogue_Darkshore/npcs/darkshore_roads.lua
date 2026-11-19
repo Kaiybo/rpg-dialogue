@@ -134,6 +134,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back from the ruins, or still working up the nerve? I'll not judge either way." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") },
       text = "You read both tablets and came back with your wits. That's more than I managed." },
+    { id = "g_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, priority = 5,
+      text = "Mind the road, outlander, and mind the ruins more. The dead in Ameth'Aran were old before your people learned to write." },
+    { id = "g_soft", when = { npcFlagBefore = "tysha_soft" }, priority = 10,
+      text = "Ah, the outlander who reads before touching. Come and stand on my road a while; you've earned the shade of it." },
   },
 
   notice = {
@@ -155,6 +159,16 @@ P:NPC {
           text = "A city that wanted more magic than the world could give it, and was given more than it could hold. I'll be thinking on that through a long watch, I suspect." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage, walking toward Ameth'Aran. I hope you're going there to learn what not to do, {class}, because the ruins teach that lesson very well." },
+        { id = "h_human", when = { race = "Human" },
+          text = "A human on the Ameth'Aran road. Your people have lost two kingdoms to fire in the last thirty years, so forgive me if I walk beside you to the ruins and not behind." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf, and no pick on your shoulder, which I notice. The last of your kind on this road asked whether the carvings at Ameth'Aran would travel, and I told him the dead would sooner he did." },
+        { id = "h_gnome", when = { race = "Gnome" },
+          text = "A gnome. The last one through here carried a ticking box to measure the magic left in our tablets, so I'll ask you plainly whether you've brought one too." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Ishnu-alah, {g:brother|sister}. It's a relief to see a face on this road that won't be dust in a century, and I mean no cruelty to anyone by saying so." },
+        { id = "h_soft", when = { npcFlagBefore = "tysha_soft" },
+          text = "I told Glynda about you, the outlander who read the tablets through while the dead screamed. She didn't believe me, which is fair, because a season ago I wouldn't have believed me either." },
       },
       again = {
         { id = "h_again", text = "Anything else before you go east?" },
@@ -165,6 +179,10 @@ P:NPC {
         { text = "The spirits drove you off?", next = "spirits" },
         { text = "Why does it matter what the tablets say?", next = "why" },
         { text = "What did the tablets tell you, in the end?", next = "after", when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") } },
+        { text = "You don't seem fond of outsiders, Sentinel.", next = "young" },
+        { text = "You look at me like a child loose in a temple.", next = "xyoung", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Between kaldorei, Tysha: do you truly despise them?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Still think we outlanders are children, Tysha?", next = "xsoft", when = { npcFlagBefore = "tysha_soft" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -212,5 +230,116 @@ P:NPC {
       lines = { { id = "af_default", text = "That they sang of their city's beauty right up until the day it drowned in its own power, and that the singing didn't stop when the walls did. I think that's why the spirits are angry, because nobody ever told them the song was over." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+
+    -- Kaldorei factions: Tysha holds the younger races in quiet contempt, as children who break things.
+    young = {
+      lines = {
+        { id = "yo_default", key = true,
+          text = "They are children, {class}, and I don't say it to wound anyone. Humans burn their own kingdoms down every few generations, dwarves dig until the mountain falls on them, and gnomes poisoned their own city, and now all three have come to play in the ruins of mine." },
+      },
+      choices = {
+        { text = "Who taught you to think so little of them?", next = "young_why" },
+        { text = "Children grow up. Give them a few centuries.", next = "BACK", reply = "They don't have a few centuries, which is rather my point. Each generation starts again from nothing and makes the same mistakes a little louder.", fx = { align = { order = 1 } } },
+        { text = "You're right. They break whatever they touch.", next = "BACK", reply = "They do, and then they write a ballad about how sorry they are. Remember that when one of them offers to carry something precious for you.", fx = { align = { order = -1 } } },
+      },
+    },
+    young_why = {
+      lines = {
+        { id = "yw_default", text = "Ameth'Aran taught me. Last spring a gnome came down this road with a brass box that ticked, wanting to measure the magic still in our tablets, and a dwarf beside him asked whether the lintels would survive the trip to Ironforge, and they were both as cheerful about it as children in a temple." },
+      },
+      choices = {
+        { text = "Did they take anything?", next = "young_took" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_took = {
+      lines = {
+        { id = "yt_default", text = "The ghosts saw to that, which is the only kindness those ghosts have ever done anyone. The gnome dropped his box and ran, and I keep it in my pack to remind me what the Alliance thinks our dead are for." },
+      },
+      choices = {
+        { text = "Curiosity isn't contempt. They meant no harm.", next = "BACK", reply = "Children never mean harm, and the vase is broken all the same. Meaning well is a poor sort of glue.", fx = { align = { light = 1 } } },
+        { text = "Keep the box. Some lessons deserve a keepsake.", next = "BACK", reply = "I intend to. The next time a human tells me the Alliance honours our ways, I'll take it out and wind it for him.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xyoung = {
+      lines = {
+        { id = "xy_default", text = "I do, and I'll not pretend otherwise; to me you look like a child who has wandered into a shrine with mud on its boots. You may be a perfectly good child, but you'll be dead before the moss grows back over your footprints." },
+      },
+      choices = {
+        { text = "Short lives still count. Judge me by what I do.", next = "xyoung_deeds", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll stop pretending to admire your ruins.", next = "BACK", reply = "Good, that's honest at least. Admire them from the road, then, where your boots can't reach them.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I read the tablets while the dead screamed. Did a child do that?", tag = "Persuade", next = "xyoung_soft",
+          check = { pass = { any = { { questDone = TODO_QUEST("The Fall of Ameth'Aran") }, { disposition = { min = 65 } } } } },
+          fail = { next = "xyoung_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xyoung_deeds = {
+      lines = {
+        { id = "xyd_default", text = "Deeds, then. The kaldorei keep long tallies, and yours has very few lines in it yet, so fill them with care." },
+      },
+      choices = {
+        { text = "I'll give you a long tally to read.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xyoung_soft = {
+      lines = {
+        { id = "xys_default", key = true, fx = { npcFlag = { set = { "tysha_soft" } } },
+          text = "No, a child would have run, as I did. You went into Ameth'Aran and read the Lay through to its end with the dead howling at you, so perhaps I have been calling the wrong people children." },
+      },
+      choices = {
+        { text = "That's all I wanted to hear.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Tell me about that gnome's box.", next = "young_why" },
+      },
+    },
+    xyoung_fail = {
+      lines = {
+        { id = "xyf_default", text = "Words come quickly to your people, and so do the ballads afterward. Go out among the stones and show me with your hands, and then we'll talk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Then I'll go and show you.", next = "END" },
+      },
+    },
+
+    xnelf = {
+      lines = {
+        { id = "xn_default", text = "Despise is too warm a word, {g:brother|sister}; I simply see them clearly. Thundris lets them sleep in our inn and Elissa counts their crates as if they were gifts, but we're the ones who'll still be here when their grandchildren have forgotten why they came." },
+      },
+      choices = {
+        { text = "We needed them at Hyjal, and we'll need them again.", next = "BACK", reply = "Perhaps we will, and I'll fight beside them when we do. Needing a thing and admiring it are not the same, though.", fx = { align = { honor = 1 } } },
+        { text = "Let them come and go. Our memory outlasts their mistakes.", next = "BACK", reply = "It does, and that's both our strength and our burden. Someone has to remember what they broke.", fx = { align = { honor = -1 } } },
+        { text = "And the Highborne, Tysha? Were they children too?", next = "xnelf_high" },
+      },
+    },
+    xnelf_high = {
+      lines = {
+        { id = "xnh_default", text = "No, they were the eldest and wisest of us, and they drowned a continent. I know what you're doing, and it's a fair blow, though I'd still rather the dead of Ameth'Aran were left to us than shipped to Ironforge in straw.",
+          fx = { learn = { "highborne" } } },
+      },
+      choices = {
+        { text = "Then perhaps age isn't the same as wisdom.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xsoft = {
+      lines = {
+        { id = "xso_default", text = "Not you, at least. I still carry the gnome's box, but I've stopped winding it, and I've told Glynda that one outlander reads the stones before touching them." },
+      },
+      choices = {
+        { text = "Wind it for the next gnome, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A Sentinel of Darnassus, set to watch this road and remember what lies at the end of it. The remembering is the harder half." } },
+    explorers_league = { { id = "tp_league", text = "Dwarves who believe a ruin is a question to be dug up. Our ruins are answers, and they answered long ago." } },
+    highborne = { { id = "tp_highborne", text = "Our eldest and our worst, and the reason I keep this road. Ameth'Aran is what their wisdom built." } },
+    _none = { { id = "tp_none", text = "I watch one road and one ruin, {class}. Ask in Auberdine for the rest of the world." } },
   },
 }

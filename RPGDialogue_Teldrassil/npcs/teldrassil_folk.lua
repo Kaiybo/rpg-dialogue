@@ -111,7 +111,17 @@ P:NPC {
 
 ---------------------------------------------------------------------------
 -- Sentinel Arynia Cloudsbreak
+-- Authored, not canon: openly contemptuous of outsiders (humans cut, dwarves dig, gnomes poisoned
+-- their own city) and sure the mainland brought every sickness; a player can soften her (npcFlag arynia_soft).
 ---------------------------------------------------------------------------
+P:Claim {
+  id = "arynia_sickness_from_mainland", by = "arynia", truth = "false",
+  text = "Every sickness on Teldrassil came over the water with the boats and the outsiders.",
+  truthNote = "The harpies may well have come from the mainland, but the twisted timberlings and the soured moonwells began before outsiders came, and the druids suspect the tree itself (Denalan, Corithras). Arynia believes it sincerely.",
+  tell = "true",
+  exposedBy = { "denalan.bl_default", "corithras.w2_default" },
+}
+
 P:NPC {
   key = "arynia", id = TODO_NPC("Sentinel Arynia Cloudsbreak"), name = "Sentinel Arynia Cloudsbreak",
   bible = "bibles/teldrassil_folk.md", role = "soldier", tier = "quest",
@@ -128,6 +138,14 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back in the glade. Did you bring harpy belts, or only bruises?" },
     { id = "g_done", when = { questDone = TODO_QUEST("The Enchanted Glade") },
       text = "The nests are thinner since you came. The Oracle Tree is grateful, and so am I." },
+    { id = "g_human", when = { race = "Human" }, priority = 5,
+      text = "A human in the Oracle's glade. Keep your axe on your belt and your fire in your pack, and don't so much as lean on the trees." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, priority = 5,
+      text = "A dwarf. There's nothing under this glade worth digging for, so keep your pick on your back and your powder dry and far from me." },
+    { id = "g_gnome", when = { race = "Gnome" }, priority = 5,
+      text = "A gnome. If anything you carry ticks, hums or smokes, it stays out on the road where the harpies can have it." },
+    { id = "g_soft", when = { npcFlagBefore = "arynia_soft" }, priority = 10,
+      text = "You again. I've struck you off the list of outsiders I curse at dawn, so don't make me write you back on it." },
   },
 
   notice = {
@@ -145,6 +163,8 @@ P:NPC {
           text = "I am Sentinel Arynia Cloudsbreak. I was sent here with a few Sentinels to protect the Oracle Tree from the harpies that have nested all around this glade, and little by little we're pushing them back." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Enchanted Glade") },
           text = "The Bloodfeather harpies nest along the glade's edges. Bring me six of their belts as proof, and every one you bring is one less shrieking at the Oracle Tree's roots." },
+        { id = "h_outsider", when = { race = { "Human", "Dwarf", "Gnome" }, ["not"] = { npcFlagBefore = "arynia_soft" } },
+          text = "I'll say it plainly, since I've no patience for courtly lies: I didn't ask for you, and neither did the Oracle Tree. The harpies at least had the honesty to come shrieking." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your eyes on the branches." },
@@ -158,6 +178,9 @@ P:NPC {
         { text = "You can't have many Sentinels here.", next = "few" },
         { text = "The nests are thinner now. What next?", next = "after", when = { questDone = TODO_QUEST("The Enchanted Glade") } },
         { text = "I'd like to be a Sentinel one day.", next = "join", when = { race = "NightElf", gender = "female" } },
+        { text = "You blame the mainland for a great deal, Sentinel.", next = "mainland" },
+        { text = "You don't want me here, do you?", next = "xout_a", when = { race = { "Human", "Dwarf", "Gnome" }, ["not"] = { npcFlagBefore = "arynia_soft" } } },
+        { text = "Still cursing the mainland every dawn, Arynia?", next = "xsoft_a", when = { npcFlagBefore = "arynia_soft" } },
         { text = "I'll thin the nests.", next = "END" },
       },
     },
@@ -233,6 +256,81 @@ P:NPC {
     after = {
       lines = { { id = "af_default", text = "Now we hold what you've won, and I write to Darnassus asking for two more Sentinels, which they'll refuse. The harpies will come back in spring, but fewer, and you've bought the Oracle Tree some quiet." } },
       choices = { { text = "Glad to help. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    mainland = {
+      big = true,
+      lines = {
+        { id = "ml_default", key = true, fx = { hear = "arynia_sickness_from_mainland" },
+          text = "Of course I do. Everything wrong on this tree came over the water: the harpies, the visitors, the sickness in the Gnarlpine, and before the boats began running from Auberdine we had none of it." },
+        { id = "ml_nelf", when = { race = "NightElf" }, fx = { hear = "arynia_sickness_from_mainland" },
+          text = "Someone has to, {g:brother|sister}. Everything wrong on this tree came over the water, the harpies and the visitors and the sickness in the Gnarlpine, and before the boats began running from Auberdine we had none of it." },
+      },
+      choices = {
+        { text = "Keep the docks open. Teldrassil can't stand alone.", next = "BACK",
+          reply = "So the High Priestess says, and I obey her. I don't have to like the cargo.", fx = { align = { order = 1 } } },
+        { text = "Then close the docks, and let Teldrassil heal.", next = "BACK",
+          reply = "Finally, someone with sense. Tell it to the Council in Dolanaar, because they've stopped listening to me.", fx = { align = { order = -1 } } },
+        { text = "Denalan says the sickness began before outsiders came.", next = "mainland2" },
+      },
+    },
+    mainland2 = {
+      lines = {
+        { id = "ml2_default", text = "So the druids keep telling me, and Denalan knows his seeds better than I know anything. But it's easier to aim an arrow at a harpy than at a tree, and I'm a Sentinel, not a druid." },
+      },
+      choices = {
+        { text = "That's more honest than I expected.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout_a = {
+      big = true,
+      lines = {
+        { id = "xa_default", key = true,
+          text = "No, and I'll not pretend otherwise. Your kind cut and dig and burn wherever you settle, the same as the orcs in Ashenvale, and the only difference I can see is that you ask permission first and then do it anyway." },
+        { id = "xa_human", when = { race = "Human" },
+          text = "No. Your people cleared their own forests for wheat and timber until there was nothing left of them but farms, and now you come to ours with the same axes and smile while you measure the trees." },
+        { id = "xa_dwarf", when = { race = "Dwarf" },
+          text = "No. Your Explorers' League has been digging through the ruins of our old cities in Darkshore and calling it scholarship, and I've seen what crawls out of the holes you leave behind." },
+        { id = "xa_gnome", when = { race = "Gnome" },
+          text = "No. Your people poisoned their own city so badly they had to flee it, and I'll not have anyone who did that to a mountain near a tree that's already sick." },
+      },
+      choices = {
+        { text = "We stood beside your people at Hyjal. That should count.", next = "BACK",
+          reply = "Some of you did, and they're dead, and the ones who came after were never there. I'll honour your dead and watch your living.", fx = { align = { honor = 1 } } },
+        { text = "Fair enough. Plenty of my people deserve that.", next = "BACK",
+          reply = "At least you're honest, which is more than your envoys manage. Keep your hands to yourself and we'll get along.", fx = { align = { honor = -1 } } },
+        { text = "I've cut nothing and dug nothing. Judge me by my deeds.", tag = "Persuade", next = "arynia_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { questDone = TODO_QUEST("The Enchanted Glade") }, { killed = { name = "Bloodfeather", min = 30 } } } } },
+          fail = { next = "xout_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xout_fail = {
+      lines = {
+        { id = "xf_default", text = "I've heard that before, from a man who paced out the Oracle Tree's trunk while he said it. Bring me harpy belts, and we'll see what your deeds are worth." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll go and thin the nests.", next = "END" },
+      },
+    },
+    arynia_soft = {
+      lines = {
+        { id = "as_default", key = true, fx = { npcFlag = { set = { "arynia_soft" } } },
+          text = "Hm. You've bled for this glade and never once asked what the Oracle's wood would fetch, which is more than I expected of anyone off the boat. I still don't love your people, but I'll grant you aren't the ones I've been cursing." },
+      },
+      choices = {
+        { text = "That's enough for me, Sentinel.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsoft_a = {
+      lines = {
+        { id = "xs_default", text = "Every dawn, and I've no plans to stop. But I've started saying \"most of the mainland\" instead of \"the mainland\", and my Sentinels say that's your fault." },
+      },
+      choices = {
+        { text = "I'll take the blame gladly.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     join = {
       lines = { { id = "jo_default", text = "Then go to Darnassus when you're ready and speak to the Sentinels on the Warrior's Terrace, and don't expect them to be gentle. Learn to stand a night watch without yawning first; that's harder than any glaive." } },
