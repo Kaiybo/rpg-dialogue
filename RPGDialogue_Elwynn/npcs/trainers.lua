@@ -1163,7 +1163,7 @@ P:NPC {
         { text = "Why is Stormwind's strength in its people?", next = "pillar" },
         { text = "Who is it I need to see for my training?", next = "harry", when = { class = "WARRIOR", minLevel = 10 } },
         { text = "I have Defensive Stance now. It feels wrong.", next = "ly_stance", when = { class = "WARRIOR", minLevel = 10, any = { { questDone = TODO_QUEST("Beat Bartleby") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
-        { text = "Marshal Haggard gave me one of his old blades.", next = "ly_haggard", when = { class = "WARRIOR", questDone = TODO_QUEST("Dead-tooth Jack") } },
+        { text = "Marshal Haggard gave me one of his old blades.", next = "ly_haggard", when = { class = "WARRIOR", questDone = TODO_QUEST("Dead-Tooth Jack") } },
         { text = "Wu Shen's sending me across the sea to Fray Island.", next = "ly_fray", when = { class = "WARRIOR", minLevel = 30 } },
         { text = "I worked Westfall's fields before this.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },

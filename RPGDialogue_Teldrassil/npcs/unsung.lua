@@ -215,7 +215,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah, and welcome to Dolanaar. If you've come to learn the blade, you've found the right elf, though I warn you that the Sentinels trained me hard." },
-    { id = "g_back", when = { metBefore = true }, text = "There you are. You're standing better than last time, so something's sinking in." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are, and you're standing better than last time, so something I said must be sinking in." },
   },
 
   notice = {
@@ -243,7 +243,7 @@ P:NPC {
       },
     },
     op_r1 = {
-      lines = { { id = "op_r1_default", text = "Then you haven't met many soldiers, but I'll take it gladly. Tell the dwarves, because they never believe us." } },
+      lines = { { id = "op_r1_default", text = "Then you haven't met many soldiers, but I'll take it gladly, and you can tell the dwarves, because they never believe us." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
@@ -340,7 +340,11 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I teach warriors, not knights, but I'd still like to see what your order teaches about holding a line." },
         { id = "h_default", text = "I'm Kyra Windblade, and I train the warriors who come down from Shadowglen. I teach them the basics here in Dolanaar before Darnassus gets them, so that Arias'ta and the other trainers there don't have to start from nothing." },
         { id = "h_elanaria", tags = { "news" }, when = { questActive = TODO_QUEST("Elanaria") },
-          text = "Elanaria in Darnassus is expecting you. Go up to the Warrior's Terrace, and when she asks what I taught you, tell her I said to keep your feet planted." },
+          text = "Elanaria in Darnassus is expecting you, so go up to the Warrior's Terrace, and when she asks what I taught you, tell her I said to keep your feet planted." },
+        { id = "h_vorlus", when = { class = "WARRIOR", questDone = TODO_QUEST("Vorlus Vilehoof") },
+          text = "Elanaria sent word that you brought her the satyr's horn, and that you did it without losing your temper, which pleased her more. I'm proud of you, and I'll only say it once." },
+        { id = "h_old", when = { class = "WARRIOR", minLevel = 25 },
+          text = "One of mine, come home to Dolanaar with Ashenvale's mud still on the boots. Sit a moment, because I like to hear where my students have been." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from Shadowglen! Get up off the ground as often as you fall, and I'll make something of you yet." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll still want to know how to fight when something reaches you, so don't think my lessons aren't for you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't train with me, but I've watched young druids take a beating from the Gnarlpine and get back up in bear shape, and that's half of what I teach." },
@@ -349,12 +353,12 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I measure students by how they get up, not by how they fall, and I suspect your spirits have helped you up more than once." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask, I don't bite." },
-        { id = "h_again2", text = "Go on. The next student can wait." },
+        { id = "h_again", text = "What else would you like to know? Ask, because I don't bite, whatever my students say." },
+        { id = "h_again2", text = "Go on, then, because the next student can wait a little longer." },
       },
       choices = {
         { text = "What do outsiders get wrong about the kaldorei?", next = "op_ask" },
-        { text = "Train me.", next = "BUSINESS" },
+        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "A warrior must outgrow Dolanaar soon enough.", next = "after" },
         { text = "You must see young warriors make the same mistakes.", next = "mistake" },
         { text = "Why do so few kaldorei become warriors?", next = "few" },
@@ -363,15 +367,50 @@ P:NPC {
         { text = "Could a mage learn anything from a warrior, Kyra?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is it wrong to let my companion take the blows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think falling teaches more than winning, Kyra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Gnarlpine hit far harder than grells.", next = "gnarlpine", when = { class = "WARRIOR", minLevel = 5, maxLevel = 14 } },
+        { text = "Elanaria wants Vorlus Vilehoof dead. Any advice?", next = "vorlus", when = { class = "WARRIOR", questActive = TODO_QUEST("Vorlus Vilehoof") } },
+        { text = "Blackfathom Deeps taught me what a shield is for.", next = "bfd", when = { class = "WARRIOR", minLevel = 22 } },
         { text = "Farewell, Kyra.", next = "END" },
         { text = "What will you teach me before Darnassus, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should a hunter learn a warrior's footwork too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you teach a druid about getting back up, Kyra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
+    gnarlpine = {
+      big = true,
+      lines = { { id = "gn_default", text = "They do, because they were our friends once, and something has poisoned them until they forgot it. A furbolg with a club is strong and slow, so step inside the swing and hurt it before it can lift the club again, and don't let pity slow your arm." } },
+      choices = {
+        { text = "I'll pity them, and fight them anyway.", next = "BACK", reply = "That is the hardest way to fight, and the right one. Ilthalaine would be glad to hear it.", fx = { align = { light = 1 } } },
+        { text = "Poisoned or not, they're the enemy now.", next = "BACK", reply = "For now, yes, and I'll not argue with a student who survives. Keep inside the swing.", fx = { align = { light = -1 } } },
+        { text = "Who poisoned them?", next = "gnarlpine_who" },
+      },
+    },
+    gnarlpine_who = {
+      lines = { { id = "gw_default", text = "The druids won't say, or don't know, and Tenaron Stormgrip in Aldrassil carries most of the worry for it. Ask him, if you're brave, but I'd sooner you learned to fight them first." } },
+      choices = { { text = "Fight first, questions later. Something else.", next = "BACK" } },
+    },
+    vorlus = {
+      lines = { { id = "vo_default", text = "Satyrs are clever and cruel and they like to fight from behind their own kin, so cut through the others first and don't let him talk to you. When you face him, stand in the stance you're most sure of, because a satyr will notice the moment you doubt." } },
+      choices = {
+        { text = "Don't listen, don't doubt. Thank you, Kyra.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What did the satyrs used to be?", next = "vorlus_highborne" },
+      },
+    },
+    vorlus_highborne = {
+      lines = { { id = "vh_default", text = "Kaldorei, once, Highborne who gave themselves to the Legion and were twisted into horned, goat-legged things for it. That is why Elanaria sets this test, because a warrior of our people must be able to face what we might have become." } },
+      choices = { { text = "Then I'll face it. Something else.", next = "BACK", fx = { learn = { "burning_legion" } } } },
+    },
+    bfd = {
+      lines = { { id = "bf_default", text = "Then you've learned it in the dark, in the drowned halls under Ashenvale, which is where most of my students learn it if they learn it at all. Did you stand at the front, or did you learn from watching someone else stand there?" } },
+      choices = {
+        { text = "I stood at the front, and held.", next = "BACK", reply = "Then you're a better warrior than I was at your age. Elune keep you.", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I watched someone else hold, and they fell.", next = "BACK", reply = "Then you've learned it the hard way, and you'll never forget it. I'm sorry.", fx = { trait = { kind = 1 } } },
+      },
+    },
     after = {
       lines = {
         { id = "af_default", text = "Darnassus, and the trainers on the Warrior's Terrace, then across the sea to Darkshore. Once you're ready, I'll send you to Elanaria, and she'll decide whether you're as good as I've told her." },
+        { id = "af_ten", when = { class = "WARRIOR", minLevel = 10 }, text = "Elanaria on the Warrior's Terrace, now, because you're ready for your second stance and she's the one who grants it. After her it's Darkshore, and Auberdine, and the long road south, and I'll want letters." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -408,8 +447,8 @@ P:NPC {
 
   topics = {
     sentinels = { { id = "tp_sent", text = "The Sentinels guard our forests and our roads, and every warrior I train might one day stand beside them." } },
-    background = { { id = "tp_bg", text = "I teach the first lessons of the blade in Dolanaar. Someone has to, and I like seeing them improve." } },
-    advice = { { id = "tp_ad", text = "Fight one enemy at a time when you can. Pull them apart and you can beat them all." } },
+    background = { { id = "tp_bg", text = "I teach the first lessons of the blade in Dolanaar, because someone has to, and I like watching them improve." } },
+    advice = { { id = "tp_ad", text = "Fight one enemy at a time when you can, because if you pull them apart, you can beat them all." } },
     centaur = { { id = "tp_centaur", text = "I teach the young ones to fight what's in front of them, but some will meet centaur down south one day. Tell them from me to plant their feet and keep their shields up." } },
     warsong = { { id = "tp_warsong", text = "The Warsong are the reason so many of my students go to Ashenvale. I train them hard because the orcs won't be gentle." } },
     blackfathom = { { id = "tp_blackfathom", text = "When my students are ready, Blackfathom Deeps is where they go to find out. The ones who come back walk a little taller." } },

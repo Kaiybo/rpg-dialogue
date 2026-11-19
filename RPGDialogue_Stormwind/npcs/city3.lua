@@ -640,6 +640,7 @@ P:NPC {
         { text = "I'd wager your shields go all over.", next = "orders" },
         { text = "You're a long way from Ironforge.", next = "why_here" },
         { text = "Can you make me something harder than this?", next = "mail", when = { class = "WARRIOR", minLevel = 22 } },
+        { text = "Yorus says you owe him a shield for me.", next = "yorus_shield", when = { class = "WARRIOR", any = { { questActive = TODO_QUEST("The Shieldsmith") }, { questDone = TODO_QUEST("The Rethban Gauntlet") } } } },
         { text = "Can you fix this?", next = "BUSINESS" },
         { text = "I doubt a rogue wants mail under leather.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage ever wear mail, Furen?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -651,6 +652,15 @@ P:NPC {
         { text = "Does the forge fire speak to you, Furen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "A dwarf smith learning from a human master? Isn't that backwards?", next = "dw_back", when = { race = "Dwarf" } },
         { text = "Later.", next = "END" },
+      },
+    },
+    yorus_shield = {
+      big = true,
+      lines = { { id = "ys_default", text = "Och, he would say that, an' he's right, curse his barley. I owe Yorus for a night in Lakeshire I'll no' describe, so ye'll have yer shield, but tell me first what ye want it for, because I make a shield different for a lad who means tae hide behind it." } },
+      choices = {
+        { text = "To stand in front of my friends.", next = "BACK", reply = "Then I'll make the face broad an' the rim thick, an' ye'll take a troll's axe on it.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "To keep myself alive. That's all.", next = "BACK", reply = "Honest, an' I'll make it light enough tae move wi'. Nae shame in livin'.", fx = { align = { honor = -1 } } },
+        { text = "Let me think on it, Furen.", next = "BACK" },
       },
     },
     master = {
@@ -700,7 +710,7 @@ P:NPC {
     second_war = { { id = "tp_second_war", text = "My father fought in the Second War with a blade he made himself, and it held. I keep it above my bench, and I measure every blade I make against it." } },
     background = { { id = "tp_bg", text = "Elmore's student. That's the only part that matters, an' he'd say it doesnae matter much yet.", next = "master" } },
     advice = { { id = "tp_ad", text = "Check yer straps before every fight. A good shield on a bad strap is a lid on a pot." } },
-    _none = { { id = "tp_none", text = "Ask the master, if ye dare." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye, so ask the master, if ye dare, an' mind he's in a temper." } },
   },
 }
 

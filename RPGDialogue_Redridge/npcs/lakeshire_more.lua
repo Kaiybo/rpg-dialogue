@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hah! Pull up a stool, and mind the cask; it's family." },
+    { id = "g_default", text = "Hah! Pull up a stool, friend, and mind the cask, for it's family an' it bites." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another, are ye? Most folk only need the one sip to learn their lesson." },
     { id = "g_run", when = { questActive = TODO_QUEST("The Rethban Gauntlet") }, text = "Why are ye standin' here? The clock's runnin', and so should you be!" },
     { id = "g_hero", when = { questDone = TODO_QUEST("The Rethban Gauntlet") }, text = "There's the one who ran the Gauntlet! Hip hip, and I'll save the rest for when ye're sober." },
@@ -96,7 +96,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Drink my family's brew and run through gnoll country on it, because courage is best measured staggerin', I say." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I pour, it saves time." },
+        { id = "h_again", text = "What else? Talk while I pour, for it saves time an' the Scalder doesnae like waitin'." },
         { id = "h_again2", text = "Go on, {g:lad|lass}, I'm all ears and half a beard." },
       },
       choices = {
@@ -107,6 +107,8 @@ P:NPC {
         { text = "I'm no warrior. Can I still run it?", next = "notwarrior", when = { class = { "PRIEST", "MAGE", "WARLOCK", "ROGUE", "HUNTER", "DRUID", "PALADIN", "SHAMAN" } } },
         { text = "A dwarf can hold his drink, Yorus.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Have many warriors run your Gauntlet and finished, Yorus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What did your Gauntlet really prove, Yorus?", next = "proof", when = { class = "WARRIOR", questDone = TODO_QUEST("The Rethban Gauntlet") } },
+        { text = "Darnath Bladesinger sent me all the way from Darnassus.", next = "darnath", when = { class = "WARRIOR", race = "NightElf" } },
         { text = "Can a hunter run your Gauntlet, Yorus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your challengers ever come back hurt, Yorus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could a paladin pass your challenge without the drink, Yorus?", next = "xapala", when = { class = "PALADIN" } },
@@ -115,6 +117,22 @@ P:NPC {
       },
     },
 
+    proof = {
+      big = true,
+      lines = { { id = "pf_default", text = "That ye can fight when yer own body's against ye, which it will be, someday, wi' a wound or a fever or a week without sleep. The gnolls were never the test, friend; the test was whether ye'd keep yer feet when the ground started arguin'." } },
+      choices = {
+        { text = "Then it was a fine test, and I'm grateful.", next = "BACK", reply = "Grateful! Hear that, Daniels? Somebody's grateful for a hangover.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "It proved I can drink. Nothing more.", next = "BACK", reply = "Ach, ye'll see it one day, when ye're fightin' wi' a fever an' remember my Scalder.", fx = { align = { order = -1 } } },
+        { text = "Something else, Yorus.", next = "BACK" },
+      },
+    },
+    darnath = {
+      lines = { { id = "dn_default", text = "Did he, now! Darnath's a fine elf, an' the only one o' yer people who ever drank my Scalder without makin' a face. He'll want tae know how ye ran, so I'll write him myself, an' I'll tell him ye sang the whole way back." } },
+      choices = {
+        { text = "I did not sing.", next = "BACK", reply = "Ye will, by the time ye're back. They all do.", fx = { trait = { witty = 1 } } },
+        { text = "Tell him I ran it well.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     gauntlet = {
       lines = {
         { id = "ga_default", text = "I call it the Rethban Gauntlet. Ye take a swig of my family's Scalder, run to the Rethban Caverns in the foothills north o' town, as far as the first fork, and come back here within the hour." },
@@ -202,8 +220,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know brewin', fightin' and the shortest way to the Rethban Caverns, in roughly that order. What'll it be?" } },
     background = { { id = "tp_bg", text = "A Barleybrew, a warrior and a dwarf a long way from home, and only the first one matters to my mother." } },
     advice = { { id = "tp_ad", text = "Run west o' town past the herb garden before ye turn north, and ye'll miss most o' the gnolls." } },
-    redridge_gnolls = { { id = "tp_gnolls", text = "Big, angry and in the way, which makes them perfect for a Gauntlet." } },
-    _none = { { id = "tp_none", text = "No idea, friend, but I'll drink to it." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "They're big an' angry an' always in the way, which makes them perfect for a Gauntlet." } },
+    _none = { { id = "tp_none", text = "I've nae idea, friend, but I'll drink to it all the same." } },
   },
 }
 

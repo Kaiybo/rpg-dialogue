@@ -851,12 +851,12 @@ P:NPC {
     third = "{name} met Captain Evencane, who trains warriors in Theramore's Foothold Citadel.",
   },
   greetings = {
-    { id = "g_default", text = "Stand straight when you come into my yard. Now, what do you want?" },
-    { id = "g_2", when = { metBefore = true }, text = "You're back. Let me see your guard; I'll know in a moment whether you've practised." },
+    { id = "g_default", text = "Stand straight when you come into my yard, and then tell me what you want." },
+    { id = "g_2", when = { metBefore = true }, text = "You're back, so let me see your guard, and I'll know in a moment whether you've practised." },
   },
   notice = {
     { id = "n_1", cat = "class", when = { class = "WARRIOR" },
-      text = "Your weight sits too far forward. You'll win quickly that way, or you'll lose quickly, and I train soldiers to do neither." },
+      text = "Your weight sits too far forward, so you'll win quickly that way or you'll lose quickly, and I train soldiers to do neither." },
     { id = "n_2", cat = "kit", when = { class = { "ROGUE", "HUNTER" } },
       text = "You're no line soldier, and I can see it from here. That's no insult, but stay off my drill square while the men are working." },
     { id = "n_b1", cat = "race", when = { race = "Dwarf" },
@@ -868,12 +868,14 @@ P:NPC {
       lines = {
         { id = "hello_default", key = true, text = "I am Captain Evencane, and I train the warriors of the Theramore Guard. Every soldier on these walls has stood in my yard until his arms shook, and every one of them is still alive, and those two facts are related." },
         { id = "hello_2", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I've little patience for anyone else today. Show me your stance, and then we'll talk about what it's costing you." },
+        { id = "hello_berserk", when = { class = "WARRIOR", faction = "Alliance", minLevel = 30, maxLevel = 44 }, text = "You've come down from Fray Island, by the look of you, and you're still standing like Klannoc's ring is under your feet. Ease off it, soldier, because this is a citadel, not an arena." },
+        { id = "hello_old", when = { class = "WARRIOR", faction = "Alliance", minLevel = 50 }, text = "A soldier who's outgrown every yard in the Alliance, standing in mine. I'll not pretend I've much left to teach you, but I'd take it kindly if you let the recruits watch you train." },
         { id = "hello_3", when = { faction = "Horde" }, text = "You've some nerve, walking into the citadel. The Lady's peace covers you, so keep your hands still and be brief." },
       },
       again = {
         { id = "hello_again1", text = "Is there more? The recruits are getting comfortable, and I can't allow that." },
-        { id = "hello_again2", text = "Ask. Then I've a drill to run." },
-        { id = "hello_again3", text = "Go on. Keep it short." },
+        { id = "hello_again2", text = "Ask your question, and then I've a drill to run." },
+        { id = "hello_again3", text = "Go on, but keep it short, because the tide's coming in over the drill square." },
       },
       choices = {
         { text = "I'm here to train.", next = "BUSINESS", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -882,7 +884,33 @@ P:NPC {
         { text = "Drill is for parades. Real fights are chaos.", next = "drill" },
         { text = "What's the commonest mistake you see?", next = "mistake", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Who's your best soldier?", next = "best" },
+        { text = "Klannoc's ring taught me Berserker Stance, Captain.", next = "ev_berserk", when = { class = "WARRIOR", faction = "Alliance", minLevel = 30 } },
+        { text = "Plate in a swamp seems like madness.", next = "ev_plate", when = { class = "WARRIOR", minLevel = 40 } },
+        { text = "I served under Lordaeron's banner too.", next = "ev_lordaeron", when = { origin = "human_lordaeron_refugee", class = { "WARRIOR", "PALADIN" } } },
         { text = "I'll leave you to your drill, Captain.", next = "END" },
+      },
+    },
+    ev_berserk = {
+      big = true,
+      lines = { { id = "evb_default", text = "Did it, now? Klannoc has his uses, and I've sent him a soldier or two, but I've never put a berserker on these walls. A wall wants men who stay where they're put, and a berserker goes wherever the blood is." } },
+      choices = {
+        { text = "On a wall, I'd stay where I'm put.", next = "BACK", reply = "Then you'd be welcome on mine. Know which stance is for which day.", fx = { align = { order = 1 } } },
+        { text = "Some fights need a man who goes where the blood is.", next = "BACK", reply = "They do, and those men don't usually see the end of them. I've seen it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    ev_plate = {
+      lines = { { id = "evp_default", text = "It is, and every soldier in Theramore wears it anyway, because the crocolisks bite through mail and the Brackenwall orcs bring axes. Oil it every night, or the marsh will rust your joints before the Horde gets a chance at them." } },
+      choices = {
+        { text = "Oil every night. I'll remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "I'd rather be quick than armoured here.", next = "BACK", reply = "Quick sinks just as fast as slow in this mud. Wear the plate.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    ev_lordaeron = {
+      lines = { { id = "evl_default", text = "Then you know why I drill them till their arms shake, because you saw what happened to the ones who weren't ready when the plague came. Which garrison were you, or would you rather not say?" } },
+      choices = {
+        { text = "I'd rather not say, Captain.", next = "BACK", reply = "Fair enough. Most of us would rather not. Welcome to Theramore, soldier.", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Andorhal, before it fell.", next = "BACK", reply = "Light keep you. I'll not ask more than that, and I'll not forget it.", fx = { affinity = 2 } },
       },
     },
     swamp = {
@@ -905,7 +933,7 @@ P:NPC {
     },
     young = {
       lines = {
-        { id = "young_default", text = "They are. Most were children when Lordaeron fell, and they grew up on this rock hearing about a war they don't remember. They want one of their own, and that's the most dangerous thing about them." },
+        { id = "young_default", text = "They are, for most were children when Lordaeron fell, and they grew up on this rock hearing about a war they don't remember. They want one of their own, and that's the most dangerous thing about them." },
       },
       choices = {
         { text = "What do you tell them?", next = "young_tell" },
@@ -914,7 +942,7 @@ P:NPC {
     },
     young_tell = {
       lines = {
-        { id = "young_tell_default", text = "That I've had mine, and that they're welcome to it. Then I run them round the walls until they're too tired to want anything except their supper." },
+        { id = "young_tell_default", text = "I tell them that I've had mine, and that they're welcome to it, and then I run them round the walls until they're too tired to want anything except their supper." },
       },
       choices = {
         { text = "Does it work?", next = "young_work" },
@@ -923,7 +951,7 @@ P:NPC {
     },
     young_work = {
       lines = {
-        { id = "young_work_default", text = "Until the next morning. Then I run them again. That's what peacetime soldiering is, and nobody writes songs about it." },
+        { id = "young_work_default", text = "It works until the next morning, and then I run them again, because that's what peacetime soldiering is, and nobody writes songs about it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -969,11 +997,11 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_background", text = "I was a sergeant under Lordaeron's banner and I've been a captain under the Lady's. The uniform changed, and the work didn't." } },
-    advice = { { id = "tp_advice", text = "Sleep when you can and eat when you can. A battle never waits for you to do either." } },
-    lordaeron = { { id = "tp_lordaeron", text = "I trained men there too. Most of them are dead, and I see their mistakes in every recruit, which is why I'm hard on these ones." } },
+    advice = { { id = "tp_advice", text = "Sleep when you can and eat when you can, because a battle never waits for you to do either." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I trained men there too, and most of them are dead, and I see their mistakes in every recruit, which is why I'm hard on these ones." } },
     theramore = { { id = "tp_b_theramore", text = "It's a fortress first and a town second, and that's how it has stayed alive. I mean to keep it that way." } },
     jaina = { { id = "tp_b_jaina", text = "She asked me once what the Guard needed most, and I said time. She has bought us four years of it, and I don't waste a day." } },
-    _none = { { id = "tp_none", text = "That's no concern of the drill yard. Ask someone with time to gossip." } },
+    _none = { { id = "tp_none", text = "That's no concern of the drill yard, so ask someone with time to gossip, which isn't me." } },
   },
 }
 

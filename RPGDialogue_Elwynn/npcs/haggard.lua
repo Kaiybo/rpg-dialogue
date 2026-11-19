@@ -179,13 +179,14 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I hear, by the step. I ran the Stormwind Guard once, and I fought orc shamans in the Second War. Forgive an old man if he's wary." },
       },
       again = {
-        { id = "h_again", text = "If you're still there, speak up, will you?" },
-        { id = "h_again2", text = "Go on. My ears work, even if nothing else does." },
+        { id = "h_again", text = "If you're still there, speak up, will you, because my ears are the last good part of me." },
+        { id = "h_again2", text = "Go on, then, for my ears still work, even if nothing else does." },
       },
       choices = {
         { text = "I've fought a good many Defias, Marshal.", next = "dd_haggard_def", when = { killed = { name = "Defias", min = 40 } } },
 
         { text = "What happened to your badge?", next = "jack" },
+        { text = "Burlguard says you keep old blades for young warriors.", next = "blades", when = { class = "WARRIOR", any = { { questActive = TODO_QUEST("Marshal Haggard") }, { questActive = TODO_QUEST("Dead-Tooth Jack") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
         { text = "Whose house was this before you, Marshal?", next = "manor" },
         { text = "Tell me about the Guard.", next = "guard" },
         { text = "Your eyes seem to be failing you, Marshal.", next = "eyes" },
@@ -335,6 +336,25 @@ P:NPC {
         { id = "st_default", text = "It's a name on a page in my chest, and I can't read it now. Smitts in Darkshire knows that story better than any man living, so ask him, not me." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "stalvan" } } } },
+    },
+    blades = {
+      lines = {
+        { id = "bl_default", text = "I do, a cellar full of them, from forty years of confiscations and dead men's kit, and Burlguard's the only one who knows it. I give one to each of his warriors who does me a service, and lately the service I need is my badge back from that Defias in the hole." },
+        { id = "bl_done", when = { questDone = TODO_QUEST("Dead-Tooth Jack") }, text = "And you've one of them now, so treat it well, because it was carried by a better soldier than either of us before it came to my cellar. Axe, hammer, dagger or sword, they all served the Guard." },
+      },
+      choices = {
+        { text = "Whose blades were they, Marshal?", next = "blades_whose" },
+        { text = "I'll earn mine. Something else.", next = "BACK" },
+      },
+    },
+    blades_whose = {
+      big = true,
+      lines = { { id = "blw_default", text = "Guardsmen who didn't come home, mostly, and their families didn't want the reminder. I tell myself it's better a young warrior carries them than they rust down there, but some nights I wonder if I'm giving away what isn't mine." } },
+      choices = {
+        { text = "The dead would want their blades used.", next = "BACK", reply = "That's what Burlguard says too. I'll try to believe it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A blade's a blade. Don't trouble yourself.", next = "BACK", reply = "Spoken like a young soldier. You'll trouble yourself too, one day.", fx = { align = { light = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
     },
     noble = {
       lines = {

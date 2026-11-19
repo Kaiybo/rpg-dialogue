@@ -207,8 +207,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Feet apart, shoulders loose. If you came to talk, you can do it standing properly." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Show me you've kept your guard up since last time." },
+    { id = "g_default", text = "Feet apart and shoulders loose, and if you came to talk, you can do it standing properly." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are you? Then show me you've kept your guard up since last time." },
   },
 
   notice = {
@@ -311,6 +311,8 @@ P:NPC {
         { id = "h_default", text = "I'm Sildanair, and I train warriors here alongside Arias'ta and Darnath Bladesinger. Arias'ta will tell you about the warrior's spirit, but I'll tell you to keep your shield up, and between us you'll survive." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "You've got the shoulders for it, so let's see whether you've got the sense. Most warriors who die young die with their weapon raised and their guard down." },
+        { id = "h_wall", when = { class = "WARRIOR", minLevel = 28, maxLevel = 45 },
+          text = "There's a warrior who's learned Shield Wall and hasn't yet learned when not to use it, I'd wager. Come and argue with me about it." },
         { id = "h_nonwarrior", when = { ["not"] = { class = "WARRIOR" } },
           text = "You're not one of mine, but sit and watch a drill if you like. Whatever you fight with, the footwork is the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue has no shield, which is the first thing I'd change about you, though Arias'ta would tell me to mind my own students." },
@@ -321,11 +323,14 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Stand straight, and make no excuses, because your spirits will not excuse you either, and neither will a Sentinel's drill." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep it short; I've a drill starting." },
+        { id = "h_again", text = "What else? Keep it short, because I've a drill starting and the recruits won't shout at themselves." },
         { id = "h_again2", text = "Your question, then, and keep your chin up while you ask it." },
       },
       choices = {
-        { text = "Train me.", next = "BUSINESS" },
+        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "My shield arm still drops when I'm tired.", next = "shield", when = { class = "WARRIOR", minLevel = 10, maxLevel = 39 } },
+        { text = "How do I hold a line against the Warsong?", next = "warsong_line", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "Did your line in Ashenvale hold, Sildanair?", next = "her_line", when = { class = "WARRIOR", minLevel = 45 } },
         { text = "Who comes here to learn?", next = "students" },
         { text = "What's the first thing you teach?", next = "first" },
         { text = "Aren't the Sentinels mostly women? Where do men train?", next = "men" },
@@ -338,6 +343,34 @@ P:NPC {
         { text = "Would your students really raise steel against my companion?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you allow no excuses at all, Sildanair?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your drill.", next = "END" },
+      },
+    },
+    shield = {
+      lines = {
+        { id = "sh_default", text = "Everyone's does, and the trick isn't strength, it's where you put the weight. Rest the rim against your shoulder between blows, and lift it with your legs, and use Shield Block when you see the big swing coming, not after it's landed." },
+        { id = "sh_wall", when = { minLevel = 28 }, text = "Everyone's does, even with Shield Wall to fall back on, and that's the trouble, because you'll lean on Shield Wall like a crutch. Rest the rim on your shoulder, lift with your legs, and keep the Wall for the moment you'd otherwise die." },
+      },
+      choices = {
+        { text = "Shield Wall should be used early, to stay safe.", next = "BACK", reply = "And then it's gone when the troll's friends arrive. Save it.", fx = { align = { order = -1 } } },
+        { text = "I'll save the Wall for the worst moment.", next = "BACK", reply = "Good, and you'll know the worst moment when you see it, believe me.", fx = { align = { order = 1 } } },
+        { text = "Legs, not arms. Something else.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    warsong_line = {
+      big = true,
+      lines = { { id = "wl_default", text = "You don't hold it the way a human holds a wall, because the trees won't let you, and the Warsong come through gaps a human line would never have. Pick a tree for your back, Taunt the biggest one, and let the Sentinels in the branches do the rest." } },
+      choices = {
+        { text = "Then I'll hold Ashenvale, tree by tree.", next = "BACK", reply = "Good, and the forest will remember who stood in it.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Better to strike their camps than wait for them.", next = "BACK", reply = "Some Sentinels agree with you, and some of them came home. Choose your raids with care.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    her_line = {
+      narr = "She stops drilling and is quiet for longer than you expect.",
+      lines = { { id = "hl_default", text = "It held, and four of us who held it are still alive, and I'm the only one still holding a sword. I teach so that when you're asked the same question, you can give the same answer, and give it from the right side of the grass." } },
+      choices = {
+        { text = "I'll give the same answer, someday.", next = "BACK", reply = "I believe you will. Go on, then.", fx = { affinity = 2 } },
+        { text = "I'm sorry for the ones who didn't.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
     students = {
@@ -380,11 +413,11 @@ P:NPC {
 
   topics = {
     sentinels = { { id = "tp_sent", text = "The Sentinels take the best of us to Ashenvale, and I train the ones they haven't taken yet." } },
-    background = { { id = "tp_bg", text = "I've been teaching on this terrace since Darnassus had a terrace. Before that I held a line in Ashenvale, and I'll leave it there." } },
-    advice = { { id = "tp_ad", text = "Mend your shield before you sharpen your sword. A blunt sword still keeps you alive, but a cracked shield won't." } },
+    background = { { id = "tp_bg", text = "I've been teaching on this Terrace since it was first grown, and before that I held a line in Ashenvale, and I'll leave it there." } },
+    advice = { { id = "tp_ad", text = "Mend your shield before you sharpen your sword, because a blunt sword still keeps you alive, but a cracked shield won't." } },
     warsong = { { id = "tp_warsong", text = "I held a line against the Warsong in Ashenvale, and I'm here now, so I suppose I held it well enough. They swing hard and they don't plan, so plan." } },
-    centaur = { { id = "tp_centaur", text = "Centaur are all strength and charge. Make them turn, and make them turn again, and they'll tire before you." } },
-    burning_legion = { { id = "tp_burning_legion", text = "I was a girl at Hyjal, carrying arrows, and I saw the demons come over the hill. I'm still teaching because of that day." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are all strength and charge, so make them turn, and make them turn again, and they'll tire before you do." } },
+    burning_legion = { { id = "tp_burning_legion", text = "I carried arrows for the Sentinels at Hyjal, and I saw the demons come over the hill, and I'm still teaching because of that day." } },
     _none = { { id = "tp_none", text = "I don't know, and I won't guess. Ask someone who isn't busy shouting at recruits who think a few decades of practice is a lifetime." } },
   },
 }

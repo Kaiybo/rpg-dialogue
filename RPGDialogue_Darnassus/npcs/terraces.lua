@@ -305,8 +305,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "I bid you greetings, warrior. Your name has been heard on the Terrace." },
-    { id = "g_other", text = "This is the Warrior's Terrace. If you've come to watch, watch from over there." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "I bid you greetings, warrior, for your name has been heard on the Terrace, and not unkindly." },
+    { id = "g_other", text = "This is the Warrior's Terrace, and if you've come to watch, you may watch from over there by the railing." },
   },
 
   notice = {
@@ -315,7 +315,7 @@ P:NPC {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest on the Warrior's Terrace. Good; we break things here, and somebody has to mend them." },
     { id = "n_green", cat = "greenness", when = { class = "WARRIOR", maxLevel = 15 },
-      text = "You're young in the art yet, and it shows in your feet. Plant them, and the rest will follow." },
+      text = "You're young in the art yet, and it shows in your feet, so plant them, and the rest will follow in its time." },
     { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
       text = "You've wrapped yourself in demon hide rather than stand in your own skin, and I can see it from here. Take it off one day and fight, and then I'll know your resolve is your own." },
   },
@@ -455,6 +455,10 @@ P:NPC {
           text = "Elunite lies scattered on the sea floor near the Auberdine lighthouse, where a ship broke on the rocks long ago. Its captain cursed herself to guard the cargo forever, so give her peace, and bring the ore to me." },
         { id = "h_elura_done", when = { questDone = TODO_QUEST("The Shade of Elura") },
           text = "You gave the Shade of Elura her rest, and Mathiel has the elunite. A warrior's weapon, made from a blessed metal, by your own hand's effort; wield it well." },
+        { id = "h_berserk", when = { class = "WARRIOR", minLevel = 30, maxLevel = 39 },
+          text = "There is a new heat in the way you hold yourself, warrior, and I think I know where you found it. Come and tell me about it, and I will tell you what our people fear in it." },
+        { id = "h_old", when = { class = "WARRIOR", minLevel = 50 },
+          text = "You stand on my Terrace as the oldest of my students stand, as though the stone were yours to defend. It is, now, and I am honoured that you remember the way here." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd last in a fight, rogue, but only if you struck first. I train warriors to last when they don't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mages always stand too far back, and then they're surprised when something circles round to reach them. Which way are you going to stand, mage?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You'll find no stances to learn here, but resolve is the same in any profession." },
@@ -473,6 +477,9 @@ P:NPC {
         { text = "The Sentinels must fight differently from you.", next = "sentinels" },
         { text = "Test me, then, because I'm ready.", next = "test", when = { class = "WARRIOR" } },
         { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
+        { text = "Defensive Stance feels like guarding a moonwell.", next = "el_stance", when = { class = "WARRIOR", questDone = TODO_QUEST("Vorlus Vilehoof") } },
+        { text = "I've learned the berserker's stance on Fray Island.", next = "el_berserk", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Humans taught me to fight shoulder to shoulder.", next = "human_e", when = { race = "Human", class = "WARRIOR" } },
         { text = "Ironforge trained me. Will you test me anyway?", next = "dwarf_e", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Gnomes fight too, you know.", next = "gnome_e", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "Is there anything a rogue could learn from a warrior?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -508,7 +515,7 @@ P:NPC {
         { id = "vo_default", text = "Because the moonwells are holy, and a satyr in one is a filth in our goddess's cup. Young warriors eager to keep Teldrassil free of corruption are what this tree needs most." },
       },
       choices = {
-        { text = "Then the well must be cleansed.", next = "BACK", reply = "It was, and the moonwell is clean again. You did the goddess a service, and I will remember it.", fx = { align = { light = 1 }, learn = { "satyrs" } } },
+        { text = "Then the well must be cleansed.", next = "BACK", reply = "It must, and every warrior who cleanses one does the goddess a service. I remember each of them.", fx = { align = { light = 1 }, learn = { "satyrs" } } },
         { text = "A wall would have saved the trouble.", next = "BACK", reply = "A wall around a moonwell would make it no longer a moonwell. Better to cleanse it, and keep it open to Elune.", fx = { align = { light = -1 }, trait = { witty = 1 }, learn = { "satyrs" } } },
       },
     },
@@ -541,6 +548,37 @@ P:NPC {
         { text = "I'll turn back when it's wise, and live.", next = "BACK", reply = "Then you will live long, and that is no small thing. Some of my best students turned back from the drowned temple once and went in again a year later.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
     },
+    el_stance = {
+      big = true,
+      lines = { { id = "els_default", text = "That is exactly what it is, and I am glad you found the words before I had to give them to you. You stand between the sacred thing and the filth that wants it, and you do not move, and you let the filth spend itself on your shield until it has nothing left." } },
+      choices = {
+        { text = "Then I'll guard, and never be the one to strike first.", next = "BACK", reply = "Not never, but rarely. That is the Sentinel's patience in a warrior's arm.", fx = { align = { order = 1 } } },
+        { text = "Guarding is fine, but I'd rather end the threat.", next = "BACK", reply = "So would the young always, and the moonwells would be guarded by no one. Learn both.", fx = { align = { order = -1 } } },
+        { text = "Taunt feels too loud for our people, Elanaria.", next = "el_taunt" },
+      },
+    },
+    el_taunt = {
+      lines = { { id = "elt_default", text = "It is loud, and we are a quiet people, and that is precisely why the enemy never expects it from us. Shout once, and make the satyr look at you instead of the priestess, and then be as silent as you please." } },
+      choices = { { text = "Loud once, then silent. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    el_berserk = {
+      big = true,
+      lines = { { id = "elb_default", text = "So I had guessed, and I will not hide that it troubles me. Our people unleashed their passions once, at the Well of Eternity, and the world was broken for it, so when a kaldorei warrior learns to let go of every restraint, I want to know what will call her back." },
+        { id = "elb_other", when = { ["not"] = { race = "NightElf" } }, text = "So I had guessed, and among your people it may be only a stance. Among mine it is a memory of the Well of Eternity, where passion without restraint broke the world, so forgive me if I ask what will call you back." },
+      },
+      choices = {
+        { text = "My duty will call me back. Always.", next = "BACK", reply = "Then use it, and come home. I will trust you a little further than I meant to.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nothing should call me back mid-fight.", next = "BACK", reply = "That is what the Highborne told themselves. I pray you are wiser than they were.", fx = { align = { order = -1 } } },
+        { text = "I hadn't thought of it that way.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    human_e = {
+      lines = { { id = "hue_default", text = "They do, and well, because humans live so briefly that they learn early to lean on each other. Here you'll fight among trees, where no two warriors stand on the same ground, so you must learn to hold a line that is not a line at all." } },
+      choices = {
+        { text = "A line that isn't a line. Show me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'd rather bring the line with me.", next = "BACK", reply = "Then find a clearing, and pray the satyrs come to it. They rarely oblige.", fx = { trait = { witty = 1 } } },
+      },
+    },
     sentinels = {
       lines = {
         { id = "se_default", text = "The Sentinels fight with glaive and bow, from the trees, and they're better at it than anyone alive. We on the Terrace are for when the enemy is close enough to smell." },
@@ -551,13 +589,13 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "The Terrace hears what the patrols bring back. Ask, and I'll tell you if it's worth repeating." } },
-    background = { { id = "tp_bg", text = "I train warriors and test the ones who think they're ready. Most aren't, yet." } },
-    advice = { { id = "tp_ad", text = "Plant your feet before you swing. Everything else comes from the ground up." } },
+    background = { { id = "tp_bg", text = "I train warriors and test the ones who think they're ready, and most of them aren't, yet." } },
+    advice = { { id = "tp_ad", text = "Plant your feet before you swing, because everything else a warrior does comes from the ground up." } },
     centaur = { { id = "tp_centaur", text = "Centaur hit like a charging saber and keep coming. Brace your shield and let the earth carry their weight, not your arm." } },
     blackfathom = { { id = "tp_blackfathom", text = "That's where young warriors learn what they're made of, in the drowned temple. Some don't like the answer." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "A troll arena in Stranglethorn, where people fight for gold and goblins bet on them. I'd rather fight for something." } },
     onyxia = { { id = "tp_onyxia", text = "A dragon. I've told my students that if they're going after one, they should come back first and tell me, so I can say goodbye properly." } },
-    _none = { { id = "tp_none", text = "That isn't a warrior's concern. Ask elsewhere, perhaps at the Temple of the Moon." } },
+    _none = { { id = "tp_none", text = "That isn't a warrior's concern, so ask elsewhere, perhaps at the Temple of the Moon." } },
   },
 }
 
@@ -923,6 +961,41 @@ P:NPC {
       },
       choices = { { text = "I'll learn to stand first.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ar_berserk = {
+      big = true,
+      lines = {
+        { id = "arb_default", text = "So you have, and you have come back to tell me, which means you still remember who taught you to stand. The berserker gives up the guard for the strike, and a kaldorei who gives up her guard must keep her mind, or she becomes what we fought at Hyjal." },
+      },
+      choices = {
+        { text = "My mind is my guard now. I've kept it.", next = "BACK", reply = "Then you have learned the hardest lesson on this Terrace without me. I am glad.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "In the stance, I don't think. I strike.", next = "BACK", reply = "That is exactly what I feared, and exactly what it is for. Come back to me if it frightens you.", fx = { align = { order = -1 } } },
+        { text = "What happened at Hyjal, Bladesinger?", next = "ar_hyjal" },
+      },
+    },
+    ar_hyjal = {
+      lines = { { id = "arh_default", text = "We held, with the humans and the orcs beside us, until the World Tree gave its strength to end Archimonde, and I watched warriors fight there who had stopped being anything but rage. They were brave, and they did not come home, and I teach the berserker's way last because of them." } },
+      choices = { { text = "I'll remember them. Something else.", next = "BACK", fx = { learn = { "burning_legion" } } } },
+    },
+    ar_plate = {
+      lines = {
+        { id = "arp_default", text = "It does, because our people were made to move like wind through the branches, and plate is a dwarf's idea of a garment. Wear it anyway, and learn to move as if it were silk, because the Warsong in Ashenvale will not care how graceful you were when they broke your ribs." },
+        { id = "arp_other", when = { ["not"] = { race = "NightElf" } }, text = "On us, yes, though perhaps less on you. Plate is a dwarf's idea of a garment, and on the Terrace we ask you to move in it as if it were silk, because the Warsong in Ashenvale will not care how graceful you were." },
+      },
+      choices = {
+        { text = "Then I'll learn to move in it like silk.", next = "BACK", reply = "Good, and you will curse it for a season and love it ever after.", fx = { affinity = 1 } },
+        { text = "I'll keep to lighter armour, and keep my speed.", next = "BACK", reply = "Then keep your speed, and pray it is enough. I have buried warriors who chose the same.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    ar_song = {
+      big = true,
+      narr = "She closes her eyes as if listening to something only she can hear.",
+      lines = { { id = "ars_default", text = "It does, and it has for some time, though you were too busy to listen. A blade sings when the arm that swings it has stopped arguing with itself, and yours stopped arguing somewhere between here and the Plaguelands, I think." } },
+      choices = {
+        { text = "Then I'll teach others to hear it, as you taught me.", next = "BACK", reply = "That is the only way a song lasts. Thank you.", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "The song is mine. Let others find their own.", next = "BACK", reply = "That is also true, and also lonely. Keep it well, then.", fx = { align = { honor = -1 } } },
+        { text = "I'll listen more carefully from now on.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
     guard_a = {
       lines = {
         { id = "ga_default", text = "Your city guard taught you to stand on a bridge and keep drunks off it, which is not nothing. Here we teach you to stand in a forest with no bridge at all, and that is a different discipline." },
@@ -959,7 +1032,11 @@ P:NPC {
           text = "You walk with a warrior. {companion} carries a blade the way a sentinel would want it carried, low and ready, and I would guess they have stood in front of you more than once." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I teach only those with the warrior's spirit, but I'll grant that some healers have more of it than the fighters they heal." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You may have the warrior's spirit, {class}, though I'll want to see it for myself before I say so." },
-        { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
+        { id = "h_default", key = true, text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
+        { id = "h_thirty", when = { class = "WARRIOR", minLevel = 30, maxLevel = 39 },
+          text = "Your spirit runs hotter than when I last saw it, and I can guess why. Come, tell me whether you threw away your shield as I warned you not to, and whether you picked it up again." },
+        { id = "h_sixty", when = { class = "WARRIOR", minLevel = 60 },
+          text = "I hear your blade before I see you now, which is the highest thing I can say of anyone. Sit with me, if you will, because there is little left for me to teach and much I would like to ask." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a good deal of cunning. It isn't the worst combination I've ever seen." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I watched demons cut through our ranks at Hyjal while the ones who called them stood safe behind. Do not ask me to like you." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've carried yourself honestly here, which I will admit. Ask your question, and leave the creature where it is." },
@@ -969,12 +1046,18 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I see little of the warrior's spirit in you, though I'll grant that facing a charge with nothing but a spell takes nerve." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I see your spirit at a glance, as I have seen every student's for a thousand years, and yours is strong, though rough." },
       },
-      again = { { id = "h_again", text = "Something more? Ask, and then let me return to my students." } },
+      again = {
+        { id = "h_again", text = "Is there something more? Ask it, and then let me return to my students." },
+        { id = "h_again2", when = { class = "WARRIOR" }, text = "Ask, and keep your blade low and ready while you do, because I am still watching it." },
+      },
       choices = {
         { text = "Instruct me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What is the warrior's spirit?", next = "spirit" },
         { text = "Bladesinger is an unusual name.", next = "name" },
         { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
+        { text = "I took up the berserker's way, Bladesinger.", next = "ar_berserk", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Plate sits heavily on a kaldorei warrior.", next = "ar_plate", when = { class = "WARRIOR", minLevel = 40 } },
+        { text = "Does my blade sing yet, Bladesinger?", next = "ar_song", when = { class = "WARRIOR", minLevel = 50 } },
         { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
         { text = "Can a rogue really have a warrior's spirit?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do I have a warrior's spirit, Arias'ta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -990,7 +1073,7 @@ P:NPC {
     },
     spirit = {
       lines = {
-        { id = "sp_default", text = "The part of you that steps forward when the others step back. It can be trained, but it cannot be taught to someone who hasn't got it." },
+        { id = "sp_default", text = "It is the part of you that steps forward when the others step back, and it can be trained, but it cannot be taught to someone who hasn't got it." },
       },
       choices = {
         { text = "Courage can be learned by anyone.", next = "BACK", reply = "Many believe so, and I hope they are right. But I have seen courage come to some and never to others.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
@@ -1006,19 +1089,19 @@ P:NPC {
     },
     name = {
       lines = {
-        { id = "na_default", text = "A good blade makes a sound when it's used well, and our family has always listened for it. That is all the story I'll tell a stranger." },
+        { id = "na_default", text = "A good blade makes a sound when it's used well, and our family has always listened for it, and that is all of the story I'll tell a stranger." },
       },
       choices = { { text = "All right. Something else, then.", next = "BACK" } },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I hear what my students say between bouts. Ask, if you must." } },
-    background = { { id = "tp_bg", text = "I teach warriors. I have done so for a long time." } },
-    advice = { { id = "tp_ad", text = "Listen to your blade. It will tell you when you're careless." } },
+    knows = { { id = "tp_knows", text = "I hear what my students say between bouts, and some of it is worth repeating, so ask, if you must." } },
+    background = { { id = "tp_bg", text = "I teach warriors, and I have done so for longer than your kingdoms have kept their records." } },
+    advice = { { id = "tp_ad", text = "Listen to your blade, because it will tell you when you're careless long before your enemy does." } },
     centaur = { { id = "tp_centaur", text = "Centaur fight from horseback, but they have no horse to fall off. Go for the legs, and step aside quickly." } },
-    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've heard of the arena in Stranglethorn. Fighting for an audience teaches bad habits, but it does teach." } },
-    warsong = { { id = "tp_warsong", text = "The Warsong are strong and they're proud of it. Proud fighters make mistakes, and that's where you put your blade." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've heard of the arena in Stranglethorn, and fighting for an audience teaches bad habits, though I'll grant that it does teach." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong are strong and they're proud of it, and proud fighters make mistakes, which is where you put your blade." } },
     _none = { { id = "tp_none", text = "That is no matter for a warrior trainer, child, and I have kept to my own matters since the War of the Ancients." } },
   },
 }
