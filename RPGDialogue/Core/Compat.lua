@@ -563,6 +563,11 @@ function C.Classification(unit) return clean(call("UnitClassification", unit)) e
 function C.Reaction(unit, other) return clean(call("UnitReaction", unit, other or "player")) end
 function C.Family(unit) return clean(call("UnitCreatureFamily", unit)) end
 function C.CreatureType(unit) return clean(call("UnitCreatureType", unit)) end
+-- The player's own pet (a warlock's bound demon, a hunter's beast).
+function C.IsMyPet(unit)
+  if not unit or not C.Exists("pet") then return false end
+  return call("UnitIsUnit", unit, "pet") == true
+end
 function C.Faction(unit) return clean(call("UnitFactionGroup", unit or "player")) end
 
 function C.Name(unit)
