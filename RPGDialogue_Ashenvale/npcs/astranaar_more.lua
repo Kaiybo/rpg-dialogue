@@ -8,6 +8,7 @@ P:NPC {
   key = "thenysil", id = TODO_NPC("Sentinel Thenysil"), name = "Sentinel Thenysil",
   bible = "bibles/ashenvale.md", role = "soldier", tier = "quest",
   communities = { "astranaar" }, temper = { "measured" }, values = { "dutiful", "devout" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Sentinel officer who has buried Sentinels to the demon-blooded Warsong." },
   notices = { "race", "class" },
   impression = {
     first = "She says little, but what she says tends to reach Darnassus.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Astranaar has buried enough Sentinels to the Warsong and their demon-blooded rage. I'll not shelter a demon-caller with a smile." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My orders concerning your kind are written, and I read them twice this morning. Keep that creature leashed." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "My scouts report that your conduct here has been correct. Darnassus will hear that much, and nothing warmer." },
     { id = "g_watch", text = "Elune's light on you. Astranaar's gates are open to friends of the kaldorei, and the Sentinels decide who those are." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and in one piece. That's a habit I like to see in the people I send out." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I had marked your name as unaccounted for. I'll strike that now, and you can tell me where the forest took you." },
@@ -152,6 +156,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whether you call on the Light or the Mother Moon, the High Priestess values those who mend the wounded." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your Silver Hand has its own discipline, and I would know if it matches ours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. The Sisterhood and the Circle answer to different voices in Darnassus, but here in Ashenvale we stand on the same ground." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and so does every archer in Astranaar. Keep your hands where we can see them and your servant silent." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Your record here is clean, so I'll speak plainly rather than coldly. What do you need?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep that creature leashed in Astranaar, stranger. My Sentinels have orders about such things, and those orders do not ask whom they belong to." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh newcomers to decide where to post them, and I think your spirits might be useful on the roads." },
       },

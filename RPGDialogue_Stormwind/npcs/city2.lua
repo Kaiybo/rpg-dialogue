@@ -11,6 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "pious", "lawful", "stern" },
   likesTone = "polite",
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 13, why = "Lord of the Silver Hand; the order was raised against the Horde's dark magic and he holds demon-binding beneath contempt." },
   notices = { "kit", "readiness" },
   impression = {
     first = "He judges a person first by how they keep their gear.",
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Silver Hand was raised to fight the darkness your craft serves. Say what you came to say, and don't expect a lord of the Hand to take yours." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I can smell the fel on you from across the hall. Stand there, and don't come a step nearer to my students." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come here in good faith more often than I expected. My contempt for your craft hasn't changed, but I'll grant you a word." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "The Light's protection on you today. Now, what have you learned since I saw you last?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "The Light's protection on you. You'll find no lessons for your path here." },
     { id = "g_veteran", when = { class = "PALADIN", minLevel = 50 }, text = "You've come far. Far enough that we should speak about what comes next." },
@@ -111,6 +115,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in the Cathedral's training hall. I'll assume you came in by the door, and I'll ask you to leave by it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You've brought the fel into a hall of the Silver Hand, and I'll not pretend to welcome it. Speak quickly, and keep your creature at the door." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've not once brought trouble into this hall, so you may speak, though I'll still not call you friend." },
           text = "You've brought the stink of the fel into this hall, and I'd be a fool not to notice. Say what you came to say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },

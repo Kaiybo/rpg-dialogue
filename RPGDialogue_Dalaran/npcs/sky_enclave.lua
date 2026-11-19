@@ -499,6 +499,7 @@ P:NPC {
   key = "dal_alfina", id = TODO_NPC("Alfina Nightgaze"), name = "Alfina Nightgaze", title = "Druid Trainer",
   bible = "bibles/dalaran.md", role = "trainer", tier = "quest",
   communities = { "dalaran", "kirin_tor" }, temper = { "steady", "sharp" }, values = { "learned", "wary" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Night-elf druid; her people lost a homeland to the Legion Azshara called, and fel is the worst of what she fears in this city." },
   notices = { "class", "arcane" },
 
   impression = {
@@ -507,6 +508,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My people drowned a homeland the last time someone reached for the Legion. Keep that filth away from my seedlings and away from me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I did not come to Dalaran to share the air with a demon-caller. Say what you need, and go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have stood by my seedlings a dozen times, and not one of them has withered. I still don't like what you are, but I'll admit I was wrong about that much." },
     { id = "g_default", text = "Wondrous, isn't it? It sets my teeth on edge." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid among the towers! Come, stand with me a moment." },
     { id = "g_nightelf", when = { race = "NightElf" }, text = "Ishnu-alah. You're a long way from the great tree." },
@@ -523,6 +527,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Queen Azshara opened the door your masters walked through, and my people paid for it with the sea. Every growing thing in this room is leaning away from you, warlock, and so am I." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The seedlings still lean away from you, but I've stopped doing the same. Sit, if you must." },
         { id = "h_default", key = true,
           text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the sea still sits where our capital used to be, yet here I am, teaching the Skyborne's druids among the towers." },
         { id = "h_druid", when = { class = "DRUID" },

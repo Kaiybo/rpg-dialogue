@@ -9,6 +9,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "serene" }, values = { "protective", "firm" },
   likesTone = "polite",
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Son of Cenarius, slain by orcs drunk on Mannoroth's blood; fought the Legion at Hyjal." },
   notices = { "form", "fel", "race" },
   impression = {
     first = "A quiet sadness creeps in when he asks about Teldrassil's new tree.",
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My father died to orcs drunk on a demon's blood, and you drink from the same well. You may rest in this glade, but do not mistake me for your friend." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Something of the Nether walks in my father's glade again. Speak, mortal, and keep it away from the water." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have come to Moonglade often and kept its peace each time. I still feel the Nether on you, but I will grant that you have not let it loose here." },
     { id = "g_glade", text = "Be welcome in Moonglade, little one. Every creature that comes in peace may rest here." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A child of the Circle. Come, walk with me a little, for the glade is glad of you." },
     { id = "g_initiate", when = { origin = "nightelf_druid_initiate" }, text = "One of the Circle's sleepers, newly woken, and still rubbing the Dream from your eyes. Come, little one, for the glade is the one place in this world that stayed as you left it." },
@@ -265,6 +269,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my father's glade. The trolls speak to their loa and the Forsaken to whatever answers them, and either way you are welcome here, little one, so long as you come in peace." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A shadow-walker, in my father's glade. There is nothing to steal in Moonglade, little one, and nobody to hide from, so you may walk in the open here." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Moonglade. The kaldorei learned the price of the arcane when the Well of Eternity tore the world apart, little one, so forgive my druids if they watch your hands." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I fought the Legion at Hyjal beside my father's children, and I know what you have bound. The glade's peace protects you, not my goodwill." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You return, and the glade remains unharmed. I will hear you, though I have not forgotten what follows you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Something of the Nether walks in my father's glade. You may rest here in peace, as any guest may, but what you carry is the very thing my druids give their lives to cleanse." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in my father's glade. The spirits walk with you, little one, and I am curious what led a child of the mountain to them." },
       },
@@ -1204,7 +1210,7 @@ P:NPC {
 P:NPC {
   key = "loganaar", id = TODO_NPC("Loganaar"), name = "Loganaar",
   bible = "bibles/nighthaven.md", role = "trainer", tier = "service",
-  prejudice = { race = "Scourge", amount = 12, why = "a druid of balance who feels the Forsaken as a crack in the cycle of life and death" },
+  prejudice = { { race = "Scourge", amount = 12, why = "a druid of balance who feels the Forsaken as a crack in the cycle of life and death" }, { class = "WARLOCK", amount = 10, why = "Druid of balance who sees the fel as hunger with no place on the scale at all." } },
   communities = { "nighthaven" }, temper = { "calm" }, values = { "balance", "kind" },
   notices = { "class" },
   impression = {
@@ -1213,6 +1219,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "There's no balance in the fel, only hunger, and you've chosen to feed it. I'll teach whoever comes, but I won't pretend I'm glad to see you." },
+    { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your hungry thing quiet in Nighthaven every time. I'm still watching the scale, but it hasn't tipped yet." },
     { id = "g_pj_dead", when = { prejudiced = true }, text = "One of the Forsaken, in Nighthaven. Honesty sits easier here than politeness, so I'll say it: everything that lives goes back to the soil, and you didn't, and I can't look at you without feeling the cycle has a crack in it." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I was unkind to you once, in my head if not aloud. I've thought about it since, and I think the crack in the cycle was never yours to mend, so sit, if you like." },
     { id = "g_calm", text = "Peace, friend. Even inside these stone walls it's there, if you stop long enough to find it." },
@@ -1356,6 +1364,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in Nighthaven. Balance is something you carry, priest, and yours looks heavier than most, so sit, if you'd like to set it down for a moment." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, in Nighthaven. You carry your balance on the balls of your feet, I see, which is good for a quick exit and poor for sitting still." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Nighthaven. You carry power enough that the grove can feel it, and power is the heaviest thing there is to keep in balance." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I keep the balance, and the fel has no place on the scale at all. Speak your business, and keep your servant out of the glade." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the scale still steady. All right; what can I do for you?" },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Balance is something you carry, and yours has something heavy and hungry sitting on one side of the scale, so I'd guess it's hard going." },
       },
       again = {

@@ -12,6 +12,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
   likesTone = "blunt", private = { "malfurion" },
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 15, why = "Led the Sisterhood against the Legion at Hyjal and buried hundreds of priestesses; holds every demon-caller answerable." },
   notices = { "fel", "race", "class", "form" },
   impression = {
     first = "She speaks as though Elune is listening, and perhaps she is.",
@@ -19,6 +20,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood beneath Nordrassil while the Legion burned our forests, and I know the stench of its servants. Keep that creature leashed in my temple, or my priestesses will put it down." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Elune grants her light to all who seek it, but I am not Elune. Speak, demon-caller, and be brief." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have walked these halls many times, and nothing foul has followed you out of them. I will not call you friend, but I will hear you." },
     { id = "g_temple", text = "You stand in the Temple of the Moon, so speak plainly. Elune hears everything said here, and I have little time for what she would not care to hear." },
     { id = "g_kin", when = { race = "NightElf" }, text = "Ishnu-alah, child of the kaldorei, and Elune's light be on you. Tell me what you need of me." },
     { id = "g_back", when = { metBefore = true }, text = "So you have returned. Good; those who come back to me usually have something worth saying." },
@@ -285,6 +289,8 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You return, and I find I am glad of it, which is rarer in this temple than you might think. Speak freely, friend of the kaldorei." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk softly, and I notice it, because the Sentinels taught me to. Elune's priestesses have hidden in the dark for ten thousand years, so I don't think less of anyone who does the same for a good cause." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Sisterhood buried hundreds at Hyjal because mortals bargained with the Legion, as you have. Say what you came to say, and summon nothing beneath this roof." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I have watched you as I would watch any blade drawn near my people, and you have not turned on us yet. Speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The thing you have bound to you stands in my temple, and I am letting it. Do not mistake that for welcome." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of Elune's forests. The Sentinels ride with hunters on every border we hold, and I am glad of each bow that joins them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits. Elune's light falls on all who come in peace, though in ten thousand years I have not seen your path among our allies before." },
@@ -1144,6 +1150,7 @@ P:NPC {
   key = "mathrengyl", id = TODO_NPC("Mathrengyl Bearwalker"), name = "Mathrengyl Bearwalker",
   bible = "bibles/darnassus.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Cenarion druid of Malfurion's teaching; has spent millennia mending what fel does to living things." },
   notices = { "form", "class" },
   impression = {
     first = "Every question gets a patient answer from him, even the foolish ones.",
@@ -1151,6 +1158,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent ten thousand years mending what the fel does to living things, and you carry it by choice. Keep your distance from my students." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come to the Enclave often enough without harm, and I'll admit as much. I still smell the fel on you, though, and I've not stopped minding it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Elune-adore, young one. The Enclave's doors are open to you, and so is my time." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
@@ -1345,6 +1354,8 @@ P:NPC {
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
           text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be, only that it plays before it bites." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You smell of the arcane, {class}, like smoke caught in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and so would every bear I ever trained. State your business, and do not call your servant up beneath these trees." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again. You've given me no cause to put you out, which is more than I expected of a demon-caller. Ask your question." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, and every one of them would be growling at you now. Something about you smells wrong." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students still crash through the underbrush like tauren, and they could stand to watch you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },

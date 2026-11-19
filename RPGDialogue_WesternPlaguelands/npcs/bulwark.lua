@@ -1186,6 +1186,7 @@ P:NPC {
   key = "garush", id = TODO_NPC("Argent Officer Garush"), name = "Argent Officer Garush",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "argent_dawn" }, temper = { "steady" }, values = { "honorable", "fair" },
+  prejudice = { class = "WARLOCK", amount = 14, why = "An old orc who watched Gul'dan's warlocks bring the blood-curse on his people." },
   notices = { "race", "class" },
 
   impression = {
@@ -1194,6 +1195,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Gul'dan's warlocks taught my people to drink demon blood, and I spent half my life paying for it. You stink of the same pit, so speak and then step away from me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Dawn tells me to stand beside anyone who fights the dead. It does not tell me to like it, warlock." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have fought the dead beside us often enough that the officers stopped asking about you. I have not stopped watching, but I will say it: you fight well." },
     { id = "g_dawn", text = "For the Dawn, friend! Say it with me, and say it like a war cry, because out here it is one." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you've brought me stones or a story. I'll gladly take either one." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "A knight of the old Silver Hand, risen, and the Light still comes when you call it? The Dawn has room for you, friend, and nobody under this banner will tell you otherwise." },
@@ -1291,6 +1295,8 @@ P:NPC {
           text = "A report from Everlook, in Gregor Greystone's hand? He writes small and I read slowly, but we always get there in the end." },
         { id = "h_pureheart", when = { metBefore = true },
           text = "Officer Pureheart's at Chillwind Camp on the Alliance side, and the two of us write to each other. Ten years ago one of us would have killed the other, and now we argue about rations." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father wasted away in the internment camps when the demon's blood finally left him, and it was warlocks who gave it to him. I serve the Dawn, so I will hear you, but do not ask me to smile." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The blood-curse was not your doing, and I have had to remind myself of that more than once. Say what you need." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "I saw what the old Horde's warlocks made of my people, {name}, the blood-curse and the madness. You carry the same stink, and I'll not pretend I'm glad to see you." },
         { id = "h_magecl", when = { class = "MAGE" },

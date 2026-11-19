@@ -7,6 +7,7 @@ P:NPC {
   key = "thomas", id = TODO_NPC("Guard Thomas"), name = "Guard Thomas",
   bible = "bibles/thomas.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "lawful", "brave" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "His father died in the Second War under fire the Horde's warlocks called down." },
   notices = { "kit", "death" },
   impression = {
     first = "He hasn't forgotten the two men he sent north along the river.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My father died in the Second War under fire the Horde's warlocks called down. You'll stay on the east side of this bridge, and that's my last word." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Two of my footmen went upriver and never came back, and I'll not lose a third to whatever walks behind you. Keep your distance." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've helped on this bridge more than once, and I've not forgotten it. I still don't like what you carry, and I'll still be watching it." },
     { id = "g_business", text = "State your business with the Stormwind Army." },
     { id = "g_search", when = { questActive = TODO_QUEST("Find the Lost Guards") }, text = "Have you found anything? Look north along the river, citizen; anything at all will help." },
     { id = "g_after", when = { questDone = TODO_QUEST("Report to Thomas") }, text = "Citizen, you have my thanks still, and you always will." },
@@ -160,6 +164,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you can read tracks, I've some by the lake I'd like explained, and none of them are friendly." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf at my bridge. If you've come from the east, you'll know the forest grows less friendly with every mile." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a look about you I don't care for, friend. I'll take what help I can get on this bridge, but whatever walks with you stays on the east side of it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know that smell, and I know what it means. Whatever walks with you stays across the river, and so do you, unless you've good reason." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "It's you again. You've done this bridge some good, so come across, though your friend still waits on the other side." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Prowler", min = 20 } }, text = "Fewer prowlers on the road these past nights, and the loggers say it's your doing. That's one less thing for me to watch from this bridge, and I'm grateful for it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I asked Marshal Dughan for soldiers and got you, and you'll do. Can your spirits find my two missing men?" },
       },

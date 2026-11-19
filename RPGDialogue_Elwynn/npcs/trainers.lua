@@ -1209,6 +1209,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 10, why = "Lives over the inn cellar; a summoning last winter scorched the boards under her bed." },
   notices = { "travel", "form" },
   impression = {
     first = "She looked at my boots with something close to envy.",
@@ -1216,6 +1217,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I hear what goes on in that cellar through the floorboards every night, and I know you're part of it. Don't bring it up these stairs." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "One of your fellows called something up last winter, and it scorched the boards beneath my bed. Say what you want and then go back down." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never once brought that chanting up these stairs with you. I'll talk with you, though I'll keep the candles lit while I do." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Welcome, friend in the Light. Come in from the noise." },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn away from the Light, friend, whatever road you're on." },
   },
@@ -1347,6 +1351,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and Zaldimar Wefhellt's student, no doubt. He's just across the hall, though he pretends not to hear our prayers." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You've come up from the cellar, haven't you? I know the smell now, and I know what you call down there, so please don't pretend otherwise with me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Oh, it's you. You're the quiet one from downstairs, and I've mostly stopped jumping when you knock." },
           text = "You're from the cellar downstairs. I can hear them chanting some nights, right through the floorboards, and it makes the candles gutter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior up here, among the candles. You've come a long way from the common room, and you'll want something more than ale, I hope." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, up all those stairs. I hope your companion didn't take them too fast; Farley's carpet is older than he is." },

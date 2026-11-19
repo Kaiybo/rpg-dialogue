@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "major",
   communities = { "chillwind_camp" }, temper = { "steady", "proud" }, values = { "dutiful", "brave" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Buried soldiers at Andorhal who trusted a demon-caller; the Cult began with people who thought the dark could be leashed." },
   notices = { "class", "kit" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I buried good men who trusted a demon-caller at Andorhal. Fight the Scourge if you must, but you'll do it where I can see you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You're a warlock, and every soldier in this camp knows it by now. Keep your conjuring outside my palisade, or I'll have you walked out of it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've bled for Chillwind and kept your demons out of my camp, and I've noticed both. I'll still post a guard on you, but he can stand a little further back." },
     { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "A Silver Hand initiate out of Ironforge! Your Order held together under the mountain when ours came apart up here, soldier, and Chillwind is glad of anyone who kept the oath." },
@@ -136,6 +140,8 @@ P:NPC {
           text = "There's the soldier I'd pick first, if Stormwind ever let me pick anyone. Come in by the fire and tell me what the farms looked like today." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. Say your business and get on the road, because I've no time for anyone I can't count on." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Let's not pretend, warlock. The Cult of the Damned started with folk who thought they could keep the dark on a leash, and I've spent this whole war burning what's left of them in Andorhal. Say your business." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again, and the gate guard didn't even send for me this time. Don't make me regret telling him to stand down." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll say it plain: there's a smell of sulphur about you I don't like, {name}. But I like the Scourge less, and I'm short of soldiers by about two hundred." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },

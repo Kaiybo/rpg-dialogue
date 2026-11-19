@@ -7,6 +7,7 @@ P:NPC {
   key = "dughan", id = TODO_NPC("Marshal Dughan"), name = "Marshal Dughan",
   bible = "bibles/dughan.md", role = "questgiver", tier = "major",
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" }, likesTone = "polite",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran who saw what the Horde's warlocks did to men on the line; leaves the inn cellar alone on orders, not by choice." },
   notices = { "reputation", "bounty" },
   impression = {
     first = "He looks at me like one more pair of hands.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what you are, and I know where you sleep, under the Lion's Pride. I'm told to leave that cellar alone, so I will, but don't mistake an order for a welcome." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "In the Second War I saw what the Horde's warlocks did to the men on the line. You'll forgive me if I keep my hand near my sword while we talk." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Goldshire, and I've counted every time. I still don't like what follows you, and I'll still be watching it." },
     { id = "g_op_peace_against", when = { gossip = { topic = "peace", stance = "against" } }, text = "Farley tells me you'd never make peace with the orcs. Good, keep that, but save it for the orcs, and not for every Defias in a scarf." },
     { id = "g_op_varian_dead", when = { opinion = { topic = "varian", stance = "dead" } }, text = "Ah, it's you. I'll ask you again not to tell my farmers the king is dead; they've enough to frighten them with the gnolls." },
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },
@@ -228,6 +232,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and I've no blessed idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my square, out in the daylight. Say your business plainly, and then go back down to that cellar where I don't have to look at you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I've stopped reaching for my sword when you walk in, which is more than I can say for the rest of that cellar's lot." },
           text = "You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone. Keep your voice down in my square." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Light's sake, the last shamans I saw were burning farms for the Horde, but I need hands, and yours look steady." },
       },

@@ -8,6 +8,7 @@ P:NPC {
   key = "tharnariun", id = TODO_NPC("Tharnariun Treetender"), name = "Tharnariun Treetender",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "patient" }, values = { "healing", "curious" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Druid nursing corrupted bears; blames fel taint for the sickness." },
   notices = { "pet", "form" },
   impression = {
     first = "He wants a sick bear brought alive, which says most of it.",
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My bears are sick with something foul, and you walk in smelling of foulness. Stay back from the cages, because I'll not risk it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've helped more than you've harmed around Auberdine, I'll give you that. I still keep you away from the cages." },
     { id = "g_bears", text = "Mind the cage, friend; it is empty now, but I hope it will not stay that way for long." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with all your fingers. The bears have not had the better of you yet, I see." },
     { id = "g_hope", when = { questDone = TODO_QUEST("Tharnariun's Hope") },
@@ -126,6 +129,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The thistle bears will come at you foaming, and I'd ask you to remember that they're sick, not savage." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then you may understand that a sick bear is still a patient, even if it is a patient that wants to tear your arm off." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Whatever is poisoning my bears, your kind has poisoned better forests than this one. Say your business from where you stand." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The bears don't growl at you as much as they did, and nor do I. What is it?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever trails you well back from my bears. Whatever is souring their blood smells a good deal like it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Thistle Bear", min = 20 } },
           text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But one brought to me alive could teach me more than a hundred carcasses." },

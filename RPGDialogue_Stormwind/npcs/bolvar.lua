@@ -9,6 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "lawful", "brave", "honest" },
   likesTone = "blunt",
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Silver Hand paladin who fought Gul'dan's warlocks and their raised dead in the Second War." },
   notices = { "reputation", "paladin" },
   impression = {
     first = "He looks tired in the way only honest men get tired.",
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I fought Gul'dan's warlocks in the Second War, and I've not forgotten what they made of the dead. You stand in this hall because the law allows it, not because I do." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Light has given me no reason to trust what you carry, and the war gave me every reason not to. Be brief." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've served Stormwind well, and I'll not deny it before the court. Still, I'd sleep easier if you laid that craft down." },
     { id = "g_op_argent", when = { gossip = { topic = "argent_dawn", stance = "admire" } }, text = "Lord Rall tells me you favour the Argent Dawn. So do I, quietly, and I'd thank you to keep it quiet, since the Crusade still has friends at court." },
     { id = "g_op_peace_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "I'm told you've no use for peace with the Horde. Keep that sword sharp, then, but point it where I tell you, and not at Theramore's envoys." },
     { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "The king tells me you think orcs understand nothing but the sword. I fought them in the Second War, so I won't argue, but I'd thank you not to teach it to a ten-year-old." },
@@ -228,6 +232,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Shaw tells me you're one of his, or near enough. I don't ask him how his people do their work, and I trust I'll never need to ask you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock, standing openly in the king's hall. I fought your craft in the Second War and buried good men because of it, so say your business plainly." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again, and once more you've come openly. I respect that much, though I'll not pretend I've made peace with what you are." },
           text = "The Church tells me what's kept under the Slaughtered Lamb, and the Church is not pleased, nor am I. You stand in my hall openly, though, so I'll hear you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The kingdom's roads run longer than its soldiers can walk, and I'm grateful for anyone who knows the wilds past Elwynn." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei in the Regent's hall. Your people's envoys have been unfailingly courteous, and I'd like Stormwind to deserve that courtesy." },

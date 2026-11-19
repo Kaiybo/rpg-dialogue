@@ -8,6 +8,7 @@ P:NPC {
   key = "delavey", id = TODO_NPC("Bishop DeLavey"), name = "Bishop DeLavey",
   bible = "bibles/keep_court.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "steady", "sharp" }, values = { "discreet", "pious" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "The Church's voice at court; calls demon-binding a sin and won't excuse it in his own chamber." },
   notices = { "priest", "noble", "rogue" },
   impression = {
     first = "He trusts a fisherman and a cheesemaker more than the courtiers.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I'll not pretend to welcome you in my own chamber. The Church calls what you do a sin, and so do I." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Every soul the Church has lost to the shadow began by thinking they could master it. Speak, and then go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've proved more honest than I feared, I'll admit. I still won't bless your work, but you may sit." },
     { id = "g_court", text = "Keep your voice low, please. The Chamber has more ears than chairs." },
     { id = "g_diplomat", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "Any word? Quietly, now." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of the Cathedral's own, in this den of petitions. Welcome." },
@@ -112,6 +116,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at court is usually here to petition about the Slaughtered Lamb, and I confess I'm usually on their side. Speak plainly, and quietly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you practise, and I'll name it plainly in my own chamber: demonology, and a sin. You may speak, but you'll get no blessing from me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've been honest with me, which is more than I expected, so sit, though the Church's judgement hasn't changed." },
           text = "I can tell what you are, and I'll not pretend otherwise in my own chamber. You're welcome to speak, though, because the Light has never closed its ears to anyone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at court. I'm sure you've opinions on how the kingdom's soldiers are spent, and I'm sure no one here has asked for them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, before the throne. I'll ask you to keep your animal close; some of the nobles here startle easily, and complain longer." },

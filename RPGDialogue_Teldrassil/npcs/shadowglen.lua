@@ -229,6 +229,7 @@ P:NPC {
   key = "melithar", id = TODO_NPC("Melithar Staghelm"), name = "Melithar Staghelm",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "earnest" }, values = { "dutiful", "patient" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Tends Aldrassil's roots and has watched the Gnarlpine go mad from fel rot." },
   notices = { "class", "form" },
   impression = {
     first = "He is so earnest that I lowered my voice near the roots.",
@@ -236,6 +237,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I won't have a demon-caller at Aldrassil's roots. Say your piece from the ramp, please, and come no closer." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The roots stay still when you come now, or nearly. I don't understand it, and I'm not sure I like it, but I'll hear you." },
     { id = "g_tree", text = "Peace, young one. Aldrassil is listening, as it always is. Speak kindly near it." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, young one, and Aldrassil has been listening for your step. Speak kindly near it, as before." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first walked under these roots, and Aldrassil knows it. I think it's pleased, in its quiet way." },
@@ -348,6 +351,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Lower your voice near the roots, please, because Aldrassil has heard enough clashing steel for one age." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The young ones of Aldrassil learn the bow and the beast together, and I'm glad to see one who has stuck with it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, beneath Aldrassil! Forgive me for staring, but I've never seen one this close to the old tree, and I can't help wondering whether it hums for you as it hums for us." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Gnarlpine went mad from the same rot you carry, and I won't let it near Aldrassil. Speak from where you are." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've come and gone without the roots shuddering, mostly. Say what you need, and I'll try not to stare." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The roots of Aldrassil shivered when you came up the ramp. Keep whatever follows you away from them, because the old tree has felt enough of the fel already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak softly near the roots, for I believe Aldrassil hears every word, as the old forests of Ashenvale did. Do your spirits hear it too?" },
       },

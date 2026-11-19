@@ -11,6 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
   likesTone = "polite",
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Faol's student; his mercy is wide, but he will not bless demon-binding." },
   notices = { "light", "affliction", "form" },
   impression = {
     first = "He makes a vast cathedral feel like a small chapel.",
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light's mercy is wide, child, but there is a darkness on you I will not bless. Say what you came to say." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I have sat with the families of those the Horde's warlocks killed, and I cannot pretend I don't remember them. Speak, and I will listen." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I have prayed over you more than once, and still you come back. Perhaps the Light isn't finished with you after all." },
     { id = "g_peace", text = "Peace, child. The Cathedral is open to everyone. Even the tired." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of ours. Sit, if you've a moment, because you rarely will, later." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Duthorian's latest, I suspect, and he speaks well of very few. Welcome." },
@@ -116,6 +120,8 @@ P:NPC {
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
           text = "You've been inside Stratholme, I'm told, and come out again, which is more than the city's own people managed when the plague came. I'll say a prayer tonight for the ones who still walk its streets." },
         { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me, and where he built it to hold people, I try to keep its doors open." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There is a darkness on you that the Cathedral's light shows plainly, child. I will not turn you from these doors, but I will not bless what walks with you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have returned again, and the shadow with you. I still pray you'll set it down one day, and I am still watching for that day." },
         { id = "h_priest", when = { class = "PRIEST", minLevel = 20 },
           text = "You've grown since you first knelt here, child. The Light hasn't changed, but you have, and that is how it's meant to work." },
         { id = "h_eye", when = { questActive = TODO_QUEST("Cleansing the Eye") },
@@ -469,6 +475,7 @@ P:NPC {
   key = "gazin", id = TODO_NPC("Gazin Tenorm"), name = "Gazin Tenorm",
   bible = "bibles/gazin.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "lawful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Keeps watch at the altar for Henze's sake; sure demon-callers bring the dark into holy places." },
   notices = { "paladin" },
   impression = {
     first = "He would sooner be out searching for his friend than praying.",
@@ -476,6 +483,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know that stink, an' it's no' incense. Get away from the altar before I drag ye from it by the collar." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Henze nearly went into the dark for good, an' I'll no' have yer kind bringin' more o' it in here. Say what ye want an' be quick." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've kept yer filth out o' this hall every time ye came. Pray, if ye like, but I'm still watchin'." },
     { id = "g_altar", text = "Aye? Make it quick, I've a friend tae worry about." },
     { id = "g_symbol", when = { questActive = TODO_QUEST("The Symbol of Life") }, text = "Ye've got the Symbol? Then go, because Henze cannae wait." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Symbol of Life") }, text = "There's the {g:lad|lass} who brought Henze back. Stand a moment so I can look at ye." },
@@ -570,6 +580,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ye move like Henze did, quiet an' careful. Did Shaw send ye, or are ye one o' the Defias come tae finish the job?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock at the altar, bold as brass. Ye'll keep yer distance, an' ye'll keep that wee beastie further off still." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ach, it's you again. Ye've never brought yer filth near the altar, I'll grant ye, so speak, but I've an eye on ye." },
           text = "Keep yer distance from the altar, would ye? I've no quarrel wi' ye, but the priests here go pale when yer kind walks in." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, aye. If Henze had had a warrior at his back that night, mebbe he'd be standin' here instead o' me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know how tae follow a trail, then, which is more than the king's advisors seem able tae do with the one Henze an' I left 'em." },
@@ -1835,6 +1847,7 @@ P:NPC {
   key = "crowley", id = TODO_NPC("Brother Crowley"), name = "Brother Crowley", title = "Scarlet Crusade Emissary",
   bible = "bibles/benedictus.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
+  prejudice = { class = "WARLOCK", amount = 15, why = "Scarlet Crusade emissary; in Lordaeron the Crusade burns demon-callers, and he would gladly." },
   notices = { "light", "race", "form" },
   impression = {
     first = "His certainty about everything stays with me afterward.",
@@ -1842,6 +1855,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "In Lordaeron we'd have put you to the torch, and the Crusade would have sung while you burned. Speak quickly, and pray Stormwind stays soft." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Legion's craft brought the plague down on my homeland, and you carry it like a purse. I'll not soil my hands on you here." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done the Light's work despite yourself, and the Crusade notes such things. Don't mistake that for forgiveness." },
     { id = "g_default", text = "You've found your way downstairs, good. The Crusade needs people who don't mind a few steps for the Light." },
   },
 
@@ -1973,6 +1989,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The plaguelands are full of beasts twisted by the Scourge, and the Crusade needs eyes that can tell a sick wolf from a healthy one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Crusade has seen what the plague does to beasts and green things in the north, and I'd know whether your craft can burn it out or only soothe it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You reek of the Burning Legion's craft, and you dare to stand in this Cathedral? Speak quickly." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A demon-caller, in the Cathedral of Light, without shame. In Tyr's Hand they'd have you in chains by now, and I'd have held the key." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've returned, and still I've had no cause to call the guard. The Crusade's eyes remain on you all the same." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The orcs who butchered Lordaeron's villages spoke to spirits too, and the Crusade has a long memory for such things." },
       },
       again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },

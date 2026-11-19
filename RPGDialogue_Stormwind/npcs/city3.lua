@@ -691,6 +691,7 @@ P:NPC {
   key = "thelwater", id = TODO_NPC("Warden Thelwater"), name = "Warden Thelwater",
   bible = "bibles/city3.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "A warlock prisoner's summoned thing killed one of his guards in the Stockade cells." },
   notices = { "soldier", "stealth" },
   impression = {
     first = "He looks like a man who has stopped opening his letters.",
@@ -698,6 +699,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "No. No, not in my Stockade. The last warlock in these cells called up something that killed one of my guards, and I'm still writing the reports." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know what you are, and I want you out of here before something follows you in. Say it quickly, please." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been in and out of here a dozen times, and nobody's died. I'll take that, though I'd still like you nearer the door." },
     { id = "g_quiet", text = "Yes? Quickly, and quietly, please, because everything about this place should be quiet, especially lately." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you, good. No, I mean it: you're the only one who's ever made things better down there." },
   },
@@ -819,6 +823,8 @@ P:NPC {
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I know your face from the canal sweeps, years back; you were too small to keep and too quick to catch. Don't make me regret letting you go, please, not this week." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my Stockade, of all the places in the city. Keep your hands still and your creature outside, or I'll have you put in a cell of your own." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "It's you, and nothing's gone wrong yet. Please keep it that way, because I can't afford another inquiry." },
           text = "Please don't call up anything in here. I've had one of the Lamb's crowd in the cells before, and the thing he brought didn't care which side of the bars it was on." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to sign on with the Stockade guard, I've a place for anyone who can stand a long shift and a bad smell." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't bring the beast near the Stockade gate; the prisoners bang on the bars at anything with four legs." },

@@ -192,6 +192,7 @@ P:NPC {
   key = "xaiander", id = TODO_NPC("Xai'ander"), name = "Xai'ander", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "intense", "grim" }, values = { "defense", "vigilance" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Forged blades for Sentinels who died on Warsong axes; blames demon-craft for the orcs' rage." },
   notices = { "class", "race" },
   impression = {
     first = "His blades are good, and his anger at the orcs is close.",
@@ -199,6 +200,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've forged blades for Sentinels who died on Warsong axes, and it was demon-craft that put the rage behind those axes. Buy what you need and go." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My forge is hot and my patience isn't. You'll get no welcome from me, demon-caller." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've paid honestly and never once called up that creature in my shop. Fine. I'll sell to you without glaring, mostly." },
     { id = "g_default", text = "If you're fighting for Ashenvale, I'll arm you. If you're not, there are other shops, though none this side of the Falfarren that the Sentinels trust." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. How many orcs did that blade see?" },
   },
@@ -310,6 +314,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, because the orcs won't wait for you to finish your prayers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you've seen orcs at war, and you'll understand why I don't sell anything blunt or badly made." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Warsong are felling the old trees by the dozen, and I'll wager you feel every one of them come down." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's warlocks gave the orcs their bloodlust, and the orcs gave Ashenvale its graves. Don't expect me to smile at one of his heirs." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You're back. I'd still sooner you weren't, but your coin has been honest. What will it be?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The Warsong drank demon blood before they ever came to these woods, and you carry a whiff of the same. I have no wish to see that craft again." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Orc shamans call lightning down on Astranaar's scouts, so don't be surprised if I flinch at your totems." },
       },

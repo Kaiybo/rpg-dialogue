@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "questgiver", tier = "major",
   communities = { "rogmar" }, temper = { "proud", "steady" }, values = { "brave", "stern", "loyal" },
   race = "Orc", likesTone = "blunt", private = { "internment" },
+  prejudice = { class = "WARLOCK", amount = 14, why = "Remembers Gul'dan's warlocks and the blood-curse; the Hammer's orcs grew from the same poison." },
   notices = { "class", "race", "kit" },
 
   impression = {
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Gul'dan's warlocks sold my people to the demons, and the Horde is still paying for it. Speak, and keep that thing on its chain." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The orcs who went to the Hammer in these glades started where you stand now. Do not expect my trust, only my orders." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have bled against the Hammer, and I have seen it. The Warchief says we judge by deeds, and yours are good, so I will try to forget the rest." },
     { id = "g_default", text = "Speak quickly. Krol'dok does not rest, so neither does the Horde." },
     { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, and this season that counts for something." },
     { id = "g_hero", when = { townStanding = { town = "rogmar", min = 55 } }, text = "Make way for this one; Rog'mar owes them blood and remembers it." },
@@ -64,6 +68,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up quiet. One human assassin broke the old Horde's siege of Farholde that way, twenty years ago, so I don't laugh at knives in the dark." },
         { id = "h_hpriest", when = { class = "PRIEST" }, text = "A priest. The cultists pray too, and their prayers bleed, so show me what yours can do." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The cultists hold a human tower in Sunnyglade and do things with it at night, and I would like it burned by someone who understands what burns." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know your kind. Gul'dan's warlocks poured demon blood down our throats and called it strength, and the Twilight's Hammer grew from that same poison. Say what you want, and say it quickly." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You fight the Hammer like an orc of the true Horde, and I have stopped looking for the demon in your eyes. Speak." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I smell the old sickness on you. The Horde has made use of your kind before, and paid for it, so keep that demon on a short chain in my hall." },
         { id = "h_shamcl", when = { class = "SHAMAN" }, text = "A shaman. The spirits along this river are angry, and I would know whether they are angry at the Hammer or at us." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The glades round Sunnyglade are sick with the Hammer's work, and I'm told your kind feels that like a wound." },

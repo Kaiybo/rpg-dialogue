@@ -13,6 +13,7 @@ P:NPC {
   key = "zep_rorian", id = TODO_NPC("Rorian the Dayseeker"), name = "Rorian the Dayseeker",
   bible = "bibles/zephras.md", role = "questgiver", tier = "quest",
   communities = { "zephras_isle" }, temper = { "steady", "proud" }, values = { "dutiful", "patient" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Guards the young and the old gifts; warlockry is the Highborne sin his people fled." },
   notices = { "kin", "stranger", "class" },
 
   impression = {
@@ -21,6 +22,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "We came through ten thousand years without your sort of power, and we'll come through ten thousand more. Say your piece and keep away from the young." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I will not have a demon-caller near the children on the day they take their relics. State your business, stranger." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've walked this grove a good while, and not one of the young has come to harm by you. I'm still watching, mind, but I'll stop calling the rangers." },
     { id = "g_child", when = { race = "Skyborne" }, text = "Speak, child of Zephras, and tell me what you need. The grove is never quiet for long." },
     { id = "g_guest", when = { ["not"] = { race = "Skyborne" } }, text = "A guest in Thendal Grove. Gale's greetings to you, and mind the edges of the paths." },
     { id = "g_again", when = { metBefore = true }, text = "Back again. Good; I'd rather see you twice than hear of you once from a ranger." },
@@ -42,6 +46,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you call on, stranger. Our forebears ran from Eldre'Thalas to be free of it, and I'll not see it brought into Thendal Village where the young can watch." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the rangers didn't send for me first this time. Speak, then, and keep it short." },
         { id = "h_default", key = true, text = "I am Rorian, and Thendal Village is in my keeping, which mostly means the young are. Our people have come through ten thousand years of hardship, and I mean to see this generation come through it as well." },
         { id = "h_coming", tags = { "news" }, when = { questActive = TODO_QUEST("Coming of Age") },
           text = "So you've come for your relic. Stand straight, child; this happens only once in a life, and I'd like you to remember it kindly." },

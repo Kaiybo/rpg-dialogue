@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/wilhelm.md", role = "trainer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "pious", "kind", "honest" },
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Fought in the Second War and saw what Gul'dan's warlocks made of good men; gives warlocks the fence and nothing more." },
   notices = { "kit", "affliction" },
   impression = {
     first = "He says he mends souls, and slowly.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I fought in the Second War, and I saw what Gul'dan's warlocks made of good men. Stay beyond my fence, and keep that creature further still." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You've no place at a paladin's door, and you know it. Say your piece from where you stand." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept to the fence every time I asked, and you've done good work in Goldshire. I'll speak with you, though I'll not forget what you carry." },
     { id = "g_op_forsaken_hate", when = { opinion = { topic = "forsaken", stance = "hate" } }, text = "Back again? Good. I've been thinking about what you said of the Forsaken, and I'd like you to stay for evening prayers before you go north." },
     { id = "g_default", text = "Brother Wilhelm. Mind the forge smoke, it gets everywhere." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Back for more? Good, sit down, if you can find a dry spot." },
@@ -144,6 +148,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll find no books here, only sweat and the Light, though a mage could do worse than learn a little of both." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You come to my door smelling of the fel, as bold as you please. I'll speak with you across the fence, and that's as near as you'll come." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've earned a word at my gate, I suppose, though I'll still keep my hammer where I can reach it." },
           text = "You come to my door with a shadow at your heel. I'll not turn you away, but I'll ask you to keep that creature beyond the fence, because the Light and it don't agree." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the paladin's yard. You're welcome here, and so is your companion, if it keeps off the practice dummies." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand straight enough, so I'd guess someone taught you well before you crossed the sea." },

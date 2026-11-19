@@ -443,12 +443,15 @@ P:NPC {
   key = "ranshalla", id = TODO_NPC("Ranshalla"), name = "Ranshalla", title = "Priestess of Elune",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "earnest" }, values = { "devout", "brave" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Priestess of Elune seeking altars that Highborne demon-bargains once defiled." },
   impression = {
     first = "She is braver than she is careful.",
     third = "{name} met Ranshalla, a priestess of Elune seeking the old altars of Winterspring.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Elune's altars in these hills were defiled once by those who bargained with demons. I'll not walk them lightly beside one of you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've walked the hills with me and the altars stayed quiet. I'm still wary of you, but I'll take your company." },
     { id = "g_default", text = "Elune's light on you, traveller. Have you come to walk with me to the altar?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I hoped you would, because the road to the altar is no safer than it was." },
   },
@@ -540,6 +543,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I'm a priestess of Elune, and I know exactly what you've bound. Speak, but keep your distance from me and from the altars." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The moonlight doesn't flinch from you as much as I'd feared. What do you need?" },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Whatever you carry doesn't sit easily with a priestess of Elune, but the hills are dangerous, and two walk to the altars more safely than one." },
         { id = "h_apaladin", when = { class = "PALADIN" },

@@ -5,7 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "corithras", id = TODO_NPC("Corithras Moonrage"), name = "Corithras Moonrage",
-  prejudice = { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." },
+  prejudice = { { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." }, { class = "WARLOCK", amount = 12, why = "Keeper of Dolanaar's moonwells; one is already fouled and he fears fel taint in the rest." } },
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class" },
@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "You'll stay well clear of the moonwells, demon-caller. One of them is fouled already, and I'll not have you near the others." },
+    { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've walked past my wells many times now and the water stayed clean. I'll stop counting your steps, though I'll keep counting the wells." },
     { id = "g_prej", when = { prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
@@ -147,6 +149,8 @@ P:NPC {
         { id = "h_delivered", when = { questDone = TODO_QUEST("Crown of the Earth") },
           text = "The vessel reached the Archdruid, I hear, and he said we took our time over it. We did, and the wells deserved that much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts drink from the moonwells as we do, and you would notice sooner than I if they had begun to sicken." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I can name what you carry, and so could any priest in Dolanaar. Keep it far from the water, or I'll send for the Sentinels." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the wells still clear. Say what you need, and keep your creature on the road." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever trails you well back from the moonwells of Dolanaar. Something has fouled one well already, and I'll not have it blamed on you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "One who speaks with spirits. Then perhaps you will taste what I taste in the third moonwell, for the Sentinels think I fuss over nothing." },
       },
@@ -681,6 +685,7 @@ P:NPC {
   key = "syral", id = TODO_NPC("Syral Bladeleaf"), name = "Syral Bladeleaf",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Carries the Council of the Forest's orders and won't let young Sentinels learn demons from a warlock." },
   notices = { "craft" },
   impression = {
     first = "He sorts his orders by which ones get someone hurt waiting.",
@@ -688,6 +693,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've made my decision about people who smell of sulphur, and you won't like it. You'll be watched from the moment you leave this tree." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Sentinels here are young, and I'll not have them learn what a demon looks like from you. Speak, and then go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "My reports say you've done honest work around Dolanaar, so I've written you down as tolerated. That is further than most of your kind get." },
     { id = "g_council", text = "Dolanaar welcomes those who welcome the land. Tell me, do you?" },
   },
 
@@ -830,6 +838,8 @@ P:NPC {
         { id = "h_sort", when = { metBefore = true }, text = "The Council sends more orders than Dolanaar has hands. I sort them by which ones get someone hurt if they wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Council always has more orders than hands, and hunters can carry the ones that lead into the deep wood." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Council of the Forest has work for the Circle's young as well as for the Sentinels, and I have more of it than I have druids to carry it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I made my decision about you before you reached the fire, demon-caller. Do your business quickly, and do it where my Sentinels can see." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've given me no reason to change my orders, and no reason to tighten them either. What do you need?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The Council sent me no orders concerning people who smell of sulphur, which means I'll have to decide for myself. I hope you will make that decision an easy one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. I have more orders than hands, and I sort them by which ones will get someone hurt if they wait, so perhaps your spirits can carry one or two." },
       },

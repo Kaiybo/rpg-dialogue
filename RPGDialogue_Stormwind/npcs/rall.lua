@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/rall.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "pious", "stern", "honest" },
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Spirit-sensitive paladin; the fel on a warlock sits on him like a draught from a grave." },
   notices = { "readiness", "humility" },
   impression = {
     first = "He calls the Light a debt owed to those who cannot repay.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I feel what you carry the way you'd feel a draught from an open grave. The doors are open to you, but I'll be standing between you and the altar." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Charity is owed to all, and I'll give you mine, but trust is something else. You'll have to earn that, and I doubt you will." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been here often enough, and done no harm I could find. Charity I've always given you; a little trust may be due as well, a very little." },
     { id = "g_op_crusade", when = { opinion = { topic = "scarlet_crusade", stance = "hardline" } }, text = "I hear you've a taste for the Crusade's way of doing things. Sit with me a while before you ride north, and let me tell you what Hearthglen was before the red." },
     { id = "g_test", text = "Ready? No one ever is, so come anyway." },
     { id = "g_wilhelm", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tome of Divinity"), days = 2 } }, text = "Wilhelm sent you, and he thinks well of you. Let us see if he's right." },
@@ -163,6 +167,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in the Cathedral district. The Light doesn't mind where you've been, but it does ask where you're going." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The fel hangs on you like smoke, and I'd know it anywhere. Say what you must, and then let these halls breathe again." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I still feel the cold when you come in, though I've stopped bracing against it, which I suppose is a start." },
           text = "The Cathedral's doors are open to you as they are to everyone, though you'll understand if I stand beside them while you're here." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll fight as hard as any paladin, I don't doubt, though without the Light behind you, you'll need to be twice as careful." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The paladins I test spend their days in halls and chapels, and I sometimes wish they'd spend a week in the woods with someone like you." },

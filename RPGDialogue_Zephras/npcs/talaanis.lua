@@ -8,6 +8,7 @@ P:NPC {
   key = "talaanis", id = TODO_NPC("Talaanis Shadowsong"), name = "Talaanis Shadowsong", title = "High Elder",
   bible = "bibles/talaanis.md", role = "noble", tier = "major",
   communities = { "zephras_isle" }, temper = { "steady" }, values = { "honest", "lawful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Her ancestors fled Eldre'Thalas rather than serve Tortheldrin's demon-feeding; she will not be warm to his kind of power." },
   notices = { "kin", "stranger" },
 
   impression = {
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Our ancestors fled Eldre'Thalas so they would never share a hall with your kind again, guest. You'll have my courtesy, and that is all." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know what you are, and the Council knows it too. Speak plainly, and be gone before the elders hear you are here." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have kept the Council's peace and kept your creature quiet, and I can't fault you for it. I still remember Tortheldrin, but I no longer see him when I look at you." },
     { id = "g_winds", text = "Winds be with you." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },
     { id = "g_back", when = { metBefore = true, race = "Skyborne" }, text = "Back again, child? The Council can spare me a moment, barely." },
@@ -112,6 +116,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock, on Zephras Isle. Our ancestors left everything they had rather than serve a prince who fed on demons, and I'll not pretend I'm glad you found your way here." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've come to the Council's door often enough now that I've stopped reaching for the guards. Say what you need, guest." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "You carry the Nether about you, guest, here on Zephras Isle. I'll speak with you, but you should know that our ancestors left Eldre'Thalas rather than kneel to a prince who drank from it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },

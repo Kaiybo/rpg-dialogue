@@ -6,6 +6,7 @@ P:NPC {
   key = "carlin", id = TODO_NPC("Carlin Redpath"), name = "Carlin Redpath",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "weary" }, values = { "loyal", "kind" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Saw the Cult of the Damned's dark-callers bring down Darrowshire and his brother Joseph." },
   notices = { "class" },
   impression = {
     first = "He has never quite forgiven himself for surviving Darrowshire.",
@@ -13,6 +14,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched men with that same darkness on them open Darrowshire to the dead. I can't help how I look at you, so don't ask me to." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Joseph died because the cult made deals with things in the dark. Speak, if you must, but stay over there." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Darrowshire, and I owe you for that, whatever else you are. I'll still say a prayer when you go, though, and you needn't ask what for." },
     { id = "g_chapel", text = "Light keep you, friend. Sit a moment, if you're not in a hurry; few people stop to talk to an old man about an old battle." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. I'd hoped you would, though I couldn't say why." },
     { id = "g_xrefugee", when = { origin = "human_lordaeron_refugee" }, text = "You came out of Lordaeron as a child, didn't you? Then you got further than most of Darrowshire did, and I'm glad of it, so sit and let me tell you about the town your family never got to see." },
@@ -153,6 +157,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and I saw your sort at Darrowshire, calling up horrors while my brother held the square. The Dawn says I must speak with you, so I will." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You came back, and you've done more for Darrowshire's ghosts than I ever managed. I still don't like what you carry, but I'm glad of you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll not turn you away, for the Dawn doesn't. But you've a look about you I saw on the Cult of the Damned's people at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin who died and came back with the Light still in hand. Joseph would have given anything to see that, because he always said the Light never leaves those who stand their ground." },
       },

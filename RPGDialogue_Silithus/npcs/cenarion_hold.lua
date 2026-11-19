@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/silithus.md", role = "soldier", tier = "major",
   communities = { "cenarion_hold" }, temper = { "steady", "proud" }, values = { "dutiful", "loyal", "kind" },
   likesTone = "polite",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Night-elf commander raised on the memory of Hyjal; sees demon-binding where the Twilight's Hammer began." },
   notices = { "class", "race", "form" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My forebears died at Hyjal to drive the Legion from this world, and you call its servants to your side. You will have the Circle's courtesy from me, and nothing warmer." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Keep the demon at your heel outside my hall. The Hold has enough darkness pressing at its walls without you carrying more in." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have bled for the Hold, and the Circle speaks well of you. I still do not trust what walks in your shadow, but I have begun to trust you." },
     { id = "g_default", text = "Ishnu-alah, and welcome to Cenarion Hold. Keep your blade for the silithid, and you'll find no quarrel here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back from the desert, and too many I sent out there did not. Sit, if you have a moment, and let Elune's light rest on you a while." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The hives are loudest at night, when the moon is high. I find I listen for them now, whether I want to or not, as my people once listened for the Legion." },
@@ -184,6 +188,8 @@ P:NPC {
           text = "A rogue. Vish Kozus will have marked you before you reached the gate, so do not take it amiss if he watches you; he watches everyone twice since... since the dig went wrong." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. The arcane lies thick and strange in this desert, and the crystals out in the sand sing with it; Larksbane will tell you more than I can, if you have the patience for a dwarf." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know the scent of the Legion, warlock; my people have remembered it for ten thousand years. Say what you have come to say, and then take that thing out of the Hold." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ishnu-alah, and I find I mean it, which surprises me. Keep your shadow quiet, and we will speak as we have before." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "You stand on the Circle's ground with something cold in your shadow. You are welcome so long as you fight what threatens the Hold, but the Twilight's Hammer began, I think, with people who were sure they could master what they summoned." },
         { id = "h_default", key = true,

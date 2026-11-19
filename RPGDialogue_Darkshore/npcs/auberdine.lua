@@ -817,7 +817,7 @@ P:NPC {
 P:NPC {
   key = "glynda", id = TODO_NPC("Sentinel Glynda Nal'Shea"), name = "Sentinel Glynda Nal'Shea",
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
-  prejudice = { race = "Dwarf", amount = 10, why = "Remtravel's diggers carry off carvings from Ameth'Aran and Mist's Edge; she sees every dwarf with a pick as a grave-robber" },
+  prejudice = { { race = "Dwarf", amount = 10, why = "Remtravel's diggers carry off carvings from Ameth'Aran and Mist's Edge; she sees every dwarf with a pick as a grave-robber" }, { class = "WARLOCK", amount = 12, why = "Watches the groves for corruption; has found what satyrs leave of druids in the north." } },
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit" },
   impression = {
@@ -826,6 +826,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "I watch the groves for corruption, and here it walks up to my post on two legs. Keep your hands off your bag, demon-caller, because my bow is strung." },
+    { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've been up and down this shore and nothing has rotted behind you. I'll lower my bow, but I'll not put the arrow away." },
     { id = "g_pj_dwarf", when = { prejudiced = true }, text = "Another dwarf off the boat. If you're bound for Remtravel's dig, remember that those ruins were our people's houses, and they are not a quarry for your Explorers' League." },
     { id = "g_pj_dwarf2", when = { prejudiced = true, metBefore = true }, text = "You again, dwarf. I've counted the shovels going north this week and I'm in no mood to count yours, so tell me plainly what you want." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, and Sentinels don't hand those out often. I took you for one of Remtravel's grave-diggers, and you've done more for this shore than half my own patrols." },
@@ -1002,6 +1004,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because the Sentinels I send up the coast come back with wounds that do not close cleanly, and I have too few hands to mend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post in Ashenvale fight hard, I am told, so I will not waste your strength on small things." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've found what the satyrs leave of druids in the north, and satyrs were born of your kind of bargain. Say what you came to say." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again, and the groves still green behind you. Speak, then." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I watch the beach for murlocs and the groves for corruption, and something about you makes my bow hand itch. I'll be watching you as well until I know which of the two you are." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Greymist", min = 30 } },
           text = "The beach has been quieter since you started on the Greymist, and I count fewer tracks each morning. I am still only one Sentinel, but this week I have felt like two." },
@@ -1095,6 +1099,7 @@ P:NPC {
   key = "cerellean", id = TODO_NPC("Cerellean Whiteclaw"), name = "Cerellean Whiteclaw",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Lost Anaya in the war the Highborne's demon-summoning brought down on the Kaldorei." },
   notices = { "class" },
   impression = {
     first = "He slept thousands of years dreaming of Anaya and grieves her still.",
@@ -1102,6 +1107,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Anaya died in the war the Highborne brought down on us when they called the demons. You've taken up their trade, and I cannot look at you kindly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been gentle with my grief, more than I expected of one who keeps a demon. I'll speak with you, though I'll not forget what you are." },
     { id = "g_dock", text = "Hm? Pardon me; I was watching the water. Since the Sundering, it has never quite stopped surprising me." },
     { id = "g_after", when = { questDone = TODO_QUEST("For Love Eternal") }, text = "You freed her. I will never be able to thank you properly, but I will try, every time I see you." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, have you? I'm afraid I've lost track of days; I've been watching the water." },
@@ -1207,6 +1214,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Anaya loved the moonstalkers of these shores, and she would have liked to see you walk among them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Do you know anything of spirits that will not rest? I have asked everyone else, and they look at me as though I were a ghost myself." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order buries its dead with honour, which is more than the ruins of Ameth'Aran ever gave mine." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Legion took Anaya from me ten thousand years ago, and here you stand with one of its creatures at your heel. Speak, and then let me be." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You come back, and you have never mocked her memory. Speak, then; I'm listening, after a fashion." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a cold about you that reminds me of Ameth'Aran. I hope you've come to Darkshore for some reason other than to stir what sleeps there." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do your spirits walk the water? I watch it day after day, as if Anaya might step out of it after ten thousand years." },
       },

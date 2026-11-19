@@ -282,6 +282,7 @@ P:NPC {
   key = "trull", id = TODO_NPC("Trull Failbane"), name = "Trull Failbane",
   bible = "bibles/felwood.md", role = "soldier", tier = "quest",
   communities = { "bloodvenom_post" }, temper = { "grim" }, values = { "loyal", "practical" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Old grunt who saw what Gul'dan's warlocks made of his clan; Felwood is what their bargains leave behind." },
   notices = { "kit" },
 
   impression = {
@@ -290,6 +291,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I saw what Gul'dan's warlocks made of my clan, and I won't watch it happen twice. Give your report and keep your demon out of my camp." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Thrall says we're free of the demon's blood now. Then why does it walk into my post with you?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done honest work for this post, and your pet's stayed quiet. I'm still watching you, but I'm watching the forest harder." },
     { id = "g_post", text = "Did Orgrimmar send you, or did you wander up here by mistake? Either way you're useful now, and the last useful one still owes me two silver and hasn't come back from Jaedenar." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Felwood didn't stop rotting while you were away. Report what you saw, and leave nothing out." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since I last sent you out, and I can use that, because the forest has only grown worse. Orgrimmar wants reports, and I want someone who can come back with them." },
@@ -420,6 +424,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. Orgrimmar's shamans see things a scout misses, and in Felwood I'll take every pair of eyes I can get." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Good; I've seen things in this forest I can't name, and you might put names to them before they get to Orgrimmar ahead of my report." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's lot sold us to the Legion, and this forest is what that kind of bargain leaves behind. Make your report, and make it short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've earned your place at the fire, near enough. Talk." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "There's fel on your hands, and here at Bloodvenom we notice that. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
         { id = "h_default", key = true,

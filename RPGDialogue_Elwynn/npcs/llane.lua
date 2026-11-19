@@ -6,6 +6,7 @@ P:NPC {
   key = "llane", id = TODO_NPC("Llane Beshere"), name = "Llane Beshere",
   bible = "bibles/llane.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran who watched a warlock's demon walk through his shield line." },
   notices = { "fitness", "stance" },
   impression = {
     first = "He corrected my stance before he asked what I wanted.",
@@ -13,6 +14,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood in a shield line in the Second War and watched a demon walk through it like it was paper. Don't bring one into my yard." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You let something else bleed for you, and then you call it fighting. I've no respect for that, and I'll not pretend I have." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood your own ground a time or two, I'll grant you. I still don't care for your creature, but you've earned a word." },
     { id = "g_feet", text = "Feet apart, recruit. Now, what do you need?" },
     { id = "g_drills", when = { class = "WARRIOR" }, text = "Back for more drills?" },
   },
@@ -113,6 +117,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the practice yard. Stand at the back, recruit, because my warriors swing wide." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my yard, and you know I can tell. I've seen what your kind calls up, so keep it off my dummies and away from my recruits." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never let that creature near my recruits, and that counts for something here, even if it's not much." },
           text = "A warlock in my yard, and don't think I can't tell. Keep that creature off my training dummies, because they're hard enough to replace as it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand like someone who's never been knocked down by anything but weather. We'll see about that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your stance is wrong; spirits or not, you'll be knocked down. Then you'll get back up, and that's the lesson." },

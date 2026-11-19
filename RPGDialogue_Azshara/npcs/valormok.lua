@@ -6,6 +6,7 @@ P:NPC {
   key = "agtor", id = TODO_NPC("Ag'tor Bloodfist"), name = "Ag'tor Bloodfist",
   bible = "bibles/azshara.md", role = "soldier", tier = "quest",
   communities = { "valormok" }, temper = { "steady", "proud" }, values = { "loyal", "brave" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Loyal Horde officer whose father died in the camps still sick for the demon's blood." },
   notices = { "race", "class" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Thrall broke the demon's hold on us, and you went looking for it again. I'll use your hands here, but I'll never trust them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My father died in the camps still sick for the blood Gul'dan's warlocks fed us. Don't stand so close." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for Valormok like any grunt, and your demon has kept its claws for the elves. I'll call you Horde, and don't expect more than that." },
     { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon, for we have dead to avenge." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
@@ -140,6 +144,8 @@ P:NPC {
           text = "A hunter. Good, because the elves have scouts in those woods who hide better than any orc, and I need someone who can find their trail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde. The last mage who came to Valormok was an elf, and she killed my warriors, so keep your hands where I can see them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's warlocks poured the demon's blood down our throats, and you carry their craft. Say your business, and keep it short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled for Valormok, so I'll hear you. Don't push it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "I know that smell, and I don't love your kind, but you're Horde and we need hands, so I won't turn you away, not with elves in the woods and naga on the shore." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },

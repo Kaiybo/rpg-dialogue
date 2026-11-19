@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/riverglades.md", role = "soldier", tier = "major",
   communities = { "farholde", "brotherhood_horse" }, temper = { "proud", "steady" }, values = { "loyal", "brave", "stern" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Twenty years holding Farholde against the Twilight's Hammer and its summoners; he names his dead." },
   notices = { "class", "stormwind", "kit" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Hammer's summoners have killed more of my riders than the ogres have. You keep the same company, warlock, so you'll keep your distance in my keep." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I buried twelve riders last winter, and every one of them died to something a summoner called up. Say what you need, and then get out of my sight." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've ridden for Farholde and come back with Hammer blood on you, not ours. I'll not call you a friend, but I'll stop calling you a warlock in front of the men." },
     { id = "g_default", text = "Farholde stands, for another day at least. Say what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and good to see it. Most who leave the Riverglades never come back." },
     { id = "g_hero", when = { townStanding = { town = "farholde", min = 55 } }, text = "Make room for them, riders; they've bled for this keep." },
@@ -81,6 +85,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I walk the walls at night, a habit since the siege. The river's loud after dark, and I'll take that noise over silence, because silence was what the siege sounded like before they came." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe will want you for an hour of shop talk, and I'll want you after that for something more useful, like fire on the ridge." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and the Hammer's summoners would know it too, because they deal in the same filth. Give me one reason, warlock, why I shouldn't put you out the gate." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. My riders still mutter when you come in, but I've stopped telling them they're right. Speak your piece." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you are, warlock; the smell gives it away. The Hammer deals in the same dark, so you'll have to prove you're not halfway to joining them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far from your own forests. The glades round Sunnyglade are sick with the Hammer's filth, and I'm told your kind takes that personally." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } }, text = "The patrols say the Twilight camps on the ridge are thinner this month, and the bodies they find have your work on them. Keep at it, and my riders might see the Sunnyglade road again before I'm grey." },
@@ -1174,6 +1180,7 @@ P:NPC {
   key = "rowland", id = TODO_NPC("Sister Rowland"), name = "Sister Rowland",
   bible = "bibles/riverglades.md", role = "priest", tier = "quest",
   communities = { "farholde", "brotherhood_horse" }, temper = { "patient" }, values = { "kind", "pious" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Tends soldiers maimed by the Hammer's dark sorcery; won't have the Nether near her sick." },
   notices = { "healer", "disease", "form" },
 
   impression = {
@@ -1182,6 +1189,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Half the men in these beds are here because of what your kind summons. Don't come any nearer to them than you are." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll pray for you, because I pray for everyone. I'll not let you sit with my sick." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fetched water and carried bandages without asking for thanks, and I've noticed. I still won't let you near the worst of them, but you may stay." },
     { id = "g_default", text = "Quietly, please; some of them are sleeping." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Would you sit with one of them a moment? Talking helps, though I don't know why." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and they're no better, though they're no worse either, which I've learned to count as a mercy. Sit a moment, if you can." },
@@ -1231,6 +1241,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "You've a beast with you. Keep it near the door; some of the men find it a comfort and some don't, and I can't tell which until it's too late." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move very softly, and I'm grateful for it in here, whatever the reason you learned to." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe keeps asking me whether the illness has an arcane smell to it, and I keep telling her I wouldn't know one if it sat on the bed." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you carry, and it's no different from what the Hammer used on these poor men. I'll speak with you at the door, but you'll not come further into this chapel." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've come back again, and the sick haven't stirred at you this time. Stay by the door, but you needn't hurry off." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you carry, and it sets my teeth on edge. Keep it outside the chapel, and you're as welcome as anyone who'll fetch water." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Wash your hands at the basin, and then, if your spirits can tell what ails these soldiers, I'll thank them as gladly as the Light." },
       },

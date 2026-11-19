@@ -7,6 +7,7 @@ P:NPC {
   key = "burlguard", id = TODO_NPC("Harry Burlguard"), name = "Harry Burlguard",
   bible = "bibles/old_town.md", role = "soldier", tier = "quest",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Retired soldier who lost his squad at Blackrock Spire to things the Horde's warlocks called up." },
   notices = { "light", "kin", "soldier" },
   impression = {
     first = "He teaches young warriors by setting them on the tavern regulars.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I lost my whole squad at Blackrock Spire to things your sort called up. Sit in the corner, drink, and don't talk to my regulars." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Every soldier in this tavern has a story about warlock fire, and none of them end well. Mind how you walk in here." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've drunk here quiet often enough that the regulars stopped staring. I haven't, but I've stopped reaching for a bottle to throw." },
     { id = "g_table", text = "Pull up a stool, if you can find one that isn't broken. Most of them are, round here." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, then; my knees won't let me stand for you." },
   },
@@ -131,6 +135,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few of your sort scouting for us in the Second War, and each of 'em saved my company at least once." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Pig and Whistle! We never had your sort in the Second War, more's the pity, because a bear on the flank would've done wonders for morale." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the Lamb's cellar on your boots, in the Pig and Whistle. Sit down where the regulars can see you, or they'll start a fight just to find out what you are." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in the Pig and Whistle, bold as you like. I fought your kind's demons in the Second War, so keep yours outside and keep your voice down." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never once started trouble in here, so sit down, though I'll keep my eye on you all the same." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit down, I've a regular here who'll test your mettle. You've never fought a shaman, have you, Bartleby? Well, there's a first time for everything." },
       },
       again = {

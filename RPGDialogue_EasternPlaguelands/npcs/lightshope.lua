@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/easternplaguelands.md", role = "noble", tier = "major",
   communities = { "light_hope", "argent_dawn" }, temper = { "reserved" }, values = { "devout", "pragmatic" },
   likesTone = "polite", private = { "silver_hand" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Old Silver Hand paladin; the Dawn takes all who fight, but he can't forget the Cult's dark-callers." },
   notices = { "race", "class", "form" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Dawn turns no one away who fights the Scourge, and I keep to that. But I know what you deal with, and I'll not pretend it sits easily with me in this chapel." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You are standing on consecrated ground with the Nether in your hands. Say what brings you, and say it quickly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have done more for this chapel than many who pray in it, and I find I can't argue with that. I'll not bless what you carry, but I'll take your hand." },
     { id = "g_rare", text = "I don't often receive visitors here at the chapel, and I'm out of practice at being a host." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Few return from the Plaguelands twice, and fewer bother to call on me." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "A knight of the old Hand, risen. I'm not at ease with it, but the Light answers you, and in this chapel I'll not argue with the Light." },
@@ -130,6 +134,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Cult of the Damned learned its first summonings from people who carried what you carry. I lead the Dawn, so I'll hear you out, but my knights will be watching." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've served the Dawn honestly, whatever you keep at your heel. Sit, if you like; my knights have stopped reaching for their swords when you come in." },
         { id = "h_dd_darrow", tags = { "news" }, when = { questDone = TODO_QUEST("The Battle of Darrowshire") },
           text = "Carlin Redpath tells me Darrowshire's last stand has been fought again, and won this time, with you beside its ghosts. The Dawn owes that town a debt it can never repay, and you have paid some of it for us." },
         { id = "h_dd_exalted", when = { reputation = { faction = "Argent Dawn", min = "exalted" } },

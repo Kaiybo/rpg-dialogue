@@ -259,6 +259,7 @@ P:NPC {
   key = "huum_wildmane", id = TODO_NPC("Huum Wildmane"), name = "Huum Wildmane",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "gentle" }, values = { "wise", "patient", "devout" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Tauren spirit-walker; the spirits recoil from fel and he takes their side." },
   notices = { "race", "class" },
 
   impression = {
@@ -267,6 +268,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The spirits of this desert flee from you, and I will not call them back for your sake. Speak, and I will listen, but no more than that." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You walk with a thing the Earth Mother never made. I will not share my fire with it, or with you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits have grown used to you, slowly, as they grow used to a scar. I am the same; I will not welcome you, but I no longer turn away." },
     { id = "g_default", text = "The spirits of this place call out, {name}. Listen, and you'll hear them." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the land seems a little quieter for it, like the plains after the rain has passed." },
     { id = "g_vyral", when = { questDone = TODO_QUEST("Vyral the Vile") }, text = "Twilight's Run is silent now. The spirits thank you, though they have no words for it." },
@@ -362,6 +366,8 @@ P:NPC {
           text = "A rogue. You walk softly, as the land likes, and I think the cult's leaders will not hear you until you are already among them." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. The land of Silithus weeps, and your Light shines bright in a place that has been dark for a long time, so I ask you to shine it gently." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Earth Mother did not make the thing that walks behind you, and the spirits here have suffered enough. I will hear you because I must, but my heart is closed to you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The spirits still go quiet when you come, but they no longer flee, and I have learned something from them. Speak." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "The spirits of Silithus fall silent when you walk among us. You carry something that does not belong in this land, and the land knows it." },
         { id = "h_magecl", when = { class = "MAGE" },

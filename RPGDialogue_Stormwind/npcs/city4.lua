@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   likesTone = "polite",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Commanded troops in the Second War and lost men to warlock fire and the Horde's demons." },
   notices = { "soldier", "kit" },
   impression = {
     first = "He reads every letter from the provinces twice and answers too few.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I commanded men in the Second War, and too many of them died screaming under warlock fire. You'll forgive me if I don't stand any closer." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The crown tolerates the Lamb's cellar, and so I tolerate you. Don't confuse either one with approval." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Your service to the city speaks for you, and I've read the reports. I still don't trust your craft, but I'll take your report." },
     { id = "g_gate", text = "Well met. The Valley of Heroes is open to all who come in peace. Keep your blade sheathed and you'll find us friendly." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you've come back. I like faces that come back." },
     { id = "g_away", when = { away = 14 }, text = "Welcome back to the Valley of Heroes. You've been gone {away}, and the roads have been hard on good folk, so I'm glad to see you whole." },
@@ -153,6 +157,8 @@ P:NPC {
           text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of the Lamb's cellar about you. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock, at the gates of Stormwind's army. I've seen what your craft did to my soldiers in the Second War, so speak plainly and don't waste my time." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. Your record speaks well of you, and I'll admit as much, though I still keep an eye on whatever walks at your heel." },
       },
       again = {
         { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
@@ -601,6 +607,7 @@ P:NPC {
   key = "samuelson", id = TODO_NPC("Major Samuelson"), name = "Major Samuelson",
   bible = "bibles/city4.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Guards a boy king; treats any demon-caller near the throne as a threat to be watched." },
   notices = { "soldier" },
   impression = {
     first = "He expects visitors to know exactly where they are standing.",
@@ -608,6 +615,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "You'll not set one foot nearer the king with that stink on you. Speak from there, and keep your hands at your sides." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "A demon-caller in the throne room, with the king still a boy. If anything of yours so much as twitches, my guards will put you down." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come and gone from this hall without trouble, and I've noted it. You're still not welcome near the throne." },
     { id = "g_throne", text = "This is the King's throne room. Conduct yourself accordingly." },
   },
 
@@ -716,6 +726,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Your animal stays by the door, and you'll keep your bow unstrung while you're in the throne room." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the throne room. You'll keep whatever shape you walked in with, because a bear before the king is not something my guards are paid to handle." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the cellar's smell on you. You'll leave whatever follows you at the doors of the Keep, and you'll keep your hands where my guards can see them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know exactly what you are, and I don't care who vouched for you. Stand where my guards can see you and keep that creature out of this hall." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've given my guards no cause yet, so you may speak, but you'll do it from right where you stand." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in the throne room. Behave as though you know where you are standing, and keep your spirits outside the hall." },
       },
       again = {

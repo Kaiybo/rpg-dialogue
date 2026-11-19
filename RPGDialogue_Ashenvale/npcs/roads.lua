@@ -6,12 +6,15 @@ P:NPC {
   key = "kayneth", id = TODO_NPC("Kayneth Stillwind"), name = "Kayneth Stillwind", title = "",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "forest_song" }, temper = { "tense" }, values = { "dutiful", "protective" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Watches Demon Fall Canyon nightly and has seen what crawls out of it." },
   impression = {
     first = "He speaks like a man counting arrows.",
     third = "{name} met Kayneth Stillwind, who keeps watch at Forest Song in eastern Ashenvale.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watch Demon Fall Canyon every night, and you smell like what crawls out of it. Make this quick." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been through Forest Song more than once and nothing followed you up from the canyon. That's something, though not much." },
     { id = "g_default", text = "Welcome to Forest Song, {class}, the last kind word you'll hear before Felwood." },
     { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. The Forsaken's last messenger came back in several." },
   },
@@ -146,6 +149,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because if the Forsaken are carrying their plague into these woods, I'll want someone who knows what it looks like." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you know the dead, and you'll know what it means that the Forsaken are walking these woods." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Forest Song, and welcome. The Forsaken carry their sickness into the eastern woods and the demons foul the canyon, so I'll take every healer of the land the Circle can spare." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Half my watch is spent counting demons in the canyon, and now I've one more to count. Say what you want." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again. I've mostly stopped counting you with the canyon's lot. What is it?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a sulphur smell on you, with Demon Fall Canyon just to the south of us. I'd sooner have you where I can see you than down there among the demons." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
           text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },

@@ -520,6 +520,7 @@ P:NPC {
   key = "ander_germaine", id = TODO_NPC("Ander Germaine"), name = "Ander Germaine", title = "Warrior Trainer",
   bible = "bibles/warriors.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "loyal", "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "A Horde warlock's demon broke his shield line in the Second War and killed the people behind it." },
   notices = { "kit", "ally" },
   impression = {
     first = "He talks about the line as a living thing he must protect.",
@@ -527,6 +528,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "In the Second War a demon came through my shield line and killed the men behind it. I teach shields, not leashes, so say your piece." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Everyone in this hall holds the line for the people behind it. You'd send a demon to hold it, and I'd not trust it with a single soul." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood your ground beside my students more than once. I'll still not trust that creature at your heel, but you, perhaps, a little." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Shield up and chin down, that's good. What do you need?" },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Not one of mine, but welcome all the same. The line has room for everyone." },
   },
@@ -623,6 +627,8 @@ P:NPC {
           text = "A mage. I've stood in front of a good many of your kind, and I've only been set on fire twice, which I count as a fine record." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've been told your people can be a shield one moment and a healer the next, and I'd like to see how that fits in a line." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You stand behind the line, I suppose, and send your friend in front of it, which is not how I'd do it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in the warriors' hall. I watched a demon walk through my line in the Second War, so keep yours back and keep this short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never let your creature near my students, and I've noticed. Speak, then, and quickly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The line needs every hand. Your spirits might help hold it, if they're steady." },
       },
       again = {

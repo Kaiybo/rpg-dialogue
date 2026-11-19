@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/theldanis.md", role = "priest", tier = "major",
   communities = { "uthers_tomb" }, temper = { "gentle", "steady" }, values = { "devout", "kind" },
   likesTone = "polite",
+  prejudice = { class = "WARLOCK", amount = 10, why = "Keeper of Uther's tomb; will not let anything of the Nether near the Lightbringer's rest." },
   notices = { "light", "weary" },
   impression = {
     first = "He is gentle with travellers and immovable about the tomb.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "You will not bring that darkness to the Lightbringer's door. Stand where you are, and speak from there." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I can bless most who climb this hill, but not one who keeps company with demons. Say what you need, and keep your distance from the tomb." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have come again and left the tomb untroubled, and I have prayed over what that means. You may come a little closer, though not inside." },
     { id = "g_peace", text = "Peace, traveler. Walk softly here; this is a resting place." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the tomb. Few do twice, and fewer still come to pay respects rather than to ask for something." },
     { id = "g_away", when = { away = 14 }, text = "It's been {away} since you last stood here, and the Scourge have walked past the hill a dozen times since. None of them came in." },
@@ -46,6 +50,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I am Thel'danis, and I keep Uther's tomb. I know what answers when you call, and nothing of the Nether will set foot inside these doors while I breathe." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You come back, and every time the tomb stays quiet. I am still wary of you, but I'll not stand in the doorway quite so firmly." },
         { id = "h_dd_scarlet", when = { killed = { name = "Scarlet", min = 50 } },
           text = "The Crusade's patrols pass my hill a good deal less often than they did. I've heard why, and I pray for the men who fell, as I'd pray for anyone who once knelt to the Light." },
         { id = "h_default", key = true, text = "I am Thel'danis, and I keep this tomb. Uther the Lightbringer lies here, and while I live, nothing that serves the Scourge will set foot inside it." },

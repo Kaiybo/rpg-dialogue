@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/sammuel.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
   spiritSensitive = true,
+  prejudice = { class = "WARLOCK", amount = 12, why = "Paladin of the Brotherhood of Northshire; holds demon-binding a betrayal of everything the Light asks." },
   notices = { "affliction", "light" },
   impression = {
     first = "He senses curses and sickness as a healer feels for a pulse.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light asks us to stand between the innocent and the dark, and you've chosen to keep the dark on a leash. I'll not train beside it." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I can feel what follows you even when it's hidden. Speak, if you must, but don't think a paladin will call that a gift." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood with the Brotherhood more than once, and I've not forgotten it. I still pray for your soul each night, whether you want me to or not." },
     { id = "g_light", text = "The Light keeps you." },
     { id = "g_lesson", when = { class = "PALADIN" }, text = "Ready for your next lesson?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "Not one of mine, but welcome all the same." },
@@ -123,6 +127,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Khelden Bremen's student, I suppose, and you'll want to know whether the Light and the arcane can share a roof." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There's a darkness on you, and I'll not pretend I can't feel it. Northshire took you in, but the Light has made me no promises about you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've come back again, and the darkness with you. I'll speak with you, though I've not stopped praying that you'll put it down." },
           text = "You come from the graveyard, and I can feel the darkness on you. I'll still pray for you, though I suspect you'd rather I didn't." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Abbey. You stand like one of Llane Beshere's recruits, child, but you might find the Light stands with you too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Light walks in the woods as well as the Abbey, child, and I think you know that better than most." },

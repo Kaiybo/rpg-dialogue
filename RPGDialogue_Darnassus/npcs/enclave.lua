@@ -745,6 +745,7 @@ P:NPC {
   title = "Druid Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm", "patient" }, values = { "wise", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Heals land the Legion burned; sees warlocks as keeping its fire alive." },
   notices = { "form", "class" },
 
   impression = {
@@ -753,6 +754,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Cenarius bless you, I say to everyone, though the words stick today. The groves I heal were burned by the masters you bargain with." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I've watched you come and go, and no grove has blackened behind you yet. Cenarius bless you, then, and I'll try to mean it." },
     { id = "g_cenarius", text = "The blessings of Cenarius be yours, {class}." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Back again, young druid? Good; the forest has been waiting for you to grow into it." },
   },
@@ -905,6 +908,8 @@ P:NPC {
         { id = "h_bear_done", when = { questDone = TODO_QUEST("Body and Heart") },
           text = "You've met the Great Bear, I can tell; you stand differently. Mathrengyl chose well." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Enclave, studying us studying the land. I suppose that's fair, since we spend enough time wondering about you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I spend my years healing the scars the Legion left on this world, and you trade with its servants. You'll forgive me if I don't bless you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I still don't like what you carry, but you've kept it leashed longer than I expected. What is it you need?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach young druids to heal burned places, and you smell faintly of one. You'll understand if I'd rather you kept walking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },

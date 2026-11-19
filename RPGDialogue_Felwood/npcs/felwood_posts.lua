@@ -192,6 +192,7 @@ P:NPC {
   key = "brakkar", id = TODO_NPC("Brakkar"), name = "Brakkar", title = "Wind Rider Master",
   bible = "bibles/felwood.md", role = "flightmaster", tier = "service",
   communities = { "bloodvenom_post" }, temper = { "gruff" }, values = { "dutiful", "honor" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Drank Mannoroth's blood with his clan and paid for it in the internment camps." },
   notices = { "race" },
 
   impression = {
@@ -200,6 +201,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I drank the demon's blood with the rest of my clan, and I spent years in the camps paying for it. Take your green fire away from my wind riders." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've flown with me enough times that the riders don't snap at you now. I still won't smile at you, but I'll fly you." },
     { id = "g_default", text = "You want a wind rider? Good, because nobody should stay in this cursed forest a moment longer than they must, and the wyverns agree. One bit a grunt last week for dawdling at the saddle." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind rider for you, Alliance. Your elves keep their birds at Talonbranch Glade, away to the northeast, and you can walk there." },
   },
@@ -307,6 +310,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. My wind riders like your kind, because you smell of honest beasts instead of the rot in this forest." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. My beasts grow calmer when one of your kind is near, and nothing else in this forest calms them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's warlocks poured that curse into us, and I knew some of them by name. Pay your fare and keep your hands still on the saddle." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The riders have stopped fussing, and I suppose I have too. Where to?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "We drank the demon's blood once and it nearly finished us, so don't expect me to smile when I see that green light in your hands." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },

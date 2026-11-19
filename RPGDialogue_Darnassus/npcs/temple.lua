@@ -671,6 +671,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "brisk" }, values = { "dutiful", "practical" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Temple healer who has drawn fel-sickness out of wounded Sentinels too often." },
   notices = { "class" },
 
   impression = {
@@ -679,6 +680,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent too many nights drawing fel-sickness out of wounded Sentinels to pretend I don't know what you are. Stand back from the altar." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been in and out of this Temple and never once brought trouble with you. I'll say that much, though I'll still keep an eye on your hands." },
     { id = "g_short", text = "Elune be with you. If you're here to learn, let's begin; if not, the pool is that way." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more training? Good, because your hands are steadier than last time, I think." },
   },
@@ -787,6 +790,8 @@ P:NPC {
         { id = "h_default", text = "I am Jandria, and I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know a demon-caller when one walks in, and I won't pretend otherwise for courtesy's sake. Keep that creature away from my students." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You're back, and as quiet as last time. Good. Ask what you need, and keep your company away from the pool." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach healing, not banishing, but I've read enough to know what is sitting at your heel. Let's not pretend otherwise." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, you're the one who'll be bleeding while my students learn to work quickly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },

@@ -10,6 +10,7 @@ P:NPC {
   key = "dal_delv", id = TODO_NPC("Archivist Delv Fortuz"), name = "Archivist Delv Fortuz",
   bible = "bibles/archives.md", role = "scholar", tier = "quest",
   communities = { "dalaran", "kirin_tor" }, temper = { "precise", "dry" }, values = { "learned", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Antonidas died when Archimonde took the city; he holds every demon-caller partly to blame." },
   notices = { "class", "race" },
 
   impression = {
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Grand Magus died in this city at the hands of a demon lord, and you bargain with that lord's kin. Keep well back from the cases." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I will not have a warlock near his belongings. Say what you need from where you stand, and then leave me to my work." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have kept your hands off his things and your creatures out of this shop, every time. I don't like you, but I begin to think he'd have given you a hearing." },
     { id = "g_default", text = "Welcome to Antonidas' Antiquities. Kindly keep your hands off the cases." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A magus. Hands behind your back, if you please; the glass remembers fingers." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. His things ought to be looked at, and too few people come." },
@@ -44,6 +48,8 @@ P:NPC {
 
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Archimonde killed Antonidas in the street outside, and the city fell around him. You carry the stink of that lord's kind, so forgive me if I keep the counter between us." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ah, you again. I still keep the counter between us, but I've stopped counting the pieces after you leave." },
         { id = "h_default", key = true,
           text = "Archivist Delv Fortuz, keeper of Antonidas' Antiquities. Everything in these cases belonged to the Grand Magus or passed through his hands, and every piece of it was dug out of the rubble after the city fell." },
         { id = "h_mage", when = { class = "MAGE" },

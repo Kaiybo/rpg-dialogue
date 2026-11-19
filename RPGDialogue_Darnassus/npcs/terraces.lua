@@ -10,6 +10,7 @@ P:NPC {
   key = "thyntel", id = TODO_NPC("Thyn'tel Bladeweaver"), name = "Thyn'tel Bladeweaver",
   bible = "bibles/terraces.md", role = "soldier", tier = "quest",
   communities = { "darnassus" }, temper = { "wary", "steady" }, values = { "loyal", "dutiful", "careful" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Sentinel commander who lost a sister of the blade to a felhound in the war." },
   notices = { "class", "soldier" },
 
   impression = {
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My Sentinels have your description and an order to loose at the first sign of a summoning. I would advise you to stand very still while we talk." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I lost a sister of the blade to a felhound in the war, and you keep their kind as pets. Speak quickly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "My Sentinels report that you have kept your creature leashed on every visit. I have lowered their order from loose to watch, and that is all you will get from me." },
     { id = "g_watch", text = "State your business on the Terrace. The Sentinels are busy, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit, if you've news; stand, if you haven't." },
   },
@@ -169,6 +173,8 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("Answered Questions") },
           text = "We'll deal with what she left in our woods, and I bear her no ill will for it. Strange things are afoot these days, and the darkness never rests long." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The Sentinels have use for anyone who can walk into a Warsong camp and walk back out with something worth hearing." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Demon-caller. You will stand where my archers can see you, and if that creature moves without your word, they will not wait for mine." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "My scouts say you have kept the peace in Darnassus, so I will keep my temper. Say your piece, and keep your hands empty." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. I command Sentinels, and they are watching you right now from three places you haven't found yet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Sentinels have need of those who can hold a line, though I will judge for myself whether you can." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Sentinels can use you in Ashenvale, because the orcs cut the trees faster than my patrols can bury the dead, and the forest needs someone who can hear it." },
@@ -794,6 +800,7 @@ P:NPC {
   title = "Warrior Trainer",
   bible = "bibles/terraces.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "proud", "formal" }, values = { "proud", "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Sentinel-trained bladesinger who watched demons cut through the ranks at Hyjal while their callers stayed safe behind." },
   notices = { "class" },
 
   impression = {
@@ -802,6 +809,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "A warrior faces her enemy with her own blade. You send a demon to bleed for you, and I have no respect for that." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Keep that thing out of my courtyard. My students have enough to learn without learning to fear it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You fight more of your own battles than I expected, demon at your heel or not. I'll grant you that much, and not a word more." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "You're favoring your left leg. Do you seek instruction in the art of war, or only somewhere to sit down?" },
     { id = "g_other", text = "I do not see the warrior's spirit in you, child. Still, you may ask what you came to ask." },
   },
@@ -939,6 +949,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You may have the warrior's spirit, {class}, though I'll want to see it for myself before I say so." },
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a good deal of cunning. It isn't the worst combination I've ever seen." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I watched demons cut through our ranks at Hyjal while the ones who called them stood safe behind. Do not ask me to like you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've carried yourself honestly here, which I will admit. Ask your question, and leave the creature where it is." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach only those with the warrior's spirit, and whatever spirit is walking behind you isn't the right kind." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether there's a warrior's spirit in you, and in some hunters there is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I see something of the warrior's spirit in you, which is not common in the Circle, though I teach only those who carry it whole." },
