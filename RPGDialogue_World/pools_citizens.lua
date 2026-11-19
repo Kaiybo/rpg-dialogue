@@ -102,6 +102,10 @@ P:Pool {
       text = "Explorers' League, are you? My boy's read every one of Brann's stories twice over, and he'd give his front teeth to carry one of your packs." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_sheep", text = "My cousin called a mage a charlatan in a tavern in Lakeshire, and he spent the rest of the evening as a sheep. He says the worst of it wasn't the wool, it was how much he enjoyed the grass." },
+    { id = "l_mg_dome", text = "Dalaran shut its gates and hid under a violet dome while the rest of Lordaeron burned. I don't hold it against the mages exactly, but I notice they were the ones with the dome." },
+    { id = "l_mg_bread", when = { class = "MAGE" }, text = "Could you not conjure me a bit of bread, since you're one of the magi? I only ask because everyone says your sort can, and I've never once seen it done." },
     { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Everyone's got a view on the regent and the war these days, and I've heard them all twice. What's yours, if you don't mind my asking?" },
     { id = "l1", text = "Everything costs more since the war. Bread, boots, lamp oil, the lot of it, and nobody's wages have kept up." },
     { id = "l2", text = "My uncle says the Alliance isn't what it was, with Gilneas walled off and Lordaeron gone to the dead. I tell him we've still got the dwarves, and he can't argue with that." },
@@ -173,6 +177,7 @@ P:Pool {
     { text = "Light keep you too.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "Useful folk in a fight and dreadful neighbours, as far as I can tell. They'll conjure you water in the desert and then set your thatch alight practising, and they always seem surprised when you mind." } },
     knows = {
       { id = "t_kn1", text = "Word travels with the caravans, and the caravans stop here. Here's what I've heard from them." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "For you I'll tell all of it, rumors and all, and you can sort out which is which." },
@@ -248,6 +253,9 @@ P:Pool {
       text = "Frostwolf! My grandfather spoke of your clan the way other orcs speak of the days before the blood, so throm-ka, friend, and honor to the Frostwolves." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_warlocks", text = "The old grunts spit when a mage walks past. They remember what Gul'dan's warlocks did with power that didn't come from the spirits, and they've no patience for anyone explaining the difference." },
+    { id = "l_mg_who", text = "Most of the Horde's mages are dead men from the Undercity or trolls from the Echo Isles, and the orcs keep their distance from both. The Warchief says we need them, so we nod and walk wide." },
     { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Some grunts say the Warchief's too patient with the humans, and others say his patience is all that keeps us standing. Where do you stand?" },
     { id = "l1", text = "My father spent ten years in a human camp, and now I sleep under my own roof in a land the Warchief found for us. Some days I can hardly believe it." },
     { id = "l2", text = "The tauren taught us the land, the trolls taught us the coast, and the Forsaken are still teaching us patience. It's a strange family, but it's ours." },
@@ -322,6 +330,7 @@ P:Pool {
     { text = "Strength and honor.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "The Horde has its shamans for the spirits and its warriors for everything else, and the mages are new among us. They're useful, I suppose, though I've yet to meet one who didn't think himself the cleverest at the fire." } },
     knows = {
       { id = "t_kn1", text = "Talk comes in with the wolf-riders and the kodo trains, and I listen. Here is what I've heard." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've earned my trust, so I'll tell you everything, even what I'm not supposed to repeat." },
@@ -456,6 +465,11 @@ P:Pool {
     { id = "r_lock_soulstone", on = "aura", when = { aura = { 20707, 20762, 20763, 20764, 20765 } }, text = "Did you just bind a soul into a stone, right here in the street? Light preserve us, my grandmother lived through the First War, and she'd have fainted dead away." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_bakers", text = "The bakers' guild has grumbled at the Mage Quarter for years, because every time some apprentice decides to conjure bread for the poor, three ovens go cold in Old Town. My uncle's a baker, and he swears the conjured stuff tastes of nothing anyway." },
+    { id = "l_mg_sheep", text = "There's a sheep that wanders the Mage Quarter that nobody owns, and every apprentice swears it was a person once. The Watch stopped asking whose it is a long while ago." },
+    { id = "l_mg_dalaran", text = "The magi in the Wizard's Sanctum came south from Dalaran after the city fell, and they talk about it as if it were paradise. I'd only ask why paradise needed a dome around it." },
+    { id = "l_mg_kel", text = "My grandmother says the magi of Dalaran were the pride of the north, right up until one of them took his learning to the plague. She still won't have a mage in the house, and she's never met one." },
     { id = "l_ask_throne", text = "My husband says Lord Bolvar's the best regent we could ask for, and my mother says the king's coming home any day now. You look like you've a view of your own on it." },
     { id = "l_rebuilt", text = "The orcs burned this city to the ground when my parents were young, and every stone you see was laid again since. Each year it looks a little more like the city they used to tell me about." },
     { id = "l_prices", text = "Bread costs a copper more than it did in spring, and nobody can tell me why, except to blame Westfall. Everything gets blamed on Westfall these days." },
@@ -521,6 +535,8 @@ P:Pool {
     { text = "Light keep you.", next = "END", when = { class = "PRIEST" } },
   },
   topics = {
+    mages = { { id = "w_mages", text = "The magi have a whole quarter of the city to themselves, with towers that glow all night and a fountain nobody dares drink from. Most are polite enough in the street, but you can never tell whether they're thinking about supper or about turning you into a newt." } },
+    kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor are the masters of Dalaran, and the magi in the Sanctum still lower their voices when they say the name. Most folk here know them as the people who let Kel'Thuzad slip through their fingers." } },
     bolvar = { { id = "w_bolvar", text = "The Highlord sits at the boy king's side every day in the Keep, and he's held this city together with his own two hands since His Majesty vanished. My husband served under him at the Dark Portal, and he says there's no better man in the kingdom." } },
     varian = { { id = "w_varian", text = "His Majesty sailed for Theramore and the ship came back without him, and nobody at the Keep will say more than that. Some in the city say he's drowned, while others light candles at the Cathedral every night for his return." } },
     prestor = { { id = "w_prestor", text = "Lady Prestor's at every council and every ball, and the nobles hang on her every word. She's from Alterac, they say, though I've never met anyone who knew her family before she came to court." } },
@@ -631,6 +647,10 @@ P:Pool {
       text = "Ye've the road on ye, {g:lad|lass}, all dust an' sunburn, so ye'll have been up top a good long while. Get a pint o' Thunderbrew in ye before ye forget what home tastes like." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_ward", text = "The Mystic Ward's the only place in the mountain where ye'll hear a gnome an' a dwarf agree on anythin', an' what they agree on is that the magi are wastin' good stone. Mind ye, the stone's always cold an' glowin' afterwards, so somethin's happenin'." },
+    { id = "l_mg_sheep", text = "My brother called a gnome mage a wee clockwork in the Stonefire Tavern, an' he spent an hour baain' at the bar for it. He's still no' sure whether the ale tasted better as a sheep, an' I fear he means tae find out." },
+    { id = "l_mg_slow", text = "Dwarves took tae the arcane slow, the way we take tae anythin' ye cannae hit wi' a hammer. My grandda says a dwarf mage is like a gnome wi' a beard: possible, but ye'd want tae see it twice." },
     { id = "l_ask_magni", text = "Some say the king spends too much of Ironforge's blood on Stormwind's troubles, an' some say that's what friends are for. Where d'ye stand on it?" },
     { id = "l_magni", text = "King Magni's a Bronzebeard through an' through: loud, generous an' stubborn as granite. We'd follow him intae a dragon's mouth, an' some of us already have." },
     { id = "l_gnomes", text = "The gnomes have been livin' wi' us since Gnomeregan fell, an' they've fixed every lift an' lantern in Tinker Town. They talk faster than I can drink, mind." },
@@ -679,6 +699,7 @@ P:Pool {
     { text = "Good day tae ye.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "Magic's a fine thing tae have on yer side in a fight, an' a terrible thing tae have in the next room when ye're tryin' tae sleep. The Mystic Ward's full o' magi these days, an' half o' them are gnomes still sore about Gnomeregan." } },
     magni = { { id = "w_magni", text = "King Magni's the finest king this mountain's ever had, an' he'd fight beside any one of us if it came tae it. Raise yer mug when ye say his name in here, or someone'll raise theirs for ye." } },
     wildhammer = { { id = "w_wildhammer", text = "Our cousins up at Aerie Peak, an' we don't always see eye tae eye since the War o' the Three Hammers. Still, there's no finer gryphon rider in the world than a Wildhammer, an' I'll say that tae their faces if I have tae." } },
     second_war = { { id = "w_second_war", text = "The Horde marched through Khaz Modan with dragons over their heads, an' we held the gates o' this mountain while the rest of the world argued. My grandda never forgave the humans for bein' late, though he forgave 'em for everything else." } },
@@ -769,6 +790,11 @@ P:Pool {
       text = "A gnome, on Teldrassil! Please keep your devices in your pack while you cross the terraces, because the last one that whistled frightened a hippogryph halfway to Rut'theran." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_taboo", text = "The arcane drowned the Well of Eternity and half the world with it, and the priestesses have forbidden it among us ever since. When I see a human mage conjure fire on the Craftsmen's Terrace, I feel the water coming in all over again." },
+    { id = "l_mg_hidden", text = "The old ones say that some of our own still study the arcane in secret, the way the Highborne did before the Sundering. If you hear someone humming in a closed room in Darnassus, it is wiser not to knock." },
+    { id = "l_mg_player", when = { class = "MAGE", ["not"] = { race = "NightElf" } }, text = "You carry the arcane on you like a storm that has not broken yet, stranger. The Sentinels will not stop you, but do not cast near the temple, and do not cast near the trees." },
+    { id = "l_mg_kin", when = { class = "MAGE", race = "NightElf" }, text = "One of our own, studying the arcane? The Sentinels will watch you, and so will I, because the last of our people who loved it as you do drowned a continent." },
     { id = "l_ask_ashen", text = "The Sentinels send word from Ashenvale every week, and every week the orcs have cut deeper. Tell me, outsider, what would you do about them?" },
     { id = "l_tree", text = "Teldrassil is young as trees go, and it was planted without the blessing the old World Tree had. The druids say that will not matter, and I pray they are right." },
     { id = "l_tyrande", text = "The High Priestess Tyrande leads us while Malfurion sleeps in the Dream. She has waited for him for thousands of years before, and she will wait again." },
@@ -824,6 +850,7 @@ P:Pool {
     { text = "Elune keep you.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "Ten thousand years ago the Highborne loved the arcane more than their own people, and the Well swallowed Zin-Azshari for it. We exiled those who would not give it up, and now the humans come to our shores with spellbooks and call it scholarship." } },
     tyrande = { { id = "w_tyrande", text = "The High Priestess has led the Sisterhood of Elune for ten thousand years, and the moon has never once turned its face from her. She leads us still while Malfurion sleeps, and she leads us well." } },
     elune = { { id = "w_elune", text = "Elune is the light that shines in the darkness, and her gaze never leaves her children. Walk under the moon tonight and listen; she speaks most clearly to those who are quiet." } },
     nordrassil = { { id = "w_nordrassil", text = "The World Tree on Hyjal gave us immortality, and we spent it to defeat the Legion. We planted Teldrassil in its memory, though some of us wonder whether the new tree is as blessed as the old." } },
@@ -925,6 +952,10 @@ P:Pool {
       text = "Darkspear, and still carrying the salt of the coast on you. The Valley of Spirits is that way, where your people keep their fires, though I'd guess you know the road better than I do." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_lodge", text = "The trolls in the Darkbriar Lodge set something alight every week, and the grunts in the Valley of Spirits have stopped running to put it out. Let them burn their own curtains, I say, so long as it never spreads past the lodge." },
+    { id = "l_mg_camps", text = "My father says that in the camps the humans' mages would turn a whole barracks of orcs into sheep and back again, for sport. He laughs about it now, but he's never once stood near a mage if he could help it." },
+    { id = "l_mg_warlocks", text = "Power that doesn't come from the spirits is how Gul'dan made slaves of us. The mages swear their magic is nothing like the warlocks', and I remember the warlocks swore a great deal too." },
     { id = "l_ask_chief", text = "The grunts in the Drag argue every night about whether the Warchief's too easy on the humans. You've seen more of the world than they have, so what's your view?" },
     { id = "l_thrall", text = "The Warchief led us out of the camps and across the sea, and he built this city out of red rock and promises. So far, he's kept every one of them." },
     { id = "l_name", text = "This city's named for Orgrim Doomhammer, who died breaking the camps open. When you walk under the gate, you walk under his name." },
@@ -969,6 +1000,7 @@ P:Pool {
     { text = "Lok'tar ogar.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "The spirits answer a shaman because he asks, and the arcane answers a mage because he takes. That's what my grandmother taught me, and I've seen nothing to make me doubt her, though the trolls in the lodge are decent enough company." } },
     thrall = { { id = "w_thrall", text = "He freed us from the camps, led us across the sea, and built this city with his own hands. There isn't an orc in Durotar who wouldn't die for him, and there are a few humans who'd agree." } },
     voljin = { { id = "w_voljin", text = "The Darkspear chieftain is a sly one, and a loyal one, and he's sworn to the Warchief for life. His trolls hold the Echo Isles and the coast, and they watch the sea for us." } },
     internment = { { id = "w_internment", text = "I was born in one of those camps, and I didn't see a sky without a wall in it until I was twelve. Lok'tar, I'll never be caged again." } },
@@ -1054,6 +1086,9 @@ P:Pool {
       text = "You've come home with the dust of the Barrens in your fur. The lifts are slow and the wind is cold up here, but the bluffs always remember their children, however far they wander." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_rise", text = "Ursyn Ghull teaches the arcane on Spirit Rise, and the elders allow it because the Horde has asked them to. The Earth Mother gives freely to those who ask, and I have never understood why anyone would rather take." },
+    { id = "l_mg_wind", text = "The winds go strange around the mages on the Rise, like a herd that smells a storm coming. My grandfather says the arcane is a fire with no wood beneath it, and that such a fire must be fed with something." },
     { id = "l_ask_grim", text = "The Grimtotem walk the bluffs with hard eyes, and Magatha smiles at the High Chieftain like a hungry wolf. What would you do about them, friend?" },
     { id = "l_cairne", text = "High Chieftain Cairne brought the tribes together and led us to these bluffs. Before him, we wandered the plains with the centaur at our backs, and now we have a home." },
     { id = "l_lifts", text = "The lifts are the only way up, and the only way down that doesn't end at the bottom in pieces. My father built the counterweights, so trust them." },
@@ -1093,6 +1128,7 @@ P:Pool {
     { text = "Earth Mother keep you.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "The arcane is a strange gift, and it is not one the Earth Mother gave. Still, the young ones who study it on Spirit Rise are gentle enough, and the land has not complained of them yet, so the elders watch and keep their counsel." } },
     cairne = { { id = "w_cairne", text = "The High Chieftain led us out of the Barrens when the centaur drove us from our lands, and he brought us to these bluffs where we're safe at last. He is old, and wise, and we pray the Earth Mother keeps him a long while yet." } },
     earth_mother = { { id = "w_earth_mother", text = "An'she and Mu'sha are the Earth Mother's eyes, one by day and one by night, and the land is her body. Everything that grows, she gave us, so we take only what we need." } },
     centaur = { { id = "w_centaur", text = "The Kolkar and the Galak raided our herds and burned our camps for generations, until Cairne brought us here with the orcs at our side. They are a cruel people, and they have never once kept a truce." } },
@@ -1184,6 +1220,11 @@ P:Pool {
       text = "You're one of the sky-elves the Horde took in. You keep glancing upward as if you've lost something, and I'm afraid you have, because there's no wind down here at all, only the draught off the canals." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_dead", text = "Half the mages of the Magic Quarter studied in Dalaran when they still had pulses. The Kirin Tor shut their gates on the plague and on them, and the Dark Lady opened hers, so you can guess where their loyalties lie now." },
+    { id = "l_mg_kel", text = "Kel'Thuzad was a mage of Dalaran and sat on their Council of Six, before he took his talents north and taught a plague to walk. The living like to forget that, and the dead of this city have nothing but time to remember it." },
+    { id = "l_mg_arugal", text = "Dalaran sent Arugal to Silverpine to deal with the likes of us, and he brought back wolves that wear men's faces. The Kirin Tor have never once said sorry for Pyrewood, and I've stopped waiting for them to." },
+    { id = "l_mg_sheep", text = "A living mage turned my friend into a sheep in the Hillsbrad fields last spring. He came back to himself in the middle of a flock, quite dead and very confused, and the farmer screamed louder than he did." },
     { id = "l_ask_lady", text = "Visitors always want to know what we think of the Dark Lady, and they never tell us what they think. So go on, living or dead: what do you make of her?" },
     { id = "l_sylvanas", text = "The Dark Lady freed us from the Lich King's voice. I remember the silence after it stopped, and I would do anything she asked to keep it." },
     { id = "l_above", text = "The palace above us was Lordaeron's, and some of us served in it. Now it's rubble, and we live in the old sewers and crypts, which says something about the world, I suppose." },
@@ -1224,6 +1265,9 @@ P:Pool {
     { text = "Farewell.", next = "END" },
   },
   topics = {
+    mages = { { id = "w_mages", text = "The mages of Dalaran raised a plague in Kel'Thuzad and a pack of wolves in Arugal, and then hid under a dome while Lordaeron died. The ones down here are different, naturally, because they're dead, and death is very good for humility." } },
+    kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor are the clever living mages of Dalaran, who keep their secrets the way a miser keeps his gold. Plenty of us swore their oaths once, and they answered by killing us a second time at Ambermill." } },
+    dalaran = { { id = "w_dalaran", text = "Dalaran sits behind a violet dome in the Alterac hills, and the living mages inside are rebuilding as though nothing happened. Some of us were born within sight of those towers, and we'd quite like a word with whoever's in charge." } },
     sylvanas = { { id = "w_sylvanas", text = "The Dark Lady freed us from the Lich King's chains, and every one of us owes her what remains of our lives. She does not ask for our love, only our loyalty, and she has both." } },
     forsaken = { { id = "w_forsaken", text = "We are the dead of Lordaeron, and we answer to no one now but ourselves and our queen. The living call us monsters, and some of us have stopped arguing the point." } },
     scourge = { { id = "w_scourge", text = "We were the Scourge once, chained and mindless, and some of our own kin still are. Each one we put down is someone we used to know, so we put them down carefully." } },
@@ -1287,6 +1331,8 @@ P:Pool {
       text = "You'll be one of the sky-folk the heralds keep going on about. The children at the Lion's Pride have a bet running on whether you can fly, so if you'd jump off something, one of them would be very grateful." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_hogger", text = "They tell a story at the Lion's Pride about a mage who turned Hogger into a sheep, and he ate half of Maybell's cabbages before it wore off. Nobody can agree whether the gnoll or the mage was more embarrassed." },
     { id = "l_defias", text = "The Defias have been seen in the hills east of town, bold as you like, in their red bandanas. My mother says they were honest masons once, and she says it like it's worse." },
     { id = "l_kobolds", text = "The miners won't go into Fargodeep any more, not since the kobolds took it over. Candles on their heads, and they shout at you not to take them, as if anybody wants their candles." },
     { id = "l_hogger", text = "Hogger's out in the woods southwest of here, and he's bigger every time somebody tells the story. I've only seen him the once, from very far away, and that was plenty." },
@@ -1588,6 +1634,8 @@ P:Pool {
       text = "One of the sky-elves, here at the harbor! The sailors swear your people came down out of the clouds over the sea, and I've never heard a sailor tell the same tale twice, so I'd like to hear yours." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_inn", text = "The mages coming off the Theramore boat conjure their own food and water, so the inn sells them nothing at all. The innkeeper says he'll respect the magi the day one of them conjures a decent ale." },
     { id = "l_dragonmaw", text = "The Dragonmaw orcs have come out of the hills again, raiding the farms east of here. They used to keep dragons, people say, so I suppose we should be glad it's only orcs." },
     { id = "l_span", text = "The Thandol Span's the only bridge north to Arathi, and the Dark Irons have taken one end of it. So now everything for the north goes round by sea, and the prices show it." },
     { id = "l_ships", text = "Ships to Theramore and Auberdine leave from the docks, if the weather's right and the captain's sober. One of the two is usually true." },
@@ -1650,6 +1698,10 @@ P:Pool {
       text = "A gnome, in Southshore! Dalaran's just up the road, and its magi used to buy every clockwork thing your people made, before they shut their gates on the world." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_dome", text = "On a clear day you can see Dalaran's dome glowing over the hills, and the children ask whether anyone's still inside. They are, and not one of them has come down to buy a fish since." },
+    { id = "l_mg_arugal", text = "Arugal was one of Dalaran's mages before he went mad in Shadowfang Keep. My aunt in Pyrewood stopped writing the year he came, and nobody from the Kirin Tor has ever come to tell us why." },
+    { id = "l_mg_kel", text = "They say Kel'Thuzad bought grain in this very market once, back when he was only a Dalaran wizard with odd tastes. If I'd known what he meant to do with it, I'd have poisoned the sack myself." },
     { id = "l_tarren", text = "The dead have taken Tarren Mill, not three hours' walk from here. They call themselves the Forsaken and say they're different from the Scourge, but I knew some of them when they were alive, and they never were very friendly." },
     { id = "l_syndicate", text = "The Syndicate runs the hills north of here, Alterac's old nobles turned thieves. My grandfather paid taxes to those families once, and now they rob his grandsons on the road." },
     { id = "l_durnholde", text = "That ruined fortress up the hill is Durnholde. They kept orcs there, years ago, and the one who escaped is the Warchief of the Horde now, if you'll credit it." },
@@ -1660,6 +1712,8 @@ P:Pool {
     { id = "l_hu_kin", when = { race = "Human" }, text = "You're living, you're human and you're not wearing a red tabard. In Hillsbrad these days, that makes you very nearly family." },
   },
   topics = {
+    mages = { { id = "w_mages", text = "The mages from up the hill used to come down to Southshore on feast days and turn our fish into flowers for a joke. Since the dome went up they don't come down at all, and I find I miss the flowers more than I'd have thought." } },
+    kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor rule Dalaran, or what's left of it, and they've let nobody through that barrier who isn't one of their own. Folk here remember Kel'Thuzad and Arugal, and they'd like the Kirin Tor to remember them too." } },
     forsaken = { { id = "w_forsaken", text = "The dead ones hold Tarren Mill just over the hill, and they've got some foul plague brewing in their cellars, folk say. Nobody sleeps sound here anymore." } },
     internment = { { id = "w_internment", text = "Durnholde's just up the road, and that's where the orc warchief was raised a slave, so they say. The old keep's full of Syndicate thugs now, and nobody talks about the camps." } },
     ravenholdt = { { id = "w_ravenholdt", text = "There's a manor up in the hills, they say, where the finest thieves in the world live and nobody ever finds the door. Every few years somebody goes looking, and nobody's ever come back to tell us how it went." } },
@@ -1844,6 +1898,8 @@ P:Pool {
       text = "Back from across the sea, kaldorei? You have the salt of the human lands on you. Darkshore is not as quiet as you left it; something sickens the furbolgs and the beasts along the coast, and the Sentinels are stretched thin." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_quel", text = "The quel'dorei mages who come over on the Menethil boat look at our moonwells as if they're thirsty. We remember what that thirst did to their ancestors, and to ours." },
     { id = "l_moonkin", text = "The moonkin on the eastern ridge were gentle creatures once, and now they attack anyone who comes near. Something is poisoning this coast, and nobody can tell me what." },
     { id = "l_furbolgs", text = "The Blackwood furbolgs traded with us for years, honey for arrows. Now the corruption has taken the whole tribe, and they snarl at us from the treeline." },
     { id = "l_ships", text = "The boat to Rut'theran leaves every hour, and the ship to Menethil when the captain feels like it. I have waited three days for that ship, which is nothing to my people, though I confess it felt long." },
@@ -2015,6 +2071,9 @@ P:Pool {
       text = "One of the Gnomeregan folk, here in the swamp! The magi have been trying to keep the tower lamps lit in this damp for years, and I'd wager you could sort it out in an afternoon." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_jaina", text = "Lady Jaina's a mage, and so are half the folk in her tower, and this is the first town I've lived in where nobody minds. They conjure water for the barracks when the cisterns run low, and nobody's been a sheep that I know of." },
+    { id = "l_mg_bread", text = "There's a young apprentice down at the docks who conjures bread for every deserter and refugee that washes up. The baker grumbles that he's being put out of business, and then he goes down and helps hand it out." },
     { id = "l_jaina", text = "Lady Proudmoore brought us here across the sea when Lordaeron fell. She built this city out of a swamp, and she keeps the peace with the orcs, which some folk don't forgive her for." },
     { id = "l_kultiras", text = "Half the sailors here are Kul Tiran, and they don't talk about Admiral Proudmoore, the Lady's father. If you want to keep your teeth, you won't either." },
     { id = "l_varian", text = "The King of Stormwind was coming here to talk peace when he vanished. Nobody knows what happened, and the Lady won't say, if she even knows." },
@@ -2026,6 +2085,8 @@ P:Pool {
     { id = "l_hu_kin", when = { race = "Human" }, text = "You're one of ours, and that's worth something this far from home. The orcs at the gate are polite, the elves are cold and the dwarves are drunk, but at least a human knows what a proper loaf looks like." },
   },
   topics = {
+    mages = { { id = "w_mages", text = "In Theramore the magi are our neighbours, and Lady Jaina herself is the greatest of them. They're odd company at times and the tower hums all night, but they held at Hyjal when it mattered, and I'll hear nothing against them." } },
+    kirin_tor = { { id = "w_kirin_tor", text = "Lady Jaina studied with the Kirin Tor in Dalaran, under Antonidas himself, before the city fell. She speaks of them kindly, though I've noticed she founded her own town rather than go back to theirs." } },
     jaina = { { id = "w_jaina", text = "Lady Jaina built this city out of nothing but the survivors of Lordaeron and her own stubbornness. She keeps the peace with the Horde because she's seen what war costs, and anyone here who says otherwise wasn't at Hyjal." } },
     onyxia = { { id = "w_onyxia", text = "There's a black dragon in the south of the marsh, in the Wyrmbog, and our patrols give it a very wide berth. Lady Jaina's had reports from there that she doesn't share with the rest of us." } },
     thrall = { { id = "w_thrall", text = "He's the warchief of the Horde, and he and Lady Jaina have an understanding. Not everyone in Theramore likes it, but nobody's had to bury a son since they made it." } },
@@ -2403,6 +2464,8 @@ P:Pool {
       text = "A human, and from Stormwind by that accent! The last lord from your city ran up a tab at the Salty Sailor and sailed off on the mornin' tide, pal, so you'll forgive me if I ask for coin up front." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_water", text = "Mages are terrible for business, pal, and I'll tell you why: they conjure their own water and their own bread, so they never buy a thing from my stall. Then they want a portal to Stormwind and a discount on the boat." },
     { id = "l_cartel", text = "The Steamwheedle Cartel runs this town, pal, and they run it for profit. As long as you're spendin', you're a valued guest, and once you stop, you're part of the scenery." },
     { id = "l_bloodsail", text = "The Bloodsail Buccaneers hit another merchant ship last week, real pirates with parrots and grudges, and they got no love at all for the Cartel. The insurance on that cargo's gonna be murder, pal." },
     { id = "l_sharks", text = "Don't go swimmin' in the bay, buddy, whatever the sailors bet you. The sharks are big and always hungry, and they've learned that sailors fall off the pier after a long night, which is better business than most of us are doin'." },
@@ -2787,6 +2850,8 @@ P:Pool {
       text = "You're one of the sky-elves from Mulgore, aren't you? The caravan drivers argue every night about whether your people are kin to the night elves, and I keep telling them to ask you, so here I am, asking." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_raptor", text = "A Forsaken mage turned a raptor into a sheep right outside the inn last week, and Thork's caravan drivers have argued ever since about whether that counts as cheating. The sheep didn't seem to mind." },
     { id = "l_centaur", text = "The centaur raid the caravans from the west, and the quilboar from the south. Every kodo that gets through here alive is a small victory for the Warchief." },
     { id = "l_wailing", text = "There's a cave in the south where the druids went to heal the land. They came out strange, and now the water tastes wrong for miles around it." },
     { id = "l_northwatch", text = "The Alliance built a fort at Northwatch, down on the coast, to watch us. Let them watch; humans watched us from behind their fences once, and we're still here and the fences aren't." },
@@ -2925,6 +2990,8 @@ P:Pool {
       text = "A troll, grinning at the graveyard. Your witch doctors seem quite at home among the dead, which is more than I can say for most visitors, so do make yourself comfortable." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_trainers", text = "The trainers at Deathknell teach the newly risen to throw frost, and most of them were Dalaran apprentices in life. Old habits, they say, though I don't believe they mean it as a joke." },
     { id = "l_scarlet", text = "The Scarlet Crusade keeps a monastery to the northeast and a fortress on the coast. They hunt us like vermin, and they sing hymns while they do it." },
     { id = "l_farms", text = "Most of us were farmers in these fields once. I remember the smell of the barley in summer, though I can't smell anything now, which is probably a mercy around here." },
     { id = "l_tavern", text = "The Gallows' End is the best place in Brill, which isn't saying much. The innkeeper is pleasant enough company, for a corpse, and so am I." },
@@ -2978,11 +3045,14 @@ P:Pool {
       text = "One of the sky-elves, among the dead. You look as if you're listening to the wind and not liking what it says, and I can't blame you, because the wind here mostly carries the smell of Southshore's fish market." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_hill", text = "From the hill above the mill you can see the dome over Dalaran. Some of us studied there once, and on quiet nights we sit up there and wonder what the living mages are reading without us." },
     { id = "l_southshore", text = "I used to sell wool in Southshore, in life. Now the same people I traded with would shoot me on sight, and I can't even say they're wrong to." },
     { id = "l_syndicate", text = "The Syndicate are Alterac's old nobles, gone to thieving. They hide in the hills and rob anyone who passes, living or dead." },
     { id = "l_apothecary", text = "The Apothecaries have business in the hills, testing their brews on things. I don't ask what things, and you'd be wise not to either." },
   },
   topics = {
+    kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor taught half of Lordaeron's mages and then locked the door on the dead ones. The Magus would give his other eye for their libraries, and I can't say I blame him." } },
     forsaken = { { id = "w_forsaken", text = "We took this town from the living, and we hold it against the humans in Southshore. They don't like their neighbours, and frankly, neither do we." } },
     ravenholdt = { { id = "w_ravenholdt", text = "There's a manor in the hills where the rogues of the world gather, they say. Our own spies have tried to find it, and they've never come back." } },
     dalaran = { { id = "w_dalaran", text = "The mages' city is just north of here, behind its dome. They don't let the living in, let alone the dead, and I doubt they'd make an exception for us." } },
@@ -3347,11 +3417,14 @@ P:Pool {
       text = "An orc at the Sepulcher. Dalaran's mad wizard filled these woods with wolf-men, and we've been cleaning up after him ever since, so if you've an axe, you'll find plenty of work." },
   },
   lines = {
+    -- Mage patch: what people make of mages and the arcane.
+    { id = "l_mg_ambermill", text = "Dalaran's wizards dig at Ambermill, a day's walk south of here, and they kill our scouts on sight. The Kirin Tor were scholars once, and now they're only another army that would rather we stayed buried." },
     { id = "l_keep", text = "There's a keep to the south where a mad wizard keeps wolf-men for hounds. On quiet nights you can hear them howling all the way up here." },
     { id = "l_dalaran", text = "Dalaran's mages have set up at Ambermill, doing something with magic and a lot of shouting. The Dark Lady wants to know what, and so do we." },
     { id = "l_pyrewood", text = "Pyrewood village is still full of living humans, which is odd enough out here. Odder still, they're not quite human after dark, and they don't seem to know it." },
   },
   topics = {
+    kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor sent Arugal to Silverpine, and the Kirin Tor's wizards hold Ambermill with their wards and their arrogance. If you want to know what the Sepulcher thinks of them, look at the wolves." } },
     shadowfang = { { id = "w_shadowfang", text = "Arugal's keep looms over Silverpine, full of his wolf-men and his madness. We've lost a good many to the worgen, and we'll lose more before it's done." } },
     gilneas = { { id = "w_gilneas", text = "The Greymane Wall cuts across the south of Silverpine, and the humans behind it won't let anyone in. They'd let us in even less, I suspect." } },
     forsaken = { { id = "w_forsaken", text = "We hold the Sepulcher for the Dark Lady, and we bury what the worgen leave behind. It's grim work, but we don't mind grim." } },

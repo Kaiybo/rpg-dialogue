@@ -1310,3 +1310,269 @@ P:Thread {
     },
   },
 }
+
+-- Bread for the cellars (Alliance mages, 5-45). Wendel Pryce (original), a Lordaeron refugee
+-- apprenticed in the Wizard's Sanctum, conjured bread every night for the refugees in the
+-- Cathedral's cellars until the bakers petitioned Maginor Dumas, who forbade it. He conjured
+-- water for the Gnomeregan refugees in Tinker Town under Bink's eye, then sailed for Theramore.
+-- Tervosh must keep him or send him home; the ending follows what the player has said about
+-- mages (opinion `mages`, from the views in views_5.lua), which Theramore's gossip carries to him.
+P:Thread {
+  id = "mage_alliance",
+  theme = "A refugee apprentice fed the hungry with conjured bread until his masters stopped him, and the Alliance's magi can't agree whether magic belongs to the people or behind the tower door.",
+  title = "Bread for the cellars",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "An apprentice called Wendel Pryce came south with the Lordaeron refugees and studied in the Wizard's Sanctum. He conjured bread every night for the people sleeping in the Cathedral's cellars, until somebody made him stop.",
+      third = "{name} heard of Wendel Pryce, a refugee apprentice of the Wizard's Sanctum who conjured bread for the Cathedral's cellars until somebody made him stop." },
+    unfolding = { first = "Maginor Dumas forbade Wendel's bread after the bakers of Old Town petitioned him, and Wendel went to Tinker Town and conjured water for the Gnomeregan refugees instead. Now he's in Theramore, feeding whoever washes up on the docks, and Archmage Tervosh has letters from Stormwind asking for him back.",
+      third = "{name} followed Wendel Pryce from the Wizard's Sanctum to Tinker Town and on to Theramore, where Archmage Tervosh had to decide whether to send him home." },
+    resolved = { first = "Tervosh heard what I'd been saying about what magic owes the people around it, and he wrote to Maginor Dumas that night. Wendel stays in Theramore, and the refugees eat.",
+      third = "{name} spoke up for magic that serves ordinary people, and Archmage Tervosh kept Wendel Pryce in Theramore to feed the refugees." },
+    soured = { first = "Tervosh heard me say that mages ought to keep to their towers and their rules, and he sent Wendel back to the Sanctum with a letter for Malin. Wendel went quietly, and Tervosh said that was worse than if he'd argued.",
+      third = "{name} said that mages belong behind their tower doors, and Archmage Tervosh sent Wendel Pryce back to Stormwind." },
+  },
+  npcs = { "jennea", "elsharin", "maginor", "bink", "tervosh" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player spoke up for magic that serves ordinary people, and Tervosh kept Wendel Pryce in Theramore to feed the refugees.",
+    soured = "The player said mages belong behind their tower doors, and Tervosh sent Wendel Pryce back to the Wizard's Sanctum.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Jennea counted his gaps, Dumas counted the cold ovens, Bink counted the flasks, and Tervosh counts the refugees. Nobody ever asked Wendel what he counted.",
+    third = "{name} had followed Wendel Pryce's bread from the Cathedral's cellars to Theramore's docks, and found that every mage in the Alliance had an opinion of it.",
+  },
+  beats = {
+    {
+      id = "b1_jennea", npc = "jennea",
+      when = { class = "MAGE", faction = "Alliance", minLevel = 5, thread = { id = "mage_alliance", notBeat = "b1_jennea" }, ["not"] = { thread = { id = "mage_alliance", beat = "b1_elsharin" } } },
+      text = "Everyone's fundamentals have gaps, and the widest I ever saw belonged to the best student I ever had. Wendel Pryce came down from Lordaeron with the refugees, and he could conjure a loaf of bread before he could hold a frost ward steady, and he gave away every loaf in the Cathedral's cellars. Master Dumas put a stop to it, and Wendel left the Sanctum the same week.",
+      fx = { thread = { id = "mage_alliance", beat = "b1_jennea", state = "stirring" } },
+    },
+    {
+      id = "b1_elsharin", npc = "elsharin",
+      when = { class = "MAGE", faction = "Alliance", minLevel = 8, thread = { id = "mage_alliance", notBeat = "b1_elsharin" }, ["not"] = { thread = { id = "mage_alliance", beat = "b1_jennea" } } },
+      text = "I have taught apprentices in this tower for a long while, and only one of them ever wept over a loaf of bread. Wendel Pryce came south with the Lordaeron refugees, and he conjured bread for them every night in the Cathedral's cellars until the bakers of Old Town went to Master Dumas about it. Ask Maginor what he told the boy, because nobody asked me.",
+      fx = { thread = { id = "mage_alliance", beat = "b1_elsharin", state = "stirring" } },
+    },
+    {
+      id = "b2_maginor", npc = "maginor",
+      when = { class = "MAGE", any = { { thread = { id = "mage_alliance", beat = "b1_jennea" } }, { thread = { id = "mage_alliance", beat = "b1_elsharin" } } },
+               ["not"] = { thread = { id = "mage_alliance", beat = "b2_maginor" } } },
+      text = "You've heard about Pryce, then, and I expect you've heard I was the villain of it. The bakers' guild brought me a petition, because the boy was feeding half the cellars for nothing and three ovens in Old Town went cold that winter, and I told him the art is not a soup kitchen. Magic burns the untrained, and it burns a city that learns to lean on it, and I still believe that, though I've slept worse since he went to Ironforge.",
+      fx = { thread = { id = "mage_alliance", beat = "b2_maginor", state = "unfolding" }, learn = { "mages" } },
+    },
+    {
+      id = "b3_bink", npc = "bink",
+      when = { class = "MAGE", minLevel = 15, thread = { id = "mage_alliance", beat = "b2_maginor" }, ["not"] = { thread = { id = "mage_alliance", beat = "b3_bink" } } },
+      text = "Wendel Pryce? Tall, mournful, smells faintly of fresh bread? He spent a whole winter in Tinker Town conjuring water for the Gnomeregan refugees, one thousand one hundred and forty flasks by my count, and he never once asked who was paying for it. Then a letter came from Theramore, and he packed his books and took the boat from Menethil, and I'm told Lady Jaina's magi don't mind feeding people at all.",
+      fx = { thread = { id = "mage_alliance", beat = "b3_bink" }, learn = { "theramore" } },
+    },
+    {
+      id = "b4_tervosh", npc = "tervosh",
+      when = { class = "MAGE", minLevel = 30, thread = { id = "mage_alliance", beat = "b3_bink" }, ["not"] = { thread = { id = "mage_alliance", beat = "b4_tervosh" } } },
+      text = "Pryce is here, yes, and he's feeding every refugee and deserter who washes up on my docks, and Lady Jaina likes him enormously. Malin and Dumas have both written asking me to send him back to his books before he turns into a bread cart in a robe. I haven't decided, and Theramore is a small town, so whatever you think mages are for, I'll hear it from somebody before you've finished saying it.",
+      fx = { thread = { id = "mage_alliance", beat = "b4_tervosh" }, learn = { "mages" } },
+    },
+    {
+      id = "b5_tervosh_keep", npc = "tervosh",
+      when = { class = "MAGE", thread = { id = "mage_alliance", beat = "b4_tervosh" },
+               opinion = { topic = "mages", stance = { "serve", "craft", "free", "admire", "respect", "trust" } },
+               ["not"] = { any = { { thread = { id = "mage_alliance", beat = "b5_tervosh_keep" } }, { thread = { id = "mage_alliance", beat = "b5_tervosh_send" } } } } },
+      text = "I heard what you've been telling people about mages and what we owe the folk around us, and I wrote to Dumas that same night. Pryce stays in Theramore, and the refugees eat, and if the bakers of Stormwind wish to complain, they may row out here and do it in person.",
+      fx = { thread = { id = "mage_alliance", beat = "b5_tervosh_keep", state = "resolved" } },
+    },
+    {
+      id = "b5_tervosh_send", npc = "tervosh",
+      when = { class = "MAGE", thread = { id = "mage_alliance", beat = "b4_tervosh" },
+               opinion = { topic = "mages", stance = { "leash", "danger", "distrust", "fear", "scorn" } },
+               ["not"] = { any = { { thread = { id = "mage_alliance", beat = "b5_tervosh_keep" } }, { thread = { id = "mage_alliance", beat = "b5_tervosh_send" } } } } },
+      text = "I hear you've been saying that mages ought to keep to their towers and their rules, and I'll admit Dumas says the same in longer words. I've sent Pryce back to the Sanctum with a letter for Malin, and he went quietly, which was worse than if he'd argued.",
+      fx = { thread = { id = "mage_alliance", beat = "b5_tervosh_send", state = "soured" } },
+    },
+  },
+}
+
+-- The orc who chose frost (Horde mages, 5-45). Mogra (original), a camp-born orc girl, asked the
+-- Darkbriar Lodge for frost instead of fire; her grandfather, a Second War grunt who remembers
+-- what the warlocks did to the orcs, broke her focus over his knee. She went down to the
+-- Undercity to study under Anastasia Hartwell, where Kaelystia Hatebringer approves of her spite.
+-- Hartwell keeps her or sends her home; the ending follows the player's opinion of `mages`.
+P:Thread {
+  id = "mage_horde",
+  theme = "An orc girl took up the arcane, and her grandfather, who remembers the warlocks, would rather see her dead than a mage.",
+  title = "The orc who chose frost",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A camp-born orc girl called Mogra sat down in the Darkbriar Lodge and asked to learn frost. Her grandfather came the next morning and broke her focus over his knee, and she went down to the Undercity to learn from the dead instead.",
+      third = "{name} heard of Mogra, an orc girl who asked the Darkbriar Lodge for frost, and whose grandfather broke her focus over his knee." },
+    unfolding = { first = "Mogra's grandfather fought in the Second War and watched the warlocks burn the spirits out of his people, and he calls the arcane their cousin. Mogra studies under Anastasia Hartwell in the Magic Quarter now, and the old orcs have written to the Dark Lady asking for her back.",
+      third = "{name} learned why Mogra's grandfather feared the arcane, and found her studying under Anastasia Hartwell in the Undercity while the old orcs demanded her home." },
+    resolved = { first = "Hartwell heard me say that magic is a craft like any other, and that it's what you do with it that counts. Mogra stays in the Magic Quarter, and Hartwell wrote to her grandfather that he may come and watch her work.",
+      third = "{name} spoke for magic as a craft like any other, and Anastasia Hartwell kept Mogra as her student." },
+    soured = { first = "Hartwell heard me say the arcane is the warlocks' road in a cleaner coat, and she sent Mogra home to Orgrimmar with her books. Mogra didn't thank her for it, and Hartwell didn't expect her to.",
+      third = "{name} said that the arcane walks the warlocks' road, and Anastasia Hartwell sent Mogra home to Orgrimmar." },
+  },
+  npcs = { "pephredo", "uthelnay", "deino", "uc_kaelystia", "hartwell" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player spoke for magic as a craft like any other, and Hartwell kept Mogra as her student.",
+    soured = "The player said the arcane walks the warlocks' road, and Hartwell sent Mogra home to Orgrimmar.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "The trolls taught Mogra her first spell, the dead taught her the rest, and her grandfather taught her what the old Horde fears. Every mage of the Horde carries a little of that fear around with the spellbook.",
+    third = "{name} had followed Mogra from the Darkbriar Lodge to the Undercity's Magic Quarter, and found that every mage of the Horde carried a little of the old fear with them.",
+  },
+  beats = {
+    {
+      id = "b1_pephredo", npc = "pephredo",
+      when = { class = "MAGE", faction = "Horde", minLevel = 5, thread = { id = "mage_horde", notBeat = "b1_pephredo" }, ["not"] = { thread = { id = "mage_horde", beat = "b1_uthelnay" } } },
+      text = "You see dat scorch by de door, mon? Dat be Mogra's, an orc girl born in de camps, an' de first orc in many a year to sit on dis floor an' ask for frost instead of fire. Her grandfather come in de next mornin' an' broke her focus over his knee, an' she went off to de Undercity to learn from de dead instead.",
+      fx = { thread = { id = "mage_horde", beat = "b1_pephredo", state = "stirring" } },
+    },
+    {
+      id = "b1_uthelnay", npc = "uthelnay",
+      when = { class = "MAGE", faction = "Horde", minLevel = 8, thread = { id = "mage_horde", notBeat = "b1_uthelnay" }, ["not"] = { thread = { id = "mage_horde", beat = "b1_pephredo" } } },
+      text = "I had an orc girl in dis lodge once, mon, a camp-born one called Mogra, an' she froze a bucket of water solid on her second day and laughed like a child. Her grandfather heard about it, an' he come in here an' broke her focus in front of all my students, an' none of dem has asked for frost since. She be in de Undercity now, learnin' from de dead.",
+      fx = { thread = { id = "mage_horde", beat = "b1_uthelnay", state = "stirring" } },
+    },
+    {
+      id = "b2_deino", npc = "deino",
+      when = { class = "MAGE", any = { { thread = { id = "mage_horde", beat = "b1_pephredo" } }, { thread = { id = "mage_horde", beat = "b1_uthelnay" } } },
+               ["not"] = { thread = { id = "mage_horde", beat = "b2_deino" } } },
+      text = "Mogra's grandfather fought in de Second War, an' he watched Gul'dan's warlocks burn de spirits out of his people for power. He told me de arcane be de warlocks' cousin, an' I told him it be not, an' we both of us know it be closer dan I would like. De girl went down to Anastasia Hartwell in de Undercity, because de dead don't flinch at what she be.",
+      fx = { thread = { id = "mage_horde", beat = "b2_deino", state = "unfolding" }, learn = { "mages" } },
+    },
+    {
+      id = "b3_kaelystia", npc = "uc_kaelystia",
+      when = { class = "MAGE", minLevel = 12, thread = { id = "mage_horde", beat = "b2_deino" }, ["not"] = { thread = { id = "mage_horde", beat = "b3_kaelystia" } } },
+      text = "The orc girl studies harder than any of the dead in this quarter, out of spite, and I approve of spite. She asked me why I hate Dalaran, so I told her about Kel'Thuzad and the Kirin Tor who expelled him and then looked the other way while he walked north. She said her grandfather would have understood, and I still can't decide whether that was meant kindly.",
+      fx = { thread = { id = "mage_horde", beat = "b3_kaelystia" }, learn = { "kelthuzad", "kirin_tor" } },
+    },
+    {
+      id = "b4_hartwell", npc = "hartwell",
+      when = { class = "MAGE", minLevel = 20, thread = { id = "mage_horde", beat = "b3_kaelystia" }, ["not"] = { thread = { id = "mage_horde", beat = "b4_hartwell" } } },
+      text = "Mogra is my student, yes, and the best I've had since I died. Her grandfather has written to the Dark Lady demanding she be sent home to the shamans, and the Warchief's people have asked politely what an orc is doing in a Forsaken quarter. I'll decide once I know what the Horde out there thinks mages are, and the Undercity whispers everything to me eventually.",
+      fx = { thread = { id = "mage_horde", beat = "b4_hartwell" }, learn = { "mages" } },
+    },
+    {
+      id = "b5_hartwell_keep", npc = "hartwell",
+      when = { class = "MAGE", thread = { id = "mage_horde", beat = "b4_hartwell" },
+               opinion = { topic = "mages", stance = { "serve", "craft", "free", "admire", "respect", "trust" } },
+               ["not"] = { any = { { thread = { id = "mage_horde", beat = "b5_hartwell_keep" } }, { thread = { id = "mage_horde", beat = "b5_hartwell_send" } } } } },
+      text = "I hear you've been telling people that magic is a craft like any other, and I hear it's catching on. Mogra stays, and I've written to her grandfather that she'll be a finer mage than any of Dalaran's living ones, and that he may come down and watch her work if he can stand the smell.",
+      fx = { thread = { id = "mage_horde", beat = "b5_hartwell_keep", state = "resolved" } },
+    },
+    {
+      id = "b5_hartwell_send", npc = "hartwell",
+      when = { class = "MAGE", thread = { id = "mage_horde", beat = "b4_hartwell" },
+               opinion = { topic = "mages", stance = { "leash", "danger", "distrust", "fear", "scorn" } },
+               ["not"] = { any = { { thread = { id = "mage_horde", beat = "b5_hartwell_keep" } }, { thread = { id = "mage_horde", beat = "b5_hartwell_send" } } } } },
+      text = "I hear you've been saying the arcane is only the warlocks' road in a cleaner coat, and the old orcs nod along whenever it's repeated. I sent Mogra home to Orgrimmar with her books, and she didn't thank me for it, and I didn't expect her to.",
+      fx = { thread = { id = "mage_horde", beat = "b5_hartwell_send", state = "soured" } },
+    },
+  },
+}
+
+-- Behind the violet dome (mages of either faction, 30-60). Magus Aldous Crane (original) of the
+-- Kirin Tor studied under Kel'Thuzad before the man was expelled, and later put his name to the
+-- council's order that sent Arugal to Silverpine. He has written a confession: the original sits
+-- on Ansirem's desk at the barrier, and a copy went to Dalar Dawnweaver, the dead archmage who
+-- warned them. The ending follows the player's opinion of the Kirin Tor (views on `kirin_tor`):
+-- doubt or distrust, and the confession is read aloud; respect, and it stays sealed.
+P:Thread {
+  id = "mage_dalaran",
+  theme = "A mage of the Kirin Tor has written down Dalaran's two great shames, Kel'Thuzad and Arugal, and someone must decide whether the world should read it.",
+  title = "Behind the violet dome",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A magus of the Kirin Tor called Aldous Crane has come out from behind Dalaran's barrier asking after Kel'Thuzad. He studied under the necromancer before anyone called him one, and he won't meet anyone's eye when he says so.",
+      third = "{name} heard of Aldous Crane, a magus of the Kirin Tor who studied under Kel'Thuzad and now asks after him with his eyes on the floor." },
+    unfolding = { first = "Aldous Crane also put his name to the order that sent Arugal to Silverpine, and Pyrewood howls for it every night. He has written it all down, Kel'Thuzad and Arugal both, and now somebody has to decide whether the confession is read aloud or locked away.",
+      third = "{name} learned that Aldous Crane had signed Arugal's orders as well, and that his written confession of Dalaran's shames was waiting for someone to decide its fate." },
+    resolved = { first = "I said that the Kirin Tor have answered to nobody for too long, and Crane's confession was read aloud. The world knows now what Dalaran knew, and the Kirin Tor will have to live with being known.",
+      third = "{name} said that the Kirin Tor must answer for their shames, and Aldous Crane's confession was read aloud." },
+    soured = { first = "I said that the Kirin Tor have kept the world's magic in hand for longer than any kingdom, and that they've earned their secrets. Crane's confession was sealed, and Crane went back behind the dome to live with it.",
+      third = "{name} spoke up for the Kirin Tor, and Aldous Crane's confession was sealed away behind the violet dome." },
+  },
+  npcs = { "dibbs", "malin", "ansirem", "bethor", "hb_voidglare", "dalar" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player said the Kirin Tor must answer for their shames, and Aldous Crane's confession of Kel'Thuzad and Arugal was read aloud.",
+    soured = "The player spoke up for the Kirin Tor's secrets, and Aldous Crane's confession was sealed behind the violet dome.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "Kel'Thuzad walked out of Dalaran with a plague in his pocket, Arugal walked out with wolves at his heel, and both times a quiet man named Crane was in the room. Every mage alive learned their first spell from somebody the Kirin Tor once trusted.",
+    third = "{name} had followed Aldous Crane's confession from the Alterac hills to the barrier and the Sepulcher, and found that every mage learned their craft from someone the Kirin Tor once trusted.",
+  },
+  beats = {
+    {
+      id = "b1_dibbs", npc = "dibbs",
+      when = { class = "MAGE", faction = "Alliance", minLevel = 30, thread = { id = "mage_dalaran", notBeat = "b1_dibbs" } },
+      text = "A magus of the Kirin Tor came down from the dome last spring and bought every book I had on Kel'Thuzad, even the bad ones. His name was Aldous Crane, and he told me he'd been the necromancer's student before anybody called him a necromancer, and he paid in old Dalaran silver without once meeting my eye. Archmage Malin in Stormwind studied with that crowd, if you want to know more.",
+      fx = { thread = { id = "mage_dalaran", beat = "b1_dibbs", state = "stirring" }, learn = { "kelthuzad", "dalaran" } },
+    },
+    {
+      id = "b1_bethor", npc = "bethor",
+      when = { class = "MAGE", faction = "Horde", minLevel = 30, thread = { id = "mage_dalaran", notBeat = "b1_bethor" } },
+      text = "Our watchers in the Alterac hills report that a magus called Aldous Crane has been asking after Kel'Thuzad in every village south of the dome. I knew Crane in Dalaran, when he carried Kel'Thuzad's books between lectures and thought the man the finest mind in the Violet Citadel. Whatever he's looking for now, the Magus in Tarren Mill wants it, and so, I suspect, do I.",
+      fx = { thread = { id = "mage_dalaran", beat = "b1_bethor", state = "stirring" }, learn = { "kelthuzad", "dalaran" } },
+    },
+    {
+      id = "b2_malin", npc = "malin",
+      when = { class = "MAGE", faction = "Alliance", thread = { id = "mage_dalaran", beat = "b1_dibbs" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b2_malin" } } },
+      text = "Aldous Crane, yes; he sat two benches from me in Dalaran and copied Kel'Thuzad's lectures in a better hand than the man's own. The Council expelled Kel'Thuzad and we all agreed never to speak of it, and years later Crane signed the order that sent Arugal to Silverpine, and we agreed never to speak of that either. If Crane has come out from behind the dome, then I think he means to speak of both.",
+      fx = { thread = { id = "mage_dalaran", beat = "b2_malin", state = "unfolding" }, learn = { "shadowfang", "kirin_tor" } },
+    },
+    {
+      id = "b2_voidglare", npc = "hb_voidglare",
+      when = { class = "MAGE", faction = "Horde", thread = { id = "mage_dalaran", beat = "b1_bethor" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b2_voidglare" } } },
+      text = "Crane? I've had him watched for a month, and I'll tell you what my watchers learned, since it costs me nothing. He signed the council's order that sent Arugal into Silverpine, and the worgen at Pyrewood are his as much as anyone's, and now he's written the whole of it down. A copy went to Dalar Dawnweaver at the Sepulcher, of all the dead in Lordaeron, and I would very much like to read it before anyone else does.",
+      fx = { thread = { id = "mage_dalaran", beat = "b2_voidglare", state = "unfolding" }, learn = { "shadowfang", "kirin_tor" } },
+    },
+    {
+      id = "b3_ansirem", npc = "ansirem",
+      when = { class = "MAGE", faction = "Alliance", minLevel = 35, thread = { id = "mage_dalaran", beat = "b2_malin" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b3_ansirem" } } },
+      text = "Crane's confession is on my desk, and I have read it three times, which is twice more than I wished to. Kel'Thuzad and Arugal, both in his own hand, and both of them things the Council decided long ago the world need not hear. Crane wants it read aloud in Southshore and Stormwind, and the Council wants it burned, and I find I would like to know what the mages outside this barrier think of the Kirin Tor before I choose.",
+      fx = { thread = { id = "mage_dalaran", beat = "b3_ansirem" }, learn = { "kirin_tor" } },
+    },
+    {
+      id = "b3_dalar", npc = "dalar",
+      when = { class = "MAGE", faction = "Horde", minLevel = 35, thread = { id = "mage_dalaran", beat = "b2_voidglare" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b3_dalar" } } },
+      text = "Crane sent his confession to me, because I warned them and died for it, and I suppose he thought the dead would forgive him more cheaply. It's all there, Kel'Thuzad and Arugal both, in that tidy hand of his. I could have it read aloud in every corner of the Undercity by morning, or I could put it in the fire, and I find I want to know what you think of the Kirin Tor before I do either.",
+      fx = { thread = { id = "mage_dalaran", beat = "b3_dalar" }, learn = { "kirin_tor" } },
+    },
+    {
+      id = "b4_ansirem_read", npc = "ansirem",
+      when = { class = "MAGE", thread = { id = "mage_dalaran", beat = "b3_ansirem" },
+               opinion = { topic = "kirin_tor", stance = { "distrust", "doubt", "blame" } },
+               ["not"] = { any = { { thread = { id = "mage_dalaran", beat = "b4_ansirem_read" } }, { thread = { id = "mage_dalaran", beat = "b4_ansirem_seal" } } } } },
+      text = "You said the Kirin Tor answer to nobody, and I could find no argument against it that I wasn't ashamed of. Crane's confession will be read in Southshore's square and on the steps of the Wizard's Sanctum, and the Council may expel me for it if they wish, since we have some practice at that.",
+      fx = { thread = { id = "mage_dalaran", beat = "b4_ansirem_read", state = "resolved" } },
+    },
+    {
+      id = "b4_ansirem_seal", npc = "ansirem",
+      when = { class = "MAGE", thread = { id = "mage_dalaran", beat = "b3_ansirem" },
+               opinion = { topic = "kirin_tor", stance = { "respect", "trust" } },
+               ["not"] = { any = { { thread = { id = "mage_dalaran", beat = "b4_ansirem_read" } }, { thread = { id = "mage_dalaran", beat = "b4_ansirem_seal" } } } } },
+      text = "You said the Kirin Tor have kept magic in hand for longer than any kingdom has stood, and the Council said the same thing in a great many more words. Crane's confession is sealed in the vaults, and Crane has gone back to his rooms behind the barrier, and I hope you are right about us.",
+      fx = { thread = { id = "mage_dalaran", beat = "b4_ansirem_seal", state = "soured" } },
+    },
+    {
+      id = "b4_dalar_read", npc = "dalar",
+      when = { class = "MAGE", thread = { id = "mage_dalaran", beat = "b3_dalar" },
+               opinion = { topic = "kirin_tor", stance = { "distrust", "doubt", "blame" } },
+               ["not"] = { any = { { thread = { id = "mage_dalaran", beat = "b4_dalar_read" } }, { thread = { id = "mage_dalaran", beat = "b4_dalar_seal" } } } } },
+      text = "You said the Kirin Tor have hidden behind their secrets long enough, so I had Crane's confession read aloud in the Magic Quarter last night. Half the dead who listened were Dalaran's own, and not one of them was surprised, which I think would have hurt Crane more than anything.",
+      fx = { thread = { id = "mage_dalaran", beat = "b4_dalar_read", state = "resolved" } },
+    },
+    {
+      id = "b4_dalar_seal", npc = "dalar",
+      when = { class = "MAGE", thread = { id = "mage_dalaran", beat = "b3_dalar" },
+               opinion = { topic = "kirin_tor", stance = { "respect", "trust" } },
+               ["not"] = { any = { { thread = { id = "mage_dalaran", beat = "b4_dalar_read" } }, { thread = { id = "mage_dalaran", beat = "b4_dalar_seal" } } } } },
+      text = "You spoke up for the Kirin Tor, which is a strange thing to hear in the Sepulcher, and I burned Crane's confession because of it. I warned them once and they didn't listen, and it seems I'm still loyal enough to keep their secrets for them, which is the most Dalaran thing about me.",
+      fx = { thread = { id = "mage_dalaran", beat = "b4_dalar_seal", state = "soured" } },
+    },
+  },
+}

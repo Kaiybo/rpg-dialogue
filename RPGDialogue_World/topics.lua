@@ -244,3 +244,6 @@ P:Topic { id = "shendralar", keywords = { "Shen'dralar" }, name = "The Shen'dral
 P:Topic { id = "humans", keywords = { "humans" }, name = "Humans", category = "people", learned = "anyone with an opinion of them, and few keep it to themselves" }
 P:Topic { id = "tauren", linkName = false, name = "The tauren", category = "people", learned = "the Cenarion Circle in Moonglade" }
 P:Topic { id = "kaldorei", keywords = { "kaldorei" }, name = "The night elves", category = "people", learned = "anyone with an opinion of them, and most have one" }
+
+-- Mage patch: what people think of mages and the arcane.
+P:Topic { id = "mages", linkName = false, keywords = { "mages", "magi", "the arcane" }, name = "Mages and the arcane", category = "people", learned = "anyone with an opinion of mages, and everyone has been singed by one" }
