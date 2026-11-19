@@ -52,10 +52,20 @@ function Conv.DetectRole(ctx, interactionName)
   -- the people in the streets can be spoken to too (0.35.0). Beasts and critters aren't.
   -- A friendly demon (a warlock's bound servant, an imp with his own business) answers from
   -- the demon pool, not the townsfolk's (0.84.0).
+  -- A warlock's own demon answers as their servant, by family (0.90.0): "my_imp",
+  -- "my_voidwalker", "my_succubus", "my_felhunter", or "my_demon" for anything enslaved.
+  if not role and ctx.unit and C.IsMyPet(ctx.unit) and C.CreatureType(ctx.unit) == "Demon" then
+    role = Conv.BoundRole(C.Family(ctx.unit))
+  end
   if not role and Conv.IsCitizen(ctx) then
     role = (C.CreatureType(ctx.unit) == "Demon") and Conv.DemonRole(ctx.npcName) or "citizen"
   end
   return role
+end
+
+local BOUND = { imp = "my_imp", voidwalker = "my_voidwalker", succubus = "my_succubus", felhunter = "my_felhunter" }
+function Conv.BoundRole(family)
+  return BOUND[type(family) == "string" and family:lower() or ""] or "my_demon"
 end
 
 -- Demons that can't talk (hounds, steeds, walking stone) get their own small pool.
