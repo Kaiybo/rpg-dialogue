@@ -23,6 +23,10 @@ P:Pool {
     { id = "g_stay", when = { npcFlagBefore = "asked_stay" }, priority = 10, text = "Staying this time? No, I can see you aren't." },
     { id = "g_lantern", priority = 10, when = { npcFlagBefore = "lantern2", ["not"] = { npcFlag = "lantern6" } },
       text = "The one with the lantern was asking after you while you were away." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Night again, down there. The night ones always arrive cold, so come and stand on the warm side of me." },
+    { id = "g_sick", when = { resSick = true }, text = "You are still pale from the last time, and here you are again. Your body has barely finished forgiving you." },
+    { id = "g_young", when = { maxLevel = 9 }, text = "Oh, you are very new. Come here, then, and do not be frightened; the hill looks larger than it is." },
+    { id = "g_bg", when = { zone = { "Warsong Gulch", "Arathi Basin", "Alterac Valley" } }, priority = 5, text = "Back so soon? Here the dead line up behind me like soldiers waiting for a door, so take your place." },
     { id = "g_hundred", when = { deaths = { min = 100 } }, text = "You have come through a hundred doors and more by now, so ask me your question again." },
   },
   notice = {
@@ -87,6 +91,52 @@ P:Pool {
           text = "Something under the sand is dreaming, and it does not dream of you, so be grateful for that." },
         { id = "z_winterspring", priority = 20, when = { zone = "Winterspring" },
           text = "The cold keeps a body well, so do not be alarmed at how little has changed when you go back. Be alarmed at how quiet it is." },
+        { id = "z_stranglethorn", priority = 20, when = { zone = "Stranglethorn Vale" },
+          text = "The jungle sends me a great many, and most of them were hunting something when it turned around. The trolls of that place pray to things that are always hungry, and some days I can hear them chewing." },
+        { id = "z_barrens", priority = 20, when = { zone = "The Barrens" },
+          text = "The Barrens are wide and the sky there is wider, and the souls come up dusty and squinting. Many of them died within sight of a road, which I always find the saddest kind." },
+        { id = "z_ashenvale", priority = 20, when = { zone = "Ashenvale" },
+          text = "Ashenvale, then. The trees there remember every axe, and the ones who carried them, and I think some of the trees have quietly kept count alongside me." },
+        { id = "z_alterac", priority = 20, when = { zone = { "Alterac Mountains", "Hillsbrad Foothills" } },
+          text = "These hills have sent me soldiers for two wars and farmers for both, and the snow up there keeps a great deal that the thaw gives back to me in spring." },
+        { id = "z_arathi", priority = 20, when = { zone = "Arathi Highlands" },
+          text = "Old Arathor sends me ghosts with very good manners and very old grudges. Stromgarde's dead still salute when they arrive, and I have never had the heart to tell them they need not." },
+        { id = "z_westfall", priority = 20, when = { zone = "Westfall" },
+          text = "Westfall's dead come up with dust in their throats and a farmer's tiredness. A great many of them ask me about the harvest, and I lie to them a little, kindly." },
+        { id = "z_elwynn", priority = 20, when = { zone = { "Elwynn Forest", "Dun Morogh", "Teldrassil", "Durotar", "Mulgore" }, chance = 0.5 },
+          text = "So close to home, and you still found a way up here. The first fields are the ones that teach you the ground is not your friend." },
+        { id = "z_burning", priority = 20, when = { zone = { "Burning Steppes", "Searing Gorge" } },
+          text = "You come up smelling of smoke and black iron. Something old and angry lives under that mountain, and every soul from there arrives a little hotter than it should." },
+        { id = "z_ungoro", priority = 20, when = { zone = "Un'Goro Crater" },
+          text = "The crater, then, where everything is enormous and none of it has ever heard of you. You were eaten by something older than your whole people, and I mean that kindly." },
+        { id = "z_swamp", priority = 20, when = { zone = { "Swamp of Sorrows", "Dustwallow Marsh" } },
+          text = "The swamp souls arrive damp and smelling of rot, and they always look back over their shoulders, as though the water might reach up the hill after them." },
+        { id = "z_deadwind", priority = 20, when = { zone = "Deadwind Pass" },
+          text = "Deadwind, where even I do not like to look too closely. The tower there throws a shadow up the hill that no sun could cast, and you came through it." },
+        { id = "z_tanaris", priority = 20, when = { zone = { "Tanaris", "Thousand Needles", "Badlands" } },
+          text = "The heat kept you company all the way up, I see. Dry places keep the body well and the temper badly, so go gently with yourself when you wake." },
+        { id = "z_azshara", priority = 20, when = { zone = "Azshara" },
+          text = "Azshara's ruins are full of an old people who did not come to me when they died, because something far stranger took them. I feel them when you arrive from there, and they feel me." },
+        { id = "z_feralas", priority = 20, when = { zone = { "Feralas", "The Hinterlands" } },
+          text = "The deep green sends me hunters and the hunted in roughly equal numbers, and up here they tend to stand apart and pretend not to know each other." },
+        { id = "z_silverpine", priority = 20, when = { zone = "Silverpine Forest" },
+          text = "Silverpine is full of the restless and the worgen, and the ones the worgen kill come up the hill with their eyes still on the treeline." },
+        { id = "z_wetlands", priority = 20, when = { zone = { "Wetlands", "Loch Modan", "Redridge Mountains" }, chance = 0.6 },
+          text = "Rain on the way down and rain on the way up, and you are wet even here, somehow. I will not ask how; some things follow a person." },
+        { id = "z_bg_wsg", priority = 25, when = { zone = "Warsong Gulch" },
+          text = "You fell for a flag, then. I have nothing against flags, only I have never seen one climb this hill, however many die for them." },
+        { id = "z_bg_ab", priority = 25, when = { zone = "Arathi Basin" },
+          text = "The basin again: farms and mills and stables, and the same five places changing hands every few minutes. The old farmers of Arathi would be bewildered, and some of them, I think, are watching." },
+        { id = "z_bg_av", priority = 25, when = { zone = "Alterac Valley" },
+          text = "Alterac's snow is crowded today. Dwarves and orcs and their beasts, all in a hurry to die and then to go and do it again, and I am expected to keep up." },
+        { id = "c_creature2", when = { deathCause = "creature", chance = 0.3 },
+          text = "{killer} has no idea it wrote a page in your file today, and if it did, I doubt it would be proud." },
+        { id = "c_creature3", when = { deathCause = "creature", chance = 0.3 },
+          text = "Something hungry and honest took you. Hunger has never once lied to me, which is more than I can say for most of the reasons people die." },
+        { id = "c_boss2", when = { deathCause = "boss", chance = 0.5 },
+          text = "{killer}, in its own hall, surrounded by its own servants. You were outnumbered before you even walked in, and you knew it, and you walked in." },
+        { id = "c_player2", when = { deathCause = "player", chance = 0.5 },
+          text = "One of your own kind did this, or near enough. I do not keep score between the living, but I notice that they never come up the hill with you to say sorry." },
         { id = "h_young", when = { maxLevel = 10 }, text = "So new. Your body had barely learned it was yours, and already you have stepped out of it." },
         { id = "h_old", when = { minLevel = 60 }, text = "You have walked very far to die. The great ones I send back usually say nothing, so say something." },
         { id = "k_shaman", when = { class = "SHAMAN", minLevel = 30 }, text = "You carry your own way back with you, so why no ankh today?" },
@@ -170,12 +220,62 @@ P:Pool {
       again = {
         { id = "h_again", text = "Ask what you will. Time moves differently here, and there is enough of it." },
         { id = "h_again2", text = "Something else troubles you. Speak; the gray will wait." },
+        { id = "h_again3", text = "Still here? Good. Most people are halfway down the hill by now, and I rarely get to finish a thought." },
       },
       choices = {
         { text = "Return me to life.", next = "BUSINESS" },
         { text = "What does my file say?", next = "record" },
         { text = "I have questions.", next = "ask" },
         { text = "Stay with me a moment.", next = "talk" },
+        { text = "You look tired today.", next = "tired" },
+        { text = "I'll walk back to my body myself.", next = "walk" },
+      },
+    },
+
+    ---------------------------------------------------------------------------
+    -- Walking back, and the healer's tiredness
+    ---------------------------------------------------------------------------
+    walk = {
+      narr = "The healer lowers a hand that was already half raised, and lets it fall.",
+      lines = {
+        { id = "wk_default", text = "Then walk, and I will not take it as an insult. The road down is longer than it looks, but you keep everything you carry, and this time I keep nothing of you." },
+        { id = "wk_default2", text = "Good. The long way is the honest way, and your body will be gladder to see you if you come to it on your own feet." },
+        { id = "wk_many", priority = 5, when = { deaths = { min = 25 } },
+          text = "You know the way down better than I do by now. Mind the edges of the gray as you go, because they lean toward the ones who walk alone." },
+        { id = "wk_young", priority = 5, when = { maxLevel = 9 },
+          text = "Walk, then, though at your age my way costs you almost nothing. You will learn the price of things soon enough; there is no need to start today." },
+        { id = "wk_sick", priority = 10, when = { resSick = true },
+          text = "Yes, walk. You are still weak from the last time I sent you, and I would rather not stack one weakness on another." },
+      },
+      choices = {
+        { text = "Thank you. I'll find my way.", next = "END" },
+        { text = "On second thought, bring me back.", next = "BUSINESS" },
+      },
+    },
+    tired = {
+      lines = {
+        { id = "ti_default", text = "Do I? I did not know my face could show it. A great many came up the hill this morning, and every one of them wanted to be the last thing I remembered." },
+        { id = "ti_night", when = { timeOfDay = "night" },
+          text = "Night is the busy time. The living think the dark protects them, and the dark has never once agreed, so yes, I am tired, and thank you for noticing." },
+        { id = "ti_plague", priority = 10, when = { zone = { "Eastern Plaguelands", "Western Plaguelands" } },
+          text = "It is not the ones who come that tire me here; it is the ones who do not. Counting an absence is heavier work than counting souls, and this land is full of absences." },
+        { id = "ti_bg", priority = 10, when = { zone = { "Warsong Gulch", "Arathi Basin", "Alterac Valley" } },
+          text = "Here the same soldiers come up the hill a dozen times an hour, and every time they are angrier and less surprised. I am not tired of them, only of the hurry." },
+      },
+      choices = {
+        { text = "Do you ever get to rest?", next = "tired2", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll stay a moment and keep you company.", next = "talk", fx = { trait = { kind = 1 }, affinity = 1 } },
+        { text = "Back to the matter at hand.", next = "hello" },
+      },
+    },
+    tired2 = {
+      lines = {
+        { id = "ti2_default", text = "I am not sure I am allowed, and I am not sure I would know how. Once I closed my eyes between one soul and the next, and when I opened them there were three waiting and a fourth halfway up the hill, so I have not tried it since." },
+      },
+      choices = {
+        { text = "Someone should stand in for you.", next = "successor" },
+        { text = "That sounds lonely.", next = "quiet_lonely", fx = { trait = { kind = 1 } } },
+        { text = "Back to the matter at hand.", next = "hello" },
       },
     },
 
@@ -311,7 +411,186 @@ P:Pool {
         { text = "Why send us back at all?", next = "why" },
         { text = "What lies past the mist?", next = "beyond" },
         { text = "I can feel others out there in the gray.", next = "others" },
+        { text = "Why does coming back your way cost so much?", next = "price" },
+        { text = "Did any of the great ones come through here?", next = "famous", fx = { trait = { curious = 1 } } },
       },
+    },
+
+    ---------------------------------------------------------------------------
+    -- The price of the short road (resurrection sickness, worn armor)
+    ---------------------------------------------------------------------------
+    price = {
+      lines = {
+        { id = "pr_default", key = true,
+          text = "Because you are taking the short road, and the short road takes a toll. Your armor comes back worn, as if it walked the whole way without you, and your body wakes weak for a while, because it is ashamed of having been left behind, and it sulks." },
+        { id = "pr_young", priority = 10, when = { maxLevel = 9 },
+          text = "For you it costs very little yet, because your body is young and forgives quickly. That will change, so do not grow used to my kindness." },
+        { id = "pr_sick", priority = 15, when = { resSick = true },
+          text = "You still carry last time's weakness, and you are asking for more of it? You are either brave or in a great hurry, and I have never been able to tell those two apart." },
+      },
+      choices = {
+        { text = "Who set the price?", next = "price_who", fx = { trait = { curious = 1 } } },
+        { text = "Maybe the weakness is meant as a warning.", next = "price_warn" },
+        { text = "Then I'll walk back instead.", next = "walk" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    price_who = {
+      lines = {
+        { id = "pw_default",
+          text = "The same ones who permitted me, I think, though the instructions do not say so. I only know that I have never once been allowed to send anyone back whole, and I asked, at the start, every single time." },
+      },
+      choices = {
+        { text = "Do you still ask?", next = "price_ask" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    price_ask = {
+      narr = "The healer looks down at their own hands, as if the answer were written on the palms.",
+      lines = {
+        { id = "pa2_default",
+          text = "Not aloud, not anymore. But every time I send someone down, there is a moment before they wake when I hold on, just slightly, as if I could keep the worst of it up here with me. It has never worked, and I have never stopped." },
+      },
+      choices = {
+        { text = "Maybe it works more than you know.", next = "BACK", fx = { trait = { kind = 1 }, affinity = 1 } },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    price_warn = {
+      lines = {
+        { id = "pwa_default",
+          text = "Perhaps it is. A body that comes back too easily forgets to be careful, and I have seen where carelessness leads: here, again and again, until the file runs to a second volume. So call it a warning, by all means, and heed it better than most." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+
+    ---------------------------------------------------------------------------
+    -- The great dead: how they arrived, never where they went
+    ---------------------------------------------------------------------------
+    famous = {
+      hub = true,
+      narr = "The healer's eyes go to the far edge of the mist, the way someone looks along a shelf of old books.",
+      lines = {
+        { id = "fa_default", key = true,
+          text = "Everyone comes through here, or through a hill very like it, and greatness does not shorten the climb. Ask me about one, and I will tell you what I am allowed to, which is how they arrived, and never where they went." },
+      },
+      again = {
+        { id = "fa_again", text = "Another? The great ones are heavy to carry, even in memory, but ask." },
+        { id = "fa_again2", text = "Who else, then? I remember them all, though some I remember more gently than others." },
+      },
+      choices = {
+        { text = "King Terenas of Lordaeron?", next = "fa_terenas" },
+        { text = "Uther the Lightbringer?", next = "fa_uther" },
+        { text = "Grom Hellscream?", next = "fa_grom" },
+        { text = "Anduin Lothar?", next = "fa_lothar" },
+        { text = "Durotan and Draka, the Warchief's parents?", next = "fa_durotan", when = { faction = "Horde" } },
+        { text = "Enough of the dead.", next = "ask" },
+      },
+    },
+    fa_terenas = {
+      lines = {
+        { id = "ft_default",
+          text = "He came up the hill with his crown still on, because no one had told him he could take it off. He kept asking where his son was, and I could not say, because his son has never climbed this hill, and never will in any way I would recognize." },
+        { id = "ft_forsaken", priority = 10, when = { race = "Scourge" },
+          text = "Your old king, yes. He came up with his crown on and asked after his son, and I could not tell him. You may know more about where that boy went than I do, and I am not sure I envy you." },
+      },
+      choices = {
+        { text = "Arthas deserves no forgiveness, ever.", next = "fa_terenas_hard", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Even Arthas was someone's son once.", next = "fa_terenas_soft", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Someone else.", next = "BACK" },
+      },
+    },
+    fa_terenas_hard = {
+      lines = {
+        { id = "fth_default",
+          text = "Perhaps not, and forgiving is not my office. But Terenas forgave him, there on the hill, before he went on, and I have never decided whether that was the bravest thing I ever saw or the saddest." },
+      },
+      choices = { { text = "Someone else.", next = "BACK" }, { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    fa_terenas_soft = {
+      lines = {
+        { id = "fts_default",
+          text = "He was, and his father said so too, with the crown still on. Forgiving costs the one who forgives; I watched it cost Terenas the last of what he was carrying, and he went on lighter for it." },
+      },
+      choices = { { text = "Someone else.", next = "BACK" }, { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    fa_uther = {
+      lines = {
+        { id = "fu2_default",
+          text = "He came up slowly, looking back down the hill as if he expected someone to follow him. He asked me one question, whether the boy he had trained was still alive, and I told him the truth, which was that I did not know what to call it." },
+      },
+      choices = {
+        { text = "Did he forgive Arthas?", next = "fa_uther2" },
+        { text = "Someone else.", next = "BACK" },
+      },
+    },
+    fa_uther2 = {
+      lines = {
+        { id = "fu3_default",
+          text = "He did not say, and I did not ask, because some questions are too heavy to hand a man who has only just set down his hammer. He stood at the edge of the mist a long while with his hand over his heart, and when he went, he went without hurrying." },
+        { id = "fu3_paladin", priority = 10, when = { class = "PALADIN" },
+          text = "You carry his Light, so I will tell you what I tell no one else: the mist was brighter after he went into it, for a day or so, and then it was only mist again. I have looked for that brightness ever since." },
+      },
+      choices = { { text = "Someone else.", next = "BACK" }, { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    fa_grom = {
+      lines = {
+        { id = "fg_default",
+          text = "He came up the hill clean, and I had never seen an orc arrive clean before; the demon's blood had always come with them, like mud on their boots. He laughed the whole way up, and would not tell me why, except that he had won." },
+        { id = "fg_orc", priority = 10, when = { race = "Orc" },
+          text = "Your people still argue over him, I know, so I will tell you only what I saw: he arrived free, and he was prouder of that than of anything he ever killed." },
+      },
+      choices = {
+        { text = "He killed Cenarius, once.", next = "fa_grom2" },
+        { text = "Someone else.", next = "BACK" },
+      },
+    },
+    fa_grom2 = {
+      lines = {
+        { id = "fg2_default",
+          text = "He did, and Cenarius never came to me; I do not think the forest's own sons climb hills like this one. When I spoke of it, Grom's laughing stopped for a moment, and then it started again, quieter, and I liked him better for that." },
+        { id = "fg2_nelf", priority = 10, when = { race = "NightElf" },
+          text = "I know what that name means to you, and I will not pretend Grom was sorry enough. But when I spoke of it, his laughing stopped, and when it came back it was quieter, and that is the only apology I ever saw an orc make up here." },
+      },
+      choices = { { text = "Someone else.", next = "BACK" }, { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    fa_lothar = {
+      lines = {
+        { id = "fl_default",
+          text = "The last of old Arathor's blood, though he never wore its crown. He came up holding half a sword, and he would not set it down until I promised him the boy he had left behind would be looked after, which was not mine to promise, and I have worried about it since." },
+      },
+      choices = {
+        { text = "That boy is Stormwind's king, and he's missing.", next = "fa_lothar2", when = { faction = "Alliance" } },
+        { text = "Someone else.", next = "BACK" },
+      },
+    },
+    fa_lothar2 = {
+      lines = {
+        { id = "fl2_default",
+          text = "I know. He has not come up any hill of mine, which is the only good news I have about him, so hold on to it for me. Missing is not the same as finished, whatever the court in Stormwind would prefer to believe." },
+      },
+      choices = { { text = "Someone else.", next = "BACK" }, { text = "Return me to life.", next = "BUSINESS" } },
+    },
+    fa_durotan = {
+      lines = {
+        { id = "fd_default",
+          text = "They came up together, which is rare, because most are parted by an hour at least. She kept asking after a baby left in the snow, and he held her hand and said nothing, because he already knew no one up here could tell her." },
+      },
+      choices = {
+        { text = "That baby is the Warchief now.", next = "fa_durotan2", fx = { affinity = 1 } },
+        { text = "Someone else.", next = "BACK" },
+      },
+    },
+    fa_durotan2 = {
+      narr = "For a moment the healer says nothing at all, and the mist around the hill seems to hold still.",
+      lines = {
+        { id = "fd2_default",
+          text = "Is he? Then I have something to tell the gray the next time it is quiet. They did not stay to hear it, but the gray remembers everything said to it, and I like to think it passes things along." },
+      },
+      choices = { { text = "Someone else.", next = "BACK" }, { text = "Return me to life.", next = "BUSINESS" } },
     },
 
     mystery = {
@@ -886,6 +1165,10 @@ P:Pool {
           text = "You prayed on the way up; most do not notice they are doing it. I heard every word, and I do not know who else did." },
         { id = "tk_skeptic", when = { trait = "skeptical" },
           text = "You still do not quite believe in me, and that is all right, because I do not quite believe in me either. We can doubt together." },
+        { id = "tk_sick", when = { resSick = true },
+          text = "You still have the last weakness on you, and here you are again. Sit with me until the shaking stops, at least; it is not shame, it is only the body catching up." },
+        { id = "tk_bg", priority = 10, when = { zone = { "Warsong Gulch", "Arathi Basin", "Alterac Valley" } },
+          text = "You want to talk, here, with a battle going on below and the others shoving to get past you? Then I will talk quickly, and you will forgive me for it." },
         { id = "tk_witty", when = { trait = "witty" },
           text = "You joked on your way up the hill. The others did not laugh, but I did, quietly, since it has been a long time since anyone joked here." },
       },
@@ -894,6 +1177,174 @@ P:Pool {
         { text = "Ask me something.", next = "quiz" },
         { text = "Tell me about someone who came through.", next = "tales" },
         { text = "Let's argue about something.", next = "debate" },
+        { text = "The hill seems emptier than usual.", next = "quiet" },
+        { text = "I raise the dead too. Do you mind?", next = "colleague", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "My ankh brings me back without you.", next = "ankh", when = { class = "SHAMAN", minLevel = 30 } },
+        { text = "My people's souls return to Elune.", next = "elune", when = { race = "NightElf" } },
+        { text = "Did Gnomeregan's dead come through here?", next = "gnomeregan", when = { race = "Gnome" } },
+        { text = "Do my ancestors ever stop to talk?", next = "ancestors", when = { race = "Tauren" } },
+      },
+    },
+
+    ---------------------------------------------------------------------------
+    -- The empty hill, and talk that only some visitors get
+    ---------------------------------------------------------------------------
+    quiet = {
+      lines = {
+        { id = "qu_default",
+          text = "It is, and I do not trust it. An empty hill means either the world below is being kind for once, or something down there is keeping its dead for itself, and I have learned which to expect." },
+        { id = "qu_plague", priority = 10, when = { zone = { "Eastern Plaguelands", "Western Plaguelands" } },
+          text = "Here it is always emptier than it should be. People die in this land every hour, and so few of them reach me that I have stopped expecting them and started listing them instead." },
+      },
+      choices = {
+        { text = "What do you do when no one comes?", next = "quiet2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    quiet2 = {
+      lines = {
+        { id = "qu2_default",
+          text = "I read. Not your file, if that worries you, but the old ones, the files that closed long ago. I read the names aloud, one after another, because a name that is never said wears thin, and I have never found anyone else to say them." },
+      },
+      choices = {
+        { text = "Read me one.", next = "quiet3", fx = { trait = { curious = 1 } } },
+        { text = "That sounds lonely.", next = "quiet_lonely", fx = { trait = { kind = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    quiet3 = {
+      lines = {
+        { id = "qu3_default",
+          text = "Here is one: a baker of Stromgarde who died old in her bed with flour still on her hands, and asked me only whether she had left the oven lit. She had not, and when I told her so she went into the mist laughing; I read her name first every day, because it is the easiest." },
+        { id = "qu3_alt", when = { chance = 0.5 },
+          text = "Here is one: a boy from Goldshire who drowned in Crystal Lake on a dare, and arrived furious that he had lost the bet. He asked me to tell his friends he would have made it, and I could not, so I tell the hill instead, every morning." },
+      },
+      choices = {
+        { text = "Say mine, too, someday.", next = "name_promise" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    quiet_lonely = {
+      lines = {
+        { id = "ql_default",
+          text = "It is, though loneliness is a living thing, and I am not sure I qualify. What I feel is closer to a held breath that never quite ends; you let a little of it out, coming here, and I thought you should know." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    colleague = {
+      lines = {
+        { id = "co_default",
+          text = "Mind? No, though it is humbling. You call them back with a word and the Light behind it, and they come at once; I must wait until they climb all the way up here and ask. Your way is faster, and on busy days I envy it." },
+        { id = "co_paladin", priority = 5, when = { class = "PALADIN" },
+          text = "Mind? No, though your order does it with such certainty. You raise a fallen friend as if the Light had signed for them, and I have to wait for them to climb up here and ask, so on busy days I envy you a little." },
+      },
+      choices = {
+        { text = "Do the ones I raise pass by here first?", next = "colleague2", fx = { trait = { curious = 1 } } },
+        { text = "We do the same work, then.", next = "colleague3", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    colleague2 = {
+      lines = {
+        { id = "co2_default",
+          text = "Some do, for a moment, and I see your Light reach up the hill for them like a hand through water. I always let them go to you, and I have never once held one back, though I have been tempted, when they were in the middle of telling me something." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    colleague3 = {
+      lines = {
+        { id = "co3_default",
+          text = "The same work from opposite ends of the rope, perhaps. You pull and I let go, and between us someone gets home; it is a strange partnership, but I would not trade it." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    ankh = {
+      lines = {
+        { id = "an_default",
+          text = "It does, and the spirits are generous with it. But notice that your ankh still brings you up the hill first; you simply leave before I can say anything, and I have a great many unfinished sentences addressed to shamans." },
+      },
+      choices = {
+        { text = "Then finish one now.", next = "ankh2", fx = { trait = { witty = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    ankh2 = {
+      lines = {
+        { id = "an2_default",
+          text = "Very well. The elements you bargain with were here long before me and will be here long after, and they do not love you the way your ancestors do, so do not mistake their kindness for affection. There; that one has been waiting years." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    elune = {
+      lines = {
+        { id = "el_default",
+          text = "Perhaps they do, and I only see them on the way, the wisps drifting up the hill and pausing beside me like moths beside a lantern. Your people are the only ones who arrive already glowing, and I have always wondered whether that is a gift or a habit." },
+      },
+      choices = {
+        { text = "What happens to the wisps after?", next = "elune2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    elune2 = {
+      lines = {
+        { id = "el2_default",
+          text = "Some go on into the mist, and some go back down to the old forests to tend things; I once watched a wisp spend a hundred years on a single tree. Your druids would say that is not death at all, and I have never had the heart to argue with them." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    gnomeregan = {
+      lines = {
+        { id = "gn_default",
+          text = "All at once, on one terrible afternoon, more than this hill had ever held. They came up still arguing about valves and pressures, and some of them were trying to repair the mist before anyone had told them they were dead." },
+      },
+      choices = {
+        { text = "Did they all make it up here?", next = "gnomeregan2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    gnomeregan2 = {
+      lines = {
+        { id = "gn2_default",
+          text = "No, and that is what I think about most. Whatever that poison did to the ones left below, it did not let them climb, and some of them are down there still, neither one thing nor the other. My count of the missing from that day is never the same twice, and it troubles me more than I can say." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    ancestors = {
+      lines = {
+        { id = "ac_default",
+          text = "Once, and only once. An old bull stopped and asked me whether I was lonely standing here, and I said I did not know, and he said that was an answer too. Then he went on toward the sunrise side of the mist, where I have never seen the sun rise." },
+      },
+      choices = {
+        { text = "That sounds like my grandfather.", next = "ancestors2", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    ancestors2 = {
+      lines = {
+        { id = "ac2_default",
+          text = "Then perhaps it was. He had grass seed caught in his mane and a very patient way of waiting for an answer, and if he was yours, you have his patience too, a little; you have let me ramble far longer than most." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
       },
     },
     ---------------------------------------------------------------------------
@@ -1571,6 +2022,10 @@ P:Pool {
         { id = "pa_light", when = { alignment = { axis = "light", min = 40 } }, text = "Go, and do more of whatever it is you have been doing, because they notice, out there." },
         { id = "pa_shadow", when = { alignment = { axis = "light", max = -40 } }, text = "Go, and this time, perhaps, give me something kinder to write." },
         { id = "pa_many", when = { deaths = { min = 25 } }, text = "Go on, and I will see you soon. I would rather not, but I will." },
+        { id = "pa_default3", text = "Down you go. Eat something when you wake, even if you are not hungry, because the body likes to be welcomed back." },
+        { id = "pa_young", when = { maxLevel = 9 }, text = "Go on, little one. You will be stronger the next time I see you, and I would like that next time to be a long way off." },
+        { id = "pa_night", when = { timeOfDay = "night" }, text = "It is dark where you are going, so keep to the road and the lamps, and do not be ashamed to be afraid of things; fear has kept more people off this hill than courage ever has." },
+        { id = "pa_bg", priority = 10, when = { zone = { "Warsong Gulch", "Arathi Basin", "Alterac Valley" } }, text = "Go, then, back to your battle. I will hold your place in line, which is a joke, but only a small one." },
       },
       choices = { { text = "Return me to life.", next = "BUSINESS" } },
     },
@@ -1588,6 +2043,24 @@ P:Pool {
     },
     scarlet_crusade = {
       { id = "t_scarlet", text = "They send me so many, and they all arrive so certain. Certainty does not survive the hill; I watch it leave them, and it is never pretty." },
+    },
+    scourge = {
+      { id = "t_scourge", text = "They are the ones who never arrive. Every soul the Scourge stands back up is a name missing from my hill, and I keep a list of the missing that is longer than I will say aloud." },
+    },
+    forsaken = {
+      { id = "t_forsaken", text = "Raised without being asked, and then they took themselves back; I respect that more than they would believe. They do not come to me easily, and when they do, they are the only ones who are not surprised." },
+    },
+    lordaeron = {
+      { id = "t_lordaeron", text = "The year it fell, I had a line down the hill longer than any I have known before or since. I remember every face in it, and I wish I did not remember quite so many of them so young." },
+    },
+    gnomeregan = {
+      { id = "t_gnomeregan", text = "They all came at once, arguing about valves, and some of them never came at all. I still do not know what to call the ones who were left down there." },
+    },
+    light = {
+      { id = "t_light", text = "Some arrive bright with it and some arrive with none, and I cannot tell you it changes the climb. I can tell you it changes how they hold their hands at the top, and that is not nothing." },
+    },
+    elune = {
+      { id = "t_elune", text = "Her children arrive as wisps, already glowing. Whether that is her doing or theirs I could not say, but I always know a night elf is coming by the light on the path." },
     },
     argent_dawn = {
       { id = "t_argent", text = "They speak of the dead with great care, and I appreciate that, since most of the living only fight them." },
