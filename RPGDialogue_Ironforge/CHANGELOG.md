@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.0 (2026-11-19)
+- Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
+
 ## 1.32.0 (2026-11-19)
 - Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
 
