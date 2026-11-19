@@ -14,9 +14,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_door", text = "Close the door behind you, please. The draught carries the smell downstairs, and the goblins complain." },
+    { id = "g_door", text = "Close the door behind you, please, because the draught carries the smell down the tower stairs and the goblins complain." },
+    { id = "g_tome", when = { questActive = TODO_QUEST("Tome of the Cabal") }, text = "Any pages yet? Every one you bring back is a page somebody tore out on purpose, so read none of them on the way home." },
+    { id = "g_binding", when = { questActive = TODO_QUEST("The Binding") }, text = "You've come for the binding, and you look rested, which is good. I was not rested the first time, and I still have the marks." },
     { id = "g_seek", when = { questActive = TODO_QUEST("Seeking Strahad") }, text = "Your trainer's letter reached me before you did, which is usual. Come in and let me see what they've sent me." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back with all your fingers, which is more than some of my students manage. Sit down." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back with all your fingers, which is more than some of my students manage, so sit down and tell me how." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Nether hasn't claimed you yet. Good, because I dislike starting over with a new student." },
   },
 
@@ -31,7 +33,13 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Strahad Farsan. I keep these rooms above the docks because the Cartel asks no questions so long as the rent arrives, and I teach those who have outgrown their first masters. If you climbed the stairs looking for me, you already know what I teach." },
+        { id = "h_default", key = true, text = "I'm Strahad Farsan, and I keep this tower at the edge of the docks because the Cartel asks no questions so long as the rent arrives. I teach those who've outgrown their first masters, and if you climbed all those stairs looking for me, you already know what I teach." },
+        { id = "h_young", when = { class = "WARLOCK", maxLevel = 24 },
+          text = "You're early, and I can tell, because your voidwalker still looks at you before it moves. Go back to your trainer and bind what they have for you, and climb these stairs again when Gakin or the Cleft sends a letter ahead of you." },
+        { id = "h_dead", when = { class = "WARLOCK", race = "Scourge" },
+          text = "The Magic Quarter sends me its dead, and you're the best kind of student, because you've already met the worst thing that can happen to a warlock and walked away from it. Come in, and don't drip on the diagrams." },
+        { id = "h_binding_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Binding"), days = 3 } },
+          text = "You bound it, and it hasn't eaten your spells yet, which is better than I managed on my first try. Feed it on your enemies' magic, never on your own, and it'll learn whose side it's on." },
         { id = "h_seek", tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Strahad") },
           text = "So your trainer sent you across the sea to a goblin port to find me. Good, because it means they think you're ready for harder work than calling imps in a cellar." },
         { id = "h_alliance_lock", when = { class = "WARLOCK", faction = "Alliance" },
@@ -51,8 +59,12 @@ P:NPC {
         { text = "The goblins can't know what you are.", next = "goblins" },
         { text = "Gakin the Darkbinder sent me.", next = "gakin", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The Cleft of Shadow sent me to you.", next = "cleft", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "I've bound three demons already. What's left to learn?", next = "lock", when = { class = "WARLOCK" } },
-        { text = "I'm ready for whatever trial you set.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "I've bound three demons already. What's left to learn?", next = "lock", when = { class = "WARLOCK", minLevel = 20 } },
+        { text = "Tell me about the felhunter.", next = "felhunter", when = { class = "WARLOCK", minLevel = 26 } },
+        { text = "What exactly is the Tome of the Cabal?", next = "tome", when = { class = "WARLOCK", minLevel = 26 } },
+        { text = "I'll be riding a felsteed soon, I'm told.", next = "felsteed", when = { class = "WARLOCK", minLevel = 38 } },
+        { text = "Menara Voidrender says you criticise her diagrams.", next = "menara" },
+        { text = "I'm ready for whatever trial you set.", next = "BUSINESS", when = { class = "WARLOCK", minLevel = 26 } },
         { text = "I'll leave you to your studies.", next = "END" },
       },
     },
@@ -60,7 +72,7 @@ P:NPC {
       lines = { { id = "wr_default", text = "In Stormwind a warlock lives under the Slaughtered Lamb and hopes the guard never knocks, and in Orgrimmar they keep us in the Cleft of Shadow and count us when we come out. Here the only law is the ledger, and the ledger has never once asked me where my power comes from." } },
       choices = {
         { text = "So neither side wants you.", next = "unwanted" },
-        { text = "Something else, Strahad.", next = "BACK" },
+        { text = "Let's talk about something else, Strahad.", next = "BACK" },
       },
     },
     unwanted = {
@@ -69,14 +81,14 @@ P:NPC {
       choices = {
         { text = "Power that has to hide should be watched. They're right.", next = "BACK", reply = "They are right, and I would think less of them if they weren't watching. Keep your eyes on me as well, friend, since that's the only respect a warlock really gets.", fx = { align = { order = 1 } } },
         { text = "The ledger's law is the honest one. Let them hide.", next = "BACK", reply = "You have a goblin's sense of it, which is a compliment in this port. The ledger doesn't care what I summon, so long as the rent is paid on time.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     teach = {
       lines = { { id = "te_default", text = "Binding, mostly, which is calling a thing across from the Twisting Nether and keeping it obedient once it's here. Any fool with a book can manage the calling, but the keeping is where my students either learn or are eaten." } },
       choices = {
         { text = "Surely no student has really been eaten.", next = "eaten" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to other matters, then.", next = "BACK" },
       },
     },
     eaten = {
@@ -100,7 +112,7 @@ P:NPC {
     },
     goblins = {
       lines = { { id = "go_default", text = "The Cartel knows exactly what I am, and they've priced it in, which is the most any warlock can ask of anyone. Gazlowe charges me a little extra every month for the smell of brimstone, and I've decided to find that funny." } },
-      choices = { { text = "Something else, Strahad.", next = "BACK" } },
+      choices = { { text = "That's one way to pay rent. Something else.", next = "BACK" } },
     },
     gakin = {
       lines = { { id = "ga_default", text = "Gakin and I learned the art under the same roof, long before either of us had students, and he still writes to me in a hand nobody else can read. If he thought you were worth the boat fare, try not to make him wrong." } },
@@ -111,7 +123,7 @@ P:NPC {
     },
     gakin2 = {
       lines = { { id = "ga2_default", text = "Careful, and so he's teaching in the capital while I rent rooms from goblins. I was the clever one, and you may take whatever lesson from that you like." } },
-      choices = { { text = "Something else, Strahad.", next = "BACK" } },
+      choices = { { text = "I'll take whatever lesson suits me. What else?", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     cleft = {
       big = true,
@@ -121,8 +133,8 @@ P:NPC {
       },
       choices = {
         { text = "Gul'dan's mistakes won't be repeated. Not by me.", next = "BACK", reply = "Good, and see that you mean it when the whispers come, because they always come. Gul'dan meant it once too, before he found out what power tasted like.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Gul'dan's only real mistake was losing.", next = "BACK", reply = "Now that is precisely the sort of answer that makes Thrall's shamans nervous, and I'd rather not give them a reason. Keep it behind your teeth, and keep it out of my classroom.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Gul'dan's only real mistake was losing.", next = "BACK", reply = "Now that's exactly the sort of answer that makes Thrall's shamans nervous, and I'd rather not give them a reason. Keep it behind your teeth, and keep it out of my classroom.", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     lock = {
@@ -136,15 +148,66 @@ P:NPC {
     lock2 = {
       lines = { { id = "lo2_default", text = "That's the usual answer, and it's the wrong lesson to take from it. Every demon is testing you all the time, and the day you stop noticing is the day the test ends, one way or the other." } },
       choices = {
-        { text = "Then set me the next test.", next = "BUSINESS" },
+        { text = "Then set me the next test.", next = "felhunter" },
         { text = "Something else, Strahad.", next = "BACK" },
       },
+    },
+    felhunter = {
+      narr = "He pushes up his sleeve without a word, and the scars run from wrist to elbow.",
+      lines = {
+        { id = "fh_default", text = "A felhunter is a hound the Legion breeds to run down mages and eat what they cast, and this is what the first one I bound did to me before it understood who was holding the leash. I've taught a good many students since, and none of them have needed sleeves like mine." },
+        { id = "fh_active", when = { questActive = TODO_QUEST("The Binding") }, text = "The circle's ready, and so are you, more or less. When the felhunter comes through it'll go for your spells before it goes for your throat, so hit it with steel and shadow and keep your wards for after." },
+      },
+      choices = {
+        { text = "How did you survive it?", next = "felhunter2" },
+        { text = "Why bind something that eats magic?", next = "felhunter3" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    felhunter2 = {
+      lines = { { id = "fh2_default", text = "Badly, and with a kitchen knife, because it had eaten every spell I threw at it and was working its way through my wards. Gakin dragged me out of the circle and I bled on his good rug, and he's never once let me forget the rug." } },
+      choices = { { text = "I'll bring a knife. What else should I know?", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    felhunter3 = {
+      big = true,
+      lines = { { id = "fh3_default", text = "Because the Legion's warlocks and the Burning Blade's cultists will come at you with magic, and a felhunter will eat it off them like a dog at a dropped supper. It's the Legion's own weapon turned round, so tell me, does that sit easily with you or not?" } },
+      choices = {
+        { text = "Easily. Their hound, my leash. That's justice.", next = "BACK", reply = "It's a kind of justice, and the kind I sleep well on. Just remember it was their hound first, and it hasn't forgotten.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Not easily. Every weapon of theirs I use worries me.", next = "BACK", reply = "Good, keep worrying, because the warlocks who stop worrying are the ones who end up in the stories I tell new students. Worry and use it anyway, the same as I do.", fx = { align = { light = 1 } } },
+        { text = "I'd rather not say. Something else.", next = "BACK" },
+      },
+    },
+    tome = {
+      lines = {
+        { id = "tm_default", text = "The writings of the first warlocks who bound a felhunter without a Legion master holding their hand, and it once sat on a shelf in Lordaeron's own library. Someone tore out half its pages and scattered them, and I'd dearly like to know whether it was a priest or a jealous colleague." },
+        { id = "tm_active", when = { questActive = TODO_QUEST("Tome of the Cabal") }, text = "You're gathering it now, so you've seen the torn edges, and you'll have noticed they were torn carefully. Bring every page back, because the binding doesn't work from half a book, and the half you're missing is always the important one." },
+      },
+      choices = {
+        { text = "Which do you think it was?", next = "tome2" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    tome2 = {
+      lines = { { id = "tm2_default", text = "A colleague, I'd wager, because a priest would have burned the whole thing and a colleague only wanted to be the last one who could read it. Warlocks are a jealous lot, and I include myself, though I try to be jealous at a distance." } },
+      choices = { { text = "I'll bear that in mind around your desk.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    felsteed = {
+      lines = {
+        { id = "fs_default", text = "You will, and you'll love it for a week, until you notice it never tires and never sleeps and watches you while you do both. A felsteed is a demon with a saddle on it, so treat it like a demon and not like a horse." },
+        { id = "fs_orc", when = { race = "Orc" }, text = "You will, and every orc who sees you ride past on a burning horse will remember the warlocks of the old Horde riding just like you. Hold your head up, but don't expect them to cheer." },
+      },
+      choices = { { text = "A demon with a saddle. I'll remember. Something else.", next = "BACK" } },
+    },
+    menara = {
+      lines = { { id = "mn_default", text = "I criticise them because they deserve it, and she criticises mine because she's bored, which is the essential difference between us. She keeps more of her students alive than I do, though, and if you tell her I said so, I'll deny it." } },
+      choices = { { text = "Your secret's safe. Let's talk about something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I learned the art where it's frowned upon, which is everywhere, and I came to Ratchet because the goblins only frown at unpaid bills. The rest is between me and the Nether." } },
-    advice = { { id = "tp_ad", text = "Never give your demon a fond name. It will notice, and it will find a use for it." } },
+    advice = { { id = "tp_ad", text = "Never give your demon a fond name, because it will notice, and it will find a use for it." } },
+    burning_legion = { { id = "tp_legion", text = "The masters of every creature I've ever bound, and the reason I keep a knife under the desk. They're not gone, whatever Stormwind's priests like to tell the congregation." } },
     _none = { { id = "tp_none", text = "Not a subject that interests me. Ask the goblins downstairs, who'll answer anything for a price." } },
   },
 }

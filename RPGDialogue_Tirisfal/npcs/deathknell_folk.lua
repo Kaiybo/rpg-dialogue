@@ -20,100 +20,160 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Don't step on the imp. He bites, and then he sulks, and the sulking is worse." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Another of Maximillion's pupils, and you've brought something with you, or you will soon enough. Come in and let me see how it's behaving." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and you've still got all your fingers, which is more than I'd have wagered on the first day." },
   },
 
   notice = {
     { id = "n_demon", cat = "pet", when = { pet = { type = "Demon" } },
       text = "Your {pet} has been chewing something it shouldn't, I can always tell. Bring it here and we'll teach it a better habit." },
+    { id = "n_void", cat = "pet", when = { pet = { family = "Voidwalker" } },
+      text = "A voidwalker, back in little Deathknell. Halgar's work, I'd guess, and you've kept it quiet and close, which is how they ought to be kept." },
   },
 
   start = "hello",
   nodes = {
     hello = {
+      narr = "The imp on her shoulder has a smear of ink on his chin, and she wipes it off with her thumb without looking.",
       lines = {
-        { id = "h_default", key = true, text = "Kayla Smithe. I teach your demons what Maximillion Crowe, the warlock trainer, teaches you, which is how to be more useful and less trouble, and the second lesson always takes longer." },
+        { id = "h_default", key = true, text = "Kayla Smithe. Maximillion teaches the warlocks of Deathknell their spells, and I teach their demons to be more useful and less trouble, and the second lesson always takes longer." },
+        { id = "h_lock_new", when = { class = "WARLOCK", maxLevel = 9 }, text = "You've your first imp, or you're about to, if Venya's had you out collecting skulls. Whatever it tells you, it is not your friend yet, and it isn't your enemy either, so let's find out what it is." },
+        { id = "h_lock_old", when = { class = "WARLOCK", minLevel = 10 }, text = "You've outgrown Deathknell, by the look of you, and yet here you are with my little graveyard of books. If you're after anything bigger than an imp, Brill and the Undercity have the shelves for it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Quickly, before he finds my ink again." },
+        { id = "h_again", text = "Anything else? Ask quickly, before he finds my ink again." },
+        { id = "h_again2", text = "Go on, then. He's asleep, more or less, and I'd like to enjoy it." },
       },
       choices = {
         { text = "Teach my demon something new.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "My imp won't listen to a word I say.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "What should I expect from my first imp?", next = "firstimp", when = { class = "WARLOCK", maxLevel = 12 } },
         { text = "How do you teach a demon?", next = "teach" },
-        { text = "Whose imp is that?", next = "imp" },
-        { text = "Does he have a name?", next = "name" },
+        { text = "That imp seems fond of you.", next = "imp" },
         { text = "How does one of the risen end up training demons?", next = "risen" },
         { text = "The rest of Deathknell can't love having demons about.", next = "others" },
-        { text = "My imp won't listen to a word I say.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Shadow Priest Sarvis can't approve of all this.", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Demons are Legion filth. I'd burn the lot.", next = "xlight", when = { class = { "PALADIN", "PRIEST", "MAGE" } } },
         { text = "I'll go.", next = "END" },
       },
     },
-    teach = {
-      lines = { { id = "t_default", text = "The same way you teach a dog, except the dog doesn't know its own name in a language older than the world. You show it what you want, you reward it with a little of your power, and you never let it think the idea was its own." } },
+
+    firstimp = {
+      lines = {
+        { id = "fi_default", text = "Complaints, mostly, from the first hour, about the cold and the company and the smell of you. Under all that noise he's listening for the moment you aren't sure of yourself, and that's the only thing you truly need to watch for." },
+        { id = "fi_none", when = { ["not"] = { pet = { family = "Imp" } } }, text = "You'll bind him with Venya's skulls and a good deal of shouting, and then he'll complain, about the cold and the company and the smell of you. Under all the noise he's listening for the moment you aren't sure of yourself, so don't give him one." },
+      },
       choices = {
-        { text = "What happens if it does?", next = "teach2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "What does he want from me?", next = "firstimp2" },
+        { text = "Back to the other questions, then.", next = "BACK" },
+      },
+    },
+    firstimp2 = {
+      lines = { { id = "fi2_default", text = "To be anywhere but here, and failing that, to be noticed. Give him a little fire to throw at the Rattlecages every day and he'll grumble a good deal less, because an imp that's been allowed to burn something is an imp in a good mood." } },
+      choices = {
+        { text = "And when he's grown too small for me?", next = "firstimp3" },
+        { text = "Fire to throw. I can manage that.", next = "BACK", reply = "Everyone can, at first. The trick is still managing it after a month of his opinions." },
+      },
+    },
+    firstimp3 = {
+      lines = { { id = "fi3_default", text = "Then you'll go up to Brill, where Rupert Boch and Ageron Kargal keep shop in the Gallows' End, and in time Carendin Halgar will send for you from the Undercity to bind a voidwalker. You'll still call the imp now and then, because nothing else in the Nether will light your pipe for you." } },
+      choices = {
+        { text = "I'll keep him, then, for the pipe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+
+    teach = {
+      lines = { { id = "t_default", text = "The same way you'd teach a dog, except the dog doesn't know its own name in a language older than the world. You read the grimoire aloud, you let a little of your power go with it as a reward, and you never let him think the idea was his own." } },
+      choices = {
+        { text = "What happens if he does?", next = "teach2" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     teach2 = {
-      lines = { { id = "t2_default", text = "Then it starts having ideas, and each idea is worse than the last, and one morning you find it has rearranged your books to see what you'll do. I've lost two good grimoires that way, and one very good pair of boots." } },
+      lines = { { id = "t2_default", text = "Then he starts having ideas, and each one is worse than the last, and one morning you find he's rearranged your books to see what you'll do. I've lost two good grimoires that way, and one very good pair of boots." } },
       choices = { { text = "No ideas for my demon, then.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
+
     imp = {
       big = true,
-      lines = { { id = "i_default", text = "Mine, and he's been with me since I first rose, which makes him the longest friend I've had in either life. He bites, he lies and he steals my ink, and I wouldn't trade him for every voidwalker in the Undercity." } },
+      lines = { { id = "i_default", text = "Fond is a big word for an imp, but he's been with me since I first rose, which makes him the longest friend I've had in either life. He bites, he lies and he steals my ink, and in company I call him Inkpot, which he pretends to hate." } },
       choices = {
+        { text = "Inkpot isn't his real name, surely.", next = "name" },
         { text = "A demon is no friend. Keep it leashed.", next = "BACK", reply = "Leashed? He'd chew through a leash before supper, and so would you if you'd spent your life in the Twisting Nether. I keep him close because I trust him exactly as far as I can see him.", fx = { align = { order = 1 } } },
-        { text = "Loyalty is loyalty, even from an imp.", next = "BACK", reply = "There, you see, the imp heard that and he'll be insufferable all evening. Still, you're right, and it's more kindness than I ever got from the priests who buried me.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Loyalty is loyalty, even from an imp.", next = "BACK", reply = "There, the imp heard that and he'll be insufferable all evening. Still, it's more kindness than I ever had from the priests who buried me.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     name = {
-      lines = { { id = "nm_default", text = "He has one, a real one, which I'm not telling you, because a demon's true name is a leash and I'm not handing mine to strangers. In company I call him Inkpot, after his favourite crime, and he pretends to hate it." } },
+      lines = { { id = "nm_default", text = "He has a real one, which I'm not telling you, because a demon's true name is a leash and I don't hand mine to strangers. He bit the last person who called him Inkpot who wasn't me, so I'd say he's rather proud of it." } },
       choices = {
-        { text = "Does he really hate it?", next = "name2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Should I learn my own imp's true name?", next = "name2", when = { class = "WARLOCK" } },
+        { text = "I'll stick to calling him 'sir'.", next = "BACK", reply = "He'd like that far too much, so please don't.", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Back to the other questions.", next = "BACK" },
       },
     },
     name2 = {
-      lines = { { id = "n2_default", text = "He bit the last person who used it who wasn't me, so I'd say he's rather proud of it. Imps are vain little things, and vanity is the easiest handle a trainer ever gets." } },
-      choices = { { text = "I'll stick to calling him 'sir'.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+      lines = { { id = "n2_default", text = "You already know it, somewhere at the back of your skull, because the binding put it there. Don't say it aloud unless you mean to use it, and never in front of another warlock, since a name heard is a name that can be borrowed." } },
+      choices = { { text = "Then I'll keep it to myself.", next = "BACK", fx = { trait = { careful = 1 } } } },
     },
+
     risen = {
       lines = { { id = "ri_default", text = "I woke in the Deathknell graves with a warlock's hands and no memory of learning the trade, and an imp was sitting on my chest, waiting. Either he followed me through death or he was simply the first one to find me, and he's never said which." } },
       choices = {
-        { text = "And then?", next = "risen2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "What did you do then?", next = "risen2" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     risen2 = {
-      lines = { { id = "r2_default", text = "Then Maximillion saw me bully the little wretch into fetching my shroud, and said I'd a better hand with demons than with students. He was right, which he enjoys being, and I've trained the demons of every warlock who's risen here since." } },
+      lines = { { id = "r2_default", text = "Maximillion saw me bully the little wretch into fetching my shroud, and said I'd a better hand with demons than with students. He was right, which he enjoys being, and I've trained the demons of every warlock who's risen here since." } },
       choices = {
         { text = "Do you remember anything of your life?", next = "risen3" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Something else, Kayla.", next = "BACK" },
       },
     },
     risen3 = {
       lines = { { id = "r3_default", text = "A house in Lordaeron with a cellar I wasn't supposed to go into, and the smell of candle wax. That's the lot, and I've decided it's a mercy, because whoever I was down in that cellar, I doubt I'd like her." } },
       choices = {
-        { text = "You can be someone better now.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "You can be someone better now.", next = "BACK", reply = "Better is a lot to ask of a dead woman with an imp. I'll settle for useful, and the Dark Lady seems to as well.", fx = { affinity = 1 } },
+        { text = "Or she'd be proud of you.", next = "BACK", reply = "That's the part that worries me, and thank you for saying it out loud." },
       },
     },
+
     others = {
-      lines = { { id = "ot_default", text = "Executor Arren puts up with it, because the Forsaken need every weapon they can lay hands on. The deathguards give my imp a wide berth, and Novice Elreth keeps a bucket of water by the door, which he finds very insulting." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "ot_default", text = "Executor Arren puts up with it, because the Forsaken need every weapon they can lay hands on against the Scourge and the Scarlets. The deathguards give my imp a wide berth, and Novice Elreth keeps a bucket of water by the door, which he finds very insulting." } },
+      choices = {
+        { text = "Is the bucket ever needed?", next = "others2" },
+        { text = "Back to the other questions.", next = "BACK" },
+      },
     },
+    others2 = {
+      lines = { { id = "ot2_default", text = "Once, when a student let her imp get bored during a lesson, and the chapel curtains went up. Elreth put it out without a word and set the bucket down a little closer to my door, and we've been very polite to each other ever since." } },
+      choices = { { text = "A fair warning, then.", next = "BACK" } },
+    },
+
     xwarlock = {
-      lines = { { id = "xw_default", text = "Of course he won't, because you've been asking. Tell him, flatly, and give him a reason to want what you want, such as the promise of something to set on fire later." } },
+      lines = {
+        { id = "xw_default", text = "Of course he won't, because you've been asking. Tell him, flatly, and give him a reason to want what you want, such as the promise of something to set on fire later." },
+        { id = "xw_scourge", when = { race = "Scourge" }, text = "Of course he won't, because you've been asking, and he can hear the Lich King's old habits in your voice, waiting to be told. You're nobody's servant now, so stop sounding like one, and give him something to burn later." },
+      },
       choices = {
         { text = "Tell him, don't ask him. I'll try that.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'd sooner cuff him till he listens.", next = "BACK", reply = "You can, and he'll listen, and he'll remember. Imps have long memories and very small hearts, so pick the lesson you'd like him to keep." },
       },
     },
     xpriest = {
-      lines = { { id = "xp_default", text = "Sarvis approves of anything that keeps the Forsaken alive, in our manner of speaking, and so do I. He calls on the shadow and I call on the Nether, and we've agreed not to compare notes at supper." } },
+      lines = { { id = "xp_default", text = "Sarvis approves of anything that keeps the Forsaken standing, and so do I. He calls on the shadow and I call on the Nether, and we've agreed not to compare notes at supper." } },
       choices = { { text = "A wise arrangement. Let me ask something else.", next = "BACK" } },
+    },
+    xlight = {
+      big = true,
+      lines = { { id = "xl_default", text = "You and the Scarlet Crusade, then, who'd burn him and me on the same pyre and call it a good day's work. He's the Legion's, true enough, but he's on a leash in Deathknell throwing fire at the Scourge, and I'd rather that than have him loose." } },
+      choices = {
+        { text = "A leashed demon is still a demon. I won't forget it.", next = "BACK", reply = "Good, don't. Neither do I, and neither does he.", fx = { align = { light = 1 } } },
+        { text = "If it burns the Scourge, I'll allow it.", next = "BACK", reply = "Generous of you. He's flattered, or he's planning something, and with him there's no difference.", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
     },
   },
 

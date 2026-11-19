@@ -824,7 +824,13 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Don't draw your blade, mortal, I'm no friend to the satyrs you've been killing. Sit, and hear what Lorax has to say." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back to hear more of Lorax's tale. Few would." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to hear more of Lorax's tale, which is more than most would do for a satyr." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Keep your demon on a short chain, warlock, and don't let it near me. It knows what I am, and it will want to laugh." },
+  },
+  notices = { "class" },
+  notice = {
+    { id = "n_lockpet", cat = "class", when = { class = "WARLOCK", pet = true },
+      text = "Your servant keeps looking at my horns as if it were measuring them for you. Tell it I'm not a warning, though perhaps I ought to be." },
   },
 
   start = "hello",
@@ -835,7 +841,7 @@ P:NPC {
       choices = {
         { text = "Every soul deserves a chance at redemption, even yours.", next = "BACK", reply = "A generous thought, and more than I deserve, but I'll take it gladly. Perhaps you'll prove the Light right about me, and me wrong.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll deal with your demon, but I won't forget what you are.", next = "BACK", reply = "Fair enough, mortal, and I'd think you a fool to forget it. Only free me from that contract, and I'll remember you kindly.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -856,7 +862,7 @@ P:NPC {
       choices = {
         { text = "Then you were snared, Lorax, and the snared can still be freed.", next = "BACK", reply = "Perhaps they can, and I've hoped as much for longer than you've been alive. Help me cut the line, and we'll see.", fx = { align = { light = 1 } } },
         { text = "Then you walked into the snare yourself. You got what you chose.", next = "BACK", reply = "I did, and I won't pretend otherwise. But even a snared beast struggles, and I am struggling still.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     xhsham = {
@@ -865,7 +871,7 @@ P:NPC {
       choices = {
         { text = "Spirits can forgive, if you make amends.", next = "BACK", reply = "Then I'll make what amends I can, and pray the spirits are as forgiving as you say. The gorge still owes me some.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "You chose your bargain. Your debts are your own.", next = "BACK", reply = "They are, and I carry them every day in this cold. I only ask for a chance to pay them back.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to your tale, then.", next = "BACK" },
       },
     },
     xmage = {
@@ -892,7 +898,7 @@ P:NPC {
       choices = {
         { text = "Then I'll help you strike back, and pray it's enough.", next = "BACK", reply = "Thank you, and pray loudly, for I'm sure no god has heard my voice in a long age. Together we might still do some good.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some bargains can't be broken, Lorax. You made yours.", next = "BACK", reply = "Perhaps, and I know it better than you. But I'll strike back all the same, and see what breaks.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xdruid = {
@@ -918,13 +924,14 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. You might be useful to me, I think, for the demon I bargained with keeps a contract, and contracts can be stolen." },
         { id = "h_default", text = "I am Lorax, and once I was something better than this, before I bargained my soul away to the Legion. Now I want only to strike back at the demon who holds my debt, and I can't do it alone." },
-        { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock, of all things. Then you know already how a demon's bargain works, and how it always ends." },
+        { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock, of all things, so you know already how a demon's bargain works. I'd like to tell you how it always ends, if you'll let an old satyr bore you." },
+        { id = "h_lock_orc", when = { class = "WARLOCK", race = "Orc" }, text = "An orc warlock. Your fathers drank the Legion's gift and mine took its horns, and here we both are in the snow, still paying for it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here, with me? Then perhaps you can tell me whether any god would still hear a satyr, because I stopped expecting it long ago." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You look at me the way the night elves always did, as though you can smell the forest I betrayed, and perhaps you can." },
       },
       again = {
         { id = "h_again1", text = "There is more of the tale, if you have the stomach for it." },
-        { id = "h_again2", text = "Ask. Lorax has nothing but time." },
+        { id = "h_again2", text = "Ask what you like, because Lorax has nothing left but time." },
       },
       choices = {
         { text = "Did the Legion's touch reach Winterspring's land too?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -932,6 +939,7 @@ P:NPC {
         { text = "The other satyrs here seem less sorry than you.", next = "satyrs" },
         { text = "Why hide in Winterspring?", next = "winterspring" },
         { text = "Every bargain has a loophole.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "You were a sorcerer, before the horns.", next = "sorcerer", when = { class = "WARLOCK" } },
         { text = "How did a Highborne mage become a satyr?", next = "xmage", when = { class = "MAGE" } },
         { text = "You want me to steal your contract from a demon?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there no redemption left for a satyr, Lorax?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -948,6 +956,7 @@ P:NPC {
       },
       choices = {
         { text = "I don't see why I should trust a satyr.", next = "tale2" },
+        { text = "Let me think on that. Something else.", next = "BACK" },
       },
     },
     tale2 = {
@@ -961,10 +970,10 @@ P:NPC {
     },
     satyrs = {
       lines = {
-        { id = "satyrs_default", text = "They chose their masters and they're happy in their chains, and they'd kill me if they found me. Lorax keeps to his cave and keeps his head down." },
+        { id = "satyrs_default", text = "They chose their masters and they're happy in their chains, and they'd kill me if they found me, so Lorax keeps to his cave and keeps his head down." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     winterspring = {
@@ -980,13 +989,45 @@ P:NPC {
         { id = "warlock_default", text = "Every bargain has one, yes, and the demons write them in for themselves. Find mine for me, warlock, and Lorax will owe you more than a satyr can repay." },
       },
       choices = {
-        { text = "We'll see.", next = "BACK" },
+        { text = "What happens to a warlock who misses it?", next = "warlock2" },
+        { text = "We'll see what I find.", next = "BACK" },
+      },
+    },
+    warlock2 = {
+      narr = "He scrapes one hoof slowly through the snow, back and forth.",
+      lines = { { id = "warlock2_default", text = "Nothing at first, which is the cruel part, because the power is real and you grow used to it, and then one morning you look down and your feet have become hooves. That's how it happened to me, warlock, a little at a time, and every step felt like my own idea." } },
+      choices = {
+        { text = "That won't happen to me. I hold the chain.", next = "warlock3" },
+        { text = "I'll watch my feet. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    warlock3 = {
+      big = true,
+      lines = { { id = "warlock3_default", text = "I said exactly that, in Zin-Azshari, in finer words and a finer robe. So tell me plainly, warlock, if the Legion offered you everything you wanted, what would you say?" } },
+      choices = {
+        { text = "No. Whatever it offered, no.", next = "BACK", reply = "Then say it every morning, out loud, and hope your voice doesn't change. I wish someone had made me practise.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd take it and turn it against them.", next = "BACK", reply = "That was my plan too, mortal, almost word for word. Look at me closely before you go, and remember the horns.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not answer that.", next = "BACK", reply = "A wise silence, and a worrying one. Lorax will think about it for you." },
+      },
+    },
+    sorcerer = {
+      lines = { { id = "sorcerer_default", text = "I was, in the queen's palace, one of the Highborne who reached through the Well and found something reaching back. Your demonologists draw circles we'd have laughed at, and I still feel the old hunger when I watch one being drawn." } },
+      choices = {
+        { text = "Could you teach me what the Highborne knew?", next = "sorcerer2" },
+        { text = "Let's leave the past alone.", next = "BACK" },
+      },
+    },
+    sorcerer2 = {
+      lines = { { id = "sorcerer2_default", text = "I could, and you'd thank me, and in a few years you'd grow horns of your own and come back to curse me. No, warlock, I'll teach you nothing but my tale, and that's the only lesson I have that's worth the price." } },
+      choices = {
+        { text = "Then tell me the tale.", next = "tale" },
+        { text = "Fair enough. Something else, Lorax.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I was Highborne, once, and a fool. Now I'm only the fool." } },
+    background = { { id = "tp_bg", text = "I was Highborne once, and a fool besides, and now I'm only the fool." } },
     satyrs = { { id = "tp_satyrs", text = "The satyrs were Highborne once, in the old days, and every one of us made a bargain to become what we are. I regret mine every day, and I've no one to blame but myself." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion promised us power, and gave us horns and hooves instead. Never make a bargain with a demon, mortal, because they always win." } },
     highborne = { { id = "tp_highborne", text = "The Highborne were the finest of the Kaldorei, and the proudest. They fell because of their pride, and I followed their example far too closely." } },

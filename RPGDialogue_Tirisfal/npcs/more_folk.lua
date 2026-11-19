@@ -137,36 +137,83 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep your hands off the shelf unless you mean to buy. Some of these books bite, and the rest are worse." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock. Good; I was beginning to think Rupert had frightened all the custom away." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. How is your little friend behaving?" },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, and a customer, I hope. I was beginning to think Rupert had frightened all the custom away." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, I see. How is your servant behaving?" },
+    { id = "g_summons", when = { questActive = TODO_QUEST("Halgar's Summons") }, text = "Still in Brill? Halgar does not send for a student twice, so I would take the road to the Undercity before he decides you were not worth the message." },
   },
 
   notice = {
     { id = "n_imp", cat = "pet", when = { class = "WARLOCK", pet = { type = "Demon" } },
       text = "Your {pet} is looking at my books with far too much interest. Tell it to sit, or I'll tell it for you." },
     { id = "n_notlock", cat = "class", when = { class = { "WARRIOR", "ROGUE", "PRIEST", "MAGE" } },
-      text = "You're no warlock, so I've nothing to sell you, but you're welcome to stand there and be curious. Most are." },
+      text = "You're no warlock, so I've nothing to sell you, but you're welcome to stand there and be curious. Most people are." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, reading my spines from a safe distance. Your masters in Dalaran had a locked room for books like these, and I always thought the lock said more about them than the books did." },
   },
 
   start = "hello",
   nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Ageron Kargal. Rupert Boch teaches the warlocks of Brill their spells, and I teach their demons manners, which is the harder job by some distance." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "Your demon knows what it was summoned knowing, {class}, and not a scrap more. A grimoire from me will teach it something new, if you have the coin and it's the right book for its kind." },
+        { id = "h_summon", when = { class = "WARLOCK", minLevel = 10, questBefore = TODO_QUEST("Halgar's Summons") }, text = "There you are. A message came up from the Undercity this morning with your name on it, {class}, and Carendin Halgar does not write to students he thinks are a waste of his ink." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Ageron Kargal, and I teach demons their manners. Your orcs know something about demons, I'm told, though they learned it the expensive way, and my books are a good deal cheaper." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Mind the candles while you think." },
+        { id = "h_again2", text = "Ask, then, and I'll answer. The books will keep." },
+        { id = "h_again3", text = "Was there something more? The imps on this shelf have no patience, and I have only a little." },
+      },
+      choices = {
+        { text = "Show me the grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Halgar sent for me? Why?", next = "summons", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "My demon talks back more than I'd like.", next = "backtalk", when = { class = "WARLOCK" } },
+        { text = "How do you teach a demon anything?", next = "grimoires" },
+        { text = "Odd place to keep demon books, a tavern.", next = "tavern" },
+        { text = "Which demon gives its master the most trouble?", next = "kinds" },
+        { text = "You and Rupert Boch seem to share a trade.", next = "rupert" },
+        { text = "I'll leave you to your books.", next = "END" },
+      },
+    },
+
+    summons = {
+      narr = "He takes a folded note from inside his coat, holding it by one corner as though it were damp.",
+      lines = {
+        { id = "su_default", text = "To teach you the voidwalker, I expect, since that is the next thing worth learning and he will not trust anyone else to watch the binding. You'll find him in the Magic Quarter, near the Temple of the Damned, and I would go before he has time to grow bored of waiting." },
+        { id = "su_done", when = { questDone = TODO_QUEST("Halgar's Summons") }, text = "You've been, I see, and he didn't send you back in pieces, so I count that a success for both of us. Whatever he has you fetching for him now, fetch it quickly, because he forgives slowness less than he forgives failure." },
+      },
+      choices = {
+        { text = "What is Halgar like?", next = "summons2" },
+        { text = "Back to the books, then.", next = "BACK" },
+      },
+    },
+    summons2 = {
+      big = true,
+      lines = { { id = "su2_default", text = "Short with everyone, and very good, and he knows both. I sent him four students last year and he kept three, which is a better rate than the Plague managed. Are you going to be the fourth?" } },
+      choices = {
+        { text = "No. I'll do exactly as he says.", next = "BACK", reply = "Then you'll come back with a voidwalker, and he'll call it adequate, which from him is a parade.", fx = { align = { order = 1 } } },
+        { text = "I'll find my own way through his tests.", next = "BACK", reply = "His circle has opinions about that, and so does the thing inside it. Do let me know how it goes.", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+
     backtalk = {
       lines = {
-        { id = "bt_default", text = "Then it is an imp, because nothing else in the Nether talks half so much. There is no grimoire that will shut its mouth, {class}, but a demon that is kept busy with new work has less breath left for insolence." },
+        { id = "bt_default", text = "Then it is an imp, because nothing else in the Nether talks half so much. There is no grimoire that will shut its mouth, {class}, but a demon kept busy with new work has less breath left for insolence." },
         { id = "bt_void", when = { pet = { family = "Voidwalker" } }, text = "A voidwalker that talks back is a rare thing, and I would watch it closely, because they usually save their hatred up in silence. Keep it busy with new work, {class}, and let it spend its temper on your enemies." },
       },
       choices = {
         { text = "Then I'll keep it busy and let it sulk.", next = "BACK", reply = "Let it sulk as loudly as it likes, so long as it obeys. Sulking is the only freedom it has left, and it costs you nothing." },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the books, then.", next = "BACK" },
       },
     },
+
     kinds = {
-      lines = { { id = "k_default", text = "The imp is the noisiest, but the trouble comes from the succubus, who is the only one clever enough to make her master enjoy being led. I sell her books to warlocks who have a few years behind them, and I tell them twice to read the warnings." } },
+      lines = { { id = "k_default", text = "The imp is the noisiest, but the real trouble comes from the succubus, who is clever enough to make her master enjoy being led. I sell her books to warlocks who have a few years behind them, and I tell them twice to read the warnings." } },
       choices = {
         { text = "And the voidwalker?", next = "kinds2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     kinds2 = {
@@ -176,79 +223,70 @@ P:NPC {
         { text = "Something else, Ageron.", next = "BACK" },
       },
     },
+
     rupert = {
       lines = { { id = "ru_default", text = "We share a customer, which is not the same thing. Rupert Boch teaches the warlock to call the creature and to throw shadow about, and then the warlock comes down the room to me, because the creature arrived knowing almost nothing." } },
       choices = {
         { text = "Do the two of you get along?", next = "rupert2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     rupert2 = {
-      lines = { { id = "ru2_default", text = "Well enough, since neither of us wants the other's work. Kayla Smithe sells the first books down in Deathknell, to pupils who can barely stand, and by the time they reach Brill they have usually learned which end of an imp bites." } },
+      lines = { { id = "ru2_default", text = "Well enough, since neither of us wants the other's work. Gina Lang keeps the dearer books upstairs and thinks I'm a brute with a leash, and Kayla Smithe sells the first books down in Deathknell to pupils who can barely stand." } },
       choices = {
         { text = "So the trade runs from the grave to your shelf.", next = "BACK", reply = "From the grave to Kayla, from Kayla to me, and from me to the Undercity, if they last that long. A fair number of them do." },
-        { text = "Something else.", next = "BACK" },
+        { text = "Gina calls you a brute?", next = "gina" },
       },
     },
-    hello = {
-      lines = {
-        { id = "h_default", key = true, text = "Ageron Kargal. Rupert Boch teaches the warlocks of Brill their spells, and I teach their demons manners, which is the harder job by some distance." },
-        { id = "h_lock", when = { class = "WARLOCK" }, text = "Your demon knows what it was summoned knowing, {class}, and not a scrap more. A grimoire from me will teach it something new, if you've the coin and it's the right book for its kind." },
-        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Ageron Kargal, and I teach demons their manners. Your orcs know something about demons, I'm told, though they learned it the expensive way, and my books are a good deal cheaper." },
-      },
-      again = {
-        { id = "h_again", text = "What else? Mind the candles." },
-        { id = "h_again2", text = "Ask, then. The books will keep." },
-        { id = "h_again3", text = "Was there something more? The imps on this shelf have no patience, and I have only a little." },
-      },
+    gina = {
+      big = true,
+      lines = { { id = "gi_default", text = "She calls me worse when she thinks I can't hear through the floorboards. She bargains with her demons as if they were merchants, and I leash mine as what they are, and we have agreed to let our customers decide which of us is the fool." } },
       choices = {
-        { text = "Show me the grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "How do you teach a demon anything?", next = "grimoires" },
-        { text = "Odd place to keep demon books, a tavern.", next = "tavern" },
-        { text = "My demon talks back more than I'd like.", next = "backtalk", when = { class = "WARLOCK" } },
-        { text = "Which demon gives its master the most trouble?", next = "kinds" },
-        { text = "You and Rupert Boch seem to share a trade.", next = "rupert" },
-        { text = "I'll leave you to your books.", next = "END" },
+        { text = "A leash. Nothing that hates you deserves more.", next = "BACK", reply = "You'll keep your fingers, then. Tell Gina I said so, if you want to see her smile.", fx = { align = { order = 1 } } },
+        { text = "Gina's way sounds wiser to me.", next = "BACK", reply = "Then go upstairs and buy her books, and come back to me when the bargain goes sour.", fx = { align = { order = -1 } } },
+        { text = "Back to the books, then.", next = "BACK" },
       },
     },
+
     grimoires = {
       lines = { { id = "gr_default", text = "You don't teach it, you instruct it. Each grimoire binds a new trick into the demon's leash, a firebolt for an imp or a sacrifice for a voidwalker, and the demon learns because it can't refuse." } },
       choices = {
         { text = "Do the demons resent it?", next = "leash" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     leash = {
       big = true,
-      lines = { { id = "le_default", text = "Every moment of every day. An imp will tell you so, loudly, and a voidwalker will tell you nothing and mean it more. The warlock who forgets that his servant hates him doesn't stay a warlock long." } },
+      lines = { { id = "le_default", text = "Every moment of every day. An imp will tell you so, loudly, and a voidwalker will tell you nothing and mean it more, and the warlock who forgets that his servant hates him doesn't stay a warlock long." } },
       choices = {
-        { text = "Then they're weapons, and weapons should be kept sharp.", next = "BACK", reply = "Spoken like a sensible master. Sharp, and on a short leash, and never left alone in the room.", fx = { align = { light = -1 } } },
-        { text = "Binding anything that hates you seems a fool's bargain.", next = "BACK", reply = "Perhaps it is. But the Forsaken bargain with worse every day, and the demons at least are honest about it.", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Then they're weapons, and weapons should be kept sharp.", next = "BACK", reply = "Spoken like a sensible master. Keep them sharp and on a short leash, and never leave them alone in the room.", fx = { align = { light = -1 } } },
+        { text = "Binding anything that hates you is a fool's bargain.", next = "BACK", reply = "Perhaps it is, but the Forsaken bargain with worse every day, and the demons at least are honest about it.", fx = { align = { light = 1 } } },
+        { text = "Back to the books, then.", next = "BACK" },
       },
     },
+
     tavern = {
-      lines = { { id = "t_default", text = "Where else? The Undercity has its own trainers, and Brill has the newly risen coming up from Deathknell with an imp at their heel and no notion what to do with it. Renee doesn't mind, so long as nothing catches fire." } },
+      lines = { { id = "t_default", text = "Where else would I keep them? The Undercity has its own trainers, and Brill has the newly risen coming up from Deathknell with an imp at their heel and no notion what to do with it. Renee doesn't mind, so long as nothing catches fire." } },
       choices = {
         { text = "Has anything caught fire?", next = "fire" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     fire = {
-      lines = { { id = "fi_default", text = "Once or twice, and never anything that mattered. Imps are spiteful, not ambitious, and a singed tablecloth is about the limit of their imagination." } },
+      lines = { { id = "fi_default", text = "Once or twice, and never anything that mattered. Imps are spiteful rather than ambitious, and a singed tablecloth is about the limit of their imagination." } },
       choices = {
-        { text = "That's reassuring, in a way.", next = "BACK" },
+        { text = "That's reassuring, in a way.", next = "BACK", reply = "It is the only reassurance I offer, so make the most of it." },
         { text = "Something else, Ageron.", next = "BACK" },
       },
     },
   },
   topics = {
-    burning_legion = { { id = "tp_legion", text = "The things I deal with are the smallest and stupidest of the Legion's servants, and that's precisely why they can be leashed. I'd not sell a book for anything larger." } },
+    burning_legion = { { id = "tp_legion", text = "The things I deal with are the smallest and stupidest of the Legion's servants, and that is why they can be leashed at all. I'd not sell a book for anything larger." } },
     background = { { id = "tp_bg", text = "I studied in Lordaeron before the Plague, quietly, because the Kirin Tor did not approve. They have bigger problems now." } },
-    advice = { { id = "tp_ad", text = "Never let your demon see you hesitate. It will remember." } },
+    advice = { { id = "tp_ad", text = "Never let your demon see you hesitate, because it will remember the moment long after you've forgotten it." } },
     forsaken = { { id = "tp_forsaken", text = "We are a people who were leashed once and slipped the leash, which gives a Forsaken warlock a certain sympathy for his demon. I advise my customers not to indulge it." } },
     trade = { { id = "tp_trade", text = "The Magic Quarter has demon trainers of its own and better shelves than mine. I stay in Brill because the beginners are here, and beginners buy more books than masters do." } },
-    _none = { { id = "tp_none", text = "Not my subject. Ask me about imps and you'll get an answer." } },
+    _none = { { id = "tp_none", text = "That's not my subject. Ask me about imps and you'll get an answer." } },
   },
 }
 
@@ -1722,7 +1760,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Close the door behind you, if you please. The draught turns the pages, and some of these should not be read by accident." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, and one who climbed the stairs, which already sets you above the ones who stop at Ageron's shelf. Let me see what you've brought with you." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. I wondered whether you would come back or whether your servant would come back without you." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. I wondered whether you would come back, or whether your servant would come back without you." },
   },
 
   notice = {
@@ -1730,6 +1768,8 @@ P:NPC {
       text = "Your imp is muttering in Eredun under its breath, and none of it is polite. It thinks I can't understand it, and I'd leave it thinking so." },
     { id = "n_void", cat = "pet", when = { class = "WARLOCK", pet = { family = "Voidwalker" } },
       text = "A voidwalker, and it stood in the doorway until you told it to come in. That is a well-kept servant, {class}, and I don't say so often." },
+    { id = "n_succ", cat = "pet", when = { class = "WARLOCK", pet = { family = "Succubus" } },
+      text = "Your succubus has looked at every man in the taproom on the way up, and at you not once. Mind that, {class}, because she has no need to look at you when she already knows where you are." },
     { id = "n_light", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
       text = "You are standing as far from my shelf as the room allows. That is sensible of you, and I'm not offended in the least." },
   },
@@ -1743,24 +1783,26 @@ P:NPC {
         { id = "h_back", when = { metBefore = true }, text = "Gina Lang, as before, and the shelf has not changed, though you may have. Tell me what your servant has learned since we last spoke, and what it has refused to." },
       },
       again = {
-        { id = "h_again", text = "Was there something more? Speak quietly, the books on the top shelf are light sleepers." },
+        { id = "h_again", text = "Was there something more? Speak quietly, because the books on the top shelf are light sleepers." },
         { id = "h_again2", text = "Go on. I have all evening, and so does everything in this room." },
         { id = "h_again3", text = "Ask it, then. I do enjoy a question I haven't heard this week." },
       },
       choices = {
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "How do I know when my demon is ready for more?", next = "ready", when = { class = "WARLOCK" } },
+        { text = "You keep the succubus books on the top shelf.", next = "succ", when = { class = "WARLOCK", minLevel = 16 } },
         { text = "Two demon trainers, in one small tavern.", next = "two" },
         { text = "You speak to the demon before its master.", next = "speak" },
         { text = "Where do the books come from?", next = "books" },
-        { text = "How do I know when my demon is ready for more?", next = "ready", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
+
     two = {
-      lines = { { id = "tw_default", text = "It is less strange than it sounds. Ageron keeps the common books by the stairs, where a beginner can find them, and I keep the ones a beginner ought not to find. We send each other customers, and we have never once agreed about a demon." } },
+      lines = { { id = "tw_default", text = "It is less strange than it sounds. Ageron keeps the common books by the stairs, where a beginner can find them, and I keep the ones a beginner ought not to find, and we send each other customers and have never once agreed about a demon." } },
       choices = {
         { text = "What do you disagree about?", next = "two2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     two2 = {
@@ -1769,14 +1811,17 @@ P:NPC {
       choices = {
         { text = "Ageron's right. A leash, and nothing more.", next = "BACK", reply = "Then you will have obedient servants and dull ones. There are worse fates for a warlock, and I have watched most of them.", fx = { align = { order = 1 } } },
         { text = "I'd bargain. A willing servant is a sharper one.", next = "BACK", reply = "So I have found. Only remember that it is bargaining too, and that it has had ten thousand years more practice than you.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the books, then.", next = "BACK" },
       },
     },
+
     speak = {
-      lines = { { id = "sp_default", text = "The demon tells me more. A warlock will say whatever flatters them, but an imp cannot help boasting of every order it has twisted, and a voidwalker's silence has a different weight when it has been ill used. I learn the master from the servant." } },
+      narr = "She bends a little toward the space at your heel, as if greeting someone shorter than you.",
+      lines = { { id = "sp_default", text = "The demon tells me more. A warlock will say whatever flatters them, but an imp cannot help boasting of every order it has twisted, and a voidwalker's silence has a different weight when it has been ill used." } },
       choices = {
         { text = "And what do the demons of Brill say?", next = "speak2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "What does mine say about me?", next = "speak3", when = { class = "WARLOCK", pet = { type = "Demon" } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     speak2 = {
@@ -1786,36 +1831,65 @@ P:NPC {
         { text = "Something else, Gina.", next = "BACK" },
       },
     },
+    speak3 = {
+      lines = {
+        { id = "sp3_default", text = "That you feed it on time and never thank it, which it finds confusing, and confusion is good for a demon. It thinks you are hiding something, and I should keep it thinking so." },
+        { id = "sp3_imp", when = { pet = { family = "Imp" } }, text = "That you are slow, and smell of the grave, and once let it burn a Scarlet's hat off, which it remembers as the finest day of its servitude. On the whole it is a good report, by the standards of imps." },
+      },
+      choices = {
+        { text = "I'll take that as praise.", next = "BACK", reply = "Do. It is the only praise you will ever have from that quarter." },
+        { text = "Back to the books, then.", next = "BACK" },
+      },
+    },
+
+    succ = {
+      lines = { { id = "sc_default", text = "Where a beginner can't reach them, yes. Carendin Halgar will call you to the Undercity for her binding when you're ready, and his blind man Godrick will send you hunting for hearts to lure her through, and I would read every warning in these books before you go." } },
+      choices = {
+        { text = "What makes her so dangerous?", next = "succ2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    succ2 = {
+      big = true,
+      lines = { { id = "sc2_default", text = "A voidwalker wants to be left alone and an imp wants to be noticed, but a succubus wants to know what you want, and she will learn it before you do. The Forsaken think we are safe from her because our wants have gone cold, and that is the very thing she enjoys proving wrong. Are you sure of yours?" } },
+      choices = {
+        { text = "Quite sure. I want nothing she can give.", next = "BACK", reply = "Hold on to that sentence, {class}. She will ask you to repeat it every night for a year.", fx = { align = { light = 1 } } },
+        { text = "Let her learn. I'll use whatever she finds.", next = "BACK", reply = "Bold, and possibly clever. I have known one warlock in ten who could manage it, and I have sold the other nine's books twice.", fx = { align = { light = -1 } } },
+        { text = "Back to the books, then.", next = "BACK" },
+      },
+    },
+
     books = {
       lines = { { id = "bk_default", text = "From the Undercity, for the most part, copied in the Magic Quarter by scribes who are paid not to understand what they write. A few are older, out of private libraries in Lordaeron whose owners were hanged for keeping them, back when there was anyone to do the hanging." } },
       choices = {
         { text = "The kingdom burned such books. Now you sell them.", next = "books2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     books2 = {
-      lines = { { id = "bk2_default", text = "The kingdom burned a great many things and was not saved by it. The Dark Lady has no such scruples, and so the knowledge is taught in the open, by people who know its dangers, which I consider a safer arrangement than a cellar and a guilty conscience." } },
+      lines = { { id = "bk2_default", text = "The kingdom burned a great many things and was not saved by it. The Dark Lady has no such scruples, so the knowledge is taught in the open by people who know its dangers, which I consider safer than a cellar and a guilty conscience." } },
       choices = {
         { text = "Safer for whom?", next = "BACK", reply = "For the warlock, certainly. For everyone else, I should say it depends upon the warlock, as it always did." },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the books, then.", next = "BACK" },
       },
     },
+
     ready = {
       lines = {
         { id = "rd_default", text = "When it has stopped testing the orders it already has. A servant that still looks for the gap in every command will find a wider gap in a new one, so bring it back to me when it obeys the old work without that little pause first." },
-        { id = "rd_imp", when = { pet = { family = "Imp" } }, text = "With an imp, when it has stopped complaining about the last book and started complaining about being bored. That one of yours is nearly there, by the sound of it, so it wants perhaps another week of honest work." },
+        { id = "rd_imp", when = { pet = { family = "Imp" } }, text = "With an imp, when it has stopped complaining about the last book and started complaining about being bored. That one of yours is nearly there, by the sound of it, and wants perhaps another week of honest work." },
       },
       choices = {
-        { text = "I'll watch for the pause.", next = "BACK", reply = "Do. Most never learn to see it, and those are the ones whose demons I end up selling on.", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'll watch for the pause.", next = "BACK", reply = "Do, because most never learn to see it, and those are the ones whose demons I end up selling on.", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
   },
   topics = {
     burning_legion = { { id = "tp_legion", text = "What I deal in are the Legion's kitchen servants, taken one at a time and bound. Anyone who tells you they understand the masters of the house is selling something worse than a book." } },
-    forsaken = { { id = "tp_forsaken", text = "We were bound to a will not our own, and we know precisely what it is like. I find that makes Forsaken warlocks either the kindest masters or the cruellest, and seldom anything between." } },
+    forsaken = { { id = "tp_forsaken", text = "We were bound to a will not our own, and we know exactly what it is like. I find that makes Forsaken warlocks either the kindest masters or the cruellest, and seldom anything between." } },
     advice = { { id = "tp_ad", text = "Give an order once, in words that can only mean one thing. If you find yourself explaining what you meant, you have already lost the argument." } },
-    sylvanas = { { id = "tp_syl", text = "The Dark Lady keeps a dreadlord at her right hand, on a leash of her own making. Every warlock in Lordaeron should study how she manages it, and pray she goes on managing." } },
+    sylvanas = { { id = "tp_syl", text = "The Dark Lady keeps a dreadlord at her right hand, on a leash of her own making. Every warlock in Lordaeron should study how she manages it, and hope she goes on managing." } },
     kirin_tor = { { id = "tp_kirin", text = "They knew all of this and locked it away, and their city fell regardless. I do not find that an argument for locks." } },
     _none = { { id = "tp_none", text = "That is not in any book of mine, and I have read them all, some more than once." } },
   },

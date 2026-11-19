@@ -19,8 +19,9 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Mind the circle on the floor, it's still warm. Now, what brings you down to the Cleft?" },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah, there you are. I was beginning to think the Barrens had eaten another of my pupils." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "There you are, my star pupil. I was beginning to think the Barrens had eaten another of mine." },
     { id = "g_succ", when = { class = "WARLOCK", pet = { family = "Succubus" } }, text = "And how is your succubus behaving? Firmly, I hope, because they only respect a hand that never loosens." },
+    { id = "g_ophek", when = { questActive = TODO_QUEST("Gan'rul's Summons") }, text = "Ophek sent you, and Ophek doesn't send me fools. Stand in the light where I can see you properly, young one." },
   },
 
   notice = {
@@ -28,6 +29,8 @@ P:NPC {
       text = "Still walking with the imp, I see. It's a fine first servant, but you'll want something with more weight behind it soon." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman in the Cleft, and you haven't spat on my floor yet. The spirits must be teaching manners these days." },
+    { id = "n_steed", cat = "fel", when = { class = "WARLOCK", minLevel = 60 },
+      text = "You've the look of someone who has ridden a felsteed for a long while and grown tired of it. Good, because I've been waiting to tell you about something better." },
   },
 
   start = "hello",
@@ -37,6 +40,10 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Gan'rul Bloodeye, and I teach the warlocks of Orgrimmar to command what lesser minds only fear. The Warchief tolerates us because we're useful, and I make very sure we stay useful." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Gan'rul Bloodeye, as you know, and I sense the possibility of greatness in you, {name}. See that your gifts don't go to waste, because they have a way of rotting when they're left alone." },
+        { id = "h_void", when = { questActive = TODO_QUEST("Creature of the Void") },
+          text = "Skull Rock is just outside the gates, and the Burning Blade keep a chest of stolen things at the back of it. What you need to bind a voidwalker is in that chest, so go and take it from them." },
+        { id = "h_binding", when = { questActive = TODO_QUEST("The Binding") },
+          text = "The summoning circle is ready and so am I. Call the demon, beat it down, and make very sure it learns who won, because it will remember the answer for as long as it serves you." },
         { id = "h_devourer", when = { questActive = TODO_QUEST("Devourer of Souls") },
           text = "A succubus will not answer just any call. She must be baited with something that holds real devotion, a gift of love, and Cazul in the Cleft may know where such a thing can be found." },
         { id = "h_gift", when = { questRecent = { TODO_QUEST("Love's Gift"), days = 1 } },
@@ -45,9 +52,13 @@ P:NPC {
       again = {
         { id = "h_again", text = "Yes? I have pupils waiting, but I can spare a moment for one more question." },
         { id = "h_again2", text = "Go on. Curiosity is the first sign of a good warlock, and greed is the second." },
+        { id = "h_again3", text = "Ask, my star pupil. I've told the others to wait, and they're very bad at it." },
       },
       choices = {
         { text = "What will you teach me next?", next = "lessons", when = { class = "WARLOCK" } },
+        { text = "Tell me about the dreadsteed.", next = "dread", when = { class = "WARLOCK", minLevel = 60 } },
+        { text = "The elders call us Gul'dan's heirs.", next = "heirs", when = { race = "Orc", class = "WARLOCK" } },
+        { text = "You call every warlock your star pupil.", next = "star" },
         { text = "Who is Cazul?", next = "cazul" },
         { text = "Why does Orgrimmar allow warlocks at all?", next = "why" },
         { text = "What will you tell Zankaja about Dogran?", next = "zankaja", when = { questDone = TODO_QUEST("Love's Gift") } },
@@ -56,27 +67,70 @@ P:NPC {
       },
     },
     lessons = {
-      lines = { { id = "le_default", text = "First the voidwalker, which teaches you to stand behind something that takes the blows. Then the succubus, which teaches you that a weak mind can be bent, and later the felhunter, which teaches you to hunt the magic of others." } },
+      lines = {
+        { id = "le_default", text = "First the voidwalker, which teaches you to stand behind something that takes the blows. Then the succubus, which teaches you that a weak mind can be bent, and later the felhunter, which teaches you to hunt the magic of others." },
+        { id = "le_forty", when = { minLevel = 40 }, text = "You've had the voidwalker, the succubus and the felhunter, so now you'll learn to ride. The felsteed is mine to teach, and after it come the infernal and the doomguard, and after those, if you're very good and very lucky, a mount out of the Nether's own stables." },
+      },
       choices = {
         { text = "And what teaches me caution?", next = "caution" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the other questions.", next = "BACK" },
       },
     },
     caution = {
       lines = { { id = "ca_default", text = "Every warlock who ever died screaming in a circle learned caution at the end, which is too late to be any use. Pride and overconfidence have eaten more promising students than demons have, so keep a little fear and you'll keep your skin." } },
-      choices = { { text = "Something else, Gan'rul.", next = "BACK" } },
+      choices = { { text = "A little fear. I'll keep it close.", next = "BACK" } },
+    },
+    star = {
+      lines = { { id = "sr_default", text = "I do, and every one of them works twice as hard to deserve it, which is the whole trick. A warlock who believes he's special will reach further than one who doesn't, and my work is making sure he reaches for the right things." } },
+      choices = {
+        { text = "Isn't that how pride begins?", next = "caution" },
+        { text = "So I'm not really your star pupil.", next = "star2", when = { class = "WARLOCK" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    star2 = {
+      narr = "He laughs, a big theatrical sound that echoes off the Cleft walls, and then lowers his voice.",
+      lines = { { id = "sr2_default", text = "Of course you are, and so is everyone else, and one of you will actually be right. Come back at sixty with your soul still your own and I'll tell you which one it was." } },
+      choices = { { text = "I'll hold you to that.", next = "BACK", reply = "Please do. I like a pupil with a long memory." } },
+    },
+    heirs = {
+      lines = { { id = "he_default", text = "They do, and they're half right, which is what makes it sting. I learned this craft from the Shadow Council's leavings and hid it in the camps, and I won't pretend the knowledge came from anywhere clean." } },
+      choices = {
+        { text = "So how are we different from them?", next = "heirs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heirs2 = {
+      big = true,
+      lines = { { id = "he2_default", text = "Gul'dan's warlocks served themselves and called it serving the Horde. We serve the Horde and are paid in suspicion, and that's the bargain I've chosen. How do you answer the elders, when they say it to your face?" } },
+      choices = {
+        { text = "I'll prove them wrong with every fight.", next = "BACK", reply = "Good. Prove it loudly, too, because they won't notice it otherwise.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them talk. Power doesn't need their blessing.", next = "BACK", reply = "It doesn't, and Gul'dan used to say much the same. Be careful whose voice comes out of your mouth.", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    dread = {
+      lines = { { id = "dr_default", text = "Mor'zul Bloodbringer in the Burning Steppes knows a ritual that tears a dreadsteed out of the Nether, and it needs a circle deep in Dire Maul and a band of friends willing to hold the walls while you work. I've never done it, and I'll confess I envy you." } },
+      choices = {
+        { text = "You've never tried? Why not?", next = "dread2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dread2 = {
+      lines = { { id = "dr2_default", text = "Because I'm a teacher and not a hero, and the ritual wants both. Go to Mor'zul, gather the friends, and when you ride that beast into the Valley of Strength, let the grunts see that a warlock of Orgrimmar did it." } },
+      choices = { { text = "They'll see it. I promise you that.", next = "BACK", reply = "That's my star pupil. Mind the pride, now." } },
     },
     cazul = {
       lines = { { id = "cz_default", text = "Cazul is blind and older than any orc in the Cleft has a right to be, and he knows more of the summoning arts than I'll ever say aloud. He doesn't speak of how he lost his eyes, and I've learned not to ask him." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Back to the other questions.", next = "BACK" } },
     },
     why = {
       big = true,
-      lines = { { id = "wh_default", text = "Because when the Alliance comes over the hills, the Warchief wants every weapon he has, and we are a weapon that never tires. The shaman think we're a stain on the Horde, and perhaps we are, but a stain that keeps you alive is easy to forgive." } },
+      lines = { { id = "wh_default", text = "Because when the Alliance comes over the hills, the Warchief wants every weapon he has, and we're a weapon that never tires. The shaman think we're a stain on the Horde, and perhaps we are, but a stain that keeps you alive is easy to forgive." } },
       choices = {
         { text = "Power is power. The Horde should use all of it.", next = "BACK", reply = "You understand the Horde as the Warchief does, whatever the shaman whisper. Every weapon, and we're the sharpest.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "The shaman are right. Fel nearly destroyed us once.", next = "BACK", reply = "They were right about the old Horde, and I won't deny it. But we've learned since, and the Horde needs us anyway.", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     zankaja = {
@@ -85,12 +139,12 @@ P:NPC {
       choices = {
         { text = "That's a kindness. Let her grieve and move on.", next = "BACK", reply = "It is. She'll mourn, and then she'll live, and that's better than sitting by his cot watching the fel eat him.", fx = { align = { honor = -1 } } },
         { text = "She deserves the truth, whatever he asked.", next = "BACK", reply = "The truth would chain her to a dying grunt for years. I'll tell her what she needs to hear, and you'll keep quiet.", fx = { align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     strahad = {
       lines = { { id = "st_default", text = "Strahad Farsan keeps a tower in Ratchet and calls his students acolytes, as if he were a temple. He'll teach you the felhunter, though, and he does it well, so go and endure his manner." } },
-      choices = { { text = "Something else, Gan'rul.", next = "BACK" } },
+      choices = { { text = "I'll endure it. Something else, Gan'rul.", next = "BACK" } },
     },
   },
 

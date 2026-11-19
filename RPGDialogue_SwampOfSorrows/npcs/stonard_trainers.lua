@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Speak softly in this room, {class}. The things I teach about are listening, even when the students aren't." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock. Sit down and tell me what you've bound lately, and whether it's still afraid of you." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Sit down, warlock, and tell me what you've bound lately, and whether it's still afraid of you." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, which means whatever you called up last time didn't eat you. That's a good start." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The Portal's glow shows on the clouds at night, if you know where to look to the south. I always know where to look." },
   },
@@ -36,7 +36,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Kartosh, and I teach warlocks their craft, here where the old Horde's warlocks made the bargains that damned us. Your will isn't shaped for the forces I teach, {class}, but you may ask your questions." },
         { id = "h_lock", when = { class = "WARLOCK" },
-          text = "Kartosh. You know enough to be a danger to yourself, which is how every student arrives, so let's make you a danger to someone else instead. The Portal stands a short ride south of here to remind you what happens when we get that wrong." },
+          text = "I'm Kartosh, and you know enough to be a danger to yourself, which is how every student arrives, so let's make you a danger to someone else instead. The Portal stands a short ride south of here to remind you what happens when we get that wrong." },
+        { id = "h_orclock", when = { class = "WARLOCK", race = "Orc" },
+          text = "An orc who calls demons, in sight of the Portal our grandfathers opened. I won't tell you to be ashamed, young one, because you already are, and you'll need that shame more than any spell I teach you." },
+        { id = "h_high", when = { class = "WARLOCK", minLevel = 48 },
+          text = "You've come a long road since your imp, and the things you'll ask me for now are the ones the old Horde's warlocks called down on Lordaeron. Sit, and we'll talk about them carefully, as they never did." },
         { id = "h_shaman", when = { class = "SHAMAN" },
           text = "You'll tell me what my kind did to the elements, and you'll be right, so let's not spend the breath on it. Ask what you came to ask, shaman." },
         { id = "h_tauren", when = { race = "Tauren" },
@@ -45,7 +49,8 @@ P:NPC {
           text = "You've been dead, so you've seen things on the far side that my students only read about. Don't describe them in here, because the young ones would want to go and look." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep your voice down." },
+        { id = "h_again", text = "What else do you want to know? Keep your voice down when you ask it." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Ask what you need, warlock. Better you ask me than the thing that follows you about." },
         { id = "h_again2", text = "Go on. The demons aren't the only ones in Stonard with patience." },
       },
       choices = {
@@ -55,6 +60,10 @@ P:NPC {
         { text = "What do you make of Greshka?", next = "greshka" },
         { text = "Do you know Fel'zerul, who watches the temple?", next = "felzerul" },
         { text = "How do I keep my demons in hand?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I carry the demon blood's shame. How do you bear it?", next = "xorc", when = { class = "WARLOCK", race = "Orc" } },
+        { text = "I'm ready to call a felsteed.", next = "steed", when = { class = "WARLOCK", minLevel = 40 } },
+        { text = "I've heard there's a rite to call down an infernal.", next = "inferno", when = { class = "WARLOCK", minLevel = 48 } },
+        { text = "Who teaches the dreadsteed?", next = "dread", when = { class = "WARLOCK", minLevel = 56 } },
         { text = "The elements remember what your kind did, Kartosh.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your lessons.", next = "END" },
       },
@@ -66,7 +75,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you tell them?", next = "place_tell" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     place_tell = {
@@ -76,7 +85,7 @@ P:NPC {
       choices = {
         { text = "The old warlocks were traitors. Their craft should die with them.", next = "BACK", reply = "Many would agree, and I'll not call them wrong. But a craft left unstudied is a craft the next fool stumbles into blind, and I'd rather he learned it from me.", fx = { align = { light = 1 } } },
         { text = "Their mistake was trusting demons, not wielding the power.", next = "BACK", reply = "That's the thought that damned them, student, almost word for word. Mind you don't finish the sentence the way they did.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'll keep my thoughts on that to myself.", next = "BACK" },
       },
     },
 
@@ -88,7 +97,7 @@ P:NPC {
       },
       choices = {
         { text = "Isn't humility a strange lesson for a warlock?", next = "lesson_humble" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to other matters, then.", next = "BACK" },
       },
     },
     lesson_humble = {
@@ -96,9 +105,9 @@ P:NPC {
         { id = "lh_default", text = "It's the strangest lesson and the most needed, because the moment a warlock believes his demon serves out of fear, the demon starts to plan. I've buried students who forgot that, and there wasn't much of them left to bury." },
       },
       choices = {
-        { text = "Strict rules keep a warlock alive. I'd follow yours.", next = "BACK", reply = "Then you may live long enough to teach it yourself. Rule one: never believe your demon likes you.", fx = { align = { order = 1 } } },
-        { text = "Rules are for the timid. A real warlock finds his own way.", next = "BACK", reply = "Every warlock in the old Horde found his own way, and I helped bury what was left of them. Come back when you've lost a finger.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Strict rules keep a warlock alive. I'd follow yours.", next = "BACK", reply = "Then you may live long enough to teach it yourself, so here is the first rule: never believe your demon likes you.", fx = { align = { order = 1 } } },
+        { text = "Rules are for the timid. A real warlock finds his own way.", next = "BACK", reply = "Every warlock in the old Horde found his own way, and I helped bury what was left of them. Come back and tell me that again when you've lost a finger.", fx = { align = { order = -1 } } },
+        { text = "Back to the lessons, then.", next = "BACK" },
       },
     },
 
@@ -108,7 +117,7 @@ P:NPC {
       },
       choices = {
         { text = "Isn't she right that power is just power?", next = "greshka_power" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave Greshka be.", next = "BACK" },
       },
     },
     greshka_power = {
@@ -116,9 +125,9 @@ P:NPC {
         { id = "gp_default", text = "Power is power the way fire is fire, and the fool who sets his own hut alight learns the difference between owning a fire and being owned by one. Greshka has never been burned, and that's exactly what worries me about her." },
       },
       choices = {
-        { text = "Let the students choose their own risks. It's their fire.", next = "BACK", reply = "Their fire, aye, until it reaches the next hut. That's why I worry about Greshka, and why I watch her.", fx = { align = { order = -1 } } },
-        { text = "Then her trade should be limited. The Warchief makes the laws.", next = "BACK", reply = "The Warchief makes the laws, and I'll take this to him if I must. But laws come slow, and students burn quick.", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let the students choose their own risks. It's their fire.", next = "BACK", reply = "It's their fire until it reaches the next hut, and in Stonard the huts stand close. That's why I worry about Greshka, and why I watch her.", fx = { align = { order = -1 } } },
+        { text = "Then her trade should be limited. The Warchief makes the laws.", next = "BACK", reply = "The Warchief makes the laws, and I'll take this to him if I must, but laws come slowly and students burn quickly.", fx = { align = { order = 1 } } },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
 
@@ -128,7 +137,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you think is in that temple?", next = "felzerul_temple" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     felzerul_temple = {
@@ -136,7 +145,7 @@ P:NPC {
         { id = "ft_default", text = "Trolls who bargained with a blood god and sank for it, as far as I know and as far as I care. A warlock deals with demons who at least admit what they are, and I've always thought a god who demands that much blood is a demon with better manners." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "Something else, Kartosh.", next = "BACK" },
         { text = "I'll go and see for myself.", next = "END" },
       },
     },
@@ -147,9 +156,9 @@ P:NPC {
         { id = "xl_default", text = "By never forgetting that the leash pulls at both ends. Speak to your demon as you would to a prisoner who's been promised a key, and never let it see you tired, frightened or pleased with yourself." },
       },
       choices = {
-        { text = "Fear is all a demon understands. I'll rule mine with it.", next = "BACK", reply = "Fear works, until it doesn't, and then the demon remembers every lash. Rule it with fear and watch your back forever.", fx = { align = { light = -1 } } },
-        { text = "I'll call on mine sparingly, and only for the Horde.", next = "BACK", reply = "Sparingly, and for the Horde. That's the only answer I like to hear from a student.", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Fear is all a demon understands. I'll rule mine with it.", next = "BACK", reply = "Fear works until it doesn't, and then the demon remembers every lash. Rule it with fear if you must, but you'll be watching your back for the rest of your life.", fx = { align = { light = -1 } } },
+        { text = "I'll call on mine sparingly, and only for the Horde.", next = "BACK", reply = "Sparingly and for the Horde is the only answer I like to hear from a student, and you'd be surprised how few give it.", fx = { align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xshaman = {
@@ -159,14 +168,59 @@ P:NPC {
       },
       choices = {
         { text = "The Warchief allows your craft, so I'll respect his word.", next = "BACK", reply = "Respect his word, and his reasons, and you'll do well here. Thrall knows what this craft cost us better than anyone.", fx = { align = { order = 1 } } },
-        { text = "Warchief or not, this craft should end with you.", next = "BACK", reply = "Perhaps it should, shaman, and I've thought it myself. But it won't, so I'll teach it as safely as I can.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Warchief or not, this craft should end with you.", next = "BACK", reply = "Perhaps it should, shaman, and I've thought it myself. It won't, though, so I'll teach it as safely as I can.", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
+    },
+    xorc = {
+      big = true,
+      narr = "He turns his hands over on the table, and the knuckles are scarred green-grey.",
+      lines = { { id = "xo_default", text = "Badly, some nights. My father's clan drank Mannoroth's blood with all the rest, and I took up the craft that poured it, and I've never found a way to make those two things sit easily together. So tell me, why did you take it up?" } },
+      choices = {
+        { text = "To turn the Legion's power back on the Legion.", next = "BACK", reply = "That's the reason Thrall allows us, and it's a good one. Hold on to it when the whispers start, because they'll tell you a better-sounding one.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Because power is power. The shame is for the weak.", next = "BACK", reply = "Gul'dan said the same at the Altar of Storms, young one, and your grandfather paid for his confidence. Don't make your children pay for yours.", fx = { align = { light = -1 } } },
+        { text = "I'm still working that out.", next = "BACK", reply = "So am I, after all these years of it. Keep working it out, and don't let anyone hand you an answer.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    steed = {
+      lines = {
+        { id = "st_default", text = "The death knights of the old Horde rode beasts like the one you're about to call, and the humans of Lordaeron still tell stories about the sound of their hooves. Train it here, but ride it gently near Stonard, because the grunts remember those stories too." },
+      },
+      choices = {
+        { text = "Is a felsteed truly a demon?", next = "steed2" },
+        { text = "Then teach me.", next = "BUSINESS" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    steed2 = {
+      lines = { { id = "st2_default", text = "Every hair of it, and it'll carry you because you've bound it, not because it likes you. Dismiss it when you're done riding, and never leave it standing alone, or you'll come back to find it has eaten the stable boy's dog." } },
+      choices = { { text = "I'll keep it on a short rein. What else?", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    inferno = {
+      lines = { { id = "in_default", text = "There is, and it calls down the same burning stones the Legion threw at Lordaeron and Hyjal, with an infernal waking inside each one. You'll need an infernal stone for every casting, and you'll need the nerve to stand where it lands." } },
+      choices = {
+        { text = "Can it be controlled once it's here?", next = "inferno2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    inferno2 = {
+      big = true,
+      lines = { { id = "in2_default", text = "For a little while, if your will holds, and after that it turns on whatever is nearest, including you. I'll teach the rite because the Warchief's enemies are many, but I'll ask you first: who do you mean to drop it on?" } },
+      choices = {
+        { text = "Only the Horde's enemies, and only when nothing else will serve.", next = "BACK", reply = "Then I'll teach it, and I'll sleep. Remember those words when you're angry, because that's when you'll want to forget them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whoever stands in my way. That's what power's for.", next = "BACK", reply = "That's what the Shadow Council said, and they dropped them on the Horde's own allies when it suited them. I'll still teach you, because the trainers must, but I'll be watching.", fx = { align = { order = -1 } } },
+        { text = "I'd rather think it over first.", next = "BACK" },
+      },
+    },
+    dread = {
+      lines = { { id = "dr_default", text = "A man called Mor'zul Bloodbringer, out at the Altar of Storms in the Burning Steppes, where the Shadow Council used to meet. He's no friend of the Horde or of anyone, and he'll want more blood than you'd think, but he knows the ritual and nobody else will teach it." } },
+      choices = { { text = "I'll find him. What else should I know?", next = "BACK" } },
     },
   },
 
   topics = {
     background = { { id = "tp_ba", text = "I was young when the camps opened and old by the time they closed, and I learned this craft from someone who should never have been allowed to teach it. That's all the story you need." } },
+    burning_legion = { { id = "tp_legion", text = "They owned my people once, body and blood, and every warlock I train is a small way of making sure they never own us again. I don't expect thanks for it." } },
     advice = { { id = "tp_ad", text = "If a demon ever thanks you, check your pockets, your soul and your back, in that order." } },
     _none = { { id = "tp_none", text = "That's nothing I teach, so it's nothing I'll discuss. Ask Karakul, who will discuss anything." } },
   },
