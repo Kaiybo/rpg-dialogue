@@ -131,6 +131,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Tunnel Rat", min = 30 } }, text = "The Tunnel Rats are fewer in the Silver Stream these days, an' I'd wager I know whose work that is. Keep it up, an' the miners might get their tunnels back before winter." },
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
           text = "Ye walk like ye've kept a pass in the snow, so ye'll be one o' the Dun Morogh lads. Good, for ye'll know there's no glory in this work, only cold feet an' a long watch, an' the vermin never tire before ye do." },
+        { id = "h_xstormpike", when = { origin = "dwarf_stormpike" },
+          text = "Another Stormpike on my road, an' one wi' Alterac frost still in the beard, by the look o' ye! Vanndar's lot an' my side o' the family havenae shared a table in thirty years, but blood's blood, an' ye're welcome by my fire." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in the loch? The kobolds in the Silver Stream are the only ones I know who talk tae the earth, an' they mostly ask it for candles." },
         { id = "dd_rats", when = { questDone = TODO_QUEST("Rat Catching") },
           text = "Kadrell says ye've been clearin' tunnel rats in the foothills for him. They're the same filthy lot as my Silver Stream vermin, so ye'll know which end o' them bites." },
@@ -153,7 +155,27 @@ P:NPC {
         { text = "Would Loch Modan welcome someone with my sort of talents, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the kobolds really listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I kept the high passes in Dun Morogh, Stormpike.", next = "xorig_pass", when = { origin = "dwarf_mountaineer" } },
+        { text = "We share a name, Mountaineer. Are we kin?", next = "xorig_kin", when = { origin = "dwarf_stormpike" } },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    xorig_kin = {
+      lines = {
+        { id = "xok_default", text = "Distant kin, aye, for my grandsire stayed in Khaz Modan when his brother took the clan's restless half north tae Alterac. I chose the loch an' a quiet post, an' Vanndar's folk chose a war in the snow, an' there's been some sharp words about which o' us chose better." },
+      },
+      choices = {
+        { text = "Dun Baldar holds the line for all of Khaz Modan.", next = "BACK", reply = "Maybe it does, an' maybe I've sat too long by the loch tae see it. Tell Vanndar's lads I said they fight well, even if they never write.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A quiet post keeps more dwarves alive than a war does.", next = "BACK", reply = "Aye, that's my thinkin' exactly, though dinnae say so at a Stormpike weddin' or ye'll be wearin' the ale. Still, it's good tae hear it from one o' the northern lot.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What were the sharp words about?", next = "xorig_kin2" },
+      },
+    },
+    xorig_kin2 = {
+      lines = {
+        { id = "xok2_default", text = "My father called the Alterac expedition greed in a soldier's coat, an' my uncle in Alterac called him a coward wi' a fishin' rod. They were both a wee bit right, which is why neither ever apologised." },
+      },
+      choices = {
+        { text = "Then we can be the ones who share a table.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else, Stormpike.", next = "BACK" },
       },
     },
     xorig_pass = {

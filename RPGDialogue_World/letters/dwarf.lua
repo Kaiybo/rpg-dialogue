@@ -87,6 +87,23 @@ P:Letter {
 }
 
 ---------------------------------------------------------------------------
+-- Stormpike clansman from the Alterac snows
+---------------------------------------------------------------------------
+P:Letter {
+  id = "origin_dwarf_stormpike_1", from = "Hulda Stormpike", stranger = true, delay = 1200,
+  when = { origin = "dwarf_stormpike", minLevel = 6 },
+  subject = "From Dun Baldar",
+  body = "{name},\n\nThe courier swears he'll carry this as far as Ironforge, so I'll keep it short and trust him for the rest.\n\nThe snow came over the north wall twice this month, and your uncle Brokk spent a whole night digging out the bridge with the Frostwolf horns blowing somewhere down the valley. Nobody came over the ridge in the end, but none of us slept, and he's been grumbling about his back ever since.\n\nIrondeep's in our hands again for now, though the troggs keep coming up through the lower shafts. Vanndar walked the wall himself last week and asked after you by name, which I thought you'd like to know.\n\nYou were raised on this fight, but you needn't spend your whole life in it. See some of the world while you're young enough to enjoy it, and come home when you're ready.\n\nYour mother,\nHulda Stormpike",
+}
+
+P:Letter {
+  id = "origin_dwarf_stormpike_2", from = "Brokk Stormpike", stranger = true, delay = 2400,
+  when = { origin = "dwarf_stormpike", minLevel = 51 },
+  subject = "The valley calls",
+  body = "{name},\n\nYour mother tells me I'm not to ask, so I'll only say it once and you can tear this up if you like.\n\nThe Guard is calling for every fighter the Alliance can spare, and the recruiters in the capitals send us farmers and clerks who've never seen snow. I hear you've become a {class} that grown dwarves speak of in the taverns, and I'd give a good deal to see you on the Dun Baldar bridge beside me.\n\nThe Frostwolves are no fools, and old Drek'Thar reads a battle better than any captain we have. They fight like it's their home, because it is, and I'll not pretend otherwise to you of all people.\n\nIf you come north, come because you choose to, and not because your uncle wrote you a letter.\n\nYour uncle,\nBrokk",
+}
+
+---------------------------------------------------------------------------
 -- Shieldbearer of the Military Ward (Warrior)
 ---------------------------------------------------------------------------
 P:Letter {

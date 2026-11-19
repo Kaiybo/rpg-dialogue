@@ -50,6 +50,8 @@ P:NPC {
           text = "Stormwind's a fine city for recruiting, with soldiers on every corner and half of them bored. I tell them the snow up in Alterac is cleaner than the canals, and some of them even believe me." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "One of our own! Ye'll know the Stormpike name already, so I'll spare ye the speech and say it plain: Vanndar needs dwarven steel in that valley." },
+        { id = "h_xstormpike", when = { origin = "dwarf_stormpike" },
+          text = "Well, if it isn't a Stormpike born and raised in the snow! I'd know that frost-burn anywhere, {g:lad|lass}. Ye don't need my speech about the valley, for ye grew up listening to the Frostwolf horns same as I did." },
       },
       again = {
         { id = "h_again", text = "What else is on yer mind? I've nowhere to be until the next batch of recruits wanders past." },
@@ -63,7 +65,8 @@ P:NPC {
         { text = "I've got some of these Alterac marks.", next = "marks", when = { carrying = 20560 } },
         { text = "These marks of honor must mean something to the Guard.", next = "marks", when = { ["not"] = { carrying = 20560 } } },
         { text = "Who leads the Guard up there?", next = "officers" },
-        { text = "I'm a Bronzebeard. Why should I bleed for the Stormpike?", next = "k_dwarf", when = { race = "Dwarf" } },
+        { text = "I'm a Bronzebeard. Why should I bleed for the Stormpike?", next = "k_dwarf", when = { race = "Dwarf", ["not"] = { origin = "dwarf_stormpike" } } },
+        { text = "I grew up at Dun Baldar. How fares the clan?", next = "xorig_stormpike", when = { origin = "dwarf_stormpike" } },
         { text = "Do the Stormpike take gnomes, or just dwarves?", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Alterac was a human kingdom once. Does that trouble you?", next = "k_human", when = { race = "Human" } },
         { text = "Your people dig too deep. Why should my kind help?", next = "k_elf", when = { race = "NightElf" } },
@@ -233,6 +236,23 @@ P:NPC {
       choices = {
         { text = "Then I'll fight for my clan's cousins.", next = "BACK", fx = { affinity = 2 } },
         { text = "Dun Morogh can defend itself.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    xorig_stormpike = {
+      lines = { { id = "xs_default", text = "Holding, which is all the clan's ever done up there. Irondeep's ours this week and Coldtooth's theirs, and Vanndar still walks the wall every night as though he expects Drek'Thar himself to come over it. Ye left, though, and I've always wondered what makes one of us go south." } },
+      choices = {
+        { text = "I wanted to see the world before the war took me.", next = "xorig_stormpike2", fx = { trait = { curious = 1 } } },
+        { text = "I'm learning to fight properly. Then I'll go back.", next = "xorig_stormpike2", fx = { trait = { brave = 1 } } },
+        { text = "Does the clan think less of those who leave?", next = "xorig_stormpike2" },
+      },
+    },
+    xorig_stormpike2 = {
+      big = true,
+      lines = { { id = "xs2_default", text = "Some do, and they're mostly the ones who never left the wall long enough to learn anything. But I'll ask ye what I ask every Stormpike who comes back down the road: now that ye've seen the world, is that valley still worth the blood we pour into it?" } },
+      choices = {
+        { text = "It's ours. We built Dun Baldar, and we'll keep it.", next = "BACK", reply = "Spoken like yer kin, and I'll tell the captain a Stormpike's coming home to stand on the bridge. The clan never asked to be loved in that valley, only to hold it.", fx = { opinion = { alterac_valley = "stormpike" }, align = { order = 1 }, affinity = 1 } },
+        { text = "I'm not sure. The Frostwolves fight for their homes too.", next = "BACK", reply = "Aye, they do, and ye're not the first of us to say it quietly. Say it a bit quieter at Dun Baldar, mind, but I'll not think less of ye for having the eyes to see it.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { order = -1 } } },
+        { text = "Ask me again when I've stood on the bridge myself.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
     k_gnome = {

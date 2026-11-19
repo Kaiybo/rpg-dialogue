@@ -501,6 +501,8 @@ P:Pool {
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "They say ye talked {source} round tae yer way o' thinkin'. Ye must have a silver tongue, for we're a stubborn lot in Ironforge." },
   },
   notice = {
+    { id = "n_xstormpike", cat = "origin", when = { origin = "dwarf_stormpike" },
+      text = "That's Alterac frost-burn on yer cheeks, an' ye carry yer axe like the Stormpike lads do, ready for a wolf at yer back. How's Dun Baldar holdin', then? My cousin's on the wall there, an' he never writes." },
     { id = "n_xleperkin", cat = "origin", when = { origin = "gnome_leper_kin" },
       text = "Ye go out tae the lepers, don't ye, lookin' for one face in particular? I'm sorry for it, friend, an' I hope the tinkers find their cure before ye give up lookin'." },
     { id = "n_xwindshaman", cat = "origin", when = { origin = "dwarf_wildhammer_shaman" },
@@ -1335,6 +1337,7 @@ P:Pool {
   greetings = {
     { id = "g_dd_syndicate", when = { killed = { name = "Syndicate", min = 30 } }, text = "Somebody's been cutting down Syndicate thugs in the hills, and the Magistrate's men say it's you. They were Alterac's noble houses once, and they've not been worth the name since." },
     { id = "g_day", text = "Welcome to Southshore, friend. It's a quiet town, or it would be, if not for the neighbors." },
+    { id = "g_xstormpike", when = { origin = "dwarf_stormpike" }, text = "You're one of Vanndar's dwarves, aren't you? The Stormpike wagons come through here on the way north, and I'll say this for them: they always pay their bills." },
     { id = "g_xsyndicate", when = { origin = "human_syndicate_runner" }, text = "I know your face from the Alterac road, carrying letters for men nobody in Southshore will name aloud. Whatever you've become since, I'd keep clear of the foothills, because the Syndicate has a long memory." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be wandering. Folk here keep their shutters closed at night, on account of what lives up the road in Tarren Mill." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. Not much changes in Southshore, except the arguments with Tarren Mill." },
@@ -1444,6 +1447,7 @@ P:Pool {
     { id = "g_xleperkin", when = { origin = "gnome_leper_kin" }, text = "Ye're the one wi' the brother out past the Gnomeregan gate, are ye no'? I've seen ye leave bread by the road for the leper gnomes, an' I'll no' tell a soul, for it's a kind thing tae do." },
     { id = "g_xforeman", when = { origin = "dwarf_quarry_foreman" }, text = "Ye ran a crew at Gol'Bolar before the troggs came up through the floor. I'm sorry for yer lads, foreman, an' there's no' a family in Kharanos that hasnae lit a candle for them." },
     { id = "g_xbear", when = { origin = "dwarf_bear_tracker" }, text = "Ye're the one who used tae follow bears through the snow, an' now there's one followin' ye! Bring it in by the fire, then, but keep it well away from the Thunderbrew's honey." },
+    { id = "g_xstormpike", when = { origin = "dwarf_stormpike" }, text = "Ye're one o' the Stormpike clan, come down from Alterac! Half the lads who marched north wi' Vanndar drank their farewell stout in the Thunderbrew, so sit down an' tell me how they're keepin'." },
     { id = "g_xmountaineer", when = { origin = "dwarf_mountaineer" }, text = "One o' the Mountaineers, back from the high passes! Ye kept the trolls an' troggs off our roads, so come in out o' the cold an' let the Thunderbrew warm ye." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Cold enough tae freeze yer beard tae yer chin tonight. Get yerself intae the Thunderbrew afore ye turn intae a statue." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' it's snowed near every day of it. Come in an' shut the door behind ye." },
