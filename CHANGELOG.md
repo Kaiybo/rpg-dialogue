@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.90.0 (2026-11-19)
+The warlock patch. **New files in the World pack: restart the game fully (a /reload won't load them).**
+- **Talk to your own demon.** Right-click your imp, voidwalker, succubus or felhunter (or target it and talk) for a full conversation: what it thinks of you, the binding, being dismissed and sacrificed, your soul shards, your deaths, your other demons, your people and the Legion. Some bargains raise your Fel Taint. Each demon remembers you by its name. The felhunter answers in actions only. Enslaved demons, infernals and doomguards have their own.
+- **Demons answer in their own voice** even with a random name: someone else's imp called "Jubkin" talks like an imp, and their felhunter doesn't talk.
+- **People notice a warlock**: guards, townsfolk, innkeepers, vendors, flight and stable masters, children, and priest and paladin trainers react to your demon, your Felsteed or Dreadsteed, a soulstone on you, a heavy bag of soul shards, healthstones and Fel Taint, differently in each capital.
+- **Warlock trainers follow your journey**: the imp and Life Tap, the voidwalker, succubus and felhunter, Enslave Demon, Drain Soul and what a shard holds, healthstones and soulstones, the Felsteed, Inferno, the Ritual of Doom and the Dreadsteed, how each faction hides its warlocks, and a warning when your Fel Taint shows.
+- Not seen in game yet.
+
 ## 0.89.0 (2026-11-18)
 - **"This line is wrong" is easier to send**: the flagged line prints in chat and opens a small window you can copy from (Ctrl+C). `/rpgd flagged copy` reopens all of them, `/rpgd flagged N` just one.
 - **Westfall: Scout Galiaan** now speaks as a human, not a night elf.

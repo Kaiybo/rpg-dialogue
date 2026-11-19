@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.89.0)
+## State (0.90.0)
+- 0.90.0 (user: "the player character warlock patch"): talk to your own demon (roles `my_imp`/`my_voidwalker`/`my_succubus`/`my_felhunter`/`my_demon`, DESIGN §3.18; `ctx.npcMine`, `npcFamily`; `npcNamed` also matches family), townsfolk notice warlock state (World `warlock_notice.lua`), trainer_warlock 6 → 39 nodes. NEW FILES (full restart). Only `luac -p` run. To check in game: right-click your own pet opens the box; `UnitCreatureFamily` names on Forever; aura IDs (Felsteed 5784, Dreadsteed 23161, soulstone 20707-20765) are Classic's.
 - 0.89.0 (user: "make a release"): open PRs #151 (Galiaan human voice, Westfall 1.27.0) and #152 (flagged lines print in chat + copy window; `/rpgd flagged copy`, `/rpgd flagged N`) merged cleanly. No new files. Only `luac -p` run; nothing seen in game.
 - 0.88.0 (user: "go ahead" on releasing the rest of #141): the last two batches of the missed-NPC pass, 47 new NPCs (Orgrimmar 29, Ironforge/Dun Morogh 18). Before merging, 60 entries from those batches that duplicated NPCs already released in 0.87.0 were dropped (the released copies kept), so the duplicate count is unchanged at 336, not worse. Orgrimmar `npcs/more_folk2.lua` is a NEW FILE (full restart). Only `luac -p` run.
 - 0.87.0 (user: "build the next release"): open PRs #141 (its later commits; 0.86.0 had only the early part), #143-#147 merged. Conflicts: Wenna Silkbeard dropped from Barrens `unsung.lua` (#141 moved her to Wetlands); #144 was cut from the pre-0.86.0 base, so its changelogs/handoff were dropped (ours kept) and its `.toc` file lists kept both. Every pack bumped one minor. Only `luac -p` run; nothing seen in game.
