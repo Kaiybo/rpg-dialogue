@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.92.0 (2026-11-19)
+- **People notice your race**: guards, vendors, trainers, innkeepers, flight masters and townsfolk across both factions have moments that react to what you are, and you have race-specific replies in their conversations.
+- **New dwarf origin: Stormpike of Alterac.** Dwarves can now come from Vanndar's clan in the Alterac snows, with their own letters, townsfolk and emissary lines, and a kinship talk with Mountaineer Stormpike in Loch Modan.
+- Not seen in game yet.
+
 ## 0.91.0 (2026-11-19)
 - **The spirit healer has much more to say**: walking back to your body, the price of returning, the great dead (Terenas, Uther, Grom, Lothar, Durotan), why the hill is empty, talks for priests, paladins, shamans, night elves, gnomes and tauren, and greetings that fit the zone or battleground you died in.
 - **Westfall: Alba Fairmoon** has her own conversation.

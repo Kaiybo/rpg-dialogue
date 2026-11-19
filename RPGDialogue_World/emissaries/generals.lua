@@ -340,7 +340,10 @@ P:NPC {
       },
     },
     k_stormpike = {
-      lines = { { id = "kst_default", text = "I mind every word, friend, because Vanndar's dwarves are the finest soldiers in the valley and the worst correspondents I've ever had. If you've any kin at Dun Baldar, ask them to write to me once a season, and I'll stop grumbling about them." } },
+      lines = {
+        { id = "kst_default", text = "I mind every word, friend, because Vanndar's dwarves are the finest soldiers in the valley and the worst correspondents I've ever had. If you've any kin at Dun Baldar, ask them to write to me once a season, and I'll stop grumbling about them." },
+        { id = "kst_xstormpike", when = { origin = "dwarf_stormpike" }, text = "Your kin, truly? Then you were born to the clan, and you'll know better than I do why Dun Baldar's reports come late and short. Tell your cousins that an old general would settle for one honest page a season, and I'll stop grumbling about them." },
+      },
       choices = {
         { text = "Dwarves dig. Writing letters was never their strong suit.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "I'll pass the word along, General.", next = "BACK", fx = { affinity = 1 } },
