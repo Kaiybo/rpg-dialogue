@@ -49,3 +49,4 @@
 
 ## Prejudice (0.80.0, authored, not canon)
 - Prospector Ironband (prejudice, NightElf): his cousin Durn's Darkshore dig, permitted by Magni, was abandoned after a druid sat humming in the trench for a week.
+- Night elves (0.94.0 work): Hinderweir: a kaldorei on the walkway told him kindly the loch would outlast the dam; seven generations of pride, patted on the head. He hasn't slept well since.

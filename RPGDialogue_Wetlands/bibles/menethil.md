@@ -61,3 +61,7 @@ Repeat-visit and night lines in the voices above.
 
 ## 0.34.0
 - Glorin (Persuade, `grumpy_letter`): two winters back he asked to be posted home to Ironforge, was granted it, and tore up the letter the same night, because nobody else would bury the Third Fleet or sit with Fitzsimmons.
+
+## Night elves (prejudice pass)
+- Fitzsimmons, night elves: two Auberdine-pier tales, one admiring (a Sentinel's shot), one sore (they call a sixty-year-old captain a child).
+- Night elves (0.94.0 work): Helbrek: kaldorei off the Bravery order water, sit by the window and never laugh at the songs. A night elf who orders an ale becomes his favourite regular (npcFlag `helbrek_ale`); he secretly likes the moonberry wine.

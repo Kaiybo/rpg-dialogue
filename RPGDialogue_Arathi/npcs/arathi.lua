@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A kaldorei at Refuge Pointe. Arathor kept faith with elves for two thousand years, so you'll understand if I'm slow to warm to the ones who joined us last year." },
+    { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "nials_nelf_soft" }, priority = 10,
+      text = "You again, the elf who told me Stromgarde has no stones left to throw. You were right, and I've not thrown any since." },
     { id = "g_prej1", when = { prejudiced = true }, text = "A rogue in my camp. Keep your hands out of my supplies and in plain sight, because the last one who walked in looking like you was a Syndicate scout." },
     { id = "g_prej2", when = { prejudiced = true }, text = "I know that walk; it's a cutthroat checking for the exits. Stand where my sentries can see you, and then we'll talk." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've been in and out of Refuge Pointe and nothing's gone missing from the stores, and I can't say that of the last three sellswords Stromgarde sent me. Come in, then." },
@@ -150,8 +154,79 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ni_nelf = {
+      lines = {
+        { id = "nin_default", key = true,
+          text = "Stromgarde thinks what it always thinks of newcomers: they'll be worth something once they've bled beside us. The quel'dorei bled with Arathor in the Troll Wars and had our oath for two thousand years, and the kaldorei have had one year and a war on the far side of the sea." },
+      },
+      choices = {
+        { text = "Hyjal was bleeding enough, surely.", next = "ni_nelf_2" },
+        { text = "Aren't all elves alike to Stromgarde?", next = "ni_nelf_2" },
+      },
+    },
+    ni_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "nin2_default",
+          text = "Not alike at all, though I've heard fools in Menethil call them the same folk in a different dye. The high elves built towers and kept treaties, and these ones grow their city and keep their own counsel, and I've never been sure whether that's wisdom or contempt for the rest of us." },
+      },
+      choices = {
+        { text = "Wisdom. They've watched empires fall for ten thousand years.", next = "BACK",
+          reply = "Then they'll have watched Stromgarde fall too, and I'll thank them not to mention it.",
+          fx = { align = { honor = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "Contempt. They think the young races are children.", next = "BACK",
+          reply = "That's what I fear, and I'd sooner be called a child to my face than smiled at from a tree.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    ni_xnelf = {
+      lines = {
+        { id = "nix_default", key = true,
+          text = "That stings, because it's true. King Thoras took Stromgarde out of the Alliance after the Second War, and look where our pride has left us, camped in a ruin with the Syndicate sitting in our own keep." },
+      },
+      choices = {
+        { text = "Pride ruins kingdoms. Mine should learn from yours.", next = "BACK",
+          reply = "Then tell them so in Darnassus, kaldorei, and tell them Stromgarde paid for the lesson.",
+          fx = { align = { honor = 1 } } },
+        { text = "Stromgarde's ruin is its own affair, Captain.", next = "BACK",
+          reply = "It is, and Stromgarde once said the same of Lordaeron's troubles, which is how we came to be alone. Mind it doesn't come round to you.",
+          fx = { align = { honor = -1 } } },
+        { text = "Then don't judge our pride more harshly than your own.", tag = "Persuade", next = "ni_xnelf_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { questDone = TODO_QUEST("Stromgarde Badges") } } } },
+          fail = { next = "ni_xnelf_fail", fx = { affinity = -1 } } },
+      },
+    },
+    ni_xnelf_soft = {
+      lines = {
+        { id = "nixs_default", key = true, fx = { npcFlag = { set = { "nials_nelf_soft" } } },
+          text = "No, I shouldn't, and I'll own it. Stromgarde has no stones left to throw, and you're the first elf in a long while to tell me so without being cruel about it." },
+      },
+      choices = {
+        { text = "Then we'll both do better, Captain.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ni_xnelf_fail = {
+      lines = {
+        { id = "nixf_default", text = "Easy to say from a tree a thousand leagues away. Bring me back a few badges from these hills first, and then you may lecture me." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    ni_nsoft = {
+      lines = {
+        { id = "nins_default", text = "None, and I've stopped expecting any, but I've stopped minding too. You've put more Syndicate in the ground than Darnassus has ever heard of, and that will do me." },
+      },
+      choices = {
+        { text = "Glad to, Captain. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "The elves Stromgarde remembers are the quel'dorei, whose magisters taught Arathor's first mages and whose kingdom we saved from the Amani. Your people we know only from envoys' letters, and they never once mention the Highlands." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "A full company, and on my doorstep at that! Refuge Pointe holds because the Syndicate and the Boulderfist can't agree which of them wants it more, and five more blades on the wall make that sum a good deal better for us." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've heard Ironforge's priests speak of the earth as the Titans' handiwork, {class}, not as a voice, so I'll judge what you bring to the field and leave the theology to others." },
@@ -186,6 +261,9 @@ P:NPC {
         { text = "The Syndicate use dark magic. Why not answer in kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I doubt Stromgarde will fight beside a dwarf shaman, Captain.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We've come to fight for the Highlands, Captain.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
+        { text = "What does Stromgarde think of the night elves, Captain?", next = "ni_nelf" },
+        { text = "Stromgarde left the Alliance too, Captain.", next = "ni_xnelf", when = { race = "NightElf" } },
+        { text = "Any word from my people for the Highlands, Captain?", next = "ni_nsoft", when = { race = "NightElf", npcFlagBefore = "nials_nelf_soft" } },
         { text = "Stromgarde has my sword, Captain.", next = "END", reply = "Then go, and I'll see Stromgarde remembers your name. Watch the hills for the Syndicate.", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
@@ -369,6 +447,7 @@ P:NPC {
     },
   },
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Not the elves Stromgarde remembers. The quel'dorei kept faith with Arathor for two thousand years, and the kaldorei have had a year to show us what they're worth." } },
     _gated = {
       { id = "gt1", text = "That's the camp's business, and I don't share it with people I haven't seen under arms. Prove yourself to Refuge Pointe first." },
       { id = "gt2", text = "I know well enough, and I'm keeping it to myself for now. A captain doesn't talk freely to someone he's only just met." },

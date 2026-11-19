@@ -540,6 +540,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A night elf! Sit down, sit down, and tell me whether it's true your people never get drunk, because I've a theory about it, and it's a sad one." },
     { id = "g_tale", text = "Sit down, sit down! A drink and a tale, that's my price. You bring the drink, I'll bring the tale." },
     { id = "g_back", when = { metBefore = true }, text = "My friend, you came back! Nobody ever comes back. Sit down, sit downwind, as they all say, though I can't think why." },
     { id = "g_away", when = { away = 14 }, text = "You came back, after {away}! Nobody ever comes back, and you've done it twice now, so sit down and I'll find a tale worthy of it." },
@@ -626,8 +628,57 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    fz_nelf = {
+      lines = {
+        { id = "fzn_default", key = true,
+          text = "Two, one for each hand, and you'll have to choose. The Auberdine sailors swear a Sentinel shot a murloc through the eye from the end of their pier on a moonless night, and the same sailors swear a kaldorei called their captain a child to his face, and he was sixty if he was a day." },
+      },
+      choices = {
+        { text = "The first one, about the Sentinel.", next = "fz_nelf_2" },
+        { text = "The second. Why call him a child?", next = "fz_nelf_3" },
+      },
+    },
+    fz_nelf_2 = {
+      lines = {
+        { id = "fzn2_default",
+          text = "One arrow, through the eye, from the end of the pier, and she didn't so much as turn round to watch it land. If I'd had a dozen like her aboard the Wave Mistress, I'd still have a ship, and I'd still have my crew." },
+      },
+      choices = {
+        { text = "Then tell me the other one. Why a child?", next = "fz_nelf_3" },
+        { text = "Here's to the Wave Mistress. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    fz_nelf_3 = {
+      big = true,
+      lines = {
+        { id = "fzn3_default",
+          text = "Because to a kaldorei he was a child, friend, and so are you and I and the oldest man in Menethil. They don't mean it cruelly, I think, but it's a hard thing to hear from someone who looks thirty that she was stringing bows before your great-grandfather's great-grandfather was born." },
+      },
+      choices = {
+        { text = "Age earns respect. They've earned theirs.", next = "BACK",
+          reply = "Spoken like a sailor who's been on a ship with an old bosun. Aye, they've earned it, and they know it, which is the part that grates.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Age is no excuse for arrogance.", next = "BACK",
+          reply = "That's what our captain said, only with more swearing. They called him a child again for the swearing, and that ended the conversation.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Fitzsimmons.", next = "BACK" },
+      },
+    },
+    fz_xnelf = {
+      lines = {
+        { id = "fzx_default", key = true,
+          text = "Stare? Ah, they do, and I'm sorry for it, but most of Menethil has never seen anyone taller than a dwarf standing on a barrel. Me, I stare because I'm drunk, and because you put me in mind of the lass who shot that murloc off the Auberdine pier." },
+      },
+      choices = {
+        { text = "What murloc? Tell me.", next = "fz_nelf_2" },
+        { text = "I'd rather not be stared at, Fitzsimmons.", next = "BACK",
+          reply = "Fair enough, and I'll look at my cup instead, which is a sadder sight but a safer one." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Your boat comes in from Auberdine, and every time a few of your folk step off and look at Menethil as if it were a midden. I don't blame them, mind; it is a midden, but it's our midden." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We had a chaplain aboard the Wave Mistress, and he'd have liked you, though he never could hold his drink." },
         { id = "h_default", key = true,
           text = "Fitzsimmons, first mate of the Wave Mistress, Third Fleet of Kul Tiras... was first mate, I should say, since there's no ship left to be first mate of." },
@@ -674,6 +725,8 @@ P:NPC {
         { text = "What would a rogue find worth taking in Menethil, Fitzsimmons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the drowned crews in the bay ever speak to you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do Kul Tiran sailors pray to the sea, Fitzsimmons?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Got a tale about the night elves?", next = "fz_nelf" },
+        { text = "Your townsfolk stare at my people on the docks, Fitzsimmons.", next = "fz_xnelf", when = { race = "NightElf" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -792,6 +845,7 @@ P:NPC {
   },
 
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Tall, quiet and older than the sea, or near enough. They'll shoot a murloc in the dark and call your captain a child in the same breath, and I've never decided whether to toast them or curse them, so I do both." } },
     knows = {
       { id = "tp_knows", text = "I've been sitting outside this tavern so long I've heard every tale in the harbour, twice. Ask me about any of this, friend, and maybe stand upwind." },
     },

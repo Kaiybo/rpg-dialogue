@@ -492,6 +492,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "Welcome, welcome, friend, to the Cathedral of Light! I know it isn't your temple, but the Light doesn't mind a visitor, and I hope your Elune won't mind lending you to us for an hour." },
+    { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "sarno_nelf_soft" }, priority = 10,
+      text = "There you are! I've kept the little lamp lit by the east window, friend, and nobody upstairs has asked me about it yet." },
     { id = "g_welcome", text = "Welcome, welcome, friend, to the Cathedral of Light!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The Cathedral's glad of you, and so am I." },
     { id = "g_techbot", when = { questActive = TODO_QUEST("Tinkmaster Overspark") }, text = "Have you been to Tinker Town yet? Poor Overspark is waiting." },
@@ -590,8 +594,81 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sa_nelf = {
+      lines = {
+        { id = "san_default", key = true,
+          text = "Trouble isn't the word, friend; worry, perhaps. They pray to the moon and call it a goddess, and the Church teaches that the Light wears no single face, so some of the brothers fret for their souls, and I fret a little along with them." },
+        { id = "san_priest", when = { class = "PRIEST" },
+          text = "You'll have heard the brothers on this yourself, I expect. The kaldorei pray to the moon and call it a goddess, and some of our own fret for their souls, and I fret a little along with them." },
+      },
+      choices = {
+        { text = "Do you think they're wrong, Brother?", next = "sa_nelf_2" },
+        { text = "Their priestesses heal as well as yours do.", next = "sa_nelf_2" },
+      },
+    },
+    sa_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "san2_default",
+          text = "Their priestesses do heal, and that's what puzzles the bishops so, because the Light is said to answer faith and virtue and not the name you call it by. Archbishop Benedictus says that if Elune mends a broken arm, we should be slow to call her a stranger, and I try to remember that when the brothers grumble." },
+      },
+      choices = {
+        { text = "The Light and Elune may be one truth seen twice.", next = "BACK",
+          reply = "That's what I hope, friend, and it's what I tell the brothers when they fret. They tell me I'm too kind, which I don't think is a sin.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "respect" } } },
+        { text = "A moon goddess is no substitute for the Light.", next = "BACK",
+          reply = "There are brothers upstairs who'd embrace you for saying so. I'll only say the door stays open to the kaldorei, and to you.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    sa_xnelf = {
+      lines = {
+        { id = "sax_default", key = true,
+          text = "I'm glad to hear it, friend, truly, because I've wondered. You'll forgive an old door-warden for asking: when you pray to her, does she answer, or do you only hope, the way we do some nights?" },
+      },
+      choices = {
+        { text = "She answers, Brother, as your Light answers you.", tag = "Persuade", next = "sa_xnelf_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = "PRIEST" }, { class = "DRUID" } } } },
+          fail = { next = "sa_xnelf_fail" } },
+        { text = "Some nights we only hope, Brother, the same as you.", next = "BACK",
+          reply = "Then we're closer than the bishops think, friend, and I'll keep that to myself until they're in a better mood.",
+          fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sa_xnelf_soft = {
+      lines = {
+        { id = "saxs_default", key = true, fx = { npcFlag = { set = { "sarno_nelf_soft" } } },
+          text = "Then I'll light a lamp by the east window tonight, where the moon comes in, and say a prayer to the Light for your Elune. If the brothers ask, I'll tell them it was a courtesy between neighbours." },
+      },
+      choices = {
+        { text = "She'll take it kindly, Brother.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sa_xnelf_fail = {
+      lines = {
+        { id = "saxf_default", text = "That's a lovely thing to say, and I want to believe it, but I'm only a door-warden and the bishops have written a great many books. Come back and tell me again, and perhaps I'll be braver." },
+      },
+      choices = {
+        { text = "I will, Brother. Something else.", next = "BACK" },
+        { text = "Thank you, Brother.", next = "END" },
+      },
+    },
+    sa_nsoft = {
+      lines = {
+        { id = "sans_default", text = "Every night since you told me she answers. A kaldorei priestess stopped at the window last week and smiled at it, and I've been walking about the square very pleased with myself ever since." },
+      },
+      choices = {
+        { text = "You've earned it, Brother. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Thank you, Brother.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "We don't see many kaldorei inside, friend. They come as far as the steps, look up at the windows, and go away again, and I've never known whether it was admiration or pity." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, welcome, welcome! Lord Shadowbreaker keeps his hall here in the Cathedral, though I expect you know the way better than I do." },
         { id = "h_default", text = "Brother Sarno, at your service! I keep the door, which mostly means I say hello to everyone in Stormwind at least once. Is this your first time in the Cathedral?" },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
@@ -632,6 +709,9 @@ P:NPC {
         { text = "Does the Cathedral ever feel too closed in, even for you, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the gnomes here need a mage's help, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you pray for the gnomes of Gnomeregan, Brother Sarno?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do the night elves trouble the Church, Brother?", next = "sa_nelf" },
+        { text = "Your Light and my goddess aren't enemies, Brother.", next = "sa_xnelf", when = { race = "NightElf" } },
+        { text = "Is the lamp by the east window still lit, Brother?", next = "sa_nsoft", when = { race = "NightElf", npcFlagBefore = "sarno_nelf_soft" } },
         { text = "Thank you, Brother.", next = "END" },
       },
     },
@@ -696,6 +776,7 @@ P:NPC {
   },
 
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "The kaldorei pray to the moon, and some of the brothers fret about it. I greet them at the door like anyone else, and I've never once regretted it." } },
     holy_light = { { id = "tp_holy_light", text = "I greet everyone who walks through these doors, because the Light lives in all of them. Even the ones who come in to get out of the rain are welcome, and I tell them so." } },
     scourge = { { id = "tp_scourge", text = "Some of the refugees who come through these doors have lost everything to the Scourge, even their names. I give them a blessing and a bowl, and I hope that's a start." } },
     magni = { { id = "tp_magni", text = "King Magni gave the gnomes of Gnomeregan a home in Ironforge after their city was poisoned, and that's the Light at work, whether the dwarves call it that or not. I pray for him every week." } },

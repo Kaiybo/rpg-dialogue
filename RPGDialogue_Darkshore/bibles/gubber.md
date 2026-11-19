@@ -32,3 +32,4 @@ Honest.
 
 ## Topics
 background, advice, _none.
+- Night elves (0.94.0 work): Gubber is the one dwarf in Auberdine with nothing bad to say about them: a Sentinel showed him the grouper; anyone who sits that still is a fisherman inside. Knows Kurdram and Remtravel grumble.

@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "Come in, come in, and mind your head, love, because this door wasn't made for anyone your height! There's always a pot on, though I've no idea whether your people eat stew." },
     { id = "g_op_leave_go", when = { opinion = { topic = "westfall_leave", stance = "go" } }, text = "There you are! I told Theodore you said go while there's a road, and he looked so relieved I gave him a second bowl." },
     { id = "g_welcome", text = "Come in, come in! There's always a pot on." },
     { id = "g_stew", when = { questActive = TODO_QUEST("Westfall Stew") }, text = "Here on stew business? Good, because the pot's getting impatient." },
@@ -143,8 +145,48 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sm_nelf = {
+      lines = {
+        { id = "smn_default", key = true,
+          text = "Not much that's true, I expect. Most of us never saw an elf of any colour, only heard the soldiers talk of the fair-haired ones up north in the war, and now we're told there's a purple sort across the sea who're our friends, and nobody asked Westfall about it." },
+      },
+      choices = {
+        { text = "Are they the same as the high elves?", next = "sm_nelf_2" },
+        { text = "You don't seem to mind them.", next = "sm_nelf_2" },
+      },
+    },
+    sm_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "smn2_default",
+          text = "Saldean says they're cousins who fell out, the way his brothers did over the mill, and that's all I know of it. What I do know is they never sent a sack of grain when the Defias burned the fields, but neither did Stormwind, so I can't hold it against them more than anyone." },
+      },
+      choices = {
+        { text = "They've their own war in Ashenvale. Don't blame them.", next = "BACK",
+          reply = "I don't, love, I said as much. But a pot of stew doesn't care whose troubles are bigger; it only cares who's hungry.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Nobody helps Westfall, and elves least of all.", next = "BACK",
+          reply = "That's Gryan's talk, and he's earned it, but it sits sour in a kitchen. Eat something, and it'll pass.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Salma.", next = "BACK" },
+      },
+    },
+    sm_xnelf = {
+      lines = {
+        { id = "smx_default", key = true,
+          text = "Do you now! Then sit down and have a bowl, and you can tell Saldean yourself, because he'll never believe it from me. He's quite sure your folk live on dew and moonlight, and I'd dearly like to see his face." },
+      },
+      choices = {
+        { text = "Moonlight's lovely, but stew is better.", next = "BACK",
+          reply = "Ha! There, I knew it, and I'll tell him in your very words.", fx = { affinity = 1 } },
+        { text = "Tell him we drink dew. Let him wonder.", next = "BACK",
+          reply = "Oh, you wicked thing, he'll lie awake for a week. I'll do it, too." },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Saldean swears your people don't sleep, don't eat meat and don't get old. I told him that sounds more like the dead than elves, but he says yours are purple, so it's different." },
         { id = "dd_fields_salma", when = { questDone = TODO_QUEST("The Killing Fields") },
           text = "My husband tells me you broke up those harvest watchers in our fields, and he's been whistling at supper ever since. I don't know how you did it, but I'll thank you, because I'd stopped letting the children out after dark." },
 
@@ -198,6 +240,8 @@ P:NPC {
         { text = "Doesn't feeding everyone mean feeding Defias too, Salma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's in today's stew, Salma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I tended the Militia's wounded, Salma. You fed them.", next = "xorig_militiahealer", when = { origin = "human_sentinel_hill_healer" } },
+        { text = "What do Westfall folk say about night elves?", next = "sm_nelf" },
+        { text = "We eat, Salma, and we do sleep now and then.", next = "sm_xnelf", when = { race = "NightElf" } },
         { text = "I'd best be off.", next = "END" },
       },
     },
@@ -352,6 +396,7 @@ P:NPC {
   },
 
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Saldean says they live on dew and moonlight, but the one who sat at my table ate two bowls. They're welcome here like anyone, so long as they duck at the door." } },
     holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and it may as well find us both thankful." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, they say, and they're eating our grain while they're down there. I hope they choke on it, though I'd feed them myself if they came to my door hungry." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I bought a recipe at the Darkmoon Faire once from a dwarf who swore it would make even murloc palatable. He wasn't lying, and that's why there's murloc in tonight's stew." } },

@@ -66,3 +66,6 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Authored, not canon (prejudices, 0.80.0)
 - Darthalia: holds the living Horde (orcs, tauren, trolls) in contempt (`prejudice`) because they flinch at the Forsaken; a Warsong band that left Tarren Mill's ridge when Southshore's militia came is her proof.
+
+## Night elves (prejudice pass)
+- Redpath, night elves: remembers the Quel'Thalas rangers fondly; holds an unreasonable grudge that 'the world' (kaldorei included) looked away from Lordaeron. `[Persuade]` sets npcFlag `redpath_nelf_soft`.

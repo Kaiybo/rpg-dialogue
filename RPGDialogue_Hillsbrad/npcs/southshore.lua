@@ -17,6 +17,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A night elf in Southshore. The last elves this town saw in numbers were Quel'Thalas rangers marching north in the Second War, and they at least stopped to fight." },
+    { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "redpath_nelf_soft" }, priority = 10,
+      text = "There's my kaldorei. Walk the wall with me; I've stopped looking for a grudge every time I see your ears." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what follows you, and I know what it is. Keep it outside the town and we'll get along." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Southshore buried enough of its own in the orc wars, and half of them died in green fire. Say your business." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been through Southshore a dozen times and nothing's burned. I'll treat you as I would anyone, though I'll still watch you." },
@@ -181,8 +185,81 @@ P:NPC {
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
+    rp_nelf = {
+      lines = {
+        { id = "rpn_default", key = true,
+          text = "Fondly enough, though they were a proud lot and looked down their noses at our ale. Alleria Windrunner's rangers fought the Horde across the north in the Second War, and a few of them drank in this very square on their way." },
+      },
+      choices = {
+        { text = "And the night elves?", next = "rp_nelf_2" },
+        { text = "Quel'Thalas left the Alliance after that war.", next = "rp_nelf_2" },
+      },
+    },
+    rp_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "rpn2_default",
+          text = "Aye, Quel'Thalas walked out after the war, and I was angry about it then, but they'd bled first. The night elves are another thing, a people who sat behind their trees for ten thousand years, met us when we were already beaten, and now get spoken of in Stormwind as though they'd saved us." },
+      },
+      choices = {
+        { text = "They did save us, Marshal, at Hyjal.", next = "BACK",
+          reply = "Hyjal saved the world, they tell me, and I'll believe it. It didn't save Lordaeron, and that's the part of the world I lived in.",
+          fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Elves are elves. Proud, and gone when you need them.", next = "BACK",
+          reply = "That's bitterer than I'd put it, but not by much. Keep it out of earshot of the Stormwind officers; they've orders to be fond of Darnassus.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    rp_xnelf = {
+      lines = {
+        { id = "rpx_default", key = true,
+          text = "You couldn't, and I know it, and that's the trouble with a grudge; it doesn't listen to sense. I watched this town fill with plague refugees while the whole world looked away, and you were part of the world." },
+      },
+      choices = {
+        { text = "We grieve for Lordaeron too, Marshal.", next = "BACK",
+          reply = "Do you? Then you're the first of your folk to say it to me, and I'll remember that you did.",
+          fx = { align = { light = 1 } } },
+        { text = "Your grudge is with the plague, not with us.", next = "BACK",
+          reply = "Aye, I know where my grudge belongs, and knowing doesn't make it any lighter to carry. Mind the wall on your way out.",
+          fx = { align = { light = -1 } } },
+        { text = "Then let me be the elf who stops on the north road.", tag = "Persuade", next = "rp_xnelf_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { townStanding = { town = "southshore", min = 30 } }, { questDone = TODO_QUEST("Syndicate Assassins") } } } },
+          fail = { next = "rp_xnelf_fail", fx = { affinity = -1 } } },
+      },
+    },
+    rp_xnelf_soft = {
+      lines = {
+        { id = "rpxs_default", key = true, fx = { npcFlag = { set = { "redpath_nelf_soft" } } },
+          text = "Fair, and plainly put, which is how I like it. Lordaeron's dead and you didn't kill it, so I'll set that grudge down for you, if not yet for your envoys." },
+      },
+      choices = {
+        { text = "That's enough for now, Marshal.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rp_xnelf_fail = {
+      lines = {
+        { id = "rpxf_default", text = "Words are easy in Southshore; everyone's got some to spare. Do this town a few good turns first, and then we'll talk about the north road." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
+    rp_nsoft = {
+      lines = {
+        { id = "rpns_default", text = "One, a druid on the way to Ironforge, who stopped to look at the east wall and told me where the cracks ran. I told the lad on watch that the kaldorei are with us, and I heard myself say it without choking." },
+      },
+      choices = {
+        { text = "Progress, Marshal. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "We had elves beside us once, kaldorei, the rangers of Quel'Thalas, and they bled for Lordaeron in the Second War. Your people I only heard of after Lordaeron was already ash." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Five of you, armed and fed and walking in step, and you've no idea how good that looks from my wall. If you're heading up toward Tarren Mill, I'd ask you to come back the same number you left with." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on the storm, the guards tell me. Dun Garok's lot pray to their stone and their forefathers, {class}, and I never heard of one talking to the wind before today." },
@@ -243,6 +320,9 @@ P:NPC {
         { text = "You seem uneasy around a dwarf shaman, Marshal.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We're a full company, Marshal. Put us to use.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I used to run letters for the Syndicate, Marshal.", next = "xorig_syndicate", when = { origin = "human_syndicate_runner" } },
+        { text = "Southshore remembers the high elves fondly, then.", next = "rp_nelf" },
+        { text = "We didn't know Lordaeron existed, Marshal. How could we help?", next = "rp_xnelf", when = { race = "NightElf" } },
+        { text = "Seen any kaldorei on the north road lately, Marshal?", next = "rp_nsoft", when = { race = "NightElf", npcFlagBefore = "redpath_nelf_soft" } },
         { text = "Good day, Marshal.", next = "END" },
         { text = "Why couldn't your men get close to the Syndicate, Marshal?", next = "dd_assassins", when = { questDone = TODO_QUEST("Syndicate Assassins") } },
       },
@@ -514,6 +594,7 @@ P:NPC {
     },
   },
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "Allies now, and I'll keep faith with that. I only remember that the elves who bled for Lordaeron came from Quel'Thalas, and none of them were purple." } },
     _gated = {
       { id = "gt1", text = "That's the town's business, and I don't know you well enough to share it. Do right by Southshore and ask me again." },
       { id = "gt2", text = "I know, and I'm not saying, not to someone who only just walked in. We've learned to be careful about who hears what." },

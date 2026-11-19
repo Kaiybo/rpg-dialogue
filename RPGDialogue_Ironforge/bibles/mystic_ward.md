@@ -174,6 +174,7 @@ Class: human and gnome mages, priests.
 
 ## Topics
 knows, background, advice
+- Night elves (0.94.0 work): longs to measure a moonwell as a power source; the Temple of the Moon refuses her letters. She wonders, never asserts what the wells are. Night elf players can invite her (no instruments) or refuse.
 
 ---
 
