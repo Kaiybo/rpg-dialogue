@@ -75,6 +75,10 @@ emissaries\darkspear_islands.lua
 pools_roles.lua
 pools_citizens.lua
 demons.lua
+bound_voidwalker.lua
+bound_succubus.lua
+bound_felhunter.lua
+bound_demon.lua
 asks.lua
 arrivals.lua
 wanderers\spoogledorf.lua
