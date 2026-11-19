@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "soldier", tier = "major",
   communities = { "freewind" }, temper = { "grim" }, values = { "dutiful", "protective" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 10, why = "Watchman of Freewind; sees in fel the same darkness as the Galak's dark-hearted shamans." },
   notices = { "kit", "race" },
 
   impression = {
@@ -22,6 +23,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the canyon gave you back, which is more than it does for most. I watched for you from up here more than once." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came up to Freewind a youngster, and now you look like someone the centaur ought to worry about. The canyon has made you hard, and I'm glad of it." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone on the mesas back down with a look. Save it for the centaur, because they're the ones who need to learn it." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watch the cliffs for centaur, and I watch you as well. Do not give me a reason to choose between the two." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Whatever answers your call has no place on this mesa. Speak plainly, and then step back from the edge." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept your fire to yourself every time you climbed up here. I'll still watch you, but I'll stop counting your steps." },
   },
 
   notice = {
@@ -185,6 +189,8 @@ P:NPC {
           text = "You came up the lift without a sound, and I watch that lift all day. The Galak would pay well for feet like yours, so I'm glad they belong to the Horde." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "The Galak have their own dark-hearted shamans, and something about your fire reminds me of theirs. I like it no better, but you at least stand on the right side of the cliff." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There's demon-fire on you, and I have seen what the Galak's shamans do with fire like that. Say your business and keep your hands still." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've stood with Freewind against the centaur, and I remember it. Speak, then." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 40 } }, text = "The Galak raid less these days, and the scouts say it's because you've cut down so many of their warriors. Freewind is grateful, though the centaur will remember you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. I've watched many things climb the canyon from up here, but nothing quite like you." },
       },

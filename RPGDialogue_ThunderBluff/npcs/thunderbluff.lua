@@ -1053,6 +1053,7 @@ P:NPC {
   key = "turak", id = TODO_NPC("Turak Runetotem"), name = "Turak Runetotem",
   bible = "bibles/thunderbluff.md", role = "trainer", tier = "quest",
   communities = { "thunder_bluff" }, temper = { "patient" }, values = { "balanced", "wise" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Druid of the Great Balance; fel is the one thing he will not call part of it." },
   notices = { "form", "class" },
   impression = {
     first = "To him balance is practised daily, like any honest craft.",
@@ -1064,6 +1065,9 @@ P:NPC {
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "Balance in all things, friend, as the Earth Mother keeps it between sun and moon. Even in a city built on cliffs." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and I hope you kept your balance out there. Come and tell me how the land is faring." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your words was found false here in the city. Balance is practised daily, friend, and honesty is part of the practice." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "There is no place in the Great Balance for what you call up, and I won't pretend otherwise on Elder Rise. Speak, but speak quietly." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The cubs I teach will one day heal land that demons have burned. I would rather they didn't learn your craft by watching you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've walked Elder Rise many times now and left no scorch behind you. I still don't like your craft, but I've stopped expecting the worst of you." },
   },
 
   notice = {
@@ -1167,6 +1171,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Elder Rise. The Arch Druid won't mind, but the cubs will stare, because they think warriors are bears that forgot to change back." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on Elder Rise. Welcome, friend; I teach balance here, and I suspect you keep a balance of your own, between the hurts you mend and the hurts you can cause." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The balance asks me to welcome you, and I will. It does not ask me to like the thing that waits so patiently at your heel." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I teach young druids to mend what fel has burned, and you carry that fire on your hands. Say what you need, and keep your distance from my students." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again, and still careful with the thing at your heel. Very well; sit, but not too near the cubs." },
       },
       choices = {
         { text = "Is there balance in a priest's power, Turak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

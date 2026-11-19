@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
   race = "Orc", likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Remembers the old Horde's warlocks burning the clans to the bone; he holds Razor Hill against that kind of rot." },
   notices = { "kit", "greenness" },
   impression = {
     first = "He holds Razor Hill as if all of Durotar depended on it.",
@@ -20,6 +21,9 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You left here a recruit and came back looking like a warrior of the Horde. Good, because I have harder work for you now, and harder blood to spill." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you put the fear into somebody around here without spilling blood. Durotar respects that, and so do I." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts tell me you've been doing work for Razor Hill, and doing it properly. Keep that up and you'll have a name here." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "A warlock in Razor Hill. My grunts have orders to watch you, and so do I." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Gul'dan's warlocks sold our people to demons once. Do your work for the Horde, but don't ask me to like you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done honest work for Razor Hill, and I've counted every bit of it. I still don't trust what you carry, but I'll trust you a little." },
   },
 
   notice = {
@@ -131,6 +135,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll be plain, since that's my way. I know what you are, and the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I'll be blunter than usual. Gul'dan's kind cost my clan its best warriors, and you walk in wearing his stink, so state your business." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've served this town well, and I know it. Speak, but keep it short." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {

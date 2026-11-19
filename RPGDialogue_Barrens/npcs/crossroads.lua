@@ -312,6 +312,7 @@ P:NPC {
   key = "sergra", id = TODO_NPC("Sergra Darkthorn"), name = "Sergra Darkthorn",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "fierce" }, values = { "proud", "fair" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Lost kin to the lethargy in the camps and has watched the Burning Blade recruit on the Barrens." },
   notices = { "gender", "kit" },
   impression = {
     first = "She sends people past the walls with a grin.",
@@ -324,6 +325,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Well, look who's back after {away}! I had a bet going on whether the Barrens would keep you, and I've just lost it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When I first sent you out you were as green as spring grass, and now look at you. The Barrens didn't eat you, so it must have taught you something." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Somebody tells me you stared down one of our own and they blinked first. I like that, just don't make a habit of it inside the walls." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I said I'd judge you by what you bring back from the Barrens, and I will. But I'll be watching what comes back with you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Burning Blade's been stirring out on the Barrens, and every one of them started with a little imp. Prove to me you're not the next." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've brought back more from the Barrens than most, and never anything with horns. I'll call that a start." },
   },
 
   notice = {
@@ -456,6 +460,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Thork will want you on the wall, but I'll want you past it, out where the Barrens bites back." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then! Good, because the scouts I send past the walls come back with Kolkar arrows in them, when they come back at all." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The Crossroads has seen your kind before; I can smell the brimstone from here. I'll judge you the way I judge anyone, by what you bring back from the Barrens." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Brimstone, and plenty of it. I lost kin to the lethargy in the camps, and I know whose craft put it there, so you'll forgive me for being short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned your place at the Crossroads, I'll admit. Speak, and I'll listen properly." },
       },
       choices = {
         { text = "Do you really think the spirits test us, Sergra?", next = "xhsham", when = { class = "SHAMAN" } },

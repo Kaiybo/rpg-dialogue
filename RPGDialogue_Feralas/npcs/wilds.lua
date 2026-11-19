@@ -552,6 +552,7 @@ P:NPC {
 P:NPC {
   key = "angelas", id = TODO_NPC("Angelas Moonbreeze"), name = "Angelas Moonbreeze",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Sees in every warlock the Highborne who became the satyrs of Eldre'Thalas." },
   impression = {
     first = "She keeps her eye on the ruins of the old highborne.",
     third = "{name} met Angelas Moonbreeze at Feathermoon Stronghold in Feralas.",
@@ -559,6 +560,9 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Ishnu-alah, traveller. Feathermoon welcomes those who come in peace." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Elune has kept you, I see." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The satyrs of Eldre'Thalas began exactly where you stand now. Do not expect courtesy from me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Sentinels keep watch on the satyrs, and I keep watch on you. Say what you came to say." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have not become what I feared you would, at least not yet. I will still watch you, but I will speak with you civilly." },
   },
   start = "hello",
   nodes = {
@@ -672,6 +676,8 @@ P:NPC {
           text = "A mage of the Alliance, here among the ruins of our own Highborne. Look well at what is left of Eldre'Thalas, friend, because it is what becomes of those who love magic more than their own people." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The satyrs of Eldre'Thalas were once kaldorei, before they bargained with powers very like the ones I smell on you. I see them every time I look at you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You carry the same fel that turned our Highborne into satyrs. I will speak with you because Feathermoon needs hands, not because I wish to." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have kept yourself from the path the satyrs walked, so far. Speak, and I will listen." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light. You'll find little of it in the old Highborne ruins across this land, because the magic that broke the world still festers there." },
         { id = "h_apaladin", when = { class = "PALADIN" },

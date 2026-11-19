@@ -443,6 +443,7 @@ P:NPC {
   title = "Trauma Surgeon",
   bible = "bibles/dustwallow.md", role = "trainer", tier = "quest",
   communities = { "theramore" }, temper = { "brisk", "exacting" }, values = { "kind", "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Stitched up soldiers the old Horde's warlocks burned, in the field hospitals of the Second War." },
   notices = { "craft", "kit" },
 
   impression = {
@@ -453,6 +454,9 @@ P:NPC {
   greetings = {
     { id = "g_tent", text = "Wash your hands if you're coming in, and keep your voice level. Wounded men listen to tone before they listen to words." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again, and I hope you've washed your hands." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I spent the Second War stitching up men the Horde's warlocks had burned to the bone. Forgive me if my hands aren't steady around you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll treat anyone who comes through that door, because that's my oath. I don't have to like it, and I don't." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never brought me a patient burned by your own hand, and believe me, I've looked. Sit down, then." },
   },
 
   notice = {
@@ -555,6 +559,8 @@ P:NPC {
           text = "You came through triage with your head clear and your hands steady. There are surgeons with letters after their names who couldn't say the same." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the hands of someone who knows where to put a blade, and I'm glad to see they're steady. The marsh teaches me what poisons do to a body, and I suspect you've studied them from the other side." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll be frank, there's a smell on you I remember from the field hospitals. I've bandaged too many soldiers who met the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "That smell is the field hospitals all over again. I'll keep my oath and treat you if I must, but don't expect warmth." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "I've watched you long enough to know you're not the ones I remember. Not quite, anyway. Where does it hurt?" },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The tower sends me apprentices now and then with burns on their hands from spells gone wrong, and I'd be glad if you weren't the next." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I teach field medicine, and I'd like to see how a shaman's healing compares with a clean bandage." },
         { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died more than once, and recently, by the look of your color. I don't treat that sort of thing, but I can tell you the spirit healer is not a substitute for a bandage." },

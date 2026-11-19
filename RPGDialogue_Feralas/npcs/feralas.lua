@@ -879,6 +879,7 @@ P:NPC {
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
   communities = { "mojache" }, temper = { "fierce" }, values = { "loyal", "stern" },
   likesTone = "blunt", race = "Orc",
+  prejudice = { class = "WARLOCK", amount = 10, why = "Fights the Gordunni and their fel-touched casters; sees the same rot in every warlock." },
   notices = { "class", "kit" },
 
   impression = {
@@ -892,6 +893,9 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You hit harder than you did when I last saw you, and I can tell that just by looking. Good, then the Gordunni will learn to fear you, and I can send you deeper north." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the camp folk back down, and I'll allow it, once. Save that for the ogres, because they deserve it and our own people don't." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've done good work for Mojache, and I listen when the camp agrees on something. Keep killing ogres, and they'll keep saying it." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "You smell like the Gordunni casters I've been killing all season. Stay on the far side of the fire." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Thrall lets your kind serve, so serve, and leave the talking to those I trust." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more Gordunni casters than you've copied, so I'll say this once: you've done well. I'm still watching." },
   },
 
   notice = {
@@ -1064,6 +1068,8 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid, good! The Gordunni burn the old trees for their cookfires out west, and I'd like to see what a bear does to an ogre." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Thrall lets your kind serve the Horde, and so I let you stand in my camp. But the Gordunni have their own dark casters, and you smell like them, so you'll understand if I don't care for it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've no love for your craft, and I won't pretend I do. Say your piece, and then go and kill some ogres." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled for Mojache, and I don't forget it. Speak." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk soft for one of the Horde. Good, because the Gordunni sleep in shifts, and a blade that comes in the dark is worth ten that come at noon." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },

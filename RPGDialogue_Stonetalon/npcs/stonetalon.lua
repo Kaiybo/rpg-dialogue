@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "soldier", tier = "major",
   communities = { "sun_rock" }, temper = { "hard" }, values = { "loyal", "brave" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Holds Sun Rock for Cairne; he believes what Cairne told him of demon blood and the orcs." },
   notices = { "kit", "race" },
   impression = {
     first = "He says he was gentle once, before the battles took it.",
@@ -20,6 +21,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been away from the rock {away}, and the wind has been blowing hard the whole time. I've work for the ones who come back, so say what you need." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were green when you first climbed to Sun Rock, and now you carry yourself like a warrior who has bled for it. The years do that, and so do battles." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word on the rock is you made someone back down without a fight. I was gentle once, and I've learned there's a time for a hard look." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Cairne told me what demon blood made of the orcs, and I believe him. You'll keep your distance from my braves while you're on Sun Rock." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I hold this rock for the High Chieftain, and I'll not have fel carried onto it. Speak fast, and walk where my scouts can see you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for Sun Rock and kept your demons off it, as I asked. I'll not call you friend, but I'll call you useful." },
   },
 
   notice = {
@@ -177,6 +181,8 @@ P:NPC {
           text = "So you're a mage, and the Venture Company's fires are still smoking in the vale below us. I hope you keep a tighter hold on yours than the goblins did on theirs." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "There's a smell on you I've been told about. Cairne has told me what demon blood did to the orcs before Thrall freed them, and I'll not see that sickness carried onto Sun Rock in anyone's bag." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I smell demon on you, and Sun Rock has enough enemies without one walking in behind a Horde banner. Say what you have to say." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your word on Sun Rock, so I'll keep mine. Speak, and I'll listen." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Sun Rock's beasts have grown restless since the vale burned, and a hunter who knows how to turn them back is worth more to me than a spear." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Good, because I have wounded braves who need healing and a forest down the slope that needs it even more." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Sun Rock has wounded enough to keep you busy, so don't wait for me to ask." },

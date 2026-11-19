@@ -7,6 +7,7 @@ P:NPC {
   key = "misha", id = TODO_NPC("Misha Tor'kren"), name = "Misha Tor'kren",
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   temper = { "grieving" }, values = { "loyal", "proud" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Remembers the Shadow Council's warlocks driving the clans into bloodlust; she won't forgive the craft." },
   notices = { "race" },
   impression = {
     first = "Grief for her son Kron sits on her like a second skin.",
@@ -15,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_hut", text = "Few walk this far north, and fewer stop at my door. Say what brings you, young one, and say it plainly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to this old hut, then. Sit, if you can stand the smell of goat." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what you are, and I know the smell of it. The Shadow Council's warlocks made monsters of our clans once, so don't expect me to smile." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Shadow Council's lot nearly burned the soul out of our people. You'll stand outside my door, and you'll keep your voice down." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come by often enough and never once brought that stink into my hut. I'll not call it trust, but you can sit a while." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -125,6 +129,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You speak with the spirits, shaman. Then tell me true, do the dead walk among them, and would my Kron still know his mother's voice?" },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like Kron did, all quiet steps and quick eyes. He'd have liked you, I think." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I can smell it on you, sulphur and old ash. I remember that smell from before the camps, when the Shadow Council's lot still walked among us." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Sulphur and old ash; I'd know it in my grave. I remember what Gul'dan's people did to the clans, and I'll not pretend otherwise when I look at you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You still smell of it, but you've been kind to an old widow, and that counts for something. Say what you came to say." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The grunts used to pass my hut when Kron was small, and he'd watch them go by and swing a stick like an axe." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with a beast at your heel. Kron hunted too, and he'd have loved a companion like that." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Can your spells find a dead boy's amulet? No, I thought not." },

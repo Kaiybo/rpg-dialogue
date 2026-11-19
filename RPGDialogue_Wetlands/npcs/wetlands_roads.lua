@@ -6,6 +6,7 @@ P:NPC {
   key = "longbraid", id = TODO_NPC("Longbraid the Grim"), name = "Longbraid the Grim",
   bible = "bibles/wetlands_roads.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "gruff" }, values = { "loyal", "brave" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Saw his clan fall to orcs with warlocks and dragons around Grim Batol." },
   notices = { "race" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Ye're a warlock, an' dinnae bother tellin' me otherwise. I've no use for yer kind." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've buried too many friends burned by green fire tae make a welcome o' ye. Say yer piece." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've fought beside us an' kept yer dark arts tae yerself. I'll still no' smile, but that was never about ye." },
     { id = "g_modr", text = "Keep yer head down, stranger. The Dark Irons have archers on the walls, and they're better shots than they look." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathin'? Good, because in Dun Modr that's a compliment." },
   },
@@ -174,6 +178,8 @@ P:NPC {
           text = "A druid, out here! I've no quarrel wi' yer kind, only wi' the Dark Irons an' the dragons over Grim Batol." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, for Dun Modr needs every arm it can get, and it's had precious few." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have come up past the raptors, then, which tells me you know your trade." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My clan fell at Grim Batol when the orcs came wi' their warlocks an' their dragons, an' I was one o' the few who walked out. Ye'll get nothin' from me but what the King's orders demand." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've proved more use than I'd have guessed. I'll answer ye, but I'll no' forget what ye carry." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've the eyes o' someone who reads what he shouldnae. I'll take any help that's goin', though I'll no' smile about it, an' they'll tell ye I dinnae smile about anythin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Dark Irons have their own fire-callers, an' they used them on us at Dun Modr. I'll judge ye by what ye do, but I'll be watchin'." },
       },

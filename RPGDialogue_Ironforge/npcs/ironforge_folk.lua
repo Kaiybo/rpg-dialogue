@@ -8,6 +8,7 @@ P:NPC {
   key = "brandur", id = TODO_NPC("Brandur Ironhammer"), name = "Brandur Ironhammer", title = "Paladin Trainer",
   bible = "bibles/brandur.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "proud" }, values = { "pious", "brave" },
+  prejudice = { class = "WARLOCK", amount = 14, why = "Paladin; fought Gul'dan's warlocks in the Second War and watched dwarves burn in fel fire." },
   spiritSensitive = true,
   notices = { "kit" },
 
@@ -17,6 +18,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Stop there. I can smell the fel on ye from across the hall, an' I'll no' have it near my initiates." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My brothers bled tae close the Dark Portal, an' here ye stand wi' the same filth on yer hands. Speak quick." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've stood in this hall a dozen times an' never once fouled it. I'll no' call ye friend, but I'll hear ye out." },
     { id = "g_hall", text = "The Light keep ye! Are ye here for trainin', or for the warm floor?" },
     { id = "g_human", when = { race = "Human", class = "PALADIN" }, text = "A human paladin up the mountain! Duthorian Rall down in Stormwind will want ye home by supper." },
   },
@@ -164,6 +168,8 @@ P:NPC {
           text = "A priest! Ye're in the right hall, then. High Priest Rohan's along the way, pacin' as he does; tell him Brandur sent ye, an' he'll pretend tae know who that is." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage come tae see a paladin? The Light an' the arcane get along better than folk think, if ye don't mind a lecture on the subject." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I fought Gul'dan's warlocks in the Second War an' watched good dwarves burn in their green fire. Whatever ye want from the Order, ye'll ask for it from where ye stand." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye again. I'll give ye a straight answer, for ye've earned that much, but my hammer's never far from my hand." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll speak wi' ye, because the Light turns nobody away, but I can feel the cold comin' off ye, an' I'll no' pretend I'm comfortable." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The Light loves a strong arm as much as a strong heart, an' ye'd be welcome among my young ones." },

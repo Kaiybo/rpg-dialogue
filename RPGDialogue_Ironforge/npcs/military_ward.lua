@@ -276,6 +276,7 @@ P:NPC {
   key = "kelstrum", id = TODO_NPC("Kelstrum Stonebreaker"), name = "Kelstrum Stonebreaker", title = "Warrior Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "stern", "brave" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Old soldier; lost his company to orcs with warlocks at their backs in the Second War." },
   notices = { "class" },
 
   impression = {
@@ -284,6 +285,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Brimstone in my yard again. I know what ye are, an' I'll no' have my recruits thinkin' it's welcome here." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I fought orcs who had warlocks behind 'em, an' I'll no' forget how that went. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've trained here an' kept yer beasts out o' my yard. I'll no' cheer for ye, but I'll stop growlin'." },
     { id = "g_ha", text = "Ha! Another one wanderin' intae the Hall o' Arms. State yer business, an' stand up straight while ye do it." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Back for more punishment? Good; punishment's what makes a warrior." },
   },
@@ -370,6 +374,8 @@ P:NPC {
           text = "Look at that, someone who survived my regimen an' kept goin'. I'll no' say I'm proud, for it'd go tae yer head, but I'm no' disappointed." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the Military Ward. Ye'd no' last a day o' my training, I'd wager, but I've seen fire win battles an axe couldnae." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I lost half my company in the Second War tae orcs wi' Gul'dan's warlocks at their backs. I'll train anyone the King sends me, but I'll no' pretend I like it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye fight well enough, I'll give ye that, an' ye've kept yer filth tae yerself. Go on, then, what is it?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Ye've brought a smell o' brimstone intae the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye'll be soft from lettin' yer beast do the fightin', but I'll no' hold it against ye." },

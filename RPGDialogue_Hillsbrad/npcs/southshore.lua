@@ -8,6 +8,7 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "southshore" }, temper = { "steady" }, values = { "dutiful", "protective" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 11, why = "Remembers orc warlocks burning Hillsbrad when he was a boy." },
   notices = { "soldier", "kit" },
 
   impression = {
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what follows you, and I know what it is. Keep it outside the town and we'll get along." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Southshore buried enough of its own in the orc wars, and half of them died in green fire. Say your business." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been through Southshore a dozen times and nothing's burned. I'll treat you as I would anyone, though I'll still watch you." },
     { id = "g_hall", text = "Southshore. We're small, we're stubborn, and we're still here. State your business." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you're back. Southshore's short of hands that stay." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "Back after {away} away, are you? The Forsaken didn't take the holiday you did, so I hope you're rested." },
@@ -195,6 +199,8 @@ P:NPC {
           text = "Night's when the horses go missing, so I keep a lantern lit by the stables, not that the dead need the light." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and that's worth more to me on my side of the river than on theirs, so welcome to Southshore." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I was a boy when the Horde burned Hillsbrad, and I remember the green fire their warlocks threw at the mill. I'll hear you, but I'll not trust you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've done right by Southshore more than once, and I'll say so. I still don't like what you carry." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You've a shadow that doesn't sit right. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like whatever follows you, so keep it on a short leash." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the trampled ashes are full of boot prints about your size. Southshore owes you for that, and I won't forget it." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Alliance" },

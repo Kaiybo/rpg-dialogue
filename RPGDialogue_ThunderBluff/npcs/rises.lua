@@ -272,6 +272,7 @@ P:NPC {
   key = "holt", id = TODO_NPC("Holt Thunderhorn"), name = "Holt Thunderhorn",
   bible = "bibles/thunderbluff.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "patient", "wise" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Hunts beside beasts; a demon at the heel sets every animal on the rise, and him, against you." },
   notices = { "class" },
   impression = {
     first = "His family is known across Mulgore for its archers.",
@@ -279,6 +280,9 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today; the Earth Mother is in a generous mood." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Every beast on this rise has its hackles up, and so have I. Say your business and then go back down the lift." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My students keep their beasts on short leads when you come up the ramp, and I told them to. A hunter trusts what his animals tell him." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The beasts have mostly stopped snarling when you come up the ramp. I haven't stopped watching you, but I'll hear you out." },
   },
   start = "hello",
   nodes = {
@@ -374,6 +378,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. In my grandfather's day nobody walked among us to tell the hunters how many plainstriders were too many, and some of my students still miss those days." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Walk slowly on Hunter Rise, stranger. My students' beasts are bristling already, and I'd like to know why." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You keep a demon where a hunter keeps a companion, and I know the difference when I smell it. Be quick, stranger." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've never once loosed that thing on Hunter Rise, and I've noticed. Ask what you came to ask." },
         { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Narache blood, by the way you came up the ramp, slow and watching the ground for tracks. Your mother tracked the mesa for the Hawkwind's camp, I think, and the old hunters still argue over whether she or a Thunderhorn took the most plainstriders in a season." },
       },
       choices = {

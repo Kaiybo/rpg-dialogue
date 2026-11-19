@@ -6,6 +6,7 @@ P:NPC {
   key = "pentigast", id = TODO_NPC("Captain Pentigast"), name = "Captain Pentigast",
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "nijels_point" }, temper = { "calculating" }, values = { "dutiful", "cunning" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Has buried soldiers the Burning Blade sent back to him in pieces." },
   notices = { "kit", "status" },
 
   impression = {
@@ -21,6 +22,9 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since we last talked, and I can see it from here. A fighter like you is worth a squad on this ridge, and I mean to use you that way." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone at the Point round to your way of thinking, and I'd like that knack on my side when I next deal with the clans. The Gelkis enjoy a good argument, and the Magram don't." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word on the ridge is that someone caught you in a lie, and I play enough games with the centaur to know what that costs. Lie to them if you must, but don't lie to the people holding this post with you." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried soldiers the Burning Blade sent back to me in pieces, and every one of those cultists started with a summoning circle. Keep your hands where I can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You'll be watched while you're in my camp. Take that as an order rather than an insult, though I'd not blame you for taking it as both." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done my garrison more good than harm, which is more than I expected of you. I'm still watching, mind." },
   },
 
   notice = {
@@ -156,6 +160,8 @@ P:NPC {
           text = "A druid of the Circle at Nijel's Point. Keeper Marandis has his own business in Desolace, and I'd be obliged if one of you told me what it is." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and from the look of you, one who can throw fire farther than my archers can shoot. I won't ask where you studied, so long as you're willing to do it from my ridge." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll be plain with you, since you've a look I've learned to read: the last people out here who trafficked with the Nether were the Burning Blade, and I've buried soldiers they sent to me in pieces." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There's the Nether on you, and I've learned to read that look. My men will follow you round the Point, and I'll not apologise for it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a straight hearing from me, and I don't give those lightly. Go on." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "The Kolkar have been licking their wounds since you went through their camps, and the other clans have noticed. I'd call that a useful kind of message." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The centaur hold their ancestors close, and if they see a dwarf calling on the earth, I've no idea whether they'll respect you or come at you twice as hard." },
       },
@@ -358,6 +364,7 @@ P:NPC {
   key = "marandis", id = TODO_NPC("Keeper Marandis"), name = "Keeper Marandis",
   bible = "bibles/desolace.md", role = "noble", tier = "quest",
   communities = { "nijels_point" }, temper = { "formal" }, values = { "proud", "devout" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Cenarion keeper; to her every warlock carries the Legion's corruption toward the grove." },
   notices = { "class", "form" },
 
   impression = {
@@ -367,6 +374,9 @@ P:NPC {
 
   greetings = {
     { id = "g_keeper", text = "You stand before a keeper of the grove, under Elune's eye. Speak carefully; my time is the Circle's, not mine." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Legion burned my people's forests with the very fire you carry. Speak from where you stand, and come no nearer to the grove." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I will not call you welcome here, and I will not pretend to. Say what you must, and then go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have kept your fel away from my grove for a long while now. That does not make us friends, but I will hear you without bracing for the worst." },
   },
 
   notice = {
@@ -484,6 +494,8 @@ P:NPC {
           text = "You've grown strong, so hear it: a princess of the earth, Theradras, holds the body of one dear to the Circle, and we mean to take it back." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "You smell of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Something clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know the stench of the Burning Legion's craft, and it is on you. Do not call anything into this clearing while I live." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have never once broken your word in this clearing. I still mistrust what you are, but I will speak with you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came into the clearing without a sound, and the birds did not stir. That is a gift the Circle respects, though I would know what you meant to do with it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle has spoken with tauren who hear the elements for a long time, but I did not expect to hear the earth answer one of Ironforge." },
       },

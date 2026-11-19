@@ -10,6 +10,7 @@ P:NPC {
   bible = "bibles/menethil.md", role = "soldier", tier = "major",
   communities = { "menethil" }, temper = { "fierce" }, values = { "dutiful", "brave" },
   likesTone = "blunt", race = "Dwarf",
+  prejudice = { class = "WARLOCK", amount = 13, why = "Lost a whole watch to orc warlocks on the Thandol Span in the Second War." },
   notices = { "soldier", "kit" },
 
   impression = {
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what ye are, an' I'll no' have it on my walls. Speak quick an' keep that creature leashed." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Dragonmaw had warlocks wi' them when they took Grim Batol, an' I've the scars tae prove it. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've held the wall wi' us an' kept yer beast in check. I'll no' call ye a friend o' Menethil, but ye're welcome on the wall." },
     { id = "o_magni_failed", tags = { "news" }, when = { gossip = { topic = "magni", stance = "failed" } },
       text = "Longbraid the Grim tells me ye think the King left Dun Modr tae burn. Say that in my keep again an' I'll have ye on the wall wi' a bucket, for we've no time for that talk." },
     { id = "g_wall", text = "Quickly now. I've a wall to keep an' a hill full o' orcs to keep it from." },
@@ -196,6 +200,8 @@ P:NPC {
           text = "Ye've the stance o' a {g:lad|lass} raised in the Military Ward, an' I'd know it anywhere, since I drilled in that yard myself. Good; I've no time to teach anyone which end o' the axe is the business end." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Menethil! The Wetlands could use one o' ye, because the whole marsh has been in a fury since the Dragonmaw came." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I lost a whole watch tae orc warlocks on the Thandol Span in the Second War, an' I've no' forgiven any o' that trade. Give me yer business an' then get off my dock." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've fought the Dragonmaw as hard as any o' my lads, so I'll hear ye. Dinnae mistake that for trust." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a chill comes in wi' ye that the bay didnae send. I'll take any hand that'll hold the wall, but keep whatever ye've got on that leash well away from my sailors." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dragonmaw", min = 40 } }, text = "The lads on the wall say there's fewer Dragonmaw on the hills each mornin', an' they've started callin' it yer doin'. Good; I'll have bare banner poles yet." },
         { id = "dd_thandol", when = { questDone = TODO_QUEST("The Thandol Span") },

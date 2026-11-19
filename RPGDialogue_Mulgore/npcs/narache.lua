@@ -6,6 +6,7 @@ P:NPC {
   key = "hawkwind", id = TODO_NPC("Chief Hawkwind"), name = "Chief Hawkwind",
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "narache" }, temper = { "resolute" }, values = { "dutiful", "protective" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Guards the young of Narache; a demon-caller near the calves is a danger he won't allow." },
   notices = { "greenness", "race", "origin" },
   impression = {
     first = "He mourns his mother, the Greatmother, by standing straighter.",
@@ -20,6 +21,9 @@ P:NPC {
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp tells me of the work you've done for us. You honour the Hawkwind's fire, and we will remember it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your words in this camp was found false. The young learn from what they see, so I'd ask you to show them better." },
     { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "Your mother's child, come back to the fire. She brought in more plainstriders off Red Cloud Mesa than any hunter of her season, and she thanked the Earth Mother for every one, loud enough that the whole camp heard." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The young ones of this camp are in my care, and I won't have a demon-caller near them. Speak to me here, at the edge of camp." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My braves have orders to watch you while you walk Narache. I gave those orders myself, and I will not apologise for them." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come and gone from Narache, and no calf has come to harm for it. I still watch you, but I watch you less." },
   },
 
   notice = {
@@ -150,6 +154,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "The spirits have touched you, young one, and I can see it in the way you stand. My mother would have wanted you beside her at the rites." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Narache. My mother would have welcomed you, because the Greatmother believed every healer was a gift from the Earth Mother, whatever name they gave it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "My mother would have welcomed any stranger to Narache, so I will too. But there's a smell of old ash on you, and I will be watching." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Whatever my mother would have done, I know what you carry, and the young ones sleep a stone's throw from here. Be brief with me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have kept your dark craft away from the calves every time, and I'm grateful for it. Speak, then." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bristleback", min = 30 } }, text = "The braves say the Bristleback have gone quiet in the hills since you went among them. My mother would have been proud of you, and so am I." },
       },
       choices = {

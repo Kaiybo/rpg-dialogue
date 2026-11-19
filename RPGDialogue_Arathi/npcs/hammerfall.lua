@@ -515,6 +515,7 @@ P:NPC {
   key = "korinfel", id = TODO_NPC("Korin Fel"), name = "Korin Fel",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "watchful" }, values = { "protective", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Her mother drank demon blood on Gul'dan's warlocks' word and died a husk in an internment camp." },
   notices = { "class" },
 
   impression = {
@@ -523,6 +524,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The bones went black the moment you came near, and I know what that means. Keep your demon away from my husband." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Gul'dan's warlocks sold my people to the demons once, and we paid for it in chains. I will not welcome their heir." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The bones still go dark when you come, but you have brought no harm to Hammerfall. I will speak with you, and I will keep watching." },
     { id = "g_default", text = "Quietly, please. My husband has sharp ears for anything that sounds like a battle he isn't in, as every orc of his blood does." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Did the bones lie to me, or did you come back safe?" },
   },
@@ -573,6 +577,8 @@ P:NPC {
           text = "Or'Kalar waits in Stromgarde with a trap laid for my husband. Kill him before Drum learns he's there, and bring me his head so I can stop dreaming of it." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Real Threat"), days = 3 } },
           text = "I slept last night, for the first time in weeks. Drum asked why I was smiling at breakfast, and I told him the porridge was good, which it was not." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My mother drank the demon's blood because Gul'dan's warlocks told her it would make her strong, and she died in an internment camp a husk. Say what you came to say, then go." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The spirits still mutter when you come near, but you have done Hammerfall no wrong. Speak, and I will listen, for now." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "The bones went black when you walked in, {class}, and they only do that for death or demons. I hope for your sake it is demons." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },

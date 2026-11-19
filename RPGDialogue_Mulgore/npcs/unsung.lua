@@ -12,6 +12,7 @@ P:NPC {
   key = "harutt", id = TODO_NPC("Harutt Thunderhorn"), name = "Harutt Thunderhorn", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "steady" }, values = { "brave", "patient" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Trains braves to take their own blows; a summoned servant fighting in your place offends him." },
   notices = { "class", "weary" },
   impression = {
     first = "He makes braves carry river stones uphill until they stop complaining.",
@@ -21,6 +22,9 @@ P:NPC {
     { id = "o_grim_redeem", when = { gossip = { topic = "grimtotem", stance = "redeemable" } }, text = "The Chief told me you think the Grimtotem could still come home. I hope you're right, though I'd keep my spear close while you wait." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "Come, young brave, and plant your hooves. Let us see what the plains have taught you since you last stood here." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Walk with the Earth Mother, friend. You are not one of my braves, but you are welcome at my fire." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "A brave stands in front of his people and takes the blow himself. You send a demon to take it for you, and I've no respect for that." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll train any tauren who asks, but I won't train a demon's master. Ask your questions and leave my braves to their drills." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've taken a few blows yourself since I met you, I'll grant you. I still don't care for what fights beside you, but I'll talk." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -114,6 +118,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Narache. I teach strength, young one, and you'll need it even if you strike from the shadows." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at Camp Narache! We don't see many here, though the trolls who pass through say your sort are clever." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll speak plainly, young one. The braves have been whispering about you since you came into camp, and I won't lie to them about what they smell." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The braves smell the fel on you, young one, and so do I. I won't lie to them, and I won't lie to you: you're not welcome at my fire." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've stood with the braves and never once set your demon on them. That counts for something with me, though not for everything." },
       },
       choices = {
         { text = "Why should a hunter learn to stand firm, Harutt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },

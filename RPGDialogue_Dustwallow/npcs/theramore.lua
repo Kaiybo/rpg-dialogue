@@ -1055,6 +1055,7 @@ P:NPC {
   key = "vimes", id = TODO_NPC("Captain Garran Vimes"), name = "Captain Garran Vimes",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "direct", "sharp" }, values = { "dutiful", "lawful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran; he saw what the Horde's warlocks unleashed and doesn't trust the craft in anyone's hands." },
   notices = { "race", "kit" },
 
   impression = {
@@ -1068,6 +1069,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the inn case hasn't moved an inch in that time. I'm glad you're back, because I've run out of people who look for evidence instead of culprits." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in the city tells me you were caught in a lie, and I'll tell you plainly what that means to me. I build cases on testimony, so from now on I'll be checking yours twice." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you put the fear into one of our citizens, and I'll remind you that threats are the Guard's business in Theramore, not yours. Keep it outside the walls." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've looked into enough burnt buildings to know what a summoned thing leaves behind. Be careful what you say to me, stranger." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Lady says we judge by deeds, so I'll judge yours, and closely. Don't give me a reason." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Your deeds have stood up to my scrutiny, and that's not nothing. I'll still be watching, but not as closely as before." },
   },
 
   notice = {
@@ -1220,6 +1224,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Archmage Tervosh is too busy to help me, so maybe you can tell me whether a fire looks different when someone starts it with magic." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Before you tell me the Horde burned the Shady Rest because they're the Horde, hear me out, because I've stood in those ashes and they don't tell me that." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll not ask what you keep at your heel, stranger, but I'll ask you to keep it away from the Hyal family, because they've lost enough." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what warlocks did in the Second War, and I'll not forget it because you smile at me. Keep that thing away from the Hyal family, and keep it away from me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept to the law in Theramore, and I'll grant you that much. Now, what do you need?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I don't judge a soldier by how they fight, only by whether they tell me the truth, so let's start there." },
         { id = "h_dd_soup", when = { questDone = TODO_QUEST("Mudrock Soup and Bugs") }, text = "Morgan Stern tells everyone I had two bowls of the tortoise soup you helped him make, and I'd like it known I had three. Don't spread that around the barracks, mind." },
         { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "Hendel wore our tabard and stood our watch, and you're the one who pulled the rot out. I've been through every soldier's record since, twice, and I'm still not sleeping well." },

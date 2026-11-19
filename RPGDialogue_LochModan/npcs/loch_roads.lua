@@ -6,6 +6,7 @@ P:NPC {
   key = "stormpike_mtn", id = TODO_NPC("Mountaineer Stormpike"), name = "Mountaineer Stormpike",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "gruff" }, values = { "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Held Loch Modan when orc warlocks burned its farms in the Second War." },
   notices = { "class" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know that stink, an' it's no' the mines. Ye're a warlock, an' I'd sooner ye kept movin'." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I held this valley when the Horde came through wi' their warlocks, an' I've no' forgotten. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've done honest work in this valley, I'll grant that. I'm still keepin' an eye on ye, mind." },
     { id = "g_post", text = "State yer business, and be quick about it. The kobolds don't wait for pleasantries." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, an' ye've the look o' someone who finishes it." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the kobolds didnae miss ye one bit. I did, a wee bit, fer the work's piled up." },
@@ -113,6 +117,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? I tracked a cave bear three days through the snow when I was young, and I'd wager you've never bettered that." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for there's lads come back from the Silver Stream wi' more than bruises, an' I've no' the words for them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've stood beside yer kind against worse than kobolds, an' I'll tell ye about it, whether ye ask or no'." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I watched orc warlocks set the Loch's farms burnin' in the war, an' I've no' forgotten the smell o' it. Tell me yer business an' keep that thing off my road." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've cleared enough troggs off my road that I'll answer ye civil. I'll still be watchin' whatever follows ye." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've a smell about ye like a snuffed candle. I've held this valley against worse than kobolds, an' I'll no' turn away help, but keep whatever trails ye off the mine road." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Tunnel Rat", min = 30 } }, text = "The Tunnel Rats are fewer in the Silver Stream these days, an' I'd wager I know whose work that is. Keep it up, an' the miners might get their tunnels back before winter." },
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
@@ -396,6 +402,7 @@ P:NPC {
   key = "rockgar", id = TODO_NPC("Mountaineer Rockgar"), name = "Mountaineer Rockgar",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "sharp" }, values = { "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "His brother died at the Thandol Span to an orc warlock's fire." },
   notices = { "class" },
 
   impression = {
@@ -404,6 +411,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know a warlock when I see one, an' I'm lookin' at one now. Keep walkin', or keep yer hands still." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The orcs that overran this valley in the war had yer sort wi' them, an' I watched what they did tae my friends. Speak fast." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've walked this road enough times wi'out callin' up anythin' foul. I'll stop starin', but I'll no' stop watchin'." },
     { id = "g_pass", text = "Halt, and let me see yer face. Right, ye're no' an orc, so come in." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Still in one piece, I see; the last runner came back missing two fingers and his satchel." },
   },
@@ -495,6 +505,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at Algaz! The pass needs strong arms, for what comes down it from the Wetlands doesn't knock first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Algaz! What comes back down that pass from the Wetlands could use yer prayers, when it comes back at all." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Algaz! The Dragonmaw would think twice about the pass wi' the likes o' ye standin' in it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My brother died at the Thandol Span when the Horde came through, an' the green fire that killed him came from a warlock's hand. Say what ye need an' move along." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye again. I'll answer ye, for ye've done right by the valley, but dinnae expect me tae be glad o' it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Headin' north, are ye, wi' those cold eyes? The orcs in that marsh had their own dark sort back in the war, so I hope ye're the better kind." },
         { id = "h_smuggler", when = { origin = "dwarf_loch_smuggler" },
           text = "Halt, and let me get a proper look at ye. Aye, I thought so, for I've seen that face slip past this station at midnight wi' a cart o' somethin' that wasnae on any manifest, though this time ye've come in by the front." },

@@ -317,6 +317,7 @@ P:NPC {
 P:NPC {
   key = "motega", id = TODO_NPC("Motega Firemane"), name = "Motega Firemane",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 10, why = "Fights the Grimtotem's bargains with dark powers; sees warlockry as the same bargain." },
   impression = {
     first = "He has had enough of the Grimtotem and isn't shy about it.",
     third = "{name} met Motega Firemane, a tauren at Freewind Post in Thousand Needles.",
@@ -324,6 +325,9 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Welcome, traveler. Come, but watch your step on the mesa edges." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the Earth Mother keeps those who walk her paths, though she lets them get very dusty on the way." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Grimtotem trade their honour for power they cannot hold, and so do you. I'll speak with you because Freewind needs help, not because I want to." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I have no kind words for those who bargain with demons. Tell me what you want, and do not offer me anything." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I expected you to sell yourself to whatever you call, as the Grimtotem do. You haven't yet, and I've noticed." },
   },
   start = "hello",
   nodes = {
@@ -387,6 +391,8 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The Grimtotem think the Needles belong to them, so I'd very much like to see your fire prove them wrong at Darkcloud Pinnacle." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "The Grimtotem bargain with powers they do not understand. There is a smell on you that tells me you bargain too, and I hope you understand yours better." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know a demon's bargain when I smell one, and you reek of it. Say what you came for, quickly." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You still bargain, I think, but you seem to keep the better end of it. Very well; speak." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue of the Horde. The Grimtotem are many, and they fight like cornered bulls, but a blade in the dark is something they don't expect." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Grimtotem would spit at you, so you're already on my side." },

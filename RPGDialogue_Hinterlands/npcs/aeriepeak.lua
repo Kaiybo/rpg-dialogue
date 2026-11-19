@@ -661,6 +661,7 @@ P:NPC {
   key = "fraggar", id = TODO_NPC("Fraggar Thundermantle"), name = "Fraggar Thundermantle",
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "solemn" }, values = { "devout", "protective" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Wildhammer shaman; the spirits of the Hinterlands still grieve the Horde warlocks' burning." },
   notices = { "class" },
 
   impression = {
@@ -669,6 +670,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The spirits are screamin', an' I know why. Ye're a warlock, an' ye've no friend among them, nor in me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I cannae see ye well, but I can feel the fel on ye like a burn. Speak, an' then leave my fire." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits still flinch when ye come, but ye've done them no harm I can find. Sit, then, though I'll no' turn my back." },
     { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough, an' it's no' happy." },
     { id = "g_away", when = { away = 14 }, text = "Is that you, friend? I'd know that step even after {away} away, an' the land's been askin' where ye went." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye sound heavier on yer feet than ye did, an' I don't mean yer belly. Ye've grown strong since we last spoke, an' the spirits mark it." },
@@ -791,6 +795,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Horde's warlocks burned these hills in the Second War, an' the spirits o' this land havenae stopped grievin'. I'll hear ye because I must, but ye'll get no blessin' from me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've come back often, an' the land hasnae soured where ye walked. I'll hear ye out, though the spirits an' I are still wary." },
         { id = "h_pt_shaman", tags = { "news" }, when = { party = { class = "SHAMAN" }, faction = "Alliance" },
           text = "{companion} speaks to the storm; I can smell the rain on them from here. You don't see that in Ironforge's folk often, and it does an old Wildhammer's heart good." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },

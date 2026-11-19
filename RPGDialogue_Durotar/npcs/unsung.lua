@@ -12,6 +12,7 @@ P:NPC {
   key = "frang", id = TODO_NPC("Frang"), name = "Frang", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "brave", "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Has buried recruits killed by Burning Blade imps; every warlock looks like their next recruiter." },
   notices = { "class", "weary" },
   impression = {
     first = "He judges recruits by how fast they get back up.",
@@ -20,6 +21,9 @@ P:NPC {
   greetings = {
     { id = "g_war", when = { class = "WARRIOR" }, text = "On your feet, recruit! If you are here, you have bruises to show me, and I want to see them." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "You are not one of mine, but stand up straight anyway; the Den does not like a slouch." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried two recruits this season because of the Burning Blade's imps. You'll forgive me if I don't turn my back on you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Stand over there, away from my recruits. I'll not have them thinking a demon's master is someone to copy." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've trained with the others and never once called that thing to finish a fight for you. Fine; you can stand closer, but not too close." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -121,6 +125,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my Den! Good, because a recruit who's been knocked down by a bear learns to get up faster than one who's only been knocked down by me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I've seen what the Burning Blade's imps leave of a recruit's face, and I've buried two this season. You've the same smell about you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Same smell as the Burning Blade's lot, and I've dug the graves for what they leave behind. Speak your piece and keep your imp out of my yard." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've not shamed the Den yet, so I suppose you've earned a word or two. Go on, then." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in my training ground. Your beast can sit by the wall, and you can stand with my recruits, because it won't hurt you to learn to take a hit." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in the Den! Stand back from my ring, because my recruits throw each other, and I won't have them throwing a spellcaster." },
       },

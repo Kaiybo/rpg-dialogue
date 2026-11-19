@@ -593,6 +593,7 @@ P:NPC {
   key = "theodrus", id = TODO_NPC("Theodrus Frostbeard"), name = "Theodrus Frostbeard", title = "Priest Trainer",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "pious", "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Priest of the Light; has buried priests who tried to bargain with demons." },
   spiritSensitive = true,
   notices = { "class" },
 
@@ -602,6 +603,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know fel when it walks intae my hall, an' it just did. Say what ye need an' keep yer hands where I can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Light'll hear anyone, but I'm no' the Light, an' I've no' got its patience. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've come back often enough wi'out trouble that I've stopped reachin' for my mace. I'm still prayin' for ye, mind, an' still watchin'." },
     { id = "g_warn", text = "Don't turn yer back on the Light; it may be the one thing that saves ye some day." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more learnin'? Good, for ye cannae have too much o' it." },
   },
@@ -703,6 +707,8 @@ P:NPC {
           text = "Ye came in quiet. Folk who come in quiet usually want somethin' from the Hall, so say what it is an' I'll decide if ye can have it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage come tae a priest? I'll warn ye as I warn everyone: the arcane can lead a soul away from the Light if ye let it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've buried priests who thought they could reason wi' a demon an' its master. Ask yer question, then take that stink back down tae the Forlorn Cavern where it belongs." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "I'll answer ye, an' I'll no' pretend I'm glad tae, but ye've no' brought anythin' foul through that door yet. Keep it that way." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll no' turn ye away, for the Light turns nobody away, but I can see the shadow on ye, an' I'll tell ye plainly ye've already taken the first step down the road I warn folk about." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Don't turn yer back on the Light, for it'll stand beside ye in the shield wall when nothin' else will." },
@@ -1178,6 +1184,7 @@ P:NPC {
   key = "tiza", id = TODO_NPC("Tiza Battleforge"), name = "Tiza Battleforge",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "steady", "proud" }, values = { "pious", "dutiful", "generous" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Paladin; her father followed Turalyon through the Dark Portal and never came back." },
   spiritSensitive = true,
   notices = { "paladin" },
 
@@ -1187,6 +1194,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Dinnae come a step closer. I know what ye are, an' so does every paladin in this ward." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Demon-caller. I'll speak wi' ye because the King's law says I must, an' for no other reason." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've kept yer creatures away from my paladins, as I asked. That counts for somethin', though no' for much." },
     { id = "g_light", text = "The Light be wi' ye. Speak, an' I'll listen." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "A paladin! Stand up straight an' tell me what ye've done for someone who couldnae repay ye." },
   },
@@ -1281,6 +1291,8 @@ P:NPC {
           text = "A priest! We'd be lost wi'out yer kind; it's yer lot patchin' up my husband right now. Thank ye, on his behalf, for he'll forget tae." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue come tae see a paladin's mentor? I'll hear ye, but I'll no' pretend I'm comfortable wi' yer trade." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father went through the Dark Portal wi' Turalyon an' never came back, an' it was warlocks who tore that door open. Say yer piece an' go." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've caused me no grief, I'll grant ye that. Ask, then, an' I'll answer as plain as I can." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll no' have whatever ye keep near my paladins, for they're trained tae smite first an' ask after, an' they'll smell it on ye." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I send my young paladins tae help folk who cannae repay them, an' hunters do the same more often than ye'd think." },
