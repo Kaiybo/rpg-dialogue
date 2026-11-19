@@ -359,6 +359,7 @@ P:Pool {
     { id = "g_o_westfall", once = true, priority = 40, when = { gossip = { topic = "westfall", stance = { "abandoned", "send_soldiers" } } },
       text = "Folk say you've been telling anyone who'll listen that the city's abandoned Westfall. Plenty here agree, though they'd not say it to a guard." },
     { id = "g_day", text = "Good day to you. If you're after the Trade District, follow the canal and you can't miss it." },
+    { id = "g_nx_ne", when = { race = "NightElf" }, text = "One of the elves, all the way from your tree. The guards say to make you welcome, so welcome, and do try not to look at the canals like they've offended you." },
     { id = "g_xcathpupil", when = { origin = "gnome_cathedral_pupil" }, text = "Oh, you're the little gnome who came to the Cathedral with burned hands and stayed to study! The brothers say you once asked for the Light in diagram form, and I believe one of them is still trying to draw it." },
     { id = "g_xdalstray", when = { origin = "human_dalaran_stray" }, text = "You're one of the young ones from Dalaran, aren't you, who came south after the city fell? I'll never understand why the Kirin Tor shut their gates on their own students, but Stormwind's glad of you." },
     { id = "g_xnoble", when = { origin = "human_minor_noble" }, text = "You'll be from one of the old houses up by the Keep; you hold your chin the way they teach you to. Don't worry, I won't ask which, because half of them owe my uncle money." },
@@ -468,6 +469,11 @@ P:Pool {
     { id = "l_priest", when = { class = "PRIEST" }, text = "The Cathedral's been feeding the refugees from Lordaeron all winter. I don't know how you priests stretch the bread so far, but my neighbors wouldn't have eaten without it." },
     { id = "l_winterveil", when = { holiday = "winterveil" }, text = "Winter Veil, and the whole city smells of pine and roasting nuts. The children have been at the windows of the toy sellers since dawn, and I can't say I blame them." },
     { id = "l_hallows", when = { holiday = "hallowsend" }, text = "The children are carving faces into gourds for Hallow's End again. The Forsaken started this feast, people say, and I try not to think about it while I'm handing out sweets." },
+    -- How others see the kaldorei (0.94.0).
+    { id = "l_nx_elves", text = "The night elves sat in their forests for ten thousand years while we bled through two wars with the Horde. Now they've joined the Alliance, and the first thing they asked for was help in Ashenvale." },
+    { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "You're one of the tree-folk, aren't you? No offence meant, but your people look at our city like it's a wound on the ground, and it's hard to warm to that." },
+    { id = "l_nx_moon", when = { race = "NightElf" }, text = "My priest says your moon goddess and our Light might be the same thing seen from two sides. My mother says that's heresy, and she's louder than he is." },
+    { id = "l_nx_defend", text = "I hear people grumble about the night elves, but my brother served on the Auberdine run, and he says the Sentinels pulled his whole crew out of the surf one winter. I'll not hear them called cold in my shop." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -541,6 +547,7 @@ P:Pool {
     { id = "g_o_dark", once = true, priority = 40, when = { gossip = { topic = "dark_iron", stance = { "hate", "war" } } },
       text = "Word is ye'd see every Dark Iron put in the ground. Ye'll not find many here to argue with ye, {g:lad|lass}." },
     { id = "g_day", text = "Good day tae ye! Come warm yer hands; the Great Forge never goes out, an' nor does the welcome." },
+    { id = "g_nx_ne", when = { race = "NightElf" }, text = "An elf in Ironforge! Mind yer head on the beams, tall one, an' try no' tae look so pained at the smoke; the forge has tae breathe somewhere." },
     { id = "g_xledger", when = { origin = "gnome_thermaplugg_clerk" }, text = "Ye kept the books for Thermaplugg, did ye no'? Folk in Tinker Town say ye knew where every copper went, an' some o' them would like tae know why ye never said." },
     { id = "g_xarcaneeng", when = { origin = "gnome_arcane_engineer" }, text = "Ye're the gnome that singed the eyebrows off half the Tinker Town faculty wi' yer arcane wirin'! The mages in the Mystic Ward still curse yer name, an' then they copy yer notes when they think nobody's lookin'." },
     { id = "g_xchaplain", when = { origin = "dwarf_league_chaplain" }, text = "Ye're the League's priest, are ye no', the one they send down intae Uldaman tae bless the diggers? My cousin's on that dig, an' he says ye talk about the Light as though it were older than the mountain." },
@@ -613,6 +620,9 @@ P:Pool {
     { id = "l_commons", when = { subzone = "The Commons" }, text = "Everything ye could want is sold in the Commons, an' some things ye couldnae. Mind the bankers, they bite." },
     { id = "l_military", when = { subzone = "The Military Ward" }, text = "The Military Ward's where the young ones go tae learn the axe an' the shield. Ye can hear 'em shoutin' from the Forge, which means they're doin' it right." },
     { id = "l_winterveil", when = { holiday = "winterveil" }, text = "Greatfather Winter's come tae the Commons again, an' the children are queued half round the mountain. I'll no' tell ye what I asked him for, but it came in a barrel." },
+    { id = "l_nx_elves", text = "The night elves'll nae let the League dig a single trench in Darkshore without a Sentinel glarin' down the shaft at us. Ten thousand years they sat on all that history, an' now they call it grave-robbin' when someone else looks." },
+    { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "An elf under the mountain! Ye'll find nae trees in here, an' I'll thank ye not tae scowl at the Forge like it's done ye a wrong." },
+    { id = "l_nx_gnome", when = { race = "NightElf" }, text = "The gnomes in Tinker Town say yer people looked at their wee mechanical birds like they were plague rats. Go easy on 'em, will ye; they've lost a whole city." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -887,6 +897,9 @@ P:Pool {
     { id = "l_cleft", when = { subzone = "Cleft of Shadow" }, text = "The Cleft gives me a chill, and I've lived in Durotar all my life. Warlocks and worse keep their dens down here, and the Warchief allows it as long as they behave." },
     { id = "l_strength", when = { subzone = "Valley of Strength" }, text = "Every caravan from the Barrens comes through the Valley of Strength, and half the city's bread and gossip comes with them." },
     { id = "l_winterveil", when = { holiday = "winterveil" }, text = "Goblins brought this Winter Veil to us, and now there's a tree in the Valley of Strength hung with little shiny things. The grunts pretend to scowl at it and then stand there looking at it for an hour." },
+    { id = "l_nx_elves", text = "The night elves shoot our peons in Ashenvale for cutting wood we need to build this city. They talk about balance, but their balance means orcs living in tents forever." },
+    { id = "l_nx_grom", text = "Grom Hellscream killed their demigod in Ashenvale, and the elves have never forgiven it. Some here are proud of that day, and some remember whose blood was in Grom when he did it." },
+    { id = "l_nx_hyjal", text = "We stood beside the night elves at Hyjal when the Legion came, my father among them. It's strange how quickly both sides forgot." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -1004,6 +1017,8 @@ P:Pool {
     { id = "l_venture", text = "The goblins of the Venture Company cut our trees and drill our earth, and they call it business. We call it something else, and Cairne has sent braves to tell them so." },
     { id = "l_grimtotem", when = { subzone = "Elder Rise" }, text = "Some of the Grimtotem keep their tents on the Elder Rise. They're polite enough to Cairne's face, but they've never liked the orcs, and they don't hide it well." },
     { id = "l_hunter", when = { subzone = "Hunter Rise" }, text = "On the Hunter Rise they teach the young to track and to wait, and the waiting is harder. I never had the patience myself; I weave baskets instead." },
+    { id = "l_nx_elves", text = "The night elf druids taught Hamuul Runetotem, and we are grateful for it. Still, some of them speak to us as if the Earth Mother had not spoken to the tauren long before they came down from their trees." },
+    { id = "l_nx_sentinels", text = "My cousin walks the roads in Ashenvale with the Horde's caravans. The Sentinels shoot at any tauren there now, because of the company we keep, and that grieves me more than it angers me." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -1128,6 +1143,8 @@ P:Pool {
     { id = "l_scarlet", text = "The Scarlet Crusade burns any of us they catch, and they call it mercy. Half of us were Tirisfal farmers once, and they'd have burned us just as happily back then for a bad cough." },
     { id = "l_canals", text = "Don't touch the green in the canals. It doesn't kill us, quite, but it doesn't help either." },
     { id = "l_hallows", when = { holiday = "hallowsend" }, text = "Hallow's End is ours, whatever the living tell you. We burn the Wicker Man for the day we broke free of the Scourge, and the living hand out sweets and pretend it's about pumpkins." },
+    { id = "l_nx_elves", text = "The night elves mourn their lost immortality as if it were a dead child. I'd trade them my eternity for their mortality, and I'd throw in the rot for free." },
+    { id = "l_nx_lordaeron", text = "Where were the kaldorei while Lordaeron burned? In their forests, keeping their balance, and they'll keep it right up until it's their turn." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -1510,6 +1527,8 @@ P:Pool {
     { id = "l_span", text = "The Thandol Span's the only bridge north to Arathi, and the Dark Irons have taken one end of it. So now everything for the north goes round by sea, and the prices show it." },
     { id = "l_ships", text = "Ships to Theramore and Auberdine leave from the docks, if the weather's right and the captain's sober. One of the two is usually true." },
     { id = "l_keep", text = "Half the keep's still underwater from when the harbor flooded. The soldiers say you can see the old cellar doors at low tide, and nobody's had the nerve to open them." },
+    { id = "l_nx_elves", text = "The elves on the Auberdine boat sit at the bow and say nothing the whole crossing. The sailors call them the figureheads, though never where the elves can hear it." },
+    { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "Going home to your tree, or coming from it? Either way, you'll want the Auberdine boat, and the crew will treat you well enough, though they'll laugh about you after." },
   },
   topics = {
     scourge = { { id = "w_scourge", text = "The ships out of Lordaeron came in full of refugees, and then they stopped coming. Some nights the fog off the bay looks like it's full of faces, and the old sailors won't go out in it." } },
@@ -1925,6 +1944,8 @@ P:Pool {
     { id = "l_kultiras", text = "Half the sailors here are Kul Tiran, and they don't talk about Admiral Proudmoore, the Lady's father. If you want to keep your teeth, you won't either." },
     { id = "l_varian", text = "The King of Stormwind was coming here to talk peace when he vanished. Nobody knows what happened, and the Lady won't say, if she even knows." },
     { id = "l_marsh", text = "Crocolisks in the water, ogres in the hills, and dragons in the south, people say. Dustwallow's no place to raise children, but it's where we are." },
+    { id = "l_nx_elves", text = "The night elves came to Theramore once to speak with the Lady and left before supper. They're polite enough, but you always feel you've tracked mud into their house." },
+    { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "Your Sentinels fought beside us at Hyjal, the old soldiers say. I'd like to think the Lady's peace with the orcs could hold for your forests too, if your people would give it half a chance." },
   },
   topics = {
     jaina = { { id = "w_jaina", text = "Lady Jaina built this city out of nothing but the survivors of Lordaeron and her own stubbornness. She keeps the peace with the Horde because she's seen what war costs, and anyone here who says otherwise wasn't at Hyjal." } },
