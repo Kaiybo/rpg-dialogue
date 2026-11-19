@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand my birds better than most, then, for ye know a beast's a comrade an' no a saddle wi' feathers." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons don't take kindly tae shapechangers, so stay on two legs on the platform, if ye please." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds'll carry ye gladly, {class}, an' I'll ask ye tae say a word for the riders who've no' come back from Jintha'Alor this season, for there's been more than I'd like." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye'll fly, {class}, for ye're Alliance an' that's the rule, but the birds'll smell what ye've been handlin', so dinnae expect a smooth ride." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye'll fly, {g:lad|lass}, for ye're Alliance an' that's the rule, but the birds'll smell what ye've been handlin', so dinnae expect a smooth ride." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The birds are restless, and so am I." },

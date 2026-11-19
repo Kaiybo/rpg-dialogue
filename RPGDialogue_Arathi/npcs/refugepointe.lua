@@ -476,7 +476,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds can carry you, armour and all, though the gryphons do complain about plate when the wind's blowing off the coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The gryphons don't care for whatever you've got following you, {class}, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The gryphons don't care for whatever you've got following you, friend, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
         { id = "h_dd_northfold", when = { questDone = TODO_QUEST("Northfold Manor") },
           text = "My gryphon riders flew over Northfold this morning and saw no Syndicate banners on the walls. Captain Nials says that's your doing, and I've told the riders to give you their best bird." },
         { id = "h_dd_falling", when = { deathCause = "falling" },

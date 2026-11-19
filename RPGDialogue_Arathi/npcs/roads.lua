@@ -159,7 +159,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, keep low, please, because armour flashes in the sun and the orcs at Go'Shek notice anything that flashes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good. Your eyes are probably better than mine, so tell me what you see moving down at Go'Shek Farm, and keep your voice down." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Keep that hammer low and that shine lower, {class}, because the orcs down at Go'Shek Farm would spot holy light from the other side of the Highlands." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep low, and keep whatever trails you lower, {class}, because the last thing Kinelory needs is to turn round and see something with horns behind her." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep low, and keep whatever trails you lower, friend, because the last thing Kinelory needs is to turn round and see something with horns behind her." },
       },
       choices = {
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
@@ -540,7 +540,7 @@ P:NPC {
         { id = "h_priestcl", when = { class = "PRIEST" }, text = "A priest! I was half hoping someone would come along to read my last rites, {class}, though I'd much rather you read the road to the coast instead." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've read that your kind can speak with the very stones, {class}, so perhaps you could ask the gorge why it lets kobolds live in it, for I've been wondering." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, splendid, a fellow scholar! Do forgive the state of me, {class}, for the kobolds have had me living on cave water and indignation for a week." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Good heavens, is that a demon? I've read about them, of course, {class}, but reading is so much less alarming than seeing one blink at you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Good heavens, is that a demon? I've read about them, of course, friend, but reading is so much less alarming than seeing one blink at you." },
       },
       choices = {
         { text = "Kobolds belong to the land too, Professor.", next = "druid_q", when = { class = "DRUID" } },
