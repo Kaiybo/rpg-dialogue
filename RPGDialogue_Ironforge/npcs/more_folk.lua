@@ -763,7 +763,7 @@ P:NPC {
     third = "{name} met Artilleryman Sheldonore, a gun-loving dwarf in the Commons who thinks arrows are for sissies.",
   },
   greetings = {
-    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Good. Tell me ye carry a rifle an' no' one o' those bent sticks, an' we'll be friends." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, good! Now tell me ye carry a rifle an' no' one o' those bent sticks, an' we'll be friends." },
     { id = "g_hi", text = "Bang! Ha, made ye jump, didn't I? Artilleryman Sheldonore, an' I love the sound o' a good rifle." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye've no' taken up the bow, I hope?" },
     { id = "g_active", when = { questActive = TODO_QUEST("Arrows Are For Sissies") }, text = "Got what I asked for yet? I'm itchin' tae get to work." },
@@ -832,7 +832,7 @@ P:NPC {
       big = true,
       lines = { { id = "de_default", text = "Has it, now? Then ye've no' seen what a dwarven rifle can do. Will ye give one a try, at least?" } },
       choices = {
-        { text = "I'll try one. I'm not too proud to learn.", next = "BACK", reply = "That's the spirit! Ye'll never look back.", fx = { align = { honor = 1 } } },
+        { text = "I'll try one. I'm not too proud to learn.", next = "BACK", reply = "That's the spirit, an' once ye've felt a good stock against yer shoulder, ye'll never look back.", fx = { align = { honor = 1 } } },
         { text = "No. My bow and I are done talking.", next = "BACK", reply = "Suit yerself, but don't come cryin' when yer string snaps.", fx = { align = { honor = -1 } } },
       },
     },
@@ -1033,7 +1033,7 @@ P:NPC {
     third = "{name} met Valgar Highforge, the senior paladin of the Silver Hand in Ironforge.",
   },
   greetings = {
-    { id = "g_back", when = { metBefore = true }, text = "Ye've returned. Good. A body that comes back tae this hall o' its own accord is half taught already." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye've returned, an' that's good, for a body that comes back tae this hall o' its own accord is half taught already." },
     { id = "g_human", when = { race = "Human" }, text = "The Light be wi' ye, {g:son|daughter} o' Lordaeron or Stormwind, whichever it is. Yer people brought the Hand tae us, an' ye're welcome here." },
     { id = "g_hi", text = "The Light be with ye. Are ye here tae learn, or tae listen?" },
     { id = "g_pal", when = { class = "PALADIN" }, text = "Welcome back, brother or sister o' the Hand. What would ye learn today?" },

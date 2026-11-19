@@ -429,6 +429,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Stand up straight when you come to me, {class}. Slouching gets you killed." },
     { id = "g_path", when = { questActive = TODO_QUEST("Path of Defense") }, text = "Well? Have you got what I sent you for, or have you come to tell me why not?" },
+    { id = "g_garvak_master", when = { class = "WARRIOR", thread = { id = "war_garvak", state = "resolved" } }, text = "Garvak stood his ground for a whole morning yesterday, and he hated every moment of it. Stand up straight, {class}, because I'm in a good mood." },
+    { id = "g_garvak_run", when = { class = "WARRIOR", thread = { id = "war_garvak", state = "soured" } }, text = "Garvak's back on the Kolkar line, charging like the old days. Say what you came for, and stand straight while you say it." },
   },
 
   notice = {
@@ -457,8 +459,37 @@ P:NPC {
         { text = "What's the most dangerous thing out here?", next = "danger" },
         { text = "Teach me to hold the line.", next = "line", when = { class = "WARRIOR" } },
         { text = "I'm ready for my test.", next = "BUSINESS" },
+        { text = "I've heard what the others say about Garvak.", next = "garvak_end",
+          when = { class = "WARRIOR", thread = { id = "war_garvak", beat = "b2_uzzek", state = "unfolding" },
+                   any = { { thread = { id = "war_garvak", beat = "b3_kargal" } }, { thread = { id = "war_garvak", beat = "b3_grezz" } } } } },
         { text = "I'll go.", next = "END" },
       },
+    },
+    garvak_end = {
+      big = true,
+      narr = "He plants his shield rim-down in the dust and leans on it.",
+      lines = { { id = "garvak_end_default", key = true,
+        text = "Then you know he's coming back to me at the next new moon, because I asked him to, and I'll have to tell him something. Kargal calls it the fever and Grezz calls it the Horde, and you're young enough to have no stake in that old war, so you tell me: does he master the rage, or let it run?" } },
+      again = { { id = "garvak_end_again", text = "You've given me your answer about Garvak. Now I have to give it to him." } },
+      choices = {
+        { text = "He masters it. A rage that rules you is only a leash.", next = "garvak_master",
+          fx = { thread = { id = "war_garvak", state = "resolved" }, align = { order = 1 }, affinity = 1 },
+          journal = { first = "I told Uzzek that Garvak must master his rage. He'll teach the whelp to stand still.", third = "{name} told Uzzek that Garvak must master his rage." } },
+        { text = "Let it run. The rage was ours before any demon came.", next = "garvak_run",
+          fx = { thread = { id = "war_garvak", state = "soured" }, align = { order = -1 } },
+          journal = { first = "I told Uzzek to let Garvak's rage run. He's sending him back to the Kolkar line.", third = "{name} told Uzzek to let Garvak's rage run." } },
+        { text = "That's for Garvak to answer, not me.", next = "BACK" },
+      },
+    },
+    garvak_master = {
+      lines = { { id = "garvak_master_default",
+        text = "That's my answer too, and now I've someone to blame for it besides myself. I'll teach him to stand still if it takes another four tries, and if it takes five, I'll tell him you said so." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "Lok'tar, Uzzek.", next = "END" } },
+    },
+    garvak_run = {
+      lines = { { id = "garvak_run_default",
+        text = "Then I'll send him back to Kargal's line with my blessing, such as it is, and hope you're right. If they carry him in on a shield, I'll remember who told me to let him go." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
     path = {
       lines = { { id = "p_default", text = "It's taking a blow and still being there to give one back. The young ones want to charge in and win in one swing, and the ones who live long enough to get old learned to wait." } },

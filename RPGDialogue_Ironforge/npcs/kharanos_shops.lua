@@ -610,7 +610,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ye look cold, recruit. Let's find ye somethin' warm before ye catch yer death." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Ye're lookin' tougher already." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Ye're lookin' tougher already, so the valley must be treatin' ye rough in the right ways." },
   },
 
   notice = {

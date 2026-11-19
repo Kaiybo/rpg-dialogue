@@ -21,6 +21,8 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit since we last spoke, an' the Brotherhood notices that sort o' thing. There's harder work for ye now." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody at the Point caught ye in a lie. Everythin' here is my responsibility, an' that includes the truth, so don't make me sort it out." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Brotherhood's been sayin' good things about ye. That's rare praise from a lot o' dwarves who mostly talk about ore." },
+    { id = "g_haldin_sworn", when = { race = "Dwarf", thread = { id = "dwarf_haldin", state = "resolved" } }, text = "Haldin's been singin' louder since he took the oath, an' the lads have started singin' back. Welcome tae Thorium Point, Bronzebeard." },
+    { id = "g_haldin_home", when = { race = "Dwarf", thread = { id = "dwarf_haldin", state = "soured" } }, text = "Haldin went home on the caravan, an' the third forge has been quiet since. What d'ye need?" },
   },
 
   notice = {
@@ -236,8 +238,36 @@ P:NPC {
         { text = "Ragnaros has fallen in the Molten Core, Overseer.", next = "xcl_mc", when = { cleared = "Molten Core" } },
         { text = "Could Dark Iron and Bronzebeard ever make peace?", next = "xpt_dwarf", when = { party = { race = "Dwarf" } } },
         { text = "I was a thrall in the Gorge once, Overseer. A false one.", next = "xorig_thrallspy", when = { origin = "dwarf_searing_gorge_spy" } },
+        { text = "Haldin Forgebrow's kin in Ironforge think he's dead.", next = "haldin_end",
+          when = { race = "Dwarf", thread = { id = "dwarf_haldin", beat = "b4_oilfist", state = "unfolding" } } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
+    },
+    haldin_end = {
+      big = true,
+      narr = "He sets his hammer down across the anvil and doesn't pick it back up.",
+      lines = { { id = "haldin_end_default", key = true,
+        text = "Then they're grievin' a dwarf who's alive an' well an' askin' me for an oath. Ye're Bronzebeard, so ye'll know better than I do what Ironforge would make of it: do I take his oath, or put him on the next caravan home?" } },
+      again = { { id = "haldin_end_again", text = "Ye've given me yer answer about Haldin, an' I've given it tae him." } },
+      choices = {
+        { text = "Take his oath. Kin is whoever broke your chains.", next = "haldin_sworn",
+          fx = { thread = { id = "dwarf_haldin", state = "resolved" }, align = { order = -1 }, affinity = 1 },
+          journal = { first = "I told Oilfist to take Haldin's oath. He'll be the first Bronzebeard sworn to the Brotherhood.", third = "{name} told Overseer Oilfist to take Haldin Forgebrow's oath." } },
+        { text = "Send him home. His oath belongs to Ironforge and his mother.", next = "haldin_home",
+          fx = { thread = { id = "dwarf_haldin", state = "soured" }, align = { order = 1 } },
+          journal = { first = "I told Oilfist to send Haldin home. He'll be on the next caravan to Ironforge.", third = "{name} told Overseer Oilfist to send Haldin Forgebrow home." } },
+        { text = "That's between Haldin and you, Overseer.", next = "BACK" },
+      },
+    },
+    haldin_sworn = {
+      lines = { { id = "haldin_sworn_default",
+        text = "Then he'll be the first Bronzebeard tae swear the Brotherhood's oath, an' I'll write tae his mother myself, so she hears it from us an' no' from a rumor. Ironforge'll call it a scandal, an' I reckon that's a fair price for a start." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "Tell him I said well done.", next = "END" } },
+    },
+    haldin_home = {
+      lines = { { id = "haldin_home_default",
+        text = "Aye, maybe ye're right, for the mountain taught us what it costs tae keep a dwarf from his own. He'll go on the next caravan, an' I'll miss his singin' at the third forge more than I'll ever say tae him." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
     xorig_thrallspy = {
       lines = {
@@ -363,6 +393,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_moira = {
+      narr = "He glances around the camp before he answers, as if Thaurissan's men might be listening.",
+      lines = {
+        { id = "dw_moira_default", text = "Moira? No' wi' my own eyes, for a cart-pusher doesnae get near the Emperor's hall. Ironforge says she was stolen, an' the mountain says she walked in on her own feet an' married Thaurissan proper, an' I've never known which lie tae believe." },
+        { id = "dw_moira_dwarf", when = { race = "Dwarf" }, text = "Moira? No' wi' my own eyes, kin, an' I know what yer King says, that she was stolen. In the mountain they said she walked in on her own feet an' married Thaurissan proper, an' I've never known which lie tae believe." },
+      },
+      choices = {
+        { text = "She was taken against her will. No dwarf would choose that.", next = "BACK", reply = "Maybe so, an' maybe Thaurissan's sorcerers did somethin' tae her mind. I'd no' put it past them; they did plenty tae mine.", fx = { align = { light = 1 } } },
+        { text = "Maybe she chose it. Princesses have their own minds.", next = "BACK", reply = "Careful sayin' that this side o' the Gorge. Ironforge would string ye up for it, an' half the Brotherhood would buy ye a drink.", fx = { align = { light = -1 } } },
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
     prej = {
       lines = { { id = "prej_default", text = "Why would I? Yer folk see dark skin an' think Thaurissan, an' they don't stop tae ask whether I left him or not. So I've stopped askin' whether ye're any different, an' it saves time, an' I get tae sit down sooner." } },
       choices = {
@@ -484,6 +526,7 @@ P:NPC {
         { text = "The Gorge rumbles all night long, Hansel.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you really let my creature stand your watch, Hansel?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You don't trust Ironforge dwarves much, Hansel.", next = "prej", when = { prejudiced = true } },
+        { text = "Did you ever see the Bronzebeard princess, inside the mountain?", next = "dw_moira" },
         { text = "I'll handle it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -590,6 +633,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_smell = {
+      lines = {
+        { id = "dw_smell_default", text = "Easy as breathin', kin. A Bronzebeard smells o' snow an' mutton an' that terrible Ironforge ale, an' a Dark Iron smells o' sulphur an' bad temper. Ye smell like the first, so I'll no' shoot ye." },
+      },
+      choices = {
+        { text = "We're all dwarves under the soot, Captain.", next = "BACK", reply = "Aye, that's what the Brotherhood believes, or we'd never have walked out. Tell it tae yer King, would ye; he's no' listenin' tae us.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A Dark Iron is a Dark Iron, Brotherhood or not.", next = "BACK", reply = "An' there it is, the Ironforge welcome. Ye'll find we're used tae it out here.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    dw_why = {
+      lines = {
+        { id = "dw_why_default", text = "Because we're smiths, no' slaves, an' the Firelord's no' a master any dwarf should have. Thaurissan called Ragnaros up tae win a war against Ironforge, an' he lost the war an' gained a god who's been workin' our people tae death ever since." },
+      },
+      choices = {
+        { text = "What happened to Thaurissan?", next = "dw_why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_why2 = {
+      lines = {
+        { id = "dw_why2_default", text = "The first one burned, they say, the moment the Firelord broke the mountain open. His blood still sits on the throne in Blackrock, an' the Emperor there now bows tae fire an' calls it glory, an' I'd rather be blind on a hill than sighted in his hall." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xpt_hunter = {
       big = true,
       lines = { { id = "xpt_hunter_default", text = "Dark Iron patrols out of the Cauldron, mostly, and the odd fire elemental that wanders off from wherever they boil up. A good hunter sees the dust before the army, and that's all a lookout really is, a hunter who never gets to shoot." } },
@@ -725,6 +795,8 @@ P:NPC {
         { text = "And what does a priest smell of?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What does the Gorge smell like to you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you watch for from up here, Captain?", next = "xpt_hunter", when = { party = { class = "HUNTER" } } },
+        { text = "Can you smell the difference between a Bronzebeard and a Dark Iron?", next = "dw_smell", when = { race = "Dwarf" } },
+        { text = "Why did the Brotherhood leave the mountain, Captain?", next = "dw_why" },
         { text = "Keep your nose to the wind, Captain.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },

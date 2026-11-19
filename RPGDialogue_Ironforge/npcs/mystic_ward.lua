@@ -922,7 +922,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye look as though ye've slept on the ground more than in a bed lately, so sit an' rest a while." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look tired, if ye don't mind my sayin'. Sit a while, for the Hall's open tae anyone, whatever they pray to." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, an' tired, I'd wager, for ye've the look o' someone who's been readin' by candlelight again. Is there anythin' I can do for ye?" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come in, come in. Some o' the brothers'll scowl, but I'll help anyone through that door, an' I made that promise long before yer kind turned up." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come in, come in, an' never mind that some o' the brothers'll scowl, but I'll help anyone through that door, an' I made that promise long before yer kind turned up." },
       },
       again = {
         { id = "h_again", text = "Is there anythin' else I can do for ye?" },

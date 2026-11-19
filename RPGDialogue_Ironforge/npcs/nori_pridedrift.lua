@@ -77,7 +77,7 @@ P:NPC {
     },
     brew_rival = {
       big = true,
-      lines = { { id = "br_default", text = "A rival? Me? I sell a few cups in a cold valley, an' they've a whole distillery. But I'll admit I'd love tae see a mornbrew stall in Kharanos one day, right next tae their door." },
+      lines = { { id = "br_default", text = "A rival, me? I sell a few cups in a cold valley, an' they've a whole distillery. But I'll admit I'd love tae see a mornbrew stall in Kharanos one day, right next tae their door." },
       },
       choices = {
         { text = "Go for it. A good brew earns its place anywhere.", next = "BACK", reply = "Och, ye're kind tae say it, an' maybe one day I will, if I can ever get the mornin' brew tae Coldridge before it's cold, never mind Kharanos.", fx = { align = { order = -1 }, affinity = 1 } },

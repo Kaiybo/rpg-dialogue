@@ -775,7 +775,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Senir Whitebeard, envoy of the Senate, same as my brother. He watches the trolls in the valley, an' I watch the ones in their hold." },
         { id = "h_obs", when = { questActive = TODO_QUEST("Senir's Observations") },
-          text = "Grelin's notes? Let me read them. Aye, it's worse than he thought, an' he thought it was bad." },
+          text = "Grelin's notes, is it? Let me read them, then. Aye, it's worse than he thought, an' Grelin's never been one tae think small about bad news." },
         { id = "h_hold", tags = { "news" }, when = { questActive = TODO_QUEST("Frostmane Hold") },
           text = "Frostmane Hold, up on the ridge. Go in, look about, an' come back an' tell me all ye saw." },
         { id = "h_reports", when = { questActive = TODO_QUEST("The Reports") },
@@ -977,7 +977,7 @@ P:NPC {
     },
     opn_darkiron_r_kin = {
       lines = {
-        { id = "opn_darkiron_r_kin", text = "Kin? Hmph. Ye've a softer heart than a Thunderbrew, an' I'll no' say that tae anyone in Kharanos who lost a cousin at the Loch." },
+        { id = "opn_darkiron_r_kin", text = "Kin, ye say? Hmph, ye've a softer heart than a Thunderbrew, an' I'll no' say that tae anyone in Kharanos who lost a cousin at the Loch." },
       },
       choices = {
         { text = "Something else, Ragnar.", next = "BACK" },

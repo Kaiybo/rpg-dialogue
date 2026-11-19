@@ -20,6 +20,8 @@ P:NPC {
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've drunk here quiet often enough that the regulars stopped staring. I haven't, but I've stopped reaching for a bottle to throw." },
     { id = "g_table", text = "Pull up a stool, if you can find one that isn't broken. Most of them are, round here." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, then; my knees won't let me stand for you." },
+    { id = "g_willem_kept", when = { class = "WARRIOR", thread = { id = "war_willem", state = "resolved" } }, text = "Sit down, sit down. I read the whole list last night, every name on it, and it went easier than it has in years." },
+    { id = "g_willem_broke", when = { class = "WARRIOR", thread = { id = "war_willem", state = "soured" } }, text = "You again. Sit if you like, but don't ask me about Westfall, because I've a pen in my pocket and a short temper tonight." },
   },
 
   notice = {
@@ -153,6 +155,11 @@ P:NPC {
         { text = "You must miss soldiering.", next = "soldiering" },
         { text = "I've heard the name Marshal Haggard.", next = "haggard",
           when = { any = { { questActive = TODO_QUEST("Marshal Haggard") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
+        { text = "Why does that mug matter so much to him?", next = "bg_mug", when = { class = "WARRIOR", any = { { questActive = TODO_QUEST("Bartleby the Drunk") }, { questActive = TODO_QUEST("Beat Bartleby") } } } },
+        { text = "Defensive Stance feels like fighting in deep mud, Harry.", next = "bg_stance", when = { class = "WARRIOR", minLevel = 10, any = { { questDone = TODO_QUEST("Beat Bartleby") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
+        { text = "Your dirty tricks kept me alive in Duskwood.", next = "bg_return", when = { class = "WARRIOR", minLevel = 20, maxLevel = 49 } },
+        { text = "I've been inside Blackrock Spire, Harry.", next = "bg_spire", when = { class = "WARRIOR", minLevel = 50 } },
+        { text = "A dwarf doesn't need a drunk to learn brawling.", next = "bg_dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Did you trust the rogues you fought beside?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Soldiers can't have thought much of mages in the war.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did hunters do for your company, Harry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -161,8 +168,37 @@ P:NPC {
         { text = "Would a bear on the flank really have helped your company, Harry?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did anyone fight with dark magic in your wars, Harry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did you ever fight orc shamans in the war, Harry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I found Willem, Harry. He's drilling farmers at Sentinel Hill.", next = "willem_end",
+          when = { class = "WARRIOR", thread = { id = "war_willem", beat = "b3_gryan", state = "unfolding" } } },
         { text = "Enjoy your pint.", next = "END" },
       },
+    },
+
+    willem_end = {
+      big = true,
+      narr = "He sets his mug down and turns it slowly by the handle.",
+      lines = { { id = "willem_end_default", key = true,
+        text = "Alive, then, and drilling Stoutmantle's farmers, which is more than his sergeant ever got out of him. I swore the same oath to the crown that he did, and I've seen men hanged for less than walking off a post, so you tell me, because I can't: did that lad break faith, or keep it?" } },
+      again = { { id = "willem_end_again", text = "You've said your piece about Willem, and I'm still chewing on it." } },
+      choices = {
+        { text = "He kept faith with the people that oath was meant to protect.", next = "willem_kept",
+          fx = { thread = { id = "war_willem", state = "resolved" }, align = { order = -1 }, affinity = 1 },
+          journal = { first = "I told Harry that Willem kept faith with Westfall. He'll read the lad's name with the rest of his list.", third = "{name} told Harry Burlguard that Willem Tarn had kept faith." } },
+        { text = "He broke his oath. A soldier doesn't get to choose his war.", next = "willem_broke",
+          fx = { thread = { id = "war_willem", state = "soured" }, align = { order = 1 } },
+          journal = { first = "I told Harry that Willem broke his oath. He's taking a pen to his list.", third = "{name} told Harry Burlguard that Willem Tarn had broken his oath." } },
+        { text = "That's not mine to judge, Harry.", next = "BACK" },
+      },
+    },
+    willem_kept = {
+      lines = { { id = "willem_kept_default",
+        text = "Then I'll read his name tonight with the rest of them, after the last drunk's gone home, and I'll pour a second pint for it. Don't tell the barracks I said so, because I'm too old to be court-martialled and too stubborn to enjoy it." } },
+      choices = { { text = "Drink one for me, too.", next = "BACK" }, { text = "Good night, Harry.", next = "END" } },
+    },
+    willem_broke = {
+      lines = { { id = "willem_broke_default",
+        text = "Aye, that's what the barracks says, and they've the right of it on paper. I'll take a pen to the list tonight, and if he ever walks back through that door, he can buy his own drink." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
 
     teach = {
@@ -214,6 +250,57 @@ P:NPC {
         { text = "Let me pray over that list with you.", next = "BACK", when = { class = "PRIEST" }, fx = { affinity = 3 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+
+    bg_mug = {
+      lines = { { id = "bgm_default", text = "He carried it through the Second War, so he says, from Southshore to Blackrock and back, though I've heard three different stories about which battle. True or not, he'll fight for it harder than any gnoll will fight for a scrap of meat, and that's the lesson." } },
+      choices = {
+        { text = "Then I'll give it back to him after.", next = "BACK", reply = "You will, because I'll hand it back myself with a full pint in it. Off you go.", fx = { align = { light = 1 } } },
+        { text = "A mug's a mug. I'll take it and be done.", next = "BACK", reply = "That's what the gnolls think about Westfall's farms, lad. Mind who you sound like.", fx = { align = { light = -1 } } },
+        { text = "Something else, Harry.", next = "BACK" },
+      },
+    },
+    bg_stance = {
+      big = true,
+      lines = { { id = "bgs_default", text = "It does, and it's meant to, because the stance is there to make you slow and hard to shift. You hit softer and you get hit less, and the rage comes off every blow they land on you, so the mud's what's keeping you upright, not dragging you down." } },
+      choices = {
+        { text = "Then I'll stand in the mud and let them come.", next = "bg_stance_taunt", fx = { align = { order = 1 } } },
+        { text = "I'll keep to battle stance and finish things quick.", next = "bg_stance_quick", fx = { align = { order = -1 } } },
+        { text = "When do I change between them?", next = "bg_stance_taunt" },
+      },
+    },
+    bg_stance_taunt = {
+      lines = { { id = "bgst_default", text = "When a friend's in trouble and the beast is looking the wrong way, that's when. Switch, Taunt, and take it on your shield, and you'll learn to do it in the time it takes Bartleby to finish a swallow, which isn't long." } },
+      choices = { { text = "Switch, Taunt, shield. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    bg_stance_quick = {
+      lines = { { id = "bgsq_default", text = "Quick's grand when it works, and when it doesn't, you'll wish you'd learned to stand. Ask Haggard about the day his whole patrol tried to finish things quick, if he's sober enough to tell it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bg_return = {
+      lines = {
+        { id = "bgr_default", text = "Did they now? Then sit down and tell me which one, because I've an old soldier's vanity and I like to hear it. Duskwood's a foul place for a fight, all fog and wet roots, and a fair fighter dies there twice as fast as a dirty one." },
+        { id = "bgr_human", when = { race = "Human" }, text = "Did they now? I heard the Night Watch at Darkshire is thinner than ever, and good Elwynn lads are dying in that fog, so I'm glad one of mine came back. Sit down and tell me which trick it was." },
+      },
+      choices = {
+        { text = "Sand in a worgen's eyes, just as you taught.", next = "BACK", reply = "Ha! That's my favourite, and Wu Shen would have a fit if he heard it.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I fought fair and still came back.", next = "BACK", reply = "Then you're luckier than most, or better. Keep the tricks in your pocket anyway.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bg_spire = {
+      big = true,
+      narr = "He sets his mug down very carefully and doesn't pick it up again.",
+      lines = { { id = "bgsp_default", text = "Then you've walked over the ground where my squad died, and you came out, which is more than they managed. I don't need to know what's in there now, only whether the orcs still hold it, and whether you made them pay for it." } },
+      choices = {
+        { text = "They paid, Harry. For your lads and for mine.", next = "BACK", reply = "Then I'll drink to that, tonight and every night. Thank you, {class}.", fx = { affinity = 3, align = { honor = 1 } } },
+        { text = "I went for the gold, not for revenge.", next = "BACK", reply = "Honest, at least, and the dead don't care why you went. I'll drink to them anyway.", fx = { align = { honor = -1 } } },
+        { text = "Let's not talk about it here.", next = "BACK" },
+      },
+    },
+    bg_dwarf = {
+      lines = { { id = "bgd_default", text = "No, your lot come out of the cradle swinging, and I've seen a dwarf drink Bartleby under the table and then beat him with the table. Muren Stormpike in Ironforge has his own test for you, and I hear it involves a troll, which is fairer on the troll than Bartleby would be." } },
+      choices = { { text = "I'll bring Muren his troll. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
 
     haggard = {
@@ -378,8 +465,9 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Try and take this mug, I dare you. Spirits or no spirits, it's mine." },
       },
       again = {
-        { id = "h_again", text = "What? I'm busy drinking." },
-        { id = "h_again2", text = "You still here? Buy a round or get on with it." },
+        { id = "h_again", text = "What is it now? I'm busy drinking, and it's skilled work, whatever Harry tells you." },
+        { id = "h_again2", text = "You're still here, are you? Then ask your question before my pint goes warm." },
+        { id = "h_again3", when = { questDone = TODO_QUEST("Beat Bartleby") }, text = "Go on, then, you've earned a question or two after the bruise you gave me." },
       },
       choices = {
         { text = "That mug must be special to you.", next = "mug" },
@@ -388,6 +476,8 @@ P:NPC {
         { text = "You ought to go home.", next = "home" },
         { text = "Has anyone ever stolen that mug off you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You look like you've fought before, Bartleby.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You hit harder than I expected, Bartleby.", next = "bb_bruise", when = { class = "WARRIOR", questDone = TODO_QUEST("Beat Bartleby") } },
+        { text = "Do Harry's students ever come back to see you?", next = "bb_students", when = { class = "WARRIOR", minLevel = 20 } },
         { text = "Why keep beasts away from your end, Bartleby?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my little companion bother you, Bartleby?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I pray for you, Bartleby?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -396,6 +486,26 @@ P:NPC {
         { text = "Would you fight a mage for that mug, Bartleby?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are you spoiling for a fight, Bartleby?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your drink.", next = "END" },
+      },
+    },
+
+    bb_bruise = {
+      big = true,
+      lines = {
+        { id = "bbb_default", text = "Course I did, I'm a pikeman, and a pikeman hits like a falling cart. You stood up under it, though, all low and sulky in that new stance of yours, and I'll tell you what I told Harry: that one'll do." },
+        { id = "bbb_dwarf", when = { race = "Dwarf" }, text = "Course I did, and you took it like a wall, which is what I get for fighting a dwarf. Harry's never sent me one before, and I'll be asking him not to again, because my knuckles are still singing." },
+      },
+      choices = {
+        { text = "You fought fairly. I'm honoured, Bartleby.", next = "BACK", reply = "Honoured! Hear that, Elly? Somebody's honoured to have been hit by me.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "You were drunk. It barely counted.", next = "BACK", reply = "Drunk's how I fight best, and you'd do well to remember it. Counted to me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bb_students = {
+      lines = { { id = "bbs_default", text = "Some of them do, and they buy me a drink and show me their scars, and I show them mine, and mine are always worse. Some of them don't come back, and Harry goes quiet those nights, and I let him have my stool." } },
+      choices = {
+        { text = "That's kind of you, Bartleby.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I'll come back, at least.", next = "BACK", reply = "You'd better, and you'd better bring a story, because I'm tired of my own.", fx = { affinity = 1 } },
       },
     },
 

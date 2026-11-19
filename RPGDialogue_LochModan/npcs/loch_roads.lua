@@ -32,6 +32,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_clan = {
+      lines = {
+        { id = "dw_clan_default", text = "Distant kin, aye, though a Stormpike in Loch Modan an' a Stormpike in Alterac share little more than a name an' a temper. They've gone north tae dig in the valley there, an' I hear the orcs who live in it are none too pleased." },
+      },
+      choices = {
+        { text = "The Stormpikes have every right to dig there.", next = "BACK", reply = "That's how Ironforge sees it, an' I'm a King's man. Still, I'd want a better reason than a right if I were the one diggin' wi' orcs at my back.", fx = { align = { order = 1 } } },
+        { text = "If the valley's the orcs' home, Ironforge should let it be.", next = "BACK", reply = "Ye'll no' make friends sayin' that in Ironforge, but ye might be right. I've held a valley against invaders myself, an' I know how it feels from the inside.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
+    dw_hist = {
+      lines = {
+        { id = "dw_hist_default", text = "Since before it, an' I was here when the Horde came over the mountains wi' the Dragonmaw's red wyrms in the sky. They burned the valley tae the waterline, an' we held the dam because if it had broken, Thelsamar would be at the bottom o' the loch." },
+      },
+      choices = {
+        { text = "Red dragons fought for the Horde?", next = "dw_hist2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_hist2 = {
+      lines = {
+        { id = "dw_hist2_default", text = "No' by choice. The Dragonmaw orcs held their queen in chains in Grim Batol an' forced her brood tae fight. Grim Batol was a Wildhammer city once, before the Dark Irons cursed it, an' now nobody sane goes near the place." },
+      },
+      choices = {
+        { text = "I'd like to see Grim Batol someday.", next = "BACK", reply = "Then go wi' an army, an' leave a will. The Wetlands dwarves at Dun Modr can tell ye more, if ye can get them tae talk about it." },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If they do, the earth's got poor taste in friends. They dig as if they've been told where the seams are, I'll grant that, an' they've found silver where my miners passed it over. Clear them out o' the mine, an' if the earth's annoyed about it, it can take it up wi' me." } },
@@ -156,6 +184,8 @@ P:NPC {
         { text = "Do the kobolds really listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I kept the high passes in Dun Morogh, Stormpike.", next = "xorig_pass", when = { origin = "dwarf_mountaineer" } },
         { text = "We share a name, Mountaineer. Are we kin?", next = "xorig_kin", when = { origin = "dwarf_stormpike" } },
+        { text = "Are you kin to the Stormpikes in Alterac, Mountaineer?", next = "dw_clan", when = { race = "Dwarf", ["not"] = { origin = "dwarf_stormpike" } } },
+        { text = "You've held this valley a long while. Since the Second War?", next = "dw_hist" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -268,6 +298,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "Ha! A sergeant wi' a long memory an' a short temper, if ye must know. But I asked for it twice after, because a dwarf on this gate is the first tae see what comes up out o' the south, an' I'd rather see it than hear about it in a tavern." },
+      },
+      choices = {
+        { text = "The hardest post is the most honourable one.", next = "BACK", reply = "Aye, that's what I tell myself on the cold nights. Now an' then I even believe it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd have found a cosier post and a better excuse.", next = "BACK", reply = "Ye'd have made a fine officer, then. Most o' them are back in Ironforge wi' their feet up.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
+    dw_uld = {
+      lines = {
+        { id = "dw_uld_default", text = "It does, an' that's where the troggs came from, if ye ask the League. They dug intae a vault the titans sealed long before there was an Ironforge, an' somethin' down there woke up hungry." },
+      },
+      choices = {
+        { text = "The titans? Like the ones in the old stories?", next = "dw_uld2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_uld2 = {
+      lines = {
+        { id = "dw_uld2_default", text = "The very same, the makers o' the world, if ye believe the League's scholars. They say the titans carved dwarves out o' the stone an' left us their halls tae find. I say they could've left us fewer troggs." },
+      },
+      choices = {
+        { text = "Then digging up Uldaman is the dwarves' birthright.", next = "BACK", reply = "Aye, an' Ironband an' the League would cheer ye for sayin' so. Just remember it's my gate the birthright comes crawlin' through.", fx = { align = { order = 1 } } },
+        { text = "Some vaults are sealed for good reason.", next = "BACK", reply = "Now there's a thought I've had on a dark night or two. Don't let Prospector Ironband hear ye say it, though, or ye'll get a lecture.", fx = { align = { order = -1 } } },
+        { text = "Something else, Cobbleflint.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "From under, an' that's all anybody knows for certain. The League says Uldaman, the miners say anywhere there's a crack, an' the old dwarves say the earth itself is spittin' them out. I dinnae know which, but if ye can tell me the hill before it boils, I'll buy ye every ale in the Stoutlager." } },
@@ -390,6 +449,8 @@ P:NPC {
         { text = "The troggs seem to be driving the beasts out of these hills.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would a mage be any use on your tower, Cobbleflint?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where do the troggs come up from, Cobbleflint?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "A dwarf posted to the Badlands gate. Who did you anger, Cobbleflint?", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "The Badlands road leads to Uldaman, doesn't it?", next = "dw_uld" },
         { text = "Stay safe, Mountaineer.", next = "END" },
       },
     },
@@ -461,6 +522,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_wild = {
+      lines = {
+        { id = "dw_wild_default", text = "None that a pint cannae settle, mostly. The Wildhammers north o' here are civil enough tae us now, but they've never forgot that our grandsires chased theirs out o' Ironforge, an' I've never once won an argument about it." },
+        { id = "dw_wild_kin", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } }, text = "Ye've Wildhammer blood yerself, by the look o' ye, so ye'll know it better than I do. They're civil tae us now, but they've never forgot who drove them out o' Ironforge, an' I've never once won an argument about it." },
+      },
+      choices = {
+        { text = "The Wildhammers have a fair grievance.", next = "BACK", reply = "Maybe they do, an' maybe it's three hundred years old. A grievance that old should be paid off or buried.", fx = { align = { order = -1 } } },
+        { text = "Ironforge won fairly. The Wildhammers should let it go.", next = "BACK", reply = "Aye, well, don't say that in Aerie Peak, or ye'll be walkin' home. Their gryphons have long memories too.", fx = { align = { order = 1 } } },
+        { text = "Something else, Rockgar.", next = "BACK" },
+      },
+    },
+    dw_algaz = {
+      lines = {
+        { id = "dw_algaz_default", text = "Dun Algaz, the pass itself, an' the old fort that held it. In the Second War this was the gate tae Khaz Modan, an' the Horde came through it anyway, for they had dragons an' we had walls." },
+      },
+      choices = {
+        { text = "Walls didn't stop them. What did?", next = "dw_algaz2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_algaz2 = {
+      lines = {
+        { id = "dw_algaz2_default", text = "Stubbornness, mostly, an' the Alliance comin' tae help in the end. Ironforge never fell, an' that's somethin' no dwarf will let ye forget, though half o' Khaz Modan burned while the gates held." },
+      },
+      choices = {
+        { text = "Something else, Rockgar.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Somethin' that calls fire an' shouts at the sky, an' I'll no' split hairs about what tae name it. I've lost good dwarves at Dun Algaz tae it. If ye're the same sort o' thing in a dwarf's beard, then ye'll know better than me how tae fight it." } },
@@ -573,6 +662,8 @@ P:NPC {
         { text = "What lies north of Algaz Station, Rockgar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What powers do the orcs up there call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I stood the watch here once, Rockgar. Grim Batol's smoke still bothers me.", next = "xorig_algaz", when = { origin = "dwarf_dun_algaz_watch" } },
+        { text = "A Bronzebeard guarding the road to Wildhammer country. Any trouble?", next = "dw_wild", when = { race = "Dwarf" } },
+        { text = "Algaz Station is named for something, surely.", next = "dw_algaz" },
         { text = "Farewell, Rockgar.", next = "END" },
       },
     },

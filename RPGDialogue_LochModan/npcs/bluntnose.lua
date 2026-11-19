@@ -34,6 +34,56 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "Aye, an' I'll know yer clan by yer beard braids if ye stand still long enough. Thelsamar's Bronzebeard tae the bone, but I've Wildhammer cousins in the Wetlands an' a grandmother who never once said a kind word about either lot." },
+        { id = "dw_kin_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } }, text = "Ye've the look o' Aerie Peak about ye, an' a tattoo or two I'd no' show the King's tax man. Ye're welcome in Thelsamar all the same, for the troggs dinnae care which hammer a dwarf swears by." },
+      },
+      choices = {
+        { text = "The clans should stand together. The old feud helps nobody now.", next = "BACK", reply = "Spoken like a magistrate, an' I wish more o' my petitioners thought so. I'll write it on the wall behind my desk, beside the list o' cattle thieves.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every clan minds its own. That's how it's always been.", next = "BACK", reply = "Aye, an' that's how we came tae three kingdoms an' a burnin' mountain. Still, I cannae fault ye for sayin' plainly what most dwarves think.", fx = { align = { order = -1 } } },
+        { text = "Which clan gives you the most trouble?", next = "dw_kin2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    dw_kin2 = {
+      lines = {
+        { id = "dw_kin2_default", text = "The Dark Irons, an' it's no' close. Ironforge sent word that one o' their spies has been seen round the dam, which is why Kadrell's lookin' at every stranger like they owe him money." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for the spy.", next = "BACK" },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    dw_hist = {
+      narr = "He sets down his quill and looks out the window toward the dam.",
+      lines = {
+        { id = "dw_hist_default", text = "Since before the War o' the Three Hammers, aye. When the clans fought over Ironforge's throne, this valley was the Bronzebeard larder, an' Loch Modan fed the army that drove the Dark Irons an' the Wildhammers out o' the mountain." },
+      },
+      choices = {
+        { text = "And where did the losers go?", next = "dw_hist2" },
+        { text = "A larder seems a humble job in a war.", next = "dw_hist3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_hist2 = {
+      lines = {
+        { id = "dw_hist2_default", text = "The Wildhammers went tae Grim Batol, an' the Dark Irons went south an' built their city under Thaurissan. Then the Dark Irons came back for us both, an' their sorcerer-king woke somethin' in the mountain that burned the south tae cinders. That's the Searin' Gorge, an' the Steppes, if ye've ever wondered." },
+      },
+      choices = {
+        { text = "They brought it on themselves.", next = "BACK", reply = "They did, an' they're still payin' for it, the poor cursed devils. Doesnae stop me lockin' my door at night.", fx = { align = { light = -1 } } },
+        { text = "Nobody deserves a fire like that, not even the Dark Irons.", next = "BACK", reply = "That's a softer heart than mine, friend, but it's no' a wrong one. There's children down there who never chose their king.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    dw_hist3 = {
+      lines = {
+        { id = "dw_hist3_default", text = "An army marches on its belly, an' a dwarf army marches on its belly an' its barrels. My great-grandsire salted mutton for the siege lines, an' he told it like he'd won the war single-handed." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     opn_alliance = {
       lines = {
         { id = "opn_alliance_q", text = "Ye'd have me answer that wi' a Mountaineer in earshot? The King gave his word after the Second War, an' half our Reserve's off at the front keepin' it while my farmers count ogres. I've a ledger for everythin' but that, so ye tell me, is it worth it?" },
@@ -119,6 +169,8 @@ P:NPC {
         { text = "Thelsamar looks to have more than one trouble on its hands.", next = "threats" },
         { text = "What does a magistrate actually do here?", next = "duties" },
         { text = "The dam is vital. Who guards it?", next = "dam", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "You'll know the old clan quarrels, Magistrate. I'm a dwarf too.", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "Has Thelsamar always been a Bronzebeard town?", next = "dw_hist" },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },

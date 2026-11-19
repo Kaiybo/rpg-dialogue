@@ -1143,6 +1143,9 @@ P:NPC {
         { text = "Which dig needs protecting most, High Explorer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I stood in Archaedas's chamber in Uldaman, High Explorer.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "What makes a good crew for the Explorers' League?", next = "xpt_magellas", when = { party = true } },
+        { text = "Where do you think we really came from, High Explorer?", next = "dw_origin", when = { race = "Dwarf" } },
+        { text = "Did the League ever map Gnomeregan before it fell?", next = "gn_map", when = { race = "Gnome" } },
+        { text = "You dwarves dig up a great deal of history for a young people.", next = "ne_young", when = { race = "NightElf" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -1170,7 +1173,8 @@ P:NPC {
         { id = "nr_default", text = "Muradin Bronzebeard himself led an expedition of ours to Northrend before the war. We lost him there, and we never heard from most of the others again." },
       },
       choices = {
-        { text = "I'm sorry.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I'm sorry. He must have been a fine dwarf.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "What were they looking for up there?", next = "northrend_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1290,6 +1294,87 @@ P:NPC {
         { text = "Something else, High Explorer.", next = "BACK", fx = { affinity = 1, learn = { "uldaman" } } },
       },
     },
+    northrend_why = {
+      lines = {
+        { id = "nw_default", text = "Ruins in the ice, at first, the old halls the Northrend dwarves whispered about, and later rumours of a sword buried somewhere in the glaciers. Muradin's last letter said Prince Arthas had come north and that they'd go on together, and that's the last word the League ever had in his own hand." },
+      },
+      choices = {
+        { text = "Then nobody knows what happened to him.", next = "northrend_hope" },
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    northrend_hope = {
+      lines = {
+        { id = "nh_default", text = "Nobody who'll say, and the prince came home without him, so I've stopped asking where I might get an answer I'd not like. I keep his letters in the drawer with Brann's, and on a bad night I read them both and pretend the post is only slow." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    dw_origin = {
+      big = true,
+      lines = {
+        { id = "dwo_default", text = "Now there's the question that keeps a High Explorer awake! The old halls under Uldaman weren't built to our height, and the stone keepers guarding them look uncommonly like our grandfathers carved in granite. I think something shaped our people out of the mountain itself, and I think the titans had a hand in it." },
+        { id = "dwo_discs", when = { questDone = TODO_QUEST("The Platinum Discs") }, text = "You've heard the discs yourself, so you know as much as I do: the earthen were shaped from stone by the titans, and we dwarves are their children. I've read it a hundred times, and I still don't know whether to raise a glass or sit down very quietly." },
+      },
+      choices = {
+        { text = "The truth should be told, whatever it does to the clans.", next = "dw_origin_tell", fx = { align = { order = -1 } } },
+        { text = "Some truths would shake the clans apart. Go carefully.", next = "dw_origin_wait", fx = { align = { order = 1 } } },
+        { text = "Stone or flesh, I'm still a dwarf.", next = "dw_origin_still" },
+      },
+    },
+    dw_origin_tell = {
+      lines = {
+        { id = "dwot_default", text = "That's the League's creed, and I'm glad to hear a dwarf say it aloud in this hall. The King's of the same mind, mostly, though the Senate would sooner we found a nice hoard of gold and stopped asking questions." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    dw_origin_wait = {
+      lines = {
+        { id = "dwow_default", text = "Careful is what I'm always being told to be, and I usually am, whatever my Prospectors say. There are clans in this city whose pride rests on being born of their fathers' fathers, and I'd not take that from them with a bad translation." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    dw_origin_still = {
+      lines = {
+        { id = "dwos_default", text = "Ha! That's the best answer I've heard to it, and the shortest, and I may borrow it for the Senate. Whatever we were made from, we've been brewing, feuding and growing beards long enough to call ourselves our own." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    gn_map = {
+      lines = {
+        { id = "gnm_default", text = "We had a few of the outer halls, the ones your people let us see, though your engineers kept rebuilding them faster than we could draw them. Since the fall we've had a team go in as far as the radiation lets them, and they came back with maps, a terrible cough and a deep respect for whatever your Mekkatorque built down there." },
+      },
+      choices = {
+        { text = "We'll take it back. The maps will matter then.", next = "gn_map_back", fx = { align = { honor = 1 } } },
+        { text = "Gnomeregan's lost. Map something useful instead.", next = "gn_map_back", fx = { align = { honor = -1 } } },
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    gn_map_back = {
+      lines = {
+        { id = "gnmb_default", text = "Well, the League keeps every map it draws, whatever anyone thinks it's worth today, so they'll be in the drawer the day your people want them. I'd only ask that whoever goes back in brings me a sketch of the lower halls on the way out." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    ne_young = {
+      lines = {
+        { id = "ney_default", text = "We are young, compared to your people, and I'll not pretend otherwise; that's exactly why we dig! You kaldorei remember ten thousand years, and we have to scrape ours out of the rock with a trowel, so you'll forgive us for being eager." },
+      },
+      choices = {
+        { text = "Eagerness is how the Highborne ruined us. Mind it.", next = "BACK", reply = "I'll mind it, and I'd be glad to hear more of that warning some evening, because the League hasn't one good account of the Highborne between all of us.", fx = { align = { order = 1 } } },
+        { text = "Dig, then. Some of our history deserves remembering.", next = "BACK", reply = "Then I'll take that as a blessing, which is more than your Sentinels usually give my diggers in Darkshore.", fx = { align = { order = -1 } } },
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1388,7 +1473,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Holy? No. Old, aye, an' some of it with runes I'd rather no' read aloud, so I send those tae the Mystic Ward an' let them worry. The League digs for knowledge, an' I'll leave the prayin' tae those who've the time for it." } },
+      lines = { { id = "xapriest_default", text = "Holy? No, but old, aye, an' some of it with runes I'd rather no' read aloud, so I send those tae the Mystic Ward an' let them worry. The League digs for knowledge, an' I'll leave the prayin' tae those who've the time for it." } },
       choices = {
         { text = "Prayer and study both have their place. Neither should be scorned.", next = "BACK", reply = "They do. The Mystic Ward's done good work on runes I couldnae make head nor tail of.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Knowledge first, then. The prayers can wait.", next = "BACK", reply = "That's the League's way. I'll still send the strange ones tae the Mystic Ward, just in case they bite.", fx = { align = { light = -1 } } },

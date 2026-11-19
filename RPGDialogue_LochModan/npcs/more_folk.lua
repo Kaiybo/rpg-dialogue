@@ -32,6 +32,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dw_riders = {
+      lines = {
+        { id = "dw_riders_default", text = "Like cats an' dogs. The Wildhammers say a flyin' machine is a coffin wi' a propeller, an' we say a gryphon's a coffin wi' feathers an' an opinion. We've both buried friends, so neither of us is entirely wrong." },
+      },
+      choices = {
+        { text = "Machines are the future. The gryphons had their day.", next = "BACK", reply = "Spoken like a gnome, an' I'll drink tae it. Just don't say it within earshot o' Aerie Peak.", fx = { align = { order = 1 } } },
+        { text = "A living beast beats any machine in a pinch.", next = "BACK", reply = "Aye, until it gets hungry or homesick. Still, I'll grant ye a gryphon doesnae run out o' fuel over the mountains.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_pray = {
+      lines = {
+        { id = "dw_pray_default", text = "That's kind of ye, kin. He was a Thelsamar lad, an' his da still keeps a lantern in the window. If ye ever bring back news, bring it tae me first, an' I'll be the one tae carry it home." },
+      },
+      choices = {
+        { text = "I will, Hammerfoot.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Pilot Hammerfoot, an' one o' our pilots went down in the hills near here, an' I've had no word since. I'd go look myself, but my orders keep me at the Gate." },
@@ -46,6 +64,8 @@ P:NPC {
         { text = "What's Mangeclaw?", next = "mangeclaw" },
         { text = "What do you guard here?", next = "gate" },
         { text = "I know how to track a beast.", next = "track", when = { class = "HUNTER" } },
+        { text = "Do pilots and gryphon riders get along?", next = "dw_riders" },
+        { text = "I'll keep your pilot's name in my prayers, Hammerfoot.", next = "dw_pray", when = { race = "Dwarf" } },
         { text = "Farewell, Hammerfoot.", next = "END" },
       },
     },

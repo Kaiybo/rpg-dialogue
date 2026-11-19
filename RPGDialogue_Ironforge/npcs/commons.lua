@@ -1592,7 +1592,7 @@ P:NPC {
 
     heist = {
       lines = {
-        { id = "he_default", text = "Wut heist? There's no heist. We were plottin' out phase three o' somethin' entirely legal when a couple o' the King's guards came in an' started arrestin' folk, an' nobody claps irons on Hulfdan Blackbeard." },
+        { id = "he_default", text = "Wut heist? There was never any heist, friend, for we were plottin' out phase three o' somethin' entirely legal when a couple o' the King's guards came in an' started arrestin' folk, an' nobody claps irons on Hulfdan Blackbeard." },
       },
       choices = {
         { text = "Phase three of what, exactly?", next = "heist_phase" },

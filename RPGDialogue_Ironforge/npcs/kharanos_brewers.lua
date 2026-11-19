@@ -117,7 +117,7 @@ P:NPC {
 
     prank = {
       big = true,
-      lines = { { id = "pr_default", text = "Low? It's a free sample! Nobody gets hurt, the drinkers get a better beer than they paid for, an' the Thunderbrews get taken down a peg. Mind, Jarven down in the cellar might get a talkin' to for lettin' it happen." } },
+      lines = { { id = "pr_default", text = "Low? It's a free sample, that's all, an' nobody gets hurt, the drinkers get a better beer than they paid for, an' the Thunderbrews get taken down a peg. Mind, Jarven down in the cellar might get a talkin' to for lettin' it happen." } },
       choices = {
         { text = "Then Jarven gets punished for your joke. That's not right.", next = "BACK", reply = "Och, ye've a conscience on ye, and I'll grant ye've a point, so if Ragnar starts shoutin' I'll put in a word for Jarven, quietly, where nobody hears it.", fx = { align = { honor = 1 } } },
         { text = "A good prank always costs somebody. Jarven will live.", next = "BACK", reply = "Ha, now there's a dwarf after my own heart, whatever yer beard says, and Jarven's had worse scoldings for less, believe me.", fx = { align = { honor = -1 } } },

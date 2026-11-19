@@ -518,7 +518,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Oh, perfect, because I need meat for a long trip, and you can get it faster than the depot's cook can find his spoon." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard you can turn into a bear, and I'm deeply curious whether a bear would fit in my cockpit." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You can ride the flier if you like, but that hot little thing following you goes in the cargo hold, and please tell it not to touch the fuel lines, they're very sensitive!" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Can you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid, for could you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
         { id = "dd_stonegear", when = { questDone = TODO_QUEST("Stonegear's Search") },
           text = "Stonegear tells me you helped him find what he was after! He's a siege man, not a flier like me, but we pilots look after each other, and I'm obliged to you on his behalf." },
       },

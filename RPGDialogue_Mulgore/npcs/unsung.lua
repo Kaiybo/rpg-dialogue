@@ -1,7 +1,7 @@
 -- Mulgore's working people with no quests of their own: Camp Narache's trainers and
 -- Bloodhoof Village's warrior trainer, weaponsmith and baker. Voices: bibles/unsung.md
 local P = RPGDialogueAPI:Pack("rpgd.mulgore")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 ---------------------------------------------------------------------------
 -- Camp Narache
@@ -114,6 +114,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Narache. The young braves will stare. Stand firm and let them, since that's a lesson too." },
         { id = "h_default", key = true, text = "I am Harutt Thunderhorn, and I teach the young braves of Narache to stand firm. A tauren is strong from birth, but strength without patience only breaks things." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Your arms are thicker than when you came to me, young one, and your stance is better. Are you ready to learn more?" },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR", maxLevel = 9 }, text = "A young brave of the Bloodhoof, with a spear too long for you and hooves too eager. The Earth Mother made you strong, so I will spend my breath on teaching you to be slow to anger." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10 }, text = "You have outgrown Narache, young brave, and the mesa is too small for you now. Krang Stonehoof waits in Bloodhoof Village, and beyond him the Barrens, where an orc named Uzzek teaches the shield." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems on your belt, young one, and that is a heavy load for a brave. Carry it as patiently as you would carry a spear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter comes to the warrior's fire. Sit, and let me tell you why a hunter should stand as firm as any brave." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Strength without patience breaks things, and I am told that healing without patience breaks things too." },
@@ -126,7 +128,9 @@ P:NPC {
       },
       choices = {
         { text = "Why should a hunter learn to stand firm, Harutt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Harutt. I'm ready to learn more.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How do I face a charging battleboar?", next = "w_charge", when = { class = "WARRIOR" } },
+        { text = "Where does a brave's road lead after Narache?", next = "w_road", when = { class = "WARRIOR" } },
         { text = "A shaman needn't be as strong as a warrior, Harutt.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does patience have to do with fighting?", next = "patience" },
         { text = "The camp seems to face plenty of danger.", next = "danger" },
@@ -142,6 +146,34 @@ P:NPC {
       again = {
         { id = "h_again", text = "Ask what you will, young one. The sun is high, and there is time." },
         { id = "h_again2", text = "Something more? Speak, and I will listen, as the mesa listens to the wind." },
+      },
+    },
+    w_charge = {
+      lines = {
+        { id = "wc_default", text = "You meet it, young one, because a brave who turns his back on a battleboar is carried home on a kodo. Shout the battle cry so your arms remember their strength, and strike so the beast bleeds while you strike again." },
+        { id = "wc_charge", when = { minLevel = 4 }, text = "You have the charge now, so you go to it before it comes to you, and the battleboar stumbles at your weight. Then you rend it and stand your ground, and let it break itself against you like the wind against the mesa." },
+      },
+      choices = {
+        { text = "A brave strikes first, before the beast can.", next = "BACK", reply = "Sometimes, and the charge is for that. Only be sure it is the beast you mean to strike, and not its whole herd.", fx = { align = { order = -1 } } },
+        { text = "A brave waits, and lets the beast spend itself.", next = "BACK", reply = "That is the kodo's way, and it is mine. You will make a fine brave.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Harutt.", next = "BACK" },
+      },
+    },
+    w_road = {
+      lines = {
+        { id = "wr_default", text = "Down the road to Bloodhoof Village, where Krang Stonehoof will teach you more, and then up to Thunder Bluff, where the Ragetotems keep the warriors' rise. In time the trainers will send you into the Barrens to an orc named Uzzek, who teaches the shield." },
+      },
+      choices = {
+        { text = "An orc teaching tauren? Why?", next = "w_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_road2 = {
+      lines = { { id = "wr2_default", text = "Because the orcs carried us across the Barrens when the centaur would have ended us, and Cairne swore we would stand with them. An orc warrior who survived the Second War knows things about holding a line that no tauren has had to learn, and I would rather you learned them from him than from the centaur." } },
+      choices = {
+        { text = "Then I'll learn from the orcs and honor the debt.", next = "BACK", reply = "Good. The Earth Mother watches how we keep our promises.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll learn from him, but I owe the orcs nothing.", next = "BACK", reply = "Your chieftain owes them, and so his people do. Remember that when an orc stands beside you.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     patience = {
@@ -747,9 +779,16 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Horde's healers are one of the reasons I let my braves march beside orcs and trolls without fearing for their lives." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. I've seen Hamuul's students fight as bears at the edge of the Barrens, and I'll admit they held the line as well as any warrior of mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The orcs taught us that warriors win wars, but I've seen what fire does to a quilboar line, and I'll admit it helps." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back in Bloodhoof, warrior, with new dents in your armor and the same old stance. Come, let me see whether the dents taught you anything." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A brave of the tribes, come down from the mesa with an axe. Your grandfathers fought the centaur with spears and patience, and I'll teach you to fight them with steel and patience, which is better." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc warrior in Bloodhoof, a long way from Durotar. Your people taught mine how to fight as an army, so I'll repay that by teaching you how a tauren holds the ground." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, questBefore = TODO_QUEST("Path of Defense") }, text = "You are ready for the shield, warrior, and the shield is taught in the Barrens. Go east to the Crossroads and north to Far Watch, and ask for Uzzek, an orc who has stood behind a shield longer than you've been alive." },
+        { id = "h_w20", when = { class = "WARRIOR", minLevel = 20 }, text = "You have grown past Bloodhoof, warrior, and Thunder Bluff's rise is where you belong now. I'm glad you still come down to see an old axe-teacher, though." },
       },
       choices = {
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Krang.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How does a tauren warrior fight, Krang?", next = "w_way", when = { class = "WARRIOR" } },
+        { text = "Why must I learn the shield from an orc in the Barrens?", next = "w_shield", when = { class = "WARRIOR", minLevel = 8 } },
         { text = "How do shamans fight beside the Horde's warriors, Krang?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What threats does Mulgore face?", next = "threats" },
         { text = "The tauren seem fond of the Horde.", next = "horde" },
@@ -762,7 +801,36 @@ P:NPC {
         { text = "Will the braves fight beside a paladin, Krang?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
-      again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it, before my old bones stiffen." } },
+      again = {
+        { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it, before my old bones stiffen." },
+        { id = "h_again2", text = "Something more? The braves can drill a while without me shouting." },
+      },
+    },
+    w_way = {
+      lines = {
+        { id = "ww_default", text = "Like the thunder our name is taken from, slow to come and impossible to stop. We are bigger than orcs, so we let the enemy come to us, take the first blow on the hide the Earth Mother gave us, and answer it with the whole weight of the plains." },
+        { id = "ww_stomp", when = { race = "Tauren" }, text = "You know already, because your hooves know it. Stomp the ground when they crowd you and they will stagger, and while they stagger you swing, and even a Bristleback chieftain falls like a cut tree." },
+      },
+      choices = {
+        { text = "Slow and certain beats quick and reckless.", next = "w_way2", reply = "It does, most days. Let me tell you about the day it didn't.", fx = { align = { order = 1 } } },
+        { text = "Slowness gets warriors killed. I'd rather be quick.", next = "w_way2", reply = "Sometimes it does, and I learned that too. Listen.", fx = { align = { order = -1 } } },
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    w_way2 = {
+      lines = { { id = "ww2_default", text = "When the Kolkar came over the hills before Thrall's Horde found us, my father waited for them to come close, as our people always had, and they rode around him and burned the herd behind. So I wait, but I watch the flanks while I wait, and I teach every brave to do the same." } },
+      choices = { { text = "I'll watch the flanks. Something else.", next = "BACK" } },
+    },
+    w_shield = {
+      lines = {
+        { id = "wsh_default", text = "Because Uzzek has stood behind a shield on worse ground than any tauren has, in the wars across the sea. He teaches the defensive stance near Far Watch, and the braves I send to him come back standing differently, as if the earth itself had grown roots into them." },
+        { id = "wsh_done", when = { questDone = TODO_QUEST("Path of Defense") }, text = "You've been to him already, I can see it in how you set your shield. Now learn to taunt and sunder from me, so the thing you are guarding against looks only at you." },
+      },
+      choices = {
+        { text = "A tauren needs no orc to teach him to stand.", next = "BACK", reply = "Pride, young one, and not the useful kind. Go, and come back humbler and harder to move.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll go, and learn what he knows.", next = "BACK", reply = "Good. Walk with the Earth Mother, and keep your shield up near the thunder lizards.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     threats = {
       lines = { { id = "t_default", text = "The Venture Company goblins cut down our trees and dig in our hills to the north, and the Palemane gnolls hold Palemane Rock to the southwest. Worse are the dwarves at Bael'dun, who dig into Mulgore's earth without asking anyone." } },

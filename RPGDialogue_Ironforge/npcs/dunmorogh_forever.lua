@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Grund and Gozwin") },
           text = "I could use a pair o' hands, if ye've some free. I can't leave the lad, an' there's things he needs that won't fetch themselves." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Grund and Gozwin") },
-          text = "Still at it? Good. Get some bread in his belly an' some warmth in his bones, that's all the doctorin' a gnome needs." },
+          text = "Still at it, are ye? Good, then get some bread in his belly an' some warmth in his bones, that's all the doctorin' a gnome needs." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Grund and Gozwin"), days = 3 } },
           text = "He sat up on his own this mornin' an' asked for a screwdriver, which I'm takin' as a good sign. Thank ye for yer part in it." },
         { id = "h_done", when = { questDone = TODO_QUEST("Grund and Gozwin") },

@@ -81,6 +81,7 @@ bound_succubus.lua
 bound_felhunter.lua
 bound_demon.lua
 warlock_notice.lua
+warrior_notice.lua
 asks.lua
 arrivals.lua
 wanderers\spoogledorf.lua

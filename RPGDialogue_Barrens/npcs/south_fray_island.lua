@@ -18,6 +18,8 @@ P:NPC {
     { id = "g_affray", when = { questActive = TODO_QUEST("The Affray") }, text = "The grate's waiting, and so are the challengers. Step on when you're ready, and not before." },
     { id = "g_won", when = { questDone = TODO_QUEST("The Affray") }, text = "You walked off my grate on your own feet. Most don't, so I remember the ones who do." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you first stood on my island. I can see it in how you carry the blade." },
+    { id = "g_harlan_others", when = { class = "WARRIOR", thread = { id = "war_harlan", state = "resolved" } }, text = "There's the one who fights for the people behind them. The grate's open whenever you want it." },
+    { id = "g_harlan_good", when = { class = "WARRIOR", thread = { id = "war_harlan", state = "soured" } }, text = "Back again, and still good at it, I see. I hope you've found something worth the fighting since we spoke." },
   },
 
   notice = {
@@ -50,8 +52,36 @@ P:NPC {
         { text = "So Horde and Alliance both fight here.", next = "factions" },
         { text = "I'm a warrior, Klannoc. Put me to the test.", next = "test", when = { class = "WARRIOR" } },
         { text = "I'm ready for the grate.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Bath'rah says Harlan went north to find something worth his axe.", next = "harlan_end",
+          when = { class = "WARRIOR", thread = { id = "war_harlan", beat = "b3_bathrah", state = "unfolding" } } },
         { text = "I'll leave you to it, Klannoc.", next = "END" },
       },
+    },
+    harlan_end = {
+      big = true,
+      narr = "He looks past you, out over the rail toward the open sea.",
+      lines = { { id = "harlan_end_default", key = true,
+        text = "Then he's still looking, or he's dead, and I'd bet on the second. I asked him why he fought and he had no answer but the fighting itself, so I'll ask you the same and hope you've done better: why do you fight?" } },
+      again = { { id = "harlan_end_again", text = "You've answered me already, and I remember answers." } },
+      choices = {
+        { text = "For the people standing behind me. That's the whole of it.", next = "harlan_others",
+          fx = { thread = { id = "war_harlan", state = "resolved" }, align = { order = 1 }, affinity = 1 },
+          journal = { first = "I told Klannoc I fight for the people behind me. Harlan Vey never had an answer like that.", third = "{name} told Klannoc Macleod that {name} fought for the people behind them." } },
+        { text = "Because I'm good at it, the same as Harlan was.", next = "harlan_good",
+          fx = { thread = { id = "war_harlan", state = "soured" }, align = { order = -1 } },
+          journal = { first = "I told Klannoc I fight because I'm good at it. He said that's what Harlan said.", third = "{name} told Klannoc Macleod that {name} fought because {name} was good at it." } },
+        { text = "I'm still working that out, Klannoc.", next = "BACK" },
+      },
+    },
+    harlan_others = {
+      lines = { { id = "harlan_others_default",
+        text = "That's an answer a warrior can stand on when the fighting's done, and Harlan never had one. Come back to my grate whenever you like, because I'd like to see what somebody with a reason does on it." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll be back, Klannoc.", next = "END" } },
+    },
+    harlan_good = {
+      lines = { { id = "harlan_good_default",
+        text = "That's what he said, near enough word for word, and he said it smiling. I'll keep an eye on the sea for you, then, the way I still keep one on it for him." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
     island = {
       lines = { { id = "is_default", text = "Because nobody bothers us out here, and nobody can run. An island tells you the truth about a fighter, because the only way off is through the challengers or into the sea." } },

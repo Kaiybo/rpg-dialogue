@@ -205,7 +205,7 @@ P:NPC {
   topics = {
     steelgrill = { { id = "tp_steel", text = "Beldin Steelgrill runs the Depot east o' here, wi' the siege engines an' the gnomes. He's my best customer an' my worst, both at once." } },
     kharanos = { { id = "tp_khar", text = "A good wee town. Ye can get a tool, a meal an' a bed here, an' most folk only want two o' the three." } },
-    background = { { id = "tp_bg", text = "I make tools. Good ones, too." } },
+    background = { { id = "tp_bg", text = "I make tools, an' good ones too, for a pick that breaks in the deep can cost a miner more than his day's wages." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend. I've been in the forge all day." } },
   },
 }
@@ -1134,7 +1134,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_night", when = { timeOfDay = "night" }, text = "Who goes? Step intae the lantern light. Ach, a traveller. It's a cold night for the tunnel, friend." },
-    { id = "g_hi", text = "Halt! Ach, ye're no trogg. Come ahead, then, an' tell me if ye're bound for Loch Modan." },
+    { id = "g_hi", text = "Halt! Ach, ye're no trogg, so come ahead, then, an' tell me if ye're bound for Loch Modan." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Good, for it's a dull watch an' I've a thirst for talk." },
     { id = "g_active", when = { questActive = TODO_QUEST("Stout to Kadrell") }, text = "Ye've the cask still? Kadrell patrols the road through Thelsamar, an' mind ye don't sample it on the way." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stout to Kadrell") }, text = "Kadrell sent word he felt like he could fly! That's my brother's stout for ye, an' I thank ye for carryin' it." },
@@ -1234,7 +1234,7 @@ P:NPC {
     { id = "g_night", when = { timeOfDay = "night" }, text = "The night watch has just gone out, so ye've the place near tae yerself. What'll it be?" },
     { id = "g_hi", text = "Welcome tae Bruuk's Corner. Find a stool, name yer drink, an' keep yer blade sheathed." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The usual, or have ye no' been here long enough tae have one?" },
-    { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "Off duty, are ye? Good. Sit where the lads can see ye're no' an officer." },
+    { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "Off duty, are ye? Good, then sit where the lads can see ye're no' an officer." },
   },
   notice = {
     { id = "n_drunk", cat = "drunk", when = { drunk = true },
@@ -1302,7 +1302,7 @@ P:NPC {
     pour = {
       lines = {
         { id = "po_default", text = "A dark ale from a wee brewer in the Commons that nobody's heard of, an' I'd like tae keep it that way. It's no' as strong as Thunderbrew's, but a soldier can drink two an' still find his bunk." },
-        { id = "po_drunk", when = { drunk = true }, text = "For ye, right now? Water. Ask me again tomorrow an' I'll tell ye about the dark ale." },
+        { id = "po_drunk", when = { drunk = true }, text = "For ye, right now, it's water, an' dinnae look at me like that. Ask me again tomorrow an' I'll tell ye about the dark ale." },
       },
       choices = { { text = "Two and still find my bunk. Pour it.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
     },
@@ -2475,7 +2475,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Ho! Ye've the look o' somebody who needs an axe. Everybody has that look, mind, but on ye it's stronger." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Did it bite deep? O' course it did, I sold it tae ye." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did it bite deep? O' course it did, for I sold it tae ye myself." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, by my beard, an' walkin' straight past the swords! Yer mother raised ye right." },
   },
   notice = {
@@ -2550,7 +2550,7 @@ P:NPC {
     brenwyn = { { id = "tp_brenwyn", text = "Brenwyn Wintersteel sells swords an' daggers. She's sharp in every sense, an' I'd no' cross her on a matter of steel." } },
     hall_of_arms = { { id = "tp_hall", text = "Kelstrum Stonebreaker trains the warriors there, an' he sends them tae me when they're ready for real iron. A good arrangement, that." } },
     background = { { id = "tp_bg", text = "A Swiftaxe, an' we've sold what the name says for longer than the ward's had walls." } },
-    _none = { { id = "tp_none", text = "I couldnae tell ye, friend. Does it need choppin'? Then I can help." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye, friend, but if it ever needs choppin', then I'm the dwarf tae see." } },
   },
 }
 
@@ -3108,7 +3108,7 @@ P:NPC {
     myra = { { id = "tp_myra", text = "Myra Tyrngaarde bakes the best bread in Ironforge, an' it goes very well under my sausage. Dinnae tell her I said the first part." } },
     bruuk = { { id = "tp_bruuk", text = "Bruuk's Corner sells the ale that washes my meat down. He lets me stand by his door on cold days, an' I keep his regulars fed." } },
     background = { { id = "tp_bg", text = "A Cliffbeard, a hunter's son, an' too fond o' the eatin' tae be much good at the chasin'." } },
-    _none = { { id = "tp_none", text = "Couldnae tell ye. Can ye roast it? No? Then I've nae opinion." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye, friend, for if I cannae roast it, I've nae opinion on it." } },
   },
 }
 
@@ -3128,6 +3128,7 @@ P:NPC {
     { id = "g_hi", text = "Picks, flux an' coal! An' if Geofram's told ye tae swing from the shoulder, forget it an' ask me." },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Ye've either struck a good vein or broken the pick, an' I can help wi' both." },
     { id = "g_miner", when = { profession = "Mining" }, text = "A miner! Let me see yer pick. Aye, that's blunt as a senator, ye'll want a new head on it." },
+    { id = "g_crate", when = { questActive = TODO_QUEST("Ride to Ironforge") }, text = "Is that a Thelsamar crate under yer arm? By my beard, it is, an' only a week later than I was promised, so set it down gently." },
   },
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
@@ -3140,7 +3141,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Golnir Bouldertoe. Geofram at the next counter teaches the minin', an' I sell the tools for it, an' I fix what he teaches while I'm about it. He learned his trade when picks were made o' bronze, near enough." },
-        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Golnir Bouldertoe. A smith, are ye? Then it's flux an' coal ye're after, an' I've both by the sack, cheaper than Thurgrum, though dinnae tell him." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "I'm Golnir Bouldertoe, an' ye'll be a smith, I'd wager? Then it's flux an' coal ye're after, an' I've both by the sack, cheaper than Thurgrum, though dinnae tell him." },
       },
       again = {
         { id = "h_again", text = "What else? I've a crate o' pick heads tae sort, but they'll wait." },
@@ -3152,6 +3153,7 @@ P:NPC {
         { text = "What makes a good pick?", next = "pick" },
         { text = "Where does the Great Forge get its ore?", next = "ore" },
         { text = "What do miners buy that surprises people?", next = "surprise" },
+        { text = "Here's your crate from Thelsamar.", next = "crate", when = { questActive = TODO_QUEST("Ride to Ironforge") } },
         { text = "Good day, Golnir.", next = "END" },
       },
     },
@@ -3196,6 +3198,10 @@ P:NPC {
     surprise_lamps = {
       lines = { { id = "y2_default", text = "I stock them, an' the young ones buy them. The old hands willnae, for a candle flame tells ye when the air's gone bad an' a gnomish lamp just keeps shinin' while ye fall over. Geofram taught me that, an' he was right, curse him." } },
       choices = { { text = "So Geofram's ways have their uses.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    crate = {
+      lines = { { id = "cr_default", text = "An' no' a board cracked, so ye carried it better than the last courier did. I've a parcel tae go back the same way, so take it tae Gryth Thurden at the gryphon roost, an' he'll see ye an' it safely tae Loch Modan." } },
+      choices = { { text = "Gryth Thurden it is. Something else first.", next = "BACK" } },
     },
   },
   topics = {
@@ -3783,9 +3789,9 @@ P:NPC {
     third = "{name} met Balthus Stoneflayer, the skinning trainer at Finespindle's Leather Goods in Ironforge.",
   },
   greetings = {
-    { id = "g_hi", text = "Aye. Skinnin' ye're after? Show me yer knife first." },
+    { id = "g_hi", text = "Skinnin' ye're after, is it? Then show me yer knife first, for I can tell more from the edge than from yer talk." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. Did ye keep the edge on it, or did ye go at a boar wi' a butter knife again?" },
-    { id = "g_skin", when = { profession = "Skinning" }, text = "A skinner. Good. Hold out yer hands, I can tell more from them than from yer talk." },
+    { id = "g_skin", when = { profession = "Skinning" }, text = "A skinner, good. Hold out yer hands, for the calluses will tell me how long ye've been at it." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -3809,6 +3815,7 @@ P:NPC {
         { text = "You're the only dwarf in a shop full of gnomes.", next = "gnomes" },
         { text = "You don't waste words.", next = "words" },
         { text = "What beasts are worth skinning in Dun Morogh?", next = "beasts" },
+        { text = "I was sent to you about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Skinning") } },
         { text = "Good day, Balthus.", next = "END" },
       },
     },
@@ -3824,7 +3831,7 @@ P:NPC {
       lines = { { id = "cw_default", text = "I do. I sit a moment wi' the beast first. My father called it thankin' it, an' I'm no' sure I'd go so far, but yer hands are steadier after. The young ones think it's daft." } },
       choices = {
         { text = "It's not daft. The beast is owed that much.", next = "BACK", reply = "Aye. That's near what my father said. Ye'll make a decent skinner.", fx = { align = { light = 1 } } },
-        { text = "It's a carcass. Just do the work.", next = "BACK", reply = "Ye'll nick the hide, then. They always do. Suit yerself.", fx = { align = { light = -1 } } },
+        { text = "It's a carcass. Just do the work.", next = "BACK", reply = "Then ye'll nick the hide, the way they always do, but suit yerself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -3850,17 +3857,22 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    camp = {
+      lines = { { id = "cp_default", text = "Then here's the whole lesson, an' I'll say it once: whatever ye hunt for the pot has a coat on it, an' that coat is a bedroll, a windbreak or a waterskin if ye take it off in one piece. Skin it warm, scrape it clean an' stretch it by the fire, an' ye'll never sleep cold on the mountain.", fx = { learn = { "camping" } } } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
     beasts_bear = {
       lines = { { id = "x2_default", text = "Bear's heavy work an' ye'll want help turnin' it. But a winter bear hide will keep a family warm for twenty years. I've one on my own bed that was my grandfather's." } },
       choices = { { text = "Twenty years is good value.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
-    fimble = { { id = "tp_fimble", text = "Fimble Finespindle. Best leatherworker in Ironforge. Talks too much." } },
+    fimble = { { id = "tp_fimble", text = "Fimble Finespindle is the best leatherworker in Ironforge, an' he talks enough for the both of us." } },
     dun_morogh = { { id = "tp_dm", text = "Boar, bear, wolf an' leopard. Good hides, all o' them, an' thick, for the cold." } },
     bombus = { { id = "tp_bombus", text = "Bombus keeps tryin' tae bribe me at stocktakin'. It was a good belt, mind. I gave it back." } },
-    background = { { id = "tp_bg", text = "A Stoneflayer. We've been trappers since before the city had gates." } },
-    _none = { { id = "tp_none", text = "Dinnae ken." } },
+    background = { { id = "tp_bg", text = "I'm a Stoneflayer, an' we've been trappers in these hills since before the city had gates." } },
+    camping = { { id = "tp_camp", text = "A good hide, stretched an' dried, is the difference between a camp an' a cold night on bare stone." } },
+    _none = { { id = "tp_none", text = "I dinnae ken, an' I'll no' guess. Ask someone who talks more than I do." } },
   },
 }
 
@@ -3879,7 +3891,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Good day, an' welcome tae Stonebrow's. Wipe the soot from yer hands before ye touch the silk, if ye'd be so kind." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, ye've returned. Turn about an' let me see how that last hem has held." },
-    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor. Splendid. Ye'll find nae jokes about needles in this shop, only work." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor, splendid! Ye'll find nae jokes about needles in this shop, only work." },
   },
   notice = {
     { id = "n_cloth", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
@@ -4048,7 +4060,7 @@ P:NPC {
     maeva = { { id = "tp_maeva", text = "My sister Maeva sells robes by the Hall o' Mysteries. She got the looks an' I got the eye for colour, an' we've both done well by it." } },
     great_forge = { { id = "tp_forge", text = "The warmest spot in Ironforge. My joints are grateful, even if the silk isnae." } },
     background = { { id = "tp_bg", text = "A Snowbraid, dear. My mother wove, an' her mother before her." } },
-    _none = { { id = "tp_none", text = "I couldnae say, dear. Is it a colour? I'm good wi' colours." } },
+    _none = { { id = "tp_none", text = "I couldnae say, dear, unless it's a colour, for I'm awful good wi' colours." } },
   },
 }
 
@@ -4068,6 +4080,7 @@ P:NPC {
     { id = "g_hi", text = "Welcome, an' mind the trays by the door. That's peacebloom, an' it's taken me a year tae coax it up under a lamp." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Have ye brought me anythin' green? I'll even take a weed, it's been a long winter." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "A herbalist! Ye smell o' earthroot an' fresh air. Stand there a moment an' let me breathe." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") }, text = "Ah, ye've come about the camp lessons. Good, for a camp wi' nae herbalist in it is only a cold place tae be ill." },
   },
   notice = {
     { id = "n_elf", cat = "race", when = { race = "NightElf" },
@@ -4091,6 +4104,7 @@ P:NPC {
         { text = "What grows in Dun Morogh, under all that snow?", next = "snow" },
         { text = "How do you gather without killing the plant?", next = "gather" },
         { text = "What do the smiths come to you for?", next = "smiths" },
+        { text = "What does an herbalist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "Good day, Reyna.", next = "END" },
       },
     },
@@ -4135,6 +4149,10 @@ P:NPC {
     smiths_kettles = {
       lines = { { id = "x2_default", text = "Kettles, hinges, a wee iron trellis for the trays. A smith's too proud tae owe ye, so he pays ye sideways. I've the best-made herb racks in Khaz Modan." } },
       choices = { { text = "Gratitude in iron. That's very dwarven.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    camp = {
+      lines = { { id = "cp_default", text = "A wee pouch o' dried leaf for the kettle, an' the knowledge o' what's growin' within a hundred paces o' the fire. A cup o' the right tea at night is the difference between marchin' in the mornin' an' lyin' there groanin'.", fx = { learn = { "camping" } } } },
+      choices = { { text = "I'll keep a pouch for the kettle. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -4348,7 +4366,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Stand clear o' the quench, an' say what ye want. If it's armour made, see the merchants. If it's armour learned, we'll see." },
     { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Then ye've work tae show me, I hope, an' no' only questions." },
-    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good. Bengus teaches ye tae shape iron, an' I teach ye tae make it keep somebody alive." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, good. Bengus teaches ye tae shape iron, an' I teach ye tae make it keep somebody alive." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
@@ -4727,6 +4745,7 @@ P:NPC {
     { id = "g_hi", text = "Ho there! Mind where ye point that, an' come an' tell me what ye're huntin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! How many shots tae the kill this time? Be honest, I'll ken if ye're lyin'." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Let me see yer piece. Aye, she's fouled at the breech, when did ye last clean her?" },
+    { id = "g_path", when = { questActive = TODO_QUEST("The Hunter's Path") }, text = "Ye're still under the mountain? Grif Wildheart's waitin' in Kharanos, {g:lad|lass}, an' the beasts o' Dun Morogh willnae tame themselves." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -4800,7 +4819,7 @@ P:NPC {
     daera = { { id = "tp_daera", text = "Daera Brightspear's the best tracker under the mountain. She thinks I'm too loud, an' I think she's too quiet, an' the students get the middle." } },
     goldfury = { { id = "tp_goldfury", text = "Bretta Goldfury sells the only rifles I'd put in a student's hands. Her kinsman sells bows, an' we dinnae speak o' that." } },
     background = { { id = "tp_bg", text = "A Burningbeard an' a rifleman. I shot for the king's guard till my ears gave out." } },
-    _none = { { id = "tp_none", text = "What? Nae idea. Can ye shoot it? Then I've nae opinion." } },
+    _none = { { id = "tp_none", text = "Nae idea, friend, an' unless I can shoot it, I've nae opinion on it either." } },
   },
 }
 
@@ -4819,7 +4838,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Easy, he'll no' bite. He's only decidin' what he thinks o' ye, an' he's quicker at it than I am." },
     { id = "g_back", when = { metBefore = true }, text = "He remembers ye, look, his tail went. That's a better welcome than I give." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good. Where's yer beast, an' is it fed? That's the first two things I ask anybody." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, good! Where's yer beast, an' is it fed? That's the first two things I ask anybody." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },

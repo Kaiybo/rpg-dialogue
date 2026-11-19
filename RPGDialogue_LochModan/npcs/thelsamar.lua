@@ -1042,6 +1042,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_mam = {
+      lines = {
+        { id = "dw_mam_default", text = "Did she, now? Then ye'll know a proper one from a Stormwind imitation, an' ye'll forgive me if I ask whether she used juniper or caraway. It's started more fights in Khaz Modan than the throne o' Ironforge ever did." },
+      },
+      choices = {
+        { text = "Juniper, of course. Anything else is heresy.", next = "BACK", reply = "Ha! A dwarf after my own heart, an' ye'll be welcome in my kitchen any day. Don't tell Hearthstove; he's a caraway man.", fx = { affinity = 1 } },
+        { text = "Caraway. My mother would never touch juniper.", next = "BACK", reply = "Well, I'll no' speak ill o' yer mam, but I'll pray for her. Caraway, honestly." },
+        { text = "Something else, Vidra.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd no' be surprised! My old stove spits at me every mornin', an' my mam always said a fire needs a kind word an' a dry log. If ye can give it the kind word, I'll supply the log, an' we'll see whose sausages come out best." } },
@@ -1152,6 +1162,7 @@ P:NPC {
         { text = "What goes into a Thelsamar blood sausage, Vidra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What goes into a Thelsamar blood sausage, Vidra? Besides the blood.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think the fire cooks better for a shaman, Vidra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My mother made blood sausage too, Vidra. Every Winter Veil.", next = "dw_mam", when = { race = "Dwarf" } },
         { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } },
       },
     },
