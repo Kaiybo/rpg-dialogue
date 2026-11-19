@@ -19,3 +19,6 @@
 
 ## Never
 - Cataclysm Malaka'jin (Krom'gar, Subjugator Devo), Vol'jin retaking the Echo Isles.
+
+## The kaldorei (authored, not canon)
+- Xen'Zilla respects their huntresses: a Sentinel on the north slope once split his stag with him and walked off with the front half. Resents that the elves forbid the Horde Ashenvale yet sit on Stonetalon Peak while the Venture Company strips the valley.

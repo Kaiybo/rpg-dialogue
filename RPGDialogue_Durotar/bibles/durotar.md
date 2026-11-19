@@ -59,3 +59,7 @@ Kaltunk greets new blood because someone once greeted him (out of the camps, acr
 ## Authored, not canon
 - Orgnil's prejudice (0.80.0): every warlock is a cultist he hasn't caught yet, Blade defectors most of all; his old comrade Zelk, a Cleft warlock, went over to the Blade and Orgnil killed him at Skull Rock.
 - Gadrin's prejudice (0.80.0): flinches at the Forsaken because Zalazane raises dead Darkspear; his sister's son, a fisher with a crooked tusk, is among them.
+
+## Horde views of the kaldorei (authored, not canon)
+- Gar'Thok: held a line at the foot of Mount Hyjal with Thrall's Horde (Sentinels on the ridge above). Respects that Tyrande kept the truce until Archimonde fell; would hang any Sentinel caught killing woodcutters, but nobody calls them cowards in his barracks.
+- Gadrin: the troll memory of the kaldorei from before the Sundering, when the troll empires ruled and the young elves pushed against them; the elves broke the world with their well and act as if it were someone else's fault. Tells the young to remember old enemies.

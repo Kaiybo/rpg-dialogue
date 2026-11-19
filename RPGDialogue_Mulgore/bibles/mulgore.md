@@ -54,3 +54,6 @@ No personal memories put in Baine's mouth about the walk itself (his age then is
 
 ## Authored, not canon
 - Harken Windtotem's prejudice (0.80.0): uneasy with the Forsaken, who were robbed of the Earth Mother's rest; tauren bury under open sky with a song and a stone.
+
+## Night elves (authored, not canon)
+- Baine: knows the elves through Hamuul's stories and the Warsong's complaints; hopes the Horde could ask the Circle where to cut and the forest could feed both, as his father's peace with Theramore shows.

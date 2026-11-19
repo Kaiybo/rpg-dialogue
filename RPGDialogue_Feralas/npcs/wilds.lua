@@ -893,7 +893,35 @@ P:NPC {
     },
     b3_1 = {
       lines = { { id = "b3_1_l", text = "The night elves at Feathermoon keep to their island and we keep to our hills. I do not trust them, but I do not hate them, and that is enough for now." } },
-      choices = { { text = "Let me ask something else.", next = "BACK" } },
+      choices = {
+        { text = "They say Feralas was elven land, long ago.", next = "b3_2" },
+        { text = "Have the Sentinels ever drawn bows on Mojache hunters?", next = "b3_3" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    b3_2 = {
+      lines = { { id = "b3_2_l", text = "They say so, and they are right; the great ruins the gordunni crawl through were an elven city long before the ogres came, and the stones still remember it. But the Feathermoon speak as though every tree from here to Darkshore is theirs for having been here first, and if being first were enough, the Earth Mother would own all of it, and her children with her." } },
+      choices = {
+        { text = "They were here first. Their claim is a fair one.", next = "BACK",
+          reply = "Fair in their eyes, perhaps, and I will not spit on an old claim. But old claims do not feed a camp through the winter, and we are here now, with calves to feed.",
+          fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Land belongs to those who hunt it now.", next = "BACK",
+          reply = "That is how I see it, and the Feathermoon would put an arrow in me for saying so. Hunt it well, friend, and the land will know whose it is.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    b3_3 = {
+      lines = { { id = "b3_3_l", text = "Twice, when our hunters followed a herd too close to the coast. No one died, but the Sentinels left their arrows standing in the ground before our braves' hooves, which is their way of drawing a line without ever asking where we would like it drawn." } },
+      choices = {
+        { text = "That was a warning, not an attack. They showed restraint.", next = "BACK",
+          reply = "So the younger hunters say, and perhaps they are right; a Sentinel who wanted a tauren dead would not have missed. I only wish they had walked over and spoken instead.",
+          fx = { align = { light = 1 } } },
+        { text = "Next time, the braves should shoot back.", next = "BACK",
+          reply = "And then the Feathermoon would come up from the coast, and the gordunni would laugh at us both from their ruins. No, friend; I have one war at Camp Mojache already, and that is plenty.",
+          fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
     },
     x_1 = {
       lines = { { id = "x_1_l", text = "Then follow the streams west, and look for where the ogres break the brush. They are loud hunters, which makes them easy prey." } },

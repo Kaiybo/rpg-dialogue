@@ -84,3 +84,6 @@ Thenysil's way of judging the proven (Raene, Faldreas, Pelturas talk to her); Da
 
 ## Kaldorei factions (authored, not canon)
 - Raene: bitter at the Alliance. Stormwind sent a sealed letter of thanks and no soldiers; she has buried eleven scouts since. Claim `stormwind_sends_nothing` (partly true; Haljan and Shindrell answer it). Not an isolationist: she wants Stormwind to fight beside her. Outlanders can soften her (`raene_soft`).
+
+## Horde views of the kaldorei (authored, not canon)
+- Kuray'bin: troll memory older than Grom; the troll empires ruled before the kaldorei pushed them back. Some Darkspear hate them ("dey act like de forest be theirs alone"); he watches without hating. Exposes Kadrak's claim `kadrak_elves_pay_kolkar`: the Kolkar shoot elf outrunners too.

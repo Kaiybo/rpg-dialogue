@@ -699,6 +699,7 @@ P:NPC {
         { text = "Let me see the schematic. Maybe I can cut the static.", next = "xeng", when = { profession = "Engineering" } },
         { text = "Is it true about Gnomeregan?", next = "xgnome", when = { race = { "Gnome", "Dwarf" } } },
         { text = "The elders dislike your boxes near the moonwells.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "The elves look at your boxes like they might explode.", next = "ne_look", when = { ["not"] = { race = "NightElf" } } },
         { text = "Good luck with your boxes.", next = "END" },
       },
     },
@@ -777,6 +778,57 @@ P:NPC {
       },
       choices = {
         { text = "I'll tell them it only listens. Something else.", next = "BACK" },
+        { text = "It's a moonwell, Wizbang, not a laboratory.", next = "xnelf_well" },
+      },
+    },
+    xnelf_well = {
+      narr = "He takes off his goggles, which seems to cost him something.",
+      lines = {
+        { id = "xnw_default", text = "And there it is, the look, the very same one the elders give me, the one that says I'm a child who's found a lit fuse and thinks it's a candle. Your people have watched this coast for ten thousand years, and you could tell me exactly what it looked like before the sickness came, but every time I ask, I get a proverb about balance instead of a single number." },
+      },
+      choices = {
+        { text = "We've seen what clever hands do with power. Forgive our caution.", next = "BACK",
+          reply = "I've seen it too, you know, in Gnomeregan, with my own two eyes and one boot. Perhaps that's why I want numbers so badly; numbers would have told us to stop.",
+          fx = { align = { order = 1 }, opinion = { gnomes = "reckless" } } },
+        { text = "You're right. Our elders hoard what they know.", next = "BACK",
+          reply = "Oh, I didn't expect a kaldorei to say so! Don't tell Thundris I made you, though, because he's been very civil and I'd hate to lose the upstairs table.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "secretive" } } },
+        { text = "What would you ask them, if they'd answer?", next = "ne_ask" },
+      },
+    },
+    ne_look = {
+      lines = {
+        { id = "nel_default", text = "Oh, they do, they absolutely do, and I've measured it: a kaldorei will stand eleven paces from a buzzbox, which is precisely the distance you'd stand from a fused barrel of blasting powder. They distrust anything with a gear in it, and I can't say I blame them after what happened to my city, but it does make fieldwork very lonely." },
+        { id = "nel_gnome", when = { race = "Gnome" },
+          text = "They do, and they look at us the same way, you'll have noticed: a dangerous toy that wandered off from its workshop. I've measured it, eleven paces from any buzzbox, and I'd love to say they're wrong to keep their distance, only I can't, not after Gnomeregan." },
+      },
+      choices = {
+        { text = "Do they ever help you?", next = "ne_help" },
+        { text = "They're right to be wary of machines.", next = "BACK",
+          reply = "Perhaps, perhaps, though a buzzbox has never once burned a forest, and I can't say the same of their old enemies. Still, I've turned the hum down by a third, as a gesture.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "They're superstitious. Your boxes will prove them wrong.", next = "BACK",
+          reply = "That's the hope, that's the whole hope! Though I'd rather prove them wrong politely, because they have very good bows.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "superstitious" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_help = {
+      lines = {
+        { id = "neh_default", text = "In their way, which is to say they'll tell you the answer and never how they got it. The druids know exactly which streams have turned and which bears have gone wrong, and when I ask for their records, they tell me the land remembers, which is very poetic and absolutely useless for a graph." },
+      },
+      choices = {
+        { text = "What would you ask them, if they'd answer?", next = "ne_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_ask = {
+      lines = {
+        { id = "nea_default", text = "How the shore looked a hundred years ago, before the sickness, because without a baseline every reading I take is a number floating in the dark! They've lived through it, they remember it, and they won't write a word of it down for a gnome, and if that isn't the most maddening thing on this continent, I'd like to see what is." },
+      },
+      choices = {
+        { text = "Maybe they don't think in numbers.", next = "BACK", reply = "Then I'll learn to think in whatever they think in, if I have to, though I suspect it involves a great deal of sitting very still." },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

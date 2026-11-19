@@ -1743,6 +1743,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, could you bless the dam? I've tried everything else, and my grandfather swore by a good blessing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Thank goodness, because if the Dark Irons come for the dam, you'll shine so brightly they'll know they're not welcome." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, could you ask the water whether it's content behind the dam? My grandfather would turn in his grave if it wasn't, and so would his." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "A kaldorei on my walkway! Hold the rail, please, and if ye're about tae tell me the loch will outlast her, I've heard it, thank ye, an' I didnae sleep for a week." },
         { id = "dd_shipment", when = { questDone = TODO_QUEST("Protecting the Shipment") },
           text = "Miran tells me ye saw her shipment safe through the Dark Iron ambush on the excavation road. The same beards have been sniffin' round my dam, so I'll take any friend that frightens them." },
         { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 25 } },
@@ -1770,6 +1772,8 @@ P:NPC {
         { text = "If you caught a Dark Iron at the dam, what would you do?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the water restless behind the Stonewrought Dam, Engineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My uncle taught me the rifle on your dam, Engineer.", next = "xorig_damrifle", when = { origin = "dwarf_dam_rifleman" } },
+        { text = "Do night elves ever come by to see the dam?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "Your dam is impressive, for something so young.", next = "ne_x", when = { race = "NightElf" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1855,6 +1859,46 @@ P:NPC {
       choices = {
         { text = "Fair. Stone's more patient than magic.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Night elves (0.94.0 work): seven generations of pride, patted on the head.
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "One did, on her way up from the Menethil boat, an' she stood on my walkway the best part of an hour wi'out holdin' the rail once. Then she told me, very kindly, that the loch would still be here long after the dam was gone, the way ye'd tell a bairn his sandcastle was lovely." },
+      },
+      choices = {
+        { text = "What did you say to her?", next = "ne_said" },
+        { text = "She meant no insult. They just see time differently.", next = "BACK",
+          reply = "I know she didnae, an' that's the worst of it! An insult I could answer; kindness from somebody who'll outlive yer whole family tree just sits there in yer chest.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "That's elven arrogance. Your dam's a marvel.", next = "BACK",
+          reply = "It is a marvel, an' thank ye for sayin' so! Seven Hinderweirs an' no' a drop leaked, an' I'd like tae see a tree do that.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Chief Engineer.", next = "BACK" },
+      },
+    },
+    ne_said = {
+      lines = {
+        { id = "nes_default", text = "I told her seven generations o' Hinderweirs had kept her standin', which is a long time for a dwarf, an' she smiled an' said she'd known forests older than Ironforge come an' go. I checked every seal on the east face twice that night, an' I couldnae tell ye why." },
+      },
+      choices = {
+        { text = "Because she made you wonder if it matters.", next = "BACK", reply = "Aye, an' it does matter, it does! A valley o' farms is dry tonight because o' this dam, an' they'll no' be alive in a thousand years either, so I'd say we're even." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_x = {
+      lines = {
+        { id = "nex_default", text = "Young! She's older than my grandfather's grandfather, I'll have ye know, an' she's held back a whole loch the entire time. Ye kaldorei say 'young' about everythin' that isnae a tree, an' I'm told ye say it about some o' the trees as well." },
+      },
+      choices = {
+        { text = "Forgive me. Seven generations of care is no small thing.", next = "BACK",
+          reply = "No, it isnae, an' thank ye for sayin' it. Seven o' us, an' every one checked the seals twice a day, which I'd wager is more care than most things in yer forests get.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stone is patient. Your dam will crack long before the loch forgets.", next = "BACK",
+          reply = "Ach, ye're the second one o' yer folk tae say that on my walkway! Hold the rail on yer way off, please, for I'd hate tae be proved right about anythin' today.",
+          fx = { affinity = -1, align = { light = -1 }, opinion = { dwarves = "shortsighted" } } },
+        { text = "It was a joke, Chief Engineer.", next = "BACK", reply = "A joke! Well. I'll laugh at it later, when I've checked the east face." },
       },
     },
   },

@@ -33,3 +33,6 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 
 ## 0.34.0 (Persuade check, authored, not canon)
 - Sylvanas (Persuade, `quelthalas`): she remembers Eversong gold in winter and her rangers holding the Elfgates; she remembers every ranger's name ("the dead sleep poorly"); some mornings she still reaches for a quiver that isn't there. (Ranger-General and the defence of Quel'Thalas are canon; the details are authored.)
+
+## Night elves (authored, not canon)
+- Faranell: the Circle hoards its Felwood notes on corruption; elves take any Forsaken for a ghoul who forgot to lie down.

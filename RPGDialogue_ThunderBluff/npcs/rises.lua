@@ -201,11 +201,46 @@ P:NPC {
         { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of the Wailing Caverns, Zamah.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "You wanted the Fang druids alive, Zamah?", next = "dd_fang", when = { questDone = TODO_QUEST("Leaders of the Fang") } },
+        { text = "Have you studied the night elves' moonwells, Zamah?", next = "ne_zamah" },
         { text = "I'll be going.", next = "END" },
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
         { id = "h_again2", text = "Ask what you will. The pools are patient, and so, I've found, is the grave." },
+      },
+    },
+    ne_zamah = {
+      lines = {
+        { id = "ne_default", text = "Studied them? I've never been allowed within a bowshot of one, which is precisely what makes them so interesting. Hamuul's students speak of moonwell water as though it were holy, and the Society would very much like to know whether it is holy, or merely very old, or simply very good at frightening the dead." },
+      },
+      choices = {
+        { text = "Frightening the dead?", next = "ne_zamah_dead" },
+        { text = "Why would the Society want moonwell water?", next = "ne_zamah_why" },
+        { text = "Something else, Zamah.", next = "BACK" },
+      },
+    },
+    ne_zamah_dead = {
+      lines = {
+        { id = "nd_default", text = "Oh, yes. The few of our people who strayed into Ashenvale and came home again say the elves' priestesses called down a silver light that burned worse than the Light ever did, and they made no distinction at all between a Forsaken and a Scourge ghoul while they did it. I'd give a great deal to know whether it's the moon or the water that does it, purely for science, of course." },
+      },
+      choices = {
+        { text = "To an elf, a Forsaken looks no different from the Scourge.", next = "BACK",
+          reply = "A fair point, and an unflattering one. They fought the Scourge at Hyjal while we were still marching in it, so I can't fault their eyesight, only their manners.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Then the elves are no better than the Scarlet Crusade.", next = "BACK",
+          reply = "Kinder words than I'd have chosen, but yes, a torch is a torch whether a zealot lights it or a moon priestess. The Society keeps a list of such people, and the kaldorei are on it, somewhere below the Crusade and above the gnolls.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Something else, Zamah.", next = "BACK" },
+      },
+    },
+    ne_zamah_why = {
+      lines = {
+        { id = "nw_default", text = "Because the first of those wells was filled from the Well of Eternity, if the druids' stories are right, and the elves lived ten thousand years beside them without growing a day older. The druids insist it was their great tree that kept them young and not the water, but I've never trusted a druid's account of anything I couldn't put in a flask." },
+      },
+      choices = {
+        { text = "Hamuul would never let you near a moonwell.", next = "BACK",
+          reply = "Hamuul would never let me near his teapot, my dear, so I don't take it personally. One day the Circle will want something from the Society, and on that day I'll name my price in water." },
+        { text = "Something else, Zamah.", next = "BACK" },
       },
     },
     dd_fang = {

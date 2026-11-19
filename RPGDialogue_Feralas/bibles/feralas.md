@@ -44,3 +44,6 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Prejudices (0.80.0, authored, not canon)
 - Shandris Feathermoon formalises her old distrust (`prejudice` WARLOCK 15, MAGE 8): her mother hid her under an overturned cart and went out to meet the demons; Tyrande found her days later. The cart is authored.
+
+## Night elves (authored, not canon)
+- Hadoken (Camp Mojache): neither trusts nor hates Feathermoon; grants the elves' old claim to Feralas but not to every tree from here to Darkshore; twice Sentinels planted warning arrows before Mojache hunters near the coast.
