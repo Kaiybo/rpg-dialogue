@@ -217,7 +217,7 @@ P:Pool {
       text = "Frostwolf! My grandfather spoke of your clan the way other orcs speak of the days before the blood, so throm-ka, friend, and honor to the Frostwolves." },
   },
   lines = {
-    { id = "l_ask", text = "Some grunts say the Warchief's too patient with the humans, and others say his patience is all that keeps us standing. Where do you stand?" },
+    { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Some grunts say the Warchief's too patient with the humans, and others say his patience is all that keeps us standing. Where do you stand?" },
     { id = "l1", text = "My father spent ten years in a human camp, and now I sleep under my own roof in a land the Warchief found for us. Some days I can hardly believe it." },
     { id = "l2", text = "The tauren taught us the land, the trolls taught us the coast, and the Forsaken are still teaching us patience. It's a strange family, but it's ours." },
     { id = "l3", text = "Everything here was built in a few short years, out of red rock and stubbornness. It isn't pretty, but it stands, and nobody gave it to us." },
